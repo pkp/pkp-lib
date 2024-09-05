@@ -24,9 +24,9 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use DOMImplementation;
-use Fpdf\Fpdf;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Mpdf\Mpdf;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
@@ -994,33 +994,49 @@ class PKPReviewerGridHandler extends GridHandler
 
         $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
         $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        $pdf->SetTextColor(41, 41, 41);
-        $leftMargin = 15;
-        $rightMargin = 15;
-        $height = 8;
-        $multiCellWidth = $pdf->GetPageWidth() - $leftMargin - $rightMargin;
-        $pdf->SetFont('Arial', 'b', 11);
-        $pdf->MultiCell($multiCellWidth, $height, __('editor.review') . ": $cleanTitle");
-        $pdf->Ln(5);
+        $mpdf = new Mpdf();
+
         $authorFriendly = $request->getUserVar('authorFriendly');
-        $pdf->SetFont('Arial', 'b', 16);
+
         if($authorFriendly) {
-            $pdf->MultiCell($multiCellWidth, $height, __('user.role.reviewer') . ": $reviewerLetter");
+            $reviewerName = __('user.role.reviewer') . ": $reviewerLetter";
         } else {
-            $pdf->MultiCell($multiCellWidth, $height, $reviewAssignment->getReviewerFullName() . ":");
+            $reviewerName = __('user.role.reviewer') . ": " .  $reviewAssignment->getReviewerFullName();
         }
-        $pdf->Ln(5);
-        if ($reviewAssignment->getDateCompleted()) {
-            $pdf->SetFont('Arial', 'b', 11);
-            $pdf->MultiCell($multiCellWidth, $height, __('common.completed') .': '. date('Y-m-d H:i', strtotime($reviewAssignment->getDateCompleted())));
+
+        $html = "
+            <html>
+            <head>
+                <style>
+                    body { font-family: Arial; color: rgb(41, 41, 41); }
+                    h1, h2, h3, h4, h5, h6 { margin: 0; padding: 5px 0; }
+                    .section { margin-bottom: 15px; }
+                </style>
+            </head>
+            <body>
+                <div class='section'>
+                    <h2>" . __('editor.review') . ": $cleanTitle</h2>
+                </div>
+                <div class='section'>
+                    <h3 style='font-weight: bold;'>" . $reviewerName . "</h3>
+                </div>
+        ";
+
+        if ($dateCompleted = $reviewAssignment->getDateCompleted()) {
+            $html .= "
+                <div class='section'>
+                   <h4 style='font-weight: bold;'>" . __('common.completed') . ': ' . $dateCompleted . "</h4>
+                </div>
+            ";
         }
 
         if ($reviewAssignment->getRecommendation()) {
-            $pdf->SetFont('Arial', 'b', 11);
-            $pdf->MultiCell($multiCellWidth, $height, __('editor.submission.recommendation') .': '. $reviewAssignment->getLocalizedRecommendation());
-            $pdf->Ln(5);
+            $recommendation = $reviewAssignment->getLocalizedRecommendation();
+            $html .= "
+                <div class='section'>
+                    <h4 style='font-weight: bold;'>" . __('editor.submission.recommendation') . ': ' . $recommendation . "</h4>
+                </div>
+            ";
         }
 
         if ($reviewAssignment->getReviewFormId()) {
@@ -1033,87 +1049,115 @@ class PKPReviewerGridHandler extends GridHandler
             while ($reviewFormElement = $reviewFormElements->next()) {
                 if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
                 $elementId = $reviewFormElement->getId();
-                $value = $reviewFormResponses[$elementId];
-                $pdf->SetFont('Arial', 'B', 11);
-                $pdf->MultiCell($multiCellWidth, $height, strip_tags($reviewFormElement->getLocalizedQuestion()));
-                if($reviewFormElement->getLocalizedDescription()) {
-                    $pdf->SetFont('Arial', '', 11);
-                    $pdf->SetTextColor(100, 100, 100);
-                    $pdf->MultiCell($multiCellWidth, $height, strip_tags(str_replace('<br>', ' ', $reviewFormElement->getLocalizedDescription())));
+
+                $html .= "
+                    <div>
+                        <h4 style='font-weight: bold;'>" . strip_tags($reviewFormElement->getLocalizedQuestion()) . "</h4>
+                    </div>
+                ";
+
+                if($description = $reviewFormElement->getLocalizedDescription()) {
+                    $html .= "<span>" . $description . "</span>";
                 }
-                $pdf->SetTextColor(41, 41, 41);
-                $pdf->SetFont('Arial', 'B', 11);
-                $pdf->SetFont('Arial', '', 11);
-                if ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD) {
-                    $pdf->MultiCell($multiCellWidth, $height, $value);
-                    $pdf->Ln(5);
-                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD) {
-                    $pdf->MultiCell($multiCellWidth, $height, $value);
-                    $pdf->Ln(5);
-                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA) {
-                    $pdf->MultiCell($multiCellWidth, $height, $value);
-                    $pdf->Ln(5);
+
+                $value = $reviewFormResponses[$elementId];
+
+                $textFields = [
+                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD,
+                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD,
+                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA
+                ];
+
+                if (in_array($reviewFormElement->getElementType(), $textFields)) {
+                    $html .= "<div class='section'><span>" . $value . "</span></div>";
                 } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
                     $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                    $reviewFormCheckboxResponses = $reviewFormResponses[$elementId];
+
                     foreach ($possibleResponses as $key => $possibleResponse) {
-                        $match = false;
-                        foreach ($reviewFormResponses[$elementId] as $checkedResponse) {
-                            if ($checkedResponse == $key) {
-                                $match = true;
-                                $pdf->SetFont('Arial', 'B', 11);
-                                $pdf->MultiCell($multiCellWidth, $height, $possibleResponses[$checkedResponse]);
-                                $pdf->SetFont('Arial', '', 11);
-                            }
-                        }
-                        if(!$match) {
-                            $pdf->SetTextColor(100, 100, 100);
-                            $pdf->MultiCell($multiCellWidth, $height, $possibleResponse);
-                            $pdf->SetTextColor(41, 41, 41);
+                        if (in_array($key, $reviewFormCheckboxResponses)) {
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='checkbox' checked=1>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponse) . "
+                                    </span>
+                                </div>
+                            ";
+                        } else {
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='checkbox'>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponse) . "
+                                    </span>
+                                </div>
+                            ";
                         }
                     }
-                    $pdf->Ln(5);
+                    $html .= "<div class='section'></div>";
                 } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS) {
                     $possibleResponsesRadios = $reviewFormElement->getLocalizedPossibleResponses();
                     foreach ($possibleResponsesRadios as $key => $possibleResponseRadio) {
                         if($reviewFormResponses[$elementId] == $key) {
-                            $pdf->SetFont('Arial', 'B', 11);
-                            $pdf->MultiCell($multiCellWidth, $height, $possibleResponseRadio);
-                            $pdf->SetFont('Arial', '', 11);
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='radio' checked='1'>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponseRadio) . "
+                                    </span>
+                                </div>
+                            ";
                         } else {
-                            $pdf->SetTextColor(100, 100, 100);
-                            $pdf->MultiCell($multiCellWidth, $height, $possibleResponseRadio);
-                            $pdf->SetTextColor(41, 41, 41);
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='radio'>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponseRadio) . "
+                                    </span>
+                                </div>
+                            ";
                         }
                     }
-                    $pdf->Ln(5);
+
+                    $html .= "<div class='section'></div>";
+
                 } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
                     $possibleResponsesDropdown = $reviewFormElement->getLocalizedPossibleResponses();
-                    $selectedValue = $possibleResponsesDropdown[$reviewFormResponses[$elementId]];
-                    $pdf->MultiCell($multiCellWidth, $height, $selectedValue);
-                    $pdf->Ln(5);
+
+                    foreach($possibleResponsesDropdown as $responseKey => $responseDropdown) {
+                        if($responseKey === $reviewFormResponses[$elementId]) {
+                            $html .= "<div><strong>" . $responseDropdown . "</strong></div>";
+                        } else {
+                            $html .= "<div>" . $responseDropdown . "</div>";
+                        }
+                    }
+
+                    $html .= "<div class='section'></div>";
                 }
             }
         } else {
-            $pdf->SetFont('Arial', 'b', 16);
-            $pdf->MultiCell($multiCellWidth, $height, __('editor.review.reviewerComments'));
-            $pdf->SetFont('Arial', 'b', 11);
-            $pdf->SetTextColor(100, 100, 100);
-            $pdf->MultiCell($multiCellWidth, $height, __('submission.comments.forAuthorEditor'));
-            $pdf->SetTextColor(41, 41, 41);
-            $pdf->SetFont('Arial', '', 11);
+            $html .= "
+                <div>
+                    <h4 style='font-weight: bold;'>" . __('editor.review.reviewerComments') . "</h4>
+                    <em style='font-weight: bold; color:#606060;'>" . __('submission.comments.forAuthorEditor') . "</em>
+                </div>
+            ";
+
             foreach ($submissionComments->records as $comment) {
-                $pdf->MultiCell($multiCellWidth, $height, iconv('UTF-8', 'windows-1252', strip_tags($comment->comments)));
-                $pdf->Ln(5);
+                $commentStripped = strip_tags($comment->comments);
+                $html .= "<div class='section'><span>" . $commentStripped . "</span></div>";
             }
             if (!$authorFriendly) {
-                $pdf->SetFont('Arial', 'b', 11);
-                $pdf->SetTextColor(100, 100, 100);
-                $pdf->MultiCell($multiCellWidth, $height, __('submission.comments.cannotShareWithAuthor'));
-                $pdf->SetTextColor(41, 41, 41);
-                $pdf->SetFont('Arial', '', 11);
+                $html .= "
+                    <div>
+                        <em style='font-weight: bold; color:#606060;'>" . __('submission.comments.cannotShareWithAuthor') . "</em>
+                    </div>
+                ";
+
                 foreach ($submissionCommentsPrivate->records as $comment) {
-                    $pdf->MultiCell($multiCellWidth, $height, iconv('UTF-8', 'windows-1252', strip_tags($comment->comments)));
-                    $pdf->Ln(5);
+                    $commentStripped = strip_tags($comment->comments);
+                    $html .= "<div class='section'><span>" . $commentStripped . "</span></div>";
                 }
             }
         }
@@ -1124,14 +1168,21 @@ class PKPReviewerGridHandler extends GridHandler
             ->getMany();
 
         $primaryLocale = $context->getPrimaryLocale();
-        $pdf->SetFont('Arial', 'b', 11);
-        $pdf->MultiCell($multiCellWidth, $height, __('reviewer.submission.reviewerFiles'));
-        $pdf->SetFont('Arial', '', 11);
+
+        $html .= "<div><h4 style='font-weight: bold;'>" . __('reviewer.submission.reviewFiles') . "</h4></div>";
+
         foreach ($submissionFiles as $submissionFile) {
-            $pdf->MultiCell($multiCellWidth, $height, $submissionFile->_data['name'][$primaryLocale]);
+            $fileName = $submissionFile->_data['name'][$primaryLocale];
+            $html .= "<div class='section'><span>" . $fileName . "</span></div>";
         }
 
-        $pdf->Output('D', "submission_review_{$submissionId}-{$reviewId}.pdf");
+        $html .= "</body></html>";
+
+        $mpdf->WriteHTML($html);
+
+        $mpdf->Output();
+//        $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'D');
+
         exit;
     }
 

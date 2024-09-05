@@ -101,7 +101,7 @@ class OrcidManager
      */
     public static function getOrcidUrl(?Context $context = null): string
     {
-        $apiType = self::getApiType();
+        $apiType = self::getApiType($context);
         return in_array($apiType, [self::API_PUBLIC_PRODUCTION, self::API_MEMBER_PRODUCTION]) ? self::ORCID_URL : self::ORCID_URL_SANDBOX;
     }
 
@@ -112,7 +112,7 @@ class OrcidManager
      */
     public static function getApiPath(?Context $context = null): string
     {
-        $apiType = self::getApiType();
+        $apiType = self::getApiType($context);
 
         return match ($apiType) {
             self::API_PUBLIC_SANDBOX => self::ORCID_API_URL_PUBLIC_SANDBOX,
@@ -129,7 +129,7 @@ class OrcidManager
      */
     public static function isSandbox(?Context $context = null): bool
     {
-        $apiType = self::getApiType();
+        $apiType = self::getApiType($context);
         return in_array($apiType, [self::API_PUBLIC_SANDBOX, self::API_MEMBER_SANDBOX]);
     }
 
@@ -208,7 +208,7 @@ class OrcidManager
      */
     public static function isMemberApiEnabled(?Context $context = null): bool
     {
-        $apiType = self::getApiType();
+        $apiType = self::getApiType($context);
         return in_array($apiType, [self::API_MEMBER_PRODUCTION, self::API_MEMBER_SANDBOX]);
     }
 

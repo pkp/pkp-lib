@@ -36,7 +36,7 @@ class RevokeOrcidToken extends BaseJob
     /**
      * @inheritDoc
      */
-    public function handle()
+    public function handle(): void
     {
         $token = $this->identity->getData('orcidAccessToken');
         $httpClient = Application::get()->getHttpClient();

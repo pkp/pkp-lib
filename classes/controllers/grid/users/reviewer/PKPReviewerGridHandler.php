@@ -41,6 +41,7 @@ use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\core\PKPString;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
@@ -977,28 +978,25 @@ class PKPReviewerGridHandler extends GridHandler
         $context = $request->getContext();
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
-        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, true);
-        $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, true);
+        $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
-        $alphabet = range('A', 'Z');
-        $reviewerLetter = "";
-        $i = 0;
-        foreach($reviewAssignments as $submissionReviewAssignment) {
-            if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
-                $reviewerLetter = $alphabet[$i];
-            }
-            $i++;
-        }
-
         $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
         $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
         $mpdf = new Mpdf();
-
-        $authorFriendly = $request->getUserVar('authorFriendly');
-
+        $authorFriendly = (bool) $request->getUserVar('authorFriendly');
         if($authorFriendly) {
+            $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();
+            $alphabet = range('A', 'Z');
+            $reviewerLetter = "";
+            $i = 0;
+            foreach($reviewAssignments as $submissionReviewAssignment) {
+                if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
+                    $reviewerLetter = $alphabet[$i];
+                }
+                $i++;
+            }
             $reviewerName = __('user.role.reviewer') . ": $reviewerLetter";
         } else {
             $reviewerName = __('user.role.reviewer') . ": " .  $reviewAssignment->getReviewerFullName();
@@ -1177,11 +1175,8 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         $html .= "</body></html>";
-
         $mpdf->WriteHTML($html);
-
-        $mpdf->Output();
-//        $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'D');
+        $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'D');
 
         exit;
     }
@@ -1197,21 +1192,13 @@ class PKPReviewerGridHandler extends GridHandler
     public function exportXML($args, $request) {
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
-        $authorFriendly = $request->getUserVar('authorFriendly');
+        $authorFriendly = (bool) $request->getUserVar('authorFriendly');
         $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $submission->getCurrentPublication();
         $htmlTitle = $publication->getLocalizedTitle(null, 'html');
-        $mappings = [
-            '<b>' 	=> '<bold>',
-            '</b>' 	=> '</bold>',
-            '<i>' 	=> '<italic>',
-            '</i>' 	=> '</italic>',
-            '<u>' 	=> '<underline>',
-            '</u>' 	=> '</underline>',
-        ];
-        $articleTitle = str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $articleTitle = PKPString::mapTitleHtmlTagsToXml($htmlTitle);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
         $impl = new DOMImplementation();
         $doctype = $impl->createDocumentType('article',
@@ -1219,6 +1206,7 @@ class PKPReviewerGridHandler extends GridHandler
             'JATS-archivearticle1.dtd');
 
         $xml = $impl->createDocument(null, '', $doctype);
+        $xml->encoding = 'UTF-8';
         $article = $xml->createElement('article');
         $article->setAttribute('article-type', 'reviewer-report');
         $article->setAttribute('dtd-version', '1.2');
@@ -1252,10 +1240,25 @@ class PKPReviewerGridHandler extends GridHandler
         $contrib->setAttribute('contrib-type', 'author');
         $contribGroup->appendChild($contrib);
 
-        $anonymous = $xml->createElement('anonymous');
-        $contrib->appendChild($anonymous);
+        if($authorFriendly) {
+            $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();
+            $alphabet = range('A', 'Z');
+            $reviewerLetter = "";
+            $i = 0;
+            foreach($reviewAssignments as $submissionReviewAssignment) {
+                if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
+                    $reviewerLetter = $alphabet[$i];
+                }
+                $i++;
+            }
+            $reviewerName = __('user.role.reviewer') . ": $reviewerLetter";
+            $anonymous = $xml->createElement('anonymous');
+            $contrib->appendChild($anonymous);
+        } else {
+            $reviewerName = __('user.role.reviewer') . ": " .  $reviewAssignment->getReviewerFullName();
+        }
 
-        $role = $xml->createElement('role', 'Reviewer');
+        $role = $xml->createElement('role', $reviewerName);
         $role->setAttribute('specific-use', 'reviewer');
         $contrib->appendChild($role);
 
@@ -1288,7 +1291,7 @@ class PKPReviewerGridHandler extends GridHandler
         $permissions->appendChild($licenseRef);
 
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, true);
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, true);
 
         $customMetaGroupObject = $xml->createElement('custom-meta-group');
         $customMetaPeerReviewStage = $xml->createElement('custom-meta');

@@ -984,7 +984,13 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
         $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
-        $mpdf = new Mpdf();
+        $mpdf = new Mpdf([
+            'default_font' => 'NotoSansSC',
+            'mode' => '+aCJK',
+            "autoScriptToLang" => true,
+            "autoLangToFont" => true,
+        ]);
+
         $authorFriendly = (bool) $request->getUserVar('authorFriendly');
         if($authorFriendly) {
             $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();

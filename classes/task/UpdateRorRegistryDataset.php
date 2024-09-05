@@ -60,6 +60,7 @@ namespace PKP\task;
 use APP\core\Application;
 use DirectoryIterator;
 use Exception;
+use GuzzleHttp\Exception\GuzzleException;
 use PKP\facades\Repo;
 use PKP\file\PrivateFileManager;
 use PKP\scheduledTask\ScheduledTask;
@@ -78,33 +79,29 @@ class UpdateRorRegistryDataset extends ScheduledTask
     private string $csvNameContains = 'ror-data_schema_v2.csv';
 
     /** @var string The prefix used for the temporary zip file and the extracted directory. */
-    private string $prefix = 'TemporaryRorCache';
+    private string $prefix = 'TemporaryRorRegistryCache';
 
     /** @var array|int[] Mappings database vs CSV */
-    private array $mapping = [
+    private array $dataMapping = [
         'ror' => 0,
         'displayLocale' => 27,
         'isActive' => 29,
         'names' => 25
     ];
 
-    /** @var string No language found in ror registry */
-    private string $defaultLanguageIn = 'no_lang_code';
+    /** @var array|string[] Mapping of locales between registry and ojs */
+    private array $localeMapping = [
+        ['no_lang_code'],
+        ['en']
+    ];
 
-    /** @var string Replace no language found with this language code */
-    private string $defaultLanguageOut = 'en';
-
-    /**
-     * @copydoc ScheduledTask::getName()
-     */
+    /** @copydoc ScheduledTask::getName() */
     public function getName(): string
     {
         return 'Update Ror registry dataset cache';
     }
 
-    /**
-     * @copydoc ScheduledTask::executeActions()
-     */
+    /** @copydoc ScheduledTask::executeActions() */
     public function executeActions(): bool
     {
         $this->fileManager = new PrivateFileManager();
@@ -120,21 +117,24 @@ class UpdateRorRegistryDataset extends ScheduledTask
             $client = Application::get()->getHttpClient();
 
             // get url of the latest version
-            $responseUrl = $client->request('GET', $this->urlVersions);
-            $responseUrlA = json_decode($responseUrl->getBody(), true);
-            if ($responseUrl->getStatusCode() !== 200 || empty($responseUrlA) || json_last_error() !== JSON_ERROR_NONE) {
+            $response = $client->request('GET', $this->urlVersions);
+            $responseArray = json_decode($response->getBody(), true);
+            if ($response->getStatusCode() !== 200 || json_last_error() !== JSON_ERROR_NONE || empty($responseArray)) {
+                return '';
+            }
+            if (!empty($responseArray['hits']['hits'][0]['files'][0]['links']['self'])) {
+                $downloadUrl = $responseArray['hits']['hits'][0]['files'][0]['links']['self'];
+            }
+            if (empty($downloadUrl)) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > url latest version not found.',
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
                 return false;
             }
-            if (!empty($responseUrlA['hits']['hits'][0]['files'][0]['links']['self'])) {
-                $downloadUrl = $responseUrlA['hits']['hits'][0]['files'][0]['links']['self'];
-            }
 
             // download file
-            $responseFile = $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
-            if ($responseFile->getStatusCode() !== 200) {
+            $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
+            if (!$this->fileManager->fileExists($pathZipFile)) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > error downloading zip file.',
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -143,14 +143,11 @@ class UpdateRorRegistryDataset extends ScheduledTask
             }
 
             // extract file
-            if (!$this->fileManager->fileExists($pathZipFile)) return false;
             $zip = new ZipArchive();
             if ($zip->open($pathZipFile) === true) {
                 $zip->extractTo($pathZipDir);
                 $zip->close();
             }
-
-            // check if extracted directory exists, return false if not
             if (!$this->fileManager->fileExists($pathZipDir, 'dir')) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > errors extracting file.',
@@ -159,7 +156,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 return false;
             }
 
-            // get path of csv file
+            // find csv file
             $iterator = new DirectoryIterator($pathZipDir);
             foreach ($iterator as $fileinfo) {
                 if (!$fileinfo->isDot()) {
@@ -169,8 +166,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
                     }
                 }
             }
-
-            // check if csv file exists, return false if not
             if (!$this->fileManager->fileExists($pathCsv)) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > csv file not found.',
@@ -188,23 +183,26 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 }
                 fclose($handle);
             }
-        } catch (Exception $e) {
+
+            // all went well, log success
+            $this->addExecutionLogEntry(
+                'Update Ror registry dataset > updated successfully.',
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
+            );
+
+            // cleanup
+            $this->cleanup([$pathZipFile, $pathZipDir]);
+
+            return true;
+
+        } catch (GuzzleException|Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
+
             return false;
         }
-
-        $this->addExecutionLogEntry(
-            'Update Ror registry dataset > updated successfully.',
-            ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
-        );
-
-        // cleanup
-        $this->cleanup([$pathZipFile, $pathZipDir]);
-
-        return true;
     }
 
     /**
@@ -216,27 +214,36 @@ class UpdateRorRegistryDataset extends ScheduledTask
     {
         $params = [];
 
-        // id > ror
-        $params['ror'] = $row[$this->mapping['ror']];
+        // ror < id
+        $params['ror'] = $row[$this->dataMapping['ror']];
 
-        // ror_display_lang
+        // display_locale : ror_display_lang
         $params['displayLocale'] =
-            str_replace($this->defaultLanguageIn, $this->defaultLanguageOut, $row[$this->mapping['displayLocale']]);
+            str_replace(
+                $this->localeMapping[0],
+                $this->localeMapping[1],
+                $row[$this->dataMapping['displayLocale']]
+            );
 
-        // is_active
+        // is_active < status
         $params['isActive'] = 0;
-        if (strtolower($row[$this->mapping['isActive']]) === strtolower('active')) {
+        if (strtolower($row[$this->dataMapping['isActive']]) === 'active') {
             $params['isActive'] = 1;
         }
 
-        // names.types.label
+        // locale, name < names.types.label
         // "en: label1; it: label2" => [["name"]["en"] => "label1"],["name"]["it" => "label2"]]
-        if (!empty($row[$this->mapping['names']])) {
-            $tmp1 = array_map('trim', explode(';', $row[$this->mapping['names']]));
+        if (!empty($row[$this->dataMapping['names']])) {
+            $tmp1 = array_map('trim', explode(';', $row[$this->dataMapping['names']]));
             for ($i = 0; $i < count($tmp1); $i++) {
                 $tmp2 = array_map('trim', explode(':', $tmp1[$i]));
                 if (count($tmp2) === 2) {
-                    $tmp2[0] = str_replace($this->defaultLanguageIn, $this->defaultLanguageOut, $tmp2[0]);
+                    $tmp2[0] =
+                        str_replace(
+                            $this->localeMapping[0],
+                            $this->localeMapping[1],
+                            $tmp2[0]
+                        );
                     $params['name'][$tmp2[0]] = trim($tmp2[1]);
                 }
             }
@@ -267,3 +274,5 @@ class UpdateRorRegistryDataset extends ScheduledTask
         }
     }
 }
+
+// todo: move translations to .po files

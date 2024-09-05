@@ -1345,19 +1345,19 @@ class PKPReviewerGridHandler extends GridHandler
                 $customMetaCommentsObject = $xml->createElement('custom-meta');
                 $metaName = $submissionComments->records->count() > 1 ? 'submission-comments-' . $key + 1 : 'submission-comments';
                 $commentsTag = $xml->createElement('meta-name', $metaName);
-                $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
+                $commentsValueTag = $xml->createElement('meta-value', strip_tags($comment->comments));
                 $customMetaCommentsObject->appendChild($commentsTag);
                 $customMetaCommentsObject->appendChild($commentsValueTag);
                 $customMetaGroupObject->appendChild($customMetaCommentsObject);
             }
 
             if(!$authorFriendly) {
-                $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
+                $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
                 foreach ($submissionCommentsPrivate->records as $key => $comment) {
                     $customMetaCommentsPrivateObject = $xml->createElement('custom-meta');
                     $metaName = $submissionCommentsPrivate->records->count() > 1 ? 'submission-comments-private-' . $key + 1 : 'submission-comments-private';
                     $commentsTag = $xml->createElement('meta-name', $metaName);
-                    $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
+                    $commentsValueTag = $xml->createElement('meta-value', strip_tags($comment->comments));
                     $customMetaCommentsPrivateObject->appendChild($commentsTag);
                     $customMetaCommentsPrivateObject->appendChild($commentsValueTag);
                     $customMetaGroupObject->appendChild($customMetaCommentsPrivateObject);

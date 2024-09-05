@@ -10,8 +10,8 @@ declare(strict_types=1);
 /**
  * @file classes/i18n/LocaleMetadata.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LocaleMetadata
@@ -25,7 +25,6 @@ namespace PKP\i18n;
 
 use DomainException;
 use Exception;
-use Illuminate\Support\Str;
 use PKP\core\ExportableTrait;
 use PKP\facades\Locale;
 use PKP\i18n\interfaces\LocaleInterface;
@@ -44,7 +43,7 @@ class LocaleMetadata
      *
      * LANGUAGE_LOCALE_WITH : The locale will be presented in current selected language along
      * with each locale's own translated name . So, if English and French is available and user
-     * selected locale is French, it will be shown as Français/French | Anglais/English
+     * selected locale is French, it will be shown as Français/Français | Anglais/English
      *
      * LANGUAGE_LOCALE_ONLY : The locale will be presented only in each locale's translated
      * name . So, if English and French is available and user
@@ -79,9 +78,9 @@ class LocaleMetadata
     }
 
     /**
-     * Retrieves the display name
+     * Retrieves this locale display name
      *
-     * @param string    $locale             The locale code
+     * @param string    $locale             The locale code the name of this locale should be displayed in
      * @param bool      $withCountry        Whether to append the country name to language
      * @param int       $langLocaleStatus   The language locale conversion value specified by const LocaleMetadata::LANGUAGE_LOCALE_*
      *
@@ -99,19 +98,17 @@ class LocaleMetadata
             );
         }
 
-        $name = (string) Str::of(
-            $this
-                ->_getLanguage(
-                    $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale,
-                    $langLocaleStatus === self::LANGUAGE_LOCALE_WITH
-                )
-                ->getLocalName()
-        )->ucfirst->replaceMatches('/\s*\([^)]*\)\s*/u', '');
+        $locale ??= Locale::getLocale();
+        $displayLocale = $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale;
+
+        $weblateLocaleName = Locale::getWeblateLocaleNames()[$this->locale];
+        $displayName = locale_get_display_language($this->locale, $displayLocale);
+        $name = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
         if ($langLocaleStatus === self::LANGUAGE_LOCALE_WITH) {
             // Get the translated language name in language's own locale
-            $nameInLangLocale = Str::of($this->_getLanguage($this->locale)->getLocalName())
-                ->ucfirst()->replaceMatches('/\s*\([^)]*\)\s*/', '');
+            $displayName = locale_get_display_language($this->locale, $this->locale);
+            $nameInLangLocale = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
             $name = __(
                 'common.withForwardSlash',
@@ -126,27 +123,23 @@ class LocaleMetadata
             return $name;
         }
 
-        $country = $this->getCountry($locale);
+        $country = locale_get_display_region($this->locale, $displayLocale);
 
         if (!$country) {
             return $name;
         }
 
-        if ($langLocaleStatus !== self::LANGUAGE_LOCALE_WITHOUT) {
-            $localizedCountryName = $this->getCountry($this->locale);
-
-            if ($langLocaleStatus === self::LANGUAGE_LOCALE_ONLY) {
-                $country = $localizedCountryName;
-            } else {
-                if (strcmp($localizedCountryName, $country) !== 0) {
-                    $country = __(
-                        'common.withForwardSlash',
-                        [
-                            'item' => $country,
-                            'afterSlash' => $localizedCountryName
-                        ]
-                    );
-                }
+        if ($langLocaleStatus === self::LANGUAGE_LOCALE_WITH) {
+            // Get the translated country name in language's own locale
+            $localizedCountryName = locale_get_display_region($this->locale, $this->locale);
+            if (strcmp($localizedCountryName, $country) !== 0) {
+                $country = __(
+                    'common.withForwardSlash',
+                    [
+                        'item' => $country,
+                        'afterSlash' => $localizedCountryName
+                    ]
+                );
             }
         }
 
@@ -160,19 +153,11 @@ class LocaleMetadata
     }
 
     /**
-     * Retrieves the language name
-     */
-    public function getLanguage(?string $locale = null): string
-    {
-        return $this->_getLanguage($locale)->getLocalName();
-    }
-
-    /**
      * Retrieves the country name
      */
     public function getCountry(?string $locale = null): ?string
     {
-        return $this->_parse()->country ? Locale::getCountries($locale)->getByAlpha2($this->_parse()->country)?->getLocalName() : null;
+        return locale_get_display_region($locale) ?? null;
     }
 
     /**
@@ -180,8 +165,7 @@ class LocaleMetadata
      */
     public function getScript(?string $locale = null): ?string
     {
-        $script = ucfirst($this->_parse()->script ?? '');
-        return $script ? Locale::getScripts($locale)->getByAlpha4($script)->getLocalName() : null;
+        return locale_get_display_script($locale) ?? null;
     }
 
     /**
@@ -196,8 +180,6 @@ class LocaleMetadata
         $languageScriptExceptions = ['sd-deva' => false, 'tzm-arab' => true, 'pa-arab' => true];
         return $languageScriptExceptions["{$language}-{$script}"]
             ?? $rightToLeftLanguages[$language]
-            ?? $languageScriptExceptions[$this->getIsoAlpha3() . "-{$script}"]
-            ?? $rightToLeftLanguages[$this->getIsoAlpha3()]
             ?? false;
     }
 
@@ -238,11 +220,13 @@ class LocaleMetadata
     }
 
     /**
-     * Retrieves the language
+     * Retrieves the language (Sokil Language object)
      */
     private function _getLanguage(?string $locale = null, bool $fromCache = true): ?Language
     {
-        return Locale::getLanguages($locale, $fromCache)->getByAlpha2($this->_parse()->language);
+        $locale ??= $this->locale;
+        $language = locale_get_primary_language($locale);
+        return Locale::getLanguages($language, $fromCache)->getByAlpha2($language) ?? Locale::getLanguages($language, $fromCache)->getByAlpha3($language);
     }
 
     /**
@@ -253,14 +237,13 @@ class LocaleMetadata
         if (isset($this->_parsedLocale)) {
             return $this->_parsedLocale;
         }
-        if (!preg_match(LocaleInterface::LOCALE_EXPRESSION, $this->locale, $matches)) {
+        if (!Locale::isLocaleValid($this->locale)) {
             throw new DomainException("Invalid locale \"{$this->locale}\"");
         }
         return $this->_parsedLocale = (object) [
-            'language' => $matches['language'],
-            'country' => $matches['country'] ?? null,
-            // Updates our script definitions to match the ISO 15924
-            'script' => isset($matches['script']) ? str_replace(['cyrillic', 'latin'], ['latn', 'cyrl'], strtolower($matches['script'])) : null
+            'language' => locale_get_primary_language($this->locale),
+            'country' => locale_get_region($this->locale) ?? null,
+            'script' => locale_get_script($this->locale) ?? null
         ];
     }
 }

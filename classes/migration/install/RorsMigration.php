@@ -38,7 +38,7 @@ class RorsMigration extends Migration
         });
 
         Schema::create('ror_settings', function (Blueprint $table) {
-            $table->comment('More data about Ror, including localized properties like names.');
+            $table->comment('More data about Ror registry dataset cache');
             $table->bigInteger('ror_setting_id')->autoIncrement();
             $table->bigInteger('ror_id');
             $table->string('locale', 28)->default('');

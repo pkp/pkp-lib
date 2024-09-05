@@ -53,7 +53,7 @@ class AddLanguageForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'availableLocales' => collect(Locale::getSubmissionLocaleDisplayNames())
-                ->map(fn ($name, $localeCode) => "[ $localeCode ] $name"),
+                ->map(fn ($name, $localeCode) => "[ {$localeCode} ] {$name}"),
             'addedLocales' => $request->getContext()->getSupportedAddedSubmissionLocales(),
         ]);
 
@@ -84,7 +84,7 @@ class AddLanguageForm extends Form
         parent::execute(...$functionArgs);
 
         if (isset($localesToAdd) && is_array($localesToAdd)) {
-            $locales = array_values(array_filter($localesToAdd, fn (string $locale) => Locale::isSubmissionLocaleValid($locale)));
+            $locales = array_values(array_filter($localesToAdd, fn (string $locale) => Locale::isLocaleValid($locale)));
 
             if ($locales) {
                 sort($locales);
@@ -122,7 +122,7 @@ class AddLanguageForm extends Form
     public function validate($callHooks = true)
     {
         $localesToAdd = $this->getData('localesToAdd');
-        if (!isset($localesToAdd) || !is_array($localesToAdd) || !array_filter($localesToAdd, fn (string $locale) => Locale::isSubmissionLocaleValid($locale))) {
+        if (!isset($localesToAdd) || !is_array($localesToAdd) || !array_filter($localesToAdd, fn (string $locale) => Locale::isLocaleValid($locale))) {
             $this->addError('localesToAdd', __('manager.language.submission.from.error'));
         }
         return parent::validate($callHooks);

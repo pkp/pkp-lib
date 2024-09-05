@@ -22,19 +22,6 @@ use PKP\facades\Locale;
 
 trait LocalizedData
 {
-    /** @var Conversion table for locales */
-    public array $_localesTable = [
-        'be@cyrillic' => 'be',
-        'bs' => 'bs_Latn',
-        'fr_FR' => 'fr',
-        'nb' => 'nb_NO',
-        'sr@cyrillic' => 'sr_Cyrl',
-        'sr@latin' => 'sr_Latn',
-        'uz@cyrillic' => 'uz',
-        'uz@latin' => 'uz_Latn',
-        'zh_CN' => 'zh_Hans',
-    ];
-
     /**
      * Get a localized value from a multilingual data array
      *
@@ -77,7 +64,6 @@ trait LocalizedData
         return array_unique(
             array_filter([
                 $preferredLocale ?? Locale::getLocale(),
-                $this->_localesTable[$preferredLocale ?? Locale::getLocale()] ?? null,
                 $this->getDefaultLocale(),
                 $request->getContext()?->getPrimaryLocale(),
                 $request->getSite()->getPrimaryLocale(),

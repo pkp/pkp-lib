@@ -1,11 +1,12 @@
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martin Brändle <martin.braendle@uzh.ch>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2024-08-27 05:40+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"PO-Revision-Date: 2024-09-05 15:30+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/it/"
 ">\n"
 "Language: it\n"
@@ -485,7 +486,7 @@ msgid "user.apiKey.generate"
 msgstr "Genera una nuova APi key"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Eliminare"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -494,9 +495,11 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"L'eliminazione di una chiave revoca l'accesso a qualsiasi applicazione che "
+"la utilizza."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "È sicuro di voler eliminare questa chiave API?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -517,7 +520,15 @@ msgstr ""
 "seguente motivo: {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Inserire la nuova password per aggiornare la password di accesso."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"La password è stata aggiornata con successo. Effettuare il login con la "
+"password aggiornata."
+
+msgid "user.usernameOrEmail"
+msgstr "Nome utente o e-mail"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "L'accesso al flusso di lavoro per l'invio incompleto è limitato."

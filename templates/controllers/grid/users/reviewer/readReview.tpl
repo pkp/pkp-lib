@@ -11,16 +11,56 @@
 
 {* Form handler attachment implemented in application-specific versions of this template. *}
 
+<script>
+	$(function() {ldelim}
+		$("#btnExport").click(function() {
+			$("#exportOptions").show();
+		});
+
+		$("#readReviewForm").on('click', function(event) {
+			let $target = $(event.target);
+			if (!$target.closest('#exportOptions').length && !$target.is('#btnExport')) {
+				$("#exportOptions").hide();
+			}
+		});
+      {rdelim});
+</script>
 <form class="pkp_form" id="readReviewForm" method="post" action="{url op="reviewRead"}">
 	{csrf}
 	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
 	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
 	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
-
+    <input type="hidden" name="roundId" value="{$reviewAssignment->getReviewRoundId()|escape}" />
 
 	{fbvFormSection}
 		<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
-			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
+            <div>
+                <h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
+                <div id="btnExport" class="pkp_button pkp_helpers_align_right">
+                    {translate key="editor.review.download"} <i class="fa fa-caret-down"></i>
+                </div>
+            </div>
+            <div id="exportOptions" style="position:absolute;right:0" class="shadow -mb bg-secondary z-10 mt-8 me-8 hidden">
+                <div>
+                    <a
+                        class="border-solid border-b-form-fields p-3 block"
+                        href="{url op="exportPDF" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}" authorFriendly=true}">{translate key="editor.review.authorOnly"} (PDF)
+                    </a>
+                    <a
+                        class="border-1 border-b-form-fields p-3 block"
+                        href="{url op="exportXML" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}" authorFriendly=true}">{translate key="editor.review.authorOnly"} (XML)</a>
+                    </a>
+                    <a
+                        class="border-1 border-b-form-fields p-3 block"
+                        href="{url op="exportPDF" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}"}">{translate key="editor.review.allSections"} (PDF)</a>
+                    </a>
+                    <a
+                        class="border-1 border-b-form-fields p-3 block"
+                        href="{url op="exportXML" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}"}">{translate key="editor.review.allSections"} (XML)</a>
+                    </a>
+                </div>
+            </div>
+
 			{fbvFormSection class="description"}
 				{translate key="editor.review.readConfirmation"}
 			{/fbvFormSection}

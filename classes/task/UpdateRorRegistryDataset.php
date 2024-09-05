@@ -274,5 +274,3 @@ class UpdateRorRegistryDataset extends ScheduledTask
         }
     }
 }
-
-// todo: move translations to .po files

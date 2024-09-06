@@ -65,7 +65,7 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $participantIds = Query::queryParticipants()
+        $participantIds = (new Query)->queryParticipants()
             ->withQueryId($note->assocId)
             ->select('userId')
             ->get();
@@ -75,8 +75,4 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileAssignedQueryAccessPolicy', '\SubmissionFileAssignedQueryAccessPolicy');
 }

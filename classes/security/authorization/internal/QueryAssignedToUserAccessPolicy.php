@@ -61,7 +61,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
         //TODO Query conversion
 
         // Determine if the query is assigned to the user.
-        $participantIds = Query::queryParticipants()
+        $participantIds = (new Query)->queryParticipants()
             ->withQueryId($query->id)
             ->select('userId')
             ->get();

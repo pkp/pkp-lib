@@ -23,7 +23,6 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\query\Query;
-use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -513,8 +512,7 @@ class Schema extends \PKP\core\maps\Schema
         $currentUser = $request->getUser();
 
         // TODO Query conversion
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $openPerStage = $queryDao->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
+        $openPerStage = Repo::query()->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
 
         $stages = [];
         foreach ($stageIds as $stageId) {

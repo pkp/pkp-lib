@@ -295,8 +295,11 @@ class QueryNotesGridHandler extends GridHandler
                 [$note->id]
             )->filterBySubmissionIds([$submission->getId()])
             ->getMany();
-        // TODO for Query conversion
-        foreach ($queryDao->getParticipantIds($query->id) as $userId) {
+        $participantIds = (new Query)->queryParticipants()
+            ->withQueryId($query->id)
+            ->select('userId')
+            ->get();
+        foreach ($participantIds as $userId) {
             // Delete any prior notifications of the same type (e.g. prior "new" comments)
             Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)
                 ->withUserId($userId)

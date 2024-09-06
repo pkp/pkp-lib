@@ -32,7 +32,6 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\RecommendationNotifyEditors;
 use PKP\note\Note;
 use PKP\query\Query;
-use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRound;
@@ -133,9 +132,7 @@ trait IsRecommendation
             }
         }
 
-        /** @var QueryDAO $queryDao */
-        $queryDao = DAORegistry::getDAO('QueryDAO');
-        $queryId = $queryDao->addQuery(
+        $queryId = Query::addQuery(
             $submission->getId(),
             $this->getStageId(),
             $email->subject,

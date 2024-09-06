@@ -221,7 +221,7 @@ class QueryForm extends Form
                 'queryId' => $query->id,
                 'subject' => $headNote?->title,
                 'comment' => $headNote?->contents,
-                'userIds' => Query::queryParticipants()
+                'userIds' => (new Query)->queryParticipants()
                                 ->withQueryId($query->id)
                                 ->select('userId')
                                 ->get(),
@@ -289,7 +289,7 @@ class QueryForm extends Form
         $templateMgr->assign('templates', $templateKeySubjectPairs);
 
         // Get currently selected participants in the query
-        $queryParticipants = Query::queryParticipants()
+        $queryParticipants = (new Query)->queryParticipants()
             ->withQueryId($query->id)
             ->select('userId')
             ->get();
@@ -532,7 +532,7 @@ class QueryForm extends Form
         $query->save();
 
         // Update participants
-        $oldParticipantIds = Query::queryParticipants()
+        $oldParticipantIds = (new Query)->queryParticipants()
             ->withQueryId($query->id)
             ->select('userId')
             ->get();

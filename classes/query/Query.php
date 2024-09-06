@@ -14,14 +14,17 @@
 
 namespace PKP\query;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 use PKP\note\Note;
+use PKP\QueryParticipant\QueryParticipant;
 use PKPApplication;
 
 class Query extends Model
@@ -114,20 +117,10 @@ class Query extends Model
     /**
      * Scope a query to only include queries with a specific user ID.
      */
-    // TODO check this for user relationship
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $query->queryParticipant()->where('userId', $userId);
+        return $query->queryParticipant->where('userId', $userId);
     }
-
-    /**
-     * Scope a query to only include queries with a specific user ID.
-     */
-    // TODO
-//    public function scopeWithParticipantIds(Builder $query, int $queryId): Builder
-//    {
-//        return $query->queryParticipants()->whereIn('queryId', $queryId);
-//    }
 
     /**
      * Get the "head" (first) note for this query.

@@ -153,7 +153,7 @@ class QueryNoteForm extends Form
         }
 
         // Always include current user to query participants
-        $participantIds = Query::queryParticipants()
+        $participantIds = (new Query)->queryParticipants()
             ->withQueryId($query->id)
             ->select('userId')
             ->get();

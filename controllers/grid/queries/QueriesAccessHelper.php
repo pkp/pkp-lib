@@ -189,7 +189,7 @@ class QueriesAccessHelper
      */
     protected function isAssigned($userId, $queryId)
     {
-        $participantIds = Query::queryParticipants()
+        $participantIds = (new Query)->queryParticipants()
             ->withQueryId($queryId)
             ->select('userId')
             ->get();

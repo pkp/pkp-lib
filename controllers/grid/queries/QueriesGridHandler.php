@@ -526,7 +526,7 @@ class QueriesGridHandler extends GridHandler
         $user = $request->getUser();
 
         $participants = [];
-        $participantIds = Query::queryParticipants()
+        $participantIds = (new Query)->queryParticipants()
             ->withQueryId($query->id)
             ->select('userId')
             ->get();
@@ -594,7 +594,7 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
-        $oldParticipantIds = Query::queryParticipants()
+        $oldParticipantIds = (new Query)->queryParticipants()
             ->withQueryId($query->id)
             ->select('userId')
             ->get();

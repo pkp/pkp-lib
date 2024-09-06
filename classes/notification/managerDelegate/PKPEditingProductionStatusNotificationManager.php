@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/managerDelegate/PKPEditingProductionStatusNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEditingProductionStatusNotificationManager
@@ -92,8 +92,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             ->get();
 
         // Get the copyediting and production discussions
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var \PKP\query\QueryDAO $queryDao */
-        $productionQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
+        $productionQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)->get();
         $productionQuery = $productionQueries->next();
 
         // Get the copyedited files
@@ -165,7 +164,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
-                        $editingQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
+                        $editingQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)->withStageId(WORKFLOW_STAGE_ID_EDITING)->get();
                         if ($editingQueries->next()) {
                             if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification

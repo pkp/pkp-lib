@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryTitleGridColumn.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryTitleGridColumn
@@ -83,7 +83,7 @@ class QueryTitleGridColumn extends GridColumn
         $router = $request->getRouter();
         $actionArgs = array_merge(
             $this->_actionArgs,
-            ['queryId' => $query->getId()]
+            ['queryId' => $query->id]
         );
 
         return array_merge(

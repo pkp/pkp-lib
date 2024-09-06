@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/types/traits/IsRecommendation.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class decision
@@ -31,6 +31,7 @@ use PKP\mail\EmailData;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\RecommendationNotifyEditors;
 use PKP\note\Note;
+use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
@@ -145,7 +146,7 @@ trait IsRecommendation
             false
         );
 
-        $query = $queryDao->getById($queryId);
+        $query = Query::find($queryId);
         $note = $query->getHeadNote();
         $mailable = new Mailable();
         foreach ($email->attachments as $attachment) {

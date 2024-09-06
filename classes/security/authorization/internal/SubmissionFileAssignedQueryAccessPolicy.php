@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/SubmissionFileAssignedQueryAccessPolicy.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileAssignedQueryAccessPolicy
@@ -20,7 +20,7 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\note\Note;
-use PKP\query\QueryDAO;
+use PKP\query\Query;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
@@ -60,13 +60,16 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
         if ($note->assocType != Application::ASSOC_TYPE_QUERY) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($note->assocId);
+        $query = Query::find($note->assocId);
         if (!$query) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        if ($queryDao->getParticipantIds($note->assocId, $user->getId())) {
+        $participantIds = Query::queryParticipants()
+            ->withQueryId($note->assocId)
+            ->select('userId')
+            ->get();
+        if (in_array($user->getId(), $participantIds)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

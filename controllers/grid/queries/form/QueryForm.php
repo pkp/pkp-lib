@@ -24,11 +24,14 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorPost;
 use PKP\note\Note;
 use PKP\query\Query;
-use PKP\query\QueryDAO;
+use PKP\QueryParticipant\QueryParticipant;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -67,29 +70,33 @@ class QueryForm extends Form
         parent::__construct('controllers/grid/queries/form/queryForm.tpl');
         $this->setStageId($stageId);
 
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         if (!$queryId) {
             $this->_isNew = true;
 
             // Create a query
-            $query = $queryDao->newDataObject();
-            $query->setAssocType($assocType);
-            $query->setAssocId($assocId);
-            $query->setStageId($stageId);
-            $query->setSequence(REALLY_BIG_NUMBER);
-            $queryDao->insertObject($query);
-            $queryDao->resequence($assocType, $assocId);
+            $query = Query::create([
+                'assocType' => $assocType,
+                'assocId' => $assocId,
+                'stageId' => $stageId,
+                'seq' => REALLY_BIG_NUMBER
+            ]);
+
+            // TODO Query conversion
+            Repo::query()->resequence($assocType, $assocId);
 
             // Add the current user as a participant by default.
-            $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
+            $queryParticipant = new QueryParticipant([
+                'queryId' => $query->id,
+                'userId' => $request->getUser()->getId()
+            ]);
 
             Note::create([
                 'userId' =>  $request->getUser()->getId(),
                 'assocType' => Application::ASSOC_TYPE_QUERY,
-                'assocId' => $query->getId(),
+                'assocId' => $query->id,
             ]);
         } else {
-            $query = $queryDao->getById($queryId, $assocType, $assocId);
+            $query = Query::where('queryId', $queryId)->withAssoc($assocType, $assocId);
             assert(isset($query));
             // New queries will not have a head note.
             $this->_isNew = !$query->getHeadNote();
@@ -98,13 +105,13 @@ class QueryForm extends Form
         $this->setQuery($query);
 
         // Validation checks for this form
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function ($users) {
+        $this->addCheck(new FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function ($users) {
             return count($users) > 1;
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidator($this, 'subject', 'required', 'submission.queries.subjectRequired'));
+        $this->addCheck(new FormValidator($this, 'comment', 'required', 'submission.queries.messageRequired'));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     //
@@ -208,14 +215,16 @@ class QueryForm extends Form
      */
     public function initData()
     {
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         if ($query = $this->getQuery()) {
             $headNote = $query->getHeadNote();
             $this->_data = [
-                'queryId' => $query->getId(),
+                'queryId' => $query->id,
                 'subject' => $headNote?->title,
                 'comment' => $headNote?->contents,
-                'userIds' => $queryDao->getParticipantIds($query->getId()),
+                'userIds' => Query::queryParticipants()
+                                ->withQueryId($query->id)
+                                ->select('userId')
+                                ->get(),
                 'template' => null,
             ];
         } else {
@@ -248,16 +257,16 @@ class QueryForm extends Form
             'actionArgs' => $actionArgs,
             'csrfToken' => $request->getSession()->token(),
             'stageId' => $this->getStageId(),
-            'assocId' => $query->getAssocId(),
-            'assocType' => $query->getAssocType(),
+            'assocId' => $query->assocId,
+            'assocType' => $query->assocType,
         ]);
 
         // Queries only support Application::ASSOC_TYPE_SUBMISSION so far
-        if ($query->getAssocType() !== PKPApplication::ASSOC_TYPE_SUBMISSION) {
+        if ($query->assocType !== PKPApplication::ASSOC_TYPE_SUBMISSION) {
             return parent::fetch($request, $template, $display);
         }
 
-        $submission = Repo::submission()->get($query->getAssocId());
+        $submission = Repo::submission()->get($query->assocId);
 
         // Add the templates that can be used for this discussion
         $templateKeySubjectPairs = [];
@@ -280,8 +289,11 @@ class QueryForm extends Form
         $templateMgr->assign('templates', $templateKeySubjectPairs);
 
         // Get currently selected participants in the query
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $assignedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : [];
+        $queryParticipants = Query::queryParticipants()
+            ->withQueryId($query->id)
+            ->select('userId')
+            ->get();
+        $assignedParticipants = $query->id ? $queryParticipants : [];
 
         // Always include current user, even if not with a stage assignment
         $includeUsers[] = $user->getId();
@@ -293,8 +305,8 @@ class QueryForm extends Form
         $assignedRoles = (function () use ($query, $user) {
             $assignedRoles = [];
             // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-            $usersAssignments = StageAssignment::withSubmissionIds([$query->getAssocId()])
-                ->withStageIds([$query->getStageId()])
+            $usersAssignments = StageAssignment::withSubmissionIds([$query->assocId])
+                ->withStageIds([$query->stageId])
                 ->withUserId($user->getId())
                 ->get();
 
@@ -305,7 +317,7 @@ class QueryForm extends Form
             return $assignedRoles;
         })();
 
-        if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
+        if ($query->stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
             // Get all review assignments for current submission
             $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
 
@@ -321,7 +333,7 @@ class QueryForm extends Form
                 if ($reviewAssignment->getReviewerId() == $user->getId()) {
                     if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                         // Replaces StageAssignmentDAO::getBySubmissionAndRoleId
-                        $excludeUsers = StageAssignment::withSubmissionIds([$query->getAssocId()])
+                        $excludeUsers = StageAssignment::withSubmissionIds([$query->assocId])
                             ->withRoleIds([Role::ROLE_ID_AUTHOR])
                             ->withUserId($user->getId())
                             ->get()
@@ -345,7 +357,7 @@ class QueryForm extends Form
             ->filterByContextIds([$context->getId()])
             ->limit(100)
             ->offset(0)
-            ->assignedTo($query->getAssocId(), $query->getStageId())
+            ->assignedTo($query->assocId, $query->stageId)
             ->excludeUserIds($excludeUsers)
             ->getMany();
 
@@ -358,8 +370,8 @@ class QueryForm extends Form
 
             $userRoles = [];
             // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-            $userAssignments = StageAssignment::withSubmissionIds([$query->getAssocId()])
-                ->withStageIds([$query->getStageId()])
+            $userAssignments = StageAssignment::withSubmissionIds([$query->assocId])
+                ->withStageIds([$query->stageId])
                 ->withUserId($user->getId())
                 ->get();
 
@@ -428,12 +440,12 @@ class QueryForm extends Form
         // In other stages validate that participants are assigned to that stage.
         $query = $this->getQuery();
         // Queries only support Application::ASSOC_TYPE_SUBMISSION so far (see above)
-        if ($query->getAssocType() == Application::ASSOC_TYPE_SUBMISSION) {
+        if ($query->assocType == Application::ASSOC_TYPE_SUBMISSION) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
             $context = $request->getContext();
-            $submissionId = $query->getAssocId();
-            $stageId = $query->getStageId();
+            $submissionId = $query->assocId;
+            $stageId = $query->stageId;
 
             // get the selected participants
             $newParticipantIds = (array) $this->getData('users');
@@ -510,7 +522,6 @@ class QueryForm extends Form
     public function execute(...$functionArgs)
     {
         $request = Application::get()->getRequest();
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $this->getQuery();
 
         $headNote = $query->getHeadNote();
@@ -518,28 +529,35 @@ class QueryForm extends Form
         $headNote->contents = $this->getData('comment');
 
         $headNote->save();
-
-        $queryDao->updateObject($query);
+        $query->save();
 
         // Update participants
-        $oldParticipantIds = $queryDao->getParticipantIds($query->getId());
+        $oldParticipantIds = Query::queryParticipants()
+            ->withQueryId($query->id)
+            ->select('userId')
+            ->get();
+
         $newParticipantIds = $this->getData('users');
-        $queryDao->removeAllParticipants($query->getId());
+        QueryParticipant::withQueryId($query->id)
+            ->delete();
         foreach ($newParticipantIds as $userId) {
-            $queryDao->insertParticipant($query->getId(), $userId);
+            $queryParticipant = new QueryParticipant([
+                'queryId' => $query->id,
+                'userId' => $userId
+            ]);
         }
 
         $removed = array_diff($oldParticipantIds, $newParticipantIds);
         foreach ($removed as $userId) {
             // Delete this users' notifications relating to this query
-            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $query->getId())
+            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $query->id)
                 ->withUserId($userId)
                 ->delete();
         }
 
         // Stamp the submission status modification date.
-        if ($query->getAssocType() == Application::ASSOC_TYPE_SUBMISSION) {
-            $submission = Repo::submission()->get($query->getAssocId());
+        if ($query->assocType == Application::ASSOC_TYPE_SUBMISSION) {
+            $submission = Repo::submission()->get($query->assocId);
             $submission->stampLastActivity();
             Repo::submission()->dao->update($submission);
         }

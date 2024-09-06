@@ -23,13 +23,10 @@ use Illuminate\Support\Str;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
-use PKP\db\DAO;
-use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\query\Query;
-use PKP\query\QueryDAO;
 
 class QueryNotificationManager extends NotificationManagerDelegate
 {
@@ -41,8 +38,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($notification->assocId);
+        $query = Query::find($notification->assocId);
 
         $headNote = $query->getHeadNote();
         if (!$headNote) {
@@ -58,7 +54,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'noteTitle' => Str::limit($headNote->title, 200),
                 ]);
             case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                $latestNote = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getAssocId())
+                $latestNote = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->assocId)
                     ->withSort(Note::NOTE_ORDER_ID)
                     ->first();
                 $user = $latestNote->user;
@@ -76,12 +72,12 @@ class QueryNotificationManager extends NotificationManagerDelegate
      */
     protected function getQuerySubmission(Query $query): Submission
     {
-        switch ($query->getAssocType()) {
+        switch ($query->assocType) {
             case Application::ASSOC_TYPE_SUBMISSION:
-                return Repo::submission()->get($query->getAssocId());
+                return Repo::submission()->get($query->assocId);
             case Application::ASSOC_TYPE_REPRESENTATION:
                 $representationDao = Application::getRepresentationDAO();
-                $representation = $representationDao->getById($query->getAssocId());
+                $representation = $representationDao->getById($query->assocId);
                 $publication = Repo::publication()->get($representation->getData('publicationId'));
                 return Repo::submission()->get($publication->getData('submissionId'));
         }
@@ -97,8 +93,8 @@ class QueryNotificationManager extends NotificationManagerDelegate
             throw new \Exception('Unexpected query assoc type!');
         }
 
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($notification->assocId);
+        // TODO: Fix this for null
+        $query = Query::find($notification->assocId);
         if (!$query) {
             return null;
         }
@@ -115,8 +111,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         if($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($notification->assocId);
+        $query = Query::find($notification->assocId);
         $submission = $this->getQuerySubmission($query);
 
         switch ($notification->type) {

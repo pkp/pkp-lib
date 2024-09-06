@@ -17,11 +17,18 @@
 
 namespace APP\API\v1\submissions;
 
+use APP\components\forms\publication\IssueEntryForm;
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\file\PublicFileManager;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\components\forms\publication\TitleAbstractForm;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -37,6 +44,7 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
         $this->requiresSubmissionAccess[] = 'relatePublication';
         $this->requiresProductionStageAccess[] = 'relatePublication';
         $this->productionStageAccessRoles[] = Role::ROLE_ID_AUTHOR;
+        $this->requiresSubmissionAccess[] = 'getPublicationIssueForm';
     }
 
     /**
@@ -80,6 +88,14 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
             Route::put('{submissionId}/publications/{publicationId}/unpublish', $this->unpublishPublication(...))
                 ->name('submission.publication.unpublish')
                 ->whereNumber(['submissionId', 'publicationId']);
+        });
+
+        Route::middleware([
+            self::roleAuthorizer([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT]),
+        ])->group(function () {
+            Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
+                Route::get('issue', $this->getPublicationIssueForm(...))->name('submission.publication._components.issue');
+            })->whereNumber(['submissionId', 'publicationId']);
         });
 
         parent::getGroupRoutes();
@@ -150,5 +166,70 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             Response::HTTP_OK
         );
+    }
+
+    /**
+     * @copydoc \PKP\api\v1\submissions\PKPSubmissionController::getPublicationTitleAbstractForm()
+     */
+    protected function getPublicationTitleAbstractForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context']; /** @var Context $context*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $section = Repo::section()->get($publication->getData('sectionId'), $context->getId());
+        $locales = $this->getPublicationFormLocales($context, $submission);
+
+        $titleAbstract = new TitleAbstractForm(
+            $publicationApiUrl,
+            $locales,
+            $publication,
+            $section->getData('wordCount'),
+            !$section->getData('abstractsNotRequired')
+        );
+        return response()->json($titleAbstract->getConfig(), Response::HTTP_OK);
+    }
+
+    /**
+     * Get IssueEntryForm form component
+     */
+    protected function getPublicationIssueForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $request = $this->getRequest();
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context']; /** @var Context $context*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+        $locales = $this->getPublicationFormLocales($context, $submission);
+        $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getPath(), 'temporaryFiles');
+
+        $publicFileManager = new PublicFileManager();
+        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
+
+        // This form provides Issue details for a submission's publication.
+        // This includes fields to change the Issue and section that the submission the publication is linked to, cover image, page and publication date details.
+        $issueEntryForm = new IssueEntryForm(
+            $publicationApiUrl,
+            $locales,
+            $publication,
+            $context,
+            $baseUrl,
+            $temporaryFileApiUrl
+        );
+
+        return response()->json($this->getLocalizedForm($issueEntryForm, $submission->getData('locale'), $locales), Response::HTTP_OK);
     }
 }

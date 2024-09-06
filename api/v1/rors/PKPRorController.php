@@ -134,8 +134,6 @@ class PKPRorController extends PKPBaseController
             }
         }
 
-//        $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
-
         Hook::call('API::rors::params', [$collector, $illuminateRequest]);
 
         $rors = $collector->getMany();

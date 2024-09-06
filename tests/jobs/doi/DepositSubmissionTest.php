@@ -13,11 +13,9 @@
 namespace PKP\tests\jobs\doi;
 
 use Mockery;
-use PKP\context\Context;
 use APP\core\Application;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\doi\DepositSubmission;
-use PKP\doi\RegistrationAgencySettings;
 use APP\doi\Repository as DoiRepository;
 use APP\submission\Repository as SubmissionRepository;
 

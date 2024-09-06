@@ -26,6 +26,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\DataObject;
 use PKP\core\PKPString;
+use PKP\facades\Locale;
 use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
 
@@ -68,7 +69,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
 
         switch ($columnId) {
             case 'from':
-                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $element->dateCreated->format($datetimeFormatShort)];
+                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $element->dateCreated->locale(Locale::getLocale())->translatedFormat($datetimeFormatShort)];
         }
 
         return parent::getTemplateVarsFromRowColumn($row, $column);

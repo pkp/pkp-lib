@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid;
 
 use PKP\core\PKPString;
+use PKP\facades\Locale;
 
 class DateGridCellProvider extends GridCellProvider
 {
@@ -54,7 +55,7 @@ class DateGridCellProvider extends GridCellProvider
     public function getTemplateVarsFromRowColumn($row, $column)
     {
         $v = $this->_dataProvider->getTemplateVarsFromRowColumn($row, $column);
-        $v['label'] = date($this->_format, strtotime($v['label']));
+        $v['label'] = (new \Carbon\Carbon($v['label']))->locale(Locale::getLocale())->translatedFormat($this->_format);
         return $v;
     }
 }

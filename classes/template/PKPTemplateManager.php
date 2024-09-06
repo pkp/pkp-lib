@@ -307,6 +307,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register custom functions
+        $this->registerPlugin('modifier', 'date_format', $this->smartyDateFormat(...));
         $this->registerPlugin('modifier', 'is_numeric', is_numeric(...));
         $this->registerPlugin('modifier', 'get_class', get_class(...));
         $this->registerPlugin('modifier', 'is_a', is_a(...));
@@ -1881,6 +1882,16 @@ class PKPTemplateManager extends Smarty
         return $invert ? !$result : $result;
     }
 
+    /**
+     * Override the built-in smarty date format modifier to support translated formats.
+     * (Work-around for https://github.com/smarty-php/smarty/issues/810)
+     *
+     * @param null|mixed $format
+     */
+    public function smartyDateFormat($string, $format = null, $default_date = '', $formatter = 'auto')
+    {
+        return (new \Carbon\Carbon($string))->locale(Locale::getLocale())->translatedFormat($format);
+    }
     /**
      * Override the built-in smarty escape modifier to
      * add the jqselector escaping method.

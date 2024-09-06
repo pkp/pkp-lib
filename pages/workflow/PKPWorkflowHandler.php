@@ -11,7 +11,7 @@
  *
  * @ingroup pages_reviewer
  *
- * @brief Handle requests for the submssion workflow.
+ * @brief Handle requests for the submission workflow.
  */
 
 namespace PKP\pages\workflow;

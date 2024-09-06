@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -31,6 +32,8 @@ use PKP\services\PKPSchemaService;
  */
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_ROR;
 
@@ -56,7 +59,7 @@ class DAO extends EntityDAO
      */
     public function getParentColumn(): string
     {
-        return '';
+        return 'ror_id';
     }
 
     /**

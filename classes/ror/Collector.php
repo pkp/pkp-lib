@@ -90,7 +90,27 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table . ' as i')->select('i.*');
+        $qb = DB::table($this->dao->table . ' as r')->select('r.*');
+
+        if ($this->searchPhrase !== null) {
+            $words = explode(' ', $this->searchPhrase);
+            if (count($words)) {
+                foreach ($words as $word) {
+                    $word = addcslashes($word, '%_');
+                    $qb->where(function ($qb) use ($word) {
+                        $qb->whereIn('r.ror_id', function ($qb) use ($word) {
+                            $qb->select('rss.ror_id')
+                                ->from($this->dao->settingsTable . ' as rss')
+                                ->where('rss.setting_name', '=', 'name')
+                                ->where(DB::raw('lower(rss.setting_value)'), 'LIKE', DB::raw("lower('%{$word}%')"));
+                        })
+                            ->orWhere(function ($qb) use ($word) {
+                                $qb->where('r.ror', 'like', '%'. $word . '%');
+                            });
+                    });
+                }
+            }
+        }
 
         if (!is_null($this->count)) {
             $qb->limit($this->count);

@@ -306,6 +306,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register custom functions
+        $this->registerPlugin('modifier', 'date_format', [$this, 'smartyDateFormat']);
         $this->registerPlugin('modifier', 'intval', 'intval');
         $this->registerPlugin('modifier', 'json_encode', 'json_encode');
         $this->registerPlugin('modifier', 'uniqid', 'uniqid');
@@ -2030,6 +2031,15 @@ class PKPTemplateManager extends Smarty
     public function smartyExplode($string, $separator)
     {
         return explode($separator, $string);
+    }
+
+    /**
+     * Override the built-in smarty date format modifier to support translated formats.
+     * (Work-around for https://github.com/smarty-php/smarty/issues/810)
+     */
+    public function smartyDateFormat($string, $format = null, $default_date = '', $formatter = 'auto')
+    {
+        return (new \Carbon\Carbon($string))->locale(Locale::getLocale())->translatedFormat($format);
     }
 
     /**

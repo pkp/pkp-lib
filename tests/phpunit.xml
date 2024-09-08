@@ -9,7 +9,7 @@
     colors="true"
     testdox="true"
     processIsolation="false"
-    stopOnFailure="true"
+    stopOnFailure="false"
     cacheDirectory=".phpunit.cache"
     backupStaticProperties="false"
 >

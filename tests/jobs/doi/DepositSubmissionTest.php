@@ -159,26 +159,18 @@ class DepositSubmissionTest extends PKPTestCase
 
         app()->instance(DoiRepository::class, $doiRepoMock);
 
+        /** @var \PKP\context\Context $contextMock */
         $contextMock = Mockery::mock(get_class(Application::getContextDAO()->newDataObject()))
             ->makePartial()
             ->shouldReceive('getData')
             ->getMock();
         
-        $depositSubmissionMock = Mockery::mock(DepositSubmission::class, [
-                0, $contextMock, new \PKP\tests\support\DoiRegistrationAgency
-            ])
-            ->shouldReceive('handle')
-            ->withAnyArgs()
-            ->andReturn(null)
-            ->getMock();
+        $depositSubmissionMock = new DepositSubmission(
+            0, 
+            $contextMock,
+            new \PKP\tests\support\DoiRegistrationAgency
+        );
         
-        /**
-         * @disregard P1013 PHP Intelephense error suppression
-         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
-         * 
-         *  As mock defined it should receive `handle`,
-         *  we will have `handle` method on mock object
-         */
         $this->assertNull($depositSubmissionMock->handle());
     }
 }

@@ -27,6 +27,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -68,7 +69,7 @@ class NavigationMenusGridHandler extends GridHandler
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
-
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $navigationMenuId = $request->getUserVar('navigationMenuId');
         if ($navigationMenuId) {

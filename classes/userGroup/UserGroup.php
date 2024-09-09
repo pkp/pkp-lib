@@ -16,8 +16,6 @@
 
 namespace PKP\userGroup;
 
-use PKP\core\PKPApplication;
-
 class UserGroup extends \PKP\core\DataObject
 {
     /**
@@ -241,6 +239,24 @@ class UserGroup extends \PKP\core\DataObject
     public function setPermitMetadataEdit(bool $permitMetadataEdit)
     {
         $this->setData('permitMetadataEdit', $permitMetadataEdit);
+    }
+
+    /**
+     * Getter for permitSettings attribute.
+     *
+     * @return bool
+     */
+    public function getPermitSettings()
+    {
+        return $this->getData('permitSettings');
+    }
+
+    /**
+     * Setter for permitSettings attribute.
+     */
+    public function setPermitSettings(bool $permitSettings)
+    {
+        $this->setData('permitSettings', $permitSettings);
     }
 
     /**

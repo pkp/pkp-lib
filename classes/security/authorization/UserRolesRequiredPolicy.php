@@ -60,6 +60,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
 
         $roleIds = array_map(fn ($userGroup) => $userGroup->getRoleId(), $userGroups);
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $roleIds);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP, $userGroups);
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }

@@ -52,7 +52,7 @@ class PKPAppearanceMastheadForm extends FormComponent
             ->toArray();
 
         // sort the mashead roles in their saved order
-        $sortedAllMastheadUserGroups = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
+        $sortedAllMastheadUserGroups = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
 
         foreach ($sortedAllMastheadUserGroups as $userGroup) {
             $mastheadOptions[] = [

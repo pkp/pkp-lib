@@ -36,10 +36,11 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\log\SubmissionEmailLogEventType;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\query\Query;
-use PKP\QueryParticipant\QueryParticipant;
+use PKP\query\QueryParticipant;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -265,7 +266,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function getDataElementSequence($row)
     {
-        return $row->getSequence();
+        return $row->seq;
     }
 
     /**
@@ -273,7 +274,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $query = Query::find($rowId)->withAssoc($this->getAssocType(), $this->getAssocId());
+        $query = Query::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
         $query->seq = $newSequence;
         $query->save();
     }
@@ -323,11 +324,12 @@ class QueriesGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
+        $user = $this->getAccessHelper()->getCanListAll($this->getStageId()) ? null : $request->getUser()->getId();
+
         return Query::withAssoc($this->getAssocType(), $this->getAssocId())
             ->withStageId($this->getStageId())
-            ->queryParticipants()
-            ->withUserId($this->getAccessHelper()->getCanListAll($this->getStageId()) ? null : $request->getUser()->getId())
-            ->get();
+            ->when($user, fn ($q) => $q->withUserId($user))
+            ->lazy();
     }
 
     //
@@ -373,7 +375,7 @@ class QueriesGridHandler extends GridHandler
         }
 
         $query->delete();
-
+        Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
         Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
 
         if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
@@ -526,15 +528,10 @@ class QueriesGridHandler extends GridHandler
         $user = $request->getUser();
 
         $participants = [];
-        $participantIds = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
-        //TODO this can be improved
-        foreach ($participantIds as $userId) {
-            $user = Repo::user()->get($userId);
-            if ($user) {
-                $participants[] = $user;
+        $queryParticipants = $query->queryParticipants;
+        foreach ($queryParticipants as $participant) {
+            if ($participant->user) {
+                $participants [] = $participant->user;
             }
         }
 
@@ -594,10 +591,9 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
-        $oldParticipantIds = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
+        $oldParticipantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
 
         $queryForm = new QueryForm(
             $request,
@@ -640,7 +636,7 @@ class QueriesGridHandler extends GridHandler
 
             /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-            $note = $query->getHeadNote();
+            $note = Repo::note()->getHeadNote($query->id);
             $submission = $this->getSubmission();
 
             // Find attachments if any
@@ -750,16 +746,14 @@ class QueriesGridHandler extends GridHandler
         if (!count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, ], $userRoles))) {
             return false;
         }
-        $participants = QueryParticipant::withQueryId($queryId)
-            ->select('userId')
-            ->get();
-        if ($participants->count() < 3) {
+        $participantIds = QueryParticipant::withQueryId($queryId)
+            ->pluck('user_id')
+            ->all();
+        if (count($participantIds) < 3) {
             return false;
         }
         $user = Application::get()->getRequest()->getUser();
-        // TODO does this work? maybe not.
-        return $participants->contains($user->getId());
-        //return in_array($user->getId(), $participants);
+        return in_array($user->getId(), $participantIds);
     }
 
     /**

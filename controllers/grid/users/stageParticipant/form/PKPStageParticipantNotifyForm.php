@@ -36,7 +36,7 @@ use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\query\Query;
-use PKP\QueryParticipant\QueryParticipant;
+use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -188,12 +188,12 @@ class PKPStageParticipantNotifyForm extends Form
         Repo::query()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         // Add the current user and message recipient as participants.
-        $queryParticipant = new QueryParticipant([
+        QueryParticipant::create([
             'queryId' => $query->id,
             'userId' => $user->getId()
         ]);
         if ($user->getId() != $request->getUser()->getId()) {
-            $queryParticipant = new QueryParticipant([
+            QueryParticipant::create([
                 'queryId' => $query->id,
                 'userId' => $request->getUser()->getId()
             ]);

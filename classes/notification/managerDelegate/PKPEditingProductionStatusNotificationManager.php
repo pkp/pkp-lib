@@ -21,9 +21,9 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
+use PKP\query\Query;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submissionFile\SubmissionFile;
@@ -92,7 +92,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             ->get();
 
         // Get the copyediting and production discussions
-        $productionQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)->get();
+        $productionQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+            ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
+            ->get()
+            ->getIterator();
         $productionQuery = $productionQueries->next();
 
         // Get the copyedited files
@@ -164,7 +167,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
-                        $editingQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)->withStageId(WORKFLOW_STAGE_ID_EDITING)->get();
+                        $editingQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                            ->withStageId(WORKFLOW_STAGE_ID_EDITING)
+                            ->get()
+                            ->getIterator();
                         if ($editingQueries->next()) {
                             if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification

@@ -12,7 +12,7 @@
  * @brief Class for QueryParticipant.
  */
 
-namespace PKP\QueryParticipant;
+namespace PKP\query;
 
 use APP\facades\Repo;
 use Eloquence\Behaviours\HasCamelCasing;
@@ -43,7 +43,7 @@ class QueryParticipant extends Model
 
 	public function toQuery(): BelongsTo
 	{
-		return $this->belongsTo(Query::class);
+		return $this->belongsTo(Query::class, 'query_id', 'query_id');
 	}
 
     /**
@@ -74,10 +74,9 @@ class QueryParticipant extends Model
     /**
      * Scope a query to only include query participants with a specific user ID.
      */
-    // TODO check if this is needed on the query participant class
     public function scopeWithQueryId(Builder $query, int $queryId): Builder
     {
-        return $query->where('queryId', $queryId);
+        return $query->where('query_id', $queryId);
     }
 
     /**
@@ -85,6 +84,6 @@ class QueryParticipant extends Model
      */
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $query->where('userId', $userId);
+        return $query->where('user_id', $userId);
     }
 }

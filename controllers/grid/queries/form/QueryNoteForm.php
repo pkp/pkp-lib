@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\queries\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
@@ -24,7 +25,7 @@ use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorPost;
 use PKP\note\Note;
 use PKP\query\Query;
-use PKP\QueryParticipant\QueryParticipant;
+use PKP\query\QueryParticipant;
 use PKP\user\User;
 
 class QueryNoteForm extends Form
@@ -144,7 +145,7 @@ class QueryNoteForm extends Form
         // Check whether the query needs re-opening
         $query = $this->getQuery();
         if ($query->closed) {
-            $headNote = $query->getHeadNote();
+            $headNote = Repo::note()->getHeadNote($query->id);
             if ($user->getId() != $headNote->userId) {
                 // Re-open the query.
                 $query->closed = false;
@@ -153,12 +154,11 @@ class QueryNoteForm extends Form
         }
 
         // Always include current user to query participants
-        $participantIds = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
+        $participantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
         if (!in_array($user->getId(), $participantIds)) {
-            $queryParticipant = new QueryParticipant([
+            QueryParticipant::create([
                 'queryId' => $query->id,
                 'userId' => $user->getId()
             ]);

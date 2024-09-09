@@ -18,10 +18,12 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\query\Query;
+use PKP\query\QueryParticipant;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 
 class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -37,13 +39,13 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
 
         // Get the user
         $user = $request->getUser();
-        if (!$user instanceof \PKP\user\User) {
+        if (!$user instanceof User) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Get the submission file
         $submissionFile = $this->getSubmissionFile($request);
-        if (!$submissionFile instanceof \PKP\submissionFile\SubmissionFile) {
+        if (!$submissionFile instanceof SubmissionFile) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -53,7 +55,7 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
         }
 
         $note = Note::find($submissionFile->getData('assocId'));
-        if (!$note instanceof \PKP\note\Note) {
+        if (!$note instanceof Note) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -65,10 +67,9 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $participantIds = (new Query)->queryParticipants()
-            ->withQueryId($note->assocId)
-            ->select('userId')
-            ->get();
+        $participantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
         if (in_array($user->getId(), $participantIds)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }

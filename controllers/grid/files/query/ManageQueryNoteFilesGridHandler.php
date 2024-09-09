@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\files\query;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\controllers\grid\files\query\form\ManageQueryNoteFilesForm;
 use PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler;
@@ -78,7 +79,7 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
 
         // Passed the checks above. If it's part of the current query, mark selected.
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
-        $headNote = $query->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($query->id);
         return $submissionFile->getData('assocType') == Application::ASSOC_TYPE_NOTE && $submissionFile->getData('assocId') == $headNote->id;
     }
 

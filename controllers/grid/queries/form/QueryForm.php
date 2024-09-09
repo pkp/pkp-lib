@@ -30,8 +30,9 @@ use PKP\form\validation\FormValidatorCSRF;
 use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorPost;
 use PKP\note\Note;
+use PKP\notification\Notification;
 use PKP\query\Query;
-use PKP\QueryParticipant\QueryParticipant;
+use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -81,11 +82,10 @@ class QueryForm extends Form
                 'seq' => REALLY_BIG_NUMBER
             ]);
 
-            // TODO Query conversion
             Repo::query()->resequence($assocType, $assocId);
 
             // Add the current user as a participant by default.
-            $queryParticipant = new QueryParticipant([
+            QueryParticipant::create([
                 'queryId' => $query->id,
                 'userId' => $request->getUser()->getId()
             ]);
@@ -96,10 +96,10 @@ class QueryForm extends Form
                 'assocId' => $query->id,
             ]);
         } else {
-            $query = Query::where('queryId', $queryId)->withAssoc($assocType, $assocId);
+            $query = Query::find($queryId);
             assert(isset($query));
             // New queries will not have a head note.
-            $this->_isNew = !$query->getHeadNote();
+            $this->_isNew = !Repo::note()->getHeadNote($query->id);
         }
 
         $this->setQuery($query);
@@ -216,15 +216,14 @@ class QueryForm extends Form
     public function initData()
     {
         if ($query = $this->getQuery()) {
-            $headNote = $query->getHeadNote();
+            $headNote = Repo::note()->getHeadNote($query->id);
             $this->_data = [
                 'queryId' => $query->id,
                 'subject' => $headNote?->title,
                 'comment' => $headNote?->contents,
-                'userIds' => (new Query)->queryParticipants()
-                                ->withQueryId($query->id)
-                                ->select('userId')
-                                ->get(),
+                'userIds' => QueryParticipant::withQueryId($query->id)
+                    ->pluck('user_id')
+                    ->all(),
                 'template' => null,
             ];
         } else {
@@ -246,7 +245,7 @@ class QueryForm extends Form
     public function fetch($request, $template = null, $display = false, $actionArgs = [])
     {
         $query = $this->getQuery();
-        $headNote = $query->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($query->id);
         $user = $request->getUser();
         $context = $request->getContext();
 
@@ -289,10 +288,9 @@ class QueryForm extends Form
         $templateMgr->assign('templates', $templateKeySubjectPairs);
 
         // Get currently selected participants in the query
-        $queryParticipants = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
+        $queryParticipants = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
         $assignedParticipants = $query->id ? $queryParticipants : [];
 
         // Always include current user, even if not with a stage assignment
@@ -521,27 +519,25 @@ class QueryForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $request = Application::get()->getRequest();
         $query = $this->getQuery();
 
-        $headNote = $query->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($query->id);
         $headNote->title = $this->getData('subject');
         $headNote->contents = $this->getData('comment');
-
         $headNote->save();
-        $query->save();
+
+        $query->update();
 
         // Update participants
-        $oldParticipantIds = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
+        $oldParticipantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
 
         $newParticipantIds = $this->getData('users');
         QueryParticipant::withQueryId($query->id)
             ->delete();
         foreach ($newParticipantIds as $userId) {
-            $queryParticipant = new QueryParticipant([
+            QueryParticipant::create([
                 'queryId' => $query->id,
                 'userId' => $userId
             ]);

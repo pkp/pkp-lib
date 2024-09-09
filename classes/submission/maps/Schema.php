@@ -511,7 +511,6 @@ class Schema extends \PKP\core\maps\Schema
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
 
-        // TODO Query conversion
         $openPerStage = Repo::query()->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
 
         $stages = [];

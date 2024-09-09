@@ -33,6 +33,7 @@ use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
+use PKP\query\Query;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;

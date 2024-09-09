@@ -14,18 +14,12 @@
 
 namespace PKP\query;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\DB;
-use PKP\db\DAO;
-use PKP\note\Note;
-use PKP\QueryParticipant\QueryParticipant;
-use PKPApplication;
 
 class Query extends Model
 {
@@ -84,8 +78,18 @@ class Query extends Model
      */
     public function queryParticipants(): HasMany
     {
-		return $this->hasMany(QueryParticipant::class);
+		return $this->hasMany(QueryParticipant::class, 'query_id', 'query_id');
 	}
+
+    /**
+     * Compatibility function for including query IDs in grids.
+     *
+     * @deprecated 3.5 Use $model->id instead. Can be removed once the DataObject pattern is removed.
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     // Scopes
 
@@ -119,18 +123,19 @@ class Query extends Model
      */
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $query->queryParticipant->where('userId', $userId);
+        return $query->whereHas('queryParticipants', function($q) use ($userId) {
+            $q->where('user_id', $userId);
+        });
     }
 
     /**
-     * Get the "head" (first) note for this query.
-     *
-     * @return Note
+     * Scope a query to only include queries with specific user IDs.
      */
-    public function getHeadNote(): Note
+    public function scopeWithUserIds($query, array $userIds)
     {
-        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->id)
-            ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
-            ->first();
+        return $query->whereHas('queryParticipants', function($q) use ($userIds) {
+            $q->whereIn('user_id', $userIds);
+        });
     }
+
 }

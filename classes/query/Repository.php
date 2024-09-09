@@ -20,14 +20,12 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\QueryParticipant\QueryParticipant;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
@@ -35,41 +33,21 @@ use PKP\user\User;
 class Repository
 {
     /**
-     * Fetch a query by symbolic info, building it if needed.
-     */
-    public function build(int $assocType, int $assocId, int $userId, int $stageId, float $seq, int $closed): Query
-    {
-        return Query::withUserId($userId)
-            ->withAssoc($assocType, $assocId)
-            ->firstOr(fn() => Query::create([
-                'assocType' => $assocType,
-                'assocId' => $assocId,
-                'userId' => $userId,
-                'stageId' => $stageId,
-                'seq' => $seq,
-                'closed' => $closed
-            ]));
-    }
-
-    /**
      * Retrieve a count of all open queries totalled by stage
      *
      * @param int[] $participantIds Only include queries with these participants
      *
      * @return array<int,int> [int $stageId => int $count]
      */
-    public function countOpenPerStage(int $submissionId, ?array $participantIds = null)
+    public function countOpenPerStage(int $submissionId, ?array $participantIds = null): array
     {
-        $counts = DB::table('queries as q')
+        $counts = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->when($participantIds !== null, function ($q) use ($participantIds) {
-                $q->join('query_participants as qp', 'q.query_id', '=', 'qp.query_id')
-                    ->whereIn('qp.user_id', $participantIds);
+                $q->withUserIds($participantIds);
             })
-            ->where('q.assoc_type', '=', Application::ASSOC_TYPE_SUBMISSION)
-            ->where('q.assoc_id', '=', $submissionId)
-            ->where('q.closed', '=', 0)
-            ->select(['q.stage_id', DB::raw('COUNT(q.stage_id) as count')])
-            ->groupBy(['q.stage_id'])
+            ->withClosed(false)
+            ->selectRaw('stage_id, COUNT(stage_id) as count')
+            ->groupBy('stage_id')
             ->get()
             ->mapWithKeys(fn ($row, $key) => [$row->stage_id => $row->count])
             ->toArray();
@@ -87,15 +65,14 @@ class Repository
      */
     public function resequence($assocType, $assocId): void
     {
-        $result = $this->withAssoc($assocType, $assocId)
+        $result = Query::withAssoc($assocType, $assocId)
             ->orderBy('seq')
             ->get();
 
-        for ($i = 1; $row = $result->current(); $i++) {
-            $this->where('queryId', $row->queryId)
-                ->update(['seq' => $i]);
-            $result->next();
-        }
+        $result->each(function ($item, $key = 1) {
+            Query::find($item->queryId)
+                ->update(['seq' => $key]);
+        });
     }
 
     /**
@@ -116,7 +93,7 @@ class Repository
 
         $this->resequence(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
 
-        foreach ($participantUserIds as $participantUserId) {
+        foreach (array_unique($participantUserIds) as $participantUserId) {
             QueryParticipant::create([
                 'queryId' => $query->id,
                 'userId' => $participantUserId
@@ -126,8 +103,8 @@ class Repository
         Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,
             'assocId' => $query->id,
-            'contents' =>  $content,
             'title' =>  $title,
+            'contents' =>  $content,
             'userId' =>  $fromUser->getId(),
         ]);
 
@@ -194,7 +171,7 @@ class Repository
             ])
             ->withStageIds([$submission->getData('stageId')])
             ->get()
-            ->pluck('userId')
+            ->pluck('user_id')
             ->all();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds

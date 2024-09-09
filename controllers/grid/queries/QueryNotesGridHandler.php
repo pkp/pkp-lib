@@ -34,6 +34,7 @@ use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\query\Query;
+use PKP\query\QueryParticipant;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
@@ -282,7 +283,7 @@ class QueryNotesGridHandler extends GridHandler
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $submission = $this->getSubmission();
-        $title = $query->getHeadNote()->title;
+        $title = Repo::note()->getHeadNote($query->id)->title;
 
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
@@ -295,10 +296,9 @@ class QueryNotesGridHandler extends GridHandler
                 [$note->id]
             )->filterBySubmissionIds([$submission->getId()])
             ->getMany();
-        $participantIds = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
+        $participantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
         foreach ($participantIds as $userId) {
             // Delete any prior notifications of the same type (e.g. prior "new" comments)
             Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)

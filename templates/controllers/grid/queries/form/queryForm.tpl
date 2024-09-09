@@ -32,7 +32,7 @@
 
 		{fbvFormSection list=true title="editor.submission.stageParticipants"}
 			{foreach from=$allParticipants item="participant" key="id"}
-				{fbvElement type="checkbox" id="users[]" value=$id checked=in_array($id, $assignedParticipants) label=$participant|escape translate=false}
+                {fbvElement type="checkbox" id="users[]" value=$id checked=in_array($id, $assignedParticipants) label=$participant|escape translate=false}
 			{/foreach}
 		{/fbvFormSection}
 

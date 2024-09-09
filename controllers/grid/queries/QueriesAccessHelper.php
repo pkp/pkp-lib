@@ -27,7 +27,9 @@
 namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\query\Query;
+use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\user\User;
 
@@ -124,7 +126,7 @@ class QueriesAccessHelper
 
         // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
         if ($this->hasStageRole($query->stageId, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
-            $headNote = $query->getHeadNote();
+            $headNote = Repo::note()->getHeadNote($query->id);
             if ($headNote->userId == $this->_user->getId() && ($headNote->dateCreated->diffInHours() < 1)) {
                 return true;
             }
@@ -151,7 +153,7 @@ class QueriesAccessHelper
         // Users can always delete their own placeholder queries.
         $query = Query::find($queryId);
         if ($query) {
-            $headNote = $query->getHeadNote();
+            $headNote = Repo::note()->getHeadNote($query->id);
             if ($headNote?->userId == $this->_user->getId() && $headNote?->title == '') {
                 return true;
             }
@@ -189,10 +191,9 @@ class QueriesAccessHelper
      */
     protected function isAssigned($userId, $queryId)
     {
-        $participantIds = (new Query)->queryParticipants()
-            ->withQueryId($queryId)
-            ->select('userId')
-            ->get();
+        $participantIds = QueryParticipant::withQueryId($queryId)
+            ->pluck('user_id')
+            ->all();
         return in_array($userId, $participantIds);
     }
 

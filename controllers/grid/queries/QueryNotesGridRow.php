@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\queries;
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -63,7 +64,7 @@ class QueryNotesGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $rowId = abs($this->getId());
-        $headNote = $this->getQuery()->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($this->getQuery()->id);
         if ($rowId > 0 && $headNote?->id != $rowId) {
             // Only add row actions if this is an existing row
             $router = $request->getRouter();

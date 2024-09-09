@@ -40,7 +40,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         }
         $query = Query::find($notification->assocId);
 
-        $headNote = $query->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($query->id);
         if (!$headNote) {
             throw new \Exception('Unable to retrieve head note for query!');
         }
@@ -54,7 +54,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'noteTitle' => Str::limit($headNote->title, 200),
                 ]);
             case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                $latestNote = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->assocId)
+                $latestNote = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)
                     ->withSort(Note::NOTE_ORDER_ID)
                     ->first();
                 $user = $latestNote->user;
@@ -93,7 +93,6 @@ class QueryNotificationManager extends NotificationManagerDelegate
             throw new \Exception('Unexpected query assoc type!');
         }
 
-        // TODO: Fix this for null
         $query = Query::find($notification->assocId);
         if (!$query) {
             return null;
@@ -119,7 +118,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __(
                     'submission.query.new.contents',
                     [
-                        'queryTitle' => $query->getHeadNote()->title,
+                        'queryTitle' => Repo::note()->getHeadNote($query->id)->title,
                         'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
@@ -127,7 +126,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __(
                     'submission.query.activity.contents',
                     [
-                        'queryTitle' => $query->getHeadNote()->title,
+                        'queryTitle' => Repo::note()->getHeadNote($query->id)->title,
                         'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
@@ -142,8 +141,4 @@ class QueryNotificationManager extends NotificationManagerDelegate
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\QueryNotificationManager', '\QueryNotificationManager');
 }

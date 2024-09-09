@@ -29,6 +29,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\notification\Notification;
 use PKP\payment\QueuedPaymentDAO;
+use PKP\query\Query;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class NotificationsGridCellProvider extends GridCellProvider

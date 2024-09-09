@@ -19,6 +19,7 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use PKP\core\PKPRequest;
 use PKP\query\Query;
+use PKP\query\QueryParticipant;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\user\User;
@@ -58,14 +59,11 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
         if (!$user instanceof User) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-        //TODO Query conversion
 
         // Determine if the query is assigned to the user.
-        $participantIds = (new Query)->queryParticipants()
-            ->withQueryId($query->id)
-            ->select('userId')
-            ->get();
-        // TODO or a wherein?
+        $participantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
         if (in_array($user->getId(), $participantIds)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }

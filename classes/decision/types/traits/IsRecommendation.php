@@ -132,7 +132,7 @@ trait IsRecommendation
             }
         }
 
-        $queryId = Query::addQuery(
+        $queryId = Repo::query()->addQuery(
             $submission->getId(),
             $this->getStageId(),
             $email->subject,
@@ -144,7 +144,7 @@ trait IsRecommendation
         );
 
         $query = Query::find($queryId);
-        $note = $query->getHeadNote();
+        $note = Repo::note()->getHeadNote($query->id);
         $mailable = new Mailable();
         foreach ($email->attachments as $attachment) {
             if (isset($attachment[Mailable::ATTACHMENT_TEMPORARY_FILE])) {

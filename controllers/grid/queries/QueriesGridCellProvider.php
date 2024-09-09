@@ -25,7 +25,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\DataObject;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
-use PKP\db\DAO;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\note\Note;
@@ -78,8 +78,8 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         $headNote = $element->getHeadNote();
         $user = $headNote?->user;
         $notes = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $element->getId())
-                    ->withSort(Note::NOTE_ORDER_ID)
-                    ->lazy();
+            ->withSort(Note::NOTE_ORDER_ID)
+            ->lazy();
         $context = Application::get()->getRequest()->getContext();
         $datetimeFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort());
 
@@ -87,12 +87,12 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
             case 'replies':
                 return ['label' => max(0, $notes->count() - 1)];
             case 'from':
-                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $headNote?->dateCreated->format($datetimeFormatShort)];
+                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $headNote?->dateCreated?->locale(Locale::getLocale())?->translatedFormat($datetimeFormatShort)];
             case 'lastReply':
                 $latestReply = $notes->first();
                 if ($latestReply && $latestReply->getId() != $headNote->id) {
                     $repliedUser = $latestReply->user;
-                    return ['label' => ($repliedUser?->getUsername() ?? '&mdash;') . '<br />' . $latestReply->dateCreated->format($datetimeFormatShort)];
+                    return ['label' => ($repliedUser?->getUsername() ?? '&mdash;') . '<br />' . $latestReply->dateCreated->locale(Locale::getLocale())->translatedFormat($datetimeFormatShort)];
                 } else {
                     return ['label' => '-'];
                 }

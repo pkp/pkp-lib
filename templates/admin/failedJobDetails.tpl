@@ -13,27 +13,7 @@
 	<h1 class="app__pageHeading">
 		{translate key=$pageTitle}
 	</h1>
-	<div class="app__contentPanel app__contentPanel__overflow">
-		<pkp-table
-			:columns="columns"
-			:rows="rows"
-			:label="label"
-		>
-			<template #default="{ row, rowIndex }">
-				<table-cell
-					v-for="(column, columnIndex) in columns"
-					:key="column.name"
-					:column="column"
-					:row="row"
-					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
-				>
-					<template #default v-if="column.name === 'value' && isValidJson(row.value)">
-						<span>
-							<pre>{{ row.value }}</pre>
-						</span>
-					</template>
-				</table-cell>
-			</template>
-		</pkp-table>
+	<div class="app__contentPanel overflow-auto">
+		<failed-job-details-page v-bind="pageInitConfig"/>
 	</div>
 {/block}

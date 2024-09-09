@@ -519,10 +519,10 @@ class AdminHandler extends Handler
             'name' => __('navigation.tools.jobs'),
         ];
 
-        $templateMgr->setState($this->getJobsTableState($request));
+        $templateMgr->setState(['pageInitConfig' => $this->getJobsTableState($request)]);
 
         $templateMgr->assign([
-            'pageComponent' => 'JobsPage',
+            'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
             'pageTitle' => 'navigation.tools.jobs',
         ]);
@@ -587,10 +587,10 @@ class AdminHandler extends Handler
             'name' => __('navigation.tools.jobs.failed'),
         ];
 
-        $templateMgr->setState($this->getFailedJobsTableState($request));
+        $templateMgr->setState(['pageInitConfig' => $this->getFailedJobsTableState($request)]);
 
         $templateMgr->assign([
-            'pageComponent' => 'FailedJobsPage',
+            'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
             'pageTitle' => 'navigation.tools.jobs.failed',
         ]);
@@ -677,25 +677,29 @@ class AdminHandler extends Handler
             'name' => __('navigation.tools.jobs.failed.details'),
         ];
 
-        $templateMgr->setState([
-            'label' => __('navigation.tools.job.failed.details.view', ['id' => $failedJob->id]),
-            'columns' => [
-                [
-                    'name' => 'attribute',
-                    'label' => __('admin.job.failed.list.attribute'),
-                    'value' => 'attribute',
-                ],
-                [
-                    'name' => 'value',
-                    'label' => __('admin.job.failed.list.attribute.value'),
-                    'value' => 'value',
-                ],
-            ],
-            'rows' => $rows,
-        ]);
+        $templateMgr->setState(
+            [
+                'pageInitConfig' => [
+                    'label' => __('navigation.tools.job.failed.details.view', ['id' => $failedJob->id]),
+                    'columns' => [
+                        [
+                            'name' => 'attribute',
+                            'label' => __('admin.job.failed.list.attribute'),
+                            'value' => 'attribute',
+                        ],
+                        [
+                            'name' => 'value',
+                            'label' => __('admin.job.failed.list.attribute.value'),
+                            'value' => 'value',
+                        ],
+                    ],
+                    'rows' => $rows,
+                ]
+            ]
+        );
 
         $templateMgr->assign([
-            'pageComponent' => 'FailedJobDetailsPage',
+            'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
             'pageTitle' => 'navigation.tools.jobs.failed.details',
         ]);

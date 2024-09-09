@@ -31,6 +31,9 @@
 		"permitMetadataEdit": {
 			"type": "boolean"
 		},
+		"permitSettings": {
+			"type": "boolean"
+		},
 		"recommendOnly": {
 			"type": "boolean"
 		},

@@ -18,4 +18,5 @@
 		abbrev CDATA #REQUIRED
 		permitSelfRegistration CDATA #IMPLIED
 		permitMetadataEdit CDATA #IMPLIED
+		permitSettings CDATA #IMPLIED
 		masthead CDATA #IMPLIED>

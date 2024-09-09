@@ -112,6 +112,15 @@ class UserGroupForm extends Form
 
         if ($userGroup) {
             $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($this->getContextId(), $userGroup->getId())->toArray();
+            // Get a list of all settings-accessible user groups for the current user in
+            // order to prevent them from locking themselves out by disabling the only one.
+            $mySettingsAccessUserGroupIds = Repo::userGroup()->getCollector()
+                ->filterByContextIds([$this->getContextId()])
+                ->filterByUserIds([Application::get()->getRequest()->getUser()->getId()])
+                ->getMany()
+                ->filter(fn ($userGroup) => $userGroup->getPermitSettings())
+                ->map(fn ($userGroup) => $userGroup->getId())
+                ->toArray();
 
             $data = [
                 'userGroupId' => $userGroup->getId(),
@@ -120,8 +129,10 @@ class UserGroupForm extends Form
                 'abbrev' => $userGroup->getAbbrev(null), //Localized
                 'assignedStages' => $assignedStages,
                 'showTitle' => $userGroup->getShowTitle(),
+                'mySettingsAccessUserGroupIds' => array_values($mySettingsAccessUserGroupIds),
                 'permitSelfRegistration' => $userGroup->getPermitSelfRegistration(),
                 'permitMetadataEdit' => $userGroup->getPermitMetadataEdit(),
+                'permitSettings' => $userGroup->getPermitSettings(),
                 'recommendOnly' => $userGroup->getRecommendOnly(),
                 'masthead' => $userGroup->getMasthead(),
             ];
@@ -137,7 +148,7 @@ class UserGroupForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'masthead']);
+        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'permitSettings', 'masthead']);
     }
 
     /**
@@ -157,6 +168,7 @@ class UserGroupForm extends Form
         $disableRoleSelect = ($this->getUserGroupId() > 0) ? true : false;
         $templateMgr->assign('disableRoleSelect', $disableRoleSelect);
         $templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
+        $templateMgr->assign('permitSettingsRoleIds', $this->getPermitSettingsRoles());
         $templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
         $templateMgr->assign('notChangeMetadataEditPermissionRoles', Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES);
 
@@ -165,20 +177,24 @@ class UserGroupForm extends Form
 
     /**
      * Get a list of roles optionally permitting user self-registration.
-     *
-     * @return array
      */
-    public function getPermitSelfRegistrationRoles()
+    public function getPermitSelfRegistrationRoles(): array
     {
         return [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_READER];
     }
 
     /**
-     * Get a list of roles optionally permitting recommendOnly option.
-     *
-     * @return array
+     * Get a list of roles optionally permitting settings access.
      */
-    public function getRecommendOnlyRoles()
+    public function getPermitSettingsRoles(): array
+    {
+        return [Role::ROLE_ID_MANAGER];
+    }
+
+    /**
+     * Get a list of roles optionally permitting recommendOnly option.
+     */
+    public function getRecommendOnlyRoles(): array
     {
         return [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
     }
@@ -210,6 +226,7 @@ class UserGroupForm extends Form
             $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
             $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
             $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
+            $userGroup->setPermitSettings($this->getData('permitSettings') && $userGroup->getRoleId() == Role::ROLE_ID_MANAGER);
             if (in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->setPermitMetadataEdit(true);
             }
@@ -224,6 +241,7 @@ class UserGroupForm extends Form
             $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
             $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
             $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
+            $userGroup->setPermitSettings($this->getData('permitSettings') && $userGroup->getRoleId() == Role::ROLE_ID_MANAGER);
             if (in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->setPermitMetadataEdit(true);
             } else {

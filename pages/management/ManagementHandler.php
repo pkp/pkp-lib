@@ -57,6 +57,7 @@ use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\mail\Mailable;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -90,6 +91,11 @@ class ManagementHandler extends Handler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        // The "settings" operation is off limits to managers who don't have access to settings,
+        // EXCEPT for the "announcements" area, which was moved out of settings without changing its URL.
+        if ($request->getRequestedOp() == 'settings' && $request->getRequestedArgs() != ['announcements']) {
+            $this->addPolicy(new CanAccessSettingsPolicy());
+        }
         return parent::authorize($request, $args, $roleAssignments);
     }
 

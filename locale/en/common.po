@@ -121,6 +121,9 @@ msgstr "Acknowledged"
 msgid "common.action"
 msgstr "Action"
 
+msgid "common.moreActions"
+msgstr "More Actions"
+
 msgid "common.activate"
 msgstr "Activate"
 

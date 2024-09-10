@@ -38,6 +38,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         public ?array $userGroupsToAdd = null,
         public ?array $userGroupsToRemove = null,
         public ?bool $passwordHashed = null,
+        public ?string $sendEmailAddress = null,
     ) 
     {
         parent::__construct(get_object_vars($this));

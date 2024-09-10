@@ -105,6 +105,15 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
      */
     public function invite(Request $illuminateRequest): JsonResponse 
     {
+        $this->invitation->getSpecificPayload()->sendEmailAddress = $this->invitation->getEmail();
+
+        $existingUser = $this->invitation->getExistingUser();
+        if (isset($existingUser)) {
+            $this->invitation->getSpecificPayload()->sendEmailAddress = $existingUser->getEmail();
+        }
+
+        $this->invitation->updatePayload();
+        
         if (!$this->invitation->validate([], Invitation::VALIDATION_CONTEXT_INVITE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()

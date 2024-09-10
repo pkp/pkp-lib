@@ -17,6 +17,7 @@ namespace PKP\invitation\invitations\userRoleAssignment\resources;
 use APP\facades\Repo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\user\User;
 
 class UserRoleAssignmentInviteResource extends JsonResource
 {
@@ -40,6 +41,8 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'userGroupsToAdd' => $this->transformUserGroups($this->getSpecificPayload()->userGroupsToAdd),
             'userGroupsToRemove' => $this->transformUserGroups($this->getSpecificPayload()->userGroupsToRemove),
             'username' => $this->getSpecificPayload()->username,
+            'sendEmailAddress' => $this->getSpecificPayload()->sendEmailAddress,
+            'existingUser' => $this->transformUser($this->getExistingUser()),
         ]);
     }
 
@@ -62,5 +65,25 @@ class UserRoleAssignmentInviteResource extends JsonResource
                 'dateEnd' => $userGroup['dateEnd'],
             ];
         })->toArray();
+    }
+
+    /**
+     * Transform the userGroupsToAdd or userGroupsToRemove to include related UserGroup data.
+     *
+     * @param array|null $userGroups
+     * @return array
+     */
+    protected function transformUser(?User $user): ?array
+    {
+        if (!isset($user)) {
+            return null;
+        }
+
+        return [
+            'email' => $user->getEmail(),
+            'fullName' => $user->getFullName(),
+            'familyName' => $user->getFamilyName(null),
+            'givenName' => $user->getGivenName(null),
+        ];
     }
 }

@@ -22,6 +22,7 @@ use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\contracts\IMailableUrlUpdateable;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
@@ -144,7 +145,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     /**
      * @inheritDoc
      */
-    public function getValidationRules(string $context = self::VALIDATION_CONTEXT_DEFAULT): array 
+    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array 
     {
         return [
             'reviewAssignmentId' => [
@@ -179,5 +180,13 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     public function getSpecificPayload(): ReviewerAccessInvitePayload 
     {
         return $this->payload;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        return [];
     }
 }

@@ -21,6 +21,7 @@ use PKP\identity\Identity;
 use PKP\invitation\core\contracts\IApiHandleable;
 use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\InvitePayload;
@@ -172,13 +173,14 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return $this->payload;
     }
 
-    public function getValidationRules(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): array
+
+    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         $invitationValidationRules = [];
 
         if (
-            $validationContext === Invitation::VALIDATION_CONTEXT_INVITE ||
-            $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE
+            $validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE ||
+            $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
         ) {
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
                 $this->getSpecificPayload()->userGroupsToAdd, 
@@ -199,7 +201,22 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     /**
      * @inheritDoc
      */
-    public function updatePayload(?string $validationContext = null): ?bool
+    public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        $invitationValidationMessages = [];
+
+        $invitationValidationMessages = array_merge(
+            $invitationValidationMessages, 
+            $this->getSpecificPayload()->getValidationMessages($validationContext)
+        );
+
+        return $invitationValidationMessages;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function updatePayload(?ValidationContext $validationContext = null): ?bool
     {
         // Encrypt the password if it exists
         // There is already a validation rule that makes username and password fields interconnected
@@ -211,4 +228,5 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         // Call the parent updatePayload method to continue the normal update process
         return parent::updatePayload($validationContext);
     }
+    
 }

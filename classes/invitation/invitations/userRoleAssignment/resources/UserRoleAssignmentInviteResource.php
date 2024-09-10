@@ -84,6 +84,8 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'fullName' => $user->getFullName(),
             'familyName' => $user->getFamilyName(null),
             'givenName' => $user->getGivenName(null),
+            'country' => $user->getCountry(),
+            'affiliation' => $user->getAffiliation(null)
         ];
     }
 }

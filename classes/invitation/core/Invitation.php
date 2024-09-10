@@ -25,6 +25,7 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\models\InvitationModel;
@@ -35,12 +36,6 @@ use Symfony\Component\Mailer\Exception\TransportException;
 
 abstract class Invitation
 {
-    public const VALIDATION_CONTEXT_DEFAULT = 'default';
-    public const VALIDATION_CONTEXT_INVITE = 'invite';
-    public const VALIDATION_CONTEXT_FINALIZE = 'finalize';
-    public const VALIDATION_CONTEXT_POPULATE = 'populate';
-    public const VALIDATION_CONTEXT_REFINE = 'refine';
-
     public const VALIDATION_RULE_GENERIC = 'generic_validation_rule';
 
     public const DEFAULT_EXPIRY_DAYS = 3;
@@ -198,7 +193,7 @@ abstract class Invitation
      *          False: if database update FAILED
      *          null : if invitation validation failed for properties
      */
-    public function updatePayload(?string $validationContext = null): ?bool
+    public function updatePayload(?ValidationContext $validationContext = null): ?bool
     {
         // Convert the current payload object to an array
         $currentPayloadArray = $this->payload->toArray();
@@ -300,7 +295,7 @@ abstract class Invitation
         }
 
         if (in_array(ShouldValidate::class, class_uses($this))) {
-            if (!$this->validate([], self::VALIDATION_CONTEXT_INVITE)) {
+            if (!$this->validate([], ValidationContext::VALIDATION_CONTEXT_INVITE)) {
                 return false;
             }
         }

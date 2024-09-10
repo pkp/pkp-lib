@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\invitations\userRoleAssignment\helpers\UserGroupHelper;
@@ -75,7 +76,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
      */
     public function finalize(Request $illuminateRequest): JsonResponse 
     {
-        if (!$this->invitation->validate([], Invitation::VALIDATION_CONTEXT_FINALIZE)) {
+        if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_FINALIZE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -154,7 +155,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        if (!$this->invitation->validate($payload, Invitation::VALIDATION_CONTEXT_REFINE)) {
+        if (!$this->invitation->validate($payload, ValidationContext::VALIDATION_CONTEXT_REFINE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -162,7 +163,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
 
         $this->invitation->fillFromData($payload);
 
-        $this->invitation->updatePayload(Invitation::VALIDATION_CONTEXT_REFINE);
+        $this->invitation->updatePayload(ValidationContext::VALIDATION_CONTEXT_REFINE);
 
         return response()->json(
             (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 

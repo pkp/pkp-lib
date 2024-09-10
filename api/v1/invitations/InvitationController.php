@@ -264,11 +264,16 @@ class InvitationController extends PKPBaseController
                 new EmailMustNotExistRule($payload['inviteeEmail']),
             ]
         ];
+
+        $messages = [
+            'inviteeEmail.prohibited' => __('invitation.api.error.initialization.noUserIdAndEmailTogether'),
+            'userId.prohibited' => __('invitation.api.error.initialization.noUserIdAndEmailTogether')
+        ];
         
         $validator = ValidatorFactory::make(
             $payload, 
             $rules,
-            []
+            $messages
         );
 
         if ($validator->fails()) {

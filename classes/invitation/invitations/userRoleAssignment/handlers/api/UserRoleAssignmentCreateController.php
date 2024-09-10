@@ -13,13 +13,13 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
-use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\CreateInvitationController;
+use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
@@ -69,7 +69,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        if (!$this->invitation->validate($payload, Invitation::VALIDATION_CONTEXT_POPULATE)) {
+        if (!$this->invitation->validate($payload, ValidationContext::VALIDATION_CONTEXT_POPULATE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -112,7 +112,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
 
         $this->invitation->updatePayload();
         
-        if (!$this->invitation->validate([], Invitation::VALIDATION_CONTEXT_INVITE)) {
+        if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_INVITE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);

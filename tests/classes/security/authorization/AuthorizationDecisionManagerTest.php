@@ -19,11 +19,11 @@
 namespace PKP\tests\classes\security\authorization;
 
 use APP\core\Application;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(AuthorizationDecisionManager::class)]
 class AuthorizationDecisionManagerTest extends PolicyTestCase
@@ -110,7 +110,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             ->getMock();
         $permitPolicy->expects($this->any())
             ->method('effect')
-            ->will($this->returnCallback($this->mockEffect(...)));
+            ->willReturnCallback($this->mockEffect(...));
 
         // deny overrides
         // - permit policy
@@ -160,14 +160,10 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         // Create a policy with a call-on-deny advice.
         /** @var AuthorizationPolicy|MockObject */
         $policy = $this->getMockBuilder(AuthorizationPolicy::class)
-            ->addMethods(['callOnDeny'])
             ->getMock();
-        $policy->expects($this->once())
-            ->method('callOnDeny')
-            ->will($this->returnCallback($this->mockCallOnDeny(...)));
         $callOnDenyAdvice = [
-            $policy,
-            'callOnDeny',
+            $this,
+            'mockCallOnDeny',
             ['argument']
         ];
         $policy->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDenyAdvice);

@@ -116,7 +116,7 @@ class NotificationsGridCellProvider extends GridCellProvider
         switch ($notification->assocType) {
             case Application::ASSOC_TYPE_QUEUED_PAYMENT:
                 $contextDao = Application::getContextDAO();
-                $paymentManager = Application::getPaymentManager($contextDao->getById($notification->contextId));
+                $paymentManager = Application::get()->getPaymentManager($contextDao->getById($notification->contextId));
                 $queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /** @var QueuedPaymentDAO $queuedPaymentDao */
                 $queuedPayment = $queuedPaymentDao->getById($notification->assocId);
                 if ($queuedPayment) {

@@ -18,14 +18,14 @@
 
 namespace PKP\tests\classes\core;
 
+use PHPUnit\Framework\Attributes\BackupGlobals;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PKP\core\PKPComponentRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PHPUnit\Framework\Attributes\CoversMethod;
-use PHPUnit\Framework\Attributes\BackupGlobals;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 #[BackupGlobals(true)]
 #[CoversMethod(PKPComponentRouter::class, 'supports')]
@@ -194,7 +194,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertNotNull($serviceEndpoint);
         self::assertInstanceOf(\PKP\controllers\grid\notifications\NotificationsGridHandler::class, $handler);
         $firstContextDao = DAORegistry::getDAO('FirstContextDAO');
-        self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
+        self::assertInstanceOf(\PKP\context\Context::class, $firstContextDao->getByPath('context1'));
     }
 
     public function testUrlWithPathinfo()

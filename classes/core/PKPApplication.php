@@ -24,11 +24,12 @@ use DateTimeZone;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
-use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
@@ -42,7 +43,7 @@ interface iPKPApplicationInfoProvider
     /**
      * Get the top-level context DAO.
      */
-    public static function getContextDAO();
+    public static function getContextDAO(): \PKP\context\ContextDAO;
 
     /**
      * Get the representation DAO.
@@ -52,28 +53,28 @@ interface iPKPApplicationInfoProvider
     /**
      * Get a SubmissionSearchIndex instance.
      */
-    public static function getSubmissionSearchIndex();
+    public static function getSubmissionSearchIndex(): \PKP\search\SubmissionSearchIndex;
 
     /**
      * Get a SubmissionSearchDAO instance.
      */
-    public static function getSubmissionSearchDAO();
+    public static function getSubmissionSearchDAO(): \PKP\search\SubmissionSearchDAO;
 
     /**
      * Get the stages used by the application.
      */
-    public static function getApplicationStages();
+    public static function getApplicationStages(): array;
 
     /**
      * Get the file directory array map used by the application.
      * should return array('context' => ..., 'submission' => ...)
      */
-    public static function getFileDirectories();
+    public static function getFileDirectories(): array;
 
     /**
      * Returns the context type for this application.
      */
-    public static function getContextAssocType();
+    public static function getContextAssocType(): int;
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
@@ -287,10 +288,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get the current application object
-     *
-     * @return Application
      */
-    public static function get()
+    public static function get(): self
     {
         return Registry::get('application');
     }
@@ -314,10 +313,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Return a HTTP client implementation.
-     *
-     * @return Client
      */
-    public function getHttpClient()
+    public function getHttpClient(): Client
     {
         $application = Application::get();
         $userAgent = $application->getName() . '/';
@@ -342,10 +339,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get the request implementation singleton
-     *
-     * @return Request
      */
-    public function getRequest()
+    public function getRequest(): Request
     {
         $request = &Registry::get('request', true, null); // Ref req'd
 
@@ -385,7 +380,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * This executes the application by delegating the
      * request to the dispatcher.
      */
-    public function execute()
+    public function execute(): void
     {
         // Dispatch the request to the correct handler
         $dispatcher = $this->getDispatcher();
@@ -394,20 +389,16 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get the symbolic name of this application
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'pkp-lib';
     }
 
     /**
      * Get the locale key for the name of this application.
-     *
-     * @return string
      */
-    abstract public function getNameKey();
+    abstract public function getNameKey(): string;
 
     /**
      * Get the name of the context for this application
@@ -417,10 +408,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Get the URL to the XML descriptor for the current version of this
      * application.
-     *
-     * @return string
      */
-    abstract public function getVersionDescriptorUrl();
+    abstract public function getVersionDescriptorUrl(): string;
 
     /**
      * This function retrieves all enabled product versions once
@@ -430,10 +419,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * @param string $category
      * @param int $mainContextId Optional ID of the top-level context
      * (e.g. Journal, Conference, Press) to query for enabled products
-     *
-     * @return array
      */
-    public function getEnabledProducts($category = null, ?int $mainContextId = null)
+    public function getEnabledProducts($category = null, ?int $mainContextId = null): array
     {
         if ($mainContextId === null) {
             $request = $this->getRequest();
@@ -449,10 +436,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get the list of plugin categories for this application.
-     *
-     * @return array
      */
-    abstract public function getPluginCategories();
+    abstract public function getPluginCategories(): array;
 
     /**
      * Return the current version of the application.
@@ -465,10 +450,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get the map of DAOName => full.class.Path for this application.
-     *
-     * @return array
      */
-    public function getDAOMap()
+    public function getDAOMap(): array
     {
         return [
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
@@ -520,12 +503,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Return the fully-qualified (e.g. page.name.ClassNameDAO) name of the
      * given DAO.
-     *
-     * @param string $name
-     *
-     * @return string
      */
-    public function getQualifiedDAOName($name)
+    public function getQualifiedDAOName(string $name): ?string
     {
         $map = &Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
         if (isset($map[$name])) {
@@ -537,10 +516,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Get a mapping of license URL to license locale key for common
      * creative commons licenses.
-     *
-     * @return array
      */
-    public static function getCCLicenseOptions()
+    public static function getCCLicenseOptions(): array
     {
         return [
             'https://creativecommons.org/licenses/by-nc-nd/4.0' => 'submission.license.cc.by-nc-nd4',
@@ -561,7 +538,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return ?string HTML code for CC license
      */
-    public function getCCLicenseBadge($ccLicenseURL, $locale = null)
+    public function getCCLicenseBadge(?string $ccLicenseURL, ?string $locale = null): ?string
     {
         if (!$ccLicenseURL) {
             return null;
@@ -596,10 +573,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @param bool $contextOnly If false, also returns site-level roles (Site admin)
      * @param array|null $roleIds Only return role names of these IDs
-     *
-     * @return array
      */
-    public static function getRoleNames($contextOnly = false, $roleIds = null)
+    public static function getRoleNames(bool $contextOnly = false, ?array $roleIds = null): array
     {
         $siteRoleNames = [Role::ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin'];
         $appRoleNames = [
@@ -620,10 +595,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get a mapping of roles allowed to access particular workflows
-     *
-     * @return array
      */
-    public static function getWorkflowTypeRoles()
+    public static function getWorkflowTypeRoles(): array
     {
         return [
             self::WORKFLOW_TYPE_EDITORIAL => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
@@ -644,7 +617,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'workflow.review.externalReview',
             WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
             WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production',
-            default => new Exception('Name requested for an unrecognized stage id.')
         };
     }
 
@@ -652,19 +624,16 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * Get the hex color (#000000) of a workflow stage
      *
      * @param int $stageId One of the WORKFLOW_STAGE_* constants
-     *
-     * @return string
      */
-    public static function getWorkflowStageColor($stageId)
+    public static function getWorkflowStageColor($stageId): string
     {
-        switch ($stageId) {
-            case WORKFLOW_STAGE_ID_SUBMISSION: return '#d00a0a';
-            case WORKFLOW_STAGE_ID_INTERNAL_REVIEW: return '#e05c14';
-            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: return '#e08914';
-            case WORKFLOW_STAGE_ID_EDITING: return '#006798';
-            case WORKFLOW_STAGE_ID_PRODUCTION: return '#00b28d';
-        }
-        throw new Exception('Color requested for an unrecognized stage id.');
+        return match ($stageId) {
+            WORKFLOW_STAGE_ID_SUBMISSION => '#d00a0a',
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => '#e05c14',
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => '#e08914',
+            WORKFLOW_STAGE_ID_EDITING => '#006798',
+            WORKFLOW_STAGE_ID_PRODUCTION => '#00b28d',
+        };
     }
 
     /**
@@ -695,10 +664,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Get the supported metadata setting names for this application
-     *
-     * @return array
      */
-    public static function getMetadataFields()
+    public static function getMetadataFields(): array
     {
         return [
             'coverage',
@@ -758,6 +725,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public static function getSectionIdPropName(): string
     {
         return 'sectionId';
+    }
+
+    /**
+     * Get the payment manager.
+     */
+    public function getPaymentManager(Context $context): \PKP\payment\PaymentManager
+    {
+        throw new \Exception('Payments not implemented.');
     }
 }
 

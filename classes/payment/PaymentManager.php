@@ -125,7 +125,3 @@ abstract class PaymentManager
      */
     abstract public function fulfillQueuedPayment($request, $queuedPayment);
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\payment\PaymentManager', '\PaymentManager');
-}

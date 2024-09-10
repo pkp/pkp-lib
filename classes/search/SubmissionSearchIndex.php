@@ -135,10 +135,3 @@ abstract class SubmissionSearchIndex
         $assocId = null
     );
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\search\SubmissionSearchIndex', '\SubmissionSearchIndex');
-    foreach (['SEARCH_STOPWORDS_FILE', 'SEARCH_KEYWORD_MAX_LENGTH'] as $constantName) {
-        define($constantName, constant('\SubmissionSearchIndex::' . $constantName));
-    }
-}

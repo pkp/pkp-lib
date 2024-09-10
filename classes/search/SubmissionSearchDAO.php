@@ -181,7 +181,3 @@ class SubmissionSearchDAO extends \PKP\db\DAO
             ->pluck('sskl.keyword_id', 'tmp.keyword');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\search\SubmissionSearchDAO', '\SubmissionSearchDAO');
-}

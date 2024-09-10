@@ -20,8 +20,8 @@ namespace PKP\tests\classes\core;
 
 use APP\core\Application;
 use APP\core\Request;
-use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\BackupGlobals;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\core\PKPComponentRouter;
 use PKP\core\PKPRequest;
@@ -150,7 +150,7 @@ class PKPRouterTestCase extends PKPTestCase
             ->with('contextPath')
             ->willReturn($expectedResult);
         $result = $this->router->getContext($this->request);
-        self::assertInstanceOf('Context', $result);
+        self::assertInstanceOf(\PKP\context\Context::class, $result);
         self::assertEquals($expectedResult, $result);
     }
 

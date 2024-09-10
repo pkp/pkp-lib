@@ -77,6 +77,14 @@
 				"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
 			]
 		},
+		"metadataLocales": {
+			"type": "array",
+			"description": "The list of metadata locales in the form [locale code => locale name translated in UI locale].",
+			"readOnly": true,
+			"items": {
+				"type": "string"
+			}
+		},
 		"publications": {
 			"type": "array",
 			"description": "A list of publications that have been created for this submission.",

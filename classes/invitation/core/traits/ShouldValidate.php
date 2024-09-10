@@ -63,7 +63,7 @@ trait ShouldValidate
         $otherFields = array_diff(array_keys($data), array_keys($this->globalTraitValidation));
 
         if (empty($otherFields)) {
-            $data = array_merge($data, get_object_vars($this->getSpecificPayload())); // Populate $data with all the properties of the current object
+            $data = array_merge($data, get_object_vars($this->getPayload())); // Populate $data with all the properties of the current object
         }
 
         $rules = $this->getValidationRules($validationContext);

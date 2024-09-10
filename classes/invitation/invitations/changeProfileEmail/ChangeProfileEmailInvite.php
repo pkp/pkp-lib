@@ -42,9 +42,20 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         'newEmail',
     ];
 
+    /**
+     * @inheritDoc
+     */
     public static function getType(): string
     {
         return self::INVITATION_TYPE;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function getPayloadClass(): string
+    {
+        return ChangeProfileEmailInvitePayload::class;
     }
 
     public function getNotAccessibleAfterInvite(): array
@@ -91,7 +102,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
             return [
                 'acceptInvitationUrl' => $acceptUrl,
                 'declineInvitationUrl' => $declineUrl,
-                'newEmail' => $this->getSpecificPayload()->newEmail,
+                'newEmail' => $this->getPayload()->newEmail,
                 'siteContactName' => $contactName
             ];
         });
@@ -107,7 +118,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
             throw new Exception();
         }
 
-        $user->setEmail($this->getSpecificPayload()->newEmail);
+        $user->setEmail($this->getPayload()->newEmail);
 
         Repo::user()->edit($user);
 
@@ -117,22 +128,6 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new ChangeProfileEmailInviteRedirectController($this);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function createPayload(): ChangeProfileEmailInvitePayload
-    {
-        return new ChangeProfileEmailInvitePayload();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getSpecificPayload(): ChangeProfileEmailInvitePayload
-    {
-        return $this->payload;
     }
 
     /**

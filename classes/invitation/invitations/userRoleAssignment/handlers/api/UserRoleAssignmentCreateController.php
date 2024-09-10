@@ -52,7 +52,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
     public function add(Request $illuminateRequest): JsonResponse 
     {
         if ($this->invitation->getEmail()) {
-            $this->invitation->getSpecificPayload()->sendEmailAddress = $this->invitation->getEmail();
+            $this->invitation->getPayload()->sendEmailAddress = $this->invitation->getEmail();
             $this->invitation->updatePayload();
         }
 
@@ -103,11 +103,11 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
      */
     public function invite(Request $illuminateRequest): JsonResponse 
     {
-        $this->invitation->getSpecificPayload()->sendEmailAddress = $this->invitation->getEmail();
+        $this->invitation->getPayload()->sendEmailAddress = $this->invitation->getEmail();
 
         $existingUser = $this->invitation->getExistingUser();
         if (isset($existingUser)) {
-            $this->invitation->getSpecificPayload()->sendEmailAddress = $existingUser->getEmail();
+            $this->invitation->getPayload()->sendEmailAddress = $existingUser->getEmail();
         }
 
         $this->invitation->updatePayload();

@@ -60,6 +60,14 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return self::INVITATION_TYPE;
     }
 
+    /**
+     * @inheritDoc
+     */
+    protected function getPayloadClass(): string
+    {
+        return UserRoleAssignmentInvitePayload::class;
+    }
+
     public function getNotAccessibleAfterInvite(): array
     {
         return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);
@@ -109,11 +117,11 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         $receiver = parent::getMailableReceiver($locale);
 
         if (isset($this->familyName)) {
-            $receiver->setFamilyName($this->getSpecificPayload()->familyName, $locale);
+            $receiver->setFamilyName($this->getPayload()->familyName, $locale);
         }
 
         if (isset($this->givenName)) {
-            $receiver->setGivenName($this->getSpecificPayload()->givenName, $locale);
+            $receiver->setGivenName($this->getPayload()->givenName, $locale);
         }
 
         return $receiver;
@@ -140,23 +148,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return new UserRoleAssignmentReceiveController($invitation);
     }
 
-    /**
-     * @inheritDoc
-     */
-    protected function createPayload(): InvitePayload
-    {
-        return new UserRoleAssignmentInvitePayload();
-    }
-
-    /**
-     * Access the UserRoleAssignmentInvitePayload properties.
-     */
-    public function getSpecificPayload(): UserRoleAssignmentInvitePayload
-    {
-        return $this->payload;
-    }
-
-
     public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         $invitationValidationRules = [];
@@ -166,8 +157,8 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
         ) {
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
-                $this->getSpecificPayload()->userGroupsToAdd, 
-                $this->getSpecificPayload()->userGroupsToRemove
+                $this->getPayload()->userGroupsToAdd, 
+                $this->getPayload()->userGroupsToRemove
             );
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new UserMustExistRule($this->getUserId());
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new EmailMustNotExistRule($this->getEmail());
@@ -175,7 +166,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $validationRules = array_merge(
             $invitationValidationRules, 
-            $this->getSpecificPayload()->getValidationRules($this, $validationContext)
+            $this->getPayload()->getValidationRules($this, $validationContext)
         );
 
         return $validationRules;
@@ -190,7 +181,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $invitationValidationMessages = array_merge(
             $invitationValidationMessages, 
-            $this->getSpecificPayload()->getValidationMessages($validationContext)
+            $this->getPayload()->getValidationMessages($validationContext)
         );
 
         return $invitationValidationMessages;
@@ -203,9 +194,9 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     {
         // Encrypt the password if it exists
         // There is already a validation rule that makes username and password fields interconnected
-        if (isset($this->getSpecificPayload()->username) && isset($this->getSpecificPayload()->password) && !$this->getSpecificPayload()->passwordHashed) {
-            $this->getSpecificPayload()->password = Validation::encryptCredentials($this->getSpecificPayload()->username, $this->getSpecificPayload()->password);
-            $this->getSpecificPayload()->passwordHashed = true;
+        if (isset($this->getPayload()->username) && isset($this->getPayload()->password) && !$this->getPayload()->passwordHashed) {
+            $this->getPayload()->password = Validation::encryptCredentials($this->getPayload()->username, $this->getPayload()->password);
+            $this->getPayload()->passwordHashed = true;
         }
 
         // Call the parent updatePayload method to continue the normal update process

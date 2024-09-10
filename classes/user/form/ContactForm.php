@@ -82,7 +82,7 @@ class ContactForm extends BaseProfileForm
         $templateMgr->assign([
             'countries' => $countries,
             'availableLocales' => $site->getSupportedLocaleNames(),
-            'changeEmailPending' => $invitationModel ? $invitation->getSpecificPayload()->newEmail : null,
+            'changeEmailPending' => $invitationModel ? $invitation->getPayload()->newEmail : null,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -138,7 +138,7 @@ class ContactForm extends BaseProfileForm
             $invitation = new ChangeProfileEmailInvite($invitationModel);
 
             $formPendingEmail = $this->getData('pendingEmail');
-            if ($invitation->getSpecificPayload()->newEmail == $formPendingEmail) {
+            if ($invitation->getPayload()->newEmail == $formPendingEmail) {
                 $invitationModel->markAs(InvitationStatus::DECLINED);
             }
         }

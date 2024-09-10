@@ -32,9 +32,20 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
 {
     public const INVITATION_TYPE = 'registrationAccess';
 
+    /**
+     * @inheritDoc
+     */
     public static function getType(): string
     {
         return self::INVITATION_TYPE;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function getPayloadClass(): string
+    {
+        return EmptyInvitePayload::class;
     }
 
     public function updateMailableWithUrl(Mailable $mailable): void
@@ -81,21 +92,5 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new RegistrationAccessInviteRedirectController($this);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function createPayload(): EmptyInvitePayload
-    {
-        return new EmptyInvitePayload();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getSpecificPayload(): EmptyInvitePayload 
-    {
-        return $this->payload;
     }
 }

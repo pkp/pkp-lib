@@ -87,25 +87,25 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         if (!isset($user)) {
             $user = Repo::user()->newDataObject();
 
-            $user->setUsername($this->invitation->getSpecificPayload()->username);
+            $user->setUsername($this->invitation->getPayload()->username);
 
             // Set the base user fields (name, etc.)
-            $user->setGivenName($this->invitation->getSpecificPayload()->givenName, null);
-            $user->setFamilyName($this->invitation->getSpecificPayload()->familyName, null);
-            $user->setEmail($this->invitation->invitationModel->email);
-            $user->setCountry($this->invitation->getSpecificPayload()->country);
-            $user->setAffiliation($this->invitation->getSpecificPayload()->affiliation, null);
+            $user->setGivenName($this->invitation->getPayload()->givenName, null);
+            $user->setFamilyName($this->invitation->getPayload()->familyName, null);
+            $user->setEmail($this->invitation->getEmail());
+            $user->setCountry($this->invitation->getPayload()->country);
+            $user->setAffiliation($this->invitation->getPayload()->affiliation, null);
 
-            $user->setOrcid($this->invitation->getSpecificPayload()->orcid);
+            $user->setOrcid($this->invitation->getPayload()->orcid);
 
             $user->setDateRegistered(Core::getCurrentDate());
             $user->setInlineHelp(1); // default new users to having inline help visible.
-            $user->setPassword($this->invitation->getSpecificPayload()->password);
+            $user->setPassword($this->invitation->getPayload()->password);
 
             Repo::user()->add($user);
         }
 
-        foreach ($this->invitation->getSpecificPayload()->userGroupsToRemove as $userUserGroup) {
+        foreach ($this->invitation->getPayload()->userGroupsToRemove as $userUserGroup) {
             $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
             Repo::userGroup()->endAssignments(
                 $this->invitation->getContextId(),
@@ -114,7 +114,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             );
         }
 
-        foreach ($this->invitation->getSpecificPayload()->userGroupsToAdd as $userUserGroup) {
+        foreach ($this->invitation->getPayload()->userGroupsToAdd as $userUserGroup) {
             $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
 
             Repo::userGroup()->assignUserToGroup(

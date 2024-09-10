@@ -32,7 +32,7 @@ trait OneClickReviewerAccess
         $reviewInvitation = new ReviewerAccessInvite();
         $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
 
-        $reviewInvitation->getSpecificPayload()->reviewAssignmentId = $reviewAssignment->getId();
+        $reviewInvitation->getPayload()->reviewAssignmentId = $reviewAssignment->getId();
 
         $inviteResult = false;
         $updateResult = $reviewInvitation->updatePayload();

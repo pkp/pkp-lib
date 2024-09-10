@@ -179,7 +179,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         // Roles Added
         $userGroupsAddedTitle = __('emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles');
-        $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getSpecificPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
+        $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
 
 
         $existingUserGroupsTitle = __('emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles');
@@ -189,7 +189,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         if (isset($user)) {
             // Roles Removed
-            foreach ($this->invitation->getSpecificPayload()->userGroupsToRemove as $userUserGroup) {
+            foreach ($this->invitation->getPayload()->userGroupsToRemove as $userUserGroup) {
                 $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
                 
                 $userGroup = Repo::userGroup()->get($userGroupHelper->userGroupId);

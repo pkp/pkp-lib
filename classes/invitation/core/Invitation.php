@@ -73,14 +73,22 @@ abstract class Invitation
     abstract public function getInvitationActionRedirectController(): ?InvitationActionRedirectController;
 
     /**
-     * Create and return a specific payload instance for the child class.
+     * Get a specific payload instance for the child class.
      */
-    abstract protected function createPayload(): InvitePayload;
+    abstract protected function getPayloadClass(): string;
 
     /**
      * Get the specific payload instance for the child class.
      */
-    abstract public function getSpecificPayload(): InvitePayload;
+    public function getPayload(): InvitePayload
+    {
+        if (!isset($this->payload)) {
+            $payloadClass = $this->getPayloadClass(); // Get the class from child
+            return new $payloadClass();
+        }
+
+        return $this->payload;
+    }
 
     /**
      * This is used during every populate call so that the code can use the currenlty processing properties.
@@ -136,7 +144,7 @@ abstract class Invitation
      */
     protected function fillFromPayload(): void
     {
-        $payloadClass = $this->getSpecificPayload();
+        $payloadClass = $this->getPayload();
         $this->payload = $payloadClass;
 
         if ($this->invitationModel->payload) {
@@ -172,7 +180,7 @@ abstract class Invitation
         $mergedData = array_merge($existingData, $filteredArgs);
 
         // Update the payload with the filtered arguments using fromArray
-        $payloadClass = $this->createPayload();
+        $payloadClass = $this->getPayload();
         $this->payload = $payloadClass::fromArray($mergedData);
 
         // Track which properties have been updated

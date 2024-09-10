@@ -42,9 +42,21 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         'reviewAssignmentId',
     ];
 
+    /**
+     * @inheritDoc
+     */
+
     public static function getType(): string
     {
         return self::INVITATION_TYPE;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function getPayloadClass(): string
+    {
+        return ReviewerAccessInvitePayload::class;
     }
 
     protected function getExpiryDays(): int
@@ -95,7 +107,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
 
     private function _validateAccessKey(): bool
     {
-        $reviewAssignment = Repo::reviewAssignment()->get($this->getSpecificPayload()->reviewAssignmentId);
+        $reviewAssignment = Repo::reviewAssignment()->get($this->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
             return false;
@@ -151,22 +163,6 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
                 }
             ]
         ];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function createPayload(): ReviewerAccessInvitePayload
-    {
-        return new ReviewerAccessInvitePayload();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getSpecificPayload(): ReviewerAccessInvitePayload 
-    {
-        return $this->payload;
     }
 
     /**

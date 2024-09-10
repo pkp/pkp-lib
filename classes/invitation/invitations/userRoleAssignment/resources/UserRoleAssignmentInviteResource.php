@@ -31,17 +31,17 @@ class UserRoleAssignmentInviteResource extends JsonResource
 
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($invitationData, [
-            'orcid' => $this->getSpecificPayload()->orcid,
-            'givenName' => $this->getSpecificPayload()->givenName,
-            'familyName' => $this->getSpecificPayload()->familyName,
-            'affiliation' => $this->getSpecificPayload()->affiliation,
-            'country' => $this->getSpecificPayload()->country,
-            'emailSubject' => $this->getSpecificPayload()->emailSubject,
-            'emailBody' => $this->getSpecificPayload()->emailBody,
-            'userGroupsToAdd' => $this->transformUserGroups($this->getSpecificPayload()->userGroupsToAdd),
-            'userGroupsToRemove' => $this->transformUserGroups($this->getSpecificPayload()->userGroupsToRemove),
-            'username' => $this->getSpecificPayload()->username,
-            'sendEmailAddress' => $this->getSpecificPayload()->sendEmailAddress,
+            'orcid' => $this->getPayload()->orcid,
+            'givenName' => $this->getPayload()->givenName,
+            'familyName' => $this->getPayload()->familyName,
+            'affiliation' => $this->getPayload()->affiliation,
+            'country' => $this->getPayload()->country,
+            'emailSubject' => $this->getPayload()->emailSubject,
+            'emailBody' => $this->getPayload()->emailBody,
+            'userGroupsToAdd' => $this->transformUserGroups($this->getPayload()->userGroupsToAdd),
+            'userGroupsToRemove' => $this->transformUserGroups($this->getPayload()->userGroupsToRemove),
+            'username' => $this->getPayload()->username,
+            'sendEmailAddress' => $this->getPayload()->sendEmailAddress,
             'existingUser' => $this->transformUser($this->getExistingUser()),
         ]);
     }

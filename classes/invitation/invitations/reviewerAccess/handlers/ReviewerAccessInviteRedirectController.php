@@ -37,7 +37,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
 
         $context = $request->getContext();
 
-        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getSpecificPayload()->reviewAssignmentId);
+        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
             throw new Exception();

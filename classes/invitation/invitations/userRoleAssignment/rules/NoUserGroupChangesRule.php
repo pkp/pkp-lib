@@ -14,34 +14,26 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\rules;
 
-use APP\facades\Repo;
 use Illuminate\Contracts\Validation\Rule;
-use PKP\invitation\core\Invitation;
-use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 
 class NoUserGroupChangesRule implements Rule
 {
-    protected UserRoleAssignmentInvite $invitation;
+    protected ?array $userGroupsToAdd;
+    protected ?array $userGroupsToRemove;
     protected string $validationContext;
 
-    public function __construct(UserRoleAssignmentInvite $invitation, string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT)
+    public function __construct(?array $userGroupsToAdd, ?array $userGroupsToRemove)
     {
-        $this->invitation = $invitation;
-        $this->validationContext = $validationContext;
+        $this->userGroupsToAdd = $userGroupsToAdd;
+        $this->userGroupsToRemove = $userGroupsToRemove;
     }
 
     public function passes($attribute, $value)
     {
-        if (
-            $this->validationContext === Invitation::VALIDATION_CONTEXT_INVITE ||
-            $this->validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE) {
-            return !(
-                empty($this->invitation->getSpecificPayload()->userGroupsToAdd) && 
-                empty($this->invitation->getSpecificPayload()->userGroupsToRemove)
-            );
-        }
-
-        return true;
+        return !(
+            empty($this->userGroupsToAdd) && 
+            empty($this->userGroupsToRemove)
+        );
     }
 
     public function message()

@@ -21,6 +21,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Rule;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\contracts\IApiHandleable;
@@ -30,9 +31,13 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
+use PKP\invitation\invitations\userRoleAssignment\rules\EmailMustNotExistRule;
+use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\invitation\models\InvitationModel;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\validation\ValidatorFactory;
+use Validator;
 
 class InvitationController extends PKPBaseController
 {
@@ -238,6 +243,45 @@ class InvitationController extends PKPBaseController
 
     public function add(Request $illuminateRequest): JsonResponse
     {
+        $reqInput = $illuminateRequest->all();
+        $payload = $reqInput['invitationData'];
+
+        $rules = [
+            'userId' => [
+                Rule::prohibitedIf(isset($payload['inviteeEmail'])),
+                'bail',
+                'nullable',
+                'required_without:inviteeEmail',
+                'integer',
+                new UserMustExistRule($payload['userId']),
+            ],
+            'inviteeEmail' => [
+                Rule::prohibitedIf(isset($payload['userId'])),
+                'bail',
+                'nullable',
+                'required_without:userId',
+                'email',
+                new EmailMustNotExistRule($payload['inviteeEmail']),
+            ]
+        ];
+        
+        $validator = ValidatorFactory::make(
+            $payload, 
+            $rules,
+            []
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $context = $this->getRequest()->getContext();
+        $inviter = $this->getRequest()->getUser();
+
+        $this->invitation->initialize($payload['userId'], $context->getId(), $payload['inviteeEmail'], $inviter->getId());
+
         return $this->selectedHandler->add($illuminateRequest);
     }
 

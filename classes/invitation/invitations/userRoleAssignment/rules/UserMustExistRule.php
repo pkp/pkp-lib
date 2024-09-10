@@ -14,34 +14,24 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\rules;
 
+use APP\facades\Repo;
 use Illuminate\Contracts\Validation\Rule;
-use PKP\invitation\core\Invitation;
-use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 
 class UserMustExistRule implements Rule
 {
-    protected UserRoleAssignmentInvite $invitation;
-    protected string $validationContext;
+    protected ?int $userId;
 
-    public function __construct(UserRoleAssignmentInvite $invitation, string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT)
+    public function __construct(?int $userId)
     {
-        $this->invitation = $invitation;
-        $this->validationContext = $validationContext;
+        $this->userId = $userId;
     }
 
     public function passes($attribute, $value)
     {
-        if (
-            $this->validationContext === Invitation::VALIDATION_CONTEXT_INVITE ||
-            $this->validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE) {
-            $userId = $this->invitation->getUserId();
-
-            if (isset($userId)) {
-                $user = $this->invitation->getExistingUser();
-                return isset($user);  // Ensure user exists
-            }
+        if (isset($this->userId)) {
+            $user = Repo::user()->get($this->userId);
+            return isset($user);  // Ensure user exists
         }
-        
 
         return true;
     }
@@ -49,7 +39,7 @@ class UserMustExistRule implements Rule
     public function message()
     {
         return __('invitation.userRoleAssignment.validation.error.user.mustExist', [
-            'userId' => $this->invitation->getUserId(),
+            'userId' => $this->userId,
         ]);
     }
 }

@@ -174,13 +174,19 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
     public function getValidationRules(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): array
     {
-        $invitationValidationRules = [
-            Invitation::VALIDATION_RULE_GENERIC => [
-                new NoUserGroupChangesRule($this, $validationContext),
-                new UserMustExistRule($this, $validationContext),
-                new EmailMustNotExistRule($this->getEmail(), $validationContext),
-            ],
-        ];
+        $invitationValidationRules = [];
+
+        if (
+            $validationContext === Invitation::VALIDATION_CONTEXT_INVITE ||
+            $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE
+        ) {
+            $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
+                $this->getSpecificPayload()->userGroupsToAdd, 
+                $this->getSpecificPayload()->userGroupsToRemove
+            );
+            $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new UserMustExistRule($this->getUserId());
+            $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new EmailMustNotExistRule($this->getEmail());
+        }
 
         $validationRules = array_merge(
             $invitationValidationRules, 

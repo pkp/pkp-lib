@@ -22,23 +22,16 @@ class EmailMustNotExistRule implements Rule
 {
     protected ?string $email;
 
-    protected string $validationContext;
-
-    public function __construct(?string $email, string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT)
+    public function __construct(?string $email)
     {
         $this->email = $email;
-        $this->validationContext = $validationContext;
     }
 
     public function passes($attribute, $value)
     {
-        if (
-            $this->validationContext === Invitation::VALIDATION_CONTEXT_INVITE ||
-            $this->validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE) {
-            if ($this->email) {
-                $user = Repo::user()->getByEmail($this->email);
-                return !isset($user);  // Fail if the email is already associated with a user
-            }
+        if ($this->email) {
+            $user = Repo::user()->getByEmail($this->email);
+            return !isset($user);  // Fail if the email is already associated with a user
         }
 
         return true;

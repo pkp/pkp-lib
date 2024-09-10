@@ -13,6 +13,7 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
+use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -50,13 +51,10 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
      */
     public function add(Request $illuminateRequest): JsonResponse 
     {
-        $reqInput = $illuminateRequest->all();
-        $payload = $reqInput['invitationData'];
-
-        $context = $this->request->getContext();
-        $inviter = $this->request->getUser();
-
-        $this->invitation->initialize($payload['userId'], $context->getId(), $payload['email'], $inviter->getId());
+        if ($this->invitation->getEmail()) {
+            $this->invitation->getSpecificPayload()->sendEmailAddress = $this->invitation->getEmail();
+            $this->invitation->updatePayload();
+        }
 
         return response()->json([
             'invitationId' => $this->invitation->getId()

@@ -21,22 +21,20 @@
 					</pkp-button>
 				</template>
 			</pkp-header>
-			<table class="pkpTable" labelled-by="usersTableLabel">
-				<thead>
-					<tr>
-						<th>{translate key="common.name"}</th>
-						<th>{translate key="stats.total"}</th>
-					</tr>
-				</thead>
-				<tbody>
+			<pkp-table labelled-by="usersTableLabel">
+				<table-header>
+					<table-column>{translate key="common.name"}</table-column>
+					<table-column>{translate key="stats.total"}</table-column>
+				</table-header>
+				<table-body>
 					{foreach from=$userStats item=$row}
-						<tr>
-							<td>{$row.name}</td>
-							<td>{$row.value}</td>
-						</tr>
+						<table-row>
+							<table-cell>{$row.name}</table-cell>
+							<table-cell>{$row.value}</table-cell>
+						</table-row>
 					{/foreach}
-				</tbody>
-			</table>
+				</table-body>
+			</pkp-table>
 		</div>
 	</div>
 {/block}

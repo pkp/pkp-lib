@@ -15,28 +15,31 @@
 		{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 	</div>
 	{if $additionalMetadata || $dataAvailability}
-		<table class="pkpTable">
+		<pkp-table>
 		{foreach $additionalMetadata as $metadata}
-			<tr>
+			<pkp-table-row>
 				{foreach $metadata as $metadataItem}
 					{if $metadataItem@iteration % 2 != 0}
-						<th scope="row">{$metadataItem|escape}</th>
+						<pkp-table-cell :is-row-header="true">{$metadataItem|escape}</pkp-table-cell>
 					{else}
-						<td>{$metadataItem|escape}</td>
+						<pkp-table-cell>{$metadataItem|escape}</pkp-table-cell>
 					{/if}
 				{/foreach}
-			</tr>
+			</pkp-table-row>
 		{/foreach}
 		{if $dataAvailability}
-			<tr>
-				<th scope="row">
+			<pkp-table-row>
+				<pkp-table-cell :is-row-header="true">
 					{translate key="submission.dataAvailability"}
-				</th>
-				<td>
+				</pkp-table-cell>
+				<pkp-table-cell>
 					{$dataAvailability|strip_unsafe_html}
-				</td>
-			</tr>
+				</pkp-table-cell>
+			</pkp-table-row>
 		{/if}
-		</table>
+		</pkp-table>
 	{/if}
 </div>
+<script type="text/javascript">
+	pkp.registry.init('viewSubmissionMetadata', 'Page', {$additionalMetadata|json_encode});
+</script>

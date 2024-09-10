@@ -20,7 +20,10 @@
 namespace APP\core;
 
 use APP\facades\Repo;
+use APP\search\PreprintSearchDAO;
+use APP\search\PreprintSearchIndex;
 use APP\server\ServerDAO;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -70,20 +73,16 @@ class Application extends PKPApplication
 
     /**
      * Get the symbolic name of this application
-     *
-     * @return string
      */
-    public static function getName()
+    public static function getName(): string
     {
         return 'ops';
     }
 
     /**
      * Get the locale key for the name of this application.
-     *
-     * @return string
      */
-    public function getNameKey()
+    public function getNameKey(): string
     {
         return('common.software');
     }
@@ -91,20 +90,16 @@ class Application extends PKPApplication
     /**
      * Get the URL to the XML descriptor for the current version of this
      * application.
-     *
-     * @return string
      */
-    public function getVersionDescriptorUrl()
+    public function getVersionDescriptorUrl(): string
     {
         return 'https://pkp.sfu.ca/ops/xml/ops-version.xml';
     }
 
     /**
      * Get the map of DAOName => full.class.Path for this application.
-     *
-     * @return array
      */
-    public function getDAOMap()
+    public function getDAOMap(): array
     {
         return array_merge(parent::getDAOMap(), [
             'PreprintSearchDAO' => 'APP\search\PreprintSearchDAO',
@@ -118,10 +113,8 @@ class Application extends PKPApplication
 
     /**
      * Get the list of plugin categories for this application.
-     *
-     * @return array
      */
-    public function getPluginCategories()
+    public function getPluginCategories(): array
     {
         return [
             // NB: Meta-data plug-ins are first in the list as this
@@ -147,9 +140,7 @@ class Application extends PKPApplication
      */
     public static function getContextDAO(): ServerDAO
     {
-        /** @var ServerDAO */
-        $dao = DAORegistry::getDAO('ServerDAO');
-        return $dao;
+        return DAORegistry::getDAO('ServerDAO');
     }
 
     /**
@@ -165,25 +156,23 @@ class Application extends PKPApplication
     /**
      * Get a SubmissionSearchIndex instance.
      */
-    public static function getSubmissionSearchIndex()
+    public static function getSubmissionSearchIndex(): PreprintSearchIndex
     {
-        return new \APP\search\PreprintSearchIndex();
+        return new PreprintSearchIndex();
     }
 
     /**
      * Get a SubmissionSearchDAO instance.
      */
-    public static function getSubmissionSearchDAO()
+    public static function getSubmissionSearchDAO(): PreprintSearchDAO
     {
         return DAORegistry::getDAO('PreprintSearchDAO');
     }
 
     /**
      * Get the stages used by the application.
-     *
-     * @return array
      */
-    public static function getApplicationStages()
+    public static function getApplicationStages(): array
     {
         // Only one stage in OPS
         return [
@@ -196,7 +185,7 @@ class Application extends PKPApplication
      *
      * @return int Application::ASSOC_TYPE_...
      */
-    public static function getContextAssocType()
+    public static function getContextAssocType(): int
     {
         return static::ASSOC_TYPE_SERVER;
     }
@@ -204,7 +193,7 @@ class Application extends PKPApplication
     /**
      * Get the file directory array map used by the application.
      */
-    public static function getFileDirectories()
+    public static function getFileDirectories(): array
     {
         return ['context' => '/contexts/', 'submission' => '/submissions/'];
     }

@@ -137,7 +137,3 @@ class ServerDAO extends ContextDAO
         return false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\server\ServerDAO', '\ServerDAO');
-}

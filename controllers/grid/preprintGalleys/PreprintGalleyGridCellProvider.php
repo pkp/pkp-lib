@@ -59,7 +59,7 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert(is_a($element, 'DataObject') && !empty($columnId));
+        assert(is_a($element, \PKP\core\DataObject::class) && !empty($columnId));
         /** @var Galley $element */
         switch ($columnId) {
             case 'label':

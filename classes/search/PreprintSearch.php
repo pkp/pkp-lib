@@ -398,7 +398,3 @@ class PreprintSearch extends SubmissionSearch
         return DAORegistry::getDAO('PreprintSearchDAO');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\APP\search\PreprintSearch', '\PreprintSearch');
-}

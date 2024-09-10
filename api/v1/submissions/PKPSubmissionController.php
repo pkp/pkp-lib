@@ -902,7 +902,7 @@ class PKPSubmissionController extends PKPBaseController
         $context = $request->getContext();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $args = $illuminateRequest->input();
-        $stageId = $args['stageId'] ?? null;
+        $stageId = $args['stageId'] ?? $illuminateRequest->route('stageId') !== null ? (int) $illuminateRequest->route('stageId') : null;
 
         if (!$submission || $submission->getData('contextId') !== $context->getId()) {
             return response()->json([
@@ -919,7 +919,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
-            $data[] = $map->summarizeReviewer($user);
+            $data[] = $map->summarizeReviewer($user, ['submission' => $submission, 'stageId' => $stageId]);
         }
 
         return response()->json($data, Response::HTTP_OK);

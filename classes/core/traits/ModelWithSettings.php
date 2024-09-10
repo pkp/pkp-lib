@@ -127,7 +127,7 @@ trait ModelWithSettings
         $schema = $schemaService->get($this->getSchemaName());
         $this->convertSchemaToCasts($schema);
         $this->settings = array_merge($this->settings, $schemaService->groupPropsByOrigin($this->getSchemaName())[Schema::ATTRIBUTE_ORIGIN_SETTINGS]);
-        $this->multilingualProps = array_merge($this->settings, $schemaService->getMultilingualProps($this->getSchemaName()));
+        $this->multilingualProps = array_merge($this->multilingualProps, $schemaService->getMultilingualProps($this->getSchemaName()));
     }
 
     /**

@@ -67,12 +67,6 @@ abstract class Invitation
     abstract public static function getType(): string;
 
     /**
-     * This code is executed right before the invitation is sent.
-     * Validation code could be added here, so that invalid invitations don't get dispatched
-     */
-    abstract protected function preInviteActions(): void;
-
-    /**
      * Defines the controller that is responsible for the handle of the accept/decline
      * urls send to the invitee's email
      */
@@ -142,7 +136,7 @@ abstract class Invitation
      */
     protected function fillFromPayload(): void
     {
-        $payloadClass = $this->createPayload();
+        $payloadClass = $this->getSpecificPayload();
         $this->payload = $payloadClass;
 
         if ($this->invitationModel->payload) {
@@ -300,8 +294,6 @@ abstract class Invitation
             }
         }
 
-        $this->preInviteActions();
-
         $this->checkForKey();
 
         $this->setExpiryDate(Carbon::now()->addDays($this->getExpiryDays()));
@@ -312,8 +304,8 @@ abstract class Invitation
             if (isset($mailable)) {
                 try {
                     Mail::send($mailable);
-                } catch (TransportException $e) {
-                    trigger_error('Failed to send email invitation: ' . $e->getMessage(), E_USER_ERROR);
+                } catch (Exception $e) {
+                    throw $e;
                 }
             }
         }
@@ -321,6 +313,14 @@ abstract class Invitation
         $this->invitationModel->status = InvitationStatus::PENDING;
 
         $this->invitationModel->save();
+
+        InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType($this->getType())
+            ->byNotId($this->getId())
+            ->when(isset($this->invitationModel->userId), fn (Builder $q) => $q->byUserId($this->invitationModel->userId))
+            ->when(!isset($this->invitationModel->userId) && $this->invitationModel->email, fn (Builder $q) => $q->byEmail($this->invitationModel->email))
+            ->when(isset($this->invitationModel->contextId), fn (Builder $q) => $q->byContextId($this->invitationModel->contextId))
+            ->delete();
 
         return true;
     }

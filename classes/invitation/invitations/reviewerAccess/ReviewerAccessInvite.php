@@ -79,19 +79,6 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         });
     }
 
-    public function preInviteActions(): void
-    {
-        $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
-            ->byType(self::INVITATION_TYPE)
-            ->byContextId($this->invitationModel->contextId)
-            ->byUserId($this->invitationModel->userId)
-            ->get();
-
-        foreach($pendingInvitations as $pendingInvitation) {
-            $pendingInvitation->markAs(InvitationStatus::CANCELLED);
-        }
-    }
-
     public function finalize(): void
     {
         $contextDao = Application::getContextDAO();

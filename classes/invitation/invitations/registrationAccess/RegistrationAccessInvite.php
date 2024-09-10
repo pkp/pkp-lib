@@ -26,7 +26,6 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\registrationAccess\handlers\RegistrationAccessInviteRedirectController;
-use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 
 class RegistrationAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
@@ -47,19 +46,6 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
                 'activateUrl' => $url
             ];
         });
-    }
-
-    protected function preInviteActions(): void
-    {
-        $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
-            ->byType(self::INVITATION_TYPE)
-            ->byContextId($this->invitationModel->contextId)
-            ->byUserId($this->invitationModel->userId)
-            ->get();
-
-        foreach($pendingInvitations as $pendingInvitation) {
-            $pendingInvitation->markAs(InvitationStatus::CANCELLED);
-        }
     }
 
     public function finalize(): void

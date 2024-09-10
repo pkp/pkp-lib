@@ -29,7 +29,6 @@ use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\changeProfileEmail\handlers\ChangeProfileEmailInviteRedirectController;
 use PKP\invitation\invitations\changeProfileEmail\payload\ChangeProfileEmailInvitePayload;
-use PKP\invitation\models\InvitationModel;
 use PKP\mail\mailables\ChangeProfileEmailInvitationNotify;
 
 class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleable
@@ -98,24 +97,6 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         });
 
         return $this->mailable;
-    }
-
-    protected function preInviteActions(): void
-    {
-        // Check if everything is in order regarding the properties
-        if (!isset($this->getSpecificPayload()->newEmail)) {
-            throw new Exception('The invitation can not be dispatched because the email property is missing');
-        }
-
-        // Invalidate any other related invitation
-        $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
-            ->byType(self::INVITATION_TYPE)
-            ->byUserId($this->getUserId())
-            ->get();
-
-        foreach($pendingInvitations as $pendingInvitation) {
-            $pendingInvitation->markAs(InvitationStatus::DECLINED);
-        }
     }
 
     public function finalize(): void

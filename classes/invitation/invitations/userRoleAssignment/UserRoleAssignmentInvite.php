@@ -20,7 +20,6 @@ use Illuminate\Mail\Mailable;
 use PKP\identity\Identity;
 use PKP\invitation\core\contracts\IApiHandleable;
 use PKP\invitation\core\CreateInvitationController;
-use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
@@ -35,7 +34,6 @@ use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvi
 use PKP\invitation\invitations\userRoleAssignment\rules\EmailMustNotExistRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
-use PKP\invitation\models\InvitationModel;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
 use PKP\security\Validation;
 
@@ -119,21 +117,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         }
 
         return $receiver;
-    }
-
-    protected function preInviteActions(): void
-    {
-        // Invalidate any other related invitation
-        InvitationModel::byStatus(InvitationStatus::PENDING)
-            ->byType(self::INVITATION_TYPE)
-            ->when(isset($this->invitationModel->userId), function ($query) {
-                return $query->byUserId($this->invitationModel->userId);
-            })
-            ->when(!isset($this->invitationModel->userId) && $this->invitationModel->email, function ($query) {
-                return $query->byEmail($this->invitationModel->email);
-            })
-            ->byContextId($this->invitationModel->contextId)
-            ->delete();
     }
 
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController

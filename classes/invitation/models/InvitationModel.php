@@ -229,6 +229,16 @@ class InvitationModel extends Model
         ]);
     }
 
+    public function scopeById(Builder $query, int $id)
+    {
+        return $query->where('invitation_id', $id);
+    }
+
+    public function scopeByNotId(Builder $query, int $id)
+    {
+        return $query->where('invitation_id', '!=', $id);
+    }
+
     // Custom toArray method to ensure serialization of attributes
     public function toArray()
     {

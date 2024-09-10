@@ -240,7 +240,9 @@ class DashboardHandlerNext extends Handler
             'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
 
             // ASSOC
-            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT
+            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            'ASSOC_TYPE_REPRESENTATION' => PKPApplication::ASSOC_TYPE_REPRESENTATION
+
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');

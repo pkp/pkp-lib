@@ -81,3 +81,6 @@ msgstr "Unexpected properties found in the item at index {$attribute}: {$propert
 
 msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
 msgstr "The id {reviewAssignmentId} does not correspond to a valid review assignment"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "This invitation can't be cancelled"

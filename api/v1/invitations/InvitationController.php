@@ -25,6 +25,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\contracts\IApiHandleable;
 use PKP\invitation\core\CreateInvitationController;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
@@ -41,7 +42,8 @@ class InvitationController extends PKPBaseController
 
     public $notNeedAPIHandler = [
         'getMany',
-        'getMailable'
+        'getMailable',
+        'cancel',
     ];
 
     public $noParamRequired = [
@@ -57,6 +59,7 @@ class InvitationController extends PKPBaseController
         'populate',
         'invite',
         'getMailable',
+        'cancel'
     ];
 
     public $requiresIdAndKey = [
@@ -137,6 +140,9 @@ class InvitationController extends PKPBaseController
 
             Route::get('{invitationId}/getMailable', $this->getMailable(...))
                 ->name('invitation.getMailable');
+
+            Route::put('{invitationId}/cancel', $this->cancel(...))
+                ->name('invitation.cancel');
         });
 
         // Get By Key methods.
@@ -317,5 +323,21 @@ class InvitationController extends PKPBaseController
         return response()->json([
             'error' => __('invitation.api.error.invitationTypeNotHasMailable'),
         ], Response::HTTP_BAD_REQUEST);
+    }
+
+    public function cancel(Request $illuminateRequest): JsonResponse
+    {
+        if (!$this->invitation->isPending()) {
+            return response()->json([
+                'error' => __('invitation.api.error.invitationCantBeCanceled'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $this->invitation->updateStatus(InvitationStatus::CANCELLED);
+
+        return response()->json(
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
+            Response::HTTP_OK
+        );
     }
 }

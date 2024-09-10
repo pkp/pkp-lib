@@ -476,4 +476,22 @@ abstract class Invitation
 
         return $difference;
     }
+
+    public function updateStatus(InvitationStatus $status): void
+    {
+        $this->invitationModel->status = $status;
+        $this->invitationModel->save();
+    }
+
+    public function isPending(): bool
+    {
+        if (
+            $this->getStatus() == InvitationStatus::INITIALIZED ||
+            $this->getStatus() == InvitationStatus::PENDING
+        ) {
+            return true;
+        }
+
+        return false;
+    }
 }

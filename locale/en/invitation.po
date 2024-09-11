@@ -16,6 +16,9 @@ msgstr ""
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "At least one user group to add must be defined"
 
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "The user group is assigned to the invited user"
+
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "At least one user group to remove must be defined"
 
@@ -96,3 +99,6 @@ msgstr "The attribute is not allowed to be access for non existing users"
 
 msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
 msgstr "This attribute must have a value equal or after today"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "The :attribute field is prohibited"

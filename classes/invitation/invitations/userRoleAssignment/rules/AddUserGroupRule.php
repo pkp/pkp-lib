@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/userRoleAssignment/rules/RemoveUserGroupRule.php
+ * @file classes/invitation/invitations/userRoleAssignment/rules/AddUserGroupRule.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class RemoveUserGroupRule
+ * @class AddUserGroupRule
  *
  * @brief Payload for the assign Roles to User invitation
  */
@@ -18,7 +18,7 @@ use Illuminate\Contracts\Validation\Rule;
 use PKP\invitation\core\Invitation;
 use PKP\userGroup\relationships\UserUserGroup;
 
-class RemoveUserGroupRule implements Rule
+class AddUserGroupRule implements Rule
 {
     protected Invitation $invitation;
 
@@ -35,7 +35,7 @@ class RemoveUserGroupRule implements Rule
                 ->withUserGroupId($value) // The $value is the userGroupId
                 ->get();
 
-            return !$userUserGroups->isEmpty(); // Fail if the user doesn't have the group assigned
+            return $userUserGroups->isEmpty(); // Fail if the user does have the group assigned
         }
 
         return false; // Fail if the user doesn't exist or isn't assigned the group
@@ -43,6 +43,6 @@ class RemoveUserGroupRule implements Rule
 
     public function message()
     {
-        return __('invitation.userRoleAssignment.validation.error.removeUserRoles.userGroupNotAssignedToUser');
+        return __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser');
     }
 }

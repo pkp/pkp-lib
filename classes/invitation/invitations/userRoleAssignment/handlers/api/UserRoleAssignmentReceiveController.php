@@ -93,16 +93,21 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             $user->setGivenName($this->invitation->getPayload()->givenName, null);
             $user->setFamilyName($this->invitation->getPayload()->familyName, null);
             $user->setEmail($this->invitation->getEmail());
-            $user->setCountry($this->invitation->getPayload()->country);
+            $user->setCountry($this->invitation->getPayload()->userCountry);
             $user->setAffiliation($this->invitation->getPayload()->affiliation, null);
 
-            $user->setOrcid($this->invitation->getPayload()->orcid);
+            $user->setOrcid($this->invitation->getPayload()->userOrcid);
 
             $user->setDateRegistered(Core::getCurrentDate());
             $user->setInlineHelp(1); // default new users to having inline help visible.
             $user->setPassword($this->invitation->getPayload()->password);
 
             Repo::user()->add($user);
+        } else {
+            if (empty($user->getOrcid()) && isset($this->invitation->getPayload()->userOrcid)) {
+                $user->setOrcid($this->invitation->getPayload()->userOrcid);
+                Repo::user()->edit($user);
+            }
         }
 
         foreach ($this->invitation->getPayload()->userGroupsToRemove as $userUserGroup) {

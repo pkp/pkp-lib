@@ -195,6 +195,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                 $userGroup = Repo::userGroup()->get($userGroupHelper->userGroupId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($userGroup->getId())
+                    ->withActive()
                     ->get();
                 
                 $userGroupsRemoved = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $userGroupsRemovedTitle);
@@ -209,6 +210,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             foreach ($userGroups as $userGroup) {
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($userGroup->getId())
+                    ->withActive()
                     ->get();
                 
                 $existingUserGroups = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $existingUserGroupsTitle);

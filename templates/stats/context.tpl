@@ -71,21 +71,23 @@
 							</div>
 						</div>
 					</div>
-					<table class="-screenReader" role="region" aria-live="polite">
-						<caption>{translate key="stats.views.timelineInterval"}</caption>
-						<thead>
-							<tr>
-								<th scope="col">{translate key="common.date"}</th>
-								<th scope="col">{translate key="stats.views"}</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr	v-for="segment in timeline" :key="segment.date">
-								<th scope="row">{{ segment.label }}</th>
-								<td>{{ segment.value }}</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="sr-only">
+						<table class="-screenReader" role="region" aria-live="polite">
+							<caption>{translate key="stats.views.timelineInterval"}</caption>
+							<thead>
+								<tr>
+									<th scope="col">{translate key="common.date"}</th>
+									<th scope="col">{translate key="stats.views"}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr	v-for="segment in timeline" :key="segment.date">
+									<th scope="row">{{ segment.label }}</th>
+									<td>{{ segment.value }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 					<line-chart :chart-data="chartData" aria-hidden="true"></line-chart>
 					<span v-if="isLoadingTimeline" class="pkpStats__loadingCover">
 						<spinner></spinner>

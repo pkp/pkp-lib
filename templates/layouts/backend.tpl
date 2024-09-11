@@ -149,8 +149,8 @@
 
 		<div class="app__body">
 			{block name="menu"}
-				<pkp-navigation :links="menu" aria-label="{translate key="common.navigation.site"}">
-				</pkp-navigation>
+				<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
+				</pkp-side-nav>
 			{/block}
 
 			<main class="app__main">

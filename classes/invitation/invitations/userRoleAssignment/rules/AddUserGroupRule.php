@@ -38,7 +38,7 @@ class AddUserGroupRule implements Rule
             return $userUserGroups->isEmpty(); // Fail if the user does have the group assigned
         }
 
-        return false; // Fail if the user doesn't exist or isn't assigned the group
+        return true;
     }
 
     public function message()

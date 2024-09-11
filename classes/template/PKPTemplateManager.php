@@ -1055,16 +1055,14 @@ class PKPTemplateManager extends Smarty
                             ];
                         }
 
-                        $settingsContextLink = $router->url($request, null, 'management', 'settings', ['context']);
                         $menu['settings'] = [
                             'name' => __('navigation.settings'),
                             'icon' => 'Settings',
-                            'url' => $settingsContextLink,
                             'addMargin' => true,
                             'submenu' => [
                                 'context' => [
                                     'name' => __('context.context'),
-                                    'url' => $settingsContextLink,
+                                    'url' => $router->url($request, null, 'management', 'settings', ['context']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'website' => [
@@ -1092,15 +1090,13 @@ class PKPTemplateManager extends Smarty
                     }
 
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
-                        $statisticsPublications = $router->url($request, null, 'stats', 'publications', ['publications']);
                         $menu['statistics'] = [
                             'name' => __('navigation.tools.statistics'),
                             'icon' => 'Statistics',
-                            'url' => $statisticsPublications,
                             'submenu' => [
                                 'publications' => [
                                     'name' => __('common.publications'),
-                                    'url' => $statisticsPublications,
+                                    'url' => $router->url($request, null, 'stats', 'publications', ['publications']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
                                 ],
                                 'context' => [

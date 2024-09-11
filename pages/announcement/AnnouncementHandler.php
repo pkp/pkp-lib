@@ -83,7 +83,7 @@ class AnnouncementHandler extends Handler
         ) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('announcement', $announcement);
-            $templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
+            $templateMgr->assign('announcementTitle', $announcement->getLocalizedData('fullTitle'));
             return $templateMgr->display('frontend/pages/announcement.tpl');
         }
         $request->redirect(null, 'announcement');

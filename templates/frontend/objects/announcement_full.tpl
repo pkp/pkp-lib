@@ -18,7 +18,7 @@
 	<div class="date">
 		{$announcement->getAttribute('datePosted')|date_format:$dateFormatShort}
 	</div>
-	{if $announcement->getData('image')}
+	{if $announcement->getAttribute('image')}
 		<img
 			class="obj_announcement_full_image"
 			src="{$announcement->getAttribute('imageUrl')}"

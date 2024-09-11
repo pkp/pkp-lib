@@ -33,6 +33,7 @@ use PKP\submission\DashboardView;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
+use PKP\components\forms\publication\ContributorForm;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -140,6 +141,16 @@ class DashboardHandlerNext extends Handler
             $categories
         );
 
+        // ContributorsForm
+        $contributorForm = new ContributorForm(
+            'emit',
+            [],
+            null,
+              $context
+
+        );
+
+
 
         $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
         $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
@@ -152,6 +163,7 @@ class DashboardHandlerNext extends Handler
                 'dashboardPage' => $this->dashboardPage,
                 'countPerPage' => $this->perPage,
                 'filtersForm' => $filtersForm->getConfig(),
+                'contributorForm' => $contributorForm->getConfig(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
             ]

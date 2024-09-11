@@ -676,7 +676,7 @@ class QueriesGridHandler extends GridHandler
                     $user->getId(),
                     $request->getContext()->getId()
                 );
-                if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
+                if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                     continue;
                 }
 

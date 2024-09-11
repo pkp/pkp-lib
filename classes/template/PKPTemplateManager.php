@@ -1058,7 +1058,6 @@ class PKPTemplateManager extends Smarty
                         $menu['settings'] = [
                             'name' => __('navigation.settings'),
                             'icon' => 'Settings',
-                            'addMargin' => true,
                             'submenu' => [
                                 'context' => [
                                     'name' => __('context.context'),
@@ -1142,7 +1141,6 @@ class PKPTemplateManager extends Smarty
                             'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin'),
                             'isCurrent' => $router->getRequestedPage($request) === 'admin',
                             'icon' => 'NavAdmin',
-                            'addMargin' => true,
                         ];
                     }
                 }

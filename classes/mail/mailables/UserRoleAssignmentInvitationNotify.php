@@ -202,7 +202,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
             // Existing Roles
             $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$this->invitation->invitationModel->contextId])
+                ->filterByContextIds([$this->invitation->getContextId()])
                 ->filterByUserIds([$user->getId()])
                 ->getMany();
             

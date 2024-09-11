@@ -68,6 +68,14 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return UserRoleAssignmentInvitePayload::class;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getPayload(): UserRoleAssignmentInvitePayload
+    {
+        return parent::getPayload();
+    }
+
     public function getNotAccessibleAfterInvite(): array
     {
         return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);

@@ -59,6 +59,14 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         return ReviewerAccessInvitePayload::class;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getPayload(): ReviewerAccessInvitePayload
+    {
+        return parent::getPayload();
+    }
+
     protected function getExpiryDays(): int
     {
         if (!isset($this->invitationModel) || !isset($this->invitationModel->contextId)) {

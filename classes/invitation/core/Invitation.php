@@ -44,7 +44,7 @@ abstract class Invitation
 
     public InvitationModel $invitationModel;
 
-    public InvitePayload $payload;
+    protected InvitePayload $payload;
 
     /**
      * The properties of the invitation that are added here should not change

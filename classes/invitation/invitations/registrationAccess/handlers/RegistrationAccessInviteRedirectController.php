@@ -13,6 +13,7 @@
 
 namespace PKP\invitation\invitations\registrationAccess\handlers;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use Exception;
@@ -35,7 +36,7 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404();
         }
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId, true);
+        $user = Repo::user()->get($this->invitation->getUserId(), true);
 
         if (!$user) {
             throw new Exception();
@@ -52,8 +53,9 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
             ]
         );
 
-        if (isset($this->invitationModel->contextId)) {
-            $context = $request->getContext();
+        $contextId = $this->invitation->getContextId();
+        if (isset($contextId)) {
+            $context = Application::getContextDAO()->getById($contextId);
 
             $url = PKPApplication::get()->getDispatcher()->url(
                 PKPApplication::get()->getRequest(),
@@ -76,18 +78,31 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404();
         }
 
-        $context = $request->getContext();
-
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
+            null,
             'user',
             'login',
-            null,
             [
             ]
         );
+
+        $contextId = $this->invitation->getContextId();
+        if (isset($contextId)) {
+            $context = Application::getContextDAO()->getById($contextId);
+
+            $url = PKPApplication::get()->getDispatcher()->url(
+                PKPApplication::get()->getRequest(),
+                PKPApplication::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'user',
+                'login',
+                null,
+                [
+                ]
+            );
+        }
 
         $request->redirectUrl($url);
     }

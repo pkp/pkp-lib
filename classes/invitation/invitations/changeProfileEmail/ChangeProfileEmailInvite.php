@@ -58,6 +58,14 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         return ChangeProfileEmailInvitePayload::class;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getPayload(): ChangeProfileEmailInvitePayload
+    {
+        return parent::getPayload();
+    }
+
     public function getNotAccessibleAfterInvite(): array
     {
         return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);

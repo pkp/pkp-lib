@@ -35,7 +35,7 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404();
         }
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId);
+        $user = Repo::user()->get($this->invitation->getUserId());
 
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId());
@@ -60,7 +60,7 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404();
         }
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId);
+        $user = Repo::user()->get($this->invitation->getUserId());
 
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId());

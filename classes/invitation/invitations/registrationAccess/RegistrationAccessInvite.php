@@ -48,6 +48,14 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
         return EmptyInvitePayload::class;
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function getPayload(): EmptyInvitePayload
+    {
+        return parent::getPayload();
+    }
+
     public function updateMailableWithUrl(Mailable $mailable): void
     {
         $url = $this->getActionURL(InvitationAction::ACCEPT);

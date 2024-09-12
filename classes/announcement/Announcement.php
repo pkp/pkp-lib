@@ -15,7 +15,6 @@ namespace PKP\announcement;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
-use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -40,7 +39,6 @@ use PKP\services\PKPSchemaService;
  */
 class Announcement extends Model
 {
-    use HasCamelCasing;
     use ModelWithSettings;
 
     // The subdirectory where announcement images are stored

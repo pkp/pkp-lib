@@ -17,6 +17,7 @@
 
 namespace PKP\core\traits;
 
+use Eloquence\Behaviours\HasCamelCasing;
 use Exception;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
@@ -26,6 +27,8 @@ use stdClass;
 
 trait ModelWithSettings
 {
+    use HasCamelCasing;
+
     // The list of attributes associated with the model settings
     protected array $settings = [];
 
@@ -87,8 +90,7 @@ trait ModelWithSettings
      */
     public function getMultilingualProps(): array
     {
-        $modelProps = parent::getMultilingualProps();
-        return array_merge($this->multilingualProps, $modelProps);
+        return $this->multilingualProps;
     }
 
     /**
@@ -110,7 +112,7 @@ trait ModelWithSettings
             throw new Exception('Attribute ' . $data . ' doesn\'t exist in the ' . static::class . ' model');
         }
 
-        if (!in_array($data, $this->getMultilingualProps())) {
+        if (!in_array($data, $this->multilingualProps)) {
             throw new Exception('Trying to retrieve localized data from a non-multilingual attribute ' . $data);
         }
 
@@ -126,8 +128,8 @@ trait ModelWithSettings
         $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
         $schema = $schemaService->get($this->getSchemaName());
         $this->convertSchemaToCasts($schema);
-        $this->settings = array_merge($this->settings, $schemaService->groupPropsByOrigin($this->getSchemaName())[Schema::ATTRIBUTE_ORIGIN_SETTINGS]);
-        $this->multilingualProps = array_merge($this->multilingualProps, $schemaService->getMultilingualProps($this->getSchemaName()));
+        $this->settings = array_merge($this->getSettings(), $schemaService->groupPropsByOrigin($this->getSchemaName())[Schema::ATTRIBUTE_ORIGIN_SETTINGS]);
+        $this->multilingualProps = array_merge($this->getMultilingualProps(), $schemaService->getMultilingualProps($this->getSchemaName()));
     }
 
     /**
@@ -148,4 +150,15 @@ trait ModelWithSettings
         $this->mergeCasts($propCast);
     }
 
+    /**
+     * Override method from HasCamelCasing to retrieve values from setting attributes as it leads to the conflict
+     */
+    public function getAttribute($key): mixed
+    {
+        if (in_array($key, $this->getSettings())) {
+            return parent::getAttribute($key);
+        }
+
+        return $this->isRelation($key) ? parent::getAttribute($key) : parent::getAttribute($this->getSnakeKey($key));
+    }
 }

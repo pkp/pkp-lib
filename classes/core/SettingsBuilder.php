@@ -53,7 +53,7 @@ class SettingsBuilder extends Builder
     {
         // Separate Model's primary values from settings
         [$settingValues, $primaryValues] = collect($values)->partition(
-            fn (array|string $value, string $key) => in_array(Str::camel($key), $this->model->getSettings())
+            fn (mixed $value, string $key) => in_array(Str::camel($key), $this->model->getSettings())
         );
 
         // Don't update settings if they aren't set
@@ -63,7 +63,7 @@ class SettingsBuilder extends Builder
 
         // TODO Eloquent transforms attributes to snake case, find and override instead of transforming here
         $settingValues = $settingValues->mapWithKeys(
-            fn (array|string $value, string $key) => [Str::camel($key) => $value]
+            fn (mixed $value, string $key) => [Str::camel($key) => $value]
         );
 
         $u = $this->model->getTable();
@@ -334,7 +334,7 @@ class SettingsBuilder extends Builder
     {
         $sql = 'CASE ';
         $bindings = [];
-        $settingValues->each(function (array|string $settingValue, string $settingName) use (&$sql, &$bindings, $us) {
+        $settingValues->each(function (mixed $settingValue, string $settingName) use (&$sql, &$bindings, $us) {
             if ($this->isMultilingual($settingName)) {
                 foreach ($settingValue as $locale => $localizedValue) {
                     $sql .= 'WHEN ' . $us . '.setting_name=? AND ' . $us . '.locale=? THEN ? ';

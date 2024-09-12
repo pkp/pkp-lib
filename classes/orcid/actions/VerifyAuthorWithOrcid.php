@@ -96,6 +96,7 @@ class VerifyAuthorWithOrcid
 
             $this->author->setOrcid($orcidUri);
             $this->author->setOrcidVerified(true);
+            $this->author->setData('orcidVerificationRequested', null);
             if (OrcidManager::isSandbox($context)) {
                 $this->author->setData('orcidEmailToken', null);
             }
@@ -133,7 +134,6 @@ class VerifyAuthorWithOrcid
      * Takes template variables for frontend display from OAuth process and assigns them to the TemplateManager.
      *
      * @param TemplateManager $templateMgr The template manager to which the variable should be set
-     * @return void
      */
     public function updateTemplateMgrVars(TemplateManager &$templateMgr): void
     {
@@ -146,8 +146,6 @@ class VerifyAuthorWithOrcid
      * Helper to set ORCID and OAuth values to the author. NB: Does not save updated Author instance to the database.
      *
      * @param string $orcidUri Complete ORCID URL
-     * @param array $results
-     * @return void
      */
     private function setOrcidAccessData(string $orcidUri, array $results): void
     {

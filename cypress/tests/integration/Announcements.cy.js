@@ -19,7 +19,7 @@ describe('Announcements', function() {
 		cy.get('#announcements button').contains('Save').click();
 		cy.get('#announcements [role="status"]').contains('Saved');
 		// Check that the nav item has been added
-		cy.get('nav div[data-pc-section="header"] a span:contains("Announcements")');
+		cy.get('nav div[data-pc-section="header"] a span').contains('Announcements');
 	});
 
 	it('Adds an announcement', function() {
@@ -75,12 +75,12 @@ describe('Announcements', function() {
 	it('Disables announcements', function() {
 		cy.login('dbarnes');
 		cy.visit('index.php/publicknowledge/management/settings/website');
-		cy.get('button[role="tab"]').contains('Setup').click();
+		cy.get('button').contains('Setup').eq(0).click();
 		cy.get('button').contains('Announcements').click();
 		cy.get('label:contains("Enable announcements")').click();
 		cy.get('#announcements button').contains('Save').click();
 		cy.get('#announcements [role="status"]').contains('Saved');
 		// Check that the nav item has been removed
-		cy.get('nav div[data-pc-section="header"] a span:contains("Announcements")').should('not.exist');
+		cy.get('nav div[data-pc-section="header"] a span').contains('Announcements').should('not.exist');
 	});
 });

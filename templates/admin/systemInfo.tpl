@@ -35,79 +35,73 @@
 		<p><a href="{url versionCheck=1}">{translate key="admin.version.checkForUpdates"}</a></p>
 		{/if}
 
-		<h2 id="versionHistory">{translate key="admin.versionHistory"}</h2>
+		<h2 id="versionHistory" class="mt-5">{translate key="admin.versionHistory"}</h2>
 
-		<table class="pkpTable" aria-labelledby="versionHistory">
-			<thead>
-				<tr>
-					<th>{translate key="admin.version"}</th>
-					<th>{translate key="admin.versionMajor"}</th>
-					<th>{translate key="admin.versionMinor"}</th>
-					<th>{translate key="admin.versionRevision"}</th>
-					<th>{translate key="admin.versionBuild"}</th>
-					<th>{translate key="admin.dateInstalled"}</th>
-				</tr>
-			</thead>
-			<tbody>
+		<pkp-table labelled-by="versionHistory">
+			<pkp-table-header>
+				<pkp-table-column>{translate key="admin.version"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.versionMajor"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.versionMinor"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.versionRevision"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.versionBuild"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.dateInstalled"}</pkp-table-column>
+			</pkp-table-header>
+			<pkp-table-body>
 				{foreach from=$versionHistory item="version"}
-					<tr>
-						<td>{$version->getVersionString(false)}</td>
-						<td>{$version->getMajor()}</td>
-						<td>{$version->getMinor()}</td>
-						<td>{$version->getRevision()}</td>
-						<td>{$version->getBuild()}</td>
-						<td>{$version->getDateInstalled()|date_format:$dateFormatShort}</td>
-					</tr>
+					<pkp-table-row>
+						<pkp-table-cell>{$version->getVersionString(false)}</pkp-table-cell>
+						<pkp-table-cell>{$version->getMajor()}</pkp-table-cell>
+						<pkp-table-cell>{$version->getMinor()}</pkp-table-cell>
+						<pkp-table-cell>{$version->getRevision()}</pkp-table-cell>
+						<pkp-table-cell>{$version->getBuild()}</pkp-table-cell>
+						<pkp-table-cell>{$version->getDateInstalled()|date_format:$dateFormatShort}</pkp-table-cell>
+					</pkp-table-row>
 				{/foreach}
-			</tbody>
-		</table>
+			</pkp-table-body>
+		</pkp-table>
 
-		<h2 id="serverInformation">{translate key="admin.serverInformation"}</h2>
+		<h2 id="serverInformation" class="mt-5">{translate key="admin.serverInformation"}</h2>
 
-		<table class="pkpTable" aria-labelledby="serverInformation">
-			<thead>
-				<tr>
-					<th>{translate key="admin.systemInfo.settingName"}</th>
-					<th>{translate key="admin.systemInfo.settingValue"}</th>
-				</tr>
-			</thead>
-			<tbody>
+		<pkp-table labelled-by="serverInformation">
+			<pkp-table-header>
+				<pkp-table-column>{translate key="admin.systemInfo.settingName"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.systemInfo.settingValue"}</pkp-table-column>
+			</pkp-table-header>
+			<pkp-table-body>
 				{foreach from=$serverInfo item="value" key="name"}
-					<tr>
-						<td>{translate key=$name}</td>
-						<td>{$value|escape}</td>
-					</tr>
+					<pkp-table-row>
+						<pkp-table-cell>{translate key=$name}</pkp-table-cell>
+						<pkp-table-cell>{$value|escape}</pkp-table-cell>
+					</pkp-table-row>
 				{/foreach}
-			</tbody>
-		</table>
+			</pkp-table-body>
+		</pkp-table>
 
-		<h2>{translate key="admin.systemConfiguration"}</h2>
+		<h2 id="systemConfiguration{$key}" class="mt-5">{translate key="admin.systemConfiguration"}</h2>
 
-		<table class="pkpTable" aria-labelledby="systemConfiguration{$key}">
-			<thead>
-				<tr>
-					<th>{translate key="admin.systemInfo.settingName"}</th>
-					<th>{translate key="admin.systemInfo.settingValue"}</th>
-				</tr>
-			</thead>
+		<pkp-table labelled-by="systemConfiguration{$key}">
+			<pkp-table-header>
+				<pkp-table-column>{translate key="admin.systemInfo.settingName"}</pkp-table-column>
+				<pkp-table-column>{translate key="admin.systemInfo.settingValue"}</pkp-table-column>
+			</pkp-table-header>
 			{foreach from=$configData item="settings" key="category"}
-				<tbody>
-					<tr>
-						<td colspan="2" class="app--admin__systemInfoGroup">{$category}</td>
-					</tr>
+				<pkp-table-body>
+					<pkp-table-row>
+						<pkp-table-cell colspan="2" class="app--admin__systemInfoGroup">{$category}</pkp-table-cell>
+					</pkp-table-row>
 					{foreach from=$settings item="value" key="name"}
-								<tr>
-									<td>{$name|escape}</td>
-									{if \PKP\config\Config::isSensitive($category, $name)}
-										<td>**************</td>
-									{else}
-										<td>{$value|escape}</td>
-									{/if}
-								</tr>
+						<pkp-table-row>
+							<pkp-table-cell>{$name|escape}</pkp-table-cell>
+							{if \PKP\config\Config::isSensitive($category, $name)}
+								<pkp-table-cell>**************</pkp-table-cell>
+							{else}
+								<pkp-table-cell>{$value|escape}</pkp-table-cell>
+							{/if}
+						</pkp-table-row>
 					{/foreach}
-				</tbody>
+				</pkp-table-body>
 			{/foreach}
-		</table>
+		</pkp-table>
 
 
 		<a href="{url op="phpinfo"}" target="_blank">{translate key="admin.phpInfo"}</a>

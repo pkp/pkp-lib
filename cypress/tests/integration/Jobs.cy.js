@@ -94,7 +94,7 @@ describe('Jobs tests', function() {
         .should('have.length', 1);
 
       // Back to failed jobs page
-      cy.get('nav div[data-pc-section="header"] a span').contains('Administration').click();
+      cy.get('a:contains("Administration")').click();
       cy.get('a:contains("View Failed Jobs")').click();
       cy.waitJQuery();
 
@@ -121,7 +121,7 @@ describe('Jobs tests', function() {
       cy.get('button:contains("Requeue All Failed Jobs")').should('not.exist');
 
       // Back to Jobs page
-      cy.get('nav div[data-pc-section="header"] a span').contains('Administration').click();
+      cy.get('a:contains("Administration")').click();
       cy.get('a:contains("View Jobs")').click();
       cy.waitJQuery();
 

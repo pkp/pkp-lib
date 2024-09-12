@@ -75,7 +75,7 @@ describe('Announcements', function() {
 	it('Disables announcements', function() {
 		cy.login('dbarnes');
 		cy.visit('index.php/publicknowledge/management/settings/website');
-		cy.get('button').contains('Setup').eq(0).click();
+		cy.get('button[role="tab"]').contains('Setup').click();
 		cy.get('button').contains('Announcements').click();
 		cy.get('label:contains("Enable announcements")').click();
 		cy.get('#announcements button').contains('Save').click();

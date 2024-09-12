@@ -21,9 +21,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 abstract class PKPSendReviewToOrcid
 {
     public function __construct(
-        protected Submission $submission,
-        protected Context $context,
-        protected ReviewAssignment $reviewAssignment,
+        protected int $reviewAssignmentId,
     ) {
 
     }

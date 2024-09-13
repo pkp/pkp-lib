@@ -76,7 +76,14 @@ class StatisticsReportMailTest extends PKPTestCase
             ->andReturn($contextMock)
             ->getMock();
 
-        DAORegistry::registerDAO(substr(strrchr($contextDaoClass, '\\'), 1), $contextDaoMock);
+        DAORegistry::registerDAO(
+            match (Application::get()->getName()) {
+                'ojs2' => 'JournalDAO',
+                'omp' => 'PressDAO',
+                'ops' => 'ServerDAO',
+            },
+            $contextDaoMock
+        );
 
         $emailTemplateMock = Mockery::mock(\PKP\emailTemplate\EmailTemplate::class)
             ->makePartial()

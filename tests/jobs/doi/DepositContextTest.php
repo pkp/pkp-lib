@@ -68,7 +68,14 @@ class DepositContextTest extends PKPTestCase
             ->andReturn($contextMock)
             ->getMock();
 
-        DAORegistry::registerDAO(substr(strrchr($contextDaoClass, '\\'), 1), $contextDaoMock);
+        DAORegistry::registerDAO(
+            match (Application::get()->getName()) {
+                'ojs2' => 'JournalDAO',
+                'omp' => 'PressDAO',
+                'ops' => 'ServerDAO',
+            },
+            $contextDaoMock
+        );
 
         $doiRepoMock = Mockery::mock(app(DoiRepository::class))
             ->makePartial()

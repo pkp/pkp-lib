@@ -593,7 +593,7 @@ class PKPContainer extends Container
      */
     public function runningUnitTests(): bool
     {
-        return false;
+        return $this->isRunningUnitTest;
     }
 
     /**

@@ -13,8 +13,9 @@ describe('Crossref tests', function () {
 	it('Check Crossref Configuration', function() {
 		cy.login('dbarnes', null, 'publicknowledge');
 
-		cy.get('nav div[data-pc-section="header"] a span').contains('Settings').click();
-		cy.get('nav div[data-pc-section="itemcontent"] a span').contains('Website').click({ force: true });
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Website').click({ force: true });
 
 		cy.waitJQuery();
 		cy.get('button#plugins-button').click();
@@ -24,8 +25,9 @@ describe('Crossref tests', function () {
 		cy.get('input[id^=select-cell-crossrefplugin]').should('be.checked');
 
 		// Crossref is enabled as DOI registration agency.
-		cy.get('nav div[data-pc-section="header"] a span').contains('Settings').click();
-		cy.get('nav div[data-pc-section="itemcontent"] a span').contains('Distribution').click({ force: true });
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Distribution').click({ force: true });
 		cy.get('button#dois-button').click();
 		cy.get(
 			'#doiSetup input[name="enabledDoiTypes"][value="representation"]'
@@ -75,8 +77,9 @@ describe('Crossref tests', function () {
 			});
 
 		cy.log('Deselect Crossref as registered agency for downstream tests');
-		cy.get('nav div[data-pc-section="header"] a span').contains('Settings').click();
-		cy.get('nav div[data-pc-section="itemcontent"] a span').contains('Distribution').click({ force: true });
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Distribution').click({ force: true });
 		cy.get('button#dois-button').click();
 		cy.get('button#doisRegistration-button').click();
 		cy.get('select#doiRegistrationSettings-registrationAgency-control').select(

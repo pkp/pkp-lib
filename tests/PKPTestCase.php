@@ -256,7 +256,7 @@ abstract class PKPTestCase extends TestCase
 
     /**
      * Mock the mail facade
-     * @see https://laravel.com/docs/10.x/mocking
+     * @see https://laravel.com/docs/11.x/mocking
      */
     protected function mockMail(): void
     {

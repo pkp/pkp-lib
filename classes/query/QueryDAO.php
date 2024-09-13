@@ -390,7 +390,7 @@ class QueryDAO extends \PKP\db\DAO
         $this->insertObject($query);
         $this->resequence(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
 
-        foreach ($participantUserIds as $participantUserId) {
+        foreach (array_unique($participantUserIds) as $participantUserId) {
             $this->insertParticipant($query->getId(), $participantUserId);
         }
 

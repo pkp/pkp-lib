@@ -18,7 +18,7 @@ describe('Jobs tests', function() {
         // Add 2 test jobs[successable and failable] on queue
         cy.dispatchTestQueueJobs();
 
-        cy.get('nav div[data-pc-section="header"] a span').contains('Administration').click();
+        cy.get('nav').contains('Administration').click();
         cy.get('a:contains("View Jobs")').click();
         cy.waitJQuery();
 
@@ -56,7 +56,7 @@ describe('Jobs tests', function() {
       // Run the test jobs in test queue
       cy.runQueueJobs(null, true);
 
-      cy.get('nav div[data-pc-section="header"] a span').contains('Administration').click();
+      cy.get('nav').contains('Administration').click();
       cy.get('a:contains("View Failed Jobs")').click();
       cy.waitJQuery();
 

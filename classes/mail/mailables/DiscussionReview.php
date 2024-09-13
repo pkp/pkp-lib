@@ -51,9 +51,9 @@ class DiscussionReview extends Mailable
 
     protected Context $context;
 
-    public function __construct(Context $context, Submission $submission)
+    public function __construct(Context $context, int|null$recipientRoleId = null, Submission $submission)
     {
-        parent::__construct([$context, $submission]);
+        parent::__construct([$context, $recipientRoleId, $submission]);
         $this->context = $context;
     }
 }

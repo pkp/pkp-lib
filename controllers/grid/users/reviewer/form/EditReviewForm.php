@@ -186,7 +186,6 @@ class EditReviewForm extends Form
             $context = $request->getContext();
 
             $notification = $notificationManager->createNotification(
-                $request,
                 $reviewAssignment->getReviewerId(),
                 Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
                 $context->getId(),

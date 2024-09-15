@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -114,8 +115,9 @@ class EditorialReminder extends BaseJob
             }
 
             if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
-                $lastActivityTimestamp = strtotime($submission->getData('dateLastActivity'));
-                if ($lastActivityTimestamp < strtotime('-30 days')) {
+                $lastActivityTimestamp = Carbon::parse($submission->getData('dateLastActivity'))->endOfDay();
+                $comparingTimestamp = Carbon::today()->endOfDay()->subDays(30);
+                if ($comparingTimestamp->gt($lastActivityTimestamp)) {
                     /** @var WorkflowStageDAO $workflowStageDao */
                     $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
                     $outstanding[$submissionId] = __(

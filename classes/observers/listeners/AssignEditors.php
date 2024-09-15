@@ -69,7 +69,6 @@ class AssignEditors
 
             // Send notification
             $notification = $notificationManager->createNotification(
-                Application::get()->getRequest(),
                 $manager->getId(),
                 Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
                 $event->context->getId(),

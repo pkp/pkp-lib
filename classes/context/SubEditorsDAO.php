@@ -233,7 +233,6 @@ class SubEditorsDAO extends \PKP\db\DAO
         // Send a notification to assigned users
         foreach ($assignments as $assignment) {
             $notificationManager->createNotification(
-                Application::get()->getRequest(),
                 $assignment->userId,
                 Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                 $submission->getData('contextId'),

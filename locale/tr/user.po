@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2024-09-16 01:58+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
 ">\n"
@@ -548,3 +548,6 @@ msgstr "Şifre başarıyla güncellendi. Lütfen güncel şifre ile giriş yapı
 
 msgid "user.usernameOrEmail"
 msgstr "Kullanıcı adı veya E-posta"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Tamamlanmamış gönderim için iş akışı erişimi kısıtlanmıştır."

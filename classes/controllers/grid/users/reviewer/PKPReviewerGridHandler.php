@@ -958,6 +958,7 @@ class PKPReviewerGridHandler extends GridHandler
         return new JSONMessage(true);
     }
 
+
     /**
      * Displays a modal containing history for the review assignment.
      *
@@ -1141,7 +1142,7 @@ class PKPReviewerGridHandler extends GridHandler
             'fetchGrid', 'fetchRow', 'showReviewerForm', 'reloadReviewerForm',
             'createReviewer', 'enrollReviewer', 'updateReviewer',
             'getUsersNotAssignedAsReviewers',
-            'fetchTemplateBody',
+            'fetchTemplateBody'
         ];
     }
 

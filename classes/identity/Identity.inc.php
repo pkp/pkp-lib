@@ -70,20 +70,16 @@ class Identity extends DataObject {
 	 * @return string
 	 */
 	function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null) {
-		$locale = AppLocale::getLocale();
+		$locale = $defaultLocale ?? AppLocale::getLocale();
 		if ($preferred) {
 			$preferredPublicName = $this->getPreferredPublicName($locale);
 			if (!empty($preferredPublicName)) return $preferredPublicName;
 		}
 		$givenName = $this->getGivenName($locale);
 		if (empty($givenName)) {
-			if (is_null($defaultLocale)) {
-				// the users register for the site, thus
-				// the site primary locale is the default locale
-				$site = Application::get()->getRequest()->getSite();
-				$defaultLocale = $site->getPrimaryLocale();
-			}
-			$locale = $defaultLocale;
+			// Fallback to the site's primary locale if no given name
+			// exists in the requested locale
+			$locale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
 			$givenName = $this->getGivenName($locale);
 		}
 		$familyName = $this->getFamilyName($locale);

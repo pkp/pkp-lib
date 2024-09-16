@@ -58,7 +58,13 @@ class SettingsBuilder extends Builder
 
         // Don't update settings if they aren't set
         if ($settingValues->isEmpty()) {
-            return parent::update($primaryValues);
+            return parent::update($primaryValues->toArray());
+        }
+
+        $newQuery = clone $this->query;
+
+        if ($primaryValues->isNotEmpty()) {
+            $count = parent::update($primaryValues->toArray());
         }
 
         // TODO Eloquent transforms attributes to snake case, find and override instead of transforming here
@@ -66,27 +72,17 @@ class SettingsBuilder extends Builder
             fn (mixed $value, string $key) => [Str::camel($key) => $value]
         );
 
-        $u = $this->model->getTable();
         $us = $this->model->getSettingsTable();
         $primaryKey = $this->model->getKeyName();
-        $query = $this->toBase();
 
-        // Add table name to specify the right columns in the already existing WHERE statements
-        $query->wheres = collect($query->wheres)->map(function (array $item) use ($u) {
-            $item['column'] = $u . '.' . $item['column'];
-            return $item;
-        })->toArray();
 
-        $sql = $this->buildUpdateSql($settingValues, $us, $query);
+        $sql = $this->buildUpdateSql($settingValues, $us, $newQuery);
 
         // Build a query for update
-        $count = $query->fromRaw($u . ', ' . $us)
-            ->whereColumn($u . '.' . $primaryKey, '=', $us . '.' . $primaryKey)
-            ->update(array_merge($primaryValues->toArray(), [
-                $us . '.setting_value' => DB::raw($sql),
-            ]));
+        $settingCount = DB::table($us)->whereIn($us . '.' . $primaryKey, $newQuery->select($primaryKey))
+            ->update([$us . '.setting_value' => DB::raw($sql)]);
 
-        return $count;
+        return $count ? $count + $settingCount : $settingCount; // TODO Return the count of updated setting rows?
     }
 
     /**
@@ -251,50 +247,32 @@ class SettingsBuilder extends Builder
     protected function getModelWithSettings(array|string $columns = ['*']): Collection
     {
         // First, get all Model columns from the main table
-        $rows = $this->query->get();
+        $primaryKey = $this->model->getKeyName();
+        $rows = $this->query->get()->keyBy($primaryKey);
         if ($rows->isEmpty()) {
             return $rows;
         }
 
         // Retrieve records from the settings table associated with the primary Model IDs
-        $primaryKey = $this->model->getKeyName();
         $ids = $rows->pluck($primaryKey)->toArray();
-        $settingsChunks = DB::table($this->model->getSettingsTable())
+        $settings = DB::table($this->model->getSettingsTable())
             ->whereIn($primaryKey, $ids)
-            // Order data by original primary Model's IDs
-            ->orderByRaw(
-                'FIELD(' .
-                $primaryKey .
-                ',' .
-                implode(',', $ids) .
-                ')'
-            )
-            ->get()
-            // Chunk records by Model IDs
-            ->chunkWhile(
-                fn (\stdClass $value, int $key, Collection $chunk) =>
-                    $value->{$primaryKey} === $chunk->last()->{$primaryKey}
-            );
+            ->get();
 
-        // Associate settings with correspondent Model data
-        $rows = $rows->map(function (stdClass $row) use ($settingsChunks, $primaryKey, $columns) {
-            if ($settingsChunks->isNotEmpty()) {
-                // Don't iterate through all setting rows to avoid Big O(n^2) complexity, chunks are ordered by Model's IDs
-                // If Model's ID doesn't much it means it doesn't have any settings
-                if ($row->{$primaryKey} === $settingsChunks->first()->first()->{$primaryKey}) {
-                    $settingsChunk = $settingsChunks->shift();
-                    $settingsChunk->each(function (\stdClass $settingsRow) use ($row) {
-                        if ($settingsRow->locale) {
-                            $row->{$settingsRow->setting_name}[$settingsRow->locale] = $settingsRow->setting_value;
-                        } else {
-                            $row->{$settingsRow->setting_name} = $settingsRow->setting_value;
-                        }
-                    });
-                }
-                $row = $this->filterRow($row, $columns);
+        $settings->each(function (\stdClass $setting) use ($rows, $primaryKey, $columns) {
+            $settingModelId = $setting->{$primaryKey};
+
+            // Retract the row and fill it with data from a settings table
+            $exactRow = $rows->pull($settingModelId);
+            if ($setting->locale) {
+                $exactRow->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
+            } else {
+                $exactRow->{$setting->setting_name} = $setting->setting_value;
             }
 
-            return $row;
+            // Include only specified columns
+            $exactRow = $this->filterRow($exactRow, $columns);
+            $rows->put($settingModelId, $exactRow);
         });
 
         return $rows;

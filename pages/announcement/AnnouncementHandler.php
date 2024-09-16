@@ -53,7 +53,7 @@ class AnnouncementHandler extends Handler
         $request->getContext() ? $contextIds[] = $request->getContext()->getId() : $contextIds[] = PKPApplication::SITE_CONTEXT_ID;
         $announcements->withContextIds($contextIds);
 
-        $templateMgr->assign('announcements', $announcements->get()->toArray());
+        $templateMgr->assign('announcements', $announcements->get());
         $templateMgr->display('frontend/pages/announcements.tpl');
     }
 

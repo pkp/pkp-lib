@@ -170,8 +170,8 @@ class Announcement extends Model
      */
     protected function scopeWithActiveByDate(EloquentBuilder $builder, string $date = ''): EloquentBuilder
     {
-        return $builder->where('a.date_expire', '>', empty($date) ? Core::getCurrentDate() : $date)
-            ->orWhereNull('a.date_expire');
+        return $builder->where('date_expire', '>', empty($date) ? Core::getCurrentDate() : $date)
+            ->orWhereNull('date_expire');
     }
 
     /**

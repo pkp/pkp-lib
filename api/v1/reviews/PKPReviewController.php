@@ -23,16 +23,21 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Mpdf\Mpdf;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
+use PKP\reviewForm\ReviewFormElement;
+use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\SubmissionCommentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class PKPReviewController extends PKPBaseController
@@ -71,6 +76,31 @@ class PKPReviewController extends PKPBaseController
         Route::get('history/{submissionId}/{reviewRoundId}', $this->getHistory(...))
             ->name('review.get.submission.round.history')
             ->whereNumber(['reviewRoundId', 'submissionId']);
+
+        Route::get('{submissionId}/{reviewAssignmentId}/export-p-d-f', $this->exportReviewPDF(...))
+            ->name('review.export.pdf')
+            ->whereNumber(['reviewAssignmentId', 'submissionId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ])
+        ;
+
+        Route::get('{submissionId}/{reviewAssignmentId}/export-x-m-l', $this->exportReviewXML(...))
+            ->name('review.export.xml')
+            ->whereNumber(['reviewAssignmentId', 'submissionId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ])
+        ;
+
     }
 
     /**
@@ -80,7 +110,6 @@ class PKPReviewController extends PKPBaseController
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', true));
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -224,5 +253,253 @@ class PKPReviewController extends PKPBaseController
         ];
 
         return response()->json($reviewRoundHistory, Response::HTTP_OK);
+    }
+
+    public function exportReviewPDF(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+        $context = $request->getContext();
+        $submissionId = $request->getUserVar('submissionId');
+        $reviewId = $request->getUserVar('reviewAssignmentId');
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, true);
+        $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
+        $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
+        $mpdf = new Mpdf([
+            'default_font' => 'NotoSansSC',
+            'mode' => '+aCJK',
+            "autoScriptToLang" => true,
+            "autoLangToFont" => true,
+        ]);
+
+        $authorFriendly = (bool) $illuminateRequest->authorFriendly;
+        if($authorFriendly) {
+            $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();
+            $alphabet = range('A', 'Z');
+            $reviewerLetter = "";
+            $i = 0;
+            foreach($reviewAssignments as $submissionReviewAssignment) {
+                if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
+                    $reviewerLetter = $alphabet[$i];
+                }
+                $i++;
+            }
+            $reviewerName = __('user.role.reviewer') . ": $reviewerLetter";
+        } else {
+            $reviewerName = __('user.role.reviewer') . ": " .  $reviewAssignment->getReviewerFullName();
+        }
+
+        $html = "
+            <html>
+            <head>
+                <style>
+                    body { font-family: Arial; color: rgb(41, 41, 41); }
+                    h1, h2, h3, h4, h5, h6 { margin: 0; padding: 5px 0; }
+                    .section { margin-bottom: 15px; }
+                </style>
+            </head>
+            <body>
+                <div class='section'>
+                    <h2>" . __('editor.review') . ": $cleanTitle</h2>
+                </div>
+                <div class='section'>
+                    <h3 style='font-weight: bold;'>" . $reviewerName . "</h3>
+                </div>
+        ";
+
+        if ($dateCompleted = $reviewAssignment->getDateCompleted()) {
+            $html .= "
+                <div class='section'>
+                   <h4 style='font-weight: bold;'>" . __('common.completed') . ': ' . $dateCompleted . "</h4>
+                </div>
+            ";
+        }
+
+        if ($reviewAssignment->getRecommendation()) {
+            $recommendation = $reviewAssignment->getLocalizedRecommendation();
+            $html .= "
+                <div class='section'>
+                    <h4 style='font-weight: bold;'>" . __('editor.submission.recommendation') . ': ' . $recommendation . "</h4>
+                </div>
+            ";
+        }
+
+        if ($reviewAssignment->getReviewFormId()) {
+            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+            /* @var $reviewFormElementDao ReviewFormElementDAO */
+            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+            /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+            $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+            while ($reviewFormElement = $reviewFormElements->next()) {
+                if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
+                $elementId = $reviewFormElement->getId();
+                $html .= "
+                    <div>
+                        <h4 style='font-weight: bold;'>" . strip_tags($reviewFormElement->getLocalizedQuestion()) . "</h4>
+                    </div>
+                ";
+                if($description = $reviewFormElement->getLocalizedDescription()) {
+                    $html .= "<span>" . $description . "</span>";
+                }
+                $value = $reviewFormResponses[$elementId];
+                $textFields = [
+                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD,
+                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD,
+                    ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA
+                ];
+                if (in_array($reviewFormElement->getElementType(), $textFields)) {
+                    $html .= "<div class='section'><span>" . $value . "</span></div>";
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+                    $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                    $reviewFormCheckboxResponses = $reviewFormResponses[$elementId];
+                    foreach ($possibleResponses as $key => $possibleResponse) {
+                        if (in_array($key, $reviewFormCheckboxResponses)) {
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='checkbox' checked=1>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponse) . "
+                                    </span>
+                                </div>
+                            ";
+                        } else {
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='checkbox'>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponse) . "
+                                    </span>
+                                </div>
+                            ";
+                        }
+                    }
+                    $html .= "<div class='section'></div>";
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS) {
+                    $possibleResponsesRadios = $reviewFormElement->getLocalizedPossibleResponses();
+                    foreach ($possibleResponsesRadios as $key => $possibleResponseRadio) {
+                        if($reviewFormResponses[$elementId] == $key) {
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='radio' checked='1'>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponseRadio) . "
+                                    </span>
+                                </div>
+                            ";
+                        } else {
+                            $html .= "
+                                <div style='margin-bottom: 5px;'>
+                                    <input type='radio'>
+                                    <span>
+                                        " . htmlspecialchars($possibleResponseRadio) . "
+                                    </span>
+                                </div>
+                            ";
+                        }
+                    }
+                    $html .= "<div class='section'></div>";
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
+                    $possibleResponsesDropdown = $reviewFormElement->getLocalizedPossibleResponses();
+                    $dropdownResponse = $possibleResponsesDropdown[$reviewFormResponses[$elementId]];
+                    $html .= "<div class='section'><span>" . $dropdownResponse . "</span></div>";
+                }
+            }
+        } else {
+            $html .= "
+                <div>
+                    <h4 style='font-weight: bold;'>" . __('editor.review.reviewerComments') . "</h4>
+                    <em style='font-weight: bold; color:#606060;'>" . __('submission.comments.forAuthorEditor') . "</em>
+                </div>
+            ";
+
+            if($submissionComments->records->isEmpty()) $html .= "<div class='section'><span>" . __('common.none') . "</span></div>";
+            foreach ($submissionComments->records as $comment) {
+                $commentStripped = strip_tags($comment->comments);
+                $html .= "<div class='section'><span>" . $commentStripped . "</span></div>";
+            }
+            if (!$authorFriendly) {
+                $html .= "
+                    <div>
+                        <em style='font-weight: bold; color:#606060;'>" . __('submission.comments.cannotShareWithAuthor') . "</em>
+                    </div>
+                ";
+
+                if($submissionCommentsPrivate->records->isEmpty()) $html .= "<div class='section'><span>" . __('common.none') . "</span></div>";
+                foreach ($submissionCommentsPrivate->records as $comment) {
+                    $commentStripped = strip_tags($comment->comments);
+                    $html .= "<div class='section'><span>" . $commentStripped . "</span></div>";
+                }
+            }
+        }
+        $submissionFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
+            ->getMany();
+
+        $primaryLocale = $context->getPrimaryLocale();
+
+        $html .= "<div><h4 style='font-weight: bold;'>" . __('reviewer.submission.reviewFiles') . "</h4></div>";
+
+        foreach ($submissionFiles as $submissionFile) {
+            $fileName = $submissionFile->_data['name'][$primaryLocale];
+            $html .= "<div class='section'><span>" . $fileName . "</span></div>";
+        }
+
+        $html .= "</body></html>";
+        $mpdf->WriteHTML($html);
+        $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'I');
+//        $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'D');
+
+        exit;
+    }
+
+    /**
+     * Export a review as XML
+     */
+    public function exportReviewXML(Request $illuminateRequest): JsonResponse
+    {
+        dd("XML " . $illuminateRequest->authorFriendly);
+
+//        $submissionId = $illuminateRequest->route('submissionId');
+//        $reviewAssignmentId = $illuminateRequest->route('reviewAssignmentId');
+//        $acceptReview = $illuminateRequest->decision;
+//        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
+//
+//        if (!$reviewAssignment) {
+//            return response()->json([
+//                'error' => __('api.404.resourceNotFound'),
+//            ], Response::HTTP_NOT_FOUND);
+//        }
+//
+//        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+//
+//        if (!isset($reviewer)) {
+//            return response()->json([
+//                'error' => __('api.404.resourceNotFound'),
+//            ], Response::HTTP_NOT_FOUND);
+//        }
+//
+//        if ($acceptReview === 'accept') {
+//            $decline = false;
+//        } elseif ($acceptReview === 'decline') {
+//            $decline = true;
+//        } else {
+//            return response()->json([
+//                'error' => __('api.review.assignments.invalidInvitationResponse'),
+//            ], Response::HTTP_BAD_REQUEST);
+//        }
+//
+//        $submission = Repo::submission()->get($submissionId);
+//        $request = $this->getRequest();
+//        $reviewerAction = new ReviewerAction();
+//        $reviewerAction->confirmReview($request, $reviewAssignment, $submission, $decline);
+
+        return response()->json($reviewAssignment, Response::HTTP_OK);
+
     }
 }

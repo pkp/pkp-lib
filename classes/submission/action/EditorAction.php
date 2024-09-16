@@ -24,7 +24,6 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -165,11 +164,10 @@ class EditorAction
      * @param ReviewAssignment $reviewAssignment
      * @param string $reviewDueDate
      * @param string $responseDueDate
-     * @param bool $logEntry
      *
      * @hook EditorAction::setDueDates [[&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate]]
      */
-    public function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate, $logEntry = false)
+    public function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate)
     {
         $context = $request->getContext();
 
@@ -185,30 +183,6 @@ class EditorAction
             ]);
             $reviewAssignment->setDateDue($reviewDueDate);
             $reviewAssignment->setDateResponseDue($responseDueDate);
-
-            // N.B. Only logging Date Due
-            if ($logEntry) {
-                // Add log
-                $eventLog = Repo::eventLog()->newDataObject([
-                    'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
-                    'assocId' => $submission->getId(),
-                    'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_SET_DUE_DATE,
-                    'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
-                    'message' => 'log.review.reviewDueDateSet',
-                    'isTranslated' => false,
-                    'dateLogged' => Core::getCurrentDate(),
-                    'reviewAssignmentId' => $reviewAssignment->getId(),
-                    'reviewerName' => $reviewer->getFullName(),
-                    'reviewDueDate' => date(
-                        PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
-                        strtotime($reviewDueDate)
-                    ),
-                    'submissionId' => $submission->getId(),
-                    'stageId' => $reviewAssignment->getStageId(),
-                    'round' => $reviewAssignment->getRound()
-                ]);
-                Repo::eventLog()->add($eventLog);
-            }
         }
     }
 

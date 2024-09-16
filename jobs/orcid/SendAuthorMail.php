@@ -17,11 +17,8 @@
 namespace PKP\jobs\orcid;
 
 use APP\author\Author;
-use APP\core\Application;
 use APP\facades\Repo;
-use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Facades\Mail;
-use PKP\config\Config;
 use PKP\context\Context;
 use PKP\jobs\BaseJob;
 use PKP\mail\mailables\OrcidCollectAuthorId;
@@ -30,7 +27,6 @@ use PKP\orcid\OrcidManager;
 
 class SendAuthorMail extends BaseJob
 {
-
     public function __construct(
         private Author $author,
         private Context $context,

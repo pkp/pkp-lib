@@ -334,3 +334,6 @@ msgstr "The reviewer for the assignment could not be found"
 
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "The provided section does not exist."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr "Publication identifiers form is unavailable as there are no enabled Identifiers."

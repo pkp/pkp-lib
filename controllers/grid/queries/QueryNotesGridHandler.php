@@ -310,6 +310,11 @@ class QueryNotesGridHandler extends GridHandler
             if ($userId == $sender->getId()) {
                 continue;
             }
+            $recipient = Repo::user()->get($userId);
+            // Do not attempt to notify disabled users. (pkp/pkp-lib#10402)
+            if (!$recipient) {
+                continue;
+            }
 
             // Notify the user of a new query.
             $notification = $notificationManager->createNotification(
@@ -330,12 +335,10 @@ class QueryNotesGridHandler extends GridHandler
                     $userId,
                     (int) $context->getId()
                 )
-            )
-            ) {
+            )) {
                 continue;
             }
 
-            $recipient = Repo::user()->get($userId);
             $mailable = $this->getStageMailable($context, $submission)
                 ->sender($sender)
                 ->recipients([$recipient])

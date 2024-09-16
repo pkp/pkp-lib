@@ -47,8 +47,10 @@
 		{/fbvFormSection}
 
 		{fbvFormSection title="grid.category.path" required=true for="path"}
-			{capture assign="instruct"}
+			{capture assign="sampleUrl"}
 				{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path="path"}
+			{/capture}
+			{capture assign="instruct"}
 				{translate key="grid.category.urlWillBe" sampleUrl=$sampleUrl}
 			{/capture}
 			{fbvElement type="text" id="path" value=$path maxlength="32" label=$instruct subLabelTranslate=false}

@@ -67,6 +67,10 @@ import ProgressBar from '@/components/ProgressBar/ProgressBar.vue';
 import Search from '@/components/Search/Search.vue';
 import Table from '@/components/Table/Table.vue';
 import TableCell from '@/components/Table/TableCell.vue';
+import TableColumn from '@/components/Table/TableColumn.vue';
+import TableHeader from '@/components/Table/TableHeader.vue';
+import TableBody from '@/components/Table/TableBody.vue';
+import TableRow from '@/components/Table/TableRow.vue';
 import Tooltip from '@/components/Tooltip/Tooltip.vue';
 
 // Form components from UI Library
@@ -80,7 +84,7 @@ import FieldControlledVocab from '@/components/Form/fields/FieldControlledVocab.
 import FieldHtml from '@/components/Form/fields/FieldHtml.vue';
 import FieldMetadataSetting from '@/components/Form/fields/FieldMetadataSetting.vue';
 import FieldOptions from '@/components/Form/fields/FieldOptions.vue';
-import FieldOrcid from "@/components/Form/fields/FieldOrcid.vue";
+import FieldOrcid from '@/components/Form/fields/FieldOrcid.vue';
 import FieldPreparedContent from '@/components/Form/fields/FieldPreparedContent.vue';
 import FieldPubId from '@/components/Form/fields/FieldPubId.vue';
 import FieldRadioInput from '@/components/Form/fields/FieldRadioInput.vue';
@@ -158,7 +162,11 @@ VueRegistry.registerComponent('PkpPagination', Pagination);
 VueRegistry.registerComponent('PkpProgressBar', ProgressBar);
 VueRegistry.registerComponent('PkpSearch', Search);
 VueRegistry.registerComponent('PkpTable', Table);
+VueRegistry.registerComponent('PkpTableBody', TableBody);
 VueRegistry.registerComponent('PkpTableCell', TableCell);
+VueRegistry.registerComponent('PkpTableColumn', TableColumn);
+VueRegistry.registerComponent('PkpTableHeader', TableHeader);
+VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
 
 // Register Form components

@@ -83,7 +83,7 @@ class AboutContextHandler extends Handler
             ->toArray();
 
         // sort the masthead roles in their saved order for display
-        $mastheadRoles = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
+        $mastheadRoles = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
 
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId());
 
@@ -152,7 +152,7 @@ class AboutContextHandler extends Handler
             ->toArray();
 
         // sort the masthead roles in their saved order for display
-        $mastheadRoles = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
+        $mastheadRoles = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
 
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId(), UserUserGroupStatus::STATUS_ENDED);
 

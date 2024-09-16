@@ -33,7 +33,7 @@
 		</div>
 		<div class="pkpStats__panel">
 			<pkp-header>
-				<h1 id="editorialActivityTabelLabel">
+				<h1 id="editorialActivityTableLabel">
 					{translate key="stats.trends"}
 					<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
 				</h1>
@@ -103,27 +103,29 @@
 					<div class="pkpStats__table" role="region" aria-live="polite">
 						<pkp-table
 							class="pkpTable--editorialStats"
-							labelled-by="editorialActivityTabelLabel"
-							:columns="tableColumns"
-							:rows="tableRows"
+							labelled-by="editorialActivityTableLabel"
 						>
-							<template #default="{ldelim}row, rowIndex{rdelim}">
-								<table-cell
-									v-for="(column, columnIndex) in tableColumns"
-									:key="column.name"
-									:column="column"
-									:row="row"
-									:tabindex="!rowIndex && !columnIndex ? 0 : -1"
+							<table-header>
+								<table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
+									{{ column.label }}
+								</table-column>
+							</table-header>
+							<table-body>
+								<table-row
+									v-for="(row, index) in tableRows"
+									:key="row.key"
 								>
-									<template #default v-if="column.name === 'name'">
+									<table-cell>
 										{{ row.name }}
 										<tooltip v-if="row.description"
 											:label="t('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
 											:tooltip="row.description"
 										></tooltip>
-									</template>
-								</table-cell>
-							</template>
+									</table-cell>
+									<table-cell>{{ row.dateRange }}</table-cell>
+									<table-cell>{{ row.total }}</table-cell>
+								</table-row>
+							</table-body>
 						</pkp-table>
 					</div>
 				</div>

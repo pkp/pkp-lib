@@ -207,7 +207,3 @@ abstract class ContextDAO extends SchemaDAO
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\ContextDAO', '\ContextDAO');
-}

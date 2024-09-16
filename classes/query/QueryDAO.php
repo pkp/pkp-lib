@@ -25,7 +25,6 @@ use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use PKP\core\Core;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -386,16 +385,16 @@ class QueryDAO extends DAO
         $this->insertObject($query);
         $this->resequence(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
 
-        foreach ($participantUserIds as $participantUserId) {
+        foreach (array_unique($participantUserIds) as $participantUserId) {
             $this->insertParticipant($query->getId(), $participantUserId);
         }
 
         $note = Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,
             'assocId' => $query->getId(),
-            'contents' =>  $content,
-            'title' =>  $title,
-            'userId' =>  $fromUser->getId(),
+            'contents' => $content,
+            'title' => $title,
+            'userId' => $fromUser->getId(),
         ]);
 
         // Add task for assigned participants

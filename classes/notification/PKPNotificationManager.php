@@ -86,7 +86,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return __('notification.type.configurePaymentMethod');
             case Notification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 $context = $contextDao->getById($notification->contextId);
-                Application::getPaymentManager($context);
+                Application::get()->getPaymentManager($context);
                 if ($notification->assocType != Application::ASSOC_TYPE_QUEUED_PAYMENT) {
                     throw new \Exception('Unexpected assoc type!');
                 }

@@ -33,7 +33,6 @@ class NewLibraryFileForm extends LibraryFileForm
     /**
      * Constructor.
      *
-     * @param int $contextId
      */
     public function __construct(int $contextId, $submissionId)
     {
@@ -47,10 +46,10 @@ class NewLibraryFileForm extends LibraryFileForm
      *
      * @copydoc Form::readInputData()
      */
-    public function readInputData()
+    public function readInputData(): void
     {
         $this->readUserVars(['temporaryFileId', 'submissionId']);
-        return parent::readInputData();
+        parent::readInputData();
     }
 
     /**
@@ -58,7 +57,7 @@ class NewLibraryFileForm extends LibraryFileForm
      *
      * @param null|mixed $template
      */
-    public function fetch($request, $template = null, $display = false)
+    public function fetch($request, $template = null, $display = false): ?string
     {
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('submissionId', $this->getSubmissionId());

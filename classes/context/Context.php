@@ -596,15 +596,3 @@ abstract class Context extends \PKP\core\DataObject
         ])->filter(fn ($prop) => $this->getData($prop) === self::METADATA_REQUIRE)->toArray();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\Context', '\Context');
-    foreach ([
-        'METADATA_DISABLE',
-        'METADATA_ENABLE',
-        'METADATA_REQUEST',
-        'METADATA_REQUIRE',
-    ] as $constantName) {
-        define($constantName, constant('\Context::' . $constantName));
-    }
-}

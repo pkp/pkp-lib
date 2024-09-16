@@ -300,7 +300,3 @@ abstract class SchemaDAO extends DAO
         return $primaryDbProps;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\SchemaDAO', '\SchemaDAO');
-}

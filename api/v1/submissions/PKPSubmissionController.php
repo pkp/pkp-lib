@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
+use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
@@ -30,6 +31,13 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use PKP\components\forms\FormComponent;
+use PKP\components\forms\publication\PKPCitationsForm;
+use PKP\components\forms\publication\PKPMetadataForm;
+use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
+use PKP\components\forms\publication\PKPPublicationLicenseForm;
+use PKP\components\forms\publication\TitleAbstractForm;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -42,9 +50,11 @@ use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
+use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -67,8 +77,8 @@ class PKPSubmissionController extends PKPBaseController
     /** @var int Max items that can be requested */
     public const MAX_COUNT = 100;
 
-    /** @var array Handlers that must be authorized to access a submission */
-    public $requiresSubmissionAccess = [
+    /** Handlers that must be authorized to access a submission */
+    public array $requiresSubmissionAccess = [
         'get',
         'edit',
         'saveForLater',
@@ -92,6 +102,11 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'addDecision',
+        'getPublicationReferenceForm',
+        'getPublicationMetadataForm',
+        'getPublicationIdentifierForm',
+        'getPublicationLicenseForm',
+        'getPublicationTitleAbstractForm'
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -262,6 +277,25 @@ class PKPSubmissionController extends PKPBaseController
             Route::delete('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->deleteContributor(...))
                 ->name('submission.publication.contributor.delete')
                 ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
+
+            Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
+                Route::get('metadata', $this->getPublicationMetadataForm(...))->name('submission.publication._components.metadata');
+                Route::get('reference', $this->getPublicationReferenceForm(...))->name('submission.publication._components.reference');
+                Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
+            })->whereNumber(['submissionId', 'publicationId']);
+        });
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
+            Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
+                Route::get('identifier', $this->getPublicationIdentifierForm(...))->name('submission.publication._components.identifiers');
+                Route::get('permissionDisclosure', $this->getPublicationLicenseForm(...))->name('submission.publication._components.permissionDisclosure');
+            })->whereNumber(['submissionId', 'publicationId']);
         });
 
         Route::middleware([
@@ -319,6 +353,20 @@ class PKPSubmissionController extends PKPBaseController
         if ($actionName === 'addDecision') {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
             $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
+        }
+
+        if (in_array(
+            $actionName,
+            [
+                'getPublicationReferenceForm',
+                'getPublicationMetadataForm',
+                'getPublicationIdentifierForm',
+                'getPublicationLicenseForm',
+                'getPublicationTitleAbstractForm',
+            ]
+        )) {
+            $this->addPolicy(new SubmissionCompletePolicy($request, $args));
+            $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -1706,4 +1754,236 @@ class PKPSubmissionController extends PKPBaseController
 
         return $errors;
     }
+
+    /**
+     * Get Publication Metadata Form component
+     */
+    protected function getPublicationMetadataForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context']; /** @var Context $context*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $submissionLocale = $submission->getData('locale');
+        $locales = $this->getPublicationFormLocales($context, $submission);
+
+        $request = $this->getRequest();
+        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]);
+
+        $metadataForm = new PKPMetadataForm($publicationApiUrl, $locales, $publication, $context, $vocabSuggestionUrlBase);
+
+        return response()->json($this->getLocalizedForm($metadataForm, $submissionLocale, $locales), Response::HTTP_OK);
+    }
+
+    /**
+     * Get Publication Reference/Citation Form component
+     */
+    protected function getPublicationReferenceForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $citationsForm = new PKPCitationsForm($publicationApiUrl, $publication);
+
+        return response()->json($citationsForm->getConfig(), Response::HTTP_OK);
+    }
+
+
+    /**
+     * Get Publication License Form component
+     */
+    protected function getPublicationLicenseForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context']; /** @var Context $context*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $submissionLocale = $submission->getData('locale');
+        $locales = $this->getPublicationFormLocales($context, $submission);
+        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
+
+        $publicationLicenseForm = new PKPPublicationLicenseForm($publicationApiUrl, $locales, $publication, $context, $authorUserGroups);
+
+        return response()->json($this->getLocalizedForm($publicationLicenseForm, $submissionLocale, $locales), Response::HTTP_OK);
+    }
+
+    /**
+     * Get Publication Identifier Form.
+     */
+    protected function getPublicationIdentifierForm(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+
+        // Check if there are any enabled Identifiers
+        $identifiersEnabled = false;
+        $pubIdPlugins = PluginRegistry::getPlugins('pubIds');
+        foreach ($pubIdPlugins as $pubIdPlugin) {
+            if ($pubIdPlugin->isObjectTypeEnabled('Publication', $request->getContext()->getId())) {
+                $identifiersEnabled = true;
+                break;
+            }
+        }
+
+        if (!$identifiersEnabled) {
+            return response()->json([
+                'error' => __('api.publications.403.noEnabledIdentifiers'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context']; /** @var Context $context*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+        $locales = $this->getPublicationFormLocales($context, $submission);
+
+        $identifiersForm = new PKPPublicationIdentifiersForm($publicationApiUrl, $locales, $publication, $context);
+
+        return response()->json($identifiersForm->getConfig(), Response::HTTP_OK);
+    }
+
+    /**
+     * Get Publication TitleAbstract Form component
+    */
+    protected function getPublicationTitleAbstractForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $locales = $this->getPublicationFormLocales($data['context'], $data['submission']);
+        $titleAbstract = new TitleAbstractForm($data['publicationApiUrl'], $locales, $data['publication']);
+
+        return response()->json($titleAbstract->getConfig(), Response::HTTP_OK);
+    }
+
+    /**
+     * Utility method used to get the metadata locale information for a submission publications and context
+    */
+    protected function getPublicationFormLocales(Context $context, Submission $submission): array
+    {
+        return collect($context->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
+            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->values()
+            ->toArray();
+    }
+
+    /**
+     * Get URL for a given Publication
+     */
+    protected function getPublicationUrl(PKPRequest $request, Context $context, Submission $submission, Publication $publication): string
+    {
+        return $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getPath(), 'submissions/' . $submission->getId() . '/publications/' . $publication->getId());
+    }
+
+    /**
+     * Get the form configuration data with the correct
+     * locale settings based on the publication's locale
+     *
+     * Uses the publication locale as the primary and
+     * visible locale, and puts that locale first in the
+     * list of supported locales.
+     *
+     * Call this instead of $form->getConfig() to display
+     * a form with the correct publication locales
+     */
+    protected function getLocalizedForm(FormComponent $form, string $submissionLocale, array $locales): array
+    {
+        $config = $form->getConfig();
+
+        $config['primaryLocale'] = $submissionLocale;
+        $config['visibleLocales'] = [$submissionLocale];
+        $config['supportedFormLocales'] = collect($locales)
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
+            ->values()
+            ->toArray();
+
+        return $config;
+    }
+
+    /***
+     * Get the Context for a given submission.
+     */
+    protected function getContext(PKPRequest $request, Submission $submission): Context
+    {
+        $submissionContext = $request->getContext();
+        if ($submission->getData('contextId') !== $submissionContext->getId()) {
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
+        }
+
+        return $submissionContext;
+    }
+
+    /**
+     * Used by handlers for '{submissionId}/publications/{publicationId}/_components/xxx'
+     * to perform common validation and retrieve submission and publication data
+     *
+     * Performs validations on the submission and publication data derived from the request.
+     * If the validations pass, it returns the necessary data (submission, publication, context, etc).
+     * If the validations fail, it returns error information.
+     *
+     * @return array An array with validated data or error details for client response.
+     */
+    protected function getSubmissionAndPublicationData(Request $illuminateRequest): array
+    {
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+
+        if (!$publication || !$submission) {
+            return [
+                'error' => __('api.404.resourceNotFound'),
+                'status' => Response::HTTP_NOT_FOUND,
+            ];
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return [
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+                'status' => Response::HTTP_FORBIDDEN,
+            ];
+        }
+
+        $submissionContext = $request->getContext();
+        if ($submission->getData('contextId') !== $submissionContext->getId()) {
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
+        }
+
+        $publicationApiUrl = $this->getPublicationUrl($request, $submissionContext, $submission, $publication);
+
+        return [
+            'submission' => $submission,
+            'publication' => $publication,
+            'context' => $submissionContext,
+            'publicationApiUrl' => $publicationApiUrl,
+        ];
+    }
+
 }

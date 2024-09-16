@@ -30,9 +30,9 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
 {
     public function __construct(
         public ?string $userOrcid = null,
-        public ?string $givenName = null,
-        public ?string $familyName = null,
-        public ?string $affiliation = null,
+        public ?array $givenName = null,
+        public ?array $familyName = null,
+        public ?array $affiliation = null,
         public ?string $userCountry = null,
         public ?string $username = null,
         public ?string $password = null,
@@ -45,10 +45,15 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     ) 
     {
         parent::__construct(get_object_vars($this));
+
+
     }
 
     public function getValidationRules(UserRoleAssignmentInvite $invitation, ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
+        $context = $invitation->getContext();
+        $allowedLocales = $context->getSupportedFormLocales();
+
         $validationRules = [
             'givenName' => [
                 'bail',
@@ -57,6 +62,10 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE]), ['nullable']),
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 'sometimes',
+                'array',
+                new AllowedKeysRule($allowedLocales), // Apply the custom rule
+            ],
+            'givenName.*' => [
                 'string',
                 'max:255',
             ],
@@ -67,6 +76,10 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE]), ['nullable']),
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 'sometimes',
+                'array',
+                new AllowedKeysRule($allowedLocales), // Apply the custom rule
+            ],
+            'familyName.*' => [
                 'string',
                 'max:255',
             ],
@@ -77,6 +90,10 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE]), ['nullable']),
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 'sometimes',
+                'array',
+                new AllowedKeysRule($allowedLocales), // Apply the custom rule
+            ],
+            'affiliation.*' => [
                 'string',
                 'max:255',
             ],

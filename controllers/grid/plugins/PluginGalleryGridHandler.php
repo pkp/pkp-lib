@@ -33,6 +33,7 @@ use PKP\plugins\GalleryPlugin;
 use PKP\plugins\PluginGalleryDAO;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -130,6 +131,7 @@ class PluginGalleryGridHandler extends GridHandler
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         return parent::authorize($request, $args, $roleAssignments);
     }

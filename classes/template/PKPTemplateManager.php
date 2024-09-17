@@ -1046,36 +1046,40 @@ class PKPTemplateManager extends Smarty
                                 'isCurrent' => $request->getRequestedPage() === 'management' && in_array('institutions', (array) $request->getRequestedArgs()),
                             ];
                         }
-                        $menu['settings'] = [
-                            'name' => __('navigation.settings'),
-                            'submenu' => [
-                                'context' => [
-                                    'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['context']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'website' => [
-                                    'name' => __('manager.website'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['website']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('website', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'workflow' => [
-                                    'name' => __('manager.workflow'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['workflow']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('workflow', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'distribution' => [
-                                    'name' => __('manager.distribution'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['distribution']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('distribution', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'access' => [
-                                    'name' => __('navigation.access'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['access']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
+                        $userGroups = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
+                        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->getPermitSettings(), false);
+                        if ($hasSettingsAccess) {
+                            $menu['settings'] = [
+                                'name' => __('navigation.settings'),
+                                'submenu' => [
+                                    'context' => [
+                                        'name' => __('context.context'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['context']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'website' => [
+                                        'name' => __('manager.website'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['website']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('website', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'workflow' => [
+                                        'name' => __('manager.workflow'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['workflow']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('workflow', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'distribution' => [
+                                        'name' => __('manager.distribution'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['distribution']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('distribution', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'access' => [
+                                        'name' => __('navigation.access'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['access']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
+                                    ]
                                 ]
-                            ]
-                        ];
+                            ];
+                        }
                     }
 
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {

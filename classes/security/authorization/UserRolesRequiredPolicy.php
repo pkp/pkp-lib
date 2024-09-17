@@ -18,9 +18,7 @@ namespace PKP\security\authorization;
 
 use APP\core\Application;
 use APP\core\Request;
-use PKP\db\DAORegistry;
-use PKP\security\Role;
-use PKP\security\RoleDAO;
+use APP\facades\Repo;
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy
 {
@@ -50,51 +48,21 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         $request = $this->_request;
         $user = $request->getUser();
 
-        if (!$user instanceof \PKP\user\User) {
+        if (!$user) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
-
-        // Get all user roles.
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
-
         $context = $request->getRouter()->getContext($request);
-        $roleContext = $context?->getId() ?? Application::SITE_CONTEXT_ID;
 
-        $contextRoles = $this->_getContextRoles($roleContext, $userRoles);
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByUserIds([$user->getId()])
+            ->filterByContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
+            ->getMany()->toArray();
 
-        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $contextRoles);
+        $roleIds = array_map(fn ($userGroup) => $userGroup->getRoleId(), $userGroups);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $roleIds);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP, $userGroups);
+
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
-    }
-
-    /**
-     * Get the current context roles from all user roles.
-     *
-     * @param array<int,Role[]> $userRoles List of roles grouped by contextId
-     */
-    protected function _getContextRoles(?int $contextId, array $userRoles): array
-    {
-        // Adapt the role context based on the passed role id.
-        $contextRoles = [];
-
-        // Check if user has site level or manager roles.
-        if (array_key_exists((int) Application::SITE_CONTEXT_ID, $userRoles) &&
-            array_key_exists(Role::ROLE_ID_SITE_ADMIN, $userRoles[(int)  Application::SITE_CONTEXT_ID])) {
-            // site level role
-            $contextRoles[] = Role::ROLE_ID_SITE_ADMIN;
-        }
-
-        // Get the user roles related to the passed context.
-        if ($contextId !== Application::SITE_CONTEXT_ID && isset($userRoles[$contextId])) {
-            // Filter the user roles to the found context id.
-            return array_merge(
-                $contextRoles,
-                array_map(fn ($role) => $role->getRoleId(), $userRoles[$contextId])
-            );
-        } else {
-            // Context id not present in user roles array.
-            return $contextRoles;
-        }
     }
 }
 

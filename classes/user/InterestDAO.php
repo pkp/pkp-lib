@@ -22,6 +22,8 @@ use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
 use PKP\core\ArrayItemIterator;
 use PKP\db\DAORegistry;
+use Illuminate\Support\Facades\DB;
+
 
 class InterestDAO extends ControlledVocabDAO
 {
@@ -145,9 +147,11 @@ class InterestDAO extends ControlledVocabDAO
                 $interestEntry->setId($interestEntryDao->insertObject($interestEntry));
             }
 
-            $this->update(
-                'INSERT INTO user_interests (user_id, controlled_vocab_entry_id) VALUES (?, ?)',
-                [(int) $userId, (int) $interestEntry->getId()]
+            $entry = [
+                [ "user_id" => (int) $userId, "controlled_vocab_entry_id" => (int) $interestEntry->getId()]
+                    ];
+            DB::table('user_interests')->insertOrIgnore(
+                $entry
             );
         }
     }

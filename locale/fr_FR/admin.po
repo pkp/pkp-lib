@@ -220,6 +220,9 @@ msgstr ""
 "L'opération de renommage du fichier de la base de données DB-IP city lite "
 "{$sourceFilename} en {$targetFilename} a échoué."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tâche de chargement du fichier de statistiques d'utilisation"
 

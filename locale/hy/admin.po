@@ -202,6 +202,9 @@ msgstr ""
 "Չհաջողվեց վերանվանել DB-IP city lite տվյալների բազայի ֆայլը "
 "{$sourceFilename} դեպի {$targetFilename}:"
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Օգտագործման վիճակագրության ֆայլերի բեռնիչի առաջադրանք"
 

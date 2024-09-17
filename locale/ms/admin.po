@@ -209,6 +209,9 @@ msgstr ""
 "Gagal menamakan semula fail pangkalan data DB-IP city lite {$sourceFilename} "
 "kepada {$targetFilename}."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tugasan pemuat fail statistik penggunaan"
 

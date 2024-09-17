@@ -216,6 +216,9 @@ msgstr ""
 "El canvi de nom de l'arxiu de la base de dades DB-IP city lite "
 "{$sourceFilename} per {$targetFilename} ha fallat."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"
 

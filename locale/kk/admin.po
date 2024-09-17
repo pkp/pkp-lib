@@ -203,6 +203,9 @@ msgstr ""
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr ""
 

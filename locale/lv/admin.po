@@ -207,6 +207,9 @@ msgstr ""
 "DB-IP city lite datubāzes datnes {$sourceFilename} pārdēvēšana uz "
 "{$targetFilename} neizdevās."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Lietošanas statistikas datņu ielādes darbuzdevums"
 

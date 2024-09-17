@@ -216,6 +216,9 @@ msgstr ""
 "Переименование файла базы данных DB-IP city lite {$sourceFilename} в "
 "{$targetFilename} не удалось."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Задача загрузчика файлов статистики использования"
 

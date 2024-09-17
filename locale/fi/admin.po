@@ -209,6 +209,9 @@ msgstr ""
 "DB-IP city lite -tietokantatiedoston {$sourceFilename} uudelleennimeäminen "
 "muotoon {$targetFilename} epäonnistui."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Kävijätilastotiedostojen ajoitettu tehtävä"
 

@@ -217,6 +217,9 @@ msgstr ""
 "Umbenennung der DB-IP city lite Datenbank-Datei {$sourceFilename} zu "
 "{$targetFilename} fehlgeschlagen."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Task zum Laden der Nutzungsstatistik-Datei"
 

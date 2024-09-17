@@ -208,6 +208,9 @@ msgstr ""
 "Preimenovanje datoteke DB-IP city lite baze podatkov {$sourceFilename} v "
 "{$targetFilename} ni uspelo."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Opravilo nalagalnika datoteke s statistikami"
 

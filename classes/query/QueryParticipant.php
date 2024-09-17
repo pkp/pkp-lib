@@ -25,13 +25,13 @@ class QueryParticipant extends Model
 {
     use HasCamelCasing;
 
-	protected $table = 'query_participants';
-	protected $primaryKey = 'query_participant_id';
-	public $timestamps = false;
+    protected $table = 'query_participants';
+    protected $primaryKey = 'query_participant_id';
+    public $timestamps = false;
 
-	protected $fillable = [
-		'queryId', 'userId'
-	];
+    protected $fillable = [
+        'queryId', 'userId'
+    ];
 
     protected function casts(): array
     {
@@ -40,11 +40,10 @@ class QueryParticipant extends Model
             'userId' => 'int'
         ];
     }
-
-	public function toQuery(): BelongsTo
-	{
-		return $this->belongsTo(Query::class, 'query_id', 'query_id');
-	}
+    public function toQuery(): BelongsTo
+    {
+        return $this->belongsTo(Query::class, 'query_id', 'query_id');
+    }
 
     /**
      * Accessor and Mutator for primary key => id
@@ -72,7 +71,7 @@ class QueryParticipant extends Model
     // Scopes
 
     /**
-     * Scope a query to only include query participants with a specific user ID.
+     * Scope a query to only include query participants with a specific query ID.
      */
     public function scopeWithQueryId(Builder $query, int $queryId): Builder
     {

@@ -288,10 +288,8 @@ class QueryForm extends Form
         $templateMgr->assign('templates', $templateKeySubjectPairs);
 
         // Get currently selected participants in the query
-        $queryParticipants = QueryParticipant::withQueryId($query->id)
-            ->pluck('user_id')
-            ->all();
-        $assignedParticipants = $query->id ? $queryParticipants : [];
+
+        $assignedParticipants = $query->id ? QueryParticipant::withQueryId($query->id)->pluck('user_id')->all() : [];
 
         // Always include current user, even if not with a stage assignment
         $includeUsers[] = $user->getId();

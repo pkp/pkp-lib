@@ -531,7 +531,7 @@ class QueriesGridHandler extends GridHandler
         $queryParticipants = $query->queryParticipants;
         foreach ($queryParticipants as $participant) {
             if ($participant->user) {
-                $participants [] = $participant->user;
+                $participants[] = $participant->user;
             }
         }
 

@@ -31,10 +31,10 @@ class Query extends Model
 	protected $table = 'queries';
 	protected $primaryKey = 'query_id';
 
-	protected $fillable = [
-		'assocType', 'assocId', 'stageId', 'seq',
+    protected $fillable = [
+        'assocType', 'assocId', 'stageId', 'seq',
         'datePosted', 'dateModified', 'closed'
-	];
+    ];
 
     protected function casts(): array
     {
@@ -78,8 +78,8 @@ class Query extends Model
      */
     public function queryParticipants(): HasMany
     {
-		return $this->hasMany(QueryParticipant::class, 'query_id', 'query_id');
-	}
+        return $this->hasMany(QueryParticipant::class, 'query_id', 'query_id');
+    }
 
     /**
      * Compatibility function for including query IDs in grids.
@@ -123,7 +123,7 @@ class Query extends Model
      */
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $query->whereHas('queryParticipants', function($q) use ($userId) {
+        return $query->whereHas('queryParticipants', function ($q) use ($userId) {
             $q->where('user_id', $userId);
         });
     }
@@ -133,9 +133,8 @@ class Query extends Model
      */
     public function scopeWithUserIds($query, array $userIds)
     {
-        return $query->whereHas('queryParticipants', function($q) use ($userIds) {
+        return $query->whereHas('queryParticipants', function ($q) use ($userIds) {
             $q->whereIn('user_id', $userIds);
         });
     }
-
 }

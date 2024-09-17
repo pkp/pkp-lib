@@ -30,7 +30,7 @@ class Repository
     /**
      * Get the "head" (first) note for a Query.
      */
-    public function getHeadNote(int $queryId)
+    public function getHeadNote(int $queryId): ?Note
     {
         return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $queryId)
             ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)

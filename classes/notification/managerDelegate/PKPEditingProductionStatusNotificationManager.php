@@ -35,7 +35,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      */
     public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
-        return match($notification->type) {
+        return match ($notification->type) {
             Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => __('notification.type.assignCopyeditors'),
             Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => __('notification.type.awaitingCopyedits'),
             Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER => __('notification.type.assignProductionUser'),
@@ -243,8 +243,4 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             );
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\PKPEditingProductionStatusNotificationManager', '\PKPEditingProductionStatusNotificationManager');
 }

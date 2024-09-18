@@ -275,6 +275,9 @@ msgstr "The requested volume, number or year is not valid."
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr "You are not allowed to submit in this user role."
 
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr "You can not change language of this submission because it already has more than one publication version or a published publication."
+
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."
 

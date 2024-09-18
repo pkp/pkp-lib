@@ -18,13 +18,13 @@ namespace PKP\log;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\log\core\EmailLogEventType;
 use PKP\mail\Mailable;
 use PKP\user\User;
-use Illuminate\Support\Facades\DB;
 
 class Repository
 {
@@ -53,7 +53,7 @@ class Repository
     /**
      * Stores the correspondent user ids of the all recipient emails.
      */
-    private function insertLogUserIds(EmailLogEntry $entry):void
+    private function insertLogUserIds(EmailLogEntry $entry): void
     {
         $recipients = $entry->recipients;
 
@@ -78,6 +78,7 @@ class Repository
 
     /**
      * Delete all log entries for an object.
+     *
      * @return int The number of affected rows.
      */
     public function deleteByAssoc(int $assocType, int $assocId): int
@@ -114,9 +115,10 @@ class Repository
 
     /**
      * Create a log entry for a submission from data in a Mailable class
+     *
      * @return int The new log entry id
      */
-    function logMailable(EmailLogEventType $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
+    public function logMailable(EmailLogEventType $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {
         $clonedMailable = clone $mailable;
         $clonedMailable->removeFooter();
@@ -144,9 +146,10 @@ class Repository
 
     /**
      * Get email log entries by assoc ID, event type and assoc type
+     *
      * @param ?int $userId optional Return only emails sent to this user.
      */
-    function getByEventType(int $assocId, EmailLogEventType $eventType, int $assocType, ?int $userId = null)
+    public function getByEventType(int $assocId, EmailLogEventType $eventType, int $assocType, ?int $userId = null)
     {
         $query = $this->model->newQuery();
 
@@ -164,4 +167,19 @@ class Repository
 
         return $query->get(); // Counted in submissionEmails.tpl
     }
+
+    /***
+     * Checks if a user is a recipient of a given email
+     */
+    public function isUserEmailRecipient(int $emailId, int $recipientId): bool
+    {
+        $query = $this->model->newQuery();
+
+        $query->where('log_id', $emailId)
+            ->rightJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id')
+            ->where('u.user_id', $recipientId)->select('u.user_id');
+
+        return !empty($query->get()->toArray());
+    }
+
 }

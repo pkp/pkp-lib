@@ -137,6 +137,9 @@ msgstr "This is not a valid context."
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
 
+msgid "api.emailLogs.400.unrecognisedEventType"
+msgstr "You provided an unrecognized \"eventType\": {$eventType}."
+
 msgid "api.files.400.noUpload"
 msgstr "No file to be uploaded could be found with the request."
 
@@ -241,6 +244,9 @@ msgstr "You can not associate a file from this file stage with a review round."
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr "You must specify a review round when requesting files in a review stage."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "You can not associate a file from this file stage with discussion note."
 
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "You must provide a file stage."

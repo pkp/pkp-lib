@@ -60,7 +60,7 @@ describe('Data suite tests', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
-		cy.get('.app__nav a').contains('Administration').click();
+		cy.get('nav').contains('Administration').click();
 		cy.get('a').contains('Hosted Servers').click();
 		cy.get('a[class=show_extras]').click();
 		cy.contains('Settings wizard').click();
@@ -99,7 +99,9 @@ describe('Data suite tests', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
-		cy.get('.app__nav a').contains('Server').click();
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Server').click({ force: true });
 
 		cy.get('input[name="abbreviation-en"]').type('Pub Know Pre', {delay: 0});
 		cy.get('input[name="acronym-en"]').type(Cypress.env('contextAcronyms')['en'], {delay: 0});
@@ -112,7 +114,9 @@ describe('Data suite tests', function() {
 		cy.login('admin', 'admin');
 		cy.get('a').contains('admin').click();
 		cy.get('a').contains('Dashboard').click();
-		cy.get('.app__nav a').contains('Server').click();
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Server').click({ force: true });
 		cy.get('button[id="contact-button"]').click();
 
 		// Submit the form with required fields missing.

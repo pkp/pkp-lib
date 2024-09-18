@@ -15,7 +15,7 @@ describe('DOI tests', function() {
 
 	const loginAndGoToDoiPage = () => {
 		cy.login('dbarnes', null, 'publicknowledge');
-		cy.get('a:contains("DOIs")').click();
+		cy.get('nav').contains('DOIs').click();
 		cy.get('button#submission-doi-management-button').click();
 	};
 
@@ -291,7 +291,9 @@ describe('DOI tests', function() {
 		cy.log("Check DOI versioning off creates new DOI for first version");
 
 		// Turn DOI versioning off
-		cy.get('a:contains("Distribution")').click();
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Distribution').click({ force: true });
 		cy.get('button#dois-button').click();
 
 		cy.get("input[name=doiVersioning][value=false]").click();
@@ -302,7 +304,7 @@ describe('DOI tests', function() {
 		cy.get('#doisSetup [role="status"]').contains('Saved');
 
 		//Go to publication and rollback to first publication being unpublished, then republish first publication
-		cy.get('a:contains("Submissions")').click();
+		cy.get('nav').contains('Submissions').click();
 		cy.get('button:contains("Archived")').click();
 		cy.get(`div#archive .listPanel__item:contains("${articleTitle}") a:contains("View")`).click();
 
@@ -347,7 +349,7 @@ describe('DOI tests', function() {
 		cy.log("Check DOI versioning off copies previous DOI for subsequent versions");
 
 		// Publish Version 2
-		cy.get('a:contains("Submissions")').click();
+		cy.get('nav').contains('Submissions').click();
 		cy.get('button:contains("Archived")').click();
 		cy.get(`div#archive .listPanel__item:contains("${articleTitle}") a:contains("View")`).click();
 		cy.get('button#publication-button').click();
@@ -400,7 +402,9 @@ describe('DOI tests', function() {
 			);
 
 		// Change DOI versioning to "on" to confirm DOI was copied properly
-		cy.get('a:contains("Distribution")').click();
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Distribution').click({ force: true });
 		cy.get('button#dois-button').click();
 
 		cy.get("input[name=doiVersioning][value=true]").click();
@@ -483,7 +487,7 @@ describe('DOI tests', function() {
 
 		// Check creates new version
 		// Go to publication and publish Version 2
-		cy.get('a:contains("Submissions")').click();
+		cy.get('nav').contains('Submissions').click();
 		cy.get('button:contains("Archived")').click();
 		cy.get(`div#archive .listPanel__item:contains("${articleTitle}") a:contains("View")`).click();
 		cy.get('button#publication-button').click();

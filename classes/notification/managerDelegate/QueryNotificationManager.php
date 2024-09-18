@@ -61,7 +61,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __('submission.query.activity', [
                     'responderName' => $user->getFullName(),
                     'noteContents' => Str::limit(PKPString::html2text($latestNote->contents), 200),
-                    'noteTitle' => Str::limit($headNote->title,200),
+                    'noteTitle' => Str::limit($headNote->title, 200),
                 ]);
         }
         throw new \Exception('Unexpected notification type!');
@@ -107,7 +107,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationContents(PKPRequest $request, Notification $notification): mixed
     {
-        if($notification->assocType != Application::ASSOC_TYPE_QUERY) {
+        if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
         $query = Query::find($notification->assocId);

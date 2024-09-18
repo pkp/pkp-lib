@@ -35,7 +35,7 @@ class Repository
     /**
      * Retrieve a count of all open queries totalled by stage
      *
-     * @param int[] $participantIds Only include queries with these participants
+     * @param ?int[] $participantIds Only include queries with these participants
      *
      * @return array<int,int> [int $stageId => int $count]
      */
@@ -84,21 +84,25 @@ class Repository
      */
     public function addQuery(int $submissionId, int $stageId, string $title, string $content, User $fromUser, array $participantUserIds, int $contextId, bool $sendEmail = true): int
     {
+        $maxSeq = Query::where('assocType', Application::ASSOC_TYPE_SUBMISSION)
+            ->where('assocId', $submissionId)
+            ->max('seq') ?? 0;
+
         $query = Query::create([
             'assocType' => Application::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submissionId,
             'stageId' => $stageId,
-            'seq' => REALLY_BIG_NUMBER
+            'seq' => $maxSeq + 1
         ]);
 
-        $this->resequence(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
-
+        $addParticipants = [];
         foreach (array_unique($participantUserIds) as $participantUserId) {
-            QueryParticipant::create([
-                'queryId' => $query->id,
-                'userId' => $participantUserId
+            $addParticipants[] = ([
+                'query_id' => $query->id,
+                'user_id' => $participantUserId
             ]);
         }
+        QueryParticipant::insert($addParticipants);
 
         Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,

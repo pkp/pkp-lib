@@ -28,8 +28,8 @@ class Query extends Model
     const CREATED_AT = 'date_posted';
     const UPDATED_AT = 'date_modified';
 
-	protected $table = 'queries';
-	protected $primaryKey = 'query_id';
+    protected $table = 'queries';
+    protected $primaryKey = 'query_id';
 
     protected $fillable = [
         'assocType', 'assocId', 'stageId', 'seq',
@@ -61,13 +61,16 @@ class Query extends Model
     }
 
     /**
-     * Accessor for user. Can be replaced with relationship once User is converted to an Eloquent Model.
+     * Accessor for users. Can be replaced with relationship once User is converted to an Eloquent Model.
      */
-    protected function user(): Attribute
+    protected function users(): Attribute
     {
         return Attribute::make(
             get: function () {
-                return Repo::user()->get($this->queryParticipant->userId, true);
+                $userIds = $this->queryParticipants()
+                    ->pluck('user_id')
+                    ->all();
+                return Repo::user()->getCollector()->filterByUserIds($userIds)->getMany();
             },
         );
     }

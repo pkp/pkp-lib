@@ -78,7 +78,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         /** @var Query $element */
         $headNote = Repo::note()->getHeadNote($element->id);
         $user = $headNote?->user;
-        $notes = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $element->getId())
+        $notes = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $element->id)
             ->withSort(Note::NOTE_ORDER_ID)
             ->lazy();
         $context = Application::get()->getRequest()->getContext();
@@ -91,7 +91,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
                 return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $headNote?->dateCreated->format($datetimeFormatShort)];
             case 'lastReply':
                 $latestReply = $notes->first();
-                if ($latestReply && $latestReply->getId() != $headNote->id) {
+                if ($latestReply && $latestReply->id != $headNote->id) {
                     $repliedUser = $latestReply->user;
                     return ['label' => ($repliedUser?->getUsername() ?? '&mdash;') . '<br />' . $latestReply->dateCreated->format($datetimeFormatShort)];
                 } else {

@@ -534,12 +534,14 @@ class QueryForm extends Form
         $newParticipantIds = $this->getData('users');
         QueryParticipant::withQueryId($query->id)
             ->delete();
+        $addParticipants = [];
         foreach ($newParticipantIds as $userId) {
-            QueryParticipant::create([
-                'queryId' => $query->id,
-                'userId' => $userId
+            $addParticipants[] = ([
+                'query_id' => $query->id,
+                'user_id' => $userId
             ]);
         }
+        QueryParticipant::insert($addParticipants);
 
         $removed = array_diff($oldParticipantIds, $newParticipantIds);
         foreach ($removed as $userId) {

@@ -147,34 +147,10 @@
 			{/if}
 		</header>
 
-		{* Swap the navigation menu for a back-to-dashboard link when only one item exists *}
-		<nav v-if="backToDashboardLink" class="app__returnHeader" aria-label="{translate key="common.navigation.site"}">
-			<a class="app__returnHeaderLink" :href="backToDashboardLink.url">
-				{{ backToDashboardLabel }}
-			</a>
-		</nav>
-
 		<div class="app__body">
 			{block name="menu"}
-				<nav v-if="!!menu && Object.keys(menu).length > 1" class="app__nav" aria-label="{translate key="common.navigation.site"}">
-					<ul>
-						<li v-for="(menuItem, key) in menu" :key="key" :class="!!menuItem.submenu ? 'app__navGroup' : ''">
-							<div v-if="!!menuItem.submenu" class="app__navItem app__navItem--hasSubmenu">
-								{{ menuItem.name }}
-							</div>
-							<a v-else class="app__navItem" :class="menuItem.isCurrent ? 'app__navItem--isCurrent' : ''" :href="menuItem.url">
-								{{ menuItem.name }}
-							</a>
-							<ul v-if="!!menuItem.submenu">
-								<li v-for="(submenuItem, submenuKey) in menuItem.submenu" :key="submenuKey">
-									<a class="app__navItem" :class="submenuItem.isCurrent ? 'app__navItem--isCurrent' : ''" :href="submenuItem.url">
-										{{ submenuItem.name }}
-									</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
+				<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
+				</pkp-side-nav>
 			{/block}
 
 			<main class="app__main">

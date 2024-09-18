@@ -31,6 +31,7 @@ import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
 import DropdownActions from '@/components/DropdownActions/DropdownActions.vue';
 import Icon from '@/components/Icon/Icon.vue';
+import SideNav from '@/components/SideNav/SideNav.vue';
 import Notification from '@/components/Notification/Notification.vue';
 import Panel from '@/components/Panel/Panel.vue';
 import PanelSection from '@/components/Panel/PanelSection.vue';
@@ -116,6 +117,7 @@ VueRegistry.registerComponent('PkpDropdown', Dropdown);
 VueRegistry.registerComponent('DropdownActions', DropdownActions);
 VueRegistry.registerComponent('Icon', Icon);
 VueRegistry.registerComponent('PkpIcon', Icon);
+VueRegistry.registerComponent('PkpSideNav', SideNav);
 VueRegistry.registerComponent('Notification', Notification);
 VueRegistry.registerComponent('PkpNotification', Notification);
 VueRegistry.registerComponent('Panel', Panel);
@@ -236,7 +238,7 @@ function pkpCreateVueApp(createAppArgs) {
 		themes: {
 			'pkp-tooltip': {
 				$extend: 'tooltip',
-				triggers: ['click'],
+				triggers: ['hover', 'focus'],
 				delay: {
 					show: 0,
 					hide: 0,

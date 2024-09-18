@@ -667,7 +667,9 @@ Cypress.Commands.add('checkFilters', filters => {
 });
 
 Cypress.Commands.add('checkDoiConfig', doiTypes => {
-	cy.get('a:contains("Distribution")').click();
+	cy.get('nav').contains('Settings').click();
+	// Ensure submenu item click despite animation
+	cy.get('nav').contains('Distribution').click({ force: true });
 
 	cy.get('button#dois-button').click();
 

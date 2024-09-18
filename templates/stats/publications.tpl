@@ -129,23 +129,25 @@
 							</div>
 						</div>
 					</div>
-					<table class="-screenReader" role="region" aria-live="polite">
-						<caption v-if="timelineType === 'files'">{translate key="stats.publications.totalGalleyViews.timelineInterval"}</caption>
-						<caption v-else>{translate key="stats.publications.totalAbstractViews.timelineInterval"}</caption>
-						<thead>
-							<tr>
-								<th scope="col">{translate key="common.date"}</th>
-								<th v-if="timelineType === 'files'" scope="col">{translate key="stats.fileViews"}</th>
-								<th v-else scope="col">{translate key="submission.abstractViews"}</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr	v-for="segment in timeline" :key="segment.date">
-								<th scope="row">{{ segment.label }}</th>
-								<td>{{ segment.value }}</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="sr-only">
+						<table class="-screenReader" role="region" aria-live="polite">
+							<caption v-if="timelineType === 'files'">{translate key="stats.publications.totalGalleyViews.timelineInterval"}</caption>
+							<caption v-else>{translate key="stats.publications.totalAbstractViews.timelineInterval"}</caption>
+							<thead>
+								<tr>
+									<th scope="col">{translate key="common.date"}</th>
+									<th v-if="timelineType === 'files'" scope="col">{translate key="stats.fileViews"}</th>
+									<th v-else scope="col">{translate key="submission.abstractViews"}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr	v-for="segment in timeline" :key="segment.date">
+									<th scope="row">{{ segment.label }}</th>
+									<td>{{ segment.value }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 					<line-chart :chart-data="chartData" aria-hidden="true"></line-chart>
 					<span v-if="isLoadingTimeline" class="pkpStats__loadingCover">
 						<spinner></spinner>

@@ -23,11 +23,15 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\log\core\EmailLogEventType;
+use PKP\log\core\maps\Schema;
 use PKP\mail\Mailable;
 use PKP\user\User;
 
 class Repository
 {
+    // The name of the class to map this entity to its schema
+    public string $schemaMap = Schema::class;
+
     public function __construct(private EmailLogEntry $model)
     {
     }
@@ -182,4 +186,12 @@ class Repository
         return !empty($query->get()->toArray());
     }
 
+    /**
+     * Get an instance of the map class for mapping
+     * log entries to their schema
+     */
+    public function getSchemaMap(): Schema
+    {
+        return app('maps')->withExtensions($this->schemaMap);
+    }
 }

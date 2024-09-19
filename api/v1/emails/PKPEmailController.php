@@ -90,8 +90,9 @@ class PKPEmailController extends PKPBaseController
      */
     protected function getMany(Request $illuminateRequest): JsonResponse
     {
-        $context = $this->getRequest()->getContext();
+
         $allowedQueryParams = ['submissionId', 'userId', 'eventType'];
+        $currentUser = $this->getRequest()->getUser();
 
         foreach ($illuminateRequest->query->keys() as $queryParam) {
             if (!in_array($queryParam, $allowedQueryParams)) {
@@ -124,11 +125,12 @@ class PKPEmailController extends PKPBaseController
             }
 
             // Ensure user has access to the submission they're requesting emails from
-            $assignedSubmissionIds = Repo::submission()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->assignedTo([$this->getRequest()->getUser()->getId()])->getIds();
+            $isAssigned = StageAssignment::withSubmissionIds([$submission->getId()])
+                ->withRoleIds([Role::ROLE_ID_AUTHOR]) //remove author
+                ->withUserId($currentUser->getId())
+                ->pluck('user_id')->toArray();
 
-            if (!in_array($submissionId, $assignedSubmissionIds->all())) {
+            if (!$isAssigned) {
                 return response()->json([
                     'error' => __('api.403.unauthorized'),
                 ], Response::HTTP_FORBIDDEN);
@@ -141,13 +143,16 @@ class PKPEmailController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
+
         $emails = EmailLogEntry::leftJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id')
-            ->where('u.user_id', $this->getRequest()->getUser()->getId()) // Always limit emails to only those sent to user
+            ->where('u.user_id', $queryUserId ?? $currentUser->getId()) // use provided userId or default to user making the request
             ->when($eventType, fn ($query) => $query->where('event_type', $eventType))
             ->when($submissionId, fn ($query) => $query->where('assoc_id', $submissionId))
             ->select('email_log.*')->get();
 
-        return response()->json($emails, Response::HTTP_OK);
+        $data = Repo::emailLogEntry()->getSchemaMap()->summarizeMany($emails);
+
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
@@ -179,11 +184,15 @@ class PKPEmailController extends PKPBaseController
                     ->pluck('user_id')->toArray();
 
                 if(!$isAssignedEditor) {
-                    return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
+                    return response()->json([
+                        'error' => __('api.403.unauthorized'),
+                    ], Response::HTTP_FORBIDDEN);
                 }
             }
         }
 
-        return response()->json($email, Response::HTTP_OK);
+        $data = Repo::emailLogEntry()->getSchemaMap()->summarize($email);
+
+        return response()->json($data, Response::HTTP_OK);
     }
 }

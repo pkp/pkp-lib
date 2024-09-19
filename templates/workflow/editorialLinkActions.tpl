@@ -22,7 +22,7 @@
 		<div id="editorialActions" class="pkp_workflow_decisions">
 
 			{* Editors who can take a final decision *}
-			{if $makeDecision && count($decisions)}
+			{if $makeDecision && count($decisions) && !$makeRecommendation}
 				{if $lastDecision}
 					<div class="pkp_workflow_last_decision">
 						{translate key=$lastDecision}

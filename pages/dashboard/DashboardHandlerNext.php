@@ -168,7 +168,7 @@ class DashboardHandlerNext extends Handler
         }
 
         // OJS specific, might need to be adjusted for OMP/OPS
-        $paymentManager = Application::getPaymentManager($context);
+        $paymentManager = Application::get()->getPaymentManager($context);
             
         $templateMgr->setState([
             'pageInitConfig' => [

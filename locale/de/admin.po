@@ -1,12 +1,13 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2024-09-19 17:39+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
 ">\n"
 "Language: de\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Name der Einstellung"
@@ -942,3 +943,6 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Worker-Daemon für die Test-Warteschlange ausführen"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Gutachterstatistik"

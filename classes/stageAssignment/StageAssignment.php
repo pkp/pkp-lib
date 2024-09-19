@@ -90,7 +90,7 @@ class StageAssignment extends Model
     public function scopeWithSubmissionIds(Builder $query, ?array $submissionIds): Builder
     {
         return $query->when($submissionIds !== null, function ($query) use ($submissionIds) {
-            return $query->whereIn('submission_id', $submissionIds);
+            return $query->whereIn('stage_assignments.submission_id', $submissionIds);
         });
     }
 
@@ -142,7 +142,7 @@ class StageAssignment extends Model
     {
         return $query->when($contextId !== null, function ($query) use ($contextId) {
             return $query->join('submissions', 'stage_assignments.submission_id', '=', 'submissions.submission_id')
-                        ->where('submissions.context_id', $contextId);
+                ->where('submissions.context_id', $contextId);
         });
     }
 }

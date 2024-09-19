@@ -26,6 +26,7 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\form\validation\FormValidatorAltcha;
 use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -88,6 +89,7 @@ class LoginHandler extends Handler
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
         }
 
+        $this->generateAltchaComponent('altcha_on_login', $templateMgr);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }
 
@@ -139,6 +141,7 @@ class LoginHandler extends Handler
             }
         }
 
+        $error = $this->validateAltchaResponse($request, 'altcha_on_login');
         $username = $request->getUserVar('username');
         $reason = null;
         $user = $error || !strlen($username ?? '')
@@ -177,6 +180,7 @@ class LoginHandler extends Handler
             'error' => $error,
             'reason' => $reason,
         ]);
+        $this->generateAltchaComponent('altcha_on_login', $templateMgr);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }
 
@@ -209,6 +213,7 @@ class LoginHandler extends Handler
 
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
+        $this->generateAltchaComponent('altcha_on_lost_password', $templateMgr);
         $templateMgr->display('frontend/pages/userLostPassword.tpl');
     }
 
@@ -220,10 +225,27 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
+        $altchaHasError = $this->validateAltchaResponse($request, 'altcha_on_lost_password');
+
+        if ($altchaHasError) {
+            $this->generateAltchaComponent('altcha_on_lost_password', $templateMgr);
+
+            $templateMgr
+                ->assign([
+                    'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+                    'reason' => __($altchaHasError)
+                ])
+                ->display('frontend/pages/userLostPassword.tpl');
+
+            return;
+        }
+
         $email = (string) $request->getUserVar('email');
         $user = $email ? Repo::user()->getByEmail($email, true) : null;
         if ($user !== null) {
             if ($user->getDisabled()) {
+                $this->generateAltchaComponent('altcha_on_lost_password', $templateMgr);
+
                 $templateMgr
                     ->assign([
                         'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
@@ -480,5 +502,38 @@ class LoginHandler extends Handler
     {
         $pkpPageRouter = $request->getRouter(); /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
         $pkpPageRouter->redirectHome($request);
+    }
+
+    /**
+     * Validate if ALTCHA user's response is valid
+     *
+     * @param PKPRequest $request
+     * @param string $altchaConfigKey the key to search on config.inc.php
+     */
+    private function validateAltchaResponse($request, $altchaConfigKey): ?string
+    {
+        if (Config::getVar('captcha', 'altcha') && Config::getVar('captcha', $altchaConfigKey)) {
+            try {
+                FormValidatorAltcha::validateResponse($request->getUserVar('altcha'), $request->getRemoteAddr());
+                return null;
+            } catch (Exception $exception) {
+                return 'common.captcha.error.missing-input-response';
+            }
+        }
+    }
+
+    /**
+     * Generate ALTCHA challenge to use it on form in case ALTCHA
+     * is enabled on the specific page
+     *
+     * @param string $altchaConfigKey the key to search on config.inc.php
+     * @param TemplateManager $templateMgr
+     */
+    private function generateAltchaComponent($altchaConfigKey, &$templateMgr): void
+    {
+        if (Config::getVar('captcha', 'altcha') && Config::getVar('captcha', $altchaConfigKey)) {
+            FormValidatorAltcha::addAltchaJavascript($templateMgr);
+            FormValidatorAltcha::insertFormChallenge($templateMgr);
+        }
     }
 }

@@ -34,6 +34,8 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\components\forms\publication\ContributorForm;
+use PKP\plugins\PluginRegistry;
+use PKP\notification\Notification;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -155,7 +157,19 @@ class DashboardHandlerNext extends Handler
         $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
         $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
 
+        // Detect whether identifiers are enabled
+        $identifiersEnabled = false;
+        $pubIdPlugins = PluginRegistry::getPlugins('pubIds');
+        foreach ($pubIdPlugins as $pubIdPlugin) {
+            if ($pubIdPlugin->isObjectTypeEnabled('Publication', $request->getContext()->getId())) {
+                $identifiersEnabled = true;
+                break;
+            }
+        }
 
+        // OJS specific, might need to be adjusted for OMP/OPS
+        $paymentManager = Application::getPaymentManager($context);
+            
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -166,6 +180,11 @@ class DashboardHandlerNext extends Handler
                 'contributorForm' => $contributorForm->getConfig(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
+                'publicationSettings' => [
+                    'supportsCitations' => !!$context->getData('citations'),
+                    'identifiersEnabled' => $identifiersEnabled,
+                    'submissionPaymentsEnabled' => $paymentManager->publicationEnabled()
+                ]
             ]
         ]);
 
@@ -244,6 +263,7 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_FILE_COPYEDIT' => SubmissionFile::SUBMISSION_FILE_COPYEDIT,
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
+            'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
             'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
@@ -253,8 +273,15 @@ class DashboardHandlerNext extends Handler
 
             // ASSOC
             'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
-            'ASSOC_TYPE_REPRESENTATION' => PKPApplication::ASSOC_TYPE_REPRESENTATION
+            'ASSOC_TYPE_REPRESENTATION' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
+            'ASSOC_TYPE_SUBMISSION' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            // NOTIFICATIONS
+            'NOTIFICATION_LEVEL_NORMAL' => Notification::NOTIFICATION_LEVEL_NORMAL,
+            'NOTIFICATION_LEVEL_TRIVIAL' => Notification::NOTIFICATION_LEVEL_TRIVIAL,
 
+            'NOTIFICATION_TYPE_VISIT_CATALOG' => Notification::NOTIFICATION_TYPE_VISIT_CATALOG,
+            'NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER' => Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+            'NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS' => Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');

@@ -187,13 +187,19 @@ msgid "dashboard.summary.revisionsUploaded"
 msgstr "Revisions Submitted"
 
 msgid "dashboard.summary.revisionsUploadedDescription"
-msgstr "These files have been submitted by the author after visions were requested"
+msgstr "These files have been submitted by the author after revisions were requested"
 
 msgid "dashboard.summary.filesForReview"
 msgstr "Files for review"
 
 msgid "dashboard.summary.filesForReviewDescription"
 msgstr "These files will be sent to the reviewers to review"
+
+msgid "dashboard.summary.reviewersAttachments"
+msgstr "Reviewer's Attachments"
+
+msgid "dashboard.summary.reviewersAttachmentsDescription"
+msgstr "These files have been submitted by the autho"
 
 msgid "dashboard.summary.copyeditedFiles"
 msgstr "Copyedited Files"

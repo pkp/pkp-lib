@@ -20,7 +20,7 @@ use PKP\context\Context;
 trait HasReviewDueDate
 {
     public const REVIEW_SUBMIT_DEFAULT_DUE_WEEKS = 4;
-    public const RESPONSE_RESPONSE_DEFAULT_DUE_WEEKS = 4;
+    public const REVIEW_RESPONSE_DEFAULT_DUE_WEEKS = 3;
 
     /**
      * Get the review submit due dates
@@ -44,7 +44,7 @@ trait HasReviewDueDate
         $numWeeks = (int) $context->getData('numWeeksPerResponse');
         
         if ($numWeeks <= 0) {
-            $numWeeks = static::RESPONSE_RESPONSE_DEFAULT_DUE_WEEKS;
+            $numWeeks = static::REVIEW_RESPONSE_DEFAULT_DUE_WEEKS;
         }
 
         return Carbon::today()->endOfDay()->addWeeks($numWeeks);

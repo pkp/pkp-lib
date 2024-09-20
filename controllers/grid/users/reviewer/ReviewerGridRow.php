@@ -139,7 +139,7 @@ class ReviewerGridRow extends GridRow
                         'edit'
                     ));
 
-                    // if declined by requested reviewer, will not show option to cancel reviewer
+                    // if declined by requested reviewer, don't show the option to cancel the review
                     // @see https://github.com/pkp/pkp-lib/issues/9948
                     if (!$reviewAssignment->getDeclined()) {
                         $this->addAction(new LinkAction(

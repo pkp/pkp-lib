@@ -17,8 +17,12 @@ use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
+use PKP\workflow\WorkflowStageDAO;
+use Submission;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -51,9 +55,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the user schema.
      */
-    public function summarizeReviewer(User $item): array
+    public function summarizeReviewer(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties(array_merge($this->getSummaryProps(), ['reviewsActive', 'reviewsCompleted', 'reviewsDeclined', 'reviewsCancelled', 'averageReviewCompletionDays', 'dateLastReviewAssignment', 'reviewerRating']), $item);
+        return $this->mapByProperties(array_merge($this->getSummaryProps(), ['reviewsActive', 'reviewsCompleted', 'reviewsDeclined', 'reviewsCancelled', 'averageReviewCompletionDays', 'dateLastReviewAssignment', 'reviewerRating']), $item, $auxiliaryData);
     }
 
     /**
@@ -98,9 +102,11 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map schema properties of a user to an assoc array
      *
+     * @param array $auxiliaryData - Associative array used to provide supplementary data needed to populate properties on the response.
+     *
      * @hook UserSchema::getProperties::values [[$this, &$output, $user, $props]]
      */
-    protected function mapByProperties(array $props, User $user): array
+    protected function mapByProperties(array $props, User $user, array $auxiliaryData = []): array
     {
         $output = [];
 
@@ -180,6 +186,54 @@ class Schema extends \PKP\core\maps\Schema
                             }
                         }
                     }
+                    break;
+                case 'stageAssignments':
+                    $submission = $auxiliaryData['submission'];
+                    $stageId = $auxiliaryData['stageId'];
+
+                    if((!isset($submission) || !isset($stageId)) || (!($submission instanceof Submission) || !is_numeric($auxiliaryData['stageId']))) {
+                        $output['stageAssignments'] = [];
+                        break;
+                    }
+
+                    // Get User's stage assignments for submission.
+                    // Note:
+                    // - A User can potentially have multiple assignments for a submission.
+                    // - A User can potentially have multiple assignments for a stage of a submission.
+                    $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+                        ->withStageIds($stageId ? [$stageId] : [])
+                        ->withUserId($user->getId())
+                        ->withContextId($this->context->getId())
+                        ->get();
+
+                    $results = [];
+
+                    foreach ($stageAssignments as  $stageAssignment /**@var StageAssignment  $stageAssignment*/) {
+                        // Get related user group info for stage assignment
+                        $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+
+                        // Only prepare data for non-reviewer participants
+                        if ($userGroup->getRoleId() !== Role::ROLE_ID_REVIEWER) {
+                            $entry = [
+                                'stageAssignmentId' => $stageAssignment->id,
+                                'stageAssignmentUserGroup' => $userGroup->getAllData(),
+                                'stageAssignmentStageId' => $stageId,
+                                'recommendOnly' => (bool)$stageAssignment->recommendOnly,
+                                'canChangeMetadata' => (bool)$stageAssignment->canChangeMetadata
+                            ];
+
+                            $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
+                            $entry['stageAssignmentStage'] = [
+                                'id' => $stageId,
+                                'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
+                            ];
+
+                            $results[] = $entry;
+                        }
+
+                        $output['stageAssignments'] = $results;
+                    }
+
                     break;
                 default:
                     $output[$prop] = $user->getData($prop);

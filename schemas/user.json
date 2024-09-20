@@ -290,6 +290,43 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"stageAssignments": {
+			"apiSummary": true,
+			"readOnly": true,
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"stageAssignmentId": {
+						"type": "integer"
+					},
+					"stageAssignmentUserGroup": {
+						"type": "object",
+						"$ref": "#/definitions/UserGroup"
+					},
+					"stageAssignmentStageId": {
+						"type": "integer"
+					},
+					"stageAssignmentStage": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "string"
+							},
+							"label": {
+								"type": "string"
+							}
+						}
+					},
+					"canChangeMetadata": {
+						"type": "boolean"
+					},
+					"recommendOnly": {
+						"type": "boolean"
+					}
+				}
+			}
 		}
 	}
 }

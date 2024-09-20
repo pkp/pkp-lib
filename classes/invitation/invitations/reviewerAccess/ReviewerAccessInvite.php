@@ -28,7 +28,6 @@ use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteRedirectController;
 use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
-use PKP\invitation\models\InvitationModel;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
 

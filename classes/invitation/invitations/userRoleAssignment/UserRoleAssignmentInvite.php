@@ -23,7 +23,6 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\core\InvitePayload;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;

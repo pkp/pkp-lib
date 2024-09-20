@@ -31,7 +31,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
 
     public function acceptHandle(Request $request): void
     {
-        if ($this->invitation->getStatus() !== InvitationStatus::ACCEPTED) {
+        if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             $request->getDispatcher()->handle404();
         }
 

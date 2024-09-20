@@ -18,10 +18,10 @@ namespace PKP\jobs\email;
 
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\core\PKPApplication;
 use PKP\core\Core;
-use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\jobs\BaseJob;

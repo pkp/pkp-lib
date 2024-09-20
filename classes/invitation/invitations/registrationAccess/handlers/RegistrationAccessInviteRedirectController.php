@@ -32,7 +32,7 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
 
     public function acceptHandle(Request $request): void
     {
-        if ($this->invitation->getStatus() !== InvitationStatus::ACCEPTED) {
+        if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             $request->getDispatcher()->handle404();
         }
 
@@ -74,7 +74,7 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
 
     public function declineHandle(Request $request): void
     {
-        if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
+        if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             $request->getDispatcher()->handle404();
         }
 

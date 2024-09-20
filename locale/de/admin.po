@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-09-19 17:39+0000\n"
+"PO-Revision-Date: 2024-09-20 06:55+0000\n"
 "Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
 ">\n"
@@ -946,3 +946,39 @@ msgstr "Worker-Daemon für die Test-Warteschlange ausführen"
 
 msgid "admin.settings.sharedReviewerStatistics"
 msgstr "Gutachterstatistik"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Aggregierte Gutachterstatistiken deaktivieren"
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Die Datei {$file} existiert nicht."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Warteschlangenaufträge können nicht ausgeführt werden, da der Sandbox-Modus "
+"der Anwendung aktiviert ist."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Starten Sie die Queue-Worker-Daemons nach ihrem aktuellen Auftrag neu."
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"In einer Installation für mehrere Zeitschriften können Gutachterstatistiken, "
+"wie z. B. die Anzahl der abgegebenen Bewertungen, entweder einzeln für jede "
+"Zeitschrift oder zusammenfassend angezeigt werden."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Die Worker werden nach Beendigung der Ausführung des aktuellen Auftrags "
+"ordnungsgemäß beendet."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Datei {$filename} wurde in das dispatch-Verzeichnis verschoben."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Die Datei {$file} konnte nicht von {$dispatchFilePath} nach "
+"{$archivedFilePath} verschoben werden."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Nutzen Sie die Website als Plattform für alle Zeitschriften."

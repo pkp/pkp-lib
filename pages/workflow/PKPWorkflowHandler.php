@@ -40,6 +40,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\Decision;
+use PKP\decision\types\NewExternalReviewRound;
 use PKP\notification\Notification;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -707,7 +708,12 @@ abstract class PKPWorkflowHandler extends Handler
         $decisions = $this->getStageDecisionTypes($stageId);
         if ($isOnlyRecommending) {
             $decisions = Repo::decision()
-                ->getDecisionTypesMadeByRecommendingUsers($stageId);
+		    ->getDecisionTypesMadeByRecommendingUsers($stageId);
+            // remove NewReviewRound from available actions
+            $class = new NewExternalReviewRound();
+            $decisions = array_filter($decisions, function ($obj) use ($class) {
+                            return $obj != $class;
+                      });
         }
 
         // Assign the actions to the template.

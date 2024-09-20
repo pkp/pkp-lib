@@ -21,7 +21,7 @@
 
 		<div id="editorialActions" class="pkp_workflow_decisions">
 
-			{* Editors who can take a final decision *}
+			{* Editors who can take a final decision OR editors who can send in review*}
 			{if $makeDecision && count($decisions)}
 				{if $lastDecision}
 					<div class="pkp_workflow_last_decision">

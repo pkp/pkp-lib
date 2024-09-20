@@ -83,6 +83,7 @@ class OrcidController extends PKPBaseController
 
         $author = $validate['author']; /** @var Author $author */
         try {
+            $author->setData('orcidVerificationRequested', true);
             dispatch(new SendAuthorMail($author, $context, true));
         } catch (\Exception $exception) {
             return response()->json([

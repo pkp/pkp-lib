@@ -193,6 +193,10 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"orcidVerificationRequested": {
+			"type": "boolean",
+			"apiSummary": false
 		}
 	}
 }

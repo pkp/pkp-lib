@@ -138,16 +138,21 @@ class ReviewerGridRow extends GridRow
                         __('common.edit'),
                         'edit'
                     ));
-                    $this->addAction(new LinkAction(
-                        'unassignReviewer',
-                        new AjaxModal(
-                            $router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
+
+                    // if declined by requested reviewer, don't show the option to cancel the review
+                    // @see https://github.com/pkp/pkp-lib/issues/9948
+                    if (!$reviewAssignment->getDeclined()) {
+                        $this->addAction(new LinkAction(
+                            'unassignReviewer',
+                            new AjaxModal(
+                                $router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
+                                $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
+                                'modal_delete'
+                            ),
                             $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
-                            'modal_delete'
-                        ),
-                        $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
-                        'delete'
-                    ));
+                            'delete'
+                        ));
+                    }
                 } else {
                     $this->addAction(
                         new LinkAction(

@@ -82,6 +82,7 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
             ->makePartial()
             ->shouldReceive([
                 'getId' => 0,
+                'getLocalizedData' => '',
             ])
             ->withAnyArgs()
             ->getMock();

@@ -66,6 +66,7 @@ class StatisticsReportMailTest extends PKPTestCase
                 'getPrimaryLocale' => 'en',
                 'getContactEmail' => 'testmail@mail.test',
                 'getContactName' => 'Test User',
+                'getLocalizedData' => '',
             ])
             ->withAnyArgs()
             ->getMock();

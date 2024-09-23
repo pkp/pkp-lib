@@ -75,10 +75,10 @@ class AnnouncementHandler extends Handler
         $announcement = Announcement::find($announcementId);
         if (
             $announcement
-            && $announcement->getAttribute('assocType') == Application::getContextAssocType()
-            && $announcement->getAttribute('assocId') == $request->getContext()?->getId()
+            && $announcement->assocType == Application::getContextAssocType()
+            && $announcement->assocId == $request->getContext()?->getId()
             && (
-                $announcement->getAttribute('dateExpire') == null || strtotime($announcement->getAttribute('dateExpire')) > time()
+                $announcement->dateExpire == null || strtotime($announcement->dateExpire) > time()
             )
         ) {
             $templateMgr = TemplateManager::getManager($request);

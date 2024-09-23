@@ -81,7 +81,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                     throw new \Exception('Unexpected assoc type!');
                 }
                 $announcement = Announcement::find($notification->assocId);
-                $context = $contextDao->getById($announcement->getAttribute('assocId'));
+                $context = $contextDao->getById($announcement->assocId);
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'announcement', 'view', [$notification->assocId]);
             case Notification::NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
                 return __('notification.type.configurePaymentMethod');

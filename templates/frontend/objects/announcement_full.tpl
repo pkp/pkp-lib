@@ -16,13 +16,13 @@
 		{$announcement->getLocalizedData('title')|escape}
 	</h1>
 	<div class="date">
-		{$announcement->getAttribute('datePosted')|date_format:$dateFormatShort}
+		{$announcement->datePosted|date_format:$dateFormatShort}
 	</div>
-	{if $announcement->getAttribute('image')}
+	{if $announcement->image}
 		<img
 			class="obj_announcement_full_image"
-			src="{$announcement->getAttribute('imageUrl')}"
-			alt="{$announcement->getAttribute('imageAltText')}"
+			src="{$announcement->imageUrl}"
+			alt="{$announcement->imageAltText}"
 		/>
 	{/if}
 	<div class="description">

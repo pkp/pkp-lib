@@ -134,7 +134,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // The assocId in announcements should always point to the contextId
-        if ($announcement->getAttribute('assocId') !== $this->getRequest()->getContext()?->getId()) {
+        if ($announcement->assocId !== $this->getRequest()->getContext()?->getId()) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_BAD_REQUEST);
@@ -243,12 +243,12 @@ class PKPAnnouncementController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if ($announcement->getAttribute('assocType') !== Application::get()->getContextAssocType()) {
+        if ($announcement->assocType !== Application::get()->getContextAssocType()) {
             throw new Exception('Announcement has an assocType that did not match the context.');
         }
 
         // Don't allow to edit an announcement from one context from a different context's endpoint
-        if ($request->getContext()?->getId() !== $announcement->getAttribute('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->assocId) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);
@@ -296,12 +296,12 @@ class PKPAnnouncementController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if ($announcement->getAttribute('assocType') !== Application::get()->getContextAssocType()) {
+        if ($announcement->assocType !== Application::get()->getContextAssocType()) {
             throw new Exception('Announcement has an assocType that did not match the context.');
         }
 
         // Don't allow to delete an announcement from one context from a different context's endpoint
-        if ($request->getContext()?->getId() !== $announcement->getAttribute('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->assocId) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);

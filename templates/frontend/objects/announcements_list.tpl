@@ -32,7 +32,7 @@
                         </a>
                     </h4>
                     <div class="date">
-                        {$announcement->getAttribute('datePosted')|date_format:$dateFormatShort}
+                        {$announcement->datePosted|date_format:$dateFormatShort}
                     </div>
                 </article>
             {/if}

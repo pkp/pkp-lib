@@ -84,16 +84,6 @@ class Query extends Model
         return $this->hasMany(QueryParticipant::class, 'query_id', 'query_id');
     }
 
-    /**
-     * Compatibility function for including query IDs in grids.
-     *
-     * @deprecated 3.5 Use $model->id instead. Can be removed once the DataObject pattern is removed.
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
     // Scopes
 
     /**

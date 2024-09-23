@@ -69,9 +69,8 @@ class Repository
             ->orderBy('seq')
             ->get();
 
-        $result->each(function ($item, $key = 1) {
-            Query::find($item->queryId)
-                ->update(['seq' => $key]);
+        $result->each(function (Query $item, int $key = 1) {
+            $item->update(['seq' => $key]);
         });
     }
 
@@ -84,8 +83,7 @@ class Repository
      */
     public function addQuery(int $submissionId, int $stageId, string $title, string $content, User $fromUser, array $participantUserIds, int $contextId, bool $sendEmail = true): int
     {
-        $maxSeq = Query::where('assocType', Application::ASSOC_TYPE_SUBMISSION)
-            ->where('assocId', $submissionId)
+        $maxSeq = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->max('seq') ?? 0;
 
         $query = Query::create([

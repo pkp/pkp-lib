@@ -9,9 +9,9 @@
  *
  * @class PKPEditingProductionStatusNotificationManager
  *
- * @ingroup classses_notification_managerDelegate
+ * @ingroup classes_notification_managerDelegate
  *
- * @brief Editing and productionstatus notifications types manager delegate.
+ * @brief Editing and production status notifications types manager delegate.
  */
 
 namespace PKP\notification\managerDelegate;
@@ -91,12 +91,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 
-        // Get the copyediting and production discussions
-        $productionQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+        // Get the production discussions
+        $productionQuery = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
-            ->get()
-            ->getIterator();
-        $productionQuery = $productionQueries->next();
+            ->first();
 
         // Get the copyedited files
         $countCopyeditedFiles = Repo::submissionFile()
@@ -169,9 +167,8 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
                         $editingQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
                             ->withStageId(WORKFLOW_STAGE_ID_EDITING)
-                            ->get()
-                            ->getIterator();
-                        if ($editingQueries->next()) {
+                            ->first();
+                        if ($editingQueries) {
                             if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification
                                 $this->_createNotification(

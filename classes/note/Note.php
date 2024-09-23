@@ -101,7 +101,7 @@ class Note extends Model
      */
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $query->where('userId', $userId);
+        return $query->where('user_id', $userId);
     }
 
     /**

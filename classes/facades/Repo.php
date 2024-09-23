@@ -3,8 +3,8 @@
 /**
  * @file classes/facades/Repo.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repo
@@ -38,7 +38,8 @@ use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
-use PKP\notification\Notification as NotificationRepository;
+use PKP\notification\Repository as NotificationRepository;
+use PKP\query\Repository as QueryRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
@@ -133,5 +134,10 @@ class Repo
     public static function note(): NoteRepository
     {
         return app(NoteRepository::class);
+    }
+
+    public static function query(): QueryRepository
+    {
+        return app(QueryRepository::class);
     }
 }

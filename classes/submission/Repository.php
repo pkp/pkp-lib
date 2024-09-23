@@ -2,8 +2,8 @@
 /**
  * @file classes/submission/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -32,7 +32,6 @@ use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
-use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
@@ -614,9 +613,7 @@ abstract class Repository
         );
 
         if ($submission->getData('commentsForTheEditors')) {
-            /** @var QueryDAO $queryDao */
-            $queryDao = DAORegistry::getDAO('QueryDAO');
-            $queryDao->addCommentsForEditorsQuery($submission);
+            Repo::query()->addCommentsForEditorsQuery($submission);
         }
     }
 

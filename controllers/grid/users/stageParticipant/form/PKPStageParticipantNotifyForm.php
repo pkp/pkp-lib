@@ -27,13 +27,16 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
 use PKP\notification\Notification;
-use PKP\query\QueryDAO;
+use PKP\query\Query;
+use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -77,11 +80,11 @@ class PKPStageParticipantNotifyForm extends Form
         // Some other forms (e.g. the Add Participant form) subclass this form and
         // may not enforce the sending of an email.
         if ($this->isMessageRequired()) {
-            $this->addCheck(new \PKP\form\validation\FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
+            $this->addCheck(new FormValidator($this, 'message', 'required', 'stageParticipants.notify.warning'));
         }
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidator($this, 'userId', 'required', 'stageParticipants.notify.warning'));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**
@@ -175,19 +178,25 @@ class PKPStageParticipantNotifyForm extends Form
         }
 
         // Create a query
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->newDataObject();
-        $query->setAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION);
-        $query->setAssocId($submission->getId());
-        $query->setStageId($this->_stageId);
-        $query->setSequence(REALLY_BIG_NUMBER);
-        $queryDao->insertObject($query);
-        $queryDao->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
+        $query = Query::create([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'stageId' => $this->_stageId,
+            'seq' => REALLY_BIG_NUMBER
+        ]);
+
+        Repo::query()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         // Add the current user and message recipient as participants.
-        $queryDao->insertParticipant($query->getId(), $user->getId());
+        QueryParticipant::create([
+            'queryId' => $query->id,
+            'userId' => $user->getId()
+        ]);
         if ($user->getId() != $request->getUser()->getId()) {
-            $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
+            QueryParticipant::create([
+                'queryId' => $query->id,
+                'userId' => $request->getUser()->getId()
+            ]);
         }
 
         // Populate mailable with data before compiling headNote
@@ -205,7 +214,7 @@ class PKPStageParticipantNotifyForm extends Form
         $headNote = Note::create([
             'userId' =>  $request->getUser()->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
-            'assocId' => $query->getId(),
+            'assocId' => $query->id,
             'title' => Mail::compileParams(
                 $template->getLocalizedData('subject'),
                 $mailable->getData()
@@ -224,7 +233,7 @@ class PKPStageParticipantNotifyForm extends Form
             Notification::NOTIFICATION_TYPE_NEW_QUERY,
             $request->getContext()->getId(),
             PKPApplication::ASSOC_TYPE_QUERY,
-            $query->getId(),
+            $query->id,
             Notification::NOTIFICATION_LEVEL_TASK
         );
 

@@ -34,6 +34,7 @@ use PKP\security\authorization\ReviewAssignmentFileAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
@@ -96,6 +97,9 @@ class PKPSubmissionFileController extends PKPBaseController
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
             ]),
         ])->group(function () {
 
@@ -152,6 +156,15 @@ class PKPSubmissionFileController extends PKPBaseController
             // stage assignments.
         } elseif ($actionName === 'getFilesByReviewId') {
             // Reviewers assigned to the submission have access to review files and attachments
+            $this->addPolicy(
+                new WorkflowStageAccessPolicy(
+                    $request,
+                    $args,
+                    $roleAssignments,
+                    'submissionId',
+                    WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
+                )
+            );
             $this->addPolicy(
                 new ReviewAssignmentFileAccessPolicy(
                     $request,
@@ -661,7 +674,7 @@ class PKPSubmissionFileController extends PKPBaseController
                 Repo::submissionFile()->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
-                    ->filterByUploaderUserIds([$this->getRequest()->getUser()->getId()])
+                    ->filterByUploaderUserIds([$reviewAssignment->getId()])
                     ->getMany()
             );
         }

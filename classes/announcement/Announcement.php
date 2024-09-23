@@ -90,19 +90,13 @@ class Announcement extends Model
      * Delete announcement, also allows to delete multiple announcements by IDs at once with destroy() method
      *
      * @return bool|null
-     *
-     * @hook Announcement::delete::before [[$this]]
      */
     public function delete()
     {
-        Hook::call('Announcement::delete::before', [$this]);
-
         $deleted = parent::delete();
         if ($deleted) {
             $this->deleteImage();
         }
-
-        Hook::call('Announcement::delete', [$this]);
 
         return $deleted;
     }

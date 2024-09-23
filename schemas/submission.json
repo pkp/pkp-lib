@@ -131,6 +131,12 @@
 							"date|Y-m-d H:i:s"
 						]
 					},
+					"competingInterests": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
 					"status": {
 						"type": "integer",
 						"readOnly": true

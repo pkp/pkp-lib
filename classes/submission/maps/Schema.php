@@ -446,6 +446,7 @@ class Schema extends \PKP\core\maps\Schema
                 'dateConfirmed' => $dateConfirmed,
                 'dateCompleted' => $dateCompleted,
                 'dateAssigned' => $dateAssigned,
+                'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'recommendation' => $reviewAssignment->getRecommendation(),

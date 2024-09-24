@@ -120,6 +120,9 @@ msgstr "User Group"
 msgid "user.familyName"
 msgstr "Family Name"
 
+msgid "user.activeSubmissions"
+msgstr "Active Submissions"
+
 msgid "user.profile.form.profileImageInvalid"
 msgstr ""
 "Invalid profile image format or image too big. Accepted formats are .gif, ."

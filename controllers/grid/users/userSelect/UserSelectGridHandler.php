@@ -104,7 +104,43 @@ class UserSelectGridHandler extends GridHandler
                 null,
                 $cellProvider,
                 ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
+                    'width' => 20
+                ]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'activeSubmissions',
+                'user.activeSubmissions',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
+                    'width' => 10
+                ]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'affiliation',
+                'user.affiliation',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
                     'width' => 30
+                ]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'interests',
+                'user.interests',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
+                    'width' => 35
                 ]
             )
         );
@@ -134,6 +170,7 @@ class UserSelectGridHandler extends GridHandler
 
         $collector = Repo::user()->getCollector()
             ->filterByContextIds([$submission->getData('contextId')])
+            ->includeActiveSubmissions($filterUserGroupId)
             ->filterExcludeSubmissionStage($submission->getId(), $stageId, $filterUserGroupId)
             ->searchPhrase($name)
             ->limit($rangeInfo->getCount())

@@ -30,6 +30,7 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\submission\PKPSubmission;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
@@ -65,6 +66,7 @@ class Collector implements CollectorInterface
     public ?string $registeredAfter = null;
     public ?string $status = self::STATUS_ACTIVE;
     public bool $includeReviewerData = false;
+    public ?array $includeActiveSubmissions = null;
     public ?array $assignedSectionIds = null;
     public ?array $assignedCategoryIds = null;
     public ?array $settings = null;
@@ -243,6 +245,17 @@ class Collector implements CollectorInterface
     public function includeReviewerData(bool $includeReviewerData = true): self
     {
         $this->includeReviewerData = $includeReviewerData;
+        return $this;
+    }
+
+    /**
+     * Defines whether active submissions count should be included
+     */
+    public function includeActiveSubmissions(int $userGroupId): self
+    {
+        $this->includeActiveSubmissions = [
+            'user_group_id' => $userGroupId,
+        ];
         return $this;
     }
 
@@ -426,6 +439,15 @@ class Collector implements CollectorInterface
 
         $query = DB::table('users', 'u')
             ->select('u.*')
+            // Adds active submissions that are assigned to each user
+            ->when($this->includeActiveSubmissions != null, fn (Builder $query) => $query->selectSub(function ($query) {
+                $query->from('stage_assignments as sa')
+                    ->join('submissions as s', 'sa.submission_id', '=', 's.submission_id')
+                    ->whereColumn('sa.user_id', 'u.user_id')
+                    ->where('sa.user_group_id', '=', $this->includeActiveSubmissions['user_group_id'])
+                    ->whereNotIn('s.status', [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_DECLINED])
+                    ->selectRaw('COUNT(sa.submission_id)');
+            }, 'submissions_count'))
             // Filters by registration date
             ->when($this->registeredBefore !== null, fn (Builder $query) => $query->where('u.date_registered', '<', Carbon::rawParse($this->registeredBefore)->addDay()->toDateString()))
             ->when($this->registeredAfter !== null, fn (Builder $query) => $query->where('u.date_registered', '>=', $this->registeredAfter))

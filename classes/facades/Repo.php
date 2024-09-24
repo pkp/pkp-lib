@@ -40,6 +40,7 @@ use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
 use PKP\notification\Repository as NotificationRepository;
 use PKP\query\Repository as QueryRepository;
+use PKP\ror\Repository as RorRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;

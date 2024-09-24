@@ -791,7 +791,7 @@ abstract class Repository
     /**
      * Get all views, views count to be retrieved separately due to performance reasons
      */
-    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds = []): Collection
+    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds = [], bool $includeCount = false): Collection
     {
         $types = DashboardView::getTypes()->flip();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
@@ -809,7 +809,11 @@ abstract class Repository
         $views = $this->mapDashboardViews($types, $context, $user, $canAccessUnassignedSubmission);
         $filteredViews = $this->filterViewsByUserRoles($views, $roleIds);
 
-        return $this->setViewsCount($filteredViews);
+        if($includeCount) {
+            return $this->setViewsCount($filteredViews);
+        }
+
+        return $filteredViews;
     }
 
     /**

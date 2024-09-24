@@ -2,8 +2,8 @@
 /**
  * @file classes/submission/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -27,7 +27,7 @@ use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\notification\Notification;
-use PKP\query\QueryDAO;
+use PKP\query\Query;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -278,8 +278,8 @@ class DAO extends EntityDAO
         $reviewRoundDao->deleteBySubmissionId($id);
 
         // Delete the queries associated with a submission
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $queryDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+        Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)
+            ->delete();
 
         // Delete the stage assignments.
         StageAssignment::withSubmissionIds([$id])

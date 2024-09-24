@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/query/QueryNoteFilesGridDataProvider.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridDataProvider
@@ -22,7 +22,6 @@ use Exception;
 use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\fileList\linkAction\SelectFilesLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
-use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\submissionFile\SubmissionFile;
@@ -79,7 +78,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
 
         $note = Note::find($this->_noteId);
-        if ($note->assocType != Application::ASSOC_TYPE_QUERY || $note->assocId != $query->getId()) {
+        if ($note->assocType != Application::ASSOC_TYPE_QUERY || $note->assocId != $query->id) {
             throw new Exception('Invalid note ID specified!');
         }
 
@@ -107,7 +106,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
             [
                 'assocType' => Application::ASSOC_TYPE_NOTE,
                 'assocId' => $this->_noteId,
-                'queryId' => $query->getId(),
+                'queryId' => $query->id,
                 'noteId' => $this->_noteId,
                 'representationId' => $representation ? $representation->getId() : null,
             ]
@@ -132,7 +131,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
             null,
             null,
             false,
-            $query->getId()
+            $query->id
         );
     }
 }

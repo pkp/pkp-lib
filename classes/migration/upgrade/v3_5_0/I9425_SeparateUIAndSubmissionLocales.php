@@ -47,19 +47,27 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
                 ]
             );
         };
+
         $update = function (object $localeId, string $settingName, string $settingValue): void {
             DB::table($this->getContextSettingsTable())
             ->where($this->getContextIdColumn(), '=', $localeId->{$this->getContextIdColumn()})
             ->where('setting_name', '=', $settingName)
             ->update(['setting_value' => $settingValue]);
         };
+
         $pluck = fn (object $localeId, string $settingName): array => json_decode(
             DB::table($this->getContextSettingsTable())
                 ->where($this->getContextIdColumn(), '=', $localeId->{$this->getContextIdColumn()})
                 ->where('setting_name', '=', $settingName)
                 ->pluck('setting_value')[0]
         );
-        $union = fn (array $a, array $b): string => collect($a)->concat($b)->unique()->sort()->values()->toJson();
+
+        $union = fn (array $a, array $b): string => collect($a)
+            ->concat($b)
+            ->unique()
+            ->sort()
+            ->values()
+            ->toJson();
 
         foreach (DB::table($this->getContextTable())->select('primary_locale', $this->getContextIdColumn())->get() as $localeId) {
             // Add primary locale to form locales
@@ -81,9 +89,26 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
          * Update locale character lengths
          */
 
-        $schemaLocName = (DB::connection() instanceof PostgresConnection) ? 'TABLE_CATALOG' : 'TABLE_SCHEMA';
-        $updateLength = fn (string $l) => collect(DB::select("SELECT DISTINCT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE COLUMN_NAME = ? AND $schemaLocName = ?", [$l, DB::connection()->getDatabaseName()]))
-            ->each(fn (\stdClass $sc) => Schema::table($sc->TABLE_NAME ?? $sc->table_name, fn (Blueprint $table) => $table->string($l, 28)->change()));
+        $schemaLocName = (DB::connection() instanceof PostgresConnection)
+            ? 'TABLE_CATALOG'
+            : 'TABLE_SCHEMA';
+
+        $updateLength = fn (string $l) => collect(
+            DB::select("
+                SELECT DISTINCT TABLE_NAME 
+                FROM INFORMATION_SCHEMA.COLUMNS 
+                WHERE COLUMN_NAME = ? AND $schemaLocName = ?",
+                [$l, DB::connection()->getDatabaseName()]
+            )
+        )->each(fn (\stdClass $sc) => Schema::table(
+                $sc->TABLE_NAME ?? $sc->table_name,
+                fn (Blueprint $table) => collect(Schema::getColumns($sc->TABLE_NAME ?? $sc->table_name))
+                    ->where('name', $l)
+                    ->first(default:[])['nullable'] ?? false
+                        ? $table->string($l, 28)->nullable()->change()
+                        : $table->string($l, 28)->change()
+            )
+        );
 
         $updateLength('primary_locale');
         $updateLength('locale');
@@ -103,6 +128,7 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
             "uz@latin" => "uz_Latn",
             "zh_CN" => "zh_Hans",
         ];
+
         $tableNames = array_merge([
             'author_settings',
             'controlled_vocab_entry_settings',
@@ -114,11 +140,19 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
             ? ['publication_format_settings', 'submission_chapter_settings',]
             : ['publication_galley_settings', 'publication_galleys',]
         );
-        collect($tableNames)->each(fn (string $tn) => collect(DB::table($tn)->select('locale')->distinct()->get())->each(function (\stdClass $sc) use ($tn, $localesTable) {
-            if (isset($localesTable[$sc->locale])) {
-                DB::table($tn)->where('locale', '=', $sc->locale)->update(['locale' => $localesTable[$sc->locale]]);
-            }
-        }));
+
+        collect($tableNames)
+            ->each(fn (string $tn) => collect(DB::table($tn)->select('locale')->distinct()->get())
+                ->each(function (\stdClass $sc) use ($tn, $localesTable) {
+                    if (isset($localesTable[$sc->locale])) {
+                        DB::table($tn)
+                            ->where('locale', '=', $sc->locale)
+                            ->update([
+                                'locale' => $localesTable[$sc->locale]
+                            ]);
+                    }
+                })
+            );
     }
 
     /**

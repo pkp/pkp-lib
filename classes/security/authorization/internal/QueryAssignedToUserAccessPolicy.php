@@ -2,8 +2,8 @@
 /**
  * @file classes/security/authorization/internal/QueryAssignedToUserAccessPolicy.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryAssignedToUserAccessPolicy
@@ -18,10 +18,11 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\query\QueryDAO;
+use PKP\query\Query;
+use PKP\query\QueryParticipant;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
+use PKP\user\User;
 
 class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
 {
@@ -49,26 +50,28 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
     {
         // A query should already be in the context.
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
-        if (!$query instanceof \PKP\query\Query) {
+        if (!$query instanceof Query) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Check that there is a currently logged in user.
         $user = $this->_request->getUser();
-        if (!$user instanceof \PKP\user\User) {
+        if (!$user instanceof User) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Determine if the query is assigned to the user.
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        if ($queryDao->getParticipantIds($query->getId(), $user->getId())) {
+        $participantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
+        if (in_array($user->getId(), $participantIds)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
         // Managers are allowed to access discussions they are not participants in
         // as long as they have Manager-level access to the workflow stage
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-        $managerAssignments = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $accessibleWorkflowStages[$query->getStageId()] ?? []);
+        $managerAssignments = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $accessibleWorkflowStages[$query->stageId] ?? []);
         if (!empty($managerAssignments)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
@@ -76,8 +79,4 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
         // Otherwise, deny.
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\QueryAssignedToUserAccessPolicy', '\QueryAssignedToUserAccessPolicy');
 }

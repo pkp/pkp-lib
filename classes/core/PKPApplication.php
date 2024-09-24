@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -487,7 +487,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'SubmissionCommentDAO' => 'PKP\submission\SubmissionCommentDAO',
             'SubmissionDisciplineDAO' => 'PKP\submission\SubmissionDisciplineDAO',
             'SubmissionDisciplineEntryDAO' => 'PKP\submission\SubmissionDisciplineEntryDAO',
-            'QueryDAO' => 'PKP\query\QueryDAO',
             'SubmissionKeywordDAO' => 'PKP\submission\SubmissionKeywordDAO',
             'SubmissionKeywordEntryDAO' => 'PKP\submission\SubmissionKeywordEntryDAO',
             'SubmissionSubjectDAO' => 'PKP\submission\SubmissionSubjectDAO',

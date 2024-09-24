@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Database\Eloquent\Model;
 use PKP\controllers\grid\DataObjectGridCellProvider;
@@ -75,9 +76,9 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         $columnId = $column->getId();
         assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
         /** @var Query $element */
-        $headNote = $element->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($element->id);
         $user = $headNote?->user;
-        $notes = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $element->getId())
+        $notes = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $element->id)
             ->withSort(Note::NOTE_ORDER_ID)
             ->lazy();
         $context = Application::get()->getRequest()->getContext();
@@ -87,19 +88,19 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
             case 'replies':
                 return ['label' => max(0, $notes->count() - 1)];
             case 'from':
-                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $headNote?->dateCreated?->locale(Locale::getLocale())?->translatedFormat($datetimeFormatShort)];
+                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $headNote?->dateCreated->format($datetimeFormatShort)];
             case 'lastReply':
                 $latestReply = $notes->first();
-                if ($latestReply && $latestReply->getId() != $headNote->id) {
+                if ($latestReply && $latestReply->id != $headNote->id) {
                     $repliedUser = $latestReply->user;
-                    return ['label' => ($repliedUser?->getUsername() ?? '&mdash;') . '<br />' . $latestReply->dateCreated->locale(Locale::getLocale())->translatedFormat($datetimeFormatShort)];
+                    return ['label' => ($repliedUser?->getUsername() ?? '&mdash;') . '<br />' . $latestReply->dateCreated->format($datetimeFormatShort)];
                 } else {
                     return ['label' => '-'];
                 }
                 // no break
             case 'closed':
                 return [
-                    'selected' => $element->getIsClosed(),
+                    'selected' => $element->closed,
                     'disabled' => !$this->_queriesAccessHelper->getCanOpenClose($element),
                 ];
         }
@@ -117,7 +118,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         switch ($column->getId()) {
             case 'closed':
                 if ($this->_queriesAccessHelper->getCanOpenClose($element)) {
-                    $enabled = !$element->getIsClosed();
+                    $enabled = !$element->closed;
                     if ($enabled) {
                         return [new LinkAction(
                             'close-' . $row->getId(),

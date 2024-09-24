@@ -3,142 +3,131 @@
 /**
  * @file classes/query/Query.php
  *
- * Copyright (c) 2016-2024 Simon Fraser University
- * Copyright (c) 2003-2024 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Query
- *
- * @ingroup submission
- *
- * @see QueryDAO
  *
  * @brief Class for Query.
  */
 
 namespace PKP\query;
 
-use Illuminate\Support\LazyCollection;
-use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
-use PKP\db\DAO;
-use PKP\note\Note;
+use APP\facades\Repo;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Query extends \PKP\core\DataObject
+class Query extends Model
 {
-    /**
-     * Get query assoc type
-     *
-     * @return int Application::ASSOC_TYPE_...
-     */
-    public function getAssocType()
+    use HasCamelCasing;
+
+    const CREATED_AT = 'date_posted';
+    const UPDATED_AT = 'date_modified';
+
+    protected $table = 'queries';
+    protected $primaryKey = 'query_id';
+
+    protected $fillable = [
+        'assocType', 'assocId', 'stageId', 'seq',
+        'datePosted', 'dateModified', 'closed'
+    ];
+
+    protected function casts(): array
     {
-        return $this->getData('assocType');
+        return [
+            'assocType' => 'int',
+            'assocId' => 'int',
+            'stageId' => 'int',
+            'seq' => 'float',
+            'datePosted' => 'datetime',
+            'dateModified' => 'datetime',
+            'closed' => 'boolean'
+        ];
     }
 
     /**
-     * Set query assoc type
-     *
-     * @param int $assocType Application::ASSOC_TYPE_...
+     * Accessor and Mutator for primary key => id
      */
-    public function setAssocType($assocType)
+    protected function id(): Attribute
     {
-        $this->setData('assocType', $assocType);
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn($value) => [$this->primaryKey => $value],
+        );
     }
 
     /**
-     * Get query assoc ID
-     *
-     * @return int
+     * Accessor for users. Can be replaced with relationship once User is converted to an Eloquent Model.
      */
-    public function getAssocId()
+    protected function users(): Attribute
     {
-        return $this->getData('assocId');
+        return Attribute::make(
+            get: function () {
+                $userIds = $this->queryParticipants()
+                    ->pluck('user_id')
+                    ->all();
+                return Repo::user()->getCollector()->filterByUserIds($userIds)->getMany();
+            },
+        );
     }
 
     /**
-     * Set query assoc ID
-     *
-     * @param int $assocId
+     * Relationship to Query Participants. Can be replaced with Many-to-Many relationship once
+     * User is converted to an Eloquent Model.
      */
-    public function setAssocId($assocId)
+    public function queryParticipants(): HasMany
     {
-        $this->setData('assocId', $assocId);
+        return $this->hasMany(QueryParticipant::class, 'query_id', 'query_id');
+    }
+
+    // Scopes
+
+    /**
+     * Scope a query to only include queries with a specific assoc type and assoc ID.
+     */
+    public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
+    {
+        return $query->where('assoc_type', $assocType)
+            ->where('assoc_id', $assocId);
     }
 
     /**
-     * Get stage ID
-     *
-     * @return int
+     * Scope a query to only include queries with a specific stage ID.
      */
-    public function getStageId()
+    public function scopeWithStageId(Builder $query, int $stageId): Builder
     {
-        return $this->getData('stageId');
+        return $query->where('stage_id', $stageId);
     }
 
     /**
-     * Set stage ID
-     *
-     * @param int $stageId
+     * Scope a query to only include queries with a specific closed status.
      */
-    public function setStageId($stageId)
+    public function scopeWithClosed(Builder $query, bool $closed): Builder
     {
-        return $this->setData('stageId', $stageId);
+        return $query->where('closed', $closed);
     }
 
     /**
-     * Get sequence of query.
-     *
-     * @return float
+     * Scope a query to only include queries with a specific user ID.
      */
-    public function getSequence()
+    public function scopeWithUserId(Builder $query, int $userId): Builder
     {
-        return $this->getData('sequence');
+        return $query->whereHas('queryParticipants', function ($q) use ($userId) {
+            $q->where('user_id', $userId);
+        });
     }
 
     /**
-     * Set sequence of query.
-     *
-     * @param float $sequence
+     * Scope a query to only include queries with specific user IDs.
      */
-    public function setSequence($sequence)
+    public function scopeWithUserIds($query, array $userIds)
     {
-        $this->setData('sequence', $sequence);
+        return $query->whereHas('queryParticipants', function ($q) use ($userIds) {
+            $q->whereIn('user_id', $userIds);
+        });
     }
-
-    /**
-     * Get closed flag
-     *
-     * @return bool
-     */
-    public function getIsClosed()
-    {
-        return $this->getData('closed');
-    }
-
-    /**
-     * Set closed flag
-     *
-     * @param bool $isClosed
-     */
-    public function setIsClosed($isClosed)
-    {
-        return $this->setData('closed', $isClosed);
-    }
-
-    /**
-     * Get the "head" (first) note for this query.
-     *
-     * @return Note
-     */
-    public function getHeadNote()
-    {
-        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId())
-            ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
-            ->first();
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\query\Query', '\Query');
 }

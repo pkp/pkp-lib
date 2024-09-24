@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryTitleGridColumn.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryTitleGridColumn
@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\queries;
 
+use APP\facades\Repo;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -77,13 +78,13 @@ class QueryTitleGridColumn extends GridColumn
     {
         // Retrieve the submission file.
         $query = $row->getData();
-        $headNote = $query->getHeadNote();
+        $headNote = Repo::note()->getHeadNote($query->id);
 
         // Create the cell action to download a file.
         $router = $request->getRouter();
         $actionArgs = array_merge(
             $this->_actionArgs,
-            ['queryId' => $query->getId()]
+            ['queryId' => $query->id]
         );
 
         return array_merge(

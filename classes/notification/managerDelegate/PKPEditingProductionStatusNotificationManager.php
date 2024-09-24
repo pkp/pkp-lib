@@ -3,15 +3,15 @@
 /**
  * @file classes/notification/managerDelegate/PKPEditingProductionStatusNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEditingProductionStatusNotificationManager
  *
- * @ingroup classses_notification_managerDelegate
+ * @ingroup classes_notification_managerDelegate
  *
- * @brief Editing and productionstatus notifications types manager delegate.
+ * @brief Editing and production status notifications types manager delegate.
  */
 
 namespace PKP\notification\managerDelegate;
@@ -21,9 +21,9 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
+use PKP\query\Query;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submissionFile\SubmissionFile;
@@ -35,7 +35,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      */
     public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
-        return match($notification->type) {
+        return match ($notification->type) {
             Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => __('notification.type.assignCopyeditors'),
             Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => __('notification.type.awaitingCopyedits'),
             Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER => __('notification.type.assignProductionUser'),
@@ -91,10 +91,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 
-        // Get the copyediting and production discussions
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var \PKP\query\QueryDAO $queryDao */
-        $productionQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
-        $productionQuery = $productionQueries->next();
+        // Get the production discussions
+        $productionQuery = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+            ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
+            ->first();
 
         // Get the copyedited files
         $countCopyeditedFiles = Repo::submissionFile()
@@ -165,8 +165,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
-                        $editingQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
-                        if ($editingQueries->next()) {
+                        $editingQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                            ->withStageId(WORKFLOW_STAGE_ID_EDITING)
+                            ->first();
+                        if ($editingQueries) {
                             if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification
                                 $this->_createNotification(
@@ -238,8 +240,4 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             );
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\PKPEditingProductionStatusNotificationManager', '\PKPEditingProductionStatusNotificationManager');
 }

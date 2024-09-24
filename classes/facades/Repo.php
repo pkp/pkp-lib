@@ -38,7 +38,8 @@ use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
-use PKP\notification\Notification as NotificationRepository;
+use PKP\notification\Repository as NotificationRepository;
+use PKP\query\Repository as QueryRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
@@ -138,5 +139,10 @@ class Repo
     public static function note(): NoteRepository
     {
         return app(NoteRepository::class);
+    }
+
+    public static function query(): QueryRepository
+    {
+        return app(QueryRepository::class);
     }
 }

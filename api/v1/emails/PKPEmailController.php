@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/email/PKPEmailController.php
+ * @file api/v1/emails/PKPEmailController.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
@@ -9,9 +9,9 @@
  *
  * @class PKPEmailController
  *
- * @ingroup api_v1_email
+ * @ingroup api_v1_emails
  *
- * @brief Controller class to handle API request to for emails
+ * @brief Controller class to handle API request for emails
  */
 
 namespace PKP\API\v1\emails;
@@ -21,6 +21,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\log\EmailLogEntry;
@@ -58,12 +59,12 @@ class PKPEmailController extends PKPBaseController
         Route::middleware([
             self::roleAuthorizer([Role::ROLE_ID_AUTHOR]),
         ])->group(function () {
-            Route::get('', $this->getMany(...))
+            Route::get('/authorEmails', $this->getMany(...))
                 ->name('emails.getMany');
         });
 
         Route::middleware([
-            self::roleAuthorizer([Role::ROLE_ID_AUTHOR, Role::ROLE_ID_SUB_EDITOR]),
+            self::roleAuthorizer([Role::ROLE_ID_AUTHOR, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_MANAGER]),
         ])->group(function () {
             Route::get('{emailId}', $this->getEmail(...))
                 ->name('emails.getEmail')
@@ -77,8 +78,9 @@ class PKPEmailController extends PKPBaseController
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $illuminateRequest = $args[0];
+        $actionName = static::getRouteActionName($illuminateRequest);
 
-        if ($illuminateRequest->input('submissionId')) {
+        if ($actionName === 'getMany' && $illuminateRequest->input('submissionId')) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
@@ -86,33 +88,19 @@ class PKPEmailController extends PKPBaseController
     }
 
     /**
-     * Get a collection of emails for user
+     * Get a collection of emails for an author
+     *
+     * Pass the following query params for filtering:
+     * - submissionId: Filter emails by the submission ID they are linked to.
+     * - eventType: Filter emails by their event type.
      */
     protected function getMany(Request $illuminateRequest): JsonResponse
     {
-
-        $allowedQueryParams = ['submissionId', 'userId', 'eventType'];
+        $authorEmailLogEventTypes = [SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR, SubmissionEmailLogEventType::COPYEDIT_NOTIFY_AUTHOR, SubmissionEmailLogEventType::PROOFREAD_NOTIFY_AUTHOR];
         $currentUser = $this->getRequest()->getUser();
-
-        foreach ($illuminateRequest->query->keys() as $queryParam) {
-            if (!in_array($queryParam, $allowedQueryParams)) {
-                return response()->json([
-                    'error' => __('api.400.paramNotSupported', ['param' => $queryParam]),
-                ], Response::HTTP_BAD_REQUEST);
-            }
-        }
 
         $submissionId = is_numeric($illuminateRequest->input('submissionId')) ? (int)$illuminateRequest->input('submissionId') : null;
         $eventType = is_numeric($illuminateRequest->input('eventType')) ? (int)$illuminateRequest->input('eventType') : null;
-        $queryUserId = is_numeric($illuminateRequest->input('userId')) ? (int)$illuminateRequest->input('userId') : null;
-
-        // Check that userId param match user making request
-        if ($queryUserId && $queryUserId !== $this->getRequest()->getUser()->getId()) {
-            return response()->json([
-                'error' => __('api.403.unauthorized'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
 
         // If submissionID given, check that submission exists and user has access to it
         if ($submissionId) {
@@ -125,30 +113,30 @@ class PKPEmailController extends PKPBaseController
             }
 
             // Ensure user has access to the submission they're requesting emails from
-            $isAssigned = StageAssignment::withSubmissionIds([$submission->getId()])
-                ->withRoleIds([Role::ROLE_ID_AUTHOR]) //remove author
+            $userAssignment = StageAssignment::withSubmissionIds([$submission->getId()])
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->withUserId($currentUser->getId())
-                ->pluck('user_id')->toArray();
+                ->first();
 
-            if (!$isAssigned) {
+            if (!$userAssignment) {
                 return response()->json([
                     'error' => __('api.403.unauthorized'),
                 ], Response::HTTP_FORBIDDEN);
             }
         }
 
-        if ($eventType && !SubmissionEmailLogEventType::tryFrom($eventType)) {
+        // Specific Submission EmailLog EventTypes represents email log entries for actual emails sent to authors.
+        // Check that given eventType is one such event
+        if ($eventType && !in_array($eventType, array_map(fn ($type) => $type->value, $authorEmailLogEventTypes))) {
             return response()->json([
-                'error' => __('api.emailLogs.400.unrecognisedEventType', ['eventType' => $eventType]),
+                'error' => __('api.emailLogs.400.unrecognisedAuthorEmailEventType', ['eventType' => $eventType]),
             ], Response::HTTP_BAD_REQUEST);
         }
 
-
-        $emails = EmailLogEntry::leftJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id')
-            ->where('u.user_id', $queryUserId ?? $currentUser->getId()) // use provided userId or default to user making the request
-            ->when($eventType, fn ($query) => $query->where('event_type', $eventType))
+        $emails = EmailLogEntry::withRecipientId($currentUser->getId())
+            ->withEventTypes($eventType !== null ? [SubmissionEmailLogEventType::from($eventType)] : $authorEmailLogEventTypes) // If no eventType was given then ensure that only email log entries with types for author emails are returned
             ->when($submissionId, fn ($query) => $query->where('assoc_id', $submissionId))
-            ->select('email_log.*')->get();
+            ->get();
 
         $data = Repo::emailLogEntry()->getSchemaMap()->summarizeMany($emails);
 
@@ -161,29 +149,30 @@ class PKPEmailController extends PKPBaseController
     protected function getEmail(Request $illuminateRequest): JsonResponse
     {
         $emailId = (int)$illuminateRequest->route('emailId');
-        $email = EmailLogEntry::find($emailId);
         $currentUser = $this->getRequest()->getUser();
         $context = $this->getRequest()->getContext();
+        $email = EmailLogEntry::find($emailId);
 
-        if(!$email) {
+        if (!$email) {
             return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
         }
 
         $isUserRecipient = Repo::emailLogEntry()->isUserEmailRecipient($emailId, $this->getRequest()->getUser()->getId());
 
-        // If user is not a recipient, then check if user is assigned as an editor to the submission that the email is linked to.
-        // Admins and Managers can view an email.
-        if(!$isUserRecipient) {
+        // If user is not a recipient, then check if user is assigned as an editor to the submission that the email is linked to
+        // Or if user has admin or managerial roles.
+        if (!$isUserRecipient) {
             $submission = Repo::submission()->get($email->assocId);
-            $isAdmin = $currentUser->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
 
-            if(!$isAdmin) {
-                $isAssignedEditor = StageAssignment::withSubmissionIds([$submission->getId()])
-                    ->withRoleIds([Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR]) //remove author
-                    ->withUserId($currentUser->getId())
-                    ->pluck('user_id')->toArray();
+            $editorAssignment = StageAssignment::withSubmissionIds([$submission->getId()])
+                ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
+                ->withUserId($currentUser->getId())
+                ->first();
 
-                if(!$isAssignedEditor) {
+            if (!$editorAssignment) {
+                $isAdmin = $currentUser->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
+
+                if (!$isAdmin) {
                     return response()->json([
                         'error' => __('api.403.unauthorized'),
                     ], Response::HTTP_FORBIDDEN);

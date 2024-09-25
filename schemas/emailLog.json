@@ -37,12 +37,9 @@
 		},
 		"eventType": {
 			"type": "integer",
-			"description": "The type event resulting in the email being sent. One of the `SubmissionEmailLogEventType` values.",
+			"description": "The type of event resulting in the email being sent. One of the `SubmissionEmailLogEventType` values.",
 			"readOnly": true,
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"apiSummary": true
 		},
 		"senderId": {
 			"type": "integer",
@@ -63,18 +60,12 @@
 		"subject": {
 			"type": "string",
 			"description": "The subject of the email.",
-			"validation": [
-				"nullable"
-			],
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"body": {
 			"type": "string",
 			"description": "The full body of the email.",
-			"validation": [
-				"nullable"
-			],
 			"readOnly": true,
 			"apiSummary": true
 		},

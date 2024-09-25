@@ -55,7 +55,7 @@ class Schema extends \PKP\core\maps\Schema
     }
 
     /**
-     * Map schema properties of a log entry to an associative array
+     * Map schema properties of an email log entry to an associative array
      */
     protected function mapByProperties(array $props, EmailLogEntry $entry): array
     {

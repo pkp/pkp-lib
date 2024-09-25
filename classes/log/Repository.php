@@ -178,17 +178,13 @@ class Repository
     public function isUserEmailRecipient(int $emailId, int $recipientId): bool
     {
         $query = $this->model->newQuery();
+        $query->where('log_id', $emailId)->withRecipientId($recipientId);
 
-        $query->where('log_id', $emailId)
-            ->rightJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id')
-            ->where('u.user_id', $recipientId)->select('u.user_id');
-
-        return !empty($query->get()->toArray());
+        return !empty($query->first());
     }
 
     /**
-     * Get an instance of the map class for mapping
-     * log entries to their schema
+     * Get an instance of the map class for mapping log entries to their schema
      */
     public function getSchemaMap(): Schema
     {

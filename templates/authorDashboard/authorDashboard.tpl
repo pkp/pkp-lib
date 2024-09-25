@@ -52,6 +52,9 @@
 			<tab id="publication" label="{translate key="submission.publication"}">
 				<div class="pkpPublication" ref="publication" aria-live="polite">
 					<pkp-header class="pkpPublication__header" :is-one-line="false">
+						<span class="pkpPublication__changeSubmissionLanguage">
+							<strong>{translate key="submission.list.changeSubmissionLanguage.currentLanguage"}</strong> {{ currentSubmissionLanguageLabel }}
+						</span>
 						<span class="pkpPublication__status">
 							<strong>{{ statusLabel }}</strong>
 							<span v-if="workingPublication.status === getConstant('STATUS_PUBLISHED')" class="pkpPublication__statusPublished">{translate key="publication.status.published"}</span>

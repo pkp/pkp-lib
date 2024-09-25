@@ -80,6 +80,11 @@
 				{rdelim});
 			</script>
 
+			<pkp-header class="pkpPublication__header" :is-one-line="false">
+				<span class="pkp_submission_workflow__changeSubmissionLanguage">
+					<strong>{translate key="submission.list.changeSubmissionLanguage.currentLanguage"}</strong> {{ currentSubmissionLanguageLabel }}
+				</span>
+			</pkp-header>
 			<div id="submissionWorkflow" class="pkp_submission_workflow">
 				{include file="controllers/notification/inPlaceNotification.tpl" notificationId="workflowNotification" requestOptions=$workflowNotificationRequestOptions}
 				{capture assign=submissionProgressBarUrl}{url op="submissionProgressBar" submissionId=$submission->getId() stageId=$requestedStageId contextId="submission" escape=false}{/capture}
@@ -90,6 +95,18 @@
 			<tab id="publication" label="{translate key="submission.publication"}">
 				<div class="pkpPublication" ref="publication" aria-live="polite">
 					<pkp-header class="pkpPublication__header" :is-one-line="false">
+						<span class="pkpPublication__changeSubmissionLanguage">
+							<span>
+								<strong>{translate key="submission.list.changeSubmissionLanguage.currentLanguage"}</strong> {{ currentSubmissionLanguageLabel }}
+							</span>
+							<pkp-button
+								v-if="canChangeSubmissionLanguage && publicationList.length < 2 && submission.status !== getConstant('STATUS_PUBLISHED')"
+								@click="openChangeSubmissionLanguageModal"
+								:is-link="true"
+							>
+								{translate key="submission.list.changeSubmissionLanguage.buttonLabel"}
+							</pkp-button>
+						</span>
 						<span class="pkpPublication__status">
 							<strong>{{ statusLabel }}</strong>
 							<span v-if="workingPublication.status === getConstant('STATUS_QUEUED') && workingPublication.id === currentPublication.id" class="pkpPublication__statusUnpublished">{translate key="publication.status.unscheduled"}</span>
@@ -170,6 +187,12 @@
 						class="pkpPublication__versionPublished"
 					>
 						{translate key="publication.editDisabled"}
+					</div>
+					<div
+						v-if="workingPublication.status !== getConstant('STATUS_PUBLISHED') && !submissionSupportedLocales.includes(submission.locale)"
+						class="pkpSubmission__localeNotSupported"
+					>
+						{translate key="submission.localeNotSupported" language="{{ currentSubmissionLanguageLabel }}"}
 					</div>
 					<tabs class="pkpPublication__tabs" :is-side-tabs="true" :track-history="true" :label="publicationTabsLabel">
 						<tab id="titleAbstract" label="{translate key="publication.titleAbstract"}">

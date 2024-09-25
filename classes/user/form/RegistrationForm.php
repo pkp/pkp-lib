@@ -28,6 +28,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\form\validation\FormValidatorAltcha;
 use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -45,6 +46,9 @@ class RegistrationForm extends Form
 
     /** @var bool whether or not captcha is enabled for this form */
     public $captchaEnabled;
+
+    /** @var bool whether or not captcha is enabled for this form */
+    public $altchaEnabled;
 
     /**
      * Constructor.
@@ -78,6 +82,12 @@ class RegistrationForm extends Form
             $this->addCheck(new \PKP\form\validation\FormValidatorReCaptcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response', $request->getServerHost()));
         }
 
+        $this->altchaEnabled = Config::getVar('captcha', 'altcha') && Config::getVar('captcha', 'altcha_on_register');
+        if ($this->altchaEnabled) {
+            $request = Application::get()->getRequest();
+            $this->addCheck(new \PKP\form\validation\FormValidatorAltcha($this, $request->getRemoteAddr(), 'common.captcha.error.invalid-input-response'));
+        }
+
         $context = Application::get()->getRequest()->getContext();
         if ($context && $context->getData('privacyStatement')) {
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'privacyConsent', 'required', 'user.profile.form.privacyConsentRequired'));
@@ -99,6 +109,11 @@ class RegistrationForm extends Form
 
         if ($this->captchaEnabled) {
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+        }
+
+        if ($this->altchaEnabled) {
+            FormValidatorAltcha::addAltchaJavascript($templateMgr);
+            FormValidatorAltcha::insertFormChallenge($templateMgr);
         }
 
         $countries = [];
@@ -176,6 +191,12 @@ class RegistrationForm extends Form
         if ($this->captchaEnabled) {
             $this->readUserVars([
                 'g-recaptcha-response',
+            ]);
+        }
+
+        if ($this->altchaEnabled) {
+            $this->readUserVars([
+                'altcha'
             ]);
         }
 

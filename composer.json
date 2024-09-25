@@ -1,6 +1,7 @@
 {
 	"require": {
 		"php": "^8.2",
+		"altcha-org/altcha": "^0.1.2",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",
 		"dflydev/base32-crockford": "^1.0",

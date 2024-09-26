@@ -47,9 +47,9 @@
 			display: false,
 		},
 		tooltips: {
-			titleColor: '#333',
-			bodyColor: '#333',
-			footerColor: '#333',
+			titleFontColor: '#333',
+			bodyFontColor: '#333',
+			footerFontColor: '#333',
 			backgroundColor: '#ddd',
 			cornerRadius: 2,
 		},

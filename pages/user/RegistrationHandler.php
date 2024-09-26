@@ -123,7 +123,7 @@ class RegistrationHandler extends UserHandler
             return $templateMgr->display('frontend/pages/error.tpl');
         }
 
-        $source = $request->getUserVar('source');
+        $source = str_replace('@', '', $request->getUserVar('source'));
         if (preg_match('#^/\w#', $source) === 1) {
             return $request->redirectUrl($source);
         } else {

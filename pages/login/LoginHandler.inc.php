@@ -104,7 +104,7 @@ class LoginHandler extends Handler {
 				$request->redirect(null, null, 'changePassword', $user->getUsername());
 
 			} else {
-				$source = $request->getUserVar('source');
+				$source = str_replace('@', '', $request->getUserVar('source'));
 				$redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');
 				if (preg_match('#^/\w#', $source ?? '') === 1) {
 					$request->redirectUrl($source);
@@ -141,7 +141,7 @@ class LoginHandler extends Handler {
 			Validation::logout();
 		}
 
-		$source = $request->getUserVar('source');
+		$source = str_replace('@', '', $request->getUserVar('source'));
 		if (isset($source) && !empty($source)) {
 			$request->redirectUrl($request->getProtocol() . '://' . $request->getServerHost() . $source, false);
 		} else {

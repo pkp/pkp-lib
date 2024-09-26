@@ -42,7 +42,7 @@ class PKPUserHandler extends Handler {
 			$session->setSessionVar('currentLocale', $setLocale);
 		}
 
-		$source = $request->getUserVar('source');
+		$source = str_replace('@', '', $request->getUserVar('source'));
 		if (preg_match('#^/\w#', $source) === 1) {
 			$request->redirectUrl($source);
 		}

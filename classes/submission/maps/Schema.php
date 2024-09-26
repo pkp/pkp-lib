@@ -525,6 +525,7 @@ class Schema extends \PKP\core\maps\Schema
             ];
 
             $currentUserAssignedRoles = [];
+            $stageAssignmentsOverview = [];
             if ($currentUser) {
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
@@ -540,17 +541,21 @@ class Schema extends \PKP\core\maps\Schema
 
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-                    ->withUserId($currentUser->getId())
                     ->withStageIds([$stageId])
                     ->get();
 
                 foreach ($stageAssignments as $stageAssignment) {
                     $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                    $currentUserAssignedRoles[] = (int) $userGroup->getRoleId();
+                    $stageAssignmentsOverview[] = [
+                        "roleId" => $userGroup->getRoleId(),
+                        "recommendOnly" => $stageAssignment->recommendOnly,
+                        "canChangeMetadata" => $stageAssignment->canChangeMetadata,
+                        "userId" => $stageAssignment->userId
+                    ];
                 }
             }
             $stage['currentUserAssignedRoles'] = array_values(array_unique($currentUserAssignedRoles));
-
+            $stage['stageAssignments'] = $stageAssignmentsOverview;
             // Stage-specific statuses
             switch ($stageId) {
                 case WORKFLOW_STAGE_ID_SUBMISSION:

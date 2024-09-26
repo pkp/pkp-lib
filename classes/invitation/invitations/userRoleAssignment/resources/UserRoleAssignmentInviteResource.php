@@ -29,6 +29,20 @@ class UserRoleAssignmentInviteResource extends JsonResource
         // Get all attributes of the invitationModel as an array
         $invitationData = $this->invitationModel->toArray();
 
+        $existingUser = $this->getExistingUser();
+        $newUser = null;
+
+        if (!isset($existingUser)) {
+            $newUser = new User();
+
+            $newUser->setAffiliation($this->getPayload()->affiliation, null);
+            $newUser->setFamilyName($this->getPayload()->familyName, null);
+            $newUser->setGivenName($this->getPayload()->givenName, null);
+            $newUser->setCountry($this->getPayload()->country);
+            $newUser->setUsername($this->getPayload()->username);
+            $newUser->setEmail($this->getPayload()->sendEmailAddress);
+        }
+
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($invitationData, [
             'orcid' => $this->getPayload()->orcid,
@@ -43,6 +57,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'username' => $this->getPayload()->username,
             'sendEmailAddress' => $this->getPayload()->sendEmailAddress,
             'existingUser' => $this->transformUser($this->getExistingUser()),
+            'newUser' => $this->transformUser($newUser),
         ]);
     }
 
@@ -85,7 +100,8 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'familyName' => $user->getFamilyName(null),
             'givenName' => $user->getGivenName(null),
             'country' => $user->getCountry(),
-            'affiliation' => $user->getAffiliation(null)
+            'affiliation' => $user->getAffiliation(null),
+            'orcid' => $user->getOrcid()
         ];
     }
 }

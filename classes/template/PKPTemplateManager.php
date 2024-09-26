@@ -990,7 +990,8 @@ class PKPTemplateManager extends Smarty
                                 $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
-                                $requestedViewId = $request->getUserVar('currentViewId');
+                                $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
+
                                 $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request,$requestedOp, $requestedPage, $requestedViewId) { 
                                     $data = $dashboardView->getData();
                                     return [
@@ -1017,7 +1018,7 @@ class PKPTemplateManager extends Smarty
                                 $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_REVIEWER]);
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
-                                $requestedViewId = $request->getUserVar('currentViewId');
+                                $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
                                 $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request,$requestedOp, $requestedPage, $requestedViewId) { 
                                     $data = $dashboardView->getData();
                                     return [
@@ -1038,7 +1039,7 @@ class PKPTemplateManager extends Smarty
                                 $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_AUTHOR]);
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
-                                $requestedViewId = $request->getUserVar('currentViewId');
+                                $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
                                 $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request,$requestedOp, $requestedPage, $requestedViewId) { 
                                     $data = $dashboardView->getData();
                                     return [

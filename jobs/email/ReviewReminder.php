@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\core\PKPApplication;
 use PKP\core\Core;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\mail\mailables\ReviewRemindAuto;

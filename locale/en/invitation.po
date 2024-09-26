@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"en/>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "At least one user group to add must be defined"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "The user group is assigned to the invited user"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "At least one user group to remove must be defined"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Remove user roles can't be defined for not existing users."
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.userGroupNotAssignedToUser"
+msgstr "The user group is not assigned to the invited user"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr "The invitation can not be dispatched because you have not defined any user group changes"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "The provided user groups contain duplicate entries."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "There is already an existing user with the username {$username}. Try another one."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr "When an invitation has a user id ({$userId}) assigned, the corresponding user must exist."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr "When an invitation has an email ({$email}) assigned, this email must not be in use by another user."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "A username must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "A password must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "An affiliation must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "A country must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "A given name must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "A family name must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "For added user groups, a user group id must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "For added user groups, a date start must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "For added user groups, a masthead must be provided"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "This invitation type does not have a mailable defined"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "The provided user group ID {$userGroupId} does not exist"
+
+msgid "invitation.validation.required"
+msgstr "The {$attribute} field is required."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr "Unexpected properties found in the item at index {$attribute}: {$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "The id {reviewAssignmentId} does not correspond to a valid review assignment"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "This invitation can't be cancelled"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "You cannot provide both email and userId together."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "The attribute is not allowed to be access for existing users"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "The attribute is not allowed to be access for non existing users"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "This attribute must have a value equal or after today"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "The :attribute field is prohibited"

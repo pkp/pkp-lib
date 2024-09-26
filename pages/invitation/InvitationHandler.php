@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use Exception;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 
@@ -67,13 +66,13 @@ class InvitationHandler extends Handler
         return $invitation;
     }
 
-    public static function getActionUrl(InvitationAction $action, Invitation $invitation): string
+    public static function getActionUrl(InvitationAction $action, Invitation $invitation): ?string
     {
         $invitationId = $invitation->getId();
         $invitationKey = $invitation->getKey();
 
         if (!isset($invitationId) || !isset($invitationKey)) {
-            throw new Exception();
+            return null;
         }
 
         $request = Application::get()->getRequest();

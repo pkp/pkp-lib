@@ -13,6 +13,7 @@
 namespace PKP\tests\jobs\notifications;
 
 use Mockery;
+use PKP\db\DAORegistry;
 use APP\core\Application;
 use PKP\tests\PKPTestCase;
 use PKP\user\Repository as UserRepository;
@@ -75,6 +76,33 @@ class StatisticsReportNotifyTest extends PKPTestCase
             ->getMock();
         
         app()->instance(UserRepository::class, $userRepoMock);
+
+        $notificationMock = Mockery::mock(\APP\notification\Notification::class)
+            ->makePartial()
+            ->shouldReceive('setData')
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->getMock();
+        
+        $notifiactionDaoMock = Mockery::mock(\PKP\notification\NotificationDAO::class)
+            ->makePartial()
+            ->shouldReceive([
+                'newDataObject' => $notificationMock,
+                'insertObject' => 0,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        DAORegistry::registerDAO('NotificationDAO', $notifiactionDaoMock);
+
+        $notificationSettingsDaoMock = Mockery::mock(\PKP\notification\NotificationSettingsDAO::class)
+            ->makePartial()
+            ->shouldReceive('updateNotificationSetting')
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->getMock();
+        
+        DAORegistry::registerDAO('NotificationSettingsDAO', $notificationSettingsDaoMock);
 
         $this->assertNull($statisticsReportNotifyJob->handle());
     }

@@ -748,7 +748,7 @@ class PKPTemplateManager extends Smarty
             'contextPath' => isset($context) ? $context->getPath() : '',
             'apiBasePath' => '/api/v1',
             'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
-            'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
+            'tinyMceContentCSS' => [$this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css', $this->_request->getBaseUrl() . '/lib/pkp/styles/mailables/style.css'],
             'tinyMceOneLineContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content_oneline.css',
         ];
 

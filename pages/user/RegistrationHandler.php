@@ -22,6 +22,7 @@ use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
+use PKP\invitation\core\enums\InvitationAction;
 use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;
@@ -158,7 +159,9 @@ class RegistrationHandler extends UserHandler
                 ->getByKey($accessKeyCode);
 
             if (isset($invitation)) {
-                $invitation->acceptHandle($request);
+                $invitationHandler = $invitation->getInvitationActionRedirectController();
+                $invitationHandler->preRedirectActions(InvitationAction::ACCEPT);
+                $invitationHandler->acceptHandle($request);
             }
         } elseif (isset($username)) {
             $user = Repo::user()->getByUsername($username, true);

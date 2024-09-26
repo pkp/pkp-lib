@@ -9,34 +9,87 @@
  *
  * @class ShouldValidate
  *
- * @brief Interface for all Invitation API Handlers
+ * @brief Trait that have all the invitations that define validation rules on their payload properties
  */
 
 namespace PKP\invitation\core\traits;
 
+use Illuminate\Support\MessageBag;
+use Illuminate\Validation\Validator;
+use PKP\invitation\core\enums\ValidationContext;
+use PKP\invitation\core\Invitation;
+use PKP\validation\ValidatorFactory;
+
 trait ShouldValidate
 {
-    private array $errors = [];
+    private ?Validator $validator = null;
 
-    abstract public function validate(): bool;
+    private array $globalTraitValidation = [
+        Invitation::VALIDATION_RULE_GENERIC => true
+    ];
+
+    /**
+     * Declares an array of validation rules to be applied to provided data.
+     */
+    abstract public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array;
+
+    abstract public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array;
+
+    protected function globalTraitValidationData(array $data, ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array 
+    {
+        $data = array_merge($data, $this->globalTraitValidation);
+
+        return $data;
+    }
+
+    /**
+     * Optionally allows subclasses to modify or add more keys to the data array.
+     * This method can be overridden in classes using this trait.
+     */
+    protected function prepareValidationData(array $data, ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        return $this->globalTraitValidationData($data, $validationContext);
+    }
+
+    /**
+     * Checks the validity of the data provided against the provided rules.
+     * Returns true if everything is valid. 
+     */
+    public function validate(array $data = [], ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): bool
+    {
+        $data = $this->prepareValidationData($data, $validationContext);
+
+        // Check if $data contains any keys not present in $globalTraitValidation
+        $otherFields = array_diff(array_keys($data), array_keys($this->globalTraitValidation));
+
+        if (empty($otherFields)) {
+            $data = array_merge($data, get_object_vars($this->getPayload())); // Populate $data with all the properties of the current object
+        }
+
+        $rules = $this->getValidationRules($validationContext);
+        $messages = $this->getValidationMessages($validationContext);
+
+        $this->validator = ValidatorFactory::make(
+            $data,
+            $rules,
+            $messages
+        );
+
+        return $this->isValid();
+    }
 
     public function isValid(): bool
     {
-        return empty($this->errors);
+        return !$this->validator->fails();
     }
 
-    public function getErrors(): array
+    public function getErrors(): MessageBag
     {
-        return $this->errors;
+        return $this->validator->errors();
     }
 
-    protected function addError(string $error): void
+    public function getValidator(): Validator
     {
-        $this->errors[] = $error;
-    }
-
-    protected function clearErrors(): void
-    {
-        $this->errors = [];
+        return $this->validator;
     }
 }

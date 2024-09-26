@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\EditReviewNotify;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
@@ -214,6 +216,10 @@ class EditReviewForm extends Form
                     ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
+
+                /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+                $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+                $submissionEmailLogDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_EDIT_NOTIFY_REVIEWER, $mailable, $this->submission, $request->getUser());
             }
         }
 

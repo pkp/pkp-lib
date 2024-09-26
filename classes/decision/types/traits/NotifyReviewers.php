@@ -15,7 +15,6 @@ namespace PKP\decision\types\traits;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\event\SubmissionEventLogEntry;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
@@ -23,12 +22,13 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Validation;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
 
@@ -63,6 +63,13 @@ trait NotifyReviewers
                     $reviewAssignmentDao->updateObject($reviewAssignment);
                 }
             }
+
+            /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+            $submissionEmailLogDao->logMailable(
+                is_a($mailable, DecisionNotifyReviewer::class) ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_NOTIFY_REVIEWER : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_EDIT_NOTIFY_REVIEWER,
+                $mailable, $submission, $editor);
+
         }
 
         $eventLog = Repo::eventLog()->newDataObject([

@@ -28,6 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -44,6 +45,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
+use PKP\log\SubmissionEmailLogEntry;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 {
@@ -236,7 +238,9 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
-
+            /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+            $submissionEmailLogDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_COMPLETE, $mailable, $submission, $user);
             $receivedList[] = $userId;
         }
 

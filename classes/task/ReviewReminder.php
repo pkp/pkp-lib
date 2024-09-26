@@ -24,6 +24,8 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
@@ -108,6 +110,9 @@ class ReviewReminder extends ScheduledTask
             'recipientName' => $reviewer->getFullName(),
         ]);
         Repo::eventLog()->add($eventLog);
+        /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+        $submissionEmailLogDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REMIND_AUTO, $mailable, $submission);
     }
 
     /**

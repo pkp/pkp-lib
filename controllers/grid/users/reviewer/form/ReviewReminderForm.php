@@ -27,6 +27,8 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
@@ -173,6 +175,10 @@ class ReviewReminderForm extends Form
             $reviewAssignment->stampModified();
             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $reviewAssignmentDao->updateObject($reviewAssignment);
+
+            /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+            $submissionEmailLogDao->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REMIND, $mailable, $submission, $user);
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(

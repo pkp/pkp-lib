@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\EditReviewNotify;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -61,7 +62,7 @@ class EditReviewForm extends Form
         // Validation checks for this form
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
-        
+
         $this->addCheck(
             new \PKP\form\validation\FormValidatorDateCompare(
                 $this,
@@ -226,6 +227,7 @@ class EditReviewForm extends Form
                     ->allowUnsubscribe($notification);
 
                 Mail::send($mailable);
+                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_EDIT_NOTIFY_REVIEWER, $mailable, $this->submission, $request->getUser());
             }
         }
 

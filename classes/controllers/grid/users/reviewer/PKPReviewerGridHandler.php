@@ -45,6 +45,7 @@ use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
@@ -560,7 +561,10 @@ class PKPReviewerGridHandler extends GridHandler
             $context = app()->get('context')->get($submission->getData('contextId'));
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerReinstate::getEmailTemplateKey());
             $mailable = new ReviewerReinstate($context, $submission, $reviewAssignment);
-            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+
+            if($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
+                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_REINSTATED, $mailable, $submission, $user);
+            }
         }
 
         $json = DAO::getDataChangedEvent($reviewAssignment->getId());
@@ -616,7 +620,10 @@ class PKPReviewerGridHandler extends GridHandler
             $context = $request->getContext();
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerResendRequest::getEmailTemplateKey());
             $mailable = new ReviewerResendRequest($context, $submission, $reviewAssignment);
-            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+
+            if($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
+                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_RESEND, $mailable, $submission, $user);
+            }
         }
 
         $json = DAO::getDataChangedEvent($reviewAssignment->getId());
@@ -652,7 +659,10 @@ class PKPReviewerGridHandler extends GridHandler
             $context = app()->get('context')->get($submission->getData('contextId'));
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerUnassign::getEmailTemplateKey());
             $mailable = new ReviewerUnassign($context, $submission, $reviewAssignment);
-            $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
+
+            if($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
+                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_CANCEL, $mailable, $submission, $user);
+            }
         }
 
         $json = DAO::getDataChangedEvent($reviewAssignment->getId());
@@ -1194,7 +1204,7 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Creates and sends email to the reviewer
      */
-    protected function createMail(Mailable $mailable, string $emailBody, EmailTemplate $template, User $sender, User $reviewer): void
+    protected function createMail(Mailable $mailable, string $emailBody, EmailTemplate $template, User $sender, User $reviewer): bool
     {
         if ($subject = $template->getLocalizedData('subject')) {
             $mailable->subject($subject);
@@ -1207,6 +1217,8 @@ class PKPReviewerGridHandler extends GridHandler
 
         try {
             Mail::send($mailable);
+
+            return true;
         } catch (TransportException $e) {
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
@@ -1216,6 +1228,8 @@ class PKPReviewerGridHandler extends GridHandler
             );
             trigger_error($e->getMessage(), E_USER_WARNING);
         }
+
+        return false;
     }
 }
 

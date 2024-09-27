@@ -33,6 +33,18 @@ class BulkEmailSenderTest extends PKPTestCase
     END;
 
     /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            UserCollector::class,
+            UserRepository::class,
+        ];
+    }
+
+    /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void

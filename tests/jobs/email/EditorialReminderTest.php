@@ -38,6 +38,33 @@ class EditorialReminderTest extends PKPTestCase
     END;
 
     /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return [
+            ...parent::getMockedDAOs(),
+            'NotificationSubscriptionSettingsDAO',
+            'ReviewRoundDAO',
+            'NotificationDAO',
+            'NotificationSettingsDAO',
+        ];
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            UserRepository::class,
+            SubmissionCollector::class,
+            SubmissionRepository::class,
+        ];
+    }
+
+    /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void

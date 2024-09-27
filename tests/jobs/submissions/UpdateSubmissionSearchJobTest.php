@@ -31,6 +31,17 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
     END;
 
     /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            \APP\submission\Repository::class,
+        ];
+    }
+
+    /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void

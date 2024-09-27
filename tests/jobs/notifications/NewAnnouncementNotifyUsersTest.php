@@ -36,6 +36,32 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
     END;
 
     /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return array_filter([
+            ...parent::getMockedDAOs(),
+            substr(strrchr(get_class(Application::getContextDAO()), '\\'), 1),
+            'NotificationDAO',
+            'NotificationSettingsDAO',
+        ]);
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            AnnouncementRepository::class,
+            EmailTemplateRepository::class,
+            UserRepository::class,
+        ];
+    }
+
+    /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void

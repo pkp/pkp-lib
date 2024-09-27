@@ -57,6 +57,18 @@ class DepositSubmissionTest extends PKPTestCase
     }
 
     /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            SubmissionRepository::class,
+            DoiRepository::class,
+        ];
+    }
+
+    /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void

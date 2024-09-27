@@ -14,6 +14,7 @@ namespace PKP\tests\jobs\metadata;
 
 use Mockery;
 use PKP\db\DAORegistry;
+use APP\core\Application;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\metadata\BatchMetadataChangedJob;
 use APP\submission\Repository as SubmissionRepository;
@@ -31,6 +32,28 @@ class BatchMetadataChangedJobTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:41:"PKP\\jobs\\metadata\\BatchMetadataChangedJob":3:{s:13:"submissionIds";a:2:{i:0;i:1;i:1;i:2;}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
+
+    /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return [
+            ...parent::getMockedDAOs(),
+            $this->getAppSearchDaoKey(),
+        ];
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            SubmissionRepository::class,
+        ];
+    }
 
     /**
      * Test job is a proper instance
@@ -99,9 +122,7 @@ class BatchMetadataChangedJobTest extends PKPTestCase
             ->withAnyArgs()
             ->getMock();
 
-        DAORegistry::registerDAO('ArticleSearchDAO', $submissionSearchDAOMock);     // for OJS
-        DAORegistry::registerDAO('MonographSearchDAO', $submissionSearchDAOMock);   // for OMP
-        DAORegistry::registerDAO('PreprintSearchDAO', $submissionSearchDAOMock);    // for OPS
+        DAORegistry::registerDAO($this->getAppSearchDaoKey(), $submissionSearchDAOMock);
 
         $this->assertNull($batchMetadataChangedJob->handle());
     }

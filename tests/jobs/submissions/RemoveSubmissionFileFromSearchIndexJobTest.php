@@ -14,6 +14,7 @@ namespace PKP\tests\jobs\submissions;
 
 use Mockery;
 use PKP\db\DAORegistry;
+use APP\core\Application;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\submissions\RemoveSubmissionFileFromSearchIndexJob;
 
@@ -30,6 +31,17 @@ class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:59:"PKP\\jobs\\submissions\\RemoveSubmissionFileFromSearchIndexJob":4:{s:15:"\0*\0submissionId";i:25;s:19:"\0*\0submissionFileId";i:55;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
+
+    /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return [
+            ...parent::getMockedDAOs(),
+            $this->getAppSearchDaoKey(),
+        ];
+    }
 
     /**
      * Test job is a proper instance
@@ -56,9 +68,7 @@ class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
             ->withAnyArgs()
             ->getMock();
 
-        DAORegistry::registerDAO('ArticleSearchDAO', $submissionSearchDAOMock);     // for OJS
-        DAORegistry::registerDAO('MonographSearchDAO', $submissionSearchDAOMock);   // for OMP
-        DAORegistry::registerDAO('PreprintSearchDAO', $submissionSearchDAOMock);    // for OPS
+        DAORegistry::registerDAO($this->getAppSearchDaoKey(), $submissionSearchDAOMock);
 
         // Test that the job can be handled without causing an exception.
         $this->assertNull($removeSubmissionFileFromSearchIndexJob->handle());

@@ -906,8 +906,11 @@ class PKPSubmissionController extends PKPBaseController
 
         // Convert a form field value to multilingual (if it is not) and merge rest values
         collect(app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION))
-            ->each(fn (string $prop) =>
-                $illuminateRequest->whenHas($prop, fn ($value) =>
+            ->each(
+                fn (string $prop) =>
+                $illuminateRequest->whenHas(
+                    $prop,
+                    fn ($value) =>
                     $illuminateRequest->merge([
                         $prop => array_merge(
                             $publication->getData($prop) ?? [],
@@ -943,8 +946,19 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $decisionIterator = Repo::decision()->getCollector()
+        $decisionTypes = array_map('intval', paramToArray($illuminateRequest->input('decisionTypes') ?? []));
+        $editorIds = array_map('intval', paramToArray($illuminateRequest->input('editorIds') ?? []));
+        $reviewRoundId = $illuminateRequest->input('reviewRoundId') ? [(int)$illuminateRequest->input('reviewRoundId')] : null;
+        $stageId = $illuminateRequest->input('stageId') ? [(int)$illuminateRequest->input('stageId')] : null;
+
+        $collector = Repo::decision()->getCollector();
+        $decisionIterator = $collector
             ->filterBySubmissionIds([$submission->getId()])
+            ->filterByDecisionTypes(!empty($decisionTypes) ? $decisionTypes : null)
+            ->filterByEditorIds(!empty($editorIds) ? $editorIds : null)
+            ->filterByReviewRoundIds($reviewRoundId)
+            ->filterByStageIds($stageId)
+            ->orderBy($collector::ORDERBY_DATE_DECIDED, $collector::ORDER_DIR_DESC)
             ->getMany();
 
         $data = Repo::decision()
@@ -2050,7 +2064,8 @@ class PKPSubmissionController extends PKPBaseController
     /**
      * Copy author, files, etc. multilingual fields from old to new changed language
      */
-    protected function copyMultilingualData(Submission $submission, string $newLocale): void {
+    protected function copyMultilingualData(Submission $submission, string $newLocale): void
+    {
         $oldLocale = $submission->getData('locale');
         $editProps = fn (Author|SubmissionFile $item, array $props): array => collect($props)
             ->mapWithKeys(fn (string $prop): array => [$prop => ($data = $item->getData($prop)[$oldLocale] ?? null) ? [$newLocale => $data] : null])
@@ -2066,7 +2081,7 @@ class PKPSubmissionController extends PKPBaseController
             ->filterBySubmissionIds([$submission->getId()])
             ->getMany()
             ->each(fn (SubmissionFile $file) => Repo::submissionFile()->edit($file, $editProps($file, $fileProps)));
-        
+
         // Contributor
         $contributorProps = [
             'givenName',

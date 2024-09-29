@@ -71,7 +71,7 @@ class StatisticsReportMailTest extends DatabaseTestCase
         $contextMock = Mockery::mock(get_class(Application::getContextDAO()->newDataObject()))
             ->makePartial()
             ->shouldReceive([
-                'getId' => 0,
+                'getId' => 1,
                 'getPrimaryLocale' => 'en',
                 'getContactEmail' => 'testmail@mail.test',
                 'getContactName' => 'Test User',
@@ -150,7 +150,7 @@ class StatisticsReportMailTest extends DatabaseTestCase
             ->makePartial()
             ->shouldReceive('getId')
             ->withAnyArgs()
-            ->andReturn(0)
+            ->andReturn(1)
             ->getMock();
 
         $userRepoMock = Mockery::mock(app(UserRepository::class))

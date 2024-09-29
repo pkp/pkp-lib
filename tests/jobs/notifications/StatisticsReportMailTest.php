@@ -15,16 +15,16 @@ namespace PKP\tests\jobs\notifications;
 use Mockery;
 use PKP\db\DAORegistry;
 use APP\core\Application;
-use PKP\tests\PKPTestCase;
+use PKP\tests\DatabaseTestCase;
 use PKP\user\Repository as UserRepository;
-use PKP\emailTemplate\Repository as EmailTemplateRepository;
-use PKP\jobs\notifications\StatisticsReportMail;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\jobs\notifications\StatisticsReportMail;
+use PKP\emailTemplate\Repository as EmailTemplateRepository;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(StatisticsReportMail::class)]
-class StatisticsReportMailTest extends PKPTestCase
+class StatisticsReportMailTest extends DatabaseTestCase
 {
     /**
      * serializion from OJS 3.4.0
@@ -32,6 +32,16 @@ class StatisticsReportMailTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:43:"PKP\\jobs\\notifications\\StatisticsReportMail":6:{s:10:"\0*\0userIds";O:29:"Illuminate\Support\Collection":2:{s:8:"\0*\0items";a:5:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:6;}s:28:"\0*\0escapeWhenCastingToString";b:0;}s:12:"\0*\0contextId";i:1;s:12:"\0*\0dateStart";O:17:"DateTimeImmutable":3:{s:4:"date";s:26:"2024-05-01 00:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Dhaka";}s:10:"\0*\0dateEnd";O:17:"DateTimeImmutable":3:{s:4:"date";s:26:"2024-06-01 00:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Dhaka";}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
+
+    /**
+     * @see \PKP\tests\DatabaseTestCase@getAffectedTables
+     */
+    protected function getAffectedTables(): array
+    {
+        return [
+            'notifications'
+        ];
+    }
 
     /**
      * Test job is a proper instance
@@ -65,6 +75,7 @@ class StatisticsReportMailTest extends PKPTestCase
                 'getPrimaryLocale' => 'en',
                 'getContactEmail' => 'testmail@mail.test',
                 'getContactName' => 'Test User',
+                'getLocalizedData' => '',
             ])
             ->withAnyArgs()
             ->getMock();

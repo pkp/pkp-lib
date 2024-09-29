@@ -54,11 +54,18 @@ class DepositContextTest extends PKPTestCase
 
         $contextDaoClass = get_class(Application::getContextDAO());
 
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
         $contextMock = Mockery::mock(get_class(Application::getContextDAO()->newDataObject()))
             ->makePartial()
             ->shouldReceive('getData')
             ->with(Context::SETTING_DOI_AUTOMATIC_DEPOSIT)
             ->andReturn(true)
+            ->shouldReceive('getLocalizedData')
+            ->withAnyArgs()
+            ->andReturn('')
             ->getMock();
 
         $contextDaoMock = Mockery::mock($contextDaoClass)

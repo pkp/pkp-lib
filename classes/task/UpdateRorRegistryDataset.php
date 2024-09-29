@@ -89,11 +89,11 @@ class UpdateRorRegistryDataset extends ScheduledTask
         'names' => 25
     ];
 
-    /** @var array|string[] Mapping of locales between registry and ojs */
-    private array $localeMapping = [
-        ['no_lang_code'],
-        ['en']
-    ];
+    /** @var string No language code available key in registry */
+    private string $noLocale = 'no_lang_code';
+
+    /** @var string Mapping OJS for no language code available in registry */
+    private string $noLocaleMapping = 'en';
 
     /** @copydoc ScheduledTask::getName() */
     public function getName(): string
@@ -189,12 +189,11 @@ class UpdateRorRegistryDataset extends ScheduledTask
         $params['ror'] = $row[$this->dataMapping['ror']];
 
         // display_locale : ror_display_lang
-        $params['displayLocale'] =
-            str_replace(
-                $this->localeMapping[0],
-                $this->localeMapping[1],
-                $row[$this->dataMapping['displayLocale']]
-            );
+        $params['displayLocale'] = str_replace(
+            $this->noLocale,
+            $this->noLocaleMapping,
+            $row[$this->dataMapping['displayLocale']]
+        );
 
         // is_active < status
         $params['isActive'] = 0;
@@ -205,17 +204,12 @@ class UpdateRorRegistryDataset extends ScheduledTask
         // locale, name < names.types.label
         // [["name"]["en"] => "label1"],["name"]["it"] => "label2"]] < "en: label1; it: label2"
         if (!empty($row[$this->dataMapping['names']])) {
-            $tmp1 = array_map('trim', explode(';', $row[$this->dataMapping['names']]));
-            for ($i = 0; $i < count($tmp1); $i++) {
-                $tmp2 = array_map('trim', explode(':', $tmp1[$i]));
-                if (count($tmp2) === 2) {
-                    $tmp2[0] =
-                        str_replace(
-                            $this->localeMapping[0],
-                            $this->localeMapping[1],
-                            $tmp2[0]
-                        );
-                    $params['name'][$tmp2[0]] = trim($tmp2[1]);
+            $names = array_map('trim', explode(';', $row[$this->dataMapping['names']]));
+            for ($i = 0; $i < count($names); $i++) {
+                $name = array_map('trim', explode(':', $names[$i]));
+                if (count($name) === 2) {
+                    $name[0] = str_replace($this->noLocale, $this->noLocaleMapping, $name[0]);
+                    $params['name'][$name[0]] = trim($name[1]);
                 }
             }
         }

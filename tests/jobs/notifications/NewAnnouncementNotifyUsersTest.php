@@ -70,7 +70,7 @@ class NewAnnouncementNotifyUsersTest extends DatabaseTestCase
         $announcementMock = Mockery::mock(\PKP\announcement\Announcement::class)
             ->makePartial()
             ->shouldReceive([
-                'getAssocId' => 0,
+                'getAssocId' => 1,
                 'getLocalizedTitle' => '',
             ])
             ->withAnyArgs()
@@ -90,7 +90,7 @@ class NewAnnouncementNotifyUsersTest extends DatabaseTestCase
         $contextMock = Mockery::mock(get_class(Application::getContextDAO()->newDataObject()))
             ->makePartial()
             ->shouldReceive([
-                'getId' => 0,
+                'getId' => 1,
                 'getData' => '',
                 'getLocalizedData' => '',
             ])

@@ -21,7 +21,7 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationStatus;
-use PKP\invitation\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\changeProfileEmail\ChangeProfileEmailInvite;
 use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 
@@ -82,7 +82,7 @@ class ContactForm extends BaseProfileForm
         $templateMgr->assign([
             'countries' => $countries,
             'availableLocales' => $site->getSupportedLocaleNames(),
-            'changeEmailPending' => $invitationModel ? $invitation->newEmail : null,
+            'changeEmailPending' => $invitationModel ? $invitation->getPayload()->newEmail : null,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -138,7 +138,7 @@ class ContactForm extends BaseProfileForm
             $invitation = new ChangeProfileEmailInvite($invitationModel);
 
             $formPendingEmail = $this->getData('pendingEmail');
-            if ($invitation->newEmail == $formPendingEmail) {
+            if ($invitation->getPayload()->newEmail == $formPendingEmail) {
                 $invitationModel->markAs(InvitationStatus::DECLINED);
             }
         }

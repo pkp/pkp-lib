@@ -28,6 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -231,6 +232,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 ->allowUnsubscribe($notification);
 
             Mail::send($mailable);
+            Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_COMPLETE, $mailable, $submission, $user);
 
             $receivedList[] = $userId;
         }

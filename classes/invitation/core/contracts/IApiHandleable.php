@@ -14,8 +14,12 @@
 
 namespace PKP\invitation\core\contracts;
 
+use PKP\invitation\core\CreateInvitationController;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\ReceiveInvitationController;
+
 interface IApiHandleable
 {
-    public function getCreateInvitationController(): CreateInvitationController;
-    public function getReceiveInvitationController(): ReceiveInvitationController;
+    public function getCreateInvitationController(Invitation $invitation): CreateInvitationController;
+    public function getReceiveInvitationController(Invitation $invitation): ReceiveInvitationController;
 }

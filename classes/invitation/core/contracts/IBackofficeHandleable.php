@@ -16,6 +16,6 @@ namespace PKP\invitation\core\contracts;
 
 interface IBackofficeHandleable
 {
-    public function finalise(): void;
+    public function finalize(): void;
     public function decline(): void;
 }

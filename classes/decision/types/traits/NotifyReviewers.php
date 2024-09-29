@@ -21,6 +21,7 @@ use Illuminate\Validation\Validator;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;
@@ -60,6 +61,8 @@ trait NotifyReviewers
                     ]);
                 }
             }
+
+            Repo::emailLogEntry()->logMailable(is_a($mailable, DecisionNotifyReviewer::class) ? SubmissionEmailLogEventType::REVIEW_NOTIFY_REVIEWER : SubmissionEmailLogEventType::REVIEW_EDIT_NOTIFY_REVIEWER, $mailable, $submission, $editor);
         }
 
         $eventLog = Repo::eventLog()->newDataObject([

@@ -203,7 +203,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
         }
 
         // locale, name < names.types.label
-        // "en: label1; it: label2" => [["name"]["en"] => "label1"],["name"]["it" => "label2"]]
+        // [["name"]["en"] => "label1"],["name"]["it"] => "label2"]] < "en: label1; it: label2"
         if (!empty($row[$this->dataMapping['names']])) {
             $tmp1 = array_map('trim', explode(';', $row[$this->dataMapping['names']]));
             for ($i = 0; $i < count($tmp1); $i++) {

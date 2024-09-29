@@ -19,7 +19,7 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\form\Form;
-use PKP\invitation\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\changeProfileEmail\ChangeProfileEmailInvite;
 use PKP\user\User;
 
 abstract class BaseProfileForm extends Form
@@ -72,11 +72,17 @@ abstract class BaseProfileForm extends Form
 
             $invite->initialize($user->getId());
 
-            $invite->newEmail = $functionArgs['emailUpdated'];
+            $invite->getPayload()->newEmail = $functionArgs['emailUpdated'];
 
-            $invite->updatePayload();
+            $inviteResult = false;
+            $updateResult = $invite->updatePayload();
+            if ($updateResult) {
+                $inviteResult = $invite->invite();
+            }
 
-            $invite->invite();
+            if (!$inviteResult) {
+                throw new \Exception('Invitation could be send');
+            }
         }
     }
 }

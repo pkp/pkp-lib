@@ -9,7 +9,7 @@
  *
  * @class CreateInvitationController
  *
- * @brief Interface for all Invitation API Handlers
+ * @brief Defines the API actions of the "Create" phase of the invitation
  */
 
 namespace PKP\invitation\core;
@@ -19,9 +19,12 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\invitation\core\Invitation;
 
 abstract class CreateInvitationController extends Controller
 {
+    public ?PKPRequest $request = null;
+
     abstract public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool;
     abstract public function add(Request $illuminateRequest): JsonResponse;
     abstract public function populate(Request $illuminateRequest): JsonResponse;

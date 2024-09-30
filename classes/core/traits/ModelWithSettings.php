@@ -19,6 +19,7 @@ namespace PKP\core\traits;
 
 use Eloquence\Behaviours\HasCamelCasing;
 use Exception;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
 use PKP\facades\Locale;
@@ -54,13 +55,17 @@ trait ModelWithSettings
 
     /**
      * See Illuminate\Database\Eloquent\Concerns\HasAttributes::mergeCasts()
+     *
+     * @param array $casts
+     *
+     * @return array
      */
-    abstract public function mergeCasts(array $casts);
+    abstract protected function ensureCastsAreStringValues($casts);
 
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        if ($this->getSchemaName()) {
+        if (static::getSchemaName()) {
             $this->setSchemaData();
         }
     }
@@ -107,34 +112,39 @@ trait ModelWithSettings
             $locale = Locale::getLocale();
         }
 
+        if (!in_array($data, $this->getMultilingualProps())) {
+            throw new Exception(
+                sprintf('Given localized property %s does not exist in %s model', $data, static::class)
+            );
+        }
+
         $multilingualProp = $this->getAttribute($data);
-        if (!$multilingualProp) {
-            throw new Exception('Attribute ' . $data . ' doesn\'t exist in the ' . static::class . ' model');
-        }
 
-        if (!in_array($data, $this->multilingualProps)) {
-            throw new Exception('Trying to retrieve localized data from a non-multilingual attribute ' . $data);
-        }
-
-        // TODO What should the default behaviour be if localized value doesn't exist?
         return $multilingualProp[$locale] ?? null;
     }
 
     /**
-     * Sets the schema for current Model
+     * Sets the schema for the current Model
      */
     protected function setSchemaData(): void
     {
         $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
         $schema = $schemaService->get($this->getSchemaName());
         $this->convertSchemaToCasts($schema);
-        $this->settings = array_merge($this->getSettings(), $schemaService->groupPropsByOrigin($this->getSchemaName())[Schema::ATTRIBUTE_ORIGIN_SETTINGS]);
+        $this->settings = array_merge($this->getSettings(), $schemaService->groupPropsByOrigin($this->getSchemaName())[Schema::ATTRIBUTE_ORIGIN_SETTINGS] ?? []);
         $this->multilingualProps = array_merge($this->getMultilingualProps(), $schemaService->getMultilingualProps($this->getSchemaName()));
+
+        $writableProps = $schemaService->groupPropsByOrigin($this->getSchemaName(), true);
+        $this->fillable = array_merge(
+            $writableProps[Schema::ATTRIBUTE_ORIGIN_SETTINGS],
+            $writableProps[Schema::ATTRIBUTE_ORIGIN_MAIN],
+            $this->fillable,
+        );
     }
 
     /**
      * Set casts by deriving proper types from schema
-     * TODO casts on multilingual properties. Keep in mind that overriding Model::attributesToArray() might conflict with HasCamelCasing trait
+     * FIXME pkp/pkp-lib#10476 casts on multilingual properties. Keep in mind that overriding Model::attributesToArray() might conflict with HasCamelCasing trait
      */
     protected function convertSchemaToCasts(stdClass $schema): void
     {
@@ -147,7 +157,8 @@ trait ModelWithSettings
             $propCast[$propName] = $propSchema->type;
         }
 
-        $this->mergeCasts($propCast);
+        $propCasts = $this->ensureCastsAreStringValues($propCast);
+        $this->casts = array_merge($propCasts, $this->casts);
     }
 
     /**
@@ -160,5 +171,16 @@ trait ModelWithSettings
         }
 
         return $this->isRelation($key) ? parent::getAttribute($key) : parent::getAttribute($this->getSnakeKey($key));
+    }
+
+    /**
+     * Create an id attribute for the models
+     */
+    protected function id(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn ($value) => [$this->primaryKey => $value],
+        );
     }
 }

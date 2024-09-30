@@ -69,6 +69,7 @@ class PKPSchemaService
      * @hook Schema::get::(schemaName) [[schema]]
      * @hook Schema::get::
      * @hook Schema::get::before::
+     * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)
     {
@@ -260,24 +261,31 @@ class PKPSchemaService
      *
      * @return array<string, array<string>>, e.g. ['primary' => ['assocId', 'assocType']]
      */
-    public function groupPropsByOrigin(string $schemaName): array
+    public function groupPropsByOrigin(string $schemaName, bool $excludeReadOnly = false): array
     {
         $schema = $this->get($schemaName);
         $propsByOrigin = [];
         foreach ($schema->properties as $propName => $propSchema) {
-            if (!empty($propSchema->origin)) {
-                switch($propSchema->origin) {
-                    case Schema::ATTRIBUTE_ORIGIN_SETTINGS:
-                        $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_SETTINGS][] = $propName;
-                        break;
-                    case Schema::ATTRIBUTE_ORIGIN_COMPOSED:
-                        $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_COMPOSED][] = $propName;
-                        break;
-                    case Schema::ATTRIBUTE_ORIGIN_MAIN:
-                    default:
-                        $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_MAIN][] = $propName;
-                        break;
-                }
+            if (empty($propSchema->origin)) {
+                continue;
+            }
+
+            // Exclude readonly if specified
+            if ($excludeReadOnly && $propSchema->origin->readOnly) {
+                continue;
+            }
+
+            switch($propSchema->origin) {
+                case Schema::ATTRIBUTE_ORIGIN_SETTINGS:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_SETTINGS][] = $propName;
+                    break;
+                case Schema::ATTRIBUTE_ORIGIN_COMPOSED:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_COMPOSED][] = $propName;
+                    break;
+                case Schema::ATTRIBUTE_ORIGIN_MAIN:
+                default:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_MAIN][] = $propName;
+                    break;
             }
         }
 

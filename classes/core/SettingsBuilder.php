@@ -82,7 +82,7 @@ class SettingsBuilder extends Builder
         $settingCount = DB::table($us)->whereIn($us . '.' . $primaryKey, $newQuery->select($primaryKey))
             ->update([$us . '.setting_value' => DB::raw($sql)]);
 
-        return $count ? $count + $settingCount : $settingCount; // TODO Return the count of updated setting rows?
+        return ($count ?? 0) + $settingCount;
     }
 
     /**

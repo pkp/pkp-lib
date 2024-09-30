@@ -55,12 +55,12 @@ class Announcement extends Model
      *
      * @var array
      */
-    protected $fillable = ['assocType', 'assocId', 'typeId', 'title', 'image', 'description', 'descriptionShort'];
+    protected $guarded = ['announcementId', 'datePosted'];
 
     /**
      * @inheritDoc
      */
-    public static function getSchemaName(): string
+    public static function getSchemaName(): ?string
     {
         return PKPSchemaService::SCHEMA_ANNOUNCEMENT;
     }
@@ -117,7 +117,7 @@ class Announcement extends Model
         }
 
         // If it's updated model and a new image is uploaded, first, delete an old one
-        $hasNewImage = $this->hasAttribute('temporaryFileId');
+        $hasNewImage = $this?->image?->temporaryFileId;
         if ($saved && !$newlyCreated && $hasNewImage) {
             $this->deleteImage();
             $this->handleImageUpload();
@@ -270,17 +270,7 @@ class Announcement extends Model
     protected function imageAltText(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->image->altText ?? ''
-        );
-    }
-
-    /**
-     * Get the date announcement was posted
-     */
-    protected function datePosted(): Attribute
-    {
-        return Attribute::make(
-            get: fn (string $value) => date('Y-m-d', strtotime($value))
+            get: fn () => $this->image?->altText ?? ''
         );
     }
 
@@ -362,7 +352,7 @@ class Announcement extends Model
     {
         $fileManager = new FileManager();
 
-        return $this->getAttribute('announcementId')
+        return $this->id
             . $fileManager->getImageExtension($temporaryFile->getFileType());
     }
 
@@ -418,5 +408,18 @@ class Announcement extends Model
         $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
 
         return $result;
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'dateExpire' => 'datetime',
+            'datePosted' => 'datetime',
+        ];
     }
 }

@@ -220,7 +220,7 @@ class PKPAnnouncementController extends PKPBaseController
         $sendEmail = (bool) filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN);
 
         if ($context) {
-            $this->notifyUsers($request, $context, $announcement->getKey(), $sendEmail);
+            $this->notifyUsers($request, $context, $announcement->id, $sendEmail);
         }
 
         return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
@@ -255,7 +255,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $illuminateRequest->input());
-        $params['id'] = $announcement->getKey();
+        $params['id'] = $announcement->id;
         $params['typeId'] ??= null;
 
         $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
@@ -275,7 +275,7 @@ class PKPAnnouncementController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $announcement = Announcement::find($announcement->getKey());
+        $announcement = Announcement::find($announcement->id);
 
         return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
     }

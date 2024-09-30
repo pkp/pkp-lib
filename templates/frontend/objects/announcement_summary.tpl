@@ -24,16 +24,16 @@
 	{/if}
 	<div class="obj_announcement_summary_details">
 		<{$heading}>
-			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getKey()}">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
 				{$announcement->getLocalizedData('title')|escape}
 			</a>
 		</{$heading}>
 		<div class="date">
-			{$announcement->datePosted|date_format:$dateFormatShort}
+			{$announcement->datePosted->format($dateFormatShort)}
 		</div>
 		<div class="summary">
 			{$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
-			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getKey()}" class="read_more">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}" class="read_more">
 				<span aria-hidden="true" role="presentation">
 					{translate key="common.readMore"}
 				</span>

@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use Carbon\Carbon;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -78,7 +79,7 @@ class AnnouncementHandler extends Handler
             && $announcement->assocType == Application::getContextAssocType()
             && $announcement->assocId == $request->getContext()?->getId()
             && (
-                $announcement->dateExpire == null || strtotime($announcement->dateExpire) > time()
+                $announcement->dateExpire == null || Carbon::now()->lte($announcement->dateExpire)
             )
         ) {
             $templateMgr = TemplateManager::getManager($request);

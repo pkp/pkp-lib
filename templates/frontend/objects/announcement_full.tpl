@@ -16,7 +16,7 @@
 		{$announcement->getLocalizedData('title')|escape}
 	</h1>
 	<div class="date">
-		{$announcement->datePosted|date_format:$dateFormatShort}
+		{$announcement->datePosted->format($dateFormatShort)}
 	</div>
 	{if $announcement->image}
 		<img

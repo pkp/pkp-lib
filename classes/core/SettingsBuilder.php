@@ -67,7 +67,7 @@ class SettingsBuilder extends Builder
             $count = parent::update($primaryValues->toArray());
         }
 
-        // TODO Eloquent transforms attributes to snake case, find and override instead of transforming here
+        // FIXME pkp/pkp-lib#10485 Eloquent transforms attributes to snake case, find and override instead of transforming here
         $settingValues = $settingValues->mapWithKeys(
             fn (mixed $value, string $key) => [Str::camel($key) => $value]
         );
@@ -280,7 +280,6 @@ class SettingsBuilder extends Builder
 
     /**
      * If specific columns are selected to fill the Model with, iterate and filter all, which aren't specified
-     * TODO Instead of iterating through all row properties, we can force to pass primary key as a mandatory column?
      */
     protected function filterRow(stdClass $row, string|array $columns = ['*']): stdClass
     {

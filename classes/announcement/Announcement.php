@@ -206,7 +206,6 @@ class Announcement extends Model
 
     /**
      * Get the full title
-     * TODO temporary measure while AnnouncementType isn't refactored as Eloquent Model
      */
     protected function fullTitle(): Attribute
     {

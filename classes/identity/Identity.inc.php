@@ -69,8 +69,8 @@ class Identity extends DataObject {
 	 * @param $defaultLocale string
 	 * @return string
 	 */
-	function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null) {
-		$locale = AppLocale::getLocale();
+	function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null, $preferredLocale = null) {
+		$locale = $preferredLocale ?? AppLocale::getLocale();
 		if ($preferred) {
 			$preferredPublicName = $this->getPreferredPublicName($locale);
 			if (!empty($preferredPublicName)) return $preferredPublicName;

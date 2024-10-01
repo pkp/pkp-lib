@@ -14,6 +14,7 @@ namespace PKP\tests\jobs\statistics;
 
 use ReflectionClass;
 use PKP\task\FileLoader;
+use PKP\file\FileManager;
 use PKP\tests\PKPTestCase;
 use APP\statistics\StatisticsHelper;
 use PKP\jobs\statistics\ArchiveUsageStatsLogFile;
@@ -58,6 +59,7 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
 
         // we need to create a dummy file if not existed as to avoid mocking PHP's built in functions
         $dummyFileName = $this->createDummyFileIfNeeded($archiveUsageStatsLogFileJob, 'loadId');
+        $this->createArchiveDirectoryIfRequired();
 
         $this->assertNull($archiveUsageStatsLogFileJob->handle());
 
@@ -88,10 +90,40 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
             . DIRECTORY_SEPARATOR;
 
         if (!file_exists($filePath . $fileName)) {
+            
+            // create the 'FileLoader::FILE_LOADER_PATH_DISPATCH' directory if not exists
+            if (!file_exists($filePath)) {
+                $fileManager = new FileManager();
+                $fileManager->mkdirtree($filePath);
+            }
+
+            touch($filePath . $fileName);
+            
             file_put_contents($filePath . $fileName, $this->dummyFileContent);
             return $fileName;
         }
 
         return null;
+    }
+
+    /**
+     * Create the archive path/directory as needed
+     */
+    protected function createArchiveDirectoryIfRequired(): bool
+    {
+        $filePath = StatisticsHelper::getUsageStatsDirPath()
+            . DIRECTORY_SEPARATOR
+            . FileLoader::FILE_LOADER_PATH_ARCHIVE
+            . DIRECTORY_SEPARATOR;
+        
+        if (file_exists($filePath)) {
+            return true;
+        }
+
+        // create the 'FileLoader::FILE_LOADER_PATH_ARCHIVE' directory if not exists
+        $fileManager = new FileManager();
+        $fileManager->mkdirtree($filePath);
+
+        return file_exists($filePath);
     }
 }

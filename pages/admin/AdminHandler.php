@@ -25,7 +25,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PDO;
-use PKP\announcement\Collector;
+use PKP\announcement\Announcement;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPContextForm;
@@ -42,6 +42,7 @@ use PKP\components\listPanels\HighlightsListPanel;
 use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -214,7 +215,7 @@ class AdminHandler extends Handler
         $siteStatisticsForm = new PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
         $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
-        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
+        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::Announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
         $announcementsListPanel = $this->getAnnouncementsListPanel($announcementsApiUrl, $announcementsForm);
 
         $templateMgr = TemplateManager::getManager($request);
@@ -757,13 +758,11 @@ class AdminHandler extends Handler
      */
     protected function getAnnouncementsListPanel(string $apiUrl, PKPAnnouncementForm $form): PKPAnnouncementsListPanel
     {
-        $collector = Repo::announcement()
-            ->getCollector()
-            ->withSiteAnnouncements(Collector::SITE_ONLY);
+        $announcements = Announcement::withContextIds([PKPApplication::SITE_CONTEXT_ID]);
 
-        $itemsMax = $collector->getCount();
+        $itemsMax = $announcements->count();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
-            $collector->limit(30)->getMany()
+            $announcements->limit(30)->get()
         );
 
         return new PKPAnnouncementsListPanel(
@@ -773,7 +772,7 @@ class AdminHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $form,
                 'getParams' => [
-                    'contextIds' => [Application::SITE_CONTEXT_ID],
+                    'contextIds' => [PKPApplication::SITE_CONTEXT_ID],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

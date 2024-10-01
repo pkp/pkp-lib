@@ -215,6 +215,7 @@ abstract class PKPTestCase extends TestCase
         $router = new PageRouter();
         $router->setApplication($application);
         $dispatcher = new Dispatcher();
+        $dispatcher->addRouterName('\APP\core\PageRouter', Application::ROUTE_PAGE);
         $dispatcher->setApplication($application);
         $router->setDispatcher($dispatcher);
         $request->setRouter($router);

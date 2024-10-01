@@ -77,7 +77,6 @@ class ReviewReminder extends BaseJob
             $reviewInvitation = new ReviewerAccessInvite();
             $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
 
-            $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
             $reviewInvitation->updatePayload();
 
             $reviewInvitation->invite();

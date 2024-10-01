@@ -77,7 +77,6 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
             if (!$notification && $isPublished == $forPublicationState) {
                 // Create notification.
                 $this->createNotification(
-                    $request,
                     null,
                     $type,
                     $submission->getData('contextId'),

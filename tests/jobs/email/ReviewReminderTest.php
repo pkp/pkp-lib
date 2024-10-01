@@ -13,17 +13,18 @@
 namespace PKP\tests\jobs\email;
 
 use Mockery;
+use APP\core\Application;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\email\ReviewReminder;
 use Illuminate\Support\Facades\Mail;
 use PKP\user\Repository as UserRepository;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\log\event\Repository as EventRepository;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use APP\submission\Repository as SubmissionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
-use PKP\submission\reviewAssignment\Repository as ReviewAssignmentRepository;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
-use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\submission\reviewAssignment\Repository as ReviewAssignmentRepository;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(ReviewReminder::class)]
@@ -35,6 +36,18 @@ class ReviewReminderTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:29:"PKP\\jobs\\email\\ReviewReminder":5:{s:9:"contextId";i:1;s:18:"reviewAssignmentId";i:57;s:13:"mailableClass";s:43:"PKP\mail\mailables\ReviewResponseRemindAuto";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
+
+    /**
+     * @copydoc TestCase::setUp()
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        if (Application::get()->getName() === 'ops') {
+            $this->markTestSkipped('OPS does not have reviewing system');
+        }
+    }
 
     /**
      * Test job is a proper instance

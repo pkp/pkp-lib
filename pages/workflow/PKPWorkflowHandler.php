@@ -132,6 +132,28 @@ abstract class PKPWorkflowHandler extends Handler
         assert(isset($workingStageId));
 
         $router = $request->getRouter();
+        $user = $request->getUser();
+
+        // Check if the user is only author of this submission
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $authorUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_AUTHOR);
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId())->toArray();
+        // $stageAssignments can be empty for an editor not assigned
+        if ( sizeof($stageAssignments) > 0) {
+            $authorDashboard = true;
+            foreach ($stageAssignments as $stageAssignment) {
+                // authorDashboard = false if user is not only assigned as Author
+                if (! in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
+                    $authorDashboard = false;
+                }
+            }
+
+            if ( $authorDashboard ) {
+                $redirectUrl = Repo::submission()->getUrlAuthorWorkflow($request->getContext(), $submission->getId() );
+                $request->redirectUrl($redirectUrl);
+            }
+        }
+
         $request->redirectUrl($router->url($request, null, 'workflow', 'index', [$submission->getId(), $workingStageId]));
     }
 

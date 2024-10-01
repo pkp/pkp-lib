@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\filter;
 
 use PKP\db\DAORegistry;
+use PKP\filter\PersistableFilter;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
 use PKP\filter\FilterGroupDAO;
@@ -48,7 +49,8 @@ class FilterDAOTest extends DatabaseTestCase
         $someGroup->setInputType('primitive::string');
         $someGroup->setOutputType('primitive::string');
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
-        self::assertTrue(is_integer($filterGroupId = $filterGroupDao->insertObject($someGroup)));
+        $filterGroupId = $filterGroupDao->insertObject($someGroup);
+        self::assertTrue(is_integer($filterGroupId));
     }
 
     /**
@@ -61,7 +63,7 @@ class FilterDAOTest extends DatabaseTestCase
         // Install a test filter object.
         $settings = ['seq' => '1', 'some-key' => 'some-value'];
         $testFilter = $filterDao->configureObject(PersistableTestFilter::class, 'test-filter-group', $settings, false, 1);
-        self::assertInstanceOf('PersistableFilter', $testFilter);
+        self::assertInstanceOf(PersistableFilter::class, $testFilter);
         $filterId = $testFilter->getId();
         self::assertTrue(is_integer($filterId));
 

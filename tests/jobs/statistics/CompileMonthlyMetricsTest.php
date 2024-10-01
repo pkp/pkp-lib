@@ -51,7 +51,7 @@ class CompileMonthlyMetricsTest extends PKPTestCase
 
         // Need to replace the container binding of `geoStats` and `sushiStats` with mock objects
         \APP\core\Services::register(
-            new class extends \APP\services\OJSServiceProvider
+            new class implements \Pimple\ServiceProviderInterface
             {
                 public function register(\Pimple\Container $pimple)
                 {

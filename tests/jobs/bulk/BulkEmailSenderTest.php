@@ -16,7 +16,7 @@ use Mockery;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\bulk\BulkEmailSender;
 use PKP\user\Collector as UserCollector;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 
 /**
  * @runTestsInSeparateProcesses
@@ -31,6 +31,18 @@ class BulkEmailSenderTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:29:"PKP\\jobs\\bulk\BulkEmailSender":9:{s:10:"\0*\0userIds";a:3:{i:0;i:1;i:1;i:2;i:2;i:3;}s:12:"\0*\0contextId";i:1;s:10:"\0*\0subject";s:12:"Test subject";s:7:"\0*\0body";s:16:"<p>Test body</p>";s:12:"\0*\0fromEmail";s:20:"rvaca@mailinator.com";s:11:"\0*\0fromName";s:11:"Ramiro Vaca";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";s:7:"batchId";s:36:"9c1cbc05-017b-4a02-bd5a-b113c92a7735";}
     END;
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            UserCollector::class,
+            UserRepository::class,
+        ];
+    }
 
     /**
      * Test job is a proper instance

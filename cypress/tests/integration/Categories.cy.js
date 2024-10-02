@@ -6,7 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  */
 
- describe('Tests categories in the submission wizard', function() {
+// Temporarly Skip until OMP&OPS is migrated to new side modal workflow
+ describe.skip('Tests categories in the submission wizard', function() {
 	var username = 'catauthor';
 	var familyName = 'Fraser'
 	var title = 'Test submission wizard with categories';

@@ -4,7 +4,7 @@
 
 // Temporarly Skip until OMP&OPS is migrated to new side modal workflow
 
-describe('DataAvailabilityStatements', function () {
+describe.skip('DataAvailabilityStatements', function () {
 	var config = Cypress.env('dataAvailabilityTest');
 	var statement = 'This is an example of a data availability statement';
 

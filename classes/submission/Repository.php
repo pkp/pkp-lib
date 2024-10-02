@@ -41,6 +41,7 @@ use PKP\submission\reviewAssignment\Collector as ReviewCollector;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
+use PKP\config\Config;
 
 abstract class Repository
 {
@@ -745,6 +746,20 @@ abstract class Repository
      */
     public function getUrlAuthorWorkflow(Context $context, int $submissionId): string
     {
+        if(Config::getVar('features', 'enable_new_submission_listing')) {
+            return Application::get()->getDispatcher()->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'dashboard',
+                'mySubmissions',
+                null,
+                ['workflowSubmissionId' => $submissionId]
+            );
+
+        }
+
+
         return Application::get()->getDispatcher()->url(
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,

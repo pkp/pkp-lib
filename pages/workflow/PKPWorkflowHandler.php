@@ -55,6 +55,7 @@ use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
+use PKP\config\Config;
 
 abstract class PKPWorkflowHandler extends Handler
 {
@@ -132,7 +133,11 @@ abstract class PKPWorkflowHandler extends Handler
         assert(isset($workingStageId));
 
         $router = $request->getRouter();
+        if(Config::getVar('features', 'enable_new_submission_listing')) {
+            return $request->redirectUrl($router->url($request, null, 'dashboard', 'editorial', null, ['workflowSubmissionId' => $submission->getId()]));
+        }
         $request->redirectUrl($router->url($request, null, 'workflow', 'index', [$submission->getId(), $workingStageId]));
+
     }
 
     /**

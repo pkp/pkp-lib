@@ -599,7 +599,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public static function getWorkflowTypeRoles(): array
     {
         return [
-            self::WORKFLOW_TYPE_EDITORIAL => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+            self::WORKFLOW_TYPE_EDITORIAL => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
             self::WORKFLOW_TYPE_AUTHOR => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
         ];
     }

@@ -169,35 +169,11 @@ Cypress.Commands.add('register', data => {
 	cy.get('button').contains('Register').click();
 });
 
-Cypress.Commands.add('openSubmission', (familyName) => {
-	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').click()
-	})
-});
-
-Cypress.Commands.add('openReviewAssignment', (familyName) => {
-	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').click()
-	})
-});
-
-
-Cypress.Commands.add('openWorkflowMenu', (name) => {
-	cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).click();
-	cy.get('[data-cy="active-modal"] h2').contains(name);
-});
-
-
-
-
-
 Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context) => {
 	context = context || 'publicknowledge';
 	cy.login(username, password, context);
-	cy.get('nav').contains('Active submissions').click();
-	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').click()
-	})
+	cy.get('button[id="active-button"]').click();
+	cy.contains('View ' + familyName).click({force: true});
 });
 
 // Provides: @csrfToken
@@ -432,18 +408,18 @@ Cypress.Commands.add('recordRecommendation', (decisionLabel, decidingEditors) =>
 
 Cypress.Commands.add('decisionsExist', (buttonLabels) => {
 	buttonLabels.forEach(buttonLabel => {
-		cy.get('button:contains("' + buttonLabel + '")').should('exist');
+		cy.get('#editorialActions:contains("' + buttonLabel + '")').should('exist');
 	});
 });
 
 Cypress.Commands.add('decisionsDoNotExist', (buttonLabels) => {
 	buttonLabels.forEach(buttonLabel => {
-		cy.get('button:contains("' + buttonLabel + '")').should('not.exist');
+		cy.get('#editorialActions:contains("' + buttonLabel + '")').should('not.exist');
 	});
 });
 
 Cypress.Commands.add('clickDecision', (buttonLabel) => {
-	cy.get('button').contains(buttonLabel).click();
+	cy.get('#editorialActions').contains(buttonLabel).click();
 	cy.waitJQuery();
 });
 
@@ -465,7 +441,7 @@ Cypress.Commands.add('submissionIsDeclined', () => {
 });
 
 Cypress.Commands.add('isActiveStageTab', (stageName) => {
-	cy.get('[data-cy="active-modal"] nav .bg-selection-dark').contains(stageName);
+	cy.get('#stageTabs li.ui-state-active').contains(stageName);
 });
 
 /**
@@ -536,7 +512,7 @@ Cypress.Commands.add('checkComposerRecipients', (stepName, recipientNames) => {
 
 Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	var names = name.split(' ');
-	cy.get('[data-cy="participant-manager"] button:contains("Assign")').click();
+	cy.get('a[id^="component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-"]:visible').click();
 	cy.waitJQuery();
 	cy.get('select[name=filterUserGroupId').select(role);
 	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1], {delay: 0});
@@ -550,12 +526,13 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 });
 
 Cypress.Commands.add('clickStageParticipantButton', (participantName, buttonLabel) => {
-	cy.get(`[aria-label="${participantName} More Actions"]`).click();
-	cy.get('button').contains(buttonLabel).click();
+	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '") .show_extras').click();
+	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '")').closest('tr').next().find('a:contains("' + buttonLabel + '")').click();
 });
 
 Cypress.Commands.add('assignReviewer', (name, reviewMethod) => {
-	cy.get('[data-cy="active-modal"] button:contains("Add Reviewer")').click();
+	cy.wait(4000); // FIXME: Occasional problems opening the grid
+	cy.get('a:contains("Add Reviewer")').click();
 	cy.waitJQuery();
 	cy.get('.listPanel--selectReviewer .pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
 	cy.contains('Select ' + name).click();
@@ -563,7 +540,7 @@ Cypress.Commands.add('assignReviewer', (name, reviewMethod) => {
 	if (reviewMethod) {
 		cy.contains(reviewMethod).click();
 	}
-	cy.get('[data-cy="active-modal"] button:contains("Add Reviewer")').click();
+	cy.get('button:contains("Add Reviewer")').click();
 	cy.contains(name + ' was assigned to review');
 	cy.waitJQuery();
 });
@@ -572,9 +549,7 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	context = context || 'publicknowledge';
 	comments = comments || 'Here are my review comments';
 	cy.login(username, password, context);
-	cy.contains('table tr', title).within(() => {
-		cy.get('button').click()
-	})
+	cy.get('a').contains('View ' + title).click({force: true});
 	cy.get('input[id="privacyConsent"]').click();
 	cy.get('button:contains("Accept Review, Continue to Step #2")').click();
 	cy.get('button:contains("Continue to Step #3")').click();

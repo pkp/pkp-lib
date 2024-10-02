@@ -70,8 +70,8 @@
 
 	it('Checks that categories field is shown in submission wizard', function() {
 		cy.login(username);
-		cy.visit('index.php/publicknowledge/submissions');
-		cy.get('a:contains("View ' + familyName + '")').click();
+		cy.visit('index.php/publicknowledge/dashboard/mySubmissions');
+		cy.openSubmission(familyName);
 
 		// The submission wizard has loaded
 		cy.get('.pkpSteps__step__label').contains('Upload Files');

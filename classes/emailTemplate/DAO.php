@@ -165,7 +165,7 @@ class DAO extends EntityDAO
             ? DB::table('site')->first()->supported_locales
             : DB::table($contextDao->settingsTableName)
                 ->where($contextDao->primaryKeyColumn, $row->context_id)
-                ->where('setting_name', 'supportedLocales')
+                ->where('setting_name', 'supportedFormLocales')
                 ->value('setting_value');
 
         $rows = DB::table($this->defaultTable)

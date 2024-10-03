@@ -62,6 +62,7 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
@@ -1136,7 +1137,8 @@ class PKPReviewerGridHandler extends GridHandler
             'unconsiderReview',
             'editReview',
             'updateReview',
-            'gossip'
+            'gossip',
+            'addLog'
         ];
     }
 
@@ -1181,6 +1183,7 @@ class PKPReviewerGridHandler extends GridHandler
             'resendRequestReviewer', 'updateResendRequestReviewer',
             'unconsiderReview',
             'editReview', 'updateReview',
+            'addLog'
         ];
     }
 
@@ -1230,6 +1233,33 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         return false;
+    }
+
+    /**
+     * Add the log event
+     *
+     * @param $args array
+     * @param $request PKPRequest
+     *
+     * @return JSONMessage JSON object
+     */
+    public function addLog($args, $request)
+    {
+        $acceptReview = (bool) $request->getUserVar('acceptReview');
+        $decline = !boolval($acceptReview);
+
+        $reviewAssignment = Repo::reviewAssignment()->get($request->getUserVar('reviewAssignmentId'));
+        $submission = Repo::submission()->get($request->getUserVar('submissionId'));
+
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        if (!isset($reviewer)) {
+            return new JSONMessage(false);
+        }
+
+        $reviewerAction = new ReviewerAction();
+        $reviewerAction->confirmReview($request, $reviewAssignment, $submission, $decline);
+
+        return DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 }
 

@@ -100,6 +100,14 @@ class PKPContainer extends Container
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
                     if($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                        
+                        if ($exception instanceof \Illuminate\Validation\ValidationException) {
+
+                            return response()
+                                ->json($exception->errors(), $exception->status)
+                                ->send();
+                        }
+
                         return response()->json(
                             [
                                 'error' => $exception->getMessage()
@@ -179,6 +187,8 @@ class PKPContainer extends Container
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
+        $this->register(new \Illuminate\Validation\ValidationServiceProvider($this));
+        $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
     }
 
     /**

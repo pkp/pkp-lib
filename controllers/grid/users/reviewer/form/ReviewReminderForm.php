@@ -26,6 +26,7 @@ use PKP\core\PKPApplication;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\Notification;
@@ -166,6 +167,8 @@ class ReviewReminderForm extends Form
                 'senderName' => $user->getFullName(),
             ]);
             Repo::eventLog()->add($eventLog);
+
+            Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_REMIND, $mailable, $submission, $user);
 
             Repo::reviewAssignment()->edit($reviewAssignment, [
                 'dateReminded' => Core::getCurrentDate(),

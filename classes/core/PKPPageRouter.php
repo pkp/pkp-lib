@@ -536,7 +536,7 @@ class PKPPageRouter extends PKPRouter
             return $session->get('currentLocale');
         })($setLocale ?? $urlLocale);
 
-        if (preg_match('#^/\w#', $source = $request->getUserVar('source') ?? '')) {
+        if (preg_match('#^/\w#', $source = str_replace('@', '', $request->getUserVar('source') ?? ''))) {
             $request->redirectUrl($source);
         }
 

@@ -38,10 +38,10 @@ class ContributorForm extends FormComponent
     /** @copydoc FormComponent::$method */
     public $method = 'POST';
 
-    public Submission $submission;
+    public ?Submission $submission;
     public Context $context;
 
-    public function __construct(string $action, array $locales, Submission $submission, Context $context)
+    public function __construct(string $action, array $locales, ?Submission $submission, Context $context)
     {
         $this->action = $action;
         $this->locales = $locales;

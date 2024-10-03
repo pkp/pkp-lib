@@ -2,8 +2,8 @@
 /**
  * @file classes/submission/maps/Schema.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -22,7 +22,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use PKP\query\QueryDAO;
+use PKP\query\Query;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -511,8 +511,7 @@ class Schema extends \PKP\core\maps\Schema
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
 
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $openPerStage = $queryDao->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
+        $openPerStage = Repo::query()->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
 
         $stages = [];
         foreach ($stageIds as $stageId) {

@@ -51,16 +51,24 @@
 	{/fbvFormSection}
 
 	{if $orcidEnabled}
-		{* FIXME: The form element is still required for "connect ORCID" functionality to work. *}
-		{fbvFormSection}
-			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46"}
 
-			{include file="form/orcidProfile.tpl"}
-			{if $orcid && $orcidAuthenticated}
-				{include file="linkAction/buttonConfirmationLinkAction.tpl" titleIcon="modal_delete" buttonSelector="#deleteOrcidButton" dialogText="orcid.field.deleteOrcidModal.message"}
-				{fbvElement type="button" id="deleteOrcidButton" label="common.delete" class="pkp_button pkp_button_offset"}
-			{/if}
+	<div class="orcid_container">
+		{* FIXME: The form element is still required for "connect ORCID" functionality to work. *}
+		{fbvFormSection }
+		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46"}
+
+		{include file="form/orcidProfile.tpl"}
+		{if $orcid && $orcidAuthenticated}
+			{include file="linkAction/buttonConfirmationLinkAction.tpl" titleIcon="modal_delete" buttonSelector="#deleteOrcidButton" dialogText="orcid.field.deleteOrcidModal.message"}
+			<button id="deleteOrcidButton" type="button"  class="pkp_button pkp_button_offset" style="margin-left: 1rem">{translate key='common.delete'}</button>
+		{/if}
 		{/fbvFormSection}
+	</div>
+		<style>
+			.orcid_container> .section {
+				display:flex;
+			}
+		</style>
 	{/if}
 
 	<p>

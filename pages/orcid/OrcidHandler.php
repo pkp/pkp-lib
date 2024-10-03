@@ -83,6 +83,7 @@ class OrcidHandler extends Handler
             'sendSubmission' => false,
             'sendSubmissionSuccess' => false,
             'denied' => false,
+            'contextName' => $request->getContext()->getName($request->getContext()->getPrimaryLocale()),
         ]);
 
         // Get the author

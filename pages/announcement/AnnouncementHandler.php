@@ -18,10 +18,11 @@ namespace PKP\pages\announcement;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\announcement\Collector;
+use Carbon\Carbon;
+use PKP\announcement\Announcement;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 
 class AnnouncementHandler extends Handler
@@ -47,19 +48,13 @@ class AnnouncementHandler extends Handler
         $templateMgr->assign('announcementsIntroduction', $this->getAnnouncementsIntro($request));
 
         // TODO the announcements list should support pagination
-        $collector = Repo::announcement()
-            ->getCollector()
-            ->filterByActive();
+        $announcements = Announcement::withActiveByDate();
 
-        if ($request->getContext()) {
-            $collector->filterByContextIds([$request->getContext()->getId()]);
-        } else {
-            $collector->withSiteAnnouncements(Collector::SITE_ONLY);
-        }
+        $contextIds = [];
+        $request->getContext() ? $contextIds[] = $request->getContext()->getId() : $contextIds[] = PKPApplication::SITE_CONTEXT_ID;
+        $announcements->withContextIds($contextIds);
 
-        $announcements = $collector->getMany();
-
-        $templateMgr->assign('announcements', $announcements->toArray());
+        $templateMgr->assign('announcements', $announcements->get());
         $templateMgr->display('frontend/pages/announcements.tpl');
     }
 
@@ -78,18 +73,18 @@ class AnnouncementHandler extends Handler
         $this->setupTemplate($request);
 
         $announcementId = (int) array_shift($args);
-        $announcement = Repo::announcement()->get($announcementId);
+        $announcement = Announcement::find($announcementId);
         if (
             $announcement
-            && $announcement->getAssocType() == Application::getContextAssocType()
-            && $announcement->getAssocId() == $request->getContext()?->getId()
+            && $announcement->assocType == Application::getContextAssocType()
+            && $announcement->assocId == $request->getContext()?->getId()
             && (
-                $announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()
+                $announcement->dateExpire == null || Carbon::now()->lte($announcement->dateExpire)
             )
         ) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('announcement', $announcement);
-            $templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
+            $templateMgr->assign('announcementTitle', $announcement->getLocalizedData('fullTitle'));
             return $templateMgr->display('frontend/pages/announcement.tpl');
         }
         $request->redirect(null, 'announcement');

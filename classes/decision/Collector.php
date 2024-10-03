@@ -33,6 +33,17 @@ class Collector implements CollectorInterface
     public ?array $stageIds = null;
     public ?array $submissionIds = null;
 
+    public const ORDERBY_DATE_DECIDED = 'date_decided';
+    public const ORDER_DIR_ASC = 'ASC';
+    public const ORDER_DIR_DESC = 'DESC';
+
+    /** The default orderBy value for decision collector */
+    private ?string $orderBy = self::ORDERBY_DATE_DECIDED;
+
+    /** The default orderBy direction value for decision collector */
+    private ?string $orderDirection = self::ORDER_DIR_ASC;
+
+
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
@@ -130,6 +141,21 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Order the results
+     *
+     * Results are ordered by the date_decided column by default.
+     *
+     * @param string|null $column Name of column to order results by.
+     * @param string $direction One of the self::ORDER_DIR_ constants
+     */
+    public function orderBy(?string $column, string $direction = self::ORDER_DIR_ASC): self
+    {
+        $this->orderBy = $column;
+        $this->orderDirection = $direction;
+        return $this;
+    }
+
+    /**
      * @copydoc CollectorInterface::getQueryBuilder()
      *
      * @hook Decision::Collector [[&$qb, $this]]
@@ -156,7 +182,7 @@ class Collector implements CollectorInterface
             ->when(!is_null($this->submissionIds), function ($q) {
                 $q->whereIn('submission_id', $this->submissionIds);
             })
-            ->orderBy('date_decided', 'asc');
+            ->orderBy($this->orderBy ?? self::ORDERBY_DATE_DECIDED, $this->orderDirection ?? self::ORDER_DIR_ASC);
 
         Hook::call('Decision::Collector', [&$qb, $this]);
 

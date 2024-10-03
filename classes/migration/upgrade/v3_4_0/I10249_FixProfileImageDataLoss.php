@@ -65,8 +65,7 @@ class I10249_FixProfileImageDataLoss extends \PKP\migration\Migration
                                 'width' => $width,
                                 'height' => $height,
                                 'dateUploaded' => date('Y-m-d H:i:s', filemtime($filePath))
-                            ]),
-                            'setting_type' => 'object'
+                            ])
                         ]);
                 }
             }, 'user_id');

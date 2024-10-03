@@ -7,8 +7,12 @@ msgstr "Review Assignments"
 msgid "dashboard.mySubmissions"
 msgstr "My Submissions"
 
-msgid "dashboard.stage.deskReview"
-msgstr "Desk Review"
+msgid "dashboard.stage.submission"
+msgstr "Submission"
+
+msgid "dashboard.stage.review"
+msgstr "Review"
+
 
 msgid "dashboard.stage.reviewWithRound"
 msgstr "Review (Round {$round})"
@@ -34,12 +38,6 @@ msgstr "Review update {$reviewsCompletedCount}/{$reviewsTotalCount}"
 msgid "dashboard.action"
 msgstr "Action"
 
-msgid "dashboard.viewSummary"
-msgstr "Summary"
-
-msgid "dashboard.viewSummary"
-msgstr "Summary"
-
 msgid "dashboard.applyFilters"
 msgstr "Apply Filters"
 
@@ -62,8 +60,8 @@ msgstr "Revisions requested from author"
 msgid "dashboard.revisionsRequestedFromAuthorNextRound"
 msgstr "Revisions requested from the author to be taken to a new review round"
 
-msgid "dashboard.revisionsSubmittedByAuthor"
-msgstr "Revisions submitted by author"
+msgid "dashboard.revisionsSubmitted"
+msgstr "Revisions submitted"
 
 msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "New review round to be created"
@@ -83,7 +81,7 @@ msgstr "Deadline for responding to this request has passed. Please accept or dec
 msgid "dashboard.completeReviewByDate"
 msgstr "Please complete this review by {$date}."
 
-msgid "dashboard.deadlineForComplitingReviewHasPassed"
+msgid "dashboard.deadlineForCompletingReviewHasPassed"
 msgstr "Deadline for completing this review has passed. Please complete the review at the earliest."
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
@@ -185,17 +183,23 @@ msgstr "Desk Review Files"
 msgid "dashboard.summary.deskReviewFilesDescription"
 msgstr "These are the files that will be taken forward to the review stage in the workflow."
 
-msgid "dashboard.summary.revisionsSubmitted"
+msgid "dashboard.summary.revisionsUploaded"
 msgstr "Revisions Submitted"
 
-msgid "dashboard.summary.revisionsSubmittedDescription"
-msgstr "These files have been submitted by the author after visions were requested"
+msgid "dashboard.summary.revisionsUploadedDescription"
+msgstr "These files have been submitted by the author after revisions were requested"
 
 msgid "dashboard.summary.filesForReview"
 msgstr "Files for review"
 
 msgid "dashboard.summary.filesForReviewDescription"
 msgstr "These files will be sent to the reviewers to review"
+
+msgid "dashboard.summary.reviewersAttachments"
+msgstr "Reviewer's Attachments"
+
+msgid "dashboard.summary.reviewersAttachmentsDescription"
+msgstr "These files have been submitted by the autho"
 
 msgid "dashboard.summary.copyeditedFiles"
 msgstr "Copyedited Files"
@@ -254,14 +258,16 @@ msgstr "Decline"
 msgid "dashboard.summary.sendToProduction"
 msgstr "Send to Production"
 
-msgid "dashboard.summary.scheduleForProduction"
-msgstr "Schedule for Publication"
+msgid "dashboard.summary.cancelCopyEditing"
+msgstr "Cancel Copyediting"
+
+
+msgid "dashboard.summary.backToCopyediting"
+msgstr "Back to Copyediting"
 
 msgid "dashboard.summary.preview"
 msgstr "Preview"
 
-msgid "dashboard.summary.unschedule"
-msgstr "Unschedule"
 
 msgid "dashboard.summary.submittedOn"
 msgstr "Submitted on"
@@ -296,5 +302,15 @@ msgstr "Reviewer"
 msgid "dashboard.summary.reviewerStatus"
 msgstr "Reviewer status"
 
+msgid "dashboard.declinedDuringStage"
+msgstr "Declined during the {$stageName} stage.
 
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr "Recommending Editors are tasked to advise the next steps for this submission"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "An editorial recommendation has been received"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "All editorial recommendations have been received, and a decision is required."
 

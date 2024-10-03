@@ -113,7 +113,7 @@ class EditorialReminder extends BaseJob
 
             if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
                 $lastActivityTimestamp = strtotime($submission->getData('dateLastActivity'));
-                if ($lastActivityTimestamp < strtotime('+30 days')) {
+                if ($lastActivityTimestamp < strtotime('-30 days')) {
                     /** @var WorkflowStageDAO $workflowStageDao */
                     $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
                     $outstanding[$submissionId] = __(

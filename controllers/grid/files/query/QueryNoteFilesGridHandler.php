@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/files/query/QueryNoteFilesGridHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridHandler
@@ -91,7 +91,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
         $submission = $this->getSubmission();
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
 
-        $manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'), $this->getRequestArgs());
+        $manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->id, $request->getUserVar('noteId'), $this->getRequestArgs());
         $manageQueryNoteFilesForm->initData();
         return new JSONMessage(true, $manageQueryNoteFilesForm->fetch($request));
     }

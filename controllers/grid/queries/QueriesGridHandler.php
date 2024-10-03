@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridHandler.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridHandler
@@ -30,15 +30,17 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\log\SubmissionEmailLogEventType;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\query\Query;
-use PKP\query\QueryDAO;
+use PKP\query\QueryParticipant;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -264,7 +266,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function getDataElementSequence($row)
     {
-        return $row->getSequence();
+        return $row->seq;
     }
 
     /**
@@ -272,10 +274,9 @@ class QueriesGridHandler extends GridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($rowId, $this->getAssocType(), $this->getAssocId());
-        $query->setSequence($newSequence);
-        $queryDao->updateObject($query);
+        $query = Query::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
+        $query->seq = $newSequence;
+        $query->save();
     }
 
     /**
@@ -323,13 +324,12 @@ class QueriesGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        return $queryDao->getByAssoc(
-            $this->getAssocType(),
-            $this->getAssocId(),
-            $this->getStageId(),
-            $this->getAccessHelper()->getCanListAll($this->getStageId()) ? null : $request->getUser()->getId()
-        );
+        $user = $this->getAccessHelper()->getCanListAll($this->getStageId()) ? null : $request->getUser()->getId();
+
+        return Query::withAssoc($this->getAssocType(), $this->getAssocId())
+            ->withStageId($this->getStageId())
+            ->when($user, fn ($q) => $q->withUserId($user))
+            ->lazy();
     }
 
     //
@@ -370,14 +370,13 @@ class QueriesGridHandler extends GridHandler
     public function deleteQuery($args, $request)
     {
         $query = $this->getQuery();
-        if (!$request->checkCSRF() || !$query || !$this->getAccessHelper()->getCanDelete($query->getId())) {
+        if (!$request->checkCSRF() || !$query || !$this->getAccessHelper()->getCanDelete($query->id)) {
             return new JSONMessage(false);
         }
 
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $queryDao->deleteObject($query);
-
-        Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getId())->delete();
+        $query->delete();
+        Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
+        Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
 
         if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
             $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -397,7 +396,7 @@ class QueriesGridHandler extends GridHandler
             );
         }
 
-        return \PKP\db\DAO::getDataChangedEvent($query->getId());
+        return DAO::getDataChangedEvent($query->id);
     }
 
     /**
@@ -415,10 +414,9 @@ class QueriesGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query->setIsClosed(false);
-        $queryDao->updateObject($query);
-        return \PKP\db\DAO::getDataChangedEvent($query->getId());
+        $query->closed = false;
+        $query->save();
+        return DAO::getDataChangedEvent($query->id);
     }
 
     /**
@@ -436,10 +434,9 @@ class QueriesGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query->setIsClosed(true);
-        $queryDao->updateObject($query);
-        return \PKP\db\DAO::getDataChangedEvent($query->getId());
+        $query->closed = true;
+        $query->save();
+        return DAO::getDataChangedEvent($query->id);
     }
 
     /**
@@ -467,10 +464,10 @@ class QueriesGridHandler extends GridHandler
         $user = $request->getUser();
         $context = $request->getContext();
 
-        $actionArgs = array_merge($this->getRequestArgs(), ['queryId' => $query->getId()]);
+        $actionArgs = array_merge($this->getRequestArgs(), ['queryId' => $query->id]);
 
         // If appropriate, create an Edit action for the participants list
-        if ($this->getAccessHelper()->getCanEdit($query->getId())) {
+        if ($this->getAccessHelper()->getCanEdit($query->id)) {
             $editAction = new LinkAction(
                 'editQuery',
                 new AjaxModal(
@@ -499,7 +496,7 @@ class QueriesGridHandler extends GridHandler
         );
 
         // Show leave query button for journal managers included in the query
-        if ($user && $this->_getCurrentUserCanLeave($query->getId())) {
+        if ($user && $this->_getCurrentUserCanLeave($query->id)) {
             $showLeaveQueryButton = true;
         } else {
             $showLeaveQueryButton = false;
@@ -528,22 +525,20 @@ class QueriesGridHandler extends GridHandler
     public function participants($args, $request)
     {
         $query = $this->getQuery();
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $context = $request->getContext();
         $user = $request->getUser();
 
         $participants = [];
-        foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
-            $user = Repo::user()->get($userId);
-            if ($user) {
-                $participants[] = $user;
+        $queryParticipants = $query->queryParticipants;
+        foreach ($queryParticipants as $participant) {
+            if ($participant->user) {
+                $participants[] = $participant->user;
             }
         }
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('participants', $participants);
 
-        if ($user && $this->_getCurrentUserCanLeave($query->getId())) {
+        if ($user && $this->_getCurrentUserCanLeave($query->id)) {
             $showLeaveQueryButton = true;
         } else {
             $showLeaveQueryButton = false;
@@ -566,7 +561,7 @@ class QueriesGridHandler extends GridHandler
     public function editQuery($args, $request)
     {
         $query = $this->getQuery();
-        if (!$this->getAccessHelper()->getCanEdit($query->getId())) {
+        if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
 
@@ -576,7 +571,7 @@ class QueriesGridHandler extends GridHandler
             $this->getAssocType(),
             $this->getAssocId(),
             $this->getStageId(),
-            $query->getId()
+            $query->id
         );
         $queryForm->initData();
         return new JSONMessage(true, $queryForm->fetch($request, null, false, $this->getRequestArgs()));
@@ -593,19 +588,19 @@ class QueriesGridHandler extends GridHandler
     public function updateQuery($args, $request)
     {
         $query = $this->getQuery();
-        if (!$this->getAccessHelper()->getCanEdit($query->getId())) {
+        if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
-        /** @var QueryDAO */
-        $queryDao = DAORegistry::getDAO('QueryDAO');
-        $oldParticipantIds = $queryDao->getParticipantIds($query->getId());
+        $oldParticipantIds = QueryParticipant::withQueryId($query->id)
+            ->pluck('user_id')
+            ->all();
 
         $queryForm = new QueryForm(
             $request,
             $this->getAssocType(),
             $this->getAssocId(),
             $this->getStageId(),
-            $query->getId()
+            $query->id
         );
         $queryForm->readInputData();
 
@@ -641,7 +636,7 @@ class QueriesGridHandler extends GridHandler
 
             /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-            $note = $query->getHeadNote();
+            $note = Repo::note()->getHeadNote($query->id);
             $submission = $this->getSubmission();
 
             // Find attachments if any
@@ -662,7 +657,7 @@ class QueriesGridHandler extends GridHandler
                     Notification::NOTIFICATION_TYPE_NEW_QUERY,
                     $request->getContext()->getId(),
                     PKPApplication::ASSOC_TYPE_QUERY,
-                    $query->getId(),
+                    $query->id,
                     Notification::NOTIFICATION_LEVEL_TASK
                 );
 
@@ -692,7 +687,7 @@ class QueriesGridHandler extends GridHandler
                 Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::DISCUSSION_NOTIFY, $mailable, $submission);
             }
 
-            return \PKP\db\DAO::getDataChangedEvent($query->getId());
+            return DAO::getDataChangedEvent($query->id);
         }
 
         // If this was new (placeholder) query that didn't validate, remember whether or not
@@ -708,7 +703,7 @@ class QueriesGridHandler extends GridHandler
                 false,
                 array_merge(
                     $this->getRequestArgs(),
-                    ['queryId' => $query->getId()]
+                    ['queryId' => $query->id]
                 )
             )
         );
@@ -727,8 +722,9 @@ class QueriesGridHandler extends GridHandler
         $queryId = $args['queryId'];
         $user = $request->getUser();
         if ($user && $this->_getCurrentUserCanLeave($queryId)) {
-            $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $queryDao->removeParticipant($queryId, $user->getId());
+            QueryParticipant::withQueryId($queryId)
+                ->withUserId($user->getId())
+                ->delete();
             $json = new JSONMessage();
             $json->setEvent('user-left-discussion');
         } else {
@@ -750,8 +746,9 @@ class QueriesGridHandler extends GridHandler
         if (!count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, ], $userRoles))) {
             return false;
         }
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $participantIds = $queryDao->getParticipantIds($queryId);
+        $participantIds = QueryParticipant::withQueryId($queryId)
+            ->pluck('user_id')
+            ->all();
         if (count($participantIds) < 3) {
             return false;
         }

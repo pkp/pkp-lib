@@ -25,8 +25,9 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\notification\Notification;
@@ -143,6 +144,15 @@ class EditorAction
 
                 try {
                     Mail::send($mailable);
+
+                    Repo::emailLogEntry()->logMailable(
+                        $round === ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED
+                            ? SubmissionEmailLogEventType::REVIEW_REQUEST
+                            : SubmissionEmailLogEventType::REVIEW_REQUEST_SUBSEQUENT,
+                        $mailable,
+                        $submission,
+                        $user
+                    );
                 } catch (TransportException $e) {
                     $notificationMgr = new PKPNotificationManager();
                     $notificationMgr->createTrivialNotification(
@@ -207,7 +217,7 @@ class EditorAction
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
             $reviewInvitation = new ReviewerAccessInvite();
-            $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
+            $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null, $sender->getId());
 
             $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
             $reviewInvitation->updatePayload();

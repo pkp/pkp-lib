@@ -16,12 +16,12 @@
 
 namespace PKP\log;
 
+use APP\facades\Repo;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use APP\facades\Repo;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use Eloquence\Behaviours\HasCamelCasing;
 use PKP\log\core\EmailLogEventType;
 
 class EmailLogEntry extends Model
@@ -69,8 +69,8 @@ class EmailLogEntry extends Model
     protected function id(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
-            set: fn($value) => [$this->primaryKey => $value],
+            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn ($value) => [$this->primaryKey => $value],
         );
     }
 
@@ -99,7 +99,7 @@ class EmailLogEntry extends Model
             get: function () {
                 $email = Repo::user()->get($this->senderId, true)->getEmail();
 
-                return $email ?:'';
+                return $email ?: '';
             },
         )->shouldCache();
     }
@@ -111,13 +111,16 @@ class EmailLogEntry extends Model
     protected function prefixedSubject(): Attribute
     {
         return Attribute::make(
-            get: fn() => __('submission.event.subjectPrefix') . ' ' . $this->subject
+            get: fn () => __('submission.event.subjectPrefix') . ' ' . $this->subject
         )->shouldCache();
     }
 
-    //
+
     // Scopes
-    //
+
+    /**
+     * Scope a query to only include email log entries with a specific assocId
+     */
     public function scopeWithAssocId(Builder $query, int $assocId): Builder
     {
         return $query->where('assoc_id', $assocId);
@@ -128,14 +131,34 @@ class EmailLogEntry extends Model
         return $query->where('sender_id', $senderId);
     }
 
-    public function scopeWithEventType(Builder $query, EmailLogEventType $eventType): Builder
+
+    /**
+     * Scope a query to only include email log entries with specific evenTypes.
+     *
+     * @param EmailLogEventType[] $eventTypes - eventTypes to filter by
+     */
+    public function scopeWithEventTypes(Builder $query, array $eventTypes): Builder
     {
-        return $query->where('event_type', $eventType->value);
+        return $query->when(!empty($eventTypes), function ($query) use ($eventTypes) {
+            return $query->whereIn('event_type', array_map(fn ($type) => $type->value, $eventTypes));
+        });
     }
 
+    /**
+     * Scope a query to only include email log entries with a specific assoc type
+     */
     public function scopeWithAssocType(Builder $query, int $assocType): Builder
     {
         return $query->where('assoc_type', $assocType);
+    }
+
+    /**
+     * Scope a query to only include email log entries for a specific email recipient
+     */
+    public function scopeWithRecipientId(Builder $query, int $recipientId): Builder
+    {
+        return $query->leftJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id')
+            ->where('user_id', $recipientId);
     }
 }
 

@@ -40,6 +40,7 @@
 namespace PKP\controllers\grid;
 
 use APP\template\TemplateManager;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Str;
@@ -47,6 +48,7 @@ use PKP\controllers\grid\files\FilesGridDataProvider;
 use PKP\core\ItemIterator;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
+use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 use PKP\form\Form;
 use PKP\handler\PKPHandler;
@@ -398,17 +400,12 @@ class GridHandler extends PKPHandler
     {
         $this->callFeaturesHook('setGridDataElements', ['grid' => &$this, 'data' => &$data]);
 
-        if ($data instanceof Enumerable) {
-            $this->_data = $this->toAssociativeArray($data);
-        } elseif (is_iterable($data)) {
-            $this->_data = $data;
-        } elseif ($data instanceof \PKP\db\DAOResultFactory) {
-            $this->_data = $data->toAssociativeArray();
-        } elseif ($data instanceof ItemIterator) {
-            $this->_data = $data->toArray();
-        } else {
-            assert(false);
-        }
+        $this->_data = match (true) {
+            $data instanceof Enumerable => $this->toAssociativeArray($data),
+            $data instanceof DAOResultFactory => $data->toAssociativeArray(),
+            $data instanceof ItemIterator => $data->toArray(),
+            is_iterable($data) => $data
+        };
     }
 
     /**
@@ -1378,7 +1375,11 @@ class GridHandler extends PKPHandler
     {
         $returner = [];
         foreach ($lazyCollection as $item) {
-            $returner[$item->getData($idField)] = $item;
+            if ($item instanceof Model) {
+                $returner[$item->$idField] = $item;
+            } else {
+                $returner[$item->getData($idField)] = $item;
+            }
         }
         return $returner;
     }

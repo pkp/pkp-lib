@@ -9,11 +9,11 @@
  *
  * @uses $announcement Announcement The announcement to display
  *}
-{include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()|escape}
+{include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedData('title')|escape}
 
 <div class="page page_announcement">
 
-	{include file="frontend/components/breadcrumbs_announcement.tpl" currentTitle=$announcement->getLocalizedTitle()|escape}
+	{include file="frontend/components/breadcrumbs_announcement.tpl" currentTitle=$announcement->getLocalizedData('title')|escape}
 
 	{* Display book details *}
 	{include file="frontend/objects/announcement_full.tpl"}

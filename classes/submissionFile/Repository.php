@@ -2,8 +2,8 @@
 /**
  * @file classes/submissionFile/Repository.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -33,7 +33,7 @@ use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
-use PKP\query\QueryDAO;
+use PKP\query\Query;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -706,11 +706,10 @@ abstract class Repository
             }
 
             // Get the associated query.
-            $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $query = $queryDao->getById($note->assocId);
+            $query = Query::find($note->assocId);
 
             // The query will have an associated file stage.
-            return $query?->getStageId();
+            return $query?->stageId;
         }
 
         throw new Exception('Could not determine the workflow stage id from submission file ' . $submissionFile->getId() . ' with file stage ' . $submissionFile->getData('fileStage'));

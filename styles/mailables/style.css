@@ -1,0 +1,13 @@
+/* email-styles.less */
+.email-container { font-family: Arial, sans-serif; line-height: 1.5; color: #333333; }
+.email-header { background-color: #f8f9fa; padding: 20px; text-align: center; }
+.email-content { padding: 20px; }
+.email-footer { background-color: #f8f9fa; padding: 10px; text-align: center; font-size: 12px; color: #6c757d; }
+.btn { display: inline-block; padding: 10px 20px; margin: 10px 5px; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; }
+.btn-accept { background-color: #28a745; }
+.btn-decline { background-color: #dc3545; }
+.section { margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: flex-start; }
+.section-number { font-size: 1em; margin-right: 5px; color: #333; }
+.section-content { flex-grow: 1; }
+.section-content h2 { font-size: 1em; margin: 0 0 5px 0; color: #333; }
+.section-content p { margin: 0 0 5px 0; color: #555; }

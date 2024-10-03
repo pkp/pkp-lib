@@ -16,27 +16,24 @@
 
 namespace PKP\note;
 
+use PKP\db\DAO;
+use PKPApplication;
+
 class Repository
 {
-    /**
-     * Fetch a note by symbolic info, building it if needed.
-     */
-    public function build(int $assocType, int $assocId, int $userId, ?string $contents, ?string $title): Note
-    {
-        return Note::withUserId($userId)
-            ->withAssoc($assocType, $assocId)
-            ->firstOr(fn() => Note::create([
-                'assocType' => $assocType,
-                'assocId' => $assocId,
-                'userId' => $userId,
-                'contents' => $contents,
-                'title' => $title,
-            ]));
-    }
-
     public function transfer(int $oldUserId, int $newUserId): int
     {
         return Note::withUserId($oldUserId)
             ->update(['user_id' => $newUserId]);
+    }
+
+    /**
+     * Get the "head" (first) note for a Query.
+     */
+    public function getHeadNote(int $queryId): ?Note
+    {
+        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $queryId)
+            ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
+            ->first();
     }
 }

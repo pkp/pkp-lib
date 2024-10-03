@@ -19,7 +19,7 @@ describe('Announcements', function() {
 		cy.get('#announcements button').contains('Save').click();
 		cy.get('#announcements [role="status"]').contains('Saved');
 		// Check that the nav item has been added
-		cy.get('.app__navItem:contains("Announcements")');
+		cy.get('nav').contains('Announcements');
 	});
 
 	it('Adds an announcement', function() {
@@ -81,6 +81,6 @@ describe('Announcements', function() {
 		cy.get('#announcements button').contains('Save').click();
 		cy.get('#announcements [role="status"]').contains('Saved');
 		// Check that the nav item has been removed
-		cy.get('.app__navItem:contains("Announcements")').should('not.exist');
+		cy.get('nav').contains('Announcements').should('not.exist');
 	});
 });

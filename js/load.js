@@ -31,6 +31,7 @@ import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
 import DropdownActions from '@/components/DropdownActions/DropdownActions.vue';
 import Icon from '@/components/Icon/Icon.vue';
+import SideNav from '@/components/SideNav/SideNav.vue';
 import Notification from '@/components/Notification/Notification.vue';
 import Panel from '@/components/Panel/Panel.vue';
 import PanelSection from '@/components/Panel/PanelSection.vue';
@@ -65,12 +66,12 @@ import Orderer from '@/components/Orderer/Orderer.vue';
 import Pagination from '@/components/Pagination/Pagination.vue';
 import ProgressBar from '@/components/ProgressBar/ProgressBar.vue';
 import Search from '@/components/Search/Search.vue';
-import Table from '@/components/TableNext/Table.vue';
-import TableCell from '@/components/TableNext/TableCell.vue';
-import TableColumn from '@/components/TableNext/TableColumn.vue';
-import TableHeader from '@/components/TableNext/TableHeader.vue';
-import TableBody from '@/components/TableNext/TableBody.vue';
-import TableRow from '@/components/TableNext/TableRow.vue';
+import Table from '@/components/Table/Table.vue';
+import TableCell from '@/components/Table/TableCell.vue';
+import TableColumn from '@/components/Table/TableColumn.vue';
+import TableHeader from '@/components/Table/TableHeader.vue';
+import TableBody from '@/components/Table/TableBody.vue';
+import TableRow from '@/components/Table/TableRow.vue';
 import Tooltip from '@/components/Tooltip/Tooltip.vue';
 
 // Form components from UI Library
@@ -116,6 +117,7 @@ VueRegistry.registerComponent('PkpDropdown', Dropdown);
 VueRegistry.registerComponent('DropdownActions', DropdownActions);
 VueRegistry.registerComponent('Icon', Icon);
 VueRegistry.registerComponent('PkpIcon', Icon);
+VueRegistry.registerComponent('PkpSideNav', SideNav);
 VueRegistry.registerComponent('Notification', Notification);
 VueRegistry.registerComponent('PkpNotification', Notification);
 VueRegistry.registerComponent('Panel', Panel);
@@ -236,7 +238,7 @@ function pkpCreateVueApp(createAppArgs) {
 		themes: {
 			'pkp-tooltip': {
 				$extend: 'tooltip',
-				triggers: ['click'],
+				triggers: ['hover', 'focus'],
 				delay: {
 					show: 0,
 					hide: 0,

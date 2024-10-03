@@ -137,6 +137,9 @@ msgstr "This is not a valid context."
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
 
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "You provided an invalid  \"eventType\",{$eventType}, for Author emails."
+
 msgid "api.files.400.noUpload"
 msgstr "No file to be uploaded could be found with the request."
 
@@ -274,6 +277,9 @@ msgstr "The requested volume, number or year is not valid."
 
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr "You are not allowed to submit in this user role."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr "You can not change language of this submission because it already has more than one publication version or a published publication."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr "Your request was denied. This may be because your login has expired. Try reloading the page and trying again."

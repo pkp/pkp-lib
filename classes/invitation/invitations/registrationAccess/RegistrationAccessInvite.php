@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/RegistrationAccessInvite.php
+ * @file classes/invitation/invitations/registrationAccess/RegistrationAccessInvite.php
  *
  * Copyright (c) 2023-2024 Simon Fraser University
  * Copyright (c) 2023-2024 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Registration with Access Key invitation
  */
 
-namespace PKP\invitation\invitations;
+namespace PKP\invitation\invitations\registrationAccess;
 
 use APP\facades\Repo;
 use Exception;
@@ -20,21 +20,40 @@ use Illuminate\Mail\Mailable;
 use PKP\core\Core;
 use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\EmptyInvitePayload;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\invitations\handlers\RegistrationAccessInviteRedirectController;
-use PKP\invitation\models\InvitationModel;
+use PKP\invitation\invitations\registrationAccess\handlers\RegistrationAccessInviteRedirectController;
 use PKP\user\User;
 
 class RegistrationAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
 {
     public const INVITATION_TYPE = 'registrationAccess';
 
+    /**
+     * @inheritDoc
+     */
     public static function getType(): string
     {
         return self::INVITATION_TYPE;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function getPayloadClass(): string
+    {
+        return EmptyInvitePayload::class;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPayload(): EmptyInvitePayload
+    {
+        return parent::getPayload();
     }
 
     public function updateMailableWithUrl(Mailable $mailable): void
@@ -48,20 +67,7 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
         });
     }
 
-    protected function preDispatchActions(): void
-    {
-        $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
-            ->byType(self::INVITATION_TYPE)
-            ->byContextId($this->invitationModel->contextId)
-            ->byUserId($this->invitationModel->userId)
-            ->get();
-
-        foreach($pendingInvitations as $pendingInvitation) {
-            $pendingInvitation->markAs(InvitationStatus::CANCELLED);
-        }
-    }
-
-    public function finalise(): void
+    public function finalize(): void
     {
         $user = Repo::user()->get($this->invitationModel->userId, true);
 

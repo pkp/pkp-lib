@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -79,14 +80,14 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 if ($notification->assocType != Application::ASSOC_TYPE_ANNOUNCEMENT) {
                     throw new \Exception('Unexpected assoc type!');
                 }
-                $announcement = Repo::announcement()->get($notification->assocId);
-                $context = $contextDao->getById($announcement->getAssocId());
+                $announcement = Announcement::find($notification->assocId);
+                $context = $contextDao->getById($announcement->assocId);
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'announcement', 'view', [$notification->assocId]);
             case Notification::NOTIFICATION_TYPE_CONFIGURE_PAYMENT_METHOD:
                 return __('notification.type.configurePaymentMethod');
             case Notification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 $context = $contextDao->getById($notification->contextId);
-                Application::getPaymentManager($context);
+                Application::get()->getPaymentManager($context);
                 if ($notification->assocType != Application::ASSOC_TYPE_QUEUED_PAYMENT) {
                     throw new \Exception('Unexpected assoc type!');
                 }

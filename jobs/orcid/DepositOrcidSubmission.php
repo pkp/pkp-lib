@@ -39,7 +39,7 @@ class DepositOrcidSubmission extends BaseJob
     /**
      * @inheritDoc
      */
-    public function handle()
+    public function handle(): void
     {
         // If the application is set to sandbox mode, it will not reach out to external services
         if (Config::getVar('general', 'sandbox', false)) {

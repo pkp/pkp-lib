@@ -81,8 +81,8 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // If the reqeust run through laravel route,
-        // we need to have controller based chcking.
+        // If the request run through laravel route,
+        // we need to have controller based checking.
         if ($routeController = PKPBaseController::getRouteController()) {
 
             $routeController->markRoleAssignmentsChecked();

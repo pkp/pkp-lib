@@ -150,7 +150,7 @@ class LoginHandler extends Handler
                 Validation::logout();
                 $request->redirect(null, null, 'changePassword', [$user->getUsername()]);
             }
-            $source = $request->getUserVar('source');
+            $source = str_replace('@', '', $request->getUserVar('source'));
             if (preg_match('#^/\w#', (string) $source) === 1) {
                 $request->redirectUrl($source);
             }
@@ -190,7 +190,7 @@ class LoginHandler extends Handler
             Validation::logout();
         }
 
-        $source = $request->getUserVar('source');
+        $source = str_replace('@', '', $request->getUserVar('source'));
         if (isset($source) && !empty($source)) {
             $request->redirectUrl($request->getProtocol() . '://' . $request->getServerHost() . $source, false);
         } else {

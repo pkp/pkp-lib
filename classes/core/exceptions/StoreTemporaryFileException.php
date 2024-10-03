@@ -18,13 +18,14 @@ declare(strict_types=1);
 namespace PKP\core\exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\Model;
 use PKP\core\DataObject;
 use PKP\file\TemporaryFile;
 use PKP\user\User;
 
 class StoreTemporaryFileException extends Exception
 {
-    public function __construct(public TemporaryFile $temporaryFile, public string $targetPath, public ?User $user, public ?DataObject $dataObject)
+    public function __construct(public TemporaryFile $temporaryFile, public string $targetPath, public ?User $user, public DataObject|Model|null $dataObject)
     {
         $message = `Unable to store temporary file {$temporaryFile->getFilePath()} in {$targetPath}.`;
         if ($user) {
@@ -32,8 +33,20 @@ class StoreTemporaryFileException extends Exception
         }
         if ($dataObject) {
             $class = get_class($dataObject);
-            $message .= ` Handling {$class} id {$dataObject->getId()}.`;
+            $id = is_a($class, DataObject::class) ? $dataObject->getId() : $dataObject->id;
+            $message .= ` Handling {$class} id {$id}.`;
         }
         parent::__construct($message);
+    }
+
+    public function getDataObjectId(): ?int
+    {
+        if (!isset($this->dataObject)) {
+            return null;
+        }
+
+        return is_a(get_class($this->dataObject), DataObject::class) ?
+            $this->dataObject->getId() :
+            $this->dataObject->getKey();
     }
 }

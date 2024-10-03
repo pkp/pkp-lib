@@ -40,7 +40,7 @@ trait HasRequiredMiddleware
     public function hasRequiredMiddleware(Request $request, int $matchingCriteria = self::MIDDLEWARE_MATCH_STRICT): bool
     {
         $requiredMiddleware = collect($this->requiredMiddleware());
-        
+
         if ($requiredMiddleware->count() === 0) {
             throw new Exception(
                 sprintf(
@@ -52,22 +52,23 @@ trait HasRequiredMiddleware
 
         $currentRoute = PKPBaseController::getRequestedRoute($request);
         $routeMiddleware = collect($currentRoute?->middleware() ?? []);
-        
+
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
         $routerMiddleware = $router->getMiddleware();
 
         // need to replace the alias name with full class path
-        $routeMiddleware = $routeMiddleware->map(function (string $middleware) use($routerMiddleware): string {
+        $routeMiddleware = $routeMiddleware->map(function (string $middleware) use ($routerMiddleware): string {
             // extract the middleware class or alias name if in format
             // such as `has.roles:1|16|17` or `PKP\middleware\HasRoles:1|16|17`
-            $middleware = array_shift(array_pad(explode(":", $middleware, 2), 2, []));
+            $fragments = array_pad(explode(':', $middleware, 2), 2, []);
+            $middleware = array_shift($fragments);
 
             if (class_exists($middleware)) {
                 return $middleware;
             }
 
             return $routerMiddleware[$middleware] ?? $middleware;
-        }); 
+        });
 
         return match($matchingCriteria) {
             static::MIDDLEWARE_MATCH_STRICT

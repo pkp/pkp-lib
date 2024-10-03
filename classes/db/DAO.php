@@ -639,9 +639,3 @@ class DAO
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\DAO', '\DAO');
-    define('SORT_DIRECTION_ASC', DAO::SORT_DIRECTION_ASC);
-    define('SORT_DIRECTION_DESC', DAO::SORT_DIRECTION_DESC);
-}

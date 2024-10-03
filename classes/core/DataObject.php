@@ -496,7 +496,3 @@ class DataObject
         throw new Exception('Must be implemented by subclass if used');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\DataObject', '\DataObject');
-}

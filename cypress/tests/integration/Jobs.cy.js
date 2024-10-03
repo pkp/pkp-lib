@@ -18,11 +18,11 @@ describe('Jobs tests', function() {
         // Add 2 test jobs[successable and failable] on queue
         cy.dispatchTestQueueJobs();
 
-        cy.get('a:contains("Administration")').click();
+        cy.get('nav').contains('Administration').click();
         cy.get('a:contains("View Jobs")').click();
         cy.waitJQuery();
 
-        cy.get('.pkpTable')
+        cy.get('table')
           .find('td:contains("queuedTestJob")')
           .should('have.length', 2)
           .should('be.visible');
@@ -33,7 +33,7 @@ describe('Jobs tests', function() {
         cy.reload();
         cy.waitJQuery();
 
-        cy.get('.pkpTable')
+        cy.get('table')
           .find('td:contains("queuedTestJob")')
           .should('have.length', 0);
 
@@ -56,12 +56,12 @@ describe('Jobs tests', function() {
       // Run the test jobs in test queue
       cy.runQueueJobs(null, true);
 
-      cy.get('a:contains("Administration")').click();
+      cy.get('nav').contains('Administration').click();
       cy.get('a:contains("View Failed Jobs")').click();
       cy.waitJQuery();
 
       // check for 4 failed job rows
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 4)
         .should('be.visible');
@@ -70,7 +70,7 @@ describe('Jobs tests', function() {
       cy.get('button:contains("Try Again")').first().click();
 
       // check for 3 failed job rows
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 3)
         .should('be.visible');
@@ -79,7 +79,7 @@ describe('Jobs tests', function() {
       cy.get('button:contains("Delete")').first().click();
 
       // check for 2 failed job rows
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 2);
 
@@ -89,7 +89,7 @@ describe('Jobs tests', function() {
       cy.waitJQuery();
 
       // Check for one job in queue which just redispatch from failed job page
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 1);
 
@@ -100,7 +100,7 @@ describe('Jobs tests', function() {
 
       // Check details page of a failed job
       cy.get('a:contains("Details")').first().click();
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("Payload")')
         .should('have.length', 1);
 
@@ -113,7 +113,7 @@ describe('Jobs tests', function() {
       cy.wait(2000); // Wait for UI to update and complete ajax request
 
       // check for 0 failed job rows after requeue all action
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 0);
 
@@ -126,7 +126,7 @@ describe('Jobs tests', function() {
       cy.waitJQuery();
 
       // Check for 2 more jobs(in totla 3) in queue which just redispatch via requeue all action
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 3);
 
@@ -136,7 +136,7 @@ describe('Jobs tests', function() {
       cy.reload();
       cy.waitJQuery();
 
-      cy.get('.pkpTable')
+      cy.get('table')
         .find('td:contains("queuedTestJob")')
         .should('have.length', 0);
 

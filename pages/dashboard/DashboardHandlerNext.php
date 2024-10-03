@@ -33,6 +33,9 @@ use PKP\submission\DashboardView;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
+use PKP\components\forms\publication\ContributorForm;
+use PKP\plugins\PluginRegistry;
+use PKP\notification\Notification;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -140,11 +143,33 @@ class DashboardHandlerNext extends Handler
             $categories
         );
 
+        // ContributorsForm
+        $contributorForm = new ContributorForm(
+            'emit',
+            [],
+            null,
+              $context
+
+        );
+
+
 
         $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
         $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
 
+        // Detect whether identifiers are enabled
+        $identifiersEnabled = false;
+        $pubIdPlugins = PluginRegistry::getPlugins('pubIds');
+        foreach ($pubIdPlugins as $pubIdPlugin) {
+            if ($pubIdPlugin->isObjectTypeEnabled('Publication', $request->getContext()->getId())) {
+                $identifiersEnabled = true;
+                break;
+            }
+        }
 
+        // OJS specific, might need to be adjusted for OMP/OPS
+        $paymentManager = Application::get()->getPaymentManager($context);
+            
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -152,8 +177,14 @@ class DashboardHandlerNext extends Handler
                 'dashboardPage' => $this->dashboardPage,
                 'countPerPage' => $this->perPage,
                 'filtersForm' => $filtersForm->getConfig(),
+                'contributorForm' => $contributorForm->getConfig(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
+                'publicationSettings' => [
+                    'supportsCitations' => !!$context->getData('citations'),
+                    'identifiersEnabled' => $identifiersEnabled,
+                    'submissionPaymentsEnabled' => $paymentManager->publicationEnabled()
+                ]
             ]
         ]);
 
@@ -214,6 +245,15 @@ class DashboardHandlerNext extends Handler
             'DECISION_INITIAL_DECLINE' => Decision::INITIAL_DECLINE,
             'DECISION_SEND_TO_PRODUCTION' => Decision::SEND_TO_PRODUCTION,
             'DECISION_BACK_FROM_COPYEDITING' => Decision::BACK_FROM_COPYEDITING,
+            'DECISION_NEW_EXTERNAL_ROUND' => Decision::NEW_EXTERNAL_ROUND,
+            'DECISION_BACK_FROM_PRODUCTION' => Decision::BACK_FROM_PRODUCTION,
+
+            'DECISION_RECOMMEND_ACCEPT' => Decision::RECOMMEND_ACCEPT,
+            'DECISION_RECOMMEND_DECLINE' => Decision::RECOMMEND_DECLINE,
+            'DECISION_RECOMMEND_ACCEPT' => Decision::RECOMMEND_ACCEPT,
+            'DECISION_RECOMMEND_PENDING_REVISIONS' => Decision::RECOMMEND_PENDING_REVISIONS,
+            'DECISION_RECOMMEND_RESUBMIT' => Decision::RECOMMEND_RESUBMIT,
+
 
             'SUBMISSION_FILE_SUBMISSION' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
@@ -223,6 +263,7 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_FILE_COPYEDIT' => SubmissionFile::SUBMISSION_FILE_COPYEDIT,
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
+            'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
             'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
@@ -231,7 +272,16 @@ class DashboardHandlerNext extends Handler
             'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
 
             // ASSOC
-            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT
+            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            'ASSOC_TYPE_REPRESENTATION' => PKPApplication::ASSOC_TYPE_REPRESENTATION,
+            'ASSOC_TYPE_SUBMISSION' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            // NOTIFICATIONS
+            'NOTIFICATION_LEVEL_NORMAL' => Notification::NOTIFICATION_LEVEL_NORMAL,
+            'NOTIFICATION_LEVEL_TRIVIAL' => Notification::NOTIFICATION_LEVEL_TRIVIAL,
+
+            'NOTIFICATION_TYPE_VISIT_CATALOG' => Notification::NOTIFICATION_TYPE_VISIT_CATALOG,
+            'NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER' => Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+            'NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS' => Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');

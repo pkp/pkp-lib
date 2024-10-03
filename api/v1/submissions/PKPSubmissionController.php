@@ -38,6 +38,7 @@ use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
+use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -109,7 +110,8 @@ class PKPSubmissionController extends PKPBaseController
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
-        'getPublicationTitleAbstractForm'
+        'getPublicationTitleAbstractForm',
+        'getChangeLanguageMetadata'
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -298,6 +300,7 @@ class PKPSubmissionController extends PKPBaseController
                 Route::get('metadata', $this->getPublicationMetadataForm(...))->name('submission.publication._components.metadata');
                 Route::get('reference', $this->getPublicationReferenceForm(...))->name('submission.publication._components.reference');
                 Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
+                Route::get('changeLanguageMetadata', $this->getChangeLanguageMetadata(...))->name('submission.publication._components.changeLanguageMetadata');
             })->whereNumber(['submissionId', 'publicationId']);
         });
 
@@ -379,6 +382,7 @@ class PKPSubmissionController extends PKPBaseController
                 'getPublicationIdentifierForm',
                 'getPublicationLicenseForm',
                 'getPublicationTitleAbstractForm',
+                'getChangeLanguageMetadata'
             ]
         )) {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
@@ -1965,6 +1969,36 @@ class PKPSubmissionController extends PKPBaseController
         $titleAbstract = new TitleAbstractForm($data['publicationApiUrl'], $locales, $data['publication']);
 
         return response()->json($titleAbstract->getConfig(), Response::HTTP_OK);
+    }
+
+    /**
+     * Get ChangeSubmissionLanguageMetadata Form component
+     */
+    protected function getChangeLanguageMetadata(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json(['error' => $data['error']], $data['status']);
+        }
+
+        $context = $data['context']; /** @var Context $context*/
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $locales = $this->getPublicationFormLocales($context, $submission);
+
+        $changeSubmissionLanguageApiUrl = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getData('urlPath'),
+            "submissions/{$submission->getId()}/publications/{$publication->getId()}/changeLocale"
+        );
+
+        $changeSubmissionLanguageMetadataForm = new ChangeSubmissionLanguageMetadataForm($changeSubmissionLanguageApiUrl, $submission, $publication, $context);
+        $submissionLocale = $submission->getData('locale');
+
+        return response()->json($this->getLocalizedForm($changeSubmissionLanguageMetadataForm, $submissionLocale, $locales), Response::HTTP_OK);
     }
 
     /**

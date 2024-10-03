@@ -128,6 +128,7 @@ class Repository
                     $interestEntry->setId($interestEntryDao->insertObject($interestEntry));
                 }
 
+                // TODO: Investigate the impact of applied patch from https://github.com/pkp/pkp-lib/issues/10423
                 UserInterest::create([
                     'userId' => $userId,
                     'controlledVocabEntryId' => $interestEntry->getId(),

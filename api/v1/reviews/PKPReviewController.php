@@ -80,30 +80,23 @@ class PKPReviewController extends PKPBaseController
             ->name('review.get.submission.round.history')
             ->whereNumber(['reviewRoundId', 'submissionId']);
 
-        Route::get('{submissionId}/{reviewAssignmentId}/export-p-d-f', $this->exportReviewPDF(...))
-            ->name('review.export.pdf')
-            ->whereNumber(['reviewAssignmentId', 'submissionId'])
-            ->middleware([
-                self::roleAuthorizer([
-                    Role::ROLE_ID_SITE_ADMIN,
-                    Role::ROLE_ID_MANAGER,
-                    Role::ROLE_ID_SUB_EDITOR,
-                ])
-            ])
-        ;
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function () {
+            Route::get('{submissionId}/{reviewAssignmentId}/export-pdf', $this->exportReviewPDF(...))
+                ->name('review.export.pdf')
+                ->whereNumber(['reviewAssignmentId', 'submissionId']);
 
-        Route::get('{submissionId}/{reviewAssignmentId}/export-x-m-l', $this->exportReviewXML(...))
-            ->name('review.export.xml')
-            ->whereNumber(['reviewAssignmentId', 'submissionId'])
-            ->middleware([
-                self::roleAuthorizer([
-                    Role::ROLE_ID_SITE_ADMIN,
-                    Role::ROLE_ID_MANAGER,
-                    Role::ROLE_ID_SUB_EDITOR,
-                ])
-            ])
-        ;
-
+            Route::get('{submissionId}/{reviewAssignmentId}/export-xml', $this->exportReviewXML(...))
+                ->name('review.export.xml')
+                ->whereNumber(['reviewAssignmentId', 'submissionId']);
+        });
     }
 
     /**

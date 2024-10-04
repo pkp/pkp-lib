@@ -270,6 +270,27 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
+     * Get the date the editor confirmed.
+     *
+     * @return string|null
+     */
+    public function getDateEditorConfirmed(): ?string
+    {
+        return $this->getData('dateEditorConfirmed');
+    }
+
+    /**
+     * Set the date the editor confirmed.
+     *
+     * @param string|null $dateEditorConfirmed
+     * @return void
+     */
+    public function setDateEditorConfirmed(?string $dateEditorConfirmed): void
+    {
+        $this->setData('dateEditorConfirmed', $dateEditorConfirmed);
+    }
+
+    /**
      * Get the date the reviewer was rated.
      *
      * @return string

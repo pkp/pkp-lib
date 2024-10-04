@@ -200,13 +200,9 @@ class PKPSubmissionController extends PKPBaseController
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
             ]),
         ])->group(function () {
-
-            Route::get('{submissionId}/decisions', $this->getDecisions(...))
-                ->name('submission.decisions.getMany')
-                ->whereNumber('submissionId');
-
             Route::get('{submissionId}/participants', $this->getParticipants(...))
                 ->name('submission.participants.getMany')
                 ->whereNumber('submissionId');
@@ -214,6 +210,18 @@ class PKPSubmissionController extends PKPBaseController
             Route::get('{submissionId}/participants/{stageId}', $this->getParticipants(...))
                 ->name('submission.participants.stage.getMany')
                 ->whereNumber(['submissionId', 'stageId']);
+        });
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ])->group(function () {
+
+            Route::get('{submissionId}/decisions', $this->getDecisions(...))
+                ->name('submission.decisions.getMany')
+                ->whereNumber('submissionId');
 
             Route::post('{submissionId}/decisions', $this->addDecision(...))
                 ->name('submission.decision.add')

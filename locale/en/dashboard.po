@@ -314,3 +314,5 @@ msgstr "An editorial recommendation has been received"
 msgid "dashboard.recommendOnly.recommendationsCompleted"
 msgstr "All editorial recommendations have been received, and a decision is required."
 
+msgid "dashboard.recommendOnly.onlyAllowedToRecommend"
+msgstr "Only allowed to recommend an editorial decision"

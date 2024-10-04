@@ -80,7 +80,7 @@ class Schema extends \PKP\core\maps\Schema
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
-                    $output[$prop] = $this->getApiUrl('announcements/' . $item->getId());
+                    $output[$prop] = $this->getApiUrl('announcements/' . $item->getKey());
                     break;
                 case 'url':
                     $output[$prop] = $this->request->getDispatcher()->url(
@@ -89,11 +89,14 @@ class Schema extends \PKP\core\maps\Schema
                         $this->getUrlPath(),
                         'announcement',
                         'view',
-                        [$item->getId()]
+                        [$item->getKey()]
                     );
                     break;
+                case 'id':
+                    $output[$prop] = $item->getKey();
+                    break;
                 default:
-                    $output[$prop] = $item->getData($prop);
+                    $output[$prop] = $item->getAttribute($prop);
                     break;
             }
         }

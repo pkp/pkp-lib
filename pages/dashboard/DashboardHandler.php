@@ -27,6 +27,7 @@ use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
+use PKP\config\Config;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -73,6 +74,12 @@ class DashboardHandler extends Handler
 
         if (!$context) {
             $request->redirect(null, 'user');
+        }
+
+
+        if(Config::getVar('features', 'enable_new_submission_listing')) {
+            $pkpPageRouter = $request->getRouter();  /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
+            $pkpPageRouter->redirectHome($request);
         }
 
         $templateMgr = TemplateManager::getManager($request);

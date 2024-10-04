@@ -20,6 +20,7 @@ use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
 use PKP\core\DataObject;
+use PKP\core\maps\Schema;
 use PKP\plugins\Hook;
 
 /**
@@ -49,6 +50,7 @@ class PKPSchemaService
     public const SCHEMA_USER = 'user';
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
+    public const SCHEMA_EMAIL_LOG = 'emailLog';
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
@@ -68,11 +70,12 @@ class PKPSchemaService
      *
      * @hook Schema::get::(schemaName) [[schema]]
      * @hook Schema::get::
+     * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)
     {
         Hook::run('Schema::get::before::' . $schemaName, [&$forceReload]);
-        
+
         if (!$forceReload && array_key_exists($schemaName, $this->_schemas)) {
             return $this->_schemas[$schemaName];
         }
@@ -230,6 +233,64 @@ class PKPSchemaService
         }
 
         return $multilingualProps;
+    }
+
+    /**
+     * Retrieves properties of the schema of certain origin
+     *
+     * @param string $schemaName One of the SCHEMA_... constants
+     * @param string $attributeOrigin one of the Schema::ATTRIBUTE_ORIGIN_* constants
+     *
+     * @return array List of property names
+     */
+    public function getPropsByAttributeOrigin(string $schemaName, string $attributeOrigin): array
+    {
+        $schema = $this->get($schemaName);
+
+        $propsByOrigin = [];
+        foreach ($schema->properies as $propName => $propSchema) {
+            if (!empty($propSchema->origin) && $propSchema->origin == $attributeOrigin) {
+                $propsByOrigin[] = $propName;
+            }
+        }
+
+        return $propsByOrigin;
+    }
+
+    /**
+     * Groups properties by their origin, see Schema::ATTRIBUTE_ORIGIN_* constants
+     *
+     * @return array<string, array<string>>, e.g. ['primary' => ['assocId', 'assocType']]
+     */
+    public function groupPropsByOrigin(string $schemaName, bool $excludeReadOnly = false): array
+    {
+        $schema = $this->get($schemaName);
+        $propsByOrigin = [];
+        foreach ($schema->properties as $propName => $propSchema) {
+            if (empty($propSchema->origin)) {
+                continue;
+            }
+
+            // Exclude readonly if specified
+            if ($excludeReadOnly && $propSchema->origin->readOnly) {
+                continue;
+            }
+
+            switch($propSchema->origin) {
+                case Schema::ATTRIBUTE_ORIGIN_SETTINGS:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_SETTINGS][] = $propName;
+                    break;
+                case Schema::ATTRIBUTE_ORIGIN_COMPOSED:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_COMPOSED][] = $propName;
+                    break;
+                case Schema::ATTRIBUTE_ORIGIN_MAIN:
+                default:
+                    $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_MAIN][] = $propName;
+                    break;
+            }
+        }
+
+        return $propsByOrigin;
     }
 
     /**

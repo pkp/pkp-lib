@@ -28,6 +28,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\announcement\Announcement;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPAppearanceMastheadForm;
@@ -398,13 +399,11 @@ class ManagementHandler extends Handler
             $request->getContext()
         );
 
-        $collector = Repo::announcement()
-            ->getCollector()
-            ->filterByContextIds([$request->getContext()->getId()]);
+        $announcements = Announcement::withContextIds([$request->getContext()->getId()]);
 
-        $itemsMax = $collector->getCount();
+        $itemsMax = $announcements->count();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
-            $collector->limit(30)->getMany()
+            $announcements->limit(30)->get()
         );
 
         $announcementsListPanel = new \PKP\components\listPanels\PKPAnnouncementsListPanel(

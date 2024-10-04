@@ -478,10 +478,7 @@ class LoginHandler extends Handler
      */
     protected function sendHome($request)
     {
-        if ($request->getContext()) {
-            $request->redirect(null, 'submissions');
-        } else {
-            $request->redirect(null, 'user');
-        }
+        $pkpPageRouter = $request->getRouter(); /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
+        $pkpPageRouter->redirectHome($request);
     }
 }

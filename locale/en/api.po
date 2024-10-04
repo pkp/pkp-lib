@@ -137,6 +137,9 @@ msgstr "This is not a valid context."
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "The email template you requested was not found."
 
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "You provided an invalid  \"eventType\",{$eventType}, for Author emails."
+
 msgid "api.files.400.noUpload"
 msgstr "No file to be uploaded could be found with the request."
 

@@ -61,7 +61,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
 
     public function handle()
     {
-        $announcement = Repo::announcement()->get($this->announcementId);
+        $announcement = Announcement::find($this->announcementId);
         // Announcement was removed
         if (!$announcement) {
             throw new JobException(JobException::INVALID_PAYLOAD);
@@ -97,9 +97,9 @@ class NewAnnouncementNotifyUsers extends BaseJob
      * Creates new announcement notification email
      */
     protected function createMailable(
-        Context $context,
-        User $recipient,
-        Announcement $announcement,
+        Context       $context,
+        User          $recipient,
+        Announcement  $announcement,
         EmailTemplate $template
     ): AnnouncementNotify {
         $mailable = new AnnouncementNotify($context, $announcement);

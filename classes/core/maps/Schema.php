@@ -21,6 +21,19 @@ use PKP\services\PKPSchemaService;
 
 abstract class Schema extends Base
 {
+    /**
+     * ATTRIBUTE_* constants refer to type of attributes according to the Eloquent Model
+     *
+     * @var string Primary attribute of the Model derived from the main table
+     */
+    public const ATTRIBUTE_ORIGIN_MAIN = 'primary';
+
+    /** @var string Model's attribute derived from settings table */
+    public const ATTRIBUTE_ORIGIN_SETTINGS = 'setting';
+
+    /** @var string The value for this attribute is composed with Eloquent's Mutators */
+    public const ATTRIBUTE_ORIGIN_COMPOSED = 'composed';
+
     public PKPRequest $request;
 
     public ?Context $context;

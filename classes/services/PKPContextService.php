@@ -21,6 +21,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
+use PKP\announcement\Announcement;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
@@ -627,11 +628,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->deleteByContextId($context->getId());
 
-        Repo::announcement()->deleteMany(
-            Repo::announcement()
-                ->getCollector()
-                ->filterByContextIds([$context->getId()])
-        );
+        // TODO is it OK to delete without listening Model's delete-associated events (not loading each Model)?
+        Announcement::withContextIds([$context->getId])->delete();
 
         Repo::highlight()
             ->getCollector()

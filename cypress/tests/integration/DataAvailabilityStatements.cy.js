@@ -2,7 +2,9 @@
  * @file cypress/tests/integration/DataAvailabilityStatements.cy.js
 */
 
-describe('DataAvailabilityStatements', function () {
+// Temporarly Skip until OMP&OPS is migrated to new side modal workflow
+
+describe.skip('DataAvailabilityStatements', function () {
 	var config = Cypress.env('dataAvailabilityTest');
 	var statement = 'This is an example of a data availability statement';
 
@@ -17,18 +19,17 @@ describe('DataAvailabilityStatements', function () {
 
 	it('Adds a statement to a submission', function () {
 		cy.findSubmissionAsEditor('dbarnes', null, config.submission.authorFamilyName);
-		cy.get('#publication-button').click();
-		cy.get('#metadata-button').click();
+		cy.openWorkflowMenu('Metadata')
 		cy.setTinyMceContent('metadata-dataAvailability-control-en', statement);
-		cy.get('#metadata button').contains('Save').click();
-		cy.get('#metadata [role="status"]').contains('Saved');
+		cy.get('button').contains('Save').click();
+		cy.get('[role="status"]').contains('Saved');
 	});
 
 	if (config.anonymousReviewer) {
 		it('Checks that anonymous reviewers can not view data availability statement', function() {
 			cy.login(config.anonymousReviewer);
-			cy.visit("/index.php/publicknowledge/submissions");
-			cy.contains('View ' + config.submission.title).click();
+			cy.visit("/index.php/publicknowledge/dashboard/reviewAssignments");
+			cy.openReviewAssignment(config.submission.title)
 			cy.contains('View All Submission Details').click();
 			cy.contains('Data Availability Statement').should('not.exist');
 			cy.contains(statement).should('not.exist');
@@ -38,8 +39,8 @@ describe('DataAvailabilityStatements', function () {
 	if (config.anonymousDisclosedReviewer) {
 		it('Checks that reviewers with the author disclosed can view data availability statement', function() {
 			cy.login(config.anonymousDisclosedReviewer);
-			cy.visit("/index.php/publicknowledge/submissions");
-			cy.contains('View ' + config.submission.title).click();
+			cy.visit("/index.php/publicknowledge/dashboard/reviewAssignments");
+			cy.openReviewAssignment(config.submission.title)
 			cy.contains('View All Submission Details').click();
 			cy.contains('Data Availability Statement');
 			cy.contains(statement);

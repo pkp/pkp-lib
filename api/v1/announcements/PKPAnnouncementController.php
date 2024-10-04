@@ -25,9 +25,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Route;
-use PKP\announcement\Collector;
+use PKP\announcement\Announcement;
 use PKP\context\Context;
 use PKP\core\exceptions\StoreTemporaryFileException;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -124,7 +125,7 @@ class PKPAnnouncementController extends PKPBaseController
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
-        $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
+        $announcement = Announcement::find((int) $illuminateRequest->route('announcementId'));
 
         if (!$announcement) {
             return response()->json([
@@ -133,7 +134,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // The assocId in announcements should always point to the contextId
-        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()?->getId()) {
+        if ($announcement->assocId !== $this->getRequest()->getContext()?->getId()) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_BAD_REQUEST);
@@ -149,43 +150,38 @@ class PKPAnnouncementController extends PKPBaseController
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
-        $collector = Repo::announcement()->getCollector()
-            ->limit(self::DEFAULT_COUNT)
-            ->offset(0);
+        $announcements = Announcement::limit(self::DEFAULT_COUNT)->offset(0);
 
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'typeIds':
-                    $collector->filterByTypeIds(
+                    $announcements->withTypeIds(
                         array_map('intval', paramToArray($val))
                     );
                     break;
                 case 'count':
-                    $collector->limit(min((int) $val, self::MAX_COUNT));
+                    $announcements->limit(min((int) $val, self::MAX_COUNT));
                     break;
                 case 'offset':
-                    $collector->offset((int) $val);
+                    $announcements->offset((int) $val);
                     break;
                 case 'searchPhrase':
-                    $collector->searchPhrase($val);
+                    $announcements->withSearchPhrase($val);
                     break;
             }
         }
 
         if ($this->getRequest()->getContext()) {
-            $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
+            $announcements->withContextIds([$this->getRequest()->getContext()->getId()]);
         } else {
-            $collector->withSiteAnnouncements(Collector::SITE_ONLY);
+            $announcements->withContextIds([PKPApplication::SITE_CONTEXT_ID]);
         }
 
-
-        Hook::run('API::announcements::params', [$collector, $illuminateRequest]);
-
-        $announcements = $collector->getMany();
+        Hook::run('API::announcements::params', [$announcements, $illuminateRequest]);
 
         return response()->json([
-            'itemsMax' => $collector->getCount(),
-            'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements)->values(),
+            'itemsMax' => $announcements->count(),
+            'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements->get())->values(),
         ], Response::HTTP_OK);
     }
 
@@ -209,27 +205,22 @@ class PKPAnnouncementController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $announcement = Repo::announcement()->newDataObject($params);
-
         try {
-            $announcementId = Repo::announcement()->add($announcement);
+            $announcement = Announcement::create($params);
         } catch (StoreTemporaryFileException $e) {
-            $announcementId = $e->dataObject->getId();
+            $announcementId = $e->getDataObjectId();
             if ($announcementId) {
-                $announcement = Repo::announcement()->get($announcementId);
-                Repo::announcement()->delete($announcement);
+                Announcement::destroy([$announcementId]);
             }
             return response()->json([
                 'image' => [__('api.400.errorUploadingImage')]
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $announcement = Repo::announcement()->get($announcementId);
-
         $sendEmail = (bool) filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN);
 
         if ($context) {
-            $this->notifyUsers($request, $context, $announcementId, $sendEmail);
+            $this->notifyUsers($request, $context, $announcement->id, $sendEmail);
         }
 
         return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
@@ -243,7 +234,8 @@ class PKPAnnouncementController extends PKPBaseController
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
+        /** @var Announcement $announcement */
+        $announcement = Announcement::find((int) $illuminateRequest->route('announcementId'));
 
         if (!$announcement) {
             return response()->json([
@@ -251,19 +243,19 @@ class PKPAnnouncementController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if ($announcement->getData('assocType') !== Application::get()->getContextAssocType()) {
+        if ($announcement->assocType !== Application::get()->getContextAssocType()) {
             throw new Exception('Announcement has an assocType that did not match the context.');
         }
 
         // Don't allow to edit an announcement from one context from a different context's endpoint
-        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->assocId) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $illuminateRequest->input());
-        $params['id'] = $announcement->getId();
+        $params['id'] = $announcement->id;
         $params['typeId'] ??= null;
 
         $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
@@ -275,15 +267,15 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         try {
-            Repo::announcement()->edit($announcement, $params);
+            $announcement->update($params);
         } catch (StoreTemporaryFileException $e) {
-            Repo::announcement()->delete($announcement);
+            $announcement->delete(); // TODO do we really need to delete an announcement if the image upload fails?
             return response()->json([
                 'image' => [__('api.400.errorUploadingImage')]
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $announcement = Repo::announcement()->get($announcement->getId());
+        $announcement = Announcement::find($announcement->id);
 
         return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
     }
@@ -295,7 +287,8 @@ class PKPAnnouncementController extends PKPBaseController
     {
         $request = $this->getRequest();
 
-        $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
+        /** @var Announcement $announcement */
+        $announcement = Announcement::find((int) $illuminateRequest->route('announcementId'));
 
         if (!$announcement) {
             return response()->json([
@@ -303,12 +296,12 @@ class PKPAnnouncementController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if ($announcement->getData('assocType') !== Application::get()->getContextAssocType()) {
+        if ($announcement->assocType !== Application::get()->getContextAssocType()) {
             throw new Exception('Announcement has an assocType that did not match the context.');
         }
 
         // Don't allow to delete an announcement from one context from a different context's endpoint
-        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->assocId) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);
@@ -316,7 +309,7 @@ class PKPAnnouncementController extends PKPBaseController
 
         $announcementProps = Repo::announcement()->getSchemaMap()->map($announcement);
 
-        Repo::announcement()->delete($announcement);
+        $announcement->delete();
 
         return response()->json($announcementProps, Response::HTTP_OK);
     }

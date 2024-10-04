@@ -353,7 +353,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
         $currentUser = $request->getUser();
 
-        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser);
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, [], true);
 
         return response()->json(
             $dashboardViews->map(fn (DashboardView $view) => $view->getCount()),

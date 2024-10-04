@@ -41,6 +41,7 @@ use PKP\submission\reviewAssignment\Collector as ReviewCollector;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
+use PKP\config\Config;
 
 abstract class Repository
 {
@@ -745,6 +746,20 @@ abstract class Repository
      */
     public function getUrlAuthorWorkflow(Context $context, int $submissionId): string
     {
+        if(Config::getVar('features', 'enable_new_submission_listing')) {
+            return Application::get()->getDispatcher()->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'dashboard',
+                'mySubmissions',
+                null,
+                ['workflowSubmissionId' => $submissionId]
+            );
+
+        }
+
+
         return Application::get()->getDispatcher()->url(
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,
@@ -791,7 +806,7 @@ abstract class Repository
     /**
      * Get all views, views count to be retrieved separately due to performance reasons
      */
-    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds = []): Collection
+    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds = [], bool $includeCount = false): Collection
     {
         $types = DashboardView::getTypes()->flip();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
@@ -809,7 +824,11 @@ abstract class Repository
         $views = $this->mapDashboardViews($types, $context, $user, $canAccessUnassignedSubmission);
         $filteredViews = $this->filterViewsByUserRoles($views, $roleIds);
 
-        return $this->setViewsCount($filteredViews);
+        if($includeCount) {
+            return $this->setViewsCount($filteredViews);
+        }
+
+        return $filteredViews;
     }
 
     /**

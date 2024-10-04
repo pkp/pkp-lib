@@ -1,345 +1,424 @@
 <?php
-
-/**
- * @defgroup announcement Announcement
- * Implements announcements that can be presented to website visitors.
- */
-
 /**
  * @file classes/announcement/Announcement.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Announcement
  *
- * @ingroup announcement
- *
- * @see DAO
- *
- * @brief Basic class describing a announcement.
+ * @brief Basic class describing announcement existing in the system.
  */
 
 namespace PKP\announcement;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
+use PKP\core\PKPApplication;
+use PKP\core\PKPString;
+use PKP\core\traits\ModelWithSettings;
 use PKP\db\DAORegistry;
+use PKP\file\FileManager;
+use PKP\file\TemporaryFile;
+use PKP\file\TemporaryFileManager;
+use PKP\plugins\Hook;
+use PKP\services\PKPSchemaService;
 
-class Announcement extends \PKP\core\DataObject
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder withContextIds(array $contextIds) accepts valid context IDs or PKPApplication::SITE_CONTEXT_ID as an array values
+ * @method static \Illuminate\Database\Eloquent\Builder withTypeIds(array $typeIds) filters results by announcement type IDs
+ * @method static \Illuminate\Database\Eloquent\Builder withSearchPhrase(?string $searchPhrase) filters results by a search phrase
+ * @method static \Illuminate\Database\Eloquent\Builder withActiveByDate(string $date = '') filters active announcements by date
+ */
+class Announcement extends Model
 {
-    //
-    // Get/set methods
-    //
+    use ModelWithSettings;
+
+    // The subdirectory where announcement images are stored
+    public const IMAGE_SUBDIRECTORY = 'announcements';
+
+    protected $table = 'announcements';
+    protected $primaryKey = 'announcement_id';
+    public const CREATED_AT = 'date_posted';
+    public const UPDATED_AT = null;
+    protected string $settingsTable = 'announcement_settings';
+
     /**
-     * Get assoc ID for this announcement.
+     * The attributes that are mass assignable.
      *
-     * @return int
+     * @var array
      */
-    public function getAssocId()
+    protected $guarded = ['announcementId', 'datePosted'];
+
+    /**
+     * @inheritDoc
+     */
+    public static function getSchemaName(): ?string
     {
-        return $this->getData('assocId');
+        return PKPSchemaService::SCHEMA_ANNOUNCEMENT;
     }
 
     /**
-     * Set assoc ID for this announcement.
-     *
-     * @param int $assocId
+     * @inheritDoc
      */
-    public function setAssocId($assocId)
+    public function getSettingsTable(): string
     {
-        $this->setData('assocId', $assocId);
+        return $this->settingsTable;
     }
 
     /**
-     * Get assoc type for this announcement.
-     *
-     * @return int
+     * Add Model-level defined multilingual properties
      */
-    public function getAssocType()
+    public function getMultilingualProps(): array
     {
-        return $this->getData('assocType');
+        return array_merge(
+            $this->multilingualProps,
+            [
+                'fullTitle',
+            ]
+        );
     }
 
     /**
-     * Set assoc type for this announcement.
+     * Delete announcement, also allows to delete multiple announcements by IDs at once with destroy() method
      *
-     * @param int $assocType
+     * @return bool|null
      */
-    public function setAssocType($assocType)
+    public function delete()
     {
-        $this->setData('assocType', $assocType);
+        $deleted = parent::delete();
+        if ($deleted) {
+            $this->deleteImage();
+        }
+
+        return $deleted;
     }
 
     /**
-     * Get the announcement type of the announcement.
+     * @return bool
      *
-     * @return int
+     * @hook Announcement::add [[$this]]
      */
-    public function getTypeId()
+    public function save(array $options = [])
     {
-        return $this->getData('typeId');
+        $newlyCreated = !$this->exists;
+        $saved = parent::save($options);
+
+        // If it's a new model with an image attribute, upload an image
+        if ($saved && $newlyCreated && $this->hasAttribute('image')) {
+            $this->handleImageUpload();
+        }
+
+        // If it's updated model and a new image is uploaded, first, delete an old one
+        $hasNewImage = $this?->image?->temporaryFileId;
+        if ($saved && !$newlyCreated && $hasNewImage) {
+            $this->deleteImage();
+            $this->handleImageUpload();
+        }
+
+        Hook::call('Announcement::add', [$this]);
+
+        return $saved;
     }
 
     /**
-     * Set the announcement type of the announcement.
-     *
-     * @param int $typeId
+     * Filter by context IDs, accepts PKPApplication::SITE_CONTEXT_ID as a parameter array value if include site wide
      */
-    public function setTypeId($typeId)
+    protected function scopeWithContextIds(EloquentBuilder $builder, array $contextIds): EloquentBuilder
     {
-        $this->setData('typeId', $typeId);
+        $filteredIds = [];
+        $siteWide = false;
+        foreach ($contextIds as $contextId) {
+            if ($contextId == PKPApplication::SITE_CONTEXT_ID) {
+                $siteWide = true;
+                continue;
+            }
+
+            $filteredIds[] = $contextId;
+        }
+
+        return $builder->where('assoc_type', Application::get()->getContextAssocType())
+            ->whereIn('assoc_id', $filteredIds)
+            ->when($siteWide, fn (EloquentBuilder $builder) => $builder->orWhereNull('assoc_id'));
     }
 
     /**
-     * Get the announcement type name of the announcement.
-     *
-     * @return string|null
+     * Filter by announcement type IDs
      */
-    public function getAnnouncementTypeName()
+    protected function scopeWithTypeIds(EloquentBuilder $builder, array $typeIds): EloquentBuilder
     {
-        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        return $this->getData('typeId') ? $announcementTypeDao->getById($this->getData('typeId'))?->getLocalizedTypeName() : null;
+        return $builder->whereIn('type_id', $typeIds);
     }
 
     /**
-     * Get localized announcement title
      *
-     * @return string
+     * @param string $date Optionally filter announcements by those
+     *    not expired until $date (YYYY-MM-DD)
      */
-    public function getLocalizedTitle()
+    protected function scopeWithActiveByDate(EloquentBuilder $builder, string $date = ''): EloquentBuilder
     {
-        return $this->getLocalizedData('title');
+        return $builder->where('date_expire', '>', empty($date) ? Core::getCurrentDate() : $date)
+            ->orWhereNull('date_expire');
     }
 
     /**
-     * Get full localized announcement title including type name
-     *
-     * @return string
+     * Filter announcements by those matching a search query
      */
-    public function getLocalizedTitleFull()
+    protected function scopeWithSearchPhrase(EloquentBuilder $builder, ?string $searchPhrase): EloquentBuilder
     {
-        $typeName = $this->getAnnouncementTypeName();
-        if (!empty($typeName)) {
-            return $typeName . ': ' . $this->getLocalizedTitle();
+        if (is_null($searchPhrase)) {
+            return $builder;
+        }
+
+        $words = explode(' ', $searchPhrase);
+        if (!count($words)) {
+            return $builder;
+        }
+
+        return $builder->whereIn('announcement_id', function ($builder) use ($words) {
+            $builder->select('announcement_id')->from($this->getSettingsTable());
+            foreach ($words as $word) {
+                $word = strtolower(addcslashes($word, '%_'));
+                $builder->where(function ($builder) use ($word) {
+                    $builder->where(function ($builder) use ($word) {
+                        $builder->where('setting_name', 'title');
+                        $builder->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
+                    })
+                        ->orWhere(function ($builder) use ($word) {
+                            $builder->where('setting_name', 'descriptionShort');
+                            $builder->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
+                        })
+                        ->orWhere(function ($builder) use ($word) {
+                            $builder->where('setting_name', 'description');
+                            $builder->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
+                        });
+                });
+            }
+        });
+    }
+
+    /**
+     * Get the full title
+     */
+    protected function fullTitle(): Attribute
+    {
+        return Attribute::make(
+            get: function (mixed $value, array $attributes) {
+                $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
+                $multilingualTitle = $attributes['title'];
+                if (!isset($attributes['typeId'])) {
+                    return $multilingualTitle;
+                }
+
+                $type = $announcementTypeDao->getById($attributes['typeId']);
+                $typeName = $type->getData('name');
+
+                $multilingualFullTitle = $multilingualTitle;
+                foreach ($multilingualTitle as $locale => $title) {
+                    if (isset($typeName[$locale])) {
+                        $multilingualFullTitle[$locale] = $typeName . ': ' . $title;
+                    }
+                }
+
+                return $multilingualFullTitle;
+            }
+        );
+    }
+
+    /**
+     * Get announcement's image URL
+     */
+    protected function imageUrl(bool $withTimestamp = true): Attribute
+    {
+        return Attribute::make(
+            get: function () use ($withTimestamp) {
+                if (!$this->hasAttribute('image')) {
+                    return '';
+                }
+                $image = $this->getAttribute('image');
+
+                $filename = $image->uploadName;
+                if ($withTimestamp) {
+                    $filename .= '?' . strtotime($image->dateUploaded);
+                }
+
+                $publicFileManager = new PublicFileManager();
+
+                return join('/', [
+                    Application::get()->getRequest()->getBaseUrl(),
+                    $this->hasAttribute('assocId')
+                        ? $publicFileManager->getContextFilesPath($this->getAttribute('assocId'))
+                        : $publicFileManager->getSiteFilesPath(),
+                    static::IMAGE_SUBDIRECTORY,
+                    $filename
+                ]);
+            }
+        );
+    }
+
+    /**
+     * Get alternative text of the image
+     */
+    protected function imageAltText(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->image?->altText ?? ''
+        );
+    }
+
+    /**
+     * Delete the image related to announcement
+     */
+    protected function deleteImage(): void
+    {
+        $image = $this->getAttribute('image');
+        if ($image?->uploadName) {
+            $publicFileManager = new PublicFileManager();
+            $filesPath = $this->hasAttribute('assocId')
+                ? $publicFileManager->getContextFilesPath($this->getAttribute('assocId'))
+                : $publicFileManager->getSiteFilesPath();
+
+            $publicFileManager->deleteByPath(
+                join('/', [
+                    $filesPath,
+                    static::IMAGE_SUBDIRECTORY,
+                    $image->uploadName,
+                ])
+            );
+        }
+    }
+
+    /**
+     * Handle image uploads
+     *
+     * @throws StoreTemporaryFileException Unable to store temporary file upload
+     */
+    protected function handleImageUpload(): void
+    {
+        $image = $this->getAttribute('image');
+        if (!$image?->temporaryFileId) {
+            return;
+        }
+
+        $user = Application::get()->getRequest()->getUser();
+        $temporaryFileManager = new TemporaryFileManager();
+        $temporaryFile = $temporaryFileManager->getFile((int) $image->temporaryFileId, $user?->getId());
+        $filePath = static::IMAGE_SUBDIRECTORY . '/' . $this->getImageFilename($temporaryFile);
+        if (!$this->isValidImage($temporaryFile)) {
+            throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $this);
+        }
+
+        if ($this->storeTemporaryFile($temporaryFile, $filePath, $user->getId())) {
+            $this->setAttribute(
+                'image',
+                $this->getImageData($temporaryFile)
+            );
+            $this->save();
         } else {
-            return $this->getLocalizedTitle();
+            $this->delete();
+            throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $this);
         }
     }
 
     /**
-     * Get announcement title.
+     * Get the data array for a temporary file that has just been stored
      *
-     * @param string $locale
-     *
-     * @return string
+     * @return array Data about the image, like the upload name, alt text, and date uploaded
      */
-    public function getTitle($locale)
+    protected function getImageData(TemporaryFile $temporaryFile): array
     {
-        return $this->getData('title', $locale);
+        $image = $this->image;
+
+        return [
+            'name' => $temporaryFile->getOriginalFileName(),
+            'uploadName' => $this->getImageFilename($temporaryFile),
+            'dateUploaded' => Core::getCurrentDate(),
+            'altText' => $image->altText ?? '',
+        ];
     }
 
     /**
-     * Set announcement title.
-     *
-     * @param string $title
-     * @param string $locale
+     * Get the filename of the image upload
      */
-    public function setTitle($title, $locale)
+    protected function getImageFilename(TemporaryFile $temporaryFile): string
     {
-        $this->setData('title', $title, $locale);
+        $fileManager = new FileManager();
+
+        return $this->id
+            . $fileManager->getImageExtension($temporaryFile->getFileType());
     }
 
     /**
-     * Get localized short description
-     *
-     * @return string
+     * Check that temporary file is an image
      */
-    public function getLocalizedDescriptionShort()
+    protected function isValidImage(TemporaryFile $temporaryFile): bool
     {
-        return $this->getLocalizedData('descriptionShort');
-    }
-
-    /**
-     * Get announcement brief description.
-     *
-     * @param string $locale
-     *
-     * @return string
-     */
-    public function getDescriptionShort($locale)
-    {
-        return $this->getData('descriptionShort', $locale);
-    }
-
-    /**
-     * Set announcement brief description.
-     *
-     * @param string $descriptionShort
-     * @param string $locale
-     */
-    public function setDescriptionShort($descriptionShort, $locale)
-    {
-        $this->setData('descriptionShort', $descriptionShort, $locale);
-    }
-
-    /**
-     * Get localized full description
-     *
-     * @return string
-     */
-    public function getLocalizedDescription()
-    {
-        return $this->getLocalizedData('description');
-    }
-
-    /**
-     * Get announcement description.
-     *
-     * @param string $locale
-     *
-     * @return string
-     */
-    public function getDescription($locale)
-    {
-        return $this->getData('description', $locale);
-    }
-
-    /**
-     * Set announcement description.
-     *
-     * @param string $description
-     * @param string $locale
-     */
-    public function setDescription($description, $locale)
-    {
-        $this->setData('description', $description, $locale);
-    }
-
-    /**
-     * Get announcement expiration date.
-     *
-     * @return string (YYYY-MM-DD)
-     */
-    public function getDateExpire()
-    {
-        return $this->getData('dateExpire');
-    }
-
-    /**
-     * Set announcement expiration date.
-     *
-     * @param string $dateExpire (YYYY-MM-DD)
-     */
-    public function setDateExpire($dateExpire)
-    {
-        $this->setData('dateExpire', $dateExpire);
-    }
-
-    /**
-     * Get announcement posted date.
-     *
-     * @return string (YYYY-MM-DD)
-     */
-    public function getDatePosted()
-    {
-        return date('Y-m-d', strtotime($this->getData('datePosted')));
-    }
-
-    /**
-     * Get announcement posted datetime.
-     *
-     * @return string (YYYY-MM-DD HH:MM:SS)
-     */
-    public function getDatetimePosted()
-    {
-        return $this->getData('datePosted');
-    }
-
-    /**
-     * Set announcement posted date.
-     *
-     * @param string $datePosted (YYYY-MM-DD)
-     */
-    public function setDatePosted($datePosted)
-    {
-        $this->setData('datePosted', $datePosted);
-    }
-
-    /**
-     * Set announcement posted datetime.
-     *
-     * @param string $datetimePosted (YYYY-MM-DD HH:MM:SS)
-     */
-    public function setDatetimePosted($datetimePosted)
-    {
-        $this->setData('datePosted', $datetimePosted);
-    }
-
-    /**
-     * Get the featured image data
-     */
-    public function getImage(): ?array
-    {
-        return $this->getData('image');
-    }
-
-    /**
-     * Set the featured image data
-     */
-    public function setImage(array $image): void
-    {
-        $this->setData('image', $image);
-    }
-
-    /**
-     * Get the full URL to the image
-     *
-     * @param bool $withTimestamp Pass true to include a query argument with a timestamp
-     *     of the date the image was uploaded in order to workaround cache bugs in browsers
-     */
-    public function getImageUrl(bool $withTimestamp = true): string
-    {
-        $image = $this->getImage();
-
-        if (!$image) {
-            return '';
+        if (getimagesize($temporaryFile->getFilePath()) === false) {
+            return false;
+        }
+        $extension = pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION);
+        $fileManager = new FileManager();
+        $extensionFromMimeType = $fileManager->getImageExtension(
+            PKPString::mime_content_type($temporaryFile->getFilePath())
+        );
+        if ($extensionFromMimeType !== '.' . $extension) {
+            return false;
         }
 
-        $filename = $image['uploadName'];
-        if ($withTimestamp) {
-            $filename .= '?'. strtotime($image['dateUploaded']);
-        }
+        return true;
+    }
 
+    /**
+     * Store a temporary file upload in the public files directory
+     *
+     * @param string $newPath The new filename with the path relative to the public files directoruy
+     *
+     * @return bool Whether or not the operation was successful
+     */
+    protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $newPath, int $userId): bool
+    {
         $publicFileManager = new PublicFileManager();
+        $temporaryFileManager = new TemporaryFileManager();
 
-        return join('/', [
-            Application::get()->getRequest()->getBaseUrl(),
-            $this->getAssocId()
-                ? $publicFileManager->getContextFilesPath((int) $this->getAssocId())
-                : $publicFileManager->getSiteFilesPath(),
-            Repo::announcement()->getImageSubdirectory(),
-            $filename
-        ]);
+        if ($assocId = $this->assocId) {
+            $result = $publicFileManager->copyContextFile(
+                $assocId,
+                $temporaryFile->getFilePath(),
+                $newPath
+            );
+        } else {
+            $result = $publicFileManager->copySiteFile(
+                $temporaryFile->getFilePath(),
+                $newPath
+            );
+        }
+
+        if (!$result) {
+            return false;
+        }
+
+        $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
+
+        return $result;
     }
 
     /**
-     * Get the alt text for the image
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
      */
-    public function getImageAltText(): string
+    protected function casts(): array
     {
-        $image = $this->getImage();
-
-        if (!$image || !$image['altText']) {
-            return '';
-        }
-
-        return $image['altText'];
+        return [
+            'dateExpire' => 'datetime',
+            'datePosted' => 'datetime',
+        ];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\announcement\Announcement', '\Announcement');
 }

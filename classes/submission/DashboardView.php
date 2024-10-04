@@ -46,7 +46,7 @@ class DashboardView
     const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
 
     // The number of submissions in the view
-    protected int $count;
+    protected int $count = 0;
 
     public function __construct(
         protected string $type, // View type, used also as the unique ID of the view's front-end part

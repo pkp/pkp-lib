@@ -8,6 +8,7 @@
 	"properties": {
 		"_href": {
 			"type": "string",
+			"origin": "composed",
 			"description": "The URL to this announcement in the REST API.",
 			"format": "uri",
 			"readOnly": true,
@@ -15,6 +16,7 @@
 		},
 		"assocId": {
 			"type": "integer",
+			"origin": "primary",
 			"description": "The journal, press or preprint server ID. Null for site-level announcements.",
 			"apiSummary": true,
 			"validation": [
@@ -23,11 +25,13 @@
 		},
 		"assocType": {
 			"type": "integer",
+			"origin": "primary",
 			"description": "The assoc object. This should always be `ASSOC_TYPE_JOURNAL` (OJS), `ASSOC_TYPE_PRESS` (OMP) or `ASSOC_TYPE_SERVER` (OPS).",
 			"apiSummary": true
 		},
 		"dateExpire": {
 			"type": "string",
+			"origin": "primary",
 			"description": "(Optional) The date that this announcement expires, if one is set. This is typically used to express closing dates for calls for papers.",
 			"apiSummary": true,
 			"validation": [
@@ -37,6 +41,7 @@
 		},
 		"datePosted": {
 			"type": "string",
+			"origin": "primary",
 			"description": "The date this announcement was posted.",
 			"apiSummary": true,
 			"writeDisabledInApi": true,
@@ -47,6 +52,7 @@
 		},
 		"description": {
 			"type": "string",
+			"origin": "setting",
 			"description": "The full text of the announcement.",
 			"multilingual": true,
 			"apiSummary": true,
@@ -56,6 +62,7 @@
 		},
 		"descriptionShort": {
 			"type": "string",
+			"origin": "setting",
 			"description": "A summary of this announcement.",
 			"multilingual": true,
 			"apiSummary": true,
@@ -65,11 +72,13 @@
 		},
 		"id": {
 			"type": "integer",
+			"origin": "primary",
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"image": {
 			"type": "object",
+			"origin": "setting",
 			"description": "The image to show with this announcement.",
 			"apiSummary": true,
 			"validation": [
@@ -96,6 +105,7 @@
 		},
 		"title": {
 			"type": "string",
+			"origin": "setting",
 			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
@@ -104,6 +114,7 @@
 		},
 		"typeId": {
 			"type": "integer",
+			"origin": "primary",
 			"description": "(Optional) One of the announcement type ids.",
 			"apiSummary": true,
 			"validation": [
@@ -112,6 +123,7 @@
 		},
 		"url": {
 			"type": "string",
+			"origin": "composed",
 			"format": "uri",
 			"readOnly": true,
 			"apiSummary": true,

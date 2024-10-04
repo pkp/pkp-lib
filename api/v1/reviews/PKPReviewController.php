@@ -254,14 +254,44 @@ class PKPReviewController extends PKPBaseController
     /**
      * Export a review as PDF
      */
-    public function exportReviewPDF(Request $illuminateRequest): void
+    public function exportReviewPDF(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-        $context = $request->getContext();
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+
+        if(!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
+            return response()->json([
+                'error' => __('api.400.invalidAuthorFriendlyParameter')
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $authorFriendly = (bool) $illuminateRequest->authorFriendly;
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!$submission) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $contextId = $request->getContext()->getId();
+        $submissionReviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByContextIds([$contextId])
+            ->getMany();
+
+        if(!$submissionReviewAssignments->first()
+            || $submissionReviewAssignments->first()->getData('submissionId') != $submissionId
+            || $submissionReviewAssignments->first()->getData('id') != $reviewId)
+        {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $reviewAssignment = $submissionReviewAssignments->first();
         $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, true);
         $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -274,7 +304,6 @@ class PKPReviewController extends PKPBaseController
             "autoLangToFont" => true,
         ]);
 
-        $authorFriendly = (bool) $illuminateRequest->authorFriendly;
         if($authorFriendly) {
             $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();
             $alphabet = range('A', 'Z');
@@ -440,8 +469,7 @@ class PKPReviewController extends PKPBaseController
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
             ->getMany();
 
-        $primaryLocale = $context->getPrimaryLocale();
-
+        $primaryLocale = $request->getContext()->getPrimaryLocale();
         $html .= "<div><h4 style='font-weight: bold;'>" . __('reviewer.submission.reviewFiles') . "</h4></div>";
 
         foreach ($submissionFiles as $submissionFile) {
@@ -452,23 +480,53 @@ class PKPReviewController extends PKPBaseController
         $html .= "</body></html>";
         $mpdf->WriteHTML($html);
         $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'D');
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**
      * Export a review as XML
      */
-    public function exportReviewXML(Request $illuminateRequest): void
+    public function exportReviewXML(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
+
+        if(!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
+            return response()->json([
+                'error' => __('api.400.invalidAuthorFriendlyParameter')
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
         $authorFriendly = (bool) $illuminateRequest->authorFriendly;
-        $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!$submission) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $contextId = $request->getContext()->getId();
+        $submissionReviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByContextIds([$contextId])
+            ->getMany();
+
+        if(!$submissionReviewAssignments->first()
+            || $submissionReviewAssignments->first()->getData('submissionId') != $submissionId
+            || $submissionReviewAssignments->first()->getData('id') != $reviewId)
+        {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
         $publication = $submission->getCurrentPublication();
         $htmlTitle = $publication->getLocalizedTitle(null, 'html');
         $articleTitle = PKPString::mapTitleHtmlTagsToXml($htmlTitle);
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $reviewAssignment = $submissionReviewAssignments->first();
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
         $impl = new DOMImplementation();
         $doctype = $impl->createDocumentType('article',
@@ -637,6 +695,7 @@ class PKPReviewController extends PKPBaseController
         $customMetaGroupObject->appendChild($customMetaReccomObject);
         $articleMeta->appendChild($customMetaGroupObject);
         $xml->formatOutput = true;
+        $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
         $xml->save($xmlFileName);
         header('Content-Description: File Transfer');
         header('Content-Type: application/xml');
@@ -647,5 +706,7 @@ class PKPReviewController extends PKPBaseController
         header('Content-Length: ' . filesize($xmlFileName));
         readfile($xmlFileName);
         unlink($xmlFileName);
+
+        return response()->json([], Response::HTTP_OK);
     }
 }

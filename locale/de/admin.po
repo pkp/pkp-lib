@@ -218,7 +218,7 @@ msgstr ""
 "{$targetFilename} fehlgeschlagen."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Task zum Laden der Nutzungsstatistik-Datei"

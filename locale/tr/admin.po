@@ -210,7 +210,7 @@ msgstr ""
 "{$targetFilename} olarak yeniden adlandırılması başarısız oldu."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Kullanım istatistikleri dosya yükleyici görevi"

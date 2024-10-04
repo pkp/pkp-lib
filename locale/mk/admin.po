@@ -212,7 +212,7 @@ msgstr ""
 "{$sourceFilename} во {$targetFilename} не успеа."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Користи постапка за фајл од корисничка статистика"

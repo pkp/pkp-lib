@@ -203,7 +203,7 @@ msgstr ""
 "{$sourceFilename} դեպի {$targetFilename}:"
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Օգտագործման վիճակագրության ֆայլերի բեռնիչի առաջադրանք"

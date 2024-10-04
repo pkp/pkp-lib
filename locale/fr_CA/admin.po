@@ -226,7 +226,7 @@ msgstr ""
 "par {$targetFilename} a échoué."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tâche de versement du fichier de statistiques d'utilisation"

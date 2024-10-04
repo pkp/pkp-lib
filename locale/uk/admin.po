@@ -215,7 +215,7 @@ msgstr ""
 "на {$targetFilename}."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Завдання завантажувача файлів статистики використання"

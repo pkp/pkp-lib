@@ -211,7 +211,7 @@ msgstr ""
 "{$targetFilename} nie powiodła się."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Zadanie ładowarki pliku statystyk użycia"

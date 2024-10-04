@@ -184,7 +184,7 @@ msgstr ""
 "{$targetFilename}."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "مهمة تحميل ملف إحصائيات الاستعمال"

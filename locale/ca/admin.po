@@ -217,7 +217,7 @@ msgstr ""
 "{$sourceFilename} per {$targetFilename} ha fallat."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"

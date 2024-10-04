@@ -197,7 +197,7 @@ msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tác vụ trình tải tệp thống kê sử dụng"

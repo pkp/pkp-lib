@@ -440,7 +440,7 @@ msgstr ""
 "bilmədi."
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr ""
+msgstr "Update Ror registry dataset cache"
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "İstifadə Statistikası Fayl Yükləyicisi vəzifəsi"

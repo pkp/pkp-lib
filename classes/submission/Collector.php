@@ -31,6 +31,8 @@ use PKP\plugins\Hook;
 use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\publication\PublicationCategory;
+
 
 /**
  * @template T of Submission
@@ -510,8 +512,10 @@ abstract class Collector implements CollectorInterface
         }
 
         if (isset($this->categoryIds)) {
-            $q->join('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
-                ->whereIn('pc.category_id', $this->categoryIds);
+            $publicationIds = PublicationCategory::whereIn('category_id', $this->categoryIds)
+            ->pluck('publication_id')->toArray();
+
+            $q->whereIn('s.current_publication_id', $publicationIds);
         }
 
         // Filter by any child pub object's DOI status

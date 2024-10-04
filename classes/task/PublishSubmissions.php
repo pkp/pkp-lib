@@ -20,6 +20,8 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\scheduledTask\ScheduledTask;
+use PKP\observers\events\MetadataChanged;
+
 
 class PublishSubmissions extends ScheduledTask
 {
@@ -50,6 +52,9 @@ class PublishSubmissions extends ScheduledTask
                 $datePublished = $submission->getCurrentPublication()->getData('datePublished');
                 if ($datePublished && strtotime($datePublished) <= strtotime(Core::getCurrentDate())) {
                     Repo::publication()->publish($submission->getCurrentPublication());
+                    
+                // dispatch the MetadataChanged event after publishing
+                event(new MetadataChanged($submission));
                 }
             }
         }

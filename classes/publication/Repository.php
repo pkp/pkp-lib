@@ -767,6 +767,23 @@ abstract class Repository
     }
 
     /**
+     * Assign categories to a publication.
+     *
+     * @param int[] $categoryIds
+     */
+    public function assignCategoriesToPublication(int $publicationId, array $categoryIds): void
+    {
+        $records = array_map(fn ($categoryId) => ['publication_id' => $publicationId, 'category_id' => $categoryId], $categoryIds);
+
+        PublicationCategory::upsert($records, ['publication_id', 'category_id']);
+
+        // delete categories that are no longer assigned
+        PublicationCategory::where('publication_id', $publicationId)
+            ->whereNotIn('category_id', $categoryIds)
+            ->delete();
+    }
+
+    /**
      * Create all DOIs associated with the publication.
      */
     abstract protected function createDois(Publication $newPublication): void;

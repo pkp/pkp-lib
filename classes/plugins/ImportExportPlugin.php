@@ -463,6 +463,13 @@ abstract class ImportExportPlugin extends Plugin
 
         return $exportFileName;
     }
+
+    /**
+     * @param string $exportType
+     */
+    public function getExportFilter($exportType) {
+        throw new Exception('Not implemented');
+    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -32,7 +32,7 @@ class RemoteActionConfirmationModal extends ConfirmationModal
      * @param string $title (optional) The localized modal title.
      * @param string $remoteAction (optional) A URL to be
      *  called when the confirmation button is clicked.
-     * @param string $titleIcon (optional) The icon to be used
+     * @param string $modalStyle (optional) The modal state/style to be used.
      *  in the modal title bar.
      * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
@@ -41,9 +41,9 @@ class RemoteActionConfirmationModal extends ConfirmationModal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($session, $dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($session, $dialogText, $title = null, $remoteAction = null, $modalStyle = null, $okButton = null, $cancelButton = null, $canClose = true)
     {
-        parent::__construct($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
+        parent::__construct($dialogText, $title, $modalStyle, $okButton, $cancelButton, $canClose);
 
         $this->_remoteAction = $remoteAction;
         $this->_csrfToken = $session->token();

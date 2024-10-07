@@ -239,6 +239,7 @@ class FormBuilderVocabulary
             'FBV_cancelUrlTarget' => $params['cancelUrlTarget'] ?? '',
             'FBV_translate' => $params['translate'] ?? true,
             'FBV_saveText' => $params['saveText'] ?? null,
+            'FBV_modalStyle' => $params['modalStyle'] ?? null,
         ]);
         return $smarty->fetch('form/formButtons.tpl');
     }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/controlledVocab/ControlledVocab.php
+ * @file lib/pkp/classes/controlledVocab/ControlledVocab.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
@@ -15,11 +15,13 @@
 namespace PKP\controlledVocab;
 
 use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Builder;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\facades\Locale;
 
 class ControlledVocab extends Model
@@ -36,39 +38,29 @@ class ControlledVocab extends Model
     public const CONTROLLED_VOCAB_SUBMISSION_SUBJECT = 'submissionSubject';
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
+     * @copydoc \Illuminate\Database\Eloquent\Model::$table
      */
     protected $table = 'controlled_vocabs';
 
     /**
-     * The primary key for the model.
-     *
-     * @var string
+     * @copydoc \Illuminate\Database\Eloquent\Model::$primaryKey
      */
     protected $primaryKey = 'controlled_vocab_id';
 
     /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array<string>|bool
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
     protected $guarded = [
         'controlled_vocab_id',
     ];
 
     /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasTimestamps::$timestamps
      */
     public $timestamps = false;
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts
      */
     protected function casts(): array
     {
@@ -87,7 +79,7 @@ class ControlledVocab extends Model
         return Attribute::make(
             get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
             set: fn($value) => [$this->primaryKey => $value],
-        );
+        )->shouldCache();
     }
 
     /**
@@ -112,6 +104,7 @@ class ControlledVocab extends Model
         return in_array($vocab, static::getDefinedVocabSymbolic());
     }
 
+    // TODO: Investigate if this is necessary anymore
     /**
      * Get the locale field names for this controlled vocab
      */
@@ -126,6 +119,7 @@ class ControlledVocab extends Model
             : [];
     }
 
+    // TODO: Investigate if this is necessary anymore
     /**
      * Compatibility function for including note IDs in grids.
      *
@@ -137,7 +131,15 @@ class ControlledVocab extends Model
     }
 
     /**
-     * Scope a query to only include notes with a specific user ID.
+     * Get all controlled vocab entries for this controlled vocab
+     */
+    public function controlledVocabEntries(): HasMany
+    {
+        return $this->hasMany(ControlledVocabEntry::class, 'controlled_vocab_id', 'controlled_vocab_id');
+    }
+
+    /**
+     * Scope a query to only include vocabs with a specific symbolic.
      */
     public function scopeWithSymbolic(Builder $query, string $symbolic): Builder
     {
@@ -145,7 +147,7 @@ class ControlledVocab extends Model
     }
 
     /**
-     * Scope a query to only include notes with a specific assoc type and assoc ID.
+     * Scope a query to only include vocabs with a specific assoc type and assoc ID.
      */
     public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
     {
@@ -155,12 +157,39 @@ class ControlledVocab extends Model
     }
 
     /**
+     * Scope a query to only include vocabs associated with given context id
+     */
+    public function scopeWithContextId(Builder $query, int $contextId): Builder
+    {
+        return $query
+            ->where(
+                fn ($query) => $query
+                    ->select('context_id')
+                    ->from('submissions')
+                    ->whereColumn(
+                        DB::raw(
+                            "(SELECT publications.submission_id 
+                            FROM publications 
+                            INNER JOIN {$this->table} 
+                            ON publications.publication_id = {$this->table}.assoc_id 
+                            LIMIT 1)"
+                        ),
+                        '=',
+                        'submissions.submission_id'
+                    ), 
+                $contextId
+            );
+    }
+
+    /**
      * Get a list of controlled vocabulary options.
      *
      * @return array $controlledVocabEntryId => name
      */
-    public function enumerate(string $settingName = 'name'): array
+    public function enumerate(?string $settingName = null): array
     {    
+        $settingName ??= $this->symbolic;
+
         return DB::table('controlled_vocab_entries AS e')
             ->leftJoin(
                 'controlled_vocab_entry_settings AS l',

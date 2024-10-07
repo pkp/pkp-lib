@@ -15,7 +15,7 @@
 namespace PKP\user;
 
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\user\User;
 use PKP\user\interest\UserInterest;
 
@@ -26,14 +26,23 @@ class InterestManager
      */
     public function getAllInterests(?string $filter = null): array
     {
-        $interests = Repo::userInterest()->getAllInterests($filter);
+        $controlledVocab = Repo::controlledVocab()->build(
+            UserInterest::CONTROLLED_VOCAB_INTEREST
+        );
 
-        $interestReturner = [];
-        while ($interest = $interests->next()) {
-            $interestReturner[] = $interest->getInterest();
-        }
-
-        return $interestReturner;
+        return ControlledVocabEntry::query()
+            ->withControlledVocabId($controlledVocab->id)
+            ->when(
+                $filter,
+                fn($query) => $query->withSetting(
+                    UserInterest::CONTROLLED_VOCAB_INTEREST,
+                    $filter
+                )
+            )
+            ->get()
+            ->sortBy(UserInterest::CONTROLLED_VOCAB_INTEREST)
+            ->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)
+            ->toArray();
     }
 
     /**
@@ -41,23 +50,17 @@ class InterestManager
      */
     public function getInterestsForUser(User $user): array
     {
-        static $interestsCache = [];
-        $interests = [];
-        $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var InterestEntryDAO $interestEntryDao */
-        $controlledVocab = Repo::controlledVocab()->build(UserInterest::CONTROLLED_VOCAB_INTEREST);
-
-        foreach (Repo::userInterest()->getUserInterestIds($user->getId()) as $interestEntryId) {
-            /** @var InterestEntry */
-            $interestEntry = $interestsCache[$interestEntryId] ??= $interestEntryDao->getById(
-                $interestEntryId,
-                $controlledVocab->id
-            );
-            if ($interestEntry) {
-                $interests[] = $interestEntry->getInterest();
-            }
-        }
-
-        return $interests;
+        return ControlledVocabEntry::query()
+            ->whereHas(
+                "controlledVocab",
+                fn($query) => $query
+                    ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
+                    ->withAssoc(0, 0)
+            )
+            ->whereHas("userInterest", fn($query) => $query->withUserId($user->getId()))
+            ->get()
+            ->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST, 'id')
+            ->toArray();
     }
 
     /**

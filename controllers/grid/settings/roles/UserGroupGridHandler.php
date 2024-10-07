@@ -126,7 +126,7 @@ class UserGroupGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addUserGroup'),
                     __('grid.roles.add'),
-                    'modal_add_role'
+                    'side-modal'
                 ),
                 __('grid.roles.add'),
                 'add_role'

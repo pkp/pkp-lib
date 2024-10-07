@@ -76,7 +76,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'addFile', null, $this->getActionArgs()),
                         __('grid.action.addFile'),
-                        'modal_add_file'
+                        'side-modal'
                     ),
                     __('grid.action.addFile'),
                     'add'
@@ -90,7 +90,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'viewLibrary', null, $this->getActionArgs()),
                     __('grid.action.viewLibrary'),
-                    'modal_information'
+                    'side-modal'
                 ),
                 __('grid.action.viewLibrary'),
                 'more_info'

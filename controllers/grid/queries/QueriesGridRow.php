@@ -81,7 +81,7 @@ class QueriesGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editQuery', null, $actionArgs),
                             __('grid.action.updateQuery'),
-                            'modal_edit'
+                            'side-modal'
                         ),
                         __('grid.action.edit'),
                         'edit'
@@ -98,7 +98,7 @@ class QueriesGridRow extends GridRow
                             __('common.confirmDelete'),
                             __('grid.action.delete'),
                             $router->url($request, null, null, 'deleteQuery', null, $actionArgs),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'

@@ -120,7 +120,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'addFile', null, $this->getActionArgs()),
                         __('grid.action.addFile'),
-                        'modal_add_file'
+                        'side-modal'
                     ),
                     __('grid.action.addFile'),
                     'add'

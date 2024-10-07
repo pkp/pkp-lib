@@ -90,7 +90,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
             new ConfirmationModal(
                 __('reviewer.aboutDueDates.text'),
                 __('reviewer.aboutDueDates'),
-                'modal_information',
+                'primary',
                 null,
                 '',
                 false

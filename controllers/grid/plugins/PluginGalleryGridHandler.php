@@ -259,7 +259,7 @@ class PluginGalleryGridHandler extends GridHandler
                     __($installConfirmKey),
                     __($installActionKey),
                     $router->url($request, null, null, $installOp, null, ['rowId' => $request->getUserVar('rowId')]),
-                    'modal_information'
+                    'side-modal'
                 ),
                 __($installActionKey),
                 null

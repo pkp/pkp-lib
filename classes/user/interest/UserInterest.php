@@ -15,10 +15,12 @@
 namespace PKP\user\interest;
 
 use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use PKP\controlledVocab\ControlledVocabEntry;
+use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Builder;
-
 
 class UserInterest extends Model
 {
@@ -27,39 +29,29 @@ class UserInterest extends Model
     public const CONTROLLED_VOCAB_INTEREST = 'interest';
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
+     * @copydoc \Illuminate\Database\Eloquent\Model::$table
      */
     protected $table = 'user_interests';
 
     /**
-     * The primary key for the model.
-     *
-     * @var string
+     * @copydoc \Illuminate\Database\Eloquent\Model::$primaryKey
      */
     protected $primaryKey = 'user_interest_id';
 
     /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array<string>|bool
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
     protected $guarded = [
         'user_interest_id',
     ];
 
     /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasTimestamps::$timestamps
      */
     public $timestamps = false;
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts
      */
     protected function casts(): array
     {
@@ -77,9 +69,29 @@ class UserInterest extends Model
         return Attribute::make(
             get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
             set: fn($value) => [$this->primaryKey => $value],
-        );
+        )->shouldCache();
     }
 
+    /**
+     * Accessor for user.
+     * Should replace with relationship once User is converted to an Eloquent Model.
+     */
+    protected function user(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Repo::user()->get($this->userId, true),
+        )->shouldCache();
+    }
+
+    /**
+     * Get all the controlled vocab entries for this user interest
+     */
+    public function controlledVocabEntries(): HasMany
+    {
+        return $this->hasMany(ControlledVocabEntry::class, 'controlled_vocab_entry_id', 'controlled_vocab_entry_id');
+    }
+
+    // TODO: Investigate if this is necessary anymore
     /**
      * Compatibility function for including note IDs in grids.
      *
@@ -91,10 +103,18 @@ class UserInterest extends Model
     }
 
     /**
-     * Scope a query to only include notes with a specific assoc type and assoc ID.
+     * Scope a query to only include interests with a specific user id
      */
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
         return $query->where('user_id', $userId);
+    }
+
+    /**
+     * Scope a query to only include interest with a specific controlled vocab entry id
+     */
+    public function scopeWithControlledVocabEntryId(Builder $query, int $controlledVocabEntryId): Builder
+    {
+        return $query->where('controlled_vocab_entry_id', $controlledVocabEntryId);
     }
 }

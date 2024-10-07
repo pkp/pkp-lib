@@ -43,12 +43,14 @@
 			title: options.title,
 			message: options.dialogText,
 			actions: [],
-			closeLegacyHandler: this.callbackWrapper(this.modalClose)
+			closeLegacyHandler: this.callbackWrapper(this.modalClose),
+			modalStyle: options.modalStyle,
 		};
 
 		if (options.okButton) {
 			this.dialogProps.actions.push({
 				label: options.okButton,
+				isWarnable: options.modalStyle === 'negative',
 				callback: this.callbackWrapper(this.modalConfirm)
 			});
 		}
@@ -56,7 +58,7 @@
 		if (options.cancelButton) {
 			this.dialogProps.actions.push({
 				label: options.cancelButton,
-				isWarnable: true,
+				isWarnable: options.modalStyle !== 'negative',
 				callback: this.callbackWrapper(this.modalClose)
 			});
 		}

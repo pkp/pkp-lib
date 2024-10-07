@@ -90,7 +90,7 @@ class UserGridRow extends GridRow
                                 __('grid.user.mergeUsers.confirm', ['oldUsername' => $oldUser->getUsername(), 'newUsername' => $element->getUsername()]),
                                 null,
                                 $router->url($request, null, null, 'mergeUsers', null, $actionArgs),
-                                'modal_merge_users'
+                                'negative'
                             ),
                             __('grid.user.mergeUsers.mergeIntoUser'),
                             'merge_users'
@@ -106,7 +106,7 @@ class UserGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editEmail', null, $actionArgs),
                             __('grid.user.email'),
-                            'modal_email',
+                            'side-modal',
                             true
                         ),
                         __('grid.user.email'),
@@ -119,7 +119,7 @@ class UserGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editUser', null, $actionArgs),
                             __('grid.user.edit'),
-                            'modal_edit',
+                            'side-modal',
                             true
                         ),
                         __('grid.user.edit'),
@@ -149,7 +149,7 @@ class UserGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'editDisableUser', null, $actionArgs),
                                 __('grid.user.disable'),
-                                'disable',
+                                'side-modal',
                                 true
                             ),
                             __('grid.user.disable'),
@@ -165,7 +165,7 @@ class UserGridRow extends GridRow
                             __('manager.people.confirmRemove'),
                             __('common.remove'),
                             $router->url($request, null, null, 'removeUser', null, $actionArgs),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.remove'),
                         'delete'
@@ -185,7 +185,8 @@ class UserGridRow extends GridRow
                             new RedirectConfirmationModal(
                                 __('grid.user.confirmLogInAs'),
                                 __('grid.action.logInAs'),
-                                $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$this->getId()])
+                                $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$this->getId()]),
+                                'primary'
                             ),
                             __('grid.action.logInAs'),
                             'enroll_user'
@@ -204,7 +205,7 @@ class UserGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'mergeUsers', null, ['oldUserId' => $rowId]),
                                 __('grid.user.mergeUsers.mergeUser'),
-                                'modal_merge_users',
+                                'side-modal',
                                 true
                             ),
                             __('grid.user.mergeUsers.mergeUser'),

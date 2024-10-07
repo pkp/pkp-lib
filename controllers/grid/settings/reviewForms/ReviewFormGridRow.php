@@ -56,7 +56,7 @@ class ReviewFormGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editReviewForm', null, ['rowId' => $rowId]),
                             __('grid.action.edit'),
-                            'modal_edit',
+                            'side-modal',
                             true
                         ),
                         __('grid.action.edit'),
@@ -104,7 +104,8 @@ class ReviewFormGridRow extends GridRow
                             $request->getSession(),
                             __('manager.reviewForms.confirmDelete'),
                             null,
-                            $router->url($request, null, null, 'deleteReviewForm', null, ['rowId' => $rowId])
+                            $router->url($request, null, null, 'deleteReviewForm', null, ['rowId' => $rowId]),
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'

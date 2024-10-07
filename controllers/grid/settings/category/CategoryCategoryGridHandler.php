@@ -94,7 +94,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addCategory'),
                     __('grid.category.add'),
-                    'modal_manage'
+                    'side-modal'
                 ),
                 __('grid.category.add'),
                 'add_category'

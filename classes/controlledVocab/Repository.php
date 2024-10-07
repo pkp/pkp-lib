@@ -14,10 +14,11 @@
 
 namespace PKP\controlledVocab;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
-use PKP\db\DAORegistry;
 use PKP\controlledVocab\ControlledVocab;
-use PKP\controlledVocab\ControlledVocabEntryDAO;
+use PKP\controlledVocab\ControlledVocabEntry;
+use Throwable;
 
 class Repository
 {
@@ -26,7 +27,8 @@ class Repository
      */
     public function build(string $symbolic, int $assocType = 0, int $assocId = 0): ControlledVocab
     {
-        return ControlledVocab::withSymbolic($symbolic)
+        return ControlledVocab::query()
+            ->withSymbolic($symbolic)
             ->withAssoc($assocType, $assocId)
             ->firstOr(fn() => ControlledVocab::create([
                 'assocType' => $assocType,
@@ -36,58 +38,30 @@ class Repository
     }
 
     /**
-     * Return the Controlled Vocab Entry DAO for this Controlled Vocab.
-     * Can be subclassed to provide extended DAOs.
-     * 
-     * Will be removed once the eloquent based settings table relations task completes.
-     */
-    public function getEntryDAO(): ControlledVocabEntryDAO
-    {
-        return DAORegistry::getDAO('ControlledVocabEntryDAO');
-    }
-
-    /**
-     * Return the extended Controlled Vocab Entry DAO.
-     * Can be subclassed to provide extended DAOs.
-     * 
-     * Will be removed once the eloquent based settings table relations task completes.
-     */
-    public function getEntryDaoBySymbolic(string $symbolic): ControlledVocabEntryDAO
-    {
-        return DAORegistry::getDAO(ucfirst($symbolic) . 'EntryDAO');
-    }
-
-    /**
      * Get localized entry data
      */
     public function getBySymbolic(
         string $symbolic,
         int $assocType,
         int $assocId,
-        array $locales = [],
-        ?string $entryDaoClassName = null
+        array $locales = []
     ): array
     {
         $result = [];
 
-        $controlledVocab = $this->build($symbolic, $assocType, $assocId);
-        
-        /** @var  ControlledVocabEntryDAO $entryDao */
-        $entryDao = $entryDaoClassName
-            ? DAORegistry::getDAO($entryDaoClassName)
-            : $this->getEntryDaoBySymbolic($symbolic);
-
-        $controlledVocabEntries = $entryDao->getByControlledVocabId($controlledVocab->id);
-
-        while ($vocabEntry = $controlledVocabEntries->next()) {
-            $vocabs = $vocabEntry->getData($symbolic);
-            foreach ($vocabs as $locale => $value) {
-                if (empty($locales) || in_array($locale, $locales)) {
+        ControlledVocabEntry::query()
+            ->whereHas(
+                "controlledVocab",
+                fn($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
+            )
+            ->withLocale($locales)
+            ->get()
+            ->each(function ($entry) use (&$result, $symbolic) {
+                foreach ($entry->{$symbolic} as $locale => $value) {
                     $result[$locale][] = $value;
                 }
-            }
-        }
-
+            });
+        
         return $result;
     }
 
@@ -114,37 +88,62 @@ class Repository
         int $assocType,
         int $assocId,
         bool $deleteFirst = true,
-        ?string $entryDaoClassName = null
-    ): void
+    ): bool
     {
-        /** @var  ControlledVocabEntryDAO $entryDao */
-        $entryDao = $entryDaoClassName
-            ? DAORegistry::getDAO($entryDaoClassName)
-            : $this->getEntryDaoBySymbolic($symbolic);
+        $controlledVocab = $this->build($symbolic, $assocType, $assocId);
+        $controlledVocab->load('controlledVocabEntries');
 
-        $currentControlledVocab = $this->build($symbolic, $assocType, $assocId);
+        try {
 
-        if ($deleteFirst) {
-            collect($currentControlledVocab->enumerate( $symbolic))
-                ->keys()
-                ->each(fn (int $id) => $entryDao->deleteObjectById($id));
-        }
+            DB::beginTransaction();
 
-        if (is_array($vocabs)) { // localized, array of arrays
-            foreach ($vocabs as $locale => $list) {
-                if (is_array($list)) {
-                    $list = array_unique($list); // Remove any duplicate keywords
-                    $i = 1;
-                    foreach ($list as $vocab) {
-                        $vocabEntry = $entryDao->newDataObject();
-                        $vocabEntry->setControlledVocabId($currentControlledVocab->id);
-                        $vocabEntry->setData($symbolic, $vocab, $locale);
-                        $vocabEntry->setSequence($i);
-                        $i++;
-                        $entryDao->insertObject($vocabEntry);
-                    }
-                }
+            if ($deleteFirst) {
+                ControlledVocabEntry::whereIn(
+                    'id',
+                    $controlledVocab->controlledVocabEntries->pluck('id')->toArray()
+                )->delete();
             }
+
+            collect($vocabs)
+                ->each(
+                    fn (array|string $entries, string $locale) => collect(Arr::wrap($entries))
+                        ->each(
+                            fn (string $vocab, $seq = 1) => 
+                                ControlledVocabEntry::create([
+                                    'controlledVocabId' => $controlledVocab->id,
+                                    'seq' => $seq,
+                                    "{$symbolic}" => [
+                                        $locale => $vocab
+                                    ],
+                                ]) 
+                        )
+                );
+            
+            // TODO: Should Resequence?
+                            
+            DB::commit();
+
+            return true;
+
+        } catch (Throwable $exception) {
+
+            DB::rollBack();
         }
+
+        return false;
+    }
+
+    /**
+     * Resequence controlled vocab entries for a given controlled vocab id
+     */
+    public function resequence(int $controlledVocabId): void
+    {
+        ControlledVocabEntry::query()
+            ->withControlledVocabId($controlledVocabId)
+            ->each(
+                fn ($controlledVocabEntry, $seq = 1) => $controlledVocabEntry->update([
+                    'seq' => $seq,
+                ])
+            );
     }
 }

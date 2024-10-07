@@ -21,14 +21,16 @@ use PKP\controlledVocab\ControlledVocab;
 
 class ValidatorControlledVocab extends Validator
 {
-    public array $acceptedValues;
+    protected array $acceptedValues;
 
     /**
      * Constructor
      */
     public function __construct(string $symbolic, int $assocType, int $assocId)
     {
-        $controlledVocab = ControlledVocab::withSymbolic($symbolic)
+        /** @var ControlledVocab $controlledVocab */
+        $controlledVocab = ControlledVocab::query()
+            ->withSymbolic($symbolic)
             ->withAssoc($assocType, $assocId)
             ->first();
 

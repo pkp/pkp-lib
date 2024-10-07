@@ -15,14 +15,15 @@
 namespace PKP\tests\classes\form\validation;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
-use PKP\controlledVocab\ControlledVocabEntryDAO;
 use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
 use PKP\form\validation\FormValidatorControlledVocab;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabEntry;
 
 #[CoversClass(FormValidatorControlledVocab::class)]
 class FormValidatorControlledVocabTest extends PKPTestCase
@@ -32,24 +33,32 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         // Test form
         $form = new Form('some template');
 
+        $assocId = (DB::table("publications")
+            ->select("publication_id as id")
+            ->orderBy("publication_id", "desc")
+            ->first()
+            ->id ?? 0) + 100;
+
         $testControlledVocab = Repo::controlledVocab()->build(
-            'testVocab',
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
             Application::ASSOC_TYPE_CITATION,
-            333
+            $assocId
         );
 
-        /** @var ControlledVocabEntryDAO */
-        $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
+        // TODO : Investigate if possible to insert dummy symbolic in `controlled_vocab_entry_settings` table
+        $controlledVocabEntryId1 = ControlledVocabEntry::create([
+            'controlledVocabId' => $testControlledVocab->id,
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+                'en' => 'testEntry',
+            ],
+        ])->id;
 
-        $testControlledVocabEntry1 = $controlledVocabEntryDao->newDataObject();
-        $testControlledVocabEntry1->setName('testEntry', 'en');
-        $testControlledVocabEntry1->setControlledVocabId($testControlledVocab->id);
-        $controlledVocabEntryId1 = $controlledVocabEntryDao->insertObject($testControlledVocabEntry1);
-
-        $testControlledVocabEntry2 = $controlledVocabEntryDao->newDataObject();
-        $testControlledVocabEntry2->setName('testEntry', 'en');
-        $testControlledVocabEntry2->setControlledVocabId($testControlledVocab->id);
-        $controlledVocabEntryId2 = $controlledVocabEntryDao->insertObject($testControlledVocabEntry2);
+        $controlledVocabEntryId2 = ControlledVocabEntry::create([
+            'controlledVocabId' => $testControlledVocab->id,
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+                'en' => 'testEntry',
+            ],
+        ])->id;
 
         // Instantiate validator
         $validator = new FormValidatorControlledVocab(
@@ -57,9 +66,9 @@ class FormValidatorControlledVocabTest extends PKPTestCase
             'testData',
             FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
             'some.message.key',
-            'testVocab',
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
             Application::ASSOC_TYPE_CITATION,
-            333
+            $assocId
         );
 
         $form->setData('testData', $controlledVocabEntryId1);
@@ -71,9 +80,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         $form->setData('testData', 3);
         self::assertFalse($validator->isValid());
 
-        // Delete the test entried
-        $controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId1);
-        $controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId2);
-        $testControlledVocab->delete();
+        // Delete the test entries
+        ControlledVocab::find($testControlledVocab->id)->delete();
     }
 }

@@ -65,8 +65,13 @@ trait ModelWithSettings
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+        
         if (static::getSchemaName()) {
             $this->setSchemaData();
+        } else {
+            if (!empty($this->fillable)) {
+                $this->mergeFillable(array_merge($this->getSettings(), $this->getMultilingualProps()));
+            }
         }
     }
 
@@ -135,11 +140,11 @@ trait ModelWithSettings
         $this->multilingualProps = array_merge($this->getMultilingualProps(), $schemaService->getMultilingualProps($this->getSchemaName()));
 
         $writableProps = $schemaService->groupPropsByOrigin($this->getSchemaName(), true);
-        $this->fillable = array_merge(
+        $this->fillable = array_values(array_unique(array_merge(
             $writableProps[Schema::ATTRIBUTE_ORIGIN_SETTINGS],
             $writableProps[Schema::ATTRIBUTE_ORIGIN_MAIN],
             $this->fillable,
-        );
+        )));
     }
 
     /**

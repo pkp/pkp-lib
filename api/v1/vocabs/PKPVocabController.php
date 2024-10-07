@@ -24,6 +24,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
@@ -101,7 +102,12 @@ class PKPVocabController extends PKPBaseController
         $vocab = $requestParams['vocab'] ?? '';
         $locale = $requestParams['locale'] ?? Locale::getLocale();
         $term = $requestParams['term'] ?? null;
-        $locales = array_merge($context->getSupportedSubmissionMetadataLocales(), isset($requestParams['submissionId']) ? Repo::submission()->get((int) $requestParams['submissionId'])?->getPublicationLanguages() ?? [] : []);
+        $locales = array_merge(
+            $context->getSupportedSubmissionMetadataLocales(),
+            isset($requestParams['submissionId'])
+                ? (Repo::submission()->get((int) $requestParams['submissionId'])?->getPublicationLanguages() ?? [])
+                : []
+            );
 
         if (!in_array($locale, $locales)) {
             return response()->json([
@@ -110,9 +116,14 @@ class PKPVocabController extends PKPBaseController
         }
 
         if (ControlledVocab::hasDefinedVocabSymbolic($vocab)) {
-            /** @var \PKP\controlledVocab\ControlledVocabEntryDAO $entryDao */
-            $entryDao = Repo::controlledVocab()->getEntryDaoBySymbolic($vocab);
-            $entries = $entryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
+            $entries = ControlledVocabEntry::query()
+                ->whereHas(
+                    "controlledVocab",
+                    fn($query) => $query->withSymbolic($vocab)->withContextId($context->getId())
+                )
+                ->withLocale($locale)
+                ->when($term, fn ($query) => $query->withSetting($vocab, $term))
+                ->get();
         } else {
             $entries = [];
             Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
@@ -120,7 +131,7 @@ class PKPVocabController extends PKPBaseController
 
         $data = [];
         foreach ($entries as $entry) {
-            $data[] = $entry->getData($vocab, $locale);
+            $data[] = $entry->getLocalizedData($vocab, $locale);
         }
 
         $data = array_values(array_unique($data));

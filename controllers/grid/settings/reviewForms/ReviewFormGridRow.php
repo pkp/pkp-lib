@@ -73,7 +73,8 @@ class ReviewFormGridRow extends GridRow
                         $request->getSession(),
                         __('manager.reviewForms.confirmCopy'),
                         null,
-                        $router->url($request, null, null, 'copyReviewForm', null, ['rowId' => $rowId])
+                        $router->url($request, null, null, 'copyReviewForm', null, ['rowId' => $rowId]),
+                        'primary'
                     ),
                     __('grid.action.copy'),
                     'copy'

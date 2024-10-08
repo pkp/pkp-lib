@@ -55,7 +55,7 @@ class UnconsiderReviewLinkAction extends LinkAction
                         'stageId' => $reviewAssignment->getStageId()
                     ]
                 ),
-                'modal_information'
+                'negative'
             ),
             __('editor.review.revertDecision'),
             'unconsider'

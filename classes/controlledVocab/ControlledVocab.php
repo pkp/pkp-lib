@@ -104,32 +104,6 @@ class ControlledVocab extends Model
         return in_array($vocab, static::getDefinedVocabSymbolic());
     }
 
-    // TODO: Investigate if this is necessary anymore
-    /**
-     * Get the locale field names for this controlled vocab
-     */
-    public function getLocaleFieldNames(): array
-    {
-        if (!$this->symbolic) {
-            return [];
-        }
-
-        return static::hasDefinedVocabSymbolic($this->symbolic)
-            ? [$this->symbolic]
-            : [];
-    }
-
-    // TODO: Investigate if this is necessary anymore
-    /**
-     * Compatibility function for including note IDs in grids.
-     *
-     * @deprecated 3.5.0 Use $model->id instead. Can be removed once the DataObject pattern is removed.
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
     /**
      * Get all controlled vocab entries for this controlled vocab
      */
@@ -216,10 +190,7 @@ class ControlledVocab extends Model
                 'e.controlled_vocab_entry_id',
                 DB::raw(
                     'COALESCE (l.setting_value, p.setting_value, n.setting_value) as setting_value'
-                ),
-                DB::raw(
-                    'COALESCE (l.setting_type, p.setting_type, n.setting_type) as setting_type'
-                ),
+                )
             ])
             ->where('e.controlled_vocab_id', $this->id)
             ->orderBy('e.seq')

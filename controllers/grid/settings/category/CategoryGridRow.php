@@ -65,7 +65,8 @@ class CategoryGridRow extends GridRow
                     $request->getSession(),
                     __('grid.category.removeText'),
                     null,
-                    $router->url($request, null, null, 'deleteCategory', null, $actionArgs)
+                    $router->url($request, null, null, 'deleteCategory', null, $actionArgs),
+                    'negative'
                 ),
                 __('grid.action.remove'),
                 'delete'

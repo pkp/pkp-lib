@@ -40,7 +40,6 @@ class ValidatorControlledVocabTest extends PKPTestCase
             $assocId
         );
 
-        // TODO : Investigate if possible to insert dummy symbolic in `controlled_vocab_entry_settings` table
         $controlledVocabEntryId1 = ControlledVocabEntry::create([
             'controlledVocabId' => $testControlledVocab->id,
             ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
@@ -64,7 +63,7 @@ class ValidatorControlledVocabTest extends PKPTestCase
         self::assertTrue($validator->isValid($controlledVocabEntryId2));
         self::assertFalse($validator->isValid(3));
 
-        // Delete the test entried
+        // Delete the test vocab along with entries
         ControlledVocab::find($testControlledVocab->id)->delete();
     }
 }

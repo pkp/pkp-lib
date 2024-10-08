@@ -52,7 +52,7 @@ class ControlledVocabEntry extends Model
     public $timestamps = false;
 
     /**
-     * @inheritDoc
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettingsTable
      */
     public function getSettingsTable(): string
     {
@@ -72,7 +72,7 @@ class ControlledVocabEntry extends Model
     }
 
     /**
-     * @inheritDoc
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSchemaName
      */
     public static function getSchemaName(): ?string
     {
@@ -80,7 +80,7 @@ class ControlledVocabEntry extends Model
     }
 
     /**
-     * @inheritDoc
+     * @copydoc \PKP\core\traits\ModelWithSettings::getMultilingualProps
      */
     public function getMultilingualProps(): array
     {
@@ -92,7 +92,7 @@ class ControlledVocabEntry extends Model
     }
 
     /**
-     * @inheritDoc
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettings
      */
     public function getSettings(): array
     {

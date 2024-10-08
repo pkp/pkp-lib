@@ -123,7 +123,6 @@ class Repository
                     ])->id
                 );
             
-            // TODO: Investigate the impact of applied patch from https://github.com/pkp/pkp-lib/issues/10423
             collect($currentInterests->pluck('id'))
                 ->merge($newInterestIds)
                 ->each(fn ($interestId) => UserInterest::create([

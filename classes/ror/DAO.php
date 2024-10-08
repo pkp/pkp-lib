@@ -56,6 +56,8 @@ class DAO extends EntityDAO
 
     /**
      * Get the parent object ID column name
+     *
+     * @return string
      */
     public function getParentColumn(): string
     {
@@ -64,6 +66,8 @@ class DAO extends EntityDAO
 
     /**
      * Instantiate a new DataObject
+     *
+     * @return Ror
      */
     public function newDataObject(): Ror
     {
@@ -72,6 +76,10 @@ class DAO extends EntityDAO
 
     /**
      * Get the number of RORs matching the configured query
+     *
+     * @param Collector $query
+     *
+     * @return int
      */
     public function getCount(Collector $query): int
     {
@@ -82,6 +90,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @param Collector $query
      *
      * @return Collection<int,int>
      */
@@ -95,6 +105,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of rors matching the configured query
+     *
+     * @param Collector $query
      *
      * @return LazyCollection<int,T>
      */
@@ -111,9 +123,7 @@ class DAO extends EntityDAO
         });
     }
 
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
+    /** @copydoc EntityDAO::fromRow() */
     public function fromRow(object $row): Ror
     {
         /** @var Ror $ror */
@@ -122,17 +132,13 @@ class DAO extends EntityDAO
         return $ror;
     }
 
-    /**
-     * @copydoc EntityDAO::insert()
-     */
+    /** @copydoc EntityDAO::insert() */
     public function insert(Ror $ror): int
     {
         return parent::_insert($ror);
     }
 
-    /**
-     * @copydoc EntityDAO::update()
-     */
+    /** @copydoc EntityDAO::update() */
     public function update(Ror $ror): void
     {
         if (empty($ror->getId())) {
@@ -142,9 +148,7 @@ class DAO extends EntityDAO
         parent::_update($ror);
     }
 
-    /**
-     * @copydoc EntityDAO::delete()
-     */
+    /** @copydoc EntityDAO::delete() */
     public function delete(Ror $ror): void
     {
         parent::_delete($ror);
@@ -154,6 +158,7 @@ class DAO extends EntityDAO
      * Get ror_id for given ror.
      *
      * @param string $ror
+     *
      * @return int
      */
     public function getIdByRor(string $ror): int
@@ -173,6 +178,7 @@ class DAO extends EntityDAO
      * Check if ror exists with given ror
      *
      * @param string $ror
+     *
      * @return bool
      */
     public function existsByRor(string $ror): bool
@@ -186,6 +192,7 @@ class DAO extends EntityDAO
      * Insert on duplicate update.
      *
      * @param Ror $ror
+     *
      * @return void
      */
     public function updateOrInsert(Ror $ror): void

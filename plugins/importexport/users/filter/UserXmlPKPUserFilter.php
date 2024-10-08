@@ -26,7 +26,6 @@ use PKP\mail\mailables\UserCreated;
 use PKP\plugins\importexport\users\PKPUserImportExportDeployment;
 use PKP\security\Validation;
 use PKP\site\SiteDAO;
-use PKP\user\InterestManager;
 use PKP\user\User;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
@@ -264,8 +263,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                 $n = $interestNodeList->item(0);
                 if ($n) {
                     $interests = preg_split('/,\s*/', $n->textContent);
-                    $interestManager = new InterestManager();
-                    $interestManager->setInterestsForUser($user, $interests);
+                    Repo::userInterest()->setInterestsForUser($user, $interests);
                 }
             }
 

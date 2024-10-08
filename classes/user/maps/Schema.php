@@ -16,7 +16,6 @@ namespace PKP\user\maps;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\user\interest\UserInterest;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -187,7 +186,7 @@ class Schema extends \PKP\core\maps\Schema
                 case 'interests':
                     $output[$prop] = [];
                     if ($this->context) {
-                        $interests = collect((new InterestManager())->getInterestsForUser($user))
+                        $interests = collect(Repo::userInterest()->getInterestsForUser($user))
                             ->map(fn($value, $index) => ['id' => $index, 'interest' => $value])
                             ->values()
                             ->toArray();

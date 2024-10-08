@@ -27,7 +27,6 @@ use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\Notification;
 use PKP\security\Validation;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\user\InterestManager;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class CreateReviewerForm extends ReviewerForm
@@ -143,8 +142,7 @@ class CreateReviewerForm extends ReviewerForm
         $this->setData('reviewerId', $reviewerId);
 
         // Insert the user interests
-        $interestManager = new InterestManager();
-        $interestManager->setInterestsForUser($user, $this->getData('interests'));
+        Repo::userInterest()->setInterestsForUser($user, $this->getData('interests'));
 
         // Assign the selected user group ID to the user
         $userGroupId = (int) $this->getData('userGroupId');

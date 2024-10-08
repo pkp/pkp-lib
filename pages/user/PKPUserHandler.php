@@ -17,12 +17,12 @@
 namespace PKP\pages\user;
 
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\security\Validation;
-use PKP\user\InterestManager;
 
 class PKPUserHandler extends Handler
 {
@@ -46,7 +46,7 @@ class PKPUserHandler extends Handler
     {
         return new JSONMessage(
             true,
-            (new InterestManager())->getAllInterests($request->getUserVar('term'))
+            Repo::userInterest()->getAllInterests($request->getUserVar('term'))
         );
     }
 

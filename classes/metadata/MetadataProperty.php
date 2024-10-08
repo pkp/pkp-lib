@@ -429,8 +429,7 @@ class MetadataProperty
                                         fn ($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
                                     )
                                     ->withLocale($locale)
-                                    // TODO: Investigate if this need to be 'name' or $symbolic for settingName
-                                    ->withSetting('name', $value)
+                                    ->withSetting($symbolic, $value)
                                     ->first();
         
                                 if (!is_null($entry)) {

@@ -91,17 +91,6 @@ class UserInterest extends Model
         return $this->hasMany(ControlledVocabEntry::class, 'controlled_vocab_entry_id', 'controlled_vocab_entry_id');
     }
 
-    // TODO: Investigate if this is necessary anymore
-    /**
-     * Compatibility function for including note IDs in grids.
-     *
-     * @deprecated 3.5.0 Use $model->id instead. Can be removed once the DataObject pattern is removed.
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
     /**
      * Scope a query to only include interests with a specific user id
      */

@@ -85,7 +85,8 @@ class ExportableUsersGridHandler extends GridHandler
                 new RedirectConfirmationModal(
                     __('grid.users.confirmExportAllUsers'),
                     null,
-                    $url
+                    $url,
+                    'primary'
                 ),
                 __('grid.action.exportAllUsers'),
                 'export_users'

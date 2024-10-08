@@ -14,6 +14,7 @@
  * 	FBV_confirmSubmit string Text to be used in a confirmation modal before submiting the form.
  * 	FBV_submitText string The label to go on the submit button.
  * 	FBV_submitDisabled bool disables the submit button.
+ * 	FBV_modalStyle string The modal state/style that should be used.
  *}
 
 {fbvFormSection class="formButtons form_buttons"}

@@ -1965,10 +1965,12 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([ 'error' => $data['error'],], $data['status']);
         }
 
-        $locales = $this->getPublicationFormLocales($data['context'], $data['submission']);
+        $submission = $data['submission']; /** @var Submission $submission */
+        $locales = $this->getPublicationFormLocales($data['context'], $submission);
+        $submissionLocale = $submission->getData('locale');
         $titleAbstract = new TitleAbstractForm($data['publicationApiUrl'], $locales, $data['publication']);
 
-        return response()->json($titleAbstract->getConfig(), Response::HTTP_OK);
+        return response()->json($this->getLocalizedForm($titleAbstract, $submissionLocale, $locales), Response::HTTP_OK);
     }
 
     /**

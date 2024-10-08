@@ -52,7 +52,8 @@ class CategoryGridRow extends GridRow
                 'editCategory',
                 new AjaxModal(
                     $router->url($request, null, null, 'editCategory', null, $actionArgs),
-                    __('grid.category.edit')
+                    __('grid.category.edit'),
+                    'side-modal'
                 ),
                 __('grid.action.edit'),
                 'edit'

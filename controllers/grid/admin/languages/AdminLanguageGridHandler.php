@@ -94,7 +94,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'installLocale', null, null),
                     __('admin.languages.installLocale'),
-                    null,
+                    'side-modal',
                     true
                 ),
                 __('admin.languages.installLocale'),

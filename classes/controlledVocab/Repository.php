@@ -52,9 +52,9 @@ class Repository
         ControlledVocabEntry::query()
             ->whereHas(
                 "controlledVocab",
-                fn($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
+                fn ($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
             )
-            ->withLocale($locales)
+            ->when(!empty($locales), fn ($query) => $query->withLocale($locales))
             ->get()
             ->each(function ($entry) use (&$result, $symbolic) {
                 foreach ($entry->{$symbolic} as $locale => $value) {
@@ -66,20 +66,6 @@ class Repository
     }
 
     /**
-     * Get an array of all of the vocabs for given symbolic
-     */
-    public function getAllUniqueBySymbolic(string $symbolic): array
-    {
-        return DB::table('controlled_vocab_entry_settings')
-            ->select('setting_value')
-            ->where('setting_name', $symbolic)
-            ->distinct()
-            ->get()
-            ->pluck('setting_value')
-            ->toArray();
-    }
-
-    /**
      * Add an array of vocabs
      */
     public function insertBySymbolic(
@@ -88,7 +74,7 @@ class Repository
         int $assocType,
         int $assocId,
         bool $deleteFirst = true,
-    ): bool
+    ): void
     {
         $controlledVocab = $this->build($symbolic, $assocType, $assocId);
         $controlledVocab->load('controlledVocabEntries');
@@ -98,39 +84,37 @@ class Repository
             DB::beginTransaction();
 
             if ($deleteFirst) {
-                ControlledVocabEntry::whereIn(
-                    'id',
-                    $controlledVocab->controlledVocabEntries->pluck('id')->toArray()
-                )->delete();
+                ControlledVocabEntry::query()
+                    ->whereIn(
+                        (new ControlledVocabEntry)->getKeyName(),
+                        $controlledVocab->controlledVocabEntries->pluck('id')->toArray()
+                    )
+                    ->delete();
             }
 
             collect($vocabs)
                 ->each(
-                    fn (array|string $entries, string $locale) => collect(Arr::wrap($entries))
+                    fn (array|string $entries, string $locale) => collect(array_values(Arr::wrap($entries)))
                         ->each(
-                            fn (string $vocab, $seq = 1) => 
+                            fn (string $vocab, int $index) => 
                                 ControlledVocabEntry::create([
                                     'controlledVocabId' => $controlledVocab->id,
-                                    'seq' => $seq,
+                                    'seq' => $index + 1,
                                     "{$symbolic}" => [
                                         $locale => $vocab
                                     ],
                                 ]) 
                         )
                 );
-            
-            // TODO: Should Resequence?
-                            
+
             DB::commit();
 
-            return true;
-
         } catch (Throwable $exception) {
-
+            
             DB::rollBack();
-        }
 
-        return false;
+            throw $exception;
+        }
     }
 
     /**
@@ -138,12 +122,14 @@ class Repository
      */
     public function resequence(int $controlledVocabId): void
     {
+        $seq = 1;
+
         ControlledVocabEntry::query()
             ->withControlledVocabId($controlledVocabId)
-            ->each(
-                fn ($controlledVocabEntry, $seq = 1) => $controlledVocabEntry->update([
-                    'seq' => $seq,
-                ])
-            );
+            ->each(function ($controlledVocabEntry) use (&$seq) {
+                $controlledVocabEntry->update([
+                    'seq' => $seq++,
+                ]);
+            });
     }
 }

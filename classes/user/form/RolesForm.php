@@ -18,7 +18,6 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use PKP\user\InterestManager;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -58,12 +57,10 @@ class RolesForm extends BaseProfileForm
      */
     public function initData()
     {
-        $interestManager = new InterestManager();
-
         $user = $this->getUser();
 
         $this->_data = [
-            'interests' => $interestManager->getInterestsForUser($user),
+            'interests' => Repo::userInterest()->getInterestsForUser($user),
         ];
     }
 
@@ -95,8 +92,7 @@ class RolesForm extends BaseProfileForm
         $userFormHelper->saveRoleContent($this, $user);
 
         // Insert the user interests
-        $interestManager = new InterestManager();
-        $interestManager->setInterestsForUser($user, $this->getData('interests'));
+        Repo::userInterest()->setInterestsForUser($user, $this->getData('interests'));
 
         parent::execute(...$functionArgs);
     }

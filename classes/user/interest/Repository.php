@@ -25,7 +25,7 @@ class Repository
     /**
      * Update a user's set of interests
      */
-    public function setUserInterests(array $interests, int $userId): bool
+    public function setUserInterests(array $interests, int $userId): void
     {
         $controlledVocab = Repo::controlledVocab()->build(
             UserInterest::CONTROLLED_VOCAB_INTEREST
@@ -74,17 +74,15 @@ class Repository
                     'controlledVocabEntryId' => $interestId,
                 ]));
             
-            // TODO: Should Resequence?
+            Repo::controlledVocab()->resequence($controlledVocab->id);
             
             DB::commit();
-
-            return true;
 
         } catch (Throwable $exception) {
 
             DB::rollBack();
-        }
 
-        return false;
+            throw $exception;
+        }
     }
 }

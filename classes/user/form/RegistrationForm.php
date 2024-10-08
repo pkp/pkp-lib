@@ -32,7 +32,6 @@ use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\Site;
-use PKP\user\InterestManager;
 use PKP\user\User;
 
 class RegistrationForm extends Form
@@ -323,8 +322,7 @@ class RegistrationForm extends Form
         }
 
         // Insert the user interests
-        $interestManager = new InterestManager();
-        $interestManager->setInterestsForUser($user, $this->getData('interests'));
+        Repo::userInterest()->setInterestsForUser($user, $this->getData('interests'));
 
         return $userId;
     }

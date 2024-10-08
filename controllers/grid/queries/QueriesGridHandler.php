@@ -45,6 +45,7 @@ use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
+use PKP\stageAssignment\StageAssignmentDAO;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -670,8 +671,15 @@ class QueriesGridHandler extends GridHandler
                 if (!$notification || in_array(Notification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                     continue;
                 }
+                //check if currentUser is assigned as author
+                $stageAssignmentDao = new StageAssignmentDAO();
+                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], $this->getStageId(), $userId);
 
-                $mailable = $this->getStageMailable($request->getContext(), $submission)
+                if ( $stageAssignments->next()) { $currentRole = Role::ROLE_ID_AUTHOR;                    //currentUser is author
+                } else $currentRole = null;
+
+
+                $mailable = $this->getStageMailable($request->getContext(), $currentRole, $submission)
                     ->sender($currentUser)
                     ->recipients([$user])
                     ->subject($note->title)

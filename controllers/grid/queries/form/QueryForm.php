@@ -270,7 +270,7 @@ class QueryForm extends Form
         // Add the templates that can be used for this discussion
         $templateKeySubjectPairs = [];
         if ($user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $context->getId())) {
-            $mailable = $this->getStageMailable($context, $submission);
+            $mailable = $this->getStageMailable($context, null, $submission);
             $data = $mailable->getData();
             $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
             $templateKeySubjectPairs = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];

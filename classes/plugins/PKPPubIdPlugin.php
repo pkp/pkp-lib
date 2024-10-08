@@ -77,7 +77,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                     'settings',
                     new AjaxModal(
                         $router->url($request, null, null, 'manage', null, $actionArgs),
-                        $this->getDisplayName()
+                        $this->getDisplayName(),
+                        'side-modal'
                     ),
                     __('manager.plugins.settings'),
                     null

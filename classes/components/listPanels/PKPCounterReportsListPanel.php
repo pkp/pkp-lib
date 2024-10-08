@@ -43,7 +43,6 @@ class PKPCounterReportsListPanel extends ListPanel
             $config,
             [
                 'apiUrl' => $this->apiUrl,
-                'editCounterReportLabel' => __('manager.statistics.counterR5Report.settings'),
                 'form' => $this->form->getConfig(),
                 'usagePossible' => $lastDate > $earliestDate,
             ]

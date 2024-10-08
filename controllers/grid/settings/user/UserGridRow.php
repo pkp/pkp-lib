@@ -134,7 +134,7 @@ class UserGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'editDisableUser', null, $actionArgs),
                                 __('common.enable'),
-                                'enable',
+                                'side-modal',
                                 true
                             ),
                             __('common.enable'),

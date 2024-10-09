@@ -160,8 +160,11 @@ class EditorialReminder extends BaseJob
             ->from($context->getContactEmail(), $context->getLocalizedName(Locale::getLocale()))
             ->recipients([$editor])
             ->subject($emailTemplate->getLocalizedData('subject'))
-            ->body($emailTemplate->getLocalizedData('body'))
-            ->allowUnsubscribe($notification);
+            ->body($emailTemplate->getLocalizedData('body'));
+        
+        if ($notification) {
+            $mailable->allowUnsubscribe($notification);
+        }
 
         Mail::send($mailable);
 

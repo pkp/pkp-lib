@@ -35,8 +35,10 @@ use APP\section\Section;
 use APP\server\Server;
 use APP\submission\Submission;
 use Illuminate\Support\LazyCollection;
+use Mockery;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
+use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -44,8 +46,6 @@ use PKP\doi\Doi;
 use PKP\galley\Collector as GalleyCollector;
 use PKP\galley\Galley;
 use PKP\oai\OAIRecord;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
 use PKP\tests\PKPTestCase;
 
 #[CoversClass(OAIMetadataFormat_DC::class)]
@@ -57,7 +57,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
      */
     protected function getMockedDAOs(): array
     {
-        return [...parent::getMockedDAOs(), 'OAIDAO', 'SubmissionSubjectDAO', 'SubmissionKeywordDAO'];
+        return [...parent::getMockedDAOs(), 'OAIDAO'];
     }
 
     /**
@@ -93,6 +93,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $publication = $this->getMockBuilder(Publication::class)
             ->onlyMethods([])
             ->getMock();
+        $publication->setData('id', 0);
         $publication->setData('pages', 15);
         $publication->setData('type', 'art-type', 'en');
         $publication->setData('title', 'preprint-title-en', 'en');
@@ -158,6 +159,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->willReturn(Server::PUBLISHING_MODE_OPEN);
         $server->setName('server-title', 'en');
         $server->setData('publisherInstitution', 'server-publisher');
+        $server->setData('supportedFormLocales', []);
         $server->setPrimaryLocale('en');
         $server->setPath('server-path');
         $server->setData('onlineIssn', 'onlineIssn');
@@ -232,23 +234,18 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->willReturn(LazyCollection::wrap($galleys));
         app()->instance(GalleyCollector::class, $mockGalleyCollector);
 
-        // Mocked DAO to return the subjects
-        $submissionSubjectDao = $this->getMockBuilder(SubmissionSubjectDAO::class)
-            ->onlyMethods(['getSubjects'])
+        $controlledVocabRepoMock = Mockery::mock(ControlledVocabRepository::class)
+            ->makePartial()
+            ->shouldReceive('getBySymbolic')
+            ->twice()
+            ->withAnyArgs()
+            ->andReturn(
+                ['en' => ['preprint-keyword']],
+                ['en' => ['preprint-subject', 'preprint-subject-class']]
+            )
             ->getMock();
-        $submissionSubjectDao->expects($this->any())
-            ->method('getSubjects')
-            ->willReturn(['en' => ['preprint-subject', 'preprint-subject-class']]);
-        DAORegistry::registerDAO('SubmissionSubjectDAO', $submissionSubjectDao);
 
-        // Mocked DAO to return the keywords
-        $submissionKeywordDao = $this->getMockBuilder(SubmissionKeywordDAO::class)
-            ->onlyMethods(['getKeywords'])
-            ->getMock();
-        $submissionKeywordDao->expects($this->any())
-            ->method('getKeywords')
-            ->willReturn(['en' => ['preprint-keyword']]);
-        DAORegistry::registerDAO('SubmissionKeywordDAO', $submissionKeywordDao);
+        app()->instance(ControlledVocabRepository::class, $controlledVocabRepoMock);
 
         //
         // Test

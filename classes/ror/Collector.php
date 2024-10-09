@@ -59,10 +59,14 @@ class Collector implements CollectorInterface
 
     /**
      * Filter rors by those matching a search query
+     *
+     * @param string|null $searchPhrase
+     *
+     * @return $this
      */
-    public function searchPhrase(?string $phrase): self
+    public function filterBySearchPhrase(?string $searchPhrase): self
     {
-        $this->searchPhrase = $phrase;
+        $this->searchPhrase = $searchPhrase;
         return $this;
     }
 

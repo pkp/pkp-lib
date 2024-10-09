@@ -44,7 +44,7 @@
 			message: options.dialogText,
 			actions: [],
 			closeLegacyHandler: this.callbackWrapper(this.modalClose),
-			modalStyle: options.modalStyle,
+			modalStyle: options.modalStyle
 		};
 
 		if (options.okButton) {

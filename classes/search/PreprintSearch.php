@@ -23,12 +23,12 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\server\Server;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\search\SubmissionSearch;
 use PKP\submission\PKPSubmission;
-use PKP\submission\SubmissionKeywordDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -320,9 +320,14 @@ class PreprintSearch extends SubmissionSearch
             $preprint = Repo::submission()->get($submissionId);
             if ($preprint->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                 // Retrieve keywords (if any).
-                /** @var SubmissionKeywordDAO */
-                $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-                $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [Locale::getLocale(), $preprint->getData('locale'), Locale::getPrimaryLocale()]));
+                $allSearchTerms = array_filter(
+                    Repo::controlledVocab()->getBySymbolic(
+                        ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                        Application::ASSOC_TYPE_PUBLICATION,
+                        $preprint->getId(),
+                        [Locale::getLocale(), $preprint->getData('locale'), Locale::getPrimaryLocale()]
+                    )
+                );
                 foreach ($allSearchTerms as $locale => $localeSearchTerms) {
                     $searchTerms += $localeSearchTerms;
                 }

@@ -212,9 +212,6 @@ msgstr ""
 "La ridenominazione del file del database DB-IP city lite {$sourceFilename} "
 "in {$targetFilename} non è riuscita."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Nome del task per il carico delle statistiche d'uso"
 

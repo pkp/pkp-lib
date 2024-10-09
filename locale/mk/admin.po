@@ -211,9 +211,6 @@ msgstr ""
 "Преименувањето на датотеката со базата на податоци на DB-IP city lite "
 "{$sourceFilename} во {$targetFilename} не успеа."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Користи постапка за фајл од корисничка статистика"
 

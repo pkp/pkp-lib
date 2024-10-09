@@ -439,9 +439,6 @@ msgstr ""
 "Fayl sıxılmırdı. Açılan təyinat GZ-Fayl {$filePath} GZClose ilə bağlana "
 "bilmədi."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "İstifadə Statistikası Fayl Yükləyicisi vəzifəsi"
 

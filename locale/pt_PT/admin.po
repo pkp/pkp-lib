@@ -213,9 +213,6 @@ msgstr ""
 "Falha ao renomear o ficheiro da base de dados DB-IP city lite "
 "{$sourceFilename} para {$targetFilename}."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tarefa carregador de ficheiros de estatísticas de utilização"
 

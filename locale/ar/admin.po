@@ -183,9 +183,6 @@ msgstr ""
 "فشلت إعادة تسمية ملف قاعدة بيانات DB-IP city lite {$sourceFilename} إلى "
 "{$targetFilename}."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "مهمة تحميل ملف إحصائيات الاستعمال"
 

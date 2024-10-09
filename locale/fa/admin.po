@@ -206,9 +206,6 @@ msgstr ""
 "تغییر نام فایل دیتابیس DB-IP با نام {$sourceFilename} به {$targetFilename} "
 "با شکست مواجه شد."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "وظیفه بارگزار فایل آمار کارکرد"
 

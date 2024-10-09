@@ -216,9 +216,6 @@ msgstr ""
 "A DB-IP city lite adatbázis fájljának átnevezése erről {$sourceFilename} "
 "erre {$targetFilename} nem sikerült."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Használati statisztika file töltési feladata"
 

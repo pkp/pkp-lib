@@ -207,9 +207,6 @@ msgstr ""
 "Přejmenování souboru databáze DB-IP city lite {$sourceFilename} na "
 "{$targetFilename} se nezdařilo."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Úloha nahrání souboru statistik využití"
 

@@ -211,9 +211,6 @@ msgstr ""
 "Endring av navn på databasefilen DB-IP city lite fra {$sourceFilename} til "
 "{$targetFilename} mislyktes."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Oppgave for lasting av filer til bruksstatistikk"
 

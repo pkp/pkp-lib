@@ -400,9 +400,6 @@ msgstr "Proces poslova na čekanju"
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Ažurirajte DB-IP city lite bazu podataka"
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Zadatak učitavanja fajla statistike korištenja"
 

@@ -209,9 +209,6 @@ msgstr ""
 "DB-IP city lite veritabanı dosyasının {$sourceFilename} olarak "
 "{$targetFilename} olarak yeniden adlandırılması başarısız oldu."
 
-msgid "admin.scheduledTask.UpdateRorRegistryDataset"
-msgstr "Update Ror registry dataset cache"
-
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Kullanım istatistikleri dosya yükleyici görevi"
 

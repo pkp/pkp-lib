@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-07-01 19:36+0000\n"
+"PO-Revision-Date: 2024-10-10 12:54+0000\n"
 "Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -2542,7 +2542,7 @@ msgid "catalog.category.subcategories"
 msgstr "Subcategorieën"
 
 msgid "publication.contributors"
-msgstr ""
+msgstr "Auteurs"
 
 msgid "publication.createVersion"
 msgstr ""
@@ -2569,16 +2569,16 @@ msgid "publication.unschedule"
 msgstr ""
 
 msgid "publication.urlPath"
-msgstr ""
+msgstr "URL Pad"
 
 msgid "publication.urlPath.description"
-msgstr ""
+msgstr "Een optioneel pad om te gebruiken in de URL in plaats van de ID."
 
 msgid "publication.urlPath.duplicate"
-msgstr ""
+msgstr "Het URL pad is al gebruikt en kan niet opnieuw worden gebruikt."
 
 msgid "publication.urlPath.numberInvalid"
-msgstr ""
+msgstr "Het URL pad kan geen nummer zijn."
 
 msgid "publication.version.all"
 msgstr ""

@@ -25,6 +25,8 @@ use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Validation;
 use PKP\user\User;
+use PKP\security\Role;
+
 
 class UserGridRow extends GridRow
 {
@@ -172,11 +174,18 @@ class UserGridRow extends GridRow
                     )
                 );
 
-                $canAdminister = Validation::getAdministrationLevel($this->getId(), $request->getUser()->getId()) === Validation::ADMINISTRATION_FULL;
+                $currentUser = $request->getUser();
+                $targetUserId = $this->getId();
+                $context = $request->getContext();
+                $contextId = $context ? $context->getId() : 0; // Use 0 if context is not available
+    
                 if (
                     !Validation::loggedInAs() &&
-                    $request->getUser()->getId() != $this->getId() &&
-                    $canAdminister
+                    $currentUser->getId() != $targetUserId &&
+                    (
+                        Validation::isSiteAdmin() ||
+                        $currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId)
+                    )
                 ) {
                     $dispatcher = $router->getDispatcher();
                     $this->addAction(
@@ -194,8 +203,9 @@ class UserGridRow extends GridRow
                 }
 
                 // do not allow the deletion of your own account.
+                $canAdminister = Validation::getAdministrationLevel($this->getId(), $currentUser->getId()) === Validation::ADMINISTRATION_FULL;
                 if (
-                    $request->getUser()->getId() != $this->getId() and
+                    $currentUser->getId() != $this->getId() &&
                     $canAdminister
                 ) {
                     $this->addAction(

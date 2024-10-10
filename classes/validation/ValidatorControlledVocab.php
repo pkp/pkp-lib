@@ -3,8 +3,8 @@
 /**
  * @file classes/validation/ValidatorControlledVocab.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorControlledVocab
@@ -17,48 +17,36 @@
 
 namespace PKP\validation;
 
-use PKP\controlledVocab\ControlledVocabDAO;
-use PKP\db\DAORegistry;
+use PKP\controlledVocab\ControlledVocab;
 
 class ValidatorControlledVocab extends Validator
 {
-    /** @var array */
-    public $_acceptedValues;
+    protected array $acceptedValues;
 
     /**
-     * Constructor.
-     *
-     * @param string $symbolic
-     * @param int $assocType
-     * @param int $assocId
+     * Constructor
      */
-    public function __construct($symbolic, $assocType, $assocId)
+    public function __construct(string $symbolic, int $assocType, int $assocId)
     {
-        $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /** @var ControlledVocabDAO $controlledVocabDao */
-        $controlledVocab = $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
-        if ($controlledVocab) {
-            $this->_acceptedValues = array_keys($controlledVocab->enumerate());
-        } else {
-            $this->_acceptedValues = [];
-        }
-    }
+        /** @var ControlledVocab $controlledVocab */
+        $controlledVocab = ControlledVocab::query()
+            ->withSymbolic($symbolic)
+            ->withAssoc($assocType, $assocId)
+            ->first();
 
+        $this->acceptedValues = array_keys($controlledVocab?->enumerate() ?? []);
+    }
 
     //
     // Implement abstract methods from Validator
     //
+    
     /**
-     * @see Validator::isValid()
      * Value is valid if it is empty and optional or is in the set of accepted values.
-     *
-     * @return bool
+     * @see Validator::isValid()
      */
-    public function isValid($value)
+    public function isValid($value): bool
     {
-        return in_array($value, $this->_acceptedValues);
+        return in_array($value, $this->acceptedValues);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorControlledVocab', '\ValidatorControlledVocab');
 }

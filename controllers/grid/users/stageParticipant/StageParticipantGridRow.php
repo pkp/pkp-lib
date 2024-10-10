@@ -79,7 +79,7 @@ class StageParticipantGridRow extends GridRow
                             __('editor.submission.removeStageParticipant.description'),
                             __('editor.submission.removeStageParticipant'),
                             $router->url($request, null, null, 'deleteParticipant', null, $this->getRequestArgs()),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.remove'),
                         'delete'
@@ -92,7 +92,7 @@ class StageParticipantGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
                             __('editor.submission.editStageParticipant'),
-                            'modal_edit_user'
+                            'side-modal'
                         ),
                         __('common.edit'),
                         'edit_user'
@@ -139,7 +139,8 @@ class StageParticipantGridRow extends GridRow
                         new RedirectConfirmationModal(
                             __('grid.user.confirmLogInAs'),
                             __('grid.action.logInAs'),
-                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$userId], ['redirectUrl' => $redirectUrl])
+                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$userId], ['redirectUrl' => $redirectUrl]),
+                            'primary'
                         ),
                         __('grid.action.logInAs'),
                         'enroll_user'

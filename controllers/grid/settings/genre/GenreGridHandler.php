@@ -76,7 +76,7 @@ class GenreGridHandler extends SetupGridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addGenre', null, $actionArgs),
                     __('grid.action.addGenre'),
-                    'modal_add_item',
+                    'side-modal',
                     true
                 ),
                 __('grid.action.addGenre'),
@@ -92,7 +92,7 @@ class GenreGridHandler extends SetupGridHandler
                     __('grid.action.restoreDefaults.confirm'),
                     null,
                     $router->url($request, null, null, 'restoreGenres', null, $actionArgs),
-                    'modal_delete'
+                    'primary'
                 ),
                 __('grid.action.restoreDefaults'),
                 'reset_default'

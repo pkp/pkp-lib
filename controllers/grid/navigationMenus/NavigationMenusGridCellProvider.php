@@ -44,7 +44,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider
                     new AjaxModal(
                         $router->url($request, null, null, 'editNavigationMenu', null, $actionArgs),
                         __('grid.action.edit'),
-                        null,
+                        'side-modal',
                         true
                     ),
                     htmlspecialchars($navigationMenu->getTitle())

@@ -2,8 +2,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/ResendRequestReviewerForm.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2003-2022 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ResendRequestReviewerForm
@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use PKP\context\Context;
+use PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -33,9 +34,10 @@ use PKP\submission\reviewRound\ReviewRound;
 
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm
 {
+    use HasReviewDueDate;
+
     /**
      * Constructor
-     *
      */
     public function __construct(ReviewAssignment $reviewAssignment, ReviewRound $reviewRound, Submission $submission)
     {
@@ -45,19 +47,62 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
             $submission,
             'controllers/grid/users/reviewer/form/resendRequestReviewerForm.tpl'
         );
+
+        // Validation checks for this form
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(
+            new \PKP\form\validation\FormValidatorDateCompare(
+                $this,
+                'reviewDueDate',
+                \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
+                \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
+                'required',
+                'editor.review.errorAddingReviewer.dateValidationFailed'
+            )
+        );
     }
 
+    /**
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerNotifyActionForm::getMailable()
+     */
     protected function getMailable(Context $context, Submission $submission, ReviewAssignment $reviewAssignment): Mailable
     {
         return new ReviewerResendRequest($context, $submission, $reviewAssignment);
     }
 
     /**
-     * @copydoc ReviewerNotifyActionForm::getEmailKey()
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerNotifyActionForm::getEmailKey()
      */
     protected function getEmailKey()
     {
         return 'REVIEW_RESEND_REQUEST';
+    }
+
+    /**
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerNotifyActionForm::initData()
+     */
+    public function initData()
+    {
+        parent::initData();
+
+        [$reviewDueDate, $responseDueDate] = $this->getDueDates(Application::get()->getRequest()->getContext());
+
+        $this->setData('responseDueDate', $responseDueDate);
+        $this->setData('reviewDueDate', $reviewDueDate);
+    }
+
+    /**
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerNotifyActionForm::readInputData()
+     */
+    public function readInputData()
+    {
+        parent::readInputData();
+
+        $this->readUserVars([
+            'responseDueDate',
+            'reviewDueDate',
+        ]);
     }
 
     /**
@@ -84,6 +129,8 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
                 'declined' => false,
                 'requestResent' => true,
                 'dateConfirmed' => null,
+                'dateDue' => $this->getData('reviewDueDate'), // Set the review due date
+                'dateResponseDue' => $this->getData('responseDueDate'), // Set the response due date
             ]);
 
             // Stamp the modification date

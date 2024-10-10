@@ -212,7 +212,8 @@ class Repository
         $author = Repo::author()->newDataObject();
         $author->setGivenName($user->getGivenName(null), null);
         $author->setFamilyName($user->getFamilyName(null), null);
-        $author->setAffiliation($user->getAffiliation(null), null);
+        //fixme: multiple-author-affiliations add (string)affiliation to (object)affiliation
+        // $author->setAffiliation($user->getAffiliation(null), null);
         $author->setCountry($user->getCountry());
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());

@@ -1,10 +1,9 @@
 <?php
-
 /**
  * @file classes/author/Author.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\author\Author
@@ -19,6 +18,7 @@
 namespace PKP\author;
 
 use APP\facades\Repo;
+use Illuminate\Support\LazyCollection;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 
@@ -255,5 +255,109 @@ class Author extends Identity
     public function getLocalizedCompetingInterests(): ?string
     {
         return $this->getLocalizedData('competingInterests');
+    }
+
+    /**
+     * Get affiliations (position, institution, etc.).
+     *
+     * @return LazyCollection
+     */
+    public function getAffiliations(): LazyCollection
+    {
+        return $this->getData('affiliations');
+    }
+
+    /**
+     * Set affiliations.
+     *
+     * @param LazyCollection $affiliations
+     *
+     * @return void
+     */
+    public function setAffiliations(LazyCollection $affiliations): void
+    {
+        $this->setData('affiliations', $affiliations);
+    }
+
+    /**
+     * Get the localized affiliations as an array.
+     *
+     * @param string|null $preferredLocale
+     *
+     * @return array
+     */
+    public function getLocalizedAffiliations(?string $preferredLocale = null): array
+    {
+        $value = [];
+
+        $affiliations = $this->getAffiliations();
+        foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
+            foreach ($affiliations as $affiliation) {
+                $name = $affiliation->getData('name');
+                if(!empty($name[$locale])){
+                    $value[] = $name[$locale];
+                }
+            }
+        }
+
+        return $value;
+    }
+
+    /**
+     * Get the localized affiliations as an array.
+     *
+     * @param string|null $preferredLocale
+     * @param string|null $separator
+     *
+     * @return string
+     */
+    public function getLocalizedAffiliationsAsString(?string $preferredLocale = null, ?string $separator = ','): string
+    {
+        $value = '';
+
+        $affiliations = $this->getAffiliations();
+
+        foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
+            foreach ($affiliations as $affiliation) {
+                $name = $affiliation->getData('name');
+                if(!empty($name[$locale])){
+                    $value .= $separator . $name[$locale];
+                }
+            }
+        }
+
+        return trim($value, $separator);
+    }
+
+    //fixme: multiple-author-affiliations
+    /**
+     * Get affiliation (position, institution, etc.).
+     *
+     * @param string $locale
+     *
+     * @return string|array
+     */
+    public function getAffiliation($locale)
+    {
+        return $this->getData('affiliation', $locale);
+    }
+
+    /**
+     * Set affiliation.
+     *
+     * @param string $affiliation
+     * @param string $locale
+     */
+    public function setAffiliation($affiliation, $locale)
+    {
+        $this->setData('affiliation', $affiliation, $locale);
+    }
+
+    /**
+     * Get the localized affiliation
+     */
+    public function getLocalizedAffiliation()
+    {
+        return $this->getLocalizedData('affiliation');
     }
 }

@@ -23,6 +23,30 @@ msgstr "(Your institution, e.g. \"Simon Fraser University\")"
 msgid "user.affiliations"
 msgstr "Affiliations"
 
+msgid "user.affiliations.description"
+msgstr ""
+"Enter the full name of the institution below, avoiding any acronyms. "
+"Select the name from the dropdown and click \"Add\" to include the "
+"affiliation in your profile. (e.g. \"Simon Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "Translation"
+
+msgid "user.affiliations.translationAll"
+msgstr "All translations available"
+
+msgid "user.affiliations.translationSome"
+msgstr "{$translated} of {$total} languages completed"
+
+msgid "user.affiliations.translationLabel"
+msgstr "Type the institute name in {$language}"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Type the institute name"
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 

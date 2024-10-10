@@ -79,6 +79,7 @@ class SubmissionAcknowledgementOtherAuthors extends Mailable
             return '';
         }
 
+        //fixme: multiple-author-affiliations
         return $authors
             ->map(fn (Author $author) => join(__('common.commaListSeparator'), [$author->getFullName(), $author->getLocalizedAffiliation()]))
             ->join('<br>');

@@ -30,6 +30,7 @@ class PKPSchemaService
 {
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
     public const SCHEMA_AUTHOR = 'author';
+    public const SCHEMA_CITATION = 'citation';
     public const SCHEMA_CATEGORY = 'category';
     public const SCHEMA_CONTEXT = 'context';
     public const SCHEMA_DOI = 'doi';

@@ -42,7 +42,7 @@ abstract class XMLParserHandler
      * Returns a resulting data structure representing the parsed content.
      * The format of this object is specific to the handler.
      */
-    abstract public function getResult() : mixed;
+    abstract public function getResult(): mixed;
 }
 
 if (!PKP_STRICT_MODE) {

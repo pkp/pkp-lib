@@ -689,7 +689,10 @@ class PKPReviewerGridHandler extends GridHandler
         $user = $request->getUser();
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
-        Repo::reviewAssignment()->edit($reviewAssignment, ['considered' => ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED]);
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED,
+            'dateEditorConfirmed' => null
+        ]);
 
         // log the unconsider.
         $eventLog = Repo::eventLog()->newDataObject([
@@ -740,6 +743,9 @@ class PKPReviewerGridHandler extends GridHandler
         $newReviewData['considered'] = $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
             ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
             : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
+
+        // set the date when the editor confirms the review
+        $newReviewData['dateEditorConfirmed'] = Core::getCurrentDate();
 
         if (!$reviewAssignment->getDateCompleted()) {
             // Editor completes the review.

@@ -80,7 +80,7 @@ class PreprintGalleyGridRow extends GridRow
                 new AjaxModal(
                     $router->url($request, null, null, 'editGalley', null, $actionArgs),
                     ($this->_isEditable) ? __('submission.layout.editGalley') : __('submission.layout.viewGalley'),
-                    'modal_edit'
+                    'side-modal'
                 ),
                 ($this->_isEditable) ? __('grid.action.edit') : __('grid.action.view'),
                 'edit'

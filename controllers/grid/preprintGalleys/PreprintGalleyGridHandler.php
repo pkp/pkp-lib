@@ -157,7 +157,7 @@ class PreprintGalleyGridHandler extends GridHandler
                 new AjaxModal(
                     $request->getRouter()->url($request, null, null, 'addGalley', null, $this->getRequestArgs()),
                     __('common.addFile'),
-                    'modal_add_item'
+                    'side-modal'
                 ),
                 __('common.addFile'),
                 'add_item'

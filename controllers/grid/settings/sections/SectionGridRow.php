@@ -62,7 +62,7 @@ class SectionGridRow extends GridRow
                         __('manager.sections.confirmDelete'),
                         __('grid.action.delete'),
                         $router->url($request, null, null, 'deleteSection', null, ['sectionId' => $sectionId]),
-                        'modal_delete'
+                        'negative'
                     ),
                     __('grid.action.delete'),
                     'delete'

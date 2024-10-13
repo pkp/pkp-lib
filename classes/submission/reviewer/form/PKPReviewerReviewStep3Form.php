@@ -189,7 +189,6 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
             // Notify editors
             $notification = $notificationMgr->createNotification(
-                Application::get()->getRequest(),
                 $userId,
                 Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 $submission->getData('contextId'),

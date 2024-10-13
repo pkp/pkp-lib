@@ -96,7 +96,6 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     public function notify(User $user): ?Notification
     {
         return parent::createNotification(
-            Application::get()->getRequest(),
             $user->getId(),
             Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
             $this->_announcement->getAttribute('assocId'),

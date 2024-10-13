@@ -107,7 +107,6 @@ class EditorAction
             // Add notification
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
-                $request,
                 $reviewerId,
                 Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
                 $submission->getData('contextId'),

@@ -118,7 +118,6 @@ class Repository
 
         foreach ($participantUserIds as $participantUserId) {
             $notificationMgr->createNotification(
-                Application::get()->getRequest(),
                 $participantUserId,
                 Notification::NOTIFICATION_TYPE_NEW_QUERY,
                 $contextId,

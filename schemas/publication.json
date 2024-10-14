@@ -262,6 +262,13 @@
 			"type": "integer",
 			"apiSummary": true
 		},
+		"issueId": {
+			"type": "integer",
+			"description": "The ID of the issue the publication is part of.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"subtitle": {
 			"type": "string",
 			"description": "The subtitle. This may include inline HTML tags, such as `<i>` and `<b>`.",

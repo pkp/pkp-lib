@@ -259,7 +259,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
 
         $q = DB::table('publication_galleys', 'g')
             ->leftJoin('publications AS p', 'p.publication_id', '=', 'g.publication_id')
-            ->leftJoin('publication_settings AS ps', 'ps.publication_id', '=', 'p.publication_id')
             ->leftJoin('submissions AS s', 's.submission_id', '=', 'p.submission_id')
             ->leftJoin('submission_files AS sf', 'g.submission_file_id', '=', 'sf.submission_file_id')
             ->when($pubIdType != null, fn (Builder $q) => $q->leftJoin('publication_galley_settings AS gs', 'g.galley_id', '=', 'gs.galley_id'))
@@ -276,7 +275,8 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->when($pubIdType != null, fn (Builder $q) => $q->where('gs.setting_name', '=', "pub-id::{$pubIdType}")->whereNotNull('gs.setting_value'))
             ->when($title != null, fn (Builder $q) => $q->where('pst.setting_name', '=', 'title')->where('pst.setting_value', 'LIKE', "%{$title}%"))
             ->when($author != null, fn (Builder $q) => $q->whereRaw("CONCAT(COALESCE(asgs.setting_value, ''), ' ', COALESCE(asfs.setting_value, '')) LIKE ?", ["%{$author}%"]))
-            ->when($issueId != null, fn (Builder $q) => $q->where('ps.setting_name', '=', 'issueId')->where('ps.setting_value', '=', $issueId)->where('ps.locale', '=', ''))
+            ->when($issueId !== null, fn (Builder $q) => $q->where('p.issue_id', '=', $issueId))
+
             ->when(
                 $pubIdSettingName,
                 fn (Builder $q) =>

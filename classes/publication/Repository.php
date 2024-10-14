@@ -167,6 +167,7 @@ abstract class Repository
             });
         }
 
+
         // A title must be provided if the submission is not still in progress
         if (!$submission->getData('submissionProgress')) {
             $validator->after(function ($validator) use ($props, $publication, $primaryLocale) {

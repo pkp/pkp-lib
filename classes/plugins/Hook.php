@@ -17,6 +17,7 @@
 namespace PKP\plugins;
 
 use PKP\core\Registry;
+use Throwable;
 
 class Hook
 {
@@ -60,7 +61,7 @@ class Hook
      */
     public static function addUnsupportedHooks(...$hookNames): void
     {
-        self::$unsupportedHooks = array_merge(self::$unsupportedHooks, array_flip($hookNames));
+        static::$unsupportedHooks = array_merge(static::$unsupportedHooks, array_flip($hookNames));
     }
 
     /**
@@ -81,7 +82,7 @@ class Hook
      */
     public static function add(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void
     {
-        if (isset(self::$unsupportedHooks[$hookName])) {
+        if (isset(static::$unsupportedHooks[$hookName])) {
             throw new \Exception("Hook {$hookName} is not supported (possibly removed) and callbacks should not be added to it!");
         }
         $hooks = & static::getHooks();
@@ -96,7 +97,7 @@ class Hook
      */
     public static function register(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void
     {
-        self::add($hookName, $callback, $hookSequence);
+        static::add($hookName, $callback, $hookSequence);
     }
 
     /**
@@ -118,7 +119,7 @@ class Hook
         // Called only by Unit Test
         // This behaviour is DEPRECATED and not replicated in the preferred
         // Hook::call function.
-        if (self::rememberCalledHooks(true)) {
+        if (static::rememberCalledHooks(true)) {
             // Remember the called hooks for testing.
             $calledHooks = & static::getCalledHooks();
             $calledHooks[] = [
@@ -126,7 +127,7 @@ class Hook
             ];
         }
 
-        return self::run($hookName, [$args]);
+        return static::run($hookName, [$args]);
     }
 
     /**
@@ -146,7 +147,7 @@ class Hook
     {
         $hooks = & static::getHooks();
         if (!isset($hooks[$hookName])) {
-            return self::CONTINUE;
+            return static::CONTINUE;
         }
 
         // Sort callbacks if the list is dirty
@@ -155,15 +156,25 @@ class Hook
             $hooks[$hookName]['dirty'] = false;
         }
 
-        foreach ($hooks[$hookName]['hooks'] as $priority => $hookList) {
+        foreach ($hooks[$hookName]['hooks'] as $hookList) {
             foreach ($hookList as $callback) {
-                if (call_user_func_array($callback, [$hookName, ...$args]) === self::ABORT) {
-                    return self::ABORT;
+                try {
+                    if (call_user_func_array($callback, [$hookName, ...$args]) === static::ABORT) {
+                        return static::ABORT;
+                    }
+                } catch (Throwable $e) {
+                    foreach ($e->getTrace() as $stackFrame) {
+                        if (is_subclass_of($stackFrame['class'] ?? null, Plugin::class)) {
+                            error_log("Hook handler failure detected at {$stackFrame['class']}\n{$e}");
+                            continue 2;
+                        }
+                    }
+                    throw $e;
                 }
             }
         }
 
-        return self::CONTINUE;
+        return static::CONTINUE;
     }
 
 

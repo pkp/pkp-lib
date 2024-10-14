@@ -13,28 +13,25 @@
  *
  */
 
-namespace PKP\API\v1\reviewerSuggestions;
+namespace PKP\API\v1\reviewers\suggestions;
 
 use APP\core\Application;
-use PKP\API\v1\reviewerSuggestions\formRequests\AddReviewerSuggestion;
+use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
 
-use PKP\security\authorization\internal\SubmissionIncompletePolicy;
 use APP\facades\Repo;
+use PKP\API\v1\reviewers\suggestions\formRequests\AddReviewerSuggestion;
+use PKP\security\authorization\internal\SubmissionIncompletePolicy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\log\EmailLogEntry;
-use PKP\log\SubmissionEmailLogEventType;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submissionFile\SubmissionFile;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class ReviewerSuggestionController extends PKPBaseController
 {
@@ -43,7 +40,7 @@ class ReviewerSuggestionController extends PKPBaseController
      */
     public function getHandlerPath(): string
     {
-        return 'reviewerSuggestions';
+        return 'submissions/{submissionId}/reviewers/suggestions';
     }
 
     /**
@@ -74,11 +71,11 @@ class ReviewerSuggestionController extends PKPBaseController
             ->name('reviewer.suggestions.get')
             ->whereNumber('suggestionId');
 
-        Route::get('submission/{submissionId}', $this->getMany(...))
+        Route::get('', $this->getMany(...))
             ->name('reviewer.suggestions.getMany')
             ->whereNumber('submissionId');
 
-        Route::post('submission/{submissionId}', $this->add(...))
+        Route::post('', $this->add(...))
             ->name('reviewer.suggestions.add');
         
         Route::put('{suggestionId}', $this->edit(...))
@@ -114,30 +111,40 @@ class ReviewerSuggestionController extends PKPBaseController
 
     public function get(Request $illuminateRequest): JsonResponse
     {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context->getId();
+        $suggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
+        
+        if (!$suggestion) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
-        return response()->json([], Response::HTTP_OK);
+        return response()->json(
+            (new ReviewerSuggestionResource($suggestion))->toArray($illuminateRequest), 
+            Response::HTTP_OK
+        );
     }
 
     public function getMany(Request $illuminateRequest): JsonResponse
     {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context->getId();
+        $suggestions = ReviewerSuggestion::withSubmissionId($illuminateRequest->route('sibmissionId'))->get();
 
-        return response()->json([], Response::HTTP_OK);
+        return response()->json([
+            'items' => ReviewerSuggestionResource::collection($suggestions),
+            'itemMax' => $suggestions->count(),
+        ], Response::HTTP_OK);
     }
 
     public function add(AddReviewerSuggestion $illuminateRequest): JsonResponse
     {
         $validateds = $illuminateRequest->validated();
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context->getId();
+        
+        $suggestion = ReviewerSuggestion::create($validateds);
 
-        return response()->json([], Response::HTTP_OK);
+        return response()->json(
+            (new ReviewerSuggestionResource($suggestion))->toArray($illuminateRequest), 
+            Response::HTTP_OK
+        );
     }
 
     public function edit(Request $illuminateRequest): JsonResponse

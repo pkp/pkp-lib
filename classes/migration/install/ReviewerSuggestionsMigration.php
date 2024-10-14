@@ -29,15 +29,15 @@ class ReviewerSuggestionsMigration extends \PKP\migration\Migration
             $table->bigInteger('reviewer_suggestion_id')->autoIncrement();
 
             $table
-                ->bigInteger('user_id')
+                ->bigInteger('suggesting_user_id')
                 ->nullable()
                 ->comment('The user/author who has made the suggestion');
             $table
-                ->foreign('user_id')
+                ->foreign('suggesting_user_id')
                 ->references('user_id')
                 ->on('users')
                 ->onDelete('set null');
-            $table->index(['user_id'], 'reviewer_suggestions_user_id');
+            $table->index(['suggesting_user_id'], 'reviewer_suggestions_suggesting_user_id');
 
             $table->bigInteger('submission_id')->comment('Submission at which the suggestion was made');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
@@ -54,7 +54,7 @@ class ReviewerSuggestionsMigration extends \PKP\migration\Migration
             $table
                 ->bigInteger('stage_id')
                 ->nullable()
-                ->comment('The stage at whihc suggestion approved');
+                ->comment('The stage at which suggestion approved');
 
             $table
                 ->bigInteger('approver_id')

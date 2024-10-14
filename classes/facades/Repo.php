@@ -24,6 +24,7 @@
 
 namespace PKP\facades;
 
+use PKP\affiliation\Repository as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
@@ -40,12 +41,18 @@ use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
 use PKP\notification\Repository as NotificationRepository;
 use PKP\query\Repository as QueryRepository;
+use PKP\ror\Repository as RorRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 
 class Repo
 {
+    public static function affiliation(): AffiliationRepository
+    {
+        return app(AffiliationRepository::class);
+    }
+
     public static function announcement(): AnnouncementRepository
     {
         return app(AnnouncementRepository::class);
@@ -114,6 +121,11 @@ class Repo
     public static function jats(): JatsRepository
     {
         return app(JatsRepository::class);
+    }
+
+    public static function ror(): RorRepository
+    {
+        return app(RorRepository::class);
     }
 
     public static function stageAssignment(): StageAssignmentRepository

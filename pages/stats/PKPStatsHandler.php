@@ -463,8 +463,6 @@ class PKPStatsHandler extends Handler
             'pageInitConfig' => [
                 $counterReportsListPanel->id => $counterReportsListPanel->getConfig(),
                 'usageNotPossible' => $lastDate <= $earliestDate,
-                'title' => __('manager.statistics.counterR5Reports'),
-                'description' => __('manager.statistics.counterR5Reports.description'),
             ],
         ]);
         $templateMgr->assign([

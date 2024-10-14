@@ -388,6 +388,11 @@ abstract class PKPBaseController extends Controller
             if (isset($queryParams[$parameterName])) {
                 return $queryParams[$parameterName];
             }
+
+            $inputs = $illuminateRequest->input();
+            if (isset($inputs[$parameterName])) {
+                return $inputs[$parameterName];
+            }
         }
 
         return $default;

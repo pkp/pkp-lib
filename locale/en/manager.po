@@ -1387,6 +1387,9 @@ msgstr "The following is shown to authors during the upload files step. Provide 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr "The following is shown to authors during the contributors step. Provide a brief explanation of what information the author should provide about themselves, co-authors, and any other contributors."
 
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr "The following is shown to authors during the reviewer suggestions step. Provide a brief explanation of what information the author should provide about themselves, co-authors, and any other contributors."
+
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr "The following is shown to authors during the details step, when they are asked to provide the title, abstract, and other key information about their submission."
 

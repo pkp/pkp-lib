@@ -687,6 +687,9 @@ msgstr "First published"
 msgid "submission.forTheEditors"
 msgstr "For the Editors"
 
+msgid "submission.forReviewerSuggestion"
+msgstr "For Reviewer Suggestion"
+
 msgid "submission.galley"
 msgstr "Galley"
 
@@ -1268,6 +1271,9 @@ msgstr "Upload a File Ready for Publication"
 
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "There are no files for you to revise at this time."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Reviewer Suggestions"
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Revisions have been requested."
@@ -2213,6 +2219,9 @@ msgstr "Make a Submission: {$step}"
 msgid "submission.wizard.noContributors"
 msgstr "No contributors have been added for this submission."
 
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "No reviewers have been suggested for this submission."
+
 msgid "submission.wizard.missingContributorLanguage"
 msgstr "The given name is missing in {$language} for one or more of the contributors."
 
@@ -2502,6 +2511,12 @@ msgstr "Competing Interests"
 
 msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Reasons for suggesting reviewer"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr "Please share why you are recommending this reviewer and metion is there are any potential conflict of interest."
 
 msgid "submission.localeNotSupported"
 msgstr "The language of the submission ({$language}) is not one of the supported submission languages. You can still edit the submission details but new submissions are not currently accepted with this language."

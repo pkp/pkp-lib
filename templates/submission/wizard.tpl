@@ -88,6 +88,14 @@
                             @updated:contributors="setContributors"
                             @updated:publication="setPublication"
                         ></contributors-list-panel>
+                        <reviewer-suggestions-list-panel
+                            v-else-if="section.type === 'reviewerSuggestions'"
+                            v-bind="components.reviewerSuggestions"
+                            :items="submission.reviewerSuggestions"
+                            :submission="submission"
+                            :publication="publication"
+                            @updated:reviewerSuggestions="setReviewerSuggestion"
+                        ></reviewer-suggestions-list-panel>
                         <template v-else-if="section.type === 'review'">
                             <notification
                                 v-if="Object.keys(errors).length" type="warning"

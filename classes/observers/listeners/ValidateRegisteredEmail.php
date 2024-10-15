@@ -16,6 +16,7 @@
 
 namespace PKP\observers\listeners;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
@@ -70,7 +71,7 @@ class ValidateRegisteredEmail
             return;
         }
 
-        $contextId = null;
+        $contextId = Application::SITE_CONTEXT_ID;
 
         // Create and compile email template
         if (get_class($event) === UserRegisteredContext::class) {

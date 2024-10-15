@@ -45,26 +45,29 @@ class UserGroupGridCellProvider extends GridCellProvider
         $workflowStages = Application::getApplicationStages();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
-        $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->getContextId(), $userGroup->getId())->toArray();
+        $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->contextId, $userGroup->id)->toArray();
 
         switch ($columnId) {
             case 'name':
-                return ['label' => $userGroup->getLocalizedName()];
+                return ['label' => $userGroup->getLocalizedData('name')];
             case 'roleId':
-                $roleNames = Application::getRoleNames(false, [$userGroup->getRoleId()]);
+                $roleNames = Application::getRoleNames(false, [$userGroup->roleId]);
                 return ['label' => __(array_shift($roleNames))];
-            case in_array($columnId, $workflowStages):
-                // Set the state of the select element that will
-                // be used to assign the stage to the user group.
-                $selectDisabled = false;
-                if (in_array($columnId, $roleDao->getForbiddenStages($userGroup->getRoleId()))) {
-                    // This stage should not be assigned to the user group.
-                    $selectDisabled = true;
-                }
-
-                return ['selected' => in_array($columnId, $assignedStages),
-                    'disabled' => $selectDisabled];
             default:
+                if (in_array($columnId, $workflowStages)) {
+                    // Set the state of the select element that will
+                    // be used to assign the stage to the user group.
+                    $selectDisabled = false;
+                    if (in_array($columnId, $roleDao->getForbiddenStages($userGroup->roleId))) {
+                        // This stage should not be assigned to the user group.
+                        $selectDisabled = true;
+                    }
+
+                    return [
+                        'selected' => in_array($columnId, $assignedStages),
+                        'disabled' => $selectDisabled
+                    ];
+                }
                 break;
         }
 
@@ -82,12 +85,12 @@ class UserGroupGridCellProvider extends GridCellProvider
         if (in_array($columnId, $workflowStages)) {
             $userGroup = $row->getData(); /** @var UserGroup $userGroup */
 
-            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->getContextId(), $userGroup->getId())->toArray();
+            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->contextId, $userGroup->id)->toArray();
 
             $router = $request->getRouter();
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
-            if (!in_array($columnId, $roleDao->getForbiddenStages($userGroup->getRoleId()))) {
+            if (!in_array($columnId, $roleDao->getForbiddenStages($userGroup->roleId))) {
                 if (in_array($columnId, $assignedStages)) {
                     $operation = 'unassignStage';
                     $actionTitleKey = 'grid.userGroup.unassignStage';

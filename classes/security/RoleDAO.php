@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\userGroup\UserGroup;
 
 class RoleDAO extends DAO
 {
@@ -89,14 +90,26 @@ class RoleDAO extends DAO
      */
     public function getByUserIdGroupedByContext(int $userId)
     {
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $userGroups = Repo::userGroup()->userUserGroups($userId);
-
+        $userGroups = UserGroup::query()
+            ->with('userUserGroups')
+            ->whereHas('userUserGroups', function ($query) use ($userId) {
+                $query->where('user_id', $userId)
+                    ->where(function ($q) {
+                        $q->whereNull('date_end')
+                          ->orWhere('date_end', '>', now());
+                    })
+                    ->where(function ($q) {
+                        $q->whereNull('date_start')
+                          ->orWhere('date_start', '<=', now());
+                    });
+            })
+            ->get();
+    
         $roles = [];
         foreach ($userGroups as $userGroup) {
-            $role = $roleDao->newDataObject();
-            $role->setRoleId($userGroup->getRoleId());
-            $roles[(int) $userGroup->getContextId()][$userGroup->getRoleId()] = $role;
+            $role = $this->newDataObject();
+            $role->setRoleId($userGroup->role_id);
+            $roles[(int) $userGroup->context_id][$userGroup->role_id] = $role;
         }
 
         return $roles;

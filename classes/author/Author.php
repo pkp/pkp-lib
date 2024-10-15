@@ -17,10 +17,9 @@
  */
 
 namespace PKP\author;
-
-use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
+use PKP\userGroup\UserGroup;
 
 class Author extends Identity
 {
@@ -212,8 +211,8 @@ class Author extends Identity
     {
         //FIXME: should this be queried when fetching Author from DB? - see #5231.
         static $userGroup; // Frequently we'll fetch the same one repeatedly
-        if (!$userGroup || $this->getUserGroupId() != $userGroup->getId()) {
-            $userGroup = Repo::userGroup()->get($this->getUserGroupId());
+        if (!$userGroup || $this->getData('userGroupId') != $userGroup->id) {
+            $userGroup = UserGroup::find($this->getData('userGroupId'));
         }
         return $userGroup;
     }
@@ -226,7 +225,8 @@ class Author extends Identity
     public function getLocalizedUserGroupName()
     {
         $userGroup = $this->getUserGroup();
-        return $userGroup->getLocalizedName();
+        return $userGroup ? $userGroup->getLocalizedData('name') : null;
+
     }
 
     /**

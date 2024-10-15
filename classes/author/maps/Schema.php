@@ -35,7 +35,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         parent::__construct($request, $context, $schemaService);
 
-        $this->authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $this->context->getId());
+        $this->authorUserGroups = UserGroup::withRoleIds(Role::ROLE_ID_AUTHOR)->withContextIds($this->context->getId())->cursor();
     }
 
     /**
@@ -94,8 +94,8 @@ class Schema extends \PKP\core\maps\Schema
             switch ($prop) {
                 case 'userGroupName':
                     /** @var UserGroup $userGroup */
-                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $item->getData('userGroupId'));
-                    $output[$prop] = $userGroup ? $userGroup->getName(null) : new stdClass();
+                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->id === $item->getData('userGroupId'));
+                    $output[$prop] = $userGroup ? $userGroup->name : new stdClass();
                     break;
                 case 'fullName':
                     $output[$prop] = $item->getFullName();

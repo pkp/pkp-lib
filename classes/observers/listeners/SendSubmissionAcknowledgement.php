@@ -47,7 +47,7 @@ abstract class SendSubmissionAcknowledgement
         $assignedUserIds = StageAssignment::withSubmissionIds([$event->submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get()
-            ->pluck('userId')
+            ->pluck('user_id')
             ->all();
 
         $submitterUsers = Repo::user()

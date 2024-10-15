@@ -20,6 +20,7 @@ namespace PKP\stageAssignment;
 
 use APP\facades\Repo;
 use PKP\core\Core;
+use PKP\userGroup\UserGroup;
 
 class Repository
 {
@@ -29,7 +30,7 @@ class Repository
     public function build(int $submissionId, int $userGroupId, int $userId, ?bool $recommendOnly = null, ?bool $canChangeMetadata = null): StageAssignment
     {
         // Set defaults
-        $canChangeMetadata ??= Repo::userGroup()->get($userGroupId)->getPermitMetadataEdit();
+        $canChangeMetadata ??= UserGroup::find($userGroupId)?->permitMetadataEdit ?? false;
         $recommendOnly ??= false;
 
         return StageAssignment::withSubmissionIds([$submissionId])

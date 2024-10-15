@@ -189,23 +189,24 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         if ($includeInBrowseOnly) {
-            $authors = $authors->filter(function ($author, $key) {
-                return $author->getData('includeInBrowse');
-            });
+            $authors = $authors->filter(fn($author) => $author->getData('includeInBrowse'));
+        }
+
+        // create a mapping of user group ids to user groups for quick lookup
+        $userGroupMap = [];
+        foreach ($userGroups as $userGroup) {
+            $userGroupMap[$userGroup->id] = $userGroup;
         }
 
         $str = '';
         $lastUserGroupId = null;
         foreach ($authors as $author) {
+            $currentUserGroupId = $author->getUserGroupId();
             if (!empty($str)) {
-                if ($lastUserGroupId != $author->getData('userGroupId')) {
-                    foreach ($userGroups as $userGroup) {
-                        if ($lastUserGroupId === $userGroup->getId()) {
-                            if ($userGroup->getData('showTitle')) {
-                                $str .= ' (' . $userGroup->getLocalizedData('name') . ')';
-                            }
-                            break;
-                        }
+                if ($lastUserGroupId !== $currentUserGroupId) {
+                    $lastUserGroup = $userGroupMap[$lastUserGroupId] ?? null;
+                    if ($lastUserGroup && $lastUserGroup->showTitle) {
+                        $str .= ' (' . $lastUserGroup->getLocalizedData('name') . ')';
                     }
                     $str .= __('common.semicolonListSeparator');
                 } else {
@@ -213,18 +214,14 @@ class PKPPublication extends \PKP\core\DataObject
                 }
             }
             $str .= $author->getFullName();
-            $lastUserGroupId = $author->getUserGroupId();
+            $lastUserGroupId = $currentUserGroupId;
         }
 
         // If there needs to be a trailing user group title, add it
         if (isset($author)) {
-            foreach ($userGroups as $userGroup) {
-                if ($author->getData('userGroupId') === $userGroup->getId()) {
-                    if ($userGroup->getData('showTitle')) {
-                        $str .= ' (' . $userGroup->getLocalizedData('name') . ')';
-                    }
-                    break;
-                }
+            $lastUserGroup = $userGroupMap[$author->getUserGroupId()] ?? null;
+            if ($lastUserGroup && $lastUserGroup->showTitle) {
+                $str .= ' (' . $lastUserGroup->getLocalizedData('name') . ')';
             }
         }
 

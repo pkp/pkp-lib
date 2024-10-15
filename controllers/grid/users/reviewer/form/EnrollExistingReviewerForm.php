@@ -123,12 +123,12 @@ class EnrollExistingReviewerForm extends ReviewerForm
         }
 
         // User Group refers to the reviewer role
-        if ($userGroup->getData('roleId') != Role::ROLE_ID_REVIEWER) {
+        if ($userGroup->roleId != Role::ROLE_ID_REVIEWER) {
             return false;
         }
 
         // User group refers to the right context
-        if (intval($userGroup->getData('contextId')) != $context->getId()) {
+        if ((int) $userGroup->contextId != $context->getId()) {
             return false;
         }
 

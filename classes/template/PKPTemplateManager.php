@@ -62,6 +62,7 @@ use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
 use Smarty;
 use Smarty_Internal_Template;
+use PKP\userGroup\UserGroup;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
@@ -1341,11 +1342,24 @@ class PKPTemplateManager extends Smarty
         if (Application::isInstalled()) {
             $user = $this->_request->getUser();
             if ($user) {
-                $userGroups = Repo::userGroup()->userUserGroups($user->getId());
-
+                // Fetch user groups where the user is assigned
+                $userGroups = UserGroup::query()
+                    ->whereHas('userUserGroups', function ($query) use ($user) {
+                        $query->where('user_id', $user->getId())
+                            ->where(function ($q) {
+                                $q->whereNull('date_end')
+                                  ->orWhere('date_end', '>', now());
+                            })
+                            ->where(function ($q) {
+                                $q->whereNull('date_start')
+                                  ->orWhere('date_start', '<=', now());
+                            });
+                    })
+                    ->get();
+        
                 $userRoles = [];
                 foreach ($userGroups as $userGroup) {
-                    $userRoles[] = (int) $userGroup->getRoleId();
+                    $userRoles[] = (int) $userGroup->role_id;
                 }
                 $currentUser = [
                     'csrfToken' => $this->_request->getSession()->token(),

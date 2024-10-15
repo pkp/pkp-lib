@@ -104,7 +104,18 @@ class HookRegistry {
 			ksort($hooks[$hookName], SORT_NUMERIC);
 			foreach ($hooks[$hookName] as $priority => $hookList) {
 				foreach ($hookList as $hook) {
-					if ($result = call_user_func($hook, $hookName, $args)) return true;
+					try {
+						if ($result = call_user_func($hook, $hookName, $args)) return true;
+					} catch (Throwable $e) {
+						$trace = $e->getTrace();
+						foreach ($trace as $frame) {
+							if (is_subclass_of($frame['class'] ?? null, 'Plugin')) {
+								error_log('The plugin hook failed: ' . $e);
+								return false;
+							}
+						}
+						throw $e;
+					}
 				}
 			}
 		}

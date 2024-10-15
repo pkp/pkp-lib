@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-10-14 11:35+0000\n"
+"PO-Revision-Date: 2024-10-16 01:56+0000\n"
 "Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
@@ -2226,22 +2226,26 @@ msgid "validator.url"
 msgstr "Dit is geen geldige URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Geen nieuwe regel toegestaan."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Alleen [{$tags}] html tags zijn toegestaan."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"Filter ({$displayName}) ondersteunt invoer {$inputTypeName} - {$typeofInput} "
+"gegeven"
 
 msgid "filter.error.missingRequirements"
 msgstr ""
+"U probeert een transformatie uit te voeren die niet wordt ondersteund in uw "
+"installatieomgeving."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Kon XML-node niet importeren"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Onbekend commando {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2287,3 +2291,6 @@ msgstr "Highlights"
 
 msgid "showAll"
 msgstr "Toon alles"
+
+msgid "common.sandbox"
+msgstr "Applicatie draait in sandboxmodus."

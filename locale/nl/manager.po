@@ -1,11 +1,12 @@
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
+# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-10-10 12:54+0000\n"
-"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
+"PO-Revision-Date: 2024-10-16 01:56+0000\n"
+"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
 "Language: nl\n"
@@ -43,7 +44,7 @@ msgid "manager.announcements.datePublish"
 msgstr "Gepubliceerd op"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr ""
+msgstr "Verwijder nieuwsbericht"
 
 msgid "manager.announcements.edit"
 msgstr "Nieuwsbericht bewerken"
@@ -156,28 +157,40 @@ msgid "manager.dois.actions.deposit.all"
 msgstr "Alles registreren"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Registreer DOI's"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Je staat op het punt om DOI metadata records voor {$count} item(s) naar "
+"{$registrationAgency} te sturen. Weet je zeker dat je deze records wilt "
+"registreren?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Markeer DOI's als actief"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Je staat op het punt om {$count} DOI metadata records als actief te "
+"markeren. Weet je zeker dat je deze records als geregistreerd wilt markeren?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Markeer DOI's als niet actief/ongeregistreerd"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Je staat op het punt om {$count} DOI metadata records als niet actief te "
+"markeren. Weet je zeker dat je deze records als ongeregistreerd wilt "
+"markeren?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "DOI's markeren voor synchronisatie"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Je staat op het punt om {$count} DOI metadata records te markeren voor "
+"synchronisatie. De status Synchronisatie nodig kan alleen worden toegepast "
+"op eerder ingediende DOI's. Weet je zeker dat je deze records als oud wilt "
+"markeren?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Creëer XML tbv Export DOIs"
@@ -813,8 +826,9 @@ msgstr ""
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
 "Het DOI voorvoegsel wordt toegekend door de registrerende instantie (bv. <a "
-"href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>) en heeft als "
-"format 10.xxxx (bv. 10.1234):"
+"href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>)or <a href="
+"\"https://datacite.org/\" target=\"new\">DataCite</a> en heeft als format "
+"10.xxxx (bv. 10.1234)"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
@@ -858,7 +872,7 @@ msgstr ""
 "tussen alle objecten met hetzelfde DOI voorvoegsel:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Gebruik standaard patronen."
+msgstr "Standaard - Genereert automatisch een uniek achtletterig achtervoegsel"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1134,7 +1148,7 @@ msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Standaard reviewdatum"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Uiterste datum voor het beantwoorden van een reviewverzoek (in weken)"
+msgstr "Uiterste datum voor het beantwoorden van een reviewverzoek (in weken)."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Uiterste datum voor het voltooien van een review (in weken)"
@@ -1167,10 +1181,10 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Standaard reviewmodus"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Bied bij het opladen een link aan naar \"Verzekering van blinde review\""
+"Presenteer een link naar <button type=\"button\">hoe je ervoor kunt zorgen "
+"dat alle bestanden geanonimiseerd zijn</button> tijdens het uploaden"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsors en beleid"
@@ -1283,7 +1297,7 @@ msgid "plugins.categories.metadata"
 msgstr "Metadata plugins"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Metadata Plugins implementeren aanvullende metadata standaards"
+msgstr "Metadata Plugins implementeren aanvullende metadata standaards."
 
 msgid "plugins.categories.auth"
 msgstr "Authenticatie plugins"
@@ -1324,7 +1338,7 @@ msgstr "Betalingsmethode plugins"
 msgid "plugins.categories.reports.description"
 msgstr ""
 "Rapportage plugins worden gebruikt voor het implementeren van verschillende "
-"soorten rapporten en data-extracties voor conferentiebeheerders"
+"soorten rapporten en data-extracties voor conferentiebeheerders."
 
 msgid "plugins.categories.reports"
 msgstr "Rapportage plugins"
@@ -1513,7 +1527,7 @@ msgstr ""
 "niet overeenkomt met de naam van de bijgewerkte plugin."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin bestaat niet. Installeer."
+msgstr "Plugin bestaat niet. Installeer a.u.b"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
@@ -1535,7 +1549,7 @@ msgid "manager.plugins.upgradeFailed"
 msgstr "Upgrade is mislukt. {$errorString}"
 
 msgid "manager.plugins.upgradeSuccessful"
-msgstr "Met succes bijgewerkt naar versie {$versionString}."
+msgstr "Met succes bijgewerkt naar versie {$versionString}"
 
 msgid "manager.plugins.uploadError"
 msgstr "Fout bij het opladen van het bestand"
@@ -1547,7 +1561,7 @@ msgid "manager.plugins.versionFileInvalid"
 msgstr "Het version.xml bestand in de plugin folder bevat ongeldige gegevens."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr "Het version.xml bestand werd niet gevonden in de plugin folder."
+msgstr "Het version.xml bestand werd niet gevonden in de plugin folder"
 
 msgid "notification.localeEnabled"
 msgstr "Taal ingeschakeld."
@@ -1818,7 +1832,7 @@ msgid "manager.reviewForms.edit"
 msgstr "Reviewformulier"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Een titel is verplicht voor het reviewformulier"
+msgstr "Een titel is verplicht voor het reviewformulier."
 
 msgid "manager.reviewForms.inReview"
 msgstr "Onder review"
@@ -1838,7 +1852,7 @@ msgid "manager.reviewForms.noneChosen"
 msgstr "Geen / Vrije vorm review"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr "Er zijn geen reviewformulieren aangemaakt"
+msgstr "Er zijn geen reviewformulieren aangemaakt."
 
 msgid "manager.reviewForms.noneUsed"
 msgstr "Er zijn geen reviewformulieren in gebruik."
@@ -1874,7 +1888,7 @@ msgid "manager.reviewFormElements.confirmDelete"
 msgstr "Bevestig het verwijderen van een gepubliceerd item..."
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr "Kopieer naar"
+msgstr "Kopieer naar:"
 
 msgid "manager.reviewFormElements.create"
 msgstr "Maak nieuw item"
@@ -1889,13 +1903,13 @@ msgid "manager.reviewFormElements.elementType"
 msgstr "Elementtype"
 
 msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "Een elementtype is verplicht voor een formulierelement"
+msgstr "Een elementtype is verplicht voor een formulierelement."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "En vraag is verplicht bij een formulierelement"
+msgstr "Een vraag is verplicht bij een formulierelement."
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr "Er zijn geen items aangemaakt"
+msgstr "Er zijn geen items aangemaakt."
 
 msgid "manager.reviewFormElements.possibleResponse"
 msgstr "Selectie"
@@ -2200,6 +2214,7 @@ msgstr "Onbekende codering {$param}"
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "De inhoud is niet gecodeerd als {$param}"
 
+#, fuzzy
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Onbekende gebruikersgroep {$param}"
 
@@ -2235,7 +2250,7 @@ msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Import/export fouten"
+msgstr "Import/export fouten:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
@@ -2336,8 +2351,7 @@ msgstr "Type navigatiemenu"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
 msgstr ""
-"Selecteer een type navigatiemenu, of \"Aangepast\" om een eigen type te "
-"maken."
+"Selecteer een type navigatiemenu, of \"Aangepast\" om een eigen type te maken"
 
 msgid "manager.navigationMenus.customPage"
 msgstr "Aangepaste pagina"
@@ -3107,7 +3121,7 @@ msgid "mailable.reviewDecline.description"
 msgstr ""
 "Deze e-mail wordt door de reviewer verstuurd naar de sectieredacteur als "
 "reactie op een reviewverzoek om te laten weten dat het verzoek wordt "
-"afgewezen."
+"afgewezen"
 
 msgid "mailable.reviewRemind.name"
 msgstr ""
@@ -3436,3 +3450,8 @@ msgstr ""
 
 msgid "plugins.importexport.common.validation"
 msgstr "Valideer XML alvorens te exporteren en registreren."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Je moet <a href=\"#announcements/announcement-settings\">nieuwberichten "
+"activeren</a>."

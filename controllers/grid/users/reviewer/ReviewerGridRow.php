@@ -24,6 +24,8 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\security\Role;
+
 
 class ReviewerGridRow extends GridRow
 {
@@ -182,11 +184,21 @@ class ReviewerGridRow extends GridRow
                 )
             );
 
-            $user = $request->getUser();
+            // Simplified "Login as" action check
+            $currentUser = $request->getUser();
+            $reviewerId = $reviewAssignment->getReviewerId();
+
+            // Get the context (journal) to check for the Manager role
+            $context = $request->getContext();
+            $contextId = $context ? $context->getId() : 0;
+
             if (
                 !Validation::loggedInAs() &&
-                $user->getId() != $reviewAssignment->getReviewerId() &&
-                Validation::getAdministrationLevel($reviewAssignment->getReviewerId(), $user->getId()) === Validation::ADMINISTRATION_FULL &&
+                $currentUser->getId() != $reviewerId &&
+                (
+                    Validation::isSiteAdmin() ||
+                    $currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId)
+                ) &&
                 !$reviewAssignment->getCancelled()
             ) {
                 $dispatcher = $router->getDispatcher();
@@ -196,7 +208,7 @@ class ReviewerGridRow extends GridRow
                         new RedirectConfirmationModal(
                             __('grid.user.confirmLogInAs'),
                             __('grid.action.logInAs'),
-                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$reviewAssignment->getReviewerId()])
+                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$reviewerId])
                         ),
                         __('grid.action.logInAs'),
                         'enroll_user'
@@ -205,7 +217,7 @@ class ReviewerGridRow extends GridRow
             }
 
             // Add gossip action when appropriate
-            $canCurrentUserGossip = Repo::user()->canCurrentUserGossip($reviewAssignment->getReviewerId());
+            $canCurrentUserGossip = Repo::user()->canCurrentUserGossip($reviewerId);
             if ($canCurrentUserGossip) {
                 $this->addAction(
                     new LinkAction(

@@ -413,7 +413,7 @@ class LoginHandler extends Handler
                 $templateMgr->assign([
                     'pageTitle' => 'manager.people',
                     'errorMsg' => 'manager.people.noAdministrativeRights',
-                    'backLink' => $request->url(null, null, 'people', 'all'),
+                    'backLink' => $request->url(null, null, 'people', ['all']),
                     'backLinkLabel' => 'manager.people.allUsers',
                 ]);
                 return $templateMgr->display('frontend/pages/error.tpl');

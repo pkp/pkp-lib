@@ -27,7 +27,7 @@ use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\security\Role;
 
-class SubmissionFilters extends FormComponent
+class PKPSubmissionFilters extends FormComponent
 {
     /**
      * The maximum number of options in a field
@@ -49,7 +49,8 @@ class SubmissionFilters extends FormComponent
             ->addGroup(['id' => 'default', 'pageId' => 'default'])
             ->addSectionFields()
             ->addAssignedTo()
-            ->addIssues()
+            // Disabled temporarly while migrating to OMP
+           // ->addIssues()
             ->addCategories()
             ->addDaysSinceLastActivity()
         ;

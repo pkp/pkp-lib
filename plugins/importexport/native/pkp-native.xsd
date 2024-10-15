@@ -233,7 +233,7 @@
 			<element ref="pkp:submission_file" minOccurs="0" maxOccurs="unbounded" />
 			<element ref="pkp:pkppublication" minOccurs="1" maxOccurs="unbounded" />
 		</sequence>
-		<attribute name="status" type="string" use="optional" />
+		<attribute name="status" type="string" />
 		<attribute name="current_publication_id" type="int" use="optional" />
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="submission_progress" type="string" use="optional" />

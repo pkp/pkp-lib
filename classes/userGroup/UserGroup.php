@@ -3,263 +3,387 @@
 /**
  * @file classes/userGroup/UserGroup.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\userGroup\UserGroup
  *
- * @see DAO
- *
- * @brief UserGroup metadata class.
+ * @brief Eloquent Model for UserGroup
  */
 
 namespace PKP\userGroup;
 
-use PKP\core\PKPApplication;
+use Illuminate\Database\Eloquent\Model;
+use PKP\core\traits\ModelWithSettings;
+use Eloquence\Behaviours\HasCamelCasing;
+use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\relationships\UserUserGroup;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use PKP\facades\Locale;
+use PKP\userGroup\relationships\UserGroupStage;
+use Illuminate\Database\Query\Builder;
 
-class UserGroup extends \PKP\core\DataObject
+class UserGroup extends Model
 {
+    use ModelWithSettings;
+    use HasCamelCasing;
+
     /**
-     * Get the role ID
+     * The table associated with the model.
      *
-     * @return int ROLE_ID_...
+     * @var string
      */
-    public function getRoleId()
-    {
-        return $this->getData('roleId');
-    }
+    protected $table = 'user_groups';
 
     /**
-     * Set the role ID
+     * The primary key associated with the table.
      *
-     * @param int $roleId ROLE_ID_...
+     * @var string
      */
-    public function setRoleId($roleId)
-    {
-        $this->setData('roleId', $roleId);
-    }
+    protected $primaryKey = 'user_group_id';
 
     /**
-     * Get the role path
+     * Indicates if the model should be timestamped.
      *
-     * @return string Role path
+     * @var bool
      */
-    public function getPath()
-    {
-        return $this->getData('path');
-    }
+    public $timestamps = false;
 
     /**
-     * Set the role path
-     * $param $path string
-     */
-    public function setPath($path)
-    {
-        $this->setData('path', $path);
-    }
-
-    /**
-     * Get the context ID
-     */
-    public function getContextId(): ?int
-    {
-        return $this->getData('contextId');
-    }
-
-    /**
-     * Set the context ID
-     */
-    public function setContextId(?int $contextId): void
-    {
-        $this->setData('contextId', $contextId);
-    }
-
-    /**
-     * Get the default flag
+     * The attributes that are mass assignable.
      *
-     * @return bool
+     * @var array
      */
-    public function getDefault()
-    {
-        return $this->getData('isDefault');
-    }
+    protected $fillable = [
+        'context_id',
+        'role_id',
+        'is_default',
+        'show_title',
+        'permit_self_registration',
+        'permit_metadata_edit',
+        'masthead',
+    ];
 
     /**
-     * Set the default flag
+     * The attributes that should be cast to native types.
      *
-     * @param bool $isDefault
+     * @var array
      */
-    public function setDefault($isDefault)
+    protected function casts(): array
     {
-        $this->setData('isDefault', $isDefault);
+        return [
+            'context_id' => 'integer',
+            'role_id' => 'integer',
+            'is_default' => 'boolean',
+            'show_title' => 'boolean',
+            'permit_self_registration' => 'boolean',
+            'permit_metadata_edit' => 'boolean',
+            'masthead' => 'boolean',
+            // multilingual attributes will be handled through accessors and mutators
+        ];
     }
 
     /**
-     * Get the "show title" flag (whether or not the title of the role
-     * should be included in the list of submission contributor names)
+     * List of attributes associated with the settings
      *
-     * @return bool
+     * @var array
      */
-    public function getShowTitle()
-    {
-        return $this->getData('showTitle');
-    }
+    protected array $settings = [
+        'name',
+        'abbrev',
+        'nameLocaleKey',
+        'abbrevLocaleKey',
+    ];
 
     /**
-     * Set the "show title" flag
+     * The list of multilingual attributes.
      *
-     * @param bool $showTitle
+     * @var array
      */
-    public function setShowTitle($showTitle)
+    protected array $multilingualProps = [
+        'name',
+        'abbrev',
+    ];
+
+    /**
+     * Get the settings table name
+     */
+    public function getSettingsTable(): string
     {
-        $this->setData('showTitle', $showTitle);
+        return 'user_group_settings';
     }
 
     /**
-     * Get the "permit self-registration" flag (whether or not users may
-     * self-register for this role, i.e. in the case of external
-     * reviewers, or whether it should be prohibited, in the case of
-     * internal reviewers).
+     * Get the schema name for the model
+     */
+    public static function getSchemaName(): ?string
+    {
+        return 'userGroup';
+    }
+
+    /**
+     * Ensure casts are string values.
      *
-     * @return bool True IFF user self-registration is permitted
+     * @param array $casts
+     * @return array
      */
-    public function getPermitSelfRegistration()
+    protected function ensureCastsAreStringValues($casts): array
     {
-        return $this->getData('permitSelfRegistration');
+        return array_map(fn($cast) => (string) $cast, $casts);
     }
 
     /**
-     * Set the "permit self-registration" flag
-     */
-    public function setPermitSelfRegistration(bool $permitSelfRegistration)
-    {
-        $this->setData('permitSelfRegistration', $permitSelfRegistration);
-    }
-
-    /**
-     * Get the recommendOnly option (whether or not the manager or the sub-editor role
-     * can only recommend or also make decisions in the submission review)
+     * setAttribute method for multilingual attributes
      *
-     * @return bool
+     * @param string $key
+     * @param mixed $value
+     * @return $this
      */
-    public function getRecommendOnly()
+    public function setAttribute($key, $value)
     {
-        return $this->getData('recommendOnly');
+        if (in_array($key, $this->settings)) {
+            // it's a settings attribute
+            if (in_array($key, $this->multilingualProps)) {
+                // and it's a multilingual setting
+                if (is_string($value)) {
+                    $value = $this->localizeNonLocalizedData($value);
+                }
+            }
+            $this->settings[$key] = $value;
+            return $this;
+        }
+
+        return parent::setAttribute($key, $value);
     }
 
     /**
-     * Set the recommendOnly option (whether or not the manager or the sub-editor role
-     * can only recommend or also make decisions in the submission review)
+     * Override getAttribute to handle multilingual attributes.
+     */
+    public function getAttribute($key)
+    {
+        if (in_array($key, $this->settings)) {
+            // it's a settings attribute
+            return $this->settings[$key] ?? null;
+        }
+
+        return parent::getAttribute($key);
+    }
+
+    /**
+     * Wraps a non localized value with the default locale
      *
-     * @param bool $recommendOnly
+     * @param string $value the non localized value
+     * @return array array with the default locale as the key and the value
      */
-    public function setRecommendOnly($recommendOnly)
+    protected function localizeNonLocalizedData(string $value): array
     {
-        $this->setData('recommendOnly', $recommendOnly);
+        return [Locale::getLocale() => $value];
     }
 
     /**
-     * Get the localized role name
-     *
-     * @return string
+     * Define the relationship to StageAssignments
      */
-    public function getLocalizedName()
+    public function stageAssignments(): HasMany
     {
-        return $this->getLocalizedData('name');
+        return $this->hasMany(StageAssignment::class, 'user_group_id', 'user_group_id');
     }
 
     /**
-     * Get localized user group name, or array of localized names if $locale is null
-     *
-     * @param string|null $locale
-     *
-     * @return string|array|null localized name or array of localized names or null
+     * Define the relationship to UserUserGroups
      */
-    public function getName($locale)
+    public function userUserGroups(): HasMany
     {
-        return $this->getData('name', $locale);
+        return $this->hasMany(UserUserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     /**
-     * Set user group name
-     *
-     * @param string $name
-     * @param string $locale
+     * Define the relationship to UserUserGroups
      */
-    public function setName($name, $locale)
+    public function userGroupStages(): HasMany
     {
-        $this->setData('name', $name, $locale);
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
     }
 
     /**
-     * Get the localized abbreviation
-     *
-     * @return string
+     * Scope a query to filter by context IDs.
      */
-    public function getLocalizedAbbrev()
+    public function scopeWithContextIds(Builder $query, ?array $contextIds)
     {
-        return $this->getLocalizedData('abbrev');
+        if ($contextIds !== null) {
+            $query->whereIn('context_id', $contextIds);
+        }
+        return $query;
     }
 
     /**
-     * Get localized user group abbreviation, or array of localized abbreviations if $locale is null
-     *
-     * @param string|null $locale
-     *
-     * @return string|array|null localized abbreviation or array of localized abbreviations or null
+     * Scope a query to filter by user group IDs.
      */
-    public function getAbbrev($locale)
+    public function scopeWithUserGroupIds(Builder $query, ?array $userGroupIds)
     {
-        return $this->getData('abbrev', $locale);
+        if ($userGroupIds !== null) {
+            $query->whereIn('user_group_id', $userGroupIds);
+        }
+        return $query;
     }
 
     /**
-     * Set user group abbreviation
-     *
-     * @param string $abbrev
-     * @param string $locale
+     * Scope a query to filter by role IDs.
      */
-    public function setAbbrev($abbrev, $locale)
+    public function scopeWithRoleIds(Builder $query, ?array $roleIds)
     {
-        $this->setData('abbrev', $abbrev, $locale);
+        if ($roleIds !== null) {
+            $query->whereIn('role_id', $roleIds);
+        }
+        return $query;
     }
 
     /**
-     * Getter for permitMetadataEdit attribute.
-     *
-     * @return bool
+     * Scope a query to exclude certain role IDs.
      */
-    public function getPermitMetadataEdit()
+    public function scopeExcludeRoles(Builder $query, ?array $excludeRoles)
     {
-        return $this->getData('permitMetadataEdit');
+        if ($excludeRoles !== null) {
+            $query->whereNotIn('role_id', $excludeRoles);
+        }
+        return $query;
     }
 
     /**
-     * Setter for permitMetadataEdit attribute.
+     * Scope a query to filter by stage IDs.
      */
-    public function setPermitMetadataEdit(bool $permitMetadataEdit)
+    public function scopeWithStageIds(Builder $query, ?array $stageIds)
     {
-        $this->setData('permitMetadataEdit', $permitMetadataEdit);
+        if ($stageIds !== null) {
+            $query->whereHas('userGroupStages', function (Builder $q) use ($stageIds) {
+                $q->whereIn('stage_id', $stageIds);
+            });
+        }
+        return $query;
     }
 
     /**
-     * Get the masthead flag
+     * Scope a query to filter by is_default.
      */
-    public function getMasthead(): bool
+    public function scopeIsDefault(Builder $query, ?bool $isDefault)
     {
-        return $this->getData('masthead');
+        if ($isDefault !== null) {
+            $query->where('is_default', $isDefault);
+        }
+        return $query;
     }
 
     /**
-     * Set the masthead flag
+     * Scope a query to filter by show_title.
      */
-    public function setMasthead(bool $masthead)
+    public function scopeShowTitle(Builder $query, ?bool $showTitle)
     {
-        $this->setData('masthead', $masthead);
+        if ($showTitle !== null) {
+            $query->where('show_title', $showTitle);
+        }
+        return $query;
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\userGroup\UserGroup', '\UserGroup');
+    /**
+     * Scope a query to filter by permit_self_registration.
+     */
+    public function scopePermitSelfRegistration(Builder $query, ?bool $permitSelfRegistration)
+    {
+        if ($permitSelfRegistration !== null) {
+            $query->where('permit_self_registration', $permitSelfRegistration);
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to filter by permit_metadata_edit.
+     */
+    public function scopePermitMetadataEdit(Builder $query, ?bool $permitMetadataEdit)
+    {
+        if ($permitMetadataEdit !== null) {
+            $query->where('permit_metadata_edit', $permitMetadataEdit);
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to filter by masthead.
+     */
+    public function scopeMasthead(Builder $query, ?bool $masthead)
+    {
+        if ($masthead !== null) {
+            $query->where('masthead', $masthead);
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to filter by user IDs.
+     */
+    public function scopeWithUserIds(Builder $query, ?array $userIds)
+    {
+        if ($userIds !== null) {
+            $query->whereHas('userUserGroups', function (Builder $q) use ($userIds) {
+                $q->whereIn('user_id', $userIds);
+            });
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to filter by recommendOnly setting.
+     */
+    public function scopeIsRecommendOnly(Builder $query, ?bool $isRecommendOnly)
+    {
+        if ($isRecommendOnly !== null) {
+            $query->whereHas('settings', function (Builder $q) use ($isRecommendOnly) {
+                $q->where('setting_name', 'recommendOnly')
+                  ->where('setting_value', $isRecommendOnly);
+            });
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to filter by UserUserGroupStatus.
+     */
+    public function scopeWithUserUserGroupStatus(Builder $query, string $status)
+    {
+        $currentDateTime = now();
+
+        if ($status === 'active') {
+            $query->whereHas('userUserGroups', function (Builder $q) use ($currentDateTime) {
+                $q->where(function ($q) use ($currentDateTime) {
+                    $q->where('date_start', '<=', $currentDateTime)
+                      ->orWhereNull('date_start');
+                })->where(function ($q) use ($currentDateTime) {
+                    $q->where('date_end', '>', $currentDateTime)
+                      ->orWhereNull('date_end');
+                });
+            });
+        } elseif ($status === 'ended') {
+            $query->whereHas('userUserGroups', function (Builder $q) use ($currentDateTime) {
+                $q->whereNotNull('date_end')
+                  ->where('date_end', '<=', $currentDateTime);
+            });
+        }
+        // Implement other statuses if needed
+        return $query;
+    }
+
+    /**
+     * Scope a query to order by role ID.
+     */
+    public function scopeOrderByRoleId(Builder $query)
+    {
+        return $query->orderBy('role_id', 'asc');
+    }
+
+    /**
+     * Scope a query to order by user group ID.
+     */
+    public function scopeOrderById(Builder $query)
+    {
+        return $query->orderBy('user_group_id', 'asc');
+    }
 }

@@ -34,6 +34,7 @@ use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
 use PKP\xml\PKPXMLParser;
+use Illuminate\Database\Query\Builder;
 use stdClass;
 
 class Repository
@@ -46,51 +47,63 @@ class Repository
     /** @var string Max lifetime for the Editorial Masthead and Editorial History users cache. */
     public const MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME = '1 year';
 
-    /** @var DAO */
-    public $dao;
-
     /** @var string $schemaMap The name of the class to map this entity to its schema */
     public $schemaMap = maps\Schema::class;
 
-    /** @var Request */
-    protected $request;
 
     /** @var PKPSchemaService<UserGroup> */
     protected $schemaService;
 
-    public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
+    public function __construct(PKPSchemaService $schemaService)
     {
-        $this->dao = $dao;
-        $this->request = $request;
         $this->schemaService = $schemaService;
     }
 
-    /** @copydoc DAO::newDataObject() */
+    /**
+     * Create UserGroup instance
+     *
+     * @param array $params
+     * @return UserGroup
+     */
     public function newDataObject(array $params = []): UserGroup
     {
-        $object = $this->dao->newDataObject();
-        if (!empty($params)) {
-            $object->setAllData($params);
-        }
-        return $object;
+        return new UserGroup($params);
     }
 
-    /** @copydoc DAO::get() */
+    /**
+     * Retrieve UserGroup by id and optional context id.
+     *
+     * @param int $id
+     * @param int|null $contextId
+     * @return UserGroup|null
+     */
     public function get(int $id, ?int $contextId = null): ?UserGroup
     {
-        return $this->dao->get($id, $contextId);
+        $query = UserGroup::query()->where('user_group_id', $id);
+
+        if ($contextId !== null) {
+            $query->withContextIds([$contextId]);
+        }
+
+        return $query->first();
     }
 
-    /** @copydoc DAO::exists() */
+    /**
+     * Check if UserGroup exists by id and context id.
+     *
+     * @param int $id
+     * @param int|null $contextId
+     * @return bool
+     */
     public function exists(int $id, ?int $contextId = null): bool
     {
-        return $this->dao->exists($id, $contextId);
-    }
+        $query = UserGroup::query()->where('user_group_id', $id);
 
-    /** @copydoc DAO::getCollector() */
-    public function getCollector(): Collector
-    {
-        return app(Collector::class);
+        if ($contextId !== null) {
+            $query->withContextIds([$contextId]);
+        }
+
+        return $query->exists();
     }
 
     /**
@@ -147,237 +160,306 @@ class Repository
 
         return $errors;
     }
-
+    /**
+     * Add new UserGroup to database
+     *
+     * @param UserGroup $userGroup
+     * @return int The id of the new UserGroup
+     */
     public function add(UserGroup $userGroup): int
     {
-        $userGroupId = $this->dao->insert($userGroup);
-        $userGroup = Repo::userGroup()->get($userGroupId);
+        $userGroup->save();
+
+        // reload to make sure that all relationships and settings are loaded
+        $userGroup = $this->get($userGroup->user_group_id, $userGroup->context_id);
 
         Hook::call('UserGroup::add', [$userGroup]);
 
         // Clear editorial masthead cache if the new role should be added to the masthead
-        // Because it is a new role, no need to clear editorial history chache
-        if ($userGroup->getMasthead()) {
-            self::forgetEditorialMastheadCache($userGroup->getContextId());
+        if ($userGroup->masthead) {
+            self::forgetEditorialMastheadCache($userGroup->context_id);
         }
-        return $userGroup->getId();
+
+        return $userGroup->user_group_id;
     }
 
-    public function edit(UserGroup $userGroup, array $params)
+    /**
+     * Edit existing UserGroup with new parameters
+     *
+     * @param UserGroup $userGroup
+     * @param array $params
+     * @return void
+     */
+    public function edit(UserGroup $userGroup, array $params): void
     {
-        $newUserGroup = Repo::userGroup()->newDataObject(array_merge($userGroup->_data, $params));
+        // merge existing data with new parameters
+        $userGroup->fill($params);
+        $userGroup->save();
 
-        Hook::call('UserGroup::edit', [$newUserGroup, $userGroup, $params]);
-
-        $this->dao->update($newUserGroup);
+        Hook::call('UserGroup::edit', [$userGroup, $params]);
 
         // Clear editorial masthead and history cache if the role is on the masthead
-        if ($userGroup->getMasthead()) {
-            self::forgetEditorialMastheadCache($userGroup->getContextId());
-            self::forgetEditorialHistoryCache($userGroup->getContextId());
+        if ($userGroup->masthead) {
+            self::forgetEditorialMastheadCache($userGroup->context_id);
+            self::forgetEditorialHistoryCache($userGroup->context_id);
         }
 
-        Repo::userGroup()->get($newUserGroup->getId());
+        // reload to make sure all relationships and settings are updated
+        $this->get($userGroup->user_group_id, $userGroup->context_id);
     }
 
-    public function delete(UserGroup $userGroup)
+    /**
+     * Delete UserGroup from the database.
+     *
+     * @param UserGroup $userGroup
+     * @return void
+     */
+    public function delete(UserGroup $userGroup): void
     {
         Hook::call('UserGroup::delete::before', [$userGroup]);
 
-        $this->dao->delete($userGroup);
+        // clear editorial masthead and history cache if the role is on the masthead
+        if ($userGroup->masthead) {
+            self::forgetEditorialMastheadCache($userGroup->context_id);
+            self::forgetEditorialHistoryCache($userGroup->context_id);
+        }
+
+        $userGroup->delete();
 
         Hook::call('UserGroup::delete', [$userGroup]);
     }
 
     /**
-    * Delete all user groups assigned to a certain context by contextId
-    */
-    public function deleteByContextId(int $contextId)
+     * Delete all user groups assigned to a certain context by contextId
+     *
+     * @param int $contextId
+     * @return void
+     */
+    public function deleteByContextId(int $contextId): void
     {
-        $userGroupIds = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$contextId])
-            ->getIds();
-
-        foreach ($userGroupIds as $userGroupId) {
-            $this->dao->deleteById($userGroupId);
-        }
+        UserGroup::query()
+            ->withContextIds([$contextId])
+            ->each(function (UserGroup $userGroup) {
+                $this->delete($userGroup);
+            });
     }
 
     /**
-    * Return all user group ids given a certain role id
-    *
-    * @param int $roleId
-    */
-    public function getArrayIdByRoleId($roleId, ?int $contextId = null): array
+     * Return all user group ids given a certain role ID and context id
+     *
+     * @param int $roleId
+     * @param int|null $contextId
+     * @return array
+     */
+    public function getArrayIdByRoleId(int $roleId, ?int $contextId = null): array
     {
-        $collector = Repo::userGroup()->getCollector()
-            ->filterByRoleIds([$roleId]);
+        $query = UserGroup::query()
+            ->withRoleIds([$roleId]);
 
-        if ($contextId) {
-            $collector->filterByContextIds([$contextId]);
+        if ($contextId !== null) {
+            $query->withContextIds([$contextId]);
         }
 
-        return $collector->getIds()->toArray();
+        return $query->pluck('user_group_id')->toArray();
     }
 
     /**
-    * Return all user group ids given a certain role id
-    *
-    * @param ?bool $default Give null for all user groups, else define whether it is default
-    *
-    * @return LazyCollection<int,UserGroup>
-    */
+     * Return all user groups given role ids, context id and default flag
+     *
+     * @param array $roleIds
+     * @param int $contextId
+     * @param bool|null $default
+     * @return LazyCollection<int, UserGroup>
+     */
     public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
     {
-        $collector = Repo::userGroup()
-            ->getCollector()
-            ->filterByRoleIds($roleIds)
-            ->filterByContextIds([$contextId])
-            ->filterByIsDefault($default);
+        $query = UserGroup::query()
+            ->withRoleIds($roleIds)
+            ->withContextIds([$contextId]);
 
-        return $collector->getMany();
-    }
-
-    /**
-    * Return all, active or ended user groups ids for a user id
-    *
-    * @return LazyCollection<int,UserGroup>
-    */
-    public function userUserGroups(int $userId, ?int $contextId = null, ?UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE): LazyCollection
-    {
-        $collector = Repo::userGroup()
-            ->getCollector()
-            ->filterByUserIds([$userId])
-            ->filterByUserUserGroupStatus($userUserGroupStatus);
-
-        if ($contextId) {
-            $collector->filterByContextIds([$contextId]);
+        if ($default !== null) {
+            $query->isDefault($default);
         }
 
-        return $collector->getMany();
+        return $query->cursor();
     }
 
     /**
-    * Return all context IDs for masthead user groups the given user is or was assigned to
-    *
-    * @return Collection of context IDs
-    */
+     * Return all active or ended user groups for a user id and context id (optional)
+     *
+     * @param int $userId
+     * @param int|null $contextId
+     * @param UserUserGroupStatus $status
+     * @return LazyCollection<int, UserGroup>
+     */
+    public function userUserGroups(int $userId, ?int $contextId = null, UserUserGroupStatus $status = UserUserGroupStatus::STATUS_ACTIVE): LazyCollection
+    {
+        $query = UserGroup::query()
+            ->withUserIds([$userId])
+            ->withUserUserGroupStatus($status->value);
+
+        if ($contextId !== null) {
+            $query->withContextIds([$contextId]);
+        }
+
+        return $query->cursor();
+    }
+
+    /**
+     * Return all context IDs for masthead user groups the given user is or was assigned to
+     *
+     * @param int $userId
+     * @return Collection
+     */
     public function getUserUserGroupsContextIds(int $userId): Collection
     {
-        return Repo::userGroup()
-            ->getCollector()
-            ->filterByUserIds([$userId])
-            ->filterByUserUserGroupStatus(UserUserGroupStatus::STATUS_ALL)
-            ->filterByMasthead(true)
-            ->getQueryBuilder()
+        return UserGroup::query()
+            ->withUserIds([$userId])
+            ->withUserUserGroupStatus(UserUserGroupStatus::STATUS_ALL->value)
+            ->masthead(true)
             ->pluck('context_id')
             ->unique();
     }
 
     /**
-    * return whether a user is in a user group
-    */
+     * Determine whether a user is in a specific user group
+     *
+     * @param int $userId
+     * @param int $userGroupId
+     * @return bool
+     */
     public function userInGroup(int $userId, int $userGroupId): bool
     {
-        return UserUserGroup::withUserId($userId)
+        return UserUserGroup::query()
+            ->withUserId($userId)
             ->withUserGroupId($userGroupId)
             ->withActive()
-            ->get()
-            ->isNotEmpty();
+            ->exists();
     }
 
     /**
-    * return whether an active user in a user group should be displayed on the masthead
-    */
-    public function userOnMasthead(int $userId, ?int $userGroupId): bool
+     * Determine whether an active user in a user group should be displayed on the masthead
+     *
+     * @param int $userId
+     * @param int|null $userGroupId
+     * @return bool
+     */
+    public function userOnMasthead(int $userId, ?int $userGroupId = null): bool
     {
         if ($userGroupId) {
-            $userGroup = Repo::userGroup()->get($userGroupId);
-            if (!$userGroup->getMasthead()) {
+            $userGroup = $this->get($userGroupId);
+            if (!$userGroup || !$userGroup->masthead) {
                 return false;
             }
         }
-        $query = UserUserGroup::withUserId($userId)
+
+        $query = UserUserGroup::query()
+            ->withUserId($userId)
             ->withActive()
             ->withMasthead();
+
         if ($userGroupId) {
             $query->withUserGroupId($userGroupId);
         }
-        return $query->get()->isNotEmpty();
+
+        return $query->exists();
     }
 
     /**
-     * Get user masthead status for a user group the user is currently active in
+     * Get UserUserGroup masthead status for a UserGroup the user is currently active in
+     *
+     * @param int $userId
+     * @param int $userGroupId
+     * @return UserUserGroupMastheadStatus
      */
     public function getUserUserGroupMastheadStatus(int $userId, int $userGroupId): UserUserGroupMastheadStatus
     {
-        $masthead = UserUserGroup::withUserId($userId)
+        $masthead = UserUserGroup::query()
+            ->withUserId($userId)
             ->withUserGroupId($userGroupId)
             ->withActive()
-            ->pluck('masthead');
-        switch ($masthead[0]) {
-            case 1:
-                return UserUserGroupMastheadStatus::STATUS_ON;
-            case 0:
-                return UserUserGroupMastheadStatus::STATUS_OFF;
-            case null:
-                return UserUserGroupMastheadStatus::STATUS_NULL;
-        }
+            ->pluck('masthead')
+            ->first();
+
+        return match ($masthead) {
+            1 => UserUserGroupMastheadStatus::STATUS_ON,
+            0 => UserUserGroupMastheadStatus::STATUS_OFF,
+            default => UserUserGroupMastheadStatus::STATUS_NULL,
+        };
     }
 
     /**
-    * return whether a context has a specific user group
-    */
+     * Determine whether a context has a specific UserGroup
+     *
+     * @param int $contextId
+     * @param int $userGroupId
+     * @return bool
+     */
     public function contextHasGroup(int $contextId, int $userGroupId): bool
     {
-        return Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$contextId])
-            ->filterByUserGroupIds([$userGroupId])
-            ->getCount() > 0;
+        return UserGroup::query()
+            ->withContextIds([$contextId])
+            ->withUserGroupIds([$userGroupId])
+            ->exists();
     }
 
     /**
-     * Assign a user to a role
+     * Assign a user to a UserGroup
      *
+     * @param int $userId
+     * @param int $userGroupId
      * @param string|null $startDate The date in ISO (YYYY-MM-DD HH:MM:SS) format
      * @param string|null $endDate The date in ISO (YYYY-MM-DD HH:MM:SS) format
+     * @param UserUserGroupMastheadStatus|null $mastheadStatus
+     * @return UserUserGroup|null
      */
-    public function assignUserToGroup(int $userId, int $userGroupId, ?string $startDate = null, ?string $endDate = null, ?UserUserGroupMastheadStatus $mastheadStatus = null): ?UserUserGroup
-    {
+    public function assignUserToGroup(
+        int $userId,
+        int $userGroupId,
+        ?string $startDate = null,
+        ?string $endDate = null,
+        ?UserUserGroupMastheadStatus $mastheadStatus = null
+    ): ?UserUserGroup {
         if ($endDate && !Carbon::parse($endDate)->isFuture()) {
             return null;
         }
 
         $dateStart = $startDate ?? Core::getCurrentDate();
-        $userGroup = Repo::userGroup()->get($userGroupId);
-        // user_user_group's masthead does not inherit from the user_group's masthead,
-        // it needs to be specified (when accepting an invitations).
-        switch ($mastheadStatus) {
-            case UserUserGroupMastheadStatus::STATUS_ON:
-                $masthead = 1;
-                break;
-            case UserUserGroupMastheadStatus::STATUS_OFF:
-                $masthead = 0;
-                break;
-            default:
-                $masthead = $userGroup->getMasthead() ? 1 : null;
+        $userGroup = $this->get($userGroupId, null);
+
+        if (!$userGroup) {
+            return null;
         }
+
+        // Determine masthead status
+        $masthead = match ($mastheadStatus) {
+            UserUserGroupMastheadStatus::STATUS_ON => 1,
+            UserUserGroupMastheadStatus::STATUS_OFF => 0,
+            default => $userGroup->masthead ? 1 : null,
+        };
+
         // Clear editorial masthead cache if a new user is assigned to a masthead role
-        if ($userGroup->getMasthead()) {
-            self::forgetEditorialMastheadCache($userGroup->getContextId());
+        if ($userGroup->masthead) {
+            self::forgetEditorialMastheadCache($userGroup->context_id);
         }
+
         return UserUserGroup::create([
-            'userId' => $userId,
-            'userGroupId' => $userGroupId,
-            'dateStart' => $dateStart,
-            'dateEnd' => $endDate,
+            'user_id' => $userId,
+            'user_group_id' => $userGroupId,
+            'date_start' => $dateStart,
+            'date_end' => $endDate,
             'masthead' => $masthead,
         ]);
     }
 
     /**
-     * Remove all user role assignments. This should be used only when merging i.e. fully deleting an user.
+     * Remove all user role assignments for a user. optionally within a specific UserGroup
+     *
+     * This should be used only when merging, i.e., fully deleting a user.
+     *
+     * @param int $userId
+     * @param int|null $userGroupId
+     * @return bool
      */
     public function deleteAssignmentsByUserId(int $userId, ?int $userGroupId = null): bool
     {
@@ -389,20 +471,28 @@ class Repository
             }
         }
 
-        $query = UserUserGroup::withUserId($userId);
+        $query = UserUserGroup::query()->withUserId($userId);
 
         if ($userGroupId) {
             $query->withUserGroupId($userGroupId);
-            $userGroup = $this->get($userGroupId);
-            if ($userGroup->getMasthead()) {
-                self::forgetEditorialMastheadCache($contextId);
-                self::forgetEditorialHistoryCache($contextId);
+            $userGroup = $this->get($userGroupId, null);
+            if ($userGroup && $userGroup->masthead) {
+                self::forgetEditorialMastheadCache($userGroup->context_id);
+                self::forgetEditorialHistoryCache($userGroup->context_id);
             }
         }
 
-        return $query->delete();
+        return $query->delete() > 0;
     }
 
+    /**
+     * End user assignments by setting the end date.
+     *
+     * @param int $contextId
+     * @param int $userId
+     * @param int|null $userGroupId
+     * @return void
+     */
     public function endAssignments(int $contextId, int $userId, ?int $userGroupId = null): void
     {
         // Clear editorial masthead and history cache if the user was displayed on the masthead for the given role
@@ -412,69 +502,109 @@ class Repository
         }
 
         $dateEnd = Core::getCurrentDate();
-        $query = UserUserGroup::withContextId($contextId)
+        $query = UserUserGroup::query()
+            ->withContextId($contextId)
             ->withUserId($userId)
             ->withActive();
+
         if ($userGroupId) {
             $query->withUserGroupId($userGroupId);
         }
+
         $query->update(['date_end' => $dateEnd]);
     }
 
     /**
-    * Get the user groups assigned to each stage.
-    *
-    * @param null|mixed $roleId
-    * @param null|mixed $count
-    *
-    * @return LazyCollection<int,UserGroup>
-    */
-    public function getUserGroupsByStage(int $contextId, $stageId, $roleId = null, $count = null): LazyCollection
+     * Get the user groups assigned to each stage.
+     *
+     * @param int $contextId
+     * @param int $stageId
+     * @param int|null $roleId
+     * @param int|null $count
+     * @return LazyCollection<int, UserGroup>
+     */
+    public function getUserGroupsByStage(int $contextId, int $stageId, ?int $roleId = null, ?int $count = null): LazyCollection
     {
-        $userGroups = $this->getCollector()
-            ->filterByContextIds([$contextId])
-            ->filterByStageIds([$stageId]);
+        $query = UserGroup::query()
+            ->withContextIds([$contextId])
+            ->withStageIds([$stageId]);
 
-        if ($roleId) {
-            $userGroups->filterByRoleIds([$roleId]);
+        if ($roleId !== null) {
+            $query->withRoleIds([$roleId]);
         }
 
-        $userGroups->orderBy(Collector::ORDERBY_ROLE_ID);
+        $query->orderByRoleId();
 
-        return $userGroups->getMany();
+        if ($count !== null) {
+            $query->limit($count);
+        }
+
+        return $query->cursor();
     }
 
     /**
-    * Remove a user group from a stage
-    */
+     * Remove a user group from a stage
+     *
+     * @param int $contextId
+     * @param int $userGroupId
+     * @param int $stageId
+     * @return bool
+     */
     public function removeGroupFromStage(int $contextId, int $userGroupId, int $stageId): bool
     {
-        return UserGroupStage::withContextId($contextId)
+        return UserGroupStage::query()
+            ->withContextId($contextId)
             ->withUserGroupId($userGroupId)
             ->withStageId($stageId)
-            ->delete();
+            ->delete() > 0;
     }
 
     /**
      * Get all stages assigned to one user group in one context.
      *
      * @param int $contextId The context ID.
-     * @param int $userGroupId The user group ID
-     *
+     * @param int $userGroupId The UserGroup ID
+     * @return Collection
      */
     public function getAssignedStagesByUserGroupId(int $contextId, int $userGroupId): Collection
     {
-        return UserGroupStage::withContextId($contextId)
+        return UserGroupStage::query()
+            ->withContextId($contextId)
             ->withUserGroupId($userGroupId)
             ->pluck('stage_id');
     }
 
     /**
-     * Retrieves a keyed Collection (key = user_group_id, value = count) with the amount of active users for each user group
+     * Retrieve a keyed Collection (key = user_group_id, value = count) with the amount of active users for each UserGroup.
+     *
+     * @param int|null $contextId
+     * @return Collection
      */
     public function getUserCountByContextId(?int $contextId = null): Collection
     {
-        return $this->dao->getUserCountByContextId($contextId);
+        $currentDateTime = now();
+
+        $query = UserGroup::query()
+            ->select('user_groups.user_group_id')
+            ->selectRaw('COUNT(user_user_groups.user_id) AS count')
+            ->join('user_user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
+            ->join('users', 'users.user_id', '=', 'user_user_groups.user_id')
+            ->where('users.disabled', 0)
+            ->where(function (Builder $q) use ($currentDateTime) {
+                $q->where('user_user_groups.date_start', '<=', $currentDateTime)
+                  ->orWhereNull('user_user_groups.date_start');
+            })
+            ->where(function (Builder $q) use ($currentDateTime) {
+                $q->where('user_user_groups.date_end', '>', $currentDateTime)
+                  ->orWhereNull('user_user_groups.date_end');
+            })
+            ->groupBy('user_groups.user_group_id');
+
+        if ($contextId !== null) {
+            $query->withContextIds([$contextId]);
+        }
+
+        return $query->pluck('count', 'user_group_id');
     }
 
     /**
@@ -484,28 +614,27 @@ class Repository
      *
      * This returns the first user group with ROLE_ID_AUTHOR
      * that permits self-registration.
+     *
+     * @param int $contextId
+     * @return UserGroup|null
      */
     public function getFirstSubmitAsAuthorUserGroup(int $contextId): ?UserGroup
     {
-        return Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$contextId])
-            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-            ->filterByPermitSelfRegistration(true)
-            ->limit(1)
-            ->getMany()
+        return UserGroup::query()
+            ->withContextIds([$contextId])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->permitSelfRegistration(true)
             ->first();
     }
 
     /**
      * Load the XML file and move the settings to the DB
      *
-     * @param int $contextId
+     * @param int|null $contextId
      * @param string $filename
-     *
-     * @return bool true === success
+     * @return bool True on success otherwise false
      */
-    public function installSettings(?int $contextId, $filename)
+    public function installSettings(?int $contextId, string $filename): bool
     {
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);
@@ -522,52 +651,52 @@ class Repository
             $roleId = hexdec($setting->getAttribute('roleId'));
             $nameKey = $setting->getAttribute('name');
             $abbrevKey = $setting->getAttribute('abbrev');
-            $permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
-            $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
-            $masthead = $setting->getAttribute('masthead');
+            $permitSelfRegistration = $setting->getAttribute('permitSelfRegistration') === 'true';
+            $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit') === 'true';
+            $masthead = $setting->getAttribute('masthead') === 'true';
 
             // If has manager role then permitMetadataEdit can't be overridden
-            if (in_array($roleId, [Role::ROLE_ID_MANAGER])) {
-                $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
+            if (in_array($roleId, self::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
+                $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit') === 'true';
             }
 
             $defaultStages = explode(',', (string) $setting->getAttribute('stages'));
 
-            // create a role associated with this user group
-            $userGroup = $this->newDataObject();
-            $userGroup->setRoleId($roleId);
-            $userGroup->setContextId($contextId);
-            $userGroup->setPermitSelfRegistration($permitSelfRegistration ?? false);
-            $userGroup->setPermitMetadataEdit($permitMetadataEdit ?? false);
-            $userGroup->setDefault(true);
-            $userGroup->setShowTitle(true);
-            $userGroup->setMasthead($masthead ?? false);
+            // Create a UserGroup associated with this role
+            $userGroup = $this->newDataObject([
+                'role_id' => $roleId,
+                'context_id' => $contextId,
+                'permit_self_registration' => $permitSelfRegistration,
+                'permit_metadata_edit' => $permitMetadataEdit,
+                'is_default' => true,
+                'show_title' => true,
+                'masthead' => $masthead,
+            ]);
 
-            // insert the group into the DB
+            // insert the user group into the DB
             $userGroupId = $this->add($userGroup);
 
             // Install default groups for each stage
-            if (is_array($defaultStages)) { // test for groups with no stage assignments
-                foreach ($defaultStages as $stageId) {
-                    if (!empty($stageId) && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION && $stageId >= WORKFLOW_STAGE_ID_SUBMISSION) {
-                        UserGroupStage::create([
-                            'contextId' => $contextId,
-                            'userGroupId' => $userGroupId,
-                            'stageId' => $stageId
-                        ]);
-                    }
+            foreach ($defaultStages as $stageId) {
+                $stageId = (int) trim($stageId);
+                if ($stageId >= WORKFLOW_STAGE_ID_SUBMISSION && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION) {
+                    UserGroupStage::create([
+                        'context_id' => $contextId,
+                        'user_group_id' => $userGroupId,
+                        'stage_id' => $stageId,
+                    ]);
                 }
             }
 
             // add the i18n keys to the settings table so that they
             // can be used when a new locale is added/reloaded
-            $newUserGroup = $this->get($userGroupId);
+            $newUserGroup = $this->get($userGroupId, $contextId);
             $this->edit($newUserGroup, [
                 'nameLocaleKey' => $nameKey,
-                'abbrevLocaleKey' => $abbrevKey
+                'abbrevLocaleKey' => $abbrevKey,
             ]);
 
-            // install the settings in the current locale for this context
+            // Install the settings in the current locale for this context
             foreach ($installedLocales as $locale) {
                 $this->installLocale($locale, $contextId);
             }
@@ -584,94 +713,111 @@ class Repository
      *
      * @param string $locale
      * @param ?int $contextId
+     * @return void
      */
-    public function installLocale($locale, ?int $contextId = null)
+    public function installLocale(string $locale, ?int $contextId = null): void
     {
-        $userGroupsCollector = $this->getCollector();
+        $userGroups = UserGroup::query();
 
-        if (isset($contextId)) {
-            $userGroupsCollector->filterByContextIds([$contextId]);
+        if ($contextId !== null) {
+            $userGroups->withContextIds([$contextId]);
         }
 
-        $userGroups = $userGroupsCollector->getMany();
+        $userGroups = $userGroups->get();
 
         foreach ($userGroups as $userGroup) {
-            $nameKey = $userGroup->getData('nameLocaleKey');
-            $userGroup->setData('name', __($nameKey, [], $locale), $locale);
-            $abbrevKey = $userGroup->getData('abbrevLocaleKey');
-            $userGroup->setData('abbrev', __($abbrevKey, [], $locale), $locale);
+            $nameKey = $userGroup->settings['nameLocaleKey'] ?? null;
+            $abbrevKey = $userGroup->settings['abbrevLocaleKey'] ?? null;
 
-            $this->edit($userGroup, []);
+            if ($nameKey) {
+                $userGroup->settings['name'] = __($nameKey, [], $locale);
+            }
+
+            if ($abbrevKey) {
+                $userGroup->settings['abbrev'] = __($abbrevKey, [], $locale);
+            }
+
+            $userGroup->save();
         }
     }
 
     /**
-     * Cache/get cached array of masthead user IDs grouped by masthead role IDs [user_group_id => [user_ids]]
+     * Cache/get cached array of masthead user IDs grouped by masthead role IDs
+     * Format: [user_group_id => [user_ids]]
      *
      * @param array $mastheadRoles Masthead roles, filtered by the given context ID, and sorted as they should appear on the Editorial Masthead and Editorial History page
-     *
+     * @param int $contextId
+     * @param UserUserGroupStatus $userUserGroupStatus
+     * @return array
      */
     public function getMastheadUserIdsByRoleIds(array $mastheadRoles, int $contextId, UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE): array
     {
-        $key = __METHOD__;
-        switch ($userUserGroupStatus) {
-            case UserUserGroupStatus::STATUS_ACTIVE:
-                $key .= 'EditorialMasthead';
-                break;
-            case UserUserGroupStatus::STATUS_ENDED:
-                $key .= 'EditorialHistory';
-                break;
-        }
-        $key .= $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
-        $expiration = DateInterval::createFromDateString(static::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
-        $allUsersIdsGroupedByUserGroupId = Cache::remember($key, $expiration, function () use ($mastheadRoles, $contextId, $userUserGroupStatus) {
-            $mastheadRolesIds = array_map(
-                function (UserGroup $item) use ($contextId) {
-                    if ($item->getContextId() == $contextId) {
-                        return $item->getId();
-                    }
-                },
-                $mastheadRoles
-            );
+        $statusSuffix = match ($userUserGroupStatus) {
+            UserUserGroupStatus::STATUS_ACTIVE => 'EditorialMasthead',
+            UserUserGroupStatus::STATUS_ENDED => 'EditorialHistory',
+            default => 'EditorialMasthead',
+        };
+
+        $cacheKey = __METHOD__ . $statusSuffix . $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
+        $expiration = DateInterval::createFromDateString(self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+
+        return Cache::remember($cacheKey, $expiration, function () use ($mastheadRoles, $contextId, $userUserGroupStatus) {
+            // extract UserGroup IDs from mastheadRoles within the context
+            $mastheadRolesIds = array_filter(array_map(function (UserGroup $item) use ($contextId) {
+                return ($item->context_id === $contextId) ? $item->user_group_id : null;
+            }, $mastheadRoles));
+
             // Query that gets all users that are or were active in the given masthead roles
             // and that have accepted to be displayed on the masthead for the roles.
             // Sort the results by role ID and user family name.
-            $usersCollector = Repo::user()->getCollector();
-            $usersQuery = $usersCollector
-                ->filterByContextIds([$contextId])
-                ->filterByUserGroupIds($mastheadRolesIds)
-                ->filterByUserUserGroupStatus($userUserGroupStatus)
-                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
-                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
-                ->orderByUserGroupIds($mastheadRolesIds)
-                ->getQueryBuilder()
-                ->get();
+            $users = UserUserGroup::query()
+                ->withContextId($contextId)
+                ->withUserGroupIds($mastheadRolesIds)
+                ->withUserUserGroupStatus($userUserGroupStatus->value)
+                ->withUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON->value)
+                ->orderBy('user_groups.role_id', 'asc')
+                ->join('user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
+                ->join('users', 'user_user_groups.user_id', '=', 'users.user_id')
+                ->orderBy('users.family_name', 'asc')
+                ->get(['user_groups.user_group_id', 'users.user_id']);
 
-            // Get unique user IDs grouped by user group ID
-            $userIdsByUserGroupId = $usersQuery->mapToGroups(function (stdClass $item, int $key) {
-                return [$item->user_group_id => $item->user_id];
-            })->map(function ($item) {
-                return collect($item)->unique();
-            });
-            return $userIdsByUserGroupId->toArray();
+            // group unique user ids by UserGroup id
+            $userIdsByUserGroupId = $users->groupBy('user_group_id')->map(function ($group) {
+                return $group->pluck('user_id')->unique()->toArray();
+            })->toArray();
+
+            return $userIdsByUserGroupId;
         });
-        return $allUsersIdsGroupedByUserGroupId;
     }
 
     /**
-     * Clear editorial masthead cache
+     * Clear editorial masthead cache for a given context
+     *
+     * @param int $contextId
+     * @return void
      */
-    public static function forgetEditorialMastheadCache(int $contextId)
+    public static function forgetEditorialMastheadCache(int $contextId): void
     {
-        Cache::forget('PKP\userGroup\Repository::getMastheadUserIdsByRoleIdsEditorialMasthead' . $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+        $cacheKeyPrefix = 'PKP\userGroup\Repository::getMastheadUserIdsByRoleIds';
+        $cacheKeys = [
+            "{$cacheKeyPrefix}EditorialMasthead{$contextId}" . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME,
+            "{$cacheKeyPrefix}EditorialHistory{$contextId}" . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME,
+        ];
+
+        foreach ($cacheKeys as $key) {
+            Cache::forget($key);
+        }
     }
 
     /**
-     * Clear editorial history cache
+     * Clear editorial history cache for a given context.
+     *
+     * @param int $contextId
+     * @return void
      */
-    public static function forgetEditorialHistoryCache(int $contextId)
+    public static function forgetEditorialHistoryCache(int $contextId): void
     {
-        Cache::forget('PKP\userGroup\Repository::getMastheadUserIdsByRoleIdsEditorialHistory' . $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+        $cacheKey = "PKP\userGroup\Repository::getMastheadUserIdsByRoleIdsEditorialHistory{$contextId}" . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
+        Cache::forget($cacheKey);
     }
-
 }

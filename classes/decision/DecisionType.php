@@ -262,7 +262,7 @@ abstract class DecisionType
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->withStageIds([$this->getStageId()])
             ->get()
-            ->pluck('userId')
+            ->pluck('user_id')
             ->all();
     }
 

@@ -84,8 +84,9 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @param int[] $assocIds Section or category ids
      * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
+     * @param int $contextId
      *
-     * @return Collection result rows with userId and userGroupId columns
+     * @return \Illuminate\Support\Collection<int, \stdClass> result rows with userId and userGroupId properties
      */
     public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId): Collection
     {
@@ -197,10 +198,9 @@ class SubEditorsDAO extends \PKP\db\DAO
         // that will cause duplicates to be overwritten
         $assignments = collect($assignments)->mapWithKeys(fn ($assignment, $key) => [$assignment->userId . '-' . $assignment->userGroupId => $assignment]);
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::query()
+            ->withContextIds([$submission->getData('contextId')])
+            ->get();
 
         $userGroupIds = $userGroups->keys();
 
@@ -210,13 +210,13 @@ class SubEditorsDAO extends \PKP\db\DAO
         });
 
         foreach ($assignments as $assignment) {
-            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() == $assignment->userGroupId);
+            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->id == $assignment->userGroupId);
             Repo::stageAssignment()
                 ->build(
                     $submission->getId(),
                     $assignment->userGroupId,
                     $assignment->userId,
-                    $userGroup->getRecommendOnly()
+                    $userGroup->recommendOnly,
                 );
         }
 

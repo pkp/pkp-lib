@@ -34,6 +34,7 @@ use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\user\InterestManager;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class RegistrationForm extends Form
 {
@@ -204,13 +205,16 @@ class RegistrationForm extends Form
             }
 
             if (!Config::getVar('general', 'sitewide_privacy_statement')) {
-                $contextIds = [];
-                foreach ($this->getData('userGroupIds') as $userGroupId) {
-                    $userGroup = Repo::userGroup()->get($userGroupId);
-                    $contextIds[] = $userGroup->getContextId();
-                }
-
-                $contextIds = array_unique($contextIds);
+                $userGroupIds = $this->getData('userGroupIds');
+    
+                // Fetch all user groups in a single query
+                $userGroups = UserGroup::query()->withUserGroupIds($userGroupIds)->get();
+    
+                // Collect context IDs using the 'map' method
+                $contextIds = $userGroups->map(function ($userGroup) {
+                    return $userGroup->contextId;
+                })->unique()->toArray();
+    
                 if (!empty($contextIds)) {
                     $contextDao = Application::getContextDao();
                     $privacyConsent = (array) $this->getData('privacyConsent');

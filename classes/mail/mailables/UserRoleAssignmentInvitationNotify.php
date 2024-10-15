@@ -27,7 +27,7 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\userGroup\relationships\UserUserGroup;
-use UserGroup;
+use PKP\userGroup\UserGroup;
 
 class UserRoleAssignmentInvitationNotify extends Mailable
 {
@@ -82,7 +82,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $variables[static::$existingRoles] = __('emailTemplate.variable.invitation.existingRoles');
         $variables[static::$acceptUrl] = __('emailTemplate.variable.invitation.acceptUrl');
         $variables[static::$declineUrl] = __('emailTemplate.variable.invitation.declineUrl');
-        
+
         return $variables;
     }
 
@@ -92,20 +92,15 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         $count = 1;
         foreach ($userUserGroups as $userUserGroup) {
-            if ($userUserGroup instanceof UserUserGroup) {
-                $userGroupHelper = UserGroupHelper::fromUserUserGroup($userUserGroup);
-            } else {
-                $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
-            }
-            
+            $userGroupHelper = $userUserGroup instanceof UserUserGroup
+                ? UserGroupHelper::fromUserUserGroup($userUserGroup)
+                : UserGroupHelper::fromArray($userUserGroup);
+
             if ($count == 1) {
                 $retString = $title;
             }
 
-            $userGroupToUse = $userGroup;
-            if (!isset($userGroupToUse)) {
-                $userGroupToUse = Repo::userGroup()->get($userGroupHelper->userGroupId);
-            }
+            $userGroupToUse = $userGroup ?? UserGroup::find($userGroupHelper->userGroupId);
 
             $userGroupSection = $this->getUserUserGroupSection($userGroupHelper, $userGroupToUse, $context, $count, $locale);
 
@@ -117,36 +112,36 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         return $retString;
     }
 
-    private function getUserUserGroupSection(UserGroupHelper $userUserGroup, UserGroup $userGroup, Context $context, int  $count, string $locale): string 
+    private function getUserUserGroupSection(UserGroupHelper $userUserGroup, UserGroup $userGroup, Context $context, int  $count, string $locale): string
     {
         $sectionEndingDate = '';
         if (isset($userUserGroup->dateEnd)) {
-            $sectionEndingDate = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate', 
+            $sectionEndingDate = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate',
             [
                 'dateEnd' => $userUserGroup->dateEnd
             ]);
         }
 
-        $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear', 
+        $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear',
             [
                 'contextName' => $context->getName($locale),
-                'sectionName' => $userGroup->getName($locale)
+                'sectionName' => $userGroup->getLocalizedData('name', $locale)
             ]
         );
 
         if (isset($userUserGroup->masthead) && $userUserGroup->masthead) {
-            $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear', 
+            $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear',
                 [
                     'contextName' => $context->getName($locale),
-                    'sectionName' => $userGroup->getName($locale)
+                    'sectionName' => $userGroup->getLocalizedData('name', $locale)
                 ]
             );
         }
 
-        $userGroupSection = __('emails.userRoleAssignmentInvitationNotify.userGroupSection', 
+        $userGroupSection = __('emails.userRoleAssignmentInvitationNotify.userGroupSection',
             [
-                'sectionNumber' => $count, 
-                'sectionName' => $userGroup->getName($locale),
+                'sectionNumber' => $count,
+                'sectionName' => $userGroup->getLocalizedData('name', $locale),
                 'dateStart' => $userUserGroup->dateStart,
                 'sectionEndingDate' => $sectionEndingDate,
                 'sectionMastheadAppear' => $sectionMastheadAppear
@@ -154,7 +149,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         return $userGroupSection;
     }
-    
+
 
     /**
      * Set localized email template variables
@@ -185,17 +180,18 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         if (isset($user)) {
             // Existing Roles
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$this->invitation->getContextId()])
-                ->filterByUserIds([$user->getId()])
-                ->getMany();
-            
+
+            $userGroups = UserGroup::query()
+                ->withContextIds([$this->invitation->getContextId()])
+                ->withUserIds([$user->getId()])
+                ->get();
+
             foreach ($userGroups as $userGroup) {
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroup->getId())
+                    ->withUserGroupId($userGroup->id)
                     ->withActive()
                     ->get();
-                
+
                 $existingUserGroups = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $existingUserGroupsTitle);
             }
         }

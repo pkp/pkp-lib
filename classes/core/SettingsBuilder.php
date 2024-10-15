@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PKP\core\traits\EntityUpdate;
 use stdClass;
+use PKP\facades\Locale;
 
 class SettingsBuilder extends Builder
 {
@@ -158,36 +159,36 @@ class SettingsBuilder extends Builder
         if ($column instanceof ConditionExpression || $column instanceof Closure) {
             return parent::where($column, $operator, $value, $boolean);
         }
-
-        $settings = [];
-        $primaryColumn = false;
-
-        // See Illuminate\Database\Query\Builder::where()
+    
+        // Prepare value and operator
         [$value, $operator] = $this->query->prepareValueAndOperator(
             $value,
             $operator,
             func_num_args() === 2
         );
-
+    
         $modelSettingsList = $this->model->getSettings();
-
+    
+        $settings = [];
+        $primaryColumn = null;
+    
         if (is_string($column)) {
             if (in_array($column, $modelSettingsList)) {
                 $settings[$column] = $value;
             } else {
-                $primaryColumn = $column;
+                $primaryColumn = $this->getSnakeKey($column);
             }
+        } elseif (is_array($column)) {
+            $settings = array_intersect_key($column, array_flip($modelSettingsList));
+            $primaryColumn = array_diff_key($column, $settings);
+            $primaryColumn = array_map([$this, 'getSnakeKey'], array_keys($primaryColumn));
         }
-
-        if (is_array($column)) {
-            $settings = array_intersect($column, $modelSettingsList);
-            $primaryColumn = array_diff($column, $modelSettingsList);
-        }
-
+    
         if (empty($settings)) {
-            return parent::where($column, $operator, $value, $boolean);
+            return parent::where($primaryColumn ?? $column, $operator, $value, $boolean);
         }
-
+    
+        // Handle settings
         $where = [];
         foreach ($settings as $settingName => $settingValue) {
             $where = array_merge($where, [
@@ -195,18 +196,23 @@ class SettingsBuilder extends Builder
                 'setting_value' => $settingValue,
             ]);
         }
-
+    
         $this->query->whereIn(
             $this->model->getKeyName(),
             fn (QueryBuilder $query) =>
             $query->select($this->getPrimaryKeyName())->from($this->getSettingsTable())->where($where, null, null, $boolean)
         );
-
+    
         if (!empty($primaryColumn)) {
             parent::where($primaryColumn, $operator, $value, $boolean);
         }
-
+    
         return $this;
+    }
+    
+    protected function getSnakeKey($key)
+    {
+        return Str::snake($key);
     }
 
     /**
@@ -221,10 +227,16 @@ class SettingsBuilder extends Builder
      */
     public function whereIn($column, $values, $boolean = 'and', $not = false)
     {
-        if ($column instanceof Expression || !in_array($column, $this->model->getSettings())) {
+        if ($column instanceof Expression) {
             return parent::whereIn($column, $values, $boolean, $not);
         }
-
+    
+        $column = $this->getSnakeKey($column);
+    
+        if (!in_array($column, $this->model->getSettings())) {
+            return parent::whereIn($column, $values, $boolean, $not);
+        }
+    
         $this->query->whereIn(
             $this->model->getKeyName(),
             fn (QueryBuilder $query) =>
@@ -234,9 +246,10 @@ class SettingsBuilder extends Builder
                 ->where('setting_name', $column)
                 ->whereIn('setting_value', $values, $boolean, $not)
         );
-
+    
         return $this;
     }
+    
 
     public function getSettingsTable(): ?string
     {

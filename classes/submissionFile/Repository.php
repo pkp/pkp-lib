@@ -311,7 +311,7 @@ abstract class Repository
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->withStageIds([$reviewRound->getStageId()])
                 ->get()
-                ->pluck('userId')
+                ->pluck('user_id')
                 ->all();
 
             $notificationMgr = new NotificationManager();
@@ -436,7 +436,7 @@ abstract class Repository
                 $authorUserIds = StageAssignment::withSubmissionIds([$submissionFile->getData('submissionId')])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->get()
-                    ->pluck('userId')
+                    ->pluck('user_id')
                     ->all();
 
                 $notificationMgr->updateNotification(

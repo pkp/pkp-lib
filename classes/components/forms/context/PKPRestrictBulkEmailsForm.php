@@ -38,7 +38,7 @@ class PKPRestrictBulkEmailsForm extends FormComponent
         $userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
             $userGroupOptions[] = [
-                'value' => $userGroup->getId(),
+                'value' => $userGroup->id,
                 'label' => htmlspecialchars($userGroup->getLocalizedData('name')),
             ];
         }

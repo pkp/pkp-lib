@@ -2,62 +2,82 @@
 	"title": "UserGroup",
 	"description": "A user group assigned to one of the allowed roles.",
 	"properties": {
-		"abbrev": {
-			"type": "string",
-			"description": "The short name of the user group.",
-			"apiSummary": true,
-			"multilingual": true
-		},
-		"masthead": {
-			"type": "boolean"
-		},
-		"name": {
-			"type": "string",
-			"description": "The name of the user group.",
-			"apiSummary": true,
-			"multilingual": true
-		},
 		"id": {
-			"type": "integer",
-			"apiSummary": true
-		},
-		"contextId": {
-			"type": "integer",
-			"apiSummary": true
-		},
-		"permitSelfRegistration": {
-			"type": "boolean"
-		},
-		"permitMetadataEdit": {
-			"type": "boolean"
-		},
+            "type": "integer",
+            "origin": "primary",
+            "apiSummary": true
+        },
+        "contextId": {
+            "type": "integer",
+            "origin": "primary",
+            "apiSummary": true
+        },
+        "roleId": {
+            "type": "integer",
+            "origin": "primary",
+            "validation": [
+                "in:16,1,17,65536,4096,4097,1048576,209715"
+            ]
+        },
+        "isDefault": {
+            "type": "boolean",
+            "origin": "primary"
+        },
+        "showTitle": {
+            "type": "boolean",
+            "origin": "primary"
+        },
+        "permitSelfRegistration": {
+            "type": "boolean",
+            "origin": "primary"
+        },
 		"permitSettings": {
-			"type": "boolean"
+			"type": "boolean",
+			"origin": "primary"
 		},
-		"recommendOnly": {
-			"type": "boolean"
-		},
-		"isDefault": {
-			"type": "boolean"
-		},
-		"roleId": {
-			"type": "integer",
-			"validation": [
-				"in:16,1,17,65536,4096,4097,1048576,209715"
-			]
-		},
-		"showTitle": {
-			"type": "boolean"
-		},
-		"nameLocaleKey": {
-			"type": "string",
-			"description": "A field that contains the the locale key of the group name",
-			"apiSummary": true
-		},
-		"abbrevLocaleKey": {
-			"type": "string",
-			"description": "A field that contains the the locale key of the group abbreviaton",
-			"apiSummary": true
-		}
-	}
+        "permitMetadataEdit": {
+            "type": "boolean",
+            "origin": "primary"
+        },
+        "masthead": {
+            "type": "boolean",
+            "origin": "primary"
+        },
+        "name": {
+            "type": "string",
+            "origin": "setting",
+            "description": "The name of the user group.",
+            "apiSummary": true,
+            "multilingual": true
+        },
+        "namePlural": {
+            "type": "string",
+            "origin": "setting",
+            "description": "The plural name of the user group.",
+            "multilingual": true
+        },
+        "abbrev": {
+            "type": "string",
+            "origin": "setting",
+            "description": "The short name of the user group.",
+            "apiSummary": true,
+            "multilingual": true
+        },
+        "nameLocaleKey": {
+            "type": "string",
+            "origin": "setting",
+            "description": "The locale key of the group name.",
+            "apiSummary": true
+        },
+        "abbrevLocaleKey": {
+            "type": "string",
+            "origin": "setting",
+            "description": "The locale key of the group abbreviation.",
+            "apiSummary": true
+        },
+        "recommendOnly": {
+            "type": "boolean",
+            "origin": "setting"
+        }
+    }
 }

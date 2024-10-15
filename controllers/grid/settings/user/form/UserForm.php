@@ -20,6 +20,8 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\userGroup\UserGroup;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class UserForm extends Form
 {
@@ -50,11 +52,17 @@ class UserForm extends Form
         $userGroupIds = $masthead = [];
 
         if (!is_null($this->userId)) {
-            $userGroups = Repo::userGroup()->userUserGroups($this->userId);
-
+            // fetch user groups where the user is assigned
+            $userGroups = UserGroup::query()
+                ->whereHas('userUserGroups', function ($query) {
+                    $query->withUserId($this->userId)
+                          ->withActive();
+                })
+                ->get();
+    
             foreach ($userGroups as $userGroup) {
-                $userGroupIds[] = $userGroup->getId();
-                $masthead[$userGroup->getId()] = Repo::userGroup()->userOnMasthead($this->userId, $userGroup->getId());
+                $userGroupIds[] = $userGroup->id;
+                $masthead[$userGroup->id] = Repo::userGroup()->userOnMasthead($this->userId, $userGroup->id);
             }
         }
 
@@ -86,12 +94,10 @@ class UserForm extends Form
 
         $allUserGroups = [];
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$contextId])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$contextId])->get();
 
         foreach ($userGroups as $userGroup) {
-            $allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();
+            $allUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $templateMgr->assign([
@@ -121,29 +127,36 @@ class UserForm extends Form
 
         if ($this->getData('userGroupIds')) {
             $contextId = $request->getContext()->getId();
-
-            $oldUserGroupIds = [];
-            $oldUserGroups = Repo::userGroup()->userUserGroups($this->userId);
-            foreach ($oldUserGroups as $oldUserGroup) {
-                $oldUserGroupIds[] = $oldUserGroup->getId();
-            }
-
+    
+            // get current user group IDs
+            $oldUserGroupIds = UserGroup::query()
+                ->whereHas('userUserGroups', function ($query) {
+                    $query->withUserId($this->userId)
+                          ->withActive();
+                })
+                ->pluck('user_group_id')
+                ->all();
+    
             $userGroupsToEnd = array_diff($oldUserGroupIds, $this->getData('userGroupIds'));
             collect($userGroupsToEnd)
                 ->each(
                     fn ($userGroupId) =>
-                    Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
-                        ? Repo::userGroup()->endAssignments($contextId, $this->userId, $userGroupId)
-                        : null
+                    UserUserGroup::query()
+                        ->withUserId($this->userId)
+                        ->withUserGroupId($userGroupId)
+                        ->withActive()
+                        ->update(['date_end' => now()])
                 );
 
             $userGroupsToAdd = array_diff($this->getData('userGroupIds'), $oldUserGroupIds);
             collect($userGroupsToAdd)
                 ->each(
                     fn ($userGroupId) =>
-                    Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
-                        ? Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId)
-                        : null
+                    UserUserGroup::create([
+                        'userId' => $this->userId,
+                        'userGroupId' => $userGroupId,
+                        'dateStart' => now(),
+                    ])
                 );
         }
     }

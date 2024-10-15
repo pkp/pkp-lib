@@ -21,6 +21,7 @@ use Illuminate\Events\Dispatcher;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\UserGroup;
 
 class RestrictAuthorAssignment
 {
@@ -40,12 +41,12 @@ class RestrictAuthorAssignment
             ->get();
 
         foreach ($stageAssignments as $stageAssignment) {
-            $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId, $event->context->getId());
+            $userGroup = UserGroup::findById($stageAssignment->userGroupId, $event->context->getId());
             if (!$userGroup) {
                 continue;
             }
             
-            $stageAssignment->canChangeMetadata = $userGroup->getPermitMetadataEdit();
+            $stageAssignment->canChangeMetadata = $userGroup->permitMetadataEdit;
             $stageAssignment->save();
         }
     }

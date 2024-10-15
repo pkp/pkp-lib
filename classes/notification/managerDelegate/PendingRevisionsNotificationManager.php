@@ -95,7 +95,18 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
      */
     public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
     {
+        if (empty($userIds)) {
+            // no user IDs provided; nothing to update
+            return;
+        }
+    
         $userId = current($userIds);
+    
+        if (!$userId || !is_int($userId) || $userId <= 0) {
+            // invalid user ID; skip notification creation
+            return;
+        }
+    
         $submissionId = $assocId;
         $stageData = $this->_getStageDataByType();
         if ($stageData == null) {

@@ -1,12 +1,13 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
+# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-10-10 12:54+0000\n"
-"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
+"PO-Revision-Date: 2024-10-16 01:56+0000\n"
+"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
 "Language: nl\n"
@@ -149,7 +150,7 @@ msgid "metadata.property.displayName.article-title"
 msgstr "Artikel/Paper titel"
 
 msgid "metadata.property.validationMessage.article-title"
-msgstr "Geef een geldige titel voor het artikel of paper"
+msgstr "Geef een geldige titel voor het artikel of paper."
 
 msgid "metadata.property.displayName.source"
 msgstr "Tijdschrift/boek titel"
@@ -270,25 +271,25 @@ msgid "metadata.property.displayName.publisher-name"
 msgstr "Naam van de uitgever"
 
 msgid "metadata.property.validationMessage.publisher-name"
-msgstr "Geef een geldige uitgeversnaam"
+msgstr "Geef een geldige uitgeversnaam."
 
 msgid "metadata.property.displayName.isbn"
 msgstr "ISBN"
 
 msgid "metadata.property.validationMessage.isbn"
-msgstr "Geef een geldig ISBN (9 of 13 cijfers)"
+msgstr "Geef een geldig ISBN (9 of 13 cijfers)."
 
 msgid "metadata.property.displayName.issn"
-msgstr "Print ISSN"
+msgstr "ISSN (gedrukt)"
 
 msgid "metadata.property.validationMessage.issn"
-msgstr "Geef een geldig print ISSN"
+msgstr "Geef een geldig ISSN van de gedrukte uitgave."
 
 msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
+msgstr "ISSN (online)"
 
 msgid "metadata.property.validationMessage.eissn"
-msgstr "Geef een geldig eISSN"
+msgstr "Geef een geldig eISSN."
 
 msgid "metadata.property.displayName.doi"
 msgstr "DOI"
@@ -300,7 +301,7 @@ msgid "metadata.property.displayName.publisher-id"
 msgstr "Aangepaste publicatie ID"
 
 msgid "metadata.property.validationMessage.publisher-id"
-msgstr "Geef een geldige aangepaste publicatie ID"
+msgstr "Geef een geldige aangepaste publicatie ID."
 
 msgid "metadata.property.displayName.coden"
 msgstr "CODEN"
@@ -368,13 +369,13 @@ msgid "metadata.property.displayName.title"
 msgstr "Titel"
 
 msgid "metadata.property.validationMessage.title"
-msgstr "Geef een geldige titel"
+msgstr "Geef een geldige titel."
 
 msgid "metadata.property.displayName.subTitle"
 msgstr "Ondertitel"
 
 msgid "metadata.property.validationMessage.subTitle"
-msgstr "Geef een geldige ondertitel"
+msgstr "Geef een geldige ondertitel."
 
 msgid "metadata.property.displayName.partNumber"
 msgstr "Nummer van het onderdeel"
@@ -386,7 +387,7 @@ msgid "metadata.property.displayName.partName"
 msgstr "Naam van het onderdeel"
 
 msgid "metadata.property.validationMessage.partName"
-msgstr "Geef een geldige onderdeel naam"
+msgstr "Geef een geldige onderdeel naam."
 
 msgid "metadata.property.displayName.name-type"
 msgstr "Type van de naam"
@@ -837,10 +838,10 @@ msgid "submission.layout.galleyRemoteURL"
 msgstr "Remote URL"
 
 msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Geef de remote URL (inclusief http://)"
+msgstr "Geef de remote URL (inclusief http://)."
 
 msgid "submission.layout.galleyNoImages"
-msgstr "Er zijn geen afbeeldingen toegevoegd aan deze proefdruk."
+msgstr "Er zijn geen afbeeldingen toegevoegd aan deze proefdruk"
 
 msgid "submission.layout.galleys"
 msgstr "Proefdrukken"
@@ -1002,7 +1003,7 @@ msgid "submissions.completed"
 msgstr "Gereed"
 
 msgid "submissions.declined"
-msgstr "Afgewezen"
+msgstr "Geweigerd"
 
 msgid "submissions.incomplete"
 msgstr "Onvolledig"
@@ -1017,7 +1018,7 @@ msgid "submissions.queued"
 msgstr "In de wachtrij"
 
 msgid "submissions.queuedUnassigned"
-msgstr "Wacht op toekenning"
+msgstr "Wacht op toekenning."
 
 msgid "submissions.ruling"
 msgstr "Oordeel"
@@ -1062,7 +1063,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Bestand toegevoegd"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Deze bijdrager opnemen in het overzicht?"
+msgstr "Deze bijdrager opnemen in het overzicht."
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Publicatie Lijsten"
@@ -1133,7 +1134,7 @@ msgid "submission.views"
 msgstr "Bekeken"
 
 msgid "submission.uploadSuccessful"
-msgstr "Uw bestand is geladen"
+msgstr "Uw bestand is geladen."
 
 msgid "submission.loadMessage"
 msgstr "Wacht tot uw bestand is geladen in de server."
@@ -1293,7 +1294,7 @@ msgstr "Bestanden uploaden"
 msgid "submission.upload.response.description"
 msgstr ""
 "Beoordeel het toegewezen bestand en geef hieronder uw opmerkingen, en/of "
-"upload een kopie van het bestand met opmerkingen  (of een ander bestand)."
+"upload een kopie van het bestand met opmerkingen (of een ander bestand)."
 
 msgid "submission.upload.productionReady"
 msgstr "Bestand uploaden dat klaar is voor productie"
@@ -1805,46 +1806,58 @@ msgstr ""
 "reactie op de aanbevelingen en opmerkingen van reviewers."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Aanbevelen Accepteren"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Adviseren om deze inzending te accepteren voor publicatie en op te sturen "
+"voor copy editing."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} adviseerde om deze inzending te accepteren voor publicatie en "
+"op te sturen voor copy editing."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Aanbeveling ingediend"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Je aanbeveling is vastgelegd en de beslissende redacteur(en) zijn op de "
+"hoogte gesteld."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Herzieningen aanbevelen"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Adviseer de auteur om revisies te vragen voordat deze inzending wordt "
+"geaccepteerd voor publicatie."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} adviseerde om revisies te vragen."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Aanbevelen Opnieuw indienen voor review"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Adviseer de auteur om revisies in te dienen voor een volgende "
+"beoordelingsronde."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} adviseerde om revisies te vragen en deze revisies te laten "
+"beoordelen in een nieuwe reviewronde."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Aanbevelen Afwijzen"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Adviseer om de inzending af te wijzen voor publicatie."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} adviseerde deze inzending af te wijzen."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Aanbeveling maken"
@@ -1923,26 +1936,27 @@ msgstr ""
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$userFullName}\" ({$username}) is toegevoegd als corrector voor het bestand "
-"\"{$filename}\"."
+"\"{$userFullName}\" ({$username}) is toegevoegd als corrector voor het "
+"bestand \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$userFullName}\" ({$username}) is verwijderd als corrector voor het bestand "
-"\"{$filename}\"."
+"\"{$userFullName}\" ({$username}) is verwijderd als corrector voor het "
+"bestand \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$userFullName}\" ({$username}) heeft een proeflezing voltooid en het bestand "
-"\"{$filename}\" opgeladen."
+"\"{$userFullName}\" ({$username}) heeft een proeflezing voltooid en dit "
+"bestand geupload: \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$userFullName}\" ({$username}) heeft zich afgemeld voor \"{$filename}\"."
+msgstr ""
+"\"{$userFullName}\" ({$username}) heeft zich afgemeld voor \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$userFullName}\" ({$username}) heeft de proeven voor \"{$publicationFormatName}\" "
-"goedgekeurd."
+"\"{$userFullName}\" ({$username}) heeft de proeven goedgekeurd voor \""
+"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Overzicht inzendingen"
@@ -1951,7 +1965,7 @@ msgid "submission.description"
 msgstr "Beschrijving"
 
 msgid "submission.stageNotInitiated"
-msgstr "Stap nog niet begonnen"
+msgstr "Stap nog niet begonnen."
 
 msgid "submission.documents"
 msgstr "Documenten van de inzending"
@@ -2001,10 +2015,10 @@ msgstr ""
 "opgestart. Voeg een redacteur toe via de lijst onder Deelnemers."
 
 msgid "notification.type.submissionNewVersion"
-msgstr ""
+msgstr "Er is een nieuwe versie van een inzending aangemaakt"
 
 msgid "notification.type.revertDecline"
-msgstr ""
+msgstr "De beslissing om deze inzending af te wijzen werd teruggedraaid."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Bijlagen van de reviewer"
@@ -2040,12 +2054,18 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Stuur het verzoek tot beoordeling in ronde {$round} opnieuw naar "
+"{$reviewerName} voor inzending {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
+"Redacteur {$userName} heeft een review bevestigd voor reviewronde {$round} "
+"voor inzending {$submissionId}."
 
 msgid "log.review.reviewReady"
 msgstr ""
+"{$reviewerName} heeft een review afgerond voor reviewronde {$round} voor "
+"inzending {$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "In afwachting van een antwoord van de reviewer."
@@ -2136,7 +2156,7 @@ msgid "submission.copyright"
 msgstr "Copyright"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Ja, ik ga akkoord met de copyrightverklaring."
 
 msgid "submission.copyrightHolder"
 msgstr "Copyright houder"
@@ -2145,7 +2165,7 @@ msgid "submission.copyrightHolder.other"
 msgstr "Aangepaste copyrightverklaring"
 
 msgid "submission.copyrightOther"
-msgstr ""
+msgstr "Copyrightverklaring"
 
 msgid "submission.copyrightYear"
 msgstr "Copyright jaar"
@@ -2227,52 +2247,47 @@ msgstr ""
 "rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.nl"
 "\">Naamsvermelding-GelijkDelen 4.0 Internationaal</a> licentie.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-nd3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
 "deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
-"org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"deed.nl\">Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 3.0 "
+"org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Dit artikel is gelicentieerd onder "
+"de <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3."
+"0/deed.nl\">Naamsvermelding-NietCommercieel-GeenAfgeleideWerken 3.0 "
 "Internationaal</a> licentie.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
-"deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
-"org/l/by-nc/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed.nl"
-"\">Naamsvermelding-NietCommercieel 3.0 Internationaal</a> licentie.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed"
+".nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/deed.nl\""
+">Naamsvermelding-NietCommercieel 3.0 Internationaal</a> licentie.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nc-sa3.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
 "deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
-"org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  "
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"deed.nl\">Naamsvermelding-NietCommercieel-GelijkDelen 3.0 Internationaal</a> "
+"org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/deed"
+".nl\">Naamsvermelding-NietCommercieel-GelijkDelen 3.0 Internationaal</a> "
 "licentie.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by-nd3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
-"deed.nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
-"org/l/by-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een  <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed.nl"
-"\">Naamsvermelding-GeenAfgeleideWerken 3.0 Internationaal</a> licentie.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed"
+".nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nd/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/deed.nl\""
+">Naamsvermelding-GeenAfgeleideWerken 3.0 Internationaal</a> licentie.</p>"
 
-#, fuzzy
 msgid "submission.license.cc.by3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by/3.0/88x31.png\" /></a><p>Dit werk wordt verdeeld onder een <a rel="
-"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl"
-"\">Naamsvermelding 3.0 Internationaal</a> licentie.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed."
+"nl\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>Dit artikel is gelicentieerd onder de <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/deed.nl\""
+">Naamsvermelding 3.0 Internationaal</a> licentie.</p>"
 
 #, fuzzy
 msgid "submission.license.cc.by-sa3.footer"
@@ -2314,10 +2329,12 @@ msgid "submission.query.addNote"
 msgstr "Voeg een bericht toe"
 
 msgid "submission.query.leaveQuery"
-msgstr ""
+msgstr "Verlaat discussie"
 
 msgid "submission.query.leaveQuery.confirm"
 msgstr ""
+"Als je deze discussie verlaat, krijg je geen melding meer van nieuwe "
+"berichten. Wil je de discussie verlaten?"
 
 msgid "grid.action.openNoteForm"
 msgstr "Voeg een nieuw antwoord toe aan de discussie"
@@ -2357,7 +2374,7 @@ msgid "submission.list.responseDue"
 msgstr "In afwachting van een antwoord"
 
 msgid "submission.list.reviewAssignment"
-msgstr ""
+msgstr "Review toewijzing"
 
 msgid "submission.list.reviewDue"
 msgstr "In afwachting van een review"
@@ -2366,13 +2383,13 @@ msgid "submission.list.reviewComplete"
 msgstr "Review ingediend"
 
 msgid "submission.list.reviewCancelled"
-msgstr ""
+msgstr "Review geannuleerd"
 
 msgid "submission.list.confirmDelete"
 msgstr "Inzending verwijderen?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Bekijk alle inzendingen"
 
 msgid "submission.list.viewSubmission"
 msgstr "Inzending bekijken"
@@ -2415,10 +2432,10 @@ msgid "submission.list.currentStage"
 msgstr "Nu in de {$stage} stap."
 
 msgid "submission.list.activity"
-msgstr ""
+msgstr "Activiteit"
 
 msgid "submission.list.daysSinceLastActivity"
-msgstr ""
+msgstr "Dagen sinds laatste activiteit"
 
 msgid "submission.list.assignEditor"
 msgstr "Wijs een redacteur aan"
@@ -2461,10 +2478,10 @@ msgstr ""
 "het beoordelen van uw inzending."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Bevestig alsjeblieft het volgende voordat je dit indient."
 
 msgid "submission.wizard.title"
-msgstr "Een inzending maken"
+msgstr "Maak een inzending"
 
 msgid "submission.wizard.titleWithStep"
 msgstr "Een inzending maken: {$step}"
@@ -2545,28 +2562,28 @@ msgid "publication.contributors"
 msgstr "Auteurs"
 
 msgid "publication.createVersion"
-msgstr ""
+msgstr "Nieuwe versie maken"
 
 msgid "publication.datePublished.errorFormat"
-msgstr ""
+msgstr "De datum moet het formaat YYYY-MM-DD hebben, bijvoorbeeld 2019-01-01."
 
 msgid "publication.event.versionCreated"
-msgstr ""
+msgstr "Een nieuwe versie is aangemaakt."
 
 msgid "publication.publicationLicense"
 msgstr "Toestemmingen & openbaarmaking"
 
 msgid "publication.status.scheduled"
-msgstr ""
+msgstr "Ingepland"
 
 msgid "publication.status.unpublished"
-msgstr ""
+msgstr "Ongepubliceerd"
 
 msgid "publication.titleAbstract"
 msgstr "Titel & samenvatting"
 
 msgid "publication.unschedule"
-msgstr ""
+msgstr "Planning verwijderen"
 
 msgid "publication.urlPath"
 msgstr "URL Pad"
@@ -2581,27 +2598,36 @@ msgid "publication.urlPath.numberInvalid"
 msgstr "Het URL pad kan geen nummer zijn."
 
 msgid "publication.version.all"
-msgstr ""
+msgstr "Alle versies"
 
 msgid "publication.version.confirm"
-msgstr ""
+msgstr "Weet je zeker dat je een nieuwe versie wilt maken?"
 
 msgid "publication.wordCountLong"
 msgstr ""
+"De samenvatting is te lang. Het mag maximaal {$limit} woorden zijn. Het is "
+"nu {$count} woorden."
 
 msgid "publication.wordCount"
-msgstr ""
+msgstr "Aantal woorden: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Het is niet gelukt om de DOI te markeren voor synchronisatie voor "
+"{$pubObjectTitle}. De DOI kan niet gemarkeerd worden voor synchronisatie "
+"omdat die nog niet geregistreerd is."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Het is niet gelukt om de DOI te markeren als geregistreerd voor "
+"{$pubObjectTitle}. De DOI kan niet gemarkeerd worden als geregistreerd omdat "
+"die nog niet geregistreerd of ingediend is."
 
 msgid "submission.viewingPreview"
 msgstr ""
+"Dit is een voorvertoning, het is nog niet gepubliceerd. <a href=\"{$url}\""
+">Bekijk inzending</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
 msgstr "Geen bestanden gekoppeld aan deze inzending."
 
@@ -2609,22 +2635,23 @@ msgid "author.submit.confirmation"
 msgstr "Bevestiging"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Inzending in <strong>{$language}</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Inzending voor de <strong>{$section}</strong> sectie."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Inzending voor de <strong>{$section}</strong> sectie in "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
 "De inzending is doorgaans een 'afbeelding', 'tekst' of ander multimediatype, "
 "zoals 'software' of 'interactief'. Kies het meest relevante type voor uw "
 "inzending. Voorbeelden kunnen worden gevonden op <a target=\"_blank\" href="
-"\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type"
-"\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</"
-"a>."
+"\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\""
+">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.source.tip"
 msgstr ""
@@ -2638,25 +2665,27 @@ msgstr ""
 
 msgid "submission.submit.metadataForm.tip"
 msgstr ""
-"Voeg bijkomende gegevens toe voor uw inzending. Druk \"enter\" na elke term."
+"Voeg bijkomende gegevens toe voor uw inzending. Druk \"Enter\" na elke term."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Eerste contactpersoon voor redactionele correspondentie."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Verklaring beschikbaarheid gegevens"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Geef aan of je bewijsmateriaal ter ondersteuning van dit werk beschikbaar "
+"hebt gesteld, en zo ja, waar en hoe het toegankelijk is"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Je moet minstens een {$genre} bestand uploaden."
 
 msgid "submission.files.required.genres"
-msgstr ""
+msgstr "Je moet minstens een van de volgende bestandstypen uploaden: {$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Versie {$version}"
 
 #~ msgid "submission.indexing"
 #~ msgstr "Indexeren"
@@ -2684,3 +2713,16 @@ msgstr "Lijst van indienende auteurs"
 
 msgid "submission.authors.label"
 msgstr "Auteurs"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Je kunt deze discussie bijwerken binnen {$allowedEditTimeNoticeLimit} "
+"minuten."
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Vermeld eventuele tegenstrijdige belangen die deze auteur heeft met het "
+"onderwerp van het onderzoek."
+
+msgid "author.competingInterests"
+msgstr "Tegenstrijdige belangen"

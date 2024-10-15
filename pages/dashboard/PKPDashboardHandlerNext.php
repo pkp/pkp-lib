@@ -20,7 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\components\forms\dashboard\SubmissionFilters;
+use PKP\components\forms\dashboard\PKPSubmissionFilters;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -35,6 +35,7 @@ use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\components\forms\publication\ContributorForm;
 use PKP\plugins\PluginRegistry;
+
 use PKP\notification\Notification;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
@@ -50,7 +51,7 @@ enum DashboardPage: string
 }
 
 
-class DashboardHandlerNext extends Handler
+abstract class PKPDashboardHandlerNext extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
@@ -126,22 +127,7 @@ class DashboardHandlerNext extends Handler
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $sections = Repo::section()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
-
-        $categories = Repo::category()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
-
-        $filtersForm = new SubmissionFilters(
-            $context,
-            $userRoles,
-            $sections,
-            $categories
-        );
+        $filtersForm = $this->getSubmissionFiltersForm($userRoles, $context);
 
         // ContributorsForm
         $contributorForm = new ContributorForm(
@@ -151,8 +137,6 @@ class DashboardHandlerNext extends Handler
               $context
 
         );
-
-
 
         $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
         $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
@@ -183,13 +167,14 @@ class DashboardHandlerNext extends Handler
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,
-                    'submissionPaymentsEnabled' => $paymentManager->publicationEnabled()
+                    // temporarly disabled as its OJS specific
+                   // 'submissionPaymentsEnabled' => $paymentManager->publicationEnabled()
                 ]
             ]
         ]);
 
         $templateMgr->assign([
-            'pageComponent' => 'PageOJS',
+            'pageComponent' => 'Page',
             'pageTitle' => __('navigation.submissions'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);
@@ -253,7 +238,6 @@ class DashboardHandlerNext extends Handler
             'DECISION_RECOMMEND_PENDING_REVISIONS' => Decision::RECOMMEND_PENDING_REVISIONS,
             'DECISION_RECOMMEND_RESUBMIT' => Decision::RECOMMEND_RESUBMIT,
 
-
             'SUBMISSION_FILE_SUBMISSION' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
             'SUBMISSION_FILE_REVIEW_REVISION' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
@@ -263,7 +247,8 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
             'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
-            'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
+            // Temporarly disabled due OMP migration
+            //'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
@@ -280,8 +265,13 @@ class DashboardHandlerNext extends Handler
 
             'NOTIFICATION_TYPE_VISIT_CATALOG' => Notification::NOTIFICATION_TYPE_VISIT_CATALOG,
             'NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER' => Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-            'NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS' => Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS
+            'NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS' => Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+        
+            // OMP specific constants
         ]);
+
+       $this->setupIndex($request);
+
 
         $templateMgr->display('dashboard/editors.tpl');
     }
@@ -413,4 +403,22 @@ class DashboardHandlerNext extends Handler
             }
         };
     }
+
+    /**
+     * Placeholder method to be overridden by apps in order to add
+     * app-specific data to the template
+     *
+     * @param Request $request
+     */
+    public function setupIndex($request)
+    {
+    }
+
+
+    /**
+     */
+    abstract protected function getSubmissionFiltersForm($userRoles, $context);
+
+
+
 }

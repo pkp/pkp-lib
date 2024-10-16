@@ -105,7 +105,7 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
                 new AjaxModal(
                     ($request->getRouter())->url($request, null, null, 'addLanguageModal', null, null),
                     __('manager.language.gridAction.addLangauage'),
-                    'side-modal',
+                    null,
                     true,
                     'addLanguageForm'
                 ),

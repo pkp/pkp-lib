@@ -49,7 +49,7 @@ class ReviewFormElementGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editReviewFormElement', null, ['rowId' => $rowId, 'reviewFormId' => $element->getReviewFormId()]),
                         __('grid.action.edit'),
-                        'side-modal',
+                        null,
                         true
                     ),
                     __('grid.action.edit'),

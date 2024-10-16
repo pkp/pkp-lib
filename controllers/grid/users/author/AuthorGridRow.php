@@ -81,7 +81,6 @@ class AuthorGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editAuthor', null, $actionArgs),
                             __('grid.action.editContributor'),
-                            'modal_edit'
                         ),
                         __('grid.action.edit'),
                         'edit'
@@ -96,7 +95,7 @@ class AuthorGridRow extends GridRow
                             __('common.confirmDelete'),
                             __('common.delete'),
                             $router->url($request, null, null, 'deleteAuthor', null, $actionArgs),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'
@@ -112,7 +111,7 @@ class AuthorGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'addUser', null, $actionArgs),
                                 __('grid.user.add'),
-                                'modal_add_user',
+                                null,
                                 true
                             ),
                             __('grid.user.add'),

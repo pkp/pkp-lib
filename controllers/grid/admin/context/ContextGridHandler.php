@@ -86,7 +86,7 @@ class ContextGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'createContext', null, null),
                     __('admin.contexts.create'),
-                    'side-modal',
+                    null,
                     true,
                     'context',
                     ['editContext']

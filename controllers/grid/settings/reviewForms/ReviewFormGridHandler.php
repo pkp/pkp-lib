@@ -79,7 +79,7 @@ class ReviewFormGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'createReviewForm', null, null),
                     __('manager.reviewForms.create'),
-                    'side-modal',
+                    null,
                     true
                 ),
                 __('manager.reviewForms.create'),

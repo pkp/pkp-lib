@@ -76,7 +76,7 @@ class GenreGridHandler extends SetupGridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addGenre', null, $actionArgs),
                     __('grid.action.addGenre'),
-                    'side-modal',
+                    null,
                     true
                 ),
                 __('grid.action.addGenre'),

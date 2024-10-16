@@ -51,7 +51,6 @@ class NotifyLinkAction extends LinkAction
                 $requestArgs
             ),
             __('submission.stageParticipants.notify'),
-            'side-modal'
         );
 
         // Configure the file link action.

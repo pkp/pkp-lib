@@ -40,7 +40,7 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider
                     new AjaxModal(
                         $router->url($request, null, null, 'editAnnouncementType', null, $actionArgs),
                         __('grid.action.edit'),
-                        'side-modal',
+                        null,
                         true
                     ),
                     htmlspecialchars($announcementType->getLocalizedTypeName())

@@ -117,7 +117,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addNavigationMenuItem', null, null),
                     __('grid.action.addNavigationMenuItem'),
-                    'side-modal',
+                    null,
                     true
                 ),
                 __('grid.action.addNavigationMenuItem'),

@@ -174,7 +174,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
                         __('editor.submission.addStageParticipant'),
-                        'side-modal'
                     ),
                     __('common.assign'),
                     'add_user'

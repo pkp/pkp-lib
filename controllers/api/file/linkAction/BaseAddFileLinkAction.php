@@ -71,7 +71,6 @@ class BaseAddFileLinkAction extends LinkAction
                 $actionArgs
             ),
             $wizardTitle,
-            'side-modal'
         );
 
         // Configure the link action.

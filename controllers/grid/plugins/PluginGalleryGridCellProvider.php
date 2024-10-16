@@ -74,7 +74,7 @@ class PluginGalleryGridCellProvider extends GridCellProvider
                     new AjaxModal(
                         $router->url($request, null, null, 'viewPlugin', null, ['rowId' => $row->getId() + 1]),
                         htmlspecialchars($element->getLocalizedName()),
-                        'side-modal',
+                        null,
                         true
                     ),
                     htmlspecialchars($element->getLocalizedName()),

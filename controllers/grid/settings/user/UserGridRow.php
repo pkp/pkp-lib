@@ -106,7 +106,7 @@ class UserGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editEmail', null, $actionArgs),
                             __('grid.user.email'),
-                            'side-modal',
+                            null,
                             true
                         ),
                         __('grid.user.email'),
@@ -119,7 +119,7 @@ class UserGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editUser', null, $actionArgs),
                             __('grid.user.edit'),
-                            'side-modal',
+                            null,
                             true
                         ),
                         __('grid.user.edit'),
@@ -134,7 +134,7 @@ class UserGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'editDisableUser', null, $actionArgs),
                                 __('common.enable'),
-                                'side-modal',
+                                null,
                                 true
                             ),
                             __('common.enable'),
@@ -149,7 +149,7 @@ class UserGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'editDisableUser', null, $actionArgs),
                                 __('grid.user.disable'),
-                                'side-modal',
+                                null,
                                 true
                             ),
                             __('grid.user.disable'),
@@ -205,7 +205,7 @@ class UserGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'mergeUsers', null, ['oldUserId' => $rowId]),
                                 __('grid.user.mergeUsers.mergeUser'),
-                                'side-modal',
+                                null,
                                 true
                             ),
                             __('grid.user.mergeUsers.mergeUser'),

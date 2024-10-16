@@ -90,7 +90,6 @@ class ReviewerGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'readReview', null, $actionArgs),
                             __('editor.review.reviewDetails') . ': ' . $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
-                            'side-modal'
                         ),
                         __('editor.review.reviewDetails'),
                         'more_info'
@@ -104,7 +103,6 @@ class ReviewerGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'sendEmail', null, $actionArgs),
                         __('editor.review.emailReviewer'),
-                        'side-modal'
                     ),
                     __('editor.review.emailReviewer'),
                     'notify'
@@ -119,7 +117,6 @@ class ReviewerGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'resendRequestReviewer', null, $actionArgs),
                                 __('editor.review.resendRequestReviewer'),
-                                'side-modal'
                             ),
                             __('editor.review.resendRequestReviewer'),
                             'add'
@@ -133,7 +130,6 @@ class ReviewerGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editReview', null, $actionArgs),
                             __('editor.submissionReview.editReview'),
-                            'side-modal'
                         ),
                         __('common.edit'),
                         'edit'
@@ -147,7 +143,6 @@ class ReviewerGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
                                 $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
-                                'side-modal'
                             ),
                             $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
                             'delete'
@@ -160,7 +155,6 @@ class ReviewerGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'reinstateReviewer', null, $actionArgs),
                                 __('editor.review.reinstateReviewer'),
-                                'side-modal'
                             ),
                             __('editor.review.reinstateReviewer'),
                             'add'
@@ -175,7 +169,6 @@ class ReviewerGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'reviewHistory', null, $actionArgs),
                         __('submission.history'),
-                        'side-modal'
                     ),
                     __('submission.history'),
                     'more_info'
@@ -214,7 +207,6 @@ class ReviewerGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'gossip', null, $actionArgs),
                             __('user.gossip'),
-                            'side-modal'
                         ),
                         __('user.gossip'),
                         'more_info'

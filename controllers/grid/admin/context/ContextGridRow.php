@@ -51,7 +51,7 @@ class ContextGridRow extends GridRow
                 new AjaxModal(
                     $router->url($request, null, null, 'editContext', null, ['rowId' => $rowId]),
                     __('grid.action.edit'),
-                    'side-modal',
+                    null,
                     true,
                     'context',
                     ['editContext']
@@ -89,7 +89,7 @@ class ContextGridRow extends GridRow
                 new AjaxModal(
                     $router->url($request, $element->getPath(), null, 'users', null),
                     __('manager.users'),
-                    'side-modal',
+                    null,
                     true
                 ),
                 __('manager.users'),

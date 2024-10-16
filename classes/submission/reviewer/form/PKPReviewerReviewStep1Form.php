@@ -105,7 +105,6 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
             new AjaxModal(
                 $request->url(null, null, 'showDeclineReview', [$reviewAssignment->getSubmissionId()]),
                 __('reviewer.submission.declineReview'),
-                'side-modal'
             )
         );
         $templateMgr->assign('declineReviewAction', $declineReviewLinkAction);

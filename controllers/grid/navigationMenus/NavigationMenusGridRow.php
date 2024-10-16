@@ -53,7 +53,7 @@ class NavigationMenusGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editNavigationMenu', null, $actionArgs),
                         __('grid.action.edit'),
-                        'side-modal',
+                        null,
                         true
                     ),
                     __('grid.action.edit'),

@@ -47,7 +47,6 @@ class ReviewerViewMetadataLinkAction extends LinkAction
                 ['submissionId' => $submissionId, 'reviewAssignmentId' => $reviewAssignmentId]
             ),
             __('reviewer.step1.viewAllDetails'),
-            'side-modal'
         );
         // Configure the link action.
         parent::__construct('viewMetadata', $modal, __('reviewer.step1.viewAllDetails'));

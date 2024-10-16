@@ -40,7 +40,6 @@ class SelectFilesLinkAction extends LinkAction
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'selectFiles', null, $actionArgs),
             $modalTitle,
-            'side-modal'
         );
 
         // Configure the link action.

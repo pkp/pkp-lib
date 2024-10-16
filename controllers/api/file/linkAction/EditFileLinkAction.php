@@ -45,7 +45,6 @@ class EditFileLinkAction extends FileLinkAction
                 $this->getActionArgs($submissionFile, $stageId)
             ),
             __('grid.action.editFile'),
-            'side-modal'
         );
 
         // Configure the file link action.

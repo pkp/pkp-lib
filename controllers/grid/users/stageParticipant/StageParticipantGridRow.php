@@ -92,7 +92,6 @@ class StageParticipantGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'addParticipant', null, $this->getRequestArgs()),
                             __('editor.submission.editStageParticipant'),
-                            'side-modal'
                         ),
                         __('common.edit'),
                         'edit_user'

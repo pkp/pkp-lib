@@ -36,7 +36,6 @@ class SendThankYouLinkAction extends LinkAction
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'editThankReviewer', null, $actionArgs),
             __($modalTitle),
-            'side-modal'
         );
 
         // Configure the link action.

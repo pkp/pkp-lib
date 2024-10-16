@@ -81,7 +81,6 @@ class QueriesGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editQuery', null, $actionArgs),
                             __('grid.action.updateQuery'),
-                            'side-modal'
                         ),
                         __('grid.action.edit'),
                         'edit'

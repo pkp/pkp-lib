@@ -49,7 +49,7 @@ class ConfirmationModal extends Modal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($dialogText, $title = null, $modalStyle = 'default', $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($dialogText, $title = null, $modalStyle = null, $okButton = null, $cancelButton = null, $canClose = true)
     {
         $title = (is_null($title) ? __('common.confirm') : $title);
         parent::__construct($title, $modalStyle, $canClose);

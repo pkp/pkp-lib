@@ -35,7 +35,7 @@ class AjaxModal extends Modal
     public function __construct(
         $url,
         $title = null,
-        $modalStyle = 'default',
+        $modalStyle = null,
         $canClose = true,
         $closeOnFormSuccessId = null,
         $closeCleanVueInstances = []

@@ -52,7 +52,7 @@ class Modal extends LinkActionRequest
      */
     public function __construct(
         $title = null,
-        $modalStyle = null,
+        $modalStyle = 'default',
         $canClose = true,
         $closeOnFormSuccessId = null,
         $closeCleanVueInstances = []

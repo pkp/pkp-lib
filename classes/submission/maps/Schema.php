@@ -14,11 +14,13 @@
 namespace PKP\submission\maps;
 
 use APP\core\Application;
+use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -54,6 +56,9 @@ class Schema extends \PKP\core\maps\Schema
 
     /** @var Enumerable Stage assignments associated with submissions. */
     public Enumerable $stageAssignments;
+
+    /** @var Enumerable Decisions associated with submissions. */
+    public Enumerable $decisions;
 
     /**
      * Get extra property names used in the submissions list
@@ -108,6 +113,7 @@ class Schema extends \PKP\core\maps\Schema
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
+     * @param ?Enumerable $decisions decisions associated with a submission
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
     public function map(
@@ -116,12 +122,14 @@ class Schema extends \PKP\core\maps\Schema
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
+        ?Enumerable $decisions = null,
         bool|Collection $anonymizeReviews = false
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
 
         return $this->mapByProperties($this->getProps(), $item, $anonymizeReviews);
     }
@@ -167,12 +175,20 @@ class Schema extends \PKP\core\maps\Schema
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
-        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
+
+        $submissionIds = $collection->keys()->toArray();
+        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
+        $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
+        $this->decisions = Repo::decision()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
 
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId'));
         $associatedStageAssignments = $this->stageAssignments->groupBy(fn (StageAssignment $stageAssignment, int $key) =>
             $stageAssignment->submissionId);
+        $associatedDecisions = $this->decisions->groupBy(
+            fn (Decision $decision, int $key) =>
+            $decision->getData('submissionId')
+        );
 
         return $collection->map(
             fn ($item) =>
@@ -182,6 +198,7 @@ class Schema extends \PKP\core\maps\Schema
                 $this->genres,
                 $associatedReviewAssignments->get($item->getId()),
                 $associatedStageAssignments->get($item->getId()),
+                $associatedDecisions->get($item->getId()),
                 $anonymizeReviews
             )
         );
@@ -241,12 +258,14 @@ class Schema extends \PKP\core\maps\Schema
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
+        ?Enumerable $decisions = null,
         bool|Collection $anonymizeReviews = false
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
-        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
+        $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         return $this->mapByProperties($this->getSubmissionsListProps(), $item, $anonymizeReviews);
     }
 
@@ -268,16 +287,23 @@ class Schema extends \PKP\core\maps\Schema
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
-        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
-        $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+
+        $submissionIds = $collection->keys()->toArray();
+        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
+        $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
+        $this->decisions = Repo::decision()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
 
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(
             fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId')
         );
-        $associatedStageAssignment = $this->stageAssignments->groupBy(
+        $associatedStageAssignments = $this->stageAssignments->groupBy(
             fn (StageAssignment $stageAssignment, int $key) =>
             $stageAssignment->submissionId
+        );
+        $associatedDecisions = $this->decisions->groupBy(
+            fn (Decision $decision, int $key) =>
+            $decision->getData('submissionId')
         );
 
         return $collection->map(
@@ -287,7 +313,8 @@ class Schema extends \PKP\core\maps\Schema
                 $this->userGroups,
                 $this->genres,
                 $associatedReviewAssignments->get($item->getId()),
-                $associatedStageAssignment->get($item->getId()),
+                $associatedStageAssignments->get($item->getId()),
+                $associatedDecisions->get($item->getId()),
                 $anonymizeReviews
             )
         );
@@ -324,7 +351,7 @@ class Schema extends \PKP\core\maps\Schema
         });
 
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
-        $this->stageAssignments = $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $this->stageAssignments = $this->getStageAssignmentsBySubmissions(collect([$item]));
 
         return $this->mapByProperties($props, $item);
     }
@@ -390,7 +417,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = __(Application::get()->getWorkflowStageName($submission->getData('stageId')));
                     break;
                 case 'stages':
-                    $output[$prop] = $this->getPropertyStages($submission);
+                    $output[$prop] = $this->getPropertyStages($this->stageAssignments, $submission, $this->decisions ?? null, $currentReviewRound);
                     break;
                 case 'statusLabel':
                     $output[$prop] = __($submission->getStatusKey());
@@ -509,147 +536,236 @@ class Schema extends \PKP\core\maps\Schema
      *   }
      *  ]
      */
-    public function getPropertyStages(Submission $submission): array
+    protected function getPropertyStages(Enumerable $stageAssignments, Submission $submission, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
     {
-        $stageIds = Application::get()->getApplicationStages();
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
+        // Replace this part with eager loaded UserGroups
+        $userGroupsByStageAssignments = $stageAssignments->mapWithKeys(
+            fn (StageAssignment $stageAssignment) =>
+            [$stageAssignment->id => $stageAssignment->userGroupId]
+        );
 
-        $openPerStage = Repo::query()->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByUserGroupIds($userGroupsByStageAssignments->toArray())
+            ->getMany();
 
+        $userGroupsByStageAssignments = $userGroupsByStageAssignments->mapWithKeys(
+            fn (int $userGroupId, int $assignmentId) =>
+            [$assignmentId => $userGroups->get($userGroupId)]
+        );
+
+        // Create stages and fill with predefined data
         $stages = [];
+        $stageIds = Application::get()->getApplicationStages();
+        $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
         foreach ($stageIds as $stageId) {
-            $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
-            $stage = [
+            $stages[$stageId] = [
                 'id' => (int) $stageId,
                 'label' => __($workflowStageDao->getTranslationKeyFromId($stageId)),
                 'isActiveStage' => $submission->getData('stageId') == $stageId,
-                'openQueryCount' => $openPerStage[$stageId],
+
+                // values false by default, to be determined later
+                'editorAssigned' => false,
+                'isDecidingEditorAssigned' => false,
+                'isCurrentUserDecidingEditor' => false,
             ];
+        }
 
-            $currentUserAssignedRoles = [];
-            $stageAssignmentsOverview = [];
-            if ($currentUser) {
-                // FIXME - $stageAssignments are just temporarily added until https://github.com/pkp/pkp-lib/issues/10480 is ready
-                $currentRoles = array_map(
-                    function (Role $role) {
-                        return $role->getId();
-                    },
-                    $currentUser->getRoles($this->context->getId())
-                );
-                // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-                $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-                    ->withUserId($currentUser->getId() ?? 0)
-                    ->withStageIds([$stageId])
-                    ->get();
+        $stages['unstaged']['canCurrentUserChangeMetadata'] = false;
 
-                foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
-                    if ($userGroup) {
-                        $currentUserAssignedRoles[] = $userGroup->roleId;
+        $recommendations = [];
+
+        // Determine stage assignment related data
+        foreach ($stageAssignments as $stageAssignment) {
+            $userGroup = $userGroupsByStageAssignments->get($stageAssignment->id); /** @var UserGroup $userGroup */
+
+            foreach ($stageAssignment->userGroupStages as $groupStage) {
+                // Identify the first user with the editor
+                if (
+                    !$stages[$groupStage->stageId]['editorAssigned'] &&
+                    in_array(
+                        $userGroup->getRoleId(),
+                        [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]
+                    )
+                ) {
+                    $editorAssigned = $stages[$groupStage->stageId]['editorAssigned'] = true;
+                }
+
+                // Identify the first user with the editor role and without recommend only flag
+                if (
+                    !$stages[$groupStage->stageId]['isDecidingEditorAssigned'] &&
+                    isset($editorAssigned) &&
+                    !$stageAssignment->recommendOnly) {
+                    $isDecidingEditorAssigned = $stages[$groupStage->stageId]['isDecidingEditorAssigned'] = true;
+                }
+
+                // Record recommendations for review stages
+                if (
+                    $stageAssignment->recommendOnly &&
+                    isset($currentReviewRound) &&
+                    isset($decisions) && $decisions->isNotEmpty()
+                ) {
+                    foreach ($decisions as $decision) {
+                        if ($currentReviewRound->getId() != $decision->getData('reviewRoundId')) {
+                            continue;
+                        }
+
+                        $decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
+                        $recommendations[$decision->getId()] = [
+                            'decision' => $decision->getData('decision'),
+                            'label' => $decisionType->getLabel(),
+                            'stageId' => $decision->getData('stageId'),
+                        ];
                     }
                 }
 
-                // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-                $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-                    ->withStageIds([$stageId])
-                    ->get();
-
-                // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
-                foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = UserGroup::find($stageAssignment->userGroupId);
-                    $stageAssignmentsOverview[] = [
-                        'roleId' => $userGroup?->roleId ?? null,
-                        'recommendOnly' => $stageAssignment->recommendOnly,
-                        'canChangeMetadata' => $stageAssignment->canChangeMetadata,
-                        'userId' => $stageAssignment->userId
-                    ];
+                // Identify properties related to the current user
+                if ($stageAssignment->userId !== $currentUser->getId()) {
+                    continue;
                 }
-            }
-            $stage['currentUserAssignedRoles'] = array_values(array_unique($currentUserAssignedRoles));
-            // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
-            $stage['stageAssignments'] = $stageAssignmentsOverview;
-            if (!$stage['currentUserAssignedRoles']) {
-                if (in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
-                    $stage['currentUserAssignedRoles'][] = Role::ROLE_ID_MANAGER;
-                }
-            }
-            // Stage-specific statuses
-            switch ($stageId) {
-                case WORKFLOW_STAGE_ID_SUBMISSION:
-                    // Replaces StageAssignmentDAO::editorAssignedToStage
-                    $assignedEditors = StageAssignment::withSubmissionIds([$submission->getId()])
-                        ->withStageIds([$stageId])
-                        ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-                        ->exists();
 
-                    if (!$assignedEditors) {
-                        $stage['statusId'] = Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED;
-                        $stage['status'] = __('submissions.queuedUnassigned');
+                $stages[$groupStage->stageId]['currentUserAssignedRoles'] = [
+                    $userGroup->getRoleId(),
+                ];
+
+                if (isset($isDecidingEditorAssigned)) {
+                    $stages[$groupStage->stageId]['isCurrentUserDecidingEditor'] = true;
+                }
+
+                // Check if current user can edit publication
+                if (
+                    $stages[$groupStage->stageId]['isActiveStage'] &&
+                    in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                ) {
+
+                }
+
+                // Identify if the current user gave recommendation
+                if (
+                    in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) && // this user is assigned as an editor
+                    !isset($isDecidingEditorAssigned) && // this user only can give recommendations, isn't a deciding editor
+                    in_array($groupStage->stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW]) &&
+                    isset($decisions) && $decisions->isNotEmpty() // only for submissions list
+                ) {
+                    foreach ($decisions as $decision) {
+                        if (isset($stages[$groupStage->stageId]['currentUserRecommendation'])) {
+                            break; // Decision is already recorded, skip
+                        }
+
+                        if ($decision->getData('editorId') != $currentUser->getId()) {
+                            continue;
+                        }
+
+                        if (!in_array($decision->getData('stageId'), [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
+                            continue;
+                        }
+
+                        if ($currentReviewRound->getId() != $decision->getData('reviewRoundId')) {
+                            continue;
+                        }
+
+                        $decision = $decision->getData('decision');
+                        $decisionType = Repo::decision()->getDecisionType($decision);
+                        $stages[$groupStage->stageId]['currentUserRecommendation'] = [
+                            'decision' => $decision,
+                            'label' => $decisionType->getLabel(),
+                        ];
                     }
+                }
 
-                    // Submission stage never has revisions
-                    $stage['files'] = [
-                        'count' => 0,
-                    ];
-                    break;
+                // if the user is assigned several times in the editorial role, and
+                // one of the assignments have recommendOnly option set, consider it here
+                if (
+                    in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) &&
+                    $stageAssignment->recommendOnly
+                ) {
+                    $stages[$groupStage->stageId]['currentUserCanRecommendOnly'] = true;
+                }
+            }
+        }
 
-                case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-                case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                    $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                    $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-                    if ($reviewRound) {
-                        $stage['statusId'] = $reviewRound->determineStatus();
-                        $stage['status'] = __($reviewRound->getStatusKey());
+        // Set recommendation if current user is a deciding editor
+        foreach ($stages as $stageId => $stage) {
+            if (empty($recommendations)) {
+                break;
+            }
 
+            if (!in_array($stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
+                continue;
+            }
+
+            if (!$stage['isCurrentUserDecidingEditor']) {
+                continue;
+            }
+
+            foreach ($recommendations as $recommendationId => $recommendation) {
+                $stages[$recommendation['stageId']]['recommendations'][$recommendationId] = [
+                    'decision' => $recommendation['decision'],
+                    'label' => $recommendation['label'],
+                ];
+            }
+        }
+
+        // FIXME pkp/pkp-lib#7495 Backward compatibility only, remove before 3.5 release
+        if (!Config::getVar('features', 'enable_new_submission_listing')) {
+            $openPerStage = Repo::query()->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
+            foreach ($stageIds as $stageId) {
+                $stages[$stageId]['openQueryCount'] = $openPerStage[$stageId];
+
+                // Stage-specific statuses
+                switch ($stageId) {
+                    case WORKFLOW_STAGE_ID_SUBMISSION:
+                        $assignedEditors = $stages[$stageId]['editorAssigned'];
+                        if (!$assignedEditors) {
+                            $stages[$stageId]['statusId'] = Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED;
+                            $stages[$stageId]['status'] = __('submissions.queuedUnassigned');
+                        }
+
+                        // Submission stage never has revisions
+                        $stages[$stageId]['files'] = [
+                            'count' => 0,
+                        ];
+                        break;
+
+                    case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
+                    case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
+                        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+                        $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
+                        if ($reviewRound) {
+                            $stages[$stageId]['statusId'] = $reviewRound->determineStatus();
+                            $stages[$stageId]['status'] = __($reviewRound->getStatusKey());
+
+                            // Revision files in this round.
+                            $stages[$stageId]['files'] = [
+                                'count' => Repo::submissionFile()->getCollector()
+                                    ->filterBySubmissionIds([$submission->getId()])
+                                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
+                                    ->filterByReviewRoundIds([$reviewRound->getId()])
+                                    ->getCount()
+                            ];
+                        } else {
+                            // workaround for pkp/pkp-lib#4231, pending formal data model
+                            $stages[$stageId]['files'] = [
+                                'count' => 0
+                            ];
+                        }
+                        break;
+
+                        // Get revision files for editing and production stages.
+                        // Review rounds are handled separately in the review stage below.
+                    case WORKFLOW_STAGE_ID_EDITING:
+                    case WORKFLOW_STAGE_ID_PRODUCTION:
+                        $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
                         // Revision files in this round.
-                        $stage['files'] = [
+                        $stages[$stageId]['files'] = [
                             'count' => Repo::submissionFile()->getCollector()
                                 ->filterBySubmissionIds([$submission->getId()])
-                                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
-                                ->filterByReviewRoundIds([$reviewRound->getId()])
+                                ->filterByFileStages($fileStages)
                                 ->getCount()
                         ];
-
-                        // See if the  current user can only recommend:
-                        $user = $request->getUser();
-
-                        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-                        $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-                            ->withStageIds([$stageId])
-                            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-                            ->get();
-
-                        // if the user is assigned several times in the editorial role, and
-                        // one of the assignments have recommendOnly option set, consider it here
-                        $stage['currentUserCanRecommendOnly'] = false;
-                        foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                            if ($editorsStageAssignment->userId == $user->getId() && $editorsStageAssignment->recommendOnly) {
-                                $stage['currentUserCanRecommendOnly'] = true;
-                                break;
-                            }
-                        }
-                    } else {
-                        // workaround for pkp/pkp-lib#4231, pending formal data model
-                        $stage['files'] = [
-                            'count' => 0
-                        ];
-                    }
-                    break;
-
-                    // Get revision files for editing and production stages.
-                    // Review rounds are handled separately in the review stage below.
-                case WORKFLOW_STAGE_ID_EDITING:
-                case WORKFLOW_STAGE_ID_PRODUCTION:
-                    $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
-                    // Revision files in this round.
-                    $stage['files'] = [
-                        'count' => Repo::submissionFile()->getCollector()
-                            ->filterBySubmissionIds([$submission->getId()])
-                            ->filterByFileStages($fileStages)
-                            ->getCount()
-                    ];
-                    break;
+                        break;
+                }
             }
 
 
@@ -659,7 +775,7 @@ class Schema extends \PKP\core\maps\Schema
             $stages[] = $stage;
         }
 
-        return $stages;
+        return array_values($stages);
     }
 
     /**
@@ -694,9 +810,12 @@ class Schema extends \PKP\core\maps\Schema
     protected function getStageAssignmentsBySubmissions(Enumerable $submissions, array $roleIds = []): LazyCollection
     {
         $submissionIds = $submissions->map(fn (Submission $submission) => $submission->getId())->toArray();
-        return StageAssignment::withSubmissionIds($submissionIds)
-            ->withRoleIds($roleIds)
+        $stageAssignments = StageAssignment::with(['userGroupStages'])
+            ->withSubmissionIds($submissionIds)
+            ->withRoleIds(empty($roleIds) ? null : $roleIds)
             ->lazy();
+
+        return $stageAssignments;
     }
 
     /**

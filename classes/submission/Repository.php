@@ -939,7 +939,7 @@ abstract class Repository
                 case DashboardView::TYPE_REVIEWS_SUBMITTED:
                     $collector = Repo::submission()->getCollector()
                         ->filterByContextIds([$context->getId()])
-                        ->filterByAwaitingReviews(true)
+                        ->filterByReviewsSubmitted(true)
                         ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,

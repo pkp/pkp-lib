@@ -26,7 +26,6 @@
 								{* Parameters for parent LinkActionHandler *}
 								actionRequest: '$.pkp.classes.linkAction.ModalRequest',
 								actionRequestOptions: {ldelim}
-									modalStyle: 'side-modal',
 									title: {translate|json_encode key="notification.notifications"},
 									modalHandler: '$.pkp.controllers.modal.AjaxModalHandler',
 									url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->id escape=false}

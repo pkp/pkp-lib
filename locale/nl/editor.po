@@ -1,10 +1,10 @@
-# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023.
+# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"PO-Revision-Date: 2024-10-17 15:40+0000\n"
 "Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/nl/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Weet u zeker dat u deze inzending definitief wilt verwijderen?"
@@ -25,40 +25,43 @@ msgid "editor.submissionLibrary"
 msgstr "Bibliotheek van de inzending"
 
 msgid "editor.submission.workflowDecision.submission"
-msgstr ""
+msgstr "Beslissing opgeslagen"
 
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr ""
+msgstr "Inzending geweigerd."
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr ""
+msgstr "Inzending geaccepteerd."
 
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr ""
+msgstr "Inzending gepubliceerd."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr ""
+msgstr "Doorgestuurd voor een nieuwe reviewronde."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr ""
+msgstr "Doorgestuurd naar productie."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr ""
+msgstr "Inzending geaccepteerd voor review."
 
 msgid "editor.submission.workflowDecision.changeDecision"
-msgstr ""
+msgstr "Verander beslissing"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
+"Je hebt geen bevoegdheid om deze beslissing te nemen over deze inzending."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"De redacteur was niet herkend en heeft mogelijk geen bevoegdheid om een "
+"beslissing te nemen over deze inzending."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Je kunt geen e-mail verzenden naar de volgende ontvangers: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Deze reviewronde kon niet gevonden worden."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
@@ -91,6 +94,7 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Deze beslissing kon niet worden gevonden. Geef een bekend type beslissing op."
 
 msgid "editor.review.notInitiated"
 msgstr "De review stap is nog niet gestart."
@@ -160,7 +164,7 @@ msgid "editor.review.unassignReviewer"
 msgstr "Verwijder reviewer"
 
 msgid "editor.review.cancelReviewer"
-msgstr ""
+msgstr "Annuleer reviewer"
 
 msgid "editor.review.reinstateReviewer"
 msgstr "Reviewer opnieuw toevoegen"
@@ -224,9 +228,12 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Revisies moeten niet onderworpen worden aan een nieuwe ronde van peer "
+"reviews."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Revisies moeten onderworpen worden aan een nieuwe ronde van peer reviews."
 
 msgid "editor.review.dateAccepted"
 msgstr "Datum van aanvaarding review"
@@ -280,7 +287,7 @@ msgid "editor.review.requestDeclined.tooltip"
 msgstr "De reviewer heeft het reviewverzoek afgewezen."
 
 msgid "editor.review.requestCancelled.tooltip"
-msgstr ""
+msgstr "De redacteur heeft dit reviewverzoek geannuleerd."
 
 msgid "editor.review.revertDecision"
 msgstr "Maak beslissing ongedaan"
@@ -359,9 +366,11 @@ msgstr ""
 
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
+"Er kan geen discussie tot stand worden gebracht met de geselecteerde "
+"deelnemers, omdat dit de anonimiteit van het reviewproces zou beïnvloeden."
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr ""
+msgstr "Een geselecteerde deelnemer is niet toegewezen aan deze fase."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Inplannen voor publicatie in"
@@ -514,6 +523,8 @@ msgstr ""
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr ""
+"Weet je zeker dat je de beslissing om deze inzending te weigeren wilt "
+"terugdraaien?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "De publieke identificatie '{$publicIdentifier}' mag geen cijfer zijn."
@@ -565,17 +576,16 @@ msgid "reviewer.list.reassign"
 msgstr "Opnieuw toekennen"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Opnieuw toekennen {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Deze reviewer werd al toegewezen als reviewer voor deze inzending."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Deze reviewer is geblokkeerd omdat hij/zij de identiteit van de auteur kan "
-"zien. Blinde peer review kan niet worden gegarandaard. Wilt u deze reviewer "
-"toch de-blokkeren?"
+"zien. Anonieme peer review kan niet worden gegarandeerd. Wilt u deze "
+"reviewer toch de-blokkeren?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Deblokkeer"
@@ -608,10 +618,13 @@ msgid "editor.decision.emailSkipped"
 msgstr "Deze stap is overgeslagen en er zal geen e-mail verzonden worden."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Beslissing opslaan"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Verstuur deze e-mail niet"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Er was een probleem met de {$stepName} stap."
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Dezelfde instelling als auteur"

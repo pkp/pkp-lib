@@ -21,6 +21,7 @@ use APP\sushi\IR;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class StatsSushiController extends \PKP\API\v1\stats\sushi\PKPStatsSushiController
 {
@@ -40,7 +41,7 @@ class StatsSushiController extends \PKP\API\v1\stats\sushi\PKPStatsSushiControll
      * A customizable report detailing activity at the pre-print level
      * that allows the user to apply filters and select other configuration options for the report.
      */
-    public function getReportsIR(Request $illuminateRequest): JsonResponse
+    public function getReportsIR(Request $illuminateRequest): JsonResponse|StreamedResponse
     {
         return $this->getReportResponse(new IR(), $illuminateRequest);
     }

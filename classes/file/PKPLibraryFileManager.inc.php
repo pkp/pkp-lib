@@ -106,7 +106,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	 * Routine to replace a library file from a temporary file.
 	 * @param $temporaryFile object
 	 * @param $libraryFileType int LIBRARY_FILE_TYPE_...
-	 * @param $libraryFile LibraryFile 
+	 * @param $libraryFile LibraryFile
 	 * @return LibraryFile|false the updated LibraryFile, or false on error
 	 */
 	function &replaceFromTemporaryFile(&$temporaryFile, $libraryFileType, $libraryFile) {
@@ -127,7 +127,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 	 * Routine to assign metadata to a library file from a temporary file
 	 * @param $temporaryFile object
 	 * @param $libraryFileType int LIBRARY_FILE_TYPE_...
-	 * @param $libraryFile LibraryFile 
+	 * @param $libraryFile LibraryFile
 	 * @return LibraryFile the updated LibraryFile
 	 */
 	function &assignFromTemporaryFile(&$temporaryFile, $libraryFileType, $libraryFile) {
@@ -151,6 +151,8 @@ class PKPLibraryFileManager extends PrivateFileManager {
 
 	/**
 	 * Get the type => suffix mapping array
+	 *
+	 * @hook PublisherLibrary::types::suffixes [[&$map]]
 	 * @return array
 	 */
 	function &getTypeSuffixMap() {
@@ -160,6 +162,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 			LIBRARY_FILE_TYPE_REPORT => 'REP',
 			LIBRARY_FILE_TYPE_OTHER => 'OTH'
 		);
+		HookRegistry::call('PublisherLibrary::types::suffixes', [&$map]);
 		return $map;
 	}
 
@@ -178,6 +181,8 @@ class PKPLibraryFileManager extends PrivateFileManager {
 
 	/**
 	 * Get the type => locale key mapping array
+	 *
+	 * @hook PublisherLibrary::types::titles [[&$map]]
 	 * @return array
 	 */
 	function &getTypeTitleKeyMap() {
@@ -187,6 +192,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 			LIBRARY_FILE_TYPE_REPORT => 'settings.libraryFiles.category.reports',
 			LIBRARY_FILE_TYPE_OTHER => 'settings.libraryFiles.category.other'
 		);
+		HookRegistry::call('PublisherLibrary::types::titles', [&$map]);
 		return $map;
 	}
 
@@ -201,6 +207,8 @@ class PKPLibraryFileManager extends PrivateFileManager {
 
 	/**
 	 * Get the type => name mapping array
+	 *
+	 * @hook PublisherLibrary::types::names [[&$typeNameMap]]
 	 * @return array
 	 */
 	function &getTypeNameMap() {
@@ -210,6 +218,7 @@ class PKPLibraryFileManager extends PrivateFileManager {
 			LIBRARY_FILE_TYPE_REPORT => 'reports',
 			LIBRARY_FILE_TYPE_OTHER => 'other',
 		);
+		HookRegistry::call('PublisherLibrary::types::names', [&$typeNameMap]);
 		return $typeNameMap;
 	}
 }

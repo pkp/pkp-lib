@@ -13,7 +13,7 @@
  *   link action to.
  *  dialogText: A translation key for the message to be displayed in the dialog.
  *}
-{if !$titleIcon}{assign var="titleIcon" value="modal_confirm"}{/if}
+{if !$modalStyle}{assign var="modalStyle" value="default"}{/if}
 <script>
 	$(function() {ldelim}
 		$('{$buttonSelector|escape:javascript}').pkpHandler(
@@ -27,7 +27,7 @@
 					cancelButton: {translate|json_encode key="common.cancel"},
 					dialogText: {translate|json_encode key=$dialogText},
 					$button: $({$buttonSelector|json_encode}),
-					titleIcon: {$titleIcon|json_encode},
+					modalStyle: {$modalStyle|json_encode},
 					width: 'auto'
 				{rdelim},
 		{rdelim});

@@ -53,7 +53,7 @@ class AnnouncementTypeGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editAnnouncementType', null, $actionArgs),
                         __('grid.action.edit'),
-                        'modal_edit',
+                        'side-modal',
                         true
                     ),
                     __('grid.action.edit'),
@@ -68,7 +68,7 @@ class AnnouncementTypeGridRow extends GridRow
                         __('common.confirmDelete'),
                         __('common.remove'),
                         $router->url($request, null, null, 'deleteAnnouncementType', null, $actionArgs),
-                        'modal_delete'
+                        'negative'
                     ),
                     __('grid.action.remove'),
                     'delete'

@@ -36,7 +36,7 @@ class SendReminderLinkAction extends LinkAction
         $ajaxModal = new AjaxModal(
             $router->url($request, null, null, 'editReminder', null, $actionArgs),
             __($modalTitle),
-            'review_reminder'
+            'side-modal'
         );
 
         // Configure the link action.

@@ -97,7 +97,7 @@ class LibraryFileGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editFile', null, $actionArgs),
                         __('grid.action.edit'),
-                        'modal_edit'
+                        'side-modal'
                     ),
                     __('grid.action.edit'),
                     'edit'
@@ -111,7 +111,7 @@ class LibraryFileGridRow extends GridRow
                         __('common.confirmDelete'),
                         __('common.delete'),
                         $router->url($request, null, null, 'deleteFile', null, $actionArgs),
-                        'modal_delete'
+                        'negative'
                     ),
                     __('grid.action.delete'),
                     'delete'

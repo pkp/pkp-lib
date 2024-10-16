@@ -83,7 +83,7 @@ class QueryNotesGridRow extends GridRow
                             __('common.confirmDelete'),
                             __('grid.action.delete'),
                             $router->url($request, null, null, 'deleteNote', null, $actionArgs),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.delete'),
                         'delete'

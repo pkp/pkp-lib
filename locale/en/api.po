@@ -23,6 +23,9 @@ msgstr "Unable to process API request."
 msgid "api.417.routeResponseIsNull"
 msgstr "Unable to receive any expected response."
 
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Invalid author-friendly parameter."
+
 msgid "api.400.routeNotDefined"
 msgstr "No API route was provided."
 

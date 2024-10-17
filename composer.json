@@ -19,6 +19,7 @@
 		"league/flysystem-sftp-v3": "^3.0",
 		"michelf/php-markdown": "2.*",
 		"moxiecode/plupload": "2.*",
+		"mpdf/mpdf": "^8.2",
 		"phpmailer/phpmailer": "6.*",
 		"ralouphie/getallheaders": "*",
 		"smarty/smarty": "4.*",

@@ -1004,7 +1004,7 @@ class PKPTemplateManager extends Smarty
                                 });
 
                                 $viewsData['newSubmission'] = [
-                                    'name' => __('author.submit.startHereTitle'), 
+                                    'name' => __('dashboard.startNewSubmission'), 
                                     'url' => $router->url($request, null, 'submission')
                                 ];
 
@@ -1052,7 +1052,7 @@ class PKPTemplateManager extends Smarty
                                 });
 
                                 $viewsData['newSubmission'] = [
-                                    'name' => __('author.submit.startHereTitle'), 
+                                    'name' => __('dashboard.startNewSubmission'), 
                                     'url' => $router->url($request, null, 'submission')
                                 ];
 

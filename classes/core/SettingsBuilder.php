@@ -24,6 +24,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use stdClass;
+use PKP\facades\Locale;
 
 class SettingsBuilder extends Builder
 {
@@ -110,6 +111,10 @@ class SettingsBuilder extends Builder
         $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
             $settingName = Str::camel($settingName);
             if ($this->isMultilingual($settingName)) {
+                // if non-localized data passed, set the locale to default one
+                if (is_string($settingValue)) {
+                    $settingValue = $this->localizeNonLocalizedData($settingValue);
+                }
                 foreach ($settingValue as $locale => $localizedValue) {
                     $rows[] = [
                         $this->model->getKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
@@ -125,6 +130,14 @@ class SettingsBuilder extends Builder
         DB::table($this->model->getSettingsTable())->insert($rows);
 
         return $id;
+    }
+
+    /**
+     * Wrap a non localized value with the default locale
+     */
+    protected function localizeNonLocalizedData(string $value): array
+    {
+        return [Locale::getLocale() => $value];
     }
 
     /**

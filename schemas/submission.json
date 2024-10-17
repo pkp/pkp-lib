@@ -269,6 +269,11 @@
 				}
 			}
 		},
+		"stagesAccess": {
+			"type": "array",
+			"description": "Key data about the status, files and discussions of each stage.",
+			"readOnly": true
+		},
 		"status": {
 			"type": "integer",
 			"description": "Whether the submission is Published, Declined, Scheduled or Queued (still in the workflow). One of the `PKPSubmission::STATUS_*` constants. Default is `PKPSubmission::STATUS_QUEUED`.",

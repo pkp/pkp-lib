@@ -17,16 +17,16 @@
 	{foreach from=$mastheadRoles item="mastheadRole"}
 		{if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
 			<h2>{$mastheadRole->getLocalizedName()|escape}</h2>
-			<ul>
+			<ul class="user_listing" role="list">
 			{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
 				<li>
-					<ul id="commaList">
-						<li>{$mastheadUser['user']->getFullName()|escape}</li>
+					{strip}
+						<span class="date_start">{$mastheadUser['dateStart']}</span>
+						<span class="name">{$mastheadUser['user']->getFullName()|escape}</span>
 						{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
-							<li>{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</li>
+							<span class="affiliation">{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</span>
 						{/if}
-						<li>{$mastheadUser['dateStart']}</li>
-					</ul>
+					{/strip}
 					{if $mastheadUser['user']->getData('orcid')}
 						<span class="orcid">
 							{if $mastheadUser['user']->getData('orcidAccessToken')}
@@ -42,7 +42,7 @@
 			</ul>
 		{/if}
 	{/foreach}
-
+	<hr>
 	<p>
 		{capture assign=editorialHistoryUrl}{url page="about" op="editorialHistory" router=\PKP\core\PKPApplication::ROUTE_PAGE}{/capture}
 		{translate key="about.editorialMasthead.linkToEditorialHistory" url=$editorialHistoryUrl}

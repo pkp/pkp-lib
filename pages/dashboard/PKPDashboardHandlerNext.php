@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\components\forms\dashboard\PKPSubmissionFilters;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -151,8 +150,6 @@ abstract class PKPDashboardHandlerNext extends Handler
             }
         }
 
-        // OJS specific, might need to be adjusted for OMP/OPS
-        $paymentManager = Application::get()->getPaymentManager($context);
             
         $templateMgr->setState([
             'pageInitConfig' => [
@@ -167,8 +164,6 @@ abstract class PKPDashboardHandlerNext extends Handler
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,
-                    // temporarly disabled as its OJS specific
-                   // 'submissionPaymentsEnabled' => $paymentManager->publicationEnabled()
                 ]
             ]
         ]);
@@ -179,8 +174,6 @@ abstract class PKPDashboardHandlerNext extends Handler
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);
 
-
-        class_exists(\APP\components\forms\publication\AssignToIssueForm::class); // Force define of FORM_ASSIGN_TO_ISSUE
 
         $templateMgr->setConstants([
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
@@ -247,8 +240,6 @@ abstract class PKPDashboardHandlerNext extends Handler
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
             'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
-            // Temporarly disabled due OMP migration
-            //'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,

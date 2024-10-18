@@ -454,6 +454,8 @@ class Schema extends \PKP\core\maps\Schema
     {
         // TODO : why index start from 1 instead of 0
         // this cause the transformation to Object instead of Array in JS side
+
+        // TODO : Should directly map to resource collection or submission schema props ?
         return array_values(
             ReviewerSuggestionResource::collection($reviewerSuggestions)
                 ->toArray(app()->get("request"))

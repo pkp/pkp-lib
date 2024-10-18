@@ -23,18 +23,15 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionAgencyDAO;
-use PKP\submission\SubmissionDisciplineDAO;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
 
 class PKPVocabController extends PKPBaseController
 {
@@ -105,7 +102,12 @@ class PKPVocabController extends PKPBaseController
         $vocab = $requestParams['vocab'] ?? '';
         $locale = $requestParams['locale'] ?? Locale::getLocale();
         $term = $requestParams['term'] ?? null;
-        $locales = array_merge($context->getSupportedSubmissionMetadataLocales(), isset($requestParams['submissionId']) ? Repo::submission()->get((int) $requestParams['submissionId'])?->getPublicationLanguages() ?? [] : []);
+        $locales = array_merge(
+            $context->getSupportedSubmissionMetadataLocales(),
+            isset($requestParams['submissionId'])
+                ? (Repo::submission()->get((int) $requestParams['submissionId'])?->getPublicationLanguages() ?? [])
+                : []
+            );
 
         if (!in_array($locale, $locales)) {
             return response()->json([
@@ -113,31 +115,23 @@ class PKPVocabController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        switch ($vocab) {
-            case SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
-                $submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /** @var \PKP\submission\SubmissionKeywordEntryDAO $submissionKeywordEntryDao */
-                $entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            case SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
-                $submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /** @var \PKP\submission\SubmissionSubjectEntryDAO $submissionSubjectEntryDao */
-                $entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            case SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
-                $submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /** @var \PKP\submission\SubmissionDisciplineEntryDAO $submissionDisciplineEntryDao */
-                $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            case SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY:
-                $submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /** @var \PKP\submission\SubmissionAgencyEntryDAO $submissionAgencyEntryDao */
-                $entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            default:
-                $entries = [];
-                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
+        if (ControlledVocab::hasDefinedVocabSymbolic($vocab)) {
+            $entries = ControlledVocabEntry::query()
+                ->whereHas(
+                    "controlledVocab",
+                    fn($query) => $query->withSymbolic($vocab)->withContextId($context->getId())
+                )
+                ->withLocale($locale)
+                ->when($term, fn ($query) => $query->withSetting($vocab, $term))
+                ->get();
+        } else {
+            $entries = [];
+            Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
         }
 
         $data = [];
         foreach ($entries as $entry) {
-            $data[] = $entry->getData($vocab, $locale);
+            $data[] = $entry->getLocalizedData($vocab, $locale);
         }
 
         $data = array_values(array_unique($data));

@@ -14,6 +14,7 @@
 namespace PKP\user\maps;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
@@ -23,7 +24,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\workflow\WorkflowStageDAO;
-use Submission;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -177,18 +177,13 @@ class Schema extends \PKP\core\maps\Schema
                 case 'interests':
                     $output[$prop] = [];
                     if ($this->context) {
-                        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var \PKP\user\InterestDAO $interestDao */
-                        $interestEntryIds = $interestDao->getUserInterestIds($user->getId());
-                        if (!empty($interestEntryIds)) {
-                            $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var \PKP\user\InterestEntryDAO $interestEntryDao */
-                            $results = $interestEntryDao->getByIds($interestEntryIds);
-                            $output[$prop] = [];
-                            while ($interest = $results->next()) {
-                                $output[$prop][] = [
-                                    'id' => (int) $interest->getId(),
-                                    'interest' => $interest->getInterest(),
-                                ];
-                            }
+                        $interests = collect(Repo::userInterest()->getInterestsForUser($user))
+                            ->map(fn($value, $index) => ['id' => $index, 'interest' => $value])
+                            ->values()
+                            ->toArray();
+
+                        foreach ($interests as $interest) {
+                            $output[$prop][] = $interest;
                         }
                     }
                     break;

@@ -34,8 +34,8 @@
 namespace PKP\metadata;
 
 use InvalidArgumentException;
+use PKP\controlledVocab\ControlledVocabEntry;
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 use PKP\validation\ValidatorControlledVocab;
 use PKP\validation\ValidatorFactory;
 
@@ -423,8 +423,16 @@ class MetadataProperty
 
                             if (is_string($value)) {
                                 // Try to translate the string value into a controlled vocab entry
-                                $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO'); /** @var ControlledVocabEntryDAO $controlledVocabEntryDao */
-                                if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId, 'name', $locale))) {
+                                $entry = ControlledVocabEntry::query()
+                                    ->whereHas(
+                                        'controlledVocab',
+                                        fn ($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
+                                    )
+                                    ->withLocale($locale)
+                                    ->withSetting($symbolic, $value)
+                                    ->first();
+        
+                                if (!is_null($entry)) {
                                     // The string was successfully translated so mark it as "valid".
                                     return [self::METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam];
                                 }

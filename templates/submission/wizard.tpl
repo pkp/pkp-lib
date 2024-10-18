@@ -94,7 +94,7 @@
                             :items="submission.reviewerSuggestions"
                             :submission="submission"
                             :publication="publication"
-                            @updated:reviewerSuggestions="setReviewerSuggestion"
+                            @updated:reviewer-suggestions="setReviewerSuggestion"
                         ></reviewer-suggestions-list-panel>
                         <template v-else-if="section.type === 'review'">
                             <notification

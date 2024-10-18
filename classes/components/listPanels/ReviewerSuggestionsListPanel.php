@@ -60,7 +60,6 @@ class ReviewerSuggestionsListPanel extends ListPanel
             $config,
             [
                 'canEditPublication' => $this->canEditPublication,
-                'publicationApiUrlFormat' => $this->getPublicationUrlFormat(),
                 'reviewerSuggestionsApiUrl' => $this->getReviewerSuggestionsApiUrl(),
                 'form' => $this->getLocalizedForm(),
                 'items' => $this->items,
@@ -77,22 +76,6 @@ class ReviewerSuggestionsListPanel extends ListPanel
             Application::ROUTE_API,
             $this->context->getPath(),
             "submissions/{$this->submission->getId()}/reviewers/suggestions"
-        );
-    }
-
-    /**
-     * Get an example of the url to a publication's API endpoint,
-     * with a placeholder instead of the publication id, eg:
-     *
-     * http://example.org/api/v1/submissions/1/publications/__publicationId__
-     */
-    protected function getPublicationUrlFormat(): string
-    {
-        return Application::get()->getRequest()->getDispatcher()->url(
-            Application::get()->getRequest(),
-            Application::ROUTE_API,
-            $this->context->getPath(),
-            'submissions/' . $this->submission->getId() . '/publications/__publicationId__'
         );
     }
 

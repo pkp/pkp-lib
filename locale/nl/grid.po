@@ -1,15 +1,19 @@
+# Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
+"PO-Revision-Date: 2024-10-19 10:40+0000\n"
+"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/nl/>"
+"\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Geen onderdelen"
@@ -131,7 +135,7 @@ msgid "grid.action.order"
 msgstr "Sorteren"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Bewaar volgorde"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Sorteren opheffen"
@@ -233,7 +237,7 @@ msgid "grid.action.editUserGroup"
 msgstr "Gebruikersgroep bewerken"
 
 msgid "grid.action.removeUserGroup"
-msgstr ""
+msgstr "Verwijder deze gebruikersgroep"
 
 msgid "grid.action.disable"
 msgstr "Schakel uit"
@@ -284,7 +288,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Nieuwsbericht toevoegen"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Voeg instelling toe"
 
 msgid "grid.action.mergeUser"
 msgstr "Gebruiker samenvoegen"
@@ -365,7 +369,7 @@ msgid "grid.columns.locale"
 msgstr "Taalkode"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Code"
 
 msgid "grid.sponsor.title"
 msgstr "Sponsors"
@@ -526,13 +530,13 @@ msgid "grid.user.errorEmail"
 msgstr ""
 "Er is een fout opgetreden bij het verzenden van deze e-mail. Kijk na of de "
 "configuratie van uw server klopt en/of neem contact op met uw "
-"systeembeheerder"
+"systeembeheerder."
 
 msgid "grid.user.cannotAdminister"
 msgstr "U heeft niet voldoende bevoegdheden om deze gebruiker te bewerken."
 
 msgid "grid.user.mustProvideName"
-msgstr "Geef als eerste de achternaam van de gebruiker"
+msgstr "Geef als eerste de achternaam van de gebruiker."
 
 msgid "grid.user.generatePassword"
 msgstr "Genereer wachtwoord"
@@ -544,7 +548,7 @@ msgid "grid.user.notifyUser"
 msgstr "Stuur de gebruiker een notificatie"
 
 msgid "grid.user.notifyUserDescription"
-msgstr "Stuur de gebruiker een welkomstmail"
+msgstr "Stuur de gebruiker een welkomstmail."
 
 msgid "grid.user.mustChangePassword"
 msgstr "Wachtwoord veranderen"
@@ -626,7 +630,7 @@ msgid "grid.plugin.disable"
 msgstr "Weet u zeker dat u deze plugin uit wilt schakelen?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken."
+msgstr "Proefcorrecties zijn gemaakt, maar u kan ze ook terugtrekken"
 
 msgid "grid.artworkFile.caption"
 msgstr "Bijschrift"

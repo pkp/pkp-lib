@@ -39,6 +39,7 @@ class SettingsBuilder extends Builder
     public function getModels($columns = ['*'])
     {
         $rows = $this->getModelWithSettings($columns);
+        
         $returner = $this->model->hydrate(
             $rows->all()
         )->all();
@@ -308,8 +309,19 @@ class SettingsBuilder extends Builder
         }
 
         $columns = Arr::wrap($columns);
-        foreach ($row as $property) {
-            if (!in_array($property, $columns)) {
+
+        // TODO : Investigate how to handle the camel to snake case issue. related to pkp/pkp-lib#10485
+        $settingColumns = $this->model->getSettings();
+        $columns = collect($columns)
+            ->map(
+                fn (string $column): string => in_array($column, $settingColumns)
+                    ? $column
+                    : Str::snake($column)
+            )
+            ->toArray();
+
+        foreach ($row as $property => $value) {
+            if (!in_array($property, $columns) && isset($row->{$property})) {
                 unset($row->{$property});
             }
         }

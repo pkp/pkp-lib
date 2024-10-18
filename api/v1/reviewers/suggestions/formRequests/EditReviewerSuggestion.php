@@ -2,11 +2,12 @@
 
 namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
-use APP\core\Application;
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
-class AddReviewerSuggestion extends FormRequest
+class EditReviewerSuggestion extends FormRequest
 {
     /**
      * @copydoc \Illuminate\Foundation\Http\FormRequest::validated()
@@ -26,17 +27,6 @@ class AddReviewerSuggestion extends FormRequest
     public function rules(): array
     {
         return [
-            'submissionId' => [
-                'required',
-                'integer',
-                Rule::exists('submissions', 'submission_id'),
-            ],
-            'suggestingUserId' => [
-                'sometimes',
-                'nullable',
-                'integer',
-                Rule::exists('users', 'user_id'),
-            ],
             'familyName' => [
                 'required',
                 'array',
@@ -87,13 +77,14 @@ class AddReviewerSuggestion extends FormRequest
     }
 
     /**
-     * Prepare the data for validation.
+     * Handle a passed validation attempt.
      */
-    protected function prepareForValidation(): void
+    protected function passedValidation(): void
     {
-        $this->merge([
-            'suggestingUserId' => Application::get()->getRequest()?->getUser()?->getId(),
-            'submissionId' => $this->route('submissionId'),
-        ]);
+        if (!ReviewerSuggestion::find($this->route('suggestionId'))) {
+            throw new HttpResponseException(response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND));
+        }
     }
 }

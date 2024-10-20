@@ -1,7 +1,7 @@
 # Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-10-20 03:10+0000\n"
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
 "Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
 "Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/default/th/"
 ">\n"
@@ -104,7 +104,7 @@ msgid "default.groups.abbrev.layoutEditor"
 msgstr "LE"
 
 msgid "default.groups.name.author"
-msgstr "ผู้แต่ง"
+msgstr "ผู้เขียน"
 
 msgid "default.groups.plural.author"
 msgstr "ผู้แต่ง"

@@ -41,7 +41,7 @@ class JsEventConfirmationModal extends ConfirmationModal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($dialogText, $event = 'confirmationModalConfirmed', $extraArguments = null, $title = null, $modalStyle = null, $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($dialogText, $event = 'confirmationModalConfirmed', $extraArguments = null, $title = null, $modalStyle = 'basic', $okButton = null, $cancelButton = null, $canClose = true)
     {
         parent::__construct($dialogText, $title, $modalStyle, $okButton, $cancelButton, $canClose);
 

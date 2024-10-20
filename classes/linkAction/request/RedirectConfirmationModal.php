@@ -36,7 +36,7 @@ class RedirectConfirmationModal extends ConfirmationModal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($dialogText, $title = null, $remoteUrl = null, $modalStyle = null, $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($dialogText, $title = null, $remoteUrl = null, $modalStyle = 'basic', $okButton = null, $cancelButton = null, $canClose = true)
     {
         parent::__construct($dialogText, $title, $modalStyle, $okButton, $cancelButton, $canClose);
 

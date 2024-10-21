@@ -22,7 +22,6 @@ namespace PKP\tests;
 
 use APP\core\Application;
 use Illuminate\Support\Facades\Mail;
-
 use APP\core\PageRouter;
 use APP\core\Request;
 use Mockery;
@@ -255,6 +254,18 @@ abstract class PKPTestCase extends TestCase
         $pieces = preg_split('/\{\$[^}]+\}/', $translation);
         $escapedPieces = array_map(fn ($piece) => preg_quote($piece, '/'), $pieces);
         return '/^' . implode('.*?', $escapedPieces) . '$/u';
+    }
+
+    /**
+     * Get the app specific search dao based on application name
+     */
+    protected function getAppSearchDaoKey(): string
+    {
+        return match(Application::get()->getName()) {
+            'ojs2' => 'ArticleSearchDAO',
+            'omp' => 'MonographSearchDAO',
+            'ops' => 'PreprintSearchDAO',
+        };
     }
 
     /**

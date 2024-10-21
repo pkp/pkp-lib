@@ -40,7 +40,7 @@ trait PasswordResetUrl
                 $contextUrlPath,
                 'login',
                 'resetPassword',
-                $user->getUsername(),
+                [$user->getUsername()],
                 ['confirm' => Validation::generatePasswordResetHash($user->getId())]
             )
         ]);

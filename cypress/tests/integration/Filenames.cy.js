@@ -6,7 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  */
 
- describe('Filename support for different character sets', function() {
+// Temporarly Skip until OMP&OPS is migrated to new side modal workflow
+ describe.skip('Filename support for different character sets', function() {
 	it('#6898 Tests submission file download name is correct', function() {
 		var name = 'edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf';
 		var encodedName = 'edi%C3%A7%C3%A3o-%C2%A3%24L%3C-%3E%2F4%2Fch+%E4%B8%B9%E5%B0%BC%E7%88%BE+a+%D8%AF%D8%A7%D9%86%D9%8A%D8%A7%D9%841d+line+%5Cn+break.pdf';
@@ -19,7 +20,8 @@
 			.then((thisWindow) => {
 
 				// Grab the CSRF token
-				cy.get('a:contains("Assign")').click();
+				cy.openWorkflowMenu('Production')
+				cy.get('button:contains("Assign")').click();
 				cy.get('input[name="csrfToken"]').then(($el) => {
 					var csrfToken = $el.val();
 

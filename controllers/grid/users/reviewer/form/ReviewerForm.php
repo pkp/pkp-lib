@@ -24,6 +24,7 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\context\Context;
+use PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -45,6 +46,8 @@ use PKP\submissionFile\SubmissionFile;
 
 class ReviewerForm extends Form
 {
+    use HasReviewDueDate;
+
     /** @var Submission The submission associated with the review assignment */
     public $_submission;
 
@@ -211,17 +214,7 @@ class ReviewerForm extends Form
             $reviewFormId = null;
         }
 
-        $numWeeks = (int) $context->getData('numWeeksPerReview');
-        if ($numWeeks <= 0) {
-            $numWeeks = 4;
-        }
-        $reviewDueDate = strtotime('+' . $numWeeks . ' week');
-
-        $numWeeks = (int) $context->getData('numWeeksPerResponse');
-        if ($numWeeks <= 0) {
-            $numWeeks = 3;
-        }
-        $responseDueDate = strtotime('+' . $numWeeks . ' week');
+        [$reviewDueDate, $responseDueDate] = $this->getDueDates($context);
 
         // Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form
         $selectionType = (int) $request->getUserVar('selectionType');
@@ -257,7 +250,7 @@ class ReviewerForm extends Form
         $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
         $reviewFormsIterator = $reviewFormDao->getActiveByAssocId(Application::getContextAssocType(), $context->getId());
         $reviewForms = [];
-        while ($reviewForm = $reviewFormsIterator->next()) {
+        while ($reviewForm = $reviewFormsIterator->next()) { /** @var \PKP\reviewForm\ReviewForm $reviewForm */
             $reviewForms[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
         }
 

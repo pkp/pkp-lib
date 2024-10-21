@@ -15,7 +15,6 @@
 
 namespace PKP\components\forms\dashboard;
 
-use APP\components\forms\FieldSelectIssues;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
@@ -27,7 +26,7 @@ use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\security\Role;
 
-class SubmissionFilters extends FormComponent
+class PKPSubmissionFilters extends FormComponent
 {
     /**
      * The maximum number of options in a field
@@ -49,7 +48,6 @@ class SubmissionFilters extends FormComponent
             ->addGroup(['id' => 'default', 'pageId' => 'default'])
             ->addSectionFields()
             ->addAssignedTo()
-            ->addIssues()
             ->addCategories()
             ->addDaysSinceLastActivity()
         ;
@@ -119,17 +117,6 @@ class SubmissionFilters extends FormComponent
         ]));
     }
 
-    protected function addIssues(): self
-    {
-        $request = Application::get()->getRequest();
-
-        return $this->addField(new FieldSelectIssues('issueIds', [
-            'groupId' => 'default',
-            'label' => __('issue.issues'),
-            'value' => [],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()->getPath(), 'issues'),
-        ]));
-    }
 
     protected function addCategories(): self
     {

@@ -33,7 +33,7 @@ class JsEventConfirmationModal extends ConfirmationModal
      * @param string $event the name of the JS event.
      * @param array $extraArguments (optional) extra information to be passed as JSON data with the event.
      * @param string $title (optional) The localized modal title.
-     * @param string $modalStyle (optional) The modal state/style to be used.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
      * @param string $cancelButton (optional) The localized text to

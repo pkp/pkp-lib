@@ -43,7 +43,7 @@ class Modal extends LinkActionRequest
      * Constructor
      *
      * @param string $title (optional) The localized modal title.
-     * @param string $modalStyle (optional) The modal state/style to be used.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param bool $canClose (optional) Whether the modal will have a close button.
      * @param string $closeOnFormSuccessId (optional) Close the modal when the
      *  form with this id fires a formSuccess event.

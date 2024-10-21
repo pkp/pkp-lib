@@ -41,7 +41,7 @@ class ConfirmationModal extends Modal
      * @param string $dialogText The localized text to appear
      *  in the dialog modal.
      * @param string $title (optional) The localized modal title.
-     * @param string $modalStyle (optional) The modal state/style to be used.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
      * @param string $cancelButton (optional) The localized text to

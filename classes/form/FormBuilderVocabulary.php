@@ -41,7 +41,7 @@
  *   hideCancel (optional): Whether the submit button should be disabled
  *   cancelAction (optional): A LinkAction object to execute when cancel is clicked
  *   cancelUrl (optional): URL to redirect to when cancel is clicked
- *   modalStyle (optional): The modal state/style that should be used. (default is 'default')
+ *   modalStyle (optional): The modal state/style that should be used. (default is 'basic')
  * Form elements are created with {fbvElement type="type"} plus any additional parameters.
  * Each specific element type may have other additional attributes (see their method comments)
  *  Parameters:

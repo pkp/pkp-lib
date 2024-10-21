@@ -31,6 +31,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 use PKP\log\EmailLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\reviewForm\ReviewFormElement;
@@ -96,6 +97,10 @@ class PKPReviewController extends PKPBaseController
             Route::get('{submissionId}/{reviewAssignmentId}/export-xml', $this->exportReviewXML(...))
                 ->name('review.export.xml')
                 ->whereNumber(['reviewAssignmentId', 'submissionId']);
+
+            Route::get('{submissionId}/exports/{fileId}', $this->getExportedFile(...))
+                ->name('review.export.getFile')
+                ->whereNumber(['submissionId', 'fileId']);
         });
     }
 
@@ -479,9 +484,18 @@ class PKPReviewController extends PKPBaseController
 
         $html .= "</body></html>";
         $mpdf->WriteHTML($html);
-        $mpdf->Output("submission_review_{$submissionId}-{$reviewId}.pdf", 'D');
 
-        return response()->json([], Response::HTTP_OK);
+        $exportFileName = "submission_review_{$submissionId}-{$reviewId}.pdf";
+        $pdfContent = $mpdf->Output($exportFileName, 'S');
+        $fileManager = new TemporaryFileManager();
+        $tempFilename = $fileManager->getBasePath() . $exportFileName;
+        $fileManager->writeFile($tempFilename, $pdfContent);
+        $user = $request->getUser();
+        $temporaryFileId = $fileManager->createTempFileFromExisting($tempFilename, $user->getId());
+
+        return response()->json([
+            'temporaryFileId' => $temporaryFileId
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -694,19 +708,32 @@ class PKPReviewController extends PKPBaseController
         $customMetaGroupObject->appendChild($customMetaPeerReviewStage);
         $customMetaGroupObject->appendChild($customMetaReccomObject);
         $articleMeta->appendChild($customMetaGroupObject);
-        $xml->formatOutput = true;
-        $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
-        $xml->save($xmlFileName);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/xml');
-        header('Content-Disposition: attachment; filename="' . basename($xmlFileName) . '"');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($xmlFileName));
-        readfile($xmlFileName);
-        unlink($xmlFileName);
+        $fileManager = new TemporaryFileManager();
+        $tempFilename = $fileManager->getBasePath() . "submission_review_{$submissionId}-{$reviewId}.xml";
+        $xml->save($tempFilename);
+        $user = $request->getUser();
+        $temporaryFileId = $fileManager->createTempFileFromExisting($tempFilename, $user->getId());
 
+        return response()->json([
+            'temporaryFileId' => $temporaryFileId
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Download exported review file from temporary file ID
+     */
+    public function getExportedFile(Request $illuminateRequest): JsonResponse
+    {
+        $fileId = $illuminateRequest->route('fileId');
+        $currentUser = Application::get()->getRequest()->getUser();
+        $tempFileManager = new TemporaryFileManager();
+        $isSuccess = $tempFileManager->downloadById($fileId, $currentUser->getId());
+
+        if (!$isSuccess) {
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
+        }
         return response()->json([], Response::HTTP_OK);
     }
 }

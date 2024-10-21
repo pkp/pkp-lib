@@ -38,12 +38,11 @@ class ControlledVocabEntry extends Model
      */
     protected $primaryKey = 'controlled_vocab_entry_id';
 
-    // TODO: Investigate why defining any guarded props causing no data to store in settings table
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
     protected $guarded = [
-        // 'id',
+        'controlledVocabEntryId',
     ];
 
     /**
@@ -66,7 +65,7 @@ class ControlledVocabEntry extends Model
     {
         return [
             'controlled_vocab_entry_id' => 'string',
-            'controlled_vocab_id' => 'int',
+            'controlled_vocab_id' => 'integer',
             'seq' => 'float',
         ];
     }
@@ -101,17 +100,6 @@ class ControlledVocabEntry extends Model
             ControlledVocab::getDefinedVocabSymbolic(),
             Arr::wrap(UserInterest::CONTROLLED_VOCAB_INTEREST)
         );
-    }
-
-    /**
-     * Accessor and Mutator for primary key => id
-     */
-    protected function id(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
-            set: fn($value) => [$this->primaryKey => $value],
-        )->shouldCache();
     }
 
     /**

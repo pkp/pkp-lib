@@ -316,3 +316,9 @@ msgstr "All editorial recommendations have been received, and a decision is requ
 
 msgid "dashboard.recommendOnly.onlyAllowedToRecommend"
 msgstr "Only allowed to recommend an editorial decision"
+
+msgid "dashboard.workflow.reviewRoundN"
+msgstr "Review Round {$number}"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Start a New Submission"

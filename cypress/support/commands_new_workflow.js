@@ -182,19 +182,30 @@ Cypress.Commands.add('openReviewAssignment', (familyName) => {
 });
 
 
-Cypress.Commands.add('openWorkflowMenu', (name) => {
-	cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).click();
+Cypress.Commands.add('openWorkflowMenu', (name, subitem = null) => {
+	if(subitem) {
+		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).contains(subitem).click()
+	} else {
+		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).click();
+
+	}
 	cy.get('[data-cy="active-modal"] h2').contains(name);
 });
 
 
+Cypress.Commands.add('openReviewAssignment', (familyName) => {
+	cy.contains('table tr', familyName).within(() => {
+		cy.get('button').click()
+	})
+});
 
 
 
-Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context) => {
+Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context = null, viewName = null) => {
 	context = context || 'publicknowledge';
+	viewName = viewName || 'Active submissions';
 	cy.login(username, password, context);
-	cy.get('nav').contains('Active submissions').click();
+	cy.get('nav').contains(viewName).click();
 	cy.contains('table tr', familyName).within(() => {
 		cy.get('button').contains('View').click()
 	})
@@ -465,7 +476,7 @@ Cypress.Commands.add('submissionIsDeclined', () => {
 });
 
 Cypress.Commands.add('isActiveStageTab', (stageName) => {
-	cy.get('[data-cy="active-modal"] nav .bg-selection-dark').contains(stageName);
+	cy.get('[data-cy="active-modal"] h2').contains(stageName);
 });
 
 /**

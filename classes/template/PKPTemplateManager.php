@@ -1004,7 +1004,7 @@ class PKPTemplateManager extends Smarty
                                 });
 
                                 $viewsData['newSubmission'] = [
-                                    'name' => __('author.submit.startHereTitle'), 
+                                    'name' => __('dashboard.startNewSubmission'), 
                                     'url' => $router->url($request, null, 'submission')
                                 ];
 
@@ -1052,7 +1052,7 @@ class PKPTemplateManager extends Smarty
                                 });
 
                                 $viewsData['newSubmission'] = [
-                                    'name' => __('author.submit.startHereTitle'), 
+                                    'name' => __('dashboard.startNewSubmission'), 
                                     'url' => $router->url($request, null, 'submission')
                                 ];
 
@@ -1166,6 +1166,11 @@ class PKPTemplateManager extends Smarty
                                     'name' => __('manager.users'),
                                     'url' => $router->url($request, null, 'stats', 'users', ['users']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
+                                ],
+                                'counterR5' => [
+                                    'name' => __('manager.statistics.counterR5'),
+                                    'url' => $router->url($request, null, 'stats', 'counterR5', ['counterR5']),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'counterR5',
                                 ]
                             ]
                         ];

@@ -2339,4 +2339,4 @@ msgid "common.sandbox"
 msgstr "Application running in sandbox mode."
 
 msgid "common.fromUntil"
-msgstr "{$from} - {$until}"
+msgstr "{$from} &ndash; {$until}"

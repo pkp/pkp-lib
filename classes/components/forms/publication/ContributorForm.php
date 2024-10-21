@@ -110,6 +110,7 @@ class ContributorForm extends FormComponent
             ->addField(new FieldText('affiliation', [
                 'label' => __('user.affiliation'),
                 'isMultilingual' => true,
+                'size' => 'large',
             ]));
 
         if ($authorUserGroupsOptions->count() > 1) {

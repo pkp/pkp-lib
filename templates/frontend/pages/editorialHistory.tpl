@@ -22,28 +22,26 @@
 				{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
 					<li>
 						{strip}
-							<span class="date_start">
-								{foreach name="services" from=$mastheadUser['services'] item="service"}
-									{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}
-									{if !$smarty.foreach.services.last}{translate key="common.commaListSeparator"}{/if}
-								{/foreach}	
-							</span>
-							<span class="name">{$mastheadUser['user']->getFullName()|escape}</span>
-							{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
-								<span class="affiliation">{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</span>
+						<span class="date_start">
+							{foreach name="services" from=$mastheadUser['services'] item="service"}
+								{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}
+								{if !$smarty.foreach.services.last}{translate key="common.commaListSeparator"}{/if}
+							{/foreach}	
+						</span>
+						<span class="name">
+							{$mastheadUser['user']->getFullName()|escape}
+							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')}
+								<span class="orcid">	
+									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
+										{$orcidIcon}
+									</a>
+								</span>
 							{/if}
-						{/strip}
-						{if $mastheadUser['user']->getData('orcid')}
-							<span class="orcid">
-								{if $mastheadUser['user']->getData('orcidAccessToken')}
-									{$orcidIcon}
-								{/if}
-								<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
-									{$mastheadUser['user']->getData('orcid')|escape}
-								</a>
-							</span>
+						</span>
+						{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
+							<span class="affiliation">{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</span>
 						{/if}
-
+						{/strip}
 					</li>
 				{/foreach}
 			</ul>

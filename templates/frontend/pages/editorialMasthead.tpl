@@ -21,22 +21,21 @@
 			{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
 				<li>
 					{strip}
-						<span class="date_start">{$mastheadUser['dateStart']}</span>
-						<span class="name">{$mastheadUser['user']->getFullName()|escape}</span>
+						<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
+						<span class="name">
+							{$mastheadUser['user']->getFullName()|escape}
+							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')}
+								<span class="orcid">	
+									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
+										{$orcidIcon}
+									</a>
+								</span>
+							{/if}
+						</span>
 						{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
 							<span class="affiliation">{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</span>
 						{/if}
 					{/strip}
-					{if $mastheadUser['user']->getData('orcid')}
-						<span class="orcid">
-							{if $mastheadUser['user']->getData('orcidAccessToken')}
-								{$orcidIcon}
-							{/if}
-							<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
-							{$mastheadUser['user']->getData('orcid')|escape}
-							</a>
-						</span>
-					{/if}
 				</li>
 			{/foreach}
 			</ul>
@@ -51,25 +50,24 @@
 	{if !empty($reviewers)}
 		<h2>{translate key="common.editorialMasthead.peerReviewers"}</h2>
 		<p>{translate key="common.editorialMasthead.peerReviewers.description" year=$previousYear}</p>
-		<ul>
+		<ul class="user_listing" role="list">
 		{foreach from=$reviewers item="reviewer"}
 			<li>
-				<ul id="commaList">
-					<li>{$reviewer->getFullName()|escape}</li>
-					{if !empty($reviewer->getLocalizedData('affiliation'))}
-						<li>{$reviewer->getLocalizedData('affiliation')|escape}</li>
-					{/if}
-				</ul>
-				{if $reviewer->getData('orcid')}
-					<span class="orcid">
-						{if $reviewer->getData('orcidAccessToken')}
-							{$orcidIcon}
+				{strip}
+					<span class="name">
+						{$reviewer->getFullName()|escape} 
+						{if $reviewer->getData('orcid') && $reviewer->getData('orcidAccessToken')}
+							<span class="orcid">	
+								<a href="{$reviewer->getData('orcid')|escape}" target="_blank">
+									{$orcidIcon}
+								</a>
+							</span>
 						{/if}
-						<a href="{$reviewer->getData('orcid')|escape}" target="_blank">
-						{$reviewer->getData('orcid')|escape}
-					</a>
 					</span>
-				{/if}
+					{if !empty($reviewer->getLocalizedData('affiliation'))}
+						<span class="affiliation">{$reviewer->getLocalizedData('affiliation')|escape}</span>
+					{/if}
+				{/strip}
 			</li>
 		{/foreach}
 		</ul>

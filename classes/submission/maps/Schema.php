@@ -446,6 +446,7 @@ class Schema extends \PKP\core\maps\Schema
                 'dateConfirmed' => $dateConfirmed,
                 'dateCompleted' => $dateCompleted,
                 'dateAssigned' => $dateAssigned,
+                'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'recommendation' => $reviewAssignment->getRecommendation(),
@@ -524,10 +525,19 @@ class Schema extends \PKP\core\maps\Schema
             ];
 
             $currentUserAssignedRoles = [];
+            $stageAssignmentsOverview = [];
             if ($currentUser) {
+                // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
+                $currentRoles = array_map(
+                    function (Role $role) {
+                        return $role->getId();
+                    },
+                    $currentUser->getRoles($this->context->getId())
+                );
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withUserId($currentUser->getId() ?? 0)
+                    ->withStageIds([$stageId])
                     ->get();
 
                 foreach ($stageAssignments as $stageAssignment) {
@@ -539,17 +549,28 @@ class Schema extends \PKP\core\maps\Schema
 
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-                    ->withUserId($currentUser->getId())
                     ->withStageIds([$stageId])
                     ->get();
 
+                // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
                 foreach ($stageAssignments as $stageAssignment) {
                     $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                    $currentUserAssignedRoles[] = (int) $userGroup->getRoleId();
+                    $stageAssignmentsOverview[] = [
+                        "roleId" => $userGroup->getRoleId(),
+                        "recommendOnly" => $stageAssignment->recommendOnly,
+                        "canChangeMetadata" => $stageAssignment->canChangeMetadata,
+                        "userId" => $stageAssignment->userId
+                    ];
                 }
             }
             $stage['currentUserAssignedRoles'] = array_values(array_unique($currentUserAssignedRoles));
-
+            // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
+            $stage['stageAssignments'] = $stageAssignmentsOverview;
+            if(!$stage['currentUserAssignedRoles']) {
+                if(in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
+                     $stage['currentUserAssignedRoles'][] = Role::ROLE_ID_MANAGER;
+                }
+            }
             // Stage-specific statuses
             switch ($stageId) {
                 case WORKFLOW_STAGE_ID_SUBMISSION:

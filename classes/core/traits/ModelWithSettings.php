@@ -17,8 +17,9 @@
 
 namespace PKP\core\traits;
 
-use Eloquence\Behaviours\HasCamelCasing;
 use Exception;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
@@ -29,6 +30,11 @@ use stdClass;
 trait ModelWithSettings
 {
     use HasCamelCasing;
+
+    /**
+     * @see \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guardableColumns
+     */
+    protected static $guardableColumns = [];
 
     // The list of attributes associated with the model settings
     protected array $settings = [];
@@ -46,7 +52,7 @@ trait ModelWithSettings
     /**
      * Get settings table name
      */
-    abstract public function getSettingsTable();
+    abstract public function getSettingsTable(): string;
 
     /**
      * The name of the schema for the Model if exists, null otherwise
@@ -54,7 +60,7 @@ trait ModelWithSettings
     abstract public static function getSchemaName(): ?string;
 
     /**
-     * See Illuminate\Database\Eloquent\Concerns\HasAttributes::mergeCasts()
+     * @see Illuminate\Database\Eloquent\Concerns\HasAttributes::mergeCasts()
      *
      * @param array $casts
      *
@@ -62,6 +68,9 @@ trait ModelWithSettings
      */
     abstract protected function ensureCastsAreStringValues($casts);
 
+    /**
+     * @see \Illuminate\Database\Eloquent\Model::__construct()
+     */
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -187,5 +196,36 @@ trait ModelWithSettings
             get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
             set: fn ($value) => [$this->primaryKey => $value],
         );
+    }
+
+    /**
+     * @see \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::isGuardableColumn()
+     */
+    protected function isGuardableColumn($key)
+    {
+        // Need the snake like to key to check for main table to compare with column listing
+        $key = Str::snake($key);
+        
+        if (! isset(static::$guardableColumns[get_class($this)])) {
+            $columns = $this->getConnection()
+                        ->getSchemaBuilder()
+                        ->getColumnListing($this->getTable());
+
+            if (empty($columns)) {
+                return true;
+            }
+            static::$guardableColumns[get_class($this)] = $columns;
+        }
+
+
+        $settingsWithMultilingual = array_merge($this->getSettings(), $this->getMultilingualProps());
+        $camelKey = Str::camel($key);
+        
+        // Check if this column included in setting and multilingula props and not set to guarded
+        if (in_array($camelKey, $settingsWithMultilingual) && !in_array($camelKey, $this->getGuarded())) {
+            return true;
+        }
+        
+        return in_array($key, (array)static::$guardableColumns[get_class($this)]);
     }
 }

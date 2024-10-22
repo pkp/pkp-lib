@@ -304,10 +304,10 @@ class Dispatcher
     /**
      * Handle a 404 error (page not found).
      */
-    public static function handle404()
+    public static function handle404(string $message = "404 Not Found"): void
     {
         header('HTTP/1.0 404 Not Found');
-        echo "<h1>404 Not Found</h1>\n";
+        echo "<h1>" . htmlspecialchars($message) . "</h1>\n";
         exit;
     }
 }

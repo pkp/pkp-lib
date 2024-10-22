@@ -19,6 +19,7 @@ namespace PKP\API\v1\reviews;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use DOMImplementation;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\EmailLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
@@ -257,49 +259,15 @@ class PKPReviewController extends PKPBaseController
     }
 
     /**
-     * Export a review as PDF
+     * Creates a review as PDF
      */
-    public function exportReviewPDF(Request $illuminateRequest): JsonResponse
+    protected function generatePDF(Submission $submission, int $reviewId, bool $authorFriendly): int
     {
-        $request = $this->getRequest();
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
-        $submissionId = $request->getUserVar('submissionId');
-        $reviewId = $request->getUserVar('reviewAssignmentId');
-
-        if(!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
-            return response()->json([
-                'error' => __('api.400.invalidAuthorFriendlyParameter')
-            ], Response::HTTP_BAD_REQUEST);
-        }
-
-        $authorFriendly = (bool) $illuminateRequest->authorFriendly;
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-
-        if (!$submission) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound')
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        $contextId = $request->getContext()->getId();
-        $submissionReviewAssignments = Repo::reviewAssignment()->getCollector()
-            ->filterBySubmissionIds([$submissionId])
-            ->filterByContextIds([$contextId])
-            ->getMany();
-
-        if(!$submissionReviewAssignments->first()
-            || $submissionReviewAssignments->first()->getData('submissionId') != $submissionId
-            || $submissionReviewAssignments->first()->getData('id') != $reviewId)
-        {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound')
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        $reviewAssignment = $submissionReviewAssignments->first();
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $submissionId = $submission->getId();
         $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, true);
         $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
         $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
         $mpdf = new Mpdf([
@@ -474,7 +442,7 @@ class PKPReviewController extends PKPBaseController
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
             ->getMany();
 
-        $primaryLocale = $request->getContext()->getPrimaryLocale();
+        $primaryLocale = Locale::getPrimaryLocale();
         $html .= "<div><h4 style='font-weight: bold;'>" . __('reviewer.submission.reviewFiles') . "</h4></div>";
 
         foreach ($submissionFiles as $submissionFile) {
@@ -490,8 +458,51 @@ class PKPReviewController extends PKPBaseController
         $fileManager = new TemporaryFileManager();
         $tempFilename = $fileManager->getBasePath() . $exportFileName;
         $fileManager->writeFile($tempFilename, $pdfContent);
-        $user = $request->getUser();
-        $temporaryFileId = $fileManager->createTempFileFromExisting($tempFilename, $user->getId());
+        $user = Application::get()->getRequest()->getUser();
+
+        return $fileManager->createTempFileFromExisting($tempFilename, $user->getId());
+    }
+
+    /**
+     * Export a review as PDF to temporary file
+     */
+    public function exportReviewPDF(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $submissionId = $request->getUserVar('submissionId');
+        $reviewId = $request->getUserVar('reviewAssignmentId');
+
+        if(!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
+            return response()->json([
+                'error' => __('api.400.invalidAuthorFriendlyParameter')
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if (!$submission) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $contextId = $request->getContext()->getId();
+        $submissionReviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByContextIds([$contextId])
+            ->getMany();
+
+        if(!$submissionReviewAssignments->first()
+            || $submissionReviewAssignments->first()->getData('submissionId') != $submissionId
+            || !array_key_exists($reviewId, $submissionReviewAssignments->toArray()))
+        {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $authorFriendly = (bool) $illuminateRequest->authorFriendly;
+        $temporaryFileId = $this->generatePDF($submission, $reviewId, $authorFriendly);
 
         return response()->json([
             'temporaryFileId' => $temporaryFileId

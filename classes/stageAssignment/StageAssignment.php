@@ -145,4 +145,15 @@ class StageAssignment extends Model
                 ->where('submissions.context_id', $contextId);
         });
     }
+
+
+    /**
+     * Accessor for the userId attribute.
+     *
+     * @return int The user_id as an integer.
+     */
+    public function getUserIdAttribute(): int
+    {
+        return (int) $this->attributes['user_id'];
+    }
 }

@@ -172,6 +172,9 @@ msgstr "Editorial History Page"
 msgid "common.editorialHistory.page.description"
 msgstr "This section lists past contributors."
 
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "View {$name} ORCID profile"
+
 msgid "common.name"
 msgstr "Name"
 
@@ -2339,4 +2342,4 @@ msgid "common.sandbox"
 msgstr "Application running in sandbox mode."
 
 msgid "common.fromUntil"
-msgstr "{$from} - {$until}"
+msgstr "{$from} &ndash; {$until}"

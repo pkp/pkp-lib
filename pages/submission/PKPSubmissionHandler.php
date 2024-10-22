@@ -34,6 +34,7 @@ use PKP\components\forms\submission\ConfirmSubmission;
 use PKP\components\forms\submission\ForTheEditors;
 use PKP\components\forms\submission\PKPSubmissionFileForm;
 use PKP\components\listPanels\ContributorsListPanel;
+use PKP\components\listPanels\ReviewerSuggestionsListPanel;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -48,6 +49,7 @@ abstract class PKPSubmissionHandler extends Handler
 {
     public const SECTION_TYPE_CONFIRM = 'confirm';
     public const SECTION_TYPE_CONTRIBUTORS = 'contributors';
+    public const SECTION_TYPE_REVIEWER_SUGGESTIONS = 'reviewerSuggestions';
     public const SECTION_TYPE_FILES = 'files';
     public const SECTION_TYPE_FORM = 'form';
     public const SECTION_TYPE_TEMPLATE = 'template';
@@ -216,16 +218,21 @@ abstract class PKPSubmissionHandler extends Handler
         $reconfigureSubmissionForm = $this->getReconfigureForm($context, $submission, $publication, $sections, $categories);
 
         $steps = $this->getSteps($request, $submission, $publication, $formLocales, $sections, $categories);
+        $components = [
+            $submissionFilesListPanel['id'] => $submissionFilesListPanel,
+            $contributorsListPanel->id => $contributorsListPanel->getConfig(),
+            $reconfigureSubmissionForm->id => $reconfigureSubmissionForm->getConfig(),
+        ];
+
+        if ($context->getData('reviewerSuggestionEnabled')) {
+            $reviewerSuggestionsListPanel = $this->getReviewerSuggestionsListPanel($request, $submission, $publication, $formLocales);
+            $components[$reviewerSuggestionsListPanel->id] = $reviewerSuggestionsListPanel->getConfig();
+        }
 
         $templateMgr = TemplateManager::getManager($request);
-
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
-            'components' => [
-                $submissionFilesListPanel['id'] => $submissionFilesListPanel,
-                $contributorsListPanel->id => $contributorsListPanel->getConfig(),
-                $reconfigureSubmissionForm->id => $reconfigureSubmissionForm->getConfig(),
-            ],
+            'components' => $components,
             'i18nConfirmSubmit' => $this->getConfirmSubmitMessage($submission, $context),
             'i18nDiscardChanges' => __('common.discardChanges'),
             'i18nDisconnected' => __('common.disconnected'),
@@ -312,6 +319,11 @@ abstract class PKPSubmissionHandler extends Handler
         $steps[] = $this->getFilesStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getContributorsStep($request, $submission, $publication, $locales, $publicationApiUrl);
         $steps[] = $this->getEditorsStep($request, $submission, $publication, $locales, $publicationApiUrl, $categories);
+
+        if ($request->getContext()->getData('reviewerSuggestionEnabled')) {
+            $steps[] = $this->getReviewerSuggestionsStep($request);
+        }
+
         $steps[] = $this->getConfirmStep($request, $submission, $publication, $locales, $publicationApiUrl);
 
         return $steps;
@@ -471,11 +483,37 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get an instance of the ContributorsListPanel component
      */
-    protected function getContributorsListPanel(Request $request, Submission $submission, Publication $publication, array $locales): ContributorsListPanel
+    protected function getContributorsListPanel(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales
+    ): ContributorsListPanel
     {
         return new ContributorsListPanel(
             'contributors',
             __('publication.contributors'),
+            $submission,
+            $request->getContext(),
+            $locales,
+            [], // Populated by publication state
+            true
+        );
+    }
+
+    /**
+     * Get an instance of the ReviewerSuggestionsListPanel component
+     */
+    protected function getReviewerSuggestionsListPanel(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales
+    ): ReviewerSuggestionsListPanel
+    {
+        return new ReviewerSuggestionsListPanel(
+            'reviewerSuggestions',
+            __('submission.reviewerSuggestions'),
             $submission,
             $request->getContext(),
             $locales,
@@ -534,7 +572,13 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the state for the contributors step
      */
-    protected function getContributorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    protected function getContributorsStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl
+    ): array
     {
         return [
             'id' => 'contributors',
@@ -553,9 +597,38 @@ abstract class PKPSubmissionHandler extends Handler
     }
 
     /**
+     * Get the state for the reviewer suggestion step
+     */
+    protected function getReviewerSuggestionsStep(Request $request): array
+    {
+        return [
+            'id' => 'reviewerSuggestions',
+            'name' => __('submission.reviewerSuggestions'),
+            'reviewName' => __('submission.reviewerSuggestions'),
+            'sections' => [
+                [
+                    'id' => 'reviewerSuggestions',
+                    'name' => __('submission.reviewerSuggestions'),
+                    'type' => self::SECTION_TYPE_REVIEWER_SUGGESTIONS,
+                    'description' => $request->getContext()->getLocalizedData('reviewerSuggestionsHelp'),
+                ],
+            ],
+            'reviewTemplate' => '/submission/review-reviewer-suggestions.tpl',
+        ];
+    }
+
+    /**
      * Get the state for the details step
      */
-    protected function getDetailsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, array $sections, string $controlledVocabUrl): array
+    protected function getDetailsStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl,
+        array $sections,
+        string $controlledVocabUrl
+    ): array
     {
         $titleAbstractForm = $this->getDetailsForm(
             $publicationApiUrl,
@@ -608,7 +681,14 @@ abstract class PKPSubmissionHandler extends Handler
      * If no metadata is enabled during submission, the metadata
      * form is not shown.
      */
-    protected function getEditorsStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl, LazyCollection $categories): array
+    protected function getEditorsStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl,
+        LazyCollection $categories
+    ): array
     {
         $metadataForm = $this->getForTheEditorsForm(
             $publicationApiUrl,
@@ -672,7 +752,13 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the state for the Confirm step
      */
-    protected function getConfirmStep(Request $request, Submission $submission, Publication $publication, array $locales, string $publicationApiUrl): array
+    protected function getConfirmStep(
+        Request $request,
+        Submission $submission,
+        Publication $publication,
+        array $locales,
+        string $publicationApiUrl
+    ): array
     {
         $sections = [
             [

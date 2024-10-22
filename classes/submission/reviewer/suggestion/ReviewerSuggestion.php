@@ -34,14 +34,14 @@ class ReviewerSuggestion extends Model
     protected function casts(): array
     {
         return [
-            'suggestingUserId'  => 'int',
-            'submissionId'      => 'int',
+            'suggestingUserId'  => 'integer',
+            'submissionId'      => 'integer',
             'email'             => 'string',
             'orcidId'           => 'string',
             'approvedAt'        => 'datetime',
-            'stageId'           => 'int',
-            'approverId'        => 'int',
-            'reviewerId'        => 'int',
+            'stageId'           => 'integer',
+            'approverId'        => 'integer',
+            'reviewerId'        => 'integer',
         ];
     }
 
@@ -149,18 +149,18 @@ class ReviewerSuggestion extends Model
             );
     }
 
-    public function scopeWithSubmissionIds(Builder $query, int|array $submissionId): Builder
+    public function scopeWithSubmissionIds(Builder $query, int|array $submissionIds): Builder
     {
-        return $query->whereIn('submission_id', Arr::wrap($submissionId));
+        return $query->whereIn('submission_id', Arr::wrap($submissionIds));
     }
 
-    public function scopeWithSuggestingUserIds(Builder $query, int|array $userId): Builder
+    public function scopeWithSuggestingUserIds(Builder $query, int|array $userIds): Builder
     {
-        return $query->whereIn('suggesting_user_id', Arr::wrap($userId));
+        return $query->whereIn('suggesting_user_id', Arr::wrap($userIds));
     }
 
-    public function scopeWithStageIds(Builder $query, int|array $stageId): Builder
+    public function scopeWithStageIds(Builder $query, int|array $stageIds): Builder
     {
-        return $query->whereIn('stage_id', Arr::wrap($stageId));
+        return $query->whereIn('stage_id', Arr::wrap($stageIds));
     }
 }

@@ -75,14 +75,14 @@ class SettingsBuilder extends Builder
         $us = $this->model->getSettingsTable();
         $primaryKey = $this->model->getKeyName();
 
-
-        $sql = $this->buildUpdateSql($settingValues, $us, $newQuery);
+        $rows = $this->getSettingRows($settingValues);
 
         // Build a query for update
-        $settingCount = DB::table($us)->whereIn($us . '.' . $primaryKey, $newQuery->select($primaryKey))
-            ->update([$us . '.setting_value' => DB::raw($sql)]);
+        foreach ($rows as $row) {
+            DB::table($us)->where($primaryKey, $this->model->getKey())->updateOrInsert($row);
+        }
 
-        return ($count ?? 0) + $settingCount;
+        return 1;
     }
 
     /**
@@ -106,21 +106,7 @@ class SettingsBuilder extends Builder
             return $id;
         }
 
-        $rows = [];
-        $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
-            $settingName = Str::camel($settingName);
-            if ($this->isMultilingual($settingName)) {
-                foreach ($settingValue as $locale => $localizedValue) {
-                    $rows[] = [
-                        $this->model->getKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
-                    ];
-                }
-            } else {
-                $rows[] = [
-                    $this->model->getKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
-                ];
-            }
-        });
+        $rows = $this->getSettingRows($settingValues, $id);
 
         DB::table($this->model->getSettingsTable())->insert($rows);
 
@@ -298,43 +284,44 @@ class SettingsBuilder extends Builder
     }
 
     /**
-     * @param Collection $settingValues list of setting names as keys and setting values to be updated
-     * @param string $us name of the settings table
-     * @param QueryBuilder $query original query associated with the Model
-     *
-     * @return string raw SQL statement
-     *
-     * Helper method to build a query to update settings with a conditional statement:
-     * SET settings_value = CASE WHEN setting_name='' AND locale=''...
-     */
-    protected function buildUpdateSql(Collection $settingValues, string $us, QueryBuilder $query): string
-    {
-        $sql = 'CASE ';
-        $bindings = [];
-        $settingValues->each(function (mixed $settingValue, string $settingName) use (&$sql, &$bindings, $us) {
-            if ($this->isMultilingual($settingName)) {
-                foreach ($settingValue as $locale => $localizedValue) {
-                    $sql .= 'WHEN ' . $us . '.setting_name=? AND ' . $us . '.locale=? THEN ? ';
-                    $bindings = array_merge($bindings, [$settingName, $locale, $localizedValue]);
-                }
-            } else {
-                $sql .= 'WHEN ' . $us . '.setting_name=? THEN ? ';
-                $bindings = array_merge($bindings, [$settingName, $settingValue]);
-            }
-        });
-        $sql .= 'ELSE setting_value END';
-
-        // Fix the order of bindings in Laravel, user ID in the where statement should be the last
-        $query->bindings['where'] = array_merge($bindings, $query->bindings['where']);
-
-        return $sql;
-    }
-
-    /**
      * Checks if setting is multilingual
      */
     protected function isMultilingual(string $settingName): bool
     {
         return in_array($settingName, $this->model->getMultilingualProps());
+    }
+
+    /**
+     */
+    protected function getSettingRows($settingValues, ?int $id): array
+    {
+        $rows = [];
+        $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
+            $settingName = Str::camel($settingName);
+            if ($this->isMultilingual($settingName)) {
+                foreach ($settingValue as $locale => $localizedValue) {
+                    $row = [
+                        'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
+                    ];
+
+                    if ($id) {
+                        $row[$this->model->getKeyName()] = $id;
+                    }
+
+                    $rows[] = $row;
+                }
+            } else {
+                $row = [
+                    'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
+                ];
+
+                if ($id) {
+                    $row[$this->model->getKeyName()] = $id;
+                }
+
+                $rows[] = $row;
+            }
+        });
+        return $rows;
     }
 };

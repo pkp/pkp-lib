@@ -21,6 +21,7 @@ use Exception;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use PKP\core\casts\MultilingualSettingAttribute;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
 use PKP\facades\Locale;
@@ -78,6 +79,14 @@ trait ModelWithSettings
         if (static::getSchemaName()) {
             $this->setSchemaData();
         } else {
+            $this->generateAttributeCast(
+                collect($this->getMultilingualProps())
+                    ->flatMap(
+                        fn (string $attribute): array => [$attribute => MultilingualSettingAttribute::class]
+                    )
+                    ->toArray()
+            );
+
             if (!empty($this->fillable)) {
                 $this->mergeFillable(array_merge($this->getSettings(), $this->getMultilingualProps()));
             }
@@ -163,16 +172,24 @@ trait ModelWithSettings
     protected function convertSchemaToCasts(stdClass $schema): void
     {
         $propCast = [];
+
         foreach ($schema->properties as $propName => $propSchema) {
-            // Don't cast multilingual values as Eloquent tries to convert them from string to arrays with json_decode()
-            if (isset($propSchema->multilingual)) {
-                continue;
-            }
-            $propCast[$propName] = $propSchema->type;
+
+            $propCast[$propName] = isset($propSchema->multilingual) && $propSchema->multilingual == true
+                ? MultilingualSettingAttribute::class
+                : $propSchema->type;
         }
 
-        $propCasts = $this->ensureCastsAreStringValues($propCast);
-        $this->casts = array_merge($propCasts, $this->casts);
+        $this->generateAttributeCast($propCast);
+    }
+
+    /**
+     * Generate the final cast from dynamically generated attr casts
+     */
+    protected function generateAttributeCast(array $attrCast): void
+    {
+        $attrCasts = $this->ensureCastsAreStringValues($attrCast);
+        $this->casts = array_merge($attrCasts, $this->casts);
     }
 
     /**

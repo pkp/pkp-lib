@@ -485,6 +485,9 @@ class PKPReviewController extends PKPBaseController
         ], Response::HTTP_OK);
     }
 
+    /**
+     * Creates a review as XML
+     */
     protected function generateXML(bool $authorFriendly): int
     {
         $request = $this->getRequest();

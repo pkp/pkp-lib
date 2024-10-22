@@ -109,10 +109,14 @@ class StageParticipantGridRow extends GridRow
             $this->addAction(new NotifyLinkAction($request, $submission, $stageId, $userId));
 
             $user = $request->getUser();
+            $contextId = $context ? $context->getId() : 0; // 0 in case context is not available
             if (
                 !Validation::loggedInAs() &&
                 $user->getId() != $userId &&
-                Validation::getAdministrationLevel($userId, $user->getId()) === Validation::ADMINISTRATION_FULL
+                (
+                    Validation::isSiteAdmin() ||
+                    $user->hasRole([Role::ROLE_ID_MANAGER], $contextId)
+                )
             ) {
                 $dispatcher = $router->getDispatcher();
                 $userGroup = Repo::userGroup()->get($userGroupId);

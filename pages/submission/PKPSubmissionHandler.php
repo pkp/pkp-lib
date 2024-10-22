@@ -502,7 +502,7 @@ abstract class PKPSubmissionHandler extends Handler
     }
 
     /**
-     * Get an instance of the ContributorsListPanel component
+     * Get an instance of the ReviewerSuggestionsListPanel component
      */
     protected function getReviewerSuggestionsListPanel(
         Request $request,

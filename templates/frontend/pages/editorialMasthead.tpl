@@ -26,7 +26,7 @@
 							{$mastheadUser['user']->getFullName()|escape}
 							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')}
 								<span class="orcid">	
-									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
+									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$mastheadUser['user']->getFullName()|escape}">
 										{$orcidIcon}
 									</a>
 								</span>
@@ -58,7 +58,7 @@
 						{$reviewer->getFullName()|escape} 
 						{if $reviewer->getData('orcid') && $reviewer->getData('orcidAccessToken')}
 							<span class="orcid">	
-								<a href="{$reviewer->getData('orcid')|escape}" target="_blank">
+								<a href="{$reviewer->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$reviewer->getFullName()|escape}">
 									{$orcidIcon}
 								</a>
 							</span>

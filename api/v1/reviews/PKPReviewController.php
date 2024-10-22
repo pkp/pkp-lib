@@ -471,7 +471,12 @@ class PKPReviewController extends PKPBaseController
      */
     public function exportReviewPDF(Request $illuminateRequest): JsonResponse
     {
-        $this->validateReviewExport($illuminateRequest);
+        $validated = $this->validateReviewExport($illuminateRequest);
+        if(isset($validated['error'])) {
+            return response()->json([
+                'error' => $validated['error']
+            ], $validated['status']);
+        }
         $authorFriendly = (bool) $illuminateRequest->authorFriendly;
         $temporaryFileId = $this->generatePDF($authorFriendly);
 
@@ -667,18 +672,24 @@ class PKPReviewController extends PKPBaseController
         return $fileManager->createTempFileFromExisting($tempFilename, $user->getId());
     }
 
-    protected function validateReviewExport(Request $illuminateRequest) {
+    /**
+     * Validates review id and submission id for current context when downloading a review
+     */
+    protected function validateReviewExport(Request $illuminateRequest) : array
+    {
         if(!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
-            return response()->json([
-                'error' => __('api.400.invalidAuthorFriendlyParameter')
-            ], Response::HTTP_BAD_REQUEST);
+            return [
+                'error' => __('api.400.invalidAuthorFriendlyParameter'),
+                'status' => Response::HTTP_BAD_REQUEST
+            ];
         }
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound')
-            ], Response::HTTP_NOT_FOUND);
+            return [
+                'error' => __('api.404.resourceNotFound'),
+                'status' => Response::HTTP_NOT_FOUND
+            ];
         }
 
         $request = $this->getRequest();
@@ -695,11 +706,13 @@ class PKPReviewController extends PKPBaseController
             || $submissionReviewAssignments->first()->getData('submissionId') != $submissionId
             || $submissionReviewAssignments->first()->getData('id') != $reviewId)
         {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound')
-            ], Response::HTTP_NOT_FOUND);
+            return [
+                'error' => __('api.404.resourceNotFound'),
+                'status' => Response::HTTP_NOT_FOUND
+            ];
         }
 
+        return [];
     }
 
     /**
@@ -707,7 +720,13 @@ class PKPReviewController extends PKPBaseController
      */
     public function exportReviewXML(Request $illuminateRequest): JsonResponse
     {
-        $this->validateReviewExport($illuminateRequest);
+        $validated = $this->validateReviewExport($illuminateRequest);
+        if(isset($validated['error'])) {
+            return response()->json([
+                'error' => $validated['error']
+            ], $validated['status']);
+        }
+
         $authorFriendly = (bool) $illuminateRequest->authorFriendly;
         $temporaryFileId = $this->generateXML($authorFriendly);
 

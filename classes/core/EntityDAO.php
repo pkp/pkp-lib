@@ -15,6 +15,7 @@ namespace PKP\core;
 
 use Exception;
 use Illuminate\Support\Facades\DB;
+use PKP\core\traits\EntityUpdate;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
 
@@ -23,6 +24,8 @@ use PKP\services\PKPSchemaService;
  */
 abstract class EntityDAO
 {
+    use EntityUpdate;
+
     /** @var string One of the \PKP\services\PKPSchemaService::SCHEMA_... constants */
     public $schema;
 
@@ -190,7 +193,6 @@ abstract class EntityDAO
     protected function _update(DataObject $object): void
     {
         $schemaService = $this->schemaService;
-        $schema = $schemaService->get($this->schema);
         $sanitizedProps = $schemaService->sanitize($this->schema, $object->_data);
 
         $primaryDbProps = $this->getPrimaryDbProps($object);
@@ -199,60 +201,11 @@ abstract class EntityDAO
             ->where($this->primaryKeyColumn, '=', $object->getId())
             ->update($primaryDbProps);
 
-        if ($this->settingsTable) {
-            $deleteSettings = [];
-            foreach ($schema->properties as $propName => $propSchema) {
-                if (array_key_exists($propName, $this->primaryTableColumns)) {
-                    continue;
-                } elseif (!isset($sanitizedProps[$propName])) {
-                    $deleteSettings[] = $propName;
-                    continue;
-                }
-                if (!empty($propSchema->multilingual)) {
-                    foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
-                        // Delete rows with a null value
-                        if (is_null($localeValue)) {
-                            DB::table($this->settingsTable)
-                                ->where($this->primaryKeyColumn, '=', $object->getId())
-                                ->where('setting_name', '=', $propName)
-                                ->where('locale', '=', $localeKey)
-                                ->delete();
-                        } else {
-                            DB::table($this->settingsTable)
-                                ->updateOrInsert(
-                                    [
-                                        $this->primaryKeyColumn => $object->getId(),
-                                        'locale' => $localeKey,
-                                        'setting_name' => $propName,
-                                    ],
-                                    [
-                                        'setting_value' => $this->convertToDB($localeValue, $schema->properties->{$propName}->type),
-                                    ]
-                                );
-                        }
-                    }
-                } else {
-                    DB::table($this->settingsTable)
-                        ->updateOrInsert(
-                            [
-                                $this->primaryKeyColumn => $object->getId(),
-                                'locale' => '',
-                                'setting_name' => $propName,
-                            ],
-                            [
-                                'setting_value' => $this->convertToDB($sanitizedProps[$propName], $schema->properties->{$propName}->type),
-                            ]
-                        );
-                }
-            }
-
-            if (count($deleteSettings)) {
-                DB::table($this->settingsTable)
-                    ->where($this->primaryKeyColumn, '=', $object->getId())
-                    ->whereIn('setting_name', $deleteSettings)
-                    ->delete();
-            }
+        if (!$this->settingsTable) {
+            return;
         }
+
+        $this->updateSettings($sanitizedProps, $object->getId());
     }
 
     /**
@@ -329,5 +282,28 @@ abstract class EntityDAO
     protected function convertToDB($value, string $type, bool $nullable = false)
     {
         return $this->deprecatedDao->convertToDB($value, $type, $nullable);
+    }
+
+    public function getSettingsTable(): ?string
+    {
+        return $this->settingsTable;
+    }
+
+    public function getPrimaryKeyName(): string
+    {
+        return $this->primaryKeyColumn;
+    }
+
+    /**
+     * @return bool whether the property is a setting
+     */
+    public function isSetting(string $settingName): bool
+    {
+        return !array_key_exists($settingName, $this->primaryTableColumns);
+    }
+
+    public function getSchemaName(): ?string
+    {
+        return $this->schema;
     }
 }

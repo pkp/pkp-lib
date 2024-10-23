@@ -76,6 +76,9 @@ class PKPUserController extends PKPBaseController
 
         Route::get('', $this->getMany(...))
             ->name('user.getManyUsers');
+
+        Route::get('exists', $this->getExists(...))
+            ->name('user.getExists');
     }
 
     /**
@@ -369,5 +372,33 @@ class PKPUserController extends PKPBaseController
         }
 
         return $returnParams;
+    }
+
+    /**
+     *  Checks if a users exists
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getExists(Request $request): JsonResponse
+    {
+
+        $params = $request->query();
+        $returnFields = ['affiliation', 'email', 'familyName', 'givenName', 'id', 'userName'];
+
+        foreach ($params as $param => $val) {
+            switch ($param) {
+                case  'email':
+                    $user = Repo::user()->getByEmail($val);
+                    break;
+                case  'userName':
+                    $user = Repo::user()->getByUsername($val);
+                    break;
+            }
+        }
+
+        $useAllData = $user ? $user->getAllData() : [];
+        $userFilteredData = array_intersect_key($useAllData, array_flip($returnFields));
+        return response()->json($userFilteredData);
+
     }
 }

@@ -25,6 +25,7 @@ use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
@@ -52,6 +53,7 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new CanAccessSettingsPolicy());
         return parent::authorize($request, $args, $roleAssignments);
     }
 

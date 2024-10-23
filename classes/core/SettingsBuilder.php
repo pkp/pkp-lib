@@ -287,7 +287,7 @@ class SettingsBuilder extends Builder
             $exactRow = $rows->pull($settingModelId);
 
             // Even for empty('') locale, the multilingual props need to be an array
-            if (isset($setting->locale)) {
+            if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
                 $exactRow->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
             } else {
                 $exactRow->{$setting->setting_name} = $setting->setting_value;

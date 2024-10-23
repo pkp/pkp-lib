@@ -24,6 +24,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\plugins\Hook;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -102,11 +103,13 @@ class PKPEmailTemplateController extends PKPBaseController
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
         // This endpoint is not available at the site-wide level
         $this->addPolicy(new ContextRequiredPolicy($request));
+
 
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));

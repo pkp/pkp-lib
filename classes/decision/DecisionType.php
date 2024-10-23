@@ -523,7 +523,6 @@ abstract class DecisionType
         if ($count == 0) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
-                Application::get()->getRequest(),
                 null,
                 Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
                 $submission->getData('contextId'),

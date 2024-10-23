@@ -317,6 +317,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getHttpClient(): Client
     {
+        if (PKPContainer::getInstance()->runningUnitTests()) {
+            $client = Registry::get(\PKP\tests\PKPTestCase::MOCKED_GUZZLE_CLIENT_NAME);
+            if ($client) {
+                return $client;
+            }
+        }
+        
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {

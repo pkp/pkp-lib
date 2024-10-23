@@ -319,7 +319,6 @@ class QueryNotesGridHandler extends GridHandler
 
             // Notify the user of a new query.
             $notification = $notificationManager->createNotification(
-                $request,
                 $userId,
                 Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 $request->getContext()->getId(),

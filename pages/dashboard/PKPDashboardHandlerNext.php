@@ -158,12 +158,14 @@ abstract class PKPDashboardHandlerNext extends Handler
                 'dashboardPage' => $this->dashboardPage,
                 'countPerPage' => $this->perPage,
                 'filtersForm' => $filtersForm->getConfig(),
-                'contributorForm' => $contributorForm->getConfig(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,
+                ],
+                'componentForms' => [
+                    'contributorForm' => $contributorForm->getConfig(),
                 ]
             ]
         ]);

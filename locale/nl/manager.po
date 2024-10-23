@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-10-19 10:40+0000\n"
-"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
+"PO-Revision-Date: 2024-10-25 11:40+0000\n"
+"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
 "Language: nl\n"
@@ -206,90 +206,101 @@ msgstr "DOIs toekennen"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Je staat op het punt om nieuwe DOI's toe te wijzen aan {$count} item(s) voor "
+"elk in aanmerking komend item waaraan nog geen DOI is toegekend. Weet je "
+"zeker dat je DOI's wilt toewijzen aan deze items?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Registreer alle DOI's"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Je staat op het punt om alle nog niet geregistreerde DOI metadata records in "
+"te plannen voor registratie bij {$registrationAgency}. Alleen gepubliceerde "
+"items met een DOI worden gedeponeerd. De status van elk item wordt "
+"bijgewerkt als er een reactie is ontvangen. Weet je zeker dat je het "
+"registreren van al deze items wilt plannen?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Onderneem actie op {$count} geselecteerde item(s)."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Bulkacties"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Status DOI's"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Publicatie Status"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "De gegevens van dit item zijn doorgegeven aan {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Dit item is handmatig geregistreerd bij een registratiebureau."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"De gegevens van dit item zijn niet doorgegeven aan {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Dit item kan pas geregistreerd worden nadat het gepubliceerd is."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Bekijk fout"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Foutmelding registratie"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Bekijk record"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Bericht geslaagde registratie"
 
 msgid "manager.dois.update.success"
-msgstr ""
+msgstr "DOI('s) succesvol bijgewerkt"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Registreer DOI('s)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "DOI nodig"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Ongeregistreerd"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Ingediend"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Geregistreerd"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Fout"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Bevat fout"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Sync nodig"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI toegekend"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Alle items die geen DOI hebben."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Alle items met een DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Alle items met een DOI die wel gepubliceerd zijn maar nog niet zijn "
+"doorgegeven aan een registratiebureau."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Alle items die doorgegeven zijn aan een registratiebureau."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
@@ -297,40 +308,45 @@ msgstr ""
 "zijn gemarkeerd als geregistreerd."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Alle items waarbij een fout is opgetreden in het registratieproces."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Alle items die opnieuw gepubliceerd zijn nadat ze voor het laatst "
+"gedeponeerd zijn bij een registratiebureau. Ze moeten opnieuw worden "
+"ingediend bij het registratiebureau om hun metadata bij te werken."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "DOI updates mislukt"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Sommige DOI('s) konden niet worden bijgewerkt"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Items succesvol geëxporteerd"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Items succesvol gemarkeerd als geregistreerd"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Items succesvol gemarkeerd als ongeregistreerd"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Items succesvol gemarkeerd als Sync nodig"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Items met nieuwe DOI's"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Items succesvol ingediend voor registratie"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI's Status"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI beheer is verplaatst. Kijk bij <a href=\"{$doiManagementUrl}\">DOI "
+"beheer</a> and <a href=\"{$doiSettingsUrl}\">DOI settings</a> pagina's."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
@@ -345,9 +361,11 @@ msgstr ""
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Voordat deze component verwijderd kan worden, moet je alle gerelateerde "
+"inzendingsbestanden associëren met een andere component."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Wijzig Instelling"
 
 msgid "manager.institutions.form.ror"
 msgstr "ROR"
@@ -362,13 +380,13 @@ msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Verwijder Instelling"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Weet je zeker dat je deze instelling wilt verwijderen?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Ongeldige IP-reeks"
 
 msgid "manager.publication.submissionStage"
 msgstr "Inzending"
@@ -392,13 +410,17 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "De instellingen voor review herinneringen zijn bijgewerkt."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI's"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"De volgende foutmelding is doorgegeven door {$registrationAgency} en bevat "
+"details over de oorzaak van de fout:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Het volgende bericht is doorgegeven door {$registrationAgency} en bevat "
+"details over de registratie:"
 
 msgid "manager.emails.addEmail"
 msgstr "Voeg e-mail sjabloon toe"
@@ -428,13 +450,13 @@ msgid "manager.emails.emailTemplate"
 msgstr "E-mail sjabloon"
 
 msgid "manager.emails.emailTemplates"
-msgstr ""
+msgstr "E-mail sjablonen"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Andere sjablonen"
 
 msgid "manager.emails.emailTemplate.contextRequired"
-msgstr ""
+msgstr "Je moet een context-ID opgeven wanneer je een e-mailsjabloon toevoegt."
 
 msgid "manager.emails.enabled"
 msgstr "Schakel dit e-mail sjabloon in"
@@ -460,10 +482,12 @@ msgid "manager.emails"
 msgstr "Voorbereide e-mails"
 
 msgid "manager.emails.resetAll"
-msgstr ""
+msgstr "Alles terugdraaien"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
+"Als je alle sjablonen opnieuw instelt, gaan alle wijzigingen aan de e-"
+"mailsjablonen verloren. Weet je zeker dat je hiermee wilt doorgaan?"
 
 msgid "manager.emails.reset.message"
 msgstr ""
@@ -475,16 +499,17 @@ msgid "manager.emails.resetToDefault"
 msgstr "Standaard terugzetten"
 
 msgid "manager.emails.sentFrom"
-msgstr ""
+msgstr "Verzonden vanaf"
 
 msgid "manager.emails.sentTo"
-msgstr ""
+msgstr "Verzonden naar"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Exporteer naar Excel/CSV"
 
 msgid "manager.export.usersToCsv.description"
 msgstr ""
+"Selecteer de gebruikers die je wilt exporteren naar een Excel/CSV bestand."
 
 msgid "manager.filesBrowser"
 msgstr "Bestanden bekijken"
@@ -680,7 +705,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Bewaren en een volgende aanmaken"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Je bent nu ingelogd als {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Inloggen als"
@@ -752,10 +777,10 @@ msgid "manager.roles"
 msgstr "Rollen"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Statistieken"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Geografische statistieken"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
@@ -773,7 +798,7 @@ msgid "manager.settings.statistics.geoUsageStats.cityLevel"
 msgstr ""
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institutionele statistieken"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
@@ -810,62 +835,69 @@ msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI's"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Setup"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Registratie"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI voorvoegsel"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Automatische registratie"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Automatisch deponeren inschakelen"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"De DOI-registratie en metadata kunnen automatisch worden gedeponeerd bij het "
+"geselecteerde registratiebureau wanneer een item met een DOI wordt "
+"gepubliceerd. Automatisch deponeren gebeurt op geplande tijdstippen en de "
+"registratiestatus van elke DOI kan worden gecontroleerd vanaf de DOI "
+"beheerpagina."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
 "Het DOI voorvoegsel wordt toegekend door de registrerende instantie (bv. <a "
-"href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>)or <a href="
+"href=\"http://www.crossref.org\" target=\"_new\">Crossref</a>)of <a href="
 "\"https://datacite.org/\" target=\"new\">DataCite</a> en heeft als format "
 "10.xxxx (bv. 10.1234)"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
+"Het DOI voorvoegsel is verplicht en moet het volgende formaat hebben: 10."
+"xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automatische DOI-toewijzing"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Wanneer moet een inzending een DOI krijgen?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Bij publicatie"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Nooit"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI voorvoegsel"
 
 msgid "doi.manager.settings.doiObjects"
-msgstr "Tijdschriftinhoud"
+msgstr "Items met DOI's"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Een DOI voorvoegsel is verplicht"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI Achtervoegsel"
+msgstr "DOI-indeling"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI achtervoegsel"
 
 msgid "doi.manager.settings.doiSuffix.custom"
 msgstr ""
@@ -3469,3 +3501,35 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "De omslagafbeelding van de publicatie {$id} is niet geëxporteerd, het "
 "bestand is niet gevonden op het pad \"{$path}\"."
+
+msgid "manager.highlights.delete"
+msgstr "Verwijder markering"
+
+msgid "manager.highlights.add"
+msgstr "Voeg markering toe"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Weet je zeker dat je {$title} wilt verwijderen? Deze actie kan niet ongedaan "
+"worden gemaakt."
+
+msgid "manager.highlights.edit"
+msgstr "Wijzig markering"
+
+msgid "manager.highlights.image"
+msgstr "Afbeelding"
+
+msgid "manager.highlights.url.description"
+msgstr "De volledige URL, inclusief https://, voor de knop in de markering."
+
+msgid "manager.highlights.urlText"
+msgstr "Label knop"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Het label, zoals Lees meer, voor de knop in de markering."
+
+msgid "manager.image"
+msgstr "Afbeelding"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"

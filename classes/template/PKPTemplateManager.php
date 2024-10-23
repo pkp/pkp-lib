@@ -572,6 +572,7 @@ class PKPTemplateManager extends Smarty
                 'priority' => self::STYLE_SEQUENCE_NORMAL,
                 'contexts' => ['frontend'],
                 'inline' => false,
+                'type' => 'text/javascript',
             ],
             $args
         );
@@ -581,6 +582,7 @@ class PKPTemplateManager extends Smarty
             $this->_javaScripts[$context][$args['priority']][$name] = [
                 'script' => $script,
                 'inline' => $args['inline'],
+                'type' => $args['type'],
             ];
         }
     }
@@ -2275,12 +2277,12 @@ class PKPTemplateManager extends Smarty
         foreach ($scripts as $priorityList) {
             foreach ($priorityList as $name => $data) {
                 if ($data['inline']) {
-                    $output .= '<script type="text/javascript">' . $data['script'] . '</script>';
+                    $output .= '<script type="' . $data['type'] . '">' . $data['script'] . '</script>';
                 } else {
                     if ($appVersion && strpos($data['script'], '?') === false) {
                         $data['script'] .= '?v=' . $appVersion;
                     }
-                    $output .= '<script src="' . $data['script'] . '" type="text/javascript"></script>';
+                    $output .= '<script src="' . $data['script'] . '" type="' . $data['type'] . '"></script>';
                 }
             }
         }

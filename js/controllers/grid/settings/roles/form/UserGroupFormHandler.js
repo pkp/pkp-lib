@@ -58,7 +58,7 @@
 			this.permitSettingsRoleIds_ = options.permitSettingsRoleIds;
 		}
 
-		// Set the role IDs for which the permitSettings checkbox
+		// Set the user group IDs for which the permitSettings checkbox
 		// is relevant.
 		if (options.mySettingsAccessUserGroupIds) {
 			this.mySettingsAccessUserGroupIds_ = options.mySettingsAccessUserGroupIds;

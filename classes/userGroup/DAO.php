@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\EntityDAO;
-use PKP\core\PKPApplication;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
@@ -57,6 +56,7 @@ class DAO extends EntityDAO
         'showTitle' => 'show_title',
         'permitSelfRegistration' => 'permit_self_registration',
         'permitMetadataEdit' => 'permit_metadata_edit',
+        'permitSettings' => 'permit_settings',
         'masthead' => 'masthead',
     ];
 

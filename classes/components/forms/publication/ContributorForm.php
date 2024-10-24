@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/publication/ContributorForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContributorForm
@@ -17,6 +17,7 @@ namespace PKP\components\forms\publication;
 
 use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\components\forms\FieldAffiliations;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldOrcid;
 use PKP\components\forms\FieldRichTextarea;
@@ -115,12 +116,13 @@ class ContributorForm extends FormComponent
         $this->addField(new FieldRichTextarea('biography', [
             'label' => __('user.biography'),
             'isMultilingual' => true,
-        ]))
-            ->addField(new FieldText('affiliation', [
-                'label' => __('user.affiliation'),
-                'isMultilingual' => true,
-                'size' => 'large',
-            ]));
+        ]));
+
+        $this->addField(new FieldAffiliations('affiliations', [
+            'label' => __('user.affiliations'),
+            'description' => __('user.affiliations.description'),
+            'isMultilingual' => false,
+        ]));
 
         if ($authorUserGroupsOptions->count() > 1) {
             $this->addField(new FieldOptions('userGroupId', [

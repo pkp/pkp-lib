@@ -107,7 +107,8 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
         $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
 
-        $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
+        //fixme: multiple-author-affiliations
+        $this->createLocalizedNodes($doc, $authorNode, 'affiliations', $author->getLocalizedAffiliations());
 
         $this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
         $authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));

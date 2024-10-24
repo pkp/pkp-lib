@@ -32,6 +32,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -1474,6 +1475,12 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        $affiliations = [];
+        foreach($author->getAffiliations() as $affiliation) {
+            $affiliations[] = Repo::affiliation()->getSchemaMap()->map($affiliation);
+        }
+        $author->setAffiliations(new LazyCollection($affiliations));
+
         return response()->json(
             Repo::author()->getSchemaMap()->map($author),
             Response::HTTP_OK
@@ -1503,6 +1510,14 @@ class PKPSubmissionController extends PKPBaseController
         $collector = Repo::author()->getCollector()
             ->filterByPublicationIds([$publication->getId()]);
         $authors = $collector->getMany();
+
+        $affiliations = [];
+        foreach($authors as $author){
+            foreach($author->getAffiliations() as $affiliation) {
+                $affiliations[] = Repo::affiliation()->getSchemaMap()->map($affiliation);
+            }
+            $author->setAffiliations(new LazyCollection($affiliations));
+        }
 
         return response()->json([
             'itemsMax' => $collector->getCount(),

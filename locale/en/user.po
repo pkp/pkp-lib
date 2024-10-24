@@ -23,6 +23,48 @@ msgstr "(Your institution, e.g. \"Simon Fraser University\")"
 msgid "user.affiliations"
 msgstr "Affiliations"
 
+msgid "user.affiliations.description"
+msgstr ""
+"Enter the full name of the institution below, avoiding any acronyms. "
+"Select the name from the dropdown and click \"Add\" to include the "
+"affiliation in your profile. (e.g. \"Simon Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "Translation"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Edit institution name"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Remove institution"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Click to edit or delete"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "All translations available"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$translated} of {$total} languages completed"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Type the institute name in {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institute name in {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Are you sure?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "The institution <strong>{$institution}</strong> will be deleted."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Type the institute name in {$language}"
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 

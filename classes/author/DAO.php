@@ -1,10 +1,9 @@
 <?php
-
 /**
  * @file classes/author/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -157,6 +156,11 @@ class DAO extends EntityDAO
         // Set the primary locale from the submission
         $author->setData('locale', $row->submission_locale);
 
+        $author->setAffiliations(
+            $this->retrieveAffiliations($author->getId())
+                ->remember()
+        );
+
         return $author;
     }
 
@@ -165,7 +169,13 @@ class DAO extends EntityDAO
      */
     public function insert(Author $author): int
     {
-        return parent::_insert($author);
+        $newAuthorId = parent::_insert($author);
+
+        $author->setData('id', $newAuthorId);
+
+        $this->saveAffiliations($author);
+
+        return $newAuthorId;
     }
 
     /**
@@ -173,6 +183,8 @@ class DAO extends EntityDAO
      */
     public function update(Author $author)
     {
+        $this->saveAffiliations($author);
+
         parent::_update($author);
     }
 
@@ -184,6 +196,8 @@ class DAO extends EntityDAO
         DB::table('publications')
             ->where('primary_contact_id', $author->getId())
             ->update(['primary_contact_id' => null]);
+
+        $this->deleteAffiliations($author->getId());
 
         parent::_delete($author);
     }
@@ -225,5 +239,44 @@ class DAO extends EntityDAO
         foreach ($authorIds as $seq => $authorId) {
             DB::table('authors')->where('author_id', '=', $authorId)->update(['seq' => $seq]);
         }
+    }
+
+    /**
+     * Get affiliations for a given author from database.
+     *
+     * @param int $authorId
+     *
+     * @return LazyCollection
+     */
+    public function retrieveAffiliations(int $authorId): LazyCollection
+    {
+        return Repo::affiliation()->getByAuthorId($authorId);
+    }
+
+    /**
+     * Save affiliations to the database.
+     *
+     * @param Author $author
+     *
+     * @return void
+     */
+    public function saveAffiliations(Author $author): void
+    {
+        Repo::affiliation()
+            ->saveAffiliations(
+                $author->getData('affiliations'),
+                $author->getId());
+    }
+
+    /**
+     * Delete an author's affiliations
+     *
+     * @param int $authorId
+     *
+     * @return void
+     */
+    protected function deleteAffiliations(int $authorId): void
+    {
+        Repo::affiliation()->deleteByAuthorId($authorId);
     }
 }

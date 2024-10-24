@@ -18,6 +18,7 @@
 
 	<tabs :track-history="true">
 		<tab id="users" label="{translate key="manager.users"}">
+            <user-invitation-manager></user-invitation-manager>
 			{include file="management/accessUsers.tpl"}
 		</tab>
 		<tab id="roles" label="{translate key="manager.roles"}">

@@ -23,14 +23,19 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\LazyCollection;
+use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
+use PKP\mail\mailables\UserRoleEndNotify;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPUserController extends PKPBaseController
@@ -76,6 +81,10 @@ class PKPUserController extends PKPBaseController
 
         Route::get('', $this->getMany(...))
             ->name('user.getManyUsers');
+
+        Route::put('{userId}/endRole/{userGroupId}', $this->endRole(...))
+            ->name('user.endRole')
+            ->whereNumber(['userId', 'userGroupId']);
     }
 
     /**
@@ -114,7 +123,7 @@ class PKPUserController extends PKPBaseController
      */
     public function getMany(Request $request): JsonResponse
     {
-        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $context = $request->attributes->get('context'); /** @var Context $context */
 
         $params = $this->_processAllowedParams($request->query(null), [
             'assignedToCategory',
@@ -189,7 +198,7 @@ class PKPUserController extends PKPBaseController
      */
     public function getReviewers(Request $request): JsonResponse
     {
-        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $context = $request->attributes->get('context'); /** @var Context $context */
 
         $params = $this->_processAllowedParams($request->query(), [
             'averageCompletion',
@@ -243,7 +252,7 @@ class PKPUserController extends PKPBaseController
      */
     public function getReport(Request $request): StreamedResponse|JsonResponse
     {
-        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $context = $request->attributes->get('context'); /** @var Context $context */
         $params = ['contextIds' => [$context->getId()]];
 
         foreach ($request->query() as $param => $value) {
@@ -283,6 +292,47 @@ class PKPUserController extends PKPBaseController
                 'content-disposition' => 'attachment; filename=user-report-' . date('Y-m-d') . '.csv',
             ]
         );
+    }
+
+    public function endRole(Request $request): JsonResponse
+    {
+        // Ensure user exists
+        $userId = $request->route('userId');
+        $user = Repo::user()->get($userId);
+        if (!$user) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Ensure user has role
+        // Will not appear if role has ended or if user never had role to begin with
+        $userGroupId = $request->route('userGroupId');
+        $userUserGroups = Repo::userGroup()->userUserGroups($userId); /** @var LazyCollection<UserGroup> $userUserGroups */
+        $userGroup = $userUserGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === (int) $userGroupId); /** @var UserGroup $userGroup */
+        if (!$userGroup) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Set end date for role and save
+        $context = $request->attributes->get('context'); /** @var Context $context */
+        Repo::userGroup()->endAssignments($context->getId(), $userId, $userGroupId);
+
+        // Send email notification
+        $mailable = new UserRoleEndNotify($context, $userGroup);
+        $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
+
+        $mailable->sender($request->user())
+            ->recipients([$user])
+            ->body($emailTemplate->getLocalizedData('body'))
+            ->subject($emailTemplate->getLocalizedData('subject'));
+        Mail::send($mailable);
+
+        // Return updated user model
+        $user = Repo::user()->get($userId);
+        return response()->json(Repo::user()->getSchemaMap()->map($user), Response::HTTP_OK);
     }
 
     /**

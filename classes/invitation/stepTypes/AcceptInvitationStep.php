@@ -63,7 +63,7 @@ class AcceptInvitationStep extends InvitationStepTypes
         $sections->addSection(
             null,
             [
-                'validateFields' => []
+                'validateFields' => ['userOrcid']
             ]
         );
         $step = new Step(
@@ -135,9 +135,7 @@ class AcceptInvitationStep extends InvitationStepTypes
             ),
             [
                 'validateFields' => [
-                    'affiliation',
                     'givenName',
-                    'familyName',
                     'userCountry',
                 ]
             ]

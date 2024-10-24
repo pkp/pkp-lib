@@ -488,6 +488,10 @@ class Collector implements CollectorInterface
         }
 
         $currentDateTime = Core::getCurrentDate();
+
+        if ($this->status === UserUserGroupStatus::STATUS_ALL->value) {
+            $this->userUserGroupStatus = UserUserGroupStatus::STATUS_ALL;
+        }
         $subQuery = DB::table('user_user_groups as uug')
             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->whereColumn('uug.user_id', '=', 'u.user_id')

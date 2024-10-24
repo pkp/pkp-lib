@@ -135,7 +135,9 @@ class AcceptInvitationStep extends InvitationStepTypes
             ),
             [
                 'validateFields' => [
+                    'affiliation',
                     'givenName',
+                    'familyName',
                     'userCountry',
                 ]
             ]

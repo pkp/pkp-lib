@@ -259,6 +259,8 @@ class Repository
             mailables\SubmissionAcknowledgement::class,
             mailables\SubmissionAcknowledgementNotAuthor::class,
             mailables\UserCreated::class,
+            mailables\UserRoleAssignmentInvitationNotify::class,
+            mailables\UserRoleEndNotify::class,
             mailables\ValidateEmailContext::class,
             mailables\ValidateEmailSite::class,
         ]);

@@ -99,3 +99,6 @@ msgstr "This attribute must have a value equal or after today"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "The :attribute field is prohibited"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "A value for locale '{$primaryLocale}' is required"

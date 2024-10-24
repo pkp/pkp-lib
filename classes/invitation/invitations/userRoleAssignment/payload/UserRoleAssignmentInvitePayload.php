@@ -14,6 +14,7 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\payload;
 
+use DAORegistry;
 use Illuminate\Validation\Rule;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\InvitePayload;
@@ -51,6 +52,9 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     {
         $context = $invitation->getContext();
         $allowedLocales = $context->getSupportedFormLocales();
+
+        $siteDao = DAORegistry::getDAO('SiteDAO');
+        $site = $siteDao->getSite();
 
         $validationRules = [
             'givenName' => [
@@ -124,6 +128,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 new NotNullIfPresent(),
                 'required_with:username',
                 'max:255',
+                'min:' . $site->getMinPasswordLength(),
             ],
             'userGroupsToAdd' => [
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE),

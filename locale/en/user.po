@@ -788,3 +788,6 @@ msgstr "Are you sure you want to remove this ORCID?"
 
 msgid "orcid.field.unverified.shouldRequest"
 msgstr "This ORCID has not been verified. Please remove this unverified ORCID and request verification from the user/author directly."
+
+msgid "user.removeRole.message"
+msgstr "Are you sure want remove this role permanently ?"

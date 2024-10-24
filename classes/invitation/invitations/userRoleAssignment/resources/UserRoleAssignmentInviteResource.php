@@ -53,7 +53,6 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'emailSubject' => $this->getPayload()->emailSubject,
             'emailBody' => $this->getPayload()->emailBody,
             'userGroupsToAdd' => $this->transformUserGroups($this->getPayload()->userGroupsToAdd),
-            'userGroupsToRemove' => $this->transformUserGroups($this->getPayload()->userGroupsToRemove),
             'username' => $this->getPayload()->username,
             'sendEmailAddress' => $this->getPayload()->sendEmailAddress,
             'existingUser' => $this->transformUser($this->getExistingUser()),
@@ -62,7 +61,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
     }
 
     /**
-     * Transform the userGroupsToAdd or userGroupsToRemove to include related UserGroup data.
+     * Transform the userGroupsToAdd to include related UserGroup data.
      *
      * @param array|null $userGroups
      * @return array
@@ -83,7 +82,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
     }
 
     /**
-     * Transform the userGroupsToAdd or userGroupsToRemove to include related UserGroup data.
+     * Transform the userGroupsToAdd to include related UserGroup data.
      *
      * @param array|null $userGroups
      * @return array

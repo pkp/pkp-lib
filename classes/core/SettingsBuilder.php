@@ -37,6 +37,7 @@ class SettingsBuilder extends Builder
     public function getModels($columns = ['*'])
     {
         $rows = $this->getModelWithSettings($columns);
+        
         $returner = $this->model->hydrate(
             $rows->all()
         )->all();
@@ -75,11 +76,63 @@ class SettingsBuilder extends Builder
         $us = $this->model->getSettingsTable();
         $primaryKey = $this->model->getKeyName();
 
+        // check if new settings value or multilingual value added and store those to DB
+        $modelWithGivenSettings = static::find($this->model->getKey(), $settingValues->keys()->toArray());
+        $rows = [];
+        $settingValues->each(function (mixed $settingValue, string $settingName) use ($modelWithGivenSettings, &$rows) {
+            $settingName = Str::camel($settingName);
+            
+            if (!$modelWithGivenSettings->{$settingName} || is_array($modelWithGivenSettings->{$settingName})) {
+                
+                if ($this->isMultilingual($settingName)) {
+                    $existingLocales = array_keys($modelWithGivenSettings->{$settingName} ?? []);
+                    $removeableLocales = array_diff($existingLocales, array_keys($settingValue));
+
+                    foreach ($settingValue as $locale => $localizedValue) {
+                        // Will not add setting entry for locale that already exist 
+                        // as that will be handled by update
+                        if (in_array($locale, $existingLocales)) {
+                            continue;
+                        }
+
+                        // Only add those new locale entries that newly added
+                        $rows[] = [
+                            $this->model->getKeyName() => $this->model->getKey(),
+                            'locale' => $locale,
+                            'setting_name' => $settingName,
+                            'setting_value' => $localizedValue,
+                        ];
+                    }
+
+                    // As the model multilingula attributed is gettting updated
+                    // remove any locale entry associated with setting name not present in the update data need to be removed
+                    if (!empty($removeableLocales)) {
+                        DB::table($this->model->getSettingsTable())
+                            ->where($this->model->getKeyName(), $this->model->getKey())
+                            ->where('setting_name', $settingName)
+                            ->whereIn('locale', $removeableLocales)
+                            ->delete();
+                    }
+                } else {
+                    $rows[] = [
+                        $this->model->getKeyName() => $this->model->getKey(),
+                        'locale' => '',
+                        'setting_name' => $settingName,
+                        'setting_value' => $settingValue,
+                    ];
+                }
+            }
+        });
+
+        if (count($rows) > 0) {
+            DB::table($this->model->getSettingsTable())->insert($rows);
+        }
 
         $sql = $this->buildUpdateSql($settingValues, $us, $newQuery);
 
         // Build a query for update
-        $settingCount = DB::table($us)->whereIn($us . '.' . $primaryKey, $newQuery->select($primaryKey))
+        $settingCount = DB::table($us)
+            ->whereIn($us . '.' . $primaryKey, $newQuery->select($primaryKey))
             ->update([$us . '.setting_value' => DB::raw($sql)]);
 
         return ($count ?? 0) + $settingCount;
@@ -112,12 +165,18 @@ class SettingsBuilder extends Builder
             if ($this->isMultilingual($settingName)) {
                 foreach ($settingValue as $locale => $localizedValue) {
                     $rows[] = [
-                        $this->model->getKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
+                        $this->model->getKeyName() => $id,
+                        'locale' => $locale,
+                        'setting_name' => $settingName,
+                        'setting_value' => $localizedValue,
                     ];
                 }
             } else {
                 $rows[] = [
-                    $this->model->getKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
+                    $this->model->getKeyName() => $id,
+                    'locale' => '',
+                    'setting_name' => $settingName,
+                    'setting_value' => $settingValue,
                 ];
             }
         });
@@ -264,7 +323,9 @@ class SettingsBuilder extends Builder
 
             // Retract the row and fill it with data from a settings table
             $exactRow = $rows->pull($settingModelId);
-            if ($setting->locale) {
+
+            // Even for empty('') locale, the multilingual props need to be an array
+            if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
                 $exactRow->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
             } else {
                 $exactRow->{$setting->setting_name} = $setting->setting_value;
@@ -288,8 +349,19 @@ class SettingsBuilder extends Builder
         }
 
         $columns = Arr::wrap($columns);
-        foreach ($row as $property) {
-            if (!in_array($property, $columns)) {
+
+        // TODO : Investigate how to handle the camel to snake case issue. related to pkp/pkp-lib#10485
+        $settingColumns = $this->model->getSettings();
+        $columns = collect($columns)
+            ->map(
+                fn (string $column): string => in_array($column, $settingColumns)
+                    ? $column
+                    : Str::snake($column)
+            )
+            ->toArray();
+
+        foreach ($row as $property => $value) {
+            if (!in_array($property, $columns) && isset($row->{$property})) {
                 unset($row->{$property});
             }
         }

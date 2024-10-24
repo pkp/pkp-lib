@@ -1,108 +1,201 @@
 <?php
-/**
- * @defgroup controlled_vocab Controlled Vocabulary
- */
 
 /**
- * @file classes/controlledVocab/ControlledVocab.php
+ * @file lib/pkp/classes/controlledVocab/ControlledVocab.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocab
  *
- * @ingroup controlled_vocab
- *
- * @see ControlledVocabDAO
- *
- * @brief Basic class describing an controlled vocab.
+ * @brief ControlledVocab model class
  */
 
 namespace PKP\controlledVocab;
 
-use PKP\db\DAORegistry;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Builder;
+use PKP\controlledVocab\ControlledVocabEntry;
+use PKP\facades\Locale;
 
-class ControlledVocab extends \PKP\core\DataObject
+class ControlledVocab extends Model
 {
-    //
-    // Get/set methods
-    //
+    use HasCamelCasing;
 
     /**
-     * get assoc id
-     *
-     * @return int
+     * List of pre defined vocab symbolic as const in format of CONTROLLED_VOCAB_*
      */
-    public function getAssocId()
+    public const CONTROLLED_VOCAB_SUBMISSION_AGENCY = 'submissionAgency';
+    public const CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE = 'submissionDiscipline';
+    public const CONTROLLED_VOCAB_SUBMISSION_KEYWORD = 'submissionKeyword';
+    public const CONTROLLED_VOCAB_SUBMISSION_LANGUAGE = 'submissionLanguage';
+    public const CONTROLLED_VOCAB_SUBMISSION_SUBJECT = 'submissionSubject';
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Model::$table
+     */
+    protected $table = 'controlled_vocabs';
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Model::$primaryKey
+     */
+    protected $primaryKey = 'controlled_vocab_id';
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
+     */
+    protected $guarded = [
+        'controlled_vocab_id',
+    ];
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasTimestamps::$timestamps
+     */
+    public $timestamps = false;
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts
+     */
+    protected function casts(): array
     {
-        return $this->getData('assocId');
+        return [
+            'symbolic' => 'string',
+            'assoc_type' => 'integer',
+            'assoc_id' => 'integer',
+        ];
     }
 
     /**
-     * set assoc id
-     *
-     * @param int $assocId
+     * Accessor and Mutator for primary key => id
      */
-    public function setAssocId($assocId)
+    protected function id(): Attribute
     {
-        $this->setData('assocId', $assocId);
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn($value) => [$this->primaryKey => $value],
+        )->shouldCache();
     }
 
     /**
-     * Get associated type.
-     *
-     * @return int
+     * Get the list of pre defined vocab symbolics
      */
-    public function getAssocType()
+    public static function getDefinedVocabSymbolic(): array
     {
-        return $this->getData('assocType');
+        return [
+            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            static::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            static::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE,
+            static::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+        ];
     }
 
     /**
-     * Set associated type.
-     *
-     * @param int $assocType
+     * Check if a provided vocab symbolic defined in pre defined symbolic list
      */
-    public function setAssocType($assocType)
+    public static function hasDefinedVocabSymbolic(string $vocab): bool
     {
-        $this->setData('assocType', $assocType);
+        return in_array($vocab, static::getDefinedVocabSymbolic());
     }
 
     /**
-     * Get symbolic name.
-     *
-     * @return string
+     * Get all controlled vocab entries for this controlled vocab
      */
-    public function getSymbolic()
+    public function controlledVocabEntries(): HasMany
     {
-        return $this->getData('symbolic');
+        return $this->hasMany(ControlledVocabEntry::class, 'controlled_vocab_id', 'controlled_vocab_id');
     }
 
     /**
-     * Set symbolic name.
-     *
-     * @param string $symbolic
+     * Scope a query to only include vocabs with a specific symbolic.
      */
-    public function setSymbolic($symbolic)
+    public function scopeWithSymbolic(Builder $query, string $symbolic): Builder
     {
-        $this->setData('symbolic', $symbolic);
+        return $query->where('symbolic', $symbolic);
+    }
+
+    /**
+     * Scope a query to only include vocabs with a specific assoc type and assoc ID.
+     */
+    public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
+    {
+        return $query
+            ->where('assoc_type', $assocType)
+            ->where('assoc_id', $assocId);
+    }
+
+    /**
+     * Scope a query to only include vocabs associated with given context id
+     */
+    public function scopeWithContextId(Builder $query, int $contextId): Builder
+    {
+        return $query
+            ->where(
+                fn ($query) => $query
+                    ->select('context_id')
+                    ->from('submissions')
+                    ->whereColumn(
+                        DB::raw(
+                            "(SELECT publications.submission_id 
+                            FROM publications 
+                            INNER JOIN {$this->table} 
+                            ON publications.publication_id = {$this->table}.assoc_id 
+                            LIMIT 1)"
+                        ),
+                        '=',
+                        'submissions.submission_id'
+                    ), 
+                $contextId
+            );
     }
 
     /**
      * Get a list of controlled vocabulary options.
      *
-     * @param string $settingName optional
-     *
      * @return array $controlledVocabEntryId => name
      */
-    public function enumerate($settingName = 'name')
-    {
-        $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /** @var ControlledVocabDAO $controlledVocabDao */
-        return $controlledVocabDao->enumerate($this->getId(), $settingName);
-    }
-}
+    public function enumerate(?string $settingName = null): array
+    {    
+        $settingName ??= $this->symbolic;
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controlledVocab\ControlledVocab', '\ControlledVocab');
+        return DB::table('controlled_vocab_entries AS e')
+            ->leftJoin(
+                'controlled_vocab_entry_settings AS l',
+                fn (JoinClause $join) => $join
+                    ->on('l.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                    ->where('l.setting_name', $settingName)
+                    ->where('l.locale', Locale::getLocale())
+            )
+            ->leftJoin(
+                'controlled_vocab_entry_settings AS p',
+                fn (JoinClause $join) => $join
+                    ->on('p.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                    ->where('p.setting_name', $settingName)
+                    ->where('p.locale', Locale::getPrimaryLocale())
+            )
+            ->leftJoin(
+                'controlled_vocab_entry_settings AS n',
+                fn (JoinClause $join) => $join
+                    ->on('n.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                    ->where('n.setting_name', $settingName)
+                    ->where('n.locale', '')
+            )
+            ->select([
+                'e.controlled_vocab_entry_id',
+                DB::raw(
+                    'COALESCE (l.setting_value, p.setting_value, n.setting_value) as setting_value'
+                )
+            ])
+            ->where('e.controlled_vocab_id', $this->id)
+            ->orderBy('e.seq')
+            ->get()
+            ->pluck('setting_value', 'controlled_vocab_entry_id')
+            ->toArray();
+    }
 }

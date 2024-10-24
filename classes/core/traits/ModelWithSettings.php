@@ -17,9 +17,11 @@
 
 namespace PKP\core\traits;
 
-use Eloquence\Behaviours\HasCamelCasing;
 use Exception;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use PKP\core\casts\MultilingualSettingAttribute;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
 use PKP\facades\Locale;
@@ -29,6 +31,11 @@ use stdClass;
 trait ModelWithSettings
 {
     use HasCamelCasing;
+
+    /**
+     * @see \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guardableColumns
+     */
+    protected static $guardableColumns = [];
 
     // The list of attributes associated with the model settings
     protected array $settings = [];
@@ -46,7 +53,7 @@ trait ModelWithSettings
     /**
      * Get settings table name
      */
-    abstract public function getSettingsTable();
+    abstract public function getSettingsTable(): string;
 
     /**
      * The name of the schema for the Model if exists, null otherwise
@@ -54,7 +61,7 @@ trait ModelWithSettings
     abstract public static function getSchemaName(): ?string;
 
     /**
-     * See Illuminate\Database\Eloquent\Concerns\HasAttributes::mergeCasts()
+     * @see Illuminate\Database\Eloquent\Concerns\HasAttributes::mergeCasts()
      *
      * @param array $casts
      *
@@ -62,11 +69,27 @@ trait ModelWithSettings
      */
     abstract protected function ensureCastsAreStringValues($casts);
 
+    /**
+     * @see \Illuminate\Database\Eloquent\Model::__construct()
+     */
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+        
         if (static::getSchemaName()) {
             $this->setSchemaData();
+        } else {
+            $this->generateAttributeCast(
+                collect($this->getMultilingualProps())
+                    ->flatMap(
+                        fn (string $attribute): array => [$attribute => MultilingualSettingAttribute::class]
+                    )
+                    ->toArray()
+            );
+
+            if (!empty($this->fillable)) {
+                $this->mergeFillable(array_merge($this->getSettings(), $this->getMultilingualProps()));
+            }
         }
     }
 
@@ -135,11 +158,11 @@ trait ModelWithSettings
         $this->multilingualProps = array_merge($this->getMultilingualProps(), $schemaService->getMultilingualProps($this->getSchemaName()));
 
         $writableProps = $schemaService->groupPropsByOrigin($this->getSchemaName(), true);
-        $this->fillable = array_merge(
+        $this->fillable = array_values(array_unique(array_merge(
             $writableProps[Schema::ATTRIBUTE_ORIGIN_SETTINGS],
             $writableProps[Schema::ATTRIBUTE_ORIGIN_MAIN],
             $this->fillable,
-        );
+        )));
     }
 
     /**
@@ -149,16 +172,24 @@ trait ModelWithSettings
     protected function convertSchemaToCasts(stdClass $schema): void
     {
         $propCast = [];
+
         foreach ($schema->properties as $propName => $propSchema) {
-            // Don't cast multilingual values as Eloquent tries to convert them from string to arrays with json_decode()
-            if (isset($propSchema->multilingual)) {
-                continue;
-            }
-            $propCast[$propName] = $propSchema->type;
+
+            $propCast[$propName] = isset($propSchema->multilingual) && $propSchema->multilingual == true
+                ? MultilingualSettingAttribute::class
+                : $propSchema->type;
         }
 
-        $propCasts = $this->ensureCastsAreStringValues($propCast);
-        $this->casts = array_merge($propCasts, $this->casts);
+        $this->generateAttributeCast($propCast);
+    }
+
+    /**
+     * Generate the final cast from dynamically generated attr casts
+     */
+    protected function generateAttributeCast(array $attrCast): void
+    {
+        $attrCasts = $this->ensureCastsAreStringValues($attrCast);
+        $this->casts = array_merge($attrCasts, $this->casts);
     }
 
     /**
@@ -182,5 +213,36 @@ trait ModelWithSettings
             get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
             set: fn ($value) => [$this->primaryKey => $value],
         );
+    }
+
+    /**
+     * @see \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::isGuardableColumn()
+     */
+    protected function isGuardableColumn($key)
+    {
+        // Need the snake like to key to check for main table to compare with column listing
+        $key = Str::snake($key);
+        
+        if (! isset(static::$guardableColumns[get_class($this)])) {
+            $columns = $this->getConnection()
+                        ->getSchemaBuilder()
+                        ->getColumnListing($this->getTable());
+
+            if (empty($columns)) {
+                return true;
+            }
+            static::$guardableColumns[get_class($this)] = $columns;
+        }
+
+
+        $settingsWithMultilingual = array_merge($this->getSettings(), $this->getMultilingualProps());
+        $camelKey = Str::camel($key);
+        
+        // Check if this column included in setting and multilingula props and not set to guarded
+        if (in_array($camelKey, $settingsWithMultilingual) && !in_array($camelKey, $this->getGuarded())) {
+            return true;
+        }
+        
+        return in_array($key, (array)static::$guardableColumns[get_class($this)]);
     }
 }

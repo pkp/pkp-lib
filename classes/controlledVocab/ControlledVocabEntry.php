@@ -3,101 +3,189 @@
 /**
  * @file classes/controlledVocab/ControlledVocabEntry.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocabEntry
  *
- * @ingroup controlled_vocabs
- *
- * @see ControlledVocabEntryDAO
- *
- * @brief Basic class describing a controlled vocab.
+ * @brief ControlledVocabEntry model class
  */
 
 namespace PKP\controlledVocab;
 
-class ControlledVocabEntry extends \PKP\core\DataObject
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use PKP\user\interest\UserInterest;
+use PKP\core\traits\ModelWithSettings;
+use Illuminate\Database\Eloquent\Model;
+use PKP\controlledVocab\ControlledVocab;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class ControlledVocabEntry extends Model
 {
-    //
-    // Get/set methods
-    //
+    use ModelWithSettings;
+    
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Model::$table
+     */
+    protected $table = 'controlled_vocab_entries';
 
     /**
-     * Get the ID of the controlled vocab.
-     *
-     * @return int
+     * @copydoc \Illuminate\Database\Eloquent\Model::$primaryKey
      */
-    public function getControlledVocabId()
+    protected $primaryKey = 'controlled_vocab_entry_id';
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
+     */
+    protected $guarded = [
+        'controlledVocabEntryId',
+    ];
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasTimestamps::$timestamps
+     */
+    public $timestamps = false;
+
+    /**
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettingsTable
+     */
+    public function getSettingsTable(): string
     {
-        return $this->getData('controlledVocabId');
+        return 'controlled_vocab_entry_settings';
     }
 
     /**
-     * Set the ID of the controlled vocab.
-     *
-     * @param int $controlledVocabId
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts
      */
-    public function setControlledVocabId($controlledVocabId)
+    protected function casts(): array
     {
-        $this->setData('controlledVocabId', $controlledVocabId);
+        return [
+            'controlled_vocab_entry_id' => 'string',
+            'controlled_vocab_id' => 'integer',
+            'seq' => 'float',
+        ];
     }
 
     /**
-     * Get sequence number.
-     *
-     * @return float
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSchemaName
      */
-    public function getSequence()
+    public static function getSchemaName(): ?string
     {
-        return $this->getData('sequence');
+        return null;
     }
 
     /**
-     * Set sequence number.
-     *
-     * @param float $sequence
+     * @copydoc \PKP\core\traits\ModelWithSettings::getMultilingualProps
      */
-    public function setSequence($sequence)
+    public function getMultilingualProps(): array
     {
-        $this->setData('sequence', $sequence);
+        return array_merge(
+            $this->multilingualProps,
+            ControlledVocab::getDefinedVocabSymbolic(),
+            Arr::wrap(UserInterest::CONTROLLED_VOCAB_INTEREST)
+        );
     }
 
     /**
-     * Get the localized name.
-     *
-     * @return string
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettings
      */
-    public function getLocalizedName()
+    public function getSettings(): array
     {
-        return $this->getLocalizedData('name');
+        return array_merge(
+            $this->settings,
+            ControlledVocab::getDefinedVocabSymbolic(),
+            Arr::wrap(UserInterest::CONTROLLED_VOCAB_INTEREST)
+        );
     }
 
     /**
-     * Get the name of the controlled vocabulary entry.
-     *
-     * @param string $locale
-     *
-     * @return string
+     * The controlled vocab associated with this controlled vocab entry
      */
-    public function getName($locale)
+    public function controlledVocab(): BelongsTo
     {
-        return $this->getData('name', $locale);
+        return $this->belongsTo(ControlledVocab::class, 'controlled_vocab_id', 'controlled_vocab_id');
     }
 
     /**
-     * Set the name of the controlled vocabulary entry.
-     *
-     * @param string $name
-     * @param string $locale
+     * The user interest associated with this controlled vocab entry
      */
-    public function setName($name, $locale)
+    public function userInterest(): BelongsTo
     {
-        $this->setData('name', $name, $locale);
+        return $this->belongsTo(UserInterest::class, 'controlled_vocab_entry_id', 'controlled_vocab_entry_id');
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controlledVocab\ControlledVocabEntry', '\ControlledVocabEntry');
+    /**
+     * Scope a query to only include entries for a specific controlled vocab id
+     */
+    public function scopeWithControlledVocabId(Builder $query, int $controlledVocabId): Builder
+    {
+        return $query->where('controlled_vocab_id', $controlledVocabId);
+    }
+
+    /**
+     * Scope a query to only include entries for a specific locale/s
+     */
+    public function scopeWithLocale(Builder $query, string|array $locale): Builder
+    {
+        if (is_array($locale)) {
+            return $query->whereIn(
+                DB::raw(
+                    "(SELECT locale 
+                    FROM {$this->getSettingsTable()} 
+                    WHERE {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey} 
+                    LIMIT 1)"
+                ),
+                $locale
+            );
+        }
+
+        return $query->where(
+            fn ($query) => $query
+                ->select("locale")
+                ->from("{$this->getSettingsTable()}")
+                ->whereColumn(
+                    "{$this->getSettingsTable()}.{$this->primaryKey}",
+                    "{$this->table}.{$this->primaryKey}"
+                )
+                ->limit(1),
+            $locale
+        );
+    }
+
+    /**
+     * Scope a query to only include entries for a specific setting name and value/s
+     */
+    public function scopeWithSetting(Builder $query, string $settingName, string|array $settingValue, bool $partial = true): Builder
+    {
+        if (is_array($settingValue)) {
+            return $query->whereIn(
+                DB::raw(
+                    "(SELECT setting_value 
+                    FROM {$this->getSettingsTable()} 
+                    WHERE setting_name = '{$settingName}'
+                    AND {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey}
+                    LIMIT 1)"
+                ),
+                $settingValue
+            );
+        }
+
+        return $query->where(
+            fn ($query) => $query
+                ->select('setting_value')
+                ->from("{$this->getSettingsTable()}")
+                ->where('setting_name', $settingName)
+                ->whereColumn(
+                    "{$this->getSettingsTable()}.{$this->primaryKey}",
+                    "{$this->table}.{$this->primaryKey}"
+                )
+                ->limit(1),
+            ($partial ? 'LIKE' : '='),
+            ($partial ? "%{$settingValue}%" : $settingValue)
+        );
+    }
 }

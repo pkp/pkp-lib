@@ -269,9 +269,9 @@ class PKPSchemaService
             if (empty($propSchema->origin)) {
                 continue;
             }
-
+            
             // Exclude readonly if specified
-            if ($excludeReadOnly && $propSchema->origin->readOnly) {
+            if ($excludeReadOnly && !empty($propSchema->readOnly) && $propSchema->readOnly) {
                 continue;
             }
 

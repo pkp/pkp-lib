@@ -21,6 +21,7 @@ use PKP\invitation\core\InvitePayload;
 use PKP\invitation\invitations\userRoleAssignment\rules\AddUserGroupRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\AllowedKeysRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NotNullIfPresent;
+use PKP\invitation\invitations\userRoleAssignment\rules\PrimaryLocaleRequired;
 use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
@@ -44,14 +45,13 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     ) 
     {
         parent::__construct(get_object_vars($this));
-
-
     }
 
     public function getValidationRules(UserRoleAssignmentInvite $invitation, ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         $context = $invitation->getContext();
         $allowedLocales = $context->getSupportedFormLocales();
+        $primaryLocale = $context->getPrimaryLocale();
 
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->getSite();
@@ -65,9 +65,11 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 'sometimes',
                 'array',
-                new AllowedKeysRule($allowedLocales), // Apply the custom rule
+                new AllowedKeysRule($allowedLocales),
+                new PrimaryLocaleRequired($primaryLocale),
             ],
             'givenName.*' => [
+                'nullable', // Make optional for other locales
                 'string',
                 'max:255',
             ],
@@ -75,13 +77,13 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'bail',
                 Rule::excludeIf(!is_null($invitation->getUserId()) && $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 new ProhibitedIncludingNull(!is_null($invitation->getUserId())),
-                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE]), ['nullable']),
-                Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
+                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
                 'sometimes',
                 'array',
-                new AllowedKeysRule($allowedLocales), // Apply the custom rule
+                new AllowedKeysRule($allowedLocales),
             ],
             'familyName.*' => [
+                'nullable', // Make optional for all locales
                 'string',
                 'max:255',
             ],
@@ -93,9 +95,11 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 'sometimes',
                 'array',
-                new AllowedKeysRule($allowedLocales), // Apply the custom rule
+                new AllowedKeysRule($allowedLocales),
+                new PrimaryLocaleRequired($primaryLocale),
             ],
             'affiliation.*' => [
+                'nullable', // Make optional for other locales
                 'string',
                 'max:255',
             ],

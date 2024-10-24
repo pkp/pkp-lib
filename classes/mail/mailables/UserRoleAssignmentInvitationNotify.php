@@ -55,7 +55,6 @@ class UserRoleAssignmentInvitationNotify extends Mailable
     protected static string $inviterName = 'inviterName';
     protected static string $inviterRole = 'inviterRole';
     protected static string $rolesAdded = 'rolesAdded';
-    protected static string $rolesRemoved = 'rolesRemoved';
     protected static string $existingRoles = 'existingRoles';
     protected static string $acceptUrl = 'acceptUrl';
     protected static string $declineUrl = 'declineUrl';
@@ -80,7 +79,6 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $variables[static::$inviterName] = __('emailTemplate.variable.invitation.inviterName');
         $variables[static::$inviterRole] = __('emailTemplate.variable.invitation.inviterRole');
         $variables[static::$rolesAdded] = __('emailTemplate.variable.invitation.rolesAdded');
-        $variables[static::$rolesRemoved] = __('emailTemplate.variable.invitation.rolesRemoved');
         $variables[static::$existingRoles] = __('emailTemplate.variable.invitation.existingRoles');
         $variables[static::$acceptUrl] = __('emailTemplate.variable.invitation.acceptUrl');
         $variables[static::$declineUrl] = __('emailTemplate.variable.invitation.declineUrl');
@@ -183,24 +181,9 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
 
         $existingUserGroupsTitle = __('emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles');
-        $userGroupsRemovedTitle = __('emails.userRoleAssignmentInvitationNotify.removedRoles');
         $existingUserGroups = '';
-        $userGroupsRemoved = '';
 
         if (isset($user)) {
-            // Roles Removed
-            foreach ($this->invitation->getPayload()->userGroupsToRemove as $userUserGroup) {
-                $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
-                
-                $userGroup = Repo::userGroup()->get($userGroupHelper->userGroupId);
-                $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroup->getId())
-                    ->withActive()
-                    ->get();
-                
-                $userGroupsRemoved = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $userGroupsRemovedTitle);
-            }
-
             // Existing Roles
             $userGroups = Repo::userGroup()->getCollector()
                 ->filterByContextIds([$this->invitation->getContextId()])
@@ -231,7 +214,6 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                 static::$acceptUrl => $this->invitation->getActionURL(InvitationAction::ACCEPT),
                 static::$declineUrl => $this->invitation->getActionURL(InvitationAction::DECLINE),
                 static::$rolesAdded => $userGroupsAdded,
-                static::$rolesRemoved => $userGroupsRemoved,
                 static::$existingRoles => $existingUserGroups,
                 static::EMAIL_TEMPLATE_STYLE_PROPERTY => $emailTemplateStyle,
             ]

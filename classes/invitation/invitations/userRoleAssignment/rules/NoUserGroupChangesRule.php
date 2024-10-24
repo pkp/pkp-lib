@@ -19,21 +19,16 @@ use Illuminate\Contracts\Validation\Rule;
 class NoUserGroupChangesRule implements Rule
 {
     protected ?array $userGroupsToAdd;
-    protected ?array $userGroupsToRemove;
     protected string $validationContext;
 
-    public function __construct(?array $userGroupsToAdd, ?array $userGroupsToRemove)
+    public function __construct(?array $userGroupsToAdd)
     {
         $this->userGroupsToAdd = $userGroupsToAdd;
-        $this->userGroupsToRemove = $userGroupsToRemove;
     }
 
     public function passes($attribute, $value)
     {
-        return !(
-            empty($this->userGroupsToAdd) && 
-            empty($this->userGroupsToRemove)
-        );
+        return !empty($this->userGroupsToAdd);
     }
 
     public function message()

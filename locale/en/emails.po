@@ -575,7 +575,6 @@ msgstr ""
 "        <p>At {$contextName}, we value your privacy. As such, we have taken steps to ensure that we are fully GDPR compliant. These steps include you being accountable to enter your own data and choosing who can see what information. or additional information on how we handled your data, please refer to our Privacy Policy.</p>"
 "        <div>{$existingRoles}</div>"
 "        <div>{$rolesAdded}</div>"
-"        <div>{$rolesRemoved}</div>"
 "        <p>On accepting the invite, you will be redirected to {$contextName}</p>"
 "        <p>Feel free to contact me with any questions about the process.</p>"
 "        <p><a href='{$acceptUrl}' class='btn btn-accept'>Accept Invitation</a></p>"
@@ -622,10 +621,6 @@ msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
 msgstr "<p><h2>Already assigned roles</h2></p>"
 
 #, fuzzy
-msgid "emails.userRoleAssignmentInvitationNotify.removedRoles"
-msgstr "<p><h2>Removed roles</h2></p>"
-
-#, fuzzy
 msgid "emailTemplate.variable.invitation.recipientName"
 msgstr "This is the name of the invitation recipient"
 
@@ -640,10 +635,6 @@ msgstr "This is the role of the sender of the invitation"
 #, fuzzy
 msgid "emailTemplate.variable.invitation.rolesAdded"
 msgstr "This section describes the roles that will be added to the user upon the invitation acceptance"
-
-#, fuzzy
-msgid "emailTemplate.variable.invitation.rolesRemoved"
-msgstr "This section describes the roles that will be removed from the user upon the invitation acceptance"
 
 #, fuzzy
 msgid "emailTemplate.variable.invitation.existingRoles"

@@ -45,7 +45,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
     protected array $notAccessibleAfterInvite = [
         'userGroupsToAdd',
-        'userGroupsToRemove',
     ];
 
     protected array $notAccessibleBeforeInvite = [
@@ -164,8 +163,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
         ) {
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new NoUserGroupChangesRule(
-                $this->getPayload()->userGroupsToAdd, 
-                $this->getPayload()->userGroupsToRemove
+                $this->getPayload()->userGroupsToAdd
             );
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new UserMustExistRule($this->getUserId());
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new EmailMustNotExistRule($this->getEmail());

@@ -21,7 +21,6 @@ use PKP\invitation\invitations\userRoleAssignment\rules\AddUserGroupRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\AllowedKeysRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NotNullIfPresent;
 use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
-use PKP\invitation\invitations\userRoleAssignment\rules\RemoveUserGroupRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
@@ -39,7 +38,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         public ?string $emailSubject = null,
         public ?string $emailBody = null,
         public ?array $userGroupsToAdd = null,
-        public ?array $userGroupsToRemove = null,
         public ?bool $passwordHashed = null,
         public ?string $sendEmailAddress = null,
     ) 
@@ -146,23 +144,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
             ],
             'userGroupsToAdd.*.masthead' => 'required|bool',
             'userGroupsToAdd.*.dateStart' => 'required|date|after_or_equal:today',
-            'userGroupsToRemove' => [
-                'sometimes',
-                'bail',
-                new ProhibitedIncludingNull(is_null($invitation->getUserId())),
-                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
-            ],
-            'userGroupsToRemove.*' => [
-                'array',
-                new AllowedKeysRule(['userGroupId']),
-            ],
-            'userGroupsToRemove.*.userGroupId' => [
-                'distinct',
-                'required',
-                'integer',
-                new UserGroupExistsRule(),
-                new RemoveUserGroupRule($invitation),
-            ],
             'userOrcid' => [
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
                 'orcid'

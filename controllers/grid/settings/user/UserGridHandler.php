@@ -98,7 +98,7 @@ class UserGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addUser', null, null),
                     __('grid.user.add'),
-                    'modal_add_user',
+                    null,
                     true
                 ),
                 __('grid.user.add'),

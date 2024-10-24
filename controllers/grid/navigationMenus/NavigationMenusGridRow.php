@@ -53,7 +53,7 @@ class NavigationMenusGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editNavigationMenu', null, $actionArgs),
                         __('grid.action.edit'),
-                        'modal_edit',
+                        null,
                         true
                     ),
                     __('grid.action.edit'),
@@ -69,7 +69,7 @@ class NavigationMenusGridRow extends GridRow
                         __('common.confirmDelete'),
                         __('common.remove'),
                         $router->url($request, null, null, 'deleteNavigationMenu', null, $actionArgs),
-                        'modal_delete'
+                        'negative'
                     ),
                     __('grid.action.remove'),
                     'delete'

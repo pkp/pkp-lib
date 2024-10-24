@@ -237,7 +237,6 @@ class QueriesGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'addQuery', null, $this->getRequestArgs()),
                     __('grid.action.addQuery'),
-                    'modal_add_item'
                 ),
                 __('grid.action.addQuery'),
                 'add_item'
@@ -473,7 +472,6 @@ class QueriesGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'editQuery', null, $actionArgs),
                     __('grid.action.updateQuery'),
-                    'modal_edit'
                 ),
                 __('grid.action.edit'),
                 'edit'
@@ -489,7 +487,7 @@ class QueriesGridHandler extends GridHandler
                 __('submission.query.leaveQuery.confirm'),
                 __('submission.query.leaveQuery'),
                 $router->url($request, null, null, 'leaveQuery', null, $actionArgs),
-                'modal_delete'
+                'negative'
             ),
             __('submission.query.leaveQuery'),
             'leaveQuery'

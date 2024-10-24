@@ -24,13 +24,13 @@ use XMLParser;
 
 class XMLParserDOMHandler extends XMLParserHandler
 {
-    /** @var Root node */
+    /** @var ?XMLNode Root node */
     public ?XMLNode $rootNode;
 
-    /** @var The node currently being parsed */
+    /** @var ?XMLNode The node currently being parsed */
     public ?XMLNode $currentNode = null;
 
-    /** @var string reference to the current data */
+    /** @var ?string reference to the current data */
     public ?string $currentData = null;
 
     /** @var XMLNode[] */
@@ -46,7 +46,7 @@ class XMLParserDOMHandler extends XMLParserHandler
     /**
      * Callback function to act as the start element handler.
      */
-    public function startElement(XMLParser|PKPXMLParser $parser, string $tag, array $attributes) : void
+    public function startElement(XMLParser|PKPXMLParser $parser, string $tag, array $attributes): void
     {
         $this->currentData = null;
         $node = new XMLNode($tag);
@@ -65,7 +65,7 @@ class XMLParserDOMHandler extends XMLParserHandler
     /**
      * Callback function to act as the end element handler.
      */
-    public function endElement(XMLParser|PKPXMLParser $parser, string $tag)
+    public function endElement(XMLParser|PKPXMLParser $parser, string $tag): void
     {
         $this->currentNode->setValue($this->currentData);
         $this->currentNode = & $this->currentNode->getParent();
@@ -75,7 +75,7 @@ class XMLParserDOMHandler extends XMLParserHandler
     /**
      * Callback function to act as the character data handler.
      */
-    public function characterData(XMLParser|PKPXMLParser $parser, string $data)
+    public function characterData(XMLParser|PKPXMLParser $parser, string $data): void
     {
         $this->currentData .= $data;
     }
@@ -83,7 +83,7 @@ class XMLParserDOMHandler extends XMLParserHandler
     /**
      * Returns a reference to the root node of the tree representing the document.
      */
-    public function getResult() : mixed
+    public function getResult(): mixed
     {
         return $this->rootNode;
     }

@@ -43,10 +43,10 @@ class NewLibraryFileForm extends LibraryFileForm
      *
      * @see Form::readInputData()
      */
-    public function readInputData()
+    public function readInputData(): void
     {
         $this->readUserVars(['temporaryFileId']);
-        return parent::readInputData();
+        parent::readInputData();
     }
 
     /**

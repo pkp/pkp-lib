@@ -47,7 +47,7 @@ class Collector implements CollectorInterface
 
     public const STATUS_ACTIVE = 'active';
     public const STATUS_DISABLED = 'disabled';
-    public const STATUS_ALL = null;
+    public const STATUS_ALL = 'all';
 
     public DAO $dao;
 
@@ -488,6 +488,10 @@ class Collector implements CollectorInterface
         }
 
         $currentDateTime = Core::getCurrentDate();
+        if ($this->status === self::STATUS_ALL) {
+            $this->userUserGroupStatus = UserUserGroupStatus::STATUS_ALL;
+        }
+
         $subQuery = DB::table('user_user_groups as uug')
             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->whereColumn('uug.user_id', '=', 'u.user_id')

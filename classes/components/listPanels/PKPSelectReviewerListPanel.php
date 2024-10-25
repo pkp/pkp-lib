@@ -15,7 +15,9 @@
 
 namespace PKP\components\listPanels;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\user\Collector;
 
@@ -47,6 +49,9 @@ class PKPSelectReviewerListPanel extends ListPanel
 
     /** @var Enumerable List of users who completed a review in the last round */
     public Enumerable $lastRoundReviewers;
+
+    /** @var Submission The associated submission  */
+    public Submission $submission;
 
     /**
      * @copydoc ListPanel::set()
@@ -156,7 +161,23 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
         $config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
-
+        $config['suggestions'] = $this->getReviewerSuggestions();
+        $config['suggestionAddApiUrl'] = Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_COMPONENT,
+            null,
+            'grid.users.reviewer.ReviewerGridHandler',
+            'reloadReviewerForm',
+            null,
+            [
+                'submissionId' => 74,
+                'stageId' => 3,
+                'reviewRoundId' => 31,
+                'selectionType' => 2,
+                'suggestionId' => 1,
+            ]
+        );
+        
         return $config;
     }
 
@@ -201,5 +222,11 @@ class PKPSelectReviewerListPanel extends ListPanel
             ->includeReviewerData()
             ->offset(null)
             ->limit($this->count);
+    }
+
+    protected function getReviewerSuggestions(): array
+    {
+        $map = Repo::submission()->getSchemaMap();
+        return $map->summarizeReviewerSuggestion($this->submission);
     }
 }

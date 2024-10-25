@@ -21,6 +21,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -572,11 +573,38 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function getPropertyReviewerSuggestions(Enumerable $reviewerSuggestions): array
     {
-        // TODO : Should directly map to resource collection or submission schema props ?
-        return array_values(
-            ReviewerSuggestionResource::collection($reviewerSuggestions)
-                ->toArray(app()->get("request"))
-        );
+        $reviewerSuggestionProps = collect(
+            $this->schemaService
+                ->get($this->schema)
+                ->properties
+                ->reviewerSuggestions
+                ->items
+                ->properties
+        )->keys()->toArray();
+
+        $reviewerSuggestions = collect(
+            array_values(
+                ReviewerSuggestionResource::collection($reviewerSuggestions)
+                    ->toArray(app()->get("request"))
+            )
+        )->map(
+            fn (array $suggestion): array => array_intersect_key(
+                $suggestion, 
+                array_flip($reviewerSuggestionProps)
+            )
+        )->toArray();
+        
+        return $reviewerSuggestions;
+    }
+
+    public function summarizeReviewerSuggestion(Submission $submission): array
+    {
+        // TODO : need optional filter like only approved/unapproved ones
+        $reviewerSuggestions = ReviewerSuggestion::query()
+            ->withSubmissionIds($submission->getId())
+            ->get();
+
+        return $this->getPropertyReviewerSuggestions($reviewerSuggestions);
     }
 
     /**

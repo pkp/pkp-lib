@@ -57,9 +57,7 @@
                 {{ localize(reviewerSuggestion.fullName) }}
                 <badge>{{ reviewerSuggestion.email }}</badge>
             </span>
-            <span
-                class="submissionWizard__reviewPanel__list__actions"
-            >
+            <span class="submissionWizard__reviewPanel__list__actions">
                 <badge>{{ localize(reviewerSuggestion.affiliation) }}</badge>
             </span>
          </li>

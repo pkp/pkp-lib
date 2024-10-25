@@ -34,14 +34,14 @@ class ReviewerSuggestion extends Model
     protected function casts(): array
     {
         return [
-            'suggestingUserId'  => 'integer',
-            'submissionId'      => 'integer',
-            'email'             => 'string',
-            'orcidId'           => 'string',
-            'approvedAt'        => 'datetime',
-            'stageId'           => 'integer',
-            'approverId'        => 'integer',
-            'reviewerId'        => 'integer',
+            'suggesting_user_id'    => 'integer',
+            'submission_id'         => 'integer',
+            'email'                 => 'string',
+            'orcid_id'              => 'string',
+            'approved_at'           => 'datetime',
+            'stage_id'              => 'integer',
+            'approver_id'           => 'integer',
+            'reviewer_id'           => 'integer',
         ];
     }
 
@@ -162,5 +162,14 @@ class ReviewerSuggestion extends Model
     public function scopeWithStageIds(Builder $query, int|array $stageIds): Builder
     {
         return $query->whereIn('stage_id', Arr::wrap($stageIds));
+    }
+
+    public function scopeWithApproved(Builder $query, bool $hasApproved = true): Builder
+    {
+        return $query->when(
+            $hasApproved,
+            fn (Builder $query): Builder => $query->whereNotNull('approved_at'),
+            fn (Builder $query): Builder => $query->whereNull('approved_at')
+        );
     }
 }

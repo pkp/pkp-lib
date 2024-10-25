@@ -14,6 +14,7 @@
 namespace PKP\user\maps;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
@@ -23,7 +24,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\workflow\WorkflowStageDAO;
-use Submission;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -193,10 +193,10 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     break;
                 case 'stageAssignments':
-                    $submission = $auxiliaryData['submission'];
-                    $stageId = $auxiliaryData['stageId'];
+                    $submission = $auxiliaryData['submission'] ?? null;
+                    $stageId = $auxiliaryData['stageId'] ?? null;
 
-                    if((!isset($submission) || !isset($stageId)) || (!($submission instanceof Submission) || !is_numeric($auxiliaryData['stageId']))) {
+                    if((!isset($submission) || !isset($stageId)) || (!($submission instanceof Submission) || !is_numeric($stageId))) {
                         $output['stageAssignments'] = [];
                         break;
                     }

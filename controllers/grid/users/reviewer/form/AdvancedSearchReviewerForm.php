@@ -165,6 +165,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     $submissionContext->getPath(),
                     'users/reviewers'
                 ),
+                'submission' => $this->getSubmission(),
                 'authorAffiliations' => $authorAffiliations,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [

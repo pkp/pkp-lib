@@ -3,21 +3,38 @@
 namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use APP\core\Application;
-use Illuminate\Foundation\Http\FormRequest;
+use APP\facades\Repo;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
+use PKP\validation\traits\HasMultilingualRule;
 
 class AddReviewerSuggestion extends FormRequest
 {
-    /**
-     * @copydoc \Illuminate\Foundation\Http\FormRequest::validated()
-     */
-    public function validated($key = null, $default = null)
-    {
-        $validated = parent::validated($key, $default);
+    use HasMultilingualRule;
 
-        return collect($validated)->map(
-            fn($value) => is_array($value) ? array_filter($value) : $value
-        )->toArray();
+    public function multilingualInputs(): array 
+    {
+        return [
+            'familyName',
+            'givenName',
+            'affiliation',
+            'suggestionReason',
+        ];
+    }
+
+    public function primaryLocale(): ?string 
+    {
+        $submission = Repo::submission()->get($this->route('submissionId'));
+
+        return $submission?->getData('locale')
+            ?? Application::get()->getRequest()->getContext()->getSupportedDefaultSubmissionLocale();
+    }
+
+    public function allowedLocales(): array 
+    {
+        return Application::get()->getRequest()->getContext()->getSupportedSubmissionLocales();
     }
 
     /**
@@ -96,4 +113,23 @@ class AddReviewerSuggestion extends FormRequest
             'submissionId' => $this->route('submissionId'),
         ]);
     }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  \Illuminate\Validation\Validator  $validator
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    // protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    // {
+    //     $formatted = [];
+    //     foreach ($validator->errors()->getMessages() as $ruleKey => $messages) {
+    //         Arr::set($formatted, $ruleKey, $messages);
+    //     }
+        
+    //     ray($formatted);
+    //     parent::failedValidation($validator);
+    // }
 }

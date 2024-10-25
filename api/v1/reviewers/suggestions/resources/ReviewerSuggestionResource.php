@@ -23,6 +23,7 @@ class ReviewerSuggestionResource extends JsonResource
             'orcidId' => $this->orcidId,
             'affiliation' => $this->affiliation,
             'suggestionReason' => $this->suggestionReason,
+            'approvedAt' => $this->approvedAt,
         ];
     }
 }

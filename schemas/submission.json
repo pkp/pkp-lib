@@ -265,6 +265,21 @@
 								"type": "boolean"
 							}
 						}
+					},
+					"availableEditorialDecisions": {
+						"description": "The editorial decisions that are available for this stage.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "integer"
+								},
+								"label": {
+									"type": "string"
+								}
+							}
+						}
 					}
 				}
 			}

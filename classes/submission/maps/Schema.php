@@ -20,9 +20,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
+use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use PKP\query\Query;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -31,6 +31,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -527,7 +528,7 @@ class Schema extends \PKP\core\maps\Schema
             $currentUserAssignedRoles = [];
             $stageAssignmentsOverview = [];
             if ($currentUser) {
-                // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
+                // FIXME - $stageAssignments are just temporarily added until https://github.com/pkp/pkp-lib/issues/10480 is ready
                 $currentRoles = array_map(
                     function (Role $role) {
                         return $role->getId();
@@ -556,10 +557,10 @@ class Schema extends \PKP\core\maps\Schema
                 foreach ($stageAssignments as $stageAssignment) {
                     $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
                     $stageAssignmentsOverview[] = [
-                        "roleId" => $userGroup->getRoleId(),
-                        "recommendOnly" => $stageAssignment->recommendOnly,
-                        "canChangeMetadata" => $stageAssignment->canChangeMetadata,
-                        "userId" => $stageAssignment->userId
+                        'roleId' => $userGroup->getRoleId(),
+                        'recommendOnly' => $stageAssignment->recommendOnly,
+                        'canChangeMetadata' => $stageAssignment->canChangeMetadata,
+                        'userId' => $stageAssignment->userId
                     ];
                 }
             }
@@ -568,7 +569,7 @@ class Schema extends \PKP\core\maps\Schema
             $stage['stageAssignments'] = $stageAssignmentsOverview;
             if(!$stage['currentUserAssignedRoles']) {
                 if(in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
-                     $stage['currentUserAssignedRoles'][] = Role::ROLE_ID_MANAGER;
+                    $stage['currentUserAssignedRoles'][] = Role::ROLE_ID_MANAGER;
                 }
             }
             // Stage-specific statuses
@@ -649,6 +650,10 @@ class Schema extends \PKP\core\maps\Schema
                     break;
             }
 
+
+            $availableEditorialDecisions = $this->getAvailableEditorialDecisions($stageId, $submission);
+            $stage['availableEditorialDecisions'] = array_map(fn (DecisionType $decisionType) => ['id' => $decisionType->getDecision(), 'label' => $decisionType->getLabel()], $availableEditorialDecisions);
+
             $stages[] = $stage;
         }
 
@@ -721,5 +726,70 @@ class Schema extends \PKP\core\maps\Schema
     protected function appSpecificProps(): array
     {
         return [];
+    }
+
+    /**
+     * Implement by a child class to get available editorial decisions data for a stage of a submission.
+     */
+    protected function getAvailableEditorialDecisions(int $stageId, Submission $submission): array
+    {
+        return [];
+    }
+
+    /**
+     * Check if a user can make Decisions or Recommendations on a submission's stage
+    */
+    protected function checkDecisionPermissions(int $stageId, Submission $submission, User $user, int $contextId): array
+    {
+        /** @var StageAssignment[] $editorsStageAssignments*/
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->withUserId($user->getId())
+            ->get();
+
+        $makeRecommendation = $makeDecision = false;
+        // if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
+        // if the user is assigned with both possibilities: to only recommend as well as make decision
+        foreach ($editorsStageAssignments as $editorsStageAssignment) {
+            if (!$editorsStageAssignment->recommendOnly) {
+                $makeDecision = true;
+            } else {
+                $makeRecommendation = true;
+            }
+        }
+
+        // If user is not assigned to the submission,
+        // see if the user is manager, and
+        // if the group is recommendOnly
+        if (!$makeRecommendation && !$makeDecision) {
+            $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
+            foreach ($userGroups as $userGroup) {
+                if (in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
+                    if (!$userGroup->getRecommendOnly()) {
+                        $makeDecision = true;
+                    } else {
+                        $makeRecommendation = true;
+                    }
+                }
+            }
+        }
+
+        // if the user can make recommendations, check whether there are any decisions that can be made given
+        // the stage that we are operating into.
+        $isOnlyRecommending = $makeRecommendation && !$makeDecision;
+
+        if ($isOnlyRecommending) {
+            if (!empty(Repo::decision()->getDecisionTypesMadeByRecommendingUsers($stageId))) {
+                // If there are any, then the user can be considered a decision user.
+                $makeDecision = true;
+            }
+        }
+
+        return [
+            'canMakeDecision' => $makeDecision,
+            'canMakeRecommendation' => $makeRecommendation,
+            'isOnlyRecommending' => $isOnlyRecommending
+        ];
     }
 }

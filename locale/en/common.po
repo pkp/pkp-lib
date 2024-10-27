@@ -2310,6 +2310,9 @@ msgstr "No new line allowed."
 msgid "validator.allowable_title_html_tags"
 msgstr "Only [{$tags}] html tags are allowed."
 
+msgid "validator.multilingual"
+msgstr "Multilingual requirement does not fulfilled for this field."
+
 msgid "filter.input.error.notSupported"
 msgstr ""
 "Filter ({$displayName}) supports input {$inputTypeName} - {$typeofInput} "

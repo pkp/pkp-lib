@@ -3,24 +3,12 @@
 namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use Illuminate\Http\Response;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\API\v1\reviewers\suggestions\formRequests\AddReviewerSuggestion;
 
-class EditReviewerSuggestion extends FormRequest
+class EditReviewerSuggestion extends AddReviewerSuggestion
 {
-    /**
-     * @copydoc \Illuminate\Foundation\Http\FormRequest::validated()
-     */
-    public function validated($key = null, $default = null)
-    {
-        $validated = parent::validated($key, $default);
-
-        return collect($validated)->map(
-            fn($value) => is_array($value) ? array_filter($value) : $value
-        )->toArray();
-    }
-
     /**
      * Get the validation rules that apply to the request.
      */
@@ -29,11 +17,9 @@ class EditReviewerSuggestion extends FormRequest
         return [
             'familyName' => [
                 'required',
-                'array',
             ],
             'givenName' => [
                 'required',
-                'array',
             ],
             'email' => [
                 'required',
@@ -41,38 +27,10 @@ class EditReviewerSuggestion extends FormRequest
             ],
             'affiliation' => [
                 'required',
-                'array',
             ],
             'suggestionReason' => [
                 'required',
-                'array',
             ],
-        ];
-    }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array<string, string>
-     */
-    public function messages(): array
-    {
-        return [
-            'familyName.required' => 'family name is required',
-        ];
-    }
-
-    /**
-     * Get custom attributes for validator errors.
-     *
-     * @return array<string, string>
-     */
-    public function attributes(): array
-    {
-        return [
-            'familyName' => __('user.familyName'),
-            'givenName' => __('user.givenName'),
-            'email' => __('user.email'),
         ];
     }
 

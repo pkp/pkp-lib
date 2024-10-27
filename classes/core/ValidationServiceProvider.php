@@ -3,12 +3,29 @@
 namespace PKP\core;
 
 use Illuminate\Support\Str;
+use PKP\validation\MultilingualInput;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator as ValidationValidator;
+use Illuminate\Translation\CreatesPotentiallyTranslatedStrings;
 
 class ValidationServiceProvider extends \Illuminate\Validation\ValidationServiceProvider
 {
+    use CreatesPotentiallyTranslatedStrings;
+    
     public function boot()
     {
-        
+        Validator::extend('multilingual', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator) {
+            
+            $parameters = collect($parameters);
+            $multilinngualInput = new MultilingualInput($parameters->shift(), $parameters->toArray());
+            $multilinngualInput
+                ->setValidator($validator)
+                ->validate($attribute, $value, function ($attribute, $message = null) {
+                    return $this->pendingPotentiallyTranslatedString($attribute, $message);
+                });
+
+            return $multilinngualInput->passed();
+        });
     }
 
     /**

@@ -56,6 +56,7 @@ class AddReviewerSuggestion extends FormRequest
             ],
             'familyName' => [
                 'required',
+                // 'multilingual:en,fr_CA',
             ],
             'givenName' => [
                 'required',

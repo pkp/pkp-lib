@@ -12,6 +12,8 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
     protected ?string $primaryLocale = null;
 
     protected array $allowedLocales = [];
+
+    protected bool $passed = true;
     
     /**
      * The validator instance.
@@ -49,6 +51,7 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
         $givenLocales = array_keys($value);
 
         if ($this->primaryLocale && !in_array($this->primaryLocale, $givenLocales)) {
+            $this->passed = false;
             $this->validator->errors()->add(
                 "{$attribute}.{$this->primaryLocale}",
                 __('validator.required')
@@ -61,7 +64,13 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
         );
 
         foreach($disallowedLocales as $locale) {
+            $this->passed = false;
             $this->validator->errors()->add("{$attribute}.{$locale}", __('validator.locale'));
         }
+    }
+
+    public function passed(): bool
+    {
+        return $this->passed;
     }
 }

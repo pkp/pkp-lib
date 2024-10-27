@@ -189,7 +189,8 @@ class PKPContainer extends Container
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
-        $this->register(new \Illuminate\Validation\ValidationServiceProvider($this));
+        // $this->register(new \Illuminate\Validation\ValidationServiceProvider($this));
+        $this->register(new \PKP\core\ValidationServiceProvider($this));
         $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
     }
 

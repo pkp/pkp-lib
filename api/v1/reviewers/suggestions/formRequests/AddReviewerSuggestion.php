@@ -56,11 +56,9 @@ class AddReviewerSuggestion extends FormRequest
             ],
             'familyName' => [
                 'required',
-                'array',
             ],
             'givenName' => [
                 'required',
-                'array',
             ],
             'email' => [
                 'required',
@@ -68,24 +66,10 @@ class AddReviewerSuggestion extends FormRequest
             ],
             'affiliation' => [
                 'required',
-                'array',
             ],
             'suggestionReason' => [
                 'required',
-                'array',
             ],
-        ];
-    }
-
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array<string, string>
-     */
-    public function messages(): array
-    {
-        return [
-            'familyName.required' => 'family name is required',
         ];
     }
 

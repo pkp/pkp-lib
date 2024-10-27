@@ -45,6 +45,15 @@ trait HasMultilingualRule
                 continue;
             }
 
+            // TODO : check if this string check necessary ?
+            if (is_string($rules[$input])) {
+                $rules[$input] = array_map('trim', explode('|', $rules[$input]));
+            }
+
+            if (!in_array('array', $rules[$input])) {
+                array_push($rules[$input], 'array');
+            }
+
             array_push(
                 $rules[$input],
                 new MultilingualInput($primaryLocale, $allowedLocale)

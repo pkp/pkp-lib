@@ -15,12 +15,7 @@
 
 namespace PKP\validation;
 
-use Illuminate\Container\Container;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
-use Illuminate\Translation\FileLoader;
-use Illuminate\Translation\Translator;
-use Illuminate\Validation\Factory;
 use Illuminate\Validation\Validator;
 use PKP\config\Config;
 use PKP\facades\Locale;
@@ -29,6 +24,10 @@ use PKP\i18n\LocaleMetadata;
 
 class ValidatorFactory
 {
+    private function __construct()
+    {       
+    }
+
     /**
      * Create a validator
      *
@@ -42,105 +41,10 @@ class ValidatorFactory
      */
     public static function make(array $props, array $rules, ?array $messages = []): Validator
     {
-        // This configures a non-existent translation file, but it is necessary to
-        // instantiate Laravel's validator. We override the messages with our own
-        // translated strings before returning the validator.
-        $loader = new FileLoader(new Filesystem(), 'lang');
-        $translator = new Translator($loader, 'en');
-        $validation = new Factory($translator, new Container());
+        /** @var \Illuminate\Validation\Factory $validationFactory */
+        $validationFactory = app()->get('validator');
 
-        // custom validation rules to check no new line
-        $validation->extend('no_new_line', function ($attribute, $value, $parameters, $validator) use ($validation) {
-            return strpos($value, PHP_EOL) === false;
-        });
-
-        // Add custom validation rule which extends Laravel's email rule to accept
-        // @localhost addresses. @localhost addresses are only loosely validated
-        // for allowed characters.
-        $validation->extend('email_or_localhost', function ($attribute, $value, $parameters, $validator) use ($validation) {
-            $emailValidator = $validation->make(
-                ['value' => $value],
-                ['value' => 'email']
-            );
-            if ($emailValidator->passes()) {
-                return true;
-            }
-            $regexValidator = $validation->make(
-                ['value' => $value],
-                ['value' => ['regex:/^[-a-zA-Z0-9!#\$%&\'\*\+\.\/=\?\^_\`\{\|\}~]*(@localhost)$/']]
-            );
-            if ($regexValidator->passes()) {
-                return true;
-            }
-
-            return false;
-        });
-
-        // Add custom validation rule for ISSNs
-        $validation->extend('issn', function ($attribute, $value, $parameters, $validator) use ($validation) {
-            $regexValidator = $validation->make(['value' => $value], ['value' => 'regex:/^(\d{4})-(\d{3}[\dX])$/']);
-            if ($regexValidator->fails()) {
-                return false;
-            }
-            // ISSN check digit: http://www.loc.gov/issn/basics/basics-checkdigit.html
-            $numbers = str_replace('-', '', $value);
-            $check = 0;
-            for ($i = 0; $i < 7; $i++) {
-                $check += $numbers[$i] * (8 - $i);
-            }
-            $check = $check % 11;
-            switch ($check) {
-                case 0:
-                    $check = '0';
-                    break;
-                case 1:
-                    $check = 'X';
-                    break;
-                default:
-                    $check = (string) (11 - $check);
-            }
-
-            return ($numbers[7] === $check);
-        });
-
-        // Add custom validation rule for orcids
-        $validation->extend('orcid', function ($attribute, $value, $parameters, $validator) use ($validation) {
-            $orcidRegexValidator = $validation->make(
-                ['value' => $value],
-                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/']
-            );
-            if ($orcidRegexValidator->fails()) {
-                return false;
-            }
-            // ISNI check digit: http://www.isni.org/content/faq#FAQ16
-            $digits = preg_replace('/[^0-9X]/', '', $value);
-
-            $total = 0;
-            for ($i = 0; $i < 15; $i++) {
-                $total = ($total + $digits[$i]) * 2;
-            }
-
-            $remainder = $total % 11;
-            $result = (12 - $remainder) % 11;
-
-            return ($digits[15] == ($result == 10 ? 'X' : $result));
-        });
-
-        // Add custom validation rule for currency
-        $validation->extend('currency', function ($attribute, $value, $parameters, $validator) {
-            $currency = Locale::getCurrencies()->getByLetterCode((string) $value);
-            return isset($currency);
-        });
-
-        // Add custom validation rule for country
-        $validation->extend('country', function ($attribute, $value, $parameters, $validator) {
-            $country = Locale::getCountries()->getByAlpha2((string) $value);
-            return isset($country);
-        });
-
-        $validator = $validation->make($props, $rules, self::getMessages($messages));
-
-        return $validator;
+        return $validationFactory->make($props, $rules, self::getMessages($messages));   
     }
 
     /**

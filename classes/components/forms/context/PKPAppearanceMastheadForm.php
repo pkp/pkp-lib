@@ -20,6 +20,8 @@ use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
+
 
 class PKPAppearanceMastheadForm extends FormComponent
 {
@@ -42,22 +44,20 @@ class PKPAppearanceMastheadForm extends FormComponent
 
         $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
 
-        $collector = Repo::userGroup()->getCollector();
-        $allMastheadUserGroups = $collector
-            ->filterByContextIds([$context->getId()])
-            ->filterByMasthead(true)
-            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderBy($collector::ORDERBY_ROLE_ID)
-            ->getMany()
+        $allMastheadUserGroups = UserGroup::where('contextId', $context->getId())
+            ->where('masthead', true)
+            ->whereNotIn('roleId', [Role::ROLE_ID_REVIEWER])
+            ->orderBy('roleId')
+            ->get()
             ->toArray();
 
-        // sort the mashead roles in their saved order
+        // sort the masthead roles in their saved order
         $sortedAllMastheadUserGroups = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
 
         foreach ($sortedAllMastheadUserGroups as $userGroup) {
             $mastheadOptions[] = [
-                'value' => $userGroup->getId(),
-                'label' => $userGroup->getLocalizedName()
+                'value' => $userGroup['userGroupId'],
+                'label' => $userGroup['name']
             ];
         }
 
@@ -69,9 +69,9 @@ class PKPAppearanceMastheadForm extends FormComponent
             'options' => $mastheadOptions,
             'allowOnlySorting' => true
         ]))
-            ->addField(new FieldHTML('reviewer', [
-                'label' => __('user.role.reviewers'),
-                'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
-            ]));
+        ->addField(new FieldHTML('reviewer', [
+            'label' => __('user.role.reviewers'),
+            'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
+        ]));
     }
 }

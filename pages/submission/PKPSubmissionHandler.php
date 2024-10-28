@@ -43,6 +43,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionHandler extends Handler
 {
@@ -197,10 +198,9 @@ abstract class PKPSubmissionHandler extends Handler
         $orderedLocales = $supportedLocales;
         uksort($orderedLocales, fn ($a, $b) => $b === $submission->getData('locale') ? 1 : -1);
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::query()
+            ->withContextIds([$context->getId()])
+            ->get();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -489,25 +489,24 @@ abstract class PKPSubmissionHandler extends Handler
      */
     protected function getSubmitUserGroups(Context $context, User $user): LazyCollection
     {
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByUserIds([$user->getId()])
-            ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
-            ->getMany();
+        $userGroups = UserGroup::query()
+            ->withContextIds([$context->getId()])
+            ->withUserIds([$user->getId()])
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
+            ->get();
 
         // Users without a submitting role can submit as an
         // author role that allows self registration
-        if (!$userGroups->count()) {
+        if ($userGroups->isEmpty()) {
             $defaultUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
             return LazyCollection::make(function () use ($defaultUserGroup) {
                 if ($defaultUserGroup) {
-                    yield $defaultUserGroup->getId() => $defaultUserGroup;
+                    yield $defaultUserGroup->usergroupid => $defaultUserGroup;
                 }
             });
         }
 
-        return $userGroups;
+        return LazyCollection::make($userGroups);
     }
 
     /**

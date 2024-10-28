@@ -23,6 +23,7 @@ use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\user\InterestManager;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
 {
@@ -131,10 +132,10 @@ class PKPUserUserXmlFilter extends NativeExportFilter
             $this->createOptionalNode($doc, $userNode, 'disabled_reason', $user->getDisabledReason());
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByUserIds([$user->getId()])
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withUserIds([$user->getId()])
+            ->withContextIds([$context->getId()])
+            ->get()
+            ->toArray();
 
         foreach ($userGroups as $userGroup) {
             $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
@@ -154,9 +155,9 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $context = $deployment->getContext();
         $userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$context->getId()])
+        ->get()
+        ->toArray();
 
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');

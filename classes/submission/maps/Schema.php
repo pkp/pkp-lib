@@ -540,12 +540,12 @@ class Schema extends \PKP\core\maps\Schema
                     ->withStageIds([$stageId])
                     ->get();
 
-                foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
-                    if ($userGroup) {
-                        $currentUserAssignedRoles[] = $userGroup->getRoleId();
+                    foreach ($stageAssignments as $stageAssignment) {
+                        $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
+                        if ($userGroup) {
+                            $currentUserAssignedRoles[] = $userGroup->roleId;
+                        }
                     }
-                }
 
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
@@ -554,9 +554,9 @@ class Schema extends \PKP\core\maps\Schema
 
                 // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
                 foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+                    $userGroup = UserGroup::findById($stageAssignment->userGroupId);
                     $stageAssignmentsOverview[] = [
-                        "roleId" => $userGroup->getRoleId(),
+                        "roleId" => $userGroup?->roleId ?? null,
                         "recommendOnly" => $stageAssignment->recommendOnly,
                         "canChangeMetadata" => $stageAssignment->canChangeMetadata,
                         "userId" => $stageAssignment->userId
@@ -670,9 +670,8 @@ class Schema extends \PKP\core\maps\Schema
 
     protected function getUserGroup(int $userGroupId): ?UserGroup
     {
-        /** @var UserGroup $userGroup */
         foreach ($this->userGroups as $userGroup) {
-            if ($userGroup->getId() === $userGroupId) {
+            if ($userGroup->usergroupid === $userGroupId) {
                 return $userGroup;
             }
         }

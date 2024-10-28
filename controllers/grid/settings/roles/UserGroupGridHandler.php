@@ -81,6 +81,8 @@ class UserGroupGridHandler extends GridHandler
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         $operation = $request->getRequestedOp();
+        $context = $request->getContext();
+        $contextId = $context->getId();
         $workflowStageRequiredOps = ['assignStage', 'unassignStage'];
         if (in_array($operation, $workflowStageRequiredOps)) {
             $this->addPolicy(new WorkflowStageRequiredPolicy($request->getUserVar('stageId')));
@@ -91,7 +93,9 @@ class UserGroupGridHandler extends GridHandler
             // Validate the user group object.
             $userGroupId = $request->getUserVar('userGroupId');
 
-            $userGroup = Repo::userGroup()->get($userGroupId);
+            $userGroup = UserGroup::where('userGroupId', $userGroupId)
+                ->where('contextId', $contextId)
+                ->first();
 
             if (!$userGroup) {
                 throw new \Exception('Invalid user group id!');
@@ -183,25 +187,37 @@ class UserGroupGridHandler extends GridHandler
             $stageIdFilter = $filter['selectedStageId'];
         }
 
-        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-
         if ($stageIdFilter && $stageIdFilter != 0) {
-            return Repo::userGroup()->getCollector()
-                ->filterByContextIds([$contextId])
-                ->filterByStageIds([$stageIdFilter])
-                ->filterByRoleIds([$roleIdFilter])
-                ->limit($rangeInfo->getCount())
-                ->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount())
-                ->getMany()
-                ->toArray();
+            $query = UserGroup::where('contextId', $contextId);
+
+            // Apply role filter if provided
+            if ($roleIdFilter && $roleIdFilter != 0) {
+                $query->where('roleId', $roleIdFilter);
+            }
+    
+            // Apply stage filter
+            $query->whereHas('userGroupStages', function ($q) use ($stageIdFilter) {
+                $q->where('stageId', $stageIdFilter);
+            });
         } elseif ($roleIdFilter && $roleIdFilter != 0) {
-            return Repo::userGroup()->getByRoleIds([$roleIdFilter], $contextId)->toArray();
+            $query = UserGroup::where('contextId', $contextId)
+                ->where('roleId', $roleIdFilter);
         } else {
-            return Repo::userGroup()->getCollector()
-                ->filterByContextIds([$contextId])
-                ->getMany()
-                ->toArray();
+            $query = UserGroup::where('contextId', $contextId);
         }
+    
+        // pagination
+        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        $perPage = $rangeInfo->getCount();
+        $page = max(1, $rangeInfo->getPage());
+        $offset = ($page - 1) * $perPage;
+    
+        $query->offset($offset)->limit($perPage);
+    
+        // results
+        $userGroups = $query->get()->toArray();
+    
+        return $userGroups;
     }
 
     /**
@@ -346,32 +362,29 @@ class UserGroupGridHandler extends GridHandler
         $contextId = $this->_getContextId();
         $notificationMgr = new NotificationManager();
 
-        $usersAssignedToUserGroupCount = Repo::user()->getCollector()
-            ->filterByContextIds([$contextId])
-            ->filterByUserGroupIds([$userGroup->getId()])
-            ->getCount();
+        $usersAssignedToUserGroupCount = $userGroup->usersInContext($contextId)->count();
 
         if ($usersAssignedToUserGroupCount == 0) {
-            if ($userGroup->getData('isDefault')) {
+            if ($userGroup->isDefault) {
                 // Can't delete default user groups.
                 $notificationMgr->createTrivialNotification(
                     $user->getId(),
                     Notification::NOTIFICATION_TYPE_WARNING,
                     ['contents' => __(
                         'grid.userGroup.cantRemoveDefaultUserGroup',
-                        ['userGroupName' => $userGroup->getLocalizedName()	]
+                        ['userGroupName' => $userGroup->getLocalized('name')	]
                     )]
                 );
             } else {
                 // We can delete, no user assigned yet.
-                Repo::userGroup()->delete($userGroup);
+                $userGroup->delete();
 
                 $notificationMgr->createTrivialNotification(
                     $user->getId(),
                     Notification::NOTIFICATION_TYPE_SUCCESS,
                     ['contents' => __(
                         'grid.userGroup.removed',
-                        ['userGroupName' => $userGroup->getLocalizedName()	]
+                        ['userGroupName' => $userGroup->getLocalized('name')	]
                     )]
                 );
             }
@@ -383,12 +396,12 @@ class UserGroupGridHandler extends GridHandler
                 Notification::NOTIFICATION_TYPE_WARNING,
                 ['contents' => __(
                     'grid.userGroup.cantRemoveUserGroup',
-                    ['userGroupName' => $userGroup->getLocalizedName(), 'usersCount' => $usersAssignedToUserGroupCount]
+                    ['userGroupName' => $userGroup->getLocalized('name'), 'usersCount' => $usersAssignedToUserGroupCount]
                 )]
             );
         }
 
-        $json = \PKP\db\DAO::getDataChangedEvent($userGroup->getId());
+        $json = \PKP\db\DAO::getDataChangedEvent($userGroup->usergroupid);
         $json->setGlobalEvent('userGroupUpdated');
         return $json;
     }
@@ -441,14 +454,17 @@ class UserGroupGridHandler extends GridHandler
             case 'assignStage':
                 UserGroupStage::create([
                     'contextId' => $contextId,
-                    'userGroupId' => $userGroup->getId(),
+                    'userGroupId' => $userGroup->usergroupid,
                     'stageId' => $stageId
                 ]);
 
                 $messageKey = 'grid.userGroup.assignedStage';
                 break;
             case 'unassignStage':
-                Repo::userGroup()->removeGroupFromStage($contextId, $userGroup->getId(), $stageId);
+                UserGroupStage::where('contextId', $contextId)
+                    ->where('userGroupId', $userGroup->userGroupId)
+                    ->where('stageId', $stageId)
+                    ->delete();
                 $messageKey = 'grid.userGroup.unassignedStage';
                 break;
         }
@@ -467,7 +483,7 @@ class UserGroupGridHandler extends GridHandler
             )]
         );
 
-        return \PKP\db\DAO::getDataChangedEvent($userGroup->getId());
+        return \PKP\db\DAO::getDataChangedEvent($userGroup->usergroupid);
     }
 
     /**

@@ -53,6 +53,7 @@ use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use PKP\userGroup\UserGroup;
 
 class AdminHandler extends Handler
 {
@@ -322,9 +323,7 @@ class AdminHandler extends Handler
 
         $bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
         if ($bulkEmailsEnabled) {
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->getMany();
+            $userGroups = UserGroup::withContextIds([$context->getId()])->get()->toArray();
 
             $restrictBulkEmailsForm = new \PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
             $components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();

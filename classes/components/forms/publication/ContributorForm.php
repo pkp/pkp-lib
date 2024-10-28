@@ -48,16 +48,14 @@ class ContributorForm extends FormComponent
         $this->submission = $submission;
         $this->context = $context;
 
-        $authorUserGroupsOptions = Repo::userGroup()
-            ->getCollector()
-            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-            ->filterByContextIds([$context->getId()])
-            ->getMany()
+        $authorUserGroupsOptions = UserGroup::query()
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withContextIds([$context->getId()])
+            ->get()
             ->map(fn (UserGroup $authorUserGroup) => [
-                'value' => (int) $authorUserGroup->getId(),
-                'label' => $authorUserGroup->getLocalizedName(),
+                'value' => (int) $authorUserGroup->usergroupid,
+                'label' => $authorUserGroup->getLocalized('name'),
             ]);
-
         $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {

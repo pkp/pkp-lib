@@ -20,6 +20,8 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\userGroup\UserGroup;
+use PKP\userGroup\Repository as UserGroupRepository;
+
 
 class ReportForm extends FormComponent
 {
@@ -38,21 +40,19 @@ class ReportForm extends FormComponent
         $this->addPage(['id' => 'default', 'submitButton' => ['label' => __('common.export')]]);
         $this->addGroup(['id' => 'default', 'pageId' => 'default']);
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::where('contextId', $context->getId())->get();
 
         $this->addField(new FieldOptions('userGroupIds', [
             'groupId' => 'default',
             'label' => __('user.group'),
             'description' => __('manager.export.usersToCsv.description'),
-            'options' => $userGroups->values()->map(function (UserGroup $userGroup) {
+            'options' => $userGroups->map(function (UserGroup $userGroup) {
                 return [
-                    'value' => $userGroup->getId(),
-                    'label' => htmlspecialchars($userGroup->getLocalizedName())
+                    'value' => $userGroup->usergroupid,
+                    'label' => htmlspecialchars($userGroup->getLocalized('name')),
                 ];
-            }),
-            'default' => $userGroups->keys(),
+            })->toArray(),
+            'default' => UserGroup::getIdsByContextId($context->getId()),
         ]));
     }
 }

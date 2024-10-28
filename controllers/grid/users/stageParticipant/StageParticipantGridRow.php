@@ -117,7 +117,7 @@ class StageParticipantGridRow extends GridRow
                 $dispatcher = $router->getDispatcher();
                 $userGroup = Repo::userGroup()->get($userGroupId);
 
-                if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
+                if ($userGroup->roleId == Role::ROLE_ID_AUTHOR) {
                     $handler = 'authorDashboard';
                     $op = 'submission';
                 } else {

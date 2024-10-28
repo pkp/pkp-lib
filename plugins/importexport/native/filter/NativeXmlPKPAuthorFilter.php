@@ -22,6 +22,7 @@ use APP\publication\Publication;
 use Exception;
 use PKP\facades\Locale;
 use PKP\filter\FilterGroup;
+use PKP\userGroup\UserGroup;
 
 class NativeXmlPKPAuthorFilter extends NativeImportFilter
 {
@@ -147,9 +148,9 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         // Identify the user group by name
         $userGroupName = $node->getAttribute('user_group_ref');
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$context->getId()])
+        ->get()
+        ->toArray();
 
         foreach ($userGroups as $userGroup) {
             if (in_array($userGroupName, $userGroup->getName(null))) {

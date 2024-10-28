@@ -28,6 +28,7 @@ use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\config\Config;
+use PKP\userGroup\UserGroup;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -116,9 +117,9 @@ class DashboardHandler extends Handler
         $itemsMax = $collector->getCount();
         $items = $collector->limit(30)->getMany();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$context->getId()])
+            ->get()
+            ->toArray();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

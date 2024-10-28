@@ -26,6 +26,7 @@ use PKP\db\DAORegistry;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class Validation
 {
@@ -417,7 +418,7 @@ class Validation
         // that the administrator user doesn't have a manager role in.
         $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
         foreach ($userGroups as $userGroup) {
-            if ($userGroup->getContextId() != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+            if ($userGroup->contextId != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->contextId, $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;
             }
@@ -455,10 +456,10 @@ class Validation
             return self::ADMINISTRATION_FULL;
         }
 
-        $filteredSiteAdminUserGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
-            ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN]);
+        $filteredSiteAdminUserGroups = UserGroup::query()
+            ->withContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
+            ->withRoleIds([Role::ROLE_ID_SITE_ADMIN])
+            ->get();
 
         // You cannot administer administrators
         if ($filteredSiteAdminUserGroups->filterByUserIds([$administeredUserId])->getCount() > 0) {
@@ -471,31 +472,31 @@ class Validation
         }
 
         // Make sure the administering user has a manager role somewhere
-        $roleManagerCount = Repo::userGroup()
-            ->getCollector()
-            ->filterByUserIds([$administratorUserId])
-            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
-            ->getCount();
-
+        $roleManagerCount = UserGroup::query()
+            ->withUserIds([$administratorUserId])
+            ->withRoleIds([Role::ROLE_ID_MANAGER])
+            ->count();
         if ($roleManagerCount <= 0) {
             return self::ADMINISTRATION_PROHIBITED;
         }
 
-        $administeredUserAssignedGroupIds = Repo::userGroup()
-            ->getCollector()
-            ->filterByUserIds([$administeredUserId])
-            ->getMany()
-            ->map(fn ($userGroup) => $userGroup->getContextId())
+        $administeredUserAssignedGroupIds  = UserGroup::query()
+            ->withUserIds([$administratorUserId])
+            ->get()
+            ->map(fn ($userGroup) => $userGroup->contextId)
+            ->unique()
             ->sort()
+            ->values()
             ->toArray();
 
-        $administratorUserAssignedGroupIds = Repo::userGroup()
-            ->getCollector()
-            ->filterByUserIds([$administratorUserId])
-            ->filterByRoleIds([Role::ROLE_ID_MANAGER])
-            ->getMany()
-            ->map(fn ($userGroup) => $userGroup->getContextId())
+        $administratorUserAssignedGroupIds = UserGroup::query()
+            ->withUserIds([$administratorUserId])
+            ->withRoleIds([Role::ROLE_ID_MANAGER])
+            ->get()
+            ->map(fn ($userGroup) => $userGroup->contextId)
+            ->unique()
             ->sort()
+            ->values()
             ->toArray();
 
         // Check for administered user group assignments in other contexts
@@ -505,12 +506,11 @@ class Validation
             // But also determine if a partial administrate is allowed
             // if the Administrator User is a Journal Manager in the current context
             if ($contextId !== null &&
-                Repo::userGroup()
-                    ->getCollector()
-                    ->filterByContextIds([$contextId])
-                    ->filterByUserIds([$administratorUserId])
-                    ->filterByRoleIds([Role::ROLE_ID_MANAGER])
-                    ->getCount()) {
+                UserGroup::query()
+                    ->withContextIds([$contextId])
+                    ->withUserIds([$administratorUserId])
+                    ->withRoleIds([Role::ROLE_ID_MANAGER])
+                    ->exists()) {
                 return self::ADMINISTRATION_PARTIAL;
             }
             return self::ADMINISTRATION_PROHIBITED;

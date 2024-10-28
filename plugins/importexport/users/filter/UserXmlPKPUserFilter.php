@@ -28,6 +28,7 @@ use PKP\security\Validation;
 use PKP\site\SiteDAO;
 use PKP\user\InterestManager;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -291,9 +292,9 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
 
         // We can only assign a user to a user group if persisted to the database by $userId
         if ($userId) {
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->getMany();
+            $userGroups = UserGroup::withContextIds([$context->getId()])
+                ->get()
+                ->toArray();
 
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
@@ -307,9 +308,10 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
                         // and the user is not already assigned to that group
-                        if (in_array($n->textContent, $userGroup->getName(null)) && !Repo::userGroup()->userInGroup($userId, $userGroup->getId())) {
+                        if (in_array($n->textContent, $userGroup->getName(null)) && 
+                            !UserGroup::userInGroup($userId, $userGroup->getId())) {
                             // Found a candidate; assign user to it.
-                            Repo::userGroup()->assignUserToGroup($userId, $userGroup->getId());
+                            UserGroup::assignUserToGroup($userId, $userGroup->getId());
                         }
                     }
                 }

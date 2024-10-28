@@ -157,12 +157,12 @@ class StartSubmission extends FormComponent
         }
 
         $options = $userGroups->map(fn (UserGroup $userGroup) => [
-            'value' => $userGroup->getId(),
-            'label' => $userGroup->getLocalizedName(),
+            'value' => $userGroup->usergroupid,
+            'label' => $userGroup->getLocalized('name'),
         ]);
 
         $hasEditorialRole = $userGroups->contains(
-            fn (UserGroup $userGroup) => in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
+            fn (UserGroup $userGroup) => in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
         );
 
         $description = __('submission.submit.availableUserGroupsDescription');

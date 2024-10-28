@@ -280,7 +280,7 @@ class ReviewerForm extends Form
 
         $userGroups = [];
         foreach ($reviewerUserGroups as $userGroup) {
-            $userGroups[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $userGroups[$userGroup->usergroupid] = $userGroup->getLocalized('name');
         }
 
         $this->setData('userGroups', $userGroups);

@@ -301,16 +301,22 @@ class QueryForm extends Form
         $assignedRoles = (function () use ($query, $user) {
             $assignedRoles = [];
             // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-            $usersAssignments = StageAssignment::withSubmissionIds([$query->assocId])
-                ->withStageIds([$query->stageId])
-                ->withUserId($user->getId())
-                ->get();
-
-            foreach ($usersAssignments as $usersAssignment) {
-                $userGroup = Repo::userGroup()->get($usersAssignment->userGroupId);
-                $assignedRoles[] = $userGroup->getRoleId();
+            $usersAssignments = StageAssignment::with(['userGroup'])
+            ->withSubmissionIds([$query->assocId])
+            ->withStageIds([$query->stageId])
+            ->withUserId($user->getId())
+            ->get();
+        
+        $assignedRoles = [];
+        
+        foreach ($usersAssignments as $usersAssignment) {
+            $userGroup = $usersAssignment->userGroup;
+            if ($userGroup) {
+                $assignedRoles[] = $userGroup->roleId;
             }
-            return $assignedRoles;
+        }
+        
+        return $assignedRoles;
         })();
 
         if ($query->stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
@@ -374,7 +380,7 @@ class QueryForm extends Form
             foreach ($userAssignments as $userAssignment) {
                 foreach ($allUserGroups as $userGroup) {
                     if ($userGroup->getId() == $userAssignment->userGroupId) {
-                        $userRoles[] = $userGroup->getLocalizedName();
+                        $userRoles[] = $userGroup->getLocalized('name');
                     }
                 }
             }
@@ -450,16 +456,20 @@ class QueryForm extends Form
                 // get participant roles in this workflow stage
                 $assignedRoles = [];
                 // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-                $usersAssignments = StageAssignment::withSubmissionIds([$submissionId])
-                    ->withStageIds([$stageId])
-                    ->withUserId($participantId)
-                    ->get();
-
-                foreach ($usersAssignments as $usersAssignment) {
-                    $userGroup = Repo::userGroup()->get($usersAssignment->userGroupId);
-                    $assignedRoles[] = $userGroup->getRoleId();
+                $usersAssignments = StageAssignment::with(['userGroup'])
+                ->withSubmissionIds([$submissionId])
+                ->withStageIds([$stageId])
+                ->withUserId($participantId)
+                ->get();
+            
+            $assignedRoles = [];
+            
+            foreach ($usersAssignments as $usersAssignment) {
+                $userGroup = $usersAssignment->userGroup;
+                if ($userGroup) {
+                    $assignedRoles[] = $userGroup->roleId;
                 }
-
+            }
                 if ($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
                     // validate the anonymity
                     // get participant review assignments

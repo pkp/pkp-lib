@@ -20,6 +20,8 @@ use APP\facades\Repo;
 use PKP\filter\FilterGroup;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
+use PKP\userGroup\Repository as UserGroupRepository;
+use Illuminate\Support\Facades\App;
 
 class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -70,19 +72,19 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
         $context = $deployment->getContext();
 
         // Create the UserGroup object.
-        $userGroup = Repo::userGroup()->newDataObject();
-        $userGroup->setContextId($context->getId());
+        $userGroup = new UserGroup();
+        $userGroup->contextId = $context->getId();
 
         // Extract the name node element to see if this user group exists already.
         $nodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'name');
         if ($nodeList->length > 0) {
             $content = $this->parseLocalizedContent($nodeList->item(0)); // $content[1] contains the localized name.
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->getMany();
+            $userGroups = UserGroup::query()
+                ->where('contextId', $context->getId())
+                ->get();
 
             foreach ($userGroups as $testGroup) {
-                if (in_array($content[1], $testGroup->getName(null))) {
+                if (in_array($content[1], $testGroup->getData('name'))) {
                     return $testGroup;  // we found one with the same name.
                 }
             }
@@ -90,25 +92,38 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
                 if ($n instanceof \DOMElement) {
                     switch ($n->tagName) {
-                        case 'role_id': $userGroup->setRoleId($n->textContent);
+                        case 'role_id':
+                            $userGroup->roleId = (int)$n->textContent;
                             break;
-                        case 'is_default': $userGroup->setDefault($n->textContent ?? false);
+                        case 'is_default':
+                            $userGroup->isDefault = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
                             break;
-                        case 'show_title': $userGroup->setShowTitle($n->textContent ?? true);
+                        case 'show_title':
+                            $userGroup->showTitle = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN, ['options' => ['default' => true]]);
                             break;
-                        case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale'));
+                        case 'name':
+                            $locale = $n->getAttribute('locale');
+                            $name = $userGroup->getData('name') ?? [];
+                            $name[$locale] = $n->textContent;
+                            $userGroup->setData('name', $name);
                             break;
-                        case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale'));
+                        case 'abbrev':
+                            $locale = $n->getAttribute('locale');
+                            $abbrev = $userGroup->getData('abbrev') ?? [];
+                            $abbrev[$locale] = $n->textContent;
+                            $userGroup->setData('abbrev', $abbrev);
                             break;
-                        case 'permit_self_registration': $userGroup->setPermitSelfRegistration($n->textContent ?? false);
+                        case 'permit_self_registration':
+                            $userGroup->permitSelfRegistration = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
                             break;
-                        case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent ?? false);
+                        case 'permit_metadata_edit':
+                            $userGroup->permitMetadataEdit = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
                             break;
                     }
                 }
             }
-
-            $userGroupId = Repo::userGroup()->add($userGroup);
+            $userGroup->save();
+            $userGroupId = $userGroup->userGroupId;
 
             $stageNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'stage_assignments');
             if ($stageNodeList->length == 1) {

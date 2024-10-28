@@ -55,13 +55,12 @@ trait AnonymizeData
             ->pluck('user_group_id')
             ->toArray();
 
-        $currentUserGroups = Repo::userGroup()->getCollector()
-            ->filterByUserGroupIds($currentUserUserGroupIds)
-            ->getMany();
+        $currentUserGroups = UserGroup::whereIn('userGroupId', $currentUserUserGroupIds)->get();
+
 
         $isAuthor = $currentUserGroups->contains(
             fn (UserGroup $userGroup) =>
-            $userGroup->getRoleId() == Role::ROLE_ID_AUTHOR
+            $userGroup->roleId == Role::ROLE_ID_AUTHOR
         );
 
         if ($currentUserReviewAssignment->isNotEmpty() || $isAuthor) {

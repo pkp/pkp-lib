@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\userGroup\UserGroup;
 
 class UserForm extends Form
 {
@@ -86,9 +87,7 @@ class UserForm extends Form
 
         $allUserGroups = [];
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$contextId])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$contextId])->get();
 
         foreach ($userGroups as $userGroup) {
             $allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();

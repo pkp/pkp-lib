@@ -27,7 +27,7 @@ use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\userGroup\relationships\UserUserGroup;
-use UserGroup;
+use PKP\userGroup\UserGroup;
 
 class UserRoleAssignmentInvitationNotify extends Mailable
 {
@@ -94,20 +94,15 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         $count = 1;
         foreach ($userUserGroups as $userUserGroup) {
-            if ($userUserGroup instanceof UserUserGroup) {
-                $userGroupHelper = UserGroupHelper::fromUserUserGroup($userUserGroup);
-            } else {
-                $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
-            }
-            
+            $userGroupHelper = $userUserGroup instanceof UserUserGroup
+                ? UserGroupHelper::fromUserUserGroup($userUserGroup)
+                : UserGroupHelper::fromArray($userUserGroup);
+    
             if ($count == 1) {
                 $retString = $title;
             }
 
-            $userGroupToUse = $userGroup;
-            if (!isset($userGroupToUse)) {
-                $userGroupToUse = Repo::userGroup()->get($userGroupHelper->userGroupId);
-            }
+            $userGroupToUse = $userGroup ?? UserGroup::find($userGroupHelper->userGroupId);
 
             $userGroupSection = $this->getUserUserGroupSection($userGroupHelper, $userGroupToUse, $context, $count, $locale);
 
@@ -192,20 +187,31 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             foreach ($this->invitation->getPayload()->userGroupsToRemove as $userUserGroup) {
                 $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
                 
-                $userGroup = Repo::userGroup()->get($userGroupHelper->userGroupId);
+                // Replace the repository call with UserGroup::find()
+                $userGroup = UserGroup::find($userGroupHelper->userGroupId);
+                
+                // Fetch the user-user group relationships
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($userGroup->getId())
                     ->withActive()
                     ->get();
                 
-                $userGroupsRemoved = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $userGroupsRemovedTitle);
+                // Process the user groups removed
+                $userGroupsRemoved = $this->getAllUserUserGroupSection(
+                    $userUserGroups->toArray(),
+                    $userGroup,
+                    $context,
+                    $locale,
+                    $userGroupsRemovedTitle
+                );
             }
 
             // Existing Roles
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$this->invitation->getContextId()])
-                ->filterByUserIds([$user->getId()])
-                ->getMany();
+
+            $userGroups = UserGroup::query()
+                ->withContextIds([$this->invitation->getContextId()])
+                ->withUserIds([$user->getId()])
+                ->get();
             
             foreach ($userGroups as $userGroup) {
                 $userUserGroups = UserUserGroup::withUserId($user->getId())

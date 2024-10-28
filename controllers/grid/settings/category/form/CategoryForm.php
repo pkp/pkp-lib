@@ -260,18 +260,17 @@ class CategoryForm extends Form
         // Sort options.
         $templateMgr->assign('sortOptions', Repo::submission()->getSortSelectOptions());
 
-        $assignableUserGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$request->getContext()->getId()])
-            ->filterByRoleIds($this->assignableRoles)
-            ->filterByStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-            ->getMany()
+        $assignableUserGroups = UserGroup::query()
+            ->withContextIds([$request->getContext()->getId()])
+            ->withRoleIds($this->assignableRoles)
+            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+            ->get()
             ->map(function (UserGroup $userGroup) use ($request) {
                 return [
                     'userGroup' => $userGroup,
                     'users' => Repo::user()
                         ->getCollector()
-                        ->filterByUserGroupIds([$userGroup->getId()])
+                        ->filterByUserGroupIds([$userGroup->usergroupid])
                         ->filterByContextIds([$request->getContext()->getId()])
                         ->getMany()
                         ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])

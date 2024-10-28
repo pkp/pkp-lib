@@ -36,6 +36,8 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\DashboardView;
 use PKP\submission\PKPSubmission;
+use PKP\userGroup\UserGroup;
+
 
 abstract class PKPBackendSubmissionsController extends PKPBaseController
 {
@@ -218,9 +220,9 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $submissions = $collector->getMany();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $contextId = $context->getId();
+
+        $userGroups = UserGroup::where('contextId', $contextId)->get();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -253,9 +255,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ->assignedTo([$user->getId()])
             ->getMany();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+            $contextId = $context->getId();
+            $userGroups = UserGroup::where('contextId', $contextId)->get();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -325,9 +326,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $submissions = $collector->getMany();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $contextId = $context->getId();
+        $userGroups = UserGroup::where('contextId', $contextId)->get();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

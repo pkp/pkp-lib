@@ -21,6 +21,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\userGroup\UserGroup;
 
 class PKPNotifyUsersForm extends FormComponent
 {
@@ -41,22 +42,21 @@ class PKPNotifyUsersForm extends FormComponent
     {
         $this->action = $action;
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
-
-        $userCountByGroupId = Repo::userGroup()->getUserCountByContextId($context->getId());
+        $userGroups = UserGroup::where('contextId', $context->getId())
+            ->withCount(['userUserGroups as userCount'])
+            ->get();
 
         $userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
-            if (in_array($userGroup->getId(), (array) $context->getData('disableBulkEmailUserGroups'))) {
+            $userGroupId = $userGroup->usergroupid;
+            if (in_array($userGroupId, (array) $context->getData('disableBulkEmailUserGroups'))) {
                 continue;
             }
             $userGroupOptions[] = [
-                'value' => $userGroup->getId(),
-                'label' => $userGroup->getLocalizedData('name'),
+                'value' => $userGroupId,
+                'label' => $userGroup->getLocalized('name'),
             ];
-            $this->userGroupCounts[$userGroup->getId()] = $userCountByGroupId->get($userGroup->getId(), 0);
+            $this->userGroupCounts[$userGroupId] = $userGroup->userCount ?? 0;
         }
 
         $currentUser = Application::get()->getRequest()->getUser();

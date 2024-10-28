@@ -79,7 +79,7 @@ class Report
             __('common.mailingAddress'),
             __('user.dateRegistered'),
             __('common.updated'),
-            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalizedName(), $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalized('name'), $this->_getUserGroups())
         ];
     }
 
@@ -93,7 +93,7 @@ class Report
         $userGroups = Repo::userGroup()->userUserGroups($user->getId());
         $groups = [];
         foreach ($userGroups as $userGroup) {
-            $groups[$userGroup->getId()] = 0;
+            $groups[$userGroup->usergroupid] = 0;
         }
 
         return [
@@ -106,7 +106,7 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->usergroupid]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
         ];
     }
 
@@ -118,9 +118,8 @@ class Report
     private function _getUserGroups(): array
     {
         static $cache;
-        return $cache ??= Repo::userGroup()->getCollector()
-            ->filterByContextIds([$this->_request->getContext()->getId()])
-            ->getMany()
+        return $cache ??= UserGroup::where('context_id', $this->_request->getContext()->getId())
+            ->get()
             ->toArray();
     }
 }

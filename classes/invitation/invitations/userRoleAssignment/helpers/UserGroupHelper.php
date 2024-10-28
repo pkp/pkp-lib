@@ -32,7 +32,7 @@ class UserGroupHelper
 
     public function getUserGroup()
     {
-        $this->userGroup = Repo::userGroup()->get($this->userGroupId);
+        $this->userGroup = UserGroup::find($this->userGroupId);
     }
 
     public static function fromArray(array $data): self

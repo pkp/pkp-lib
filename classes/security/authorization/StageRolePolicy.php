@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\UserGroup;
 
 class StageRolePolicy extends AuthorizationPolicy
 {
@@ -79,8 +80,8 @@ class StageRolePolicy extends AuthorizationPolicy
                 ->get();
 
             foreach ($stageAssignments as $stageAssignment) {
-                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->recommendOnly) {
+                $userGroup = UserGroup::findById($stageAssignment->userGroupId);
+                if ($userGroup && in_array($userGroup->roleId, $this->_roleIds) && !$stageAssignment->recommendOnly) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }
@@ -101,8 +102,8 @@ class StageRolePolicy extends AuthorizationPolicy
             $noResults = true;
             foreach ($stageAssignments as $stageAssignment) {
                 $noResults = false;
-                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER && !$stageAssignment->recommendOnly) {
+                $userGroup = UserGroup::findById($stageAssignment->userGroupId);
+                if ($userGroup && $userGroup->roleId == Role::ROLE_ID_MANAGER && !$stageAssignment->recommendOnly) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }

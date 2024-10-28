@@ -22,6 +22,7 @@ use Illuminate\Events\Dispatcher;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\UserGroup;
 
 class UpdateAuthorStageAssignments
 {
@@ -41,18 +42,16 @@ class UpdateAuthorStageAssignments
             ->withStageIds([$event->submission->getData('stageId')])
             ->get();
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$event->context->getId()])
-            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-            ->getMany();
+            $userGroups = UserGroup::query()
+            ->withContextIds([$event->context->getId()])
+            ->get();
 
         foreach ($stageAssigments as $stageAssignment) {
             $userGroup = $userGroups->get($stageAssignment->userGroupId);
-            if (!$userGroup || $stageAssignment->canChangeMetadata === $userGroup->getPermitMetadataEdit()) {
+            if (!$userGroup || $stageAssignment->canChangeMetadata === $userGroup->permitMetadataEdit) {
                 continue;
             }
-            $stageAssignment->canChangeMetadata = $userGroup->getPermitMetadataEdit();
+            $stageAssignment->canChangeMetadata = $userGroup->permitMetadataEdit;
             $stageAssignment->save();
         }
     }

@@ -18,6 +18,7 @@ use APP\facades\Repo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class UserRoleAssignmentInviteResource extends JsonResource
 {
@@ -70,11 +71,11 @@ class UserRoleAssignmentInviteResource extends JsonResource
     protected function transformUserGroups(?array $userGroups)
     {
         return collect($userGroups)->map(function ($userGroup) {
-            $userGroupModel = Repo::userGroup()->get($userGroup['userGroupId']);
+            $userGroupModel = UserGroup::find($userGroup['userGroupId']);
 
             return [
                 'userGroupId' => $userGroup['userGroupId'],
-                'userGroupName' => $userGroupModel->getName(null),
+                'userGroupName' => $userGroupModel ? $userGroupModel->getName(null) : null,
                 'masthead' => $userGroup['masthead'],
                 'dateStart' => $userGroup['dateStart'],
                 'dateEnd' => $userGroup['dateEnd'],

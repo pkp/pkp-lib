@@ -106,11 +106,11 @@ class UserFormHelper
                 $groupFormData = (array) $form->getData($groupData['formElement']);
                 $userGroups = Repo::userGroup()->getByRoleIds([$groupData['roleId']], $context->getId());
                 foreach ($userGroups as $userGroup) {
-                    if (!$userGroup->getPermitSelfRegistration()) {
+                    if (!$userGroup->permitSelfRegistration) {
                         continue;
                     }
 
-                    $groupId = $userGroup->getId();
+                    $groupId = $userGroup->usergroupid;
                     $inGroup = Repo::userGroup()->userInGroup($user->getId(), $groupId);
                     if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
                         Repo::userGroup()->assignUserToGroup($user->getId(), $groupId);

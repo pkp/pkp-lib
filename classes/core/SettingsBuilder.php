@@ -111,10 +111,6 @@ class SettingsBuilder extends Builder
         $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
             $settingName = Str::camel($settingName);
             if ($this->isMultilingual($settingName)) {
-                // if non-localized data passed, set the locale to default one
-                if (is_string($settingValue)) {
-                    $settingValue = $this->localizeNonLocalizedData($settingValue);
-                }
                 foreach ($settingValue as $locale => $localizedValue) {
                     $rows[] = [
                         $this->model->getKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue

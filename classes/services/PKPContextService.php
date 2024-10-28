@@ -48,7 +48,11 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\submission\GenreDAO;
+use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\validation\ValidatorFactory;
+use PKP\userGroup\UserGroup;
+use PKP\userGroup\relationships\UserUserGroup;
+
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -547,10 +551,27 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
 
-        Repo::userGroup()->installSettings($context->getId(), 'registry/userGroups.xml');
+        $userGroupRepository = app(UserGroupRepository::class);
+        $userGroupRepository->installSettings($context->getId(), 'registry/userGroups.xml');
 
-        $managerUserGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_MANAGER], $context->getId(), true)->firstOrFail();
-        Repo::userGroup()->assignUserToGroup($currentUser->getId(), $managerUserGroup->getId());
+
+        $managerUserGroup = UserGroup::where('contextId', $context->getId())
+            ->where('roleId', Role::ROLE_ID_MANAGER)
+            ->where('isDefault', true)
+            ->firstOrFail();
+        $assignmentExists = UserUserGroup::where('userId', $currentUser->getId())
+        ->where('userGroupId', $managerUserGroup->userGroupId)
+        ->exists();
+    
+        if (!$assignmentExists) {
+            UserUserGroup::create([
+                'userId' => $currentUser->getId(),
+                'userGroupId' => $managerUserGroup->userGroupId,
+                'dateStart' => null,
+                'dateEnd' => null,
+                'masthead' => null,
+            ]);
+        }
 
         $fileManager = new FileManager();
         foreach ($this->installFileDirs as $dir) {
@@ -623,7 +644,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::reviewAssignment()->deleteByContextId($context->getId());
 
-        Repo::userGroup()->deleteByContextId($context->getId());
+        UserGroup::where('contextId', $context->getId())->each(function ($userGroup) {
+            $userGroup->delete();
+        });
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->deleteByContextId($context->getId());

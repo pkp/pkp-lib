@@ -22,7 +22,7 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
-use Submission;
+use APP\submission\Submission;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -157,14 +157,14 @@ class Schema extends \PKP\core\maps\Schema
                         $output[$prop] = [];
                         foreach ($userGroups as $userGroup) {
                             $output[$prop][] = [
-                                'id' => (int) $userGroup->getId(),
-                                'name' => $userGroup->getName(null),
-                                'abbrev' => $userGroup->getAbbrev(null),
-                                'roleId' => (int) $userGroup->getRoleId(),
-                                'showTitle' => (bool) $userGroup->getShowTitle(),
-                                'permitSelfRegistration' => (bool) $userGroup->getPermitSelfRegistration(),
-                                'permitMetadataEdit' => (bool) $userGroup->getPermitMetadataEdit(),
-                                'recommendOnly' => (bool) $userGroup->getRecommendOnly(),
+                                'id' => (int) $userGroup->usergroupid,
+                                'name' => $userGroup->getLocalized('name'),
+                                'abbrev' => $userGroup->getLocalized('abbrev'),
+                                'roleId' => (int) $userGroup->roleId,
+                                'showTitle' => (bool) $userGroup->showTitle,
+                                'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
+                                'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
+                                'recommendOnly' => (bool) $userGroup->recommendOnly,
                             ];
                         }
                     }
@@ -188,38 +188,47 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     break;
                 case 'stageAssignments':
-                    $submission = $auxiliaryData['submission'];
-                    $stageId = $auxiliaryData['stageId'];
+                    $submission = $auxiliaryData['submission'] ?? null;
+                    $stageId = $auxiliaryData['stageId'] ?? null;
 
-                    if((!isset($submission) || !isset($stageId)) || (!($submission instanceof Submission) || !is_numeric($auxiliaryData['stageId']))) {
+                    if (
+                        !($submission instanceof Submission) ||
+                        !is_numeric($stageId)
+                    ) {
                         $output['stageAssignments'] = [];
                         break;
                     }
 
                     // Get User's stage assignments for submission.
-                    // Note:
-                    // - A User can potentially have multiple assignments for a submission.
-                    // - A User can potentially have multiple assignments for a stage of a submission.
-                    $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-                        ->withStageIds($stageId ? [$stageId] : [])
+                    $stageAssignments = StageAssignment::with(['userGroup'])
+                        ->withSubmissionIds([$submission->getId()])
+                        ->withStageIds([$stageId])
                         ->withUserId($user->getId())
                         ->withContextId($this->context->getId())
                         ->get();
 
                     $results = [];
 
-                    foreach ($stageAssignments as  $stageAssignment /**@var StageAssignment  $stageAssignment*/) {
-                        // Get related user group info for stage assignment
-                        $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+                    foreach ($stageAssignments as $stageAssignment) {
+                        $userGroup = $stageAssignment->userGroup;
 
                         // Only prepare data for non-reviewer participants
-                        if ($userGroup->getRoleId() !== Role::ROLE_ID_REVIEWER) {
+                        if ($userGroup && $userGroup->roleId !== Role::ROLE_ID_REVIEWER) {
                             $entry = [
                                 'stageAssignmentId' => $stageAssignment->id,
-                                'stageAssignmentUserGroup' => $userGroup->getAllData(),
+                                'stageAssignmentUserGroup' => [
+                                    'id' => (int) $userGroup->usergroupid,
+                                    'name' => $userGroup->getLocalized('name'),
+                                    'abbrev' => $userGroup->getLocalized('abbrev'),
+                                    'roleId' => (int) $userGroup->roleId,
+                                    'showTitle' => (bool) $userGroup->showTitle,
+                                    'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
+                                    'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
+                                    'recommendOnly' => (bool) $userGroup->recommendOnly,
+                                ],
                                 'stageAssignmentStageId' => $stageId,
-                                'recommendOnly' => (bool)$stageAssignment->recommendOnly,
-                                'canChangeMetadata' => (bool)$stageAssignment->canChangeMetadata
+                                'recommendOnly' => (bool) $stageAssignment->recommendOnly,
+                                'canChangeMetadata' => (bool) $stageAssignment->canChangeMetadata,
                             ];
 
                             $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
@@ -230,22 +239,20 @@ class Schema extends \PKP\core\maps\Schema
 
                             $results[] = $entry;
                         }
-
-                        $output['stageAssignments'] = $results;
                     }
 
+                    $output['stageAssignments'] = $results;
                     break;
                 default:
                     $output[$prop] = $user->getData($prop);
                     break;
             }
-
-            $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
-
-            Hook::call('UserSchema::getProperties::values', [$this, &$output, $user, $props]);
-
-            ksort($output);
         }
+        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
+
+        Hook::call('UserSchema::getProperties::values', [$this, &$output, $user, $props]);
+
+        ksort($output);
 
         return $output;
     }

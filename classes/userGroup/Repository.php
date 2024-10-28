@@ -13,9 +13,6 @@
 
 namespace PKP\userGroup;
 
-use APP\core\Application;
-use APP\core\Request;
-use APP\facades\Repo;
 use Carbon\Carbon;
 use DateInterval;
 use Illuminate\Support\Collection;
@@ -23,7 +20,6 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -34,8 +30,6 @@ use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
 use PKP\xml\PKPXMLParser;
-use Illuminate\Database\Query\Builder;
-use stdClass;
 
 class Repository
 {
@@ -60,17 +54,6 @@ class Repository
     }
 
     /**
-     * Create UserGroup instance
-     *
-     * @param array $params
-     * @return UserGroup
-     */
-    public function newDataObject(array $params = []): UserGroup
-    {
-        return new UserGroup($params);
-    }
-
-    /**
      * Retrieve UserGroup by id and optional context id.
      *
      * @param int $id
@@ -79,13 +62,7 @@ class Repository
      */
     public function get(int $id, ?int $contextId = null): ?UserGroup
     {
-        $query = UserGroup::query()->where('user_group_id', $id);
-
-        if ($contextId !== null) {
-            $query->withContextIds([$contextId]);
-        }
-
-        return $query->first();
+        return UserGroup::findById($id, $contextId);
     }
 
     /**
@@ -160,74 +137,6 @@ class Repository
 
         return $errors;
     }
-    /**
-     * Add new UserGroup to database
-     *
-     * @param UserGroup $userGroup
-     * @return int The id of the new UserGroup
-     */
-    public function add(UserGroup $userGroup): int
-    {
-        $userGroup->save();
-
-        // reload to make sure that all relationships and settings are loaded
-        $userGroup = $this->get($userGroup->user_group_id, $userGroup->context_id);
-
-        Hook::call('UserGroup::add', [$userGroup]);
-
-        // Clear editorial masthead cache if the new role should be added to the masthead
-        if ($userGroup->masthead) {
-            self::forgetEditorialMastheadCache($userGroup->context_id);
-        }
-
-        return $userGroup->user_group_id;
-    }
-
-    /**
-     * Edit existing UserGroup with new parameters
-     *
-     * @param UserGroup $userGroup
-     * @param array $params
-     * @return void
-     */
-    public function edit(UserGroup $userGroup, array $params): void
-    {
-        // merge existing data with new parameters
-        $userGroup->fill($params);
-        $userGroup->save();
-
-        Hook::call('UserGroup::edit', [$userGroup, $params]);
-
-        // Clear editorial masthead and history cache if the role is on the masthead
-        if ($userGroup->masthead) {
-            self::forgetEditorialMastheadCache($userGroup->context_id);
-            self::forgetEditorialHistoryCache($userGroup->context_id);
-        }
-
-        // reload to make sure all relationships and settings are updated
-        $this->get($userGroup->user_group_id, $userGroup->context_id);
-    }
-
-    /**
-     * Delete UserGroup from the database.
-     *
-     * @param UserGroup $userGroup
-     * @return void
-     */
-    public function delete(UserGroup $userGroup): void
-    {
-        Hook::call('UserGroup::delete::before', [$userGroup]);
-
-        // clear editorial masthead and history cache if the role is on the masthead
-        if ($userGroup->masthead) {
-            self::forgetEditorialMastheadCache($userGroup->context_id);
-            self::forgetEditorialHistoryCache($userGroup->context_id);
-        }
-
-        $userGroup->delete();
-
-        Hook::call('UserGroup::delete', [$userGroup]);
-    }
 
     /**
      * Delete all user groups assigned to a certain context by contextId
@@ -240,7 +149,7 @@ class Repository
         UserGroup::query()
             ->withContextIds([$contextId])
             ->each(function (UserGroup $userGroup) {
-                $this->delete($userGroup);
+                $userGroup->delete();
             });
     }
 
@@ -440,7 +349,7 @@ class Repository
 
         // Clear editorial masthead cache if a new user is assigned to a masthead role
         if ($userGroup->masthead) {
-            self::forgetEditorialMastheadCache($userGroup->context_id);
+            self::forgetEditorialCache($userGroup->contextId);
         }
 
         return UserUserGroup::create([
@@ -466,7 +375,7 @@ class Repository
         if (!$userGroupId) {
             $contextIds = $this->getUserUserGroupsContextIds($userId);
             foreach ($contextIds as $contextId) {
-                self::forgetEditorialMastheadCache($contextId);
+                self::forgetEditorialCache($contextId);
                 self::forgetEditorialHistoryCache($contextId);
             }
         }
@@ -477,8 +386,8 @@ class Repository
             $query->withUserGroupId($userGroupId);
             $userGroup = $this->get($userGroupId, null);
             if ($userGroup && $userGroup->masthead) {
-                self::forgetEditorialMastheadCache($userGroup->context_id);
-                self::forgetEditorialHistoryCache($userGroup->context_id);
+                self::forgetEditorialCache($userGroup->contextId);
+                self::forgetEditorialHistoryCache($userGroup->contextId);
             }
         }
 
@@ -497,7 +406,7 @@ class Repository
     {
         // Clear editorial masthead and history cache if the user was displayed on the masthead for the given role
         if ($this->userOnMasthead($userId, $userGroupId)) {
-            self::forgetEditorialMastheadCache($contextId);
+            self::forgetEditorialCache($contextId);
             self::forgetEditorialHistoryCache($contextId);
         }
 
@@ -582,29 +491,7 @@ class Repository
      */
     public function getUserCountByContextId(?int $contextId = null): Collection
     {
-        $currentDateTime = now();
-
-        $query = UserGroup::query()
-            ->select('user_groups.user_group_id')
-            ->selectRaw('COUNT(user_user_groups.user_id) AS count')
-            ->join('user_user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
-            ->join('users', 'users.user_id', '=', 'user_user_groups.user_id')
-            ->where('users.disabled', 0)
-            ->where(function (Builder $q) use ($currentDateTime) {
-                $q->where('user_user_groups.date_start', '<=', $currentDateTime)
-                  ->orWhereNull('user_user_groups.date_start');
-            })
-            ->where(function (Builder $q) use ($currentDateTime) {
-                $q->where('user_user_groups.date_end', '>', $currentDateTime)
-                  ->orWhereNull('user_user_groups.date_end');
-            })
-            ->groupBy('user_groups.user_group_id');
-
-        if ($contextId !== null) {
-            $query->withContextIds([$contextId]);
-        }
-
-        return $query->pluck('count', 'user_group_id');
+        return UserGroup::withActiveUserCount($contextId)->pluck('count', 'user_group_id');
     }
 
     /**
@@ -662,8 +549,8 @@ class Repository
 
             $defaultStages = explode(',', (string) $setting->getAttribute('stages'));
 
-            // Create a UserGroup associated with this role
-            $userGroup = $this->newDataObject([
+            // Create a new UserGroup instance and set attributes
+            $userGroup = new UserGroup([
                 'role_id' => $roleId,
                 'context_id' => $contextId,
                 'permit_self_registration' => $permitSelfRegistration,
@@ -673,8 +560,10 @@ class Repository
                 'masthead' => $masthead,
             ]);
 
-            // insert the user group into the DB
-            $userGroupId = $this->add($userGroup);
+            // Save the UserGroup instance to the database
+            $userGroup->save();
+
+            $userGroupId = $userGroup->user_group_id;
 
             // Install default groups for each stage
             foreach ($defaultStages as $stageId) {
@@ -688,21 +577,21 @@ class Repository
                 }
             }
 
-            // add the i18n keys to the settings table so that they
-            // can be used when a new locale is added/reloaded
-            $newUserGroup = $this->get($userGroupId, $contextId);
-            $this->edit($newUserGroup, [
+            // Update the settings for nameLocaleKey and abbrevLocaleKey directly
+            $userGroup->fill([
                 'nameLocaleKey' => $nameKey,
                 'abbrevLocaleKey' => $abbrevKey,
             ]);
 
+            $userGroup->save();
+    
             // Install the settings in the current locale for this context
             foreach ($installedLocales as $locale) {
                 $this->installLocale($locale, $contextId);
             }
         }
 
-        self::forgetEditorialMastheadCache($contextId);
+        self::forgetEditorialCache($contextId);
         self::forgetEditorialHistoryCache($contextId);
 
         return true;
@@ -770,7 +659,7 @@ class Repository
             // Query that gets all users that are or were active in the given masthead roles
             // and that have accepted to be displayed on the masthead for the roles.
             // Sort the results by role ID and user family name.
-            $users = UserUserGroup::query()
+            $users = UserUserGroup::withContextId($contextId)
                 ->withContextId($contextId)
                 ->withUserGroupIds($mastheadRolesIds)
                 ->withUserUserGroupStatus($userUserGroupStatus->value)
@@ -796,7 +685,8 @@ class Repository
      * @param int $contextId
      * @return void
      */
-    public static function forgetEditorialMastheadCache(int $contextId): void
+    //public static function forgetEditorialMastheadCache(int $contextId): void
+    public static function forgetEditorialCache(int $contextId): void
     {
         $cacheKeyPrefix = 'PKP\userGroup\Repository::getMastheadUserIdsByRoleIds';
         $cacheKeys = [

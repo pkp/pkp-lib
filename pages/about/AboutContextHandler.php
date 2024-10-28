@@ -28,6 +28,7 @@ use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
 
 class AboutContextHandler extends Handler
 {
@@ -73,32 +74,44 @@ class AboutContextHandler extends Handler
 
         $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
 
-        $collector = Repo::userGroup()->getCollector();
-        $allMastheadUserGroups = $collector
-            ->filterByContextIds([$context->getId()])
-            ->filterByMasthead(true)
-            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderBy($collector::ORDERBY_ROLE_ID)
-            ->getMany()
-            ->toArray();
+        $allMastheadUserGroups = UserGroup::withContextIds([$context->getId()])
+            ->masthead(true)
+            ->excludeRoles([Role::ROLE_ID_REVIEWER])
+            ->orderByRoleId()
+            ->get();
+
+        // build an associative array of UserGroups keyed by their IDs
+        $allMastheadUserGroupsById = $allMastheadUserGroups->keyBy('id')->all();
 
         // sort the masthead roles in their saved order for display
-        $mastheadRoles = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
-
+        $mastheadRoles = [];
+        foreach ($savedMastheadUserGroupIdsOrder as $userGroupId) {
+            if (isset($allMastheadUserGroupsById[$userGroupId])) {
+                $mastheadRoles[$userGroupId] = $allMastheadUserGroupsById[$userGroupId];
+            }
+        }
+    
+        // add any remaining user groups not in the saved order
+        foreach ($allMastheadUserGroupsById as $userGroupId => $userGroup) {
+            if (!isset($mastheadRoles[$userGroupId])) {
+                $mastheadRoles[$userGroupId] = $userGroup;
+            }
+        }
+    
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId());
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
-            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->usergroupid] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($mastheadUserGroup->getId())
+                    ->withUserGroupId($mastheadUserGroup->usergroupid)
                     ->withActive()
                     ->withMasthead()
                     ->first();
                 if ($userUserGroup) {
                     $startDatetime = new DateTime($userUserGroup->dateStart);
-                    $mastheadUsers[$mastheadUserGroup->getId()][$user->getId()] = [
+                    $mastheadUsers[$mastheadUserGroup->usergroupid][$user->getId()] = [
                         'user' => $user,
                         'dateStart' => $startDatetime->format('Y'),
                     ];
@@ -142,26 +155,42 @@ class AboutContextHandler extends Handler
 
         $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
 
-        $collector = Repo::userGroup()->getCollector();
-        $allMastheadUserGroups = $collector
-            ->filterByContextIds([$context->getId()])
-            ->filterByMasthead(true)
-            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderBy($collector::ORDERBY_ROLE_ID)
-            ->getMany()
-            ->toArray();
+        $allMastheadUserGroups = UserGroup::withContextIds([$context->getId()])
+            ->masthead(true)
+            ->excludeRoles([Role::ROLE_ID_REVIEWER])
+            ->orderByRoleId()
+            ->get();
+
+        // build an associative array of UserGroups keyed by their IDs
+        $allMastheadUserGroupsById = $allMastheadUserGroups->keyBy('id')->all();
 
         // sort the masthead roles in their saved order for display
-        $mastheadRoles = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
+        $mastheadRoles = [];
+        foreach ($savedMastheadUserGroupIdsOrder as $userGroupId) {
+            if (isset($allMastheadUserGroupsById[$userGroupId])) {
+                $mastheadRoles[$userGroupId] = $allMastheadUserGroupsById[$userGroupId];
+            }
+        }
+    
+        // add any remaining user groups not in the saved order
+        foreach ($allMastheadUserGroupsById as $userGroupId => $userGroup) {
+            if (!isset($mastheadRoles[$userGroupId])) {
+                $mastheadRoles[$userGroupId] = $userGroup;
+            }
+        }
 
-        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId(), UserUserGroupStatus::STATUS_ENDED);
+        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
+            $mastheadRoles,
+            $context->getId(),
+            UserUserGroupStatus::STATUS_ENDED
+        );
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
-            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->usergroupid] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($mastheadUserGroup->getId())
+                    ->withUserGroupId($mastheadUserGroup->usergroupid)
                     ->withEnded()
                     ->withMasthead()
                     ->sortBy('date_start', 'desc')
@@ -176,7 +205,7 @@ class AboutContextHandler extends Handler
                     ];
                 }
                 if (!empty($services)) {
-                    $mastheadUsers[$mastheadUserGroup->getId()][$user->getId()] = [
+                    $mastheadUsers[$mastheadUserGroup->usergroupid][$user->getId()] = [
                         'user' => $user,
                         'services' => $services
                     ];

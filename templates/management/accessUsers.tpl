@@ -10,6 +10,4 @@
 
 {* Help Link *}
 {help file="users-and-roles" class="pkp_help_tab"}
-
-{capture assign=usersUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid" oldUserId=$oldUserId escape=false}{/capture}
-{load_url_in_div id="userGridContainer" url=$usersUrl}
+<user-access-manager></user-access-manager>

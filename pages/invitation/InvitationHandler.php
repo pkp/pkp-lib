@@ -109,6 +109,13 @@ class InvitationHandler extends Handler
             );
     }
 
+    /**
+     * Create an invitation to accept new role
+     * @param $args
+     * @param $request
+     * @return void
+     * @throws \Exception
+     */
     public function invite($args, $request): void
     {
         $invitationMode = 'create';
@@ -216,6 +223,11 @@ class InvitationHandler extends Handler
         $templateMgr->display('/invitation/userInvitation.tpl');
     }
 
+    /**
+     * Get current user user groups
+     * @param $id
+     * @return array
+     */
     private function getUserUserGroups($id): array
     {
         $output = [];

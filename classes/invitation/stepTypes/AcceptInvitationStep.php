@@ -194,6 +194,7 @@ class AcceptInvitationStep extends InvitationStepTypes
     }
 
     /**
+     * Get all form locals
      * @param Context $context
      * @return array
      */

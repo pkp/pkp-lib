@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-10-25 11:40+0000\n"
+"PO-Revision-Date: 2024-10-30 16:41+0000\n"
 "Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -23,7 +23,9 @@ msgid "manager.website.appearance"
 msgstr "Weergave"
 
 msgid "manager.website.imageFileRequired"
-msgstr "Een afbeelding is verplicht. Kies een afbeelding en laad ze op."
+msgstr ""
+"Een afbeelding is verplicht. Zorg ervoor dat je een bestand hebt gekozen en "
+"geüpload."
 
 msgid "manager.announcements"
 msgstr "Nieuwsberichten"
@@ -73,7 +75,7 @@ msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Kies een maand en/of dag naast het jaar van de afloopdatum."
 
 msgid "manager.announcements.form.description"
-msgstr "Beschrijving"
+msgstr "Nieuwsbericht"
 
 msgid "manager.announcements.form.descriptionInstructions"
 msgstr "De volledige tekst van het nieuwsbericht."
@@ -815,7 +817,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Rapporteringstool"
 
@@ -900,10 +901,12 @@ msgid "doi.manager.settings.doiSuffix.pattern"
 msgstr "DOI achtervoegsel"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Aangepast DOI achtervoegsel patroon"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Een of meer geselecteerde DOI-types zijn niet toegestaan voor het "
+"geconfigureerde DOI-registratiebureau."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -915,42 +918,51 @@ msgstr "Standaard - Genereert automatisch een uniek achtletterig achtervoegsel"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"None - Achtervoegsels moeten handmatig worden ingevoerd op de <a href=\""
+"{$doiManagementUrl}\">DOI beheerpagina</a> en worden niet automatisch "
+"gegenereerd"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Aangepast patroon - (niet aanbevolen)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Registratiebureau"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Selecteer het registratiebureau dat je wilt gebruiken voor het deponeren van "
+"DOI's."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Geen registratiebureau gekozen"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI's kunnen automatisch worden aangemaakt en gedeponeerd bij een "
+"registratiebureau. Om deze functie te gebruiken, zoek en installeer je een "
+"plugin van het juiste registratiebureau."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Geen"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI versiebeheer"
 
 msgid "doi.authorization.enabledRequired"
 msgstr ""
+"Je kunt deze handeling niet uitvoeren zonder dat DOI's zijn ingeschakeld."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Er zijn {$count} versies."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Alles bekijken"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI's voor alle versies"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "De DOI bevat ongeldige tekens."
 
 msgid "manager.setup.publishing"
 msgstr "Publicatiegegevens"
@@ -1286,15 +1298,12 @@ msgstr ""
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checklist voor het voorbereiden van een inzending"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Bij het aanleveren van een inzending voor het tijdschrift wordt aan auteurs "
-"gevraagd om eerst ieder punt op de checklist ter voorbereiding van een "
-"inzending af te vinken. De checklist wordt ook getoond in bij de "
-"auteursrichtlijnen, onder Over dit tijdschrift. De checklist kan hieronder "
-"aangepast worden. Alle punten moeten aangevinkt worden voor auteurs verder "
-"kunnen gaan met hun inzending."
+"Het volgende wordt getoond aan auteurs wanneer ze beginnen met hun "
+"inzending. Auteurs wordt gevraagd om te bevestigen dat hun inzending voldoet "
+"aan alle vereisten die hier zijn gespecificeerd voordat ze met hun inzending "
+"beginnen."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -2970,181 +2979,234 @@ msgid "emailTemplate.variable.announcementUrl"
 msgstr ""
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Het aantal inzendingen deze maand ontvangen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Het aantal geweigerde inzendingen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Het aantal geaccepteerde inzendingen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Het aantal inzendingen dat niet is opgenomen in andere totalen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Het totaal aantal ontvangen inzendingen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "De maand van het rapport"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Het jaar van het rapport"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Identificatie van uitgave, inclusief volume, nummer, jaar en titel"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "De URL naar de gepubliceerde uitgave"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Het jaar van het rapport"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "De link naar de pagina met redactionele activiteiten"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Deze e-mail wordt verstuurd aan een reviewer wanneer een eerder ingetrokken "
+"reviewverzoek opnieuw geactiveerd wordt."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Deze e-mail wordt door een redacteur verstuurd naar een reviewer die een "
+"reviewverzoek heeft afgewezen, wanneer de redacteur het verzoek opnieuw wil "
+"versturen."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Reviewverzoek Intrekken"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Deze e-mail wordt verstuurd wanneer een redacteur een reviewverzoek intrekt."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Valideer E-mail (Website)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Deze e-mail wordt automatisch verzonden naar een nieuwe gebruiker wanneer "
+"deze zich registreert op de site en de instellingen vereisen dat het e-"
+"mailadres wordt gevalideerd."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Andere Auteurs Inlichten"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Deze e-mail wordt verstuurd om auteurs van een inzending die niet zijn "
+"toegewezen als deelnemer te laten weten dat er een beslissing is genomen. "
+"Meestal zijn dit alle anderen behalve de inzender."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Een kopie van het e-mailbericht dat naar de indienende auteur is gestuurd"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Reviewers Inlichten over Beslissing"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Deze e-mail wordt door een redacteur naar een reviewer gestuurd om hem of "
+"haar te laten weten dat er een beslissing is genomen over een inzending die "
+"hij of zij heeft beoordeeld."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Een korte beschrijving van deze beslissing die bedoeld is om te worden "
+"gedeeld in een kennisgeving per e-mail aan reviewers over deze beslissing"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr ""
+"We hebben ervoor gekozen om deze inzending zonder herzieningen te accepteren."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "We hebben ervoor gekozen deze inzending af te wijzen."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "We hebben de auteurs uitgenodigd om revisies in te dienen."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"We hebben de auteurs uitgenodigd om een herziene versie in te dienen voor "
+"verdere beoordeling."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Reviewverzoek voor de inzending is ingetrokken."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Inzending Geaccepteerd"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat zijn inzending is geaccepteerd voor "
+"publicatie."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Inzending teruggestuurd naar Copyediting"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat zijn inzending is teruggestuurd naar de "
+"copyeditingfase."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Inzending teruggestuurd van Copyediting"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat zijn inzending is teruggestuurd na de "
+"copyeditingfase."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Reviewronde Geannuleerd"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat een reviewronde voor de inzending is "
+"geannuleerd."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Inzending Afgewezen"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat zijn inzending is afgewezen na peer "
+"review."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Inzending Afgewezen (Pre-Review)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Nieuwe Reviewronde Gestart"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat er een nieuwe reviewronde voor de "
+"inzending wordt gestart."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Revisies Gevraagd"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Deze e-mail stelt de auteur op de hoogte van een beslissing om revisies aan "
+"te vragen tijdens de peer review."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Opnieuw ter beoordeling indienen"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur over een “herzien en opnieuw indienen” "
+"beslissing met betrekking tot hun inzending."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Herstel Afgewezen Inzending"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat een eerdere beslissing om hun inzending "
+"te weigeren na peer review wordt teruggedraaid."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Herstel Inzending Geweigerd zonder Review"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Deze e-mail laat de auteur weten dat een eerdere beslissing om zijn "
+"inzending zonder review te weigeren, wordt teruggedraaid."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Verzonden naar Review"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat zijn inzending naar de reviewfase wordt "
+"gestuurd."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Verzonden naar Productie"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Deze e-mail informeert de auteur dat zijn inzending naar de productiefase "
+"wordt gestuurd."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Inzending Geaccepteerd (Zonder Beoordeling)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Deze e-mail laat de auteur weten dat de inzending direct naar de copyediting-"
+"fase wordt gestuurd zonder peer review."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Aanbeveling Gedaan"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Dit bericht laat een senior redacteur of sectieredacteur weten dat er een "
+"redactionele aanbeveling is gedaan voor een van de aan hen toegewezen "
+"inzendingen. Dit bericht wordt gebruikt wanneer een redacteur enkel een "
+"redactionele beslissing mag aanbevelen en vereist dat een geautoriseerde "
+"redacteur redactionele beslissingen vastlegt. Deze optie kan geselecteerd "
+"worden bij het toewijzen van deelnemers aan een inzending."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Review mogelijk"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3153,7 +3215,7 @@ msgstr ""
 "voor de gevraagde datum"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Review niet mogelijk"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -3162,41 +3224,41 @@ msgstr ""
 "afgewezen"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Herinnering Reviewverzoek"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Deze e-mail wordt verstuurd door een redacteur om een reviewer eraan te "
+"herinneren dat zijn review wordt verwacht."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Herinnering Reviewverzoek (geautomatiseerd)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Deze e-mail wordt automatisch verstuurd als de afgesproken reviewperiode "
-"verstrijkt (zie Review opties onder Tijdschrift inrichten) en een-klik "
-"toegang voor reviewers is uitgeschakeld. Scheduled tasks moet ingeschakeld "
-"en geconfigureerd zijn (zie het configuratiebestand)."
+"Deze e-mail wordt automatisch verzonden wanneer een review op de vervaldatum "
+"nog niet is afgerond."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Review Bevestiging"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Deze e-mail wordt door een redacteur naar een reviewer gestuurd om te "
+"bevestigen dat de review is ontvangen en om de reviewer te bedanken."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Geautomatiseerde Review Herinnering"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
 "Deze e-mail wordt automatisch verzonden wanneer de datum voor de bevestiging "
-"van een reviewopdracht verstreken is (zie Review opties onder Tijdschrift "
+"van een reviewverzoek verstreken is (zie Review opties onder Tijdschrift "
 "inrichten) en een-klik toegang voor reviewers is uitgeschakeld. Scheduled "
 "tasks moet ingeschakeld en geconfigureerd zijn (zie het configuratiebestand)."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Artikel Review Verzoek"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
@@ -3208,7 +3270,7 @@ msgstr ""
 "in stap 2 van het inrichten van het tijdschrift. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Verzoek tot reviewen van een artikel"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3225,13 +3287,13 @@ msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Redactionele Herinnering"
 
 msgid "mailable.editorialReminder.description"
-msgstr ""
+msgstr "Een automatische e-mail naar redacteuren met openstaande taken"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Bevestiging wachtwoord herstellen"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3240,9 +3302,8 @@ msgstr ""
 "bevat een URL die ze kunnen volgen om hun wachtwoord te herstellen."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Tijdschriftregistratie"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Deze e-mail wordt verstuurd naar alle nieuw geregistreerde gebruikers om ze "
@@ -3250,7 +3311,7 @@ msgstr ""
 "hun gebruikersnaam en wachtwoord."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Registratie als Reviewer"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3259,15 +3320,16 @@ msgstr ""
 "voorzien."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Inzending bewaard voor later"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Een automatische e-mail die naar auteurs wordt gestuurd wanneer ze hun "
+"inzending opslaan om later aan te vullen"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Bevestiging Inzending"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar een auteur "
@@ -3276,40 +3338,47 @@ msgstr ""
 "procedure en de auteur wordt bedankt voor de inzending."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Bevestiging Inzending (Overige Auteurs)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
 "Deze e-mail wordt, indien geactiveerd, automatisch verstuurd naar de andere "
-"auteurs die niet geregistreerd zijn als gebruikers van OJS.."
+"auteurs die niet geregistreerd zijn als gebruikers van OJS."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Discussie (Inzending)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Deze e-mail wordt verzonden wanneer een discussie wordt aangemaakt of "
+"beantwoord in de indieningsfase."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Discussie (Review)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Deze e-mail wordt verzonden wanneer een discussie wordt aangemaakt of "
+"beantwoord in de reviewfase."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Discussie (Copyediting)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Deze e-mail wordt verzonden wanneer een discussie wordt aangemaakt of "
+"beantwoord in de copyeditingfase."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Discussie (Production)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Deze e-mail wordt verzonden wanneer een discussie wordt aangemaakt of "
+"beantwoord in de productiefase."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Bericht Herziene Versie"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3327,10 +3396,12 @@ msgid "mailable.statisticsReportNotify.name"
 msgstr ""
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Wijzig Review Bericht"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Deze e-mail brengt de reviewer automatisch op de hoogte wanneer de details "
+"van hun reviewopdracht zijn gewijzigd."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
@@ -3363,10 +3434,10 @@ msgid "manager.mailables.addTemplates"
 msgstr ""
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Sjablonen"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Wijzig Sjabloon"
 
 msgid "manager.mailables.removeTemplate"
 msgstr ""
@@ -3405,7 +3476,7 @@ msgid "manager.submissionAck.allAuthors"
 msgstr ""
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Redactionele beslissingen"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
@@ -3441,37 +3512,37 @@ msgid "mailable.copyeditRequest.name"
 msgstr ""
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Redacteur toegewezen"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Naar Productie"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Systeem"
 
 msgid "mailable.versionCreated.name"
 msgstr ""
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Review Voltooid"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Review aangepast"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Ontvangstbevestiging voor andere auteurs"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Redacteur toegewezen (Auto)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Redacteur toekennen"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Inzending Redacteur Nodig"
 
 #, fuzzy
 #~ msgid "emails.reviewRemind.body"
@@ -3533,3 +3604,9 @@ msgstr "Afbeelding"
 
 msgid "manager.statistics.counterR5"
 msgstr "Counter R5"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "De link om een e-mailadres te valideren"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 rapporten"

@@ -2,6 +2,7 @@
 
 namespace PKP\core;
 
+use PKP\facades\Locale;
 use Illuminate\Support\Str;
 use PKP\validation\MultilingualInput;
 use Illuminate\Support\Facades\Validator;
@@ -14,17 +15,118 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     
     public function boot()
     {
-        Validator::extend('multilingual', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator) {
+        Validator::extend('multilingual', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
             
             $parameters = collect($parameters);
             $multilinngualInput = new MultilingualInput($parameters->shift(), $parameters->toArray());
+
             $multilinngualInput
                 ->setValidator($validator)
-                ->validate($attribute, $value, function ($attribute, $message = null) {
+                ->validate($attribute, $value, function ($attribute, $message = null) { // source : \Illuminate\Validation\InvokableValidationRule
                     return $this->pendingPotentiallyTranslatedString($attribute, $message);
                 });
 
             return $multilinngualInput->passed();
+        });
+
+        Validator::extend('no_new_line', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
+            return strpos($value, PHP_EOL) === false;
+        });
+
+        Validator::extend('email_or_localhost', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
+            $validationFactory = app()->get('validator'); /** @var \Illuminate\Validation\Factory $validationFactory */
+            
+            $emailValidator = $validationFactory->make(
+                ['value' => $value],
+                ['value' => 'email']
+            );
+
+            if ($emailValidator->passes()) {
+                return true;
+            }
+
+            $regexValidator = $validationFactory->make(
+                ['value' => $value],
+                ['value' => ['regex:/^[-a-zA-Z0-9!#\$%&\'\*\+\.\/=\?\^_\`\{\|\}~]*(@localhost)$/']]
+            );
+
+            if ($regexValidator->passes()) {
+                return true;
+            }
+
+            return false;
+        });
+
+        Validator::extend('issn', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
+            $validationFactory = app()->get('validator'); /** @var \Illuminate\Validation\Factory $validationFactory */
+
+            $regexValidator = $validationFactory->make(
+                ['value' => $value],
+                ['value' => 'regex:/^(\d{4})-(\d{3}[\dX])$/']
+            );
+
+            if ($regexValidator->fails()) {
+                return false;
+            }
+
+            // ISSN check digit: http://www.loc.gov/issn/basics/basics-checkdigit.html
+            $numbers = str_replace('-', '', $value);
+            $check = 0;
+
+            for ($i = 0; $i < 7; $i++) {
+                $check += $numbers[$i] * (8 - $i);
+            }
+
+            $check = $check % 11;
+
+            switch ($check) {
+                case 0:
+                    $check = '0';
+                    break;
+                case 1:
+                    $check = 'X';
+                    break;
+                default:
+                    $check = (string) (11 - $check);
+            }
+
+            return ($numbers[7] === $check);
+        });
+
+        Validator::extend('orcid', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
+            $validationFactory = app()->get('validator'); /** @var \Illuminate\Validation\Factory $validationFactory */
+
+            $orcidRegexValidator = $validationFactory->make(
+                ['value' => $value],
+                ['value' => 'regex:/^https:\/\/(sandbox\.)?orcid.org\/(\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X])$/']
+            );
+
+            if ($orcidRegexValidator->fails()) {
+                return false;
+            }
+
+            // ISNI check digit: http://www.isni.org/content/faq#FAQ16
+            $digits = preg_replace('/[^0-9X]/', '', $value);
+
+            $total = 0;
+            for ($i = 0; $i < 15; $i++) {
+                $total = ($total + $digits[$i]) * 2;
+            }
+
+            $remainder = $total % 11;
+            $result = (12 - $remainder) % 11;
+
+            return ($digits[15] == ($result == 10 ? 'X' : $result));
+        });
+
+        Validator::extend('currency', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
+            $currency = Locale::getCurrencies()->getByLetterCode((string) $value);
+            return isset($currency);
+        });
+
+        Validator::extend('country', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
+            $country = Locale::getCountries()->getByAlpha2((string) $value);
+            return isset($country);
         });
     }
 
@@ -36,28 +138,18 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
     protected function registerValidationFactory()
     {
         $this->app->singleton('validator', function ($app) {
-            $validator = new class($app['translator'], $app) extends \Illuminate\Validation\Factory {
-                
+            $validator = new class($app['translator'], $app) extends \Illuminate\Validation\Factory
+            {    
                 /**
-                 * Resolve a new Validator instance.
-                 *
-                 * @param  array  $data
-                 * @param  array  $rules
-                 * @param  array  $messages
-                 * @param  array  $attributes
-                 * @return \Illuminate\Validation\Validator
+                 * @see \Illuminate\Validation\Factory::resolve()
                  */
                 protected function resolve(array $data, array $rules, array $messages, array $attributes)
                 {
                     if (is_null($this->resolver)) {
-                        return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator {
-
+                        return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator
+                        {
                             /**
-                             * Get the validation message for an attribute and rule.
-                             *
-                             * @param  string  $attribute
-                             * @param  string  $rule
-                             * @return string
+                             * @see \Illuminate\Validation\Concerns\FormatsMessages::getMessage()
                              */
                             protected function getMessage($attribute, $rule)
                             {

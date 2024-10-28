@@ -23,6 +23,7 @@ use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
+use PKP\user\User;
 use stdClass;
 
 class SendInvitationStep extends InvitationStepTypes
@@ -32,10 +33,10 @@ class SendInvitationStep extends InvitationStepTypes
      *
      * @throws Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context): array
+    public function getSteps(?Invitation $invitation, Context $context,?User $user): array
     {
         $steps = [];
-        if(!$invitation) {
+        if(!$invitation && !$user) {
             $steps[] = $this->invitationSearchUser();
         }
         $steps[] = $this->invitationDetailsForm($context);

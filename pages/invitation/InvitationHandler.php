@@ -183,7 +183,7 @@ class InvitationHandler extends Handler
         ];
         $steps = new SendInvitationStep();
         $templateMgr->setState([
-            'steps' => $steps->getSteps($invitation, $context),
+            'steps' => $steps->getSteps($invitation, $context,$user),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(

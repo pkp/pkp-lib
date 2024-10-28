@@ -19,6 +19,7 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
+use PKP\user\User;
 
 class AcceptInvitationStep extends InvitationStepTypes
 {
@@ -27,13 +28,12 @@ class AcceptInvitationStep extends InvitationStepTypes
      *
      * @throws \Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context): array
+    public function getSteps(?Invitation $invitation, Context $context, ?User $user): array
     {
         $steps = [];
 
-        switch ($invitation->invitationModel->userId) {
+        switch ($user) {
             case !null:
-                $user = Repo::user()->get($invitation->invitationModel->userId);
                 if(!$user->getData('orcidAccessToken')) {
                     $steps[] = $this->verifyOrcidStep();
                     $steps[] = $this->acceptInvitationReviewStep($context);

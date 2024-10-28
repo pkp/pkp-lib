@@ -15,6 +15,7 @@ namespace PKP\invitation\stepTypes;
 use PKP\context\Context;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
+use PKP\user\User;
 
 abstract class InvitationStepTypes
 {
@@ -22,7 +23,7 @@ abstract class InvitationStepTypes
      * Get the invitation steps
      * use of the built-in UI for making the invitation
      */
-    abstract public function getSteps(?Invitation $invitation, Context $context);
+    abstract public function getSteps(?Invitation $invitation, Context $context, ?User $user): array;
 
     /** fake invitation for email template
      */

@@ -66,12 +66,16 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'sometimes',
                 'array',
                 new AllowedKeysRule($allowedLocales),
-                new PrimaryLocaleRequired($primaryLocale),
             ],
             'givenName.*' => [
                 'nullable', // Make optional for other locales
                 'string',
                 'max:255',
+            ],
+            "givenName.{$primaryLocale}" => [
+                'sometimes',
+                Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
+                Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE),
             ],
             'familyName' => [
                 'bail',
@@ -91,15 +95,13 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'bail',
                 Rule::excludeIf(!is_null($invitation->getUserId()) && $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
                 new ProhibitedIncludingNull(!is_null($invitation->getUserId())),
-                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE]), ['nullable']),
-                Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
+                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
                 'sometimes',
                 'array',
                 new AllowedKeysRule($allowedLocales),
-                new PrimaryLocaleRequired($primaryLocale),
             ],
             'affiliation.*' => [
-                'nullable', // Make optional for other locales
+                'nullable', // Make optional for all locales
                 'string',
                 'max:255',
             ],

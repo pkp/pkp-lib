@@ -221,6 +221,14 @@ class InvitationController extends PKPBaseController
                     throw new Exception('This invitation does not support API handling');
                 }
 
+                if (in_array($actionName, $this->requiresOnlyId) && $this->invitation->getStatus() != InvitationStatus::INITIALIZED) {
+                    throw new Exception('This action is not allowed');
+                }
+
+                if (in_array($actionName, $this->requiresIdAndKey) && $this->invitation->getStatus() != InvitationStatus::PENDING) {
+                    throw new Exception('This action is not allowed');
+                }
+
                 $this->createInvitationHandler = $invitation->getCreateInvitationController($this->invitation);
                 $this->receiveInvitationHandler = $invitation->getReceiveInvitationController($this->invitation);
 

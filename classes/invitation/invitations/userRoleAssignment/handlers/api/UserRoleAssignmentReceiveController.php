@@ -15,6 +15,7 @@
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
 use APP\facades\Repo;
+use Carbon\Carbon;
 use Core;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -113,10 +114,16 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         foreach ($this->invitation->getPayload()->userGroupsToAdd as $userUserGroup) {
             $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
 
+            $dateStart = Carbon::parse($userGroupHelper->dateStart)->startOfDay();
+            $today = Carbon::today();
+
+            // Use today's date if dateStart is in the past, otherwise keep dateStart
+            $effectiveDateStart = $dateStart->lessThan($today) ? $today->toDateString() : $dateStart->toDateString();
+
             Repo::userGroup()->assignUserToGroup(
                 $user->getId(),
                 $userGroupHelper->userGroupId,
-                $userGroupHelper->dateStart,
+                $effectiveDateStart,
                 $userGroupHelper->dateEnd,
                 isset($userGroupHelper->masthead) && $userGroupHelper->masthead 
                     ? UserUserGroupMastheadStatus::STATUS_ON 

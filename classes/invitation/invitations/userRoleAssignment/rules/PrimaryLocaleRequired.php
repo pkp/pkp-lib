@@ -27,8 +27,10 @@ class PrimaryLocaleRequired implements Rule
 
     public function passes($attribute, $value)
     {
-        $providedLocales = array_filter($value);
-        if (!empty($providedLocales) && !array_key_exists($this->primaryLocale, $providedLocales)) {
+        $providedLocales = array_keys($value);
+        if (!empty($providedLocales) && 
+            array_key_exists($this->primaryLocale, $value) && 
+            empty($value[$this->primaryLocale])) {
             return false;
         }
 

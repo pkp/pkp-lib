@@ -109,6 +109,8 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 new ProhibitedIncludingNull(!is_null($invitation->getUserId())),
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE]), ['nullable']),
                 Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE),
+                'sometimes', // Applies the rule only if userCountry exists in the request
+                Rule::requiredIf($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE),
                 'string',
                 'max:255',
             ],
@@ -152,7 +154,6 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 new AddUserGroupRule($invitation),
             ],
             'userGroupsToAdd.*.masthead' => 'required|bool',
-            'userGroupsToAdd.*.dateStart' => 'required|date|after_or_equal:today',
             'userOrcid' => [
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
                 'orcid'

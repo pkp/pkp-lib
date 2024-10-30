@@ -32,6 +32,10 @@ class Form extends Section
         $this->form = $form;
     }
 
+    /**
+     * @inheritDoc
+     * @throws Exception
+     */
     public function getState(): stdClass
     {
         $config = parent::getState();

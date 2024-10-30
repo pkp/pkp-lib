@@ -71,7 +71,13 @@ class InvitationHandler extends Handler
         return $invitation;
     }
 
-    private function getInvitationById(Request $request, $id): Invitation
+    /**
+     * Get invitation by invitation id
+     * @param Request $request
+     * @param int $id
+     * @return Invitation
+     */
+    private function getInvitationById(Request $request, int $id): Invitation
     {
         $invitation = Repo::invitation()
             ->getById($id);
@@ -111,12 +117,12 @@ class InvitationHandler extends Handler
 
     /**
      * Create an invitation to accept new role
-     * @param $args
-     * @param $request
+     * @param array $args
+     * @param Request $request
      * @return void
      * @throws \Exception
      */
-    public function invite($args, $request): void
+    public function invite(array $args, Request $request): void
     {
         $invitationMode = 'create';
         $invitationPayload = [
@@ -154,7 +160,7 @@ class InvitationHandler extends Handler
             }
             $invitationPayload['userId'] = $invitationModel['userId'];
             $invitationPayload['inviteeEmail'] = $invitationModel['email'] ?: $user->getEmail();
-            $invitationPayload['orcid'] = $payload['orcid']; //$reviewer->getData('orcidAccessToken')
+            $invitationPayload['orcid'] = $payload['orcid'];
             $invitationPayload['givenName'] = $user ? $user->getGivenName(null) : $payload['givenName'];
             $invitationPayload['familyName'] = $user ? $user->getFamilyName(null) : $payload['familyName'];
             $invitationPayload['affiliation'] = $user ? $user->getAffiliation(null) : $payload['affiliation'];
@@ -190,7 +196,7 @@ class InvitationHandler extends Handler
         ];
         $steps = new SendInvitationStep();
         $templateMgr->setState([
-            'steps' => $steps->getSteps($invitation, $context,$user),
+            'steps' => $steps->getSteps($invitation,$context,$user),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -225,10 +231,10 @@ class InvitationHandler extends Handler
 
     /**
      * Get current user user groups
-     * @param $id
+     * @param int $id
      * @return array
      */
-    private function getUserUserGroups($id): array
+    private function getUserUserGroups(int $id): array
     {
         $output = [];
         $userGroups = Repo::userGroup()->userUserGroups($id);

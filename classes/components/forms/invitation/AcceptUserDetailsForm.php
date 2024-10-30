@@ -19,11 +19,11 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\facades\Locale;
 
-define('ACCEPT_FORM_USER_DETAILS', 'acceptUserDetails');
 class AcceptUserDetailsForm extends FormComponent
 {
+    public const ACCEPT_FORM_USER_DETAILS = 'acceptUserDetails';
     /** @copydoc FormComponent::$id */
-    public $id = ACCEPT_FORM_USER_DETAILS;
+    public $id = self::ACCEPT_FORM_USER_DETAILS;
 
     /** @copydoc FormComponent::$method */
     public $method = 'POST';

@@ -35,7 +35,7 @@ class Step
      * @param string $type A type of this step.
      * @param bool $skipInvitationUpdate Skip invitation update.
      */
-    public function __construct(string $id, string $name, string $description = '', string $stepLabel, string $nextButtonLabel, string $type, bool $skipInvitationUpdate = false)
+    public function __construct(string $id, string $name, string $stepLabel, string $nextButtonLabel, string $type, string $description = '', bool $skipInvitationUpdate = false)
     {
         $this->id = $id;
         $this->name = $name;

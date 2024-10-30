@@ -30,6 +30,12 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         return $this->invitation;
     }
 
+    /**
+     * Redirect to accept invitation page
+     * @param Request $request
+     * @return void
+     * @throws \Exception
+     */
     public function acceptHandle(Request $request): void
     {
         $templateMgr = TemplateManager::getManager($request);
@@ -39,7 +45,7 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         $invitationModel = $this->invitation->invitationModel->toArray();
         $user = $invitationModel['userId'] ?Repo::user()->get($invitationModel['userId']) : null;
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation, $context,$user),
+            'steps' => $steps->getSteps($this->invitation,$context,$user),
             'primaryLocale' => $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,
@@ -52,10 +58,16 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         $templateMgr->display('invitation/acceptInvitation.tpl');
     }
 
+    /**
+     * Redirect to login page after decline invitation
+     * @param Request $request
+     * @return void
+     * @throws \Exception
+     */
     public function declineHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
-            $request->getDispatcher()->handle404();
+            $request->getDispatcher()->handle404('The link is deactivated as the invitation was cancelled');
         }
 
         $context = $request->getContext();

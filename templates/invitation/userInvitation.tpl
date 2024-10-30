@@ -1,4 +1,4 @@
-?php
+<?php
 {**
  * templates/management/userInvitation.tpl
  *
@@ -13,13 +13,13 @@
 {extends file="layouts/backend.tpl"}
 {block name="page"}
     <user-invitation-page
-            :primary-locale="primaryLocale"
-            :email-templates-api-url="emailTemplatesApiUrl"
-            :page-title="pageTitle"
-            :page-title-description="pageTitleDescription"
-            :invitation-payload="invitationPayload"
-            :invitation-type="invitationType"
-            :invitation-mode="invitationMode"
-            :steps="steps"
+        :primary-locale="primaryLocale"
+        :email-templates-api-url="emailTemplatesApiUrl"
+        :page-title="pageTitle"
+        :page-title-description="pageTitleDescription"
+        :invitation-payload="invitationPayload"
+        :invitation-type="invitationType"
+        :invitation-mode="invitationMode"
+        :steps="steps"
     />
 {/block}

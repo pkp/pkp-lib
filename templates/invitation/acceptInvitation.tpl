@@ -13,11 +13,11 @@
 {extends file="layouts/backend.tpl"}
 {block name="page"}
     <accept-invitation-page
-            :primary-locale="primaryLocale"
-            :page-title="pageTitle"
-            :page-title-description="pageTitleDescription"
-            :steps="steps"
-            :invitation-id="invitationId"
-            :invitation-key="invitationKey"
+        :primary-locale="primaryLocale"
+        :page-title="pageTitle"
+        :page-title-description="pageTitleDescription"
+        :steps="steps"
+        :invitation-id="invitationId"
+        :invitation-key="invitationKey"
     />
 {/block}

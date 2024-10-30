@@ -44,6 +44,9 @@ class Email extends Section
         $this->recipients = $recipients;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getState(): stdClass
     {
         $config = parent::getState();
@@ -59,6 +62,10 @@ class Email extends Section
         return $config;
     }
 
+    /**
+     * Get all email recipients for email composer
+     * @return array
+     */
     protected function getRecipientOptions(): array
     {
         $recipientOptions = [];
@@ -75,6 +82,10 @@ class Email extends Section
         return $recipientOptions;
     }
 
+    /**
+     * Get all email templates for email composer
+     * @return array
+     */
     protected function getEmailTemplates(): array
     {
         $request = Application::get()->getRequest();

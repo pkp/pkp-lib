@@ -12,7 +12,6 @@
  */
 namespace PKP\invitation\stepTypes;
 
-use APP\facades\Repo;
 use PKP\components\forms\invitation\AcceptUserDetailsForm;
 use PKP\context\Context;
 use PKP\invitation\core\Invitation;
@@ -56,9 +55,9 @@ class AcceptInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'userVerifyOrcid',
             __('acceptInvitation.verifyOrcid.stepName'),
-            __('userInvitation.searchUser.stepDescription'),
             'popup',
-            'AcceptInvitationVerifyOrcid'
+            'AcceptInvitationVerifyOrcid',
+            __('userInvitation.searchUser.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -69,10 +68,10 @@ class AcceptInvitationStep extends InvitationStepTypes
         $step = new Step(
             'verifyOrcid',
             __('acceptInvitation.verifyOrcid.stepName'),
-            __('acceptInvitation.verifyOrcid.stepDescription'),
             __('acceptInvitation.verifyOrcid.stepLabel'),
             __('userInvitation.verifyOrcid.nextButtonLabel'),
-            'popup'
+            'popup',
+            __('acceptInvitation.verifyOrcid.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();
@@ -86,9 +85,9 @@ class AcceptInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'userCreateForm',
             __('acceptInvitation.accountDetails.stepName'),
-            __('userInvitation.accountDetails.stepDescription'),
             'form',
-            'AcceptInvitationUserAccountDetails'
+            'AcceptInvitationUserAccountDetails',
+            __('userInvitation.accountDetails.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -103,10 +102,10 @@ class AcceptInvitationStep extends InvitationStepTypes
         $step = new Step(
             'userCreate',
             __('acceptInvitation.accountDetails.stepName'),
-            __('acceptInvitation.accountDetails.stepDescription'),
             __('acceptInvitation.accountDetails.stepLabel'),
             __('acceptInvitation.accountDetails.nextButtonLabel'),
-            'form'
+            'form',
+            __('acceptInvitation.accountDetails.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();
@@ -122,9 +121,9 @@ class AcceptInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'userCreateForm',
             __('acceptInvitation.accountDetails.stepName'),
-            __('userInvitation.accountDetails.stepDescription'),
             'form',
-            'AcceptInvitationUserDetailsForms'
+            'AcceptInvitationUserDetailsForms',
+            __('userInvitation.accountDetails.stepDescription'),
         );
         $sections->addSection(
             new Form(
@@ -145,10 +144,10 @@ class AcceptInvitationStep extends InvitationStepTypes
         $step = new Step(
             'userDetails',
             __('acceptInvitation.userDetails.stepName'),
-            __('acceptInvitation.userDetails.stepDescription'),
             __('acceptInvitation.userDetails.stepLabel'),
             __('acceptInvitation.userDetails.nextButtonLabel'),
-            'form'
+            'form',
+            __('acceptInvitation.userDetails.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();
@@ -164,9 +163,9 @@ class AcceptInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'userCreateRoles',
             '',
-            '',
             'table',
-            'AcceptInvitationReview'
+            'AcceptInvitationReview',
+            ''
         );
         $sections->addSection(
             new Form(
@@ -184,10 +183,10 @@ class AcceptInvitationStep extends InvitationStepTypes
         $step = new Step(
             'userCreateReview',
             __('acceptInvitation.detailsReview.stepName'),
-            __('acceptInvitation.detailsReview.stepDescription'),
             __('acceptInvitation.detailsReview.stepLabel'),
             __('acceptInvitation.detailsReview.nextButtonLabel'),
-            'review'
+            'review',
+            __('acceptInvitation.detailsReview.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();

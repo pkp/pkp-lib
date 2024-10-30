@@ -52,10 +52,9 @@ class SendInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'searchUserForm',
             __('userInvitation.searchUser.stepName'),
-            __('userInvitation.searchUser.stepDescription'),
             'form',
             'UserInvitationSearchFormStep',
-            true
+             __('userInvitation.searchUser.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -66,10 +65,10 @@ class SendInvitationStep extends InvitationStepTypes
         $step = new Step(
             'searchUser',
             __('userInvitation.searchUser.stepName'),
-            __('userInvitation.searchUser.stepDescription'),
             __('userInvitation.searchUser.stepLabel'),
             __('userInvitation.searchUser.nextButtonLabel'),
             'emptySection',
+            __('userInvitation.searchUser.stepDescription'),
             true
         );
         $step->addSectionToStep($sections->getState());
@@ -94,29 +93,29 @@ class SendInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'userDetails',
             __('userInvitation.enterDetails.stepName'),
-            __('userInvitation.enterDetails.stepDescription'),
             'form',
-            'UserInvitationDetailsFormStep'
+            'UserInvitationDetailsFormStep',
+            __('userInvitation.enterDetails.stepDescription'),
         );
         $sections->addSection(
             new Form(
                 'userDetails',
                 __('userInvitation.enterDetails.stepName'),
                 __('userInvitation.enterDetails.stepDescription'),
-                new UserDetailsForm('users', $locales, $context),
+                new UserDetailsForm('users', $locales),
             ),
             [
                 'validateFields' => [],
-                'userGroups' => $this->getAllUserGroup($context)
+                'userGroups' => $this->getAllUserGroups($context)
             ]
         );
         $step = new Step(
             'userDetails',
             __('userInvitation.enterDetails.stepName'),
-            __('userInvitation.enterDetails.stepDescription'),
             __('userInvitation.enterDetails.stepLabel'),
             __('userInvitation.enterDetails.nextButtonLabel'),
-            'form'
+            'form',
+            __('userInvitation.enterDetails.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();
@@ -132,9 +131,9 @@ class SendInvitationStep extends InvitationStepTypes
         $sections = new Sections(
             'userInvitedEmail',
             __('userInvitation.sendMail.stepLabel'),
-            __('userInvitation.sendMail.stepName'),
             'email',
-            'UserInvitationEmailComposerStep'
+            'UserInvitationEmailComposerStep',
+            __('userInvitation.sendMail.stepName'),
         );
         $fakeInvitation = $this->getFakeInvitation();
         $mailable = new UserRoleAssignmentInvitationNotify($context, $fakeInvitation);
@@ -157,19 +156,21 @@ class SendInvitationStep extends InvitationStepTypes
         $step = new Step(
             'userInvited',
             __('userInvitation.sendMail.stepName'),
-            __('userInvitation.sendMail.stepDescription'),
             __('userInvitation.sendMail.stepLabel'),
             __('userInvitation.sendMail.nextButtonLabel'),
-            'email'
+            'email',
+            __('userInvitation.sendMail.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();
     }
 
     /**
-     * get all user groups
+     * Get all user groups
+     * @param Context $context
+     * @return array
      */
-    private function getAllUserGroup(Context $context): array
+    private function getAllUserGroups(Context $context): array
     {
         $allUserGroups = [];
         $userGroups = Repo::userGroup()->getCollector()

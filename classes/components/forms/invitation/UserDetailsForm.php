@@ -18,11 +18,11 @@ use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_USER_DETAILS', 'userDetails');
 class UserDetailsForm extends FormComponent
 {
+    public const FORM_USER_DETAILS = 'userDetails';
     /** @copydoc FormComponent::$id */
-    public $id = FORM_USER_DETAILS;
+    public $id = self::FORM_USER_DETAILS;
 
     /** @copydoc FormComponent::$method */
     public $method = 'POST';
@@ -32,9 +32,8 @@ class UserDetailsForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param \PKP\context\Context $context Journal or Press to change settings for
      */
-    public function __construct($action, $locales, $context)
+    public function __construct(string $action, array $locales)
     {
         $this->action = $action;
         $this->locales = $locales;

@@ -23,8 +23,13 @@ class Sections
     public array $props = [];
 
     /**
+     * @param string $id A unique id for this section
+     * @param string $name The name of this section
+     * @param string $type section type eg: form
+     * @param string $sectionComponent A vuejs component for this section
+     * @param string $description description of this section
      */
-    public function __construct(string $id, string $name, string $description = '', string $type, string $sectionComponent)
+    public function __construct(string $id, string $name, string $type, string $sectionComponent,string $description = '')
     {
         $this->id = $id;
         $this->name = $name;

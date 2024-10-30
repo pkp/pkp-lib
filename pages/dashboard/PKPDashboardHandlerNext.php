@@ -168,6 +168,7 @@ abstract class PKPDashboardHandlerNext extends Handler
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,
+                    'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
                 ],
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),
@@ -254,6 +255,7 @@ abstract class PKPDashboardHandlerNext extends Handler
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
+            'REVIEWER_SELECT_CREATE' => PKPReviewerGridHandler::REVIEWER_SELECT_CREATE,
 
             'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
 

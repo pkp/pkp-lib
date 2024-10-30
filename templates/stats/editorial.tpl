@@ -68,7 +68,7 @@
 						:is-active="isSidebarVisible"
 						@click="toggleSidebar"
 					>
-						<icon icon="filter" :inline="true"></icon>
+						<icon icon="Filter" class="h-4 w-4" :inline="true"></icon>
 						{translate key="common.filter"}
 					</pkp-button>
 				</template>

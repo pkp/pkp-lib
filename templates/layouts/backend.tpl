@@ -43,7 +43,7 @@
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">
 					<template #button>
-						<icon icon="sitemap"></icon>
+						<icon icon="Sitemap" class="h-7 w-7"></icon>
 						<span class="-screenReader">{translate key="context.contexts"}</span>
 					</template>
 					<ul>
@@ -77,16 +77,16 @@
 					{call_hook name="Template::Layout::Backend::HeaderActions"}
 					<div class="app__headerAction app__tasks">
 						<button ref="tasksButton" @click="openTasks">
-							<icon icon="bell-o"></icon>
+							<icon icon="Notifications" class="h-7 w-7"></icon>
 							<span class="-screenReader">{translate key="common.tasks"}</span>
 							<span v-if="unreadTasksCount" class="app__tasksCount">{{ unreadTasksCount }}</span>
 						</button>
 					</div>
 					<dropdown class="app__headerAction app__userNav">
 						<template #button>
-							<icon icon="user-circle-o"></icon>
+							<initials-avatar :is-secondary="true"></initials-avatar>
 							{if $isUserLoggedInAs}
-								<icon icon="user-circle" class="app__userNav__isLoggedInAsWarning"></icon>
+								<icon icon="User" class="absolute right-2 top-2 text-on-dark bg-negative rounded-full h-5 w-5"></icon>
 							{/if}
 							<span class="-screenReader">{$currentUser->getData('userName')}</span>
 						</template>
@@ -99,7 +99,7 @@
 											<li>
 												<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
 													{if $localeKey == $currentLocale}
-														<icon icon="check" :inline="true"></icon>
+														<icon icon="Complete" class="h-5 w-5" :inline="true"></icon>
 													{/if}
 													{$locale|escape}
 												</a>

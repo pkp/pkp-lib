@@ -45,7 +45,7 @@
                                 :key="i"
                                 type="warning"
                             >
-                                <icon icon="exclamation-triangle"></icon>
+                                <icon icon="Error" class="h-5 w-5"></icon>
                                 {{ error }}
                             </notification>
                         </template>

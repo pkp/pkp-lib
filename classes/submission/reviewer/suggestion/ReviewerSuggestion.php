@@ -139,6 +139,15 @@ class ReviewerSuggestion extends Model
         )->shouldCache();
     }
 
+    public function markAsApprove(Carbon $approvedAtTimestamp, ?int $reviewerId = null, ?int $approverId = null): bool
+    {
+        return (bool)$this->update([
+            'approvedAt' => $approvedAtTimestamp,
+            'reviewerId' => $reviewerId,
+            'approverId' => $approverId,
+        ]);
+    }
+
     public function scopeWithContextId(Builder $query, int $contextId): Builder
     {
         return $query

@@ -17,10 +17,12 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\mail\mailables\ReviewerRegister;
@@ -31,15 +33,20 @@ use Symfony\Component\Mailer\Exception\TransportException;
 
 class CreateReviewerForm extends ReviewerForm
 {
+    public ?ReviewerSuggestion $reviewerSuggestion = null;
+
     /**
      * Constructor.
      *
      * @param Submission $submission
      * @param ReviewRound $reviewRound
+     * @param ReviewerSuggestion|null $reviewerSuggestion
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
         parent::__construct($submission, $reviewRound);
+        $this->reviewerSuggestion = $reviewerSuggestion;
+        
         $this->setTemplate('controllers/grid/users/reviewer/form/createReviewerForm.tpl');
 
         // the users register for the site, thus
@@ -78,6 +85,14 @@ class CreateReviewerForm extends ReviewerForm
         $context = Application::get()->getRequest()->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
+
+        if ($this->reviewerSuggestion) {
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('familyName', $this->reviewerSuggestion->familyName);
+            $this->setData('givenName', $this->reviewerSuggestion->givenName);
+            $this->setData('email', $this->reviewerSuggestion->email);
+            $this->setData('affiliation', $this->reviewerSuggestion->affiliation);
+        }
     }
 
     /**
@@ -104,7 +119,7 @@ class CreateReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars([
+        $inputData = [
             'givenName',
             'familyName',
             'affiliation',
@@ -113,7 +128,13 @@ class CreateReviewerForm extends ReviewerForm
             'email',
             'skipEmail',
             'userGroupId',
-        ]);
+        ];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**
@@ -171,6 +192,14 @@ class CreateReviewerForm extends ReviewerForm
                 );
                 error_log($e->getMessage());
             }
+        }
+
+        if ($this->getData('reviewerSuggestionId')) {
+            $this->reviewerSuggestion->markAsApprove(
+                Carbon::now(),
+                $reviewerId,
+                $request->getUser()->getId()
+            );
         }
 
         return parent::execute(...$functionArgs);

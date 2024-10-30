@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\user\Collector;
 
 class PKPSelectReviewerListPanel extends ListPanel
@@ -68,6 +69,7 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getConfig()
     {
+        $context = Application::get()->getRequest()->getContext();
         $config = parent::getConfig();
         $config['apiUrl'] = $this->apiUrl;
         $config['authorAffiliations'] = $this->authorAffiliations;
@@ -161,22 +163,11 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
         $config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
-        $config['suggestions'] = $this->getReviewerSuggestions();
-        $config['suggestionAddApiUrl'] = Application::get()->getRequest()->getDispatcher()->url(
-            Application::get()->getRequest(),
-            Application::ROUTE_COMPONENT,
-            null,
-            'grid.users.reviewer.ReviewerGridHandler',
-            'reloadReviewerForm',
-            null,
-            [
-                'submissionId' => 74,
-                'stageId' => 3,
-                'reviewRoundId' => 31,
-                'selectionType' => 2,
-                'suggestionId' => 1,
-            ]
-        );
+        $config['submission'] = $this->submission;
+
+        if ($context->getData('reviewerSuggestionEnabled')) {
+            $config['suggestions'] = $this->getReviewerSuggestions();
+        }
         
         return $config;
     }
@@ -227,6 +218,11 @@ class PKPSelectReviewerListPanel extends ListPanel
     protected function getReviewerSuggestions(): array
     {
         $map = Repo::submission()->getSchemaMap();
-        return $map->summarizeReviewerSuggestion($this->submission);
+        $suggestions = ReviewerSuggestion::query()
+            ->withSubmissionIds($this->submission->getId())
+            ->withApproved(false)
+            ->get();
+
+        return $map->summarizeReviewerSuggestion($suggestions);
     }
 }

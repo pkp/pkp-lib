@@ -50,7 +50,7 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
     {
         $givenLocales = array_keys($value);
 
-        if ($this->primaryLocale && !in_array($this->primaryLocale, $givenLocales)) {
+        if ($this->primaryLocale && !empty($this->primaryLocale) && !in_array($this->primaryLocale, $givenLocales)) {
             $this->passed = false;
             $this->validator->errors()->add(
                 "{$attribute}.{$this->primaryLocale}",

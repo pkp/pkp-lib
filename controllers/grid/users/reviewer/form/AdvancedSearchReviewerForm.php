@@ -170,6 +170,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
+                    'submissionId' => $this->getSubmission()->getId(),
+                    'reviewRoundId' => $reviewRound->getId(),
                     'reviewStage' => $reviewRound->getStageId(),
                 ],
                 'selectorName' => 'reviewerId',

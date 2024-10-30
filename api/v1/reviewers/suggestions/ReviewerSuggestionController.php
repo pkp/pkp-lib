@@ -98,10 +98,6 @@ class ReviewerSuggestionController extends PKPBaseController
         Route::delete('{suggestionId}', $this->delete(...))
             ->name('reviewer.suggestions.delete')
             ->whereNumber('suggestionId');
-        
-        Route::post('{suggestionId}', $this->approve(...))
-            ->name('reviewer.suggestions.approve')
-            ->whereNumber('suggestionId');
     }
 
     public function get(Request $illuminateRequest): JsonResponse
@@ -124,6 +120,12 @@ class ReviewerSuggestionController extends PKPBaseController
     {
         $suggestions = ReviewerSuggestion::query()
             ->withSubmissionIds($illuminateRequest->route('submissionId'))
+            ->when(
+                $illuminateRequest->has('approved'),
+                fn ($query) => $query->withApproved(
+                    filter_var($illuminateRequest->get('approved'), FILTER_VALIDATE_BOOLEAN)
+                )
+            )
             ->get();
 
         return response()->json([
@@ -175,15 +177,6 @@ class ReviewerSuggestionController extends PKPBaseController
         }
 
         $reviewerSuggestion->delete();
-
-        return response()->json([], Response::HTTP_OK);
-    }
-
-    public function approve(Request $illuminateRequest): JsonResponse
-    {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context->getId();
 
         return response()->json([], Response::HTTP_OK);
     }

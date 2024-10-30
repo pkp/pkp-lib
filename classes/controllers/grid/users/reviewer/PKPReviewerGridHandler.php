@@ -63,11 +63,15 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
+use PKP\controllers\grid\users\reviewer\form\EnrollExistingReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\CreateReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\AdvancedSearchReviewerForm;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
@@ -409,7 +413,17 @@ class PKPReviewerGridHandler extends GridHandler
         $formClassName = $this->_getReviewerFormClassName($selectionType);
 
         // Form handling
-        $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
+        if ($selectionType == static::REVIEWER_SELECT_CREATE && $request->getUserVar('reviewerSuggestionId')) {
+            // TODO : probably an exception if an already approved suggestion id passed
+            $reviewerForm = new $formClassName(
+                $this->getSubmission(),
+                $this->getReviewRound(),
+                ReviewerSuggestion::find($request->getUserVar('reviewerSuggestionId'))
+            );
+        } else {
+            $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
+        }
+
         $reviewerForm->readInputData();
 
         if ($reviewerForm->validate()) {
@@ -1106,7 +1120,17 @@ class PKPReviewerGridHandler extends GridHandler
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         // Form handling.
-        $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
+        if ($selectionType == static::REVIEWER_SELECT_CREATE && $request->getUserVar('reviewerSuggestionId')) {
+            // TODO : probably an exception if an already approved suggestion id passed
+            $reviewerForm = new $formClassName(
+                $this->getSubmission(),
+                $this->getReviewRound(),
+                ReviewerSuggestion::find($request->getUserVar('reviewerSuggestionId'))
+            );
+        } else {
+            $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
+        }
+        
         $reviewerForm->initData();
         $reviewerForm->setUserRoles($userRoles);
 
@@ -1122,15 +1146,11 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function _getReviewerFormClassName($selectionType)
     {
-        switch ($selectionType) {
-            case self::REVIEWER_SELECT_ADVANCED_SEARCH:
-                return '\PKP\controllers\grid\users\reviewer\form\AdvancedSearchReviewerForm';
-            case self::REVIEWER_SELECT_CREATE:
-                return '\PKP\controllers\grid\users\reviewer\form\CreateReviewerForm';
-            case self::REVIEWER_SELECT_ENROLL_EXISTING:
-                return '\PKP\controllers\grid\users\reviewer\form\EnrollExistingReviewerForm';
-        }
-        assert(false);
+        return match ((int)$selectionType) {
+            static::REVIEWER_SELECT_ADVANCED_SEARCH => AdvancedSearchReviewerForm::class,
+            static::REVIEWER_SELECT_CREATE => CreateReviewerForm::class,
+            static::REVIEWER_SELECT_ENROLL_EXISTING => EnrollExistingReviewerForm::class,
+        };
     }
 
     /**

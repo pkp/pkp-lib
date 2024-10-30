@@ -33,6 +33,7 @@ class AddUserGroupRule implements Rule
         if ($user = $this->invitation->getExistingUser()) {
             $userUserGroups = UserUserGroup::withUserId($user->getId())
                 ->withUserGroupId($value) // The $value is the userGroupId
+                ->withActive()
                 ->get();
 
             return $userUserGroups->isEmpty(); // Fail if the user does have the group assigned

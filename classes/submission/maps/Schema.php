@@ -500,13 +500,8 @@ class Schema extends \PKP\core\maps\Schema
         return $reviewerSuggestions;
     }
 
-    public function summarizeReviewerSuggestion(Submission $submission): array
+    public function summarizeReviewerSuggestion(Enumerable $reviewerSuggestions): array
     {
-        // TODO : need optional filter like only approved/unapproved ones
-        $reviewerSuggestions = ReviewerSuggestion::query()
-            ->withSubmissionIds($submission->getId())
-            ->get();
-
         return $this->getPropertyReviewerSuggestions($reviewerSuggestions);
     }
 

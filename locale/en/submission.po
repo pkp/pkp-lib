@@ -1308,6 +1308,9 @@ msgstr "A new submission is waiting to be sent for review or declined."
 msgid "editor.submission.stageParticipants"
 msgstr "Participants"
 
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Reviewer Suggestions"
+
 msgid "editor.submission.noneAssigned"
 msgstr "None Assigned"
 

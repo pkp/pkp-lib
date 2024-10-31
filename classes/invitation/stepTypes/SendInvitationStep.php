@@ -33,7 +33,7 @@ class SendInvitationStep extends InvitationStepTypes
      *
      * @throws Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context,?User $user): array
+    public function getSteps(?Invitation $invitation, Context $context, ?User $user): array
     {
         $steps = [];
         if(!$invitation && !$user) {

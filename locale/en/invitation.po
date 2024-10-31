@@ -160,9 +160,6 @@ msgstr "Start Date"
 msgid "invitation.role.dateEnd"
 msgstr "End Date"
 
-msgid "invitation.role.masthead"
-msgstr "Journal Masthead"
-
 msgid "invitation.role.addRole.button"
 msgstr "Add Another Role"
 
@@ -175,17 +172,11 @@ msgstr "Start Date"
 msgid "userInvitation.roleTable.endDate"
 msgstr "End Date"
 
-msgid "userInvitation.roleTable.journalMasthead"
-msgstr "Journal Masthead"
-
 msgid "userInvitation.sendMail.stepName"
 msgstr "Review & invite for roles"
 
 msgid "userInvitation.sendMail.nextButtonLabel"
 msgstr "Invite user to the role"
-
-msgid "userInvitation.sendMail.stepDescription"
-msgstr "Send the user an email to let them know about the invitation, next steps, journal GDPR polices and ORCID verification"
 
 msgid "userInvitation.sendMail.stepLabel"
 msgstr "{$step} - Modify email shared with the user"
@@ -260,7 +251,7 @@ msgid "acceptInvitation.passwordField.description"
 msgstr "It should be at least 6 characters long and could be a combination of uppercase letters, lowercase letters, numbers and symbols"
 
 msgid "acceptInvitation.privacyStatement.label"
-msgstr "Yes, I agree to have my data collected and stored according to the"
+msgstr "Yes, I agree to have my data collected and stored according to the {$url}"
 
 msgid "acceptInvitation.privacyStatement.btn"
 msgstr "Privacy Statement"
@@ -348,12 +339,6 @@ msgstr "Keep Working"
 
 msgid "userInvitation.status.invited"
 msgstr "Invited {$date}"
-
-msgid "userInvitation.search.userNotFound"
-msgstr "The user does not have a role in this journal"
-
-msgid "userInvitation.search.userFound"
-msgstr "The user already exists in the journal"
 
 msgid "userInvitation.edit.title"
 msgstr "Edit Invitation"

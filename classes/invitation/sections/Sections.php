@@ -29,7 +29,7 @@ class Sections
      * @param string $sectionComponent A vuejs component for this section
      * @param string $description description of this section
      */
-    public function __construct(string $id, string $name, string $type, string $sectionComponent,string $description = '')
+    public function __construct(string $id, string $name, string $type, string $sectionComponent, string $description = '')
     {
         $this->id = $id;
         $this->name = $name;

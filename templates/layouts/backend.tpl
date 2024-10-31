@@ -84,9 +84,20 @@
 					</div>
 					<dropdown class="app__headerAction app__userNav">
 						<template #button>
-							<initials-avatar :is-secondary="true"></initials-avatar>
+							<initials-avatar
+								:is-secondary="true"
+								given-name="{$currentUser->getData('givenName')}"
+								family-name="{$currentUser->getData('familyName')}"
+								{if $isUserLoggedInAs}
+								:is-disabled="true"
+								{/if}
+							></initials-avatar>
 							{if $isUserLoggedInAs}
-								<icon icon="User" class="absolute right-2 top-2 text-on-dark bg-negative rounded-full h-5 w-5"></icon>
+								<initials-avatar 
+									class="absolute right-2 top-2 rounded-full h-5 w-5"
+									:is-warnable="true"
+									:shrink="true"
+								></initials-avatar>
 							{/if}
 							<span class="-screenReader">{$currentUser->getData('userName')}</span>
 						</template>

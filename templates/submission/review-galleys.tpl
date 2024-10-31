@@ -32,11 +32,11 @@
             type="warning"
             class="submissionWizard__reviewEmptyWarning"
         >
-            <icon icon="exclamation-triangle" :inline="true"></icon>
+            <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
             {{ error }}
         </notification>
         <notification v-if="!errors.files && !galleys.length" type="warning" class="submissionWizard__reviewEmptyWarning">
-            <icon icon="exclamation-triangle" :inline="true"></icon>
+            <icon icon="Error" class="h-5 w-5" :inline="true"></icon>
             {translate key="author.submit.noFiles"}
         </notification>
         <ul v-if="galleys.length" class="submissionWizard__reviewPanel__list">

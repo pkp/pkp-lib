@@ -50,11 +50,6 @@ class ReviewerSuggestionsMigration extends \PKP\migration\Migration
                 ->timestamp('approved_at')
                 ->nullable()
                 ->comment('If and when the suggestion approved to add/invite suggested_reviewer');
-            
-            $table
-                ->bigInteger('stage_id')
-                ->nullable()
-                ->comment('The stage at which suggestion approved');
 
             $table
                 ->bigInteger('approver_id')

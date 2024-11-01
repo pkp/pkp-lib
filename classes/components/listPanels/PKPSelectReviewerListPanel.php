@@ -166,6 +166,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['submission'] = $this->submission;
 
         if ($context->getData('reviewerSuggestionEnabled')) {
+            $config['suggestionTitle'] = __('editor.submission.findAndSelectReviewerFromSuggestions');
             $config['suggestions'] = $this->getReviewerSuggestions();
         }
         
@@ -215,6 +216,9 @@ class PKPSelectReviewerListPanel extends ListPanel
             ->limit($this->count);
     }
 
+    /**
+     * Get the reviewer suggestions submission
+     */
     protected function getReviewerSuggestions(): array
     {
         $map = Repo::submission()->getSchemaMap();

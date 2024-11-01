@@ -31,6 +31,12 @@ class EditReviewerSuggestion extends AddReviewerSuggestion
             'suggestionReason' => [
                 'required',
             ],
+            'orcidId' => [
+                'sometimes',
+                'nullable',
+                'string',
+                // TODO; should have a orcid id vaidation rule ?
+            ],
         ];
     }
 

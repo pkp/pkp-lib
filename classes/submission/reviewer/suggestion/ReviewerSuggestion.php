@@ -39,7 +39,6 @@ class ReviewerSuggestion extends Model
             'email'                 => 'string',
             'orcid_id'              => 'string',
             'approved_at'           => 'datetime',
-            'stage_id'              => 'integer',
             'approver_id'           => 'integer',
             'reviewer_id'           => 'integer',
         ];
@@ -55,7 +54,6 @@ class ReviewerSuggestion extends Model
         return null;
     }
 
-    // TODO Add instution details as setting 
     public function getSettings(): array
     {
         return [
@@ -66,7 +64,6 @@ class ReviewerSuggestion extends Model
         ];
     }
 
-    // TODO should the instution details be a multigingual prop
     public function getMultilingualProps(): array
     {
         return [
@@ -96,17 +93,6 @@ class ReviewerSuggestion extends Model
                     ->toArray();
             }
         );
-    }
-
-    /**
-     * Accessor and Mutator for primary key => id
-     */
-    protected function id(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
-            set: fn($value) => [$this->primaryKey => $value],
-        )->shouldCache();
     }
 
     protected function submission(): Attribute
@@ -166,11 +152,6 @@ class ReviewerSuggestion extends Model
     public function scopeWithSuggestingUserIds(Builder $query, int|array $userIds): Builder
     {
         return $query->whereIn('suggesting_user_id', Arr::wrap($userIds));
-    }
-
-    public function scopeWithStageIds(Builder $query, int|array $stageIds): Builder
-    {
-        return $query->whereIn('stage_id', Arr::wrap($stageIds));
     }
 
     public function scopeWithApproved(Builder $query, bool $hasApproved = true): Builder

@@ -4,10 +4,9 @@ namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\validation\traits\HasMultilingualRule;
 
 class AddReviewerSuggestion extends FormRequest
@@ -16,12 +15,7 @@ class AddReviewerSuggestion extends FormRequest
 
     public function multilingualInputs(): array 
     {
-        return [
-            'familyName',
-            'givenName',
-            'affiliation',
-            'suggestionReason',
-        ];
+        return (new ReviewerSuggestion)->getMultilingualProps();
     }
 
     public function primaryLocale(): ?string 
@@ -56,7 +50,7 @@ class AddReviewerSuggestion extends FormRequest
             ],
             'familyName' => [
                 'required',
-                // 'multilingual:en,fr_CA',
+                // 'multilingual:en,fr_CA', // Alternative way to do multilingual validation
             ],
             'givenName' => [
                 'required',
@@ -71,20 +65,12 @@ class AddReviewerSuggestion extends FormRequest
             'suggestionReason' => [
                 'required',
             ],
-        ];
-    }
-
-    /**
-     * Get custom attributes for validator errors.
-     *
-     * @return array<string, string>
-     */
-    public function attributes(): array
-    {
-        return [
-            'familyName' => __('user.familyName'),
-            'givenName' => __('user.givenName'),
-            'email' => __('user.email'),
+            'orcidId' => [
+                'sometimes',
+                'nullable',
+                'string',
+                // TODO; should have a orcid id vaidation rule ?
+            ],
         ];
     }
 
@@ -98,23 +84,4 @@ class AddReviewerSuggestion extends FormRequest
             'submissionId' => $this->route('submissionId'),
         ]);
     }
-
-    /**
-     * Handle a failed validation attempt.
-     *
-     * @param  \Illuminate\Validation\Validator  $validator
-     * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    // protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
-    // {
-    //     $formatted = [];
-    //     foreach ($validator->errors()->getMessages() as $ruleKey => $messages) {
-    //         Arr::set($formatted, $ruleKey, $messages);
-    //     }
-        
-    //     ray($formatted);
-    //     parent::failedValidation($validator);
-    // }
 }

@@ -73,9 +73,10 @@ class ReviewerSuggestionsForm extends FormComponent
             ]));
 
         if (OrcidManager::isEnabled()) {
-            $this->addField(new FieldOrcid('orcid', [
+            $this->addField(new FieldText('orcidId', [
                 'label' => __('user.orcid'),
                 'tooltip' => __('orcid.about.orcidExplanation'),
+                'isRequired' => false,
             ]), [FIELD_POSITION_AFTER, 'email']);
         }   
     }

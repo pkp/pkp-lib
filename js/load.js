@@ -111,6 +111,7 @@ import ListPanel from '@/components/ListPanel/ListPanel.vue';
 
 // Manager components
 import UserInvitationManager from '@/managers/UserInvitationManager/UserInvitationManager.vue';
+import UserAccessManager from '@/managers/UserAccessManager/UserAccessManager.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -228,6 +229,8 @@ VueRegistry.registerComponent('PkpListPanel', ListPanel);
 
 // Register Invitation Manager
 VueRegistry.registerComponent('UserInvitationManager', UserInvitationManager);
+// Register User Access Manager
+VueRegistry.registerComponent('UserAccessManager', UserAccessManager);
 
 const pinia = createPinia();
 

@@ -230,6 +230,90 @@ class InvitationHandler extends Handler
     }
 
     /**
+     * Edit user using user access table action
+     * @param $args
+     * @param $request
+     * @return void
+     * @throws \Exception
+     */
+    public function editUser($args, $request): void
+    {
+        $invitation = null;
+        $invitationPayload =[];
+        if(!empty($args)) {
+            $invitationMode = 'edit';
+            $user = Repo::user()->get($args[0]);
+            $invitationPayload['userId'] = $args[0];
+            $invitationPayload['inviteeEmail'] = $user->getEmail();
+            $invitationPayload['orcid'] = $user->getData('orcid');
+            $invitationPayload['givenName'] = $user->getGivenName(null);
+            $invitationPayload['familyName'] = $user->getFamilyName(null);
+            $invitationPayload['affiliation'] = $user->getAffiliation(null);
+            $invitationPayload['country'] = $user->getCountry();
+            $invitationPayload['userGroupsToAdd'] = [];
+            $invitationPayload['currentUserGroups'] = $this->getUserUserGroups($args[0]);
+            $invitationPayload['userGroupsToRemove'] = [];
+            $invitationPayload['emailComposer'] = [
+                'emailBody' => '',
+                'emailSubject' => '',
+            ];
+            $templateMgr = TemplateManager::getManager($request);
+            $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
+            $this->setupTemplate($request);
+            $context = $request->getContext();
+            $breadcrumbs[] = [
+                'id' => 'contexts',
+                'name' => __('navigation.access'),
+                'url' => $request
+                    ->getDispatcher()
+                    ->url(
+                        $request,
+                        PKPApplication::ROUTE_PAGE,
+                        $request->getContext()->getPath(),
+                        'management',
+                        'settings',
+                    )
+            ];
+            $breadcrumbs[] = [
+                'id' => 'invitationWizard',
+                'name' => __('invitation.wizard.pageTitle'),
+            ];
+            $steps = new SendInvitationStep();
+            $templateMgr->setState([
+                'steps' => $steps->getSteps($invitation, $context,$user),
+                'emailTemplatesApiUrl' => $request
+                    ->getDispatcher()
+                    ->url(
+                        $request,
+                        Application::ROUTE_API,
+                        $context->getData('urlPath'),
+                        'emailTemplates'
+                    ),
+                'primaryLocale' => $context->getData('primaryLocale'),
+                'invitationType' => 'userRoleAssignment',
+                'invitationPayload' => $invitationPayload,
+                'invitationMode' => $invitationMode,
+                'pageTitle' =>
+                    $invitationPayload['givenName'][Locale::getLocale()] . ' '
+                    . $invitationPayload['familyName'][Locale::getLocale()],
+                'pageTitleDescription' =>
+                    __(
+                        'invitation.wizard.viewPageTitleDescription',
+                        ['name' => $invitationPayload['givenName'][Locale::getLocale()]]
+                    ),
+            ]);
+            $templateMgr->assign([
+                'pageComponent' => 'PageOJS',
+                'breadcrumbs' => $breadcrumbs,
+                'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+            ]);
+            $templateMgr->display('/invitation/userInvitation.tpl');
+        } else {
+            $request->getDispatcher()->handle404();
+        }
+    }
+
+    /**
      * Get current user user groups
      * @param int $id
      * @return array

@@ -48,7 +48,10 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $givenLocales = array_keys($value);
+        // TODO : Should an array_filter needed to be applied ?
+        // This will cause disallowed locales with null value to get bypassed even though those
+        // locale with null value have no impact.
+        $givenLocales = array_keys(array_filter($value));
 
         if ($this->primaryLocale && !empty($this->primaryLocale) && !in_array($this->primaryLocale, $givenLocales)) {
             $this->passed = false;

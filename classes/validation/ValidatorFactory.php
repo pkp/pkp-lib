@@ -2,13 +2,11 @@
 /**
  * @file classes/validation/ValidatorFactory.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorFactory
- *
- * @ingroup validation
  *
  * @brief A factory class for creating a Validator from the Laravel framework.
  */
@@ -17,6 +15,7 @@ namespace PKP\validation;
 
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Validator;
+use Illuminate\Validation\Factory;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
@@ -26,6 +25,11 @@ class ValidatorFactory
 {
     private function __construct()
     {       
+    }
+
+    public static function getFactory(): Factory
+    {
+        return app()->get('validator');
     }
 
     /**
@@ -41,8 +45,7 @@ class ValidatorFactory
      */
     public static function make(array $props, array $rules, ?array $messages = []): Validator
     {
-        /** @var \Illuminate\Validation\Factory $validationFactory */
-        $validationFactory = app()->get('validator');
+        $validationFactory = static::getFactory();
 
         return $validationFactory->make($props, $rules, self::getMessages($messages));   
     }

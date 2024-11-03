@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/components/form/publication/ReviewerSuggestionsForm.php
+ * @file classes/components/form/submission/ReviewerSuggestionsForm.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
@@ -8,13 +8,12 @@
  *
  * @class ReviewerSuggestionsForm
  *
- * @brief 
+ * @brief A preset form for setting submission's associated reviewer suggestions
  */
 
-namespace PKP\components\forms\publication;
+namespace PKP\components\forms\submission;
 
 use APP\submission\Submission;
-use PKP\components\forms\FieldOrcid;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;

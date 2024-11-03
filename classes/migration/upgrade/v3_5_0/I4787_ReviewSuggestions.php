@@ -9,7 +9,7 @@
  *
  * @class I4787_ReviewSuggestions
  *
- * @brief 
+ * @brief Add reviewer suggestion related tables
  */
 
 namespace PKP\migration\upgrade\v3_5_0;

@@ -9,7 +9,7 @@
  *
  * @class ReviewerSuggestionsMigration
  *
- * @brief 
+ * @brief Describe database table structures for reviewer suggestions.
  */
 
 namespace PKP\migration\install;

@@ -8,14 +8,14 @@
  *
  * @class ReviewerSuggestionsListPanel
  *
- * @brief 
+ * @brief A ListPanel component for displaying reviewer suggestions during the submission process
  */
 
 namespace PKP\components\listPanels;
 
 use APP\core\Application;
 use APP\submission\Submission;
-use PKP\components\forms\publication\ReviewerSuggestionsForm;
+use PKP\components\forms\submission\ReviewerSuggestionsForm;
 use PKP\context\Context;
 
 class ReviewerSuggestionsListPanel extends ListPanel
@@ -69,6 +69,9 @@ class ReviewerSuggestionsListPanel extends ListPanel
         return $config;
     }
 
+    /**
+     * Get the API url prefix of reviewer sugeestion's operation
+     */
     protected function getReviewerSuggestionsApiUrl(): string
     {
         return Application::get()->getRequest()->getDispatcher()->url(

@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file api/v1/reviewerSuggestions/resources/ReviewerSuggestionResource.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewerSuggestionResource
+ *
+ * @brief Transform the API response of reviewer suggestion in desired format
+ *
+ */
+
 namespace PKP\API\v1\reviewers\suggestions\resources;
 
 use Illuminate\Http\Request;

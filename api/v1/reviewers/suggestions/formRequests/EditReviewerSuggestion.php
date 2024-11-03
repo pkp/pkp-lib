@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file api/v1/reviewerSuggestions/formRequests/EditReviewerSuggestion.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class EditReviewerSuggestion
+ *
+ * @brief Handle API requests validation for updating reviewer suggestion operations.
+ *
+ */
+
 namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use Illuminate\Http\Response;

@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file api/v1/reviewerSuggestions/formRequests/AddReviewerSuggestion.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class AddReviewerSuggestion
+ *
+ * @brief Handle API requests validation for adding reviewer suggestion operations.
+ *
+ */
+
 namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use APP\core\Application;
@@ -13,11 +26,17 @@ class AddReviewerSuggestion extends FormRequest
 {
     use HasMultilingualRule;
 
+    /**
+     * @copydoc \PKP\validation\traits\HasMultilingualRule::multilingualInputs()
+     */
     public function multilingualInputs(): array 
     {
         return (new ReviewerSuggestion)->getMultilingualProps();
     }
 
+    /**
+     * @copydoc \PKP\validation\traits\HasMultilingualRule::primaryLocale()
+     */
     public function primaryLocale(): ?string 
     {
         $submission = Repo::submission()->get($this->route('submissionId'));
@@ -26,6 +45,9 @@ class AddReviewerSuggestion extends FormRequest
             ?? Application::get()->getRequest()->getContext()->getSupportedDefaultSubmissionLocale();
     }
 
+    /**
+     * @copydoc \PKP\validation\traits\HasMultilingualRule::allowedLocales()
+     */
     public function allowedLocales(): array 
     {
         return Application::get()->getRequest()->getContext()->getSupportedSubmissionLocales();

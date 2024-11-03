@@ -9,7 +9,7 @@
  *
  * @class ReviewerSuggestionController
  *
- * @brief 
+ * @brief Handle API requests for reviewer suggestion operations.
  *
  */
 

@@ -9,9 +9,8 @@
  *
  * @class SubmissionIncompletePolicy
  *
- * @ingroup security_authorization_internal
- *
- * @brief 
+ * @brief   Policy that ensures that the request contains a submission that has 
+ *          completed the submission process
  * 
  */
 

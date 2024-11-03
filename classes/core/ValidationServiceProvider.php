@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/ValidationServiceProvider.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ValidationServiceProvider
+ *
+ * @brief Register session driver, manager and related services
+ */
+
 namespace PKP\core;
 
 use PKP\facades\Locale;
@@ -13,6 +25,14 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
 {
     use CreatesPotentiallyTranslatedStrings;
     
+    /**
+     * Boot service provider
+     * 
+     * A good place to add any custom validation rules which will be availbale once the
+     * Service provider get registered
+     * 
+     * @return void
+     */
     public function boot()
     {
         Validator::extend('multilingual', function (string $attribute, mixed $value, array $parameters, ValidationValidator $validator): bool {
@@ -149,6 +169,9 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                         return new class ($this->translator, $data, $rules, $messages, $attributes) extends \Illuminate\Validation\Validator
                         {
                             /**
+                             * This override the core Validator's message construction system
+                             * that allows multilingual support for validation error message
+                             * 
                              * @see \Illuminate\Validation\Concerns\FormatsMessages::getMessage()
                              */
                             protected function getMessage($attribute, $rule)

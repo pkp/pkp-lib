@@ -1,15 +1,37 @@
 <?php
 
+/**
+ * @file classes/validation/traits/HasMultilingualRule.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class HasMultilingualRule
+ *
+ * @brief Halper trait to perform multilingual validation in a form request
+ *
+ */
+
 namespace PKP\validation\traits;
 
 use PKP\validation\MultilingualInput;
 
 trait HasMultilingualRule
 {
+    /**
+     * Define the multilingual fields
+     */
     abstract public function multilingualInputs(): array;
 
+    /**
+     * Define the primary locale
+     */
     abstract public function primaryLocale(): ?string;
 
+    /**
+     * Define the optional allowed locales that only acceptable
+     */
     abstract public function allowedLocales(): array;
 
     /**

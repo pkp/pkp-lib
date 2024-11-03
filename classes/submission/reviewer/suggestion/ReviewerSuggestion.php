@@ -9,7 +9,7 @@
  *
  * @class ReviewerSuggestion
  *
- * @brief 
+ * @brief Model class describing reviewer suggestion in the system.
  */
 
 namespace PKP\submission\reviewer\suggestion;
@@ -26,11 +26,25 @@ class ReviewerSuggestion extends Model
 {
     use ModelWithSettings;
 
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Model::$table
+     */
     protected $table = 'reviewer_suggestions';
+
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Model::$primaryKey
+     */
     protected $primaryKey = 'reviewer_suggestion_id';
 
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
+     */
+    // TODO : add `reviewer_suggestion_id` as guarded column once pkp/pkp-lib#10292 and pkp/pkp-lib#10562 merged
     protected $guarded = [];
 
+    /**
+     * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts
+     */
     protected function casts(): array
     {
         return [
@@ -44,16 +58,25 @@ class ReviewerSuggestion extends Model
         ];
     }
 
+    /**
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettingsTable
+     */
     public function getSettingsTable(): string
     {
         return 'reviewer_suggestion_settings';
     }
 
+    /**
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSchemaName
+     */
     public static function getSchemaName(): ?string
     {
         return null;
     }
 
+    /**
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettings
+     */
     public function getSettings(): array
     {
         return [
@@ -64,6 +87,9 @@ class ReviewerSuggestion extends Model
         ];
     }
 
+    /**
+     * @copydoc \PKP\core\traits\ModelWithSettings::getMultilingualProps
+     */
     public function getMultilingualProps(): array
     {
         return [
@@ -75,6 +101,9 @@ class ReviewerSuggestion extends Model
         ];
     }
 
+    /**
+     * Has this suggestion approved yet
+     */
     public function hasApproved(): ?Carbon
     {
         return $this->approvedAt;
@@ -95,6 +124,9 @@ class ReviewerSuggestion extends Model
         );
     }
 
+    /**
+     * Get submission associated with this reviewer suggestion
+     */
     protected function submission(): Attribute
     {
         return Attribute::make(
@@ -102,6 +134,9 @@ class ReviewerSuggestion extends Model
         )->shouldCache();
     }
 
+    /**
+     * Get suggesting user for this reviewer suggestion
+     */
     protected function suggestingUser(): Attribute
     {
         return Attribute::make(
@@ -111,6 +146,9 @@ class ReviewerSuggestion extends Model
         )->shouldCache();
     }
 
+    /**
+     * Get approving user who has approved this reviewer suggestion
+     */
     protected function approver(): Attribute
     {
         return Attribute::make(
@@ -118,6 +156,9 @@ class ReviewerSuggestion extends Model
         )->shouldCache();
     }
 
+    /**
+     * Get the reviewer who as been turn into a reviewer through this reviewer suggestion when approved
+     */
     protected function reviewer(): Attribute
     {
         return Attribute::make(
@@ -125,6 +166,9 @@ class ReviewerSuggestion extends Model
         )->shouldCache();
     }
 
+    /**
+     * Mark this suggestion approve
+     */
     public function markAsApprove(Carbon $approvedAtTimestamp, ?int $reviewerId = null, ?int $approverId = null): bool
     {
         return (bool)$this->update([
@@ -134,6 +178,9 @@ class ReviewerSuggestion extends Model
         ]);
     }
 
+    /**
+     * Scope a query to only include reviewer suggestions with given context id
+     */
     public function scopeWithContextId(Builder $query, int $contextId): Builder
     {
         return $query
@@ -144,16 +191,25 @@ class ReviewerSuggestion extends Model
             );
     }
 
+    /**
+     * Scope a query to only include reviewer suggestions with given submission id/s
+     */
     public function scopeWithSubmissionIds(Builder $query, int|array $submissionIds): Builder
     {
         return $query->whereIn('submission_id', Arr::wrap($submissionIds));
     }
 
+    /**
+     * Scope a query to only include reviewer suggestions with given suggesting user id/s
+     */
     public function scopeWithSuggestingUserIds(Builder $query, int|array $userIds): Builder
     {
         return $query->whereIn('suggesting_user_id', Arr::wrap($userIds));
     }
 
+    /**
+     * Scope a query to only include reviewer suggestions with given approve status
+     */
     public function scopeWithApproved(Builder $query, bool $hasApproved = true): Builder
     {
         return $query->when(

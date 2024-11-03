@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * @file classes/validation/MultilingualInput.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class MultilingualInput
+ *
+ * @brief Validation rule to validate multilingual requirements
+ *
+ */
+
 namespace PKP\validation;
 
 use Closure;
@@ -9,11 +22,20 @@ use Illuminate\Contracts\Validation\ValidatorAwareRule;
 
 class MultilingualInput implements ValidationRule, ValidatorAwareRule
 {
+    /**
+     * Required primary locale
+     */
     protected ?string $primaryLocale = null;
 
+    /**
+     * Optional allowed locales that only acceptable
+     */
     protected array $allowedLocales = [];
 
-    protected bool $passed = true;
+    /**
+     * Validation pass status
+     */
+    protected bool $passed;
     
     /**
      * The validator instance.
@@ -22,6 +44,9 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
      */
     protected Validator $validator;
 
+    /**
+     * Create a new instance
+     */
     public function __construct(?string $primaryLocale = null, array $allowedLocale = [])
     {
         $this->primaryLocale = $primaryLocale;
@@ -48,6 +73,8 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
+        $this->passed = true;
+        
         // TODO : Should an array_filter needed to be applied ?
         // This will cause disallowed locales with null value to get bypassed even though those
         // locale with null value have no impact.
@@ -72,6 +99,9 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
         }
     }
 
+    /**
+     * Has validation passed for this rule
+     */
     public function passed(): bool
     {
         return $this->passed;

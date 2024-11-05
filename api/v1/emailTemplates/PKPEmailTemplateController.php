@@ -153,7 +153,7 @@ class PKPEmailTemplateController extends PKPBaseController
 
         Hook::call('API::emailTemplates::params', [$collector, $illuminateRequest]);
 
-        $emailTemplates = $collector->getMany();
+        $emailTemplates = Repo::emailTemplate()->filterTemplatesByUserAccess($collector->getMany()->all(), $request->getUser(), $request->getContext()->getId());
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -171,6 +171,12 @@ class PKPEmailTemplateController extends PKPBaseController
         $emailTemplate = Repo::emailTemplate()->getByKey($request->getContext()->getId(), $illuminateRequest->route('key'));
 
         if (!$emailTemplate) {
+            return response()->json([
+                'error' => __('api.emailTemplates.404.templateNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if (!Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $emailTemplate, $request->getContext()->getId())) {
             return response()->json([
                 'error' => __('api.emailTemplates.404.templateNotFound')
             ], Response::HTTP_NOT_FOUND);

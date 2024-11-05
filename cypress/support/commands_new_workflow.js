@@ -10,6 +10,7 @@
 import Api from './api.js';
 import 'cypress-file-upload';
 import 'cypress-wait-until';
+import 'cypress-iframe'
 
 Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 	cy.window().then((win) => {
@@ -143,10 +144,13 @@ Cypress.Commands.add('setLocale', locale => {
 Cypress.Commands.add('resetPassword', (username,oldPassword,newPassword) => {
 	oldPassword = oldPassword || (username + username);
 	newPassword = newPassword || oldPassword;
+	cy.visit('index.php/publicknowledge/user/profile');
+	cy.get('a[name=changePassword]').click();
 	cy.get('input[name=oldPassword]').type(oldPassword, {delay: 0});
 	cy.get('input[name=password]').type(newPassword, {delay: 0});
 	cy.get('input[name=password2]').type(newPassword, {delay: 0});
-	cy.get('button').contains('OK').click();
+	cy.wait(1000);
+	cy.get('button').contains('Save').click();
 });
 
 Cypress.Commands.add('register', data => {
@@ -602,34 +606,6 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	cy.logout();
 });
 
-Cypress.Commands.add('createUser', user => {
-	if (!('email' in user)) user.email = user.username + '@mailinator.com';
-	if (!('password' in user)) user.password = user.username + user.username;
-	if (!('password2' in user)) user.password2 = user.username + user.username;
-	if (!('roles' in user)) user.roles = [];
-	cy.get('div[id=userGridContainer] a:contains("Add User")').click();
-	cy.wait(2000); // Avoid occasional glitches with given name field
-	cy.get('input[id^="givenName-en"]').type(user.givenName, {delay: 0});
-	cy.get('input[id^="familyName-en"]').type(user.familyName, {delay: 0});
-	cy.get('input[name=email]').type(user.email, {delay: 0});
-	cy.get('input[name=username]').type(user.username, {delay: 0});
-	cy.get('input[name=password]').type(user.password, {delay: 0});
-	cy.get('input[name=password2]').type(user.password2, {delay: 0});
-	if (!user.mustChangePassword) {
-		cy.get('input[name="mustChangePassword"]').click();
-	}
-	cy.get('select[name=country]').select(user.country);
-	cy.contains('More User Details').click();
-	cy.get('span:contains("Less User Details"):visible');
-	cy.get('input[id^="affiliation-en"]').type(user.affiliation, {delay: 0});
-	cy.get('form[id=userDetailsForm]').find('button[id^=submitFormButton]').click();
-	user.roles.forEach(role => {
-		cy.get('form[id=userRoleForm]').contains(role).click();
-	});
-	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-	cy.waitJQuery();
-});
-
 Cypress.Commands.add('flushNotifications', function() {
 	cy.window().then(win => {
 		if (typeof pkp !== 'undefined' && typeof pkp.eventBus !== 'undefined') {
@@ -905,4 +881,70 @@ Cypress.Commands.add('changeLanguage', (language, contextPath) => {
 	cy.get('.app__userNav > button').click();
 	cy.get('.app__userNav a:contains("Français")').click();
 	cy.wait(2000);
+});
+
+Cypress.Commands.add('confirmEmail', user => {
+	// Current email server is sendra https://github.com/msztolcman/sendria
+	let emailServer = 'http://localhost:1080/';
+
+	cy.visit(emailServer);
+	cy.get('#messages').contains(user.username + '@mailinator.com').first().click();
+	cy.frameLoaded('#message-body')
+	cy.iframe().find('.btn-accept').should('have.text', 'Accept Invitation').invoke('attr', 'href').then((url) => {
+		cy.visit(url);
+	});
+});
+
+Cypress.Commands.add('inviteUser', user => {
+
+	let currentDate = new Date().toISOString().split('T')[0];
+
+	cy.contains('div > a > span', 'Settings').click();
+	cy.contains('div > a > span', 'Users & Roles').click();
+	cy.waitJQuery();
+	cy.contains('button', 'Invite to a role').click();
+	cy.get('#-email-control').click();
+	cy.get('#-email-control').type(user.username + '@mailinator.com');
+	cy.get('.bg-primary').click();
+	cy.get('select[name="userGroupId"]').select(user.roles);
+	cy.get('#-dateStart-control').type(currentDate);
+	cy.get('#-masthead-control').select('Appear on the masthead');
+	cy.contains('.pkpButton', 'Save And Continue').click();
+	cy.wait(2000);
+	cy.contains('button', 'Invite user to the role').click();
+	cy.contains(".pkpButton", "View All Users").click();
+});
+
+
+Cypress.Commands.add('confirmationByUser', user => {
+	cy.contains('.pkpButton', 'Skip ORCID verification').click()
+	cy.get('#-username-control').type(user.username);
+	cy.get('#-password-control').type(user.username + user.username);
+	cy.get('.pkpFormField--options__input').click();
+	cy.contains('.pkpButton', 'Save and continue').click();
+	cy.get('#acceptUserDetails-givenName-control-en').type(user.givenName);
+	cy.get('#acceptUserDetails-familyName-control-en').type(user.familyName);
+	cy.get('#acceptUserDetails-affiliation-control-en').type(user.affiliation);
+	cy.get('#acceptUserDetails-userCountry-control').select(user.country);
+	cy.get('.pkpFormLocales__locale').contains('French').click();
+	cy.get('#acceptUserDetails-givenName-control-fr_CA').type(user.givenName);
+	cy.get('#acceptUserDetails-familyName-control-fr_CA').type(user.familyName);
+	cy.get('#acceptUserDetails-affiliation-control-fr_CA').type(user.country);
+	cy.get('.pkpButton').contains('Save and continue').click();
+	cy.get('.pkpButton').contains('Accept And Continue to OJS').click();
+	cy.get('.pkpButton').contains('View All Submissions').click();
+});
+
+Cypress.Commands.add('createUser', user => {
+	cy.login('admin','admin','publicknowledge')
+	cy.wait(1000)
+	cy.inviteUser(user);
+	cy.logout();
+
+	cy.confirmEmail(user);
+	cy.wait(1000)
+
+	cy.confirmationByUser(user);
+	cy.logout();
+
 });

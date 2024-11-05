@@ -1,11 +1,12 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
+# Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-10-16 01:56+0000\n"
-"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"PO-Revision-Date: 2024-11-05 22:30+0000\n"
+"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/user/nl/>"
 "\n"
 "Language: nl\n"

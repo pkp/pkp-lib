@@ -64,7 +64,7 @@ class Collector implements CollectorInterface
     public ?array $settings = null;
     public ?string $searchPhrase = null;
     public ?array $excludeSubmissionStage = null;
-    public ?array $excludeRoles = null;
+    public ?array $excludeUserGroupIds = null;
     public ?array $assignedTo = null;
     public ?int $reviewerRating = null;
     public ?int $reviewsCompleted = null;
@@ -254,12 +254,11 @@ class Collector implements CollectorInterface
     }
 
     /**
-     * Retrieve a set of users not assigned to the given roles
-     * (Replaces UserGroupDAO::getUsersNotInRole)
+     * Retrieve a set of users not assigned to the given user groups
      */
-    public function filterExcludeRoles(?array $excludedRoles): self
+    public function filterExcludeUserGroupIds(?array $excludeUserGroupIds): self
     {
-        $this->excludeRoles = $excludedRoles;
+        $this->excludeUserGroupIds = $excludeUserGroupIds;
         return $this;
     }
 
@@ -440,27 +439,25 @@ class Collector implements CollectorInterface
      */
     protected function buildUserGroupFilter(Builder $query): self
     {
-        if ($this->userGroupIds === null && $this->roleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
-            return $this;
+        if ($this->userGroupIds !== null || $this->roleIds !== null || $this->contextIds !== null || $this->workflowStageIds !== null) {
+            $userGroupsSubquery = fn (Builder $query) => $query->from('user_user_groups as uug')
+                ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                ->whereColumn('uug.user_id', '=', 'u.user_id')
+                ->when($this->userGroupIds !== null, fn (Builder $query) => $query->whereIn('uug.user_group_id', $this->userGroupIds))
+                ->when(
+                    $this->workflowStageIds !== null,
+                    fn (Builder $query) => $query
+                        ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
+                        ->whereIn('ugs.stage_id', $this->workflowStageIds)
+                )
+                ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
+                ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds));
+
+            $query->whereExists(fn (Builder $query) => $userGroupsSubquery($query));
         }
 
-        $userGroupsSubquery = fn (Builder $query) => $query->from('user_user_groups as uug')
-            ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
-            ->whereColumn('uug.user_id', '=', 'u.user_id')
-            ->when($this->userGroupIds !== null, fn (Builder $query) => $query->whereIn('uug.user_group_id', $this->userGroupIds))
-            ->when(
-                $this->workflowStageIds !== null,
-                fn (Builder $query) => $query
-                    ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
-                    ->whereIn('ugs.stage_id', $this->workflowStageIds)
-            )
-            ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
-            ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds));
-
-        $query->whereExists(fn (Builder $query) => $userGroupsSubquery($query));
-
-        if ($this->excludeRoles != null) {
-            $query->whereNotExists(fn (Builder $query) => $userGroupsSubquery($query)->whereIn('ug.role_id', $this->excludeRoles));
+        if ($this->excludeUserGroupIds !== null) {
+            $query->whereNotExists(fn (Builder $query) => $query->from('user_user_groups as xuug')->whereColumn('xuug.user_id', '=', 'u.user_id')->whereIn('xuug.user_group_id', $this->excludeUserGroupIds));
         }
 
         return $this;

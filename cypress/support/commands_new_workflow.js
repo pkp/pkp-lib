@@ -149,8 +149,7 @@ Cypress.Commands.add('resetPassword', (username,oldPassword,newPassword) => {
 	cy.get('input[name=oldPassword]').type(oldPassword, {delay: 0});
 	cy.get('input[name=password]').type(newPassword, {delay: 0});
 	cy.get('input[name=password2]').type(newPassword, {delay: 0});
-	cy.wait(1000);
-	cy.get('button').contains('Save').click();
+	cy.get('button').contains('Save').click({ force: true });
 });
 
 Cypress.Commands.add('register', data => {

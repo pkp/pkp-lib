@@ -13,6 +13,8 @@
 
 namespace PKP\emailTemplate\maps;
 
+use APP\core\Application;
+use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\core\PKPApplication;
 use PKP\emailTemplate\EmailTemplate;
@@ -40,10 +42,12 @@ class Schema extends \PKP\core\maps\Schema
      * Summarize an email template
      *
      * Includes properties with the apiSummary flag in the email template schema.
+     *
+     * @param null|mixed $mailableClass
      */
-    public function summarize(EmailTemplate $item): array
+    public function summarize(EmailTemplate $item, $mailableClass = null): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item);
+        return $this->mapByProperties($this->getSummaryProps(), $item, $mailableClass);
     }
 
     /**
@@ -64,20 +68,59 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      */
-    public function summarizeMany(Enumerable $collection): Enumerable
+    public function summarizeMany(Enumerable $collection, string $mailableClass = null): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarize($item);
+        return $collection->map(function ($item) use ($mailableClass) {
+            return $this->summarize($item, $mailableClass);
         });
     }
 
     /**
      * Map schema properties of an Announcement to an assoc array
      */
-    protected function mapByProperties(array $props, EmailTemplate $item): array
+    protected function mapByProperties(array $props, EmailTemplate $item, string $mailableClass = null): array
     {
         $output = [];
+
+        $mailableClass = $mailableClass ?? Repo::mailable()->getMailableByEmailTemplate($item);
+
+        if(!$mailableClass) {
+            error_log('TEMPLATE NAME ' . $item->getData('key'));
+            error_log('TEMPLATE ALTERNATE TO ' . $item->getData('alternateTo') ?? '');
+        }
+
+
+        // some mailable are not found during some operations such as performing a search for templates. So ensure mailable exist before using
+        if($mailableClass) {
+            $isUserGroupsAssignable = Repo::mailable()->isGroupsAssignableToTemplates($mailableClass);
+
+            if ($isUserGroupsAssignable) {
+                $output['assignableUserGroups'] = [];
+                $output['assignedUserGroupIds'] = [];
+            } else {
+                // get roles for mailable
+                $roles = $mailableClass::getFromRoleIds();
+                //        Get the groups for each role
+                $userGroups = [];
+                $roleNames = Application::get()->getRoleNames();
+
+                foreach (Repo::userGroup()->getByRoleIds($roles, $this->context->getId())->all() as $group) {
+                    $roleId = $group->getRoleId();
+                    $userGroups[] = [
+                        'id' => $group->getId(),
+                        'name' => $group->getLocalizedName(),
+                        'roleId' => $roleId,
+                        'roleName' => $roleNames[$roleId]];
+                }
+
+                $output['assignableUserGroups'] = $userGroups;
+                //        Get the current user groups assigned to the template
+                $output['assignedUserGroupIds'] = Repo::emailTemplate()->getGroupsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+            }
+        }
+
+
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':

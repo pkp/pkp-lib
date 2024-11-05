@@ -15,10 +15,13 @@ namespace PKP\emailTemplate;
 
 use APP\emailTemplate\DAO;
 use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
 use PKP\context\Context;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 class Repository
@@ -208,4 +211,50 @@ class Repository
         Hook::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
         return $deletedKeys;
     }
+
+
+    public function getGroupsAssignedToTemplate(string $key, int $contextId): array
+    {
+        // FIXME - can this be replaced with eloquent?
+        return DB::table('email_template_role_access')
+            ->where('email_key', $key)
+            ->where('context_id', $contextId)
+            ->pluck('user_group_id')
+            ->toArray();
+    }
+
+
+    public function isTemplateAccessibleToUser(User $user, EmailTemplate $template, int $contextId): bool
+    {
+        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER,], $contextId)) {
+            return true;
+        }
+
+        $userUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId)->all();
+        $templateUserGroups = $this->getGroupsAssignedToTemplate($template->getData('key'), $contextId);
+        $userHasAccess = false;
+
+        foreach ($userUserGroups as $userGroup) {
+            if (in_array($userGroup->getId(), $templateUserGroups) || $template->getData('isUnrestricted')) {
+                $userHasAccess = true;
+                break;
+            }
+        }
+
+        return $userHasAccess;
+    }
+
+    /**
+     * Filters a list of EmailTemplates to return only those accessible by a specified user.
+     *
+     * @param array $templates List of EmailTemplate objects to filter.
+     * @param User $user The user whose access level is used for filtering.
+     *
+     * @return \Illuminate\Support\Collection Filtered list of EmailTemplate objects accessible to the user.
+     */
+    public function filterTemplatesByUserAccess(array $templates, User $user, int $contextId): \Illuminate\Support\Collection
+    {
+        return collect(array_filter($templates, fn (EmailTemplate $template) => $this->isTemplateAccessibleToUser($user, $template, $contextId)));
+    }
+
 }

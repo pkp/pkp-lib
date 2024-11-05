@@ -90,7 +90,7 @@ class ReviewAssignmentEmailVariable extends Variable
 
         $format = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort($locale));
 
-        return (new \Carbon\Carbon($time))->locale($locale)->translatedFormat($format);
+        return (new \Carbon\Carbon($time))->setTimezone(date_default_timezone_get()->locale($locale)->translatedFormat($format);
     }
 
     protected function getRecommendation(string $locale): string

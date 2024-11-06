@@ -181,6 +181,10 @@ class PKPContainer extends Container
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
+        
+        // TODO : update ValidationServiceProvider once the pkp/pkp-lib#4787 merged
+        $this->register(new \Illuminate\Validation\ValidationServiceProvider($this));
+        $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
     }
 
     /**

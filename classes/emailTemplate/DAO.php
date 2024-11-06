@@ -448,4 +448,33 @@ class DAO extends EntityDAO
 
         return $key;
     }
+
+
+    public function updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, $contextId)
+    {
+
+        // Delete old entries for user groups IDs not found in new list of user group IDs
+        DB::table('email_template_role_access')
+            ->where('email_key', $emailTemplate->getData('key'))
+            ->where('context_id', $contextId)
+            ->whereNotIn('user_group_id', $newUserGroupIds)
+            ->delete();
+
+        foreach ($newUserGroupIds as $id) {
+            DB::table('email_template_role_access')
+                ->updateOrInsert(
+                    [   // The where conditions (keys that should match)
+                        'email_key' => $emailTemplate->getData('key'),
+                        'user_group_id' => $id,
+                        'context_id' => $contextId
+                    ],
+                    [   // The data to insert or update (values to set)
+                        'email_key' => $emailTemplate->getData('key'),
+                        'user_group_id' => $id,
+                        'context_id' => $contextId,
+                    ]
+                );
+        }
+
+    }
 }

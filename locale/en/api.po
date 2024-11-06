@@ -349,3 +349,6 @@ msgstr "The provided section does not exist."
 
 msgid "api.publications.403.noEnabledIdentifiers"
 msgstr "Publication identifiers form is unavailable as there are no enabled Identifiers."
+
+msgid "api.emailTemplates.404.userGroupIds"
+msgstr "One or more of the provided user groups does not exist."

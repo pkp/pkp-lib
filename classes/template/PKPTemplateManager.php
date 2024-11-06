@@ -1316,6 +1316,7 @@ class PKPTemplateManager extends Smarty
         $context = $request->getContext();
 
         $pageContext = [
+            'app' => Application::get()->getName(),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(

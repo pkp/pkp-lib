@@ -85,18 +85,11 @@ class Schema extends \PKP\core\maps\Schema
 
         $mailableClass = $mailableClass ?? Repo::mailable()->getMailableByEmailTemplate($item);
 
-        if(!$mailableClass) {
-            error_log('TEMPLATE NAME ' . $item->getData('key'));
-            error_log('TEMPLATE ALTERNATE TO ' . $item->getData('alternateTo') ?? '');
-        }
-
-
         // some mailable are not found during some operations such as performing a search for templates. So ensure mailable exist before using
         if($mailableClass) {
             $isUserGroupsAssignable = Repo::mailable()->isGroupsAssignableToTemplates($mailableClass);
 
-            if ($isUserGroupsAssignable) {
-                $output['assignableUserGroups'] = [];
+            if (!$isUserGroupsAssignable) {
                 $output['assignedUserGroupIds'] = [];
             } else {
                 // get roles for mailable
@@ -105,16 +98,6 @@ class Schema extends \PKP\core\maps\Schema
                 $userGroups = [];
                 $roleNames = Application::get()->getRoleNames();
 
-                foreach (Repo::userGroup()->getByRoleIds($roles, $this->context->getId())->all() as $group) {
-                    $roleId = $group->getRoleId();
-                    $userGroups[] = [
-                        'id' => $group->getId(),
-                        'name' => $group->getLocalizedName(),
-                        'roleId' => $roleId,
-                        'roleName' => $roleNames[$roleId]];
-                }
-
-                $output['assignableUserGroups'] = $userGroups;
                 //        Get the current user groups assigned to the template
                 $output['assignedUserGroupIds'] = Repo::emailTemplate()->getGroupsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
             }

@@ -2,5 +2,5 @@ cypress/tests/**/*
 lib/pkp/cypress/**/*
 cypress/support/**/*
 plugins/themes/default/**/*
-
+schemas/**/*.json
 package.json

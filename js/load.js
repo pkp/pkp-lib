@@ -18,6 +18,7 @@ import PkpLoad from '../lib/pkp/js/load.js';
 import Container from '@/components/Container/Container.vue';
 import AdvancedSearchReviewerContainer from '@/components/Container/AdvancedSearchReviewerContainer.vue';
 import Page from '@/components/Container/Page.vue';
+import WorkflowPageOPS from '@/pages/workflow/WorkflowPageOPS.vue';
 import AccessPage from '@/components/Container/AccessPage.vue';
 import AddContextContainer from '@/components/Container/AddContextContainer.vue';
 import AdminPage from '@/components/Container/AdminPage.vue';
@@ -33,6 +34,10 @@ import StatsContextPage from '@/components/Container/StatsContextPage.vue';
 import StatsUsersPage from '@/components/Container/StatsUsersPage.vue';
 import SubmissionWizardPage from '@/components/Container/SubmissionWizardPageOPS.vue';
 import WorkflowPage from '@/components/Container/WorkflowPageOPS.vue';
+
+// Helper for initializing and tracking Vue controllers
+import VueRegistry from '../lib/pkp/js/classes/VueRegistry.js';
+VueRegistry.registerComponent('WorkflowPage', WorkflowPageOPS);
 
 // Expose Vue, the registry and controllers in a global var
 window.pkp = Object.assign(PkpLoad, window.pkp || {}, {

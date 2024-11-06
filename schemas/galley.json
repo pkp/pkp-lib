@@ -30,6 +30,7 @@
 			]
 		},
 		"file": {
+			"apiSummary": true,
 			"readOnly": true,
 			"$ref": "#/definitions/SubmissionFile"
 		},

@@ -30,9 +30,8 @@ class RelationForm extends FormComponent
      * Constructor
      *
      * @param string $action URL to submit the form to
-     * @param Publication $publication The publication to change settings for
      */
-    public function __construct($action, $publication)
+    public function __construct($action)
     {
         $this->action = $action;
         $this->locales = [];
@@ -41,7 +40,7 @@ class RelationForm extends FormComponent
         $this->addField(new FieldOptions('relationStatus', [
             'label' => __('publication.relation.label'),
             'type' => 'radio',
-            'value' => (int) $publication->getData('relationStatus'),
+            'value' => null,
             'options' => [
                 [
                     'value' => Publication::PUBLICATION_RELATION_NONE,
@@ -55,7 +54,7 @@ class RelationForm extends FormComponent
         ]))
             ->addField(new FieldText('vorDoi', [
                 'label' => __('publication.relation.vorDoi'),
-                'value' => $publication->getData('vorDoi'),
+                'value' => null,
                 'size' => 'large',
                 'showWhen' => ['relationStatus', Publication::PUBLICATION_RELATION_PUBLISHED],
             ]));

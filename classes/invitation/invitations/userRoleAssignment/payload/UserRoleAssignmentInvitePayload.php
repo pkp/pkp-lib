@@ -42,7 +42,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         public ?array $userGroupsToAdd = null,
         public ?bool $passwordHashed = null,
         public ?string $sendEmailAddress = null,
-    ) 
+    )
     {
         parent::__construct(get_object_vars($this));
     }
@@ -156,6 +156,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 new AddUserGroupRule($invitation),
             ],
             'userGroupsToAdd.*.masthead' => 'required|bool',
+            'userGroupsToAdd.*.dateStart' => 'required|date',
             'userOrcid' => [
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
                 'orcid'

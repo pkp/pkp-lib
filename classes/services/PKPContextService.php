@@ -17,6 +17,8 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use Illuminate\Support\Arr;
+
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -52,7 +54,7 @@ use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\validation\ValidatorFactory;
 use PKP\userGroup\UserGroup;
 use PKP\userGroup\relationships\UserUserGroup;
-
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -526,6 +528,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         $context = $this->get($context->getId());
 
+        Repo::reviewerRecommendation()->addDefaultRecommendations($context);
+
         // Move uploaded files into place and update the settings
         $supportedLocales = $context->getSupportedFormLocales();
         $fileUploadProps = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
@@ -654,6 +658,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         // TODO is it OK to delete without listening Model's delete-associated events (not loading each Model)?
         Announcement::withContextIds([$context->getId()])->delete();
+        ReviewerRecommendation::query()->withContextId($context->getId())->delete();
 
         Repo::highlight()
             ->getCollector()

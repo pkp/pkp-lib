@@ -710,6 +710,7 @@ class ManagementHandler extends Handler
         $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
         $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
         $templateMgr->setState(['components' => $components]);
+        $templateMgr->assign('hasCustomizableRecommendation', false);
     }
 
     /**

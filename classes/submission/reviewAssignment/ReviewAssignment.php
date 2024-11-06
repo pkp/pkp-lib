@@ -16,17 +16,13 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\core\Application;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\context\Context;
 use PKP\core\Core;
 
 class ReviewAssignment extends \PKP\core\DataObject
 {
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT = 1;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS = 2;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE = 3;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE = 4;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE = 5;
-    public const SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS = 6;
-
     public const SUBMISSION_REVIEWER_RATING_VERY_GOOD = 5;
     public const SUBMISSION_REVIEWER_RATING_GOOD = 4;
     public const SUBMISSION_REVIEWER_RATING_AVERAGE = 3;
@@ -830,36 +826,54 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get an associative array matching reviewer recommendation codes with locale strings.
+     * Get an associative array matching reviewer recommendation code/value mapped to localized title.
      * (Includes default '' => "Choose One" string.)
      *
-     * @return array recommendation => localeString
+     * @return array recommendation => localizedTitle
      */
-    public static function getReviewerRecommendationOptions()
+    public static function getReviewerRecommendationOptions(
+        Context $context = null,
+        ?bool $active = true,
+        ?self $reviewAssignment = null
+    ): array
     {
-        static $reviewerRecommendationOptions = [
-            '' => 'common.chooseOne',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
-            self::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
-        ];
-        return $reviewerRecommendationOptions;
+        static $reviewerRecommendationOptions = [];
+        
+        if (!empty($reviewerRecommendationOptions)) {
+            return $reviewerRecommendationOptions;
+        }
+
+        return $reviewerRecommendationOptions = ReviewerRecommendation::query()
+            ->withContextId($context->getId())
+            ->when(!is_null($active), fn ($query) => $query->withActive($active))
+            ->when(
+                $reviewAssignment, 
+                fn ($query) => $query->orWhere(
+                    fn ($query) => $query->withRecommendations(
+                        [$reviewAssignment->getData("recommendation")]
+                    )
+                )
+            )
+            ->get()
+            ->mapWithKeys(
+                fn (ReviewerRecommendation $recommendation): array => [
+                    $recommendation->value => $recommendation->getLocalizedData('title')
+                ]
+            )
+            ->prepend(__('common.chooseOne'), '')
+            ->toArray();
     }
 
     /**
      * Return a localized string representing the reviewer recommendation.
      */
-    public function getLocalizedRecommendation()
+    public function getLocalizedRecommendation(?Context $context = null): string
     {
-        $options = self::getReviewerRecommendationOptions();
-        if (array_key_exists($this->getRecommendation(), $options)) {
-            return __($options[$this->getRecommendation()]);
-        } else {
-            return '';
-        }
+        $options = static::getReviewerRecommendationOptions(
+            $context ?? Application::get()->getRequest()->getContext()
+        );
+
+        return $options[$this->getRecommendation()] ?? '';
     }
 
     /**
@@ -882,12 +896,6 @@ class ReviewAssignment extends \PKP\core\DataObject
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submission\reviewAssignment\ReviewAssignment', '\ReviewAssignment');
     foreach ([
-        'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE',
-        'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS',
         'SUBMISSION_REVIEWER_RATING_VERY_GOOD',
         'SUBMISSION_REVIEWER_RATING_GOOD',
         'SUBMISSION_REVIEWER_RATING_AVERAGE',

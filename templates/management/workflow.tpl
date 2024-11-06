@@ -74,6 +74,14 @@
 						{capture assign=reviewFormsUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}{/capture}
 						{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 					</tab>
+					{if $hasCustomizableRecommendation}
+						<tab id="reviewerRecommendations" label="{translate key="manager.reviewerRecommendations"}">
+							<reviewer-recommendations-list-panel
+								v-bind="components.reviewerRecommendations"
+								@set="set"
+							></reviewer-recommendations-list-panel>
+						</tab>
+					{/if}
 					{call_hook name="Template::Settings::workflow::review"}
 				</tabs>
 			</tab>

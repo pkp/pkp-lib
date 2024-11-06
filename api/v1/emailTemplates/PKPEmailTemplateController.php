@@ -251,7 +251,7 @@ class PKPEmailTemplateController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::emailTemplate()->edit($emailTemplate, $params);
+        Repo::emailTemplate()->edit($emailTemplate, $params, $requestContext->getId());
 
         $emailTemplate = Repo::emailTemplate()->getByKey(
             // context ID is null if edited for the first time

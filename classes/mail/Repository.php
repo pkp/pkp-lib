@@ -102,6 +102,21 @@ class Repository
         $dataDescriptions = $class::getDataDescriptions();
         ksort($dataDescriptions);
 
+        // get roles for mailable
+        $roles = $class::getFromRoleIds();
+        // Get the groups for each role
+        $userGroups = [];
+        $roleNames = Application::get()->getRoleNames();
+
+        foreach (Repo::userGroup()->getByRoleIds($roles, Application::get()->getRequest()->getContext()->getId())->all() as $group) {
+            $roleId = $group->getRoleId();
+            $userGroups[] = [
+                'id' => $group->getId(),
+                'name' => $group->getLocalizedName(),
+                'roleId' => $roleId,
+                'roleName' => $roleNames[$roleId]];
+        }
+
         return [
             '_href' => Application::get()->getRequest()->getDispatcher()->url(
                 Application::get()->getRequest(),
@@ -118,6 +133,7 @@ class Repository
             'supportsTemplates' => $class::getSupportsTemplates(),
             'toRoleIds' => $class::getToRoleIds(),
             'canAssignUserGroupToTemplates' => $this->isGroupsAssignableToTemplates($class),
+            'assignableTemplateUserGroups' => $userGroups
         ];
     }
 

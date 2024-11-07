@@ -2,9 +2,8 @@
  * @file cypress/tests/integration/DataAvailabilityStatements.cy.js
 */
 
-// Temporarly Skip until OMP&OPS is migrated to new side modal workflow
 
-describe.skip('DataAvailabilityStatements', function () {
+describe('DataAvailabilityStatements', function () {
 	var config = Cypress.env('dataAvailabilityTest');
 	var statement = 'This is an example of a data availability statement';
 

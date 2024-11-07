@@ -5,8 +5,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  */
-// Temporarly Skip until OMP&OPS is migrated to new side modal workflow
-describe.skip('Multilingual configurations', function() {
+describe('Multilingual configurations', function() {
 	it('Tests when locale is active for Forms and Submissions but not UI', function() {
 		cy.login('dbarnes');
 		cy.visit('index.php/publicknowledge/management/settings/website');

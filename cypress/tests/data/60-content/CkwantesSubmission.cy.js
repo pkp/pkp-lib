@@ -220,13 +220,13 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('a').contains('Create a new submission');
 		cy.get('a').contains('Return to your dashboard');
 		cy.get('a').contains('Review this submission').click();
-		cy.get('h1:contains("' + submission.title + '")');
+		cy.get('p:contains("' + submission.title + '")');
 	});
 
 	it('Publish submission', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, 'Kwantes');
-		cy.get('.pkp_workflow_decisions button:contains("Post the preprint")').click();
-		cy.get('div.pkpPublication button:contains("Post"):visible').click();
+		cy.get('button:contains("Post the preprint")').click();
+		cy.get('button:contains("Post"):visible').click();
 		cy.get('div:contains("Are you sure you want to post this?")');
 		cy.get('[id^="publish"] button:contains("Post")').click();
 	});

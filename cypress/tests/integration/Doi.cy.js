@@ -304,18 +304,21 @@ describe('DOI tests', function() {
 		cy.get('#doisSetup [role="status"]').contains('Saved');
 
 		//Go to publication and rollback to first publication being unpublished, then republish first publication
-		cy.get('nav').contains('Submissions').click();
-		cy.get('button:contains("Archived")').click();
-		cy.get(`div#archive .listPanel__item:contains("${articleTitle}") a:contains("View")`).click();
+		cy.get('nav').contains('Dashboards').click();
+		cy.get('nav').contains('Published').click();
+		cy.contains('table tr', articleTitle).within(() => {
+			cy.get('button').contains('View').click()
+		})
 
-		cy.get('button#publication-button').click();
+
+		cy.openWorkflowMenu('Title & Abstract')
 		cy.get('button:contains("Unpost")').click();
-		cy.get('div[role="dialog"] button:contains("Unpost")').click();
+		cy.get('[data-cy="dialog"] button:contains("Unpost")').click();
 
 		cy.get('button:contains("Unpost")').should('not.exist');
 
 		cy.get('button:contains("Post")').click();
-		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
+		cy.get('[data-cy="active-modal"] button:contains("Post")').click();
 
 		cy.get('div:contains("This version has been posted and can not be edited.")').should('exist');
 
@@ -349,14 +352,16 @@ describe('DOI tests', function() {
 		cy.log("Check DOI versioning off copies previous DOI for subsequent versions");
 
 		// Publish Version 2
-		cy.get('nav').contains('Submissions').click();
-		cy.get('button:contains("Archived")').click();
-		cy.get(`div#archive .listPanel__item:contains("${articleTitle}") a:contains("View")`).click();
-		cy.get('button#publication-button').click();
+		cy.get('nav').contains('Dashboards').click();
+		cy.get('nav').contains('Published').click();
+		cy.contains('table tr', articleTitle).within(() => {
+			cy.get('button').contains('View').click()
+		})
+		cy.openWorkflowMenu('Title & Abstract')
 
 		cy.get('button:contains("Create New Version")').click();
-		cy.get('div[role="dialog"]').contains('Create New Version');
-		cy.get('div[role="dialog"] button:contains("Yes")').click();
+		cy.get('[data-cy="active-modal"]').contains('Create New Version');
+		cy.get('[data-cy="dialog"] button:contains("Yes")').click();
 
 		cy.get('button:contains("Post")').click();
 		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
@@ -487,14 +492,16 @@ describe('DOI tests', function() {
 
 		// Check creates new version
 		// Go to publication and publish Version 2
-		cy.get('nav').contains('Submissions').click();
-		cy.get('button:contains("Archived")').click();
-		cy.get(`div#archive .listPanel__item:contains("${articleTitle}") a:contains("View")`).click();
-		cy.get('button#publication-button').click();
+		cy.get('nav').contains('Dashboards').click();
+		cy.get('nav').contains('Published').click();
+		cy.contains('table tr', articleTitle).within(() => {
+			cy.get('button').contains('View').click()
+		})
+		cy.openWorkflowMenu('Title & Abstract')
 
 		// We have to unpost it first
 		cy.get('button:contains("Unpost")').click();
-		cy.get('div[role="dialog"] button:contains("Unpost")').click();
+		cy.get('[data-cy="dialog"] button:contains("Unpost")').click();
 		cy.get('button:contains("Post")').should('not.exist');
 
 		cy.get('button:contains("Post")').click();

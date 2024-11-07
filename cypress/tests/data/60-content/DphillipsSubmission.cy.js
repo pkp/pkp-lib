@@ -54,8 +54,8 @@ describe('Data suite: Dphillips', function() {
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Phillips');
-		cy.get('.pkp_workflow_decisions button:contains("Post the preprint")').click();
-		cy.get('div.pkpPublication button:contains("Post"):visible').click();
+		cy.get('button:contains("Post the preprint")').click();
+		cy.get('button:contains("Post")').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
 		cy.get('[id^="publish"] button:contains("Post")').click();
 	});
@@ -63,10 +63,10 @@ describe('Data suite: Dphillips', function() {
 	it('Preprint is not available when unposted', function() {
 		cy.login('dbarnes');
 		cy.visit('/index.php/publicknowledge/en/workflow/access/' + submission.id);
-		cy.get('#publication-button').click();
+		cy.openWorkflowMenu('Title & Abstract')
 		cy.get('button').contains('Unpost').click();
 		cy.contains('Are you sure you don\'t want this to be posted?');
-		cy.get('div[role=dialog] button').contains('Unpost').click();
+		cy.get('[data-cy=dialog] button').contains('Unpost').click();
 		cy.wait(1000);
 		cy.visit('/index.php/publicknowledge/preprints');
 		cy.contains('Signalling Theory Dividends').should('not.exist');
@@ -82,8 +82,8 @@ describe('Data suite: Dphillips', function() {
 		// Re-post it
 		cy.login('dbarnes');
 		cy.visit('/index.php/publicknowledge/en/workflow/access/' + submission.id);
-		cy.get('#publication-button').click();
-		cy.get('.pkpPublication button').contains('Post').click();
+		cy.openWorkflowMenu('Title & Abstract')
+		cy.get('button').contains('Post').click();
 		cy.contains('All requirements have been met.');
 		cy.get('.pkpWorkflow__publishModal button').contains('Post').click();
 	});

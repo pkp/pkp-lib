@@ -58,8 +58,8 @@ describe('Data suite: Lchristopher', function() {
 
 		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, 'Christopher');
-		cy.get('.pkp_workflow_decisions button:contains("Post the preprint")').click();
-		cy.get('div.pkpPublication button:contains("Post"):visible').click();
+		cy.get('button:contains("Post the preprint")').click();
+		cy.get('button:contains("Post"):visible').click();
 		cy.get('div:contains("All requirements have been met. Are you sure you want to post this?")');
 		cy.get('[id^="publish"] button:contains("Post")').click();
 	});

@@ -153,7 +153,7 @@ class PKPEmailTemplateController extends PKPBaseController
 
         Hook::call('API::emailTemplates::params', [$collector, $illuminateRequest]);
 
-        $emailTemplates = Repo::emailTemplate()->filterTemplatesByUserAccess($collector->getMany()->all(), $request->getUser(), $request->getContext()->getId());
+        $emailTemplates = collect(Repo::emailTemplate()->filterTemplatesByUserAccess($collector->getMany(), $request->getUser(), $request->getContext()->getId()));
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -204,6 +204,10 @@ class PKPEmailTemplateController extends PKPBaseController
 
         $emailTemplate = Repo::emailTemplate()->newDataObject($params);
         Repo::emailTemplate()->add($emailTemplate);
+
+        if($params['userGroupIds']) {
+            Repo::emailTemplate()->updateTemplateAccessGroups($emailTemplate, $params['userGroupIds'], $requestContext->getId());
+        }
         $emailTemplate = Repo::emailTemplate()->getByKey($emailTemplate->getData('contextId'), $emailTemplate->getData('key'));
 
         return response()->json(Repo::emailTemplate()->getSchemaMap()->map($emailTemplate), Response::HTTP_OK);
@@ -240,6 +244,11 @@ class PKPEmailTemplateController extends PKPBaseController
         } elseif (!isset($params['contextId'])) {
             $params['contextId'] = $requestContext->getId();
         }
+
+
+        // If the user submitted an empty list (meaning all user groups were unchecked), the empty array is converted to null in the request's data.
+        // Convert back to an empty array.
+        $params['userGroupIds'] = $params['userGroupIds'] ?: [];
 
         $errors = Repo::emailTemplate()->validate(
             $emailTemplate,

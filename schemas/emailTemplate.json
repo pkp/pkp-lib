@@ -68,6 +68,11 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"isUnrestricted": {
+			"type": "boolean",
+			"description": "Boolean indicating  if an email template is available to all user groups within the roles associated with the template's mailable",
+			"apiSummary": true
 		}
 	}
 }

@@ -356,7 +356,7 @@ msgid "acceptInvitation.privacyStatement.validation"
 msgstr "Please confirm that you have read and agree privacy statement"
 
 msgid "acceptInvitation.cancel.message"
-msgstr "Are you sure you want to cancel? Canceling now will stop the role acceptance process, and you’ll need to restart from the invitation email to accept the role again.If you’re already a user, you’ll be taken back to the dashboard. If not, you’ll need to access the invitation email to start the process again."
+msgstr "Are you sure you want to cancel? Canceling now will stop the role acceptance process, and you’ll need to restart from the invitation email to accept the role again. If you’re already a user, you’ll be taken back to the dashboard. If not, you’ll need to access the invitation email to start the process again."
 
 msgid "acceptInvitation.cancelInvite.title"
 msgstr "Cancel Role Invitation Process?"

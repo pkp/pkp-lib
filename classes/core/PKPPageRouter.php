@@ -255,6 +255,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::url()
+     *
+     * @hook PKPPageRouter::url ['request' => $request, 'newContext' => $newContext, 'page' => $page, 'op' => $op, 'path' => $path, 'params' => $params, 'anchor' => $anchor, 'escape' => $escape, 'urlLocaleForPage' => $urlLocaleForPage]
      */
     public function url(
         PKPRequest $request,
@@ -267,6 +269,10 @@ class PKPPageRouter extends PKPRouter
         bool $escape = false,
         ?string $urlLocaleForPage = null,
     ): string {
+        if (Hook::run('PKPPageRouter::url', ['request' => &$request, 'newContext' => &$newContext, 'page' => &$page, 'op' => &$op, 'path' => &$path, 'params' => &$params, 'anchor' => &$anchor, 'escape' => &$escape, 'urlLocaleForPage' => &$urlLocaleForPage, 'result' => &$result]) == Hook::ABORT) {
+            return $result;
+        }
+
         //
         // Base URL, context, and additional path info
         //

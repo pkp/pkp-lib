@@ -15,6 +15,7 @@ namespace PKP\emailTemplate;
 
 use APP\emailTemplate\DAO;
 use APP\facades\Repo;
+use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use PKP\context\Context;
 use PKP\core\PKPRequest;
@@ -172,11 +173,12 @@ class Repository
     /** @copydoc DAO::update() */
     public function edit(EmailTemplate $emailTemplate, array $params, $contextId)
     {
+        $userGroupIds = $params['userGroupIds'];
+        unset($params['userGroupIds']);
         $newEmailTemplate = clone $emailTemplate;
         $newEmailTemplate->setAllData(array_merge($newEmailTemplate->_data, $params));
 
-        $userGroupIds = $params['userGroupIds'];
-        unset($params['userGroupIds']);
+
 
         Hook::call('EmailTemplate::edit', [$newEmailTemplate, $emailTemplate, $params]);
 
@@ -186,9 +188,7 @@ class Repository
             $this->dao->insert($newEmailTemplate);
         }
 
-        if($userGroupIds) {
-            $this->dao->updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
-        }
+        $this->updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
     }
 
     /** @copydoc DAO::delete() */
@@ -268,14 +268,54 @@ class Repository
     /**
      * Filters a list of EmailTemplates to return only those accessible by a specified user.
      *
-     * @param array $templates List of EmailTemplate objects to filter.
+     * @param Enumerable $templates List of EmailTemplate objects to filter.
      * @param User $user The user whose access level is used for filtering.
      *
      * @return \Illuminate\Support\Collection Filtered list of EmailTemplate objects accessible to the user.
      */
-    public function filterTemplatesByUserAccess(array $templates, User $user, int $contextId): \Illuminate\Support\Collection
+    public function filterTemplatesByUserAccess(Enumerable $templates, User $user, int $contextId): \Illuminate\Support\Collection
     {
-        return collect(array_filter($templates, fn (EmailTemplate $template) => $this->isTemplateAccessibleToUser($user, $template, $contextId)));
+        $filteredTemplates = collect();
+
+        foreach ($templates as $template) {
+            if($this->isTemplateAccessibleToUser($user, $template, $contextId)) {
+                $filteredTemplates->add($template);
+            }
+        }
+
+        return $filteredTemplates;
+    }
+
+    /**
+     * Pass empty array to delete all existing user groups for a template
+     */
+    public function updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, int $contextId): void
+    {
+        $isUnrestricted = in_array(null, $newUserGroupIds);
+        // remove any null values
+        // Delete old entries for user groups IDs not found in new list of user group IDs
+        DB::table('email_template_role_access')
+            ->where('email_key', $emailTemplate->getData('key'))
+            ->where('context_id', $contextId)
+            ->whereNotIn('user_group_id', $newUserGroupIds)
+            ->delete();
+
+        foreach ($newUserGroupIds as $id) {
+            DB::table('email_template_role_access')
+                ->updateOrInsert(
+                    [   // The where conditions (keys that should match)
+                        'email_key' => $emailTemplate->getData('key'),
+                        'user_group_id' => $id,
+                        'context_id' => $contextId
+                    ],
+                    [   // The data to insert or update (values to set)
+                        'email_key' => $emailTemplate->getData('key'),
+                        'user_group_id' => $id,
+                        'context_id' => $contextId,
+                    ]
+                );
+        }
+
     }
 
 }

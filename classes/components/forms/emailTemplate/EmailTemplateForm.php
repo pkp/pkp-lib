@@ -15,6 +15,7 @@
 
 namespace PKP\components\forms\emailTemplate;
 
+use PKP\components\forms\FieldEmailTemplateUnrestricted;
 use PKP\components\forms\FieldEmailTemplateUserGroupSettings;
 use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
@@ -47,9 +48,16 @@ class EmailTemplateForm extends FormComponent
                 'isMultilingual' => true,
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => 'paste,link,lists',
-            ]))->addField(new FieldEmailTemplateUserGroupSettings('userGroupIds', [
+            ]))->addField(
+                new FieldEmailTemplateUnrestricted('isUnrestricted'),
+                [
+                    'type' => 'checkbox'
+                ]
+            )
+            ->addField(new FieldEmailTemplateUserGroupSettings('userGroupIds', [
+                'type' => 'checkbox',
                 'label' => __('workflow.userGroup.allowed'),
-                'type' => 'checkbox'
+
             ]));
     }
 }

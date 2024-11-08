@@ -159,7 +159,7 @@ class Repository
             $user = $request->getUser();
 
             // Limit templates to only those accessible to the user's user group(s)
-            $userAccessibleTemplates = Repo::emailTemplate()->filterTemplatesByUserAccess(array_merge([$defaultTemplate], $templates->values()->toArray()), $user, $contextId);
+            $userAccessibleTemplates = Repo::emailTemplate()->filterTemplatesByUserAccess(collect(array_merge([$defaultTemplate], $templates->values()->toArray())), $user, $contextId);
             $data['emailTemplates'] = Repo::emailTemplate()
                 ->getSchemaMap()
                 ->summarizeMany($userAccessibleTemplates, $class)
@@ -229,12 +229,7 @@ class Repository
  */
     public function isGroupsAssignableToTemplates(Mailable|string $mailable): bool
     {
-        return !empty(array_intersect($mailable::getGroupIds(), [
-            Mailable::GROUP_SUBMISSION,
-            Mailable::GROUP_REVIEW,
-            Mailable::GROUP_COPYEDITING,
-            Mailable::GROUP_PRODUCTION,
-        ]));
+        return !in_array(Mailable::FROM_SYSTEM, $mailable::getFromRoleIds());
     }
 
     /**

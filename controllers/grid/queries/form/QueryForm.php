@@ -283,7 +283,7 @@ class QueryForm extends Form
                 ->alternateTo([$mailable::getEmailTemplateKey()])
                 ->getMany();
 
-            foreach (Repo::emailTemplate()->filterTemplatesByUserAccess($alternateTemplates->all(), $user, $context->getId()) as $alternateTemplate) {
+            foreach (Repo::emailTemplate()->filterTemplatesByUserAccess($alternateTemplates, $user, $context->getId()) as $alternateTemplate) {
                 $templateKeySubjectPairs[$alternateTemplate->getData('key')] = Mail::compileParams(
                     $alternateTemplate->getLocalizedData('name'),
                     $data

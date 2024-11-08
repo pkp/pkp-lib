@@ -16,7 +16,7 @@ use Mockery;
 use PKP\db\DAORegistry;
 use APP\core\Application;
 use PKP\tests\PKPTestCase;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
@@ -34,6 +34,32 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:49:"PKP\\jobs\\notifications\\NewAnnouncementNotifyUsers":7:{s:15:"\0*\0recipientIds";O:29:"Illuminate\Support\Collection":2:{s:8:"\0*\0items";a:3:{i:0;i:2;i:1;i:3;i:2;i:4;}s:28:"\0*\0escapeWhenCastingToString";b:0;}s:12:"\0*\0contextId";i:1;s:17:"\0*\0announcementId";i:1;s:9:"\0*\0locale";s:2:"en";s:9:"\0*\0sender";O:13:"PKP\user\User":7:{s:5:"_data";a:22:{s:2:"id";i:1;s:8:"userName";s:5:"admin";s:8:"password";s:60:"$2y$10\$uFmYXg8/Ufa0HbskyW57Be22stFGY5qtxJZmTOae3PfDB86V3x7BW";s:5:"email";s:23:"pkpadmin@mailinator.com";s:3:"url";N;s:5:"phone";N;s:14:"mailingAddress";N;s:14:"billingAddress";N;s:7:"country";N;s:7:"locales";a:0:{}s:6:"gossip";N;s:13:"dateLastEmail";N;s:14:"dateRegistered";s:19:"2023-02-28 20:19:07";s:13:"dateValidated";N;s:13:"dateLastLogin";s:19:"2024-05-22 19:05:03";s:18:"mustChangePassword";N;s:7:"authStr";N;s:8:"disabled";b:0;s:14:"disabledReason";N;s:10:"inlineHelp";b:1;s:10:"familyName";a:1:{s:2:"en";s:5:"admin";}s:9:"givenName";a:1:{s:2:"en";s:5:"admin";}}s:20:"_hasLoadableAdapters";b:0;s:27:"_metadataExtractionAdapters";a:0:{}s:25:"_extractionAdaptersLoaded";b:0;s:26:"_metadataInjectionAdapters";a:0:{}s:24:"_injectionAdaptersLoaded";b:0;s:9:"\0*\0_roles";a:0:{}}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
+
+    /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return array_filter([
+            ...parent::getMockedDAOs(),
+            substr(strrchr(get_class(Application::getContextDAO()), '\\'), 1),
+            'NotificationDAO',
+            'NotificationSettingsDAO',
+        ]);
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            AnnouncementRepository::class,
+            EmailTemplateRepository::class,
+            UserRepository::class,
+        ];
+    }
 
     /**
      * Test job is a proper instance
@@ -82,6 +108,7 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
             ->makePartial()
             ->shouldReceive([
                 'getId' => 0,
+                'getLocalizedData' => '',
             ])
             ->withAnyArgs()
             ->getMock();
@@ -121,6 +148,35 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
             ->getMock();
         
         app()->instance(UserRepository::class, $userRepoMock);
+
+        $notificationMock = Mockery::mock(\APP\notification\Notification::class)
+            ->makePartial()
+            ->shouldReceive([
+                'setData' => null,
+                'getContextId' => 0,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+        
+        $notifiactionDaoMock = Mockery::mock(\PKP\notification\NotificationDAO::class)
+            ->makePartial()
+            ->shouldReceive([
+                'newDataObject' => $notificationMock,
+                'insertObject' => 0,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        DAORegistry::registerDAO('NotificationDAO', $notifiactionDaoMock);
+
+        $notificationSettingsDaoMock = Mockery::mock(\PKP\notification\NotificationSettingsDAO::class)
+            ->makePartial()
+            ->shouldReceive('updateNotificationSetting')
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->getMock();
+        
+        DAORegistry::registerDAO('NotificationSettingsDAO', $notificationSettingsDaoMock);
 
         $this->assertNull($newAnnouncementNotifyUsersJob->handle());
     }

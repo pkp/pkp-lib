@@ -35,6 +35,28 @@ class DepositContextTest extends PKPTestCase
     END;
 
     /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return array_filter([
+            ...parent::getMockedDAOs(),
+            substr(strrchr(get_class(Application::getContextDAO()), '\\'), 1),
+        ]);
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            DoiRepository::class,
+        ];
+    }
+
+    /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void
@@ -55,11 +77,18 @@ class DepositContextTest extends PKPTestCase
 
         $contextDaoClass = get_class(Application::getContextDAO());
 
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
         $contextMock = Mockery::mock(get_class(Application::getContextDAO()->newDataObject()))
             ->makePartial()
             ->shouldReceive('getData')
             ->with(Context::SETTING_DOI_AUTOMATIC_DEPOSIT)
             ->andReturn(true)
+            ->shouldReceive('getLocalizedData')
+            ->withAnyArgs()
+            ->andReturn('')
             ->getMock();
 
         $contextDaoMock = Mockery::mock($contextDaoClass)

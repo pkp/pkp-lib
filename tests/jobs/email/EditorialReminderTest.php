@@ -17,7 +17,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\email\EditorialReminder;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\submission\reviewRound\ReviewRound;
 use APP\submission\Collector as SubmissionCollector;
 use APP\submission\Repository as SubmissionRepository;
@@ -36,6 +36,33 @@ class EditorialReminderTest extends PKPTestCase
     protected string $serializedJobData = <<<END
     O:32:"PKP\\jobs\\email\\EditorialReminder":4:{s:11:"\0*\0editorId";i:2;s:12:"\0*\0contextId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
+
+    /**
+     * @see PKPTestCase::getMockedDAOs()
+     */
+    protected function getMockedDAOs(): array
+    {
+        return [
+            ...parent::getMockedDAOs(),
+            'NotificationSubscriptionSettingsDAO',
+            'ReviewRoundDAO',
+            'NotificationDAO',
+            'NotificationSettingsDAO',
+        ];
+    }
+
+    /**
+     * @see PKPTestCase::getMockedContainerKeys()
+     */
+    protected function getMockedContainerKeys(): array
+    {
+        return [
+            ...parent::getMockedContainerKeys(),
+            UserRepository::class,
+            SubmissionCollector::class,
+            SubmissionRepository::class,
+        ];
+    }
 
     /**
      * Test job is a proper instance
@@ -76,7 +103,7 @@ class EditorialReminderTest extends PKPTestCase
 
         // Need to replace the container binding of `context` with a mock object
         \APP\core\Services::register(
-            new class extends \APP\services\OJSServiceProvider
+            new class implements \Pimple\ServiceProviderInterface
             {
                 public function register(\Pimple\Container $pimple)
                 {
@@ -216,6 +243,35 @@ class EditorialReminderTest extends PKPTestCase
             ->getMock();
 
         app()->instance(EmailTemplateRepository::class, $emailTemplateRepoMock);
+
+        $notificationMock = Mockery::mock(\APP\notification\Notification::class)
+            ->makePartial()
+            ->shouldReceive([
+                'setData' => null,
+                'getContextId' => 0,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+        
+        $notifiactionDaoMock = Mockery::mock(\PKP\notification\NotificationDAO::class)
+            ->makePartial()
+            ->shouldReceive([
+                'newDataObject' => $notificationMock,
+                'insertObject' => 0,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        DAORegistry::registerDAO('NotificationDAO', $notifiactionDaoMock);
+
+        $notificationSettingsDaoMock = Mockery::mock(\PKP\notification\NotificationSettingsDAO::class)
+            ->makePartial()
+            ->shouldReceive('updateNotificationSetting')
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->getMock();
+        
+        DAORegistry::registerDAO('NotificationSettingsDAO', $notificationSettingsDaoMock);
 
         $this->assertNull($editorialReminderJob->handle());
     }

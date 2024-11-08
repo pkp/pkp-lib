@@ -77,7 +77,7 @@ class Schema extends \PKP\core\maps\Schema
     }
 
     /**
-     * Map schema properties of an Announcement to an assoc array
+     * Map schema properties of an Email Template to an assoc array
      */
     protected function mapByProperties(array $props, EmailTemplate $item, string $mailableClass = null): array
     {
@@ -92,13 +92,7 @@ class Schema extends \PKP\core\maps\Schema
             if (!$isUserGroupsAssignable) {
                 $output['assignedUserGroupIds'] = [];
             } else {
-                // get roles for mailable
-                $roles = $mailableClass::getFromRoleIds();
-                //        Get the groups for each role
-                $userGroups = [];
-                $roleNames = Application::get()->getRoleNames();
-
-                //        Get the current user groups assigned to the template
+                // Get the current user groups assigned to the template
                 $output['assignedUserGroupIds'] = Repo::emailTemplate()->getGroupsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
             }
         }

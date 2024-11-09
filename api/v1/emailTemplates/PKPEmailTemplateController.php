@@ -205,9 +205,8 @@ class PKPEmailTemplateController extends PKPBaseController
         $emailTemplate = Repo::emailTemplate()->newDataObject($params);
         Repo::emailTemplate()->add($emailTemplate);
 
-        if($params['userGroupIds']) {
-            Repo::emailTemplate()->updateTemplateAccessGroups($emailTemplate, $params['userGroupIds'], $requestContext->getId());
-        }
+        Repo::emailTemplate()->setEmailTemplateAccess($emailTemplate, $requestContext->getId(), $params['userGroupIds'], $params['isUnrestricted']);
+
         $emailTemplate = Repo::emailTemplate()->getByKey($emailTemplate->getData('contextId'), $emailTemplate->getData('key'));
 
         return response()->json(Repo::emailTemplate()->getSchemaMap()->map($emailTemplate), Response::HTTP_OK);
@@ -261,6 +260,7 @@ class PKPEmailTemplateController extends PKPBaseController
         }
 
         Repo::emailTemplate()->edit($emailTemplate, $params, $requestContext->getId());
+        Repo::emailTemplate()->setEmailTemplateAccess($emailTemplate, $requestContext->getId(), $params['userGroupIds'], $params['isUnrestricted']);
 
         $emailTemplate = Repo::emailTemplate()->getByKey(
             // context ID is null if edited for the first time

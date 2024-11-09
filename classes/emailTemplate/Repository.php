@@ -15,8 +15,8 @@ namespace PKP\emailTemplate;
 
 use APP\emailTemplate\DAO;
 use APP\facades\Repo;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\Facades\DB;
 use PKP\context\Context;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
@@ -173,12 +173,8 @@ class Repository
     /** @copydoc DAO::update() */
     public function edit(EmailTemplate $emailTemplate, array $params, $contextId)
     {
-        $userGroupIds = $params['userGroupIds'];
-        unset($params['userGroupIds']);
         $newEmailTemplate = clone $emailTemplate;
         $newEmailTemplate->setAllData(array_merge($newEmailTemplate->_data, $params));
-
-
 
         Hook::call('EmailTemplate::edit', [$newEmailTemplate, $emailTemplate, $params]);
 
@@ -187,8 +183,6 @@ class Repository
         } else {
             $this->dao->insert($newEmailTemplate);
         }
-
-        $this->updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
     }
 
     /** @copydoc DAO::delete() */
@@ -234,17 +228,34 @@ class Repository
     }
 
 
-    public function getGroupsAssignedToTemplate(string $key, int $contextId): array
+    /***
+     * Gets the IDs of the user groups assigned to an email template
+     */
+    public function getUserGroupsIdsAssignedToTemplate(string $templateKey, int $contextId): array
     {
-        // FIXME - can this be replaced with eloquent?
-        return DB::table('email_template_role_access')
-            ->where('email_key', $key)
-            ->where('context_id', $contextId)
-            ->pluck('user_group_id')
-            ->toArray();
+        return EmailTemplateAccessGroup::withEmailKey([$templateKey])
+            ->withContextId($contextId)
+            ->whereNot('user_group_id', null)
+            ->get()
+            ->pluck('userGroupId')
+            ->all();
+    }
+
+    /***
+     * Checks if an Email Template is unrestricted
+     */
+    public function isTemplateUnrestricted(string $templateKey, int $contextId): bool
+    {
+        return !!EmailTemplateAccessGroup::withEmailKey([$templateKey])
+            ->withContextId($contextId)
+            ->where('user_group_id', null)
+            ->first();
     }
 
 
+    /**
+     * Checks if an email template is accessible to a user. A template is accessible if it is assigned to a user group that the user belongs to or if the template is unrestricted
+     */
     public function isTemplateAccessibleToUser(User $user, EmailTemplate $template, int $contextId): bool
     {
         if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER,], $contextId)) {
@@ -252,17 +263,21 @@ class Repository
         }
 
         $userUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId)->all();
-        $templateUserGroups = $this->getGroupsAssignedToTemplate($template->getData('key'), $contextId);
-        $userHasAccess = false;
+        $templateUserGroups = $this->getUserGroupsIdsAssignedToTemplate($template->getData('key'), $contextId);
+
+        // Null entry indicates that template is unrestricted
+        if(in_array(null, $templateUserGroups)) {
+            return true;
+        }
+
 
         foreach ($userUserGroups as $userGroup) {
-            if (in_array($userGroup->getId(), $templateUserGroups) || $template->getData('isUnrestricted')) {
-                $userHasAccess = true;
-                break;
+            if (in_array($userGroup->getId(), $templateUserGroups)) {
+                return true;
             }
         }
 
-        return $userHasAccess;
+        return false;
     }
 
     /**
@@ -271,9 +286,9 @@ class Repository
      * @param Enumerable $templates List of EmailTemplate objects to filter.
      * @param User $user The user whose access level is used for filtering.
      *
-     * @return \Illuminate\Support\Collection Filtered list of EmailTemplate objects accessible to the user.
+     * @return Collection Filtered list of EmailTemplate objects accessible to the user.
      */
-    public function filterTemplatesByUserAccess(Enumerable $templates, User $user, int $contextId): \Illuminate\Support\Collection
+    public function filterTemplatesByUserAccess(Enumerable $templates, User $user, int $contextId): Collection
     {
         $filteredTemplates = collect();
 
@@ -286,36 +301,79 @@ class Repository
         return $filteredTemplates;
     }
 
-    /**
-     * Pass empty array to delete all existing user groups for a template
+    /***
+     * Internal method used to assign user group IDs to an email template
      */
-    public function updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, int $contextId): void
+    private function _updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, int $contextId): void
     {
-        $isUnrestricted = in_array(null, $newUserGroupIds);
-        // remove any null values
-        // Delete old entries for user groups IDs not found in new list of user group IDs
-        DB::table('email_template_role_access')
-            ->where('email_key', $emailTemplate->getData('key'))
-            ->where('context_id', $contextId)
-            ->whereNotIn('user_group_id', $newUserGroupIds)
-            ->delete();
+        EmailTemplateAccessGroup::withEmailKey([$emailTemplate->getData('key')])
+            ->withContextId($contextId)
+            ->whereNotIn('user_group_id', $newUserGroupIds)->delete();
 
         foreach ($newUserGroupIds as $id) {
-            DB::table('email_template_role_access')
-                ->updateOrInsert(
-                    [   // The where conditions (keys that should match)
-                        'email_key' => $emailTemplate->getData('key'),
-                        'user_group_id' => $id,
-                        'context_id' => $contextId
-                    ],
-                    [   // The data to insert or update (values to set)
-                        'email_key' => $emailTemplate->getData('key'),
-                        'user_group_id' => $id,
-                        'context_id' => $contextId,
-                    ]
-                );
+            EmailTemplateAccessGroup::updateOrCreate(
+                [
+                    // The where conditions (keys that should match)
+                    'email_key' => $emailTemplate->getData('key'),
+                    'user_group_id' => $id,
+                    'context_id' => $contextId,
+                ],
+                [
+                    // The data to insert or update (values to set)
+                    'emailKey' => $emailTemplate->getData('key'),
+                    'userGroupId' => $id,
+                    'contextId' => $contextId,
+                ]
+            );
+        }
+    }
+
+    /**
+     * Pass empty array in $userGroupIds to delete all existing user groups for a template
+     */
+    public function setEmailTemplateAccess(EmailTemplate $emailTemplate, int $contextId, ?array $userGroupIds, ?bool $isUnrestricted): void
+    {
+        if($userGroupIds !== null) {
+            $this->_updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
         }
 
+        if($isUnrestricted !== null) {
+            $this->markTemplateAsUnrestricted($emailTemplate, $isUnrestricted, $contextId);
+        }
+    }
+
+
+    /**
+     * Mark an email template as unrestricted or not.
+     * An unrestricted email template is available to all user groups associated with the Roles linked to the mailable that the template belongs to.
+     * Mailable roles are stored in the $fromRoleIds property of a mailable
+     */
+    private function markTemplateAsUnrestricted(EmailTemplate $emailTemplate, bool $isUnrestricted, int $contextId): void
+    {
+        // Unrestricted emails are represented by an entry with a `null` value for the user group ID
+        if ($isUnrestricted) {
+            EmailTemplateAccessGroup::updateOrCreate(
+                [
+                    // The where conditions (keys that should match)
+                    'email_key' => $emailTemplate->getData('key'),
+                    'user_group_id' => null,
+                    'context_id' => $contextId,
+                ],
+                [
+                    // The data to insert or update (values to set)
+                    'emailKey' => $emailTemplate->getData('key'),
+                    'userGroupId' => null,
+                    'contextId' => $contextId,
+                ]
+            );
+
+        } else {
+            // Remove entry with a `null` value for the user group ID to reflect that it is no longer unrestricted
+            EmailTemplateAccessGroup::withEmailKey([$emailTemplate->getData('key')])
+                ->withContextId($contextId)
+                ->withGroupIds([null])
+                ->delete();
+        }
     }
 
 }

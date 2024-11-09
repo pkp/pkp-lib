@@ -84,16 +84,16 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
 
         $mailableClass = $mailableClass ?? Repo::mailable()->getMailableByEmailTemplate($item);
-
+        $assignedUserGroupsIds = [];
         // some mailable are not found during some operations such as performing a search for templates. So ensure mailable exist before using
-        if($mailableClass) {
+        if ($mailableClass) {
             $isUserGroupsAssignable = Repo::mailable()->isGroupsAssignableToTemplates($mailableClass);
-
+            $assignedUserGroupsIds = Repo::emailTemplate()->getUserGroupsIdsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
             if (!$isUserGroupsAssignable) {
                 $output['assignedUserGroupIds'] = [];
             } else {
                 // Get the current user groups assigned to the template
-                $output['assignedUserGroupIds'] = Repo::emailTemplate()->getGroupsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+                $output['assignedUserGroupIds'] = $assignedUserGroupsIds;
             }
         }
 
@@ -107,6 +107,9 @@ class Schema extends \PKP\core\maps\Schema
                         $this->context->getData('urlPath'),
                         'emailTemplates/' . $item->getData('key')
                     );
+                    break;
+                case 'isUnrestricted':
+                    $output['isUnrestricted'] = Repo::emailTemplate()->isTemplateUnrestricted($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

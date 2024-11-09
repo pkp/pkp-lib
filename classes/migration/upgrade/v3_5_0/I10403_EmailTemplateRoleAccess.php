@@ -14,11 +14,11 @@ class I10403_EmailTemplateRoleAccess extends Migration
     public function up(): void
     {
 
-        Schema::create('email_template_role_access', function (Blueprint $table) {
-            $table->bigInteger('email_template_role_access_id')->autoIncrement();
+        Schema::create('email_template_user_group_access', function (Blueprint $table) {
+            $table->bigInteger('email_template_user_group_access_id')->autoIncrement();
             $table->string('email_key', 255);
             $table->bigInteger('context_id');
-            $table->bigInteger('user_group_id');
+            $table->bigInteger('user_group_id')->nullable();
 
             $table->foreign('context_id')->references('journal_id')->on('journals')->onDelete('cascade');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
@@ -30,6 +30,6 @@ class I10403_EmailTemplateRoleAccess extends Migration
      */
     public function down(): void
     {
-        Schema::drop('email_template_role_access');
+        Schema::drop('email_template_user_group_access');
     }
 }

@@ -9,6 +9,8 @@
  * @class EntityUpdate
  *
  * @brief A trait for updating data from entity or model in the database
+ * Remove this trait and transfer the logic to the PKP\core\SettingsBuilder after all entities are refactored according
+ * to the Eloquent pattern
  */
 
 namespace PKP\core\traits;
@@ -54,7 +56,9 @@ trait EntityUpdate
     public function updateSettings(array $props, int $modelId, $schema = null): void
     {
         $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
-        $schema = $schemaService->get($this->getSchemaName());
+        if (is_null($schema)) {
+            $schema = $schemaService->get($this->getSchemaName());
+        }
 
         $deleteSettings = [];
         foreach ($schema->properties as $propName => $propSchema) {
@@ -82,7 +86,9 @@ trait EntityUpdate
                                     'setting_name' => $propName,
                                 ],
                                 [
-                                    'setting_value' => $this?->convertToDB($localeValue, $schema->properties->{$propName}->type) ?? $localeValue
+                                    'setting_value' => method_exists($this, 'convertToDB') ?
+                                        $this->convertToDB($localeValue, $schema->properties->{$propName}->type) :
+                                        $localeValue
                                 ]
                             );
                     }
@@ -96,7 +102,9 @@ trait EntityUpdate
                             'setting_name' => $propName,
                         ],
                         [
-                            'setting_value' => $this?->convertToDB($props[$propName], $schema->properties->{$propName}->type) ?? $props[$propName]
+                            'setting_value' => method_exists($this, 'convertToDB') ?
+                                $this->convertToDB($props[$propName], $schema->properties->{$propName}->type) :
+                                $props[$propName]
                         ]
                     );
             }

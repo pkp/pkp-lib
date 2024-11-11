@@ -91,7 +91,7 @@ class SettingsBuilder extends Builder
             }
         }
 
-        $this->updateSettings($settingValues, $this->model->getKey(), !is_null($schema) ? json_decode(json_encode($schema)) : null);
+        $this->updateSettings($settingValues->toArray(), $this->model->getKey(), !is_null($schema) ? json_decode(json_encode($schema)) : null);
 
         return $count ?? 0;
     }

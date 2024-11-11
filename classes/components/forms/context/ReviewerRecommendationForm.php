@@ -47,14 +47,14 @@ class ReviewerRecommendationForm extends FormComponent
                 'options' => [
                     [
                         'label' => __('manager.reviewerRecommendations.activateUponSaving.label'),
-                        'value' => true,
+                        'value' => 1,
                     ],
                     [
                         'label' => __('manager.reviewerRecommendations.activateUponSaving.deactivate'),
-                        'value' => false,
+                        'value' => 0,
                     ],
                 ],
-                'value' => true,
+                'value' => 1,
                 'size' => 'normal',
             ]));
     }

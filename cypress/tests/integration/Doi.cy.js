@@ -49,7 +49,7 @@ describe('DOI tests', function() {
 			.find('span.value').contains('https://doi.org/10.1234/');
 	});
 
-	it.skip('Check filters and mark registered', function() {
+	it('Check filters and mark registered', function() {
 		cy.log('Check Submission Filter Behaviour (pre-deposit)');
 		loginAndGoToDoiPage();
 
@@ -69,7 +69,7 @@ describe('DOI tests', function() {
 
 	});
 
-	it.skip('Check Marked Status Behaviour', function() {
+	it('Check Marked Status Behaviour', function() {
 		loginAndGoToDoiPage();
 
 		cy.log('Check unpublished Submission Marked Registered displays error');

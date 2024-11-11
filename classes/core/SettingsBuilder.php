@@ -169,7 +169,7 @@ class SettingsBuilder extends Builder
             func_num_args() === 2
         );
 
-        $modelSettingsList = $this->getSettings();
+        $modelSettingsList = $this->model->getSettings();
 
         if (is_string($column)) {
             if (in_array($column, $modelSettingsList)) {
@@ -335,18 +335,14 @@ class SettingsBuilder extends Builder
             $settingName = Str::camel($settingName);
             if ($this->isMultilingual($settingName)) {
                 foreach ($settingValue as $locale => $localizedValue) {
-                    $row = [
+                    $rows[] = [
                         $this->getPrimaryKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
                     ];
-
-                    $rows[] = $row;
                 }
             } else {
-                $row = [
+                $rows[] = [
                     $this->getPrimaryKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
                 ];
-
-                $rows[] = $row;
             }
         });
         return $rows;

@@ -28,6 +28,7 @@ class ReviewerRecommendationResource extends JsonResource
         return [
             'id' => $this->id,
             'contextId' => $this->contextId,
+            'value' => $this->value,
             'status' => $this->status,
             'removable' => $this->removable,
             'title' => $this->title,

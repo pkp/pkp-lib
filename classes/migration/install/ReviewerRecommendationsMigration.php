@@ -17,11 +17,16 @@ namespace PKP\migration\install;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\facades\Locale;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use stdClass;
 use Throwable;
 
 abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
 {
     abstract public function contextTable(): string;
+
+    abstract public function settingTable(): string;
 
     abstract public function contextPrimaryKey(): string;
 
@@ -44,6 +49,9 @@ abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
                 ->onDelete('cascade');
 
             $table->index(['context_id'], 'reviewer_recommendations_context_id');
+
+            $table->unsignedInteger('value');
+            $table->unique(['context_id', 'value'], 'reviewer_recommendations_context_unique');
 
             $table
                 ->boolean('status')
@@ -81,7 +89,6 @@ abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
             $table->unique(['recommendation_id', 'locale', 'setting_name'], 'reviewer_recommendation_settings_unique');
             $table->index(['setting_name', 'locale'], 'reviewer_recommendation_settings_locale_setting_name_index');
         });
-
     }
 
     /**
@@ -93,35 +100,5 @@ abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
         Schema::drop('reviewer_recommendations');
         Schema::drop('reviewer_recommendation_settings');
         Schema::enableForeignKeyConstraints();
-    }
-
-    // TODO : need a way to store existing non removable recommendations
-    protected function seedNonRemovableRecommendations(): void
-    {
-        $recommendations = $this->systemDefineNonRemovableRecommendations();
-
-        if (empty($recommendations)) {
-            return;
-        }
-
-        try {
-
-            DB::beginTransaction();
-
-            // Store data
-
-            DB::commit();
-
-        } catch (Throwable $exception) {
-
-            DB::rollBack();
-
-            throw $exception;
-        }
-    }
-
-    protected function systemDefineNonRemovableRecommendations(): array
-    {
-        return [];
     }
 }

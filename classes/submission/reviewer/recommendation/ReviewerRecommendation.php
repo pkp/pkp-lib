@@ -4,10 +4,12 @@ namespace PKP\submission\reviewer\recommendation;
 
 use APP\facades\Repo;
 use APP\core\Application;
+use Exception;
 use PKP\core\traits\ModelWithSettings;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use PKP\submission\reviewer\recommendation\cast\ReviewerRecommendationValueCast;
 
 class ReviewerRecommendation extends Model
 {
@@ -35,10 +37,21 @@ class ReviewerRecommendation extends Model
     protected function casts(): array
     {
         return [
+            'value'         => 'integer',
             'context_id'    => 'integer',
-            'status'        => 'boolean',
+            'status'        => 'integer', // We cast the boolean to corresponding int e.g. true/false to 1/0
             'removable'     => 'boolean',
         ];
+    }
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::creating(function (Model $recommendation) {
+            $recommendation->value = $recommendation->value;
+        });
     }
 
     /**
@@ -76,6 +89,43 @@ class ReviewerRecommendation extends Model
             'title',
         ];
     }
+
+    protected function value(): Attribute
+    {
+        return Attribute::make(
+            set: function (?int $value) {
+                if ($this->getRawOriginal('value')) {
+                    return $this->getRawOriginal('value');
+                }
+
+                if ($value) {
+                    $existingRecommendation = static::query()
+                        ->withContextId($this->contextId)
+                        ->where('value', $value)
+                        ->first();
+                    
+                    if ($existingRecommendation) {
+                        throw new Exception(
+                            "Given recommendation value : {$value} already exist for given context"
+                        );
+                    }
+
+                    return $value;
+                }
+
+                $lastRecommendationValue = static::query()
+                    ->withContextId($this->contextId)
+                    ->when(
+                        $this->id,
+                        fn ($query) => $query->where($this->getKeyName(), '!=', $this->id)
+                    )
+                    ->orderBy($this->getKeyName(), 'desc')
+                    ->first()?->value ?? 0;
+                
+                return $lastRecommendationValue + 1;
+            }
+        );
+    }
     
     protected function removable(): Attribute
     {
@@ -87,13 +137,17 @@ class ReviewerRecommendation extends Model
 
                 $reviewAssignmentCount = Repo::reviewAssignment()
                     ->getCollector()
-                    ->filterByRecommenddations([$this->id])
+                    ->filterByRecommenddations([$this->value])
                     ->getCount();
                 
                 return $reviewAssignmentCount === 0;
             },
-            set: function () {
-                return $this->getRawOriginal('removable');
+            // TODO : MUST FIX ME !!! This cause issue at data seeding in migration process
+            set: function (bool $value) {
+                if (!is_null($this->getRawOriginal('removable'))) {
+                    return $this->getRawOriginal('removable');
+                }
+                return $value;
             }
         )->shouldCache();
     }

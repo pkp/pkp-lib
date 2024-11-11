@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_5_0/I4787_ReviewSuggestions.php
+ * @file classes/migration/upgrade/v3_6_0/I4787_ReviewSuggestions.php
  *
  * Copyright (c) 2014-2024 Simon Fraser University
  * Copyright (c) 2000-2024 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Add reviewer suggestion related tables
  */
 
-namespace PKP\migration\upgrade\v3_5_0;
+namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Support\Collection;
 use PKP\migration\install\ReviewerSuggestionsMigration;

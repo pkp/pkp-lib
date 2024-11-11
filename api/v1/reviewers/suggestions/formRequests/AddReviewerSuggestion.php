@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/reviewerSuggestions/formRequests/AddReviewerSuggestion.php
+ * @file api/v1/reviewers/suggestions/formRequests/AddReviewerSuggestion.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky

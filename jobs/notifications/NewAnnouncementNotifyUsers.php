@@ -61,7 +61,10 @@ class NewAnnouncementNotifyUsers extends BaseJob
 
     public function handle()
     {
-        $announcement = Announcement::find($this->announcementId);
+        /** @var \PKP\announcement\Announcement $announcement */
+        $announcement = app()->get(Announcement::class);
+        $announcement = $announcement->find($this->announcementId);
+        
         // Announcement was removed
         if (!$announcement) {
             throw new JobException(JobException::INVALID_PAYLOAD);

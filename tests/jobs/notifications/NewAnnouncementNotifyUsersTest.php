@@ -15,6 +15,7 @@ namespace PKP\tests\jobs\notifications;
 use Mockery;
 use PKP\db\DAORegistry;
 use APP\core\Application;
+use Carbon\Carbon;
 use PKP\tests\DatabaseTestCase;
 use PKP\user\Repository as UserRepository;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -22,6 +23,7 @@ use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\announcement\Announcement;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(NewAnnouncementNotifyUsers::class)]
@@ -35,7 +37,7 @@ class NewAnnouncementNotifyUsersTest extends DatabaseTestCase
     END;
 
     /**
-     * @see \PKP\tests\DatabaseTestCase@getAffectedTables
+     * @see \PKP\tests\DatabaseTestCase::getAffectedTables()
      */
     protected function getAffectedTables(): array
     {
@@ -67,23 +69,34 @@ class NewAnnouncementNotifyUsersTest extends DatabaseTestCase
         /** @var NewAnnouncementNotifyUsers $newAnnouncementNotifyUsersJob */
         $newAnnouncementNotifyUsersJob = unserialize($this->serializedJobData);
 
+        $dummyAnnouncementInstance = new Announcement;
+        $dummyAnnouncementInstance->id = 1;
+        $dummyAnnouncementInstance->assocType = 256;
+        $dummyAnnouncementInstance->assocId = 1;
+        $dummyAnnouncementInstance->datePosted = Carbon::now()
+            ->timestamp("y-m-d H:i:s")
+            ->__toString();
+        $dummyAnnouncementInstance->description = [
+            "en" => "<p>Dummy Announcement</p>",
+            "fr_CA" => "<p>Dummy Announcement</p>",
+        ];
+        $dummyAnnouncementInstance->descriptionShort = [
+            "en" => "<p>Dummy Announcement</p>",
+            "fr_CA" => "<p>Dummy Announcement</p>",
+        ];
+        $dummyAnnouncementInstance->title = [
+            "en" => "Dummy Announcement",
+            "fr_CA" => "Dummy Announcement 101",
+        ];
+
         $announcementMock = Mockery::mock(\PKP\announcement\Announcement::class)
             ->makePartial()
-            ->shouldReceive([
-                'getAssocId' => 1,
-                'getLocalizedTitle' => '',
-            ])
+            ->shouldReceive('find')
             ->withAnyArgs()
+            ->andReturn($dummyAnnouncementInstance)
             ->getMock();
 
-        $announcementRepoMock = Mockery::mock(app(AnnouncementRepository::class))
-            ->makePartial()
-            ->shouldReceive('get')
-            ->withAnyArgs()
-            ->andReturn($announcementMock)
-            ->getMock();
-        
-        app()->instance(AnnouncementRepository::class, $announcementRepoMock);
+        app()->instance(\PKP\announcement\Announcement::class, $announcementMock);
 
         $contextDaoClass = get_class(Application::getContextDAO());
 
@@ -143,5 +156,7 @@ class NewAnnouncementNotifyUsersTest extends DatabaseTestCase
         $newAnnouncementNotifyUsersJob->handle();
         
         $this->expectNotToPerformAssertions();
+
+        app()->forgetInstance(\PKP\announcement\Announcement::class);
     }
 }

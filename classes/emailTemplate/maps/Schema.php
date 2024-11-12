@@ -86,16 +86,16 @@ class Schema extends \PKP\core\maps\Schema
         $mailableClass = $mailableClass ?? Repo::mailable()->getMailableByEmailTemplate($item);
         $assignedUserGroupsIds = [];
         // some mailable are not found during some operations such as performing a search for templates. So ensure mailable exist before using
-        if ($mailableClass) {
-            $isUserGroupsAssignable = Repo::mailable()->isGroupsAssignableToTemplates($mailableClass);
-            $assignedUserGroupsIds = Repo::emailTemplate()->getUserGroupsIdsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
-            if (!$isUserGroupsAssignable) {
-                $output['assignedUserGroupIds'] = [];
-            } else {
-                // Get the current user groups assigned to the template
-                $output['assignedUserGroupIds'] = $assignedUserGroupsIds;
-            }
-        }
+        //        if ($mailableClass) {
+        //            $isUserGroupsAssignable = Repo::mailable()->isGroupsAssignableToTemplates($mailableClass);
+        //            $assignedUserGroupsIds = Repo::emailTemplate()->getUserGroupsIdsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+        //            if (!$isUserGroupsAssignable) {
+        //                $output['assignedUserGroupIds'] = [];
+        //            } else {
+        //                // Get the current user groups assigned to the template
+        //                $output['assignedUserGroupIds'] = $assignedUserGroupsIds;
+        //            }
+        //        }
 
 
         foreach ($props as $prop) {
@@ -110,6 +110,13 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'isUnrestricted':
                     $output['isUnrestricted'] = Repo::emailTemplate()->isTemplateUnrestricted($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+                    break;
+                case 'assignedUserGroupIds':
+                    if ($mailableClass && Repo::mailable()->isGroupsAssignableToTemplates($mailableClass)) {
+                        $output['assignedUserGroupIds'] = Repo::emailTemplate()->getUserGroupsIdsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+                    } else {
+                        $output['assignedUserGroupIds'] = [];
+                    }
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

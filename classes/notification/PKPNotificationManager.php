@@ -52,18 +52,15 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         $context = $contextDao->getById($notification->contextId);
 
         switch ($notification->type) {
-            case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
-                if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
-                    throw new \Exception('Unexpected assoc type!');
-                }
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->assocId);
-            case Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
-            case Notification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
             case Notification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
+            case Notification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
+            case Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
+            case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
+                error_log('NOTIFICATION_TYPE_EDITOR_ASSIGN');
                 if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->assocId);
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', [$notification->assocId]);
             case Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT:
                 if ($notification->assocType != Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                     throw new \Exception('Unexpected assoc type!');
@@ -156,7 +153,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $submission = Repo::submission()->get($notification->assocId);
                 return __('notification.type.editorAssign', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
-                if($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected association type!');
                 }
                 $submission = Repo::submission()->get($notification->assocId);
@@ -178,7 +175,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
                 return __('notification.type.reviewAssignmentUpdated');
             case Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
-                if($notification->assocType != Application::ASSOC_TYPE_REVIEW_ROUND) {
+                if ($notification->assocType != Application::ASSOC_TYPE_REVIEW_ROUND) {
                     throw new \Exception('Unexpected association type!');
                 }
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -281,14 +278,21 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     public function getStyleClass(Notification $notification): string
     {
         switch ($notification->type) {
-            case Notification::NOTIFICATION_TYPE_SUCCESS: return NOTIFICATION_STYLE_CLASS_SUCCESS;
-            case Notification::NOTIFICATION_TYPE_WARNING: return NOTIFICATION_STYLE_CLASS_WARNING;
-            case Notification::NOTIFICATION_TYPE_ERROR: return NOTIFICATION_STYLE_CLASS_ERROR;
-            case Notification::NOTIFICATION_TYPE_INFORMATION: return NOTIFICATION_STYLE_CLASS_INFORMATION;
-            case Notification::NOTIFICATION_TYPE_FORBIDDEN: return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
-            case Notification::NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
-            case Notification::NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
-            case Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS: return NOTIFICATION_STYLE_CLASS_INFORMATION;
+            case Notification::NOTIFICATION_TYPE_SUCCESS:
+                return NOTIFICATION_STYLE_CLASS_SUCCESS;
+            case Notification::NOTIFICATION_TYPE_WARNING:
+                return NOTIFICATION_STYLE_CLASS_WARNING;
+            case Notification::NOTIFICATION_TYPE_ERROR:
+                return NOTIFICATION_STYLE_CLASS_ERROR;
+            case Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS:
+            case Notification::NOTIFICATION_TYPE_INFORMATION:
+                return NOTIFICATION_STYLE_CLASS_INFORMATION;
+            case Notification::NOTIFICATION_TYPE_FORBIDDEN:
+                return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
+            case Notification::NOTIFICATION_TYPE_HELP:
+                return NOTIFICATION_STYLE_CLASS_HELP;
+            case Notification::NOTIFICATION_TYPE_FORM_ERROR:
+                return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->type,
@@ -307,12 +311,18 @@ class PKPNotificationManager extends PKPNotificationOperationManager
     public function getIconClass(Notification $notification): string
     {
         switch ($notification->type) {
-            case Notification::NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
-            case Notification::NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
-            case Notification::NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
-            case Notification::NOTIFICATION_TYPE_INFORMATION: return 'notifyIconInfo';
-            case Notification::NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
-            case Notification::NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
+            case Notification::NOTIFICATION_TYPE_SUCCESS:
+                return 'notifyIconSuccess';
+            case Notification::NOTIFICATION_TYPE_WARNING:
+                return 'notifyIconWarning';
+            case Notification::NOTIFICATION_TYPE_ERROR:
+                return 'notifyIconError';
+            case Notification::NOTIFICATION_TYPE_INFORMATION:
+                return 'notifyIconInfo';
+            case Notification::NOTIFICATION_TYPE_FORBIDDEN:
+                return 'notifyIconForbidden';
+            case Notification::NOTIFICATION_TYPE_HELP:
+                return 'notifyIconHelp';
             default:
                 $delegateResult = $this->getByDelegate(
                     $notification->type,
@@ -428,7 +438,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      */
     public function getNotificationTypeByEditorDecision(Decision $decision): ?int
     {
-        return match($decision->getData('decision')) {
+        return match ($decision->getData('decision')) {
             Decision::ACCEPT => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT,
             Decision::EXTERNAL_REVIEW => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW,
             Decision::PENDING_REVISIONS => Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
@@ -464,7 +474,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW:
             case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING:
             case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION:
-                if($assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }
                 return new EditorAssignmentNotificationManager($notificationType);
@@ -476,13 +486,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
             case Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
-                if($assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }
                 return new EditorDecisionNotificationManager($notificationType);
             case Notification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
             case Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
-                if($assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }
                 return new PendingRevisionsNotificationManager($notificationType);
@@ -490,7 +500,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS:
             case Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
             case Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
-                if($assocType != Application::ASSOC_TYPE_SUBMISSION) {
+                if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }
                 return new PKPEditingProductionStatusNotificationManager($notificationType);

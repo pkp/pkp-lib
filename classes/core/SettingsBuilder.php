@@ -98,7 +98,7 @@ class SettingsBuilder extends Builder
 
     /**
      * Insert the given attributes and set the ID on the model.
-     * Overrides Builder's method to insert setting values for a models with
+     * Overrides Builder's method to insert setting values for a models with settings
      *
      * @param  string|null  $sequence
      *
@@ -111,6 +111,7 @@ class SettingsBuilder extends Builder
             fn (mixed $value, string $key) => in_array(Str::camel($key), $this->model->getSettings())
         );
 
+
         $id = parent::insertGetId($primaryValues->toArray(), $sequence);
 
         if ($settingValues->isEmpty()) {
@@ -118,7 +119,6 @@ class SettingsBuilder extends Builder
         }
 
         $rows = $this->getSettingRows($settingValues, $id);
-
         DB::table($this->getSettingsTable())->insert($rows);
 
         return $id;

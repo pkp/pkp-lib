@@ -56,8 +56,14 @@ trait EntityUpdate
     public function updateSettings(array $props, int $modelId, $schema = null): void
     {
         $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
+        $schemaName = $this->getSchemaName();
+
         if (is_null($schema)) {
-            $schema = $schemaService->get($this->getSchemaName());
+            $schema = $schemaService->get($schemaName);
+        }
+
+        if ($schemaName) {
+            $props = $schemaService->sanitize($this->getSchemaName(), $props);
         }
 
         $deleteSettings = [];
@@ -110,7 +116,8 @@ trait EntityUpdate
             }
         }
 
-        if (count($deleteSettings)) {
+        // Entity DAO passes all properties for the update and removes all that aren't set
+        if (count($deleteSettings) && is_a($this, DataObject::class)) {
             DB::table($this->getSettingsTable())
                 ->where($this->getPrimaryKeyName(), '=', $modelId)
                 ->whereIn('setting_name', $deleteSettings)

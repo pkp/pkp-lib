@@ -1,6 +1,6 @@
 <?php
 
-namespace PKP\migration\upgrade\v3_5_0;
+namespace PKP\migration\upgrade\V3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +9,7 @@ use PKP\context\Context;
 use PKP\emailTemplate\EmailTemplateAccessGroup;
 use PKP\migration\Migration;
 
-class I10403_EmailTemplateUserGroupAccess extends Migration
+class I10403_g extends Migration
 {
     /**
      * Run the migrations.

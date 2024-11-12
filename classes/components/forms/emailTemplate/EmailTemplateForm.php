@@ -56,7 +56,7 @@ class EmailTemplateForm extends FormComponent
             )
             ->addField(new FieldEmailTemplateUserGroupSettings('userGroupIds', [
                 'type' => 'checkbox',
-                'label' => __('workflow.userGroup.allowed'),
+                'label' => __('admin.workflow.email.userGroup.allowed'),
 
             ]));
     }

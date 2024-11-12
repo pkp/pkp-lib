@@ -258,18 +258,12 @@ class Repository
      */
     public function isTemplateAccessibleToUser(User $user, EmailTemplate $template, int $contextId): bool
     {
-        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER,], $contextId)) {
+        if ($user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER,], $contextId) || $this->isTemplateUnrestricted($template->getData('key'), $contextId)) {
             return true;
         }
 
         $userUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId)->all();
         $templateUserGroups = $this->getUserGroupsIdsAssignedToTemplate($template->getData('key'), $contextId);
-
-        // Null entry indicates that template is unrestricted
-        if(in_array(null, $templateUserGroups)) {
-            return true;
-        }
-
 
         foreach ($userUserGroups as $userGroup) {
             if (in_array($userGroup->getId(), $templateUserGroups)) {

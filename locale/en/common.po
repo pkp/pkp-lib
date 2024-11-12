@@ -2343,6 +2343,3 @@ msgstr "Application running in sandbox mode."
 
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
-
-msgid "workflow.userGroup.allowed"
-msgstr "Allowed User Groups"

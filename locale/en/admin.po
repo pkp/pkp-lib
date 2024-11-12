@@ -1014,3 +1014,12 @@ msgstr "No matching scheduled task found."
 
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Which command would you like to run?"
+
+msgid "workflow.email.userGroup.allowed"
+msgstr "Allowed User Groups"
+
+msgid "workflow.email.userGroup.assign.unrestricted"
+msgstr "Mark as unrestricted"
+
+msgid "workflow.email.userGroup.unrestricted.template.note"
+msgstr "Unrestricted templates will be accessible to all user groups(listed below) associated with this template."

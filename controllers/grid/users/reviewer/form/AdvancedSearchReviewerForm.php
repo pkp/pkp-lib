@@ -77,7 +77,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $templates = Repo::emailTemplate()->getCollector($context->getId())
             ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
-            ->getMany()
+            ->getMany();
+
+        $templates = Repo::emailTemplate()
+            ->filterTemplatesByUserAccess($templates, $request->getUser(), $context->getId())
             ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
             });
@@ -258,22 +261,24 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
     protected function getEmailTemplates(): array
     {
-        $subsequentTemplate = Repo::emailTemplate()->getByKey(
-            Application::get()->getRequest()->getContext()->getId(),
-            ReviewRequestSubsequent::getEmailTemplateKey()
-        );
+        $contextId = Application::get()->getRequest()->getContext()->getId();
+        $subsequentTemplate = Repo::emailTemplate()->getByKey($contextId, ReviewRequestSubsequent::getEmailTemplateKey());
 
         $alternateTemplates = Repo::emailTemplate()->getCollector(Application::get()->getRequest()->getContext()->getId())
             ->alternateTo([ReviewRequestSubsequent::getEmailTemplateKey()])
             ->getMany();
 
-        $templateKeys = array_merge(
-            parent::getEmailTemplates(),
-            [ReviewRequestSubsequent::getEmailTemplateKey() => $subsequentTemplate->getLocalizedData('name')]
-        );
+        $templateKeys = parent::getEmailTemplates();
+        $user = Application::get()->getRequest()->getUser();
+
+        if(Repo::emailTemplate()->isTemplateAccessibleToUser($user, $subsequentTemplate, $contextId)) {
+            $templateKeys[ReviewRequestSubsequent::getEmailTemplateKey()] = $subsequentTemplate->getLocalizedData('name');
+        }
 
         foreach ($alternateTemplates as $alternateTemplate) {
-            $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
+            if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $subsequentTemplate, $contextId)) {
+                $templateKeys[$alternateTemplate->getData('key')] = $alternateTemplate->getLocalizedData('name');
+            }
         }
 
         return $templateKeys;

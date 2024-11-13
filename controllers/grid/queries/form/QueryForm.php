@@ -291,7 +291,6 @@ class QueryForm extends Form
             }
         }
 
-
         $templateMgr->assign('templates', $templateKeySubjectPairs);
 
         // Get currently selected participants in the query

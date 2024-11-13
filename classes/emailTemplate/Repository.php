@@ -277,7 +277,7 @@ class Repository
     /**
      * Filters a list of EmailTemplates to return only those accessible by a specified user.
      *
-     * @param Enumerable $templates List of EmailTemplate objects to filter.
+     * @param Enumerable $templates List of EmailTemplates to filter.
      * @param User $user The user whose access level is used for filtering.
      *
      * @return Collection Filtered list of EmailTemplate objects accessible to the user.
@@ -369,5 +369,4 @@ class Repository
                 ->delete();
         }
     }
-
 }

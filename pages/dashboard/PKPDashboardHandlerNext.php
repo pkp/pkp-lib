@@ -218,8 +218,10 @@ abstract class PKPDashboardHandlerNext extends Handler
 
             'DECISION_ACCEPT' => Decision::ACCEPT,
             'DECISION_DECLINE' => Decision::DECLINE,
+            'DECISION_REVERT_DECLINE' => Decision::REVERT_DECLINE,
             'DECISION_CANCEL_REVIEW_ROUND' => Decision::CANCEL_REVIEW_ROUND,
-            'DECISON_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
+            'DECISION_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
+            'DECISION_RESUBMIT' => Decision::RESUBMIT,
             'DECISION_EXTERNAL_REVIEW' => Decision::EXTERNAL_REVIEW,
             'DECISION_SKIP_EXTERNAL_REVIEW' => Decision::SKIP_EXTERNAL_REVIEW,
             'DECISION_INITIAL_DECLINE' => Decision::INITIAL_DECLINE,

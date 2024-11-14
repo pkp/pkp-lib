@@ -259,7 +259,7 @@ class PKPEmailTemplateController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::emailTemplate()->edit($emailTemplate, $params, $requestContext->getId());
+        Repo::emailTemplate()->edit($emailTemplate, $params);
         Repo::emailTemplate()->setEmailTemplateAccess($emailTemplate, $requestContext->getId(), $params['userGroupIds'], $params['isUnrestricted']);
 
         $emailTemplate = Repo::emailTemplate()->getByKey(

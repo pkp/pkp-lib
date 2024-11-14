@@ -27,7 +27,6 @@ class FieldEmailTemplateUnrestricted extends Field
     public function getConfig()
     {
         $config = parent::getConfig();
-        $config['label'] = $this->label;
         return $config;
     }
 }

@@ -135,7 +135,7 @@ class Locale implements LocaleInterface
         $locale = $request->getUserVar('setLocale')
             ?: $request->getSession()->get('currentLocale')
             ?: $request->getCookieVar('currentLocale')
-            ?: $this->_getPreferredLocale();
+            ?: $this->getPreferredLocale();
         $this->setLocale($locale);
         return $this->locale;
     }
@@ -588,7 +588,7 @@ class Locale implements LocaleInterface
      * Retrieve the preferred user locale from our supported locales using the Accept-Language header
      * If there's no match, it falls back to the server's primary locale
      */
-    private function _getPreferredLocale(): ?string
+    private function getPreferredLocale(): ?string
     {
         $serverPreference = $this->getPrimaryLocale() ?: LocaleInterface::DEFAULT_LOCALE;
         $supportedLocales = array_values($this->_getSupportedLocales());
@@ -596,6 +596,6 @@ class Locale implements LocaleInterface
         if (is_int($index = array_search($serverPreference, $supportedLocales))) {
             array_splice($supportedLocales, $index, 1);
         }
-        return $this->_getRequest()->getPreferredLanguage([$serverPreference, ...$supportedLocales]);
+        return app(\Illuminate\Http\Request::class)->getPreferredLanguage([$serverPreference, ...$supportedLocales]);
     }
 }

@@ -592,7 +592,7 @@ class PKPRequest
     {
         // special treatment for APIRouter. APIHandler gets to fetch parameter first
         $router = $this->getRouter();
-        
+
         if ($router instanceof \PKP\core\APIRouter && (!is_null($handler = $router->getHandler()))) {
             $handler = $router->getHandler(); /** @var \PKP\handler\APIHandler $handler */
             $value = $handler->getApiController()->getParameter($key);
@@ -783,16 +783,6 @@ class PKPRequest
                 ? $publicFileManager->getContextFilesPath($context->getId())
                 : $publicFileManager->getSiteFilesPath()
         ]);
-    }
-
-    /**
-     * Returns the preferred language.
-     *
-     * @param string[] $locales An array of ordered available locales
-     */
-    public function getPreferredLanguage(array $locales): ?string
-    {
-        return (new \Illuminate\Http\Request(server: $_SERVER))->getPreferredLanguage($locales);
     }
 }
 

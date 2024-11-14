@@ -29,6 +29,7 @@ use PKP\mail\mailables\SubmissionNeedsEditor;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\mail\traits\Configurable;
 use PKP\plugins\Hook;
+use PKP\userGroup\UserGroup;
 
 class Repository
 {
@@ -108,14 +109,16 @@ class Repository
         $userGroups = [];
         $roleNames = Application::get()->getRoleNames();
 
-        foreach (Repo::userGroup()->getByRoleIds($roles, Application::get()->getRequest()->getContext()->getId())->all() as $group) {
-            $roleId = $group->getRoleId();
-            $userGroups[] = [
+        $userGroups = collect();
+
+        Repo::userGroup()->getCollector()
+            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+            ->getMany()->each(fn (UserGroup $group) => $userGroups->add([
                 'id' => $group->getId(),
                 'name' => $group->getLocalizedName(),
-                'roleId' => $roleId,
-                'roleName' => $roleNames[$roleId]];
-        }
+                'roleId' => $group->getRoleId(),
+                'roleName' => $roleNames[$group->getRoleId()]
+            ]));
 
         return [
             '_href' => Application::get()->getRequest()->getDispatcher()->url(

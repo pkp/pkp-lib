@@ -171,7 +171,7 @@ class Repository
     }
 
     /** @copydoc DAO::update() */
-    public function edit(EmailTemplate $emailTemplate, array $params, $contextId)
+    public function edit(EmailTemplate $emailTemplate, array $params)
     {
         $newEmailTemplate = clone $emailTemplate;
         $newEmailTemplate->setAllData(array_merge($newEmailTemplate->_data, $params));

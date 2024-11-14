@@ -21,7 +21,6 @@ use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\user\User;
-use Role;
 use stdClass;
 
 class Email extends Step
@@ -125,12 +124,6 @@ class Email extends Step
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $userRoles = array_map(fn (Role $role) => $role->getId(), $request->getUser()->getRoles($context->getId()));
-
-        // Ensure user has access to mailable before proceeding
-        if(empty(array_intersect($this->mailable::getFromRoleIds(), $userRoles))) {
-            return [];
-        }
 
         $emailTemplates = collect();
         if ($this->mailable::getEmailTemplateKey()) {

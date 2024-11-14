@@ -342,6 +342,34 @@ class DAO extends EntityDAO
         return true;
     }
 
+
+    /**
+     * Registers default templates as unrestricted for the specified context ID.
+     */
+    public function registerDefaultTemplatesAsUnrestricted(int $contextId): void
+    {
+        $templates = Repo::emailTemplate()->getCollector($contextId)->getMany()->all();
+        $keys = array_map(fn (EmailTemplate $template) => $template->getData('key'), $templates);
+
+        $existingUnrestrictedTemplates = EmailTemplateAccessGroup::withContextId($contextId)
+            ->whereNull('user_group_id')
+            ->select('email_key')
+            ->pluck('email_key')->all();
+
+        // Identify templates to add as unrestricted
+        $defaultKeysToRegister = array_diff($keys, $existingUnrestrictedTemplates);
+
+        $data = array_map(function ($key) use ($contextId) {
+            return [
+                'email_key' => $key,
+                'context_id' => $contextId,
+                'user_group_id' => null
+            ];
+        }, $defaultKeysToRegister);
+
+        EmailTemplateAccessGroup::insert($data);
+    }
+
     /**
      * Installs the "extra" email templates for a context
      *

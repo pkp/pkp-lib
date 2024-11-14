@@ -60,7 +60,6 @@ describe('Data suite: Ddiouf', function() {
 		// TODO re-add this check once its determined where to indicate it in new design
 		//cy.get('.pkp_workflow_last_decision').contains('Submission declined.');
 		cy.openWorkflowMenu('Production');
-		cy.get('button').contains('Change decision').click();
 		cy.clickDecision('Revert Decline');
 		cy.recordDecisionRevertDecline(['Diaga Diouf']);
 		cy.clickDecision('Decline Submission');

@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-09-13 06:06+0000\n"
+"PO-Revision-Date: 2024-11-16 09:40+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fi/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Tilin tiedot"
@@ -325,9 +325,8 @@ msgstr ""
 
 msgid "user.register.form.privacyConsent"
 msgstr ""
-"Kyllä, annan luvan tallentaa tietojani tietosuojaselosteen <a href="
-"\"{$privacyUrl}\" target=\"_blank\">tietosuojaselosteen</a> kuvaamalla "
-"tavalla."
+"Kyllä, annan luvan tallentaa tietojani <a href=\"{$privacyUrl}\" target="
+"\"_blank\">tietosuojaselosteen</a> kuvaamalla tavalla."
 
 msgid "user.register.form.emailConsent"
 msgstr "Kyllä, haluan ilmoituksen uusista julkaisuista ja tiedotteista."

@@ -31,12 +31,13 @@ class Collector implements CollectorInterface
 
     public ?int $offset = null;
 
-    /** @var int[]|null */
+    /** @var int[]|null Get affiliations with author ids */
     public ?array $authorIds = null;
 
     /** Get affiliations with a name */
     public ?string $name = null;
 
+    /** Get affiliations with a searchPhrase */
     public ?string $searchPhrase = null;
 
     public function __construct(DAO $dao)
@@ -44,22 +45,19 @@ class Collector implements CollectorInterface
         $this->dao = $dao;
     }
 
+    /** @copydoc DAO::getCount() */
     public function getCount(): int
     {
         return $this->dao->getCount($this);
     }
 
-    /**
-     * @return Collection<int,int>
-     */
+    /** @copydoc DAO::getIds() */
     public function getIds(): Collection
     {
         return $this->dao->getIds($this);
     }
 
-    /**
-     * @copydoc DAO::getMany()
-     */
+    /** @copydoc DAO::getMany() */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);
@@ -111,9 +109,7 @@ class Collector implements CollectorInterface
         return $this;
     }
 
-    /**
-     * @copydoc CollectorInterface::getQueryBuilder()
-     */
+    /** @copydoc CollectorInterface::getQueryBuilder() */
     public function getQueryBuilder(): Builder
     {
         $qb = DB::table($this->dao->table . ' as a')

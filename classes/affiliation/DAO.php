@@ -106,33 +106,25 @@ class DAO extends EntityDAO
         });
     }
 
-    /**
-     * @copydoc EntityDAO::fromRow()
-     */
+    /** @copydoc EntityDAO::fromRow() */
     public function fromRow(object $row): Affiliation
     {
         return parent::fromRow($row);
     }
 
-    /**
-     * @copydoc EntityDAO::insert()
-     */
+    /** @copydoc EntityDAO::insert() */
     public function insert(Affiliation $affiliation): int
     {
         return parent::_insert($affiliation);
     }
 
-    /**
-     * @copydoc EntityDAO::update()
-     */
+    /** @copydoc EntityDAO::update() */
     public function update(Affiliation $affiliation): void
     {
         parent::_update($affiliation);
     }
 
-    /**
-     * @copydoc EntityDAO::delete()
-     */
+    /** @copydoc EntityDAO::delete() */
     public function delete(Affiliation $affiliation): void
     {
         parent::_delete($affiliation);

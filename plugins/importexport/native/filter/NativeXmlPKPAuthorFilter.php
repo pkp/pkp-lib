@@ -148,14 +148,12 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         // Identify the user group by name
         $userGroupName = $node->getAttribute('user_group_ref');
 
-        $userGroups = UserGroup::withContextIds([$context->getId()])
-        ->get()
-        ->toArray();
+        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
         foreach ($userGroups as $userGroup) {
             if (in_array($userGroupName, $userGroup->getName(null))) {
                 // Found a candidate; stash it.
-                $author->setUserGroupId($userGroup->getId());
+                $author->setUserGroupId($userGroup->id);
                 break;
             }
         }

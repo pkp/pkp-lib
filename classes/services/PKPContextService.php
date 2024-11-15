@@ -555,13 +555,14 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $userGroupRepository->installSettings($context->getId(), 'registry/userGroups.xml');
 
 
-        $managerUserGroup = UserGroup::where('contextId', $context->getId())
-            ->where('roleId', Role::ROLE_ID_MANAGER)
-            ->where('isDefault', true)
+        $managerUserGroup = UserGroup::withContextIds([$context->getId()])
+            ->withRoleIds([Role::ROLE_ID_MANAGER])
+            ->isDefault(true)
             ->firstOrFail();
+    
         $assignmentExists = UserUserGroup::where('userId', $currentUser->getId())
-        ->where('userGroupId', $managerUserGroup->userGroupId)
-        ->exists();
+            ->where('userGroupId', $managerUserGroup->id)
+            ->exists();
     
         if (!$assignmentExists) {
             UserUserGroup::create([
@@ -644,9 +645,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::reviewAssignment()->deleteByContextId($context->getId());
 
-        UserGroup::where('contextId', $context->getId())->each(function ($userGroup) {
-            $userGroup->delete();
-        });
+        UserGroup::where('contextId', $context->getId())->delete();
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->deleteByContextId($context->getId());

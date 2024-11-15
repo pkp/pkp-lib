@@ -95,7 +95,7 @@ class RoleDAO extends DAO
         $roles = [];
         foreach ($userGroups as $userGroup) {
             $role = $roleDao->newDataObject();
-            $role->setRoleId($userGroup->usergroupid);
+            $role->setRoleId($userGroup->id);
             $roles[(int) $userGroup->contextId][$userGroup->roleId] = $role;
         }
 

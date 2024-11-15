@@ -102,7 +102,7 @@ class StageRolePolicy extends AuthorizationPolicy
             $noResults = true;
             foreach ($stageAssignments as $stageAssignment) {
                 $noResults = false;
-                $userGroup = UserGroup::findById($stageAssignment->userGroupId);
+                $userGroup = UserGroup::find($stageAssignment->userGroupId);
                 if ($userGroup && $userGroup->roleId == Role::ROLE_ID_MANAGER && !$stageAssignment->recommendOnly) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }

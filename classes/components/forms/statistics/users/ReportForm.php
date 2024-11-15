@@ -48,11 +48,11 @@ class ReportForm extends FormComponent
             'description' => __('manager.export.usersToCsv.description'),
             'options' => $userGroups->map(function (UserGroup $userGroup) {
                 return [
-                    'value' => $userGroup->usergroupid,
-                    'label' => htmlspecialchars($userGroup->getLocalized('name')),
+                    'value' => $userGroup->id,
+                    'label' => htmlspecialchars($userGroup->getLocalizedData('name')),
                 ];
-            })->toArray(),
-            'default' => UserGroup::getIdsByContextId($context->getId()),
+            })->values()->toArray(),
+            'default' => $userGroups->pluck('id')->toArray(),
         ]));
     }
 }

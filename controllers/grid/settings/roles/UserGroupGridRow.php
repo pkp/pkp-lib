@@ -41,7 +41,7 @@ class UserGroupGridRow extends GridRow
 
         $rowId = $this->getId();
 
-        $actionArgs = ['userGroupId' => $userGroup->userGroupId];
+        $actionArgs = ['userGroupId' => $userGroup->id];
         $this->setRequestArgs($actionArgs);
 
         // Only add row actions if this is an existing row.

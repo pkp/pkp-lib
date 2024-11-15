@@ -170,59 +170,70 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
         ]);
 
-        // Retrieve stage assignments and user groups once
+        // Retrieve stage assignments for managers and sub-editors
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withStageIds([$submission->getData('stageId')])
+            ->whereHas('userGroup', function ($query) {
+                $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+            })
             ->get();
 
         $receivedList = [];
-        $managerSubEditorGroupIds = UserGroup::withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-            ->get()
-            ->map->getKey()
-            ->toArray();
+        // get the NotificationSubscriptionSettingsDAO
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
     
         foreach ($stageAssignments as $stageAssignment) {
             $userId = $stageAssignment->userId;
-            // Never send reviewer comment notification to users other than managers and editors.
-            if (!in_array($stageAssignment->userGroupId, $managerSubEditorGroupIds) || in_array($userId, $receivedList)) {
+            if (in_array($userId, $receivedList)) {
                 continue;
             }
-            // Notify editors
-            $notification = $notificationMgr->createNotification(
-                Application::get()->getRequest(),
+            $notificationType = Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT;
+            $contextId = $context->getId();
+            // retrieve blocked email notifications for the user
+            $blockedEmailNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
                 $userId,
-                Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
-                $submission->getData('contextId'),
-                PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
-                $reviewAssignment->getId()
+                $contextId
             );
 
-            // Check if user is subscribed to this type of notification emails
-            if ($notification) {
-                $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment);
-                $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCompleteNotifyEditors::getEmailTemplateKey());
+            // check if the user has blocked this notification type
+            if (!in_array($notificationType, $blockedEmailNotifications)) {
+                // Notify editors
+                $notification = $notificationMgr->createNotification(
+                    Application::get()->getRequest(),
+                    $userId,
+                    $notificationType,
+                    $submission->getData('contextId'),
+                    PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                    $reviewAssignment->getId()
+                );
 
-                if (!$template) {
-                    $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
-                    $request = Application::get()->getRequest();
-                    $mailable->addData([
-                        'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
-                        'notificationUrl' => $notificationMgr->getNotificationUrl($request, $notification),
-                    ]);
+                if ($notification) {
+                    $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment);
+                    $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCompleteNotifyEditors::getEmailTemplateKey());
+
+                    if (!$template) {
+                        $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
+                        $request = Application::get()->getRequest();
+                        $mailable->addData([
+                            'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
+                            'notificationUrl' => $notificationMgr->getNotificationUrl($request, $notification),
+                        ]);
+                    }
+
+                    $user = Repo::user()->get($userId);
+                    $mailable
+                        ->from($context->getData('contactEmail'), $context->getData('contactName'))
+                        ->recipients([$user])
+                        ->subject($template->getLocalizedData('subject'))
+                        ->body($template->getLocalizedData('body'))
+                        ->allowUnsubscribe($notification); // include unsubscribe link
+    
+                    Mail::send($mailable);
+                    Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_COMPLETE, $mailable, $submission, $user);
+    
+                    $receivedList[] = $userId;
                 }
-
-                $user = Repo::user()->get($userId);
-                $mailable
-                    ->from($context->getData('contactEmail'), $context->getData('contactName'))
-                    ->recipients([$user])
-                    ->subject($template->getLocalizedData('subject'))
-                    ->body($template->getLocalizedData('body'))
-                    ->allowUnsubscribe($notification);
-    
-                Mail::send($mailable);
-                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_COMPLETE, $mailable, $submission, $user);
-    
-                $receivedList[] = $userId;
             }
         }
 

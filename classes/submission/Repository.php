@@ -177,9 +177,10 @@ abstract class Repository
         $dispatcher = $request->getDispatcher();
 
         // Check if the user is an author of this submission
-        $authorUserGroupIds = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+        $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get()
-            ->map->getKey()
+            ->map(fn($userGroup) => $userGroup->id)
             ->toArray();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId

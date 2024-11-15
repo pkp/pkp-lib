@@ -60,6 +60,24 @@ class AboutContextHandler extends Handler
         $templateMgr->display('frontend/pages/about.tpl');
     }
 
+
+    private function getSortedMastheadUserGroups($context)
+    {
+        $mastheadUserGroups = UserGroup::withContextIds([$context->getId()])
+            ->masthead(true)
+            ->excludeRoles([Role::ROLE_ID_REVIEWER])
+            ->get();
+    
+        $savedOrder = (array) $context->getData('mastheadUserGroupIds');
+    
+        $sortedUserGroups = $mastheadUserGroups->sortBy(function ($userGroup) use ($savedOrder) {
+            return array_search($userGroup->id, $savedOrder);
+        });
+    
+        return $sortedUserGroups;
+    }
+    
+
     /**
      * Display editorial masthead page.
      *
@@ -71,47 +89,28 @@ class AboutContextHandler extends Handler
     public function editorialMasthead($args, $request)
     {
         $context = $request->getContext();
-
-        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
-
-        $allMastheadUserGroups = UserGroup::withContextIds([$context->getId()])
-            ->masthead(true)
-            ->excludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderByRoleId()
-            ->get();
-
-        // build an associative array of UserGroups keyed by their IDs
-        $allMastheadUserGroupsById = $allMastheadUserGroups->keyBy('id')->all();
-
-        // sort the masthead roles in their saved order for display
-        $mastheadRoles = [];
-        foreach ($savedMastheadUserGroupIdsOrder as $userGroupId) {
-            if (isset($allMastheadUserGroupsById[$userGroupId])) {
-                $mastheadRoles[$userGroupId] = $allMastheadUserGroupsById[$userGroupId];
-            }
-        }
     
-        // add any remaining user groups not in the saved order
-        foreach ($allMastheadUserGroupsById as $userGroupId => $userGroup) {
-            if (!isset($mastheadRoles[$userGroupId])) {
-                $mastheadRoles[$userGroupId] = $userGroup;
-            }
-        }
+        // Get sorted masthead roles using the extracted method
+        $mastheadRoles = $this->getSortedMastheadUserGroups($context);
     
-        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds($mastheadRoles, $context->getId());
-
+        // Get all user IDs grouped by user group ID for the masthead roles
+        $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
+            $mastheadRoles,
+            $context->getId()
+        );
+    
         $mastheadUsers = [];
-        foreach ($mastheadRoles as $mastheadUserGroup) {
-            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->usergroupid] ?? [] as $userId) {
+        foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($mastheadUserGroup->usergroupid)
+                    ->withUserGroupId($userGroupId)
                     ->withActive()
                     ->withMasthead()
                     ->first();
                 if ($userUserGroup) {
                     $startDatetime = new DateTime($userUserGroup->dateStart);
-                    $mastheadUsers[$mastheadUserGroup->usergroupid][$user->getId()] = [
+                    $mastheadUsers[$userGroupId][$user->getId()] = [
                         'user' => $user,
                         'dateStart' => $startDatetime->format('Y'),
                     ];
@@ -124,7 +123,11 @@ class AboutContextHandler extends Handler
         $usersCollector = Repo::user()->getCollector();
         $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())
-            ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+            ->orderBy(
+                $usersCollector::ORDERBY_FAMILYNAME,
+                $usersCollector::ORDER_DIR_ASC,
+                [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()]
+            )
             ->getMany();
 
         Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
@@ -153,32 +156,10 @@ class AboutContextHandler extends Handler
     {
         $context = $request->getContext();
 
-        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
-
-        $allMastheadUserGroups = UserGroup::withContextIds([$context->getId()])
-            ->masthead(true)
-            ->excludeRoles([Role::ROLE_ID_REVIEWER])
-            ->orderByRoleId()
-            ->get();
-
-        // build an associative array of UserGroups keyed by their IDs
-        $allMastheadUserGroupsById = $allMastheadUserGroups->keyBy('id')->all();
-
-        // sort the masthead roles in their saved order for display
-        $mastheadRoles = [];
-        foreach ($savedMastheadUserGroupIdsOrder as $userGroupId) {
-            if (isset($allMastheadUserGroupsById[$userGroupId])) {
-                $mastheadRoles[$userGroupId] = $allMastheadUserGroupsById[$userGroupId];
-            }
-        }
+        // get sorted masthead roles using the extracted method
+        $mastheadRoles = $this->getSortedMastheadUserGroups($context);
     
-        // add any remaining user groups not in the saved order
-        foreach ($allMastheadUserGroupsById as $userGroupId => $userGroup) {
-            if (!isset($mastheadRoles[$userGroupId])) {
-                $mastheadRoles[$userGroupId] = $userGroup;
-            }
-        }
-
+        // get all user IDs grouped by user group ID for the masthead roles with ended status
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
             $mastheadRoles,
             $context->getId(),
@@ -186,14 +167,14 @@ class AboutContextHandler extends Handler
         );
 
         $mastheadUsers = [];
-        foreach ($mastheadRoles as $mastheadUserGroup) {
-            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->usergroupid] ?? [] as $userId) {
+        foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($mastheadUserGroup->usergroupid)
+                    ->withUserGroupId($userGroupId)
                     ->withEnded()
                     ->withMasthead()
-                    ->sortBy('date_start', 'desc')
+                    ->orderBy('date_start', 'desc')
                     ->get();
                 $services = [];
                 foreach ($userUserGroups as $userUserGroup) {
@@ -205,7 +186,7 @@ class AboutContextHandler extends Handler
                     ];
                 }
                 if (!empty($services)) {
-                    $mastheadUsers[$mastheadUserGroup->usergroupid][$user->getId()] = [
+                    $mastheadUsers[$userGroupId][$user->getId()] = [
                         'user' => $user,
                         'services' => $services
                     ];

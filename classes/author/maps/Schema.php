@@ -94,7 +94,7 @@ class Schema extends \PKP\core\maps\Schema
             switch ($prop) {
                 case 'userGroupName':
                     /** @var UserGroup $userGroup */
-                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->usergroupid === $item->getData('userGroupId'));
+                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->id === $item->getData('userGroupId'));
                     $output[$prop] = $userGroup ? $userGroup->name : new stdClass();
                     break;
                 case 'fullName':

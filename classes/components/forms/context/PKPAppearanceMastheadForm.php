@@ -15,7 +15,6 @@
 
 namespace PKP\components\forms\context;
 
-use APP\facades\Repo;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
@@ -45,19 +44,21 @@ class PKPAppearanceMastheadForm extends FormComponent
         $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
 
         $allMastheadUserGroups = UserGroup::where('contextId', $context->getId())
-            ->where('masthead', true)
-            ->whereNotIn('roleId', [Role::ROLE_ID_REVIEWER])
-            ->orderBy('roleId')
-            ->get()
-            ->toArray();
-
-        // sort the masthead roles in their saved order
-        $sortedAllMastheadUserGroups = array_replace(array_intersect_key(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups), $allMastheadUserGroups);
-
+        ->where('masthead', true)
+        ->where('roleId', '!=', Role::ROLE_ID_REVIEWER)
+        ->orderBy('roleId')
+        ->get();
+    
+        // Sort the masthead user groups in their saved order
+        $sortedAllMastheadUserGroups = $allMastheadUserGroups->sortBy(function ($userGroup) use ($savedMastheadUserGroupIdsOrder) {
+            return array_search($userGroup->id, $savedMastheadUserGroupIdsOrder);
+        })->values();
+        
+        $mastheadOptions = [];
         foreach ($sortedAllMastheadUserGroups as $userGroup) {
             $mastheadOptions[] = [
-                'value' => $userGroup['userGroupId'],
-                'label' => $userGroup['name']
+                'value' => $userGroup->id,
+                'label' => $userGroup->getLocalizedData('name')
             ];
         }
 

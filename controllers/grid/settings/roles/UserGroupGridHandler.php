@@ -93,9 +93,7 @@ class UserGroupGridHandler extends GridHandler
             // Validate the user group object.
             $userGroupId = $request->getUserVar('userGroupId');
 
-            $userGroup = UserGroup::where('userGroupId', $userGroupId)
-                ->where('contextId', $contextId)
-                ->first();
+            $userGroup = UserGroup::findById($userGroupId);
 
             if (!$userGroup) {
                 throw new \Exception('Invalid user group id!');
@@ -187,23 +185,16 @@ class UserGroupGridHandler extends GridHandler
             $stageIdFilter = $filter['selectedStageId'];
         }
 
-        if ($stageIdFilter && $stageIdFilter != 0) {
-            $query = UserGroup::where('contextId', $contextId);
+        $query = UserGroup::where('contextId', $contextId);
 
-            // Apply role filter if provided
-            if ($roleIdFilter && $roleIdFilter != 0) {
-                $query->where('roleId', $roleIdFilter);
-            }
-    
-            // Apply stage filter
+        if (!empty($roleIdFilter)) {
+            $query->where('roleId', $roleIdFilter);
+        }
+        
+        if (!empty($stageIdFilter)) {
             $query->whereHas('userGroupStages', function ($q) use ($stageIdFilter) {
                 $q->where('stageId', $stageIdFilter);
             });
-        } elseif ($roleIdFilter && $roleIdFilter != 0) {
-            $query = UserGroup::where('contextId', $contextId)
-                ->where('roleId', $roleIdFilter);
-        } else {
-            $query = UserGroup::where('contextId', $contextId);
         }
     
         // pagination
@@ -215,7 +206,7 @@ class UserGroupGridHandler extends GridHandler
         $query->offset($offset)->limit($perPage);
     
         // results
-        $userGroups = $query->get()->toArray();
+        $userGroups = $query->get();
     
         return $userGroups;
     }
@@ -372,7 +363,7 @@ class UserGroupGridHandler extends GridHandler
                     Notification::NOTIFICATION_TYPE_WARNING,
                     ['contents' => __(
                         'grid.userGroup.cantRemoveDefaultUserGroup',
-                        ['userGroupName' => $userGroup->getLocalized('name')	]
+                        ['userGroupName' => $userGroup->getLocalizedData('name')	]
                     )]
                 );
             } else {
@@ -384,7 +375,7 @@ class UserGroupGridHandler extends GridHandler
                     Notification::NOTIFICATION_TYPE_SUCCESS,
                     ['contents' => __(
                         'grid.userGroup.removed',
-                        ['userGroupName' => $userGroup->getLocalized('name')	]
+                        ['userGroupName' => $userGroup->getLocalizedData('name')	]
                     )]
                 );
             }
@@ -396,12 +387,12 @@ class UserGroupGridHandler extends GridHandler
                 Notification::NOTIFICATION_TYPE_WARNING,
                 ['contents' => __(
                     'grid.userGroup.cantRemoveUserGroup',
-                    ['userGroupName' => $userGroup->getLocalized('name'), 'usersCount' => $usersAssignedToUserGroupCount]
+                    ['userGroupName' => $userGroup->getLocalizedData('name'), 'usersCount' => $usersAssignedToUserGroupCount]
                 )]
             );
         }
 
-        $json = \PKP\db\DAO::getDataChangedEvent($userGroup->usergroupid);
+        $json = \PKP\db\DAO::getDataChangedEvent($userGroup->id);
         $json->setGlobalEvent('userGroupUpdated');
         return $json;
     }
@@ -454,7 +445,7 @@ class UserGroupGridHandler extends GridHandler
             case 'assignStage':
                 UserGroupStage::create([
                     'contextId' => $contextId,
-                    'userGroupId' => $userGroup->usergroupid,
+                    'userGroupId' => $userGroup->id,
                     'stageId' => $stageId
                 ]);
 
@@ -462,7 +453,7 @@ class UserGroupGridHandler extends GridHandler
                 break;
             case 'unassignStage':
                 UserGroupStage::where('contextId', $contextId)
-                    ->where('userGroupId', $userGroup->userGroupId)
+                    ->where('userGroupId', $userGroup->id)
                     ->where('stageId', $stageId)
                     ->delete();
                 $messageKey = 'grid.userGroup.unassignedStage';
@@ -483,7 +474,7 @@ class UserGroupGridHandler extends GridHandler
             )]
         );
 
-        return \PKP\db\DAO::getDataChangedEvent($userGroup->usergroupid);
+        return \PKP\db\DAO::getDataChangedEvent($userGroup->id);
     }
 
     /**

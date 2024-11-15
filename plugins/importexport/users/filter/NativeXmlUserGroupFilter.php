@@ -84,7 +84,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                 ->get();
 
             foreach ($userGroups as $testGroup) {
-                if (in_array($content[1], $testGroup->getData('name'))) {
+                if (in_array($content[1], $testGroup->name)) {
                     return $testGroup;  // we found one with the same name.
                 }
             }
@@ -103,15 +103,15 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                             break;
                         case 'name':
                             $locale = $n->getAttribute('locale');
-                            $name = $userGroup->getData('name') ?? [];
+                            $name = $userGroup->name ?? [];
                             $name[$locale] = $n->textContent;
-                            $userGroup->setData('name', $name);
+                            $userGroup->name = $name;
                             break;
                         case 'abbrev':
                             $locale = $n->getAttribute('locale');
-                            $abbrev = $userGroup->getData('abbrev') ?? [];
+                            $abbrev = $userGroup->abbrev ?? [];
                             $abbrev[$locale] = $n->textContent;
-                            $userGroup->setData('abbrev', $abbrev);
+                            $userGroup->abbrev = $abbrev;
                             break;
                         case 'permit_self_registration':
                             $userGroup->permitSelfRegistration = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
@@ -123,7 +123,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                 }
             }
             $userGroup->save();
-            $userGroupId = $userGroup->userGroupId;
+            $userGroupId = $userGroup->id;
 
             $stageNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'stage_assignments');
             if ($stageNodeList->length == 1) {

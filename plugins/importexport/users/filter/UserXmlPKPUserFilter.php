@@ -293,8 +293,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
         // We can only assign a user to a user group if persisted to the database by $userId
         if ($userId) {
             $userGroups = UserGroup::withContextIds([$context->getId()])
-                ->get()
-                ->toArray();
+                ->get();
 
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
@@ -308,8 +307,8 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
                         // and the user is not already assigned to that group
-                        if (in_array($n->textContent, $userGroup->getName(null)) && 
-                            !UserGroup::userInGroup($userId, $userGroup->getId())) {
+                        if (in_array($n->textContent, $userGroup->name) &&
+                            !UserGroup::userInGroup($userId, $userGroup->id)) {
                             // Found a candidate; assign user to it.
                             UserGroup::assignUserToGroup($userId, $userGroup->getId());
                         }

@@ -110,7 +110,7 @@ class UserFormHelper
                         continue;
                     }
 
-                    $groupId = $userGroup->usergroupid;
+                    $groupId = $userGroup->id;
                     $inGroup = Repo::userGroup()->userInGroup($user->getId(), $groupId);
                     if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
                         Repo::userGroup()->assignUserToGroup($user->getId(), $groupId);

@@ -48,13 +48,13 @@ class PKPNotifyUsersForm extends FormComponent
 
         $userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
-            $userGroupId = $userGroup->usergroupid;
+            $userGroupId = $userGroup->id;
             if (in_array($userGroupId, (array) $context->getData('disableBulkEmailUserGroups'))) {
                 continue;
             }
             $userGroupOptions[] = [
                 'value' => $userGroupId,
-                'label' => $userGroup->getLocalized('name'),
+                'label' => $userGroup->getLocalizedData('name'),
             ];
             $this->userGroupCounts[$userGroupId] = $userGroup->userCount ?? 0;
         }

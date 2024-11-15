@@ -14,9 +14,7 @@
 
 namespace PKP\userGroup\relationships;
 
-use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use PKP\userGroup\UserGroup;

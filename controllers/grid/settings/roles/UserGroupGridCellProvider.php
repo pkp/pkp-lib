@@ -45,11 +45,11 @@ class UserGroupGridCellProvider extends GridCellProvider
         $workflowStages = Application::getApplicationStages();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
-        $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->contextId, $userGroup->usergroupid)->toArray();
+        $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->contextId, $userGroup->id)->toArray();
 
         switch ($columnId) {
             case 'name':
-                return ['label' => $userGroup->getLocalized('name')];
+                return ['label' => $userGroup->getLocalizedData('name')];
             case 'roleId':
                 $roleNames = Application::getRoleNames(false, [$userGroup->roleId]);
                 return ['label' => __(array_shift($roleNames))];
@@ -85,7 +85,7 @@ class UserGroupGridCellProvider extends GridCellProvider
         if (in_array($columnId, $workflowStages)) {
             $userGroup = $row->getData(); /** @var UserGroup $userGroup */
 
-            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->contextId, $userGroup->usergroupid)->toArray();
+            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->contextId, $userGroup->id)->toArray();
 
             $router = $request->getRouter();
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */

@@ -79,7 +79,7 @@ class UserSelectGridHandler extends GridHandler
             if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            $this->_userGroupOptions[$userGroup->usergroupid] = $userGroup->getLocalized('name');
+            $this->_userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $this->setTitle('editor.submission.findAndSelectUser');

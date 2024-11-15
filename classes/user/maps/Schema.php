@@ -157,9 +157,9 @@ class Schema extends \PKP\core\maps\Schema
                         $output[$prop] = [];
                         foreach ($userGroups as $userGroup) {
                             $output[$prop][] = [
-                                'id' => (int) $userGroup->usergroupid,
-                                'name' => $userGroup->getLocalized('name'),
-                                'abbrev' => $userGroup->getLocalized('abbrev'),
+                                'id' => (int) $userGroup->id,
+                                'name' => $userGroup->getLocalizedData('name'),
+                                'abbrev' => $userGroup->getLocalizedData('abbrev'),
                                 'roleId' => (int) $userGroup->roleId,
                                 'showTitle' => (bool) $userGroup->showTitle,
                                 'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
@@ -217,9 +217,9 @@ class Schema extends \PKP\core\maps\Schema
                             $entry = [
                                 'stageAssignmentId' => $stageAssignment->id,
                                 'stageAssignmentUserGroup' => [
-                                    'id' => (int) $userGroup->usergroupid,
-                                    'name' => $userGroup->getLocalized('name'),
-                                    'abbrev' => $userGroup->getLocalized('abbrev'),
+                                    'id' => (int) $userGroup->id,
+                                    'name' => $userGroup->getLocalizedData('name'),
+                                    'abbrev' => $userGroup->getLocalizedData('abbrev'),
                                     'roleId' => (int) $userGroup->roleId,
                                     'showTitle' => (bool) $userGroup->showTitle,
                                     'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,

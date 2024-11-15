@@ -42,8 +42,8 @@ class UpdateAuthorStageAssignments
             ->withStageIds([$event->submission->getData('stageId')])
             ->get();
 
-            $userGroups = UserGroup::query()
-            ->withContextIds([$event->context->getId()])
+            $userGroups = UserGroup::withContextIds([$event->context->getId()])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get();
 
         foreach ($stageAssigments as $stageAssignment) {

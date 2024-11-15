@@ -109,8 +109,7 @@ class PKPCatalogHandler extends Handler
             'authorUserGroups' => UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->withContextIds([$context->getId()])
                 ->get()
-                ->remember()
-                ->toArray(),
+                ->remember(),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');

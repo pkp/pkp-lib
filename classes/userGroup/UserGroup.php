@@ -15,7 +15,6 @@
 namespace PKP\userGroup;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Eloquence\Behaviours\HasCamelCasing;
 use PKP\core\traits\ModelWithSettings;
@@ -26,9 +25,11 @@ use PKP\plugins\Hook;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserGroupStage;
 use Illuminate\Database\Query\Builder;
+use PKP\facades\Repo;
 
 class UserGroup extends Model
 {
+    
     use ModelWithSettings;
     use HasCamelCasing;
 
@@ -88,31 +89,6 @@ class UserGroup extends Model
     }
 
     /**
-     * List of attributes associated with the settings
-     *
-     * @var array
-     */
-    protected array $settings = [
-        'name',
-        'namePlural',
-        'abbrev',
-        'nameLocaleKey',
-        'abbrevLocaleKey',
-        'recommendOnly',
-    ];
-
-    /**
-     * The list of multilingual attributes.
-     *
-     * @var array
-     */
-    protected array $multilingualProps = [
-        'name',
-        'namePlural',
-        'abbrev',
-    ];
-
-    /**
      * Get the settings table name
      */
     public function getSettingsTable(): string
@@ -128,16 +104,25 @@ class UserGroup extends Model
         return 'userGroup';
     }
 
-    /**
-     * Accessor for the 'id' attribute.
-     *
-     * @return Attribute
-     */
-    protected function id(): Attribute
+    public function getSettings(): array
     {
-        return Attribute::make(
-            get: fn () => $this->getKey(),
-        );
+        return [
+            'name',
+            'namePlural',
+            'abbrev',
+            'nameLocaleKey',
+            'abbrevLocaleKey',
+            'recommendOnly',
+        ];
+    }
+
+    public function getMultilingualProps(): array
+    {
+        return [
+            'name',
+            'namePlural',
+            'abbrev',
+        ];
     }
 
     public function getAssignedStageIds()
@@ -188,9 +173,8 @@ class UserGroup extends Model
     public static function getRecommendOnlyUserGroupIdsByContextId(int $contextId): array
     {
         return self::where('context_id', $contextId)
-            ->where('recommend_only', true) // Adjust if needed
-            ->pluck('user_group_id') // Use the storage field here
-            ->mapWithKeys(fn($id) => ['userGroupId' => $id]) // Convert to camelCase for external use
+            ->where('recommend_only', true)
+            ->pluck('user_group_id')
             ->toArray();
     }
 
@@ -224,36 +208,17 @@ class UserGroup extends Model
         if (is_string($value)) {
             $value = $this->localizeNonLocalizedData($value);
         }
-        $this->setSetting('name', $value);
+        $this->setData('name', $value);
     }
-    
+
     public function setAbbrevAttribute($value)
     {
         if (is_string($value)) {
             $value = $this->localizeNonLocalizedData($value);
         }
-        $this->setSetting('abbrev', $value);
+        $this->setData('abbrev', $value);
     }
 
-    /**
-     * Override getAttribute to handle multilingual attributes.
-     */
-    public function getAttribute($key)
-    {
-        if (in_array($key, $this->settings)) {
-            // it's a settings attribute
-            return $this->settings[$key] ?? null;
-        }
-
-        return parent::getAttribute($key);
-    }
-
-    /**
-     * Wraps a non localized value with the default locale
-     *
-     * @param string $value the non localized value
-     * @return array array with the default locale as the key and the value
-     */
     protected function localizeNonLocalizedData(string $value): array
     {
         return [Locale::getLocale() => $value];
@@ -289,8 +254,8 @@ class UserGroup extends Model
 
         // Clear editorial masthead cache if the role is on the masthead
         if ($this->masthead) {
-            UserGroup::forgetEditorialCache($this->context_id);
-            UserGroup::forgetEditorialHistoryCache($this->context_id);
+            Repo::userGroup()->forgetEditorialCache($this->contextId);
+            Repo::userGroup()->forgetEditorialHistoryCache($this->contextId);
         }
     }
 
@@ -300,15 +265,13 @@ class UserGroup extends Model
             // Equivalent to 'UserGroup::delete::before' hook
             Hook::call('UserGroup::delete::before', [$userGroup]);
 
-            // Clear editorial masthead and history cache if the role is on the masthead
             if ($userGroup->masthead) {
-                self::forgetEditorialCache($userGroup->context_id);
-                self::forgetEditorialHistoryCache($userGroup->context_id);
+                Repo::userGroup()->forgetEditorialCache($userGroup->contextId);
+                Repo::userGroup()->forgetEditorialHistoryCache($userGroup->contextId);
             }
         });
 
         static::deleted(function ($userGroup) {
-            // Equivalent to 'UserGroup::delete' hook
             Hook::call('UserGroup::delete', [$userGroup]);
         });
     }

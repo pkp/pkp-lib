@@ -30,7 +30,7 @@ class Repository
     public function build(int $submissionId, int $userGroupId, int $userId, ?bool $recommendOnly = null, ?bool $canChangeMetadata = null): StageAssignment
     {
         // Set defaults
-        $canChangeMetadata ??= UserGroup::findById($userGroupId)?->permitMetadataEdit ?? false;
+        $canChangeMetadata ??= UserGroup::find($userGroupId)?->permitMetadataEdit ?? false;
         $recommendOnly ??= false;
 
         return StageAssignment::withSubmissionIds([$submissionId])

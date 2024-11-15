@@ -493,7 +493,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->withContextIds([$context->getId()])
             ->withUserIds([$user->getId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
-            ->get();
+            ->cursor();
 
         // Users without a submitting role can submit as an
         // author role that allows self registration
@@ -501,12 +501,12 @@ abstract class PKPSubmissionHandler extends Handler
             $defaultUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
             return LazyCollection::make(function () use ($defaultUserGroup) {
                 if ($defaultUserGroup) {
-                    yield $defaultUserGroup->usergroupid => $defaultUserGroup;
+                    yield $defaultUserGroup->id => $defaultUserGroup;
                 }
             });
         }
-
-        return LazyCollection::make($userGroups);
+        
+        return $userGroups;
     }
 
     /**

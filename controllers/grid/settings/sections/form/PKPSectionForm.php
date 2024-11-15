@@ -122,7 +122,7 @@ class PKPSectionForm extends Form
                     'userGroup' => $userGroup,
                     'users' => Repo::user()
                         ->getCollector()
-                        ->filterByUserGroupIds([$userGroup->userGroupId])
+                        ->filterByUserGroupIds([$userGroup->id])
                         ->filterByContextIds([$request->getContext()->getId()])
                         ->getMany()
                         ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])

@@ -554,7 +554,7 @@ class Schema extends \PKP\core\maps\Schema
 
                 // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
                 foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = UserGroup::findById($stageAssignment->userGroupId);
+                    $userGroup = UserGroup::find($stageAssignment->userGroupId);
                     $stageAssignmentsOverview[] = [
                         "roleId" => $userGroup?->roleId ?? null,
                         "recommendOnly" => $stageAssignment->recommendOnly,
@@ -671,7 +671,7 @@ class Schema extends \PKP\core\maps\Schema
     protected function getUserGroup(int $userGroupId): ?UserGroup
     {
         foreach ($this->userGroups as $userGroup) {
-            if ($userGroup->usergroupid === $userGroupId) {
+            if ($userGroup->id === $userGroupId) {
                 return $userGroup;
             }
         }

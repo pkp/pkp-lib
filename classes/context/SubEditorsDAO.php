@@ -210,7 +210,7 @@ class SubEditorsDAO extends \PKP\db\DAO
         });
 
         foreach ($assignments as $assignment) {
-            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->usergroupid == $assignment->userGroupId);
+            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->id == $assignment->userGroupId);
             Repo::stageAssignment()
                 ->build(
                     $submission->getId(),

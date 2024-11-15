@@ -79,7 +79,7 @@ class Report
             __('common.mailingAddress'),
             __('user.dateRegistered'),
             __('common.updated'),
-            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalized('name'), $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'), $this->_getUserGroups())
         ];
     }
 
@@ -93,7 +93,7 @@ class Report
         $userGroups = Repo::userGroup()->userUserGroups($user->getId());
         $groups = [];
         foreach ($userGroups as $userGroup) {
-            $groups[$userGroup->usergroupid] = 0;
+            $groups[$userGroup->id] = 0;
         }
 
         return [
@@ -106,7 +106,7 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->usergroupid]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->id]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
         ];
     }
 

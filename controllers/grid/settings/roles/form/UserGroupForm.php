@@ -119,7 +119,7 @@ class UserGroupForm extends Form
             $assignedStages = $userGroup->getAssignedStageIds()->toArray();
 
             $data = [
-                'userGroupId' => $userGroup->userGroupId,
+                'userGroupId' => $userGroup->id,
                 'roleId' => $userGroup->roleId,
                 'name' => $userGroup->getData('name'), // Localized array
                 'abbrev' => $userGroup->getData('abbrev'), // Localized array
@@ -163,7 +163,7 @@ class UserGroupForm extends Form
         $templateMgr->assign('disableRoleSelect', $disableRoleSelect);
         $templateMgr->assign('selfRegistrationRoleIds', $this->getPermitSelfRegistrationRoles());
         $templateMgr->assign('recommendOnlyRoleIds', $this->getRecommendOnlyRoles());
-        $repository = App::make(UserGroupRepository::class);
+        $repository = Repo::userGroup();
         $templateMgr->assign('notChangeMetadataEditPermissionRoles', $repository::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES);
         return parent::fetch($request, $template, $display);
     }
@@ -214,10 +214,10 @@ class UserGroupForm extends Form
     
             $userGroup->contextId = $this->getContextId();
             $userGroup->isDefault = false;
-            $userGroup->showTitle = $this->getData('showTitle') ?? false;
-            $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
+            $userGroup->showTitle = (bool) $this->getData('showTitle');
+            $userGroup->permitSelfRegistration = (bool) $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
 
-            if (in_array($userGroup->roleId, $repository::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
+            if (in_array($userGroup->roleId, Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->permitMetadataEdit = true;
             } else {
                 $userGroup->permitMetadataEdit = $this->getData('permitMetadataEdit') ?? false;
@@ -231,7 +231,7 @@ class UserGroupForm extends Form
 
             // save the user group
             $userGroup->save();
-            $userGroupId = $userGroup->userGroupId;
+            $userGroupId = $userGroup->id;
         } else {
             // editing an existing UserGroup
             $userGroup = UserGroup::findById($userGroupId, $this->getContextId());
@@ -247,7 +247,7 @@ class UserGroupForm extends Form
             if (in_array($userGroup->roleId, $repository::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->permitMetadataEdit = true;
             } else {
-                $userGroup->permitMetadataEdit = $this->getData('permitMetadataEdit') ?? false;
+                $userGroup->permitMetadataEdit = (bool) $this->getData('permitMetadataEdit');
             }
     
             // if permitMetadataEdit has changed, update StageAssignments
@@ -294,6 +294,7 @@ class UserGroupForm extends Form
         $contextId = $this->getContextId();
         $roleId = $this->getData('roleId');
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        $stageIds = $this->getData('assignedStages') ?? [];
 
     
         // Current existing workflow stages.
@@ -302,6 +303,7 @@ class UserGroupForm extends Form
         // Remove all existing stage assignments for this user group
         UserGroupStage::where('contextId', $contextId)
             ->where('userGroupId', $userGroupId)
+            ->whereIn('stageId', $stageIds)
             ->delete();
     
         // Assign new stages
@@ -336,23 +338,23 @@ class UserGroupForm extends Form
     {
         $router = $request->getRouter();
         $context = $router->getContext($request);
-        $supportedLocales = $context->getSupportedLocaleNames();
-
+        $supportedLocales = $context->getSupportedLocales();
+        $name = $this->getData('name');
+        $abbrev = $this->getData('abbrev');
+    
         if (!empty($supportedLocales)) {
-            foreach ($context->getSupportedLocaleNames() as $localeKey => $localeName) {
-                $name = $this->getData('name');
-                $abbrev = $this->getData('abbrev');
+            foreach ($supportedLocales as $localeKey) {
                 if (isset($name[$localeKey])) {
-                    $userGroup->setData('name', [$localeKey => $name[$localeKey]]);
+                    $userGroup->name[$localeKey] = $name[$localeKey];
                 }
                 if (isset($abbrev[$localeKey])) {
-                    $userGroup->setData('abbrev', [$localeKey => $abbrev[$localeKey]]);
+                    $userGroup->abbrev[$localeKey] = $abbrev[$localeKey];
                 }
             }
         } else {
             $localeKey = Locale::getLocale();
-            $userGroup->setName($this->getData('name'), $localeKey);
-            $userGroup->setAbbrev($this->getData('abbrev'), $localeKey);
+            $userGroup->name[$localeKey] = $name[$localeKey] ?? '';
+            $userGroup->abbrev[$localeKey] = $abbrev[$localeKey] ?? '';
         }
 
         return $userGroup;

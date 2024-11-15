@@ -157,8 +157,8 @@ class StartSubmission extends FormComponent
         }
 
         $options = $userGroups->map(fn (UserGroup $userGroup) => [
-            'value' => $userGroup->usergroupid,
-            'label' => $userGroup->getLocalized('name'),
+            'value' => $userGroup->id,
+            'label' => $userGroup->getLocalizedData('name'),
         ]);
 
         $hasEditorialRole = $userGroups->contains(

@@ -291,8 +291,8 @@ class Repository
             ->first();
 
         return match ($masthead) {
-            1 => UserUserGroupMastheadStatus::STATUS_ON,
-            0 => UserUserGroupMastheadStatus::STATUS_OFF,
+            true => UserUserGroupMastheadStatus::STATUS_ON,
+            false => UserUserGroupMastheadStatus::STATUS_OFF,
             default => UserUserGroupMastheadStatus::STATUS_NULL,
         };
     }
@@ -334,7 +334,7 @@ class Repository
         }
 
         $dateStart = $startDate ?? Core::getCurrentDate();
-        $userGroup = $this->get($userGroupId, null);
+        $userGroup = UserGroup::find($userGroupId);
 
         if (!$userGroup) {
             return null;
@@ -342,9 +342,9 @@ class Repository
 
         // Determine masthead status
         $masthead = match ($mastheadStatus) {
-            UserUserGroupMastheadStatus::STATUS_ON => 1,
-            UserUserGroupMastheadStatus::STATUS_OFF => 0,
-            default => $userGroup->masthead ? 1 : null,
+            UserUserGroupMastheadStatus::STATUS_ON => true,
+            UserUserGroupMastheadStatus::STATUS_OFF => false,
+            default => null,
         };
 
         // Clear editorial masthead cache if a new user is assigned to a masthead role
@@ -384,7 +384,7 @@ class Repository
 
         if ($userGroupId) {
             $query->withUserGroupId($userGroupId);
-            $userGroup = $this->get($userGroupId, null);
+            $userGroup = $this->get($userGroupId);
             if ($userGroup && $userGroup->masthead) {
                 self::forgetEditorialCache($userGroup->contextId);
                 self::forgetEditorialHistoryCache($userGroup->contextId);
@@ -484,17 +484,6 @@ class Repository
     }
 
     /**
-     * Retrieve a keyed Collection (key = user_group_id, value = count) with the amount of active users for each UserGroup.
-     *
-     * @param int|null $contextId
-     * @return Collection
-     */
-    public function getUserCountByContextId(?int $contextId = null): Collection
-    {
-        return UserGroup::withActiveUserCount($contextId)->pluck('count', 'user_group_id');
-    }
-
-    /**
      * Get the user group a new author may be assigned to
      * when they make their first submission, if they are
      * not already assigned to an author user group.
@@ -551,19 +540,19 @@ class Repository
 
             // Create a new UserGroup instance and set attributes
             $userGroup = new UserGroup([
-                'role_id' => $roleId,
-                'context_id' => $contextId,
-                'permit_self_registration' => $permitSelfRegistration,
-                'permit_metadata_edit' => $permitMetadataEdit,
-                'is_default' => true,
-                'show_title' => true,
+                'roleId' => $roleId,
+                'contextId' => $contextId,
+                'permitSelfRegistration' => $permitSelfRegistration,
+                'permitMetadataEdit' => $permitMetadataEdit,
+                'isDefault' => true,
+                'showTitle' => true,
                 'masthead' => $masthead,
             ]);
 
             // Save the UserGroup instance to the database
             $userGroup->save();
 
-            $userGroupId = $userGroup->user_group_id;
+            $userGroupId = $userGroup->userGroupId;
 
             // Install default groups for each stage
             foreach ($defaultStages as $stageId) {
@@ -615,15 +604,15 @@ class Repository
         $userGroups = $userGroups->get();
 
         foreach ($userGroups as $userGroup) {
-            $nameKey = $userGroup->settings['nameLocaleKey'] ?? null;
-            $abbrevKey = $userGroup->settings['abbrevLocaleKey'] ?? null;
+            $nameKey = $userGroup->getData('nameLocaleKey') ?? null;
+            $abbrevKey = $userGroup->getData('abbrevLocaleKey') ?? null;
 
             if ($nameKey) {
-                $userGroup->settings['name'] = __($nameKey, [], $locale);
+                $userGroup->setData('name', [$locale => __($nameKey, [], $locale)]);
             }
 
             if ($abbrevKey) {
-                $userGroup->settings['abbrev'] = __($abbrevKey, [], $locale);
+                $userGroup->setData('abbrev', [$locale => __($abbrevKey, [], $locale)]);
             }
 
             $userGroup->save();
@@ -652,16 +641,14 @@ class Repository
 
         return Cache::remember($cacheKey, $expiration, function () use ($mastheadRoles, $contextId, $userUserGroupStatus) {
             // extract UserGroup IDs from mastheadRoles within the context
-            $mastheadRolesIds = array_filter(array_map(function (UserGroup $item) use ($contextId) {
-                return ($item->context_id === $contextId) ? $item->user_group_id : null;
-            }, $mastheadRoles));
+            $mastheadRoleIds = array_map(fn (UserGroup $item) => $item->userGroupId, $mastheadRoles);
 
             // Query that gets all users that are or were active in the given masthead roles
             // and that have accepted to be displayed on the masthead for the roles.
             // Sort the results by role ID and user family name.
-            $users = UserUserGroup::withContextId($contextId)
+            $users = UserUserGroup::query()
                 ->withContextId($contextId)
-                ->withUserGroupIds($mastheadRolesIds)
+                ->withUserGroupIds($mastheadRoleIds)
                 ->withUserUserGroupStatus($userUserGroupStatus->value)
                 ->withUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON->value)
                 ->orderBy('user_groups.role_id', 'asc')
@@ -685,7 +672,6 @@ class Repository
      * @param int $contextId
      * @return void
      */
-    //public static function forgetEditorialMastheadCache(int $contextId): void
     public static function forgetEditorialCache(int $contextId): void
     {
         $cacheKeyPrefix = 'PKP\userGroup\Repository::getMastheadUserIdsByRoleIds';

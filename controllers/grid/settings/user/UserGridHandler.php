@@ -160,7 +160,7 @@ class UserGridHandler extends GridHandler
                     assert($user instanceof User);
                     $contextId = Application::get()->getRequest()->getContext()->getId();
                     $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
-                    $roles = $userGroupsIterator->map(fn (UserGroup $userGroup) => $userGroup->getLocalized('name'))->join(__('common.commaListSeparator'));
+                    $roles = $userGroupsIterator->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
                     return ['label' => $roles];
                 }
             }

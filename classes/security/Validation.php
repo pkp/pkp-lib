@@ -480,24 +480,20 @@ class Validation
             return self::ADMINISTRATION_PROHIBITED;
         }
 
-        $administeredUserAssignedGroupIds  = UserGroup::query()
-            ->withUserIds([$administratorUserId])
+        $administeredUserAssignedGroupIds = UserGroup::withUserIds([$administratorUserId])
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)
             ->unique()
             ->sort()
-            ->values()
-            ->toArray();
+            ->values();
 
-        $administratorUserAssignedGroupIds = UserGroup::query()
-            ->withUserIds([$administratorUserId])
+        $administratorUserAssignedGroupIds = UserGroup::withUserIds([$administratorUserId])
             ->withRoleIds([Role::ROLE_ID_MANAGER])
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)
             ->unique()
             ->sort()
-            ->values()
-            ->toArray();
+            ->values();
 
         // Check for administered user group assignments in other contexts
         // that the administrator user doesn't have a manager role in.

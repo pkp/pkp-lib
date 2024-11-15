@@ -147,25 +147,25 @@ class ManagementHandler extends Handler
         $this->setupTemplate($request);
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
-
+    
         $apiUrl = $this->getContextApiUrl($request);
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
-
+    
         $locales = $this->getSupportedFormLocales($context);
-
+    
         $contactForm = new PKPContactForm($apiUrl, $locales, $context);
         $mastheadForm = new MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
-
+    
         $templateMgr->setState([
             'components' => [
                 PKPContactForm::FORM_CONTACT => $contactForm->getConfig(),
                 MastheadForm::FORM_MASTHEAD => $mastheadForm->getConfig(),
             ],
         ]);
-
+    
         // Interact with the beacon (if enabled) and determine if a new version exists
         $latestVersion = VersionCheck::checkIfNewVersionExists();
-
+    
         // Display a warning message if there is a new version of OJS available
         if (Config::getVar('general', 'show_upgrade_warning') && $latestVersion) {
             $currentVersion = VersionCheck::getCurrentDBVersion();
@@ -175,23 +175,22 @@ class ManagementHandler extends Handler
                 'latestVersion' => $latestVersion,
             ]);
 
-            // Get contact information for site administrator
-            $userGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
-            $adminUserGroup = $userGroups->first();
-
-            if ($adminUserGroup) {
-                $siteAdmin = $adminUserGroup->usersInContext(PKPApplication::SITE_CONTEXT_ID)->first();
-                $templateMgr->assign('siteAdmin', $siteAdmin);
-            }
+            $siteAdmins = Repo::user()->getCollector()
+                ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
+                ->getMany();
+            
+            $siteAdmin = $siteAdmins->first();
+            $templateMgr->assign('siteAdmin', $siteAdmin);
         }
-
+    
         $templateMgr->assign('pageTitle', __('manager.setup'));
-
+    
         $templateMgr->registerClass(PKPContactForm::class, PKPContactForm::class); // FORM_CONTACT
         $templateMgr->registerClass(PKPMastheadForm::class, PKPMastheadForm::class); // FORM_MASTHEAD
-
+    
         $templateMgr->display('management/context.tpl');
     }
+    
 
     /**
      * Display website settings

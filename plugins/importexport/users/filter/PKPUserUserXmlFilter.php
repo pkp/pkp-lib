@@ -134,8 +134,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
 
         $userGroups = UserGroup::withUserIds([$user->getId()])
             ->withContextIds([$context->getId()])
-            ->get()
-            ->toArray();
+            ->get();
 
         foreach ($userGroups as $userGroup) {
             $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
@@ -156,8 +155,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
 
         $userGroups = UserGroup::withContextIds([$context->getId()])
-        ->get()
-        ->toArray();
+        ->get();
 
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');

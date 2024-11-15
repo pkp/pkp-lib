@@ -332,7 +332,7 @@ class Repository
         }
 
         if($isUnrestricted !== null) {
-            $this->markTemplateAsUnrestricted($emailTemplate, $isUnrestricted, $contextId);
+            $this->markTemplateAsUnrestricted($emailTemplate->getData('key'), $isUnrestricted, $contextId);
         }
     }
 
@@ -342,30 +342,29 @@ class Repository
      * An unrestricted email template is available to all user groups associated with the Roles linked to the mailable that the template belongs to.
      * Mailable roles are stored in the $fromRoleIds property of a mailable
      */
-    private function markTemplateAsUnrestricted(EmailTemplate $emailTemplate, bool $isUnrestricted, int $contextId): void
+    public function markTemplateAsUnrestricted(string $emailKey, bool $isUnrestricted, int $contextId): void
     {
         // Unrestricted emails are represented by an entry with a `null` value for the user group ID
         if ($isUnrestricted) {
             EmailTemplateAccessGroup::updateOrCreate(
                 [
                     // The where conditions (keys that should match)
-                    'email_key' => $emailTemplate->getData('key'),
+                    'email_key' => $emailKey,
                     'user_group_id' => null,
                     'context_id' => $contextId,
                 ],
                 [
                     // The data to insert or update (values to set)
-                    'emailKey' => $emailTemplate->getData('key'),
+                    'emailKey' => $emailKey,
                     'userGroupId' => null,
                     'contextId' => $contextId,
                 ]
             );
 
         } else {
-            // Remove entry with a `null` value for the user group ID to reflect that it is no longer unrestricted
-            EmailTemplateAccessGroup::withEmailKey([$emailTemplate->getData('key')])
-                ->withContextId($contextId)
-                ->withGroupIds([null])
+            EmailTemplateAccessGroup::where('email_key', $emailKey)
+                ->where('context_id', $contextId)
+                ->whereNull('user_group_id')
                 ->delete();
         }
     }

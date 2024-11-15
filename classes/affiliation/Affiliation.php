@@ -30,6 +30,14 @@ class Affiliation extends DataObject
     }
 
     /**
+     * Set author id
+     */
+    public function setAuthorId($authorId): void
+    {
+        $this->setData('authorId', $authorId);
+    }
+
+    /**
      * Get the ROR
      */
     public function getROR(): ?string
@@ -38,10 +46,34 @@ class Affiliation extends DataObject
     }
 
     /**
+     * Set the ROR
+     */
+    public function setROR($ror): void
+    {
+        $this->setData('ror', $ror);
+    }
+
+    /**
+     * Get name
+     */
+    public function getName(): ?array
+    {
+        return $this->getData('name');
+    }
+
+    /**
+     * Set name
+     */
+    public function setName(?array $name): void
+    {
+        $this->setData('name', $name);
+    }
+
+    /**
      * Get localized affiliation name.
      */
-    public function getLocalizedName(): mixed
+    public function getLocalizedName(?string $preferredLocale = null): mixed
     {
-        return $this->getLocalizedData('name');
+        return $this->getLocalizedData('name', $preferredLocale);
     }
 }

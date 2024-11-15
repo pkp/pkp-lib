@@ -131,12 +131,12 @@ class Repository
                     $schemaService->getValidationRules($this->dao->schema, $allowedLocales)
                 );
 
-                // Check for input from disallowed locales
-                ValidatorFactory::allowedLocales(
-                    $validator,
-                    $this->schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AFFILIATION),
-                    $allowedLocales
-                );
+//                // Check for input from disallowed locales
+//                ValidatorFactory::allowedLocales(
+//                    $validator,
+//                    $this->schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AFFILIATION),
+//                    $allowedLocales
+//                );
 
                 // The ror or one name must exist
                 $validator->after(function ($validator) use ($affiliation) {
@@ -262,6 +262,10 @@ class Repository
 
             if (empty($affiliation->getData('authorId'))) {
                 $affiliation->setData('authorId', $authorId);
+            }
+
+            if($affiliation->getROR() !== null) {
+                $affiliation->setName(null);
             }
 
             $this->dao->updateOrInsert($affiliation);

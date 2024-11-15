@@ -35,6 +35,9 @@ class Collector implements CollectorInterface
     /** Get rors with is active */
     public ?int $isActive = null;
 
+    /** Get rors with array of ror ids */
+    public ?array $rors = null;
+
     public ?int $count = null;
 
     public ?int $offset = null;
@@ -63,6 +66,14 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Get a collection of rors matching the configured query
+     */
+    public function getManyRorAsCollectionId(): LazyCollection
+    {
+        return $this->dao->getManyRorAsCollectionId($this);
+    }
+
+    /**
      * Filter rors by those matching a search query
      */
     public function filterBySearchPhrase(?string $searchPhrase): self
@@ -77,6 +88,15 @@ class Collector implements CollectorInterface
     public function filterByIsActive(?bool $isActive): self
     {
         $this->isActive = ($isActive) ? 1 : 0;
+        return $this;
+    }
+
+    /**
+     * Filter rors by those matching a list of rors
+     */
+    public function filterByRors(?array $rors): self
+    {
+        $this->rors = $rors;
         return $this;
     }
 
@@ -144,6 +164,10 @@ class Collector implements CollectorInterface
 
         if ($this->isActive !== null) {
             $qb->where('is_active', '=', $this->isActive);
+        }
+
+        if($this->rors !== null) {
+            $qb->whereIn('r.ror', $this->rors);
         }
 
         if (!is_null($this->count)) {

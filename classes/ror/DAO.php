@@ -117,6 +117,23 @@ class DAO extends EntityDAO
         });
     }
 
+    /**
+     * Get a collection of rors matching the configured query.
+     * Return with ror as id, instead of rors.ror_id)
+     */
+    public function getManyRorAsCollectionId(Collector $query): LazyCollection
+    {
+        $rows = $query
+            ->getQueryBuilder()
+            ->get();
+
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $row->ror => $this->fromRow($row);
+            }
+        });
+    }
+
     /** @copydoc EntityDAO::insert() */
     public function insert(Ror $ror): int
     {

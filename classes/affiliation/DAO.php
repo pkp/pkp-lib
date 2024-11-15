@@ -17,6 +17,7 @@
 
 namespace PKP\affiliation;
 
+use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -100,8 +101,18 @@ class DAO extends EntityDAO
             ->get();
 
         return LazyCollection::make(function () use ($rows) {
+            $rorIds = [];
             foreach ($rows as $row) {
-                yield $row->author_affiliation_id => $this->fromRow($row);
+                if ($row->ror) $rorIds[] = $row->ror;
+            }
+            $rors = iterator_to_array(Repo::ror()->getCollector()->filterByRors($rorIds)->getManyRorAsCollectionId());
+
+            foreach ($rows as $row) {
+                $fromRow = $this->fromRow($row);
+                if ($fromRow->_data['ror']) {
+                    $fromRow->_data['name'] = $rors[$fromRow->_data['ror']]->_data['name'];
+                }
+                yield $row->author_affiliation_id => $fromRow;
             }
         });
     }

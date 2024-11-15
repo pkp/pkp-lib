@@ -281,6 +281,17 @@ class DAO extends EntityDAO
                     $this->installAlternateEmailTemplates($contextId, $attrs['key']);
                 }
             }
+
+            if (isset($attrs['isUnrestricted'])) {
+                if ($attrs['isUnrestricted'] !== '1' && $attrs['isUnrestricted'] !== '0') {
+                    throw new Exception('Invalid value given for the `isUnrestricted` attribute on the ' . $attrs['key'] . ' template');
+                }
+
+                $contextIds = app()->get('context')->getIds();
+                foreach ($contextIds as $contextId) {
+                    Repo::emailTemplate()->markTemplateAsUnrestricted($attrs['key'], (bool)$attrs['isUnrestricted'], $contextId);
+                }
+            }
         }
         return true;
     }

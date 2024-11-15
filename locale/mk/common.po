@@ -1,9 +1,9 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-27 16:38+0000\n"
+"PO-Revision-Date: 2024-11-16 09:40+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -2363,3 +2363,6 @@ msgstr "Потенцирање"
 
 msgid "common.highlights"
 msgstr "Потенцирања"
+
+msgid "common.sandbox"
+msgstr "Апликацијата работи во режим на песок."

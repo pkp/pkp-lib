@@ -27,14 +27,13 @@ class Repository
 {
     public DAO $dao;
 
-    /** @var string $schemaMap The name of the class to map this entity to its schema */
-    public $schemaMap = maps\Schema::class;
+    /** The name of the class to map this entity to its schema */
+    public string $schemaMap = maps\Schema::class;
 
-    /** @var Request */
-    protected $request;
+    protected Request $request;
 
     /** @var PKPSchemaService<Affiliation> */
-    protected $schemaService;
+    protected PKPSchemaService $schemaService;
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
@@ -103,23 +102,25 @@ class Repository
         $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
 
         // Check if author exists
-        $validator = ValidatorFactory::make(
-            $props,
-            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
-        );
-        $validator->after(function ($validator) use ($props) {
-            if (isset($props['id']) && !$validator->errors()->get('id')) {
-                $author = Repo::author()->get($props['id']);
-                if (!$author) {
-                    $validator->errors()->add('affiliations-authorId', __('author.authorNotFound'));
+        if(!empty($props['id'])){
+            $validator = ValidatorFactory::make(
+                $props,
+                $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
+            );
+            $validator->after(function ($validator) use ($props) {
+                if (isset($props['id']) && !$validator->errors()->get('id')) {
+                    $author = Repo::author()->get($props['id']);
+                    if (!$author) {
+                        $validator->errors()->add('affiliations-authorId', __('author.authorNotFound'));
+                    }
                 }
-            }
-        });
+            });
 
-        if ($validator->fails()) {
-            $errors = $schemaService->formatValidationErrors($validator->errors());
+            if ($validator->fails()) {
+                $errors = $schemaService->formatValidationErrors($validator->errors());
+            }
+            unset($validator);
         }
-        unset($validator);
 
         if(empty($errors)) {
             foreach ($affiliations as $affiliation) {
@@ -173,9 +174,7 @@ class Repository
         $this->dao->update($newRow);
     }
 
-    /**
-     * @copydoc DAO::delete()
-     */
+    /** @copydoc DAO::delete() */
     public function delete(Affiliation $affiliation): void
     {
         Hook::call('Affiliation::delete::before', [$affiliation]);
@@ -198,11 +197,15 @@ class Repository
      */
     public function getByAuthorId(int $authorId): array
     {
-        return iterator_to_array(
+        $affiliations = iterator_to_array(
             $this->getCollector()
                 ->filterByAuthorIds([$authorId])
                 ->getMany()
         );
+
+//        \APP\_helper\LogHelper::logInfo($affiliations);
+
+        return $affiliations;
     }
 
     /**

@@ -245,8 +245,6 @@ class PKPAuthorForm extends Form
         } else {
             $authorId = Repo::author()->add($author);
         }
-        $author->setId($authorId);
-        Repo::affiliation()->saveAffiliations($author);
 
         if ($this->getData('primaryContact')) {
             $params = ['primaryContactId' => $authorId];

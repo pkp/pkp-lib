@@ -112,7 +112,6 @@ class OrcidController extends PKPBaseController
         $author->setOrcidVerified(false);
         OrcidManager::removeOrcidAccessToken($author);
         Repo::author()->edit($author, []);
-        Repo::affiliation()->saveAffiliations($author);
 
         return response()->json([], Response::HTTP_OK);
     }

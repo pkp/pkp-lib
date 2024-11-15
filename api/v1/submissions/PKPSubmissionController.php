@@ -671,8 +671,6 @@ class PKPSubmissionController extends PKPBaseController
             $author->setData('publicationId', $publication->getId());
             $author->setUserGroupId($submitAsUserGroup->getId());
             $authorId = Repo::author()->add($author);
-            $author->setId($authorId);
-            Repo::affiliation()->saveAffiliations($author);
             Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
         }
 
@@ -1566,8 +1564,9 @@ class PKPSubmissionController extends PKPBaseController
         $author->setId($newId);
         $author->setAffiliations($params['affiliations']);
         $errors = Repo::affiliation()->validate($author, $params, $submission, $submissionContext);
-        if (!empty($errors)) return response()->json($errors, Response::HTTP_BAD_REQUEST);
-        Repo::affiliation()->saveAffiliations($author);
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
 
         $author = Repo::author()->get($newId);
 
@@ -1696,8 +1695,9 @@ class PKPSubmissionController extends PKPBaseController
 
         $author->setAffiliations($params['affiliations']);
         $errors = Repo::affiliation()->validate($author, $params, $submission, $submissionContext);
-        if (!empty($errors)) return response()->json($errors, Response::HTTP_BAD_REQUEST);
-        Repo::affiliation()->saveAffiliations($author);
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
 
         $author = Repo::author()->get($author->getId());
 
@@ -2156,7 +2156,6 @@ class PKPSubmissionController extends PKPBaseController
             ->each(function (Author $contributor) use ($contributorProps, $editProps, $newLocale) {
                 if (!($contributor->getData('givenName')[$newLocale] ?? null)) {
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));
-                    Repo::affiliation()->saveAffiliations($contributor);
                 }
             });
     }

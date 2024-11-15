@@ -160,7 +160,6 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
 
         $authorId = Repo::author()->add($author);
         $author->setId($authorId);
-        Repo::affiliation()->saveAffiliations($author);
 
         $importAuthorId = $node->getAttribute('id');
         $deployment->setAuthorDBId($importAuthorId, $authorId);

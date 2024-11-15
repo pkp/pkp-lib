@@ -166,7 +166,13 @@ class DAO extends EntityDAO
      */
     public function insert(Author $author): int
     {
-        return parent::_insert($author);
+        $newAuthorId = parent::_insert($author);
+
+        $author->setId($newAuthorId);
+
+        Repo::affiliation()->saveAffiliations($author);
+
+        return $newAuthorId;
     }
 
     /**
@@ -174,6 +180,8 @@ class DAO extends EntityDAO
      */
     public function update(Author $author)
     {
+        Repo::affiliation()->saveAffiliations($author);
+
         parent::_update($author);
     }
 

@@ -980,14 +980,14 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function reviewHistory($args, $request)
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT); /**@var ReviewAssignment $reviewAssignment */
 
         $templateMgr = TemplateManager::getManager($request);
         $dates = [
             'common.assigned' => $reviewAssignment->getDateAssigned(),
             'common.notified' => $reviewAssignment->getDateNotified(),
             'common.reminder' => $reviewAssignment->getDateReminded(),
-            'common.confirm' => $reviewAssignment->getDateConfirmed(),
+            $reviewAssignment->getDeclined() ? 'common.declined' : 'common.confirm' => $reviewAssignment->getDateConfirmed(),
             'common.completed' => $reviewAssignment->getDateCompleted(),
             'common.acknowledged' => $reviewAssignment->getDateAcknowledged(),
         ];

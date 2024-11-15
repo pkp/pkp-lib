@@ -32,6 +32,9 @@ class Collector implements CollectorInterface
     /** Get rors with a name */
     public ?string $name = null;
 
+    /** Get rors with is active */
+    public ?int $isActive = null;
+
     public ?int $count = null;
 
     public ?int $offset = null;
@@ -65,6 +68,15 @@ class Collector implements CollectorInterface
     public function filterBySearchPhrase(?string $searchPhrase): self
     {
         $this->searchPhrase = $searchPhrase;
+        return $this;
+    }
+
+    /**
+     * Filter rors by isActive
+     */
+    public function filterByIsActive(?bool $isActive): self
+    {
+        $this->isActive = ($isActive) ? 1 : 0;
         return $this;
     }
 
@@ -129,6 +141,10 @@ class Collector implements CollectorInterface
                     ->where('setting_value', $this->name);
             });
         });
+
+        if ($this->isActive !== null) {
+            $qb->where('is_active', '=', $this->isActive);
+        }
 
         if (!is_null($this->count)) {
             $qb->limit($this->count);

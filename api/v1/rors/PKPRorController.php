@@ -130,6 +130,7 @@ class PKPRorController extends PKPBaseController
                     break;
                 case 'searchPhrase':
                     $collector->filterBySearchPhrase($val);
+                    $collector->filterByIsActive(true);
                     break;
             }
         }

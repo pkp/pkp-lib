@@ -126,7 +126,7 @@ class Collector implements CollectorInterface
                                 ->where(DB::raw('lower(rs.setting_value)'), 'LIKE', DB::raw("lower('%{$word}%')"));
                         })
                             ->orWhere(function ($qb) use ($word) {
-                                $qb->where('r.ror', 'like', '%'. $word . '%');
+                                $qb->where('r.ror', 'like', '%' . $word . '%');
                             });
                     });
                 }

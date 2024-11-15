@@ -55,9 +55,9 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, ?int $contextId = null): ?Ror
+    public function get(int $id): ?Ror
     {
-        return $this->dao->get($id, $contextId);
+        return $this->dao->get($id);
     }
 
     /** @copydoc DAO::getCollector() */

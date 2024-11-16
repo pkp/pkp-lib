@@ -64,7 +64,7 @@ class ControlledVocabEntry extends Model
     protected function casts(): array
     {
         return [
-            'controlled_vocab_entry_id' => 'string',
+            'controlled_vocab_entry_id' => 'integer',
             'controlled_vocab_id' => 'integer',
             'seq' => 'float',
         ];

@@ -32,7 +32,7 @@ class MultilingualSettingAttribute implements CastsInboundAttributes
         if (!in_array(ModelWithSettings::class, class_uses_recursive(get_class($model)))) {
             throw new Exception(
                 sprintf(
-                    "model class %s does not support multilingual setting attributes/properties",
+                    "Model class %s does not support multilingual setting attributes/properties",
                     get_class($model)
                 )
             );
@@ -42,7 +42,7 @@ class MultilingualSettingAttribute implements CastsInboundAttributes
 
         if (!in_array($key, $model->getMultilingualProps())) {
             throw new Exception(
-                'Applying multilingual casting on non-maltilingual attribute is not allowed'
+                "Applying multilingual casting on non-maltilingual attribute {$key} is not allowed"
             );
         }
         

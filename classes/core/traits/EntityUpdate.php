@@ -74,7 +74,15 @@ trait EntityUpdate
                 $deleteSettings[] = $propName;
                 continue;
             }
+
             if (!empty($propSchema->multilingual)) {
+                // first we will delete the settings entries for the locale keys which are not present in update query
+                DB::table($this->getSettingsTable())
+                    ->where($this->getPrimaryKeyName(), '=', $modelId)
+                    ->where('setting_name', '=', $propName)
+                    ->whereNotIn('locale', array_keys($props[$propName]))
+                    ->delete();
+
                 foreach ($props[$propName] as $localeKey => $localeValue) {
                     // Delete rows with a null value
                     if (is_null($localeValue)) {
@@ -92,9 +100,9 @@ trait EntityUpdate
                                     'setting_name' => $propName,
                                 ],
                                 [
-                                    'setting_value' => method_exists($this, 'convertToDB') ?
-                                        $this->convertToDB($localeValue, $schema->properties->{$propName}->type) :
-                                        $localeValue
+                                    'setting_value' => method_exists($this, 'convertToDB')
+                                        ? $this->convertToDB($localeValue, $schema->properties->{$propName}->type)
+                                        : $localeValue
                                 ]
                             );
                     }
@@ -108,9 +116,9 @@ trait EntityUpdate
                             'setting_name' => $propName,
                         ],
                         [
-                            'setting_value' => method_exists($this, 'convertToDB') ?
-                                $this->convertToDB($props[$propName], $schema->properties->{$propName}->type) :
-                                $props[$propName]
+                            'setting_value' => method_exists($this, 'convertToDB')
+                                ? $this->convertToDB($props[$propName], $schema->properties->{$propName}->type)
+                                : $props[$propName]
                         ]
                     );
             }

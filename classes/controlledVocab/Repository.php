@@ -44,7 +44,7 @@ class Repository
         string $symbolic,
         int $assocType,
         int $assocId,
-        array $locales = []
+        ?array $locales = []
     ): array
     {
         $result = [];

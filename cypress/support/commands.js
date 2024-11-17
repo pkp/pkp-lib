@@ -796,7 +796,7 @@ Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedS
 
 	cy.get(`#list-item-${itemType}-${itemId} .pkpBadge`).contains(expectedStatus);
 	if (!isValid) {
-		cy.get(`div[role=dialog] button:contains('Close')`).click();
+		cy.get(`div[role=dialog] button:contains('OK')`).click();
 	}
 });
 

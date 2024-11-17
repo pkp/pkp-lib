@@ -90,7 +90,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
             new ConfirmationModal(
                 __('reviewer.aboutDueDates.text'),
                 __('reviewer.aboutDueDates'),
-                'modal_information',
+                'primary',
                 null,
                 '',
                 false
@@ -104,7 +104,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
             'declineReview',
             new AjaxModal(
                 $request->url(null, null, 'showDeclineReview', [$reviewAssignment->getSubmissionId()]),
-                __('reviewer.submission.declineReview')
+                __('reviewer.submission.declineReview'),
             )
         );
         $templateMgr->assign('declineReviewAction', $declineReviewLinkAction);

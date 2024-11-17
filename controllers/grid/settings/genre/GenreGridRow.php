@@ -50,7 +50,7 @@ class GenreGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'editGenre', null, $actionArgs),
                         __('grid.action.edit'),
-                        'modal_edit',
+                        null,
                         true
                     ),
                     __('grid.action.edit'),
@@ -66,7 +66,7 @@ class GenreGridRow extends GridRow
                         __('common.confirmDelete'),
                         __('grid.action.delete'),
                         $router->url($request, null, null, 'deleteGenre', null, $actionArgs),
-                        'modal_delete'
+                        'negative'
                     ),
                     __('grid.action.delete'),
                     'delete'

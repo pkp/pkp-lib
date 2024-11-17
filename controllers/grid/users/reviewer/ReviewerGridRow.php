@@ -90,7 +90,6 @@ class ReviewerGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'readReview', null, $actionArgs),
                             __('editor.review.reviewDetails') . ': ' . $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
-                            'modal_information'
                         ),
                         __('editor.review.reviewDetails'),
                         'more_info'
@@ -104,7 +103,6 @@ class ReviewerGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'sendEmail', null, $actionArgs),
                         __('editor.review.emailReviewer'),
-                        'modal_email'
                     ),
                     __('editor.review.emailReviewer'),
                     'notify'
@@ -119,7 +117,6 @@ class ReviewerGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'resendRequestReviewer', null, $actionArgs),
                                 __('editor.review.resendRequestReviewer'),
-                                'modal_add'
                             ),
                             __('editor.review.resendRequestReviewer'),
                             'add'
@@ -133,7 +130,6 @@ class ReviewerGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'editReview', null, $actionArgs),
                             __('editor.submissionReview.editReview'),
-                            'modal_add_file'
                         ),
                         __('common.edit'),
                         'edit'
@@ -147,7 +143,6 @@ class ReviewerGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'unassignReviewer', null, $actionArgs),
                                 $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
-                                'modal_delete'
                             ),
                             $reviewAssignment->getDateConfirmed() ? __('editor.review.cancelReviewer') : __('editor.review.unassignReviewer'),
                             'delete'
@@ -160,7 +155,6 @@ class ReviewerGridRow extends GridRow
                             new AjaxModal(
                                 $router->url($request, null, null, 'reinstateReviewer', null, $actionArgs),
                                 __('editor.review.reinstateReviewer'),
-                                'modal_add'
                             ),
                             __('editor.review.reinstateReviewer'),
                             'add'
@@ -175,7 +169,6 @@ class ReviewerGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'reviewHistory', null, $actionArgs),
                         __('submission.history'),
-                        'modal_information'
                     ),
                     __('submission.history'),
                     'more_info'
@@ -196,7 +189,8 @@ class ReviewerGridRow extends GridRow
                         new RedirectConfirmationModal(
                             __('grid.user.confirmLogInAs'),
                             __('grid.action.logInAs'),
-                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$reviewAssignment->getReviewerId()])
+                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$reviewAssignment->getReviewerId()]),
+                            'primary'
                         ),
                         __('grid.action.logInAs'),
                         'enroll_user'
@@ -213,7 +207,6 @@ class ReviewerGridRow extends GridRow
                         new AjaxModal(
                             $router->url($request, null, null, 'gossip', null, $actionArgs),
                             __('user.gossip'),
-                            'modal_information'
                         ),
                         __('user.gossip'),
                         'more_info'

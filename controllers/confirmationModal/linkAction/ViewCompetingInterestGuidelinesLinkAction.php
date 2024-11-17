@@ -34,7 +34,7 @@ class ViewCompetingInterestGuidelinesLinkAction extends LinkAction
         $viewCompetingInterestsModal = new ConfirmationModal(
             $context->getLocalizedData('competingInterests'),
             __('reviewer.submission.competingInterests'),
-            null,
+            'primary',
             null,
             false,
             false

@@ -83,7 +83,7 @@ class PluginGridRow extends GridRow
                         __('manager.plugins.deleteConfirm'),
                         __('common.delete'),
                         $router->url($request, null, null, 'deletePlugin', null, $actionArgs),
-                        'modal_delete'
+                        'negative'
                     ),
                     __('common.delete'),
                     'delete'
@@ -94,7 +94,6 @@ class PluginGridRow extends GridRow
                     new AjaxModal(
                         $router->url($request, null, null, 'upgradePlugin', null, $actionArgs),
                         __('manager.plugins.upgrade'),
-                        'modal_upgrade'
                     ),
                     __('grid.action.upgrade'),
                     'upgrade'

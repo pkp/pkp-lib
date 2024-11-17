@@ -238,7 +238,6 @@ class PKPReviewerGridHandler extends GridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'showReviewerForm', null, $actionArgs),
                         __('editor.submission.addReviewer'),
-                        'modal_add_user'
                     ),
                     __('editor.submission.addReviewer'),
                     'add_user'

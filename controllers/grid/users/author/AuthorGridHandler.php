@@ -139,7 +139,6 @@ class AuthorGridHandler extends GridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'addAuthor', null, $actionArgs),
                         __('grid.action.addContributor'),
-                        'modal_add_user'
                     ),
                     __('grid.action.addContributor'),
                     'add_user'

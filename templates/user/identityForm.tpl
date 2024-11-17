@@ -59,7 +59,7 @@
 
 		{include file="form/orcidProfile.tpl"}
 		{if $orcid && $orcidAuthenticated}
-			{include file="linkAction/buttonConfirmationLinkAction.tpl" titleIcon="modal_delete" buttonSelector="#deleteOrcidButton" dialogText="orcid.field.deleteOrcidModal.message"}
+			{include file="linkAction/buttonConfirmationLinkAction.tpl" modalStyle="negative" buttonSelector="#deleteOrcidButton" dialogText="orcid.field.deleteOrcidModal.message"}
 			<button id="deleteOrcidButton" type="button"  class="pkp_button pkp_button_offset" style="margin-left: 1rem">{translate key='common.delete'}</button>
 		{/if}
 		{/fbvFormSection}

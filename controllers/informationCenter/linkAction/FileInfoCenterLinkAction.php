@@ -70,7 +70,6 @@ class FileInfoCenterLinkAction extends FileLinkAction
                 $this->getActionArgs($submissionFile, $stageId)
             ),
             $title,
-            'modal_information'
         );
 
         return $ajaxModal;

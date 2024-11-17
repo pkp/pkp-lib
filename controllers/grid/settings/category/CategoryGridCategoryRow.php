@@ -58,7 +58,7 @@ class CategoryGridCategoryRow extends GridCategoryRow
                             __('common.confirmDelete'),
                             __('common.delete'),
                             $router->url($request, null, null, 'deleteCategory', null, ['categoryId' => $categoryId]),
-                            'modal_delete'
+                            'negative'
                         ),
                         __('grid.action.remove'),
                         'delete'
@@ -71,7 +71,6 @@ class CategoryGridCategoryRow extends GridCategoryRow
                 new AjaxModal(
                     $router->url($request, null, null, 'editCategory', null, ['categoryId' => $categoryId]),
                     __('grid.category.edit'),
-                    'modal_edit'
                 ),
                 $category->getLocalizedTitle()
             ), GridRow::GRID_ACTION_POSITION_ROW_CLICK);

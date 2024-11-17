@@ -14,6 +14,7 @@
  * 	FBV_confirmSubmit string Text to be used in a confirmation modal before submiting the form.
  * 	FBV_submitText string The label to go on the submit button.
  * 	FBV_submitDisabled bool disables the submit button.
+ * 	FBV_modalStyle string The modal state/style that should be used.
  *}
 
 {fbvFormSection class="formButtons form_buttons"}
@@ -44,7 +45,8 @@
 	{if $FBV_confirmSubmit}
 		{include file="linkAction/buttonConfirmationLinkAction.tpl"
 				buttonSelector="#"|concat:$submitButtonId
-				dialogText="$FBV_confirmSubmit"}
+				dialogText="$FBV_confirmSubmit"
+				modalStyle="$FBV_modalStyle"}
 	{/if}
 
 	{fbvElement type="submit" class="{if $FBV_saveText}pkp_button_primary{/if} submitFormButton" name="submitFormButton" id=$submitButtonId label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}

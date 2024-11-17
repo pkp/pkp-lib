@@ -365,7 +365,8 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                 'addUser',
                 new ConfirmationModal(
                     __('review.anonymousPeerReview'),
-                    __('review.anonymousPeerReview.title')
+                    __('review.anonymousPeerReview.title'),
+                    'primary'
                 ),
                 __('review.anonymousPeerReview.title')
             );

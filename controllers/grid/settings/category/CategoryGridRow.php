@@ -52,7 +52,7 @@ class CategoryGridRow extends GridRow
                 'editCategory',
                 new AjaxModal(
                     $router->url($request, null, null, 'editCategory', null, $actionArgs),
-                    __('grid.category.edit')
+                    __('grid.category.edit'),
                 ),
                 __('grid.action.edit'),
                 'edit'
@@ -64,7 +64,8 @@ class CategoryGridRow extends GridRow
                     $request->getSession(),
                     __('grid.category.removeText'),
                     null,
-                    $router->url($request, null, null, 'deleteCategory', null, $actionArgs)
+                    $router->url($request, null, null, 'deleteCategory', null, $actionArgs),
+                    'negative'
                 ),
                 __('grid.action.remove'),
                 'delete'

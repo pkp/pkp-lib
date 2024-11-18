@@ -867,6 +867,6 @@ Cypress.Commands.add('changeLanguage', (language, contextPath) => {
 	contextPath = contextPath || 'publicknowledge';
 
 	cy.get('.app__userNav > button').click();
-	cy.get('.app__userNav a:contains("Français")').click();
+	cy.get('.app__userNav a:contains("français")').click();
 	cy.wait(2000);
 });

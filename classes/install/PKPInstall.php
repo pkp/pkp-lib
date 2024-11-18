@@ -235,6 +235,7 @@ class PKPInstall extends Installer
         $adminUserGroup = Repo::userGroup()->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
         $adminUserGroup->setContextId(\PKP\core\PKPApplication::SITE_CONTEXT_ID);
+        $adminUserGroup->setPermitSettings(true);
         $adminUserGroup->setDefault(true);
         foreach ($this->installedLocales as $locale) {
             $name = __('default.groups.name.siteAdmin', [], $locale);

@@ -30,6 +30,7 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
@@ -79,6 +80,7 @@ class UserGroupGridHandler extends GridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         $operation = $request->getRequestedOp();
         $workflowStageRequiredOps = ['assignStage', 'unassignStage'];

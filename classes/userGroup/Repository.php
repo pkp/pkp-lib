@@ -500,7 +500,6 @@ class Repository
     /**
      * Load the XML file and move the settings to the DB
      *
-     * @param int $contextId
      * @param string $filename
      *
      * @return bool true === success
@@ -524,11 +523,13 @@ class Repository
             $abbrevKey = $setting->getAttribute('abbrev');
             $permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
             $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
+            $permitSettings = $setting->getAttribute('permitSettings');
             $masthead = $setting->getAttribute('masthead');
 
             // If has manager role then permitMetadataEdit can't be overridden
             if (in_array($roleId, [Role::ROLE_ID_MANAGER])) {
                 $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
+                $permitSettings = $setting->getAttribute('permitSettings');
             }
 
             $defaultStages = explode(',', (string) $setting->getAttribute('stages'));
@@ -539,6 +540,7 @@ class Repository
             $userGroup->setContextId($contextId);
             $userGroup->setPermitSelfRegistration($permitSelfRegistration ?? false);
             $userGroup->setPermitMetadataEdit($permitMetadataEdit ?? false);
+            $userGroup->setPermitSettings($permitSettings ?? false);
             $userGroup->setDefault(true);
             $userGroup->setShowTitle(true);
             $userGroup->setMasthead($masthead ?? false);

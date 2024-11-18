@@ -36,6 +36,7 @@ use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\Notification;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -73,6 +74,7 @@ class UserGridHandler extends GridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new CanAccessSettingsPolicy());
         return parent::authorize($request, $args, $roleAssignments);
     }
 

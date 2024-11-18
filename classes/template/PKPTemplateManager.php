@@ -28,7 +28,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\submission\Submission;
-use PKP\submission\DashboardView;
 use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Str;
@@ -57,6 +56,7 @@ use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\VersionDAO;
+use PKP\submission\DashboardView;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
@@ -994,19 +994,19 @@ class PKPTemplateManager extends Smarty
                                 $requestedOp = $router->getRequestedOp($request);
                                 $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
 
-                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request,$requestedOp, $requestedPage, $requestedViewId) { 
+                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
                                     $data = $dashboardView->getData();
                                     return [
                                         'id' => $data['id'],
                                         'name' => $data['name'],
                                         'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'editorial' && $requestedViewId === $data['id'],
-                                        'url' => $router->url($request, null, 'dashboard', 'editorial',null,['currentViewId'=>$data['id']]),
+                                        'url' => $router->url($request, null, 'dashboard', 'editorial', null, ['currentViewId' => $data['id']]),
                                         'badge' => ['slot' => '-']
                                     ];
                                 });
 
                                 $viewsData['newSubmission'] = [
-                                    'name' => __('dashboard.startNewSubmission'), 
+                                    'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
                                 ];
 
@@ -1021,13 +1021,13 @@ class PKPTemplateManager extends Smarty
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
                                 $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
-                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request,$requestedOp, $requestedPage, $requestedViewId) { 
+                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
                                     $data = $dashboardView->getData();
                                     return [
                                         'id' => $data['id'],
                                         'name' => $data['name'],
                                         'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'reviewAssignments' && $requestedViewId === $data['id'],
-                                        'url' => $router->url($request, null, 'dashboard', 'reviewAssignments',null,['currentViewId'=>$data['id']]),
+                                        'url' => $router->url($request, null, 'dashboard', 'reviewAssignments', null, ['currentViewId' => $data['id']]),
                                         'badge' => ['slot' => '-']
                                     ];
                                 });
@@ -1042,19 +1042,19 @@ class PKPTemplateManager extends Smarty
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
                                 $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
-                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request,$requestedOp, $requestedPage, $requestedViewId) { 
+                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
                                     $data = $dashboardView->getData();
                                     return [
                                         'id' => $data['id'],
                                         'name' => $data['name'],
                                         'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'mySubmissions' && $requestedViewId === $data['id'],
-                                        'url' => $router->url($request, null, 'dashboard', 'mySubmissions',null,['currentViewId'=>$data['id']]),
+                                        'url' => $router->url($request, null, 'dashboard', 'mySubmissions', null, ['currentViewId' => $data['id']]),
                                         'badge' => ['slot' => '-']
                                     ];
                                 });
 
                                 $viewsData['newSubmission'] = [
-                                    'name' => __('dashboard.startNewSubmission'), 
+                                    'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
                                 ];
 
@@ -1111,37 +1111,41 @@ class PKPTemplateManager extends Smarty
                             ];
                         }
 
-                        $menu['settings'] = [
-                            'name' => __('navigation.settings'),
-                            'icon' => 'Settings',
-                            'submenu' => [
-                                'context' => [
-                                    'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['context']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'website' => [
-                                    'name' => __('manager.website'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['website']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('website', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'workflow' => [
-                                    'name' => __('manager.workflow'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['workflow']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('workflow', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'distribution' => [
-                                    'name' => __('manager.distribution'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['distribution']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('distribution', (array) $router->getRequestedArgs($request)),
-                                ],
-                                'access' => [
-                                    'name' => __('navigation.access'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['access']),
-                                    'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
+                        $userGroups = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
+                        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->getPermitSettings(), false);
+                        if ($hasSettingsAccess) {
+                            $menu['settings'] = [
+                                'name' => __('navigation.settings'),
+                                'icon' => 'Settings',
+                                'submenu' => [
+                                    'context' => [
+                                        'name' => __('context.context'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['context']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'website' => [
+                                        'name' => __('manager.website'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['website']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('website', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'workflow' => [
+                                        'name' => __('manager.workflow'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['workflow']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('workflow', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'distribution' => [
+                                        'name' => __('manager.distribution'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['distribution']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('distribution', (array) $router->getRequestedArgs($request)),
+                                    ],
+                                    'access' => [
+                                        'name' => __('navigation.access'),
+                                        'url' => $router->url($request, null, 'management', 'settings', ['access']),
+                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
+                                    ]
                                 ]
-                            ]
-                        ];
+                            ];
+                        }
                     }
 
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {

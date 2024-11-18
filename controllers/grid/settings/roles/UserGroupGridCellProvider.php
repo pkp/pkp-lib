@@ -90,7 +90,7 @@ class UserGroupGridCellProvider extends GridCellProvider
             $router = $request->getRouter();
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
-            if (!in_array($columnId, $roleDao->getForbiddenStages($userGroup->getRoleId()))) {
+            if (!in_array($columnId, $roleDao->getForbiddenStages($userGroup->roleId))) {
                 if (in_array($columnId, $assignedStages)) {
                     $operation = 'unassignStage';
                     $actionTitleKey = 'grid.userGroup.unassignStage';

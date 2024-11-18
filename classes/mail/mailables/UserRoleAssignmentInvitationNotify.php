@@ -127,7 +127,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear', 
             [
                 'contextName' => $context->getName($locale),
-                'sectionName' => $userGroup->getName($locale)
+                'sectionName' => $userGroup->getLocalizedData('name', $locale)
             ]
         );
 
@@ -135,7 +135,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear', 
                 [
                     'contextName' => $context->getName($locale),
-                    'sectionName' => $userGroup->getName($locale)
+                    'sectionName' => $userGroup->getLocalizedData('name', $locale)
                 ]
             );
         }
@@ -143,7 +143,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $userGroupSection = __('emails.userRoleAssignmentInvitationNotify.userGroupSection', 
             [
                 'sectionNumber' => $count, 
-                'sectionName' => $userGroup->getName($locale),
+                'sectionName' => $userGroup->getLocalizedData('name', $locale),
                 'dateStart' => $userUserGroup->dateStart,
                 'sectionEndingDate' => $sectionEndingDate,
                 'sectionMastheadAppear' => $sectionMastheadAppear
@@ -192,7 +192,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                 
                 // Fetch the user-user group relationships
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroup->getId())
+                    ->withUserGroupId($userGroup->id)
                     ->withActive()
                     ->get();
                 
@@ -215,7 +215,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             
             foreach ($userGroups as $userGroup) {
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroup->getId())
+                    ->withUserGroupId($userGroup->id)
                     ->withActive()
                     ->get();
                 

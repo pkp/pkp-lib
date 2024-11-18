@@ -121,8 +121,8 @@ class UserGroupForm extends Form
             $data = [
                 'userGroupId' => $userGroup->id,
                 'roleId' => $userGroup->roleId,
-                'name' => $userGroup->getData('name'), // Localized array
-                'abbrev' => $userGroup->getData('abbrev'), // Localized array
+                'name' => $userGroup->name, // Localized array
+                'abbrev' => $userGroup->abbrev, // Localized array
                 'assignedStages' => $assignedStages,
                 'showTitle' => $userGroup->showTitle,
                 'permitSelfRegistration' => $userGroup->permitSelfRegistration,
@@ -199,7 +199,7 @@ class UserGroupForm extends Form
         $userGroupId = $this->getUserGroupId();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
 
-        $repository = App::make(UserGroupRepository::class);
+        $repository = Repo::userGroup();
 
         // Check if we are editing an existing user group or creating another one.
         if ($userGroupId == null) {

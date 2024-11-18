@@ -42,6 +42,7 @@ use PKP\security\RoleDAO;
 use PKP\security\Validation;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class UserGridHandler extends GridHandler
 {
@@ -159,8 +160,24 @@ class UserGridHandler extends GridHandler
                     $user = $row->getData();
                     assert($user instanceof User);
                     $contextId = Application::get()->getRequest()->getContext()->getId();
-                    $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
-                    $roles = $userGroupsIterator->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
+
+                    // fetch user groups where the user is assigned in the current context
+                    $userGroups = UserGroup::query()
+                        ->where('contextId', $contextId)
+                        ->whereHas('userUserGroups', function ($query) use ($user) {
+                            $query->where('userId', $user->getId())
+                                ->where(function ($q) {
+                                    $q->whereNull('dateEnd')
+                                        ->orWhere('dateEnd', '>', now());
+                                })
+                                ->where(function ($q) {
+                                    $q->whereNull('dateStart')
+                                        ->orWhere('dateStart', '<=', now());
+                                });
+                        })
+                        ->get();
+    
+                    $roles = $userGroups->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
                     return ['label' => $roles];
                 }
             }
@@ -243,7 +260,7 @@ class UserGridHandler extends GridHandler
 
         $userGroupOptions = ['' => __('grid.user.allRoles')];
         foreach ($userGroups as $userGroup) {
-            $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $userDao = Repo::user()->dao;
@@ -538,29 +555,53 @@ class UserGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
-
+    
         $context = $request->getContext();
         $user = $request->getUser();
-
+    
         // Identify the user Id.
         $userId = $request->getUserVar('rowId');
-
-        if ($userId !== null && Validation::getAdministrationLevel($userId, $user->getId(), $request->getContext()->getId()) === Validation::ADMINISTRATION_PROHIBITED) {
+    
+        if ($userId !== null && Validation::getAdministrationLevel($userId, $user->getId(), $context->getId()) === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         }
-
-        // End all active user group assignments for this context.
+    
         // Check if this user has any active user group assignments for this context.
-        $activeUserGroupCount = Repo::userGroup()
-            ->userUserGroups($userId, $context->getId())
+        $activeUserGroupCount = UserGroup::query()
+            ->where('contextId', $context->getId())
+            ->whereHas('userUserGroups', function ($query) use ($userId) {
+                $query->where('userId', $userId)
+                    ->where(function ($q) {
+                        $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                    })
+                    ->where(function ($q) {
+                        $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                    });
+            })
             ->count();
-
+    
         if (!$activeUserGroupCount) {
             return new JSONMessage(false, __('grid.user.userNoRoles'));
         } else {
-            Repo::userGroup()->endAssignments($context->getId(), $userId);
-
+            // End all active user group assignments for this context.
+            UserUserGroup::query()
+                ->whereHas('userGroup', function ($query) use ($context) {
+                    $query->where('contextId', $context->getId());
+                })
+                ->where('userId', $userId)
+                ->where(function ($q) {
+                    $q->whereNull('dateEnd')
+                        ->orWhere('dateEnd', '>', now());
+                })
+                ->where(function ($q) {
+                    $q->whereNull('dateStart')
+                        ->orWhere('dateStart', '<=', now());
+                })
+                ->update(['dateEnd' => now()]);
+    
             return \PKP\db\DAO::getDataChangedEvent($userId);
         }
     }

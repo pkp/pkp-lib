@@ -118,7 +118,7 @@ class DashboardHandler extends Handler
         $items = $collector->limit(30)->getMany();
 
         $userGroups = UserGroup::withContextIds([$context->getId()])
-        ->get();
+        ->lazy();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

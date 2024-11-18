@@ -269,12 +269,12 @@ class PKPSchemaService
             if (empty($propSchema->origin)) {
                 continue;
             }
-
+    
             // Exclude readonly if specified
-            if ($excludeReadOnly && $propSchema->origin->readOnly) {
+            if ($excludeReadOnly && !empty($propSchema->readOnly)) {
                 continue;
             }
-
+    
             switch($propSchema->origin) {
                 case Schema::ATTRIBUTE_ORIGIN_SETTINGS:
                     $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_SETTINGS][] = $propName;
@@ -288,9 +288,10 @@ class PKPSchemaService
                     break;
             }
         }
-
+    
         return $propsByOrigin;
     }
+    
 
     /**
      * Sanitize properties according to a schema

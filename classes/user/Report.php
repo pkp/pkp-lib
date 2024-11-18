@@ -90,11 +90,23 @@ class Report
      */
     private function _getDataRow(User $user): array
     {
-        $userGroups = Repo::userGroup()->userUserGroups($user->getId());
-        $groups = [];
-        foreach ($userGroups as $userGroup) {
-            $groups[$userGroup->id] = 0;
-        }
+        // fetch user groups where the user is assigned
+        $userGroups = UserGroup::query()
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->where('user_id', $user->getId())
+                    ->where(function ($q) {
+                        $q->whereNull('date_end')
+                        ->orWhere('date_end', '>', now());
+                    })
+                    ->where(function ($q) {
+                        $q->whereNull('date_start')
+                        ->orWhere('date_start', '<=', now());
+                    });
+            })
+            ->get();
+
+        // get the IDs of the user's groups
+        $userGroupIds = $userGroups->pluck('user_group_id')->all();
 
         return [
             $user->getId(),
@@ -106,7 +118,10 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->id]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
+            ...array_map(
+                fn (UserGroup $userGroup) => __(in_array($userGroup->user_group_id, $userGroupIds) ? 'common.yes' : 'common.no'),
+                $this->_getUserGroups()
+            )
         ];
     }
 

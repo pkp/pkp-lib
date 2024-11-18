@@ -310,7 +310,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         if (in_array($n->textContent, $userGroup->name) &&
                             !UserGroup::userInGroup($userId, $userGroup->id)) {
                             // Found a candidate; assign user to it.
-                            UserGroup::assignUserToGroup($userId, $userGroup->getId());
+                            UserGroup::assignUserToGroup($userId, $userGroup->id);
                         }
                     }
                 }

@@ -36,6 +36,8 @@ use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\userGroup\UserGroup;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class QueryForm extends Form
 {
@@ -377,15 +379,29 @@ class QueryForm extends Form
 
         $allParticipants = [];
         foreach ($usersIterator as $participantUser) {
-            $allUserGroups = Repo::userGroup()->userUserGroups($participantUser->getId(), $context->getId());
-
+            // fetch user groups where the user is assigned in the current context
+            $allUserGroups = UserGroup::query()
+                ->where('contextId', $context->getId())
+                ->whereHas('userUserGroups', function ($query) use ($participantUser) {
+                    $query->where('userId', $participantUser->getId())
+                        ->where(function ($q) {
+                            $q->whereNull('dateEnd')
+                                ->orWhere('dateEnd', '>', now());
+                        })
+                        ->where(function ($q) {
+                            $q->whereNull('dateStart')
+                                ->orWhere('dateStart', '<=', now());
+                        });
+                })
+                ->get();
+    
             $userRoles = [];
             // get participant's assigned roles
             $participantAssignedRoles = $this->getAssignedRoles($query->assocId, $query->stageId, $participantUser->getId());
 
             foreach ($participantAssignedRoles as $roleId) {
                 foreach ($allUserGroups as $userGroup) {
-                    if ($userGroup->getRoleId() == $roleId) {
+                    if ($userGroup->roleId == $roleId) {
                         $userRoles[] = $userGroup->getLocalizedData('name');
                     }
                 }

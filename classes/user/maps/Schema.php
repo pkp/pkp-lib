@@ -23,6 +23,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
 use APP\submission\Submission;
+use PKP\userGroup\UserGroup;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -153,7 +154,22 @@ class Schema extends \PKP\core\maps\Schema
                 case 'groups':
                     $output[$prop] = null;
                     if ($this->context) {
-                        $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $this->context->getId());
+                        // fetch user groups where the user is assigned in the current context
+                        $userGroups = UserGroup::query()
+                            ->where('contextId', $this->context->getId())
+                            ->whereHas('userUserGroups', function ($query) use ($user) {
+                                $query->where('userId', $user->getId())
+                                    ->where(function ($q) {
+                                        $q->whereNull('dateEnd')
+                                        ->orWhere('dateEnd', '>', now());
+                                    })
+                                    ->where(function ($q) {
+                                        $q->whereNull('dateStart')
+                                        ->orWhere('dateStart', '<=', now());
+                                    });
+                            })
+                            ->get();
+
                         $output[$prop] = [];
                         foreach ($userGroups as $userGroup) {
                             $output[$prop][] = [
@@ -164,7 +180,7 @@ class Schema extends \PKP\core\maps\Schema
                                 'showTitle' => (bool) $userGroup->showTitle,
                                 'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
                                 'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
-                                'recommendOnly' => (bool) $userGroup->recommendOnly,
+                                'recommendOnly' => (bool) $userGroup->getData('recommendOnly'),
                             ];
                         }
                     }

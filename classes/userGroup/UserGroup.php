@@ -3,7 +3,7 @@
 /**
  * @file classes/userGroup/UserGroup.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2014-2014 Simon Fraser University
  * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -12,26 +12,27 @@
  * @brief Eloquent Model for UserGroup
  */
 
-namespace PKP\userGroup;
+ namespace PKP\userGroup;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Eloquence\Behaviours\HasCamelCasing;
-use PKP\core\traits\ModelWithSettings;
-use PKP\stageAssignment\StageAssignment;
-use PKP\userGroup\relationships\UserUserGroup;
-use PKP\facades\Locale;
-use PKP\plugins\Hook;
-use PKP\user\User;
-use PKP\userGroup\relationships\UserGroupStage;
-use Illuminate\Database\Query\Builder;
-use PKP\facades\Repo;
+ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+ use Illuminate\Database\Eloquent\Model;
+ use Illuminate\Database\Eloquent\Relations\HasMany;
+ use Eloquence\Behaviours\HasCamelCasing;
+
+ use PKP\core\traits\ModelWithSettings;
+ use PKP\stageAssignment\StageAssignment;
+ use PKP\userGroup\relationships\UserUserGroup;
+ use PKP\userGroup\relationships\UserGroupStage;
+ use PKP\facades\Locale;
+ use PKP\plugins\Hook;
+ use PKP\facades\Repo;
+ use PKP\services\PKPSchemaService;
 
 class UserGroup extends Model
 {
     
     use ModelWithSettings;
-    use HasCamelCasing;
+
 
     /**
      * The table associated with the model.
@@ -60,19 +61,19 @@ class UserGroup extends Model
      * @var array
      */
     protected $fillable = [
-        'context_id',
-        'role_id',
-        'is_default',
-        'show_title',
-        'permit_self_registration',
-        'permit_metadata_edit',
+        'contextId',
+        'roleId',
+        'isDefault',
+        'showTitle',
+        'permitSelfRegistration',
+        'permitMetadataEdit',
         'masthead',
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast.
      *
-     * @var array
+     * @return array<string, string>
      */
     protected function casts(): array
     {
@@ -84,7 +85,6 @@ class UserGroup extends Model
             'permitSelfRegistration' => 'boolean',
             'permitMetadataEdit' => 'boolean',
             'masthead' => 'boolean',
-            // multilingual attributes will be handled through accessors and mutators
         ];
     }
 
@@ -101,21 +101,12 @@ class UserGroup extends Model
      */
     public static function getSchemaName(): ?string
     {
-        return 'userGroup';
+        return PKPSchemaService::SCHEMA_USER_GROUP;
     }
 
-    public function getSettings(): array
-    {
-        return [
-            'name',
-            'namePlural',
-            'abbrev',
-            'nameLocaleKey',
-            'abbrevLocaleKey',
-            'recommendOnly',
-        ];
-    }
-
+    /**
+     * Define multilingual properties
+     */
     public function getMultilingualProps(): array
     {
         return [
@@ -125,71 +116,205 @@ class UserGroup extends Model
         ];
     }
 
+    /**
+     * Get assigned stage IDs
+     *
+     * @return \Illuminate\Support\Collection
+     */
     public function getAssignedStageIds()
     {
-        return $this->userGroupStages()->get()->pluck('stage_id');
-    }
-
-    public function usersInContext($contextId)
-    {
-        return $this->belongsToMany(User::class, 'user_user_groups', 'userGroupId', 'userId')
-            ->withPivot('contextId')
-            ->wherePivot('contextId', $contextId);
+        return $this->userGroupStages()->pluck('stage_id');
     }
 
     /**
-     * Get an array of user group IDs for a given context ID.
-     *
-     * @param int $contextId
-     * @return array
+     * Define the relationship to UserUserGroups
      */
-    public static function getIdsByContextId(int $contextId): array
+    public function userUserGroups(): HasMany
     {
-        return self::where('context_id', $contextId)
-            ->pluck('user_group_id')
-            ->toArray();
+        return $this->hasMany(UserUserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     /**
-     * Get user group IDs for a given user ID.
-     *
-     * @param int $userId
-     * @return array
+     * Define the relationship to UserGroupStages
      */
-    public static function getIdsByUserId(int $userId): array
+    public function userGroupStages(): HasMany
     {
-        return self::whereHas('userUserGroups', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->pluck('user_group_id')->toArray();
-    }
-
-
-    /**
-     * Get IDs of user groups marked as "recommend only" for a specific context.
-     *
-     * @param int $contextId Context ID to filter by.
-     * @return array<int> List of user group IDs marked as "recommend only."
-     */
-    public static function getRecommendOnlyUserGroupIdsByContextId(int $contextId): array
-    {
-        return self::where('context_id', $contextId)
-            ->where('recommend_only', true)
-            ->pluck('user_group_id')
-            ->toArray();
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
     }
 
     /**
-     * Retrieve user group IDs with metadata editing permissions for a given context.
-     *
-     * @param int $contextId Context ID for filtering user groups.
-     * @return array<int> A list of user group IDs with metadata editing permissions enabled.
+     * Scope a query to filter by context IDs.
      */
-    public static function getPermitMetadataEditUserGroupIds(int $contextId): array
+    protected function scopeWithContextIds(EloquentBuilder $builder, array $contextIds): EloquentBuilder
     {
-        return self::where('context_id', $contextId)
-            ->where('permit_metadata_edit', true)
-            ->pluck('user_group_id')
-            ->toArray();
+        return $builder->whereIn('context_id', $contextIds);
+    }
+
+    /**
+     * Scope a query to filter by user group IDs.
+     */
+    protected function scopeWithUserGroupIds(EloquentBuilder $builder, array $userGroupIds): EloquentBuilder
+    {
+        return $builder->whereIn('user_group_id', $userGroupIds);
+    }
+
+    /**
+     * Scope a query to filter by role IDs.
+     */
+    protected function scopeWithRoleIds(EloquentBuilder $builder, array $roleIds): EloquentBuilder
+    {
+        return $builder->whereIn('role_id', $roleIds);
+    }
+
+    /**
+     * Scope a query to exclude certain role IDs.
+     */
+    protected function scopeExcludeRoles(EloquentBuilder $builder, array $excludeRoles): EloquentBuilder
+    {
+        return $builder->whereNotIn('role_id', $excludeRoles);
+    }
+
+    /**
+     * Scope a query to filter by stage IDs.
+     */
+    protected function scopeWithStageIds(EloquentBuilder $builder, array $stageIds): EloquentBuilder
+    {
+        return $builder->whereHas('userGroupStages', function (EloquentBuilder $q) use ($stageIds) {
+            $q->whereIn('stage_id', $stageIds);
+        });
+    }
+
+    /**
+     * Scope a query to filter by is_default.
+     */
+    protected function scopeIsDefault(EloquentBuilder $builder, bool $isDefault): EloquentBuilder
+    {
+        return $builder->where('is_default', $isDefault);
+    }
+
+    /**
+     * Scope a query to filter by show_title.
+     */
+    protected function scopeShowTitle(EloquentBuilder $builder, bool $showTitle): EloquentBuilder
+    {
+        return $builder->where('show_title', $showTitle);
+    }
+
+    /**
+     * Scope a query to filter by permit_self_registration.
+     */
+    protected function scopePermitSelfRegistration(EloquentBuilder $builder, bool $permitSelfRegistration): EloquentBuilder
+    {
+        return $builder->where('permit_self_registration', $permitSelfRegistration);
+    }
+
+    /**
+     * Scope a query to filter by permit_metadata_edit.
+     */
+    protected function scopePermitMetadataEdit(EloquentBuilder $builder, bool $permitMetadataEdit): EloquentBuilder
+    {
+        return $builder->where('permit_metadata_edit', $permitMetadataEdit);
+    }
+
+    /**
+     * Scope a query to filter by masthead.
+     */
+    protected function scopeMasthead(EloquentBuilder $builder, bool $masthead): EloquentBuilder
+    {
+        return $builder->where('masthead', $masthead);
+    }
+
+    /**
+     * Scope a query to filter by user IDs.
+     */
+    protected function scopeWithUserIds(EloquentBuilder $builder, array $userIds): EloquentBuilder
+    {
+        return $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($userIds) {
+            $q->whereIn('user_id', $userIds);
+        });
+    }
+
+    /**
+     * Scope a query to filter by recommendOnly setting.
+     */
+    protected function scopeIsRecommendOnly(EloquentBuilder $builder, bool $isRecommendOnly): EloquentBuilder
+    {
+        return $builder->whereHas('settings', function (EloquentBuilder $q) use ($isRecommendOnly) {
+            $q->where('setting_name', 'recommendOnly')
+                ->where('setting_value', $isRecommendOnly);
+        });
+    }
+
+    /**
+     * Scope a query to filter by UserUserGroupStatus.
+     */
+    protected function scopeWithUserUserGroupStatus(EloquentBuilder $builder, string $status): EloquentBuilder
+    {
+        $currentDateTime = now();
+
+        if ($status === 'active') {
+            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                    $q->where('date_start', '<=', $currentDateTime)
+                        ->orWhereNull('date_start');
+                })->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                    $q->where('date_end', '>', $currentDateTime)
+                        ->orWhereNull('date_end');
+                });
+            });
+        } elseif ($status === 'ended') {
+            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->whereNotNull('date_end')
+                    ->where('date_end', '<=', $currentDateTime);
+            });
+        }
+        // Implement other statuses if needed
+        return $builder;
+    }
+
+    /**
+     * Scope a query to order by role ID.
+     */
+    protected function scopeOrderByRoleId(EloquentBuilder $builder): EloquentBuilder
+    {
+        return $builder->orderBy('role_id', 'asc');
+    }
+
+    /**
+     * Scope a query to order by user group ID.
+     */
+    protected function scopeOrderById(EloquentBuilder $builder): EloquentBuilder
+    {
+        return $builder->orderBy('user_group_id', 'asc');
+    }
+
+    /**
+     * Scope a query to include active user count.
+     */
+    protected function scopeWithActiveUserCount(EloquentBuilder $builder, ?int $contextId = null): EloquentBuilder
+    {
+        $currentDateTime = now();
+
+        $builder->select('user_groups.user_group_id')
+            ->selectRaw('COUNT(user_user_groups.user_id) AS count')
+            ->join('user_user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
+            ->join('users', 'users.user_id', '=', 'user_user_groups.user_id')
+            ->where('users.disabled', 0)
+            ->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->where('user_user_groups.date_start', '<=', $currentDateTime)
+                    ->orWhereNull('user_user_groups.date_start');
+            })
+            ->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->where('user_user_groups.date_end', '>', $currentDateTime)
+                    ->orWhereNull('user_user_groups.date_end');
+            })
+            ->groupBy('user_groups.user_group_id');
+
+        if ($contextId !== null) {
+            $builder->where('user_groups.context_id', $contextId);
+        }
+
+        return $builder;
     }
 
     /**
@@ -203,7 +328,28 @@ class UserGroup extends Model
         return array_map(fn($cast) => (string) $cast, $casts);
     }
 
-    public function setNameAttribute($value)
+
+    /**
+     * Scope a query to filter by publication IDs.
+     *
+     * @param EloquentBuilder $builder
+     * @param array<int> $publicationIds Array of publication IDs to filter by.
+     * @return EloquentBuilder
+     */
+    protected function scopeWithPublicationIds(EloquentBuilder $builder, array $publicationIds): EloquentBuilder
+    {
+        return $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($publicationIds) {
+            $q->whereIn('publication_id', $publicationIds);
+        });
+    }
+
+    /**
+     * Set the name attribute.
+     *
+     * @param mixed $value
+     * @return void
+     */
+    public function setNameAttribute($value): void
     {
         if (is_string($value)) {
             $value = $this->localizeNonLocalizedData($value);
@@ -211,7 +357,13 @@ class UserGroup extends Model
         $this->setData('name', $value);
     }
 
-    public function setAbbrevAttribute($value)
+    /**
+     * Set the abbrev attribute.
+     *
+     * @param mixed $value
+     * @return void
+     */
+    public function setAbbrevAttribute($value): void
     {
         if (is_string($value)) {
             $value = $this->localizeNonLocalizedData($value);
@@ -219,11 +371,24 @@ class UserGroup extends Model
         $this->setData('abbrev', $value);
     }
 
+    /**
+     * Localize non-localized data.
+     *
+     * @param string $value
+     * @return array
+     */
     protected function localizeNonLocalizedData(string $value): array
     {
         return [Locale::getLocale() => $value];
     }
 
+    /**
+     * Find a UserGroup by ID and optional context ID.
+     *
+     * @param int $id
+     * @param int|null $contextId
+     * @return self|null
+     */
     public static function findById(int $id, ?int $contextId = null): ?self
     {
         $query = self::where('user_group_id', $id);
@@ -235,11 +400,17 @@ class UserGroup extends Model
         return $query->first();
     }
 
+    /**
+     * Save the model to the database.
+     *
+     * @param array $options
+     * @return bool
+     */
     public function save(array $options = [])
     {
         $isNew = !$this->exists;
 
-        parent::save($options);
+        $saved = parent::save($options);
 
         // Reload the model to ensure all relationships and settings are loaded
         $this->refresh();
@@ -257,8 +428,15 @@ class UserGroup extends Model
             Repo::userGroup()->forgetEditorialCache($this->contextId);
             Repo::userGroup()->forgetEditorialHistoryCache($this->contextId);
         }
+
+        return $saved;
     }
 
+    /**
+     * Booted method to handle model events.
+     *
+     * @return void
+     */
     protected static function booted()
     {
         static::deleting(function ($userGroup) {
@@ -277,248 +455,11 @@ class UserGroup extends Model
     }
 
     /**
-     * Define the relationship to StageAssignments
+     * Define the relationship to StageAssignments.
      */
     public function stageAssignments(): HasMany
     {
         return $this->hasMany(StageAssignment::class, 'user_group_id', 'user_group_id');
     }
 
-    /**
-     * Define the relationship to UserUserGroups
-     */
-    public function userUserGroups(): HasMany
-    {
-        return $this->hasMany(UserUserGroup::class, 'user_group_id', 'user_group_id');
-    }
-
-    /**
-     * Define the relationship to UserUserGroups
-     */
-    public function userGroupStages(): HasMany
-    {
-        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
-    }
-
-    /**
-     * Scope a query to filter by context IDs.
-     */
-    public function scopeWithContextIds(Builder $query, ?array $contextIds)
-    {
-        if ($contextIds !== null) {
-            $query->whereIn('context_id', $contextIds);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by user group IDs.
-     */
-    public function scopeWithUserGroupIds(Builder $query, ?array $userGroupIds)
-    {
-        if ($userGroupIds !== null) {
-            $query->whereIn('user_group_id', $userGroupIds);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by role IDs.
-     */
-    public function scopeWithRoleIds(Builder $query, ?array $roleIds)
-    {
-        if ($roleIds !== null) {
-            $query->whereIn('role_id', $roleIds);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to exclude certain role IDs.
-     */
-    public function scopeExcludeRoles(Builder $query, ?array $excludeRoles)
-    {
-        if ($excludeRoles !== null) {
-            $query->whereNotIn('role_id', $excludeRoles);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by stage IDs.
-     */
-    public function scopeWithStageIds(Builder $query, ?array $stageIds)
-    {
-        if ($stageIds !== null) {
-            $query->whereHas('userGroupStages', function (Builder $q) use ($stageIds) {
-                $q->whereIn('stage_id', $stageIds);
-            });
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by is_default.
-     */
-    public function scopeIsDefault(Builder $query, ?bool $isDefault)
-    {
-        if ($isDefault !== null) {
-            $query->where('is_default', $isDefault);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by show_title.
-     */
-    public function scopeShowTitle(Builder $query, ?bool $showTitle)
-    {
-        if ($showTitle !== null) {
-            $query->where('show_title', $showTitle);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by permit_self_registration.
-     */
-    public function scopePermitSelfRegistration(Builder $query, ?bool $permitSelfRegistration)
-    {
-        if ($permitSelfRegistration !== null) {
-            $query->where('permit_self_registration', $permitSelfRegistration);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by permit_metadata_edit.
-     */
-    public function scopePermitMetadataEdit(Builder $query, ?bool $permitMetadataEdit)
-    {
-        if ($permitMetadataEdit !== null) {
-            $query->where('permit_metadata_edit', $permitMetadataEdit);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by masthead.
-     */
-    public function scopeMasthead(Builder $query, ?bool $masthead)
-    {
-        if ($masthead !== null) {
-            $query->where('masthead', $masthead);
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by user IDs.
-     */
-    public function scopeWithUserIds(Builder $query, ?array $userIds)
-    {
-        if ($userIds !== null) {
-            $query->whereHas('userUserGroups', function (Builder $q) use ($userIds) {
-                $q->whereIn('user_id', $userIds);
-            });
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by recommendOnly setting.
-     */
-    public function scopeIsRecommendOnly(Builder $query, ?bool $isRecommendOnly)
-    {
-        if ($isRecommendOnly !== null) {
-            $query->whereHas('settings', function (Builder $q) use ($isRecommendOnly) {
-                $q->where('setting_name', 'recommendOnly')
-                  ->where('setting_value', $isRecommendOnly);
-            });
-        }
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by UserUserGroupStatus.
-     */
-    public function scopeWithUserUserGroupStatus(Builder $query, string $status)
-    {
-        $currentDateTime = now();
-
-        if ($status === 'active') {
-            $query->whereHas('userUserGroups', function (Builder $q) use ($currentDateTime) {
-                $q->where(function ($q) use ($currentDateTime) {
-                    $q->where('date_start', '<=', $currentDateTime)
-                      ->orWhereNull('date_start');
-                })->where(function ($q) use ($currentDateTime) {
-                    $q->where('date_end', '>', $currentDateTime)
-                      ->orWhereNull('date_end');
-                });
-            });
-        } elseif ($status === 'ended') {
-            $query->whereHas('userUserGroups', function (Builder $q) use ($currentDateTime) {
-                $q->whereNotNull('date_end')
-                  ->where('date_end', '<=', $currentDateTime);
-            });
-        }
-        // Implement other statuses if needed
-        return $query;
-    }
-
-    /**
-     * Scope a query to order by role ID.
-     */
-    public function scopeOrderByRoleId(Builder $query)
-    {
-        return $query->orderBy('role_id', 'asc');
-    }
-
-    /**
-     * Scope a query to order by user group ID.
-     */
-    public function scopeOrderById(Builder $query)
-    {
-        return $query->orderBy('user_group_id', 'asc');
-    }
-
-    public function scopeWithActiveUserCount(Builder $query, ?int $contextId = null): Builder
-    {
-        $currentDateTime = now();
-    
-        $query->select('user_groups.user_group_id')
-            ->selectRaw('COUNT(user_user_groups.user_id) AS count')
-            ->join('user_user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
-            ->join('users', 'users.user_id', '=', 'user_user_groups.user_id')
-            ->where('users.disabled', 0)
-            ->where(function (Builder $q) use ($currentDateTime) {
-                $q->where('user_user_groups.date_start', '<=', $currentDateTime)
-                  ->orWhereNull('user_user_groups.date_start');
-            })
-            ->where(function (Builder $q) use ($currentDateTime) {
-                $q->where('user_user_groups.date_end', '>', $currentDateTime)
-                  ->orWhereNull('user_user_groups.date_end');
-            })
-            ->groupBy('user_groups.user_group_id');
-    
-        if ($contextId !== null) {
-            $query->withContextIds([$contextId]);
-        }
-    
-        return $query;
-    }
-
-    /**
-     * Scope a query to filter by publication IDs.
-     *
-     * @param Builder $query
-     * @param array<int> $publicationIds Array of publication IDs to filter by.
-     * @return Builder
-     */
-    public function scopeWithPublicationIds(Builder $query, array $publicationIds): Builder
-    {
-        return $query->whereHas('userUserGroups', function (Builder $q) use ($publicationIds) {
-            $q->whereIn('publication_id', $publicationIds);
-        });
-    }
 }

@@ -470,7 +470,7 @@ class UserGroupGridHandler extends GridHandler
             Notification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __(
                 $messageKey,
-                ['userGroupName' => $userGroup->getLocalizedName(), 'stageName' => __($stageLocaleKeys[$stageId])]
+                ['userGroupName' => $userGroup->getLocalizedData('name'), 'stageName' => __($stageLocaleKeys[$stageId])]
             )]
         );
 

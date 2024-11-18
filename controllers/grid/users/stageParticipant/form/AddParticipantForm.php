@@ -100,11 +100,11 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     {
         $currentUser = Application::get()->getRequest()->getUser();
 
-        if ($currentUser->getId() === $userId && $userGroup->getRoleId() === Role::ROLE_ID_SUB_EDITOR) {
+        if ($currentUser->getId() === $userId && $userGroup->roleId === Role::ROLE_ID_SUB_EDITOR) {
             return false;
         }
 
-        return $userGroup->getRoleId() !== Role::ROLE_ID_MANAGER;
+        return $userGroup->roleId !== Role::ROLE_ID_MANAGER;
     }
 
     /**
@@ -116,11 +116,11 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     {
         $currentUser = Application::get()->getRequest()->getUser();
 
-        if ($currentUser->getId() === $userId && $userGroup->getRoleId() === Role::ROLE_ID_SUB_EDITOR) {
+        if ($currentUser->getId() === $userId && $userGroup->roleId === Role::ROLE_ID_SUB_EDITOR) {
             return false;
         }
 
-        return in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        return in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
     }
 
     /**
@@ -138,10 +138,10 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
             // Exclude reviewers.
-            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+            if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $templateMgr = TemplateManager::getManager($request);
@@ -169,7 +169,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
             $templateMgr->assign([
                 'assignmentId' => $this->_assignmentId,
                 'currentUserName' => $currentUser->getFullName(),
-                'currentUserGroup' => $userGroup->getLocalizedName(),
+                'currentUserGroup' => $userGroup->getLocalizedData('name'),
                 'userGroupId' => $stageAssignment->userGroupId,
                 'userIdSelected' => $stageAssignment->userId,
                 'currentAssignmentRecommendOnly' => $stageAssignment->recommendOnly,
@@ -249,7 +249,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $canChangeMetadata = $this->_isChangePermitMetadataAllowed($userGroup, $userId) ? (bool) $this->getData('canChangeMetadata') : true;
 
         // sanity check
-        if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroup->getId())->get()->isNotEmpty()) {
+        if (UserGroupStage::withStageId($this->getStageId())->withUserGroupId($userGroup->id)->get()->isNotEmpty()) {
             $updated = false;
 
             if ($this->_assignmentId) {
@@ -268,7 +268,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
                 $stageAssignment = Repo::stageAssignment()
                     ->build(
                         $submission->getId(), 
-                        $userGroup->getId(), 
+                        $userGroup->id, 
                         $userId, 
                         $recommendOnly, 
                         $canChangeMetadata
@@ -277,7 +277,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         }
 
         parent::execute(...$functionParams);
-        return [$userGroup->getId(), $userId, $stageAssignment->id];
+        return [$userGroup->id, $userId, $stageAssignment->id];
     }
 
     /**

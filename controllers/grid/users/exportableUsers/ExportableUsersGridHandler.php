@@ -213,7 +213,7 @@ class ExportableUsersGridHandler extends GridHandler
 
         $userGroupOptions = ['' => __('grid.user.allRoles')];
         foreach ($userGroups as $userGroup) {
-            $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
         $userDao = Repo::user()->dao;
         $fieldOptions = [

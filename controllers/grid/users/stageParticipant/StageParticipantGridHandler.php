@@ -203,7 +203,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withStageIds([$stageId])
-            ->withUserGroupId($userGroup->getId())
+            ->withUserGroupId($userGroup->id)
             ->get();
 
         return $stageAssignments->mapWithKeys(function ($stageAssignment) {
@@ -279,13 +279,13 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $this->getStageId()
         );
         foreach ($userGroups as $userGroup) {
-            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+            if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            if (!in_array($userGroup->getId(), $userGroupIds)) {
+            if (!in_array($userGroup->id, $userGroupIds)) {
                 continue;
             }
-            $result[$userGroup->getId()] = $userGroup;
+            $result[$userGroup->id] = $userGroup;
         }
         return $result;
     }
@@ -342,7 +342,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
             // Check user group role id.
             $userGroup = Repo::userGroup()->get($userGroupId);
-            if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER) {
+            if ($userGroup->roleId == Role::ROLE_ID_MANAGER) {
                 $notificationMgr->updateNotification(
                     $request,
                     $notificationMgr->getDecisionStageNotifications(),
@@ -491,7 +491,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $users = $collector->getMany();
 
         $userGroup = Repo::userGroup()->get($userGroupId);
-        $roleId = $userGroup->getRoleId();
+        $roleId = $userGroup->roleId;
 
         $sectionId = $submission->getSectionId();
         $contextId = $submission->getData('contextId');

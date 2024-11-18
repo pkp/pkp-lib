@@ -27,6 +27,7 @@ use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
+use PKP\security\Role;
 
 class Validation
 {
@@ -397,42 +398,104 @@ class Validation
      */
     public static function canAdminister($administeredUserId, $administratorUserId)
     {
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {
             return true;
         }
 
-        // You cannot administer administrators
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        $siteContextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+
+        // check if administered user is site admin
+        $isAdministeredUserSiteAdmin = UserGroup::query()
+            ->where('contextId', $siteContextId)
+            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
+                $query->where('userId', $administeredUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->exists();
+    
+        if ($isAdministeredUserSiteAdmin) {
+            return false;
+        }
+    
+        // check if administrator user is site admin
+        $isAdministratorUserSiteAdmin = UserGroup::query()
+            ->where('contextId', $siteContextId)
+            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
+                $query->where('userId', $administratorUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->exists();
+    
+        if ($isAdministratorUserSiteAdmin) {
+            return true;
+        }
+    
+        // get contexts where administered user has roles
+        $administeredUserContexts = UserGroup::query()
+            ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
+                $query->where('userId', $administeredUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->get()
+            ->map(fn ($userGroup) => $userGroup->contextId)
+            ->unique()
+            ->values()
+            ->toArray();
+    
+        // get contexts where administrator user has manager role
+        $administratorManagerContexts = UserGroup::query()
+            ->where('roleId', Role::ROLE_ID_MANAGER)
+            ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
+                $query->where('userId', $administratorUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->get()
+            ->map(fn ($userGroup) => $userGroup->contextId)
+            ->unique()
+            ->values()
+            ->toArray();
+    
+        // check for conflicting contexts
+        $conflictingContexts = array_diff($administeredUserContexts, $administratorManagerContexts);
+    
+        if (!empty($conflictingContexts)) {
+            // found conflicting contexts: disqualified
             return false;
         }
 
-        // Otherwise, administrators can administer everyone
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
-            return true;
-        }
-
-        // Check for administered user group assignments in other contexts
-        // that the administrator user doesn't have a manager role in.
-        $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
-        foreach ($userGroups as $userGroup) {
-            if ($userGroup->contextId != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->contextId, $administratorUserId, Role::ROLE_ID_MANAGER)) {
-                // Found an assignment: disqualified.
-                return false;
-            }
-        }
-
         // Make sure the administering user has a manager role somewhere
-        $foundManagerRole = false;
-        $roles = $roleDao->getByUserId($administratorUserId);
-        foreach ($roles as $role) {
-            if ($role->getRoleId() == Role::ROLE_ID_MANAGER) {
-                $foundManagerRole = true;
-            }
-        }
-        if (!$foundManagerRole) {
+        if (empty($administratorManagerContexts)) {
             return false;
         }
 
@@ -455,58 +518,101 @@ class Validation
         if ($administeredUserId == $administratorUserId) {
             return self::ADMINISTRATION_FULL;
         }
-
-        $filteredSiteAdminUserGroups = UserGroup::query()
-            ->withContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
-            ->withRoleIds([Role::ROLE_ID_SITE_ADMIN])
-            ->get();
-
-        // You cannot administer administrators
-        if ($filteredSiteAdminUserGroups->filterByUserIds([$administeredUserId])->getCount() > 0) {
+    
+        $siteContextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+    
+        // Check if administered user is site admin
+        $isAdministeredUserSiteAdmin = UserGroup::query()
+            ->where('contextId', $siteContextId)
+            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
+                $query->where('userId', $administeredUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->exists();
+    
+        if ($isAdministeredUserSiteAdmin) {
             return self::ADMINISTRATION_PROHIBITED;
         }
-
-        // Otherwise, administrators can administer everyone
-        if ($filteredSiteAdminUserGroups->filterByUserIds([$administratorUserId])->getCount() > 0) {
+    
+        // Check if administrator user is site admin
+        $isAdministratorUserSiteAdmin = UserGroup::query()
+            ->where('contextId', $siteContextId)
+            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
+                $query->where('userId', $administratorUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->exists();
+    
+        if ($isAdministratorUserSiteAdmin) {
             return self::ADMINISTRATION_FULL;
         }
 
-        // Make sure the administering user has a manager role somewhere
-        $roleManagerCount = UserGroup::query()
-            ->withUserIds([$administratorUserId])
-            ->withRoleIds([Role::ROLE_ID_MANAGER])
-            ->count();
-        if ($roleManagerCount <= 0) {
+        // Get contexts where administrator has manager role
+        $administratorManagerContexts = UserGroup::query()
+            ->where('roleId', Role::ROLE_ID_MANAGER)
+            ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
+                $query->where('userId', $administratorUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
+            ->get()
+            ->map(fn ($userGroup) => $userGroup->contextId)
+            ->unique()
+            ->values()
+            ->toArray();
+    
+        // Ensure the administrator has a manager role somewhere
+        if (empty($administratorManagerContexts)) {
             return self::ADMINISTRATION_PROHIBITED;
         }
-
-        $administeredUserAssignedGroupIds = UserGroup::withUserIds([$administratorUserId])
+    
+        // Get contexts where administered user has roles
+        $administeredUserContexts = UserGroup::query()
+            ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
+                $query->where('userId', $administeredUserId)
+                      ->where(function ($q) {
+                          $q->whereNull('dateEnd')
+                            ->orWhere('dateEnd', '>', now());
+                      })
+                      ->where(function ($q) {
+                          $q->whereNull('dateStart')
+                            ->orWhere('dateStart', '<=', now());
+                      });
+            })
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)
             ->unique()
-            ->sort()
-            ->values();
-
-        $administratorUserAssignedGroupIds = UserGroup::withUserIds([$administratorUserId])
-            ->withRoleIds([Role::ROLE_ID_MANAGER])
-            ->get()
-            ->map(fn ($userGroup) => $userGroup->contextId)
-            ->unique()
-            ->sort()
-            ->values();
-
-        // Check for administered user group assignments in other contexts
-        // that the administrator user doesn't have a manager role in.
-        if (collect($administeredUserAssignedGroupIds)->diff($administratorUserAssignedGroupIds)->count() > 0) {
-            // Found an assignment: disqualified.
-            // But also determine if a partial administrate is allowed
-            // if the Administrator User is a Journal Manager in the current context
-            if ($contextId !== null &&
-                UserGroup::query()
-                    ->withContextIds([$contextId])
-                    ->withUserIds([$administratorUserId])
-                    ->withRoleIds([Role::ROLE_ID_MANAGER])
-                    ->exists()) {
+            ->values()
+            ->toArray();
+    
+        // Check for conflicting contexts
+        $conflictingContexts = array_diff($administeredUserContexts, $administratorManagerContexts);
+    
+        if (!empty($conflictingContexts)) {
+            // Check for partial administration
+            if ($contextId !== null && in_array($contextId, $administratorManagerContexts)) {
                 return self::ADMINISTRATION_PARTIAL;
             }
             return self::ADMINISTRATION_PROHIBITED;

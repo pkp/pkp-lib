@@ -106,9 +106,13 @@ class LocaleConversion
             return null;
         }
         $language = locale_get_primary_language($locale);
+
         foreach (reset($languages) as $languageRaw) {
             if (($languageRaw['alpha_2'] ?? null) === $language || $languageRaw['alpha_3'] === $language) {
-                return $languageRaw['bibliographic'] ?? null;
+                if ($languageRaw['bibliographic'] ?? null) {
+                    return $languageRaw['bibliographic'];
+                }
+                return $languageRaw['alpha_3'] ?? null;
             }
         }
         return null;

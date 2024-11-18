@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/affiliation/Collector.php
  *
@@ -31,6 +32,9 @@ class Collector implements CollectorInterface
 
     public ?int $offset = null;
 
+    /** @var int|null Get affiliations with author id */
+    public ?int $authorId = null;
+
     /** @var int[]|null Get affiliations with author ids */
     public ?array $authorIds = null;
 
@@ -58,9 +62,18 @@ class Collector implements CollectorInterface
     }
 
     /** @copydoc DAO::getMany() */
-    public function getMany(): LazyCollection
+    public function getMany(?string $submissionLocale = null): LazyCollection
     {
-        return $this->dao->getMany($this);
+        return $this->dao->getMany($this, $submissionLocale);
+    }
+
+    /**
+     * Filter by single author
+     */
+    public function filterByAuthorId(?int $authorId): self
+    {
+        $this->authorId = $authorId;
+        return $this;
     }
 
     /**
@@ -121,6 +134,10 @@ class Collector implements CollectorInterface
 
         if (!is_null($this->offset)) {
             $qb->offset($this->offset);
+        }
+
+        if (!is_null($this->authorId)) {
+            $qb->where('a.author_id', '=', $this->authorId);
         }
 
         if (!is_null($this->authorIds)) {

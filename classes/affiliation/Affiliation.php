@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/affiliation/Affiliation.php
  *

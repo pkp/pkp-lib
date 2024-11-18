@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/ror/Ror.php
  *
@@ -24,6 +25,8 @@ class Ror extends DataObject
     public const int STATUS_ACTIVE = 1;
     public const int STATUS_INACTIVE = 0;
 
+    public const string NO_LANG_CODE = 'no_lang_code';
+
     /**
      * Return STATUS_ACTIVE = 1
      */
@@ -38,5 +41,13 @@ class Ror extends DataObject
     public function getStatusInActive(): int
     {
         return self::STATUS_INACTIVE;
+    }
+
+    /**
+     * Return NO_LANG_CODE = 'no_lang_code'
+     */
+    public function getNoLangCode(): string
+    {
+        return self::NO_LANG_CODE;
     }
 }

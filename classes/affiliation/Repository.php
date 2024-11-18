@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/affiliation/Repository.php
  *
@@ -195,17 +196,13 @@ class Repository
     /**
      * Get all affiliations for a given author.
      */
-    public function getByAuthorId(int $authorId): array
+    public function getByAuthorId(int $authorId, ?string $submissionLocale = null): array
     {
-        $affiliations = iterator_to_array(
+        return iterator_to_array(
             $this->getCollector()
-                ->filterByAuthorIds([$authorId])
-                ->getMany()
+                ->filterByAuthorId($authorId)
+                ->getMany($submissionLocale)
         );
-
-//        \APP\_helper\LogHelper::logInfo($affiliations);
-
-        return $affiliations;
     }
 
     /**

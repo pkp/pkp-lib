@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/author/DAO.php
  *
@@ -156,7 +157,9 @@ class DAO extends EntityDAO
         // Set the primary locale from the submission
         $author->setData('locale', $row->submission_locale);
 
-        $author->setAffiliations(Repo::affiliation()->getByAuthorId($author->getId()));
+        $author->setAffiliations(
+            Repo::affiliation()->getByAuthorId($author->getId(), $row->submission_locale)
+        );
 
         return $author;
     }

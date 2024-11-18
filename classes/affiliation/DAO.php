@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/affiliation/DAO.php
  *
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
+use PKP\ror\Ror;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -92,15 +94,17 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get a collection of affiliations matching the configured query
+     * Get a collection of affiliations matching the configured query.
+     * If the submission locale is not found in rors / ror_settings table,
+     * use the display locale name.
      */
-    public function getMany(Collector $query): LazyCollection
+    public function getMany(Collector $query, ?string $submissionLocale = null): LazyCollection
     {
         $rows = $query
             ->getQueryBuilder()
             ->get();
 
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($rows, $submissionLocale) {
             $rorIds = [];
             foreach ($rows as $row) {
                 if ($row->ror) $rorIds[] = $row->ror;
@@ -111,6 +115,12 @@ class DAO extends EntityDAO
                 $fromRow = $this->fromRow($row);
                 if ($fromRow->_data['ror']) {
                     $fromRow->_data['name'] = $rors[$fromRow->_data['ror']]->_data['name'];
+                    unset($fromRow->_data['name'][Ror::NO_LANG_CODE]);
+                    if(empty($fromRow->_data['name'][$submissionLocale])) {
+                        $displayLocale = $rors[$fromRow->_data['ror']]->_data['displayLocale'];
+                        $fromRow->_data['name'][$submissionLocale] =
+                            $rors[$fromRow->_data['ror']]->_data['name'][$displayLocale];
+                    }
                 }
                 yield $row->author_affiliation_id => $fromRow;
             }

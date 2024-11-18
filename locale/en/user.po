@@ -68,6 +68,9 @@ msgstr "Type the institute name in {$language}"
 msgid "user.affiliations.searchPhraseNothingFound"
 msgstr "Your search phrase could not be found"
 
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "The primary language {$primaryLocale} is required"
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 

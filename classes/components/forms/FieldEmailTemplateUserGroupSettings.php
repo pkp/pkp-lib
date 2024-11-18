@@ -11,7 +11,7 @@
  *
  * @ingroup classes_controllers_form
  *
- * @brief A component managing user groups assignable to an email template
+ * @brief A component managing user groups assigned to an email template
  */
 
 namespace PKP\components\forms;

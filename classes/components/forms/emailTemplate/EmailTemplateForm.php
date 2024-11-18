@@ -48,15 +48,14 @@ class EmailTemplateForm extends FormComponent
                 'isMultilingual' => true,
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => ['link','lists'],
-            ]))->addField(
-                new FieldEmailTemplateUnrestricted('isUnrestricted', [
-                    'type' => 'checkbox'
-                ]),
-            )
+            ]))->addField(new FieldEmailTemplateUnrestricted('isUnrestricted', [
+                'type' => 'checkbox',
+                'label' => __('admin.workflow.email.userGroup.assign.unrestricted'),
+                'subNote' => __('admin.workflow.email.userGroup.unrestricted.template.note')
+            ]))
             ->addField(new FieldEmailTemplateUserGroupSettings('userGroupIds', [
                 'type' => 'checkbox',
                 'label' => __('admin.workflow.email.userGroup.allowed'),
-
             ]));
     }
 }

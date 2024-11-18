@@ -1048,7 +1048,7 @@ class PKPReviewerGridHandler extends GridHandler
         };
         $template = Repo::emailTemplate()->getByKey($context->getId(), $request->getUserVar('template'));
 
-        if (!$template) {
+        if (!$template || ! Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
             return null;
         }
 

@@ -64,7 +64,6 @@ class Email extends Section
 
     /**
      * Get all email recipients for email composer
-     * @return array
      */
     protected function getRecipientOptions(): array
     {
@@ -84,7 +83,6 @@ class Email extends Section
 
     /**
      * Get all email templates for email composer
-     * @return array
      */
     protected function getEmailTemplates(): array
     {
@@ -93,15 +91,21 @@ class Email extends Section
 
         $emailTemplates = collect();
         if ($this->mailable::getEmailTemplateKey()) {
+            $user = $request->getUser();
+
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $this->mailable::getEmailTemplateKey());
-            if ($emailTemplate) {
+            if ($emailTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($user, $emailTemplate, $context->getId())) {
                 $emailTemplates->add($emailTemplate);
             }
             Repo::emailTemplate()
                 ->getCollector($context->getId())
                 ->alternateTo([$this->mailable::getEmailTemplateKey()])
                 ->getMany()
-                ->each(fn (EmailTemplate $e) => $emailTemplates->add($e));
+                ->each(function (EmailTemplate $e) use ($context, $user, $emailTemplates) {
+                    if(Repo::emailTemplate()->isTemplateAccessibleToUser($user, $e, $context->getId())) {
+                        $emailTemplates->add($e);
+                    }
+                });
         }
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->toArray();

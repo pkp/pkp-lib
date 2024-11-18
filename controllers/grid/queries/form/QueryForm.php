@@ -274,7 +274,6 @@ class QueryForm extends Form
             $data = $mailable->getData();
             $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
-            // check to ensure user's user group has access to the templates for the mailable
             if(Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $context->getId())) {
                 $templateKeySubjectPairs[$mailable::getEmailTemplateKey()] = $defaultTemplate->getLocalizedData('name');
             }

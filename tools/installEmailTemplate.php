@@ -70,7 +70,9 @@ class installEmailTemplates extends CommandLineTool
         Repo::emailTemplate()->dao->installEmailTemplates(
             Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
             $locales,
-            $this->_emailKey
+            $this->_emailKey,
+            false,
+            true
         );
     }
 }

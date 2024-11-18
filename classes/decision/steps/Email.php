@@ -128,7 +128,7 @@ class Email extends Step
         $emailTemplates = collect();
         if ($this->mailable::getEmailTemplateKey()) {
             $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $this->mailable::getEmailTemplateKey());
-            if (Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $emailTemplate, $context->getId())) {
+            if ($emailTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $emailTemplate, $context->getId())) {
                 $emailTemplates->add($emailTemplate);
             }
             Repo::emailTemplate()
@@ -141,7 +141,6 @@ class Email extends Step
                     }
                 });
         }
-
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->toArray();
     }

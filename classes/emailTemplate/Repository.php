@@ -130,7 +130,7 @@ class Repository
             });
         }
 
-        //  If groupIds were passed to limit email access, check that groups exists within the context
+        //  If groupIds were passed to limit email access, check that the user groups exists within the context
         if (isset($props['userGroupIds'])) {
             $validator->after(function () use ($validator, $props, $context) {
                 $existingGroupIds = Repo::userGroup()->getCollector()
@@ -141,7 +141,6 @@ class Repository
                     $validator->errors()->add('userGroupIds', __('api.emailTemplates.404.userGroupIds'));
                 }
             });
-
         }
 
         // Check for input from disallowed locales
@@ -231,7 +230,7 @@ class Repository
     /***
      * Gets the IDs of the user groups assigned to an email template
      */
-    public function getUserGroupsIdsAssignedToTemplate(string $templateKey, int $contextId): array
+    public function getAssignedGroupsIds(string $templateKey, int $contextId): array
     {
         return EmailTemplateAccessGroup::withEmailKey([$templateKey])
             ->withContextId($contextId)
@@ -248,7 +247,7 @@ class Repository
     {
         return !!EmailTemplateAccessGroup::withEmailKey([$templateKey])
             ->withContextId($contextId)
-            ->where('user_group_id', null)
+            ->whereNull('user_group_id')
             ->first();
     }
 
@@ -263,7 +262,7 @@ class Repository
         }
 
         $userUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId)->all();
-        $templateUserGroups = $this->getUserGroupsIdsAssignedToTemplate($template->getData('key'), $contextId);
+        $templateUserGroups = $this->getAssignedGroupsIds($template->getData('key'), $contextId);
 
         foreach ($userUserGroups as $userGroup) {
             if (in_array($userGroup->getId(), $templateUserGroups)) {
@@ -280,7 +279,7 @@ class Repository
      * @param Enumerable $templates List of EmailTemplates to filter.
      * @param User $user The user whose access level is used for filtering.
      *
-     * @return Collection Filtered list of EmailTemplate objects accessible to the user.
+     * @return Collection Filtered list of EmailTemplates accessible to the user.
      */
     public function filterTemplatesByUserAccess(Enumerable $templates, User $user, int $contextId): Collection
     {
@@ -298,7 +297,7 @@ class Repository
     /***
      * Internal method used to assign user group IDs to an email template
      */
-    private function _updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, int $contextId): void
+    private function updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, int $contextId): void
     {
         EmailTemplateAccessGroup::withEmailKey([$emailTemplate->getData('key')])
             ->withContextId($contextId)
@@ -307,13 +306,13 @@ class Repository
         foreach ($newUserGroupIds as $id) {
             EmailTemplateAccessGroup::updateOrCreate(
                 [
-                    // The where conditions (keys that should match)
+                    // The where conditions
                     'email_key' => $emailTemplate->getData('key'),
                     'user_group_id' => $id,
                     'context_id' => $contextId,
                 ],
                 [
-                    // The data to insert or update (values to set)
+                    // The data to insert or update
                     'emailKey' => $emailTemplate->getData('key'),
                     'userGroupId' => $id,
                     'contextId' => $contextId,
@@ -328,7 +327,7 @@ class Repository
     public function setEmailTemplateAccess(EmailTemplate $emailTemplate, int $contextId, ?array $userGroupIds, ?bool $isUnrestricted): void
     {
         if($userGroupIds !== null) {
-            $this->_updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
+            $this->updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
         }
 
         if($isUnrestricted !== null) {
@@ -339,8 +338,7 @@ class Repository
 
     /**
      * Mark an email template as unrestricted or not.
-     * An unrestricted email template is available to all user groups associated with the Roles linked to the mailable that the template belongs to.
-     * Mailable roles are stored in the $fromRoleIds property of a mailable
+     * An unrestricted email template is available to all user groups.
      */
     public function markTemplateAsUnrestricted(string $emailKey, bool $isUnrestricted, int $contextId): void
     {
@@ -348,13 +346,13 @@ class Repository
         if ($isUnrestricted) {
             EmailTemplateAccessGroup::updateOrCreate(
                 [
-                    // The where conditions (keys that should match)
+                    // The where conditions
                     'email_key' => $emailKey,
                     'user_group_id' => null,
                     'context_id' => $contextId,
                 ],
                 [
-                    // The data to insert or update (values to set)
+                    // The data to insert or update
                     'emailKey' => $emailKey,
                     'userGroupId' => null,
                     'contextId' => $contextId,

@@ -11,7 +11,7 @@
  *
  * @ingroup classes_controllers_form
  *
- * @brief A component to indicate if an email template is unrestricted, i.e accessible to all user groups within the associated mailable
+ * @brief A component to indicate if an email template is unrestricted, i.e accessible to all user groups.
  */
 
 namespace PKP\components\forms;
@@ -20,13 +20,14 @@ class FieldEmailTemplateUnrestricted extends Field
 {
     /** @copydoc Field::$component */
     public $component = 'field-email-template-unrestricted';
-
+    public string $subNote = '';
     /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
     {
         $config = parent::getConfig();
+        $config['subNote'] = $this->subNote;
         return $config;
     }
 }

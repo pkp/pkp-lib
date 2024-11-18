@@ -1022,4 +1022,4 @@ msgid "admin.workflow.email.userGroup.assign.unrestricted"
 msgstr "Mark as unrestricted"
 
 msgid "admin.workflow.email.userGroup.unrestricted.template.note"
-msgstr "Unrestricted templates will be accessible to all user groups(listed below) associated with this template."
+msgstr "Unrestricted templates will be accessible to all user groups."

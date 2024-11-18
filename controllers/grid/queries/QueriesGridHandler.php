@@ -763,7 +763,7 @@ class QueriesGridHandler extends GridHandler
         $templateId = $request->getUserVar('template');
         $context = $request->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $templateId);
-        if ($template) {
+        if ($template && Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
             $mailable = $this->getStageMailable($context, $this->getSubmission());
             $mailable->sender($request->getUser());
             $data = $mailable->getData();

@@ -28,8 +28,8 @@ class EmailTemplateUserGroupAccessMigration
         Schema::create('email_template_user_group_access', function (Blueprint $table) use ($contextDao) {
             $table->bigInteger('email_template_user_group_access_id')->autoIncrement()->comment('Primary key');
             $table->string('email_key', 255)->comment("The email template's unique key");
-            $table->bigInteger('context_id')->comment('Identifier for the context for which the user group assignment occurs.');
-            $table->bigInteger('user_group_id')->nullable()->comment('The user group ID.');
+            $table->bigInteger('context_id')->comment('The ID of the context for which the user group assignment is defined.');
+            $table->bigInteger('user_group_id')->nullable()->comment('The user group ID. A null value indicates that the email template is accessible to all user groups.');
 
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade')->onDelete('cascade');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade')->onDelete('cascade');

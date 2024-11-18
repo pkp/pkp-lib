@@ -81,6 +81,24 @@
 			"items": {
 				"type": "integer"
 			}
+		},
+		"assignableTemplateUserGroups": {
+			"type": "array",
+			"description": "List of User Groups that can be assigned to the template",
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"apiSummary": true
+					},
+					"name": {
+						"type": "integer",
+						"apiSummary": true
+					}
+				}
+			}
 		}
 	}
 }

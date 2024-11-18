@@ -19,6 +19,7 @@ use Illuminate\Support\Enumerable;
 use PKP\core\PKPApplication;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\services\PKPSchemaService;
+use PKP\userGroup\UserGroup;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -82,8 +83,8 @@ class Schema extends \PKP\core\maps\Schema
     protected function mapByProperties(array $props, EmailTemplate $item, string $mailableClass = null): array
     {
         $output = [];
+        $mailableClass = $mailableClass ?? Repo::mailable()->get($item->getData('key'), Application::get()->getRequest()->getContext());
 
-        $mailableClass = $mailableClass ?? Repo::mailable()->getMailableByEmailTemplate($item);
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
@@ -99,9 +100,25 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'assignedUserGroupIds':
                     if ($mailableClass && Repo::mailable()->isGroupsAssignableToTemplates($mailableClass)) {
-                        $output['assignedUserGroupIds'] = Repo::emailTemplate()->getUserGroupsIdsAssignedToTemplate($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+                        $output['assignedUserGroupIds'] = Repo::emailTemplate()->getAssignedGroupsIds($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
                     } else {
                         $output['assignedUserGroupIds'] = [];
+                    }
+                    break;
+                case 'assignableTemplateUserGroups':
+                    if($mailableClass && Repo::mailable()->isGroupsAssignableToTemplates($mailableClass)) {
+                        $userGroups = collect();
+
+                        Repo::userGroup()->getCollector()
+                            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                            ->getMany()->each(fn (UserGroup $group) => $userGroups->add([
+                                'id' => $group->getId(),
+                                'name' => $group->getLocalizedName()
+                            ]));
+
+                        $output['assignableTemplateUserGroups'] = $userGroups;
+                    } else {
+                        $output['assignableTemplateUserGroups'] = [];
                     }
                     break;
                 default:

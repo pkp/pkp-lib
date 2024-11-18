@@ -17,4 +17,4 @@
 		subject CDATA #REQUIRED
 		body CDATA #REQUIRED
 		alternateTo CDATA #IMPLIED
-		isUnrestricted (1 | 0) CDATA #IMPLIED>
+		isUnrestricted (1 | 0) #IMPLIED>

@@ -14,16 +14,12 @@
 
 namespace PKP\migration\upgrade\v3_6_0;
 
-use Illuminate\Support\Facades\DB;
-use PKP\install\Installer;
-
-use Throwable;
-
-use stdClass;
-
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
-use PKP\facades\Locale;
 use APP\migration\install\ReviewerRecommendationsMigration;
+use Illuminate\Support\Facades\DB;
+use PKP\facades\Locale;
+use PKP\install\Installer;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use Throwable;
 
 abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
 {
@@ -50,6 +46,8 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
     public function up(): void
     {
         $this->recommendationInstallMigration->up();
+
+        $this->seedNonRemovableRecommendations();
     }
 
     /**
@@ -147,7 +145,6 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
             Locale::setLocale($currentLocale);
             ReviewerRecommendation::reguard();
 
-            ray($exception);
             throw $exception;
         }
     }

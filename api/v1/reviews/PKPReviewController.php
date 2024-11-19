@@ -20,7 +20,6 @@ namespace PKP\API\v1\reviews;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use DOMImplementation;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -42,6 +41,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\submissionFile\SubmissionFile;
 
@@ -81,6 +81,17 @@ class PKPReviewController extends PKPBaseController
         Route::get('history/{submissionId}/{reviewRoundId}', $this->getHistory(...))
             ->name('review.get.submission.round.history')
             ->whereNumber(['reviewRoundId', 'submissionId']);
+
+        Route::put('{submissionId}/{reviewAssignmentId}/confirmReview', $this->confirmReview(...))
+            ->name('review.confirm')
+            ->whereNumber(['reviewAssignmentId', 'submissionId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ]);
 
         Route::middleware([
             self::roleAuthorizer([
@@ -162,7 +173,7 @@ class PKPReviewController extends PKPBaseController
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
             $emailLogs = EmailLogEntry::withAssocId($submissionId)
-                ->withEventTypes([SubmissionEmailLogEventType::REVIEW_DECLINE])
+                ->withEventType(SubmissionEmailLogEventType::REVIEW_DECLINE)
                 ->withSenderId($reviewerId)
                 ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)
                 ->get();
@@ -255,6 +266,49 @@ class PKPReviewController extends PKPBaseController
         ];
 
         return response()->json($reviewRoundHistory, Response::HTTP_OK);
+    }
+
+    /**
+     * Accept or decline a review invitation on behalf of a reviewer
+     */
+    public function confirmReview(Request $illuminateRequest): JsonResponse
+    {
+        $submissionId = $illuminateRequest->route('submissionId');
+        $reviewAssignmentId = $illuminateRequest->route('reviewAssignmentId');
+        $acceptReview = $illuminateRequest->decision;
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+
+        if (!isset($reviewer)) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($acceptReview === 'accept') {
+            $decline = false;
+        } elseif ($acceptReview === 'decline') {
+            $decline = true;
+        } else {
+            return response()->json([
+                'error' => __('api.review.assignments.invalidInvitationResponse'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $submission = Repo::submission()->get($submissionId);
+        $request = $this->getRequest();
+        $reviewerAction = new ReviewerAction();
+        $reviewerAction->confirmReview($request, $reviewAssignment, $submission, $decline);
+
+        return response()->json($reviewAssignment, Response::HTTP_OK);
+
     }
 
     /**

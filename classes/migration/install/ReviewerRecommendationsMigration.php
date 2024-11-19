@@ -15,12 +15,7 @@
 namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\facades\Locale;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
-use stdClass;
-use Throwable;
 
 abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
 {

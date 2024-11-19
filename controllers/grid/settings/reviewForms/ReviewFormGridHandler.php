@@ -33,6 +33,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -79,7 +80,7 @@ class ReviewFormGridHandler extends GridHandler
                 new AjaxModal(
                     $router->url($request, null, null, 'createReviewForm', null, null),
                     __('manager.reviewForms.create'),
-                    'modal_add_item',
+                    null,
                     true
                 ),
                 __('manager.reviewForms.create'),
@@ -149,6 +150,7 @@ class ReviewFormGridHandler extends GridHandler
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
         $this->addPolicy($rolePolicy);
+        $this->addPolicy(new CanAccessSettingsPolicy());
 
         return parent::authorize($request, $args, $roleAssignments);
     }

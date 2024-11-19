@@ -18,11 +18,11 @@
 
 namespace PKP\tests\classes\filter;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\filter\EmailFilterSetting;
 use PKP\filter\PersistableFilter;
 use PKP\filter\TypeDescriptionFactory;
 use PKP\tests\PKPTestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(PersistableFilter::class)]
 class PersistableFilterTest extends PKPTestCase
@@ -45,7 +45,6 @@ class PersistableFilterTest extends PKPTestCase
         self::assertEquals(1, $testFilter->getParentFilterId());
 
         // Test settings
-        error_log('HERE: ' . print_r($testFilter->_settings, true));
         self::assertFalse($testFilter->hasSettings());
         $testSetting = new EmailFilterSetting('testEmail', 'Test Email', 'Test Email is required');
         $testSetting2 = new EmailFilterSetting('testEmail2', 'Test Email2', 'Test Email2 is required');

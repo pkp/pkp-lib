@@ -33,8 +33,7 @@ class JsEventConfirmationModal extends ConfirmationModal
      * @param string $event the name of the JS event.
      * @param array $extraArguments (optional) extra information to be passed as JSON data with the event.
      * @param string $title (optional) The localized modal title.
-     * @param string $titleIcon (optional) The icon to be used
-     *  in the modal title bar.
+     * @param string $modalStyle (optional) The modal state/style to be used. (default is 'basic')
      * @param string $okButton (optional) The localized text to
      *  appear on the confirmation button.
      * @param string $cancelButton (optional) The localized text to
@@ -42,9 +41,9 @@ class JsEventConfirmationModal extends ConfirmationModal
      * @param bool $canClose (optional) Whether the modal will
      *  have a close button.
      */
-    public function __construct($dialogText, $event = 'confirmationModalConfirmed', $extraArguments = null, $title = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true)
+    public function __construct($dialogText, $event = 'confirmationModalConfirmed', $extraArguments = null, $title = null, $modalStyle = 'basic', $okButton = null, $cancelButton = null, $canClose = true)
     {
-        parent::__construct($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
+        parent::__construct($dialogText, $title, $modalStyle, $okButton, $cancelButton, $canClose);
 
         $this->_event = $event;
         $this->_extraArguments = $extraArguments;

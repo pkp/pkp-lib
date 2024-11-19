@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -150,7 +151,7 @@ abstract class PKPDashboardHandlerNext extends Handler
             }
         }
 
-            
+        $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -166,6 +167,7 @@ abstract class PKPDashboardHandlerNext extends Handler
                 ],
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),
+                    'logResponseForm' => $logResponseForm->getConfig(),
                 ]
             ]
         ]);
@@ -218,8 +220,10 @@ abstract class PKPDashboardHandlerNext extends Handler
 
             'DECISION_ACCEPT' => Decision::ACCEPT,
             'DECISION_DECLINE' => Decision::DECLINE,
+            'DECISION_REVERT_DECLINE' => Decision::REVERT_DECLINE,
             'DECISION_CANCEL_REVIEW_ROUND' => Decision::CANCEL_REVIEW_ROUND,
-            'DECISON_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
+            'DECISION_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
+            'DECISION_RESUBMIT' => Decision::RESUBMIT,
             'DECISION_EXTERNAL_REVIEW' => Decision::EXTERNAL_REVIEW,
             'DECISION_SKIP_EXTERNAL_REVIEW' => Decision::SKIP_EXTERNAL_REVIEW,
             'DECISION_INITIAL_DECLINE' => Decision::INITIAL_DECLINE,

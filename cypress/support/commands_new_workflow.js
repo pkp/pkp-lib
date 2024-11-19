@@ -10,6 +10,7 @@
 import Api from './api.js';
 import 'cypress-file-upload';
 import 'cypress-wait-until';
+import 'cypress-iframe'
 
 Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 	cy.window().then((win) => {
@@ -832,7 +833,7 @@ Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedS
 
 	cy.get(`#list-item-${itemType}-${itemId} .pkpBadge`).contains(expectedStatus);
 	if (!isValid) {
-		cy.get(`div[role=dialog] button:contains('Close')`).click();
+		cy.get(`div[role=dialog] button:contains('OK')`).click();
 	}
 });
 
@@ -964,10 +965,8 @@ Cypress.Commands.add('createUserByInvitation', user => {
 	cy.wait(1000)
 	cy.inviteUser(user);
 	cy.logout();
-
 	cy.confirmEmail(user);
 	cy.wait(1000)
-
 	cy.confirmationByUser(user);
 	cy.logout();
 

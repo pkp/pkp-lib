@@ -52,6 +52,18 @@
 			this.recommendOnlyRoleIds_ = options.recommendOnlyRoleIds;
 		}
 
+		// Set the role IDs for which the permitSettings checkbox
+		// is relevant.
+		if (options.permitSettingsRoleIds) {
+			this.permitSettingsRoleIds_ = options.permitSettingsRoleIds;
+		}
+
+		// Set the user group IDs for which the permitSettings checkbox
+		// is relevant.
+		if (options.mySettingsAccessUserGroupIds) {
+			this.mySettingsAccessUserGroupIds_ = options.mySettingsAccessUserGroupIds;
+		}
+
 		// Set the roles that are not able to change
 		// submission metadata edit perissions
 		if (options.notChangeMetadataEditPermissionRoles) {
@@ -70,6 +82,11 @@
 		// Initialize the "permit metadata edit" checkbox disabled
 		// state based on the form's current selection
 		this.updatePermitMetadataEdit(
+				/** @type {string} */ ($roleId.val()), false);
+
+		// Initialize the "permit settings" checkbox disabled
+		// state based on the form's current selection
+		this.updatePermitSettings(
 				/** @type {string} */ ($roleId.val()), false);
 
 		// ...also initialize the stage options, disabling the ones
@@ -100,6 +117,24 @@
 	 */
 	$.pkp.controllers.grid.settings.roles.form.
 			UserGroupFormHandler.prototype.selfRegistrationRoleIds_ = null;
+
+
+	/**
+	 * The list of role IDs for which settings can be permitted/restricted
+	 * @private
+	 * @type {Object?}
+	 */
+	$.pkp.controllers.grid.settings.roles.form.
+			UserGroupFormHandler.prototype.permitSettingsRoleIds_ = null;
+
+
+	/**
+	 * The list of user group IDs the current user can use to access settings
+	 * @private
+	 * @type {Object?}
+	 */
+	$.pkp.controllers.grid.settings.roles.form.
+			UserGroupFormHandler.prototype.mySettingsAccessUserGroupIds_ = null;
 
 
 	/**
@@ -143,6 +178,7 @@
 
 		this.updatePermitSelfRegistration((dropDownValue));
 		this.updatePermitMetadataEdit(/** @type {string} */ (dropDownValue), true);
+		this.updatePermitSettings(/** @type {string} */ (dropDownValue), true);
 
 		// Also update the stages options.
 		this.updateStageOptions(/** @type {string} */ (dropDownValue));
@@ -175,6 +211,41 @@
 
 		if (found) {
 			$checkbox.removeAttr('disabled');
+		} else {
+			$checkbox.attr('disabled', 'disabled');
+			$checkbox.removeAttr('checked');
+		}
+	};
+
+
+	/**
+	 * Update the enabled/disabled state of the permitSettings
+	 * checkbox.
+	 * @param {number|string} roleId The role ID to select.
+	 */
+	$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler.prototype.
+			updatePermitSettings = function(roleId) {
+
+		// JQuerify the element
+		var $checkbox = $('[id^="permitSettings"]'),
+				$form = this.getHtmlElement(),
+				$userGroupId = $('[id="userGroupId"]', $form),
+				i,
+				found = false,
+				willLockOut = this.mySettingsAccessUserGroupIds_.length == 1 &&
+						this.mySettingsAccessUserGroupIds_[0] == $userGroupId.attr('value');
+
+		for (i = 0; i < this.selfRegistrationRoleIds_.length; i++) {
+			if (this.permitSettingsRoleIds_[i] == roleId) {
+				found = true;
+			}
+		}
+		if (found) {
+			if (willLockOut) {
+				$checkbox.attr('disabled', 'disabled');
+			} else {
+				$checkbox.removeAttr('disabled');
+			}
 		} else {
 			$checkbox.attr('disabled', 'disabled');
 			$checkbox.removeAttr('checked');

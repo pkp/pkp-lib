@@ -111,19 +111,27 @@ class Announcement extends Model
         $newlyCreated = !$this->exists;
         $saved = parent::save($options);
 
-        // If it's a new model with an image attribute, upload an image
-        if ($saved && $newlyCreated && $this->hasAttribute('image')) {
-            $this->handleImageUpload();
-        }
-
-        // If it's updated model and a new image is uploaded, first, delete an old one
-        $hasNewImage = $this?->image?->temporaryFileId;
-        if ($saved && !$newlyCreated && $hasNewImage) {
-            $this->deleteImage();
-            $this->handleImageUpload();
+        if (!$saved) {
+            return $saved;
         }
 
         Hook::call('Announcement::add', [$this]);
+
+        $hasNewImage = $this?->image?->temporaryFileId;
+
+        // if announcement is being inserted and includes new image, upload it
+        if ($newlyCreated) {
+            if ($hasNewImage) {
+                $this->handleImageUpload();
+            }
+            return $saved;
+        }
+
+        // The announcement is being updated, check if it contains new image
+        if ($hasNewImage) {
+            $this->deleteImage();
+            $this->handleImageUpload();
+        }
 
         return $saved;
     }

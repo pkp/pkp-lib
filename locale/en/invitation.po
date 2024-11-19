@@ -334,8 +334,8 @@ msgstr "Invitation management options"
 msgid "userInvitation.cancel.message"
 msgstr "Are you sure want to cancel this invitation?"
 
-msgid "userInvitation.cancel.keepWorking"
-msgstr "Keep Working"
+msgid "userInvitation.cancel.goBack"
+msgstr "Go Back"
 
 msgid "userInvitation.status.invited"
 msgstr "Invited {$date}"
@@ -356,4 +356,16 @@ msgid "acceptInvitation.privacyStatement.validation"
 msgstr "Please confirm that you have read and agree privacy statement"
 
 msgid "acceptInvitation.cancel.message"
-msgstr "Are you sure want to cancel accepting invitation?"
+msgstr "Are you sure you want to cancel? Canceling now will stop the role acceptance process, and you’ll need to restart from the invitation email to accept the role again. If you’re already a user, you’ll be taken back to the dashboard. If not, you’ll need to access the invitation email to start the process again."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Cancel Role Invitation Process?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Cancel Invitation Process"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Invitation not accepted. You're logged in as a different user."
+
+msgid "acceptInvitation.authorization.message"
+msgstr "Please log out and sign in with the correct account to accept this invitation."

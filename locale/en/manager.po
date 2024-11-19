@@ -1793,6 +1793,9 @@ msgstr "Show role title in contributor list"
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Allow user self-registration"
 
+msgid "settings.roles.permitSettings"
+msgstr "Permit changes to Settings"
+
 msgid "settings.roles.recommendOnly"
 msgstr ""
 "This role is only allowed to recommend a review decision and will require an "

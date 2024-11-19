@@ -23,10 +23,12 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PKP\core\traits\EntityUpdate;
 use stdClass;
 
 class SettingsBuilder extends Builder
 {
+    use EntityUpdate;
     /**
      * Get the hydrated models without eager loading.
      *
@@ -61,8 +63,6 @@ class SettingsBuilder extends Builder
             return parent::update($primaryValues->toArray());
         }
 
-        $newQuery = clone $this->query;
-
         if ($primaryValues->isNotEmpty()) {
             $count = parent::update($primaryValues->toArray());
         }
@@ -72,22 +72,33 @@ class SettingsBuilder extends Builder
             fn (mixed $value, string $key) => [Str::camel($key) => $value]
         );
 
-        $us = $this->model->getSettingsTable();
-        $primaryKey = $this->model->getKeyName();
+        $schema = null;
+        if (!$this->getSchemaName()) {
+            $casts = $this->model->getCasts();
+            foreach ($this->model->getSettings() as $settingName) {
+                $schema['properties'][$settingName]['multilingual'] = in_array($settingName, $this->model->getMultilingualProps());
 
+                if (array_key_exists($settingName, $casts)) {
+                    $type = $casts[$settingName];
+                } else {
+                    $type = 'string';
+                    trigger_error(
+                        "The setting {$settingName} doesn\'t have a defined type, using {$type} instead",
+                        E_USER_WARNING
+                    );
+                }
+                $schema['properties'][$settingName]['type'] = $type;
+            }
+        }
 
-        $sql = $this->buildUpdateSql($settingValues, $us, $newQuery);
+        $this->updateSettings($settingValues->toArray(), $this->model->getKey(), !is_null($schema) ? json_decode(json_encode($schema)) : null);
 
-        // Build a query for update
-        $settingCount = DB::table($us)->whereIn($us . '.' . $primaryKey, $newQuery->select($primaryKey))
-            ->update([$us . '.setting_value' => DB::raw($sql)]);
-
-        return ($count ?? 0) + $settingCount;
+        return $count ?? 0;
     }
 
     /**
      * Insert the given attributes and set the ID on the model.
-     * Overrides Builder's method to insert setting values for a models with
+     * Overrides Builder's method to insert setting values for a models with settings
      *
      * @param  string|null  $sequence
      *
@@ -100,29 +111,15 @@ class SettingsBuilder extends Builder
             fn (mixed $value, string $key) => in_array(Str::camel($key), $this->model->getSettings())
         );
 
+
         $id = parent::insertGetId($primaryValues->toArray(), $sequence);
 
         if ($settingValues->isEmpty()) {
             return $id;
         }
 
-        $rows = [];
-        $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
-            $settingName = Str::camel($settingName);
-            if ($this->isMultilingual($settingName)) {
-                foreach ($settingValue as $locale => $localizedValue) {
-                    $rows[] = [
-                        $this->model->getKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
-                    ];
-                }
-            } else {
-                $rows[] = [
-                    $this->model->getKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
-                ];
-            }
-        });
-
-        DB::table($this->model->getSettingsTable())->insert($rows);
+        $rows = $this->getSettingRows($settingValues, $id);
+        DB::table($this->getSettingsTable())->insert($rows);
 
         return $id;
     }
@@ -137,9 +134,9 @@ class SettingsBuilder extends Builder
             return $id;
         }
 
-        DB::table($this->model->getSettingsTable())->where(
-            $this->model->getKeyName(),
-            $this->model->getRawOriginal($this->model->getKeyName()) ?? $this->model->getKey()
+        DB::table($this->getSettingsTable())->where(
+            $this->getPrimaryKeyName(),
+            $this->model->getRawOriginal($this->getPrimaryKeyName()) ?? $this->model->getKey()
         )->delete();
 
         return $id;
@@ -202,7 +199,7 @@ class SettingsBuilder extends Builder
         $this->query->whereIn(
             $this->model->getKeyName(),
             fn (QueryBuilder $query) =>
-            $query->select($this->model->getKeyName())->from($this->model->getSettingsTable())->where($where, null, null, $boolean)
+            $query->select($this->getPrimaryKeyName())->from($this->getSettingsTable())->where($where, null, null, $boolean)
         );
 
         if (!empty($primaryColumn)) {
@@ -232,13 +229,36 @@ class SettingsBuilder extends Builder
             $this->model->getKeyName(),
             fn (QueryBuilder $query) =>
             $query
-                ->select($this->model->getKeyName())
-                ->from($this->model->getSettingsTable())
+                ->select($this->getPrimaryKeyName())
+                ->from($this->getSettingsTable())
                 ->where('setting_name', $column)
                 ->whereIn('setting_value', $values, $boolean, $not)
         );
 
         return $this;
+    }
+
+    public function getSettingsTable(): ?string
+    {
+        return $this->model->getSettingsTable();
+    }
+
+    public function getPrimaryKeyName(): string
+    {
+        return $this->model->getKeyName();
+    }
+
+    /**
+     * @return bool whether the property is a setting
+     */
+    public function isSetting(string $settingName): bool
+    {
+        return in_array($settingName, $this->model->getSettings());
+    }
+
+    public function getSchemaName(): ?string
+    {
+        return $this->model->getSchemaName();
     }
 
     /*
@@ -298,43 +318,33 @@ class SettingsBuilder extends Builder
     }
 
     /**
-     * @param Collection $settingValues list of setting names as keys and setting values to be updated
-     * @param string $us name of the settings table
-     * @param QueryBuilder $query original query associated with the Model
-     *
-     * @return string raw SQL statement
-     *
-     * Helper method to build a query to update settings with a conditional statement:
-     * SET settings_value = CASE WHEN setting_name='' AND locale=''...
-     */
-    protected function buildUpdateSql(Collection $settingValues, string $us, QueryBuilder $query): string
-    {
-        $sql = 'CASE ';
-        $bindings = [];
-        $settingValues->each(function (mixed $settingValue, string $settingName) use (&$sql, &$bindings, $us) {
-            if ($this->isMultilingual($settingName)) {
-                foreach ($settingValue as $locale => $localizedValue) {
-                    $sql .= 'WHEN ' . $us . '.setting_name=? AND ' . $us . '.locale=? THEN ? ';
-                    $bindings = array_merge($bindings, [$settingName, $locale, $localizedValue]);
-                }
-            } else {
-                $sql .= 'WHEN ' . $us . '.setting_name=? THEN ? ';
-                $bindings = array_merge($bindings, [$settingName, $settingValue]);
-            }
-        });
-        $sql .= 'ELSE setting_value END';
-
-        // Fix the order of bindings in Laravel, user ID in the where statement should be the last
-        $query->bindings['where'] = array_merge($bindings, $query->bindings['where']);
-
-        return $sql;
-    }
-
-    /**
      * Checks if setting is multilingual
      */
     protected function isMultilingual(string $settingName): bool
     {
         return in_array($settingName, $this->model->getMultilingualProps());
     }
-};
+
+    /**
+     * Get correspondent rows from a settings table
+     */
+    protected function getSettingRows(mixed $settingValues, int $id): array
+    {
+        $rows = [];
+        $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
+            $settingName = Str::camel($settingName);
+            if ($this->isMultilingual($settingName)) {
+                foreach ($settingValue as $locale => $localizedValue) {
+                    $rows[] = [
+                        $this->getPrimaryKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
+                    ];
+                }
+            } else {
+                $rows[] = [
+                    $this->getPrimaryKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
+                ];
+            }
+        });
+        return $rows;
+    }
+}

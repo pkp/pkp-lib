@@ -70,6 +70,7 @@ class PKPSchemaService
      * @hook Schema::get::(schemaName) [[schema]]
      * @hook Schema::get::
      * @hook Schema::get::before::
+     * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)
     {
@@ -271,7 +272,7 @@ class PKPSchemaService
             }
 
             // Exclude readonly if specified
-            if ($excludeReadOnly && $propSchema->origin->readOnly) {
+            if ($excludeReadOnly && !empty($propSchema->readOnly)) {
                 continue;
             }
 
@@ -650,7 +651,6 @@ class PKPSchemaService
     {
         $schema = $this->get($schemaName);
         $multilingualProps = $this->getMultilingualProps($schemaName);
-
         foreach ($values as $key => $value) {
             if (!in_array($key, $multilingualProps)) {
                 continue;

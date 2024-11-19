@@ -129,7 +129,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
                     new AjaxModal(
                         $router->url($request, null, null, 'uploadPlugin'),
                         __('manager.plugins.upload'),
-                        'modal_add_file'
                     ),
                     __('manager.plugins.upload'),
                     'add'

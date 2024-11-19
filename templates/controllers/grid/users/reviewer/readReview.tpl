@@ -10,17 +10,45 @@
  *}
 
 {* Form handler attachment implemented in application-specific versions of this template. *}
+{assign var="uuid" value=""|uniqid|escape}
 
+<script>
+	$(function () {ldelim}
+		$("#btnExport").click(function () {
+			$("#exportOptions").show();
+		});
+
+		$(".header").on('click', function () {
+			$("#exportOptions").hide();
+		});
+
+		$("#readReviewForm").on('click', function (event) {
+			let $target = $(event.target);
+			if (!$target.closest('#exportOptions').length && !$target.is('#btnExport')) {
+				$("#exportOptions").hide();
+			}
+		});
+		{rdelim});
+</script>
 <form class="pkp_form" id="readReviewForm" method="post" action="{url op="reviewRead"}">
 	{csrf}
-	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
-	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
-	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
-
+	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}"/>
+	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}"/>
+	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}"/>
+	<input type="hidden" name="roundId" value="{$reviewAssignment->getReviewRoundId()|escape}"/>
 
 	{fbvFormSection}
 		<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
-			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
+			<div id="readReview-{$uuid}">
+				<reviewer-manager-read-review-modal
+						title="{$reviewAssignment->getReviewerFullName()|escape}"
+						submission-id="{$reviewAssignment->getSubmissionId()|escape}"
+						review-assignment-id="{$reviewAssignment->getId()}"
+						review-round-id="{$reviewAssignment->getReviewRoundId()|escape}"
+						submission-stage-id="{$reviewAssignment->getStageId()|escape}"
+				/>
+			</div>
+
 			{fbvFormSection class="description"}
 				{translate key="editor.review.readConfirmation"}
 			{/fbvFormSection}
@@ -77,7 +105,6 @@
 		</div>
 	{/fbvFormSection}
 
-
 	<div class="pkp_notification" id="noFilesWarning" style="display: none;">
 		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}
 	</div>
@@ -91,14 +118,19 @@
 		{$reviewerRecommendations}
 
 		{fbvFormSection label="editor.review.rateReviewer" description="editor.review.rateReviewer.description"}
-			{foreach from=$reviewerRatingOptions item="stars" key="value"}
-				<label class="pkp_star_selection">
-					<input type="radio" name="quality" value="{$value|escape}"{if $value == $reviewAssignment->getQuality()} checked{/if}>
-					{$stars}
-				</label>
-			{/foreach}
+		{foreach from=$reviewerRatingOptions item="stars" key="value"}
+			<label class="pkp_star_selection">
+				<input type="radio" name="quality"
+					value="{$value|escape}"{if $value == $reviewAssignment->getQuality()} checked{/if}>
+				{$stars}
+			</label>
+		{/foreach}
 		{/fbvFormSection}
 
 		{fbvFormButtons id="closeButton" hideCancel=false submitText="common.confirm"}
 	{/fbvFormArea}
 </form>
+
+<script>
+	pkp.registry.init('readReview-{$uuid}', 'Container');
+</script>

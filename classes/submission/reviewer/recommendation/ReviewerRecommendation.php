@@ -9,7 +9,6 @@ use PKP\core\traits\ModelWithSettings;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use PKP\submission\reviewer\recommendation\cast\ReviewerRecommendationValueCast;
 
 class ReviewerRecommendation extends Model
 {
@@ -178,5 +177,10 @@ class ReviewerRecommendation extends Model
     public function scopeWithContextId(Builder $query, int $contextId): Builder
     {
         return $query->where('context_id', $contextId);
+    }
+
+    public function scopeWithActive(Builder $query, bool $active = true): Builder
+    {
+        return $query->where('status', $active);
     }
 }

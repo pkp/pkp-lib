@@ -125,6 +125,15 @@ msgstr "Readers"
 msgid "default.groups.abbrev.reader"
 msgstr "Read"
 
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Editorial Board Member"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Editorial Board Members"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
 msgid "default.genres.other"
 msgstr "Other"
 

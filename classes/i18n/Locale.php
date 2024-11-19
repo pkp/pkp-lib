@@ -42,7 +42,6 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
 use RegexIterator;
-use ResourceBundle;
 use Sokil\IsoCodes\Database\Countries;
 use Sokil\IsoCodes\Database\Currencies;
 use Sokil\IsoCodes\Database\LanguagesInterface;
@@ -154,7 +153,8 @@ class Locale implements LocaleInterface
 
         $this->locale = $locale;
         setlocale(LC_ALL, 'C.utf8', 'C');
-        \Locale::setDefault(\Locale::lookup(ResourceBundle::getLocales(''), $locale, true));
+        $locales = array_keys($this->getWeblateLocaleNames());
+        \Locale::setDefault(\Locale::lookup($locales, $locale, true));
     }
 
     /**

@@ -86,8 +86,6 @@
 						<template #button>
 							<initials-avatar
 								:is-secondary="true"
-								given-name="{$currentUser->getLocalizedGivenName()}"
-								family-name="{$currentUser->getLocalizedFamilyName()}"
 								{if $isUserLoggedInAs}
 								:is-disabled="true"
 								{/if}

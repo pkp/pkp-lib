@@ -48,7 +48,7 @@ msgid "user.affiliations.translationsAllAvailable"
 msgstr "All translations available"
 
 msgid "user.affiliations.translationsSomeAvailable"
-msgstr "{$translated} of {$total} languages completed"
+msgstr "{$count} of {$total} languages completed"
 
 msgid "user.affiliations.typeTranslationNameInLanguageLabel"
 msgstr "Type the institute name in {$language}"
@@ -60,7 +60,7 @@ msgid "user.affiliations.deleteModal.title"
 msgstr "Are you sure?"
 
 msgid "user.affiliations.deleteModal.message"
-msgstr "The institution <strong>{$institution}</strong> will be deleted."
+msgstr "The affiliation <strong>{$affiliation}</strong> will be deleted."
 
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Type the institute name in {$language}"

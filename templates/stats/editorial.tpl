@@ -68,7 +68,7 @@
 						:is-active="isSidebarVisible"
 						@click="toggleSidebar"
 					>
-						<icon icon="filter" :inline="true"></icon>
+						<icon icon="Filter" class="h-4 w-4" :inline="true"></icon>
 						{translate key="common.filter"}
 					</pkp-button>
 				</template>
@@ -120,6 +120,7 @@
 										<tooltip v-if="row.description"
 											:label="t('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
 											:tooltip="row.description"
+											icon-size="small"
 										></tooltip>
 									</table-cell>
 									<table-cell>{{ row.dateRange }}</table-cell>

@@ -30,7 +30,7 @@
 		<tab id="notify" label="{translate key="manager.setup.notifyUsers"}">
 			<div v-if="totalBulkJobs" role="alert">
 				<p>
-					<icon icon="check" :inline="true"></icon>
+					<icon icon="Complete" :inline="true" class="h-5 w-5"></icon>
 					{translate key="manager.setup.notifyUsers.queued"}
 					<button class="-linkButton" @click="reload">
 						{translate key="manager.setup.notifyUsers.sendAnother"}

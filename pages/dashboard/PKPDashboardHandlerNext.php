@@ -253,8 +253,10 @@ abstract class PKPDashboardHandlerNext extends Handler
             'SUBMISSION_FILE_JATS' => SubmissionFile::SUBMISSION_FILE_JATS,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
+            // Reviewer selection types
             'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
             'REVIEWER_SELECT_CREATE' => PKPReviewerGridHandler::REVIEWER_SELECT_CREATE,
+            'REVIEWER_SELECT_ENROLL_EXISTING' => PKPReviewerGridHandler::REVIEWER_SELECT_ENROLL_EXISTING,
 
             'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
 

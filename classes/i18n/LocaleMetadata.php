@@ -99,15 +99,15 @@ class LocaleMetadata
         }
 
         $locale ??= Locale::getLocale();
-        $displayLocale = $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale;
+        $displayLocale = $langLocaleStatus === static::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale;
 
         $weblateLocaleName = Locale::getWeblateLocaleNames()[$this->locale];
-        $displayName = locale_get_display_language($this->locale, $displayLocale);
+        $displayName = \Locale::getDisplayLanguage($this->locale, $displayLocale);
         $name = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
-        if ($langLocaleStatus === self::LANGUAGE_LOCALE_WITH) {
+        if ($langLocaleStatus === static::LANGUAGE_LOCALE_WITH) {
             // Get the translated language name in language's own locale
-            $displayName = locale_get_display_language($this->locale, $this->locale);
+            $displayName = \Locale::getDisplayLanguage($this->locale, $this->locale);
             $nameInLangLocale = ($displayName && $displayName !== $this->locale) ? $displayName : $weblateLocaleName;
 
             $name = __(
@@ -123,15 +123,15 @@ class LocaleMetadata
             return $name;
         }
 
-        $country = locale_get_display_region($this->locale, $displayLocale);
+        $country = \Locale::getDisplayRegion($this->locale, $displayLocale);
 
         if (!$country) {
             return $name;
         }
 
-        if ($langLocaleStatus === self::LANGUAGE_LOCALE_WITH) {
+        if ($langLocaleStatus === static::LANGUAGE_LOCALE_WITH) {
             // Get the translated country name in language's own locale
-            $localizedCountryName = locale_get_display_region($this->locale, $this->locale);
+            $localizedCountryName = \Locale::getDisplayRegion($this->locale, $this->locale);
             if (strcmp($localizedCountryName, $country) !== 0) {
                 $country = __(
                     'common.withForwardSlash',
@@ -157,7 +157,7 @@ class LocaleMetadata
      */
     public function getCountry(?string $locale = null): ?string
     {
-        return locale_get_display_region($locale) ?? null;
+        return \Locale::getDisplayRegion($locale) ?: null;
     }
 
     /**
@@ -165,7 +165,7 @@ class LocaleMetadata
      */
     public function getScript(?string $locale = null): ?string
     {
-        return locale_get_display_script($locale) ?? null;
+        return \Locale::getDisplayScript($locale) ?: null;
     }
 
     /**
@@ -225,7 +225,7 @@ class LocaleMetadata
     private function _getLanguage(?string $locale = null, bool $fromCache = true): ?Language
     {
         $locale ??= $this->locale;
-        $language = locale_get_primary_language($locale);
+        $language = \Locale::getPrimaryLanguage($locale);
         return Locale::getLanguages($language, $fromCache)->getByAlpha2($language) ?? Locale::getLanguages($language, $fromCache)->getByAlpha3($language);
     }
 
@@ -241,9 +241,9 @@ class LocaleMetadata
             throw new DomainException("Invalid locale \"{$this->locale}\"");
         }
         return $this->_parsedLocale = (object) [
-            'language' => locale_get_primary_language($this->locale),
-            'country' => locale_get_region($this->locale) ?? null,
-            'script' => locale_get_script($this->locale) ?? null
+            'language' => \Locale::getPrimaryLanguage($this->locale),
+            'country' => \Locale::getRegion($this->locale) ?? null,
+            'script' => \Locale::getScript($this->locale) ?? null
         ];
     }
 }

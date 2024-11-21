@@ -105,7 +105,7 @@ class LocaleConversion
             error_log($e->getMessage());
             return null;
         }
-        $language = locale_get_primary_language($locale);
+        $language = \Locale::getPrimaryLanguage($locale);
 
         foreach (reset($languages) as $languageRaw) {
             if (($languageRaw['alpha_2'] ?? null) === $language || $languageRaw['alpha_3'] === $language) {
@@ -119,9 +119,48 @@ class LocaleConversion
     }
 
     /**
+     * Translate an ISO639-2b compatible 3-letter string into the PKP locale identifier.
+     * This can be ambiguous if several locales are defined for the same language. In this case we'll use the primary locale to disambiguate.
+     * If that still doesn't determine a unique locale then we'll choose the first locale found.
+     *
+     * @deprecated 3.5
+     */
+    public static function getLocaleFrom3LetterIso(?string $iso3Letter): ?string
+    {
+        $primaryLocale = Locale::getPrimaryLocale();
+
+        $alpha2Candidates = $localeCandidates = [];
+        try {
+            $languages = self::getISO6392b();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+        foreach (reset($languages) as $languageRaw) {
+            if (($languageRaw['bibliographic'] ?? null) === $iso3Letter || $languageRaw['alpha_3'] === $iso3Letter) {
+                if (array_key_exists('alpha_2', $languageRaw)) {
+                    $alpha2Candidates[] = $languageRaw['alpha_2'];
+                }
+            }
+        }
+        foreach (Locale::getLocales() as $identifier => $locale) {
+            if (in_array($locale->getIsoAlpha2(), $alpha2Candidates)) {
+                if ($identifier === $primaryLocale) {
+                    // In case of ambiguity the primary locale overrides all other options so we're done.
+                    return $primaryLocale;
+                }
+                $localeCandidates[$identifier] = true;
+            }
+        }
+
+        // Attempts to retrieve the first matching locale which is in the supported list, otherwise defaults to the first found candidate
+        return Arr::first(array_keys(Locale::getSupportedLocales()), fn (string $locale) => $localeCandidates[$locale] ?? false, array_key_first($localeCandidates));
+    }
+
+    /**
      * Translate the ISO 2-letter language string (ISO639-1) into ISO639-3.
      */
-    public static function getIso3FromIso1(?string $iso1): ?string
+    public static function getIso3FromIso1(string $iso1): ?string
     {
         $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha2() === $iso1);
         return $locale ? $locale->getIsoAlpha3() : null;
@@ -130,7 +169,7 @@ class LocaleConversion
     /**
      * Translate the ISO639-3 into ISO639-1.
      */
-    public static function getIso1FromIso3(?string $iso3): ?string
+    public static function getIso1FromIso3(string $iso3): ?string
     {
         $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha3() === $iso3);
         return $locale ? $locale->getIsoAlpha2() : null;

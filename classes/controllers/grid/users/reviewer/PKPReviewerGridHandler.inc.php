@@ -810,7 +810,7 @@ class PKPReviewerGridHandler extends GridHandler {
 			'common.assigned' => $reviewAssignment->getDateAssigned(),
 			'common.notified' => $reviewAssignment->getDateNotified(),
 			'common.reminder' => $reviewAssignment->getDateReminded(),
-			'common.confirm' => $reviewAssignment->getDateConfirmed(),
+			$reviewAssignment->getDeclined() ? 'common.declined' : 'common.confirm' => $reviewAssignment->getDateConfirmed(),
 			'common.completed' => $reviewAssignment->getDateCompleted(),
 			'common.acknowledged' => $reviewAssignment->getDateAcknowledged(),
 		);

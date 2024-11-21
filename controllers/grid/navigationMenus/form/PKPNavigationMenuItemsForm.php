@@ -28,8 +28,7 @@ class PKPNavigationMenuItemsForm extends Form
     /** @var int $navigationMenuItemId the ID of the navigationMenuItem */
     public $navigationMenuItemId;
 
-    /** @var int */
-    public $_contextId;
+    public ?int $_contextId;
 
     /**
      * Constructor
@@ -37,7 +36,7 @@ class PKPNavigationMenuItemsForm extends Form
      * @param int $contextId
      * @param int $navigationMenuItemId
      */
-    public function __construct(int $contextId, $navigationMenuItemId)
+    public function __construct(?int $contextId, $navigationMenuItemId)
     {
         $this->_contextId = $contextId;
         $this->navigationMenuItemId = $navigationMenuItemId;
@@ -55,10 +54,8 @@ class PKPNavigationMenuItemsForm extends Form
 
     /**
      * Get the current context id.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): ?int
     {
         return $this->_contextId;
     }

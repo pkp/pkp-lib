@@ -93,7 +93,6 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
         // got here from the editor decision which sends its own email.
         foreach ((array) $userIds as $userId) {
             $this->createNotification(
-                $request,
                 $userId,
                 $this->getNotificationType(),
                 $request->getContext()->getId(),

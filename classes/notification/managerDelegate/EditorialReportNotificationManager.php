@@ -92,7 +92,6 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     public function notify(User $user): ?Notification
     {
         return parent::createNotification(
-            $this->_request,
             $user->getId(),
             Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
             $this->_context->getId(),

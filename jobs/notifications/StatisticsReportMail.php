@@ -84,7 +84,6 @@ class StatisticsReportMail extends BaseJob
 
             $notificationManager = new NotificationManager();
             $notification = $notificationManager->createNotification(
-                Application::get()->getRequest(),
                 $user->getId(),
                 Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
                 $this->contextId

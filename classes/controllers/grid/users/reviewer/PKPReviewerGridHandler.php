@@ -1259,10 +1259,15 @@ class PKPReviewerGridHandler extends GridHandler
         $request ??= Application::get()->getRequest();
         $formClassName = $this->_getReviewerFormClassName($selectionType);
 
-        if ($selectionType == static::REVIEWER_SELECT_CREATE && $request->getUserVar('reviewerSuggestionId')) {
+        if ($request->getUserVar('reviewerSuggestionId')) {
+            
             $reviewerSuggestion = ReviewerSuggestion::find($request->getUserVar('reviewerSuggestionId'));
             
-            if ($reviewerSuggestion?->hasApproved()) {
+            if (!$reviewerSuggestion) {
+                throw new Exception('Given reviewer suggestion ID is invalid');
+            }
+
+            if ($reviewerSuggestion->hasApproved()) {
                 throw new Exception('Not allowed to add reviewer suggestion as reviewer that has already been approved');
             }
 

@@ -40,6 +40,7 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\submission\action\EditorAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
@@ -59,6 +60,9 @@ class ReviewerForm extends Form
 
     /** @var array An array with all current user roles */
     public $_userRoles;
+
+    /** @var ReviewerSuggestion|null The The suggested reviewer */
+    public ?ReviewerSuggestion $reviewerSuggestion = null;
 
     /**
      * Constructor.

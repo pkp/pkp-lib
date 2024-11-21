@@ -21,6 +21,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use PKP\core\traits\ModelWithSettings;
+use PKP\security\Role;
 
 class ReviewerSuggestion extends Model
 {
@@ -115,13 +116,33 @@ class ReviewerSuggestion extends Model
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: function (mixed $value, array $attributes) {
-                $familyName = $this->familyName;
-                return collect($this->givenName)
-                    ->map(fn ($givenName, $locale) => $givenName. ' ' . $familyName[$locale])
-                    ->toArray();
-            }
-        );
+            get: fn () => collect($this->givenName)
+                ->map(fn ($givenName, $locale) => $givenName . ' ' . $this->familyName[$locale])
+                ->toArray()
+        )->shouldCache();
+    }
+
+    /**
+     * Get the existing user for this suggestion if exists
+     */
+    protected function existingUser(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Repo::user()->getByEmail($this->email)
+        )->shouldCache();
+    }
+
+    /**
+     * If this suggestion already has a review role when already there is an existing user association
+     */
+    protected function existingReviewerRole(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => (bool)$this->existingUser?->hasRole(
+                [Role::ROLE_ID_REVIEWER],
+                $this->submission->getData('contextId')
+            )
+        )->shouldCache();
     }
 
     /**

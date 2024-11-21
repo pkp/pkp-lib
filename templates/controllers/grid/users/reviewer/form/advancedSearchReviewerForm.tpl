@@ -22,43 +22,47 @@
 </script>
 
 <div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
-	<div id="searchGridAndButton">
-		{assign var="uuid" value=""|uniqid|escape}
-		<div id="select-reviewer-{$uuid}">
-		</div>
-		<script type="text/javascript">
-			pkp.registry.init('select-reviewer-{$uuid}', 'AdvancedSearchReviewerContainer', {$selectReviewerListData|@json_encode});
-		</script>
-
-		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
-		{fbvFormSection class="form_buttons"}
-			{foreach from=$reviewerActions item=action}
-				{if $action->getId() == 'advancedSearch'}
-					{continue}
-				{/if}
-				{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
-			{/foreach}
-		{/fbvFormSection}
-	</div>
-
-	<div id="regularReviewerForm" class="pkp_reviewer_form">
-		{** Display the name of the selected reviewer **}
-		<div class="selected_reviewer">
-			<div class="label">
-				{translate key="editor.submission.selectedReviewer"}
-			</div>
-			<div class="value">
-				<span id="selectedReviewerName" class="name"></span>
-				<span class="actions">
-					{foreach from=$reviewerActions item=action}
-						{if $action->getId() == 'advancedSearch'}
-							{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
-						{/if}
-					{/foreach}
-				</span>
-			</div>
-		</div>
-
+	{if isset($reviewerId) }
 		{include file="controllers/grid/users/reviewer/form/advancedSearchReviewerAssignmentForm.tpl"}
-	</div>
+	{else}
+		<div id="searchGridAndButton">
+			{assign var="uuid" value=""|uniqid|escape}
+			<div id="select-reviewer-{$uuid}">
+			</div>
+			<script type="text/javascript">
+				pkp.registry.init('select-reviewer-{$uuid}', 'AdvancedSearchReviewerContainer', {$selectReviewerListData|@json_encode});
+			</script>
+
+			{** This button will get the reviewer selected in the grid and insert their ID into the form below **}
+			{fbvFormSection class="form_buttons"}
+				{foreach from=$reviewerActions item=action}
+					{if $action->getId() == 'advancedSearch'}
+						{continue}
+					{/if}
+					{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
+				{/foreach}
+			{/fbvFormSection}
+		</div>
+
+		<div id="regularReviewerForm" class="pkp_reviewer_form">
+			{** Display the name of the selected reviewer **}
+			<div class="selected_reviewer">
+				<div class="label">
+					{translate key="editor.submission.selectedReviewer"}
+				</div>
+				<div class="value">
+					<span id="selectedReviewerName" class="name"></span>
+					<span class="actions">
+						{foreach from=$reviewerActions item=action}
+							{if $action->getId() == 'advancedSearch'}
+								{include file="linkAction/linkAction.tpl" action=$action contextId="createReviewerForm"}
+							{/if}
+						{/foreach}
+					</span>
+				</div>
+			</div>
+
+			{include file="controllers/grid/users/reviewer/form/advancedSearchReviewerAssignmentForm.tpl"}
+		</div>
+	{/if}
 </div>

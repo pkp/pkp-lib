@@ -37,6 +37,8 @@ class ReviewerSuggestionResource extends JsonResource
             'affiliation' => $this->affiliation,
             'suggestionReason' => $this->suggestionReason,
             'approvedAt' => $this->approvedAt,
+            'existingUserId' => $this->existingUser?->getId(),
+            'existingReviewerRole' => $this->existingReviewerRole,
         ];
     }
 }

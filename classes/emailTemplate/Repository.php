@@ -13,6 +13,7 @@
 
 namespace PKP\emailTemplate;
 
+use APP\core\Application;
 use APP\emailTemplate\DAO;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
@@ -195,10 +196,11 @@ class Repository
     /**
      * Delete a collection of email templates
      */
-    public function deleteMany(Collector $collector)
+    public function deleteMany(Collector $collector): void
     {
         foreach ($collector->getMany() as $emailTemplate) {
             $this->delete($emailTemplate);
+            $this->deleteTemplateGroupAccess(Application::get()->getRequest()->getContext()->getId(), $emailTemplate);
         }
     }
 
@@ -217,11 +219,14 @@ class Repository
             ->getMany();
 
         $deletedKeys = [];
-        $results->each(function ($emailTemplate) use ($deletedKeys) {
+        $results->each(function ($emailTemplate) use ($contextId, &$deletedKeys) {
             $deletedKeys[] = $emailTemplate->getData('key');
             $this->delete($emailTemplate);
         });
+
+
         $this->dao->installAlternateEmailTemplates($contextId);
+        Repo::emailTemplate()->restoreTemplateUserGroupAccess($contextId, $deletedKeys);
         Hook::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
         return $deletedKeys;
     }
@@ -364,6 +369,26 @@ class Repository
                 ->where('context_id', $contextId)
                 ->whereNull('user_group_id')
                 ->delete();
+        }
+    }
+
+
+    /**
+     * Deletes all user group access for an email
+     */
+    public function deleteTemplateGroupAccess(int $contextId, array $emailKey): void
+    {
+        EmailTemplateAccessGroup::where('context_id', $contextId)->whereIn('email_key', $emailKey)->delete();
+    }
+
+    /**
+     * Deletes all user group access for an email template and set unrestricted to their default
+     */
+    public function restoreTemplateUserGroupAccess(int $contextId, array $emailKeys)
+    {
+        if (!empty($emailKeys)) {
+            $this->deleteTemplateGroupAccess($contextId, $emailKeys);
+            return $this->dao->setTemplateDefaultUnrestirctedSetting($contextId, $emailKeys);
         }
     }
 }

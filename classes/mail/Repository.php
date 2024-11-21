@@ -28,6 +28,7 @@ use PKP\mail\mailables\SubmissionNeedsEditor;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\mail\traits\Configurable;
 use PKP\plugins\Hook;
+use PKP\userGroup\UserGroup;
 
 class Repository
 {
@@ -101,6 +102,14 @@ class Repository
         $dataDescriptions = $class::getDataDescriptions();
         ksort($dataDescriptions);
 
+        $userGroups = collect();
+        Repo::userGroup()->getCollector()
+            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+            ->getMany()->each(fn (UserGroup $group) => $userGroups->add([
+                'id' => $group->getId(),
+                'name' => $group->getLocalizedName()
+            ]));
+
         return [
             '_href' => Application::get()->getRequest()->getDispatcher()->url(
                 Application::get()->getRequest(),
@@ -117,6 +126,7 @@ class Repository
             'supportsTemplates' => $class::getSupportsTemplates(),
             'toRoleIds' => $class::getToRoleIds(),
             'canAssignUserGroupToTemplates' => $this->isGroupsAssignableToTemplates($class),
+            'assignableTemplateUserGroups' => $userGroups
         ];
     }
 

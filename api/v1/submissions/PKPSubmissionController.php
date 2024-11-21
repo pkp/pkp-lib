@@ -1166,7 +1166,6 @@ class PKPSubmissionController extends PKPBaseController
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
         foreach ($usersIterator as $user) {
             $notification = $notificationManager->createNotification(
-                $request,
                 $user->getId(),
                 Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
                 $submission->getData('contextId'),

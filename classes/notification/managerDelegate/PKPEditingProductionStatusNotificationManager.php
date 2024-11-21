@@ -131,7 +131,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                 if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS) {
                                     // Add 'awaiting representations' notification
                                     $this->_createNotification(
-                                        $request,
                                         $submissionId,
                                         $editorStageAssignment->userId,
                                         $notificationType,
@@ -145,7 +144,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                 if ($notificationType == Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER) {
                                     // Add 'assign a user' notification
                                     $this->_createNotification(
-                                        $request,
                                         $submissionId,
                                         $editorStageAssignment->userId,
                                         $notificationType,
@@ -172,7 +170,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                             if ($notificationType == Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification
                                 $this->_createNotification(
-                                    $request,
                                     $submissionId,
                                     $editorStageAssignment->userId,
                                     $notificationType,
@@ -186,7 +183,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                             if ($notificationType == Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR) {
                                 // Add 'assign a copyeditor' notification
                                 $this->_createNotification(
-                                    $request,
                                     $submissionId,
                                     $editorStageAssignment->userId,
                                     $notificationType,
@@ -221,7 +217,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * Create a notification if none exists.
      */
-    public function _createNotification(PKPRequest $request, int $submissionId, int $userId, int $notificationType, ?int $contextId): void
+    public function _createNotification(int $submissionId, int $userId, int $notificationType, ?int $contextId): void
     {
         $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->withUserId($userId)
@@ -231,7 +227,6 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         if (!$notification) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
-                $request,
                 $userId,
                 $notificationType,
                 $contextId,

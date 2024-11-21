@@ -228,7 +228,6 @@ class PKPStageParticipantNotifyForm extends Form
         // Send the email
         $notificationMgr = new NotificationManager();
         $notification = $notificationMgr->createNotification(
-            $request,
             $userId,
             Notification::NOTIFICATION_TYPE_NEW_QUERY,
             $request->getContext()->getId(),
@@ -358,7 +357,6 @@ class PKPStageParticipantNotifyForm extends Form
             $context = $request->getContext();
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
-                $request,
                 $userId,
                 $type,
                 $context->getId(),

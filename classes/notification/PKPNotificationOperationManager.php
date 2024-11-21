@@ -140,7 +140,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Create a new notification with the specified arguments and insert into DB
      */
-    public function createNotification(PKPRequest $request, ?int $userId = null, ?int $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?Notification
+    public function createNotification(?int $userId = null, ?int $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?Notification
     {
         if ($userId && in_array($notificationType, $this->getUserBlockedNotifications($userId, $contextId))) {
             return null;
@@ -228,7 +228,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      */
     public function formatToInPlaceNotification(PKPRequest $request, array $notifications): array
     {
-        $formattedNotificationsData = null;
+        $formattedNotificationsData = [];
 
         $templateMgr = TemplateManager::getManager($request);
         foreach ($notifications as $notification) {

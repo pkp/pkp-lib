@@ -650,7 +650,6 @@ class QueriesGridHandler extends GridHandler
                 $user = Repo::user()->get((int) $userId);
 
                 $notification = $notificationMgr->createNotification(
-                    $request,
                     $userId,
                     Notification::NOTIFICATION_TYPE_NEW_QUERY,
                     $request->getContext()->getId(),

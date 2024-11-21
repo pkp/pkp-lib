@@ -142,7 +142,6 @@ class EditorialReminder extends BaseJob
 
         $notificationManager = new NotificationManager();
         $notification = $notificationManager->createNotification(
-            Application::get()->getRequest(),
             $this->editorId,
             Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
             $this->contextId

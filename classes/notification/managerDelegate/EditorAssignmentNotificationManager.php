@@ -91,7 +91,6 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
         } elseif (!$editorAssigned && !$notification) {
             // Create a notification.
             $this->createNotification(
-                $request,
                 null,
                 $this->getNotificationType(),
                 $context->getId(),

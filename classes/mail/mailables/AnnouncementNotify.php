@@ -89,7 +89,7 @@ class AnnouncementNotify extends Mailable
                     $this->context->getData('urlPath'),
                     'announcement',
                     'view',
-                    $this->announcement->getAttribute('announcementId')
+                    [$this->announcement->getAttribute('announcementId')]
                 ),
             ]
         );

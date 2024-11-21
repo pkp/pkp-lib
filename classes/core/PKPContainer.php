@@ -41,6 +41,11 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
+     * Define if the app currently runing the unit test
+     */
+    private bool $isRunningUnitTest = false;
+
+    /**
      * The base path of the application, needed for base_path helper
      */
     protected string $basePath;
@@ -539,15 +544,6 @@ class PKPContainer extends Container
     }
 
     /**
-     * Override Laravel method; always false.
-     * Prevents the undefined method error when the Log Manager tries to determine the driver
-     */
-    public function runningUnitTests(): bool
-    {
-        return false;
-    }
-
-    /**
      * Determine if the application is currently down for maintenance.
      */
     public function isDownForMaintenance(): bool
@@ -589,6 +585,31 @@ class PKPContainer extends Container
         }
 
         return $this->get('config')['app']['env'];
+    }
+
+    /**
+     * Override Laravel method; always false.
+     * Prevents the undefined method error when the Log Manager tries to determine the driver
+     */
+    public function runningUnitTests(): bool
+    {
+        return $this->isRunningUnitTest;
+    }
+
+    /**
+     * Set the app running unit test
+     */
+    public function setRunningUnitTests(): void
+    {
+        $this->isRunningUnitTest = true;
+    }
+
+    /**
+     * Unset the app running unit test
+     */
+    public function unsetRunningUnitTests(): void
+    {
+        $this->isRunningUnitTest = false;
     }
 }
 

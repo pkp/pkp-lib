@@ -65,7 +65,6 @@ class PKPRequest
     /** @var string user agent */
     public string $_userAgent;
 
-
     /**
      * get the router instance
      */
@@ -593,7 +592,7 @@ class PKPRequest
     {
         // special treatment for APIRouter. APIHandler gets to fetch parameter first
         $router = $this->getRouter();
-        
+
         if ($router instanceof \PKP\core\APIRouter && (!is_null($handler = $router->getHandler()))) {
             $handler = $router->getHandler(); /** @var \PKP\handler\APIHandler $handler */
             $value = $handler->getApiController()->getParameter($key);

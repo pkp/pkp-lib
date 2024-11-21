@@ -17,8 +17,14 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
+use Carbon\Carbon;
+
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\submission\reviewRound\ReviewRound;
+use APP\submission\Submission;
+use PKP\form\validation\FormValidator;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -27,14 +33,20 @@ class EnrollExistingReviewerForm extends ReviewerForm
 {
     /**
      * Constructor.
+     *
+     * @param Submission $submission
+     * @param ReviewRound $reviewRound
+     * @param ReviewerSuggestion|null $reviewerSuggestion
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
         parent::__construct($submission, $reviewRound);
+        $this->reviewerSuggestion = $reviewerSuggestion;
+
         $this->setTemplate('controllers/grid/users/reviewer/form/enrollExistingReviewerForm.tpl');
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
+        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+        $this->addCheck(new FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
     }
 
     /**
@@ -48,6 +60,13 @@ class EnrollExistingReviewerForm extends ReviewerForm
         $context = Application::get()->getRequest()->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
+
+        if ($this->reviewerSuggestion && $this->reviewerSuggestion->existingUser) {
+            $existingUser = $this->reviewerSuggestion->existingUser; /** @var \PKP\user\User $existingUser */
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('userId', $existingUser->getId());
+            $this->setData('selectedUser', $existingUser->getFullName().' (' . $existingUser->getData('email') . ')');
+        }
     }
 
     /**
@@ -72,7 +91,13 @@ class EnrollExistingReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars(['userId', 'userGroupId']);
+        $inputData = ['userId', 'userGroupId'];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**
@@ -93,6 +118,17 @@ class EnrollExistingReviewerForm extends ReviewerForm
 
         // Set the reviewerId in the Form for the parent class to use
         $this->setData('reviewerId', $userId);
+
+        if ($this->reviewerSuggestion?->existingUser
+            && $this->reviewerSuggestion->existingUser->getId() == $userId) {
+            
+            $request = Application::get()->getRequest();
+            $this->reviewerSuggestion->markAsApprove(
+                Carbon::now(),
+                $userId,
+                $request->getUser()->getId()
+            );
+        }
 
         return parent::execute(...$functionArgs);
     }

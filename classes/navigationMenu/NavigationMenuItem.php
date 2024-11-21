@@ -66,7 +66,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set url for this navigation menu item.
      */
-    public function setUrl(string $url): void
+    public function setUrl(?string $url): void
     {
         $this->setData('url', $url);
     }
@@ -74,7 +74,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get url for this navigation menu item.
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->getData('url');
     }

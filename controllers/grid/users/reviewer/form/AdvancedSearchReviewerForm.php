@@ -17,6 +17,8 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+
 use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -43,10 +45,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
      *
      * @param Submission $submission
      * @param ReviewRound $reviewRound
+     * @param ReviewerSuggestion|null $reviewerSuggestion
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
         parent::__construct($submission, $reviewRound);
+        $this->reviewerSuggestion = $reviewerSuggestion;
+
         $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
@@ -61,7 +66,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars(['reviewerId']);
+        $inputData = ['reviewerId'];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**
@@ -84,6 +95,11 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $this->setData('personalMessage', '');
         $this->setData('reviewerMessages', $templates->toArray());
+
+        if ($this->reviewerSuggestion?->existingReviewerRole) {
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('reviewerId', $this->reviewerSuggestion->existingUser->getId());
+        }
     }
 
     /**

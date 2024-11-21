@@ -290,7 +290,7 @@ class PKPEmailTemplateController extends PKPBaseController
 
         $props = Repo::emailTemplate()->getSchemaMap()->map($emailTemplate);
         Repo::emailTemplate()->delete($emailTemplate);
-
+        Repo::emailTemplate()->deleteTemplateGroupAccess($requestContext->getId(), [$illuminateRequest->route('key')]);
         return response()->json($props, Response::HTTP_OK);
     }
 

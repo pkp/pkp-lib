@@ -55,15 +55,8 @@ class UserForm extends Form
             // fetch user groups where the user is assigned
             $userGroups = UserGroup::query()
                 ->whereHas('userUserGroups', function ($query) {
-                    $query->where('userId', $this->userId)
-                        ->where(function ($q) {
-                            $q->whereNull('dateEnd')
-                                ->orWhere('dateEnd', '>', now());
-                        })
-                        ->where(function ($q) {
-                            $q->whereNull('dateStart')
-                                ->orWhere('dateStart', '<=', now());
-                        });
+                    $query->withUserId($this->userId)
+                          ->withActive();
                 })
                 ->get();
     
@@ -138,17 +131,10 @@ class UserForm extends Form
             // get current user group IDs
             $oldUserGroupIds = UserGroup::query()
                 ->whereHas('userUserGroups', function ($query) {
-                    $query->where('userId', $this->userId)
-                        ->where(function ($q) {
-                            $q->whereNull('dateEnd')
-                                ->orWhere('dateEnd', '>', now());
-                        })
-                        ->where(function ($q) {
-                            $q->whereNull('dateStart')
-                                ->orWhere('dateStart', '<=', now());
-                        });
+                    $query->withUserId($this->userId)
+                          ->withActive();
                 })
-                ->pluck('id')
+                ->pluck('user_group_id')
                 ->all();
     
             $userGroupsToEnd = array_diff($oldUserGroupIds, $this->getData('userGroupIds'));
@@ -156,13 +142,10 @@ class UserForm extends Form
                 ->each(
                     fn ($userGroupId) =>
                     UserUserGroup::query()
-                        ->where('userId', $this->userId)
-                        ->where('userGroupId', $userGroupId)
-                        ->where(function ($q) {
-                            $q->whereNull('dateEnd')
-                                ->orWhere('dateEnd', '>', now());
-                        })
-                        ->update(['dateEnd' => now()])
+                        ->withUserId($this->userId)
+                        ->withUserGroupId($userGroupId)
+                        ->withActive()
+                        ->update(['date_end' => now()])
                 );
 
             $userGroupsToAdd = array_diff($this->getData('userGroupIds'), $oldUserGroupIds);

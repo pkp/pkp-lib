@@ -219,6 +219,10 @@ abstract class PKPSubmissionHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
 
+        if (!$userGroups instanceof LazyCollection) {
+            $userGroups = $userGroups->lazy();
+        }
+
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
             'components' => [

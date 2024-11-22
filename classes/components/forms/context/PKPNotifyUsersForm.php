@@ -42,7 +42,7 @@ class PKPNotifyUsersForm extends FormComponent
     {
         $this->action = $action;
 
-        $userGroups = UserGroup::where('contextId', $context->getId())
+        $userGroups = UserGroup::withContextIds($context->getId())
             ->withCount(['userUserGroups as userCount'])
             ->get();
 

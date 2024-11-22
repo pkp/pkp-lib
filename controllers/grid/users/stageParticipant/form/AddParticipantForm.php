@@ -150,13 +150,22 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
             'userGroupOptions' => $userGroupOptions,
             'selectedUserGroupId' => array_shift($keys), // assign the first element as selected
             'possibleRecommendOnlyUserGroupIds' => $this->_possibleRecommendOnlyUserGroupIds,
-            'recommendOnlyUserGroupIds' => UserGroup::getRecommendOnlyUserGroupIdsByContextId($request->getContext()->getId()),
+            'recommendOnlyUserGroupIds' => UserGroup::query()
+                ->withContextIds($request->getContext()->getId())
+                ->isRecommendOnly(true)
+                ->pluck('user_group_id')
+                ->toArray(),
             'notPossibleEditSubmissionMetadataPermissionChange' => $this->_managerGroupIds,
-            'permitMetadataEditUserGroupIds' => UserGroup::getPermitMetadataEditUserGroupIds($request->getContext()->getId()),
+            'permitMetadataEditUserGroupIds' => UserGroup::query()
+                ->withContextIds($request->getContext()->getId())
+                ->permitMetadataEdit(true)
+                ->pluck('user_group_id')
+                ->toArray(),
             'submissionId' => $this->getSubmission()->getId(),
             'userGroupId' => '',
             'userIdSelected' => '',
         ]);
+        
 
         if ($this->_assignmentId) {
             $stageAssignment = StageAssignment::find($this->_assignmentId);

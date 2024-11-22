@@ -252,8 +252,9 @@ class UserGroupForm extends Form
     
             // if permitMetadataEdit has changed, update StageAssignments
             if ($userGroup->permitMetadataEdit !== $previousPermitMetadataEdit) {
-                $stageAssignments = StageAssignment::where('userGroupId', $userGroupId)
-                    ->where('contextId', $this->getContextId())
+                $stageAssignments = StageAssignment::query()
+                    ->withUserGroupId($userGroupId)
+                    ->withContextId($this->getContextId())
                     ->get();
 
                 foreach ($stageAssignments as $stageAssignment) {
@@ -301,9 +302,10 @@ class UserGroupForm extends Form
         $stages = WorkflowStageDAO::getWorkflowStageTranslationKeys();
     
         // Remove all existing stage assignments for this user group
-        UserGroupStage::where('contextId', $contextId)
-            ->where('userGroupId', $userGroupId)
-            ->whereIn('stageId', $stageIds)
+        UserGroupStage::query()
+            ->withContextId($contextId)
+            ->withUserGroupId($userGroupId)
+            ->withStageIds($stageIds)
             ->delete();
     
         // Assign new stages

@@ -163,22 +163,15 @@ class UserGridHandler extends GridHandler
 
                     // fetch user groups where the user is assigned in the current context
                     $userGroups = UserGroup::query()
-                        ->where('contextId', $contextId)
-                        ->whereHas('userUserGroups', function ($query) use ($user) {
-                            $query->where('userId', $user->getId())
-                                ->where(function ($q) {
-                                    $q->whereNull('dateEnd')
-                                        ->orWhere('dateEnd', '>', now());
-                                })
-                                ->where(function ($q) {
-                                    $q->whereNull('dateStart')
-                                        ->orWhere('dateStart', '<=', now());
-                                });
-                        })
-                        ->get();
-    
-                    $roles = $userGroups->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
-                    return ['label' => $roles];
+                    ->withContextIds($contextId)
+                    ->whereHas('userUserGroups', function ($query) use ($user) {
+                        $query->withUserId($user->getId())
+                              ->withActive();
+                    })
+                    ->get();
+                
+                $roles = $userGroups->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'))->join(__('common.commaListSeparator'));
+                return ['label' => $roles];
                 }
             }
         );
@@ -569,39 +562,25 @@ class UserGridHandler extends GridHandler
     
         // Check if this user has any active user group assignments for this context.
         $activeUserGroupCount = UserGroup::query()
-            ->where('contextId', $context->getId())
+            ->withContextIds($context->getId())
             ->whereHas('userUserGroups', function ($query) use ($userId) {
-                $query->where('userId', $userId)
-                    ->where(function ($q) {
-                        $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                    })
-                    ->where(function ($q) {
-                        $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                    });
+                $query->withUserId($userId)
+                    ->withActive();
             })
             ->count();
-    
+        
         if (!$activeUserGroupCount) {
             return new JSONMessage(false, __('grid.user.userNoRoles'));
         } else {
             // End all active user group assignments for this context.
             UserUserGroup::query()
+                ->withUserId($userId)
+                ->withActive()
                 ->whereHas('userGroup', function ($query) use ($context) {
-                    $query->where('contextId', $context->getId());
-                })
-                ->where('userId', $userId)
-                ->where(function ($q) {
-                    $q->whereNull('dateEnd')
-                        ->orWhere('dateEnd', '>', now());
-                })
-                ->where(function ($q) {
-                    $q->whereNull('dateStart')
-                        ->orWhere('dateStart', '<=', now());
+                    $query->withContextIds($context->getId());
                 })
                 ->update(['dateEnd' => now()]);
-    
+        
             return \PKP\db\DAO::getDataChangedEvent($userId);
         }
     }

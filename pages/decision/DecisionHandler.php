@@ -123,7 +123,7 @@ class DecisionHandler extends Handler
                 ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                 ->withRecommendOnly(false)
                 ->get()
-                ->pluck('userId')
+                ->pluck('user_id')
                 ->all();
 
             if (!$assignedEditorIds) {

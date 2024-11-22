@@ -74,18 +74,18 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
         // Create the UserGroup object.
         $userGroup = new UserGroup();
         $userGroup->contextId = $context->getId();
-
+        
         // Extract the name node element to see if this user group exists already.
         $nodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'name');
         if ($nodeList->length > 0) {
             $content = $this->parseLocalizedContent($nodeList->item(0)); // $content[1] contains the localized name.
             $userGroups = UserGroup::query()
-                ->where('contextId', $context->getId())
+                ->withContextIds($context->getId())
                 ->get();
-
+        
             foreach ($userGroups as $testGroup) {
                 if (in_array($content[1], $testGroup->name)) {
-                    return $testGroup;  // we found one with the same name.
+                    return $testGroup;  // We found one with the same name.
                 }
             }
 

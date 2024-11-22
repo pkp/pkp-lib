@@ -185,7 +185,7 @@ class UserGroupGridHandler extends GridHandler
             $stageIdFilter = $filter['selectedStageId'];
         }
 
-        $query = UserGroup::where('contextId', $contextId);
+        $query = UserGroup::withContextIds($contextId);
 
         if (!empty($roleIdFilter)) {
             $query->where('roleId', $roleIdFilter);
@@ -452,9 +452,10 @@ class UserGroupGridHandler extends GridHandler
                 $messageKey = 'grid.userGroup.assignedStage';
                 break;
             case 'unassignStage':
-                UserGroupStage::where('contextId', $contextId)
-                    ->where('userGroupId', $userGroup->id)
-                    ->where('stageId', $stageId)
+                UserGroupStage::query()
+                    ->withContextId($contextId)
+                    ->withUserGroupId($userGroup->id)
+                    ->withStageId($stageId)
                     ->delete();
                 $messageKey = 'grid.userGroup.unassignedStage';
                 break;

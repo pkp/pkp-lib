@@ -35,7 +35,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         parent::__construct($request, $context, $schemaService);
 
-        $this->authorUserGroups = UserGroup::where('roleId', Role::ROLE_ID_AUTHOR)->where('contextId', $this->context->getId())->get();
+        $this->authorUserGroups = UserGroup::withRoleIds(Role::ROLE_ID_AUTHOR)->withContextIds($this->context->getId())->cursor();
     }
 
     /**

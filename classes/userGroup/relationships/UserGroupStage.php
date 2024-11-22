@@ -47,6 +47,11 @@ class UserGroupStage extends \Illuminate\Database\Eloquent\Model
         return $query->where('stage_id', $stageId);
     }
 
+    public function scopeWithStageIds(Builder $query, array $stageIds): Builder
+    {
+        return $query->whereIn('stage_id', $stageIds);
+    }
+
     public function scopeWithUserGroupId(Builder $query, int $userGroupId): Builder
     {
         return $query->where('user_group_id', $userGroupId);

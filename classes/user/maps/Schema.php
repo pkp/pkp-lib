@@ -154,19 +154,12 @@ class Schema extends \PKP\core\maps\Schema
                 case 'groups':
                     $output[$prop] = null;
                     if ($this->context) {
-                        // fetch user groups where the user is assigned in the current context
+                        // Fetch user groups where the user is assigned in the current context
                         $userGroups = UserGroup::query()
-                            ->where('contextId', $this->context->getId())
+                            ->withContextIds($this->context->getId())
                             ->whereHas('userUserGroups', function ($query) use ($user) {
-                                $query->where('userId', $user->getId())
-                                    ->where(function ($q) {
-                                        $q->whereNull('dateEnd')
-                                        ->orWhere('dateEnd', '>', now());
-                                    })
-                                    ->where(function ($q) {
-                                        $q->whereNull('dateStart')
-                                        ->orWhere('dateStart', '<=', now());
-                                    });
+                                $query->withUserId($user->getId())
+                                    ->withActive();
                             })
                             ->get();
 
@@ -180,7 +173,7 @@ class Schema extends \PKP\core\maps\Schema
                                 'showTitle' => (bool) $userGroup->showTitle,
                                 'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
                                 'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
-                                'recommendOnly' => (bool) $userGroup->getData('recommendOnly'),
+                                'recommendOnly' => (bool) $userGroup->recommendOnly,
                             ];
                         }
                     }

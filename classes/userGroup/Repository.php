@@ -604,8 +604,8 @@ class Repository
         $userGroups = $userGroups->get();
 
         foreach ($userGroups as $userGroup) {
-            $nameKey = $userGroup->getData('nameLocaleKey') ?? null;
-            $abbrevKey = $userGroup->getData('abbrevLocaleKey') ?? null;
+            $nameKey = $userGroup->getSettings('nameLocaleKey') ?? null;
+            $abbrevKey = $userGroup->getSettings('abbrevLocaleKey') ?? null;
 
             if ($nameKey) {
                 $userGroup->setData('name', [$locale => __($nameKey, [], $locale)]);

@@ -55,7 +55,7 @@ trait AnonymizeData
             ->pluck('user_group_id')
             ->toArray();
 
-        $currentUserGroups = UserGroup::whereIn('userGroupId', $currentUserUserGroupIds)->get();
+        $currentUserGroups = UserGroup::withUserGroupIds($currentUserUserGroupIds)->get();
 
 
         $isAuthor = $currentUserGroups->contains(

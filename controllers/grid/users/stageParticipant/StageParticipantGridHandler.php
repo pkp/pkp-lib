@@ -389,7 +389,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 'dateLogged' => Core::getCurrentDate(),
                 'userFullName' => $assignedUser->getFullName(),
                 'username' => $assignedUser->getUsername(),
-                'userGroupName' => $userGroup->getData('name')
+                'userGroupName' => $userGroup->name,
             ]);
             Repo::eventLog()->add($eventLog);
 
@@ -463,7 +463,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             'dateLogged' => Core::getCurrentDate(),
             'userFullName' => $assignedUser->getFullName(),
             'username' => $assignedUser->getUsername(),
-            'userGroupName' => $userGroup->getData('name')
+            'userGroupName' => $userGroup->name,
         ]);
         Repo::eventLog()->add($eventLog);
 

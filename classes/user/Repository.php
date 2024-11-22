@@ -228,8 +228,8 @@ class Repository
         $accessibleWorkflowStages = [];
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
         $stageAssignments = StageAssignment::with(['userGroup.userGroupStages'])
-            ->where('submissionId', $submission->getId())
-            ->where('userId', $userId)
+            ->withSubmissionIds([$submission->getId()])
+            ->withUserId($userId)
             ->get();
         
         foreach ($stageAssignments as $stageAssignment) {
@@ -362,13 +362,16 @@ class Repository
         $subEditorsDao->deleteByUserId($oldUserId);
 
         // Transfer old user's roles
-        $userUserGroups = UserUserGroup::where('userId', $oldUserId)->get();
+        $userUserGroups = UserUserGroup::query()
+            ->withUserId($oldUserId)
+            ->get();
 
-        // transfer assignments to the new user
+        // Transfer assignments to the new user
         foreach ($userUserGroups as $userUserGroup) {
-            // check if the new user is already assigned to this user group
-            $exists = UserUserGroup::where('userId', $newUserId)
-                ->where('userGroupId', $userUserGroup->userGroupId)
+            // Check if the new user is already assigned to this user group
+            $exists = UserUserGroup::query()
+                ->withUserId($newUserId)
+                ->withUserGroupId($userUserGroup->userGroupId)
                 ->exists();
         
             if (!$exists) {
@@ -381,8 +384,11 @@ class Repository
                 ]);
             }
         }
-        // delete all user group assignments for the old user
-        UserUserGroup::where('userId', $oldUserId)->delete();
+
+        // Delete all user group assignments for the old user
+        UserUserGroup::query()
+            ->withUserId($oldUserId)
+            ->delete();
 
         // Transfer stage assignments.
         $stageAssignments = StageAssignment::withUserId($oldUserId)->get();

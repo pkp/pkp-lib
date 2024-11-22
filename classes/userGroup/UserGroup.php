@@ -17,8 +17,6 @@
  use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
  use Illuminate\Database\Eloquent\Model;
  use Illuminate\Database\Eloquent\Relations\HasMany;
- use Eloquence\Behaviours\HasCamelCasing;
-
  use PKP\core\traits\ModelWithSettings;
  use PKP\stageAssignment\StageAssignment;
  use PKP\userGroup\relationships\UserUserGroup;
@@ -27,6 +25,9 @@
  use PKP\plugins\Hook;
  use PKP\facades\Repo;
  use PKP\services\PKPSchemaService;
+ use PKP\core\PKPApplication;
+ use APP\core\Application;
+
 
 class UserGroup extends Model
 {
@@ -142,27 +143,40 @@ class UserGroup extends Model
         return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
     }
 
-    /**
-     * Scope a query to filter by context IDs.
-     */
-    protected function scopeWithContextIds(EloquentBuilder $builder, array $contextIds): EloquentBuilder
+    protected function scopeWithContextIds(EloquentBuilder $builder, $contextIds): EloquentBuilder
     {
+        if (empty($contextIds)) {
+            return $builder;
+        }
+    
+        if (!is_array($contextIds)) {
+            $contextIds = [$contextIds];
+        }
+    
         return $builder->whereIn('context_id', $contextIds);
     }
 
     /**
      * Scope a query to filter by user group IDs.
      */
-    protected function scopeWithUserGroupIds(EloquentBuilder $builder, array $userGroupIds): EloquentBuilder
+    protected function scopeWithUserGroupIds(EloquentBuilder $builder, $userGroupIds): EloquentBuilder
     {
+        if (!is_array($userGroupIds)) {
+            $userGroupIds = [$userGroupIds];
+        }
+    
         return $builder->whereIn('user_group_id', $userGroupIds);
     }
 
     /**
      * Scope a query to filter by role IDs.
      */
-    protected function scopeWithRoleIds(EloquentBuilder $builder, array $roleIds): EloquentBuilder
+    protected function scopeWithRoleIds(EloquentBuilder $builder, $roleIds): EloquentBuilder
     {
+        if (!is_array($roleIds)) {
+            $roleIds = [$roleIds];
+        }
+    
         return $builder->whereIn('role_id', $roleIds);
     }
 
@@ -177,11 +191,25 @@ class UserGroup extends Model
     /**
      * Scope a query to filter by stage IDs.
      */
-    protected function scopeWithStageIds(EloquentBuilder $builder, array $stageIds): EloquentBuilder
+    protected function scopeWithStageIds(EloquentBuilder $builder, $stageIds): EloquentBuilder
     {
+        if (!is_array($stageIds)) {
+            $stageIds = [$stageIds];
+        }
         return $builder->whereHas('userGroupStages', function (EloquentBuilder $q) use ($stageIds) {
             $q->whereIn('stage_id', $stageIds);
         });
+    }
+
+    /**
+     * Scope a query to exclude role ids.
+     */
+    protected function scopeExcludeRoleIds(EloquentBuilder $builder, $roleIds): EloquentBuilder
+    {
+        if (!is_array($roleIds)) {
+            $roleIds = [$roleIds];
+        }
+        return $builder->whereNotIn('role_id', $roleIds);
     }
 
     /**
@@ -239,10 +267,7 @@ class UserGroup extends Model
      */
     protected function scopeIsRecommendOnly(EloquentBuilder $builder, bool $isRecommendOnly): EloquentBuilder
     {
-        return $builder->whereHas('settings', function (EloquentBuilder $q) use ($isRecommendOnly) {
-            $q->where('setting_name', 'recommendOnly')
-                ->where('setting_value', $isRecommendOnly);
-        });
+        return $builder->where('recommendOnly', $isRecommendOnly);
     }
 
     /**

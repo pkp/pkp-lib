@@ -560,8 +560,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             ->isDefault(true)
             ->firstOrFail();
     
-        $assignmentExists = UserUserGroup::where('userId', $currentUser->getId())
-            ->where('userGroupId', $managerUserGroup->id)
+        $assignmentExists = UserUserGroup::query()
+            ->withUserId($currentUser->getId())
+            ->withUserGroupId($managerUserGroup->id)
             ->exists();
     
         if (!$assignmentExists) {
@@ -645,7 +646,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::reviewAssignment()->deleteByContextId($context->getId());
 
-        UserGroup::where('contextId', $context->getId())->delete();
+        UserGroup::withContextIds($context->getId())->delete();
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->deleteByContextId($context->getId());

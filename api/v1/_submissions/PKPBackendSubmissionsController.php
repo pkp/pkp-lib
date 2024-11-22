@@ -222,7 +222,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $contextId = $context->getId();
 
-        $userGroups = UserGroup::where('contextId', $contextId)->get();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
+
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -255,8 +256,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ->assignedTo([$user->getId()])
             ->getMany();
 
-            $contextId = $context->getId();
-            $userGroups = UserGroup::where('contextId', $contextId)->get();
+        $contextId = $context->getId();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -327,7 +328,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $submissions = $collector->getMany();
 
         $contextId = $context->getId();
-        $userGroups = UserGroup::where('contextId', $contextId)->get();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

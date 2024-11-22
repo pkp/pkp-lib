@@ -43,11 +43,11 @@ class PKPAppearanceMastheadForm extends FormComponent
 
         $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
 
-        $allMastheadUserGroups = UserGroup::where('contextId', $context->getId())
-        ->where('masthead', true)
-        ->where('roleId', '!=', Role::ROLE_ID_REVIEWER)
-        ->orderBy('roleId')
-        ->get();
+        $allMastheadUserGroups = UserGroup::withContextIds($context->getId())
+            ->masthead(true)
+            ->excludeRoleIds(Role::ROLE_ID_REVIEWER)
+            ->orderByRoleId()
+            ->get();
     
         // Sort the masthead user groups in their saved order
         $sortedAllMastheadUserGroups = $allMastheadUserGroups->sortBy(function ($userGroup) use ($savedMastheadUserGroupIdsOrder) {

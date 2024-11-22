@@ -407,18 +407,11 @@ class Validation
 
         // check if administered user is site admin
         $isAdministeredUserSiteAdmin = UserGroup::query()
-            ->where('contextId', $siteContextId)
-            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->withContextIds($siteContextId)
+            ->withRoleIds(Role::ROLE_ID_SITE_ADMIN)
             ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
-                $query->where('userId', $administeredUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administeredUserId)
+                      ->withActive();
             })
             ->exists();
     
@@ -428,18 +421,11 @@ class Validation
     
         // check if administrator user is site admin
         $isAdministratorUserSiteAdmin = UserGroup::query()
-            ->where('contextId', $siteContextId)
-            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->withContextIds($siteContextId)
+            ->withRoleIds(Role::ROLE_ID_SITE_ADMIN)
             ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
-                $query->where('userId', $administratorUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administratorUserId)
+                      ->withActive();
             })
             ->exists();
     
@@ -447,18 +433,11 @@ class Validation
             return true;
         }
     
-        // get contexts where administered user has roles
+        // Get contexts where administered user has roles
         $administeredUserContexts = UserGroup::query()
             ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
-                $query->where('userId', $administeredUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administeredUserId)
+                      ->withActive();
             })
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)
@@ -468,17 +447,10 @@ class Validation
     
         // get contexts where administrator user has manager role
         $administratorManagerContexts = UserGroup::query()
-            ->where('roleId', Role::ROLE_ID_MANAGER)
+            ->withRoleIds(Role::ROLE_ID_MANAGER)
             ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
-                $query->where('userId', $administratorUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administratorUserId)
+                      ->withActive();
             })
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)
@@ -523,18 +495,11 @@ class Validation
     
         // Check if administered user is site admin
         $isAdministeredUserSiteAdmin = UserGroup::query()
-            ->where('contextId', $siteContextId)
-            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->withContextIds($siteContextId)
+            ->withRoleIds(Role::ROLE_ID_SITE_ADMIN)
             ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
-                $query->where('userId', $administeredUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administeredUserId)
+                      ->withActive();
             })
             ->exists();
     
@@ -544,18 +509,11 @@ class Validation
     
         // Check if administrator user is site admin
         $isAdministratorUserSiteAdmin = UserGroup::query()
-            ->where('contextId', $siteContextId)
-            ->where('roleId', Role::ROLE_ID_SITE_ADMIN)
+            ->withContextIds($siteContextId)
+            ->withRoleIds(Role::ROLE_ID_SITE_ADMIN)
             ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
-                $query->where('userId', $administratorUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administratorUserId)
+                      ->withActive();
             })
             ->exists();
     
@@ -565,17 +523,10 @@ class Validation
 
         // Get contexts where administrator has manager role
         $administratorManagerContexts = UserGroup::query()
-            ->where('roleId', Role::ROLE_ID_MANAGER)
+            ->withRoleIds(Role::ROLE_ID_MANAGER)
             ->whereHas('userUserGroups', function ($query) use ($administratorUserId) {
-                $query->where('userId', $administratorUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administratorUserId)
+                      ->withActive();
             })
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)
@@ -591,15 +542,8 @@ class Validation
         // Get contexts where administered user has roles
         $administeredUserContexts = UserGroup::query()
             ->whereHas('userUserGroups', function ($query) use ($administeredUserId) {
-                $query->where('userId', $administeredUserId)
-                      ->where(function ($q) {
-                          $q->whereNull('dateEnd')
-                            ->orWhere('dateEnd', '>', now());
-                      })
-                      ->where(function ($q) {
-                          $q->whereNull('dateStart')
-                            ->orWhere('dateStart', '<=', now());
-                      });
+                $query->withUserId($administeredUserId)
+                      ->withActive();
             })
             ->get()
             ->map(fn ($userGroup) => $userGroup->contextId)

@@ -130,7 +130,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
         $warnOnAssignment = StageAssignment::withSubmissionIds([$this->getSubmissionId()])
             ->get()
-            ->pluck('userId')
+            ->pluck('user_id')
             ->all();
 
         // Get a list of users in the managerial and admin user groups

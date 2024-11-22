@@ -381,19 +381,12 @@ class QueryForm extends Form
         foreach ($usersIterator as $participantUser) {
             // fetch user groups where the user is assigned in the current context
             $allUserGroups = UserGroup::query()
-                ->where('contextId', $context->getId())
-                ->whereHas('userUserGroups', function ($query) use ($participantUser) {
-                    $query->where('userId', $participantUser->getId())
-                        ->where(function ($q) {
-                            $q->whereNull('dateEnd')
-                                ->orWhere('dateEnd', '>', now());
-                        })
-                        ->where(function ($q) {
-                            $q->whereNull('dateStart')
-                                ->orWhere('dateStart', '<=', now());
-                        });
-                })
-                ->get();
+            ->withContextIds($context->getId())
+            ->whereHas('userUserGroups', function ($query) use ($participantUser) {
+                $query->withUserId($participantUser->getId())
+                      ->withActive();
+            })
+            ->get();
     
             $userRoles = [];
             // get participant's assigned roles

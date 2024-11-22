@@ -133,7 +133,7 @@ class Report
     private function _getUserGroups(): array
     {
         static $cache;
-        return $cache ??= UserGroup::where('context_id', $this->_request->getContext()->getId())
+        return $cache ??= UserGroup::withContextIds([$this->_request->getContext()->getId()])
             ->get()
             ->toArray();
     }

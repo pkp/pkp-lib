@@ -40,7 +40,8 @@ class ReportForm extends FormComponent
         $this->addPage(['id' => 'default', 'submitButton' => ['label' => __('common.export')]]);
         $this->addGroup(['id' => 'default', 'pageId' => 'default']);
 
-        $userGroups = UserGroup::where('contextId', $context->getId())->get();
+        $userGroups = UserGroup::withContextIds($context->getId())->get();
+
 
         $this->addField(new FieldOptions('userGroupIds', [
             'groupId' => 'default',

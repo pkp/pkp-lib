@@ -16,13 +16,13 @@ namespace PKP\controlledVocab;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use PKP\user\interest\UserInterest;
 use PKP\core\traits\ModelWithSettings;
-use Illuminate\Database\Eloquent\Model;
 use PKP\controlledVocab\ControlledVocab;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PKP\controlledVocab\ControlledVocabEntryMatch;
 
 class ControlledVocabEntry extends Model
 {
@@ -127,53 +127,50 @@ class ControlledVocabEntry extends Model
     }
 
     /**
-     * Scope a query to only include entries for a specific locale/s
+     * Scope a query to only include entries for a specific locales
      */
-    public function scopeWithLocale(Builder $query, string|array $locale): Builder
+    public function scopeWithLocales(Builder $query, array $locales): Builder
     {
-        if (is_array($locale)) {
-            return $query->whereIn(
-                DB::raw(
-                    "(SELECT locale 
-                    FROM {$this->getSettingsTable()} 
-                    WHERE {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey} 
-                    LIMIT 1)"
-                ),
-                $locale
-            );
-        }
-
-        return $query->where(
-            fn ($query) => $query
-                ->select("locale")
-                ->from("{$this->getSettingsTable()}")
-                ->whereColumn(
-                    "{$this->getSettingsTable()}.{$this->primaryKey}",
-                    "{$this->table}.{$this->primaryKey}"
-                )
-                ->limit(1),
-            $locale
+        return $query->whereIn(
+            DB::raw(
+                "(SELECT locale 
+                FROM {$this->getSettingsTable()} 
+                WHERE {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey} 
+                LIMIT 1)"
+            ),
+            $locales
         );
     }
 
     /**
-     * Scope a query to only include entries for a specific setting name and value/s
+     * Scope a query to only include entries for a specific setting name and values
      */
-    public function scopeWithSetting(Builder $query, string $settingName, string|array $settingValue, bool $partial = true): Builder
+    public function scopeWithSettings(Builder $query, string $settingName, array $settingValue): Builder
     {
-        if (is_array($settingValue)) {
-            return $query->whereIn(
-                DB::raw(
-                    "(SELECT setting_value 
-                    FROM {$this->getSettingsTable()} 
-                    WHERE setting_name = '{$settingName}'
-                    AND {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey}
-                    LIMIT 1)"
-                ),
-                $settingValue
-            );
-        }
+        // TODO : Does not work as intended, need modifications
+        return $query->whereIn(
+            DB::raw(
+                "(SELECT setting_value 
+                FROM {$this->getSettingsTable()} 
+                WHERE setting_name = '{$settingName}'
+                AND {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey}
+                LIMIT 1)"
+            ),
+            $settingValue
+        );
+    }
 
+    /**
+     * Scope a query to only include entries for a specific setting name and value with exact or partial match
+     */
+    public function scopeWithSetting(
+        Builder $query,
+        string $settingName,
+        string $settingValue,
+        ControlledVocabEntryMatch $match = ControlledVocabEntryMatch::PARTIAL
+    ): Builder
+    {
+        // TODO : probably need some modification
         return $query->where(
             fn ($query) => $query
                 ->select('setting_value')
@@ -184,8 +181,8 @@ class ControlledVocabEntry extends Model
                     "{$this->table}.{$this->primaryKey}"
                 )
                 ->limit(1),
-            ($partial ? 'LIKE' : '='),
-            ($partial ? "%{$settingValue}%" : $settingValue)
+            ($match->operator()),
+            ($match->searchKeyword($settingValue))
         );
     }
 }

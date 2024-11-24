@@ -148,7 +148,7 @@ class MetadataPropertyTest extends PKPTestCase
     {
         // Build a test vocabulary. (Assoc type and id are 0 to simulate a site-wide vocabulary).
         $vocab = Repo::controlledVocab()->build(
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, 0, 0
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, 0, 0, null
         );
 
         $controlledVocabEntry = ControlledVocabEntry::create([

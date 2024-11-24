@@ -27,7 +27,10 @@ class Repository
     public function getAllInterests(?string $filter = null): array
     {
         $controlledVocab = Repo::controlledVocab()->build(
-            UserInterest::CONTROLLED_VOCAB_INTEREST
+            UserInterest::CONTROLLED_VOCAB_INTEREST,
+            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
+            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID,
+            UserInterest::CONTROLLED_VOCAB_INTEREST_CONTEXT_ID
         );
 
         return ControlledVocabEntry::query()
@@ -83,7 +86,10 @@ class Repository
             : (empty($interests) ? [] : explode(',', $interests));
 
         $controlledVocab = Repo::controlledVocab()->build(
-            UserInterest::CONTROLLED_VOCAB_INTEREST
+            UserInterest::CONTROLLED_VOCAB_INTEREST,
+            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
+            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID,
+            UserInterest::CONTROLLED_VOCAB_INTEREST_CONTEXT_ID
         );
 
         $currentInterests = ControlledVocabEntry::query()

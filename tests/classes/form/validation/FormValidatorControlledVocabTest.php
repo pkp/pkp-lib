@@ -42,7 +42,8 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         $testControlledVocab = Repo::controlledVocab()->build(
             ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
             Application::ASSOC_TYPE_CITATION,
-            $assocId
+            $assocId,
+            null
         );
 
         $controlledVocabEntryId1 = ControlledVocabEntry::create([

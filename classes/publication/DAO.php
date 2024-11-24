@@ -186,11 +186,14 @@ class DAO extends EntityDAO
      */
     public function insert(Publication $publication): int
     {
+        $contextId = Repo::submission()->get(
+            $publication->getData('submissionId')
+        )->getData('contextId');
         $vocabs = $this->extractControlledVocab($publication);
 
         $id = parent::_insert($publication);
 
-        $this->saveControlledVocab($vocabs, $id);
+        $this->saveControlledVocab($vocabs, $id, $contextId);
         $this->saveCategories($publication);
 
         // Parse the citations
@@ -206,11 +209,15 @@ class DAO extends EntityDAO
      */
     public function update(Publication $publication, ?Publication $oldPublication = null)
     {
+        $contextId = Repo::submission()->get(
+            $publication->getData('submissionId')
+        )->getData('contextId');
+
         $vocabs = $this->extractControlledVocab($publication);
 
         parent::_update($publication);
 
-        $this->saveControlledVocab($vocabs, $publication->getId());
+        $this->saveControlledVocab($vocabs, $publication->getId(), $contextId);
         $this->saveCategories($publication);
 
         if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
@@ -413,15 +420,15 @@ class DAO extends EntityDAO
      *
      * @see self::extractControlledVocab()
      */
-    protected function saveControlledVocab(array $values, int $publicationId)
+    protected function saveControlledVocab(array $values, int $publicationId, int $contextId)
     {
         // Update controlled vocabularly for which we have props
         foreach ($values as $prop => $value) {
             match ($prop) {
-                'keywords' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
-                'subjects' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
-                'disciplines' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
-                'supportingAgencies' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'keywords' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId, $contextId),
+                'subjects' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId, $contextId),
+                'disciplines' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId, $contextId),
+                'supportingAgencies' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId, $contextId),
             };
         }
     }
@@ -431,33 +438,10 @@ class DAO extends EntityDAO
      */
     protected function deleteControlledVocab(int $publicationId)
     {
-        Repo::controlledVocab()->insertBySymbolic(
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-            [],
-            Application::ASSOC_TYPE_PUBLICATION,
-            $publicationId
-        );
-
-        Repo::controlledVocab()->insertBySymbolic(
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-            [], 
-            Application::ASSOC_TYPE_PUBLICATION,
-            $publicationId
-        );
-
-        Repo::controlledVocab()->insertBySymbolic(
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-            [], 
-            Application::ASSOC_TYPE_PUBLICATION,
-            $publicationId
-        );
-
-        Repo::controlledVocab()->insertBySymbolic(
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-            [], 
-            Application::ASSOC_TYPE_PUBLICATION,
-            $publicationId
-        );
+        ControlledVocab::query()
+            ->withSymbolics(ControlledVocab::getDefinedVocabSymbolic())
+            ->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)
+            ->delete();
     }
 
     /**

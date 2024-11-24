@@ -73,6 +73,8 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404('The link is deactivated as the invitation was cancelled');
         }
 
+        $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
+
         $context = $request->getContext();
 
         $url = PKPApplication::get()->getDispatcher()->url(

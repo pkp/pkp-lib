@@ -131,6 +131,7 @@ class ControlledVocabEntry extends Model
      */
     public function scopeWithLocales(Builder $query, array $locales): Builder
     {
+        // TODO : Does not work as intended, need modifications
         return $query->whereIn(
             DB::raw(
                 "(SELECT locale 
@@ -147,7 +148,7 @@ class ControlledVocabEntry extends Model
      */
     public function scopeWithSettings(Builder $query, string $settingName, array $settingValue): Builder
     {
-        // TODO : Does not work as intended, need modifications
+        // TODO : probably need some modification
         return $query->whereIn(
             DB::raw(
                 "(SELECT setting_value 
@@ -170,7 +171,6 @@ class ControlledVocabEntry extends Model
         ControlledVocabEntryMatch $match = ControlledVocabEntryMatch::PARTIAL
     ): Builder
     {
-        // TODO : probably need some modification
         return $query->where(
             fn ($query) => $query
                 ->select('setting_value')

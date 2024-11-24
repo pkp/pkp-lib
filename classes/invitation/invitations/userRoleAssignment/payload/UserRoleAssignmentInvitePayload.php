@@ -163,7 +163,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'orcid'
             ],
             'shouldUseInviteData' => [
-                'prohibited',
+                new ProhibitedIncludingNull($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE||$validationContext === ValidationContext::VALIDATION_CONTEXT_POPULATE),
             ],
         ];
 

@@ -131,15 +131,15 @@ class ControlledVocabEntry extends Model
      */
     public function scopeWithLocales(Builder $query, array $locales): Builder
     {
-        // TODO : Does not work as intended, need modifications
-        return $query->whereIn(
-            DB::raw(
-                "(SELECT locale 
-                FROM {$this->getSettingsTable()} 
-                WHERE {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey} 
-                LIMIT 1)"
-            ),
-            $locales
+        return $query->whereExists(
+            fn ($query) => $query
+                ->select("{$this->primaryKey}")
+                ->from("{$this->getSettingsTable()}")
+                ->whereColumn(
+                    "{$this->getSettingsTable()}.{$this->primaryKey}",
+                    "{$this->getTable()}.{$this->primaryKey}"
+                )
+                ->whereIn(DB::raw("{$this->getSettingsTable()}.locale"), $locales)
         );
     }
 
@@ -148,16 +148,23 @@ class ControlledVocabEntry extends Model
      */
     public function scopeWithSettings(Builder $query, string $settingName, array $settingValue): Builder
     {
-        // TODO : probably need some modification
-        return $query->whereIn(
-            DB::raw(
-                "(SELECT setting_value 
-                FROM {$this->getSettingsTable()} 
-                WHERE setting_name = '{$settingName}'
-                AND {$this->getSettingsTable()}.{$this->primaryKey} = {$this->table}.{$this->primaryKey}
-                LIMIT 1)"
-            ),
-            $settingValue
+        return $query->whereExists(
+            fn ($query) => $query
+                ->select("{$this->primaryKey}")
+                ->from("{$this->getSettingsTable()}")
+                ->whereColumn(
+                    "{$this->getSettingsTable()}.{$this->primaryKey}",
+                    "{$this->getTable()}.{$this->primaryKey}"
+                )
+                ->where(
+                    "{$this->getSettingsTable()}.setting_name",
+                    '=',
+                    $settingName
+                )
+                ->whereIn(
+                    DB::raw("{$this->getSettingsTable()}.setting_value"),
+                    $settingValue
+                )
         );
     }
 
@@ -171,18 +178,24 @@ class ControlledVocabEntry extends Model
         ControlledVocabEntryMatch $match = ControlledVocabEntryMatch::PARTIAL
     ): Builder
     {
-        return $query->where(
+        return $query->whereExists(
             fn ($query) => $query
-                ->select('setting_value')
+                ->select("{$this->primaryKey}")
                 ->from("{$this->getSettingsTable()}")
-                ->where('setting_name', $settingName)
                 ->whereColumn(
                     "{$this->getSettingsTable()}.{$this->primaryKey}",
-                    "{$this->table}.{$this->primaryKey}"
+                    "{$this->getTable()}.{$this->primaryKey}"
                 )
-                ->limit(1),
-            ($match->operator()),
-            ($match->searchKeyword($settingValue))
+                ->where(
+                    "{$this->getSettingsTable()}.setting_name",
+                    '=',
+                    $settingName
+                )
+                ->where(
+                    "{$this->getSettingsTable()}.setting_value",
+                    $match->operator(),
+                    $match->searchKeyword($settingValue)
+                )
         );
     }
 }

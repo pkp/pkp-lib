@@ -15,11 +15,9 @@
 namespace PKP\user\interest;
 
 use APP\facades\Repo;
-use Illuminate\Support\Facades\DB;
 use PKP\user\User;
 use PKP\user\interest\UserInterest;
 use PKP\controlledVocab\ControlledVocabEntry;
-use Throwable;
 
 class Repository
 {
@@ -36,7 +34,7 @@ class Repository
             ->withControlledVocabId($controlledVocab->id)
             ->when(
                 $filter,
-                fn($query) => $query->withSetting(
+                fn ($query) => $query->withSetting(
                     UserInterest::CONTROLLED_VOCAB_INTEREST,
                     $filter
                 )
@@ -55,11 +53,11 @@ class Repository
         return ControlledVocabEntry::query()
             ->whereHas(
                 "controlledVocab",
-                fn($query) => $query
+                fn ($query) => $query
                     ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
                     ->withAssoc(0, 0)
             )
-            ->whereHas("userInterest", fn($query) => $query->withUserId($user->getId()))
+            ->whereHas("userInterest", fn ($query) => $query->withUserId($user->getId()))
             ->get()
             ->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST, 'id')
             ->toArray();
@@ -91,54 +89,41 @@ class Repository
         $currentInterests = ControlledVocabEntry::query()
             ->whereHas(
                 'controlledVocab',
-                fn($query) => $query
+                fn ($query) => $query
                     ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
                     ->withAssoc(0, 0)
             )
-            ->withLocale('')
-            ->withSetting(UserInterest::CONTROLLED_VOCAB_INTEREST, $interests)
+            ->withLocales([''])
+            ->withSettings(UserInterest::CONTROLLED_VOCAB_INTEREST, $interests)
             ->get();
         
-        try {
-
-            DB::beginTransaction();
-
-            // Delete the existing interests association.
-            UserInterest::query()->withUserId($user->getId())->delete();
+        // Delete the existing interests association.
+        UserInterest::query()->withUserId($user->getId())->delete();
             
-            $newInterestIds = collect(
-                    array_diff(
-                        $interests,
-                        $currentInterests->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)->toArray()
-                    )
+        $newInterestIds = collect(
+                array_diff(
+                    $interests,
+                    $currentInterests->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)->toArray()
                 )
-                ->map(fn (string $interest): string => trim($interest))
-                ->unique()
-                ->map(
-                    fn (string $interest) => ControlledVocabEntry::create([
-                        'controlledVocabId' => $controlledVocab->id,
-                        UserInterest::CONTROLLED_VOCAB_INTEREST => [
-                            '' => $interest
-                        ],
-                    ])->id
-                );
-            
-            collect($currentInterests->pluck('id'))
-                ->merge($newInterestIds)
-                ->each(fn ($interestId) => UserInterest::create([
-                    'userId' => $user->getId(),
-                    'controlledVocabEntryId' => $interestId,
-                ]));
-            
-            Repo::controlledVocab()->resequence($controlledVocab->id);
-            
-            DB::commit();
-
-        } catch (Throwable $exception) {
-
-            DB::rollBack();
-
-            throw $exception;
-        }
+            )
+            ->map(fn (string $interest): string => trim($interest))
+            ->unique()
+            ->map(
+                fn (string $interest) => ControlledVocabEntry::create([
+                    'controlledVocabId' => $controlledVocab->id,
+                    UserInterest::CONTROLLED_VOCAB_INTEREST => [
+                        '' => $interest
+                    ],
+                ])->id
+            );
+        
+        collect($currentInterests->pluck('id'))
+            ->merge($newInterestIds)
+            ->each(fn ($interestId) => UserInterest::create([
+                'userId' => $user->getId(),
+                'controlledVocabEntryId' => $interestId,
+            ]));
+        
+        Repo::controlledVocab()->resequence($controlledVocab->id);
     }
 }

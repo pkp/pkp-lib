@@ -104,17 +104,16 @@ abstract class PKPTestHelper
             case 'mysql':
             case 'mariadb':
                 exec(
-                    $cmd = 'mysql -u ' .Config::getVar('database', 'username'). ' -h ' . Config::getVar('database', 'host') . ' ' . Config::getVar('database', 'name'). ' < ' . $filename,
-                    // $cmd = 'zcat ' .
-                    // escapeshellarg($filename) .
-                    // ' | /usr/bin/mysql --user=' .
-                    // escapeshellarg(Config::getVar('database', 'username')) .
-                    // ' --password=' .
-                    // escapeshellarg(Config::getVar('database', 'password')) .
-                    // ' --host=' .
-                    // escapeshellarg(Config::getVar('database', 'host')) .
-                    // ' ' .
-                    // escapeshellarg(Config::getVar('database', 'name')),
+                    $cmd = 'zcat ' .
+                    escapeshellarg($filename) .
+                    ' | /usr/bin/mysql --user=' .
+                    escapeshellarg(Config::getVar('database', 'username')) .
+                    ' --password=' .
+                    escapeshellarg(Config::getVar('database', 'password')) .
+                    ' --host=' .
+                    escapeshellarg(Config::getVar('database', 'host')) .
+                    ' ' .
+                    escapeshellarg(Config::getVar('database', 'name')),
                     $output,
                     $status
                 );

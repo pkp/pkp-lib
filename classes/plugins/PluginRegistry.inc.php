@@ -62,11 +62,21 @@ class PluginRegistry {
 	 * @return boolean True IFF the plugin was registered successfully
 	 */
 	static function register($category, $plugin, $path, $mainContextId = null) {
-		$pluginName = $plugin->getName();
+		try {
+			$pluginName = $plugin->getName();
+		} catch (Throwable $e) {
+			error_log('The plugin getName() failed: ' . $e);
+			return false;
+		}
 		$plugins =& self::getPlugins();
 
 		// Allow the plugin to register.
-		if (!$plugin->register($category, $path, $mainContextId)) return false;
+		try {
+			if (!$plugin->register($category, $path, $mainContextId)) return false;
+		} catch (Throwable $e) {
+			error_log('The plugin failed to be registered: ' . $e);
+			return false;
+		}
 
 		// If the plugin was already loaded, do not load it again.
 		if (isset($plugins[$category][$pluginName])) return false;
@@ -113,7 +123,11 @@ class PluginRegistry {
 				$file = $product->getProduct();
 				$plugin = self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
 				if ($plugin instanceof Plugin) {
-					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
+					try {
+						$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
+					} catch (Throwable $e) {
+						error_log('The plugin getSeq() failed: ' . $e);
+					}
 				}
 			}
 		} else {
@@ -125,7 +139,11 @@ class PluginRegistry {
 				if ($file == '.' || $file == '..') continue;
 				$plugin = self::_instantiatePlugin($category, $categoryDir, $file);
 				if ($plugin && is_object($plugin)) {
-					$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
+					try {
+						$plugins[$plugin->getSeq()]["$categoryDir/$file"] = $plugin;
+					} catch (Throwable $e) {
+						error_log('The plugin getSeq() failed: ' . $e);
+					}
 				}
 			}
 			closedir($handle);
@@ -176,7 +194,12 @@ class PluginRegistry {
 		$pluginPath = PLUGINS_PREFIX . $category . '/' . $pathName;
 		if (!is_dir($pluginPath) || !file_exists($pluginPath . '/index.php')) return null;
 
-		$plugin = @include("$pluginPath/index.php");
+		try {
+			$plugin = @include("$pluginPath/index.php");
+		} catch (Throwable $e) {
+			error_log('The plugin failed to be loaded: ' . $e);
+			return null;
+		}
 		if (!is_object($plugin)) return null;
 
 		self::register($category, $plugin, $pluginPath, $mainContextId);
@@ -238,7 +261,12 @@ class PluginRegistry {
 		// compatibility.
 		$pluginWrapper = "$pluginPath/index.php";
 		if (file_exists($pluginWrapper)) {
-			$plugin = include($pluginWrapper);
+			try {
+				$plugin = include($pluginWrapper);
+			} catch (Throwable $e) {
+				error_log('The plugin failed to be loaded: ' . $e);
+				return null;
+			}
 			assert(is_a($plugin, $classToCheck ?: 'Plugin'));
 			return $plugin;
 		} else {
@@ -248,7 +276,12 @@ class PluginRegistry {
 			if (file_exists("$pluginPath/$pluginClassFile")) {
 				// Try to instantiate the plug-in class.
 				$pluginPackage = 'plugins.'.$category.'.'.$file;
-				$plugin = instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+				try {
+					$plugin = instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+				} catch (Throwable $e) {
+					error_log('The plugin failed to be loaded: ' . $e);
+					return null;
+				}
 				assert(is_a($plugin, $classToCheck ?: 'Plugin'));
 				return $plugin;
 			}
@@ -256,4 +289,3 @@ class PluginRegistry {
 		return null;
 	}
 }
-

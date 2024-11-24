@@ -122,6 +122,14 @@ class ControlledVocab extends Model
     }
 
     /**
+     * Scope a query to only include vocabs with a specific symbolic.
+     */
+    public function scopeWithSymbolics(Builder $query, array $symbolics): Builder
+    {
+        return $query->whereIn('symbolic', $symbolics);
+    }
+
+    /**
      * Scope a query to only include vocabs with a specific assoc type and assoc ID.
      */
     public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
@@ -134,17 +142,9 @@ class ControlledVocab extends Model
     /**
      * Scope a query to only include vocabs associated with given context id
      */
-    public function scopeWithContextId(Builder $query, int $contextId): Builder
+    public function scopeWithContextId(Builder $query, ?int $contextId): Builder
     {
         return $query->where('context_id', $contextId);
-    }
-
-    /**
-     * Scope a query to only include vocabs not associated with any context
-     */
-    public function scopeWithoutContext(Builder $query): Builder
-    {
-        return $query->whereNull('context_id');
     }
 
     /**

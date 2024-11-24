@@ -58,7 +58,10 @@ class Repository
                 "controlledVocab",
                 fn ($query) => $query
                     ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
-                    ->withAssoc(0, 0)
+                    ->withAssoc(
+                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
+                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID
+                    )
             )
             ->whereHas("userInterest", fn ($query) => $query->withUserId($user->getId()))
             ->get()
@@ -97,7 +100,10 @@ class Repository
                 'controlledVocab',
                 fn ($query) => $query
                     ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
-                    ->withAssoc(0, 0)
+                    ->withAssoc(
+                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
+                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID
+                    )
             )
             ->withLocales([''])
             ->withSettings(UserInterest::CONTROLLED_VOCAB_INTEREST, $interests)

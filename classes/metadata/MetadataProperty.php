@@ -428,7 +428,7 @@ class MetadataProperty
                                         'controlledVocab',
                                         fn ($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
                                     )
-                                    ->withLocale($locale)
+                                    ->withLocales([$locale])
                                     ->withSetting($symbolic, $value)
                                     ->first();
         

@@ -68,6 +68,7 @@ class ControlledVocab extends Model
             'symbolic' => 'string',
             'assoc_type' => 'integer',
             'assoc_id' => 'integer',
+            'context_id' => 'integer',
         ];
     }
 
@@ -77,8 +78,8 @@ class ControlledVocab extends Model
     protected function id(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
-            set: fn($value) => [$this->primaryKey => $value],
+            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn ($value) => [$this->primaryKey => $value],
         )->shouldCache();
     }
 
@@ -135,24 +136,15 @@ class ControlledVocab extends Model
      */
     public function scopeWithContextId(Builder $query, int $contextId): Builder
     {
-        return $query
-            ->where(
-                fn ($query) => $query
-                    ->select('context_id')
-                    ->from('submissions')
-                    ->whereColumn(
-                        DB::raw(
-                            "(SELECT publications.submission_id 
-                            FROM publications 
-                            INNER JOIN {$this->table} 
-                            ON publications.publication_id = {$this->table}.assoc_id 
-                            LIMIT 1)"
-                        ),
-                        '=',
-                        'submissions.submission_id'
-                    ), 
-                $contextId
-            );
+        return $query->where('context_id', $contextId);
+    }
+
+    /**
+     * Scope a query to only include vocabs not associated with any context
+     */
+    public function scopeWithoutContext(Builder $query): Builder
+    {
+        return $query->whereNull('context_id');
     }
 
     /**

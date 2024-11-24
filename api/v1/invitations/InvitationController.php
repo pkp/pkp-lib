@@ -34,7 +34,6 @@ use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\invitation\models\InvitationModel;
 use PKP\security\Role;
 use PKP\validation\ValidatorFactory;
-use Validator;
 
 class InvitationController extends PKPBaseController
 {

@@ -114,7 +114,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
             $this->invitation->getPayload()->sendEmailAddress = $existingUser->getEmail();
         }
 
-        $this->invitation->getPayload()->inviteStagePayload = $this->invitation->getPayload();
+        $this->invitation->getPayload()->inviteStagePayload = $this->invitation->getPayload()->toArray();
 
         $this->invitation->updatePayload();
         

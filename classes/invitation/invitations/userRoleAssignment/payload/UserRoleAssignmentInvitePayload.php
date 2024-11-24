@@ -21,7 +21,6 @@ use PKP\invitation\core\InvitePayload;
 use PKP\invitation\invitations\userRoleAssignment\rules\AddUserGroupRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\AllowedKeysRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NotNullIfPresent;
-use PKP\invitation\invitations\userRoleAssignment\rules\PrimaryLocaleRequired;
 use PKP\invitation\invitations\userRoleAssignment\rules\ProhibitedIncludingNull;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
@@ -42,6 +41,8 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         public ?array $userGroupsToAdd = null,
         public ?bool $passwordHashed = null,
         public ?string $sendEmailAddress = null,
+        public ?array $inviteStagePayload = null,
+        public ?bool $shouldUseInviteData = null,
     )
     {
         parent::__construct(get_object_vars($this));
@@ -160,6 +161,9 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
             'userOrcid' => [
                 Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
                 'orcid'
+            ],
+            'shouldUseInviteData' => [
+                'prohibited',
             ],
         ];
 

@@ -37,6 +37,7 @@ use PKP\components\forms\publication\ContributorForm;
 use PKP\plugins\PluginRegistry;
 
 use PKP\notification\Notification;
+use PKP\log\SubmissionEmailLogEventType;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -265,7 +266,12 @@ abstract class PKPDashboardHandlerNext extends Handler
             'NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER' => Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
             'NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS' => Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
         
-            // OMP specific constants
+            'NOTIFICATION_TYPE_ASSIGN_COPYEDITOR' => Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+            'NOTIFICATION_TYPE_AWAITING_COPYEDITS' => Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+
+
+            // Email log event types
+            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR
         ]);
 
        $this->setupIndex($request);

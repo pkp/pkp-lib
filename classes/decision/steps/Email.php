@@ -135,9 +135,9 @@ class Email extends Step
                 ->getCollector($context->getId())
                 ->alternateTo([$this->mailable::getEmailTemplateKey()])
                 ->getMany()
-                ->each(function (EmailTemplate $e) use ($context, $request, $emailTemplates) {
-                    if (Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $e, $context->getId())) {
-                        $emailTemplates->add($e);
+                ->each(function (EmailTemplate $template) use ($context, $request, $emailTemplates) {
+                    if (Repo::emailTemplate()->isTemplateAccessibleToUser($request->getUser(), $template, $context->getId())) {
+                        $emailTemplates->add($template);
                     }
                 });
         }

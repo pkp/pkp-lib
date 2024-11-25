@@ -235,7 +235,7 @@ class DAO extends EntityDAO
      * skipping others
      * @param bool $skipExisting If true, do not install email templates
      * that already exist in the database
-     * @param bool $recordTemplateGroupAccess - If true, records the templates as unrestricted.
+     * @param bool $recordTemplateGroupAccess - If true, records the templates as unrestricted. For versions 3.6 or higher, this value should be set to true when calling `installEmailTemplates`.
      * By default, it is set to false to ensure compatibility with older processes (e.g., migrations)
      * where the `email_template_user_group_access` table may not exist at the time of execution.
      *

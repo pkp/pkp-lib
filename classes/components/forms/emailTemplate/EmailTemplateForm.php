@@ -15,11 +15,13 @@
 
 namespace PKP\components\forms\emailTemplate;
 
-use PKP\components\forms\FieldEmailTemplateUnrestricted;
-use PKP\components\forms\FieldEmailTemplateUserGroupSettings;
+use APP\core\Application;
+use APP\facades\Repo;
+use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\userGroup\UserGroup;
 
 class EmailTemplateForm extends FormComponent
 {
@@ -31,6 +33,14 @@ class EmailTemplateForm extends FormComponent
         $this->action = $action;
         $this->method = 'POST';
         $this->locales = $locales;
+
+        $userGroups = collect();
+        Repo::userGroup()->getCollector()
+            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+            ->getMany()->each(fn (UserGroup $group) => $userGroups->add([
+                'value' => $group->getId(),
+                'label' => $group->getLocalizedName()
+            ]));
 
         $this->addField(new FieldText('name', [
             'label' => __('common.name'),
@@ -48,14 +58,22 @@ class EmailTemplateForm extends FormComponent
                 'isMultilingual' => true,
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => 'paste,link,lists',
-            ]))->addField(new FieldEmailTemplateUnrestricted('isUnrestricted', [
-                'type' => 'checkbox',
-                'label' => __('admin.workflow.email.userGroup.assign.unrestricted'),
-                'subNote' => __('admin.workflow.email.userGroup.unrestricted.template.note')
             ]))
-            ->addField(new FieldEmailTemplateUserGroupSettings('userGroupIds', [
+            ->addField(new FieldOptions('isUnrestricted', [
+                'label' => __('admin.workflow.email.userGroup.assign.unrestricted'),
+                'groupId' => 'isUnrestricted',
+                'description' => __('admin.workflow.email.userGroup.unrestricted.template.note'),
                 'type' => 'checkbox',
+                'options' => [
+                    ['value' => true, 'label' => __('admin.workflow.email.userGroup.assign.unrestricted')],
+                ],
+                'value' => true
+            ]))
+            ->addField(new FieldOptions('assignedUserGroupIds', [
                 'label' => __('admin.workflow.email.userGroup.allowed'),
+                'type' => 'checkbox',
+                'value' => [],
+                'options' => $userGroups
             ]));
     }
 }

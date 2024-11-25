@@ -79,14 +79,14 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
             ->getMany();
 
-        $templates = Repo::emailTemplate()
+        $accessibleTemplates = Repo::emailTemplate()
             ->filterTemplatesByUserAccess($templates, $request->getUser(), $context->getId())
             ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
             });
 
         $this->setData('personalMessage', '');
-        $this->setData('reviewerMessages', $templates->toArray());
+        $this->setData('reviewerMessages', $accessibleTemplates->toArray());
     }
 
     /**

@@ -98,6 +98,16 @@ class EditorialReminder extends BaseJob
                     continue;
                 }
 
+                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWS) {
+                    $outstanding[$submissionId] = __('editor.submission.roundStatus.pendingReviews');
+                    continue;
+                }
+
+                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY) {
+                    $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewsReady');
+                    continue;
+                }
+
                 if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewsCompleted');
                     continue;

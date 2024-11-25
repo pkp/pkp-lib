@@ -519,7 +519,7 @@ class ReviewerForm extends Form
         );
 
         $user = Application::get()->getRequest()->getUser();
-        if($defaultTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $contextId)) {
+        if ($defaultTemplate && Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $contextId)) {
             $templateKeys = [ReviewRequest::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
         }
 

@@ -19,7 +19,6 @@ use Illuminate\Support\Enumerable;
 use PKP\core\PKPApplication;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\services\PKPSchemaService;
-use PKP\userGroup\UserGroup;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -43,10 +42,8 @@ class Schema extends \PKP\core\maps\Schema
      * Summarize an email template
      *
      * Includes properties with the apiSummary flag in the email template schema.
-     *
-     * @param null|mixed $mailableClass
      */
-    public function summarize(EmailTemplate $item, $mailableClass = null): array
+    public function summarize(EmailTemplate $item, ?string $mailableClass = null): array
     {
         return $this->mapByProperties($this->getSummaryProps(), $item, $mailableClass);
     }
@@ -69,7 +66,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      */
-    public function summarizeMany(Enumerable $collection, string $mailableClass = null): Enumerable
+    public function summarizeMany(Enumerable $collection, ?string $mailableClass = null): Enumerable
     {
         $this->collection = $collection;
         return $collection->map(function ($item) use ($mailableClass) {
@@ -80,10 +77,12 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map schema properties of an Email Template to an assoc array
      */
-    protected function mapByProperties(array $props, EmailTemplate $item, string $mailableClass = null): array
+    protected function mapByProperties(array $props, EmailTemplate $item, ?string $mailableClass = null): array
     {
         $output = [];
-        $mailableClass = $mailableClass ?? Repo::mailable()->get($item->getData('key'), Application::get()->getRequest()->getContext());
+        $context = Application::get()->getRequest()->getContext();
+        $contextId = $context->getId();
+        $mailableClass = $mailableClass ?? Repo::mailable()->get($item->getData('alternateTo') ?? $item->getData('key'), $context);
 
         foreach ($props as $prop) {
             switch ($prop) {
@@ -96,29 +95,13 @@ class Schema extends \PKP\core\maps\Schema
                     );
                     break;
                 case 'isUnrestricted':
-                    $output['isUnrestricted'] = Repo::emailTemplate()->isTemplateUnrestricted($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+                    $output['isUnrestricted'] = Repo::emailTemplate()->isTemplateUnrestricted($item->getData('key'), $contextId);
                     break;
                 case 'assignedUserGroupIds':
                     if ($mailableClass && Repo::mailable()->isGroupsAssignableToTemplates($mailableClass)) {
-                        $output['assignedUserGroupIds'] = Repo::emailTemplate()->getAssignedGroupsIds($item->getData('key'), Application::get()->getRequest()->getContext()->getId());
+                        $output['assignedUserGroupIds'] = Repo::emailTemplate()->getAssignedGroupsIds($item->getData('key'), $contextId);
                     } else {
                         $output['assignedUserGroupIds'] = [];
-                    }
-                    break;
-                case 'assignableTemplateUserGroups':
-                    if($mailableClass && Repo::mailable()->isGroupsAssignableToTemplates($mailableClass)) {
-                        $userGroups = collect();
-
-                        Repo::userGroup()->getCollector()
-                            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                            ->getMany()->each(fn (UserGroup $group) => $userGroups->add([
-                                'id' => $group->getId(),
-                                'name' => $group->getLocalizedName()
-                            ]));
-
-                        $output['assignableTemplateUserGroups'] = $userGroups;
-                    } else {
-                        $output['assignableTemplateUserGroups'] = [];
                     }
                     break;
                 default:

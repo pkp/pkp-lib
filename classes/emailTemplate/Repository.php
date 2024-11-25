@@ -131,15 +131,15 @@ class Repository
             });
         }
 
-        //  If groupIds were passed to limit email access, check that the user groups exists within the context
-        if (isset($props['userGroupIds'])) {
+        //  If assignedUserGroupIds were passed to limit email access, check that the user groups exists within the context
+        if (isset($props['assignedUserGroupIds'])) {
             $validator->after(function () use ($validator, $props, $context) {
                 $existingGroupIds = Repo::userGroup()->getCollector()
                     ->filterByContextIds([$context->getId()])
-                    ->filterByUserGroupIds($props['userGroupIds'])->getIds()->toArray();
+                    ->filterByUserGroupIds($props['assignedUserGroupIds'])->getIds()->toArray();
 
-                if (!empty(array_diff($existingGroupIds, $props['userGroupIds']))) {
-                    $validator->errors()->add('userGroupIds', __('api.emailTemplates.404.userGroupIds'));
+                if (!empty(array_diff($existingGroupIds, $props['assignedUserGroupIds']))) {
+                    $validator->errors()->add('assignedUserGroupIds', __('api.emailTemplates.404.userGroupIds'));
                 }
             });
         }
@@ -224,16 +224,14 @@ class Repository
             $this->delete($emailTemplate);
         });
 
-
         $this->dao->installAlternateEmailTemplates($contextId);
         Repo::emailTemplate()->restoreTemplateUserGroupAccess($contextId, $deletedKeys);
         Hook::call('EmailTemplate::restoreDefaults', [&$deletedKeys, $contextId]);
         return $deletedKeys;
     }
 
-
     /***
-     * Gets the IDs of the user groups assigned to an email template
+     * Gets the IDs of the user groups assigned to an email template.
      */
     public function getAssignedGroupsIds(string $templateKey, int $contextId): array
     {
@@ -246,7 +244,7 @@ class Repository
     }
 
     /***
-     * Checks if an Email Template is unrestricted
+     * Checks if an Email Template is unrestricted.
      */
     public function isTemplateUnrestricted(string $templateKey, int $contextId): bool
     {
@@ -256,9 +254,8 @@ class Repository
             ->first();
     }
 
-
     /**
-     * Checks if an email template is accessible to a user. A template is accessible if it is assigned to a user group that the user belongs to or if the template is unrestricted
+     * Checks if an email template is accessible to a user. A template is accessible if it is assigned to a user group that the user belongs to or if the template is unrestricted.
      */
     public function isTemplateAccessibleToUser(User $user, EmailTemplate $template, int $contextId): bool
     {
@@ -300,7 +297,7 @@ class Repository
     }
 
     /***
-     * Internal method used to assign user group IDs to an email template
+     * Internal method used to assign user group IDs to an email template.
      */
     private function updateTemplateAccessGroups(EmailTemplate $emailTemplate, array $newUserGroupIds, int $contextId): void
     {
@@ -327,7 +324,8 @@ class Repository
     }
 
     /**
-     * Pass empty array in $userGroupIds to delete all existing user groups for a template
+     * Sets the restrictions for an email template.
+     * Pass empty array in $userGroupIds to delete all existing user groups for a template.
      */
     public function setEmailTemplateAccess(EmailTemplate $emailTemplate, int $contextId, ?array $userGroupIds, ?bool $isUnrestricted): void
     {
@@ -339,7 +337,6 @@ class Repository
             $this->markTemplateAsUnrestricted($emailTemplate->getData('key'), $isUnrestricted, $contextId);
         }
     }
-
 
     /**
      * Mark an email template as unrestricted or not.
@@ -372,9 +369,8 @@ class Repository
         }
     }
 
-
     /**
-     * Deletes all user group access for an email
+     * Deletes all user group access for an email.
      */
     public function deleteTemplateGroupAccess(int $contextId, array $emailKey): void
     {
@@ -382,7 +378,7 @@ class Repository
     }
 
     /**
-     * Deletes all user group access for an email template and set unrestricted to their default
+     * Deletes all user group access for an email template and set unrestricted to their default.
      */
     public function restoreTemplateUserGroupAccess(int $contextId, array $emailKeys)
     {

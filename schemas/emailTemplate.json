@@ -71,33 +71,15 @@
 		},
 		"isUnrestricted": {
 			"type": "boolean",
-			"description": "Boolean indicating  if an email template is available to all user groups within the roles associated with the template's mailable.",
+			"description": "Boolean indicating if an email template is available to all user groups.",
 			"apiSummary": true
 		},
 		"assignedUserGroupIds": {
 			"type": "array",
-			"description": "IDs of the user groups that currently has access to this email template.",
+			"description": "IDs of the user groups that can access to this email template.",
 			"apiSummary": true,
 			"items": {
 				"type": "integer"
-			}
-		},
-		"assignableTemplateUserGroups": {
-			"type": "array",
-			"description": "List of User Groups that can be assigned to the template",
-			"apiSummary": true,
-			"items": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "integer",
-						"apiSummary": true
-					},
-					"name": {
-						"type": "integer",
-						"apiSummary": true
-					}
-				}
 			}
 		}
 	}

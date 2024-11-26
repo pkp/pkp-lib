@@ -50,13 +50,13 @@ class Repository
     }
 
     /** @copydoc DAO::getByKey() */
-    public function getByKey(int $contextId, string $key): ?EmailTemplate
+    public function getByKey(?int $contextId = null, string $key): ?EmailTemplate
     {
         return $this->dao->getByKey($contextId, $key);
     }
 
     /** @copydoc DAO::getCollector() */
-    public function getCollector(int $contextId): Collector
+    public function getCollector(?int $contextId = null): Collector
     {
         return app(Collector::class, ['contextId' => $contextId]);
     }

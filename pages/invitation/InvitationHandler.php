@@ -246,6 +246,8 @@ class InvitationHandler extends Handler
             $invitationPayload['familyName'] = $user->getFamilyName(null);
             $invitationPayload['affiliation'] = $user->getAffiliation(null);
             $invitationPayload['country'] = $user->getCountry();
+            $invitationPayload['biography'] = $user->getBiography(null);
+            $invitationPayload['phone'] = $user->getPhone();
             $invitationPayload['userGroupsToAdd'] = [];
             $invitationPayload['currentUserGroups'] = $this->getUserUserGroups($args[0]);
             $invitationPayload['userGroupsToRemove'] = [];

@@ -239,6 +239,13 @@ msgstr ""
 "Please provide the full name as the author should be identified on the "
 "published work. Example: Dr. Alan P. Mwandenga"
 
+msgid "user.preferredAvatarInitials"
+msgstr "Preferred Avatar Initials"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Enter the two letters you’d like to use as your avatar. These initials will be displayed to represent you."
+
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
 "Enter your current and new passwords below to change the password for your "

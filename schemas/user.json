@@ -217,6 +217,16 @@
 				"nullable"
 			]
 		},
+		"preferredAvatarInitials": {
+			"type": "string",
+			"description": "An optional field for users to specify the initials that they want to be displayed in their avatars.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"max:2"
+			]
+		},
 		"signature": {
 			"type": "string",
 			"multilingual": true,

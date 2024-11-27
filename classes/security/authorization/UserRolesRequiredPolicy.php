@@ -56,9 +56,9 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         $userGroups = UserGroup::withUserIds([$user->getId()])
             ->withContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
             ->get()
-            ->toArray();
+            ->all();
 
-        $roleIds = array_map(fn ($userGroup) => $userGroup->getRoleId(), $userGroups);
+        $roleIds = array_map(fn ($userGroup) => $userGroup->roleId, $userGroups);
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $roleIds);
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP, $userGroups);
 

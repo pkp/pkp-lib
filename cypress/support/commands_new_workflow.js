@@ -910,7 +910,9 @@ Cypress.Commands.add('changeLanguage', (language, contextPath) => {
 
 Cypress.Commands.add('confirmEmail', user => {
 	// Current email server is sendra https://github.com/msztolcman/sendria
-	let emailServer = 'http://localhost:1080/';
+	// Intentionally trying 127.0.0.1 instead of localhost as at least on mac localhost
+	// did not work - https://github.com/cypress-io/cypress/issues/26154#issuecomment-1755904773
+	let emailServer = 'http://127.0.0.1:1080/';
 
 	cy.visit(emailServer);
 	cy.get('#messages').contains(user.username + '@mailinator.com').first().click();

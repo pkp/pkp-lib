@@ -76,7 +76,7 @@ class Mailer extends IlluminateMailer
         }
 
         if (!is_string($view)) {
-            throw new InvalidArgumentException('View must be instance of ' . Htmlable::class . ' or a string, ' . get_class($view) . ' is given');
+            throw new InvalidArgumentException('View must be instance of ' . Htmlable::class . ' or a string, ' . ($view === null ? 'null' : get_class($view)) . ' is given');
         }
 
         return $this->compileParams($view, $data);

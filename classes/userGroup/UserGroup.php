@@ -12,26 +12,23 @@
  * @brief Eloquent Model for UserGroup
  */
 
- namespace PKP\userGroup;
+namespace PKP\userGroup;
 
- use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
- use Illuminate\Database\Eloquent\Model;
- use Illuminate\Database\Eloquent\Relations\HasMany;
- use PKP\core\traits\ModelWithSettings;
- use PKP\stageAssignment\StageAssignment;
- use PKP\userGroup\relationships\UserUserGroup;
- use PKP\userGroup\relationships\UserGroupStage;
- use PKP\facades\Locale;
- use PKP\plugins\Hook;
- use PKP\facades\Repo;
- use PKP\services\PKPSchemaService;
- use PKP\core\PKPApplication;
- use APP\core\Application;
-
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use PKP\core\PKPApplication;
+use PKP\core\traits\ModelWithSettings;
+use PKP\facades\Locale;
+use PKP\facades\Repo;
+use PKP\plugins\Hook;
+use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class UserGroup extends Model
 {
-
     use ModelWithSettings;
 
 
@@ -151,12 +148,30 @@ class UserGroup extends Model
         if (empty($contextIds)) {
             return $builder;
         }
-    
+
         if (!is_array($contextIds)) {
             $contextIds = [$contextIds];
         }
-    
-        return $builder->whereIn('context_id', $contextIds);
+
+        $filteredIds = [];
+        $siteWide = false;
+        foreach ($contextIds as $contextId) {
+            if ($contextId == PKPApplication::SITE_CONTEXT_ID) {
+                $siteWide = true;
+                continue;
+            }
+
+            $filteredIds[] = $contextId;
+        }
+
+        return $builder
+            ->when(!empty($filteredIds), fn (EloquentBuilder $builder) => $builder->whereIn('context_id', $filteredIds))
+            ->when($siteWide, fn (EloquentBuilder $builder) => $builder
+                ->when(
+                    empty($filteredIds),
+                    fn (EloquentBuilder $builder) => $builder->whereNull('context_id'),
+                    fn (EloquentBuilder $builder) => $builder->orWhereNull('context_id')
+                ));
     }
 
     /**
@@ -167,7 +182,7 @@ class UserGroup extends Model
         if (!is_array($userGroupIds)) {
             $userGroupIds = [$userGroupIds];
         }
-    
+
         return $builder->whereIn('user_group_id', $userGroupIds);
     }
 
@@ -179,7 +194,7 @@ class UserGroup extends Model
         if (!is_array($roleIds)) {
             $roleIds = [$roleIds];
         }
-    
+
         return $builder->whereIn('role_id', $roleIds);
     }
 
@@ -349,20 +364,17 @@ class UserGroup extends Model
      * Ensure casts are string values.
      *
      * @param array $casts
-     * @return array
      */
     protected function ensureCastsAreStringValues($casts): array
     {
-        return array_map(fn($cast) => (string) $cast, $casts);
+        return array_map(fn ($cast) => (string) $cast, $casts);
     }
 
 
     /**
      * Scope a query to filter by publication IDs.
      *
-     * @param EloquentBuilder $builder
      * @param array<int> $publicationIds Array of publication IDs to filter by.
-     * @return EloquentBuilder
      */
     protected function scopeWithPublicationIds(EloquentBuilder $builder, array $publicationIds): EloquentBuilder
     {
@@ -374,8 +386,6 @@ class UserGroup extends Model
     /**
      * Set the name attribute.
      *
-     * @param mixed $value
-     * @return void
      */
     public function setNameAttribute($value): void
     {
@@ -388,8 +398,6 @@ class UserGroup extends Model
     /**
      * Set the abbrev attribute.
      *
-     * @param mixed $value
-     * @return void
      */
     public function setAbbrevAttribute($value): void
     {
@@ -402,8 +410,6 @@ class UserGroup extends Model
     /**
      * Localize non-localized data.
      *
-     * @param string $value
-     * @return array
      */
     protected function localizeNonLocalizedData(string $value): array
     {
@@ -413,9 +419,6 @@ class UserGroup extends Model
     /**
      * Find a UserGroup by ID and optional context ID.
      *
-     * @param int $id
-     * @param int|null $contextId
-     * @return self|null
      */
     public static function findById(int $id, ?int $contextId = null): ?self
     {
@@ -431,8 +434,10 @@ class UserGroup extends Model
     /**
      * Save the model to the database.
      *
-     * @param array $options
      * @return bool
+     *
+     * @hook UserGroup::add [[$this]]
+     * @hook UserGroup::edit [[$this]]
      */
     public function save(array $options = [])
     {
@@ -463,7 +468,7 @@ class UserGroup extends Model
     /**
      * Booted method to handle model events.
      *
-     * @return void
+     * @hook UserGroup::delete::before [[$userGroup]]
      */
     protected static function booted()
     {

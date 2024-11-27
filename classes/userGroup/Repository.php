@@ -56,9 +56,6 @@ class Repository
     /**
      * Retrieve UserGroup by id and optional context id.
      *
-     * @param int $id
-     * @param int|null $contextId
-     * @return UserGroup|null
      */
     public function get(int $id, ?int $contextId = null): ?UserGroup
     {
@@ -68,9 +65,6 @@ class Repository
     /**
      * Check if UserGroup exists by id and context id.
      *
-     * @param int $id
-     * @param int|null $contextId
-     * @return bool
      */
     public function exists(int $id, ?int $contextId = null): bool
     {
@@ -141,8 +135,6 @@ class Repository
     /**
      * Delete all user groups assigned to a certain context by contextId
      *
-     * @param int $contextId
-     * @return void
      */
     public function deleteByContextId(int $contextId): void
     {
@@ -156,9 +148,6 @@ class Repository
     /**
      * Return all user group ids given a certain role ID and context id
      *
-     * @param int $roleId
-     * @param int|null $contextId
-     * @return array
      */
     public function getArrayIdByRoleId(int $roleId, ?int $contextId = null): array
     {
@@ -175,9 +164,6 @@ class Repository
     /**
      * Return all user groups given role ids, context id and default flag
      *
-     * @param array $roleIds
-     * @param int $contextId
-     * @param bool|null $default
      * @return LazyCollection<int, UserGroup>
      */
     public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
@@ -196,9 +182,6 @@ class Repository
     /**
      * Return all active or ended user groups for a user id and context id (optional)
      *
-     * @param int $userId
-     * @param int|null $contextId
-     * @param UserUserGroupStatus $status
      * @return LazyCollection<int, UserGroup>
      */
     public function userUserGroups(int $userId, ?int $contextId = null, UserUserGroupStatus $status = UserUserGroupStatus::STATUS_ACTIVE): LazyCollection
@@ -217,8 +200,6 @@ class Repository
     /**
      * Return all context IDs for masthead user groups the given user is or was assigned to
      *
-     * @param int $userId
-     * @return Collection
      */
     public function getUserUserGroupsContextIds(int $userId): Collection
     {
@@ -233,9 +214,6 @@ class Repository
     /**
      * Determine whether a user is in a specific user group
      *
-     * @param int $userId
-     * @param int $userGroupId
-     * @return bool
      */
     public function userInGroup(int $userId, int $userGroupId): bool
     {
@@ -249,9 +227,6 @@ class Repository
     /**
      * Determine whether an active user in a user group should be displayed on the masthead
      *
-     * @param int $userId
-     * @param int|null $userGroupId
-     * @return bool
      */
     public function userOnMasthead(int $userId, ?int $userGroupId = null): bool
     {
@@ -277,9 +252,6 @@ class Repository
     /**
      * Get UserUserGroup masthead status for a UserGroup the user is currently active in
      *
-     * @param int $userId
-     * @param int $userGroupId
-     * @return UserUserGroupMastheadStatus
      */
     public function getUserUserGroupMastheadStatus(int $userId, int $userGroupId): UserUserGroupMastheadStatus
     {
@@ -300,9 +272,6 @@ class Repository
     /**
      * Determine whether a context has a specific UserGroup
      *
-     * @param int $contextId
-     * @param int $userGroupId
-     * @return bool
      */
     public function contextHasGroup(int $contextId, int $userGroupId): bool
     {
@@ -315,12 +284,8 @@ class Repository
     /**
      * Assign a user to a UserGroup
      *
-     * @param int $userId
-     * @param int $userGroupId
      * @param string|null $startDate The date in ISO (YYYY-MM-DD HH:MM:SS) format
      * @param string|null $endDate The date in ISO (YYYY-MM-DD HH:MM:SS) format
-     * @param UserUserGroupMastheadStatus|null $mastheadStatus
-     * @return UserUserGroup|null
      */
     public function assignUserToGroup(
         int $userId,
@@ -353,10 +318,10 @@ class Repository
         }
 
         return UserUserGroup::create([
-            'user_id' => $userId,
-            'user_group_id' => $userGroupId,
-            'date_start' => $dateStart,
-            'date_end' => $endDate,
+            'userId' => $userId,
+            'userGroupId' => $userGroupId,
+            'dateStart' => $dateStart,
+            'dateEnd' => $endDate,
             'masthead' => $masthead,
         ]);
     }
@@ -366,9 +331,6 @@ class Repository
      *
      * This should be used only when merging, i.e., fully deleting a user.
      *
-     * @param int $userId
-     * @param int|null $userGroupId
-     * @return bool
      */
     public function deleteAssignmentsByUserId(int $userId, ?int $userGroupId = null): bool
     {
@@ -397,10 +359,6 @@ class Repository
     /**
      * End user assignments by setting the end date.
      *
-     * @param int $contextId
-     * @param int $userId
-     * @param int|null $userGroupId
-     * @return void
      */
     public function endAssignments(int $contextId, int $userId, ?int $userGroupId = null): void
     {
@@ -426,10 +384,6 @@ class Repository
     /**
      * Get the user groups assigned to each stage.
      *
-     * @param int $contextId
-     * @param int $stageId
-     * @param int|null $roleId
-     * @param int|null $count
      * @return LazyCollection<int, UserGroup>
      */
     public function getUserGroupsByStage(int $contextId, int $stageId, ?int $roleId = null, ?int $count = null): LazyCollection
@@ -454,10 +408,6 @@ class Repository
     /**
      * Remove a user group from a stage
      *
-     * @param int $contextId
-     * @param int $userGroupId
-     * @param int $stageId
-     * @return bool
      */
     public function removeGroupFromStage(int $contextId, int $userGroupId, int $stageId): bool
     {
@@ -473,7 +423,6 @@ class Repository
      *
      * @param int $contextId The context ID.
      * @param int $userGroupId The UserGroup ID
-     * @return Collection
      */
     public function getAssignedStagesByUserGroupId(int $contextId, int $userGroupId): Collection
     {
@@ -491,8 +440,6 @@ class Repository
      * This returns the first user group with ROLE_ID_AUTHOR
      * that permits self-registration.
      *
-     * @param int $contextId
-     * @return UserGroup|null
      */
     public function getFirstSubmitAsAuthorUserGroup(int $contextId): ?UserGroup
     {
@@ -506,8 +453,6 @@ class Repository
     /**
      * Load the XML file and move the settings to the DB
      *
-     * @param int|null $contextId
-     * @param string $filename
      * @return bool True on success otherwise false
      */
     public function installSettings(?int $contextId, string $filename): bool
@@ -576,7 +521,7 @@ class Repository
             ]);
 
             $userGroup->save();
-    
+
             // Install the settings in the current locale for this context
             foreach ($installedLocales as $locale) {
                 $this->installLocale($locale, $contextId);
@@ -592,9 +537,6 @@ class Repository
     /**
      * use the locale keys stored in the settings table to install the locale settings
      *
-     * @param string $locale
-     * @param ?int $contextId
-     * @return void
      */
     public function installLocale(string $locale, ?int $contextId = null): void
     {
@@ -607,15 +549,15 @@ class Repository
         $userGroups = $userGroups->get();
 
         foreach ($userGroups as $userGroup) {
-            $nameKey = $userGroup->getSettings('nameLocaleKey') ?? null;
-            $abbrevKey = $userGroup->getSettings('abbrevLocaleKey') ?? null;
+            $nameKey = $userGroup->nameLocaleKey ?? null;
+            $abbrevKey = $userGroup->abbrevLocaleKey ?? null;
 
             if ($nameKey) {
-                $userGroup->setData('name', [$locale => __($nameKey, [], $locale)]);
+                $userGroup->name = [$locale => __($nameKey, [], $locale)];
             }
 
             if ($abbrevKey) {
-                $userGroup->setData('abbrev', [$locale => __($abbrevKey, [], $locale)]);
+                $userGroup->abbrev = [$locale => __($abbrevKey, [], $locale)];
             }
 
             $userGroup->save();
@@ -627,9 +569,6 @@ class Repository
      * Format: [user_group_id => [user_ids]]
      *
      * @param array $mastheadRoles Masthead roles, filtered by the given context ID, and sorted as they should appear on the Editorial Masthead and Editorial History page
-     * @param int $contextId
-     * @param UserUserGroupStatus $userUserGroupStatus
-     * @return array
      */
     public function getMastheadUserIdsByRoleIds(array $mastheadRoles, int $contextId, UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE): array
     {
@@ -672,8 +611,6 @@ class Repository
     /**
      * Clear editorial masthead cache for a given context
      *
-     * @param int $contextId
-     * @return void
      */
     public static function forgetEditorialCache(int $contextId): void
     {
@@ -691,8 +628,6 @@ class Repository
     /**
      * Clear editorial history cache for a given context.
      *
-     * @param int $contextId
-     * @return void
      */
     public static function forgetEditorialHistoryCache(int $contextId): void
     {

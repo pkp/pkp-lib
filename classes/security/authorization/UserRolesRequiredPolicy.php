@@ -18,7 +18,7 @@ namespace PKP\security\authorization;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\facades\Repo;
+use PKP\userGroup\UserGroup;
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy
 {
@@ -53,10 +53,10 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
         }
         $context = $request->getRouter()->getContext($request);
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByUserIds([$user->getId()])
-            ->filterByContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
-            ->getMany()->toArray();
+        $userGroups = UserGroup::withUserIds([$user->getId()])
+            ->withContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
+            ->get()
+            ->toArray();
 
         $roleIds = array_map(fn ($userGroup) => $userGroup->getRoleId(), $userGroups);
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $roleIds);

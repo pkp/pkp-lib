@@ -9,6 +9,7 @@
 
 import Api from '../../lib/pkp/cypress/support/api.js';
 import '../../lib/pkp/cypress/support/commands_new_workflow.js';
+import '../../lib/pkp/cypress/support/commands_orcid.js';
 
 Cypress.Commands.add('addCategory', (categoryName, categoryPath) => {
 	cy.get('div.pkp_grid_category a[id^=component-grid-settings-category-categorycategorygrid-addCategory-button-]').click();

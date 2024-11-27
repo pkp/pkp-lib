@@ -232,14 +232,6 @@ class PKPInstall extends Installer
         $user->setInlineHelp(1);
         Repo::user()->add($user);
 
-        // Create an admin user group
-        $adminUserGroup = new UserGroup([
-            'roleId' => Role::ROLE_ID_SITE_ADMIN,
-            'contextId' => \PKP\core\PKPApplication::SITE_CONTEXT_ID,
-            'isDefault' => true,
-            'permitSettings' => true,
-        ]);
-
         // Prepare multilingual 'name' and 'namePlural' settings
         $names = [];
         $namePlurals = [];
@@ -248,8 +240,12 @@ class PKPInstall extends Installer
             $namePlurals[$locale] = __('default.groups.plural.siteAdmin', [], $locale);
         }
 
-        // Set the 'name' and 'namePlural' settings
-        $adminUserGroup->fill([
+        // Create an admin user group
+        $adminUserGroup = new UserGroup([
+            'roleId' => Role::ROLE_ID_SITE_ADMIN,
+            'contextId' => \PKP\core\PKPApplication::SITE_CONTEXT_ID,
+            'isDefault' => true,
+            'permitSettings' => true,
             'name' => $names,
             'namePlural' => $namePlurals,
         ]);
@@ -259,7 +255,7 @@ class PKPInstall extends Installer
 
         // Assign the user to the admin user group
         $repository = Repo::userGroup();
-        $repository->assignUserToGroup($user->getId(), $adminUserGroup->userGroupId);
+        $repository->assignUserToGroup($user->getId(), $adminUserGroup->id);
 
         // Add initial site data
         /** @var SiteDAO */

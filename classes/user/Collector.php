@@ -251,7 +251,7 @@ class Collector implements CollectorInterface
     /**
      * Defines whether active submissions count should be included
      */
-    public function includeActiveSubmissions(int $userGroupId): self
+    public function includeActiveSubmissionsByUserGroupIds(int $userGroupId): self
     {
         $this->includeActiveSubmissions = [
             'user_group_id' => $userGroupId,
@@ -444,6 +444,7 @@ class Collector implements CollectorInterface
                     ->join('submissions as s', 'sa.submission_id', '=', 's.submission_id')
                     ->whereColumn('sa.user_id', 'u.user_id')
                     ->where('sa.user_group_id', '=', $this->includeActiveSubmissions['user_group_id'])
+                    ->where('s.submission_progress', '')
                     ->whereNotIn('s.status', [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_DECLINED])
                     ->selectRaw('COUNT(sa.submission_id)');
             }, 'submissions_count'))

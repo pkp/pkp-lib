@@ -27,7 +27,7 @@
 		"pimple/pimple": "3.*",
 		"ralouphie/getallheaders": "*",
 		"slim/slim": "3.*",
-		"smarty/smarty": "4.*",
+		"smarty/smarty": "v4.3.1",
 		"sokil/php-isocodes": "^4.1",
 		"sokil/php-isocodes-db-i18n": "^4.0",
 		"symfony/mailer": "^6.0",

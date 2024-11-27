@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "464a27491cadb5ffec2ea76772cae127",
+    "content-hash": "2aaf08fdfad7ab39074f4acd6696ba44",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -5238,16 +5238,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v4.5.5",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "c4851c12e34ff80073ddeb7d98b059d57dea9de2"
+                "reference": "e28cb0915b4e3749bf57d4ebae2984e25395cfe5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c4851c12e34ff80073ddeb7d98b059d57dea9de2",
-                "reference": "c4851c12e34ff80073ddeb7d98b059d57dea9de2",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/e28cb0915b4e3749bf57d4ebae2984e25395cfe5",
+                "reference": "e28cb0915b4e3749bf57d4ebae2984e25395cfe5",
                 "shasum": ""
             },
             "require": {
@@ -5298,9 +5298,9 @@
             "support": {
                 "forum": "https://github.com/smarty-php/smarty/discussions",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v4.5.5"
+                "source": "https://github.com/smarty-php/smarty/tree/v4.3.1"
             },
-            "time": "2024-11-21T22:06:22+00:00"
+            "time": "2023-03-28T19:47:03+00:00"
         },
         {
             "name": "sokil/php-isocodes",

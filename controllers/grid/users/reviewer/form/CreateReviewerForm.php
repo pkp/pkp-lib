@@ -199,13 +199,11 @@ class CreateReviewerForm extends ReviewerForm
             }
         }
 
-        if ($this->getData('reviewerSuggestionId')) {
-            $this->reviewerSuggestion->markAsApprove(
-                Carbon::now(),
-                $reviewerId,
-                $request->getUser()->getId()
-            );
-        }
+        $this->reviewerSuggestion?->markAsApprove(
+            Carbon::now(),
+            $reviewerId,
+            $request->getUser()->getId()
+        );
 
         return parent::execute(...$functionArgs);
     }

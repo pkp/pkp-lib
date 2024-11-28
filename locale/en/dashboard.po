@@ -322,3 +322,15 @@ msgstr "Review Round {$number}"
 
 msgid "dashboard.startNewSubmission"
 msgstr "Start a New Submission"
+
+msgid "workflow.stageNotStarted"
+msgstr "The {$stage} stage has not yet been initiated."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "The submission is currently in the {$stage} stage."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr "The submission advanced to the next review round, was accepted, and is currently in the {$stage} stage."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "The submission has been advanced to the next round of review"

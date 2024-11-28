@@ -2021,7 +2021,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"urednik {$userName} je potrdil recenzijski krog {$round} za prispevek "
+"urednik {$editorName} je potrdil recenzijski krog {$round} za prispevek "
 "{$submissionId}."
 
 msgid "log.review.reviewReady"

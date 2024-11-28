@@ -2018,7 +2018,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Ristjórinn {$userName} hefur staðfest ritrýni fyrir {$round} umferð "
+"Ristjórinn {$editorName} hefur staðfest ritrýni fyrir {$round} umferð "
 "innsendingar {$submissionId}."
 
 msgid "log.review.reviewReady"

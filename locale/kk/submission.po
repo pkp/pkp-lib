@@ -1995,7 +1995,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} редакторы \"{$submissionId}\" материалы үшін {$round} шолу "
+"{$editorName} редакторы \"{$submissionId}\" материалы үшін {$round} шолу "
 "кезеңінде шолуды мақұлдады."
 
 msgid "log.review.reviewReady"

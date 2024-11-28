@@ -2064,7 +2064,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redaktør {$userName} har valideret runde {$round}-bedømmelsen i forbindelse "
+"Redaktør {$editorName} har valideret runde {$round}-bedømmelsen i forbindelse "
 "med indsendelse {$submissionId}."
 
 msgid "log.review.reviewReady"

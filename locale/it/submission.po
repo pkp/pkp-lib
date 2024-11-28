@@ -2048,7 +2048,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"L'Editor {$userName} ha confermato una revisione per il {$round} ciclo per "
+"L'Editor {$editorName} ha confermato una revisione per il {$round} ciclo per "
 "il manoscritto {$submissionId}."
 
 msgid "log.review.reviewReady"

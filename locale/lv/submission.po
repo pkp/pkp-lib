@@ -2252,7 +2252,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redaktors {$userName} ir apstiprinājis iesniegtā materiāla {$submissionId} "
+"Redaktors {$editorName} ir apstiprinājis iesniegtā materiāla {$submissionId} "
 "recenziju {$round}. kārtai."
 
 msgid "submission.review.status.awaitingResponse"

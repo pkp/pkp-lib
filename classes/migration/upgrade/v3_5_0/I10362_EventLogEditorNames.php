@@ -49,6 +49,7 @@ class I10362_EventLogEditorNames extends Migration
             if ($editorName) {
                 $inserts[] = [
                     'log_id' => $eventLogId,
+                    'locale' => '',
                     'setting_name' => 'editorName',
                     'setting_value' => $editorName
                 ];

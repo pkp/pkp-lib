@@ -2026,7 +2026,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor {$userName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
+"Editor {$editorName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
 "{$submitId}."
 
 msgid "log.review.reviewReady"

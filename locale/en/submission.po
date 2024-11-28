@@ -1813,7 +1813,7 @@ msgid "log.review.reviewerResendRequest"
 msgstr "Resent the request to review in round {$round} to {$reviewerName} for submission {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
-msgstr "Editor {$userName} has confirmed a review for the round {$round} review for submission {$submissionId}."
+msgstr "Editor {$editorName} has confirmed a review for the round {$round} review for submission {$submissionId}."
 
 msgid "log.review.reviewReady"
 msgstr "{$reviewerName} has completed the review for the round {$round} review for submission {$submissionId}."

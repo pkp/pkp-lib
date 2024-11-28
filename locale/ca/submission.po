@@ -2025,7 +2025,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"L'editor/a {$userName} ha confirmat una revisió per a la ronda {$round} de "
+"L'editor/a {$editorName} ha confirmat una revisió per a la ronda {$round} de "
 "revisió de la tramesa {$submissionId}."
 
 msgid "log.review.reviewReady"

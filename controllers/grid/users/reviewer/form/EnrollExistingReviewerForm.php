@@ -105,6 +105,8 @@ class EnrollExistingReviewerForm extends ReviewerForm
      */
     public function execute(...$functionArgs)
     {
+        $request = Application::get()->getRequest();
+        
         // Assign a reviewer user group to an existing non-reviewer
         $userId = (int) $this->getData('userId');
 
@@ -122,7 +124,6 @@ class EnrollExistingReviewerForm extends ReviewerForm
         if ($this->reviewerSuggestion?->existingUser
             && $this->reviewerSuggestion->existingUser->getId() == $userId) {
             
-            $request = Application::get()->getRequest();
             $this->reviewerSuggestion->markAsApprove(
                 Carbon::now(),
                 $userId,

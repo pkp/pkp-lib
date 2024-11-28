@@ -36,10 +36,7 @@
             <icon icon="exclamation-triangle" :inline="true"></icon>
             {translate key="submission.wizard.noReviewerSuggestions"}
         </notification>
-        <ul
-            v-else
-            class="submissionWizard__reviewPanel__list"
-        >
+        <ul v-else>
             <li
                 v-for="(error, i) in errors.reviewerSuggestions"
                 :key="i"
@@ -52,15 +49,18 @@
             <li
                 v-for="reviewerSuggestion in submission.reviewerSuggestions"
                 :key="reviewerSuggestion.id"
-                class="submissionWizard__reviewPanel__item__value"
+                class="submissionWizard__reviewPanel__item"
             >
-                <span class="submissionWizard__reviewPanel__list__name" >
+                <h4 class="submissionWizard__reviewPanel__item__header">
                     {{ localize(reviewerSuggestion.fullName) }}
-                    <badge>{{ reviewerSuggestion.email }}</badge>
-                </span>
-                <span class="submissionWizard__reviewPanel__list__actions">
-                    <badge>{{ localize(reviewerSuggestion.affiliation) }}</badge>
-                </span>
+                </h4>
+                <div class="submissionWizard__reviewPanel__item__value">
+                    <h5> {{ reviewerSuggestion.email }} </h5>
+                </div>
+                <div 
+                    class="submissionWizard__reviewPanel__item__value" 
+                    v-html = "localize(reviewerSuggestion.suggestionReason)"
+                ></div>
             </li>
             {call_hook name="Template::SubmissionWizard::Section::Review::ReviewerSuggestions" submission=$submission step=$step.id}
         </ul>

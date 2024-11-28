@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file tests/classes/publication/PublicationTest.php
  *
- * Copyright (c) 2013-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2013-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationTest
@@ -19,7 +20,6 @@ namespace PKP\tests\classes\publication;
 
 use APP\publication\DAO;
 use APP\publication\Publication;
-use PKP\citation\CitationDAO;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
@@ -44,7 +44,6 @@ class PublicationTest extends PKPTestCase
             new SubmissionSubjectDAO(),
             new SubmissionDisciplineDAO(),
             new SubmissionAgencyDAO(),
-            new CitationDAO(),
             new PKPSchemaService()
         ))->newDataObject();
     }
@@ -56,7 +55,7 @@ class PublicationTest extends PKPTestCase
         unset($this->publication);
         parent::tearDown();
     }
-    
+
     public function testPageArray()
     {
         $expected = [['i', 'ix'], ['6', '11'], ['19'], ['21']];

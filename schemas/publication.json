@@ -56,9 +56,11 @@
 		"citations": {
 			"type": "array",
 			"description": "Optional metadata that contains an array of references for works cited in this submission. References have been split and parsed from the raw text.",
+			"apiSummary": true,
 			"readOnly": true,
 			"items": {
-				"type": "string"
+				"type": "object",
+				"$ref": "#/definitions/Citation"
 			}
 		},
 		"citationsRaw": {

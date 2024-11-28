@@ -16,9 +16,7 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer || {};
-
+	$.pkp.controllers.grid.users.reviewer = $.pkp.controllers.grid.users.reviewer || {};
 
 	/**
 	 * @constructor
@@ -28,31 +26,34 @@
 	 * @param {jQueryObject} $container the wrapped page element.
 	 * @param {Object} options handler options.
 	 */
-	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler =
-			function($container, options) {
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler = function($container, options) {
 		this.parent($container, options);
 
 		$container.find('.button').button();
-
-		pkp.eventBus.$on(
-			'selected:reviewer', 
-			(reviewer) => this.handleReviewerAssign_($container, options, reviewer)
-		);
+		let self = this;
+		
+		pkp.eventBus.$on('selected:reviewer', function (reviewer) {
+			self.handleReviewerAssign_($container, options, reviewer)
+		});
 
 		$('#regularReviewerForm').hide();
 
 		this.bind('refreshForm', this.handleRefresh_);
 
+		// TODO : Not Working as intended to
 		if ($container.find('input#reviewerId').val()) {
+			this.initializeTinyMCE();
 			this.handleReviewerAssign_($container, options, {
 				id: $container.find('input#reviewerId').val(),
 				fullName: 'some name',
 			});
 		}
 	};
+
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
-			$.pkp.classes.Handler);
+		$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
+		$.pkp.classes.Handler
+	);
 
 
 	//
@@ -97,9 +98,8 @@
 		// Multiple available templates
 		$templateOption = $('#reviewerFormFooter select[name="template"]');
 		
-		this.initializeTinyMCE();
 		editor = tinyMCE.EditorManager.get($textarea.attr('id'));
-		
+		console.log(editor);
 		templateKey = '';
 
 		if (options.lastRoundReviewerIds.includes(reviewer.id)) {

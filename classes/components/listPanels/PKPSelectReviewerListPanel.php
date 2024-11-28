@@ -163,11 +163,12 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
         $config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
-        $config['submission'] = $this->submission;
+        // $config['submission'] = $this->submission;
 
         if ($context->getData('reviewerSuggestionEnabled')) {
             $config['suggestionTitle'] = __('editor.submission.findAndSelectReviewerFromSuggestions');
             $config['suggestions'] = $this->getReviewerSuggestions();
+            $config['reviewerSuggestionsApiUrl'] = $this->getReviewerSuggestionsApiUrl();
         }
         
         return $config;
@@ -214,6 +215,22 @@ class PKPSelectReviewerListPanel extends ListPanel
             ->includeReviewerData()
             ->offset(null)
             ->limit($this->count);
+    }
+
+    /**
+     * Get the API url prefix of reviewer sugeestion's operation
+     */
+    protected function getReviewerSuggestionsApiUrl(): string
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+
+        return $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getPath(),
+            "submissions/{$this->submission->getId()}/reviewers/suggestions"
+        );
     }
 
     /**

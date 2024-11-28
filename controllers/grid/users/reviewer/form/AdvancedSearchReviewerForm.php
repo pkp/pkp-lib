@@ -17,17 +17,17 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
-use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
-
 use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
+use PKP\form\validation\FormValidator;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -37,6 +37,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -54,7 +55,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
+        $this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
     }
 
     /**
@@ -87,7 +88,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $mailable = $this->getMailable();
 
         $templates = Repo::emailTemplate()->getCollector($context->getId())
-            ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
+            ->filterByKeys([
+                ReviewRequest::getEmailTemplateKey(),
+                ReviewRequestSubsequent::getEmailTemplateKey()
+            ])
             ->getMany()
             ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
@@ -273,6 +277,28 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         }
 
         return parent::fetch($request, $template, $display);
+    }
+
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = parent::execute(...$functionArgs);
+        $reviewerId = $reviewAssignment->getData('reviewerId');
+
+        if ($this->reviewerSuggestion?->existingReviewerRole
+            && $this->reviewerSuggestion->existingUser->getId() == $reviewerId) {
+
+            $this->reviewerSuggestion->markAsApprove(
+                Carbon::now(),
+                $reviewerId,
+                Application::get()->getRequest()->getUser()->getId()
+            );
+        }
+
+        return $reviewAssignment;
     }
 
     protected function getEmailTemplates(): array

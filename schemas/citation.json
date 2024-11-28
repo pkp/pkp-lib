@@ -1,0 +1,611 @@
+{
+	"title": "Citation",
+	"description": "Affiliation is an institution with which an author is associated.",
+	"required": [
+		"editor",
+		"title",
+		"date",
+		"publicationId"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"publicationId": {
+			"type": "integer",
+			"apiSummary": true
+		},
+		"abstract": {
+			"type": "string",
+			"description": "Abstract of this work",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"addendum": {
+			"type": "string",
+			"description": "Addendum to this work",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"afterword": {
+			"type": "array",
+			"description": "Author(s) of afterword.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"annotation": {
+			"type": "string",
+			"description": "The annotations of this work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"annotator": {
+			"type": "array",
+			"description": "Author(s) of annotations.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"author": {
+			"type": "array",
+			"description": "List of authors.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"bookauthor": {
+			"type": "array",
+			"description": "List of authors.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"bookpagination": {
+			"type": "string",
+			"description": "The pagination of this work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"string:'page','column','section','paragraph','verse','line'"
+			]
+		},
+		"booksubtitle": {
+			"type": "string",
+			"description": "Subtitle of book.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"booktitle": {
+			"type": "string",
+			"description": "Title of book.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"booktitleaddon": {
+			"type": "string",
+			"description": "Addon title of book.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"chapter": {
+			"type": "string",
+			"description": "Chapter number.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"commentator": {
+			"type": "array",
+			"description": "Author(s) of commentary.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"date": {
+			"type": "string",
+			"description": "The publication date",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d"
+			]
+		},
+		"doi": {
+			"type": "string",
+			"description": "The DOI itself, such as `10.1234/5a6b-7c8d`.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:/^\\d+(.\\d+)+\\//"
+			]
+		},
+		"edition": {
+			"type": "int",
+			"description": "Edition or issue",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"editor": {
+			"type": "array",
+			"description": "List of editors.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"editora": {
+			"type": "array",
+			"description": "List of editors.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"editorb": {
+			"type": "array",
+			"description": "List of editors.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"editorc": {
+			"type": "array",
+			"description": "List of editors.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"eid": {
+			"type": "string",
+			"description": "Electronic identifier of an article",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"eprint": {
+			"type": "string",
+			"description": "Electronic identifier of an online publication",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"eprintclass": {
+			"type": "string",
+			"description": "Additional information to an online publication.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"eprinttype": {
+			"type": "string",
+			"description": "Eprint identifier type.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"eventdate": {
+			"type": "string",
+			"description": "Event date of reference.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"eventtitle": {
+			"type": "string",
+			"description": "Event title of reference.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"foreword": {
+			"type": "array",
+			"description": "Author(s) of foreword.",
+			"multilingual": true,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"holder": {
+			"type": "string",
+			"description": "Holder of patent.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"howpublished": {
+			"type": "string",
+			"description": "Non-standard publication details.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"institution": {
+			"type": "string",
+			"description": "University or similar.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"introduction": {
+			"type": "array",
+			"description": "Author(s) of introduction.",
+			"multilingual": true,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"isbn": {
+			"type": "string",
+			"description": "International Standard Book Number.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"isrn": {
+			"type": "string",
+			"description": "International Standard Technical Report Number.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"issn": {
+			"type": "string",
+			"description": "International Standard Serial Number.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"issue": {
+			"type": "string",
+			"description": "Non-number issue of journal.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"issuesubtitle": {
+			"type": "string",
+			"description": "The subtitle of the issue.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"issuetitle": {
+			"type": "string",
+			"description": "The title of the issue.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"journalsubtitle": {
+			"type": "string",
+			"description": "The subtitle of the journal.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"journaltitle": {
+			"type": "string",
+			"description": "The title of the journal.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"keywords": {
+			"type": "array",
+			"description": "Keywords",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "string"
+			}
+		},
+		"language": {
+			"type": "string",
+			"description": "The language of this work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"langid": {
+			"type": "string",
+			"description": "The language of bibliography / citation.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"location": {
+			"type": "string",
+			"description": "Location or address, where published.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"mainsubtitle": {
+			"type": "string",
+			"description": "Subtitle of multi-volume book.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"maintitle": {
+			"type": "string",
+			"description": "Title of multi-volume book.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"maintitleaddon": {
+			"type": "string",
+			"description": "Addon to title of multi-volume book.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"note": {
+			"type": "string",
+			"description": "Notes",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"number": {
+			"type": "string",
+			"description": "Numbered issue of journal or book in series.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"organization": {
+			"type": "string",
+			"description": "Manual/website publisher or event sponsor",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"origdate": {
+			"type": "string",
+			"description": "Publication date of the original work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d"
+			]
+		},
+		"origlanguage": {
+			"type": "string",
+			"description": "The language of the original work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
+			]
+		},
+		"origlocation": {
+			"type": "string",
+			"description": "Location or address, where originally published.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"origpublisher": {
+			"type": "string",
+			"description": "Original publisher(s).",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"origtitle": {
+			"type": "string",
+			"description": "The title of the original work.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"pages": {
+			"type": "array",
+			"description": "The number of pages of the work/article, e.g. 4, 46-53",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "string"
+			}
+		},
+		"pagetotal": {
+			"type": "string",
+			"description": "Total number of pages.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"pagination": {
+			"type": "string",
+			"description": "The pagination of this work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"string:'page','column','section','paragraph','verse','line'"
+			]
+		},
+		"part": {
+			"type": "string",
+			"description": "Number of physical part of logical volume",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"publisher": {
+			"type": "string",
+			"description": "Publisher(s).",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"pubstate": {
+			"type": "string",
+			"description": "The state of this work, e.g. submitted.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"string:'submitted','inpreparation','forthcoming','inpress','prepublished'"
+			]
+		},
+		"series": {
+			"type": "string",
+			"description": "Name of series",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"shorttitle": {
+			"type": "string",
+			"description": "The abridged or short title of this work.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"no_new_line"
+			]
+		},
+		"subtitle": {
+			"type": "string",
+			"description": "Subtitle of work.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"title": {
+			"type": "string",
+			"description": "Title of work.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"titleaddon": {
+			"type": "string",
+			"description": "Addon title of work.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": []
+		},
+		"translator": {
+			"type": "array",
+			"description": "Translator(s) of (work)title.",
+			"multilingual": false,
+			"apiSummary": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Author"
+			}
+		},
+		"type": {
+			"type": "string",
+			"description": "Addon title of work.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"string:'manual','patent','report','thesis','mathesis','phdthesis','candthesis','techreport','resreport','software','datacd','audiocd'"
+			]
+		},
+		"url": {
+			"type": "string",
+			"description": "The public URL for this publication or where it will be available if it has not yet been published.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"urldate": {
+			"type": "string",
+			"description": "Access date to the url.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d"
+			]
+		},
+		"venue": {
+			"type": "string",
+			"description": "Venue of event.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d"
+			]
+		},
+		"version": {
+			"type": "string",
+			"description": "Version of this work",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"volume": {
+			"type": "string",
+			"description": "Volume of journal or multi-volume book.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		},
+		"volumes": {
+			"type": "string",
+			"description": "Number of volumes for multi-volume work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": []
+		}
+	}
+}

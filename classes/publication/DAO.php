@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -21,7 +21,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
@@ -48,17 +47,12 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'publication_id';
 
-    /** @var CitationDAO */
-    public $citationDao;
-
     /**
      * Constructor
      */
     public function __construct(CitationDAO $citationDao, PKPSchemaService $schemaService)
     {
         parent::__construct($schemaService);
-
-        $this->citationDao = $citationDao;
     }
 
     /**
@@ -470,7 +464,7 @@ class DAO extends EntityDAO
      */
     protected function saveCitations(Publication $publication)
     {
-        $this->citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
+        Repo::citation()->importCitations($publication->getId(), $publication->getData('citationsRaw'));
     }
 
     /**
@@ -478,7 +472,7 @@ class DAO extends EntityDAO
      */
     protected function deleteCitations(int $publicationId)
     {
-        $this->citationDao->deleteByPublicationId($publicationId);
+        Repo::citation()->deleteByPublicationId($publicationId);
     }
 
     /**

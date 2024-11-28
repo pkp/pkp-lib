@@ -499,7 +499,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     {
         return [
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
-            'CitationDAO' => 'PKP\citation\CitationDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'FilterDAO' => 'PKP\filter\FilterDAO',

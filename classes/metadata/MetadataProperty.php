@@ -426,7 +426,7 @@ class MetadataProperty
                                 $entry = ControlledVocabEntry::query()
                                     ->whereHas(
                                         'controlledVocab',
-                                        fn ($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
+                                        fn ($query) => $query->withSymbolics([$symbolic])->withAssoc($assocType, $assocId)
                                     )
                                     ->withLocales([$locale])
                                     ->withSetting($symbolic, $value)

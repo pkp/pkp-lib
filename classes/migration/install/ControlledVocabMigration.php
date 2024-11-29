@@ -17,18 +17,8 @@ namespace PKP\migration\install;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-abstract class ControlledVocabMigration extends \PKP\migration\Migration
+class ControlledVocabMigration extends \PKP\migration\Migration
 {
-    /**
-     * Name of the context table
-     */
-    abstract protected function getContextTable(): string;
-
-    /**
-     * Name of the context table primary key
-     */
-    abstract protected function getContextPrimaryKey(): string;
-
     /**
      * Run the migrations.
      */
@@ -41,18 +31,6 @@ abstract class ControlledVocabMigration extends \PKP\migration\Migration
             $table->string('symbolic', 64);
             $table->bigInteger('assoc_type')->default(0);
             $table->bigInteger('assoc_id')->default(0);
-            
-            $table
-                ->bigInteger('context_id')
-                ->nullable()
-                ->comment('Context to which the controlled vocab is associated');
-            $table
-                ->foreign('context_id')
-                ->references($this->getContextPrimaryKey())
-                ->on($this->getContextTable())
-                ->onDelete('cascade');
-            $table->index(['context_id'], 'controlled_vocabs_context_id');
-
             $table->unique(['symbolic', 'assoc_type', 'assoc_id'], 'controlled_vocab_symbolic');
         });
 

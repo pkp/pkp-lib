@@ -128,7 +128,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      */
     public function handleChildElement($n, $publication)
     {
-        $submission = $this->getDeployment()->getSubmission();
         $setterMappings = $this->_getLocalizedPublicationFields();
         $controlledVocabulariesMappings = $this->_getControlledVocabulariesMappings();
 
@@ -157,7 +156,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
                 $controlledVocabulariesValues,
                 Application::ASSOC_TYPE_PUBLICATION,
                 $publication->getId(),
-                $submission->getData('contextId'),
                 false
             );
 

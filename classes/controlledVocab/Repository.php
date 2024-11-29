@@ -26,19 +26,16 @@ class Repository
     public function build(
         string $symbolic,
         int $assocType,
-        int $assocId,
-        ?int $contextId
+        int $assocId
     ): ControlledVocab
     {
         return ControlledVocab::query()
-            ->withSymbolic($symbolic)
+            ->withSymbolics([$symbolic])
             ->withAssoc($assocType, $assocId)
-            ->withContextId($contextId)
             ->firstOr(fn() => ControlledVocab::create([
                 'assocType' => $assocType,
                 'assocId' => $assocId,
                 'symbolic' => $symbolic,
-                'contextId' => $contextId,
             ]));
     }
 
@@ -57,7 +54,7 @@ class Repository
         ControlledVocabEntry::query()
             ->whereHas(
                 "controlledVocab",
-                fn ($query) => $query->withSymbolic($symbolic)->withAssoc($assocType, $assocId)
+                fn ($query) => $query->withSymbolics([$symbolic])->withAssoc($assocType, $assocId)
             )
             ->when(!empty($locales), fn ($query) => $query->withLocales($locales))
             ->get()
@@ -78,11 +75,10 @@ class Repository
         array $vocabs,
         int $assocType,
         int $assocId,
-        ?int $contextId,
         bool $deleteFirst = true,
     ): void
     {
-        $controlledVocab = $this->build($symbolic, $assocType, $assocId, $contextId);
+        $controlledVocab = $this->build($symbolic, $assocType, $assocId);
         $controlledVocab->load('controlledVocabEntries');
 
         if ($deleteFirst) {

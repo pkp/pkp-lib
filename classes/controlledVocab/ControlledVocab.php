@@ -68,7 +68,6 @@ class ControlledVocab extends Model
             'symbolic' => 'string',
             'assoc_type' => 'integer',
             'assoc_id' => 'integer',
-            'context_id' => 'integer',
         ];
     }
 
@@ -116,14 +115,6 @@ class ControlledVocab extends Model
     /**
      * Scope a query to only include vocabs with a specific symbolic.
      */
-    public function scopeWithSymbolic(Builder $query, string $symbolic): Builder
-    {
-        return $query->where('symbolic', $symbolic);
-    }
-
-    /**
-     * Scope a query to only include vocabs with a specific symbolic.
-     */
     public function scopeWithSymbolics(Builder $query, array $symbolics): Builder
     {
         return $query->whereIn('symbolic', $symbolics);
@@ -134,17 +125,32 @@ class ControlledVocab extends Model
      */
     public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
     {
-        return $query
-            ->where('assoc_type', $assocType)
-            ->where('assoc_id', $assocId);
+        return $query->where('assoc_type', $assocType)->where('assoc_id', $assocId);
     }
 
     /**
      * Scope a query to only include vocabs associated with given context id
      */
-    public function scopeWithContextId(Builder $query, ?int $contextId): Builder
+    public function scopeWithContextId(Builder $query, int $contextId): Builder
     {
-        return $query->where('context_id', $contextId);
+        return $query
+            ->where(
+                fn ($query) => $query
+                    ->select('context_id')
+                    ->from('submissions')
+                    ->whereColumn(
+                        DB::raw(
+                            "(SELECT publications.submission_id 
+                            FROM publications 
+                            INNER JOIN {$this->table} 
+                            ON publications.publication_id = {$this->table}.assoc_id 
+                            LIMIT 1)"
+                        ),
+                        '=',
+                        'submissions.submission_id'
+                    ), 
+                $contextId
+            );
     }
 
     /**

@@ -30,7 +30,7 @@ class ValidatorControlledVocab extends Validator
     {
         /** @var ControlledVocab $controlledVocab */
         $controlledVocab = ControlledVocab::query()
-            ->withSymbolic($symbolic)
+            ->withSymbolics([$symbolic])
             ->withAssoc($assocType, $assocId)
             ->first();
 

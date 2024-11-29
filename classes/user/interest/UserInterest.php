@@ -29,7 +29,6 @@ class UserInterest extends Model
     public const CONTROLLED_VOCAB_INTEREST = 'interest';
     public const CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE = 0;
     public const CONTROLLED_VOCAB_INTEREST_ASSOC_ID = 0;
-    public const CONTROLLED_VOCAB_INTEREST_CONTEXT_ID = null;
 
     /**
      * @copydoc \Illuminate\Database\Eloquent\Model::$table

@@ -131,7 +131,7 @@ class DAO extends EntityDAO
 
         return LazyCollection::make(function () use ($rows, $query) {
             foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
+                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData, $query->includeActiveSubmissions);
             }
         });
     }
@@ -240,7 +240,7 @@ class DAO extends EntityDAO
      * @copydoc EntityDAO::fromRow
      *
      */
-    public function fromRow(object $row, bool $includeReviewerData = false): DataObject
+    public function fromRow(object $row, bool $includeReviewerData = false, array $includeActiveSubmissions = null): DataObject
     {
         $user = parent::fromRow($row);
         if ($includeReviewerData) {
@@ -255,6 +255,9 @@ class DAO extends EntityDAO
             if ($reviewerRating = $row->reviewer_rating) {
                 $user->setData('reviewerRating', max(1, round($reviewerRating)));
             }
+        }
+        if ($includeActiveSubmissions) {
+            $user->setData('activeSubmissionsCount', (int) $row->submissions_count);
         }
         return $user;
     }

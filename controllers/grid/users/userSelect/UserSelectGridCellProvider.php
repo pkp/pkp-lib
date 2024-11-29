@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\users\userSelect;
 
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\user\InterestManager;
 use PKP\user\User;
 
 class UserSelectGridCellProvider extends DataObjectGridCellProvider
@@ -51,12 +52,24 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         assert($element instanceof User);
+        $interestManager = new InterestManager();
+        $interests = $interestManager->getInterestsForUser($element);
+        $interests = ($interests) ? implode(', ', $interests) : '';
         switch ($column->getId()) {
             case 'select': // Displays the radio option
                 return ['rowId' => $row->getId(), 'userId' => $this->_userId];
 
             case 'name': // User's name
                 return ['label' => $element->getFullName()];
+
+            case 'activeSubmissions': // User's name
+                return ['label' => $element->getData('activeSubmissionsCount')];
+
+            case 'affiliation': // User's name
+                return ['label' => $element->getLocalizedAffiliation()];
+
+            case 'interests': // User's name
+                return ['label' => $interests];
         }
         assert(false);
     }

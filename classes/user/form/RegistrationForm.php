@@ -206,15 +206,15 @@ class RegistrationForm extends Form
 
             if (!Config::getVar('general', 'sitewide_privacy_statement')) {
                 $userGroupIds = $this->getData('userGroupIds');
-    
+
                 // Fetch all user groups in a single query
                 $userGroups = UserGroup::query()->withUserGroupIds($userGroupIds)->get();
-    
+
                 // Collect context IDs using the 'map' method
                 $contextIds = $userGroups->map(function ($userGroup) {
                     return $userGroup->contextId;
                 })->unique()->toArray();
-    
+
                 if (!empty($contextIds)) {
                     $contextDao = Application::getContextDao();
                     $privacyConsent = (array) $this->getData('privacyConsent');
@@ -298,7 +298,7 @@ class RegistrationForm extends Form
         if ($request->getContext() && !$this->getData('reviewerGroup')) {
             $defaultReaderGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_READER], $request->getContext()->getId(), true)->first();
             if ($defaultReaderGroup) {
-                Repo::userGroup()->assignUserToGroup($user->getId(), $defaultReaderGroup->getId());
+                Repo::userGroup()->assignUserToGroup($user->getId(), $defaultReaderGroup->id);
             }
         } else {
             $userFormHelper = new UserFormHelper();

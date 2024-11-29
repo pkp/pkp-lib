@@ -541,12 +541,12 @@ class Schema extends \PKP\core\maps\Schema
                     ->withStageIds([$stageId])
                     ->get();
 
-                    foreach ($stageAssignments as $stageAssignment) {
-                        $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
-                        if ($userGroup) {
-                            $currentUserAssignedRoles[] = $userGroup->roleId;
-                        }
+                foreach ($stageAssignments as $stageAssignment) {
+                    $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
+                    if ($userGroup) {
+                        $currentUserAssignedRoles[] = $userGroup->roleId;
                     }
+                }
 
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
                 $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
@@ -557,18 +557,18 @@ class Schema extends \PKP\core\maps\Schema
                 foreach ($stageAssignments as $stageAssignment) {
                     $userGroup = UserGroup::find($stageAssignment->userGroupId);
                     $stageAssignmentsOverview[] = [
-                        "roleId" => $userGroup?->roleId ?? null,
-                        "recommendOnly" => $stageAssignment->recommendOnly,
-                        "canChangeMetadata" => $stageAssignment->canChangeMetadata,
-                        "userId" => $stageAssignment->userId
+                        'roleId' => $userGroup?->roleId ?? null,
+                        'recommendOnly' => $stageAssignment->recommendOnly,
+                        'canChangeMetadata' => $stageAssignment->canChangeMetadata,
+                        'userId' => $stageAssignment->userId
                     ];
                 }
             }
             $stage['currentUserAssignedRoles'] = array_values(array_unique($currentUserAssignedRoles));
             // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
             $stage['stageAssignments'] = $stageAssignmentsOverview;
-            if(!$stage['currentUserAssignedRoles']) {
-                if(in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
+            if (!$stage['currentUserAssignedRoles']) {
+                if (in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
                     $stage['currentUserAssignedRoles'][] = Role::ROLE_ID_MANAGER;
                 }
             }
@@ -764,8 +764,8 @@ class Schema extends \PKP\core\maps\Schema
         if (!$makeRecommendation && !$makeDecision) {
             $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
             foreach ($userGroups as $userGroup) {
-                if (in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
-                    if (!$userGroup->getRecommendOnly()) {
+                if (in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
+                    if (!$userGroup->recommendOnly) {
                         $makeDecision = true;
                     } else {
                         $makeRecommendation = true;

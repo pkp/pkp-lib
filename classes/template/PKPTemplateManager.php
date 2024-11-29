@@ -60,9 +60,9 @@ use PKP\submission\DashboardView;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
+use PKP\userGroup\UserGroup;
 use Smarty;
 use Smarty_Internal_Template;
-use PKP\userGroup\UserGroup;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
@@ -1117,7 +1117,7 @@ class PKPTemplateManager extends Smarty
                         }
 
                         $userGroups = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
-                        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->getPermitSettings(), false);
+                        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->permitSettings, false);
                         if ($hasSettingsAccess) {
                             $menu['settings'] = [
                                 'name' => __('navigation.settings'),
@@ -1348,15 +1348,15 @@ class PKPTemplateManager extends Smarty
                         $query->where('user_id', $user->getId())
                             ->where(function ($q) {
                                 $q->whereNull('date_end')
-                                  ->orWhere('date_end', '>', now());
+                                    ->orWhere('date_end', '>', now());
                             })
                             ->where(function ($q) {
                                 $q->whereNull('date_start')
-                                  ->orWhere('date_start', '<=', now());
+                                    ->orWhere('date_start', '<=', now());
                             });
                     })
                     ->get();
-        
+
                 $userRoles = [];
                 foreach ($userGroups as $userGroup) {
                     $userRoles[] = (int) $userGroup->role_id;

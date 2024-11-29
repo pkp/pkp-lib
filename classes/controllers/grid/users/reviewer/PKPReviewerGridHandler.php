@@ -66,6 +66,7 @@ use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
@@ -472,10 +473,11 @@ class PKPReviewerGridHandler extends GridHandler
     {
         $context = $request->getContext();
         $term = $request->getUserVar('term');
-        $reviewerUserGroupIds = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
+
+        $reviewerUserGroupIds = UserGroup::withContextIds([$context->getId()])
+            ->withRoleIds([Role::ROLE_ID_REVIEWER])
             ->getIds();
+
         $users = Repo::user()->getCollector()
             ->filterExcludeUserGroupIds(iterator_to_array($reviewerUserGroupIds))
             ->searchPhrase($term)
@@ -563,7 +565,7 @@ class PKPReviewerGridHandler extends GridHandler
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerReinstate::getEmailTemplateKey());
             $mailable = new ReviewerReinstate($context, $submission, $reviewAssignment);
 
-            if($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
+            if ($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
                 Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_REINSTATED, $mailable, $submission, $user);
             }
         }
@@ -622,7 +624,7 @@ class PKPReviewerGridHandler extends GridHandler
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerResendRequest::getEmailTemplateKey());
             $mailable = new ReviewerResendRequest($context, $submission, $reviewAssignment);
 
-            if($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
+            if ($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
                 Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_RESEND, $mailable, $submission, $user);
             }
         }
@@ -661,7 +663,7 @@ class PKPReviewerGridHandler extends GridHandler
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerUnassign::getEmailTemplateKey());
             $mailable = new ReviewerUnassign($context, $submission, $reviewAssignment);
 
-            if($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
+            if ($this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer)) {
                 Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_CANCEL, $mailable, $submission, $user);
             }
         }

@@ -29,10 +29,10 @@ class CanAccessSettingsPolicy extends AuthorizationPolicy
         // At least one user group must be an admin, or a manager with setup access.
         $userGroups = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
         foreach ($userGroups as $userGroup) {
-            if ($userGroup->getRoleId() == ROLE_ID_SITE_ADMIN) {
+            if ($userGroup->roleId == Role::ROLE_ID_SITE_ADMIN) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
-            if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER && $userGroup->getPermitSettings()) {
+            if ($userGroup->roleId == Role::ROLE_ID_MANAGER && $userGroup->permitSettings) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }

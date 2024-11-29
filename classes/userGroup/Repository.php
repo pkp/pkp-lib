@@ -480,7 +480,7 @@ class Repository
             // If has manager role then permitMetadataEdit can't be overridden
             if (in_array($roleId, self::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit') === 'true';
-                $permitSettings = $setting->getAttribute('permitSettings');
+                $permitSettings = $setting->getAttribute('permitSettings') === 'true';
             }
 
             $defaultStages = explode(',', (string) $setting->getAttribute('stages'));
@@ -494,7 +494,7 @@ class Repository
                 'isDefault' => true,
                 'showTitle' => true,
                 'masthead' => $masthead,
-                'permit_settings' => $permitSettings,
+                'permitSettings' => $permitSettings,
             ]);
 
             // Save the UserGroup instance to the database
@@ -507,9 +507,9 @@ class Repository
                 $stageId = (int) trim($stageId);
                 if ($stageId >= WORKFLOW_STAGE_ID_SUBMISSION && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION) {
                     UserGroupStage::create([
-                        'context_id' => $contextId,
-                        'user_group_id' => $userGroupId,
-                        'stage_id' => $stageId,
+                        'contextId' => $contextId,
+                        'userGroupId' => $userGroupId,
+                        'stageId' => $stageId,
                     ]);
                 }
             }

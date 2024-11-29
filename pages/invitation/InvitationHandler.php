@@ -73,9 +73,6 @@ class InvitationHandler extends Handler
 
     /**
      * Get invitation by invitation id
-     * @param Request $request
-     * @param int $id
-     * @return Invitation
      */
     private function getInvitationById(Request $request, int $id): Invitation
     {
@@ -117,9 +114,7 @@ class InvitationHandler extends Handler
 
     /**
      * Create an invitation to accept new role
-     * @param array $args
-     * @param Request $request
-     * @return void
+     *
      * @throws \Exception
      */
     public function invite(array $args, Request $request): void
@@ -149,13 +144,13 @@ class InvitationHandler extends Handler
         ];
         $invitation = null;
         $user = null;
-        if(!empty($args)) {
+        if (!empty($args)) {
             $invitation = $this->getInvitationById($request, $args[0]);
             $payload = $invitation->getPayload()->toArray();
             $invitationModel = $invitation->invitationModel->toArray();
 
             $invitationMode = 'edit';
-            if($invitationModel['userId']){
+            if ($invitationModel['userId']) {
                 $user = Repo::user()->get($invitationModel['userId']);
             }
             $invitationPayload['userId'] = $invitationModel['userId'];
@@ -169,8 +164,8 @@ class InvitationHandler extends Handler
             $invitationPayload['currentUserGroups'] = !$invitationModel['userId'] ? [] : $this->getUserUserGroups($invitationModel['userId']);
             $invitationPayload['userGroupsToRemove'] = !$payload['userGroupsToRemove'] ? null : $payload['userGroupsToRemove'];
             $invitationPayload['emailComposer'] = [
-                'emailBody'=>$payload['emailBody'],
-                'emailSubject'=>$payload['emailSubject'],
+                'emailBody' => $payload['emailBody'],
+                'emailSubject' => $payload['emailSubject'],
             ];
         }
         $templateMgr = TemplateManager::getManager($request);
@@ -196,7 +191,7 @@ class InvitationHandler extends Handler
         ];
         $steps = new SendInvitationStep();
         $templateMgr->setState([
-            'steps' => $steps->getSteps($invitation,$context,$user),
+            'steps' => $steps->getSteps($invitation, $context, $user),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -212,7 +207,8 @@ class InvitationHandler extends Handler
             'pageTitle' => $invitation ?
                 (
                     $invitationPayload['givenName'][Locale::getLocale()] . ' '
-                    . $invitationPayload['familyName'][Locale::getLocale()])
+                    . $invitationPayload['familyName'][Locale::getLocale()]
+                )
                 : __('invitation.wizard.pageTitle'),
             'pageTitleDescription' => $invitation ?
                 __(
@@ -231,25 +227,9 @@ class InvitationHandler extends Handler
 
     /**
      * Get current user user groups
-     * @param int $id
-     * @return array
      */
     private function getUserUserGroups(int $id): array
     {
-        $output = [];
-        $userGroups = Repo::userGroup()->userUserGroups($id);
-        foreach ($userGroups as $userGroup) {
-            $output[] = [
-                'id' => (int) $userGroup->getId(),
-                'name' => $userGroup->getName(null),
-                'abbrev' => $userGroup->getAbbrev(null),
-                'roleId' => (int) $userGroup->getRoleId(),
-                'showTitle' => (bool) $userGroup->getShowTitle(),
-                'permitSelfRegistration' => (bool) $userGroup->getPermitSelfRegistration(),
-                'permitMetadataEdit' => (bool) $userGroup->getPermitMetadataEdit(),
-                'recommendOnly' => (bool) $userGroup->getRecommendOnly(),
-            ];
-        }
-        return $output;
+        return Repo::userGroup()->userUserGroups($id)->toArray();
     }
 }

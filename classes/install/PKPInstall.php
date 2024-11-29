@@ -254,8 +254,7 @@ class PKPInstall extends Installer
         $adminUserGroup->save();
 
         // Assign the user to the admin user group
-        $repository = Repo::userGroup();
-        $repository->assignUserToGroup($user->getId(), $adminUserGroup->id);
+        Repo::userGroup()->assignUserToGroup($user->getId(), $adminUserGroup->id);
 
         // Add initial site data
         /** @var SiteDAO */

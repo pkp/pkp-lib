@@ -28,12 +28,8 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\relationships\UserGroupStage;
-use PKP\workflow\WorkflowStageDAO;
 use PKP\userGroup\UserGroup;
-use PKP\userGroup\relationships\UserUserGroup;
-use PKP\userGroup\Repository as UserGroupRepository;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
+use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupForm extends Form
 {
@@ -119,13 +115,12 @@ class UserGroupForm extends Form
             $assignedStages = $userGroup->getAssignedStageIds()->toArray();
             // Get a list of all settings-accessible user groups for the current user in
             // order to prevent them from locking themselves out by disabling the only one.
-            $mySettingsAccessUserGroupIds = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$this->getContextId()])
-                ->filterByUserIds([Application::get()->getRequest()->getUser()->getId()])
-                ->getMany()
-                ->filter(fn ($userGroup) => $userGroup->getPermitSettings())
-                ->map(fn ($userGroup) => $userGroup->getId())
-                ->toArray();
+            $mySettingsAccessUserGroupIds = UserGroup::withContextIds([$this->getContextId()])
+                ->withUserIds([Application::get()->getRequest()->getUser()->getId()])
+                ->get()
+                ->filter(fn ($userGroup) => $userGroup->permitSettings)
+                ->map(fn ($userGroup) => $userGroup->id)
+                ->all();
 
             $data = [
                 'userGroupId' => $userGroup->id,

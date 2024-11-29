@@ -35,6 +35,7 @@ use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\components\PublicationSectionJats;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -54,9 +55,8 @@ use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
-use PKP\workflow\WorkflowStageDAO;
-use PKP\config\Config;
 use PKP\userGroup\UserGroup;
+use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPWorkflowHandler extends Handler
 {
@@ -134,7 +134,7 @@ abstract class PKPWorkflowHandler extends Handler
         assert(isset($workingStageId));
 
         $router = $request->getRouter();
-        if(Config::getVar('features', 'enable_new_submission_listing')) {
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
             return $request->redirectUrl($router->url($request, null, 'dashboard', 'editorial', null, ['workflowSubmissionId' => $submission->getId()]));
         }
         $request->redirectUrl($router->url($request, null, 'workflow', 'index', [$submission->getId(), $workingStageId]));
@@ -206,7 +206,7 @@ abstract class PKPWorkflowHandler extends Handler
             } else {
                 foreach ($stageAssignments as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {
-                        if ($stageAssignment->userGroupId == $workflowUserGroup->usergroupid &&
+                        if ($stageAssignment->userGroupId == $workflowUserGroup->userGroupId &&
                             !$stageAssignment->recommendOnly) {
                             $canPublish = true;
                             break;
@@ -581,7 +581,7 @@ abstract class PKPWorkflowHandler extends Handler
                 ->withUserIds([$user->getId()])
                 ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
                 ->get();
-    
+
             foreach ($userGroups as $userGroup) {
                 if (!$userGroup->recommendOnly) {
                     $makeDecision = true;

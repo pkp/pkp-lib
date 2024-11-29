@@ -10,13 +10,13 @@
  *
  * @brief create accept invitation steps.
  */
+
 namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
 use Exception;
 use PKP\components\forms\invitation\UserDetailsForm;
 use PKP\context\Context;
-use PKP\facades\Repo;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\sections\Email;
 use PKP\invitation\sections\Form;
@@ -24,6 +24,7 @@ use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 use stdClass;
 
 class SendInvitationStep extends InvitationStepTypes
@@ -36,7 +37,7 @@ class SendInvitationStep extends InvitationStepTypes
     public function getSteps(?Invitation $invitation, Context $context, ?User $user): array
     {
         $steps = [];
-        if(!$invitation && !$user) {
+        if (!$invitation && !$user) {
             $steps[] = $this->invitationSearchUser();
         }
         $steps[] = $this->invitationDetailsForm($context);
@@ -54,7 +55,7 @@ class SendInvitationStep extends InvitationStepTypes
             __('userInvitation.searchUser.stepName'),
             'form',
             'UserInvitationSearchFormStep',
-             __('userInvitation.searchUser.stepDescription'),
+            __('userInvitation.searchUser.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -167,19 +168,15 @@ class SendInvitationStep extends InvitationStepTypes
 
     /**
      * Get all user groups
-     * @param Context $context
-     * @return array
      */
     private function getAllUserGroups(Context $context): array
     {
         $allUserGroups = [];
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
         foreach ($userGroups as $userGroup) {
             $allUserGroups[] = [
-                'value' => (int) $userGroup->getId(),
-                'label' => $userGroup->getLocalizedName(),
+                'value' => (int) $userGroup->id,
+                'label' => $userGroup->getLocalizedData('name'),
                 'disabled' => false
             ];
         }

@@ -98,7 +98,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
             throw new Exception(__('plugins.importexport.author.exportFailed'));
         }
 
-        $authorNode->setAttribute('user_group_ref', $userGroup->getName($context->getPrimaryLocale()));
+        $authorNode->setAttribute('user_group_ref', $userGroup->getLocalizedData('name', $context->getPrimaryLocale()));
         $authorNode->setAttribute('seq', $author->getSequence());
 
         $authorNode->setAttribute('id', $author->getId());

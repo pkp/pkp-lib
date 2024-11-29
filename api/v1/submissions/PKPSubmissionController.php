@@ -71,7 +71,6 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
 
-
 class PKPSubmissionController extends PKPBaseController
 {
     use AnonymizeData;
@@ -630,7 +629,7 @@ class PKPSubmissionController extends PKPBaseController
                 Repo::userGroup()->assignUserToGroup(
                     $user->getId(),
                     $submitAsUserGroup->id
-                    );
+                );
             }
         }
 
@@ -845,7 +844,7 @@ class PKPSubmissionController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        
+
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

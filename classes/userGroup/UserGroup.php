@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
-use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
@@ -65,29 +64,9 @@ class UserGroup extends Model
         'showTitle',
         'permitSelfRegistration',
         'permitMetadataEdit',
-        'permitSettings' => 'boolean',
+        'permitSettings',
         'masthead',
     ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'contextId' => 'integer',
-            'roleId' => 'integer',
-            'isDefault' => 'boolean',
-            'showTitle' => 'boolean',
-            'permitSelfRegistration' => 'boolean',
-            'permitMetadataEdit' => 'boolean',
-            'masthead' => 'boolean',
-            'permitSettings' => 'boolean',
-            // multilingual attributes will be handled through accessors and mutators
-        ];
-    }
 
     /**
      * Get the settings table name
@@ -381,39 +360,6 @@ class UserGroup extends Model
         return $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($publicationIds) {
             $q->whereIn('publication_id', $publicationIds);
         });
-    }
-
-    /**
-     * Set the name attribute.
-     *
-     */
-    public function setNameAttribute($value): void
-    {
-        if (is_string($value)) {
-            $value = $this->localizeNonLocalizedData($value);
-        }
-        $this->setData('name', $value);
-    }
-
-    /**
-     * Set the abbrev attribute.
-     *
-     */
-    public function setAbbrevAttribute($value): void
-    {
-        if (is_string($value)) {
-            $value = $this->localizeNonLocalizedData($value);
-        }
-        $this->setData('abbrev', $value);
-    }
-
-    /**
-     * Localize non-localized data.
-     *
-     */
-    protected function localizeNonLocalizedData(string $value): array
-    {
-        return [Locale::getLocale() => $value];
     }
 
     /**

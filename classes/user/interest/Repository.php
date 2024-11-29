@@ -30,7 +30,6 @@ class Repository
             UserInterest::CONTROLLED_VOCAB_INTEREST,
             UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
             UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID,
-            UserInterest::CONTROLLED_VOCAB_INTEREST_CONTEXT_ID
         );
 
         return ControlledVocabEntry::query()
@@ -57,7 +56,7 @@ class Repository
             ->whereHas(
                 "controlledVocab",
                 fn ($query) => $query
-                    ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
+                    ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
                         UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
                         UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID
@@ -92,14 +91,13 @@ class Repository
             UserInterest::CONTROLLED_VOCAB_INTEREST,
             UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
             UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID,
-            UserInterest::CONTROLLED_VOCAB_INTEREST_CONTEXT_ID
         );
 
         $currentInterests = ControlledVocabEntry::query()
             ->whereHas(
                 'controlledVocab',
                 fn ($query) => $query
-                    ->withSymbolic(UserInterest::CONTROLLED_VOCAB_INTEREST)
+                    ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
                         UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
                         UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID

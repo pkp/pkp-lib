@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-30 11:07+0000\n"
+"PO-Revision-Date: 2024-11-12 09:40+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -497,7 +497,8 @@ msgstr "Վերականգնել բոլորը"
 msgid "manager.emails.resetAll.message"
 msgstr ""
 "Եթե վերակայեք բոլոր ձևանմուշները, էլ․ փոստի ձևանմուշների բոլոր "
-"փոփոխությունները կկորչեն: Ցանկանու՞մ եք հաստատել այս գործողությունը:"
+"փոփոխությունները կկորչեն: \n"
+" Ցանկանու՞մ եք հաստատել այս գործողությունը:"
 
 msgid "manager.emails.reset.message"
 msgstr ""
@@ -3805,3 +3806,6 @@ msgstr "Մասթհեդ"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Վավերացրեք XML-ը մինչև արտահանումը և գրանցումը:"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Տեղադրված տարբերակ: {$version}"

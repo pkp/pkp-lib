@@ -1,13 +1,14 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Emma U <emmaupkp@gmail.com>, 2024.
+# Martin Brändle <martin.braendle@uzh.ch>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-06-25 20:10+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2024-09-18 07:46+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
 "Language: de\n"
@@ -2324,3 +2325,12 @@ msgstr "Alles anzeigen"
 
 msgid "showLess"
 msgstr "Weniger anzeigen"
+
+msgid "common.highlights"
+msgstr "Highlights"
+
+msgid "common.highlight"
+msgstr "Highlight"
+
+msgid "common.sandbox"
+msgstr "Die Anwendung läuft im Sandbox-Modus."

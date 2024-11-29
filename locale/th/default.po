@@ -1,0 +1,190 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/default/th/"
+">\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "ผู้ดูแลไซต์"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "ผู้ดูแลไซต์"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>กรุณาระบุรายละเอียดต่อไปนี้เพื่อช่วยเราจัดการการส่งของคุณในระบบของเรา</p>"
+
+msgid "default.groups.name.productionEditor"
+msgstr "บรรณาธิการการผลิต"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "บรรณาธิการการผลิต"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "บรรณาธิการตรวจสำเนา"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "บรรณาธิการตรวจสำเนา"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.name.proofreader"
+msgstr "ผู้พิสูจน์อักษร"
+
+msgid "default.groups.plural.proofreader"
+msgstr "ผู้พิสูจน์อักษร"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.name.designer"
+msgstr "นักออกแบบ"
+
+msgid "default.groups.plural.designer"
+msgstr "นักออกแบบ"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "ผู้รีวิวภายใน"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "ผู้รีวิวภายใน"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "ผู้ประสานงานการตลาดและการขาย"
+
+msgid "default.groups.plural.marketing"
+msgstr "ผู้ประสานงานการตลาดและการขาย"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.name.funding"
+msgstr "ผู้ประสานงานทุน"
+
+msgid "default.groups.plural.funding"
+msgstr "ผู้ประสานงานทุน"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "นักจัดทำดัชนี"
+
+msgid "default.groups.plural.indexer"
+msgstr "นักจัดทำดัชนี"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "บรรณาธิการรูปแบบ"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "บรรณาธิการรูปแบบ"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "ผู้เขียน"
+
+msgid "default.groups.plural.author"
+msgstr "ผู้แต่ง"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "นักแปล"
+
+msgid "default.groups.plural.translator"
+msgstr "นักแปล"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.name.reader"
+msgstr "ผู้อ่าน"
+
+msgid "default.groups.plural.reader"
+msgstr "ผู้อ่าน"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Read"
+
+msgid "default.genres.other"
+msgstr "อื่น ๆ"
+
+msgid "default.genres.multimedia"
+msgstr "มัลติมีเดีย"
+
+msgid "default.genres.image"
+msgstr "ภาพ"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stylesheet"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>นี่คือข้อความอัตโนมัติจาก <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>ขอบคุณที่ส่งงานมายัง {$contextName} คุณจะถูกขอให้อัปโหลดไฟล์ "
+"ระบุผู้ร่วมแต่ง และให้ข้อมูลเช่น ชื่อเรื่องและบทคัดย่อ<p><p>กรุณาอ่าน <a "
+"href=\"{$submissionGuidelinesUrl}\" target=\"_blank\">แนวทางการส่งงาน</a> "
+"หากยังไม่ได้ทำ เมื่อกรอกแบบฟอร์ม โปรดให้รายละเอียดให้มากที่สุดเท่าที่จะเป็นไป"
+"ได้เพื่อช่วยให้บรรณาธิการของเราประเมินงานของคุณ</p><p>เมื่อเริ่มการส่งแล้ว "
+"คุณสามารถบันทึกการส่งและกลับมาทำต่อได้ คุณจะสามารถตรวจสอบและแก้ไขข้อมูลใด ๆ "
+"ก่อนที่จะส่งได้</p>"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>โปรดจัดเตรียมไฟล์ใด ๆ "
+"ที่ทีมบรรณาธิการของเราอาจต้องการใช้เพื่อประเมินการส่งของคุณ "
+"นอกเหนือจากงานหลักแล้ว คุณอาจต้องการส่งชุดข้อมูล "
+"คำแถลงเกี่ยวกับผลประโยชน์ทับซ้อน หรือไฟล์เพิ่มเติมอื่น ๆ "
+"หากสิ่งเหล่านี้จะเป็นประโยชน์ต่อบรรณาธิการของเรา</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>เพิ่มรายละเอียดสำหรับผู้ร่วมแต่งทุกคนในการส่งนี้ "
+"ผู้ร่วมแต่งที่เพิ่มที่นี่จะได้รับอีเมลยืนยันการส่งงาน รวมถึงสำเนาของการตัดสิน"
+"ใจทางบรรณาธิการทั้งหมดที่บันทึกกับการส่งนี้</p><p>หากไม่สามารถติดต่อผู้ร่วมแต"
+"่งทางอีเมลได้ เนื่องจากพวกเขาต้องยังคงไม่เปิดเผยตัวตนหรือไม่มีบัญชีอีเมล "
+"กรุณาอย่าป้อนที่อยู่อีเมลปลอม คุณสามารถเพิ่มข้อมูลเกี่ยวกับผู้ร่วมแต่งนี้ในข้"
+"อความถึงบรรณาธิการในขั้นตอนถัดไปในกระบวนการส่งได้</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>กรุณาระบุรายละเอียดต่อไปนี้เพื่อช่วยทีมบรรณาธิการของเราจัดการการส่งของคุณ<"
+"/p><p>เมื่อป้อนข้อมูลเมตา "
+"โปรดระบุรายการที่คุณคิดว่าจะเป็นประโยชน์มากที่สุดต่อผู้จัดการการส่งของคุณ "
+"ข้อมูลนี้สามารถเปลี่ยนแปลงได้ก่อนการตีพิมพ์</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>ตรวจสอบข้อมูลที่คุณป้อนก่อนที่จะทำการส่งงานให้เสร็จสมบูรณ์ "
+"คุณสามารถเปลี่ยนแปลงรายละเอียดใด ๆ ที่แสดงที่นี่ได้โดยคลิกปุ่มแก้ไขที่ด้านบนข"
+"องแต่ละส่วน</p><p>เมื่อคุณทำการส่งงานเสร็จสมบูรณ์ "
+"สมาชิกในทีมบรรณาธิการของเราจะได้รับมอบหมายให้รีวิวงานนี้ โปรดตรวจสอบให้แน่ใจว"
+"่ารายละเอียดที่คุณป้อนที่นี่ถูกต้องที่สุดเท่าที่จะเป็นไปได้</p>"

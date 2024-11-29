@@ -1,0 +1,3554 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/th/"
+">\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "เปิดใช้ข้อมูลเมตาของสาขาวิชา"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุสาขาวิชาระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "ขอให้ผู้แต่งระบุสาขาวิชาระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "กำหนดให้ผู้แต่งระบุสาขาวิชาก่อนที่จะรับการส่งบทความ"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"หน่วยงานสนับสนุนอาจระบุแหล่งทุนวิจัยหรือการสนับสนุนอื่น ๆ "
+"ที่ช่วยให้การวิจัยสำเร็จ"
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "เปิดใช้ข้อมูลเมตาของหน่วยงานสนับสนุน"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุหน่วยงานสนับสนุนระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr "ขอให้ผู้แต่งเปิดเผยหน่วยงานสนับสนุนใด ๆ ระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr "กำหนดให้ผู้แต่งเปิดเผยหน่วยงานสนับสนุนก่อนที่จะรับการส่งบทความ"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"รวบรวมข้อมูลอ้างอิงของการส่งในช่องแยกต่างหาก "
+"อาจจำเป็นต้องปฏิบัติตามบริการติดตามการอ้างอิงเช่น Crossref"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "เปิดใช้ข้อมูลเมตาของการอ้างอิง"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุการอ้างอิงระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "ขอให้ผู้แต่งระบุการอ้างอิงระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "กำหนดให้ผู้แต่งระบุการอ้างอิงก่อนที่จะรับการส่งบทความ"
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"ข้อความสั้น ๆ ที่อธิบายว่า ผู้แต่งได้เปิดเผยข้อมูลการวิจัยหรือไม่ "
+"และถ้าเปิดเผยแล้วผู้อ่านสามารถเข้าถึงได้ที่ไหน"
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "เปิดใช้ข้อมูลเมตาของคำแถลงการเข้าถึงข้อมูล"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "ไม่ขอคำแถลงการเข้าถึงข้อมูลจากผู้แต่งระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr "ขอให้ผู้แต่งระบุคำแถลงการเข้าถึงข้อมูลระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr "กำหนดให้ผู้แต่งระบุคำแถลงการเข้าถึงข้อมูลก่อนที่จะรับการส่งบทความ"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "ข้อผิดพลาดในการตรวจสอบความถูกต้อง:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "พบคำเตือน:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "เกิดข้อผิดพลาด:"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "ไม่ทราบองค์ประกอบ {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "ไม่ทราบประเภท {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "ไม่ทราบการเข้ารหัส {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"ไฟล์การนำเข้ารวมถึงผู้แต่ง '{$authorName}' ในกลุ่มผู้ใช้ '{$userGroupName}' "
+"ไม่มีกลุ่มผู้ใช้ในระบบปลายทางที่มีกลุ่มผู้ใช้ชื่อเช่นนี้"
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "กลุ่มผู้ใช้ขาดหายไปสำหรับชื่อผู้แต่ง {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"ผู้แต่ง {$authorName} ไม่มีชื่อในภาษาของการส่งบทความ, {$localeName} "
+"ไม่สามารถนำเข้าส่งบทความได้หากไม่มีข้อมูลนี้"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "ไม่ทราบผู้ที่อัปโหลด {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "ไม่สามารถสร้างไฟล์ชั่วคราว {$dest} จาก {$source}"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "ไม่สามารถนำเข้าไฟล์การส่งบทความได้"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"ไฟล์การส่งบทความ {$id} ถูกข้ามเนื่องจากเชื่อมโยงกับบันทึกที่ไม่ได้รับการนำเข้"
+"า เช่น การมอบหมายการทบทวนหรือการอภิปราย"
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "ไฟล์การส่งบทความ {$id} ถูกข้ามเนื่องจากไม่มีการแก้ไขที่ถูกต้อง"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "ไฟล์การส่งบทความ {$id} ถูกข้ามเนื่องจากไม่มีขั้นตอนไฟล์ที่ถูกต้อง"
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"การแก้ไข {$revision} ของไฟล์การส่งบทความ {$id} "
+"ถูกข้ามเนื่องจากไม่พบไฟล์ที่เส้นทาง \"{$path}\""
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"ภาพหน้าปกของการตีพิมพ์ {$id} ไม่ได้ถูกนำออก เนื่องจากไม่พบไฟล์ที่เส้นทาง \""
+"{$path}\""
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"ผู้ใช้ที่นำเข้า \"{$username}\" ไม่มีรหัสผ่าน ตรวจสอบรูปแบบ XML "
+"การนำเข้าของคุณ ผู้ใช้ไม่ได้รับการนำเข้า"
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"ไม่สามารถนำเข้ารหัสผ่านของผู้ใช้ที่นำเข้า \"{$username}\" ได้ตามที่เป็น "
+"รหัสผ่านใหม่ถูกส่งไปยังอีเมลของผู้ใช้ ผู้ใช้ได้รับการนำเข้าแล้ว"
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"ผู้ใช้ที่นำเข้า \"{$username}\" มีรหัสผ่านแบบเรียบที่ไม่ถูกต้อง "
+"ผู้ใช้ไม่ได้รับการนำเข้า"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"ชื่อผู้ใช้ \"{$username}\" และอีเมล \"{$email}\" "
+"ไม่ตรงกันกับผู้ใช้ที่มีอยู่เดิม"
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "การทดสอบ"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "ชื่อ"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>หน้านี้จะสามารถเข้าถึงได้ที่: <blockquote>{$pagesPath}</blockquote>..."
+"โดยที่ %PATH% คือเส้นทางที่กรอกข้างต้น <strong>หมายเหตุ:</strong> "
+"ไม่มีหน้าสองหน้าที่มีเส้นทางเดียวกันได้ "
+"การใช้เส้นทางที่สร้างไว้ในระบบอาจทำให้คุณสูญเสียการเข้าถึงฟังก์ชันสำคัญ</p>"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"ช่องเส้นทางต้องประกอบด้วยเฉพาะตัวอักษร ตัวเลข และ '.', '/', '-', และ '_' "
+"เท่านั้น"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "เส้นทางนี้มีอยู่แล้วสำหรับรายการเมนูการนำทางอื่น"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "ชื่อนี้มีอยู่แล้วสำหรับเมนูการนำทางอื่น"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "จำเป็นต้องระบุชื่อ"
+
+msgid "manager.navigationMenuItems"
+msgstr "รายการเมนูการนำทาง"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "รายการเมนูที่ได้รับมอบหมาย"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "รายการเมนูที่ยังไม่ได้รับมอบหมาย"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "พื้นที่การนำทางของธีมที่ใช้งาน"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "เลือกพื้นที่การนำทาง"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "เมนูการนำทางได้รับมอบหมายให้กับพื้นที่นี้แล้ว"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "จำเป็นต้องระบุ URL"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"เมื่อรายการเมนูเปิดเมนูย่อย ลิงก์นี้อาจไม่สามารถเข้าถึงได้บนอุปกรณ์ทั้งหมด "
+"ตัวอย่างเช่น หากคุณมีรายการ \"เกี่ยวกับ\" ที่เปิดเมนูย่อยที่มี \"ติดต่อ\" "
+"และ \"ทีมบรรณาธิการ\" ลิงก์ \"เกี่ยวกับ\" "
+"อาจไม่สามารถเข้าถึงได้บนอุปกรณ์บางชนิด ในเมนูเริ่มต้น "
+"จัดการโดยการสร้างรายการเมนูที่สอง \"เกี่ยวกับวารสาร\" ซึ่งปรากฏในเมนูย่อย"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "ประเภทเมนูการนำทาง"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "เลือกประเภทเมนูการนำทางหรือกำหนดเองเพื่อสร้างเมนูของคุณเอง"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "หน้าที่กำหนดเอง"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "สร้างหน้าที่กำหนดเองบนไซต์ของคุณและลิงก์ไปยังเมนูการนำทาง"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "ลิงก์ไปยัง URL ใด ๆ บนเว็บไซต์อื่น เช่น https://pkp.sfu.ca"
+
+msgid "manager.navigationMenus.about.description"
+msgstr "ลิงก์ไปยังหน้าที่แสดงเนื้อหาเกี่ยวกับวารสารใน การตั้งค่า > วารสาร"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"ลิงก์นี้จะแสดงเฉพาะเมื่อคุณกรอกส่วนเกี่ยวกับวารสารใน การตั้งค่า > วารสาร"
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "ลิงก์ไปยังหน้าที่แสดงเนื้อหาสารบัญบรรณาธิการใน การตั้งค่า > วารสาร"
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr "ลิงก์นี้จะแสดงเฉพาะเมื่อคุณกรอกส่วนทีมบรรณาธิการใน การตั้งค่า > วารสาร"
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "ลิงก์ไปยังหน้าที่แสดงคำแนะนำในการส่งบทความ"
+
+msgid "manager.navigationMenus.current.description"
+msgstr "ลิงก์ไปยังฉบับปัจจุบันของคุณ"
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "ลิงก์ไปยังคลังฉบับของคุณ"
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "ลิงก์ไปยังหน้าที่แสดงประกาศของคุณ"
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr "ลิงก์นี้จะแสดงเฉพาะเมื่อคุณเปิดใช้งานประกาศใน การตั้งค่า > เว็บไซต์"
+
+msgid "manager.navigationMenus.login.description"
+msgstr "ลิงก์ไปยังหน้าล็อกอินผู้ใช้"
+
+msgid "manager.navigationMenus.register.description"
+msgstr "ลิงก์ไปยังหน้าลงทะเบียนผู้ใช้"
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "ลิงก์ไปยังแดชบอร์ดบรรณาธิการ"
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "ลิงก์ไปยังหน้าข้อมูลผู้ใช้"
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "ลิงก์ไปยังเครื่องมือการจัดการไซต์ทั้งหมด"
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "ลิงก์นี้จะแสดงเฉพาะผู้ใช้ที่มีสิทธิ์ในการจัดการ"
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "ลิงก์ที่ใช้เพื่อออกจากระบบผู้ใช้"
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "ลิงก์นี้จะแสดงเฉพาะเมื่อผู้เยี่ยมชมเข้าสู่ระบบแล้ว"
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "ลิงก์นี้จะแสดงเฉพาะเมื่อผู้เยี่ยมชมไม่ได้เข้าสู่ระบบ"
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "ลิงก์ไปยังหน้าที่แสดงข้อมูลติดต่อของคุณ"
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr "ลิงก์นี้จะแสดงเฉพาะเมื่อคุณกรอกข้อมูลติดต่อใน การตั้งค่า > ติดต่อ"
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "กรุณาเลือกประเภทเมนูการนำทาง"
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"ลิงก์นี้จะแสดงเฉพาะเมื่อเปิดใช้งานการชำระเงินใน การตั้งค่า > การจัดจำหน่าย > "
+"การชำระเงิน"
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"ลิงก์นี้จะแสดงเฉพาะเมื่อผู้เยี่ยมชมเข้าสู่ระบบแล้ว มีการเปิดใช้งานการชำระเงิ"
+"นใน การตั้งค่า > การจัดจำหน่าย > การชำระเงิน และกำหนดการสมัครสมาชิกใน "
+"การตั้งค่า > การจัดจำหน่าย > การเข้าถึง"
+
+msgid "manager.navigationMenus.search.description"
+msgstr "ลิงก์ไปยังหน้าการค้นหา"
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "ลิงก์ไปยังหน้าที่แสดงคำชี้แจงความเป็นส่วนตัวของคุณ"
+
+msgid "grid.category.urlWillBe"
+msgstr "URL ของหมวดหมู่จะเป็น: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "เส้นทางของหมวดหมู่ต้องประกอบด้วยตัวอักษรและตัวเลขเท่านั้น"
+
+msgid "grid.category.pathExists"
+msgstr "เส้นทางของหมวดหมู่มีอยู่แล้ว กรุณาป้อนเส้นทางที่ไม่ซ้ำกัน"
+
+msgid "grid.category.description"
+msgstr "คำอธิบาย"
+
+msgid "grid.category.parentCategory"
+msgstr "หมวดหมู่หลัก"
+
+msgid "grid.category.removeText"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบหมวดหมู่นี้?"
+
+msgid "grid.category.nameRequired"
+msgstr "กรุณาป้อนชื่อหมวดหมู่"
+
+msgid "grid.category.categoryDetails"
+msgstr "รายละเอียดหมวดหมู่"
+
+msgid "stats.allUsers"
+msgstr "ผู้ใช้ทั้งหมด"
+
+msgid "stats.city"
+msgstr "เมือง"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "ยอดการดาวน์โหลดทั้งหมดตามวันที่"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/ปี)"
+
+msgid "stats.dateRange"
+msgstr "ช่วงวันที่"
+
+msgid "stats.dateRange.allDates"
+msgstr "วันที่ทั้งหมด"
+
+msgid "stats.dateRange.apply"
+msgstr "ใช้"
+
+msgid "stats.dateRange.change"
+msgstr "เปลี่ยนช่วงวันที่"
+
+msgid "stats.dateRange.customRange"
+msgstr "ช่วงที่กำหนดเอง"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "วันที่หนึ่งที่ป้อนไม่มีอยู่"
+
+msgid "stats.dateRange.from"
+msgstr "จาก"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"ป้อนแต่ละวันที่ในรูปแบบ YYYY-MM-DD ตัวอย่างเช่น หากต้องการวันที่ 15 มกราคม "
+"2019 ให้ป้อน 2019-01-15"
+
+msgid "stats.dateRange.invalidDate"
+msgstr "รูปแบบวันที่ไม่ถูกต้อง ป้อนแต่ละวันที่ในรูปแบบ YYYY-MM-DD"
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "วันที่เริ่มต้นต้องมาก่อนวันที่สิ้นสุด"
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "วันที่สิ้นสุดไม่ควรเกิน {$date}"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "วันที่เริ่มต้นไม่ควรก่อนหน้า {$date}"
+
+msgid "stats.dateRange.last12Months"
+msgstr "12 เดือนที่ผ่านมา"
+
+msgid "stats.dateRange.last30Days"
+msgstr "30 วันที่ผ่านมา"
+
+msgid "stats.dateRange.last90Days"
+msgstr "90 วันที่ผ่านมา"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "สองปีที่ผ่านมา"
+
+msgid "stats.dateRange.lastYear"
+msgstr "ปีที่ผ่านมา"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "ตั้งแต่ {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "ตั้งแต่ต้นปีถึงปัจจุบัน"
+
+msgid "stats.dateRange.to"
+msgstr "ถึง"
+
+msgid "stats.dateRange.untilDate"
+msgstr "จนถึง {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"เปอร์เซ็นต์สำหรับช่วงวันที่ที่เลือกจะคำนวณสำหรับการส่งที่ถูกส่งในช่วงวันที่นี"
+"้และได้รับการตัดสินขั้นสุดท้ายแล้ว ตัวอย่างเช่น "
+"มีการส่งสิบรายการในช่วงวันที่นี้ สี่รายการได้รับการยอมรับ สี่รายการถูกปฏิเสธ "
+"และสองรายการกำลังรอการตัดสินขั้นสุดท้าย อัตราการยอมรับจะเป็น 50% (4 จาก 8 "
+"การส่ง) เพราะการส่งสองรายการที่ยังไม่ถึงการตัดสินขั้นสุดท้ายจะไม่ถูกนับ"
+
+msgid "manager.website.information"
+msgstr "ข้อมูล"
+
+msgid "manager.website.appearance"
+msgstr "รูปลักษณ์"
+
+msgid "manager.website.imageFileRequired"
+msgstr "จำเป็นต้องมีไฟล์ภาพ โปรดตรวจสอบว่าคุณได้เลือกและอัปโหลดไฟล์แล้ว"
+
+msgid "manager.announcements"
+msgstr "ประกาศ"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบประกาศ {$title} อย่างถาวร?"
+
+msgid "manager.announcements.create"
+msgstr "สร้างประกาศใหม่"
+
+msgid "manager.announcements.createTitle"
+msgstr "สร้าง"
+
+msgid "manager.announcements.dateExpire"
+msgstr "วันหมดอายุ"
+
+msgid "manager.announcements.datePublish"
+msgstr "เผยแพร่แล้ว"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "ลบประกาศ"
+
+msgid "manager.announcements.edit"
+msgstr "แก้ไขประกาศ"
+
+msgid "manager.announcements.editTitle"
+msgstr "แก้ไข"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "กรุณาเลือกปีและ/หรือเดือนเพิ่มเติมจากวันหมดอายุ"
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "วันหมดอายุ"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"ประกาศจะถูกแสดงให้ผู้อ่านเห็นจนถึงวันที่นี้ "
+"ทิ้งว่างไว้หากต้องการแสดงประกาศอย่างไม่มีกำหนด"
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "กรุณาเลือกปีและ/หรือวันเพิ่มเติมจากเดือนหมดอายุ"
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "กรุณาเลือกวันที่หมดอายุของประกาศที่ถูกต้อง"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "กรุณาเลือกเดือนและ/หรือวันเพิ่มเติมจากปีหมดอายุ"
+
+msgid "manager.announcements.form.description"
+msgstr "ประกาศ"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "ข้อความเต็มของประกาศ"
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "จำเป็นต้องมีคำอธิบายประกาศ"
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "คำอธิบายสั้น ๆ ที่จะแสดงพร้อมกับชื่อประกาศ"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "จำเป็นต้องมีคำอธิบายประกาศสั้น ๆ"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "คำอธิบายสั้น"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "บันทึกและสร้างอีกหนึ่ง"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "จำเป็นต้องมีชื่อประกาศ"
+
+msgid "manager.announcements.form.title"
+msgstr "ชื่อ"
+
+msgid "manager.announcements.form.typeId"
+msgstr "ประเภท"
+
+msgid "manager.announcementTypes"
+msgstr "ประเภทประกาศ"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"คำเตือน! ประกาศทั้งหมดที่มีประเภทประกาศนี้จะถูกลบเช่นกัน "
+"คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อและลบประเภทประกาศนี้?"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "สร้าง"
+
+msgid "manager.announcementTypes.edit"
+msgstr "แก้ไขประเภทประกาศ"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "แก้ไข"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "บันทึกและสร้างอีกหนึ่ง"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "มีประเภทประกาศที่มีชื่อนี้อยู่แล้ว"
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "ชื่อ"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "จำเป็นต้องมีชื่อประเภทประกาศ"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "ยังไม่มีการสร้างประเภทประกาศใด ๆ"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "ประเภทประกาศ"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "ฝากทั้งหมด"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "ฝาก DOI"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"คุณกำลังจะส่งบันทึกข้อมูลเมทาดาทา DOI สำหรับ {$count} รายการไปยัง "
+"{$registrationAgency}. คุณแน่ใจหรือไม่ว่าต้องการฝากบันทึกเหล่านี้?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "ทำเครื่องหมายว่า DOI ได้ลงทะเบียนแล้ว"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"คุณกำลังจะทำเครื่องหมายบันทึกข้อมูลเมทาดาทา DOI สำหรับ {$count} "
+"รายการว่าได้ลงทะเบียนแล้ว "
+"คุณแน่ใจหรือไม่ว่าต้องการทำเครื่องหมายว่าบันทึกเหล่านี้ได้ลงทะเบียนแล้ว?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "ทำเครื่องหมายว่า DOI ยังไม่ได้ลงทะเบียน"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"คุณกำลังจะทำเครื่องหมายบันทึกข้อมูลเมทาดาทา DOI สำหรับ {$count} "
+"รายการว่ายังไม่ได้ลงทะเบียน "
+"คุณแน่ใจหรือไม่ว่าต้องการทำเครื่องหมายบันทึกเหล่านี้ว่ายังไม่ได้ลงทะเบียน?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "ทำเครื่องหมายว่า DOI ต้องการการซิงค์"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"คุณกำลังจะทำเครื่องหมายบันทึกข้อมูลเมทาดาทา DOI สำหรับ {$count} "
+"รายการว่าต้องการการซิงค์ สถานะ Needs Sync สามารถใช้ได้กับ DOI "
+"ที่ส่งไปก่อนหน้านี้เท่านั้น "
+"คุณแน่ใจหรือไม่ว่าต้องการทำเครื่องหมายบันทึกเหล่านี้ว่ายังไม่ได้รับการอัปเดต?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "ส่งออก DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"คุณกำลังจะส่งออกบันทึกข้อมูลเมทาดาทา DOI สำหรับ {$count} รายการสำหรับ "
+"{$registrationAgency}. คุณแน่ใจหรือไม่ว่าต้องการส่งออกบันทึกเหล่านี้?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "กำหนด DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"คุณกำลังจะกำหนด DOI ใหม่ให้กับ {$count} รายการ สำหรับรายการที่ยังไม่ได้รับ "
+"DOI คุณแน่ใจหรือไม่ว่าต้องการกำหนด DOI ให้กับรายการเหล่านี้?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "ฝาก DOI ทั้งหมด"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"คุณกำลังจะกำหนดให้บันทึกข้อมูลเมทาดาทา DOI ทั้งหมดที่ยังค้างอยู่ถูกฝากไปยัง "
+"{$registrationAgency}. เฉพาะรายการที่ตีพิมพ์พร้อม DOI เท่านั้นที่จะถูกฝาก "
+"สถานะของแต่ละรายการจะถูกอัปเดตเมื่อได้รับการตอบกลับ "
+"คุณแน่ใจหรือไม่ว่าต้องการกำหนดให้ฝากรายการเหล่านี้ทั้งหมด?"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "เมทาดาทาของรายการนี้ถูกส่งไปยัง {$registrationAgency} แล้ว"
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "รายการนี้ได้รับการลงทะเบียนกับหน่วยงานการลงทะเบียนด้วยตนเองแล้ว"
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "เมทาดาทาของรายการนี้ยังไม่ได้ส่งไปยัง {$registrationAgency}"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "รายการนี้ไม่สามารถถูกฝากได้จนกว่าจะได้รับการตีพิมพ์"
+
+msgid "manager.dois.registration.viewError"
+msgstr "ดูข้อผิดพลาด"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "ข้อความข้อผิดพลาดในการลงทะเบียน"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "ดูบันทึก"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "ข้อความการลงทะเบียนสำเร็จ"
+
+msgid "manager.dois.update.success"
+msgstr "อัปเดต DOI(s) สำเร็จ"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "ฝาก DOI(s)"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "ต้องการ DOI"
+
+msgid "manager.dois.status.unregistered"
+msgstr "ยังไม่ได้ลงทะเบียน"
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr "รายการทั้งหมดที่กำหนด DOI แล้ว"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"รายการทั้งหมดที่มี DOI และได้รับการตีพิมพ์แต่ยังไม่ได้ฝากกับหน่วยงานลงทะเบียน"
+
+msgid "manager.dois.status.submitted.description"
+msgstr "รายการทั้งหมดที่ส่งไปยังหน่วยงานลงทะเบียนแล้ว"
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"รายการทั้งหมดที่ลงทะเบียนกับหน่วยงานลงทะเบียนหรือถูกทำเครื่องหมายว่าลงทะเบียน"
+"แล้วด้วยตนเอง"
+
+msgid "manager.dois.status.error.description"
+msgstr "รายการทั้งหมดที่พบข้อผิดพลาดในกระบวนการลงทะเบียน"
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"รายการทั้งหมดที่ได้รับการตีพิมพ์ซ้ำตั้งแต่ฝากกับหน่วยงานลงทะเบียนล่าสุด "
+"ต้องส่งไปยังหน่วยงานลงทะเบียนอีกครั้งเพื่ออัปเดตบันทึกเมทาดาทา"
+
+msgid "manager.dois.update.failedCreation"
+msgstr "การอัปเดต DOI ล้มเหลว"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "ไม่สามารถอัปเดต DOI(s) บางส่วนได้"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "ส่งออกสำเร็จ"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "ทำเครื่องหมายว่าลงทะเบียนสำเร็จแล้ว"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "ทำเครื่องหมายว่าไม่ได้ลงทะเบียนสำเร็จแล้ว"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "ทำเครื่องหมายว่าต้องการการซิงค์สำเร็จ"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "กำหนด DOI ใหม่สำเร็จ"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "ส่งสำหรับการฝากสำเร็จ"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "สถานะ DOI"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"การจัดการ DOI ถูกย้ายแล้ว กรุณาดู <a href=\"{$doiManagementUrl}\">การจัดการ "
+"DOI</a> และ <a href=\"{$doiSettingsUrl}\">การตั้งค่า DOI</a>"
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+"ไม่สามารถกำหนด DOI ได้หากไม่ได้ระบุ prefix DOI ของคุณ <a href=\""
+"{$doiSettingsUrl}\">เพิ่ม prefix DOI</a>"
+
+msgid "doi.exceptions.missingPrefix"
+msgstr "พยายามสร้าง DOI แต่ต้องการ prefix DOI สำหรับบริบทเพื่อสร้าง DOI"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"ก่อนที่จะลบส่วนประกอบนี้ "
+"คุณต้องเชื่อมโยงไฟล์การส่งที่เกี่ยวข้องทั้งหมดกับส่วนประกอบอื่น"
+
+msgid "manager.highlights.add"
+msgstr "เพิ่มไฮไลท์"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ {$title}? การกระทำนี้ไม่สามารถยกเลิกได้"
+
+msgid "manager.highlights.delete"
+msgstr "ลบไฮไลท์"
+
+msgid "manager.highlights.edit"
+msgstr "แก้ไขไฮไลท์"
+
+msgid "manager.highlights.image"
+msgstr "ภาพ"
+
+msgid "manager.highlights.url.description"
+msgstr "URL เต็มรูปแบบ รวมถึง https:// สำหรับปุ่มในไฮไลท์"
+
+msgid "manager.highlights.urlText"
+msgstr "ป้ายกำกับปุ่ม"
+
+msgid "manager.highlights.urlText.description"
+msgstr "ป้ายกำกับ เช่น อ่านเพิ่มเติม สำหรับปุ่มในไฮไลท์"
+
+msgid "manager.institutions.edit"
+msgstr "แก้ไขสถาบัน"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry ID สำหรับสถาบันนี้"
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "ช่วง IP"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"ค่าที่ถูกต้องรวมถึงที่อยู่ IP (เช่น 142.58.103.1), ช่วง IP (เช่น "
+"142.58.103.1 - 142.58.103.4), ช่วง IP ที่ใช้เครื่องหมาย '*' (เช่น 142.58.*.*)"
+", และช่วง IP ที่ใช้ CIDR (เช่น 142.58.100.0/24)"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "ลบสถาบัน"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อและลบสถาบันนี้?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "ช่วง IP ไม่ถูกต้อง"
+
+msgid "manager.publication.submissionStage"
+msgstr "การส่งงาน"
+
+msgid "manager.publication.reviewStage"
+msgstr "การทบทวน"
+
+msgid "manager.publication.editorialStage"
+msgstr "บรรณาธิการ"
+
+msgid "manager.publication.productionStage"
+msgstr "การผลิต"
+
+msgid "manager.publication.emails"
+msgstr "อีเมล"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "คำแนะนำผู้รีวิว"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "อัปเดตรายละเอียดการเตือนการทบทวนแล้ว"
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"ข้อผิดพลาดต่อไปนี้ถูกส่งคืนโดย {$registrationAgency} "
+"และประกอบด้วยรายละเอียดเกี่ยวกับสาเหตุของข้อผิดพลาด:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"ข้อความต่อไปนี้ถูกส่งคืนโดย {$registrationAgency} "
+"และประกอบด้วยรายละเอียดเกี่ยวกับการลงทะเบียน:"
+
+msgid "manager.emails.addEmail"
+msgstr "เพิ่มแม่แบบ"
+
+msgid "manager.emails.createEmail"
+msgstr "สร้างอีเมล"
+
+msgid "manager.emails.data"
+msgstr "ข้อมูลข้อความแม่แบบ"
+
+msgid "manager.emails.details"
+msgstr "รายละเอียดแม่แบบ"
+
+msgid "manager.emails.disable"
+msgstr "ปิดใช้งาน"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"คุณกำลังจะปิดใช้งานแม่แบบอีเมลนี้ หากมีการใช้แม่แบบนี้ในกระบวนการระบบ "
+"พวกเขาจะไม่ใช้แม่แบบนี้อีก คุณต้องการยืนยันการดำเนินการนี้หรือไม่?"
+
+msgid "manager.emails.editTestExample"
+msgstr "แก้ไขตัวอย่างทดสอบอีเมล"
+
+msgid "manager.emails.emailTemplate"
+msgstr "แม่แบบอีเมล"
+
+msgid "manager.emails.emailTemplates"
+msgstr "แม่แบบอีเมล"
+
+msgid "manager.emails.otherTemplates"
+msgstr "แม่แบบอื่น ๆ"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "คุณต้องระบุ ID บริบทเมื่อเพิ่มแม่แบบอีเมล"
+
+msgid "manager.emails.enabled"
+msgstr "เปิดใช้งานแม่แบบอีเมลนี้"
+
+msgid "manager.emails.enable"
+msgstr "เปิดใช้งาน"
+
+msgid "manager.emails.enable.message"
+msgstr "คุณกำลังจะเปิดใช้งานอีเมลนี้ คุณต้องการยืนยันการดำเนินการนี้หรือไม่?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "ต้องการคีย์อีเมลที่ไม่ซ้ำกันและไม่มีช่องว่างหรือตัวอักษรพิเศษ"
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "ต้องการเนื้อหาอีเมล"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "ต้องการหัวข้ออีเมล"
+
+msgid "manager.emails"
+msgstr "อีเมลที่เตรียมไว้"
+
+msgid "manager.emails.resetAll"
+msgstr "รีเซ็ตทั้งหมด"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"หากคุณรีเซ็ตแม่แบบทั้งหมด การปรับแต่งทั้งหมดจะหายไป "
+"คุณต้องการยืนยันการดำเนินการนี้หรือไม่?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"หากคุณรีเซ็ตแม่แบบนี้ ข้อมูลข้อความทั้งหมดจะถูกรีเซ็ตเป็นค่าเริ่มต้น "
+"ซึ่งจะสูญเสียการปรับแต่งทั้งหมด คุณต้องการยืนยันการดำเนินการนี้หรือไม่?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "รีเซ็ตเป็นค่าเริ่มต้น"
+
+msgid "manager.emails.sentFrom"
+msgstr "ส่งจาก"
+
+msgid "manager.emails.sentTo"
+msgstr "ส่งถึง"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "ส่งออกไปยัง Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "เลือกผู้ใช้ที่ต้องการส่งออกไปยังไฟล์ Excel/CSV"
+
+msgid "manager.filesBrowser"
+msgstr "ตัวเรียกดูไฟล์"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"ลบไฟล์หรือไดเรกทอรีนี้หรือไม่? "
+"โปรดทราบว่าไดเรกทอรีต้องว่างก่อนที่จะสามารถลบได้"
+
+msgid "manager.files.createDir"
+msgstr "สร้างไดเรกทอรี"
+
+msgid "manager.files.emptyDir"
+msgstr "ไม่พบไฟล์ในไดเรกทอรีนี้"
+
+msgid "manager.files.indexOfDir"
+msgstr "ดัชนีของ {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "ไดเรกทอรีแม่"
+
+msgid "manager.files.uploadedFiles"
+msgstr "ไฟล์ที่อัปโหลด"
+
+msgid "manager.files.uploadFile"
+msgstr "อัปโหลดไฟล์"
+
+msgid "manager.groups.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบกลุ่มนี้?"
+
+msgid "manager.groups.createTitle"
+msgstr "สร้างชื่อเรื่อง"
+
+msgid "manager.groups.editTitle"
+msgstr "แก้ไขชื่อเรื่อง"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "ต้องการชื่อกลุ่ม"
+
+msgid "manager.groups.membership.addMember"
+msgstr "เพิ่มสมาชิก"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบสมาชิกกลุ่มนี้?"
+
+msgid "manager.groups.membership"
+msgstr "สมาชิกภาพ"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "กลุ่มนี้ไม่มีสมาชิก"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "ไม่พบผู้ใช้"
+
+msgid "manager.groups.title"
+msgstr "ชื่อเรื่อง"
+
+msgid "manager.importExport"
+msgstr "นำเข้า/ส่งออกข้อมูล"
+
+msgid "manager.language.ui"
+msgstr "ส่วนติดต่อผู้ใช้ (UI)"
+
+msgid "manager.language.submissions"
+msgstr "การส่งงาน"
+
+msgid "manager.language.forms"
+msgstr "แบบฟอร์ม"
+
+msgid "manager.payment.timestamp"
+msgstr "เวลาประทับ"
+
+msgid "manager.people.existingUserRequired"
+msgstr "ต้องกรอกผู้ใช้ที่มีอยู่แล้ว"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "ยกเลิกการลงทะเบียนผู้ใช้นี้?"
+
+msgid "manager.people.createUser"
+msgstr "สร้างผู้ใช้ใหม่"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "สร้างรหัสผ่านแบบสุ่ม"
+
+msgid "manager.people.createUserSendNotify"
+msgstr "ส่งอีเมลต้อนรับผู้ใช้ที่มีชื่อผู้ใช้และรหัสผ่านของพวกเขา"
+
+msgid "manager.people.disable"
+msgstr "ปิดใช้งาน"
+
+msgid "manager.people.doNotEnroll"
+msgstr "ไม่มีบทบาท"
+
+msgid "manager.people.editProfile"
+msgstr "แก้ไขโปรไฟล์"
+
+msgid "manager.people.editUser"
+msgstr "แก้ไขผู้ใช้"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "ส่งอีเมลถึงผู้ใช้ที่เลือก"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "ส่งอีเมลถึงผู้ใช้ที่ลงทะเบียนเป็น"
+
+msgid "manager.people.emailUsers"
+msgstr "ส่งอีเมลถึงผู้ใช้"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "เลือกภาษา"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr "เลือกผู้ใช้ที่คุณต้องการส่งอีเมลโดยเลือกกล่องข้าง ๆ ชื่อของพวกเขา"
+
+msgid "manager.people.enable"
+msgstr "เปิดใช้งาน"
+
+msgid "manager.people.enroll"
+msgstr "ลงทะเบียนผู้ใช้"
+
+msgid "manager.people.enrollment"
+msgstr "การลงทะเบียน"
+
+msgid "manager.people.enrollSelected"
+msgstr "ลงทะเบียนผู้ใช้ที่เลือก"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "ซิงโครไนซ์บทบาท"
+
+msgid "manager.people.enrollSync"
+msgstr "ซิงโครไนซ์การลงทะเบียน"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "ผู้ใช้สามารถได้รับมอบหมายหรือถูกลบออกจากบทบาทได้ทุกเวลา"
+
+msgid "manager.people.enrollUserAs"
+msgstr "ลงทะเบียนผู้ใช้เป็น"
+
+msgid "manager.people.invalidUser"
+msgstr "ขออภัย ผู้ใช้ที่ขอไม่อยู่ในระบบ"
+
+msgid "manager.people.mergeUser"
+msgstr "รวมผู้ใช้"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการรวมบัญชีที่เลือกจำนวน {$oldAccountCount} "
+"เข้ากับบัญชีที่มีชื่อผู้ใช้ \"{$newUsername}\"? บัญชีที่เลือกจำนวน "
+"{$oldAccountCount} จะไม่อยู่หลังจากนี้ การกระทำนี้ไม่สามารถย้อนกลับได้"
+
+msgid "manager.people.mergeUsers"
+msgstr "รวมผู้ใช้"
+
+msgid "manager.people.mustChooseRole"
+msgstr "กรุณาเลือกบทบาทที่ด้านบนของหน้าก่อนคลิก \"ลงทะเบียนผู้ใช้\""
+
+msgid "manager.people.mustProvideName"
+msgstr "กรุณาระบุอย่างน้อยนามสกุลของผู้ใช้ก่อน"
+
+msgid "manager.people.noMatchingUsers"
+msgstr "ไม่พบผู้ใช้ที่ตรงกัน"
+
+msgid "manager.people.noneEnrolled"
+msgstr "ไม่มีผู้ใช้ที่ลงทะเบียน"
+
+msgid "manager.people"
+msgstr "ผู้ใช้"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "บันทึกและสร้างผู้ใช้อีกคน"
+
+msgid "manager.people.signedInAs"
+msgstr "คุณกำลังเข้าสู่ระบบในชื่อ {$username}"
+
+msgid "manager.people.signInAs"
+msgstr "เข้าสู่ระบบเป็น"
+
+msgid "manager.people.signInAsUser"
+msgstr "เข้าสู่ระบบเป็นผู้ใช้"
+
+msgid "manager.people.syncUsers"
+msgstr "ซิงโครไนซ์การลงทะเบียนผู้ใช้"
+
+msgid "manager.people.unenroll"
+msgstr "ยกเลิกการลงทะเบียน"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "สร้างผู้ใช้สำเร็จแล้ว"
+
+msgid "manager.people.userMustChangePassword"
+msgstr "บังคับให้ผู้ใช้เปลี่ยนรหัสผ่านในการเข้าสู่ระบบครั้งถัดไป"
+
+msgid "manager.plugins.disable"
+msgstr "ปิดใช้งาน"
+
+msgid "manager.plugins.enable"
+msgstr "เปิดใช้งาน"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "การจัดการปลั๊กอิน"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"นี่คือปลั๊กอินที่ใช้ทั้งไซต์ "
+"เฉพาะผู้ดูแลระบบไซต์เท่านั้นที่สามารถจัดการปลั๊กอินนี้ได้"
+
+msgid "manager.plugins"
+msgstr "ปลั๊กอินของระบบ"
+
+msgid "manager.readingTools"
+msgstr "เครื่องมือการอ่าน"
+
+msgid "manager.userSearch.searchByName"
+msgstr "ค้นหาผู้ใช้ตามชื่อ"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"คุณไม่สามารถลบตัวแทนนี้ได้เนื่องจากมีการกำหนดให้กับเมตาดาต้าของตลาดสำหรับรูปแ"
+"บบการตีพิมพ์หนึ่งหรือมากกว่าหนึ่งรายการของการส่งนี้"
+
+msgid "manager.reviewerSearch.change"
+msgstr "เปลี่ยนแปลง"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "ค้นหาผู้รีวิวตามชื่อ"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "ค้นหาตามชื่อ"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "ความสนใจในการรีวิว"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"ใช้ฟอร์มด้านล่างเพื่อตั้งค่าสูงสุดสำหรับเงื่อนไขที่คุณต้องการค้นหา "
+"ฟอร์มนี้มีค่ากลางที่คำนวณไว้ล่วงหน้า"
+
+msgid "manager.roles"
+msgstr "บทบาท"
+
+msgid "manager.setup.statistics"
+msgstr "สถิติ"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "สถิติภูมิศาสตร์"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"เลือกประเภทสถิติการใช้งานตามภูมิศาสตร์ที่จะเก็บรวบรวม "
+"สถิติภูมิศาสตร์ที่ละเอียดขึ้นอาจทำให้ขนาดฐานข้อมูลของคุณเพิ่มขึ้นอย่างมาก "
+"และในบางกรณีหายากอาจเป็นการลดความไม่เปิดเผยตัวตนของผู้เยี่ยมชม"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "ไม่เก็บข้อมูลภูมิศาสตร์ใด ๆ"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "เก็บข้อมูลประเทศของผู้เยี่ยมชม"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "เก็บข้อมูลประเทศและภูมิภาคของผู้เยี่ยมชม"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "เก็บข้อมูลประเทศ ภูมิภาค และเมืองของผู้เยี่ยมชม"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"เปิดใช้งานสถาบันการศึกษาหากคุณต้องการเก็บรวบรวมสถิติการใช้งานโดยสถาบัน "
+"หากเปิดใช้งาน คุณจำเป็นต้องกำหนดช่วง IP สำหรับแต่ละสถาบันที่ต้องการติดตาม"
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "เปิดใช้งานสถิติสถาบันการศึกษา"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "API สาธารณะ"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"ว่าจะจำกัดการเข้าถึง API สำหรับสถิติ COUNTER SUSHI หรือไม่ หากไม่ทำเครื่"
+"องหมาย API จะเข้าถึงได้เฉพาะผู้ใช้ที่มีบทบาทเป็นผู้ดูแลหรือผู้จัดการเท่านั้น"
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "ทำให้สถิติ COUNTER SUSHI เป็นสาธารณะ"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "รายงาน Counter R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"ดู <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\""
+" target=\"_new\">เอกสาร COUNTER 5.0.3</a> "
+"สำหรับข้อมูลเพิ่มเติมเกี่ยวกับแต่ละรายงาน"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "ยังไม่มีสถิติการใช้งาน COUNTER R5 พร้อมให้ใช้"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "การตั้งค่ารายงาน"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "วันที่เริ่มต้น"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"วันที่ควรอยู่ในรูปแบบ YYYY-MM-DD หรือ YYYY-MM วันที่ที่เร็วที่สุดคือ "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "วันที่สิ้นสุด"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"วันที่ควรอยู่ในรูปแบบ YYYY-MM-DD หรือ YYYY-MM วันที่สุดท้ายคือ {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "รูปแบบวันที่ไม่ถูกต้อง"
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "รหัสลูกค้า"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "ประเภทตัวชี้วัด"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "คุณลักษณะที่จะแสดง"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "ปีที่ตีพิมพ์"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"รายการหรือช่วงปีที่ตีพิมพ์ที่ต้องการให้ตอบกลับในรูปแบบ yyyy|yyyy|yyyy-yyyy"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "รูปแบบ YOP ไม่ถูกต้อง"
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "รหัสการส่ง"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "รหัสการส่งนี้ไม่มีอยู่"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "ไม่รวมรายละเอียดรายเดือน"
+
+msgid "manager.statistics.reports"
+msgstr "รายงาน"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "กรุณาเลือกประเภทประกาศที่ถูกต้อง"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"คุณต้อง <a href=\"#announcements/announcement-settings\">เปิดใช้งานประกาศ</a>"
+
+msgid "manager.announcements.noneCreated"
+msgstr "ยังไม่มีการสร้างประกาศใด ๆ"
+
+msgid "manager.announcements.title"
+msgstr "ชื่อ"
+
+msgid "manager.announcements.type"
+msgstr "ประเภท"
+
+msgid "manager.announcementTypes.create"
+msgstr "สร้างประเภทประกาศ"
+
+msgid "manager.dois.actions.description"
+msgstr "ดำเนินการกับ {$count} รายการที่เลือก"
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "การดำเนินการแบบกลุ่ม"
+
+msgid "manager.dois.depositStatus"
+msgstr "สถานะการฝาก"
+
+msgid "manager.dois.publicationStatus"
+msgstr "สถานะการตีพิมพ์"
+
+msgid "manager.dois.status.submitted"
+msgstr "ส่งแล้ว"
+
+msgid "manager.dois.status.registered"
+msgstr "ลงทะเบียนแล้ว"
+
+msgid "manager.dois.status.error"
+msgstr "ข้อผิดพลาด"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr "มีข้อผิดพลาด"
+
+msgid "manager.dois.status.stale"
+msgstr "ต้องการการซิงค์"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "กำหนด DOI แล้ว"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr "รายการทั้งหมดที่ขาด DOI"
+
+msgid "manager.image"
+msgstr "ภาพ"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "โหลดค่าเริ่มต้นใหม่"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"ระบบนี้สามารถอนุญาตให้กรอกข้อมูลสำคัญบางประการในหลายภาษาที่เลือกได้ "
+"เพื่อใช้ฟีเจอร์นี้ เลือกภาษาเพิ่มเติมและเลือกจากตัวเลือกด้านล่าง"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"เลือกภาษาทั้งหมดที่รองรับบนไซต์ผ่านเมนูเลือกภาษาเพื่อปรากฏบนแต่ละหน้า "
+"เมนูจะปรากฏขึ้นหากมีการเลือกมากกว่าหนึ่งภาษา"
+
+msgid "manager.people.remove"
+msgstr "ลบ"
+
+msgid "manager.plugins.action"
+msgstr "การกระทำ:"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "สถาบันการศึกษา"
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "รวมรายละเอียดของผู้ปกครอง"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "รายการที่มี DOI"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "มีทั้งหมด {$count} เวอร์ชัน"
+
+msgid "doi.manager.versions.view"
+msgstr "ดูทั้งหมด"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI สำหรับทุกเวอร์ชัน"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "ประกาศลิขสิทธิ์"
+
+msgid "manager.setup.logo"
+msgstr "โลโก้"
+
+msgid "manager.setup.workflow.guidance"
+msgstr "คำแนะนำสำหรับผู้แต่ง"
+
+msgid "manager.plugins.upload"
+msgstr "อัปโหลดปลั๊กอินใหม่"
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "ปลั๊กอินที่ติดตั้งแล้วมีเวอร์ชันใหม่กว่าที่มีในแกลเลอรี"
+
+msgid "grid.action.addGenre"
+msgstr "เพิ่มองค์ประกอบ"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"ไฟล์เหล่านี้เป็นไฟล์เสริม เช่น ชุดข้อมูลและวัสดุการวิจัย "
+"และจะแสดงแยกจากไฟล์การตีพิมพ์หลัก"
+
+msgid "manager.setup.genres.key"
+msgstr "คีย์"
+
+msgid "manager.setup.genres.key.description"
+msgstr "ตัวระบุเชิงสัญลักษณ์สั้น ๆ ที่เป็นตัวเลือกสำหรับประเภทนี้"
+
+msgid "manager.workflow.title"
+msgstr "การตั้งค่ากระบวนการทำงาน"
+
+msgid "manager.distribution"
+msgstr "การกระจาย"
+
+msgid "manager.distribution.title"
+msgstr "การตั้งค่าการกระจาย"
+
+msgid "manager.reviewForms"
+msgstr "แบบฟอร์มทบทวน"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการเปิดใช้งานแบบฟอร์มทบทวนนี้? "
+"เมื่อได้รับมอบหมายให้ทบทวนแล้วคุณจะไม่สามารถยกเลิกการใช้งานได้"
+
+msgid "manager.reviewForms.completed"
+msgstr "เสร็จสมบูรณ์"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "เลือกประเภทของรายการ"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "ยืนยันการลบรายการที่เผยแพร่ในแบบฟอร์ม..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "คัดลอกไปยัง:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "สร้างรายการใหม่"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "กล่องเลือกแบบดรอปดาวน์"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "แก้ไขรายการในแบบฟอร์ม"
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "เปิดใช้งานเมตาดาทาการครอบคลุม"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุเมตาดาทาการครอบคลุมระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "ขอให้ผู้แต่งเสนอเมตาดาทาการครอบคลุมระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"บังคับให้ผู้แต่งเสนอเมตาดาทาการครอบคลุมก่อนที่จะยอมรับการส่งงานของพวกเขา"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"คำสำคัญมักจะเป็นวลีที่มีหนึ่งถึงสามคำที่ใช้เพื่อระบุหัวข้อหลักของการส่งงาน"
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "เปิดใช้งานเมตาดาทาคำสำคัญ"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุคำสำคัญระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "เปิดใช้งานเมตาดาทาภาษา"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "ไม่ขอ URL แหล่งที่มาจากผู้แต่งระหว่างการส่งงาน"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "เนื้อหาไม่ได้เข้ารหัสเป็น {$param}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr "ขนาดไฟล์ที่ให้ \"{$expected}\" และขนาดไฟล์จริง \"{$actual}\" ไม่ตรงกัน"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"การแก้ไข \"{$revisionId}\" สำหรับไฟล์การส่ง \"{$fileId}\" จะสร้างบันทึกซ้ำ"
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "ข้อผิดพลาดการนำเข้า/ส่งออก:"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "เส้นทาง"
+
+msgid "manager.navigationMenus"
+msgstr "การนำทาง"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "เนื้อหา"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "เรียนรู้เพิ่มเติมเกี่ยวกับเวลาที่รายการเมนูนี้จะแสดงหรือซ่อน"
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL ระยะไกล"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"ลิงก์นี้จะแสดงเฉพาะเมื่อคุณป้อนคำชี้แจงความเป็นส่วนตัวภายใต้ การตั้งค่า > "
+"กระบวนการทำงาน > การส่ง"
+
+msgid "grid.category.add"
+msgstr "เพิ่มหมวดหมู่"
+
+msgid "grid.category.edit"
+msgstr "แก้ไขหมวดหมู่"
+
+msgid "grid.category.name"
+msgstr "ชื่อ"
+
+msgid "grid.category.path"
+msgstr "เส้นทาง"
+
+msgid "stats.views"
+msgstr "การดู"
+
+msgid "stats.downloads"
+msgstr "การดาวน์โหลด"
+
+msgid "stats.views.timelineInterval"
+msgstr "ยอดการดูทั้งหมดตามวันที่"
+
+msgid "stats.daily"
+msgstr "รายวัน"
+
+msgid "stats.descriptionForStat"
+msgstr "คำอธิบายสำหรับ {$stat}"
+
+msgid "stats.region"
+msgstr "ภูมิภาค"
+
+msgid "stats.timeline"
+msgstr "เส้นเวลา"
+
+msgid "stats.total"
+msgstr "ทั้งหมด"
+
+msgid "stats.unique"
+msgstr "ไม่ซ้ำกัน"
+
+msgid "stats.totalWithinDateRange"
+msgstr "รวมทั้งหมดในช่วงวันที่"
+
+msgid "stats.trends"
+msgstr "แนวโน้ม"
+
+msgid "stats.unknown"
+msgstr "ไม่ทราบ"
+
+msgid "stats.userStatistics"
+msgstr "สถิติผู้ใช้"
+
+msgid "stats.name.submissionsImported"
+msgstr "การส่งที่นำเข้า"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "การส่งที่ได้รับการยอมรับ"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "การส่งที่ถูกปฏิเสธ"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"รอบการทบทวนที่ทำการตัดสินใจนี้ ถ้าการตัดสินใจเกี่ยวข้องกับขั้นตอนการทบทวน"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "หัวข้อของการสนทนา"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "ไฟล์ที่ผู้รีวิวอัปโหลด"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "หมายเลขรหัสเฉพาะของบทความที่ส่ง"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "บทคัดย่อของบทความที่ส่ง"
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "การส่งงานถูกปฏิเสธ"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "ส่งไปยังการทบทวน"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "มีการแนะนำแล้ว"
+
+msgid "mailable.reviewRemind.name"
+msgstr "เตือนการทบทวน"
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "การรับทราบการทบทวน"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "ยืนยันการรีเซ็ตรหัสผ่าน"
+
+msgid "mailable.system"
+msgstr "ระบบ"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"ระบบจะสร้างรายงานที่ติดตามรายละเอียดเกี่ยวกับการใช้งานไซต์และการส่งงานในช่วงเ"
+"วลาที่กำหนด รายงานถูกสร้างในรูปแบบ CSV ซึ่งต้องใช้แอปพลิเคชันสเปรดชีตในการดู"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "ใช้รูปแบบ YYYYMM"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "ใช้รูปแบบ YYYYMMDD"
+
+msgid "manager.affiliationAndSupport"
+msgstr "สปอนเซอร์"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.setup.dois.setup"
+msgstr "ตั้งค่า"
+
+msgid "manager.setup.dois.registration"
+msgstr "การลงทะเบียน"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "คำนำหน้า DOI"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "การฝากอัตโนมัติ"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "เปิดใช้งานการฝากอัตโนมัติ"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"การลงทะเบียนและเมตาดาต้า DOI สามารถฝากโดยอัตโนมัติกับหน่วยงานลงทะเบียนที่เลือ"
+"กได้เมื่อมีการตีพิมพ์รายการที่มี DOI การฝากอัตโนมัติจะเกิดขึ้นตามช่วงเวลาที่"
+"กำหนด และสถานะการลงทะเบียน DOI แต่ละรายการสามารถตรวจสอบได้จากหน้าการจัดการ "
+"DOI"
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"คำนำหน้า DOI ถูกกำหนดโดยหน่วยงานลงทะเบียน เช่น <a href=\"https://www.crossref"
+".org\" target=\"_new\">Crossref</a> หรือ <a href=\"https://datacite.org/\" "
+"target=\"new\">DataCite</a> ตัวอย่าง: 10.xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "คำนำหน้า DOI จำเป็นต้องมีและต้องอยู่ในรูปแบบต่อไปนี้: 10.xxxx"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "การกำหนด DOI อัตโนมัติ"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "ควรให้การส่งบทความได้รับ DOI เมื่อใด?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "เมื่อมีการตีพิมพ์"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "ไม่เคย"
+
+msgid "manager.setup.doiPrefix"
+msgstr "คำนำหน้า DOI"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "คำนำหน้า DOI จำเป็นต้องมี"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "รูปแบบ DOI"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "Suffix DOI"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "รูปแบบ Suffix DOI ที่กำหนดเอง"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+"ประเภท DOI ที่เลือกหนึ่งหรือมากกว่านั้นไม่ได้รับอนุญาตสำหรับหน่วยงานลงทะเบี"
+"ยน DOI ที่ตั้งค่าไว้"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "ค่าเริ่มต้น - สร้าง suffix ที่มีความยาวแปดอักขระโดยอัตโนมัติ"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"ไม่มี - ต้องป้อน suffix ด้วยตนเองใน <a href=\"{$doiManagementUrl}\">หน้าจั"
+"ดการ DOI</a> และจะไม่ได้สร้างอัตโนมัติ"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "รูปแบบกำหนดเอง - (ไม่แนะนำ)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "หน่วยงานลงทะเบียน"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "กรุณาเลือกหน่วยงานลงทะเบียนที่ต้องการใช้เมื่อทำการฝาก DOI"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "ไม่มีหน่วยงานลงทะเบียนเปิดใช้งาน"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI สามารถสร้างและฝากกับหน่วยงานลงทะเบียนได้โดยอัตโนมัติ เพื่อใช้ฟีเจอร์นี้ "
+"ค้นหาและติดตั้งปลั๊กอินจากหน่วยงานลงทะเบียนที่เหมาะสม"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "ไม่มี"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "การสร้างเวอร์ชัน DOI"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "คุณไม่สามารถเรียกใช้การดำเนินการนี้ได้หาก DOI ยังไม่ได้เปิดใช้งาน"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI มีอักขระที่ไม่ถูกต้อง"
+
+msgid "manager.setup.publishing"
+msgstr "รายละเอียดการตีพิมพ์"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"รายละเอียดเหล่านี้อาจรวมอยู่ในข้อมูลเมตาที่จัดให้กับองค์กรที่เก็บถาวรจากบุคคล"
+"ที่สาม"
+
+msgid "manager.setup.additionalContent"
+msgstr "เนื้อหาเพิ่มเติม"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "สิ่งที่ป้อนที่นี่จะแสดงบนหน้าแรกของคุณ"
+
+msgid "manager.setup.advanced"
+msgstr "ขั้นสูง"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "แนวทางสำหรับผู้แต่ง"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "ปิดการส่งงาน"
+
+msgid "manager.setup.checklist"
+msgstr "รายการตรวจสอบ"
+
+msgid "manager.setup.competingInterests"
+msgstr "ผลประโยชน์ที่ขัดแย้งกัน"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "เกิดข้อผิดพลาดเมื่อทำการลบรายการนี้"
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "ภาพหน้าแรก"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "อัปโหลดภาพที่ต้องการแสดงเด่นชัดบนหน้าแรก"
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"รูปแบบภาพหน้าแรกไม่ถูกต้องหรือการอัปโหลดล้มเหลว รูปแบบที่ยอมรับคือ .gif, ."
+"jpg, หรือ .png"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"รูปแบบภาพหัวเรื่องหน้าแรกไม่ถูกต้องหรือการอัปโหลดล้มเหลว รูปแบบที่ยอมรับคือ ."
+"gif, .jpg, หรือ .png"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "คำอธิบาย"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "แถบด้านข้าง"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "ไม่พบบล็อก {$name}. กรุณาตรวจสอบว่าปลั๊กอินถูกติดตั้งและเปิดใช้งานแล้ว"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "การบันทึกและการตรวจสอบ"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "ไม่พบไฟล์ที่คุณอัปโหลด กรุณาลองอัปโหลดอีกครั้ง"
+
+msgid "manager.setup.notifications"
+msgstr "การแจ้งเตือนการส่งงานของผู้แต่ง"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "ส่งสำเนาไปยังที่อยู่อีเมลนี้"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "แจ้งผู้แต่งทั้งหมด"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"ใครควรได้รับการแจ้งเตือนทางอีเมลเมื่อมีการบันทึกการตัดสินใจของบรรณาธิการ?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "ส่งอีเมลแจ้งเตือนให้กับผู้แต่งทั้งหมดของการส่งงาน"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"ส่งอีเมลเฉพาะให้กับผู้แต่งที่ได้รับการมอบหมายในขั้นตอนการส่งงาน "
+"โดยปกติคือผู้แต่งที่ส่งงาน"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "การแจ้งเตือน"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "แจ้งผู้ติดต่อหลัก"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "ใช่, ส่งสำเนาไปยัง {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "ไม่"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "แจ้งใครก็ได้"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"สำเนาอีเมลยืนยันการส่งจะถูกส่งไปยังที่อยู่อีเมลที่ป้อนที่นี่ "
+"แยกที่อยู่อีเมลหลายรายการด้วยเครื่องหมายจุลภาค ตัวอย่าง: one@example."
+"com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "ที่อยู่อีเมลหนึ่งหรือมากกว่าที่ป้อนไม่ถูกต้อง"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"ผู้แต่งจะได้รับอีเมลยืนยันการส่งงานโดยอัตโนมัติ "
+"คุณสามารถให้ส่งสำเนาอีเมลนี้ไปยังที่อยู่ดังต่อไปนี้:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "แจ้งผู้ใช้"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "เลือกผู้ใช้ที่ควรได้รับการแจ้งเตือนทางอีเมลของคุณ"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "ส่งสำเนาอีเมลนี้ให้ฉันที่ {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "ส่งอีเมล"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"คุณกำลังจะส่งอีเมลถึงผู้ใช้จำนวน {$total} คน "
+"คุณแน่ใจว่าต้องการส่งอีเมลนี้หรือไม่?"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "อีเมลถูกจัดคิวเรียบร้อยแล้วเพื่อส่งทันทีที่ทำได้"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "ส่งอีเมลอีกฉบับ"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "นโยบายการเข้าถึงแบบเปิด"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"หากให้การเข้าถึงฟรีทันทีสำหรับเนื้อหาที่ตีพิมพ์ทั้งหมด "
+"คุณอาจป้อนคำอธิบายนโยบายการเข้าถึงแบบเปิดของคุณได้"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"รูปแบบภาพโลโก้ส่วนหัวของหน้าไม่ถูกต้องหรือการอัปโหลดล้มเหลว รูปแบบที่ยอมรับคื"
+"อ .gif, .jpg, หรือ .png"
+
+msgid "manager.setup.pageFooter"
+msgstr "ส่วนท้ายของหน้า"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"ป้อนภาพ ข้อความ หรือโค้ด HTML "
+"ที่คุณต้องการให้ปรากฏที่ด้านล่างของเว็บไซต์ของคุณ"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"ระบุนโยบายและกระบวนการทบทวนของผู้เชี่ยวชาญสำหรับผู้อ่านและผู้แต่ง คำอธิบายนี้"
+"มักจะรวมถึงจำนวนผู้ทบทวนที่ใช้ในการทบทวนงานส่งเกณฑ์ที่ใช้ในการพิจารณาการส่"
+"งงาน และเวลาที่คาดว่าจะใช้ในการทบทวน รวมถึงหลักการในการเลือกผู้ทบทวน"
+
+msgid "manager.setup.principalContact"
+msgstr "ผู้ติดต่อหลัก"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"ป้อนรายละเอียดการติดต่อ โดยทั่วไปสำหรับการติดต่อในบทบาทบรรณาธิการหลัก "
+"บรรณาธิการผู้จัดการ หรือตำแหน่งเจ้าหน้าที่ "
+"ซึ่งสามารถแสดงในเว็บไซต์ที่เข้าถึงได้สาธารณะของคุณ"
+
+msgid "manager.setup.privacyStatement"
+msgstr "นโยบายความเป็นส่วนตัว"
+
+msgid "manager.setup.dateTime"
+msgstr "วันที่และเวลา"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "รูปแบบวันที่และเวลา"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"เลือกฟอร์แมตที่ต้องการสำหรับวันที่และเวลา สามารถป้อนรูปแบบกำหนดเองโดยใช้ <a "
+"href=\"https://www.php.net/manual/en/function.strftime.php#refsect1-function."
+"strftime-parameters\">ตัวอักขระฟอร์แมตพิเศษ</a>"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "วันที่"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "วันที่ (ย่อ)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "เวลา"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "วันที่และเวลา"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "วันที่และเวลา (ย่อ)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "กำหนดเอง"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"คำชี้แจงนี้จะแสดงในระหว่างการลงทะเบียนผู้ใช้ การส่งงานของผู้แต่ง "
+"และในหน้าความเป็นส่วนตัวที่มีให้สำหรับสาธารณะ ในบางพื้นที่ทางกฎหมาย "
+"คุณต้องเปิดเผยว่าคุณจัดการข้อมูลผู้ใช้อย่างไรในนโยบายความเป็นส่วนตัวนี้"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "กำหนดเวลาตอบกลับมาตรฐาน"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "กำหนดเวลาสำหรับการทบทวนให้เสร็จสมบูรณ์"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "จำนวนสัปดาห์ในการยอมรับหรือปฏิเสธคำขอทบทวน"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "จำนวนสัปดาห์ที่อนุญาตให้ทำการทบทวนให้เสร็จสมบูรณ์"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "ไม่ต้องเตือน"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "ค่าเริ่มต้นสามารถแก้ไขได้ในแต่ละการทบทวนระหว่างกระบวนการบรรณาธิการ"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "การเตือนการตอบรับ"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"ส่งอีเมลเตือนหากผู้รีวิวไม่ได้ตอบกลับคำขอทบทวนภายในจำนวนวันหลังจากวันครบกำหนด"
+"การตอบกลับ"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "การเตือนการทบทวน"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"ส่งอีเมลเตือนหากผู้รีวิวไม่ได้ส่งคำแนะนำภายในจำนวนวันหลังจากวันครบกำหนดการทบท"
+"วน"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "โหมดการทบทวนเริ่มต้น"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"แสดงลิงก์ไปยัง <button type=\"button\">วิธีทำให้ไฟล์ทั้งหมดไม่ระบุตัวตน</"
+"button> ระหว่างการอัปโหลด"
+
+msgid "manager.setup.sponsors.note"
+msgstr "คำอธิบายความสัมพันธ์และนโยบายของผู้สนับสนุน"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"ตัวอย่าง: สมาคมวิชาการ, คณะมหาวิทยาลัย, สหกรณ์ เป็นต้น "
+"ผู้สนับสนุนจะแสดงให้สาธารณชนทราบ"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"นักพัฒนาเว็บที่มีประสบการณ์สามารถอัปโหลดไฟล์ CSS "
+"เพื่อปรับแต่งรูปลักษณ์ของเว็บไซต์เพิ่มเติมได้"
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "ผู้ติดต่อสนับสนุนทางเทคนิค"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"บุคคลที่สามารถช่วยเหลือบรรณาธิการ, ผู้แต่ง และผู้รีวิวเกี่ยวกับปัญหาการส่ง, "
+"การแก้ไข, การทบทวน หรือการตีพิมพ์เนื้อหา"
+
+msgid "manager.setup.theme"
+msgstr "ธีม"
+
+msgid "manager.setup.institutions"
+msgstr "สถาบัน"
+
+msgid "manager.setup.theme.description"
+msgstr "ธีมใหม่สามารถติดตั้งได้จากแท็บปลั๊กอินที่ด้านบนของหน้านี้"
+
+msgid "manager.setup.theme.notFound"
+msgstr "ธีมที่คุณเลือกไม่ได้ติดตั้งหรือเปิดใช้งาน"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นก่อนที่พวกเขาจะเริ่มการส่ง "
+"ให้คำอธิบายสั้น ๆ ของกระบวนการส่งเพื่อให้ผู้แต่งรู้ว่าจะคาดหวังอะไร"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นระหว่างขั้นตอนการอัปโหลดไฟล์ "
+"ให้คำอธิบายสั้น ๆ ของไฟล์ที่คาดว่าผู้แต่งจะต้องส่ง"
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นระหว่างขั้นตอนการเพิ่มผู้ร่วมแต่ง "
+"ให้คำอธิบายสั้น ๆ ว่าผู้แต่งควรให้ข้อมูลอะไรบ้างเกี่ยวกับตนเอง, ผู้ร่วมแต่ง "
+"และผู้มีส่วนร่วมอื่น ๆ"
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นระหว่างขั้นตอนการให้รายละเอียด "
+"เมื่อถูกขอให้ระบุชื่อเรื่อง, บทคัดย่อ และข้อมูลสำคัญอื่น ๆ เกี่ยวกับการส่ง"
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นระหว่างขั้นตอนสำหรับบรรณาธิการ "
+"เมื่อถูกขอให้ระบุเมทาดาทา เช่น คีย์เวิร์ด, ข้อความถึงบรรณาธิการ "
+"และรายละเอียดอื่น ๆ เพื่อช่วยในการทบทวนบรรณาธิการ"
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นในขั้นตอนสุดท้ายของวิซาร์ดการส่ง "
+"เมื่อถูกขอให้ตรวจสอบข้อมูลทั้งหมดที่ได้ให้ไว้ก่อนที่จะส่งงาน"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "รายการตรวจสอบการเตรียมการส่งงาน"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"เนื้อหาด้านล่างนี้จะแสดงให้ผู้แต่งเห็นเมื่อพวกเขาเริ่มการส่งงาน ผู้แต่งจะถูกข"
+"อให้ยืนยันว่าการส่งงานของพวกเขาปฏิบัติตามข้อกำหนดที่ระบุไว้ที่นี่ก่อนที่จะเริ"
+"่มการส่ง"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "ปิดการใช้งานส่วนนี้และไม่อนุญาตให้มีการส่งงานใหม่"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการปิดการใช้งานส่วนนี้?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการเปิดการใช้งานส่วนนี้?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "การมอบหมายบรรณาธิการ"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"เลือกผู้ใช้งานบรรณาธิการที่จะถูกมอบหมายโดยอัตโนมัติให้กับการส่งงานใหม่ทั้งหมด"
+"ในส่วนนี้"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "มอบหมาย {$name} เป็น {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"เลือกผู้ใช้งานบรรณาธิการที่จะถูกมอบหมายโดยอัตโนมัติให้กับการส่งงานใหม่ทั้งหมด"
+"ในหมวดหมู่นี้"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "ตัวเลือกการเข้าถึงไซต์"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} ใหม่)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "ผู้ใช้ที่ลงทะเบียนแล้ว"
+
+msgid "manager.users"
+msgstr "ผู้ใช้"
+
+msgid "plugins.categories.metadata"
+msgstr "ปลั๊กอินเมทาดาทา"
+
+msgid "plugins.categories.metadata.description"
+msgstr "ปลั๊กอินเมทาดาทาใช้เพื่อบังคับใช้มาตรฐานเมทาดาทาเพิ่มเติม"
+
+msgid "plugins.categories.auth"
+msgstr "ปลั๊กอินการอนุญาต"
+
+msgid "plugins.categories.blocks"
+msgstr "ปลั๊กอินบล็อก"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"ปลั๊กอินบล็อกเป็นส่วนประกอบ UI ที่สามารถเสียบได้ เช่น เครื่องมือไซด์บาร์ต่าง "
+"ๆ"
+
+msgid "plugins.categories.gateways.description"
+msgstr "ปลั๊กอินเกตเวย์ให้ข้อมูลสดแก่ระบบภายนอก"
+
+msgid "plugins.categories.gateways"
+msgstr "ปลั๊กอินเกตเวย์"
+
+msgid "plugins.categories.generic"
+msgstr "ปลั๊กอินทั่วไป"
+
+msgid "plugins.categories.importexport.description"
+msgstr "ปลั๊กอินนำเข้า/ส่งออกใช้เพื่อถ่ายโอนเนื้อหาไปยังและมาจากระบบอื่น"
+
+msgid "plugins.categories.importexport"
+msgstr "ปลั๊กอินนำเข้า/ส่งออก"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"ปลั๊กอินวิธีการชำระเงินใช้เพื่อสนับสนุนวิธีต่าง ๆ "
+"ในการดำเนินการชำระเงินออนไลน์"
+
+msgid "plugins.categories.paymethod"
+msgstr "ปลั๊กอินการชำระเงิน"
+
+msgid "plugins.categories.reports.description"
+msgstr "ปลั๊กอินรายงานใช้ในการสร้างรายงานและการดึงข้อมูลประเภทต่าง ๆ"
+
+msgid "plugins.categories.reports"
+msgstr "ปลั๊กอินรายงาน"
+
+msgid "plugins.categories.themes.description"
+msgstr "ปลั๊กอินธีมใช้เพื่อเปลี่ยนรูปลักษณ์ของระบบ"
+
+msgid "plugins.categories.themes"
+msgstr "ปลั๊กอินธีม"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "ปลั๊กอินรูปแบบเมทาดาทา OAI"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "ปลั๊กอินรูปแบบเหล่านี้ใช้เมทาดาทาในการสื่อสาร OAI"
+
+msgid "plugins.categories.pubIds"
+msgstr "ปลั๊กอินตัวระบุสาธารณะ"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "ปลั๊กอินเหล่านี้ใช้เพื่อสนับสนุนตัวระบุสาธารณะ"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"ไม่สามารถคัดลอกปลั๊กอินได้สำเร็จ อาจเกิดจากปัญหาการอนุญาต "
+"กรุณาตรวจสอบให้แน่ใจว่าเว็บเซิร์ฟเวอร์สามารถเขียนไปยังไดเรกทอรีปลั๊กอิน "
+"(รวมถึงไดเรกทอรีย่อย) แต่อย่าลืมรักษาความปลอดภัยอีกครั้งในภายหลัง"
+
+msgid "manager.plugins.delete"
+msgstr "ลบปลั๊กอิน"
+
+msgid "manager.plugins.installConfirm"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการติดตั้งปลั๊กอินนี้?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการอัปเกรดปลั๊กอินนี้?"
+
+msgid "grid.action.installPlugin"
+msgstr "ติดตั้งหรืออัปเกรดปลั๊กอินนี้"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบปลั๊กอินนี้ออกจากระบบ?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "การคลิกลบจะเป็นการลบปลั๊กอินออกจากระบบไฟล์ของเซิร์ฟเวอร์"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"ไม่สามารถลบปลั๊กอิน \"{$pluginName}\" ออกจากระบบไฟล์ได้ อาจเกิดจากปัญหาการอนุ"
+"ญาต กรุณาตรวจสอบให้แน่ใจว่าเว็บเซิร์ฟเวอร์สามารถเขียนไปยังไดเรกทอรีปลั๊กอิน "
+"(รวมถึงไดเรกทอรีย่อย) แต่อย่าลืมรักษาความปลอดภัยอีกครั้งในภายหลัง"
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "ปลั๊กอิน \"{$pluginName}\" ถูกลบสำเร็จ"
+
+msgid "manager.plugins.description"
+msgstr ""
+"หน้านี้ช่วยให้ผู้จัดการสามารถตรวจสอบและกำหนดค่าปลั๊กอินที่ติดตั้งอยู่ในปัจจุบ"
+"ันได้ ปลั๊กอินถูกแบ่งออกเป็นหมวดหมู่ตามฟังก์ชัน หมวดหมู่จะแสดงไว้ด้านล่าง "
+"และในแต่ละหมวดหมู่มีชุดปลั๊กอินปัจจุบัน"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "ปลั๊กอิน \"{$pluginName}\" ไม่มีอยู่"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "กรุณาเลือกไฟล์ก่อน"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"ฟอร์มนี้อนุญาตให้คุณอัปโหลดและติดตั้งปลั๊กอินใหม่ "
+"โปรดตรวจสอบให้แน่ใจว่าปลั๊กอินถูกบีบอัดเป็นไฟล์ .tar.gz"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "กรุณาตรวจสอบให้แน่ใจว่ามีการเลือกไฟล์เพื่ออัปโหลด"
+
+msgid "manager.plugins.installed"
+msgstr "ปลั๊กอินที่ติดตั้งแล้ว"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "แกลเลอรีปลั๊กอิน"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "ภาพรวม"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "การติดตั้ง"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "เวอร์ชันล่าสุดที่เข้ากันได้"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "เป็นทางการ"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "ปลั๊กอินนี้ถูกพัฒนาและดูแลโดยทีม Public Knowledge Project"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "ผ่านการตรวจสอบ"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "ปลั๊กอินนี้ได้รับการตรวจสอบและอนุมัติโดยทีม Public Knowledge Project"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "พันธมิตร"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "ปลั๊กอินนี้ถูกจัดทำโดยพันธมิตรพัฒนาของเรา"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "ผู้ดูแล"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} เปิดตัวเมื่อ {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "หน้าแรก"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "สรุป"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "สถานะ"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "ปลั๊กอินนี้ยังไม่ได้รับการติดตั้ง"
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "ขณะนี้ไม่มีเวอร์ชันที่เข้ากันได้ของปลั๊กอินนี้ให้ใช้งาน"
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "ปลั๊กอินที่ติดตั้งแล้วสามารถอัปเดตเป็นเวอร์ชันใหม่กว่าได้"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "ปลั๊กอินที่ติดตั้งแล้วเป็นเวอร์ชันล่าสุด"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "ใหม่กว่าที่มีอยู่"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "สามารถอัปเกรดได้"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "ล่าสุด"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "ไม่มีเวอร์ชันที่ใช้งานได้"
+
+msgid "manager.plugins.installFailed"
+msgstr "การติดตั้งล้มเหลว {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "ติดตั้งเวอร์ชัน {$versionNumber} สำเร็จ"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "ไฟล์ปลั๊กอินที่อัปโหลดไม่ประกอบด้วยโฟลเดอร์ที่สอดคล้องกับชื่อปลั๊กอิน"
+
+msgid "manager.plugins.wrongCategory"
+msgstr "ปลั๊กอินที่อัปโหลดไม่เข้ากับหมวดหมู่ของปลั๊กอินที่อัปเกรด"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"ไฟล์ version.xml "
+"ในปลั๊กอินที่อัปโหลดประกอบด้วยชื่อปลั๊กอินที่ไม่ตรงกับปลั๊กอินที่อัปเกรด"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "ปลั๊กอินนี้ไม่มีอยู่ โปรดติดตั้งแทน"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "ปลั๊กอินมีอยู่แล้ว แต่เป็นเวอร์ชันใหม่กว่าที่ติดตั้ง โปรดอัปเกรดแทน"
+
+msgid "manager.plugins.settings"
+msgstr "การตั้งค่า"
+
+msgid "manager.plugins.upgrade"
+msgstr "อัปเกรดปลั๊กอิน"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"ฟอร์มนี้อนุญาตให้คุณอัปเกรดปลั๊กอิน "
+"โปรดตรวจสอบให้แน่ใจว่าปลั๊กอินถูกบีบอัดเป็นไฟล์ .tar.gz"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "การอัปเกรดล้มเหลว {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "อัปเกรดสำเร็จเป็นเวอร์ชัน {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "เกิดข้อผิดพลาดในการอัปโหลดไฟล์"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "เลือกไฟล์ปลั๊กอิน"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "ไฟล์ version.xml ในโฟลเดอร์ปลั๊กอินประกอบด้วยข้อมูลที่ไม่ถูกต้อง"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "ไม่พบไฟล์ version.xml ในโฟลเดอร์ปลั๊กอิน"
+
+msgid "notification.localeEnabled"
+msgstr "เปิดใช้งานภาษาแล้ว"
+
+msgid "notification.localeDisabled"
+msgstr "ปิดใช้งานภาษาแล้ว"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} ถูกกำหนดเป็นภาษาหลัก"
+
+msgid "notification.localeInstalled"
+msgstr "ภาษา(ทั้งหมด) ที่เลือกติดตั้งและเปิดใช้งานแล้ว"
+
+msgid "notification.localeUninstalled"
+msgstr "ถอนการติดตั้งภาษา {$locale} แล้ว"
+
+msgid "notification.localeReloaded"
+msgstr "โหลดภาษาของ {$locale} สำหรับ {$contextName} ใหม่แล้ว"
+
+msgid "notification.localeSettingsSaved"
+msgstr "บันทึกการตั้งค่าภาษาแล้ว"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"ไม่สามารถบันทึกการตั้งค่าภาษาได้ "
+"อย่างน้อยหนึ่งภาษาต้องเปิดใช้งานสำหรับแต่ละตัวเลือก"
+
+msgid "notification.editedUser"
+msgstr "แก้ไขผู้ใช้แล้ว"
+
+msgid "manager.distribution.license"
+msgstr "สัญญาอนุญาต"
+
+msgid "manager.distribution.license.other"
+msgstr "URL ของสัญญาอนุญาตอื่น ๆ"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "เงื่อนไขสัญญาอนุญาต"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "ป้อนเงื่อนไขการอนุญาตที่คุณต้องการแสดงพร้อมกับผลงานที่เผยแพร่"
+
+msgid "manager.distribution.customHeaders"
+msgstr "แท็กที่กำหนดเอง"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"เพิ่มแท็ก HTML ที่กำหนดเอง หรือที่เรียกว่า meta tags "
+"ที่คุณต้องการแทรกในส่วนหัวของทุกหน้า "
+"ปรึกษาที่ปรึกษาด้านเทคนิคก่อนเพิ่มแท็กที่นี่"
+
+msgid "manager.paymentMethod"
+msgstr "การชำระเงิน"
+
+msgid "manager.paymentMethod.title"
+msgstr "วิธีการชำระเงิน"
+
+msgid "manager.paymentMethod.none"
+msgstr "ไม่มีการเลือกวิธีการชำระเงิน"
+
+msgid "manager.paymentMethod.method"
+msgstr "วิธีการชำระเงิน"
+
+msgid "manager.paymentMethod.currency"
+msgstr "สกุลเงิน"
+
+msgid "settings.roles.roleOptions"
+msgstr "ตัวเลือกบทบาท"
+
+msgid "settings.roles.showTitles"
+msgstr "แสดงชื่อตำแหน่งในรายการผู้ร่วมแต่ง"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "อนุญาตการลงทะเบียนด้วยตนเองของผู้ใช้"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"บทบาทนี้อนุญาตให้แนะนำการตัดสินใจรีวิวเท่านั้น "
+"และจะต้องมีบรรณาธิการที่ได้รับอนุญาตในการบันทึกการตัดสินใจสุดท้าย"
+
+msgid "settings.roles.roleName"
+msgstr "ชื่อบทบาท"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "ตัวย่อ"
+
+msgid "settings.roles.assignedStages"
+msgstr "ขั้นตอนที่มอบหมาย"
+
+msgid "settings.roles.stages"
+msgstr "ขั้นตอน"
+
+msgid "settings.roles.roleDetails"
+msgstr "รายละเอียดบทบาท"
+
+msgid "settings.roles.from"
+msgstr "ระดับการอนุญาต"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"คุณกำลังจะลบบทบาทนี้ออกจากบริบทนี้ การดำเนินการนี้จะลบการตั้งค่าที่เกี่ยวข้อง"
+"และการมอบหมายผู้ใช้ทั้งหมดไปยังบทบาทนี้ คุณต้องการดำเนินการต่อหรือไม่?"
+
+msgid "settings.roles.nameRequired"
+msgstr "คุณต้องกำหนดชื่อบทบาท"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "คุณต้องกำหนดตัวย่อของบทบาท"
+
+msgid "settings.roles.uniqueName"
+msgstr "คุณต้องกำหนดชื่อบทบาทที่ไม่ซ้ำ"
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "คุณต้องกำหนดตัวย่อบทบาทที่ไม่ซ้ำ"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "คุณต้องกำหนดระดับสิทธิ์ของบทบาท"
+
+msgid "settings.roles.stageIdRequired"
+msgstr "คุณต้องกำหนดขั้นตอนที่มอบหมาย"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "อนุญาตการแก้ไขเมตาดาทาการส่ง"
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "ต้องมีไฟล์ห้องสมุด โปรดตรวจสอบให้แน่ใจว่าคุณได้เลือกและอัปโหลดไฟล์แล้ว"
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "ต้องระบุชื่อไฟล์ห้องสมุด"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "ต้องระบุประเภทไฟล์ห้องสมุด"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "สัญญา"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "การตลาด"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "การอนุญาต"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "รายงาน"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "อื่น ๆ"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>ไฟล์ห้องสมุดนี้สามารถเข้าถึงได้หากเปิดใช้งาน \"การเข้าถึงสาธารณะ\" ที่: "
+"<blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "เลือกไฟล์ห้องสมุดที่จะแนบ"
+
+msgid "grid.action.editGenre"
+msgstr "แก้ไของค์ประกอบนี้"
+
+msgid "grid.action.deleteGenre"
+msgstr "ลบองค์ประกอบนี้"
+
+msgid "grid.action.restoreGenres"
+msgstr "คืนค่าองค์ประกอบเป็นการตั้งค่าเริ่มต้น"
+
+msgid "manager.setup.genres.label"
+msgstr "ประเภทไฟล์"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"ไฟล์เหล่านี้เป็นไฟล์ที่ขึ้นอยู่ เช่น ภาพที่แสดงโดยไฟล์ HTML "
+"และจะไม่ถูกแสดงร่วมกับเนื้อหาที่เผยแพร่"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "คีย์นี้มีอยู่แล้ว"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"คีย์สามารถประกอบด้วยตัวอักษรและตัวเลข ขีดล่าง และขีดกลางเท่านั้น "
+"และต้องเริ่มต้นและลงท้ายด้วยตัวอักษรหรือตัวเลข"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "เมตาดาทาของไฟล์"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"จำนวนวันที่ใช้สำหรับการส่งส่วนใหญ่ในการได้รับการตัดสินจากบรรณาธิการครั้งแรก "
+"เช่น การปฏิเสธก่อนรีวิวหรือการส่งเพื่อรีวิว ตัวเลขนี้แสดงให้เห็นว่า 80% "
+"ของการส่งได้รับการตัดสินภายในจำนวนวันที่กำหนด"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"รวมถึงการส่งที่ไม่ได้นับรวมในยอดรวมอื่นๆ เช่น "
+"การส่งที่ยังคงดำเนินการอยู่และการส่งที่ดูเหมือนว่าจะถูกนำเข้า"
+
+msgid "stats.editorialActivity"
+msgstr "กิจกรรมบรรณาธิการ"
+
+msgid "stats.file.type.primaryFile"
+msgstr "ไฟล์หลัก"
+
+msgid "stats.file.type.suppFile"
+msgstr "ไฟล์เสริม"
+
+msgid "stats.fileViews"
+msgstr "การดูไฟล์"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "รายเดือน"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "ข้อมูลตำแหน่งทางภูมิศาสตร์โดย <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "เกี่ยวกับการระบุตำแหน่งทางภูมิศาสตร์"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "จาก {$startDate} ถึง {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "ทั้งหมด {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "ดาวน์โหลดไฟล์"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "จำนวนการดาวน์โหลดสำหรับแต่ละไฟล์"
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "ดาวน์โหลดภูมิศาสตร์"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "จำนวนการดูและการดาวน์โหลดสำหรับแต่ละเมือง ภูมิภาค หรือประเทศ"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "ค้นหาตามชื่อเรื่อง ผู้แต่ง และ ID"
+
+msgid "stats.submissionsActive"
+msgstr "การส่งที่กำลังดำเนินการ"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "จำนวน {$type} สำหรับแต่ละ {$interval}"
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "ดาวน์โหลดเส้นเวลา"
+
+msgid "stats.timelineInterval"
+msgstr "ช่วงเวลาเส้นเวลา"
+
+msgid "stats.timelineType"
+msgstr "ประเภทเส้นเวลา"
+
+msgid "stats.name.submissionsReceived"
+msgstr "การส่งที่ได้รับ"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "การส่งอื่น ๆ"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "การส่งที่กำลังดำเนินการ"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "การส่งที่ถูกปฏิเสธ (ปฏิเสธก่อนรีวิว)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "การส่งที่ถูกปฏิเสธ (หลังจากรีวิว)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "การส่งที่ได้รับการตีพิมพ์"
+
+msgid "stats.name.daysToDecision"
+msgstr "จำนวนวันถึงการตัดสินบรรณาธิการครั้งแรก"
+
+msgid "stats.name.daysToAccept"
+msgstr "จำนวนวันถึงการยอมรับ"
+
+msgid "stats.name.daysToReject"
+msgstr "จำนวนวันถึงการปฏิเสธ"
+
+msgid "stats.name.acceptanceRate"
+msgstr "อัตราการยอมรับ"
+
+msgid "stats.name.declineRate"
+msgstr "อัตราการปฏิเสธ"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "อัตราการปฏิเสธก่อนรีวิว"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "อัตราการปฏิเสธหลังการรีวิว"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "กระบวนการล้มเหลว กรุณาตรวจสอบข้อผิดพลาด/คำเตือนด้านล่าง"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "ผลลัพธ์การส่งออกการส่ง"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "ดาวน์โหลดไฟล์ที่ส่งออก"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "การส่งออกเสร็จสมบูรณ์"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "ดาวน์โหลดไฟล์ที่ส่งออกได้จากปุ่มด้านล่าง"
+
+msgid "plugins.importexport.native.common.any"
+msgstr "รายการทั่วไป"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"การกำหนดค่าตัวกรองไม่ถูกต้อง [{$filterName}]: พบ {$filterCount} ครั้ง "
+"ควรมีเพียงครั้งเดียว"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ข้อผิดพลาด:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "เส้นทางวารสารที่ระบุ, \"{$contextPath}\", ไม่มีอยู่"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "กระบวนการล้มเหลวในการแยกวิเคราะห์ผู้แต่ง"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "กระบวนการล้มเหลวในการแยกวิเคราะห์การตีพิมพ์"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"ความคิดเห็นทั้งหมดจากการรีวิวที่เสร็จสิ้น "
+"ชื่อผู้รีวิวจะถูกซ่อนเพื่อความไม่เปิดเผยตัว"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "ชื่อและสังกัดของผู้แต่งบทความ"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "URL สำหรับหน้าที่ผู้ใช้สามารถกู้คืนรหัสผ่านที่สูญหายได้"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL เพื่อดูการส่งงานทั้งหมดที่ได้รับมอบหมายให้ผู้ใช้"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"เลือกประเภทเมตาดาทาที่ไฟล์เหล่านี้จะได้รับ "
+"ควรเลือกเอกสารสำหรับไฟล์สิ่งพิมพ์หลัก เช่น PDF ที่ดาวน์โหลดได้ "
+"เพื่อให้ไฟล์เหล่านี้สืบทอดเมตาดาทาจากสิ่งพิมพ์ หากไม่เป็นเช่นนั้น "
+"ให้เลือกเนื้อหาเสริมสำหรับไฟล์ประเภทอื่น ๆ "
+"ส่วนงานศิลปะเหมาะสำหรับไฟล์ที่ต้องการเครดิต, คำบรรยาย, "
+"และเมตาดาทาด้านสิทธิ์แยกต่างหาก"
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "จำเป็นต้องใช้ในการส่งงาน"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"ควรมีไฟล์เหล่านี้อย่างน้อยหนึ่งไฟล์ในการส่งงานใหม่ทุกครั้งหรือไม่? "
+"หากคุณเลือกใช่ "
+"ผู้แต่งจะไม่สามารถส่งงานได้จนกว่าจะอัปโหลดไฟล์อย่างน้อยหนึ่งไฟล์ของประเภทนี้"
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr "ใช่, บังคับให้ผู้แต่งอัปโหลดไฟล์หนึ่งหรือมากกว่านี้"
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "ไม่, อนุญาตให้ส่งงานใหม่โดยไม่มีไฟล์เหล่านี้"
+
+msgid "manager.settings.wizard"
+msgstr "ตัวช่วยการตั้งค่า"
+
+msgid "manager.users.roleRequired"
+msgstr "คุณจำเป็นต้องเลือกอย่างน้อยหนึ่งบทบาทเพื่อเชื่อมโยงกับผู้ใช้นี้"
+
+msgid "manager.website"
+msgstr "เว็บไซต์"
+
+msgid "manager.website.title"
+msgstr "การตั้งค่าเว็บไซต์"
+
+msgid "manager.workflow"
+msgstr "กระบวนการทำงาน"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการปิดใช้งานแบบฟอร์มทบทวนนี้? "
+"จะไม่สามารถใช้งานได้สำหรับการมอบหมายการทบทวนใหม่"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการสร้างสำเนาของแบบฟอร์มทบทวนนี้?"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบแบบฟอร์มทบทวนนี้?"
+
+msgid "manager.reviewForms.create"
+msgstr "สร้างแบบฟอร์มทบทวน"
+
+msgid "manager.reviewForms.description"
+msgstr "คำอธิบายและคำแนะนำ"
+
+msgid "manager.reviewForms.edit"
+msgstr "แบบฟอร์มทบทวน"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "จำเป็นต้องมีชื่อสำหรับแบบฟอร์มทบทวน"
+
+msgid "manager.reviewForms.inReview"
+msgstr "อยู่ในระหว่างการทบทวน"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL สำหรับผู้ใช้เพื่อดูและแก้ไขโปรไฟล์ของตนเอง"
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "ชื่อการตัดสินใจที่ถูกทำขึ้น"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "คำอธิบายของการตัดสินใจที่ถูกทำขึ้น"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "ขั้นตอนของกระบวนการบรรณาธิการที่ทำการตัดสินใจนี้"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "เนื้อหาของการสนทนาใหม่หรือการตอบกลับ"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "รายการของบทความที่ยังมีงานค้าง"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "จำนวนการส่งงานที่ได้รับมอบหมายให้บรรณาธิการนี้"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "ชื่อเต็มของผู้รับหรือผู้รับทั้งหมด"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "ชื่อผู้ใช้ของผู้รับหรือผู้รับทั้งหมด"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "วันที่ที่ควรทำการทบทวนเสร็จ"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "วันที่ที่ผู้รีวิวควรยอมรับหรือปฏิเสธการมอบหมาย"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "URL สำหรับการมอบหมายการทบทวน"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "การตัดสินใจที่แนะนำ เช่น ยอมรับบทความ"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "วันที่ที่การทบทวนนี้ได้รับการมอบหมาย"
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+"ประเภทของการทบทวน เช่น ทบทวนแบบไม่เปิดเผย, แบบไม่เปิดเผยสองฝ่าย หรือเปิดเผย"
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr "คำแนะนำของผู้รีวิว เช่น ยอมรับการส่งงานหรือปฏิเสธ"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "รอบการทบทวน เช่น รอบที่ 1 หรือรอบที่ 2"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "ชื่อของผู้รีวิว"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"วารสารนี้ใช้การทบทวนแบบไม่เปิดเผยตัวสองฝ่าย "
+"ผู้รีวิวจะไม่เห็นข้อมูลที่ระบุตัวตนของคุณหรือผู้ร่วมแต่งของคุณ เช่นเดียวกัน "
+"คุณจะไม่รู้ว่าใครเป็นผู้รีวิวบทความของคุณ "
+"และคุณจะไม่ได้รับการติดต่อโดยตรงจากผู้รีวิว"
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"วารสารนี้ใช้การทบทวนแบบไม่เปิดเผยตัวผู้รีวิว "
+"ชื่อของคุณและผู้ร่วมแต่งจะสามารถมองเห็นได้โดยผู้รีวิว อย่างไรก็ตาม "
+"ตัวตนของผู้รีวิวจะยังคงเป็นความลับ"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"วารสารนี้ใช้การทบทวนแบบเปิดเผย ผู้รีวิวจะเห็นชื่อและสังกัดของคุณ "
+"รวมถึงชื่อและสังกัดของผู้ร่วมแต่ง เช่นเดียวกัน "
+"คุณจะเห็นชื่อและสังกัดของผู้รีวิว"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "ชื่อเต็มของผู้ส่ง"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "ที่อยู่อีเมลของผู้ส่ง"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "ลายเซ็นอีเมลของผู้ส่ง"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "ชื่อเต็มของผู้ติดต่อหลักของเว็บไซต์"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "อีเมลของผู้ติดต่อหลักของเว็บไซต์"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "ลายเซ็นอีเมลของเว็บไซต์สำหรับอีเมลอัตโนมัติ"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "บรรณาธิการที่ได้รับมอบหมายสำหรับการส่งงานนี้ซึ่งสามารถทำการตัดสินใจได้"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "ชื่อเรื่องของบทความที่ส่ง"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "ชื่อของผู้แต่งในรูปแบบสั้น เช่น \"Barnes, et al\""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "ชื่อเต็มของผู้แต่ง"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "URL สำหรับผู้แต่งเพื่อไปยังการส่งงาน"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL ไปยังการส่งงานในระบบบรรณาธิการ"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "URL ไปยังการส่งงานที่ได้รับการตีพิมพ์"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "URL ไปยังการส่งงานในตัวช่วยส่งงาน"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"ชื่อของผู้แต่งที่ได้รับมอบหมายในกระบวนการส่งงาน "
+"โดยปกติจะเป็นผู้ที่ทำการส่งงาน"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "URL ที่ถูกแฮชซึ่งถูกส่งให้ผู้ใช้เพื่อยืนยันการรีเซ็ตรหัสผ่าน"
+
+msgid "emailTemplate.variable.password"
+msgstr "รหัสผ่านผู้ใช้แบบสุ่มใหม่"
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "การคืนสถานะผู้รีวิว"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "ส่งคำขอทบทวนใหม่ให้กับผู้รีวิว"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "ชื่อเต็มของผู้ใช้ที่อัปโหลดไฟล์การส่งงาน"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "ชื่อของประกาศ"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "คำอธิบายสั้น ๆ ของประกาศ"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "URL ไปยังประกาศ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "จำนวนการส่งงานที่ได้รับในเดือนนี้"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "จำนวนการส่งงานที่ถูกปฏิเสธ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "จำนวนการส่งงานที่ได้รับการยอมรับ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "จำนวนการส่งงานที่ไม่ถูกรวมอยู่ในยอดรวมอื่น ๆ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "จำนวนการส่งงานทั้งหมดที่ได้รับ"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "เดือนของรายงาน"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "ปีของรายงาน"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "ข้อมูลระบุตัวของฉบับรวมถึงเล่ม, หมายเลข, ปี, และชื่อเรื่อง"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "URL ไปยังฉบับที่ตีพิมพ์"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "ปีของรายงาน"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "ลิงก์ไปยังหน้ากิจกรรมบรรณาธิการ"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "ลิงก์เพื่อยืนยันบัญชีอีเมล"
+
+msgid "mailable.reviewerReinstate.description"
+msgstr "อีเมลนี้ถูกส่งเมื่อผู้รีวิวที่ถูกถอนสถานะถูกคืนสถานะโดยบรรณาธิการ"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"อีเมลนี้ถูกส่งโดยบรรณาธิการถึงผู้รีวิวที่ปฏิเสธคำขอทบทวน "
+"เมื่อบรรณาธิการต้องการส่งคำขอใหม่"
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "ถอนสถานะผู้รีวิว"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr "อีเมลนี้ถูกส่งเมื่อบรรณาธิการถอนสถานะผู้รีวิว"
+
+msgid "mailable.validateEmailSite.name"
+msgstr "ยืนยันอีเมล (ไซต์)"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"อีเมลนี้ถูกส่งอัตโนมัติไปยังผู้ใช้ใหม่เมื่อพวกเขาลงทะเบียนกับไซต์และการตั้งค่"
+"ากำหนดให้ต้องยืนยันที่อยู่อีเมล"
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "แจ้งผู้แต่งคนอื่น ๆ"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"อีเมลนี้ถูกส่งเพื่อแจ้งผู้แต่งในบทความที่ไม่ได้ถูกระบุเป็นผู้ร่วมงานว่ามีการต"
+"ัดสินใจเกิดขึ้น โดยปกติจะเป็นทุกคนยกเว้นผู้ส่งงาน"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "สำเนาของข้อความอีเมลที่ถูกส่งถึงผู้ส่งงาน"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "แจ้งผู้รีวิวเกี่ยวกับการตัดสินใจ"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"อีเมลนี้ถูกส่งโดยบรรณาธิการถึงผู้รีวิวเพื่อแจ้งว่ามีการตัดสินใจเกี่ยวกับบทควา"
+"มที่พวกเขาทบทวนแล้ว"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"คำอธิบายสั้น ๆ ของการตัดสินใจนี้ที่ตั้งใจให้ส่งในการแจ้งเตือนทางอีเมลที่ส่งให"
+"้กับผู้รีวิวเกี่ยวกับการตัดสินใจนี้"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "เราได้ตัดสินใจยอมรับการส่งงานนี้โดยไม่ต้องแก้ไข"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "เราได้ตัดสินใจปฏิเสธการส่งงานนี้"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "เราได้เชิญผู้แต่งให้ส่งการแก้ไข"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "เราได้เชิญผู้แต่งให้ส่งเวอร์ชันแก้ไขเพื่อการทบทวนเพิ่มเติม"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "ผู้รีวิวที่ได้รับเชิญสำหรับการส่งนี้ถูกถอนสถานะแล้ว"
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "การส่งงานได้รับการยอมรับ"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งให้ผู้แต่งทราบว่าการส่งงานของพวกเขาได้รับการยอมรับเพื่อตีพิมพ์"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "การส่งงานถูกส่งกลับไปยังขั้นตอนการตรวจสำเนา"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งให้ผู้แต่งทราบว่าการส่งงานของพวกเขาถูกส่งกลับไปยังขั้นตอนการตรวจส"
+"ำเนา"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "การส่งงานถูกส่งกลับจากขั้นตอนการตรวจสำเนา"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งให้ผู้แต่งทราบว่าการส่งงานของพวกเขาถูกส่งกลับจากขั้นตอนการตรวจสำเ"
+"นา"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "รอบการทบทวนถูกยกเลิก"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งให้ผู้แต่งทราบว่ารอบการทบทวนสำหรับการส่งงานของพวกเขาถูกยกเลิก"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งให้ผู้แต่งทราบว่าการส่งงานของพวกเขาถูกปฏิเสธหลังจากการทบทวนโดยผู้"
+"รีวิว"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "การส่งงานถูกปฏิเสธ (ก่อนการทบทวน)"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "เริ่มรอบการทบทวนใหม่"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr "อีเมลนี้แจ้งผู้แต่งว่าได้เริ่มรอบการทบทวนใหม่สำหรับการส่งของพวกเขา"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "ร้องขอการแก้ไข"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งผู้แต่งถึงการตัดสินใจร้องขอการแก้ไขในระหว่างกระบวนการทบทวนโดยผู้เ"
+"ชี่ยวชาญ"
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "ส่งกลับมาเพื่อการทบทวนอีกครั้ง"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งผู้แต่งถึงการตัดสินใจให้ \"แก้ไขและส่งกลับมา\" "
+"เกี่ยวกับการส่งของพวกเขา"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "ยกเลิกการปฏิเสธการส่ง"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งผู้แต่งว่าการตัดสินใจปฏิเสธการส่งของพวกเขาหลังจากการทบทวนโดยผู้เช"
+"ี่ยวชาญถูกยกเลิก"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "ยกเลิกการปฏิเสธการส่งโดยไม่ทบทวน"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งผู้แต่งว่าการตัดสินใจปฏิเสธการส่งของพวกเขาโดยไม่ทบทวนถูกยกเลิก"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr "อีเมลนี้แจ้งผู้แต่งว่าการส่งของพวกเขาถูกส่งไปยังขั้นตอนการทบทวน"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "ส่งไปยังการผลิต"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr "อีเมลนี้แจ้งผู้แต่งว่าการส่งของพวกเขาถูกส่งไปยังขั้นตอนการผลิต"
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "การส่งได้รับการยอมรับ (โดยไม่ทบทวน)"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"อีเมลนี้แจ้งผู้แต่งว่าการส่งของพวกเขาถูกส่งไปยังขั้นตอนการตรวจสำเนาโดยตรงและจ"
+"ะไม่ผ่านการทบทวนโดยผู้เชี่ยวชาญ"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"ข้อความนี้แจ้งบรรณาธิการอาวุโสหรือบรรณาธิการส่วนหนึ่งว่ามีการแนะนำทางบรรณาธิก"
+"ารเกี่ยวกับหนึ่งในบทความที่ได้รับมอบหมาย "
+"การแจ้งเตือนนี้ใช้เมื่อบรรณาธิการสามารถแนะนำการตัดสินใจทางบรรณาธิการเท่านั้น "
+"และต้องการบรรณาธิการที่มีสิทธิ์ในการบันทึกการตัดสินใจทางบรรณาธิการ"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "ยืนยันการทบทวน"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "อีเมลนี้ถูกส่งโดยอัตโนมัติเมื่อผู้รีวิวยอมรับคำขอทบทวน"
+
+msgid "mailable.reviewDecline.name"
+msgstr "ปฏิเสธการทบทวน"
+
+msgid "mailable.reviewDecline.description"
+msgstr "อีเมลนี้ถูกส่งโดยผู้รีวิวเมื่อปฏิเสธคำขอทบทวน"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"อีเมลนี้ถูกส่งโดยบรรณาธิการเพื่อเตือนผู้รีวิวว่าการทบทวนของพวกเขากำหนดเวลาแล้"
+"ว"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "เตือนการทบทวน (อัตโนมัติ)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr "อีเมลนี้ถูกส่งโดยอัตโนมัติเมื่อผู้รีวิวไม่ทำการทบทวนภายในเวลาที่กำหนด"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"อีเมลนี้ถูกส่งโดยบรรณาธิการไปยังผู้รีวิวเพื่อยืนยันว่าการทบทวนของพวกเขาได้รับ"
+"แล้วและขอบคุณสำหรับการมีส่วนร่วมของผู้รีวิว"
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "การตอบกลับการทบทวนเกินกำหนด (อัตโนมัติ)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"อีเมลนี้ถูกส่งโดยอัตโนมัติเมื่อกำหนดเวลาที่ผู้รีวิวต้องตอบคำขอทบทวนผ่านไปแล้ว"
+
+msgid "mailable.reviewRequest.name"
+msgstr "คำขอทบทวน"
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"อีเมลนี้ถูกส่งจากบรรณาธิการส่วนไปยังผู้รีวิวเพื่อขอให้ผู้รีวิวยอมรับหรือปฏิ"
+"เสธงานการทบทวนบทความ "
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "คำขอทบทวนเพิ่มเติม"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"อีเมลนี้ถูกส่งจากบรรณาธิการไปยังผู้รีวิวเพื่อขอให้ผู้รีวิวยอมรับหรือปฏิเสธงาน"
+"การทบทวนบทความในรอบการทบทวนเพิ่มเติม อีเมลนี้ให้ข้อมูลเกี่ยวกับบทความ เช่น "
+"ชื่อเรื่องและบทคัดย่อ กำหนดเวลาการทบทวน และวิธีการเข้าถึงบทความ"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "การตีพิมพ์ปัจจุบันของบทความไม่มีหรือหายไป"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "บทความที่เป็นส่วนย่อย {$child} ล้มเหลวในการประมวลผล"
+
+msgid "mailable.editorialReminder.name"
+msgstr "เตือนบรรณาธิการ"
+
+msgid "mailable.editorialReminder.description"
+msgstr "อีเมลอัตโนมัติที่ถูกส่งไปยังบรรณาธิการที่มีงานค้างอยู่"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"อีเมลนี้ถูกส่งไปยังผู้ใช้ที่ลงทะเบียนเมื่อพวกเขาระบุว่าลืมรหัสผ่านหรือไม่สามา"
+"รถเข้าสู่ระบบได้ โดยจะมี URL ที่สามารถใช้เพื่อตั้งรหัสผ่านใหม่"
+
+msgid "mailable.userRegister.name"
+msgstr "สร้างผู้ใช้ใหม่"
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"อีเมลนี้ถูกส่งไปยังผู้ใช้ที่สร้างใหม่เมื่อบรรณาธิการสร้างผู้ใช้ผ่านการตั้งค่า"
+"ผู้ใช้ "
+"อีเมลควรต้อนรับพวกเขาเข้าสู่ระบบและให้บันทึกชื่อผู้ใช้และรหัสผ่านของพวกเขา"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "ลงทะเบียนผู้รีวิว"
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"อีเมลนี้ถูกส่งไปยังผู้รีวิวที่ลงทะเบียนใหม่เพื่อต้อนรับเข้าสู่ระบบและให้บันทึ"
+"กชื่อผู้ใช้และรหัสผ่านของพวกเขา"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "บันทึกการส่งงานเพื่อทำต่อภายหลัง"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"อีเมลอัตโนมัติที่ถูกส่งไปยังผู้แต่งเมื่อพวกเขาบันทึกการส่งงานเพื่อทำต่อภายหลั"
+"ง"
+
+msgid "mailable.submissionAck.name"
+msgstr "ยืนยันการส่งงาน"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"อีเมลนี้ถูกส่งอัตโนมัติไปยังผู้แต่งเมื่อพวกเขาส่งบทความ อีเมลนี้ให้ข้อมูลเกี่"
+"ยวกับการติดตามการส่งงานผ่านกระบวนการบรรณาธิการและขอบคุณผู้แต่งสำหรับการส่งบทค"
+"วาม"
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "ยืนยันการส่งงาน (ผู้แต่งอื่น ๆ)"
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"อีเมลนี้ถูกส่งอัตโนมัติไปยังผู้แต่งที่ถูกระบุชื่อในบทความแต่ไม่ใช่ผู้ส่งบทควา"
+"ม"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "การสนทนา (การส่งบทความ)"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"อีเมลนี้ถูกส่งเมื่อมีการสร้างหรือการตอบกลับการสนทนาในขั้นตอนการส่งบทความ"
+
+msgid "mailable.discussionReview.name"
+msgstr "การสนทนา (การทบทวน)"
+
+msgid "mailable.discussionReview.description"
+msgstr "อีเมลนี้ถูกส่งเมื่อมีการสร้างหรือการตอบกลับการสนทนาในขั้นตอนการทบทวน"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "การสนทนา (การตรวจสำเนา)"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"อีเมลนี้ถูกส่งเมื่อมีการสร้างหรือการตอบกลับการสนทนาในขั้นตอนการตรวจสำเนา"
+
+msgid "mailable.discussionProduction.name"
+msgstr "การสนทนา (การผลิต)"
+
+msgid "mailable.discussionProduction.description"
+msgstr "อีเมลนี้ถูกส่งเมื่อมีการสร้างหรือการตอบกลับการสนทนาในขั้นตอนการผลิต"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "แจ้งเวอร์ชันที่แก้ไขแล้ว"
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"อีเมลนี้ถูกส่งอัตโนมัติไปยังบรรณาธิการที่ได้รับมอบหมายเมื่อผู้แต่งอัปโหลดเวอร"
+"์ชันที่แก้ไขของบทความ"
+
+msgid "mailable.announcementNotify.name"
+msgstr "ประกาศใหม่"
+
+msgid "mailable.announcementNotify.description"
+msgstr "อีเมลนี้จะถูกส่งเมื่อมีการสร้างประกาศใหม่"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "การแจ้งเตือนรายงานสถิติ"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "การแจ้งเตือนการแก้ไขการทบทวน"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"อีเมลนี้จะทำการแจ้งผู้รีวิวโดยอัตโนมัติเมื่อมีการเปลี่ยนแปลงรายละเอียดของการม"
+"อบหมายการทบทวนของพวกเขา"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "ผู้รีวิวแสดงความคิดเห็น แจ้งบรรณาธิการ"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"อีเมลนี้จะถูกส่งไปยังบรรณาธิการที่ได้รับมอบหมายโดยอัตโนมัติเมื่อผู้รีวิวทำการ"
+"แนะนำการทบทวน"
+
+msgid "manager.people.authSource"
+msgstr "แหล่งการยืนยันตัวตน"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "ส่งบทความกลับไปยังขั้นตอนการทบทวน"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr "อีเมลนี้จะแจ้งผู้เขียนว่าบทความของพวกเขาถูกส่งกลับไปยังขั้นตอนการทบทวน"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "ส่งบทความกลับไปยังขั้นตอนการส่ง"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr "อีเมลนี้จะแจ้งผู้เขียนว่าบทความของพวกเขาถูกส่งกลับไปยังขั้นตอนการส่ง"
+
+msgid "manager.manageEmails"
+msgstr "จัดการอีเมล"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">เพิ่มและแก้ไขแม่แบบ</a> "
+"สำหรับอีเมลทั้งหมดที่ระบบส่งออก</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"เพิ่มและแก้ไขแม่แบบที่คุณต้องการให้ผู้ใช้สามารถใช้ได้เมื่อส่งอีเมลนี้ "
+"โดยแม่แบบเริ่มต้นจะถูกโหลดอัตโนมัติ "
+"และผู้ใช้สามารถโหลดแม่แบบอื่นที่คุณเพิ่มไว้ได้อย่างรวดเร็ว"
+
+msgid "manager.mailables.templates"
+msgstr "แม่แบบ"
+
+msgid "manager.mailables.editTemplate"
+msgstr "แก้ไขแม่แบบ"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "ลบแม่แบบ"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบแม่แบบ <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "รีเซ็ตแม่แบบ"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตหัวเรื่องและเนื้อหาให้กลับเป็นค่าเริ่มต้นสำหรั"
+"บแม่แบบ <strong>{$template}</strong>?"
+
+msgid "manager.mailables.search"
+msgstr "ค้นหาจากชื่อหรือคำอธิบาย"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "ป้อนชื่อสั้น ๆ เพื่อช่วยให้คุณค้นหาแม่แบบนี้"
+
+msgid "manager.newSubmission"
+msgstr "การส่งงานใหม่"
+
+msgid "manager.newSubmission.description"
+msgstr "กำหนดค่าอีเมลแจ้งเตือนที่จะส่งเมื่อมีการส่งงานใหม่"
+
+msgid "manager.submissionAck.description"
+msgstr "ใครควรได้รับอีเมลเมื่อการส่งงานใหม่เสร็จสิ้น"
+
+msgid "manager.submissionAck.off"
+msgstr "ไม่ต้องส่งอีเมล"
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "ส่งอีเมลให้กับผู้ส่งงานเท่านั้น"
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "ส่งอีเมลให้กับผู้แต่งทั้งหมด"
+
+msgid "manager.editorialDecisions"
+msgstr "การตัดสินใจทางบรรณาธิการ"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"กำหนดค่าอีเมลแจ้งเตือนที่จะส่งถึงผู้เขียนเมื่อมีการบันทึกการตัดสินใจทางบรรณาธ"
+"ิการ"
+
+msgid "manager.forEditors"
+msgstr "สำหรับบรรณาธิการ"
+
+msgid "manager.forEditors.description"
+msgstr "กำหนดค่าอีเมลแจ้งเตือนที่จะส่งถึงบรรณาธิการ"
+
+msgid "manager.editorialStatistics"
+msgstr "สถิติการบรรณาธิการ"
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"การส่งอีเมลรายเดือนถึงบรรณาธิการพร้อมสถิติการบรรณาธิการของวารสาร เช่น "
+"อัตราการยอมรับและปฏิเสธ "
+"บรรณาธิการสามารถยกเลิกการสมัครรับอีเมลนี้ได้จากโปรไฟล์ผู้ใช้ของพวกเขา"
+
+msgid "manager.editorialStatistics.on"
+msgstr "ส่งอีเมลรายเดือนถึงบรรณาธิการ"
+
+msgid "manager.editorialStatistics.off"
+msgstr "ไม่ต้องส่งอีเมลถึงบรรณาธิการ"
+
+msgid "manager.submitWithCategories.description"
+msgstr "ควรให้ผู้ส่งงานเลือกหมวดหมู่เมื่อทำการส่งงานใหม่หรือไม่?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "ใช่ เพิ่มฟิลด์หมวดหมู่ในวิซาร์ดการส่ง"
+
+msgid "manager.submitWithCategories.no"
+msgstr "ไม่ต้องแสดงฟิลด์นี้แก่ผู้เขียน"
+
+msgid "mailable.copyeditRequest.name"
+msgstr "คำขอแก้ไขสำเนา"
+
+msgid "mailable.editorAssign.name"
+msgstr "มอบหมายบรรณาธิการ"
+
+msgid "mailable.layoutRequest.name"
+msgstr "พร้อมสำหรับการผลิต"
+
+msgid "mailable.versionCreated.name"
+msgstr "สร้างเวอร์ชันแล้ว"
+
+msgid "mailable.reviewComplete.name"
+msgstr "การทบทวนเสร็จสมบูรณ์"
+
+msgid "mailable.reviewEdit.name"
+msgstr "การทบทวนแก้ไขแล้ว"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "การรับทราบการส่งงานให้ผู้แต่งคนอื่น ๆ"
+
+msgid "mailable.editorAssigned.name"
+msgstr "มอบหมายบรรณาธิการ (อัตโนมัติ)"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"อีเมลนี้จะถูกส่งไปยังบรรณาธิการเมื่อมีการมอบหมายงานให้พวกเขาโดยอัตโนมัติ"
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "มอบหมายบรรณาธิการ"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "การส่งงานต้องการบรรณาธิการ"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"ต้องการให้ผู้แต่งยื่นคำแถลงเกี่ยวกับผลประโยชน์ทับซ้อน (CI) "
+"พร้อมการส่งงานของพวกเขา"
+
+msgid "plugins.importexport.common.validation"
+msgstr "ตรวจสอบความถูกต้องของ XML ก่อนการส่งออกและลงทะเบียน"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"แบบฟอร์มทบทวนโดยเพื่อนที่สร้างที่นี่จะถูกนำเสนอให้กับผู้ทบทวนเพื่อกรอก "
+"แทนแบบฟอร์มเริ่มต้นซึ่งประกอบด้วยกล่องข้อความเปิดสองกล่อง กล่องแรกสำหรับ \"ผ"
+"ู้แต่งและบรรณาธิการ\" และกล่องที่สองสำหรับ \"บรรณาธิการ\" "
+"แบบฟอร์มทบทวนสามารถกำหนดไว้สำหรับส่วนเฉพาะของสิ่งพิมพ์ "
+"และบรรณาธิการจะมีตัวเลือกในการเลือกแบบฟอร์มที่จะใช้ในการมอบหมายการทบทวน "
+"ในทุกกรณี "
+"บรรณาธิการจะมีตัวเลือกในการรวมความคิดเห็นจากการทบทวนในการสื่อสารกับผู้แต่ง"
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "ไม่มี / การทบทวนแบบฟรีฟอร์ม"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "ยังไม่มีการสร้างแบบฟอร์มทบทวนใด ๆ"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "ยังไม่มีการใช้แบบฟอร์มทบทวนใด ๆ"
+
+msgid "manager.reviewForms.preview"
+msgstr "ดูตัวอย่างแบบฟอร์ม"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "ข้อมูลแบบฟอร์มทบทวน"
+
+msgid "manager.reviewForms.title"
+msgstr "ชื่อ"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "กำลังเปลี่ยนประเภทของรายการในแบบฟอร์ม..."
+
+msgid "manager.reviewFormElements"
+msgstr "รายการในแบบฟอร์ม"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "เพิ่มตัวเลือก"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "กล่องเลือก (คุณสามารถเลือกหนึ่งหรือหลายตัวเลือก)"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "ประเภทของรายการ"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "จำเป็นต้องมีประเภทของรายการสำหรับรายการในแบบฟอร์ม"
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "จำเป็นต้องมีคำถามสำหรับรายการในแบบฟอร์ม"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "ยังไม่มีการสร้างรายการในแบบฟอร์มใด ๆ"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "ตัวเลือก"
+
+msgid "manager.reviewFormElements.question"
+msgstr "รายการ"
+
+msgid "manager.reviewFormElements.description"
+msgstr "คำอธิบาย"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "ปุ่มเลือก (คุณสามารถเลือกได้เพียงหนึ่งตัวเลือก)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "ผู้ทบทวนจำเป็นต้องกรอกรายการนี้"
+
+msgid "manager.reviewFormElements.included"
+msgstr "รวมไว้ในข้อความถึงผู้แต่ง"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "กล่องข้อความคำเดียว"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "กล่องข้อความยาว"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "กล่องข้อความบรรทัดเดียว"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "สามารถดูได้ (สำหรับผู้แต่ง)"
+
+msgid "grid.action.createReviewForm"
+msgstr "สร้างแบบฟอร์มทบทวนใหม่"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "ขอแถลงการณ์ความขัดแย้งผลประโยชน์ระหว่างการทบทวนโดยเพื่อน"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL ไปยังหน้าเว็บที่อธิบายเกี่ยวกับสิทธิ์การใช้งาน หากมี"
+
+msgid "manager.setup.metadata.submission"
+msgstr "แบบฟอร์มการส่งงาน"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "ครอบคลุม"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"การครอบคลุมจะระบุถึงตำแหน่งเชิงพื้นที่ (ชื่อสถานที่หรือพิกัดทางภูมิศาสตร์), "
+"ช่วงเวลา (ป้ายระบุเวลา, วันที่, หรือช่วงวันที่) หรืออำนาจการปกครอง (เช่น "
+"หน่วยงานการปกครองที่ถูกระบุชื่อ)"
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "ขอให้ผู้แต่งเสนอคำสำคัญระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "บังคับให้ผู้แต่งเสนอคำสำคัญก่อนที่จะยอมรับการส่งงานของพวกเขา"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"ภาษาระบุภาษาหลักของงานโดยใช้รหัสภาษา (\"en\") พร้อมรหัสประเทศที่เป็นตัวเลือก "
+"(\"en_US\")"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุภาษาของการส่งงานระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "ขอให้ผู้แต่งระบุภาษาของการส่งงานระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "บังคับให้ผู้แต่งป้อนภาษาของการส่งงานก่อนที่จะยอมรับการส่งงานของพวกเขา"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"สิทธิ์ใด ๆ ที่ถือครองเหนือการส่งงาน ซึ่งอาจรวมถึงสิทธิในทรัพย์สินทางปัญญา "
+"(IPR), ลิขสิทธิ์ และสิทธิ์ในทรัพย์สินต่าง ๆ"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "เปิดใช้งานเมตาดาทาสิทธิ์"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "ไม่ขอการเปิดเผยสิทธิ์จากผู้แต่งระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "ขอให้ผู้แต่งเปิดเผยสิทธิ์ในการเข้าถึงที่มีอยู่ก่อนระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"บังคับให้ผู้แต่งเปิดเผยสิทธิ์ในการเข้าถึงที่มีอยู่ก่อนก่อนที่จะยอมรับการส่งงา"
+"นของพวกเขา"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"แหล่งที่มาอาจเป็น ID เช่น DOI "
+"ของงานหรือทรัพยากรอื่นที่บทความได้รับการสืบทอดมา"
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "เปิดใช้งานเมตาดาทาแหล่งที่มา"
+
+msgid "manager.setup.metadata.source.request"
+msgstr "ขอให้ผู้แต่งให้ URL แหล่งที่มาระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.source.require"
+msgstr "บังคับให้ผู้แต่งให้ URL แหล่งที่มาก่อนที่จะยอมรับการส่งงานของพวกเขา"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"หัวเรื่องจะเป็นคำสำคัญ วลีสำคัญ หรือรหัสการจำแนกที่อธิบายหัวข้อของการส่งงาน"
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "เปิดใช้งานเมตาดาทาหัวเรื่อง"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "ไม่ขอหัวเรื่องจากผู้แต่งระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "ขอให้ผู้แต่งให้หัวเรื่องระหว่างการส่งงาน"
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "บังคับให้ผู้แต่งให้หัวเรื่องก่อนที่จะยอมรับการส่งงานของพวกเขา"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"ลักษณะหรือประเภทของเนื้อหาหลักของการส่งงาน โดยทั่วไปประเภทจะเป็น \"Text\" "
+"แต่ก็อาจเป็น \"Dataset\", \"Image\" หรือประเภทอื่น ๆ ตามที่ระบุใน <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"dcmi-terms/\">Dublin Core types</a>"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "เปิดใช้งานเมตาดาทาประเภทเนื้อหา"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "ไม่ขอให้ผู้แต่งระบุประเภทระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.type.request"
+msgstr "ขอให้ผู้แต่งระบุประเภทระหว่างการส่งบทความ"
+
+msgid "manager.setup.metadata.type.require"
+msgstr "กำหนดให้ผู้แต่งระบุประเภทก่อนที่จะรับการส่งบทความ"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"สาขาวิชาคือประเภทของการศึกษา "
+"หรือสาขาความรู้ที่อธิบายโดยคณะวิชาของมหาวิทยาลัยและสังคมวิชาการ"

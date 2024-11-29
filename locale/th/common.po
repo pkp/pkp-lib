@@ -1,0 +1,2250 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/common/th/>"
+"\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "โครงการความรู้สาธารณะ"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>เพื่อให้มั่นใจถึงความสมบูรณ์ของการทบทวนแบบไม่ระบุชื่อ ควรพยายามทุกวิถีทาง "
+"เพื่อป้องกันไม่ให้ตัวตนของผู้แต่งและผู้ทบทวนทราบกันและกัน ซึ่งรวมถึงผู้แต่ง "
+"บรรณาธิการ และผู้ทบทวน (ที่อัปโหลดเอกสารเป็นส่วนหนึ่งของการทบทวน) "
+"ตรวจสอบว่าขั้นตอนต่อไปนี้ได้ดำเนินการกับตัวอักษรและคุณสมบัติของไฟล์แล้ว:</p>"
+"\n"
+"<ul><li>ผู้แต่งเอกสารได้ลบชื่อตัวเองออกจากข้อความ และใช้คำว่า \"ผู้แต่ง\" "
+"และปีแทนในการอ้างอิงและเชิงอรรถ แทนที่จะใช้ชื่อผู้แต่ง ชื่อบทความ ฯลฯ</li>\n"
+"<li>ผู้แต่งเอกสารได้ลบข้อมูลส่วนตัวออกจากคุณสมบัติของไฟล์โดยทำตามขั้นตอนต่อไป"
+"นี้:\n"
+"<ul><li>Microsoft Word สำหรับ Windows:\n"
+"<ul><li>ไปที่ ไฟล์</li>\n"
+"<li>เลือก ข้อมูล</li>\n"
+"<li>คลิกที่ ตรวจสอบปัญหา</li>\n"
+"<li>คลิกที่ ตรวจสอบเอกสาร</li>\n"
+"<li>ในกล่องโต้ตอบตรวจสอบเอกสาร "
+"ให้เลือกช่องที่ต้องการตรวจสอบเนื้อหาที่ซ่อนอยู่</li>\n"
+"<li>คลิก ลบทั้งหมด</li>\n"
+"<li>คลิก ปิด</li>\n"
+"<li>บันทึกเอกสาร</li></ul>\n"
+"<li>Microsoft Word สำหรับ MacOS:\n"
+"<ul><li>ไปที่ เครื่องมือ</li>\n"
+"<li>คลิกที่ ป้องกันเอกสาร</li>\n"
+"<li>เลือก ลบข้อมูลส่วนตัวสำหรับไฟล์นี้เมื่อบันทึก</li>\n"
+"<li>คลิก ตกลง และบันทึกไฟล์</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>ไปที่ ไฟล์</li>\n"
+"<li>เลือก คุณสมบัติ</li>\n"
+"<li>ลบชื่อใด ๆ ในฟิลด์ผู้แต่ง</li>\n"
+"<li>คลิก ตกลง</li>\n"
+"<li>บันทึกเอกสาร</li></ul></li></ul>\n"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "กำหนดการทบทวน"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "คำขอจากบรรณาธิการ"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "กำหนดตอบรับ"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "กำหนดการทบทวน"
+
+msgid "submission.task.responseDueDate"
+msgstr "กำหนดตอบรับ"
+
+msgid "navigation.goBack"
+msgstr "ย้อนกลับ"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} ได้รับมอบหมายให้ทบทวนการส่งนี้และมีการส่งการแจ้งเตือนทางอีเมล"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} ได้รับมอบหมายให้ทบทวนการส่งนี้ "
+"แต่ไม่มีการส่งการแจ้งเตือนทางอีเมล"
+
+msgid "notification.removedReviewer"
+msgstr "ลบผู้ทบทวนแล้ว"
+
+msgid "notification.cancelledReviewer"
+msgstr "ยกเลิกผู้ทบทวนแล้ว"
+
+msgid "notification.reinstatedReviewer"
+msgstr "ฟื้นฟูสถานะผู้ทบทวนแล้ว"
+
+msgid "notification.reviewerResendRequest"
+msgstr "คำขอพิจารณาการมอบหมายทบทวนถูกส่งอีกครั้งแล้ว"
+
+msgid "notification.addedStageParticipant"
+msgstr "ผู้ใช้ถูกเพิ่มเป็นผู้มีส่วนร่วมในขั้นตอน"
+
+msgid "notification.editStageParticipant"
+msgstr "การมอบหมายขั้นตอนถูกเปลี่ยนแปลง"
+
+msgid "notification.type.newAnnouncement"
+msgstr "ประกาศใหม่"
+
+msgid "notification.type.reviewAssignment"
+msgstr "การทบทวนที่รอดำเนินการ"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "การมอบหมายการทบทวนถูกอัปเดตแล้ว"
+
+msgid "notification.type.auditorRequest"
+msgstr "คำขอตรวจสอบสำหรับ \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "ผู้ทบทวนทั้งหมดได้ตอบกลับแล้วและต้องการการตัดสินใจในขั้นตอน {$stage}"
+
+msgid "notification.type.allRevisionsIn"
+msgstr "ไฟล์ที่ปรับปรุงแล้วถูกอัปโหลดเพื่อให้พิจารณาในขั้นตอน {$stage}"
+
+msgid "notification.type.pendingRevisions"
+msgstr "การปรับปรุงที่รอการพิจารณาในขั้นตอน {$stage}"
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "การปรับปรุงที่ส่งไปยังขั้นตอน {$stage}"
+
+msgid "notification.type.reviewerComment"
+msgstr "ผู้ทบทวนได้แสดงความคิดเห็นเกี่ยวกับ \"{$title}\""
+
+msgid "notification.signedFile"
+msgstr "ไฟล์ที่ได้รับการพิจารณาแล้ว"
+
+msgid "timeZone"
+msgstr "เขตเวลา"
+
+msgid "user.email"
+msgstr "ที่อยู่อีเมล"
+
+msgid "user.authorization.submissionFile"
+msgstr "ผู้ใช้ปัจจุบันไม่ได้รับสิทธิ์ในการเข้าถึงไฟล์การส่งที่ระบุ"
+
+msgid "user.authorization.invalidPublication"
+msgstr "การตีพิมพ์ไม่ถูกต้อง"
+
+msgid "user.authorization.invalidSubmission"
+msgstr "การส่งไม่ถูกต้อง"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "การแสดงผลไม่ถูกต้อง"
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "รอบการทบทวนไม่ถูกต้อง"
+
+msgid "user.authorization.invalidQuery"
+msgstr "การอภิปรายไม่ถูกต้อง"
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "คุณไม่มีสิทธิ์เข้าถึงข้อความการอภิปรายนี้"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "คุณไม่มีสิทธิ์เข้าถึงการมอบหมายการทบทวนนี้"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"ปัจจุบันคุณไม่มีสิทธิ์เพียงพอในการดูการส่ง "
+"กรุณาแก้ไขโปรไฟล์ของคุณเพื่อให้แน่ใจว่าคุณได้รับสิทธิ์ที่เหมาะสมภายใต้ "
+"\"ลงทะเบียนเป็น\""
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"ผู้ใช้ปัจจุบันไม่ใช่ผู้แต่งของการส่งที่ร้องขอ "
+"กรุณาตรวจสอบว่าคุณเข้าสู่ระบบด้วยบัญชีผู้ใช้ที่ถูกต้อง"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "ตัวเลือกความเป็นส่วนตัว"
+
+msgid "notification.type.queryActivity"
+msgstr "กิจกรรมการอภิปราย"
+
+msgid "notification.type.queryAdded"
+msgstr "เพิ่มการอภิปรายแล้ว"
+
+msgid "notification.type.assignCopyeditors"
+msgstr "มอบหมายบรรณาธิการตรวจสำเนาโดยใช้ลิงก์มอบหมายในรายการผู้มีส่วนร่วม"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "รอกระบวนการตรวจสำเนา"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "สถานะรอบที่ {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "สรุปรายงานสถิติ"
+
+msgid "notification.type.editorialReport.contents"
+msgstr "เป็นการแจ้งเตือนเพื่อให้คุณตรวจสอบสถานะวารสารของคุณผ่านรายงานบรรณาธิการ"
+
+msgid "notification.type.editorialReminder"
+msgstr "อีเมลรายสัปดาห์ของงานที่ยังค้างอยู่"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "รายการเมนูนำทางได้รับการอัปเดตสำเร็จแล้ว"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "รายการเมนูนำทางถูกลบสำเร็จแล้ว"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "รายการเมนูนำทางถูกเพิ่มสำเร็จแล้ว"
+
+msgid "notification.addedNavigationMenu"
+msgstr "เมนูนำทางถูกเพิ่มสำเร็จแล้ว"
+
+msgid "notification.editedNavigationMenu"
+msgstr "เมนูนำทางได้รับการอัปเดตสำเร็จแล้ว"
+
+msgid "notification.removedNavigationMenu"
+msgstr "เมนูนำทางถูกลบสำเร็จแล้ว"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "คุณได้ยกเลิกการสมัครแล้ว"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "เราไม่สามารถยกเลิกการสมัครของคุณได้"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr "เลือกอีเมลที่คุณไม่ต้องการรับอีกต่อไปที่ {$email} จาก {$contextName}"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"คุณสามารถสมัครรับการแจ้งเตือนทางอีเมลใหม่ได้ทุกเวลาจาก <a href=\""
+"{$profileNotificationUrl}\">โปรไฟล์ผู้ใช้ของคุณ</a>"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"ที่อยู่อีเมล {$email} ได้รับการยกเลิกการสมัครสำเร็จแล้ว "
+"เราจะไม่ส่งอีเมลเหล่านี้ให้คุณอีกต่อไป "
+"คุณสามารถสมัครรับการแจ้งเตือนทางอีเมลใหม่ได้ทุกเวลาจาก <a href=\""
+"{$profileNotificationUrl}\">โปรไฟล์ผู้ใช้ของคุณ</a>"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"เกิดข้อผิดพลาดที่ไม่คาดคิดและเราไม่สามารถยกเลิกการสมัครของที่อยู่อีเมล "
+"{$email} ได้ คุณสามารถยกเลิกการสมัครจากการแจ้งเตือนทางอีเมลทั้งหมดได้ใน <a "
+"href=\"{$profileNotificationUrl}\">โปรไฟล์ผู้ใช้ของคุณ</a> หรือ "
+"ติดต่อเราโดยตรงเพื่อขอความช่วยเหลือ"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "ยกเลิกการสมัคร"
+
+msgid "list.viewMore"
+msgstr "แสดงรายละเอียดเพิ่มเติมเกี่ยวกับ {$name}"
+
+msgid "list.viewLess"
+msgstr "ซ่อนรายละเอียดที่ขยายเกี่ยวกับ {$name}"
+
+msgid "list.expandAll"
+msgstr "ขยายทั้งหมด"
+
+msgid "list.collapseAll"
+msgstr "ยุบทั้งหมด"
+
+msgid "showAll"
+msgstr "แสดงทั้งหมด"
+
+msgid "showLess"
+msgstr "แสดงน้อยลง"
+
+msgid "validation.invalidOption"
+msgstr "นี่ไม่ใช่ตัวเลือกที่ถูกต้อง"
+
+msgid "validator.accepted"
+msgstr "กรุณายอมรับรายการนี้"
+
+msgid "validator.active_url"
+msgstr "นี่ไม่ใช่ URL ที่ถูกต้อง"
+
+msgid "validator.after"
+msgstr "วันที่นี้ต้องอยู่หลัง {$date}"
+
+msgid "validator.alpha"
+msgstr "สามารถมีเฉพาะตัวอักษรเท่านั้น"
+
+msgid "validator.alpha_dash"
+msgstr "สามารถมีเฉพาะตัวอักษร ตัวเลข ขีดกลาง และขีดล่างเท่านั้น"
+
+msgid "validator.alpha_dash_period"
+msgstr "สามารถมีเฉพาะตัวอักษร ตัวเลข ขีดกลาง ขีดล่าง และจุดเท่านั้น"
+
+msgid "validator.alpha_num"
+msgstr "สามารถมีเฉพาะตัวอักษรและตัวเลขเท่านั้น"
+
+msgid "validator.array"
+msgstr "นี่ไม่ใช่อาร์เรย์ที่ถูกต้อง"
+
+msgid "validator.before"
+msgstr "วันที่นี้ต้องอยู่ก่อน {$date}"
+
+msgid "validator.between.numeric"
+msgstr "ต้องอยู่ระหว่าง {$min} และ {$max}"
+
+msgid "validator.between.file"
+msgstr "ต้องอยู่ระหว่าง {$min} และ {$max} กิโลไบต์"
+
+msgid "validator.between.string"
+msgstr "ต้องมีความยาวระหว่าง {$min} และ {$max} ตัวอักษร"
+
+msgid "validator.between.array"
+msgstr "ต้องมีรายการระหว่าง {$min} และ {$max} รายการ"
+
+msgid "validator.boolean"
+msgstr "ฟิลด์นี้ต้องเป็น true หรือ false"
+
+msgid "validator.confirmed"
+msgstr "การยืนยันสำหรับฟิลด์นี้ไม่ตรงกัน"
+
+msgid "validator.country"
+msgstr "นี่ไม่ใช่ประเทศที่ถูกต้อง"
+
+msgid "validator.country.regex"
+msgstr ""
+"นี่ไม่ใช่ประเทศที่ถูกต้อง ประเทศต้องเป็นรหัสสากล 2 ตัวอักษร ดูรหัสทั้งหมดที่ "
+"https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements"
+
+msgid "validator.currency"
+msgstr "นี่ไม่ใช่สกุลเงินที่ถูกต้อง"
+
+msgid "validator.date"
+msgstr "นี่ไม่ใช่วันที่ที่ถูกต้อง"
+
+msgid "validator.date_format"
+msgstr "นี่ไม่ตรงกับรูปแบบ {$format}"
+
+msgid "validator.different"
+msgstr "{$attribute} และ {$other} ต้องแตกต่างกัน"
+
+msgid "validator.digits"
+msgstr "ต้องมีความยาว {$digits} หลัก"
+
+msgid "validator.digits_between"
+msgstr "ต้องมีความยาวระหว่าง {$min} และ {$max} หลัก"
+
+msgid "validator.email"
+msgstr "นี่ไม่ใช่ที่อยู่อีเมลที่ถูกต้อง"
+
+msgid "validator.exists"
+msgstr "{$attribute} ที่เลือกไม่ถูกต้อง"
+
+msgid "validator.filled"
+msgstr "ต้องระบุฟิลด์นี้"
+
+msgid "validator.image"
+msgstr "ต้องเป็นรูปภาพ"
+
+msgid "validator.in"
+msgstr "{$attribute} ที่เลือกไม่ถูกต้อง"
+
+msgid "validator.integer"
+msgstr "นี่ไม่ใช่จำนวนเต็มที่ถูกต้อง"
+
+msgid "validator.ip"
+msgstr "นี่ไม่ใช่ที่อยู่ IP ที่ถูกต้อง"
+
+msgid "validator.issn"
+msgstr "นี่ไม่ใช่ ISSN ที่ถูกต้อง"
+
+msgid "validator.json"
+msgstr "นี่ไม่ใช่สตริง JSON ที่ถูกต้อง"
+
+msgid "validator.locale"
+msgstr "ภาษานี้ไม่ได้รับการยอมรับ"
+
+msgid "validator.localeExpected"
+msgstr "ฟิลด์นี้เป็นแบบหลายภาษา ต้องระบุค่าสำหรับแต่ละภาษาที่รองรับแยกกัน"
+
+msgid "validator.localeKey"
+msgstr "ต้องระบุภาษาด้วยรหัส locale ตัวอย่างเช่น: en_US, fr_CA, sr_RS@cyrillic"
+
+msgid "validator.max.numeric"
+msgstr "ต้องไม่เกิน {$max}"
+
+msgid "validator.max.file"
+msgstr "ต้องไม่เกิน {$max} กิโลไบต์"
+
+msgid "validator.max.string"
+msgstr "ต้องไม่เกิน {$max} ตัวอักษร"
+
+msgid "validator.max.array"
+msgstr "ต้องไม่มีมากกว่า {$max} รายการ"
+
+msgid "validator.mimes"
+msgstr "ต้องเป็นไฟล์ประเภท {$values}"
+
+msgid "validator.min.numeric"
+msgstr "ต้องไม่น้อยกว่า {$min}"
+
+msgid "validator.min.file"
+msgstr "ต้องไม่น้อยกว่า {$min} กิโลไบต์"
+
+msgid "validator.min.string"
+msgstr "ต้องไม่น้อยกว่า {$min} ตัวอักษร"
+
+msgid "validator.min.array"
+msgstr "ต้องมีอย่างน้อย {$min} รายการ"
+
+msgid "validator.not_in"
+msgstr "{$attribute} ที่เลือกไม่ถูกต้อง"
+
+msgid "validator.numeric"
+msgstr "นี่ไม่ใช่ตัวเลขที่ถูกต้อง"
+
+msgid "validator.orcid"
+msgstr "นี่ไม่ใช่ ORCID ที่ถูกต้อง"
+
+msgid "validator.present"
+msgstr "ต้องมีฟิลด์ {$attribute}"
+
+msgid "validator.regex"
+msgstr "นี่ไม่อยู่ในรูปแบบที่ถูกต้อง"
+
+msgid "validator.required"
+msgstr "ฟิลด์นี้จำเป็นต้องระบุ"
+
+msgid "validator.required_if"
+msgstr "ฟิลด์นี้จำเป็นเมื่อ {$other} เป็น {$value}"
+
+msgid "validator.required_unless"
+msgstr "ฟิลด์นี้จำเป็นถ้า {$other} ไม่ใช่หนึ่งใน {$values}"
+
+msgid "validator.required_with"
+msgstr "ฟิลด์นี้จำเป็นเมื่อมี {$values}"
+
+msgid "validator.required_with_all"
+msgstr "ฟิลด์นี้จำเป็นเมื่อมี {$values}"
+
+msgid "validator.required_without"
+msgstr "ฟิลด์นี้จำเป็นเมื่อไม่มี {$values}"
+
+msgid "validator.required_without_all"
+msgstr "ฟิลด์นี้จำเป็นเมื่อไม่มี {$values} อยู่เลย"
+
+msgid "validator.allowable_title_html_tags"
+msgstr "อนุญาตเฉพาะแท็ก html [{$tags}] เท่านั้น"
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"ฟิลเตอร์ ({$displayName}) รองรับอินพุต {$inputTypeName} - ได้รับ "
+"{$typeofInput}"
+
+msgid "filter.error.missingRequirements"
+msgstr "กำลังพยายามเรียกใช้การแปลงที่ไม่รองรับในสภาพแวดล้อมการติดตั้งของคุณ"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "ไม่สามารถนำเข้าโหนด XML"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "คำสั่ง {$command} ไม่เป็นที่รู้จัก"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "เพิ่มผู้แต่งแล้ว"
+
+msgid "notification.editedAuthor"
+msgstr "แก้ไขผู้แต่งแล้ว"
+
+msgid "common.sandbox"
+msgstr "แอปพลิเคชันกำลังทำงานในโหมด sandbox"
+
+msgid "about.description"
+msgstr "คำอธิบาย"
+
+msgid "about.siteMap"
+msgstr "แผนผังเว็บไซต์"
+
+msgid "announcement.posted"
+msgstr "โพสต์"
+
+msgid "common.and"
+msgstr "และ"
+
+msgid "common.applyAction"
+msgstr "ใช้การกระทำ"
+
+msgid "email.body"
+msgstr "เนื้อหา"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "form.is"
+msgstr "คือ"
+
+msgid "search.subject"
+msgstr "คำสำคัญ"
+
+msgid "validator.same"
+msgstr "{$attribute} และ {$other} ต้องตรงกัน"
+
+msgid "validator.size.numeric"
+msgstr "ต้องเท่ากับ {$size}"
+
+msgid "validator.size.file"
+msgstr "ต้องมีขนาดเท่ากับ {$size} กิโลไบต์"
+
+msgid "validator.size.string"
+msgstr "ต้องมีความยาวเท่ากับ {$size} ตัวอักษร"
+
+msgid "validator.size.array"
+msgstr "ต้องมี {$size} รายการ"
+
+msgid "validator.string"
+msgstr "นี่ไม่ใช่สตริงที่ถูกต้อง"
+
+msgid "validator.timezone"
+msgstr "นี่ไม่ใช่เขตเวลาที่ถูกต้อง"
+
+msgid "validator.unique"
+msgstr "{$attribute} นี้มีอยู่แล้ว"
+
+msgid "validator.url"
+msgstr "นี่ไม่ใช่ URL ที่ถูกต้อง"
+
+msgid "validator.no_new_line"
+msgstr "ไม่อนุญาตให้มีบรรทัดใหม่"
+
+msgid "common.currentStyleSheet"
+msgstr "สไตล์ชีตปัจจุบัน"
+
+msgid "about.guidelines"
+msgstr "คำแนะนำ"
+
+msgid "about.aboutSite"
+msgstr "เกี่ยวกับไซต์"
+
+msgid "about.contact"
+msgstr "ติดต่อ"
+
+msgid "about.contact.email"
+msgstr "อีเมล"
+
+msgid "about.contact.phone"
+msgstr "โทรศัพท์"
+
+msgid "about.contact.principalContact"
+msgstr "ผู้ติดต่อหลัก"
+
+msgid "about.contact.supportContact"
+msgstr "ผู้ติดต่อฝ่ายสนับสนุน"
+
+msgid "about.other"
+msgstr "อื่น ๆ"
+
+msgid "about.people"
+msgstr "บุคคล"
+
+msgid "about.policies"
+msgstr "นโยบาย"
+
+msgid "announcement.announcements"
+msgstr "ประกาศ"
+
+msgid "announcement.announcementsHome"
+msgstr "ประกาศ"
+
+msgid "announcement.moreAnnouncements"
+msgstr "ประกาศเพิ่มเติม..."
+
+msgid "announcement.noneExist"
+msgstr "ยังไม่มีประกาศใด ๆ ถูกเผยแพร่"
+
+msgid "announcement.postedOn"
+msgstr "โพสต์เมื่อ {$postDate}"
+
+msgid "announcement.view"
+msgstr "ดูประกาศ"
+
+msgid "common.allDownloads"
+msgstr "การดาวน์โหลดทั้งหมด"
+
+msgid "common.navigation.sidebar"
+msgstr "แถบด้านข้าง"
+
+msgid "common.navigation.site"
+msgstr "การนำทางในไซต์"
+
+msgid "common.navigation.siteContext"
+msgstr "การนำทางบริบทของไซต์"
+
+msgid "common.navigation.user"
+msgstr "การนำทางของผู้ใช้"
+
+msgid "common.tasks"
+msgstr "งาน"
+
+msgid "common.list"
+msgstr "รายการ"
+
+msgid "common.grid"
+msgstr "ตาราง"
+
+msgid "common.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้? การกระทำนี้ไม่สามารถย้อนกลับได้"
+
+msgid "common.abstract"
+msgstr "บทคัดย่อ"
+
+msgid "common.accepted"
+msgstr "ได้รับการยอมรับ"
+
+msgid "common.acknowledged"
+msgstr "รับทราบ"
+
+msgid "common.action"
+msgstr "การดำเนินการ"
+
+msgid "common.activate"
+msgstr "เปิดใช้งาน"
+
+msgid "common.active"
+msgstr "ใช้งานอยู่"
+
+msgid "common.inactive"
+msgstr "ไม่ใช้งาน"
+
+msgid "common.add"
+msgstr "เพิ่ม"
+
+msgid "common.addCCBCC"
+msgstr "เพิ่ม CC/BCC"
+
+msgid "common.addFiles"
+msgstr "เพิ่มไฟล์"
+
+msgid "common.addSelf"
+msgstr "เพิ่มตัวเอง"
+
+msgid "common.attachedFiles"
+msgstr "ไฟล์ที่แนบมา"
+
+msgid "common.attachFiles"
+msgstr "แนบไฟล์"
+
+msgid "common.attachSelected"
+msgstr "แนบที่เลือก"
+
+msgid "common.name"
+msgstr "ชื่อ"
+
+msgid "common.all"
+msgstr "ทั้งหมด"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.titleSmallWords"
+msgstr "ของ และ เป็น ที่ จาก โดย บน ออก เพื่อ ใน กับ"
+
+msgid "common.alreadyAssigned"
+msgstr "กำหนดแล้ว"
+
+msgid "common.altText"
+msgstr "ข้อความแทน"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"อธิบายภาพนี้สำหรับผู้เข้าชมที่ใช้เบราว์เซอร์แบบข้อความเท่านั้นหรืออุปกรณ์ช่วย"
+"เหลือ เช่น \"บรรณาธิการของเรากำลังพูดที่งานประชุม PKP\""
+
+msgid "common.assign"
+msgstr "กำหนด"
+
+msgid "common.assigned"
+msgstr "กำหนดแล้ว"
+
+msgid "common.assigned.date"
+msgstr "กำหนดเมื่อ: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "มีให้"
+
+msgid "common.back"
+msgstr "ย้อนกลับ"
+
+msgid "common.between"
+msgstr "ระหว่าง"
+
+msgid "common.cancel"
+msgstr "ยกเลิก"
+
+msgid "common.cancelled"
+msgstr "ถูกยกเลิก"
+
+msgid "common.warning"
+msgstr "คำเตือน"
+
+msgid "common.error"
+msgstr "ข้อผิดพลาด"
+
+msgid "common.notice"
+msgstr "แจ้งเตือน"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "คุณต้องทำการตรวจสอบเพื่อป้องกันการส่งสแปมให้เสร็จสิ้น"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"สัญญาอนุญาตครีเอทีฟคอมมอนส์\" style=\"border-width:0\" src="
+"\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">สัญญาอนุญาตครีเอทีฟคอมมอนส์ "
+"แสดงที่มา 3.0</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"สัญญาอนุญาตครีเอทีฟคอมมอนส์\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\""
+">สัญญาอนุญาตครีเอทีฟคอมมอนส์ แสดงที่มา 3.0</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "การเปลี่ยนแปลงของคุณถูกบันทึกแล้ว"
+
+msgid "common.chooseOne"
+msgstr "เลือกหนึ่งตัวเลือก"
+
+msgid "common.close"
+msgstr "ปิด"
+
+msgid "common.closePanel"
+msgstr "ปิดแผงควบคุม"
+
+msgid "common.closeWindow"
+msgstr "ปิดหน้าต่าง"
+
+msgid "common.complete"
+msgstr "เสร็จสมบูรณ์"
+
+msgid "common.completed"
+msgstr "เสร็จสมบูรณ์แล้ว"
+
+msgid "common.completed.date"
+msgstr "เสร็จสมบูรณ์: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "ยืนยัน"
+
+msgid "common.confirmed.date"
+msgstr "ยืนยันแล้ว: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "เนื้อหา"
+
+msgid "common.contents"
+msgstr "เนื้อหา"
+
+msgid "common.continue"
+msgstr "ดำเนินการต่อ"
+
+msgid "common.copy"
+msgstr "คัดลอก"
+
+msgid "common.country"
+msgstr "ประเทศ"
+
+msgid "common.create"
+msgstr "สร้าง"
+
+msgid "common.dateCompleted"
+msgstr "วันที่เสร็จสมบูรณ์"
+
+msgid "common.dateDecided"
+msgstr "วันที่ตัดสินใจ"
+
+msgid "common.date"
+msgstr "วันที่"
+
+msgid "common.dateModified"
+msgstr "วันที่แก้ไข"
+
+msgid "common.dateRequested"
+msgstr "วันที่ร้องขอ"
+
+msgid "common.dateSubmitted"
+msgstr "วันที่ส่ง"
+
+msgid "common.dateUploaded"
+msgstr "วันที่อัปโหลด"
+
+msgid "common.dateHijri"
+msgstr "ปฏิทินฮิจเราะห์"
+
+msgid "common.day"
+msgstr "วัน"
+
+msgid "common.deactivate"
+msgstr "ปิดใช้งาน"
+
+msgid "common.default"
+msgstr "ค่าเริ่มต้น"
+
+msgid "common.declined"
+msgstr "ปฏิเสธแล้ว"
+
+msgid "common.delete"
+msgstr "ลบ"
+
+msgid "common.deleting"
+msgstr "กำลังลบ"
+
+msgid "common.deleteSelection"
+msgstr "ลบการเลือก"
+
+msgid "common.deselect"
+msgstr "ยกเลิกการเลือก"
+
+msgid "common.designation"
+msgstr "ตำแหน่ง"
+
+msgid "common.description"
+msgstr "คำอธิบาย"
+
+msgid "common.details"
+msgstr "รายละเอียด"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; ที่ {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} พิกเซล"
+
+msgid "common.discardChanges"
+msgstr "ไม่, ยกเลิกการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+
+msgid "common.disconnected"
+msgstr "ถูกตัดการเชื่อมต่อ"
+
+msgid "common.disable"
+msgstr "ปิดการใช้งาน"
+
+msgid "common.disabled"
+msgstr "ปิดใช้งาน"
+
+msgid "common.discipline"
+msgstr "สาขาวิชา"
+
+msgid "common.done"
+msgstr "เสร็จสิ้น"
+
+msgid "common.download"
+msgstr "ดาวน์โหลด"
+
+msgid "common.downloadPdf"
+msgstr "ดาวน์โหลด PDF"
+
+msgid "common.downloadReport"
+msgstr "ดาวน์โหลดรายงาน"
+
+msgid "common.dragAndDropHere"
+msgstr "ลากและวางไฟล์ที่นี่"
+
+msgid "common.orUploadFile"
+msgstr "หรืออัปโหลดไฟล์"
+
+msgid "common.edit"
+msgstr "แก้ไข"
+
+msgid "common.editItem"
+msgstr "แก้ไข {$name}"
+
+msgid "common.emailTemplates"
+msgstr "แม่แบบอีเมล"
+
+msgid "common.enable"
+msgstr "เปิดใช้งาน"
+
+msgid "common.enabled"
+msgstr "เปิดใช้งานแล้ว"
+
+msgid "common.error.databaseError"
+msgstr "เกิดข้อผิดพลาดในฐานข้อมูล: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุในการเชื่อมต่อฐานข้อมูล"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"หน้านี้ต้องการเฟรม <a href=\"{$url}\">คลิกที่นี่</a> "
+"เพื่อเวอร์ชันที่ไม่ใช้เฟรม"
+
+msgid "common.event"
+msgstr "เหตุการณ์"
+
+msgid "common.export"
+msgstr "ส่งออก"
+
+msgid "common.finish"
+msgstr "เสร็จสิ้น"
+
+msgid "common.fullscreen"
+msgstr "เต็มหน้าจอ"
+
+msgid "common.fullscreenOff"
+msgstr "ปิดเต็มหน้าจอ"
+
+msgid "common.false"
+msgstr "เท็จ"
+
+msgid "common.file"
+msgstr "ไฟล์"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "ชื่อไฟล์"
+
+msgid "common.fileSize"
+msgstr "ขนาดไฟล์"
+
+msgid "common.fileType"
+msgstr "ประเภทไฟล์"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"ระบบกำลังโหลดตัวอัปโหลดไฟล์ หากไม่ปรากฏขึ้น อาจเป็นเพราะไม่มี runtime "
+"ใดที่รองรับเบราว์เซอร์นี้ กรุณาติดต่อฝ่ายบริหารเพื่อขอความช่วยเหลือ"
+
+msgid "common.filter"
+msgstr "ตัวกรอง"
+
+msgid "common.filterAdd"
+msgstr "เพิ่มตัวกรอง: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "ล้างตัวกรอง: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "ค้นหาแม่แบบ"
+
+msgid "common.formatting"
+msgstr "การจัดรูปแบบ"
+
+msgid "common.geographic"
+msgstr "ภูมิศาสตร์"
+
+msgid "common.go"
+msgstr "ไป"
+
+msgid "common.height"
+msgstr "ความสูง"
+
+msgid "common.highlight"
+msgstr "เน้น"
+
+msgid "common.highlights"
+msgstr "จุดเด่น"
+
+msgid "common.homepageNavigationLabel"
+msgstr "หน้าแรก"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "โลโก้ส่วนหัวของหน้าแรก"
+
+msgid "common.hour"
+msgstr "ชั่วโมง"
+
+msgid "common.id"
+msgstr "รหัส"
+
+msgid "common.import"
+msgstr "นำเข้า"
+
+msgid "common.initiate"
+msgstr "เริ่มต้น"
+
+msgid "common.inProgress"
+msgstr "กำลังดำเนินการ"
+
+msgid "common.insert"
+msgstr "แทรก"
+
+msgid "common.insertContent"
+msgstr "แทรกเนื้อหา"
+
+msgid "common.insertContentSearch"
+msgstr "ค้นหาเนื้อหาเพื่อแทรก"
+
+msgid "common.itemsPerPage"
+msgstr "รายการต่อหน้า"
+
+msgid "common.keywords"
+msgstr "คำสำคัญ"
+
+msgid "common.label"
+msgstr "ป้ายกำกับ"
+
+msgid "common.language"
+msgstr "ภาษา"
+
+msgid "common.languages"
+msgstr "ภาษา"
+
+msgid "common.lastSaved"
+msgstr "บันทึกล่าสุดเมื่อ {$when}"
+
+msgid "common.lastActivity"
+msgstr "บันทึกกิจกรรมล่าสุดเมื่อ {$date}"
+
+msgid "common.less"
+msgstr "น้อยลง"
+
+msgid "common.lessThan"
+msgstr "{$value} หรือน้อยกว่า"
+
+msgid "common.lessThanOnly"
+msgstr "น้อยกว่า"
+
+msgid "common.keepWorking"
+msgstr "ทำงานต่อไป"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "จัดการ"
+
+msgid "common.mailingAddress"
+msgstr "ที่อยู่ในการส่งจดหมาย"
+
+msgid "common.billingAddress"
+msgstr "ที่อยู่สำหรับการเรียกเก็บเงิน (หากแตกต่างจากที่อยู่ส่งจดหมาย)"
+
+msgid "common.minute"
+msgstr "นาที"
+
+msgid "common.modify"
+msgstr "แก้ไข"
+
+msgid "common.month"
+msgstr "เดือน"
+
+msgid "common.more"
+msgstr "เพิ่มเติม"
+
+msgid "common.moreThan"
+msgstr "{$value} หรือมากกว่า"
+
+msgid "common.moreThanOnly"
+msgstr "มากกว่า"
+
+msgid "common.noneAssigned"
+msgstr "ไม่ได้มอบหมาย"
+
+msgid "common.none"
+msgstr "ไม่มี"
+
+msgid "common.noneSelected"
+msgstr "ไม่ได้เลือก"
+
+msgid "common.noneProvided"
+msgstr "ไม่ได้ระบุ"
+
+msgid "common.no"
+msgstr "ไม่"
+
+msgid "common.noItemsFound"
+msgstr "ไม่พบรายการ"
+
+msgid "common.noComments"
+msgstr "ไม่มีความคิดเห็น"
+
+msgid "common.notApplicable"
+msgstr "ไม่สามารถใช้ได้"
+
+msgid "common.notApplicableShort"
+msgstr "ไม่ระบุ"
+
+msgid "common.notAvailable"
+msgstr "ไม่พร้อมใช้งาน"
+
+msgid "common.note"
+msgstr "หมายเหตุ"
+
+msgid "common.noTemporaryFile"
+msgstr "ไม่พบไฟล์ที่คุณอัปโหลด กรุณาลองอัปโหลดใหม่อีกครั้ง"
+
+msgid "common.notes"
+msgstr "หมายเหตุ"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"หมายเหตุ (สีเหลือง: มีหมายเหตุใหม่; สีน้ำเงิน: หมายเหตุที่ดูแล้ว; สีเทา: "
+"ไม่มีหมายเหตุ)"
+
+msgid "common.notified"
+msgstr "ได้รับการแจ้งเตือนแล้ว"
+
+msgid "common.notified.date"
+msgstr "ได้รับการแจ้งเตือน: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "ไม่พบรายการที่ตรงกัน"
+
+msgid "common.numberedMore"
+msgstr "{$number} เพิ่มเติม"
+
+msgid "common.off"
+msgstr "ปิด"
+
+msgid "common.on"
+msgstr "เปิด"
+
+msgid "common.ok"
+msgstr "ตกลง"
+
+msgid "common.options"
+msgstr "ตัวเลือก"
+
+msgid "common.order"
+msgstr "ลำดับ"
+
+msgid "common.orderUp"
+msgstr "เพิ่มตำแหน่งของ {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "ลดตำแหน่งของ {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "ชื่อไฟล์เดิม"
+
+msgid "common.or"
+msgstr "หรือ"
+
+msgid "common.other"
+msgstr "อื่น ๆ"
+
+msgid "common.overdue"
+msgstr "เกินกำหนด"
+
+msgid "common.override"
+msgstr "แทนที่"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} จากทั้งหมด {$total}"
+
+msgid "common.pagination.label"
+msgstr "ดูหน้าถัดไปเพิ่มเติม"
+
+msgid "common.pagination.goToPage"
+msgstr "ไปที่หน้า {$page}"
+
+msgid "common.pagination.next"
+msgstr "หน้าถัดไป"
+
+msgid "common.pagination.previous"
+msgstr "หน้าก่อนหน้า"
+
+msgid "common.pageNumber"
+msgstr "หน้า {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "ปลั๊กอิน"
+
+msgid "common.pluginEnabled"
+msgstr "ปลั๊กอิน \"{$pluginName}\" ได้ถูกเปิดใช้งานแล้ว"
+
+msgid "common.pluginDisabled"
+msgstr "ปลั๊กอิน \"{$pluginName}\" ได้ถูกปิดใช้งานแล้ว"
+
+msgid "common.prefix"
+msgstr "คำนำหน้า"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "ตัวอย่าง: ก, อัน"
+
+msgid "common.preview"
+msgstr "ดูตัวอย่าง"
+
+msgid "common.publisher"
+msgstr "ผู้จัดพิมพ์"
+
+msgid "common.quality"
+msgstr "คุณภาพ"
+
+msgid "common.queue.long.active"
+msgstr "ทั้งหมดที่กำลังดำเนินการอยู่"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "เรื่อง:"
+
+msgid "common.readMore"
+msgstr "อ่านเพิ่มเติม"
+
+msgid "common.readMoreWithTitle"
+msgstr "อ่านเพิ่มเติมเกี่ยวกับ {$title}"
+
+msgid "common.reconnecting"
+msgstr "กำลังเชื่อมต่อใหม่"
+
+msgid "common.record"
+msgstr "บันทึก"
+
+msgid "common.refresh"
+msgstr "รีเฟรช"
+
+msgid "common.related"
+msgstr "เกี่ยวข้อง"
+
+msgid "common.reminder"
+msgstr "การเตือนความจำ"
+
+msgid "common.reminded.date"
+msgstr "ได้เตือน: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "ระยะไกล"
+
+msgid "common.remoteURL"
+msgstr "URL ระยะไกล"
+
+msgid "common.remove"
+msgstr "ลบ"
+
+msgid "common.removeItem"
+msgstr "ลบ {$item}"
+
+msgid "common.removeSelection"
+msgstr "ลบการเลือก"
+
+msgid "common.replaced"
+msgstr "ถูกแทนที่แล้ว"
+
+msgid "common.replaceFile"
+msgstr "แทนที่ไฟล์"
+
+msgid "common.requiredField"
+msgstr ""
+"ฟิลด์ที่ต้องกรอกจะถูกระบุด้วยเครื่องหมายดอกจัน: <abbr class=\"required\" "
+"title=\"จำเป็น\">*</abbr>"
+
+msgid "common.required"
+msgstr "จำเป็น"
+
+msgid "common.reset"
+msgstr "รีเซ็ต"
+
+msgid "common.reviewRoundNumber"
+msgstr "รอบที่ {$round}"
+
+msgid "common.role"
+msgstr "บทบาท"
+
+msgid "common.saveAndContinue"
+msgstr "บันทึกและดำเนินการต่อ"
+
+msgid "common.saveAndEmail"
+msgstr "บันทึกและส่งอีเมล"
+
+msgid "common.save"
+msgstr "บันทึก"
+
+msgid "common.saving"
+msgstr "กำลังบันทึก"
+
+msgid "common.search"
+msgstr "ค้นหา"
+
+msgid "common.searchPhrase"
+msgstr "วลีที่ค้นหา"
+
+msgid "common.searching"
+msgstr "กำลังค้นหา"
+
+msgid "common.searchQuery"
+msgstr "คำค้นหา"
+
+msgid "common.clearSearch"
+msgstr "ล้างวลีที่ค้นหา"
+
+msgid "common.second"
+msgstr "วินาที"
+
+msgid "common.selectAll"
+msgstr "เลือกทั้งหมด"
+
+msgid "common.selectedPrefix"
+msgstr "เลือกแล้ว:"
+
+msgid "common.selectNone"
+msgstr "ไม่เลือกทั้งหมด"
+
+msgid "common.select"
+msgstr "เลือก"
+
+msgid "common.selectWithName"
+msgstr "เลือก {$name}"
+
+msgid "common.sendEmail"
+msgstr "ส่งอีเมล"
+
+msgid "common.showAllSteps"
+msgstr "แสดงทุกขั้นตอน"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} ขั้นตอน"
+
+msgid "common.size"
+msgstr "ขนาด"
+
+msgid "common.source"
+msgstr "แหล่งที่มา"
+
+msgid "common.status"
+msgstr "สถานะ"
+
+msgid "common.subject"
+msgstr "หัวเรื่อง"
+
+msgid "common.subjects"
+msgstr "หัวข้อ"
+
+msgid "common.submenu"
+msgstr "เมนูย่อย"
+
+msgid "common.subtitle"
+msgstr "ชื่อย่อย"
+
+msgid "common.suggest"
+msgstr "แนะนำ"
+
+msgid "common.switchTo"
+msgstr "สลับไปที่"
+
+msgid "common.switchToNamedItem"
+msgstr "สลับไปที่ {$name}"
+
+msgid "common.title"
+msgstr "ชื่อเรื่อง"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "บนสุด"
+
+msgid "common.true"
+msgstr "จริง"
+
+msgid "common.type"
+msgstr "ประเภท"
+
+msgid "common.uploadedBy"
+msgstr "อัปโหลดโดย {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "อัปโหลดโดย {$name} เมื่อ {$date}"
+
+msgid "common.component"
+msgstr "ส่วนประกอบ"
+
+msgid "common.uninitiated"
+msgstr "ยังไม่ได้เริ่มต้น"
+
+msgid "common.unknownError"
+msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด กรุณารีโหลดหน้าและลองใหม่อีกครั้ง"
+
+msgid "common.unread"
+msgstr "ยังไม่ได้อ่าน"
+
+msgid "common.unsavedChanges"
+msgstr "การเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"เราพบการเปลี่ยนแปลงที่ยังไม่ได้บันทึกตั้งแต่ {$when}. "
+"อาจเกิดขึ้นได้หากคุณสูญเสียการเชื่อมต่อกับเซิร์ฟเวอร์ขณะทำงาน "
+"การกู้คืนการเปลี่ยนแปลงเหล่านั้นอาจทับซ้อนการเปลี่ยนแปลงใด ๆ "
+"ที่คุณทำตั้งแต่นั้นมา คุณต้องการกู้คืนการเปลี่ยนแปลงเหล่านั้นตอนนี้หรือไม่?"
+
+msgid "common.untitled"
+msgstr "ไม่มีชื่อ"
+
+msgid "common.updated"
+msgstr "อัปเดตแล้ว"
+
+msgid "common.uploadedDate"
+msgstr "วันที่อัปโหลด"
+
+msgid "common.upload"
+msgstr "อัปโหลด"
+
+msgid "common.uploadFailed"
+msgstr "ไม่สามารถอัปโหลดหรือแก้ไขไฟล์ได้"
+
+msgid "common.up"
+msgstr "ขึ้น"
+
+msgid "common.addFile"
+msgstr "เพิ่มไฟล์"
+
+msgid "common.upload.addFile"
+msgstr "อัปโหลดไฟล์"
+
+msgid "common.upload.addFile.description"
+msgstr "อัปโหลดไฟล์จากคอมพิวเตอร์ของคุณ"
+
+msgid "common.upload.restore"
+msgstr "กู้คืนต้นฉบับ"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "ดูตัวอย่างของภาพที่เลือกปัจจุบัน"
+
+msgid "common.upload.changeFile"
+msgstr "เปลี่ยนไฟล์"
+
+msgid "common.upload.dragFile"
+msgstr "ลากและวางไฟล์ที่นี่เพื่อเริ่มอัปโหลด"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "ผู้ใช้"
+
+msgid "common.user.nonexistent"
+msgstr "[ผู้ใช้ไม่มีอยู่]"
+
+msgid "common.view"
+msgstr "ดู"
+
+msgid "common.viewError"
+msgstr "ข้อผิดพลาดในการดู"
+
+msgid "common.viewWithName"
+msgstr "ดู {$name}"
+
+msgid "common.viewProfile"
+msgstr "ดูโปรไฟล์"
+
+msgid "common.weeks"
+msgstr "สัปดาห์"
+
+msgid "common.width"
+msgstr "ความกว้าง"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "ปี"
+
+msgid "common.yes"
+msgstr "ใช่"
+
+msgid "common.loading"
+msgstr "กำลังโหลด"
+
+msgid "common.plugins"
+msgstr "ปลั๊กอิน"
+
+msgid "common.count"
+msgstr "จำนวน"
+
+msgid "common.publicAccess"
+msgstr "การเข้าถึงสาธารณะ"
+
+msgid "debug.databaseQueries"
+msgstr "จำนวนการสืบค้นฐานข้อมูล"
+
+msgid "debug.executionTime"
+msgstr "สร้างหน้าในเวลา"
+
+msgid "debug.memoryUsage"
+msgstr "การใช้งานหน่วยความจำ"
+
+msgid "debug.notes.localeListLoad"
+msgstr "โหลดรายการโลคอล \"{$localeList}\" จาก XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "โหลดไฟล์โลคอล \"{$localeFile}\" จาก XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "คีย์โลคอล \"{$key}\" หายไป"
+
+msgid "debug.notes"
+msgstr "บันทึกย่อ:"
+
+msgid "defaultMetric.title"
+msgstr "ตัวชี้วัดเริ่มต้น"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "อัปโหลดไฟล์การทบทวน"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "อัปโหลดไฟล์"
+
+msgid "email.addAttachment"
+msgstr "เพิ่มไฟล์แนบ"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "แนบไฟล์การส่งงาน"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "แนบไฟล์ที่อัปโหลดโดยผู้แต่งในขั้นตอนการส่ง"
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"แนบไฟล์ที่อัปโหลดระหว่างกระบวนการส่งงาน เช่น การแก้ไขหรือไฟล์ที่ต้องทบทวน"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "ไฟล์ห้องสมุด"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "แนบไฟล์ห้องสมุด"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "แนบไฟล์จากห้องสมุดการส่งงานและห้องสมุดสำนักพิมพ์"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "แนบไฟล์การทบทวน"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "แนบไฟล์ที่ถูกอัปโหลดโดยผู้รีวิว"
+
+msgid "email.addBccRecipient"
+msgstr "เพิ่ม BCC"
+
+msgid "email.addCcRecipient"
+msgstr "เพิ่ม CC"
+
+msgid "email.addToRecipient"
+msgstr "เพิ่มผู้รับ"
+
+msgid "email.attachments"
+msgstr "ไฟล์แนบ"
+
+msgid "email.attachmentNotFound"
+msgstr "ไม่สามารถแนบไฟล์ {$fileName} ได้"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "ส่งสำเนาของข้อความนี้ไปยังที่อยู่ของฉัน ({$address})"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการเปลี่ยนเป็น {$localeName} เพื่อเขียนอีเมลนี้? "
+"การเปลี่ยนแปลงใด ๆ ที่คุณทำกับหัวเรื่องและเนื้อหาของอีเมลจะหายไป"
+
+msgid "email.compose"
+msgstr "ส่งอีเมล"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "ข้อความที่คุณพยายามส่งมีผู้รับมากเกินไป"
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"คุณกำลังพยายามส่งข้อความเร็วเกินไปหลังจากที่ข้อความก่อนหน้านี้ถูกส่ง "
+"โปรดรอก่อนที่จะส่งข้อความอีกครั้ง"
+
+msgid "email.compose.error"
+msgstr ""
+"เกิดปัญหาในการส่งข้อความอีเมล กรุณาลองใหม่อีกครั้งในภายหลัง หรือ "
+"ติดต่อผู้ดูแลระบบของคุณ"
+
+msgid "email.email"
+msgstr "อีเมล"
+
+msgid "email.from"
+msgstr "จาก"
+
+msgid "email.invalid"
+msgstr "ที่อยู่อีเมล {$email} ไม่ถูกต้อง"
+
+msgid "email.multipart"
+msgstr "นี่คือข้อความหลายส่วนในรูปแบบ MIME"
+
+msgid "email.recipient"
+msgstr "ผู้รับ"
+
+msgid "email.recipients"
+msgstr "ผู้รับ"
+
+msgid "email.sender"
+msgstr "ผู้ส่ง"
+
+msgid "email.senderName"
+msgstr "ชื่อผู้ส่ง"
+
+msgid "email.senderEmail"
+msgstr "อีเมลผู้ส่ง"
+
+msgid "email.send"
+msgstr "ส่ง"
+
+msgid "email.skip"
+msgstr "ข้ามอีเมล"
+
+msgid "email.subject"
+msgstr "หัวเรื่อง"
+
+msgid "email.subjectRequired"
+msgstr "กรุณาใส่หัวเรื่องอีเมล"
+
+msgid "email.bodyRequired"
+msgstr "กรุณาใส่ข้อความเนื้อหาอีเมล"
+
+msgid "email.to"
+msgstr "ถึง"
+
+msgid "form.url.invalid"
+msgstr "URL ที่ระบุไม่ถูกต้อง กรุณาตรวจสอบและลองใหม่อีกครั้ง"
+
+msgid "form.confirmSubmit"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการส่งแบบฟอร์มนี้?"
+
+msgid "form.confirmSubmit.title"
+msgstr "ยืนยัน"
+
+msgid "form.dataHasChanged"
+msgstr ""
+"ข้อมูลในแบบฟอร์มนี้มีการเปลี่ยนแปลง "
+"คุณต้องการดำเนินการต่อโดยไม่บันทึกหรือไม่?"
+
+msgid "form.disallowedLocales"
+msgstr "อนุญาตเฉพาะภาษาต่อไปนี้เท่านั้น: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "ไม่อนุญาตให้ใช้คุณสมบัตินี้"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "ลากไฟล์มาที่นี่เพื่ออัปโหลด"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "เบราว์เซอร์ของคุณไม่รองรับการอัปโหลดไฟล์แบบลากแล้ววาง"
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "กรุณาใช้แบบฟอร์มด้านล่างเพื่ออัปโหลดไฟล์ของคุณ"
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"ไฟล์มีขนาดใหญ่เกินไป ({{filesize}}mb) ไม่สามารถอัปโหลดไฟล์ที่มีขนาดเกินกว่า "
+"{{maxFilesize}}mb ได้"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "ไม่สามารถอัปโหลดไฟล์ประเภทนี้ได้"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"เซิร์ฟเวอร์ตอบกลับด้วยรหัส {{statusCode}} "
+"โปรดติดต่อผู้ดูแลระบบหากปัญหานี้ยังคงอยู่"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "ยกเลิกการอัปโหลด"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "การอัปโหลดถูกยกเลิก"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการอัปโหลดนี้?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "ลบไฟล์"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "คุณไม่สามารถอัปโหลดไฟล์เพิ่มเติมได้"
+
+msgid "form.errorA11y"
+msgstr "ไปที่ {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "ข้ามไปยังข้อผิดพลาดถัดไป"
+
+msgid "form.errorOne"
+msgstr "โปรดแก้ไขข้อผิดพลาดหนึ่งรายการ"
+
+msgid "form.errorMany"
+msgstr "โปรดแก้ไขข้อผิดพลาดจำนวน {$count} รายการ"
+
+msgid "form.errors"
+msgstr ""
+"แบบฟอร์มไม่ถูกบันทึกเนื่องจากพบข้อผิดพลาดจำนวน {$count} รายการ "
+"โปรดแก้ไขข้อผิดพลาดเหล่านี้และลองอีกครั้ง"
+
+msgid "form.errorsOccurred"
+msgstr "เกิดข้อผิดพลาดในการประมวลผลแบบฟอร์มนี้"
+
+msgid "form.formLanguage.description"
+msgstr "หากต้องการกรอกข้อมูลด้านล่างในหลายภาษา ให้เลือกภาษาก่อน"
+
+msgid "form.formLanguage"
+msgstr "ภาษาของแบบฟอร์ม"
+
+msgid "form.contains"
+msgstr "ประกอบด้วย"
+
+msgid "form.startsWith"
+msgstr "เริ่มต้นด้วย"
+
+msgid "form.postRequired"
+msgstr "แบบฟอร์มนี้ไม่ได้ถูกส่งอย่างถูกต้อง"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"ไม่สามารถส่งแบบฟอร์มได้ คุณอาจถูกออกจากระบบ โปรดรีเฟรชหน้าและลองใหม่อีกครั้ง"
+
+msgid "form.fileRequired"
+msgstr "จำเป็นต้องมีการอัปโหลดไฟล์"
+
+msgid "form.required"
+msgstr "(* จำเป็นต้องกรอก)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "คุณต้องกรอกข้อมูลในช่องนี้ในภาษา {$language}"
+
+msgid "form.requireId"
+msgstr "คุณต้องระบุ ID ที่ถูกต้อง"
+
+msgid "form.resubmit"
+msgstr "ส่งอีกครั้ง"
+
+msgid "form.saved"
+msgstr "บันทึกแล้ว"
+
+msgid "form.saveToUpload"
+msgstr "ใช้การบันทึกเพื่ออัปโหลดไฟล์"
+
+msgid "form.send"
+msgstr "ส่ง"
+
+msgid "form.submit"
+msgstr "ยืนยันการส่ง"
+
+msgid "form.invalidImage"
+msgstr "อัปโหลดรูปภาพไม่ถูกต้อง รูปแบบที่ยอมรับคือ .png, .gif, หรือ .jpg"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} ในภาษา {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "กรอกข้อมูลแล้ว {$count}/{$total} ภาษา"
+
+msgid "help.help"
+msgstr "ความช่วยเหลือ"
+
+msgid "help.toc"
+msgstr "สารบัญ"
+
+msgid "help.previous"
+msgstr "ก่อนหน้า"
+
+msgid "help.next"
+msgstr "ถัดไป"
+
+msgid "help.upALevel"
+msgstr "ขึ้นไปหนึ่งระดับ"
+
+msgid "icon.checked.alt"
+msgstr "เลือกแล้ว"
+
+msgid "icon.comment.alt"
+msgstr "ความคิดเห็น"
+
+msgid "icon.delete.alt"
+msgstr "ลบ"
+
+msgid "icon.edit.alt"
+msgstr "แก้ไข"
+
+msgid "icon.folder.alt"
+msgstr "โฟลเดอร์"
+
+msgid "icon.font_large.alt"
+msgstr "ใหญ่"
+
+msgid "icon.font_medium.alt"
+msgstr "กลาง"
+
+msgid "icon.font_small.alt"
+msgstr "เล็ก"
+
+msgid "icon.info.alt"
+msgstr "ข้อมูล"
+
+msgid "icon.letter.alt"
+msgstr "จดหมาย"
+
+msgid "icon.mail.alt"
+msgstr "อีเมล"
+
+msgid "icon.unchecked.alt"
+msgstr "ยังไม่ได้เลือก"
+
+msgid "icon.view.alt"
+msgstr "ดู"
+
+msgid "informationCenter.informationCenter"
+msgstr "ศูนย์ข้อมูล"
+
+msgid "informationCenter.editorialHistory"
+msgstr "ประวัติการบรรณาธิการ"
+
+msgid "informationCenter.addNote"
+msgstr "เพิ่มบันทึก"
+
+msgid "informationCenter.noNotes"
+msgstr "ไม่มีบันทึกที่จะแสดง"
+
+msgid "informationCenter.pastNotes"
+msgstr "บันทึกการแก้ไขก่อนหน้านี้"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบันทึกนี้?"
+
+msgid "informationCenter.currentHistory"
+msgstr "การแก้ไขปัจจุบัน"
+
+msgid "informationCenter.pastHistory"
+msgstr "การแก้ไขก่อนหน้านี้"
+
+msgid "informationCenter.history.noItems"
+msgstr "ไม่มีเหตุการณ์ที่ถูกบันทึก"
+
+msgid "informationCenter.history.notePosted"
+msgstr "โพสต์บันทึกใหม่แล้ว"
+
+msgid "informationCenter.history.messageSent"
+msgstr "การแจ้งเตือนถูกส่งไปยังผู้ใช้แล้ว"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "การแจ้งเตือนถูกส่งไปยังผู้ใช้แล้ว"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "เริ่มการสนทนา"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "เริ่มการสนทนาระหว่างคุณกับ {$userFullName}"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "เลือกข้อความที่กำหนดไว้ล่วงหน้าเพื่อใช้งาน หรือกรอกแบบฟอร์มด้านล่าง"
+
+msgid "stageParticipants.notify.message"
+msgstr "ข้อความ"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"โปรดตรวจสอบว่าคุณกรอกช่องข้อความแล้ว และมีบุคคลอื่นนอกจากตัวคุณเองในการสนทนา"
+
+msgid "stageParticipants.options"
+msgstr "สิทธิ์ในการมอบหมาย"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"ผู้เข้าร่วมคนนี้สามารถแนะนำการตัดสินใจบรรณาธิการเท่านั้น "
+"และจะต้องการบรรณาธิการที่ได้รับอนุญาตในการบันทึกการตัดสินใจบรรณาธิการ"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "สิทธิ์ในการจัดการ"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"อนุญาตให้บุคคลนี้ทำการเปลี่ยนแปลงการตีพิมพ์ เช่น ชื่อเรื่อง บทคัดย่อ ข้อมู"
+"ลเมตา และรายละเอียดการตีพิมพ์อื่น ๆ คุณอาจต้องการเพิกถอนสิทธิ์นี้หากบทความได้"
+"รับการตรวจสอบครั้งสุดท้ายและพร้อมสำหรับการตีพิมพ์แล้ว"
+
+msgid "stageParticipants.selectedUser"
+msgstr "ผู้เข้าร่วม"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "ไม่สามารถทำการเปลี่ยนแปลงใด ๆ กับผู้เข้าร่วมนี้ได้"
+
+msgid "locale.primary"
+msgstr "ภาษาหลัก"
+
+msgid "locale.supported"
+msgstr "ภาษาที่รองรับ"
+
+msgid "navigation.access"
+msgstr "ผู้ใช้ & บทบาท"
+
+msgid "navigation.about"
+msgstr "เกี่ยวกับ"
+
+msgid "navigation.admin"
+msgstr "การจัดการ"
+
+msgid "navigation.archives"
+msgstr "เอกสารเก็บถาวร"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "คุณอยู่ที่นี่:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "เครื่องมือ"
+
+msgid "navigation.tools.importExport"
+msgstr "นำเข้า/ส่งออก"
+
+msgid "navigation.tools.statistics"
+msgstr "สถิติ"
+
+msgid "navigation.browse"
+msgstr "เรียกดู"
+
+msgid "navigation.backTo"
+msgstr "⟵ กลับไปที่ {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "ตามผู้แต่ง"
+
+msgid "navigation.browseByTitle"
+msgstr "ตามชื่อเรื่อง"
+
+msgid "navigation.dashboard"
+msgstr "แดชบอร์ด"
+
+msgid "navigation.data"
+msgstr "ข้อมูล"
+
+msgid "navigation.home"
+msgstr "หน้าหลัก"
+
+msgid "navigation.infoForReaders"
+msgstr "สำหรับผู้อ่าน"
+
+msgid "navigation.infoForReaders.long"
+msgstr "ข้อมูลสำหรับผู้อ่าน"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} จากทั้งหมด {$total} รายการ"
+
+msgid "navigation.items.shownTotal"
+msgstr "แสดง {$shown} จากทั้งหมด {$total} รายการ"
+
+msgid "navigation.login"
+msgstr "เข้าสู่ระบบ"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "ขั้นตอนถัดไป"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "ขั้นตอนก่อนหน้า"
+
+msgid "navigation.publicMenu"
+msgstr "เมนูสาธารณะ"
+
+msgid "navigation.register"
+msgstr "สมัครสมาชิก"
+
+msgid "navigation.search"
+msgstr "ค้นหา"
+
+msgid "navigation.settings"
+msgstr "การตั้งค่า"
+
+msgid "navigation.setup"
+msgstr "การตั้งค่า"
+
+msgid "navigation.sitemap"
+msgstr "แผนผังเว็บไซต์"
+
+msgid "navigation.skip.description"
+msgstr "ข้ามไปที่ลิงก์เนื้อหา"
+
+msgid "navigation.skip.announcements"
+msgstr "ข้ามไปยังประกาศ"
+
+msgid "navigation.skip.main"
+msgstr "ข้ามไปยังเนื้อหาหลัก"
+
+msgid "navigation.skip.nav"
+msgstr "ข้ามไปยังเมนูนำทางหลัก"
+
+msgid "navigation.skip.footer"
+msgstr "ข้ามไปยังส่วนท้ายของเว็บไซต์"
+
+msgid "navigation.stepNumber"
+msgstr "ขั้นตอนที่ {$step}"
+
+msgid "navigation.submissions"
+msgstr "การส่งงาน"
+
+msgid "navigation.system"
+msgstr "ระบบ"
+
+msgid "navigation.userHome"
+msgstr "หน้าหลักผู้ใช้"
+
+msgid "navigation.user"
+msgstr "ผู้ใช้"
+
+msgid "navigation.userManagement"
+msgstr "การจัดการผู้ใช้"
+
+msgid "navigation.viewFrontend"
+msgstr "ดูเว็บไซต์"
+
+msgid "institution.institutions"
+msgstr "สถาบัน"
+
+msgid "notification.addedAuditor"
+msgstr "เพิ่มผู้ตรวจสอบแล้ว"
+
+msgid "notification.removedAuditor"
+msgstr "ลบผู้ตรวจสอบแล้ว"
+
+msgid "notification.addedQuery"
+msgstr "เพิ่มการอภิปรายแล้ว"
+
+msgid "notification.reviewAcknowledged"
+msgstr "การทบทวนถูกทำเครื่องหมายว่าได้รับการยอมรับแล้ว ไม่ได้ส่งอีเมล"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "อีเมลขอบคุณถูกส่งไปยังผู้รีวิวแล้ว"
+
+msgid "notification.updatedReviewFiles"
+msgstr "ไฟล์การทบทวนได้รับการอัปเดตแล้ว"
+
+msgid "notification.allow"
+msgstr "เปิดใช้งานการแจ้งเตือนประเภทนี้"
+
+msgid "notification.addedAnnouncementType"
+msgstr "เพิ่มประเภทประกาศแล้ว"
+
+msgid "notification.editedAnnouncementType"
+msgstr "แก้ไขประเภทประกาศแล้ว"
+
+msgid "notification.removedAnnouncementType"
+msgstr "ลบประเภทประกาศแล้ว"
+
+msgid "notification.removedAnnouncement"
+msgstr "ลบประกาศแล้ว"
+
+msgid "notification.confirmError"
+msgstr "เกิดข้อผิดพลาดในการยืนยันการสมัครรับข้อมูลของคุณ"
+
+msgid "notification.confirmSuccess"
+msgstr "คุณได้สมัครรับข้อมูลเรียบร้อยแล้ว"
+
+msgid "notification.email"
+msgstr "ไม่ส่งอีเมลสำหรับการแจ้งเตือนประเภทนี้ให้ฉัน"
+
+msgid "notification.noneExist"
+msgstr "คุณยังไม่มีการแจ้งเตือนใด ๆ ในขณะนี้"
+
+msgid "notification.addedNote"
+msgstr "บันทึกถูกโพสต์แล้ว"
+
+msgid "notification.removedNote"
+msgstr "ลบบันทึกแล้ว"
+
+msgid "notification.removedFile"
+msgstr "ลบไฟล์แล้ว"
+
+msgid "notification.removedSubmission"
+msgstr "ลบบทความที่ส่งแล้ว"
+
+msgid "notification.notification"
+msgstr "การแจ้งเตือน"
+
+msgid "notification.notifications"
+msgstr "การแจ้งเตือน"
+
+msgid "notification.sentNotification"
+msgstr "ส่งการแจ้งเตือนแล้ว"
+
+msgid "notification.settings"
+msgstr "การตั้งค่าการแจ้งเตือน"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"เลือกเหตุการณ์ของระบบที่คุณต้องการได้รับการแจ้งเตือน การไม่ทำเครื่องหมายที่รา"
+"ยการจะป้องกันการแจ้งเตือนเหตุการณ์นั้นจากการแสดงในระบบและไม่ส่งอีเมลถึงคุณ เห"
+"ตุการณ์ที่ทำเครื่องหมายไว้จะปรากฏในระบบและคุณมีตัวเลือกเพิ่มเติมที่จะรับหรือไ"
+"ม่รับการแจ้งเตือนทางอีเมล"
+
+msgid "notification.reminderError"
+msgstr ""
+"เกิดข้อผิดพลาดในการส่งรหัสผ่านของคุณ "
+"กรุณาตรวจสอบให้แน่ใจว่าคุณได้ป้อนที่อยู่อีเมลถูกต้องแล้ว"
+
+msgid "notification.reminderSent"
+msgstr "รหัสผ่านใหม่ของคุณถูกส่งไปยังที่อยู่อีเมลที่ให้ไว้แล้ว"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "บันทึกข้อมูลเมตาของบทความแล้ว"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "ส่งอีเมลเกี่ยวกับเรื่องนี้ให้กับผู้ใช้ที่ลงทะเบียนทั้งหมด"
+
+msgid "search.author"
+msgstr "โดยผู้แต่ง"
+
+msgid "search.abstract"
+msgstr "บทคัดย่อ"
+
+msgid "search.advancedFilters"
+msgstr "ตัวกรองขั้นสูง"
+
+msgid "search.advancedSearchMore"
+msgstr "ตัวเลือกการค้นหาเพิ่มเติม"
+
+msgid "search.advancedSearchLess"
+msgstr "ซ่อนตัวเลือกการค้นหาเพิ่มเติม"
+
+msgid "search.searchAgain"
+msgstr "ค้นหาอีกครั้ง"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "กำลังล้างดัชนี"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "เสร็จแล้ว"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "เกิดข้อผิดพลาด"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} บทความถูกกำหนดเวลาให้ทำดัชนี"
+
+msgid "search.coverage"
+msgstr "ขอบเขต"
+
+msgid "search.date"
+msgstr "วันที่ตีพิมพ์"
+
+msgid "search.dateFrom"
+msgstr "ตีพิมพ์หลังจาก"
+
+msgid "search.dateTo"
+msgstr "ตีพิมพ์ก่อน"
+
+msgid "search.deleteFilter"
+msgstr "ลบ"
+
+msgid "search.discipline"
+msgstr "สาขาวิชา"
+
+msgid "search.fullText"
+msgstr "เนื้อหาฉบับเต็ม"
+
+msgid "search.indexTerms"
+msgstr "คำดัชนี"
+
+msgid "search.indexTermsLong"
+msgstr "ทุกฟิลด์คำดัชนี"
+
+msgid "search.matchAll"
+msgstr "ตรงกับทุกหมวดหมู่"
+
+msgid "search.noResults"
+msgstr "ไม่พบผลลัพธ์"
+
+msgid "search.operator.and"
+msgstr "และ"
+
+msgid "search.operator.not"
+msgstr "ไม่"
+
+msgid "search.operator.or"
+msgstr "หรือ"
+
+msgid "search.SearchFor"
+msgstr "ค้นหา"
+
+msgid "search.searchResults"
+msgstr "ผลการค้นหา"
+
+msgid "search.searchResults.foundSingle"
+msgstr "พบหนึ่งรายการ"
+
+msgid "search.searchResults.foundPlural"
+msgstr "พบ {$count} รายการ"
+
+msgid "search.titleIndex"
+msgstr "เรียกดูดัชนีชื่อเรื่อง"
+
+msgid "search.title"
+msgstr "ชื่อเรื่อง"
+
+msgid "search.typeMethodApproach"
+msgstr "ประเภท (วิธีการ/แนวทาง)"
+
+msgid "grid.action.downloadFile"
+msgstr "ดาวน์โหลดไฟล์นี้"
+
+msgid "context.path"
+msgstr "เส้นทาง"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "วิธีการทำให้ไฟล์ทั้งหมดเป็นแบบไม่ระบุชื่อ"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "อ่านนโยบายการทบทวนปัจจุบัน"
+
+msgid "grid.action.deleteNotification"
+msgstr "ลบงาน"
+
+msgid "grid.action.markNew"
+msgstr "ทำเครื่องหมายเป็นใหม่"
+
+msgid "grid.action.markRead"
+msgstr "ทำเครื่องหมายว่าอ่านแล้ว"
+
+msgid "dashboard.tasks"
+msgstr "งาน"
+
+msgid "dashboard.myQueue"
+msgstr "คิวของฉัน"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "วิธีการทำให้ไฟล์ทั้งหมดเป็นแบบไม่ระบุชื่อ"

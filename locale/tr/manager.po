@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-06-03 05:04+0000\n"
+"PO-Revision-Date: 2024-09-16 01:58+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
@@ -890,6 +890,8 @@ msgstr "Özel DOI Son Ek Şablonu"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Yapılandırılan DOI kayıt kuruluşu için bir veya daha fazla seçili DOI türüne "
+"izin verilmiyor."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -924,19 +926,19 @@ msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Hiçbiri"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI Versiyonlama"
 
 msgid "doi.authorization.enabledRequired"
 msgstr "DOI'ler etkinleştirilmeden bu işlemi gerçekleştiremezsiniz."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "{$count} sürüm mevcut."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Tümünü Görüntüle"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "Tüm versiyonlar için DOI'ler"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "DOI geçersiz karakterler içeriyor."
@@ -1258,12 +1260,21 @@ msgstr "Seçtiğiniz tema yüklü veya etkin değil."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Aşağıdakiler, aday makale gönderimine başlamadan önce yazara gösterilir. "
+"Yazardan beklenenleri anlayabilmesi için gönderim süreci hakkında kısa bir "
+"açıklama yapın."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Dosya yükleme adımı sırasında yazara aşağıdakiler gösterilir. Yazarlardan "
+"aday makale gönderimi ile birlikte hangi dosyaları göndermeleri gerektiğine "
+"dair kısa bir açıklama yapın."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Aşağıdakiler, yazar ekleme ekranında gönderici yazara gösterilir. Yazarın "
+"kendisi ve diğer yazarlar hakkında hangi bilgileri sağlaması gerektiğine "
+"dair kısa bir açıklama yazın."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
@@ -1275,11 +1286,10 @@ msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Yazar Rehberi"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Gönderi Hazırlık Kontrol Listesi"
+msgstr "Makale Gönderim Kontrol Listesi"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
@@ -1302,13 +1312,13 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Bu bölümü etkinleştirmek istediğinizden emin misiniz?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Editör Atamaları"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "{$name} için {$role} olarak atayın"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
@@ -3570,3 +3580,81 @@ msgstr ""
 
 msgid "plugins.importexport.common.validation"
 msgstr "İhraç ve kayıt işleminden önce XML'i doğrulayın."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Bitiş Tarihi"
+
+msgid "manager.highlights.image"
+msgstr "Resim"
+
+msgid "manager.highlights.url.description"
+msgstr "Vurgudaki buton için https:// dahil tam URL."
+
+msgid "manager.image"
+msgstr "Resim"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Tarih, YYYY-MM-DD veya YYYY-MM biçiminde olmalıdır. Olası son tarih "
+"{$lastDate}'dir."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Yanıt olarak yyyy|yyyy|yyyy-yyyy biçiminde döndürülecek yayın yıllarının bir "
+"listesi veya aralığı."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "E-postalar en kısa sürede başarı ile gönderilmek üzere sıraya alınır."
+
+msgid "manager.highlights.urlText"
+msgstr "Buton Etiketi"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Vurgudaki buton için Daha Fazla Oku gibi bir etiket."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Henüz SAYAÇ R5 kullanım istatistikleri mevcut değil."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Raporlama Ayarları"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Başlangıç Tarihi"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Tarih, YYYY-MM-DD veya YYYY-MM biçiminde olmalıdır. Mümkün olan en geçmiş "
+"tarih {$earliestDate}'dir."
+
+msgid "manager.statistics.counterR5"
+msgstr "Sayaç R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Sayaç R5 Raporları"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Her bir rapor hakkında daha fazla bilgi için <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_blank\">SAYAÇ "
+"5.0.3 dokümantasyon</a> bölümüne bakınız."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Tarih formatı geçerli değil."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Müşteri ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrik Türü"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Gösterilecek Nitelikler"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Yayın Yılı"
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Makale ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Makale ID mevcut değil."

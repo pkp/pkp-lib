@@ -1,7 +1,7 @@
 # Milutin Markovic <admin@fcjk.me>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-14 20:14+0000\n"
+"PO-Revision-Date: 2024-10-10 00:12+0000\n"
 "Last-Translator: Milutin Markovic <admin@fcjk.me>\n"
 "Language-Team: Montenegrin <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/cnr/>\n"
@@ -1302,7 +1302,7 @@ msgid "common.viewWithName"
 msgstr "Pregled {$name}"
 
 msgid "common.viewProfile"
-msgstr "Pregled profil"
+msgstr "Pregled profila"
 
 msgid "common.weeks"
 msgstr "sedmice"
@@ -1679,7 +1679,7 @@ msgid "navigation.browseByTitle"
 msgstr "Po naslovu"
 
 msgid "navigation.dashboard"
-msgstr "Nadzorni panel"
+msgstr "Komandna tabla"
 
 msgid "navigation.data"
 msgstr "Data"

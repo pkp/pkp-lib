@@ -1,8 +1,8 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-27 16:39+0000\n"
+"PO-Revision-Date: 2024-11-16 09:40+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -3721,3 +3721,80 @@ msgstr "Мајстор"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Потврдете го XML пред извозот и регистрацијата."
+
+msgid "manager.statistics.counterR5"
+msgstr "Бројач R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Бројач R5 Извештаи"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Датотеката за поднесување {$id} беше прескокната бидејќи нема валидна фаза "
+"на датотека."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Погледнете <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/"
+"index.html\" target=\"_new\">COUNTER 5.0.3 документација</a> за повеќе "
+"информации за секоја извештај."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Датумот треба да биде во формат ГГГГ-ММ-ДД или ГГГГ-ММ. Последниот можен "
+"датум е {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Список или опсег на години на објавување што треба да се врати како одговор "
+"во формат yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Инсталирана верзија: {$version}"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Сè уште нема достапни статистики за користење на COUNTER R5."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Извештај за поставки"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Датум на започнување"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Датумот треба да биде во формат ГГГГ-ММ-ДД или ГГГГ-ММ. Најраниот можен "
+"датум е {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Форматот на датумот не е валиден."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ИД на клиент"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Метрички тип"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Атрибути за прикажување"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Година на објавување"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Форматот YOP не е валиден."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ИД за поднесување"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ИД за поднесување не постои."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Вклучете ги деталите за родител"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Исклучи месечни детали"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Датум на комплетирање"

@@ -1,11 +1,12 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
+# Informatikaria <informatikaria@ueu.eus>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2024-06-12 14:27+0000\n"
-"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"PO-Revision-Date: 2024-11-29 16:41+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
 "Language: eu\n"
@@ -1267,7 +1268,7 @@ msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr ""
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr ""
+msgstr "Zuzenketak aurkeztu dira eta erabaki bat behar da."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
@@ -1291,7 +1292,7 @@ msgid "editor.submission.roundStatus.pendingReviews"
 msgstr ""
 
 msgid "editor.submission.roundStatus.reviewsReady"
-msgstr ""
+msgstr "Ebaluazio berriak aurkeztu dira."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr ""
@@ -1306,7 +1307,7 @@ msgid "editor.submission.roundStatus.recommendationsReady"
 msgstr ""
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr ""
+msgstr "Gomendio guztiak aurkeztu dira, erabakia bidali behar da."
 
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr ""

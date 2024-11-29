@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-23 16:53+0000\n"
+"PO-Revision-Date: 2024-11-17 06:57+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -3917,3 +3917,6 @@ msgstr ""
 
 msgid "plugins.importexport.common.validation"
 msgstr "Проверете XML преди експортирането и регистрацията."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Инсталирана версия: {$version}"

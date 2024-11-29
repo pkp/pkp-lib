@@ -1,0 +1,2397 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 04:17+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/submission/"
+"th/>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "ทุกการส่งจะต้องปฏิบัติตามข้อกำหนดดังต่อไปนี้"
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "ใช่, การส่งของฉันเป็นไปตามข้อกำหนดทั้งหมดนี้"
+
+msgid "submission.submit.whatNext.create"
+msgstr "สร้างการส่งงานใหม่"
+
+msgid "submission.submit.whatNext.return"
+msgstr "กลับไปยังแดชบอร์ดของคุณ"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "เมทาดาทาขยาย"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "อีเมลลงทะเบียน Crossref"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "คีย์ API ISBNdb"
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "อีเมลลงทะเบียน PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "กรุณากรอกอีเมลลงทะเบียน PubMed ที่ถูกต้อง หากคุณมี"
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "คีย์ API WorldCat"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "กรุณากรอกวันที่เข้าถึงที่ถูกต้อง (รูปแบบ: YYYY-MM-DD)"
+
+msgid "metadata.property.displayName.issue"
+msgstr "ฉบับที่"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "กรุณากรอกฉบับที่ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.volume"
+msgstr "เล่มที่"
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "สถานที่การประชุม"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "กรุณากรอกสถานที่การประชุมที่ถูกต้อง"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "ชื่อการประชุม"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "ผู้สนับสนุนการประชุม"
+
+msgid "metadata.property.displayName.uri"
+msgstr "ลิงก์ไปยังการตีพิมพ์"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "กรุณาป้อนลิงก์ทางเลือกที่ถูกต้องไปยังการตีพิมพ์"
+
+msgid "metadata.property.displayName.comment"
+msgstr "ความคิดเห็น"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "กรุณาป้อนความคิดเห็นที่ถูกต้อง"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "หมายเหตุ"
+
+msgid "submission.additionalFiles"
+msgstr "ไฟล์เพิ่มเติม"
+
+msgid "submission.agencies"
+msgstr "หน่วยงาน"
+
+msgid "submission.event.subjectPrefix"
+msgstr "มีการส่งอีเมล:"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "ลบบันทึกการส่งงานทั้งหมด?"
+
+msgid "submissions.ruling"
+msgstr "การตัดสิน"
+
+msgid "submission.form.name"
+msgstr "ตั้งชื่อไฟล์ (เช่น บทความ; ตารางที่ 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "กำลังแทนที่ไฟล์ที่มีอยู่หรือไม่?"
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "เริ่มกระบวนการทบทวนภายนอกแล้ว"
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"ได้ส่งคำขอให้ทบทวนใหม่ในรอบที่ {$round} ถึง {$reviewerName} สำหรับการส่"
+"งบทความหมายเลข {$submissionid}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"บรรณาธิการ {$userName} ได้ยืนยันการทบทวนสำหรับรอบที่ {$round} ของการส่"
+"งบทความหมายเลข {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ได้ทำการทบทวนเสร็จสมบูรณ์สำหรับรอบที่ {$round} ของการส่"
+"งบทความหมายเลข {$submissionId}."
+
+msgid "submission.query.closed"
+msgstr "ปิดแล้ว"
+
+msgid "submission.query.addNote"
+msgstr "เพิ่มข้อความ"
+
+msgid "submission.query.leaveQuery"
+msgstr "ออกจากการสนทนา"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"หากคุณออกจากการสนทนานี้ คุณจะไม่ได้รับการแจ้งเตือนข้อความใหม่ "
+"คุณต้องการออกจากการสนทนาหรือไม่?"
+
+msgid "grid.action.openNoteForm"
+msgstr "เพิ่มการตอบกลับใหม่ในการสนทนา"
+
+msgid "submission.list.reviewDue"
+msgstr "ครบกำหนดทบทวน: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "การทบทวนส่งแล้ว"
+
+msgid "submission.list.reviewCancelled"
+msgstr "การทบทวนถูกยกเลิก"
+
+msgid "submission.list.confirmDelete"
+msgstr "ลบการส่งงานหรือไม่?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "ดูการส่งงานทั้งหมด"
+
+msgid "submission.list.viewSubmission"
+msgstr "ดูการส่งงาน"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "การทบทวนที่ได้รับมอบหมายเสร็จสิ้นแล้ว"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "การแก้ไขที่ส่งแล้ว"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "ไฟล์แก้ไขสำเนาที่ส่งแล้ว"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "การส่งงานนี้ต้องเสร็จสิ้นก่อนที่บรรณาธิการจะพิจารณา"
+
+msgid "submission.list.currentStage"
+msgstr "ปัจจุบันอยู่ในขั้นตอน {$stage}"
+
+msgid "submission.list.activity"
+msgstr "กิจกรรม"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "จำนวนวันที่ผ่านไปนับจากกิจกรรมล่าสุด"
+
+msgid "submission.list.assignEditor"
+msgstr "มอบหมายบรรณาธิการ"
+
+msgid "submission.wizard.validating"
+msgstr "กำลังตรวจสอบการส่งงานของคุณ"
+
+msgid "publication.urlPath"
+msgstr "เส้นทาง URL"
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"ไม่สามารถทำเครื่องหมาย DOI ว่าลงทะเบียนแล้วสำหรับ {$pubObjectTitle} "
+"การส่งงานต้องได้รับการตีพิมพ์ก่อนที่จะอัปเดตสถานะได้"
+
+msgid "author.submit.confirmation"
+msgstr "การยืนยัน"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr "เพิ่มข้อมูลเพิ่มเติมสำหรับการส่งงานของคุณ กด 'enter' หลังจากแต่ละคำ"
+
+msgid "submission.dataAvailability"
+msgstr "คำแถลงการมีข้อมูล"
+
+msgid "submission.submissionFile"
+msgstr "ไฟล์การส่งงาน"
+
+msgid "author.competingInterests"
+msgstr "ผลประโยชน์ที่ขัดแย้งกัน"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"โปรดเปิดเผยผลประโยชน์ที่ขัดแย้งกันที่ผู้เขียนอาจมีเกี่ยวกับหัวข้อการวิจัยนี้"
+
+msgid "author.editPublishedDisabled"
+msgstr "ไม่สามารถแก้ไขผู้แต่งของการตีพิมพ์นี้ได้ เนื่องจากได้ถูกตีพิมพ์แล้ว"
+
+msgid "author.publicationNotFound"
+msgstr "ไม่พบการตีพิมพ์สำหรับผู้แต่งนี้"
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"กรุณาระบุรายการอ้างอิงที่จัดรูปแบบแล้วสำหรับผลงานที่อ้างอิงในบทความนี้ "
+"โดยแยกการอ้างอิงแต่ละรายการด้วยบรรทัดว่าง"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "มีการส่งการทบทวนใหม่และกำลังถูกพิจารณาโดยบรรณาธิการ"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"หนึ่งหรือหลายผู้รีวิวพลาดกำหนดส่ง "
+"ทีมบรรณาธิการได้รับแจ้งแล้วและจะดำเนินการเพื่อให้การทบทวนเสร็จสิ้น "
+"คุณไม่จำเป็นต้องดำเนินการใดๆ ในขณะนี้ "
+"คุณจะได้รับการแจ้งเตือนเมื่อมีการตัดสินใจ"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "ส่งในนาม"
+
+msgid "submission.authors.label"
+msgstr "ผู้แต่ง"
+
+msgid "submission.author.list"
+msgstr "รายชื่อผู้แต่งที่ส่ง"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "เลือกบทบาทที่อธิบายถึงการมีส่วนร่วมของคุณในบทความนี้ได้ดีที่สุด"
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr "เลือกบทบาทบรรณาธิการหากคุณต้องการแก้ไขและตีพิมพ์บทความนี้ด้วยตนเอง"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "ข้อกำหนดในการส่ง"
+
+msgid "submission.submit.submissionComplete"
+msgstr "การส่งงานเสร็จสิ้น"
+
+msgid "submission.submit.genre.label"
+msgstr "ไฟล์นี้เป็นไฟล์ประเภทใด?"
+
+msgid "submission.submit.genre.description"
+msgstr "เลือกตัวเลือกที่อธิบายไฟล์นี้ได้ดีที่สุด"
+
+msgid "submission.submit.removeConfirm"
+msgstr "คุณแน่ใจหรือว่าต้องการลบไฟล์นี้?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "สำหรับตอนนี้ คุณสามารถ:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "ทบทวนการส่งนี้"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"กรุณากรอกอีเมลลงทะเบียน Crossref ที่ถูกต้อง "
+"คุณสามารถลงทะเบียนอีเมลได้ฟรีที่เว็บไซต์ Crossref"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"กรุณากรอกคีย์ API ISBNdb ของคุณ หากยังไม่มีคีย์สามารถขอรับได้ฟรีจากโครงการ "
+"ISBNdb"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "กรุณากรอกคีย์ API WorldCat ที่ถูกต้อง หากคุณมี"
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "โมดูลการอ้างอิง"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "กรุณาเลือกหนึ่งในโมดูลการอ้างอิงที่ให้ไว้"
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "ไม่ใช้เป็นค่าเริ่มต้น (ยังคงให้บรรณาธิการเลือกใช้ได้)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"เกิดข้อผิดพลาดภายใน มีการส่งค่าที่ไม่ถูกต้องสำหรับการตั้งค่า 'ตัวกรองทางเลื"
+"อก' กรุณารายงานเป็นข้อบกพร่อง"
+
+msgid "metadata.property.displayName.author"
+msgstr "ผู้แต่ง"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ควรกรอกผู้แต่งในรูปแบบดังนี้: Coleman Jr, D. "
+"(Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "บรรณาธิการ"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ควรกรอกบรรณาธิการในรูปแบบดังนี้: Coleman Jr, "
+"D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "ชื่อบทความ/เอกสาร"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "กรุณากรอกชื่อบทความ/เอกสารที่ถูกต้อง"
+
+msgid "metadata.property.displayName.source"
+msgstr "ชื่อวารสาร"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "กรุณากรอกชื่อวารสารที่ถูกต้อง"
+
+msgid "metadata.property.displayName.date"
+msgstr "วันที่ตีพิมพ์"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "กรุณากรอกวันที่ตีพิมพ์ที่ถูกต้อง (รูปแบบ: YYYY-MM-DD)"
+
+msgid "metadata.property.displayName.access-date"
+msgstr "วันที่เข้าถึง"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "กรุณากรอกเล่มที่ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.season"
+msgstr "ฤดูกาล"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "กรุณากรอกตัวระบุฤดูกาลที่ถูกต้อง"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "ชื่อบท"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "กรุณากรอกชื่อบทที่ถูกต้อง"
+
+msgid "metadata.property.displayName.edition"
+msgstr "ฉบับที่"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "กรุณากรอกฉบับที่ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.series"
+msgstr "ชุด"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "กรุณากรอกชุดที่ถูกต้อง"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "ส่วนเสริม"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "กรุณากรอกส่วนเสริมที่ถูกต้อง"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "วันที่การประชุม"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "กรุณากรอกวันที่การประชุมที่ถูกต้อง (รูปแบบ: YYYY-MM-DD)"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "กรุณากรอกชื่อการประชุมที่ถูกต้อง"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "กรุณากรอกผู้สนับสนุนการประชุมที่ถูกต้อง"
+
+msgid "metadata.property.displayName.institution"
+msgstr "สถาบัน"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "กรุณาป้อนชื่อสถาบันที่ถูกต้อง"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "หน้าแรก"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "กรุณาป้อนหน้าแรกที่ถูกต้อง (ต้องเป็นตัวเลขเท่านั้น)"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "หน้าสุดท้าย"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "กรุณาป้อนหน้าสุดท้ายที่ถูกต้อง (ต้องเป็นตัวเลขเท่านั้น)"
+
+msgid "metadata.property.displayName.size"
+msgstr "จำนวนหน้า"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "กรุณาป้อนจำนวนหน้าทั้งหมดที่ถูกต้อง (ต้องเป็นตัวเลขเท่านั้น)"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "ที่ตั้งของสำนักพิมพ์"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "กรุณาป้อนที่ตั้งของสำนักพิมพ์ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "ชื่อสำนักพิมพ์"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "กรุณาป้อนชื่อสำนักพิมพ์ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "กรุณาป้อน ISBN ที่ถูกต้อง (9 หรือ 13 ตัวเลข)"
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN (ฉบับพิมพ์)"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "กรุณาป้อน ISSN ฉบับพิมพ์ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "กรุณาป้อน eISSN ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "กรุณาป้อน DOI ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "รหัสการตีพิมพ์แบบกำหนดเอง"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "กรุณาป้อนรหัสการตีพิมพ์แบบกำหนดเองที่ถูกต้อง"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "กรุณาป้อน CODEN ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "กรุณาป้อน SICI ที่ถูกต้อง"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "กรุณาป้อน PMID ที่ถูกต้อง"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "กรุณาป้อนหมายเหตุที่ถูกต้อง"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "ประเภทของการตีพิมพ์"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"กรุณาตรวจสอบให้แน่ใจว่าคุณได้ตั้งค่าประเภทการตีพิมพ์เสมอ "
+"ค่าที่รองรับในขณะนี้คือ book (สำหรับหนังสือหรือบทในหนังสือ) และ journal "
+"(สำหรับบทความวารสาร) มิฉะนั้น การจัดรูปแบบการอ้างอิงจะไม่ทำงานอย่างถูกต้อง"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "ประเภทชื่อเรื่อง"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"กรุณาตรวจสอบให้แน่ใจว่าคุณได้ตั้งค่าประเภทชื่อเรื่องที่ถูกต้อง ค่าที่รองรับคื"
+"อ 'abbreviated', 'translated', 'alternative' และ 'uniform'"
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "ส่วนของชื่อที่ไม่ใช้ในการจัดเรียง"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"กรุณาป้อนเฉพาะตัวอักษรเริ่มต้นของชื่อที่ควรจะไม่ถูกใช้ในการจัดเรียงชื่อเรื่อง"
+
+msgid "metadata.property.displayName.title"
+msgstr "ชื่อเรื่อง"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "กรุณาป้อนชื่อเรื่องที่ถูกต้อง"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "ชื่อรอง"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "กรุณาป้อนชื่อรองที่ถูกต้อง"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "หมายเลขส่วน"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "กรุณาป้อนหมายเลขส่วนที่ถูกต้อง"
+
+msgid "metadata.property.displayName.partName"
+msgstr "ชื่อส่วน"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "กรุณาป้อนชื่อส่วนที่ถูกต้อง"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "ประเภทชื่อ"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"กรุณาตรวจสอบให้แน่ใจว่าคุณได้ตั้งค่าประเภทชื่อที่ถูกต้อง ค่าที่รองรับคือ "
+"'personal', 'corporate' และ 'conference'"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "บทคัดย่อ"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "ยังไม่ได้รับการมอบหมาย"
+
+msgid "common.queue.long.myAssigned"
+msgstr "การมอบหมายของฉัน"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "การส่งที่เก็บถาวร"
+
+msgid "submission.authors"
+msgstr "ผู้แต่ง"
+
+msgid "submission.authorBiography"
+msgstr "ชีวประวัติของผู้แต่ง"
+
+msgid "submission.authorBiographies"
+msgstr "ประวัติผู้แต่ง"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} และคณะ"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} ของ {$title}"
+
+msgid "submission.mySubmissions"
+msgstr "การส่งงานของฉัน"
+
+msgid "submission.addFile"
+msgstr "อัปโหลดไฟล์"
+
+msgid "submission.abstractViews"
+msgstr "จำนวนการดูบทคัดย่อ"
+
+msgid "submission.accepted"
+msgstr "ได้รับการยอมรับแล้ว"
+
+msgid "submission.acknowledge"
+msgstr "ยืนยัน"
+
+msgid "submission.ask"
+msgstr "ถาม"
+
+msgid "submission.attachedFile"
+msgstr "ไฟล์แนบ"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "กลับไปยังการแก้ไขการส่งงาน"
+
+msgid "submission.changeComments"
+msgstr "เปลี่ยนเป็น"
+
+msgid "submission.changeFile"
+msgstr "เปลี่ยนไฟล์"
+
+msgid "submission.citations"
+msgstr "การอ้างอิง"
+
+msgid "submission.citations.description"
+msgstr "ใส่การอ้างอิงแต่ละรายการในบรรทัดใหม่ เพื่อให้นำออกและบันทึกแยกกันได้"
+
+msgid "submission.parsedCitations"
+msgstr "การอ้างอิงที่สกัดออกมา"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"การอ้างอิงต่อไปนี้ได้ถูกสกัดออกมาและจะถูกเชื่อมโยงไปยังเมทาดาทาการส่งงาน"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "สกัดและบันทึกการอ้างอิง"
+
+msgid "submission.comments.addComment"
+msgstr "เพิ่มความคิดเห็น"
+
+msgid "submission.comments.comments"
+msgstr "ความคิดเห็น"
+
+msgid "submission.comments.confirmDelete"
+msgstr "คุณแน่ใจหรือว่าต้องการลบความคิดเห็นนี้?"
+
+msgid "submission.comments.corrections"
+msgstr "การแก้ไข"
+
+msgid "submission.comments.editComment"
+msgstr "แก้ไขความคิดเห็น"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "นำเข้าการทบทวนโดยผู้ทรงคุณวุฒิ"
+
+msgid "submission.comments.addReviews"
+msgstr "เพิ่มการทบทวนลงในอีเมล"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "ผู้รีวิว {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "ไม่มีความคิดเห็น"
+
+msgid "submission.comments.noReviews"
+msgstr "ไม่มีการทบทวน"
+
+msgid "submission.comments.review"
+msgstr "การทบทวน"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "ส่งการตัดสินใจของบรรณาธิการถึงผู้รีวิว"
+
+msgid "submission.comments.subject"
+msgstr "หัวข้อ"
+
+msgid "submission.complete"
+msgstr "เสร็จสิ้น"
+
+msgid "submission.contributors"
+msgstr "รายชื่อผู้ร่วมเขียน"
+
+msgid "submission.copyedited"
+msgstr "ตรวจสำเนาแล้ว"
+
+msgid "submission.copyediting"
+msgstr "การตรวจสำเนา"
+
+msgid "submission.queryNoteFiles"
+msgstr "ไฟล์การอภิปราย"
+
+msgid "submission.coverage"
+msgstr "ข้อมูลความครอบคลุม"
+
+msgid "submission.details"
+msgstr "รายละเอียดการส่งงาน"
+
+msgid "submission.done"
+msgstr "เสร็จสิ้น"
+
+msgid "submission.downloads"
+msgstr "การดาวน์โหลด"
+
+msgid "submission.dueDate"
+msgstr "กำหนดส่ง"
+
+msgid "submission.due"
+msgstr "ถึงกำหนด"
+
+msgid "submission.editing"
+msgstr "การแก้ไข"
+
+msgid "submission.editMetadata"
+msgstr "แก้ไขเมทาดาทา"
+
+msgid "submission.editorial"
+msgstr "การตรวจสำเนา"
+
+msgid "submission.email.backToEmailLog"
+msgstr "กลับไปยังบันทึกอีเมล"
+
+msgid "submission.email.confirmClearLog"
+msgstr "คุณแน่ใจหรือว่าต้องการล้างบันทึกอีเมลสำหรับการส่งงานนี้?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "คุณแน่ใจหรือว่าต้องการลบรายการบันทึกอีเมลนี้?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "ลบรายการบันทึก"
+
+msgid "submission.emailLog"
+msgstr "บันทึกอีเมล"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$userFullName} ({$username}) ถูกมอบหมายให้กับการส่งงานนี้ในฐานะ "
+"{$userGroupName}"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$userFullName}\" ({$username}) ถูกลบออกจากการเป็น {$userGroupName}"
+
+msgid "submission.event.backToEventLog"
+msgstr "กลับไปยังบันทึกเหตุการณ์"
+
+msgid "submission.event.confirmClearLog"
+msgstr "คุณแน่ใจหรือว่าต้องการล้างบันทึกเหตุการณ์สำหรับการส่งงานนี้?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "คุณแน่ใจหรือว่าต้องการลบรายการบันทึกเหตุการณ์นี้?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "ลบรายการบันทึกเหตุการณ์"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"อีเมลเกี่ยวกับการตัดสินใจถูกส่งไปยังผู้รีวิวจำนวน {$recipientCount} คน "
+"พร้อมหัวข้อ {$subject}"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "การส่งงานเริ่มต้นเสร็จสมบูรณ์"
+
+msgid "submission.event.copyrightAgreed"
+msgstr "{$filename} ({$username}) ตกลงในเงื่อนไขลิขสิทธิ์สำหรับการส่งงาน"
+
+msgid "submission.event.fileRevised"
+msgstr "การแก้ไข \"{$filename}\" ถูกอัปโหลดสำหรับไฟล์ {$submissionFileId}"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "เมทาดาทาการส่งงานถูกอัปเดตแล้ว"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "ไฟล์การส่งงานถูกอัปเดตแล้ว"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "การมอบหมายการทบทวนถูกยอมรับโดยตัวแทน"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "การมอบหมายการทบทวนได้รับการยอมรับแล้ว"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "การมอบหมายการทบทวนถูกปฏิเสธ"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "วันที่ครบกำหนดการทบทวนถูกแก้ไข"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "ผู้รีวิวถูกมอบหมายให้กับการส่งงาน"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "การให้คะแนนผู้รีวิวถูกส่งแล้ว"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "ผู้รีวิวถูกยกเลิกการมอบหมายจากการส่งงาน"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "ไฟล์การทบทวนถูกอัปเดตแล้ว"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "การมอบหมายการทบทวนเริ่มต้นแล้ว"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "ไฟล์คำแนะนำในการทบทวน"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "การมอบหมายการทบทวนเริ่มต้นใหม่อีกครั้ง"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "การทบทวนถูกส่งใหม่อีกครั้ง"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "อัปเดตไฟล์การแก้ไขของผู้รีวิวแล้ว"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} ได้ส่งการเตือนถึง {$recipientName} "
+"เกี่ยวกับการมอบหมายการทบทวนของพวกเขา"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"มีการส่งอีเมลเตือนอัตโนมัติถึง {$recipientName} "
+"เกี่ยวกับการมอบหมายการทบทวนของพวกเขา"
+
+msgid "submission.event.viewEmail"
+msgstr "ดูอีเมล"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr "ผู้เขียนสามารถแก้ไขเมทาดาทาเมื่อบทความอยู่ในขั้นตอนที่ {stage} ได้แล้ว"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"ผู้เขียนไม่สามารถแก้ไขเมทาดาทาเมื่อบทความอยู่ในขั้นตอนที่ {stage} ได้แล้ว"
+
+msgid "submission.files"
+msgstr "ไฟล์"
+
+msgid "submission.files.downloadAll"
+msgstr "ดาวน์โหลดไฟล์ทั้งหมด"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr "บันทึกผู้ที่อัปโหลดไฟล์เมื่อสร้างไฟล์แล้วไม่สามารถเปลี่ยนแปลงได้"
+
+msgid "submission.firstPublished"
+msgstr "ตีพิมพ์ครั้งแรก"
+
+msgid "submission.forTheEditors"
+msgstr "สำหรับบรรณาธิการ"
+
+msgid "submission.galley"
+msgstr "ฉบับสุดท้าย"
+
+msgid "submission.history.clearLog"
+msgstr "ล้างบันทึก"
+
+msgid "submission.history"
+msgstr "ประวัติ"
+
+msgid "submission.history.noLogEntries"
+msgstr "ไม่มีรายการบันทึก"
+
+msgid "submission.history.recentLogEntries"
+msgstr "รายการล่าสุด"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "บันทึกอีเมล"
+
+msgid "submission.history.submissionEventLog"
+msgstr "บันทึกเหตุการณ์"
+
+msgid "submission.history.submissionNotes"
+msgstr "บันทึกการส่งงาน"
+
+msgid "submission.history.viewLog"
+msgstr "ดูบันทึก"
+
+msgid "submission.howToCite"
+msgstr "วิธีการอ้างอิง"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "รูปแบบการอ้างอิงเพิ่มเติม"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "ดาวน์โหลดการอ้างอิง"
+
+msgid "submission.initiated"
+msgstr "เริ่มต้นแล้ว"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — อัปเดตเมื่อ {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "เวอร์ชัน"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"นี่คือเวอร์ชันที่ล้าสมัย ตีพิมพ์เมื่อ {$datePublished}. อ่าน <a href=\""
+"{$urlRecentVersion}\">เวอร์ชันล่าสุด</a>"
+
+msgid "submission.identifiers"
+msgstr "ตัวระบุ"
+
+msgid "submission.publisherId"
+msgstr "รหัสผู้ตีพิมพ์"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"รหัสผู้ตีพิมพ์อาจใช้สำหรับบันทึกรหัสจากฐานข้อมูลภายนอก เช่น รายการที่ส่งไปยั"
+"ง PubMed อาจรวมรหัสผู้ตีพิมพ์ ไม่ควรใช้กับ DOI"
+
+msgid "submission.publisherId.enable"
+msgstr "เปิดใช้งานสำหรับ {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "ข้อมูลการส่งงาน"
+
+msgid "submission.informationCenter.metadata"
+msgstr "เมทาดาทา"
+
+msgid "submission.informationCenter.notes"
+msgstr "บันทึก"
+
+msgid "submission.informationCenter.history"
+msgstr "ประวัติ"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "แสดงเหตุการณ์จากเวอร์ชันก่อนหน้า"
+
+msgid "submission.stageParticipants.notify"
+msgstr "แจ้งเตือน"
+
+msgid "submission.lastModified"
+msgstr "แก้ไขครั้งล่าสุด"
+
+msgid "submission.layout.addGalley"
+msgstr "เพิ่มฉบับจัดรูปแบบ"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "คุณแน่ใจหรือว่าต้องการลบฉบับจัดรูปแบบนี้อย่างถาวร?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "คุณแน่ใจหรือว่าต้องการลบรูปภาพนี้ออกจากฉบับจัดรูปแบบ?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "ลบไฟล์สไตล์ชีทนี้"
+
+msgid "submission.layout.editGalley"
+msgstr "แก้ไขฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyFormat"
+msgstr "รูปแบบฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "ไฟล์ HTML ฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyImages"
+msgstr "รูปภาพ"
+
+msgid "submission.layout.galleyLabel"
+msgstr "ป้ายฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "มักใช้เพื่อระบุรูปแบบไฟล์ (เช่น PDF, HTML เป็นต้น)"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "จำเป็นต้องมีป้ายฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "จำเป็นต้องมีภาษาของฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "จำเป็นต้องมีท้องถิ่นของฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "URL ภายนอก"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "กรุณาให้ URL ภายนอกที่ถูกต้อง (รวมถึง http://)"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "ไม่มีรูปภาพ"
+
+msgid "submission.layout.galleys"
+msgstr "ฉบับจัดรูปแบบ"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "ไฟล์สไตล์ชีท"
+
+msgid "submission.layout.galleyStyle"
+msgstr "สไตล์"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "สร้างฉบับจัดรูปแบบเริ่มต้น"
+
+msgid "submission.layout.layoutFile"
+msgstr "ไฟล์จัดรูปแบบ"
+
+msgid "submission.layout"
+msgstr "จัดรูปแบบ"
+
+msgid "submission.layout.layoutVersion"
+msgstr "เวอร์ชันจัดรูปแบบ"
+
+msgid "submission.layout.newGalley"
+msgstr "สร้างฉบับจัดรูปแบบใหม่"
+
+msgid "submission.layout.noStyleFile"
+msgstr "ไม่มีไฟล์สไตล์ชีทที่ถูกเพิ่มในฉบับจัดรูปแบบนี้"
+
+msgid "submission.layout.viewingGalley"
+msgstr "กำลังดูฉบับจัดรูปแบบการส่งงาน"
+
+msgid "submission.layout.viewProof"
+msgstr "ดูหลักฐานการจัดรูปแบบ"
+
+msgid "submission.metadata"
+msgstr "เมทาดาทาของการส่งงาน"
+
+msgid "submission.noReviewAssignments"
+msgstr "ไม่มีการมอบหมายการทบทวน"
+
+msgid "submission.notes.addNewNote"
+msgstr "เพิ่มบันทึกใหม่"
+
+msgid "submission.notes.attachedFile"
+msgstr "ไฟล์แนบ"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "กลับไปที่บันทึกการส่งงาน"
+
+msgid "submission.notes.breadcrumb"
+msgstr "บันทึก"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "ลบล้างบันทึกทั้งหมด"
+
+msgid "submission.notes.collapseNotes"
+msgstr "ย่อบันทึก"
+
+msgid "submission.notes.confirmDelete"
+msgstr "ลบบันทึกการส่งงานนี้?"
+
+msgid "submission.notes.createNewNote"
+msgstr "สร้างบันทึกใหม่"
+
+msgid "submission.notes.deleteNote"
+msgstr "ลบบันทึก"
+
+msgid "submission.notes.editNote"
+msgstr "แก้ไขบันทึก"
+
+msgid "submission.notes.expandNotes"
+msgstr "ขยายบันทึก"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "ไม่มีบันทึกการส่งงาน"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "ลบไฟล์ที่อัปโหลดแล้ว"
+
+msgid "submission.notes"
+msgstr "บันทึกการส่งงาน"
+
+msgid "submission.notes.updateNote"
+msgstr "อัปเดตบันทึก"
+
+msgid "submission.notes.viewNotes"
+msgstr "ดูบันทึก"
+
+msgid "submission.originalFile"
+msgstr "ไฟล์ต้นฉบับ"
+
+msgid "submission.page.editing"
+msgstr "#{$id} การแก้ไข"
+
+msgid "submission.page.history"
+msgstr "#{$id} ประวัติ"
+
+msgid "submission.page.review"
+msgstr "#{$id} การทบทวน"
+
+msgid "submission.page.summary"
+msgstr "#{$id} สรุป"
+
+msgid "submission.page.citations"
+msgstr "#{$id} การอ้างอิง"
+
+msgid "submission.peerReview"
+msgstr "การทบทวนโดยผู้เชี่ยวชาญ"
+
+msgid "submission.production"
+msgstr "การผลิต"
+
+msgid "submission.recommendation"
+msgstr "คำแนะนำ: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "ถูกปฏิเสธ"
+
+msgid "submission.request"
+msgstr "คำขอ"
+
+msgid "submission.response"
+msgstr "คำตอบ"
+
+msgid "submission.restrictions"
+msgstr "ข้อจำกัด"
+
+msgid "submission.reviewMetadata"
+msgstr "การทบทวนข้อมูลเมทาดาทา"
+
+msgid "submission.review"
+msgstr "การทบทวน"
+
+msgid "submission.reviewAndSubmit"
+msgstr "ทบทวนและส่ง"
+
+msgid "submission.reviewed"
+msgstr "ทบทวนแล้ว"
+
+msgid "submission.reviewVersion"
+msgstr "เวอร์ชันทบทวน"
+
+msgid "submission.rights"
+msgstr "สิทธิ์"
+
+msgid "submissions.active"
+msgstr "กำลังดำเนินการ"
+
+msgid "submissions.archived"
+msgstr "เก็บถาวร"
+
+msgid "submission.saveMetadata"
+msgstr "บันทึกเมทาดาทา"
+
+msgid "submissions.completed"
+msgstr "เสร็จสิ้น"
+
+msgid "submissions.declined"
+msgstr "ถูกปฏิเสธ"
+
+msgid "submissions.incomplete"
+msgstr "ไม่สมบูรณ์"
+
+msgid "submissions.noSubmissions"
+msgstr "ไม่มีการส่งงาน"
+
+msgid "submissions.queuedEditing"
+msgstr "อยู่ในขั้นตอนการแก้ไข"
+
+msgid "submissions.queued"
+msgstr "คิว"
+
+msgid "submissions.queuedUnassigned"
+msgstr "ยังไม่มีบรรณาธิการที่ได้รับมอบหมายให้กับการส่งงานนี้"
+
+msgid "submission.source"
+msgstr "แหล่งที่มา"
+
+msgid "submissions.submit"
+msgstr "ส่ง"
+
+msgid "submissions.submitted"
+msgstr "ส่งแล้ว"
+
+msgid "submission.submission"
+msgstr "การส่งงาน"
+
+msgid "submission.submissionTitle"
+msgstr "ชื่อการส่งงาน:"
+
+msgid "submission.start"
+msgstr "เริ่มต้น"
+
+msgid "submission.submissionHistory"
+msgstr "ประวัติการส่งงาน"
+
+msgid "submission.submissionManuscript"
+msgstr "ต้นฉบับการส่งงาน"
+
+msgid "submission.submissionReview"
+msgstr "การทบทวนการส่งงาน"
+
+msgid "submission.submitter"
+msgstr "ผู้ส่ง"
+
+msgid "submission.submit.selectFile"
+msgstr "เลือกไฟล์"
+
+msgid "submission.submit.fileInformation"
+msgstr "ข้อมูลไฟล์"
+
+msgid "submission.submit.fileAdded"
+msgstr "เพิ่มไฟล์แล้ว"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "รวมผู้มีส่วนร่วมนี้เมื่อระบุผู้แต่งในรายชื่อสิ่งพิมพ์"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "รายชื่อสิ่งพิมพ์"
+
+msgid "submission.submit.newFile"
+msgstr "เพิ่มไฟล์ใหม่"
+
+msgid "submission.submit.metadataForm"
+msgstr "การปรับแต่งเพิ่มเติม"
+
+msgid "submission.submit.submissionLocale"
+msgstr "ภาษาของการส่งงาน"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "เลือกภาษาหลักของการส่งงาน"
+
+msgid "submission.submit.submissionFiles"
+msgstr "ไฟล์การส่งงาน"
+
+msgid "submission.submit.dependentFiles"
+msgstr "ไฟล์ที่เกี่ยวข้อง"
+
+msgid "submission.manageDependentFiles"
+msgstr "จัดการไฟล์ที่เกี่ยวข้อง"
+
+msgid "submission.upload.instructions"
+msgstr "อัปโหลดไฟล์ที่ทีมบรรณาธิการต้องใช้ในการประเมินการส่งงานของคุณ"
+
+msgid "submission.upload.percentComplete"
+msgstr "กำลังอัปโหลดเสร็จแล้ว {$percent}%"
+
+msgid "submission.upload.dependent"
+msgstr "อัปโหลดไฟล์ที่เกี่ยวข้อง"
+
+msgid "submission.upload.query"
+msgstr "อัปโหลดไฟล์สำหรับการสนทนา"
+
+msgid "submission.summary"
+msgstr "สรุป"
+
+msgid "submission.supportingAgencies"
+msgstr "หน่วยงานที่สนับสนุน"
+
+msgid "submission.currentAgencies"
+msgstr "หน่วยงานปัจจุบัน"
+
+msgid "submission.indexingInformation"
+msgstr "ข้อมูลการจัดทำดัชนี"
+
+msgid "submission.titleAndAbstract"
+msgstr "ชื่อเรื่องและบทคัดย่อ"
+
+msgid "submission.underway"
+msgstr "กำลังดำเนินการ"
+
+msgid "submission.uploadFileTo"
+msgstr "อัปโหลดไฟล์ไปยัง"
+
+msgid "submission.createRemote"
+msgstr "สร้างจากระยะไกล"
+
+msgid "submission.viewMetadata"
+msgstr "ดูเมทาดาทา"
+
+msgid "submission.views"
+msgstr "การดู"
+
+msgid "submission.uploadSuccessful"
+msgstr "ไฟล์ของคุณถูกอัปโหลดเรียบร้อยแล้ว"
+
+msgid "submission.loadMessage"
+msgstr "กรุณารอสักครู่ขณะไฟล์ของคุณถูกอัปโหลดไปยังเซิร์ฟเวอร์"
+
+msgid "submission.artworkFileDetails"
+msgstr "รายละเอียดไฟล์งานศิลป์"
+
+msgid "submission.fileDetails"
+msgstr "รายละเอียดไฟล์"
+
+msgid "submission.nameRequired"
+msgstr "จำเป็นต้องมีชื่อสำหรับรายการนี้"
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.submit.contributorRole"
+msgstr "บทบาทของผู้มีส่วนร่วม"
+
+msgid "submission.submit.addAuthor"
+msgstr "เพิ่มผู้มีส่วนร่วม"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "กรุณาป้อนภาษา"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "กรุณาป้อนหัวข้อ"
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "กรุณาป้อนสาขาวิชา"
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "กรุณาป้อนคำสำคัญ"
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "กรุณาป้อนข้อมูลการครอบคลุม"
+
+msgid "submission.submit.form.typeRequired"
+msgstr "กรุณาป้อนประเภท"
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "กรุณาป้อนแหล่งที่มา"
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "กรุณาป้อนข้อมูลเกี่ยวกับสิทธิ์"
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "กรุณาป้อนรายการอ้างอิง"
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "กรุณาป้อนคำแถลงความพร้อมใช้งานของข้อมูล"
+
+msgid "workflow.review.internalReview"
+msgstr "การทบทวนภายใน"
+
+msgid "workflow.stage.any"
+msgstr "ทุกขั้นตอน"
+
+msgid "workflow.stage"
+msgstr "ขั้นตอน"
+
+msgid "submission.status.editorial"
+msgstr "อยู่ในขั้นตอนการแก้ไขสำเนา"
+
+msgid "submission.status.production"
+msgstr "อยู่ในขั้นตอนการพิสูจน์อักษร"
+
+msgid "submission.status.review"
+msgstr "อยู่ในขั้นตอนการทบทวน"
+
+msgid "submission.status.submission"
+msgstr "กำลังรอการตัดสินจากบรรณาธิการ"
+
+msgid "submission.status.unassigned"
+msgstr "ยังไม่ได้รับการมอบหมาย"
+
+msgid "submission.status.declined"
+msgstr "ถูกปฏิเสธ"
+
+msgid "submission.status.published"
+msgstr "เผยแพร่แล้ว"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. อัปโหลดไฟล์"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "อัปโหลดไฟล์การส่งงาน"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. ทบทวนรายละเอียด"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. ยืนยัน"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "คุณต้องป้อนชื่อไฟล์สำหรับไฟล์นี้"
+
+msgid "submission.upload.noGenre"
+msgstr "ไม่มีหรือส่วนประกอบไม่ถูกต้อง!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "ไม่มีหรือกลุ่มผู้ใช้ไม่ถูกต้อง!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "ตรวจพบการทำซ้ำหรือการแก้ไขที่เป็นไปได้"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"ชื่อของไฟล์ที่อัปโหลดมีความคล้ายกับชื่อของไฟล์ที่เคยอัปโหลดก่อนหน้านี้, \""
+"{$revisedFileName}.\" ไฟล์นี้มีจุดประสงค์เพื่อแทนที่ \"{$revisedFileName}\" "
+"หรือไม่? ถ้าใช่ กรุณาเลือกไฟล์ด้านล่างนี้ หากไม่ใช่ เลือก \"น"
+"ี่ไม่ใช่การแก้ไขไฟล์ที่มีอยู่\" ก่อนดำเนินการต่อ"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "กรุณาเลือกไฟล์ที่คุณต้องการแก้ไข"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"หากคุณกำลังอัปโหลดไฟล์ที่เป็นการแก้ไขของไฟล์ที่มีอยู่ กรุณาระบุว่าไฟล์ใด"
+
+msgid "submission.upload.uploadNewFile"
+msgstr "นี่ไม่ใช่การแก้ไขไฟล์ที่มีอยู่"
+
+msgid "submission.upload.userGroup"
+msgstr "อัปโหลดไฟล์นี้ในบทบาทของฉันเป็น..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"หากคุณกำลังส่งงานที่แก้ไขเป็นเล่ม คุณควรอัปโหลดบททุกบทแยกกัน "
+"ภายใต้บทบาทของคุณเป็นบรรณาธิการเล่ม"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "อัปโหลดไฟล์ห้องสมุด"
+
+msgid "submission.upload.libraryCategory"
+msgstr "หมวดหมู่เอกสารการส่งงาน"
+
+msgid "submission.upload.finalDraft"
+msgstr "อัปโหลดไฟล์"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "อัปโหลดไฟล์ที่แก้ไขสำเนาแล้ว"
+
+msgid "submission.upload.uploadFiles"
+msgstr "อัปโหลดไฟล์"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"หลังจากทบทวนไฟล์ที่ได้รับมอบหมายแล้ว ให้บันทึกความคิดเห็นใด ๆ "
+"เกี่ยวกับไฟล์ด้านล่าง และ/หรืออัปโหลดไฟล์ที่ใส่คำอธิบายประกอบ (หรือไฟล์อื่น)"
+
+msgid "submission.upload.productionReady"
+msgstr "อัปโหลดไฟล์ที่พร้อมสำหรับการผลิต"
+
+msgid "submission.upload.proof"
+msgstr "อัปโหลดไฟล์ที่พร้อมสำหรับการเผยแพร่"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "ไม่มีไฟล์สำหรับคุณในการแก้ไขในขณะนี้"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "ขอให้มีการแก้ไขแล้ว"
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "การแก้ไขถูกส่งมาแล้วและจำเป็นต้องมีการตัดสินใจ"
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "การส่งต้องถูกส่งกลับมาเพื่อรอบการทบทวนใหม่"
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "การส่งถูกส่งกลับมาเพื่อรอบการทบทวนใหม่"
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "ส่งไปยังการทบทวนภายนอก"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "การส่งได้รับการยอมรับแล้ว"
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "การส่งถูกปฏิเสธ"
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "กำลังรอการมอบหมายผู้รีวิว"
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "กำลังรอคำตอบจากผู้รีวิว"
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "การทบทวนใหม่ถูกส่งมาแล้ว"
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "ผู้รีวิวทั้งหมดตอบกลับแล้วและจำเป็นต้องมีการตัดสินใจ"
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "การทบทวนล่าช้า"
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "กำลังรอคำแนะนำจากบรรณาธิการ"
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "คำแนะนำจากบรรณาธิการใหม่ถูกส่งมาแล้ว"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "คำแนะนำทั้งหมดเสร็จสิ้นแล้วและจำเป็นต้องมีการตัดสินใจ"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "ส่งกลับไปยังการทบทวนอีกครั้ง"
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "ไม่มีการเคลื่อนไหวมากกว่า {$days} วันในขั้นตอน {$stage}"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "การส่งใหม่กำลังรอการส่งไปทบทวนหรือปฏิเสธ"
+
+msgid "editor.submission.stageParticipants"
+msgstr "ผู้เข้าร่วม"
+
+msgid "editor.submission.noneAssigned"
+msgstr "ยังไม่มีการมอบหมาย"
+
+msgid "editor.submission.participant"
+msgstr "ผู้เข้าร่วม"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "มอบหมายผู้เข้าร่วม"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "แก้ไขการมอบหมาย"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"ผู้ใช้ถูกมอบหมายในขั้นตอนการทำงานตามกลุ่มผู้ใช้ ผู้ใช้ใด ๆ "
+"ที่ถูกมอบหมายในขั้นตอนนี้จะถูกมอบหมายในขั้นตอนอื่น ๆ "
+"ที่กลุ่มผู้ใช้ของพวกเขาได้รับมอบหมายด้วย ซึ่งมักจะสงวนไว้สำหรับบรรณาธิการ "
+"ผู้แต่ง และนักแปล"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "ลบผู้เข้าร่วม"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr "คุณกำลังจะลบผู้เข้าร่วมนี้ออกจาก <strong>ทุก</strong> ขั้นตอน"
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "คุณต้องเลือกกลุ่มผู้ใช้"
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "คุณต้องเลือกผู้ใช้สำหรับกลุ่มผู้ใช้ที่ระบุ"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"ผู้เข้าร่วมที่คุณเลือกได้รับมอบหมายให้ทำการทบทวนแบบไม่เปิดเผยตัว "
+"หากคุณมอบหมายพวกเขาเป็นผู้เข้าร่วม พวกเขาจะสามารถเข้าถึงตัวตนของผู้เขียนได้ "
+"ขอแนะนำให้คุณไม่มอบหมายผู้เข้าร่วมนี้ "
+"เว้นแต่ว่าคุณสามารถมั่นใจในความซื่อสัตย์ของกระบวนการทบทวนโดยเพื่อนอิสระได้"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "ไม่อนุญาตให้แก้ไขข้อมูลเมตา"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "อนุญาตให้แก้ไขข้อมูลเมตา"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการไม่อนุญาตให้ผู้เขียนบทความนี้แก้ไขข้อมูลเมตาของการส่"
+"งงานในขั้นตอนนี้?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการอนุญาตให้ผู้เขียนบทความนี้แก้ไขข้อมูลเมตาของการส่งงา"
+"นในขั้นตอนนี้?"
+
+msgid "editor.submission.decision"
+msgstr "การตัดสินใจ"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "แจ้งผู้เขียน"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "แจ้งผู้รีวิว"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"ส่งอีเมลถึงผู้รีวิวเพื่อขอบคุณสำหรับการทบทวนและแจ้งให้ทราบว่ามีการตัดสินใจแล้"
+"ว อีเมลจะถูกส่งแยกกันเพื่อปกป้องความเป็นนิรนามของผู้รีวิว สามารถใช้คำว่า "
+"{$recipientName} ในข้อความเพื่อรวมชื่อของผู้รีวิวแต่ละคนอย่างปลอดภัย"
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"ส่งอีเมลถึงผู้รีวิวที่ได้รับมอบหมายเพื่อแจ้งว่าการมอบหมายการทบทวนของพวกเขาถูก"
+"ยกเลิก"
+
+msgid "editor.submission.decision.accept"
+msgstr "ยอมรับการส่งงาน"
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"การส่งงานนี้จะได้รับการยอมรับเพื่อตีพิมพ์และส่งไปยังขั้นตอนการแก้ไขสำเนา"
+
+msgid "editor.submission.decision.accept.log"
+msgstr "{$editorName} ยอมรับการส่งงานนี้และส่งไปยังขั้นตอนการแก้ไขสำเนา"
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "ยอมรับการส่งงานแล้ว"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"การส่งงาน, {$title}, ได้รับการยอมรับเพื่อตีพิมพ์และส่งไปยังขั้นตอนการแก้"
+"ไขสำเนา การแจ้งเตือนทั้งหมดถูกส่งแล้ว ยกเว้นที่คุณเลือกข้าม"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"ส่งอีเมลถึงผู้เขียนเพื่อแจ้งว่าการส่งงานของพวกเขาได้รับการยอมรับเพื่อตีพิมพ์ "
+"อีเมลนี้จะไม่ถูกส่งจนกว่าจะมีการบันทึกการตัดสินใจ"
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"ส่งอีเมลถึงผู้เขียนเพื่อแจ้งว่ารอบการทบทวนถูกปิดแล้ว "
+"อีเมลนี้จะไม่ถูกส่งจนกว่าจะมีการบันทึกการตัดสินใจ"
+
+msgid "editor.submission.decision.decline"
+msgstr "ปฏิเสธการส่งงาน"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"การส่งงานนี้จะถูกปฏิเสธเพื่อตีพิมพ์ "
+"ขั้นตอนการทบทวนจะถูกปิดและการส่งงานจะถูกเก็บถาวร"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} ปฏิเสธการส่งงานนี้"
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "ปฏิเสธการส่งงานแล้ว"
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"การส่งงาน, {$title}, ถูกปฏิเสธและถูกเก็บถาวร การแจ้งเตือนทั้งหมดถูกส่งแล้ว "
+"ยกเว้นที่คุณเลือกข้าม"
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"ส่งอีเมลถึงผู้เขียนเพื่อแจ้งว่าการส่งงานของพวกเขาถูกปฏิเสธ "
+"อีเมลนี้จะไม่ถูกส่งจนกว่าจะมีการบันทึกการตัดสินใจ"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"การส่งงานนี้จะถูกปฏิเสธเพื่อตีพิมพ์ "
+"จะไม่มีการทบทวนเพิ่มเติมและการส่งงานจะถูกเก็บถาวร"
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "รอบการทบทวนใหม่"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "เปิดรอบการทบทวนใหม่สำหรับการส่งงานนี้"
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} สร้างรอบการทบทวนใหม่สำหรับการส่งงานนี้"
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "สร้างรอบการทบทวนแล้ว"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"รอบการทบทวนใหม่ได้ถูกสร้างสำหรับการส่งงาน, {$title} "
+"ผู้เขียนได้รับการแจ้งเตือนแล้ว ยกเว้นที่คุณเลือกข้าม"
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"ส่งอีเมลถึงผู้เขียนเพื่อแจ้งว่าการส่งงานของพวกเขาถูกส่งไปรอบการทบทวนใหม่ "
+"อีเมลนี้จะไม่ถูกส่งจนกว่าจะมีการบันทึกการตัดสินใจ"
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "เลือกไฟล์ที่จะส่งไปยังขั้นตอนการแก้ไขสำเนา"
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "เลือกไฟล์ที่จะส่งไปทบทวน"
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "เลือกไฟล์ที่จะส่งไปยังขั้นตอนการผลิต"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "ขอแก้ไข"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr "ผู้เขียนต้องทำการแก้ไขก่อนที่การส่งงานนี้จะได้รับการยอมรับเพื่อตีพิมพ์"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} ขอแก้ไขสำหรับการส่งงานนี้"
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "ขอแก้ไขแล้ว"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"การแก้ไขสำหรับการส่งงาน, {$title}, ถูกขอแล้ว การแจ้งเตือนทั้งหมดถูกส่งแล้ว "
+"ยกเว้นที่คุณเลือกข้าม"
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"ส่งอีเมลถึงผู้เขียนเพื่อแจ้งว่าจำเป็นต้องมีการแก้ไขก่อนที่การส่งงานนี้จะได้รั"
+"บการยอมรับเพื่อตีพิมพ์ ระบุรายละเอียดทั้งหมดที่ผู้เขียนต้องการในการแก้ไขการส่"
+"งงานของพวกเขา ถ้าจำเป็น โปรดไม่ระบุชื่อของผู้รีวิวในความคิดเห็นใด ๆ "
+"อีเมลนี้จะไม่ถูกส่งจนกว่าจะบันทึกการตัดสินใจ"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "ส่งไปยังการทบทวนภายใน"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"ไฟล์ตรวจปรู๊ฟจะต้องได้รับการตรวจสอบและอนุมัติก่อนที่จะทำให้ใช้งานได้ "
+"คุณต้องการอนุมัติหรือไม่?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "อนุมัติการตรวจปรู๊ฟ"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"ไฟล์ตรวจปรู๊ฟนี้จะไม่สามารถดาวน์โหลดหรือซื้อได้อีกต่อไป "
+"คุณต้องการยกเลิกการอนุมัติหรือไม่?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "ยกเลิกการปฏิเสธ"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"ยกเลิกการตัดสินใจปฏิเสธก่อนหน้านี้และนำกลับไปสู่กระบวนการบรรณาธิการที่ยังดำเน"
+"ินอยู่ ผู้เขียนได้รับการแจ้งเตือนแล้ว เว้นแต่คุณเลือกที่จะข้ามอีเมลนั้น"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} ได้ยกเลิกการตัดสินใจปฏิเสธบทความนี้"
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "เปิดใช้งานการส่งงานอีกครั้ง"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "การส่งงาน, {$title}, กลับมาอยู่ในขั้นตอนการทบทวนอีกครั้ง"
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"ส่งอีเมลถึงผู้เขียนเพื่อแจ้งว่าการตัดสินใจปฏิเสธก่อนหน้านี้ถูกยกเลิก อธิบายเห"
+"ตุผลที่ยกเลิกการตัดสินใจและแจ้งให้พวกเขาทราบว่าการส่งงานนั้นจะต้องทบทวนเพิ่มเ"
+"ติมหรือไม่"
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"การส่งงาน, {$title}, กลับมาอยู่ในขั้นตอนการส่งงาน "
+"ผู้เขียนได้รับการแจ้งเตือนแล้ว เว้นแต่คุณเลือกที่จะข้ามอีเมลนั้น"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"กรุณามอบหมายบรรณาธิการเพื่อเปิดใช้งานการตัดสินใจทางบรรณาธิการสำหรับขั้นตอนนี้"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"ส่งข้อความถึงบรรณาธิการที่ทำการตัดสินใจเพื่อแจ้งคำแนะนำ "
+"อธิบายเหตุผลที่ทำให้คำแนะนำนี้มีขึ้น "
+"โดยพิจารณาจากคำแนะนำและความคิดเห็นที่ผู้รีวิวได้ส่งมา"
+
+msgid "editor.submission.recommend.accept"
+msgstr "แนะนำให้ยอมรับ"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr "แนะนำให้ยอมรับการส่งงานนี้เพื่อตีพิมพ์และส่งไปแก้ไขสำเนา"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr "{$editorName} แนะนำให้ยอมรับการส่งงานนี้และส่งไปแก้ไขสำเนา"
+
+msgid "editor.submission.recommend.completed"
+msgstr "คำแนะนำถูกส่งแล้ว"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"คำแนะนำของคุณได้ถูกบันทึกและบรรณาธิการที่ทำการตัดสินใจได้รับการแจ้งเตือนแล้ว"
+
+msgid "editor.submission.recommend.revisions"
+msgstr "แนะนำให้แก้ไข"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"แนะนำให้ผู้เขียนทำการแก้ไขก่อนที่การส่งงานนี้จะได้รับการยอมรับเพื่อตีพิมพ์"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} แนะนำให้ทำการแก้ไข"
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "แนะนำให้ส่งงานอีกครั้งเพื่อการทบทวน"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr "แนะนำให้ผู้เขียนส่งการแก้ไขสำหรับรอบการทบทวนใหม่อีกครั้ง"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr "{$editorName} แนะนำให้ทำการแก้ไขและส่งงานอีกครั้งเพื่อตรวจทบทวนใหม่"
+
+msgid "editor.submission.recommend.decline"
+msgstr "แนะนำให้ปฏิเสธ"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "แนะนำให้ปฏิเสธการส่งงานนี้เพื่อตีพิมพ์"
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} แนะนำให้ปฏิเสธการส่งงานนี้"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "ทำคำแนะนำ"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "เปลี่ยนคำแนะนำ"
+
+msgid "editor.submission.recommendation.display"
+msgstr "คำแนะนำ: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "คำแนะนำทั้งหมด: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"คุณไม่สามารถทำคำแนะนำได้จนกว่าจะมีการมอบหมายบรรณาธิการที่มีสิทธิ์ในการบันทึกก"
+"ารตัดสินใจ"
+
+msgid "editor.submission.recommendation"
+msgstr "คำแนะนำ"
+
+msgid "editor.submission.recommendation.description"
+msgstr "แนะนำการตัดสินใจทางบรรณาธิการสำหรับการส่งงานนี้"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "คำแนะนำที่บันทึกแล้ว"
+
+msgid "submission.currentStage"
+msgstr "ขั้นตอนปัจจุบัน"
+
+msgid "submission.noActionRequired"
+msgstr "ไม่ต้องการการดำเนินการ"
+
+msgid "submission.actionNeeded"
+msgstr "ต้องการการดำเนินการ"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "ไฟล์การทบทวน"
+
+msgid "submission.submit.currentFile"
+msgstr "ไฟล์ปัจจุบัน"
+
+msgid "submission.finalDraft"
+msgstr "ไฟล์ร่างสุดท้าย"
+
+msgid "editor.submission.addAuditorError"
+msgstr "เกิดข้อผิดพลาดในการพยายามมอบหมายผู้ตรวจสอบ โปรดลองอีกครั้ง"
+
+msgid "submission.event.fileEdited"
+msgstr "เมทาดาทาของไฟล์ \"{$filename}\" ถูกแก้ไขโดย {$username}"
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"ไฟล์ \"{$filename}\" ถูกอัปโหลดสำหรับการส่งงาน {$submissionId} โดย "
+"{$username}"
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"ไฟล์ \"{$filename}\" ถูกลบสำหรับการส่งงาน {$submissionId} โดย {$username}"
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"การแก้ไขไฟล์ \"{$filename}\" ถูกอัปโหลดสำหรับการส่งงาน {$submissionId} โดย "
+"{$username}"
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"การแก้ไขไฟล์ \"{$filename}\" ถูกลบสำหรับการส่งงาน {$submissionId} โดย "
+"{$username}"
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "ไฟล์ \"{$filename}\" ถูกลบการแก้ไขสุดท้ายโดย {$username}"
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ถูกเพิ่มเป็นผู้ตรวจสอบสำหรับไฟล์ \""
+"{$filename}\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ถูกลบออกจากการเป็นผู้ตรวจสอบสำหรับไฟล์ \""
+"{$filename}\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ได้เสร็จสิ้นการตรวจสอบและอัปโหลดไฟล์ \""
+"{$filename}\""
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ได้ลงนามในการลงชื่อออกสำหรับ \"{$filename}"
+"\""
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ได้อนุมัติการตรวจปรู๊ฟสำหรับ \""
+"{$publicationFormatName}\""
+
+msgid "submission.overview"
+msgstr "ภาพรวมของการส่งงาน"
+
+msgid "submission.description"
+msgstr "คำอธิบาย"
+
+msgid "submission.stageNotInitiated"
+msgstr "ยังไม่ได้เริ่มต้นขั้นตอน"
+
+msgid "submission.documents"
+msgstr "เอกสารการส่งงาน"
+
+msgid "notification.type.editorAssign"
+msgstr "คุณได้รับมอบหมายให้เป็นบรรณาธิการของการส่งงาน \"{$title}\""
+
+msgid "notification.type.copyeditorRequest"
+msgstr "คุณถูกขอให้ทบทวนการแก้ไขสำเนาสำหรับ \"{$title}\""
+
+msgid "notification.type.layouteditorRequest"
+msgstr "คุณถูกขอให้ทบทวนรูปแบบสำหรับ \"{$title}\""
+
+msgid "notification.type.indexRequest"
+msgstr "คุณถูกขอให้สร้างดัชนีสำหรับ \"{$title}\""
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "การตัดสินใจล่าสุดของบรรณาธิการ"
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "การส่งงานได้รับการยอมรับแล้ว"
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "ต้องการการแก้ไข"
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "ส่งงานอีกครั้งเพื่อทบทวน"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "เริ่มรอบการทบทวนใหม่"
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "การส่งงานถูกปฏิเสธ"
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "การส่งงานที่ถูกปฏิเสธถูกเปิดใช้งานอีกครั้ง"
+
+msgid "notification.uploadedResponse"
+msgstr "การตอบกลับถูกอัปโหลดแล้ว"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"ต้องมีการมอบหมายบรรณาธิการก่อนที่จะเริ่มการทบทวน "
+"กรุณาเพิ่มบรรณาธิการโดยใช้รายการผู้เข้าร่วม"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "มีการสร้างเวอร์ชันใหม่ของการส่งงาน"
+
+msgid "notification.type.revertDecline"
+msgstr "การตัดสินใจปฏิเสธการส่งงานนี้ถูกยกเลิก"
+
+msgid "grid.reviewAttachments.title"
+msgstr "ไฟล์แนบของผู้รีวิว"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "เลือกไฟล์ทบทวนเพื่อแชร์กับผู้เขียน"
+
+msgid "submission.productionReady"
+msgstr "หนังสือพร้อมใช้งาน"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "อัปโหลดไฟล์ที่แก้ไขแล้ว"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} ได้รับมอบหมายให้ทบทวนการส่งบทความหมายเลข {$submissionId} "
+"สำหรับรอบการทบทวนที่ {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"การทบทวนรอบที่ {$round} โดย {$reviewerName} สำหรับการส่งบทความหมายเลข "
+"{$submissionId} ได้ถูกล้างแล้ว."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} ได้ระบุว่าการทบทวนรอบที่ {$round} สำหรับการส่งบทความหมายเลข "
+"{$submissionId} ไม่ได้รับการพิจารณา."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"การทบทวนรอบที่ {$round} โดย {$reviewerName} สำหรับการส่งบทความหมายเลข "
+"{$submissionId} ได้ถูกเริ่มใหม่อีกครั้ง."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "กำลังรอการตอบรับจากผู้รีวิว."
+
+msgid "submission.review.status.declined"
+msgstr "ผู้รีวิวปฏิเสธคำขอทบทวนนี้."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "ผู้รีวิวพลาดกำหนดวันที่ต้องตอบรับ."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "ผู้รีวิวพลาดกำหนดวันที่ต้องทบทวน."
+
+msgid "submission.review.status.accepted"
+msgstr "การทบทวนนี้ได้รับการยอมรับแล้ว."
+
+msgid "submission.review.status.received"
+msgstr "ผู้รีวิวได้ส่งการทบทวนของพวกเขาแล้ว."
+
+msgid "submission.review.status.complete"
+msgstr "การทบทวนนี้เสร็จสมบูรณ์แล้ว."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"การทบทวนนี้เสร็จสมบูรณ์แล้ว และได้กล่าวขอบคุณผู้รีวิวสำหรับการมีส่วนร่วม."
+
+msgid "submission.document"
+msgstr "เอกสาร"
+
+msgid "submission.art"
+msgstr "งานศิลปะ"
+
+msgid "submission.supplementary"
+msgstr "เนื้อหาสนับสนุน"
+
+msgid "submission.supplementary.creator"
+msgstr "ผู้สร้าง (หรือเจ้าของ) ไฟล์"
+
+msgid "submission.supplementary.subject"
+msgstr "หัวข้อ"
+
+msgid "submission.supplementary.publisher"
+msgstr "ผู้จัดพิมพ์"
+
+msgid "submission.supplementary.sponsor"
+msgstr "ผู้มีส่วนร่วม หรือหน่วยงานที่ให้การสนับสนุน"
+
+msgid "grid.action.itemWorkflow"
+msgstr "ไปที่กระบวนการทำงานของการส่งบทความนี้"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "เริ่มกระบวนการผลิตแล้ว."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"จำเป็นต้องมอบหมายบรรณาธิการการผลิตก่อนที่จะเริ่มกระบวนการผลิต "
+"กรุณาเพิ่มบรรณาธิการการผลิตโดยใช้รายการผู้เข้าร่วม."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"จำเป็นต้องมอบหมายบรรณาธิการการผลิตก่อนที่จะเริ่มกระบวนการบรรณาธิการ "
+"กรุณาเพิ่มบรรณาธิการการผลิตโดยใช้รายการผู้เข้าร่วม."
+
+msgid "submission.reviewForm"
+msgstr "แบบฟอร์มการทบทวน"
+
+msgid "submission.reviewFormResponse"
+msgstr "การตอบกลับในแบบฟอร์มการทบทวน"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "สร้างองค์ประกอบใหม่ในแบบฟอร์มการทบทวน"
+
+msgid "grid.action.editMetadata"
+msgstr "แก้ไขข้อมูลเมตา"
+
+msgid "submission.permissions"
+msgstr "สิทธิการอนุญาต"
+
+msgid "submission.attachPermissions"
+msgstr "แนบสิทธิการอนุญาตต่อไปนี้กับการส่งบทความ:"
+
+msgid "submission.license"
+msgstr "ใบอนุญาต"
+
+msgid "submission.copyright"
+msgstr "ลิขสิทธิ์"
+
+msgid "submission.copyright.agree"
+msgstr "ใช่ ฉันยอมรับคำแถลงลิขสิทธิ์"
+
+msgid "submission.copyrightHolder"
+msgstr "ผู้ถือสิทธิ์ลิขสิทธิ์"
+
+msgid "submission.copyrightHolder.other"
+msgstr "คำแถลงลิขสิทธิ์ที่กำหนดเอง"
+
+msgid "submission.copyrightOther"
+msgstr "คำแถลงลิขสิทธิ์"
+
+msgid "submission.copyrightYear"
+msgstr "ปีที่ลิขสิทธิ์"
+
+msgid "submission.copyrightStatement"
+msgstr "ลิขสิทธิ์ (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "กรุณาระบุ URL ที่ถูกต้อง (รวมถึง http://)"
+
+msgid "submission.licenseURL"
+msgstr "URL ใบอนุญาต"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>ผลงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative "
+"Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>ผลงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>ผลงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative "
+"Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>ผลงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>ผลงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons "
+"Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>ผลงานนี้ได้รับอนุญาตภายใต้ <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "การสนทนาก่อนการทบทวน"
+
+msgid "submission.queries.review"
+msgstr "การสนทนาระหว่างการทบทวน"
+
+msgid "submission.queries.editorial"
+msgstr "การสนทนาเกี่ยวกับการแก้ไขสำเนา"
+
+msgid "submission.query.subject"
+msgstr "หัวเรื่อง"
+
+msgid "submission.query.messages"
+msgstr "ข้อความ"
+
+msgid "submission.query.replies"
+msgstr "การตอบกลับ"
+
+msgid "submission.query.from"
+msgstr "จาก"
+
+msgid "submission.query.lastReply"
+msgstr "การตอบกลับล่าสุด"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} ตอบกลับใน {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} เริ่มการสนทนา: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"มีความเคลื่อนไหวใหม่ในการสนทนาชื่อ \"{$queryTitle}\" ที่เกี่ยวข้องกับการส่ง "
+"\"{$submissionTitle}\""
+
+msgid "submission.query.new.contents"
+msgstr ""
+"คุณถูกเพิ่มเข้ามาในการสนทนาชื่อ \"{$queryTitle}\" ที่เกี่ยวข้องกับการส่ง \""
+"{$submissionTitle}\""
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr "คุณต้องกำหนดผู้เข้าร่วมอย่างน้อยหนึ่งคนในการส่งนี้ก่อนเริ่มการสนทนา"
+
+msgid "submission.query.allowedEditTime"
+msgstr "คุณสามารถอัปเดตการสนทนานี้ได้ภายใน {$allowedEditTimeNoticeLimit} นาที"
+
+msgid "submission.list.infoCenter"
+msgstr "บันทึกกิจกรรม & หมายเหตุ"
+
+msgid "submission.list.empty"
+msgstr "ไม่พบการส่งงาน"
+
+msgid "submission.list.responseDue"
+msgstr "ครบกำหนดตอบรับ: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "การมอบหมายการทบทวน"
+
+msgid "submission.list.galleysCreated"
+msgstr "สร้างไฟล์ต้นฉบับสำหรับการผลิตแล้ว"
+
+msgid "submission.list.filesPrepared"
+msgstr "ไฟล์ที่เตรียมไว้"
+
+msgid "submission.list.discussions"
+msgstr "การสนทนาที่เปิดอยู่"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"คุณได้รับการมอบหมายบทบาทหลายบทบาทในการส่งนี้ คุณต้องการเข้าถึง <a href=\""
+"{$urlAuthorWorkflow}\">เวิร์กโฟลว์ของผู้เขียน</a> หรือ <a href=\""
+"{$urlEditorialWorkflow}\">เวิร์กโฟลว์ของบรรณาธิการ</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"คุณได้รับมอบหมายบทบาทบรรณาธิการในการส่งนี้ คุณต้องการเข้าถึง <a href=\""
+"{$urlEditorialWorkflow}\">เวิร์กโฟลว์ของบรรณาธิการ</a>?"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"การส่งงานนี้ได้ถูกส่งแล้ว กรุณาไปที่ <a href=\"{$url}\">แดชบอร์ดการส่งงาน</"
+"a> เพื่อดู"
+
+msgid "submission.wizard.beforeStart"
+msgstr "ก่อนที่คุณจะเริ่ม"
+
+msgid "submission.wizard.categories.description"
+msgstr "เลือกเฉพาะหมวดหมู่ที่เหมาะสมกับการส่งงานของคุณ"
+
+msgid "submission.wizard.changeSubmission"
+msgstr "เปลี่ยนการตั้งค่าการส่งงาน"
+
+msgid "submission.wizard.completeSteps"
+msgstr "ทำขั้นตอนให้ครบเพื่อทำการส่งงาน"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"การส่งงาน <strong>{$title}</strong> จะถูกส่งไปยัง <strong>{$context}</"
+"strong> เพื่อการทบทวนทางบรรณาธิการ คุณแน่ใจหรือไม่ว่าต้องการส่งการส่งงานนี้?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"มีปัญหาหนึ่งหรือมากกว่าที่ต้องแก้ไขก่อนที่คุณจะสามารถส่งได้ "
+"กรุณาตรวจสอบข้อมูลด้านล่างและทำการแก้ไขตามที่ระบุ"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"เพิ่มข้อมูลใด ๆ ที่คุณคิดว่าทีมบรรณาธิการควรทราบเมื่อประเมินการส่งงานของคุณ"
+
+msgid "submission.wizard.confirm"
+msgstr "กรุณายืนยันสิ่งต่อไปนี้ก่อนที่คุณจะทำการส่งงาน"
+
+msgid "submission.wizard.title"
+msgstr "ทำการส่งงาน"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "ทำการส่งงาน: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "ไม่มีผู้ร่วมแต่งถูกเพิ่มในการส่งงานนี้"
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+"ไม่มีชื่อผู้ร่วมแต่งในภาษา {$language} สำหรับผู้ร่วมแต่งหนึ่งคนหรือมากกว่า"
+
+msgid "submission.wizard.notAllowed"
+msgstr "ไม่ได้รับอนุญาต"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "ความยินยอมด้านความเป็นส่วนตัว"
+
+msgid "submission.wizard.saved"
+msgstr "บันทึกไว้ทำทีหลัง"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"รายละเอียดการส่งงานของคุณถูกบันทึกไว้ในระบบของเราแล้ว แต่ยังไม่ได้ส่งเพื่อพิ"
+"จารณา คุณสามารถกลับมาทำการส่งงานให้เสร็จได้ทุกเมื่อโดยคลิกลิงก์ด้านล่าง"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "เราได้ส่งสำเนาลิงก์นี้ไปที่อีเมลของคุณที่ {$email}"
+
+msgid "submission.wizard.sectionClosed"
+msgstr "ส่วนนี้ปิดแล้ว"
+
+msgid "submission.wizard.start"
+msgstr "เริ่มการส่งงาน"
+
+msgid "submission.wizard.startingStatus"
+msgstr "กำลังเริ่มการส่งงานใหม่"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"พบข้อผิดพลาดและเราไม่สามารถบันทึกการส่งงานของคุณได้ คุณอาจถูกตัดการเชื่อมต่อ"
+
+msgid "grid.category.categories"
+msgstr "หมวดหมู่"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "ชื่อเรื่อง (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "ชื่อเรื่อง (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "วันที่ตีพิมพ์ (เก่าสุดก่อน)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "วันที่ตีพิมพ์ (ใหม่สุดก่อน)"
+
+msgid "category.category"
+msgstr "หมวดหมู่"
+
+msgid "category.coverImage"
+msgstr "ภาพหน้าปก"
+
+msgid "submission.submit.placement.categories"
+msgstr "หมวดหมู่"
+
+msgid "submission.currentCoverImage"
+msgstr "ภาพปัจจุบัน"
+
+msgid "catalog.category.noItems"
+msgstr "ยังไม่มีสิ่งใดถูกตีพิมพ์ในหมวดหมู่นี้"
+
+msgid "catalog.category.subcategories"
+msgstr "หมวดหมู่ย่อย"
+
+msgid "publication.contributors"
+msgstr "ผู้ร่วมแต่ง"
+
+msgid "publication.createVersion"
+msgstr "สร้างเวอร์ชันใหม่"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "วันที่ต้องอยู่ในรูปแบบ YYYY-MM-DD เช่น 2019-01-01"
+
+msgid "publication.event.versionCreated"
+msgstr "สร้างเวอร์ชันใหม่แล้ว"
+
+msgid "publication.publicationLicense"
+msgstr "สิทธิ์การเผยแพร่ & การเปิดเผยข้อมูล"
+
+msgid "publication.status.scheduled"
+msgstr "กำหนดเวลาแล้ว"
+
+msgid "publication.status.unpublished"
+msgstr "ยังไม่ได้ตีพิมพ์"
+
+msgid "publication.titleAbstract"
+msgstr "ชื่อเรื่องและบทคัดย่อ"
+
+msgid "publication.unschedule"
+msgstr "ยกเลิกการกำหนดตาราง"
+
+msgid "publication.urlPath.description"
+msgstr "เส้นทางที่เลือกใช้ใน URL แทนการใช้ ID (ไม่จำเป็น)"
+
+msgid "publication.urlPath.duplicate"
+msgstr "เส้นทาง URL นี้ถูกใช้ไปแล้วและไม่สามารถใช้ซ้ำได้"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "เส้นทาง URL ไม่สามารถเป็นตัวเลขได้"
+
+msgid "publication.version.all"
+msgstr "ทุกเวอร์ชัน"
+
+msgid "publication.version.confirm"
+msgstr "คุณแน่ใจหรือว่าต้องการสร้างเวอร์ชันใหม่?"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"บทคัดย่อยาวเกินไป ควรมีความยาวไม่เกิน {$limit} คำ ขณะนี้มีความยาว {$count} คำ"
+
+msgid "publication.wordCount"
+msgstr "จำนวนคำ: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"ไม่สามารถทำเครื่องหมาย DOI ให้ต้องการซิงค์สำหรับ {$pubObjectTitle} เนื่องจาก "
+"DOI ยังไม่ได้รับการลงทะเบียนหรือส่งออก"
+
+msgid "submission.viewingPreview"
+msgstr ""
+"นี่คือการดูตัวอย่างและยังไม่ได้ตีพิมพ์ <a href=\"{$url}\">ดูการส่งงาน</a>"
+
+msgid "author.submit.noFiles"
+msgstr "ไม่มีไฟล์ที่ถูกอัปโหลดสำหรับการส่งนี้"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "กำลังส่งงานในภาษา <strong>{$language}</strong>"
+
+msgid "submission.wizard.submittingToSection"
+msgstr "กำลังส่งงานไปยังส่วน <strong>{$section}</strong>"
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"กำลังส่งงานไปยังส่วน <strong>{$section}</strong> ในภาษา "
+"<strong>{$language}</strong>"
+
+msgid "submission.type.tip"
+msgstr ""
+"ประเภทของการส่งงานมักจะเป็น 'ภาพ', 'ข้อความ', หรือประเภทมัลติมีเดียอื่น ๆ "
+"รวมถึง 'ซอฟต์แวร์' หรือ 'อินเตอร์แอคทีฟ' "
+"โปรดเลือกที่เกี่ยวข้องที่สุดสำหรับการส่งงานของคุณ ตัวอย่างสามารถดูได้ที่ <a "
+"target=\"_blank\" href=\"https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/"
+"specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"การส่งงานนี้มาจากแหล่งข้อมูลอื่นหรือไม่? หากใช่ คุณสามารถป้อน URL "
+"หรือคำอธิบายของแหล่งข้อมูลนั้นได้"
+
+msgid "submission.rights.tip"
+msgstr ""
+"หากต้องการ คุณสามารถป้อนคำแถลงสั้น ๆ "
+"เกี่ยวกับสิทธิการเข้าถึงที่ถือครองหรือที่มีต่อการส่งงานนี้"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "ผู้ติดต่อหลักสำหรับการติดต่อทางบรรณาธิการ"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"ระบุว่าคุณได้ให้หลักฐานที่สนับสนุนงานนี้ไว้หรือไม่ "
+"และหากมีอยู่แล้วจะเข้าถึงได้ที่ไหนและอย่างไร"
+
+msgid "submission.files.required.genre"
+msgstr "คุณต้องอัปโหลดไฟล์อย่างน้อยหนึ่งไฟล์ประเภท {$genre}"
+
+msgid "submission.files.required.genres"
+msgstr "คุณต้องอัปโหลดไฟล์อย่างน้อยหนึ่งไฟล์จากประเภทต่อไปนี้: {$genres}"
+
+msgid "publication.version"
+msgstr "เวอร์ชัน {$version}"

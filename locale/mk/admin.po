@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-11 11:51+0000\n"
+"PO-Revision-Date: 2024-11-16 09:40+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
@@ -953,3 +953,28 @@ msgstr ""
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Оневозможи збирна статистика на рецензентите"
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Работниците благодатно ќе дадат отказ по завршувањето на извршувањето на "
+"тековната работа."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Датотеката {$file} не можеше да се премести од {$dispatchFilePath} во "
+"{$archivedFilePath}."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Не може да се извршат задачи во редица бидејќи е овозможен режимот за песок "
+"на апликацијата."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Рестартирајте ги работничките демони во редица по нивната тековна работа."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Датотеката {$filename} беше преместена во папката за испраќање."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Датотеката {$file} не постои."

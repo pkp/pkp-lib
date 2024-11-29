@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"PO-Revision-Date: 2024-11-16 09:40+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/mk/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Додатна локализација"
@@ -154,11 +154,10 @@ msgstr ""
 "Грешка при анализирање на датотеката за конфигурација на филтерот <tt>{$file}"
 "</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Ажурирајте го неподдржано. Погледнете ги документите / UPGRADE-UNSUPPORTED "
-"за детали."
+"Надградбата не е поддржана. Погледнете го Водичот за надградба (https://docs."
+"pkp.sfu.ca/dev/upgrade-guide) за детали."
 
 msgid "installer.timezoneInstructions"
 msgstr "Временската зона што треба да се користи за овој систем."

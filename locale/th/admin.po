@@ -1,0 +1,881 @@
+# Apichaya <apichaya_cc@thonburi-u.ac.th>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-10-20 03:08+0000\n"
+"Last-Translator: Apichaya <apichaya_cc@thonburi-u.ac.th>\n"
+"Language-Team: Thai <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/th/>"
+"\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "ชื่อการตั้งค่า"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "ค่าการตั้งค่า"
+
+msgid "admin.adminFunctions"
+msgstr "ฟังก์ชันการจัดการ"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "ลบล็อกงาน"
+
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"บรรทัดที่ {$lineNumber} ในไฟล์ล็อก {$file} "
+"อยู่ในรูปแบบที่ไม่ถูกต้องและจะถูกข้าม"
+
+msgid "admin.versionMajor"
+msgstr "หลัก"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "การโหลดไฟล์"
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ gz ปลายทาง {$filePath} ไม่สามารถเขียนได้ด้วย "
+"gzwrite"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"ล้างงานคิวที่ระบุโดยใช้ Id หากคุณต้องการล้างทั้งหมด ใส่พารามิเตอร์ --all "
+"หากคุณต้องการล้างทั้งหมดจากคิวที่ระบุ ให้ใส่พารามิเตอร์ --queue="
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"รันกระบวนการเดมอนทำงานต่อเนื่องที่จะประมวลผลงานต่อไป ใช้ธง --help "
+"เพื่อดูตัวเลือกที่มีอยู่ที่เกี่ยวข้องกับคำสั่งนี้"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs.view"
+msgstr "ดูงาน"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "ตัวเลือกที่ใช้ได้สำหรับคำสั่ง work"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr "จำนวนวินาทีที่จะพักเมื่อไม่มีงานในคิว [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "บังคับให้ worker ทำงานแม้อยู่ในโหมดบำรุงรักษา [ค่าเริ่มต้น: {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "จำนวนวินาทีที่จะพักระหว่างงาน [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "รัน worker deamon สำหรับคิวทดสอบ"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "ใช้ไซต์เป็นแพลตฟอร์มสำหรับวารสารทั้งหมด"
+
+msgid "admin.deleteCache"
+msgstr "ลบแคช"
+
+msgid "admin.deleteCache.description"
+msgstr "ลบไฟล์แคชออกจากระบบ ควรทำเช่นนี้เฉพาะในสภาพแวดล้อมการพัฒนาเท่านั้น"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"ไฟล์การกำหนดค่าของคุณได้รับการอัปเดตเรียบร้อยแล้ว "
+"โปรดทราบว่าหากไซต์ของคุณไม่ทำงานอย่างถูกต้อง "
+"คุณอาจต้องแก้ไขการกำหนดค่าด้วยการแก้ไข <tt>config.inc.php</tt> โดยตรง"
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบแคชของแม่แบบที่คอมไพล์แล้ว?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการยุติทุกเซสชันของผู้ใช้? "
+"ผู้ใช้ทุกคนที่กำลังเข้าสู่ระบบอยู่ในขณะนี้จะถูกบังคับให้ออกจากระบบ "
+"(รวมถึงตัวคุณเองด้วย)"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "เนื้อหาของไฟล์การกำหนดค่า"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ {$contextName} และเนื้อหาทั้งหมดอย่างถาวร?"
+
+msgid "admin.currentVersion"
+msgstr "เวอร์ชันปัจจุบัน"
+
+msgid "admin.dateInstalled"
+msgstr "วันที่ติดตั้ง"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"เนื้อหาของการกำหนดค่าที่อัปเดตของคุณแสดงด้านล่างนี้ "
+"เพื่อให้การเปลี่ยนแปลงการกำหนดค่ามีผล คุณต้องเปิด <tt>config.inc.php</tt> ในโ"
+"ปรแกรมแก้ไขข้อความที่เหมาะสมและแทนที่เนื้อหาด้วยเนื้อหาของฟิลด์ข้อความด้านล่า"
+"ง"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "แสดงการกำหนดค่าใหม่"
+
+msgid "admin.expireSessions"
+msgstr "ยุติเซสชันของผู้ใช้"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"ผู้ใช้ทุกคนจะถูกออกจากระบบในทันที รวมถึงตัวคุณเอง "
+"และจำเป็นต้องเข้าสู่ระบบอีกครั้ง"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"ภาษานี้เป็นภาษาหลักของไซต์ คุณไม่สามารถปิดใช้งานได้จนกว่าจะเลือกภาษาหลักอื่น"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการเปลี่ยนภาษาหลักของไซต์? ชื่อของผู้ใช้ที่จำเป็นต้องมี"
+"ในภาษาหลักของไซต์จะถูกคัดลอกจากภาษาหลักเดิมที่ยังขาดอยู่"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"คุณแน่ใจหรือไม่ว่าต้องการโหลดภาษานี้ใหม่? "
+"การทำเช่นนี้จะลบข้อมูลที่เกี่ยวข้องกับภาษาเดิม เช่น แม่แบบอีเมลที่ปรับแต่ง"
+
+msgid "admin.languages.installedLocales"
+msgstr "ภาษาที่ติดตั้งแล้ว"
+
+msgid "admin.languages.installLanguages"
+msgstr "จัดการภาษา"
+
+msgid "admin.languages.availableLocales"
+msgstr "ภาษาที่สามารถติดตั้งได้"
+
+msgid "admin.languages.installLocale"
+msgstr "ติดตั้งภาษา"
+
+msgid "admin.languages.installLocales"
+msgstr "ติดตั้ง"
+
+msgid "admin.languages.installNewLocales"
+msgstr "ติดตั้งภาษาใหม่"
+
+msgid "admin.languages.languageSettings"
+msgstr "การตั้งค่าภาษา"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "ไม่มีภาษาเพิ่มเติมที่สามารถติดตั้งได้"
+
+msgid "admin.languages.reload"
+msgstr "โหลดภาษาใหม่"
+
+msgid "admin.languages.uninstall"
+msgstr "ถอนการติดตั้งภาษา"
+
+msgid "admin.phpInfo"
+msgstr "ข้อมูล PHP ขยายเพิ่มเติม"
+
+msgid "admin.scheduledTask"
+msgstr "งานที่ตั้งเวลาไว้"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "กระบวนการงานเริ่มต้นแล้ว"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "กระบวนการงานสิ้นสุดแล้ว"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "งานนี้ไม่ได้สร้างบันทึกใด ๆ"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "ฝาก DOI กับหน่วยงานลงทะเบียนที่กำหนดไว้"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"การติดตั้ง {$softwareName} ของคุณได้ทำงานนี้โดยอัตโนมัติและเสร็จสิ้น "
+"คุณสามารถดาวน์โหลดไฟล์บันทึกได้ที่นี่: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "ส่งอีเมลเตือนบรรณาธิการแต่ละคนเกี่ยวกับงานที่ค้างอยู่"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "กำลังระบุบรรณาธิการที่จะเตือนในบริบท {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"จัดส่งงาน {$count} เพื่อส่งอีเมลเตือนบรรณาธิการไปยังผู้ใช้ {$userIds} ในบริ"
+"บท {$contextId}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบล็อกการดำเนินงานของงานที่ตั้งเวลาไว้ทั้งหมด?"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "ลบล็อกทั้งหมดของกระบวนการงานที่ตั้งเวลาไว้ที่ได้ดำเนินการแล้ว"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "เผยแพร่การส่งที่ตั้งเวลาไว้สำหรับการตีพิมพ์"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "การเตือนการรีวิว"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "การแจ้งเตือนรายงานบรรณาธิการ"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "การเตือนการหมดอายุของการสมัครสมาชิก"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "ลบผู้ใช้ที่ไม่ได้รับการยืนยันและหมดอายุแล้ว"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr "ลบงานที่ล้มเหลวที่เก่าออกจากรายการงานที่ล้มเหลว"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "ประมวลผลงานในคิวที่ค้างอยู่"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "อัปเดตฐานข้อมูลเมือง DB-IP lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"การเปลี่ยนชื่อไฟล์ฐานข้อมูล DB-IP city lite จาก {$sourceFilename} เป็น "
+"{$targetFilename} ล้มเหลว"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "งานโหลดไฟล์สถิติการใช้งาน"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"ไดเรกทอรี {$directory} ไม่ว่าง อาจบ่งชี้ถึงกระบวนการที่ล้มเหลวก่อนหน้านี้ "
+"หรือกระบวนการที่กำลังดำเนินการอยู่ ไฟล์นี้จะถูกประมวลผลใหม่โดยอัตโนมัติ"
+
+msgid "admin.job.processLogFile.openFileFailed"
+msgstr "ไม่สามารถเปิดไฟล์ {$file} และถูกปฏิเสธ"
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"ไฟล์ {$file} อยู่ในรูปแบบไฟล์ล็อกเก่าที่ไม่สามารถประมวลผลได้ "
+"และจะถูกย้ายกลับไปที่ไดเรกทอรีสเตจ"
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"ข้ามไฟล์ล็อก {$file} เพราะสถิติของเดือนนั้นถูกคำนวณไปแล้ว "
+"หากต้องการคำนวณสถิติสำหรับเดือนก่อนหน้าอีกครั้ง "
+"คุณต้องกู้คืนไฟล์ล็อกทั้งหมดของเดือนนั้นและใช้เครื่องมือ CLI "
+"เพื่อประมวลผลสถิติใหม่"
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr ""
+"รายการล็อกไม่ถูกต้องที่บรรทัด {$lineNumber} ในไฟล์ล็อก {$file}: {$error}"
+
+msgid "admin.job.processLogFile.invalidLogEntry.time"
+msgstr "เวลาไม่ใช่วันที่ที่ถูกต้อง"
+
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
+msgstr "Context ID ไม่ใช่ตัวเลขจำนวนเต็ม"
+
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
+msgstr "Submission ID ไม่ใช่ตัวเลขจำนวนเต็ม"
+
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
+msgstr "Representation ID ไม่ใช่ตัวเลขจำนวนเต็ม"
+
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
+msgstr "ประเภท Assoc ไม่รองรับ"
+
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
+msgstr "ประเภทไฟล์ไม่รองรับ"
+
+msgid "admin.job.processLogFile.invalidLogEntry.country"
+msgstr "ประเทศไม่ใช่สตริงตัวอักษรสองตัว"
+
+msgid "admin.job.processLogFile.invalidLogEntry.region"
+msgstr "ภูมิภาคไม่ใช่สตริงที่ยาวไม่เกินสามตัวอักษรหรือตัวเลข"
+
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "Institution IDs ไม่ใช่อาร์เรย์"
+
+msgid "admin.job.processLogFile.insertError"
+msgstr ""
+"เกิดข้อผิดพลาดในการประมวลผลไฟล์ล็อก {$file} ที่บรรทัด {$lineNumber}: {$msg}"
+
+msgid "admin.server.apacheVersion"
+msgstr "เวอร์ชัน Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "ไดรเวอร์ฐานข้อมูล"
+
+msgid "admin.server.dbVersion"
+msgstr "เวอร์ชันเซิร์ฟเวอร์ฐานข้อมูล"
+
+msgid "admin.serverInformation"
+msgstr "ข้อมูลเซิร์ฟเวอร์"
+
+msgid "admin.server.phpVersion"
+msgstr "เวอร์ชัน PHP"
+
+msgid "admin.server.platform"
+msgstr "แพลตฟอร์มระบบปฏิบัติการ"
+
+msgid "admin.settings"
+msgstr "การตั้งค่า"
+
+msgid "admin.settings.about"
+msgstr "เกี่ยวกับไซต์"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "อีเมลแบบกลุ่ม"
+
+msgid "admin.settings.contactEmail"
+msgstr "อีเมลของผู้ติดต่อหลัก"
+
+msgid "admin.settings.contactName"
+msgstr "ชื่อของผู้ติดต่อหลัก"
+
+msgid "admin.settings.introduction"
+msgstr "บทนำ"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "ความยาวขั้นต่ำของรหัสผ่าน (ตัวอักษร)"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "สถิติผู้รีวิว"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"ในการติดตั้งแบบหลายบริบท สถิติผู้รีวิว เช่น จำนวนการรีวิวที่ส่ง "
+"สามารถแสดงได้ทั้งรายบริบทหรือรวมทั้งหมด"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "ปิดการใช้งานสถิติผู้รีวิวแบบรวม"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "จำกัดการส่งอีเมลแบบกลุ่ม"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "ปิดการใช้งานบทบาท"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "เฉพาะผู้ดูแลระบบเท่านั้นที่สามารถแก้ไขการตั้งค่านี้ได้"
+
+msgid "admin.settings.siteLanguage"
+msgstr "ภาษาของไซต์"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "รูปแบบสไตล์ชีตของไซต์ไม่ถูกต้อง รูปแบบที่ยอมรับคือ .css"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "สไตล์ชีตของไซต์"
+
+msgid "admin.settings.siteLogo"
+msgstr "โลโก้ของไซต์"
+
+msgid "admin.settings.siteTitle"
+msgstr "ชื่อไซต์"
+
+msgid "admin.settings.siteTheme"
+msgstr "ธีมของไซต์"
+
+msgid "admin.siteAdmin"
+msgstr "การจัดการไซต์"
+
+msgid "admin.siteManagement"
+msgstr "การจัดการไซต์"
+
+msgid "admin.siteSettings"
+msgstr "การตั้งค่าไซต์"
+
+msgid "admin.siteSetup"
+msgstr "การตั้งค่าไซต์"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"ไฟล์การกำหนดค่า <tt>config.inc.php</tt> ไม่มีอยู่ ไม่สามารถอ่านได้ "
+"หรือไม่ถูกต้อง"
+
+msgid "admin.systemInformation"
+msgstr "ข้อมูลระบบ"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"ดูข้อมูลเกี่ยวกับเวอร์ชันและการตั้งค่าการกำหนดค่าของแอปพลิเคชันและเซิร์ฟเวอร์"
+
+msgid "admin.systemInformation.view"
+msgstr "ดูข้อมูลระบบ"
+
+msgid "admin.versionBuild"
+msgstr "บิลด์"
+
+msgid "admin.version.checkForUpdates"
+msgstr "ตรวจสอบการอัปเดต"
+
+msgid "admin.version.downloadPackage"
+msgstr "ดาวน์โหลด"
+
+msgid "admin.version.downloadPatch"
+msgstr "ดาวน์โหลดแพตช์"
+
+msgid "admin.versionHistory"
+msgstr "ประวัติเวอร์ชัน"
+
+msgid "admin.version.latest"
+msgstr "เวอร์ชันล่าสุด"
+
+msgid "admin.versionMinor"
+msgstr "รอง"
+
+msgid "admin.version.moreInfo"
+msgstr "ข้อมูลเพิ่มเติม"
+
+msgid "admin.versionRevision"
+msgstr "การแก้ไข"
+
+msgid "admin.version.updateAvailable"
+msgstr "มีเวอร์ชันใหม่อัปเดตให้ใช้งาน"
+
+msgid "admin.version.upToDate"
+msgstr "ระบบของคุณเป็นเวอร์ชันล่าสุดแล้ว"
+
+msgid "admin.version"
+msgstr "เวอร์ชัน"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "เส้นทางฐาน {$path} ต้องอยู่ภายในไดเรกทอรีไฟล์สาธารณะ"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "โฟลเดอร์ {$path} ไม่ใช่ไดเรกทอรีหรือไม่สามารถอ่านได้"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"ไม่สามารถย้ายไฟล์ {$filename} จาก {$currentFilePath} ไปยัง {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "ไฟล์ {$filename} ถูกประมวลผลและเก็บถาวรแล้ว"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "ไฟล์ {$filename} ถูกย้ายไปยังโฟลเดอร์ส่งออก"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ gz ต้นทาง {$filePath} ไม่สามารถเปิดได้ด้วย gzopen"
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ปลายทาง {$filePath} ไม่สามารถเปิดได้ด้วย fopen"
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ gz ต้นทาง {$file} ไม่สามารถอ่านได้ด้วย gzread"
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ปลายทาง {$filePath} ไม่สามารถเขียนได้ด้วย fwrite"
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไม่สามารถปิดไฟล์ปลายทาง {$filePath} ที่เปิดอยู่ด้วย "
+"fclose"
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไม่สามารถปิดไฟล์ gz ต้นทาง {$filePath} ที่เปิดอยู่ด้"
+"วย gzclose"
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไม่สามารถลบไฟล์ gz ต้นทางที่บีบอัดแล้ว {$filePath} ด้"
+"วย unlink"
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ gz ปลายทาง {$filePath} ไม่สามารถเปิดได้ด้วย "
+"gzopen"
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ต้นทาง {$filePath} ไม่สามารถเปิดได้ด้วย fopen"
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไฟล์ต้นทาง {$filePath} ไม่สามารถอ่านได้ด้วย fread"
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไม่สามารถปิดไฟล์ต้นทาง {$filePath} ที่เปิดอยู่ด้วย "
+"fclose"
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไม่สามารถปิดไฟล์ gz ปลายทาง {$filePath} ที่เปิดอยู่ด้"
+"วย gzclose"
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"ไม่สามารถบีบอัดไฟล์ได้ ไม่สามารถลบไฟล์ต้นทางที่บีบอัดแล้ว {$filePath} ด้วย "
+"unlink"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "ไม่มีภาษาที่สามารถดาวน์โหลดได้"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "การใช้งาน:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "คำสั่ง [อาร์กิวเมนต์]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "คำสั่งที่มีอยู่สำหรับเนมสเปซ `{$namespace}`:"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr "ไม่สามารถรันงานคิวได้เนื่องจากโหมดบำรุงรักษาของแอปพลิเคชันถูกเปิดใช้งาน"
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr "ไม่สามารถรันงานคิวได้เนื่องจากโหมด sandbox ของแอปพลิเคชันถูกเปิดใช้งาน"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"แสดงรายการงานในคิวทั้งหมด หากคุณต้องการแบ่งหน้า ให้ใช้พารามิเตอร์ --page= "
+"และ --perPage= ใส่ธง --failed เพื่อแสดงรายการงานที่ล้มเหลว"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"เพิ่มงานทดสอบเข้าในคิวทดสอบ ใช้พารามิเตอร์เสริม --only= และใส่ 'failed' หรือ "
+"'success' เพื่อส่งงานที่สามารถล้มเหลวหรือสำเร็จได้"
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"แสดงรายการงานที่ล้มเหลวทั้งหมด กำหนดพารามิเตอร์ --queue=QUEUE_NAME และ --"
+"connection=CONNECTION_NAME เพื่อกรองรายการ หรือใช้พารามิเตอร์/ธง --"
+"redispatch และ --clear "
+"เพื่อส่งกลับเข้าไปในคิวหรือเคลียร์งานที่ล้มเหลวทั้งหมดหรือเฉพาะเจาะจง"
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "เริ่มต้นใหม่การทำงานของเดมอนของงานคิวหลังจากทำงานปัจจุบันเสร็จสิ้น"
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "เดมอนจะหยุดทำงานอย่างปลอดภัยหลังจากทำงานปัจจุบันเสร็จสิ้น"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"ส่งงานที่มีอยู่เข้าในคิว เพื่อส่งงานเข้าไปยังคิวที่ระบุ ให้ใส่พารามิเตอร์ --"
+"queue=QUEUE_NAME ใช้ --test เพื่อรันงานทดสอบ และ --once "
+"เพื่อหยุดหลังจากงานเดียว"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "เสร็จสิ้นการรันงาน {$jobCount} ในคิวชื่อ {$queueName}"
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "ไม่มีงานที่สามารถรันได้ในคิวชื่อ {$queueName}"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "แสดงงานคิวทั้งหมด ใส่ธง --failed เพื่อดูจำนวนงานที่ล้มเหลวทั้งหมด"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "แสดงการใช้งานคำสั่ง Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "แสดงพารามิเตอร์การใช้งาน Jobs"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "ตัวเลือกไม่สามารถเป็นค่าว่างได้! ตรวจสอบวิธีการใช้งาน"
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "งานคิวที่ล้มเหลว"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "งานในคิว"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "คิว"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "การเชื่อมต่อ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "ชื่อแสดงงาน"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "จำนวนความพยายาม"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "จองเมื่อ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "พร้อมใช้งานเมื่อ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "สร้างเมื่อ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "ล้มเหลวที่"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "ข้อความข้อยกเว้น"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "การแบ่งหน้า"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "หน้าปัจจุบัน"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "ก่อนหน้า"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "ถัดไป"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr "คุณควรระบุอย่างน้อย Job ID, '--all' หรือ '--queue=' เพื่อใช้คำสั่งนี้"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr "ทดสอบงานที่ส่งไปยังคิวชื่อ {$queueName} และล้มเหลว"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr "ทดสอบงานที่ส่งไปยังคิวชื่อ {$queueName} และสำเร็จ"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"ตัวเลือกงานทดสอบไม่ถูกต้อง สามารถใช้ได้เฉพาะ 'failed' หรือ 'success' "
+"สำหรับตัวเลือก '--only=' เท่านั้น"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Job ID ไม่ถูกต้อง"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "งานถูกลบเรียบร้อยแล้ว!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "ไม่พบบันทึกงานที่จะลบ"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "ไม่สามารถลบงานทั้งหมดได้"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "ลบงานทั้งหมดเรียบร้อยแล้ว!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "ลบงานที่ล้มเหลวจำนวน {$jobsCount} ออกจากรายการที่ล้มเหลวเรียบร้อยแล้ว"
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "งานจำนวน {$jobsCount} ถูกส่งกลับไปยังคิวเรียบร้อยแล้ว"
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "มีงานที่ล้มเหลวทั้งหมด {$total} งาน"
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "มีงานที่อยู่ในคิวทั้งหมด {$total} งาน"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "ตัวเลือก {$option} ไม่มีอยู่"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "คุณหมายถึงตัวเลือกต่อไปนี้หรือไม่?"
+
+msgid "admin.jobs.totalCount"
+msgstr "มีงานทั้งหมด <strong>{$total}</strong> งานในคิว"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "มีงานที่ล้มเหลวทั้งหมด <strong>{$total}</strong> งาน"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "ดูงานที่อยู่ในคิว"
+
+msgid "navigation.tools.jobs"
+msgstr "งาน"
+
+msgid "navigation.tools.jobs.failed"
+msgstr "งานที่ล้มเหลว"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "รายละเอียดงานที่ล้มเหลว"
+
+msgid "navigation.tools.jobs.description"
+msgstr "ดูงานทั้งหมดที่อยู่ในคิวในระบบและติดตามการพยายามที่ล้มเหลว"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "ดูงานที่ล้มเหลว"
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "ดูรายละเอียดงานที่ล้มเหลว: {$id}"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "คุณสมบัติ"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "ค่า"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "งาน"
+
+msgid "admin.jobs.list.queue"
+msgstr "คิว"
+
+msgid "admin.jobs.list.connection"
+msgstr "การเชื่อมต่อ"
+
+msgid "admin.jobs.list.attempts"
+msgstr "การพยายาม"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "สร้างเมื่อ"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "ล้มเหลวเมื่อ"
+
+msgid "admin.jobs.list.payload"
+msgstr "ข้อมูลส่งผ่าน"
+
+msgid "admin.jobs.list.exception"
+msgstr "ข้อยกเว้น"
+
+msgid "admin.jobs.list.actions"
+msgstr "การดำเนินการ"
+
+msgid "admin.jobs.failedAt"
+msgstr "สร้างเมื่อ {$failedAt}"
+
+msgid "admin.jobs.createdAt"
+msgstr "สร้างเมื่อ {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "ลองใหม่"
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "ส่งกลับคิวงานที่ล้มเหลวทั้งหมด"
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"งานที่โหลดข้อมูลสถิติการใช้งานจากไฟล์ {$file} ล้มเหลว และไม่สามารถย้ายไฟล์"
+"จาก {$archivedFilePath} ไปยัง {$stagingPath} ได้"
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"ไม่สามารถย้ายไฟล์ {$file} จาก {$dispatchFilePath} ไปยัง {$archivedFilePath} "
+"ได้"
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "ไฟล์ {$file} ไม่มีอยู่"
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"งานที่โหลดข้อมูลสถิติการใช้งานจากไฟล์ {$file} ล้มเหลว "
+"ไฟล์ถูกย้ายไปยังไดเรกทอรีสเตจ"
+
+msgid "admin.settings.statistics.collection"
+msgstr "การเก็บรวบรวมข้อมูล"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "กำหนดว่าควรเก็บรวบรวมสถิติการใช้งานประเภทใด"
+
+msgid "admin.settings.statistics.storage"
+msgstr "การเก็บข้อมูล"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "กำหนดว่าสถิติการใช้งานใดควรถูกจัดเก็บในเซิร์ฟเวอร์"
+
+msgid "admin.settings.statistics.sushi"
+msgstr "โปรโตคอล Sushi"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"กำหนดค่าโปรโตคอล <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> "
+"ซึ่งเป็นรูปแบบที่ได้รับการยอมรับในอุตสาหกรรมสำหรับการแจกจ่ายสถิติการใช้งาน"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "สถิติรายเดือนหรือรายวัน"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"จะติดตามสถิติการใช้งานรายวันหรือรายเดือนหรือไม่ "
+"การติดตามสถิติรายวันอาจทำให้ขนาดฐานข้อมูลของคุณเพิ่มขึ้นอย่างมาก"
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "ติดตามสถิติรายวันและรายเดือน"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "ติดตามเฉพาะสถิติรายเดือน"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "บีบอัดล็อก"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"สถิติถูกสร้างจากไฟล์ล็อกการเข้าถึง ซึ่งถูกย้ายไปยัง <code>{$path}</code> "
+"เมื่อมีการประมวลผล ควรบีบอัดไฟล์ล็อกเป็นไฟล์ <code>.gz</code> "
+"เมื่อประมวลผลเสร็จแล้วหรือไม่? "
+"การบีบอัดไฟล์ล็อกอาจช่วยประหยัดพื้นที่บนเซิร์ฟเวอร์"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "ทิ้งไฟล์ล็อกไว้ตามเดิม"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "บีบอัดไฟล์ล็อก"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr "จำกัดการเข้าถึง API สถิติ COUNTER SUSHI เฉพาะผู้จัดการและผู้ดูแล"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "แพลตฟอร์ม"
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"ตามโปรโตคอล COUNTER SUSHI รายงานสถิติทุกฉบับต้องระบุ \"แพลตฟอร์ม\" "
+"ที่ให้สถิติ โดยค่าเริ่มต้น วารสารจะถูกกำหนดให้เป็นแพลตฟอร์มสำหรับสถิติทั้"
+"งหมด อย่างไรก็ตาม หากวารสารทั้งหมดในไซต์นี้ถูกตีพิมพ์ เป็นเจ้าของ "
+"หรือดำเนินการโดยผู้ให้บริการเดียวกัน คุณอาจต้องการกำหนดให้ไซต์เป็นแพลตฟอร์ม"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"วิธีการระบุแพลตฟอร์มนี้ในรายงาน COUNTER SUSHI Platform ID ต้องมีความยาวไม่เกิ"
+"น 17 ตัวอักษรและอาจประกอบด้วยตัวอักษร (a–z, A–Z), ตัวเลข (0–9), ขีดล่าง (_), "
+"จุด (.) และเครื่องหมายทับ (/) Platform ID "
+"ถูกใช้ในหลายคอลัมน์และควรจะสั้นที่สุดเท่าที่จะทำได้ ในขณะที่ยังสามารถจดจำได้ "
+"ปกติ Platform ID จะตั้งตามชื่อของผู้ตีพิมพ์หรือแพลตฟอร์ม ชื่อโดเมน "
+"หรือชื่อย่อที่เป็นที่รู้จักและไม่ซ้ำ"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "ต้องกำหนด Platform ID เมื่อไซต์จะถูกระบุเป็นแพลตฟอร์ม SUSHI"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "ตัวเลือกคำสั่ง work"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "การใช้งาน: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "ชื่อการเชื่อมต่อคิวที่จะทำงาน [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "ชื่อคิวที่จะทำงาน [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "ชื่อของ worker [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"จำนวนวินาทีที่รอหลังจากเกิดข้อยกเว้นที่ไม่คาดคิดในการทำงาน [ค่าเริ่มต้น: "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "จำกัดหน่วยความจำเป็นเมกะไบต์ [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "จำนวนวินาทีที่กระบวนการลูกสามารถทำงานได้ [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"จำนวนครั้งที่จะพยายามทำงานก่อนที่จะบันทึกว่าไม่สำเร็จ [ค่าเริ่มต้น: "
+"'{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "หยุดเมื่อคิวว่างเปล่า [ค่าเริ่มต้น: {$default}]"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "จำนวนงานที่จะประมวลผลก่อนหยุด [ค่าเริ่มต้น: '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr "จำนวนวินาทีสูงสุดที่ worker ควรทำงาน [ค่าเริ่มต้น: '{$default}']"

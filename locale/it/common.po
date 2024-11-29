@@ -1,15 +1,16 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
-# Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022, 2024.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Piero Grandesso <piero.grandesso2@unibo.it>, 2024.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-08-23 14:45+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"PO-Revision-Date: 2024-09-19 13:47+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it/>\n"
 "Language: it\n"
@@ -355,7 +356,7 @@ msgid "common.description"
 msgstr "Descrizione"
 
 msgid "common.details"
-msgstr ""
+msgstr "Dettagli"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; per {$dpi} DPI/PPI"
@@ -364,10 +365,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} pixels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "No, elimina le modifiche non salvate"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Disconnesso"
 
 msgid "common.disable"
 msgstr "Disabilita"
@@ -403,7 +404,7 @@ msgid "common.editItem"
 msgstr "Modifica {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Modelli di e-mail"
 
 msgid "common.enable"
 msgstr "Abilita"
@@ -477,7 +478,7 @@ msgid "common.findTemplate"
 msgstr "Trova template"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formattazione"
 
 msgid "common.geographic"
 msgstr "Geografico"
@@ -525,7 +526,7 @@ msgid "common.keywords"
 msgstr "Keywords"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etichetta"
 
 msgid "common.language"
 msgstr "Lingua"
@@ -534,7 +535,7 @@ msgid "common.languages"
 msgstr "Lingue"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Ultimo salvataggio {$when}"
 
 msgid "common.lastActivity"
 msgstr "Ultima attività registrata il {$date}."
@@ -591,10 +592,10 @@ msgid "common.none"
 msgstr "Nessuno"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Nessuno selezionato"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Nessuno fornisce"
 
 msgid "common.no"
 msgstr "No"
@@ -738,7 +739,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Leggi di più al riguardo di {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Riconnessione"
 
 msgid "common.record"
 msgstr "Registra"
@@ -786,10 +787,10 @@ msgid "common.reset"
 msgstr "Reset"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Rotondo {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Ruolo"
 
 msgid "common.saveAndContinue"
 msgstr "Salva e continua"
@@ -843,7 +844,7 @@ msgid "common.showAllSteps"
 msgstr "Mostra tutti gli step"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} passi"
 
 msgid "common.size"
 msgstr "Dimensione"
@@ -891,10 +892,10 @@ msgid "common.type"
 msgstr "Tipo"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Caricato da {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Caricato da {$name} il {$date}"
 
 msgid "common.component"
 msgstr "Componente"
@@ -911,10 +912,14 @@ msgid "common.unread"
 msgstr "Non letto"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Modifiche non salvate"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Abbiamo trovato modifiche non salvate da {$when}. Questo può accadere se si "
+"perde la connessione al server mentre si lavora. Il ripristino di tali "
+"modifiche potrebbe sovrascrivere le modifiche apportate da allora. Si "
+"desidera ripristinare le modifiche ora?"
 
 msgid "common.untitled"
 msgstr "Senza titolo"
@@ -2019,9 +2024,9 @@ msgstr ""
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
 "Si è verificato un errore inaspettato e non siamo stati in grado di "
-"annullare l'iscrizione alle notifiche all'indirizzo email {$email}.  Puoi "
-"cancellarti da tutte le notifiche email nel tuo <a href="
-"\"{$profileNotificationUrl}\">profilo utente</a> o chiederci direttamente "
+"annullare l'iscrizione alle notifiche all'indirizzo email {$email}. Puoi "
+"cancellarti da tutte le notifiche email nel tuo <a href=\""
+"{$profileNotificationUrl}\">profilo utente</a> o chiederci direttamente "
 "aiuto."
 
 msgid "notification.unsubscribeNotifications"
@@ -2093,6 +2098,9 @@ msgstr "Questo non è un paese valido."
 
 msgid "validator.country.regex"
 msgstr ""
+"Questo non è un Paese valido. Il Paese deve essere uno dei codici "
+"internazionali di 2 lettere. Vedere tutti i codici su https://en.wikipedia."
+"org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Valuta non valida."
@@ -2162,7 +2170,7 @@ msgid "validator.max.string"
 msgstr "Non puo' essere maggiore di {$max} caratteri."
 
 msgid "validator.max.array"
-msgstr "Non può più di {$max} oggetti."
+msgstr "Non può avere più di {$max} oggetti."
 
 msgid "validator.mimes"
 msgstr "Deve essere un file di tipo {$values}."
@@ -2243,10 +2251,10 @@ msgid "validator.url"
 msgstr "URL non valido."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Non sono ammesse nuove linee."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Sono ammessi solo i tag html [{$tags}]."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2305,3 +2313,18 @@ msgstr "Autore modificato."
 
 #~ msgid "common.listSeparator"
 #~ msgstr ","
+
+msgid "showLess"
+msgstr "Mostra meno"
+
+msgid "common.highlight"
+msgstr "In evidenza"
+
+msgid "common.highlights"
+msgstr "Punti salienti"
+
+msgid "showAll"
+msgstr "Mostra tutto"
+
+msgid "common.sandbox"
+msgstr "Applicazione in esecuzione in modalità sandbox."

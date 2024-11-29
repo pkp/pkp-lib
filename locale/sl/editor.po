@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2024-11-16 09:40+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/sl/>\n"
@@ -20,7 +20,7 @@ msgid "editor.submissionArchive.confirmDelete"
 msgstr "Ste prepričani, da želite za vedno zbrisati ta prispevek?"
 
 msgid "editor.activityLog"
-msgstr "Zapis aktivnosti"
+msgstr "Zgodovina prispevka"
 
 msgid "editor.submissionLibrary"
 msgstr "Knjižnica prispevka"
@@ -191,7 +191,7 @@ msgid "editor.submissionReview.anonymous"
 msgstr "Anonimen recenzent/znan avtor"
 
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Anonimen rezenzent/anonimen avtor"
+msgstr "Anonimen recenzent/anonimen avtor"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Datoteke za recenzijo"

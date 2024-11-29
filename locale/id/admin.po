@@ -1,19 +1,20 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+# Anas Fanani <anas@anasfanani.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2021-07-14 11:03+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2024-09-03 14:50+0000\n"
+"Last-Translator: Anas Fanani <anas@anasfanani.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"admin/id_ID/>\n"
-"Language: id_ID\n"
+"admin/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Pengaturan Nama"
@@ -25,10 +26,12 @@ msgid "admin.adminFunctions"
 msgstr "Fungsi Administratif"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Hapus Tembolok"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Hapus berkas tembolok dari sistem. Ini hanya boleh dilakukan di lingkungan "
+"pengembangan."
 
 msgid "admin.clearDataCache"
 msgstr "Hapus Data Cache"
@@ -79,6 +82,8 @@ msgstr "Akhiri Sesi Pengguna"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Semua pengguna akan segera keluar dari aplikasi, termasuk Anda, dan harus "
+"login kembali."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -115,16 +120,16 @@ msgid "admin.languages.installNewLocales"
 msgstr "Instal Locale"
 
 msgid "admin.languages.languageSettings"
-msgstr "Pengaturan Locale"
+msgstr "Pengaturan Bahasa"
 
 msgid "admin.languages.noLocalesAvailable"
-msgstr "Tidak ada locale tambahan yang tersedia untuk instalasi."
+msgstr "Tidak ada bahasa tambahan yang tersedia untuk instalasi."
 
 msgid "admin.languages.reload"
-msgstr "Reload locale"
+msgstr "Muat Ulang Bahasa"
 
 msgid "admin.languages.uninstall"
-msgstr "Uninstal locale"
+msgstr "Hapus Bahasa"
 
 msgid "admin.phpInfo"
 msgstr "Informasi PHP Selengkapnya"
@@ -151,12 +156,16 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Kirim email ke setiap editor untuk mengingatkan mereka tentang tugas mereka "
+"yang belum terselesaikan"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Mengidentifikasi editor untuk diingatkan dalam konteks {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Mengirimkan {$count} jobs untuk mengirim email pengingat editorial kepada "
+"pengguna {$userIds} dalam konteks {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Anda yakin ingin menghapus semua log pelaksanaan tugas terjadwal?"

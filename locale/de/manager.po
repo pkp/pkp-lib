@@ -1,14 +1,14 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
-# Martin Brändle <martin.braendle@uzh.ch>, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2023-05-01 13:49+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2024-09-19 14:13+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -3807,3 +3807,116 @@ msgstr ""
 
 msgid "plugins.importexport.common.validation"
 msgstr "XML vor Export und Registrierung validieren."
+
+msgid "manager.highlights.delete"
+msgstr "Highlight löschen"
+
+msgid "manager.highlights.edit"
+msgstr "Highlight bearbeiten"
+
+msgid "manager.highlights.image"
+msgstr "Bild"
+
+msgid "manager.highlights.url.description"
+msgstr ""
+"Die vollständige URL, einschließlich https://, für die Schaltfläche im "
+"Highlight."
+
+msgid "manager.highlights.urlText"
+msgstr "Beschriftung der Schaltfläche"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Die Beschriftung der Schaltfläche im Highlight, z. B. \"Weiterlesen\"."
+
+msgid "manager.highlights.add"
+msgstr "Highlight hinzufügen"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Sind Sie sicher, dass Sie {$title} löschen möchten? Diese Aktion kann nicht "
+"rückgängig gemacht werden."
+
+msgid "manager.image"
+msgstr "Bild"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Das Datum sollte im Format JJJJ-MM-TT oder JJJJ-MM vorliegen. Das "
+"frühestmögliche Datum ist {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Übergeordnete Angaben einbeziehen"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Die Einreichungsdatei {$id} wurde übersprungen, weil sie keine gültige "
+"Dateistufe hat."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Der Link zur Validierung eines E-Mail-Kontos"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 Berichte"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Weitere Informationen zu den einzelnen Berichten finden Sie in der <a href="
+"\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target="
+"\"_new\">COUNTER 5.0.3 Dokumentation</a>."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Es sind noch keine Nutzungsstatistiken für COUNTER R5 verfügbar."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Bericht-Einstellungen"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Anfangsdatum"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Enddatum"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Das Datum sollte im Format JJJJ-MM-TT oder JJJJ-MM vorliegen. Das letzte "
+"mögliche Datum ist {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Das Datumsformat ist ungültig."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Kunden-ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Typ der Metrik"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Anzuzeigende Attribute"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publikationsjahr"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Eine Liste oder ein Bereich von Publikationsjahren, die in der Antwort im "
+"Format yyyy|yyyy|yyyy-yyyy zurückgegeben werden."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Das Format des Publikationsjahrs ist ungültig."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID der Einreichung"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Die ID der Einreichung ist nicht vorhanden."
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Monatliche Angaben ausschließen"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Sie müssen <a href=\"#announcements/announcement-settings\">Ankündigungen "
+"aktivieren</a>."

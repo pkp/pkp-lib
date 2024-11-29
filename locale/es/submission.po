@@ -1,13 +1,14 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
 # pep sanso <pep.sanso@uab.cat>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-05-03 22:34+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2024-11-20 00:09+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
 "Language: es\n"
@@ -1349,7 +1350,7 @@ msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "Esperando las respuestas de los revisores/as."
 
 msgid "editor.submission.roundStatus.reviewsReady"
-msgstr "Los revisores/as nuevos están listos."
+msgstr "Se han recibido nuevas revisiones."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Todos los revisores/as han contestado y hay que tomar una decisión."

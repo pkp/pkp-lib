@@ -54,10 +54,13 @@
                 <h4 class="submissionWizard__reviewPanel__item__header">
                     {{ localize(reviewerSuggestion.fullName) }}
                 </h4>
+                
                 <div class="submissionWizard__reviewPanel__item__value">
                     <h5> {{ reviewerSuggestion.email }} </h5>
                 </div>
-                <div 
+                
+                {* TODO: check alternative of v-html as v-strip-unsafe-html not working *}
+                <div
                     class="submissionWizard__reviewPanel__item__value" 
                     v-html = "localize(reviewerSuggestion.suggestionReason)"
                 ></div>

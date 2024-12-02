@@ -30,7 +30,7 @@
 		this.parent($container, options);
 
 		$container.find('.button').button();
-        let self = this;
+        var self = this;
 		
         pkp.eventBus.$on('selected:reviewer', function (reviewer) {
             self.handleReviewerAssign_($container, options, reviewer);

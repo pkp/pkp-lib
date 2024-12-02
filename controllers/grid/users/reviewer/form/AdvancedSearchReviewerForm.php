@@ -286,6 +286,12 @@ class AdvancedSearchReviewerForm extends ReviewerForm
     {
         /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
         $reviewAssignment = parent::execute(...$functionArgs);
+        $request = Application::get()->getRequest();
+
+        if (!$request->getContext()->getData('reviewerSuggestionEnabled')) {
+            return $reviewAssignment;
+        }
+
         $reviewerId = $reviewAssignment->getData('reviewerId');
 
         if ($this->reviewerSuggestion?->existingReviewerRole
@@ -294,8 +300,22 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             $this->reviewerSuggestion->markAsApprove(
                 Carbon::now(),
                 $reviewerId,
-                Application::get()->getRequest()->getUser()->getId()
+                $request->getUser()->getId()
             );
+
+            return $reviewAssignment;
+        }
+
+        // TODO :   This check probably needed to port to `CreateReviewerForm` and `EnrollExistingReviewerForm` also
+        //          as this case can be duplicated from there also . 
+        //          Probably better to refactor to a trait or repository class ?
+        $suggestion = ReviewerSuggestion::query()
+            ->withSubmissionIds([$this->_submission->getId()])
+            ->withEmail(Repo::user()->get($reviewerId)->getData('email'))
+            ->first();
+        
+        if ($suggestion && !$suggestion->approvedAt && !$suggestion->reviewerId) {
+            $suggestion->attachReviewer($reviewerId);
         }
 
         return $reviewAssignment;

@@ -856,6 +856,15 @@ class PKPSubmissionController extends PKPBaseController
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
+        $notificationManager = new NotificationManager();
+        $notificationManager->updateNotification(
+            Application::get()->getRequest(),
+            [Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION],
+            null,
+            PKPApplication::ASSOC_TYPE_SUBMISSION,
+            $submission->getId()
+        );
+
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
 

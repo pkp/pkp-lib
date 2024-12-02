@@ -30,25 +30,25 @@
 		this.parent($container, options);
 
 		$container.find('.button').button();
-		var self = this;
+        let self = this;
 		
-		pkp.eventBus.$on('selected:reviewer', function (reviewer) {
-			self.handleReviewerAssign_($container, options, reviewer)
-		});
+        pkp.eventBus.$on('selected:reviewer', function (reviewer) {
+            self.handleReviewerAssign_($container, options, reviewer);
+        });
 
-		$('#regularReviewerForm').hide();
+        $('#regularReviewerForm').hide();
 
-		this.bind('refreshForm', this.handleRefresh_);
+        this.bind('refreshForm', this.handleRefresh_);
 
 		// TODO : Not Working as intended to
 		// 		  we can get the editor but there is a flicker and content set to editor and then reset
 		if ($container.find('input#reviewerId').val()) {
-			this.initializeTinyMCE();
-			this.handleReviewerAssign_($container, options, {
-				id: $container.find('input#reviewerId').val(),
-				fullName: 'some name',
-			});
-		}
+            this.initializeTinyMCE();
+            this.handleReviewerAssign_($container, options, {
+                id: $container.find('input#reviewerId').val(),
+                fullName: 'some name'
+            });
+        }
 	};
 
 	$.pkp.classes.Helper.inherits(

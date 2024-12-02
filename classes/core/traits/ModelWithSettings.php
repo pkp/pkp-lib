@@ -46,7 +46,7 @@ trait ModelWithSettings
     /**
      * Get settings table name
      */
-    abstract public function getSettingsTable();
+    abstract public function getSettingsTable(): string;
 
     /**
      * The name of the schema for the Model if exists, null otherwise

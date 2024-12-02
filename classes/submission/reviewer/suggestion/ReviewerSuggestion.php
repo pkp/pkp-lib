@@ -178,12 +178,21 @@ class ReviewerSuggestion extends Model
     }
 
     /**
-     * Get the reviewer who as been turn into a reviewer through this reviewer suggestion when approved
+     * Get the user with reviewer data who when this suggestion has turned into a reviewer
      */
     protected function reviewer(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->reviewerId ? Repo::user()->get($this->reviewerId, true) : null,
+            get: fn () => $this->reviewerId
+                ? Repo::user()
+                    ->getCollector()
+                    ->filterByContextIds([$this->submission->getData('contextId')])
+                    ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
+                    ->filterByUserIds([$this->reviewerId])
+                    ->includeReviewerData()
+                    ->getMany()
+                    ->first()
+                : null,
         )->shouldCache();
     }
 
@@ -200,6 +209,16 @@ class ReviewerSuggestion extends Model
     }
 
     /**
+     * Attached a reviewer id to this suggestion
+     */
+    public function attachReviewer(int $reviewerId): bool
+    {
+        return (bool)$this->update([
+            'reviewerId' => $reviewerId,
+        ]);
+    }
+
+    /**
      * Scope a query to only include reviewer suggestions with given context id
      */
     public function scopeWithContextId(Builder $query, int $contextId): Builder
@@ -210,6 +229,14 @@ class ReviewerSuggestion extends Model
                 ->from('submissions')
                 ->where('context_id', $contextId)
             );
+    }
+
+    /**
+     * Scope a query to only include reviewer suggestions with given email address
+     */
+    public function scopeWithEmail(Builder $query, string $email): Builder
+    {
+        return $query->where('email', $email);
     }
 
     /**

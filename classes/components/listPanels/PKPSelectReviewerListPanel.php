@@ -163,7 +163,6 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
         $config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
-        // $config['submission'] = $this->submission;
 
         if ($context->getData('reviewerSuggestionEnabled')) {
             $config['suggestionTitle'] = __('editor.submission.findAndSelectReviewerFromSuggestions');

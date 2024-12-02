@@ -30,7 +30,7 @@
 		this.parent($container, options);
 
 		$container.find('.button').button();
-		let self = this;
+		var self = this;
 		
 		pkp.eventBus.$on('selected:reviewer', function (reviewer) {
 			self.handleReviewerAssign_($container, options, reviewer)
@@ -41,6 +41,7 @@
 		this.bind('refreshForm', this.handleRefresh_);
 
 		// TODO : Not Working as intended to
+		// 		  we can get the editor but there is a flicker and content set to editor and then reset
 		if ($container.find('input#reviewerId').val()) {
 			this.initializeTinyMCE();
 			this.handleReviewerAssign_($container, options, {
@@ -99,7 +100,7 @@
 		$templateOption = $('#reviewerFormFooter select[name="template"]');
 		
 		editor = tinyMCE.EditorManager.get($textarea.attr('id'));
-		console.log(editor);
+		// console.log(editor);
 		templateKey = '';
 
 		if (options.lastRoundReviewerIds.includes(reviewer.id)) {
@@ -109,7 +110,7 @@
 			$templateOption.find('[value="REVIEW_REQUEST"]').remove();
 		} else {
 			templateKey = 'REVIEW_REQUEST';
-			console.log(options.reviewerMessages[templateKey]);
+			// console.log(options.reviewerMessages[templateKey]);
 			editor.setContent(options.reviewerMessages[templateKey]);
 			$templateInput.val(templateKey);
 			$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();

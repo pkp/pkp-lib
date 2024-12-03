@@ -149,7 +149,8 @@ class AuthorizeUserData
             case 'profile':
                 $user = $this->request->getUser();
                 // Store the access token and other data for the user
-                $user = $this->setOrcidData($user, $orcidUri, $tokenData);
+                $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                $user->setVerifiedOrcidOAuthData($orcidData);
                 Repo::user()->edit($user, ['orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn']);
 
                 // Reload the public profile tab (incl. form)
@@ -157,6 +158,16 @@ class AuthorizeUserData
                     <html><body><script type="text/javascript">' .
                         $this->renderFrontendErrorNotification($errorMessages) .
                         'opener.$("#profileTabs").tabs("load", 0);
+                        window.close();
+                    </script></body></html>
+                ';
+                break;
+            case 'invitation':
+                $orcidData = $this->getOrcidOAuthAccessData($orcidUri, $tokenData);
+                echo '
+                    <html><body><script type="text/javascript">' .
+                        $this->renderFrontendErrorNotification($errorMessages) .
+                        'opener.pkp.eventBus.$emit("addOrcidInvitationData", ' . json_encode($orcidData) . ');
                         window.close();
                     </script></body></html>
                 ';
@@ -181,23 +192,30 @@ class AuthorizeUserData
     }
 
     /**
-     * Sets ORCID token access data on the provided user or author
+     * Set ORCID and OAuth response payloads to a single array for further handling as a group.
+     *
+     * @param string $orcidUri ORCID ID as a URI
+     * @param array $orcidResponse OAuth response payload
+     * @return array
      */
-    private function setOrcidData(Identity $userOrAuthor, string $orcidUri, array $orcidResponse): Identity
+    private function getOrcidOAuthAccessData(string $orcidUri, array $orcidResponse): array
     {
+        $data = [];
+
         // Save the access token
         $orcidAccessExpiresOn = Carbon::now();
         // expires_in field from the response contains the lifetime in seconds of the token
         // See https://members.orcid.org/api/get-oauthtoken
         $orcidAccessExpiresOn->addSeconds($orcidResponse['expires_in']);
-        $userOrAuthor->setOrcid($orcidUri);
-        $userOrAuthor->setOrcidVerified(true);
-        // remove the access denied marker, because now the access was granted
-        $userOrAuthor->setData('orcidAccessDenied', null);
-        $userOrAuthor->setData('orcidAccessToken', $orcidResponse['access_token']);
-        $userOrAuthor->setData('orcidAccessScope', $orcidResponse['scope']);
-        $userOrAuthor->setData('orcidRefreshToken', $orcidResponse['refresh_token']);
-        $userOrAuthor->setData('orcidAccessExpiresOn', $orcidAccessExpiresOn->toDateTimeString());
-        return $userOrAuthor;
+
+        $data['orcid'] = $orcidUri;
+        $data['orcidIsVerified'] = true;
+        $data['orcidAccessDenied'] = null;
+        $data['orcidAccessToken'] = $orcidResponse['access_token'];
+        $data['orcidAccessScope'] = $orcidResponse['scope'];
+        $data['orcidRefreshToken'] = $orcidResponse['refresh_token'];
+        $data['orcidAccessExpiresOn'] = $orcidAccessExpiresOn->toDateTimeString();
+
+        return $data;
     }
 }

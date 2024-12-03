@@ -951,7 +951,6 @@ Cypress.Commands.add('inviteUser', user => {
 
 
 Cypress.Commands.add('confirmationByUser', user => {
-	cy.contains('.pkpButton', 'Skip ORCID verification').click()
 	cy.get('#-username-control').type(user.username);
 	cy.get('#-password-control').type(user.username + user.username);
 	cy.get('.pkpFormField--options__input').click();

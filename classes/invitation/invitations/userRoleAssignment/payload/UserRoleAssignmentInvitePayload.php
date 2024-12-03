@@ -29,17 +29,23 @@ use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 class UserRoleAssignmentInvitePayload extends InvitePayload
 {
     public function __construct(
-        public ?string $userOrcid = null,
-        public ?array $givenName = null,
-        public ?array $familyName = null,
-        public ?array $affiliation = null,
+        public ?string $orcid = null,
+        public ?string $orcidAccessDenied = null,
+        public ?string $orcidAccessExpiresOn = null,
+        public ?string $orcidAccessScope = null,
+        public ?string $orcidAccessToken = null,
+        public ?bool $orcidIsVerified = null,
+        public ?string $orcidRefreshToken = null,
+        public ?array  $givenName = null,
+        public ?array  $familyName = null,
+        public ?array  $affiliation = null,
         public ?string $userCountry = null,
         public ?string $username = null,
         public ?string $password = null,
         public ?string $emailSubject = null,
         public ?string $emailBody = null,
-        public ?array $userGroupsToAdd = null,
-        public ?bool $passwordHashed = null,
+        public ?array  $userGroupsToAdd = null,
+        public ?bool   $passwordHashed = null,
         public ?string $sendEmailAddress = null,
         public ?array $inviteStagePayload = null,
         public ?bool $shouldUseInviteData = null,
@@ -158,9 +164,39 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
             ],
             'userGroupsToAdd.*.masthead' => 'required|bool',
             'userGroupsToAdd.*.dateStart' => 'required|date',
-            'userOrcid' => [
-                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
+            // FIXME: A duplication of existing rules in user schema. Can they be reused?
+            'orcid' => [
+                'nullable',
                 'orcid'
+            ],
+            'orcidAccessDenied' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'orcidAccessExpiresOn' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'orcidAccessScope' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'orcidAccessToken' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'orcidIsVerified' => [
+                'nullable',
+                'boolean',
+            ],
+            'orcidRefreshToken' => [
+                'nullable',
+                'string',
+                'max:255',
             ],
             'shouldUseInviteData' => [
                 new ProhibitedIncludingNull($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE||$validationContext === ValidationContext::VALIDATION_CONTEXT_POPULATE),

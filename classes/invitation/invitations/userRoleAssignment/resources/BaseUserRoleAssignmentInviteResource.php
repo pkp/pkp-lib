@@ -73,7 +73,8 @@ class BaseUserRoleAssignmentInviteResource extends JsonResource
             'givenName' => $user->getGivenName(null),
             'country' => $user->getCountry(),
             'affiliation' => $user->getAffiliation(null),
-            'orcid' => $user->getOrcid()
+            'orcid' => $user->getOrcid(),
+            'orcidIsVerified' => $user->hasVerifiedOrcid(),
         ];
     }
 

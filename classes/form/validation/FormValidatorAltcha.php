@@ -19,6 +19,7 @@ namespace PKP\form\validation;
 use AltchaOrg\Altcha\Altcha;
 use AltchaOrg\Altcha\ChallengeOptions;
 use APP\core\Application;
+use APP\template\TemplateManager;
 use Exception;
 use InvalidArgumentException;
 use PKP\config\Config;
@@ -28,6 +29,7 @@ class FormValidatorAltcha extends FormValidator
 {
     /** @var string The response field containing the ALTCHA response */
     private const ALTCHA_RESPONSE_FIELD = 'altcha';
+
     /** @var string The initiating IP address of the user */
     private $_userIp;
 
@@ -43,13 +45,9 @@ class FormValidatorAltcha extends FormValidator
         $this->_userIp = $userIp;
     }
 
-    //
-    // Public methods
-    //
     /**
      * @see FormValidator::isValid()
      * Determine whether or not the form meets this ALTCHA constraint.
-     *
      */
     public function isValid(): bool
     {
@@ -66,12 +64,12 @@ class FormValidatorAltcha extends FormValidator
     /**
      * Validates the ALTCHA response
      *
-     * @param string|null $response The ALTCHA response
-     * @param string|null $ip The user IP address (defaults to null)
+     * @param $response The ALTCHA response
+     * @param $ip The user IP address (defaults to null)
      *
      * @throws Exception Throws in case the validation fails
      */
-    public static function validateResponse($response, ?string $ip = null): void
+    public static function validateResponse(?string $response, ?string $ip = null): void
     {
         if (!empty($ip) && !filter_var($ip, FILTER_VALIDATE_IP)) {
             throw new InvalidArgumentException('Invalid IP address.');
@@ -93,21 +91,16 @@ class FormValidatorAltcha extends FormValidator
         }
     }
 
-    /**
-     * Add ALTCHA javascript on the journal header
-     *
-     * @param TemplateManager $templateMgr
-     */
-    public static function addAltchaJavascript(&$templateMgr): void
+    public static function addAltchaJavascript(TemplateManager &$templateMgr): void
     {
         $request = Application::get()->getRequest();
-        $altchaPath = $request->getBaseUrl() . '/lib/pkp/js/lib/altcha/altcha.min.js';
+        $altchaPath = $request->getBaseUrl() . '/node_modules/altcha/dist/altcha.js';
 
         $altchaHeader = '<script async defer src="' . $altchaPath . '" type="module"></script>';
         $templateMgr->addHeader('altcha', $altchaHeader);
     }
 
-    public static function insertFormChallenge(&$templateMgr): void
+    public static function insertFormChallenge(TemplateManager &$templateMgr): void
     {
         $options = new ChallengeOptions([
             'hmacKey' => Config::getVar('captcha', 'altcha_hmackey'),
@@ -119,8 +112,4 @@ class FormValidatorAltcha extends FormValidator
         $templateMgr->assign('altchaEnabled', true);
         $templateMgr->assign('altchaChallenge', $challenge);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorAltcha', '\FormValidatorAltcha');
 }

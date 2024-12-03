@@ -35,7 +35,6 @@ use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\user\form\ResetPasswordForm;
-use PKP\user\User;
 
 class LoginHandler extends Handler
 {
@@ -89,7 +88,7 @@ class LoginHandler extends Handler
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
         }
 
-        $this->generateAltchaComponent('altcha_on_login', $templateMgr);
+        $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }
 
@@ -117,7 +116,7 @@ class LoginHandler extends Handler
     /**
      * Validate a user's credentials and log the user in.
      */
-    public function signIn($args, $request)
+    public function signIn(array $args, PKPRequest $request): void
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
@@ -141,7 +140,7 @@ class LoginHandler extends Handler
             }
         }
 
-        $error = $this->validateAltchaResponse($request, 'altcha_on_login');
+        $error = $this->_validateAltchasResponse($request, 'altcha_on_login');
         $username = $request->getUserVar('username');
         $reason = null;
         $user = $error || !strlen($username ?? '')
@@ -180,7 +179,8 @@ class LoginHandler extends Handler
             'error' => $error,
             'reason' => $reason,
         ]);
-        $this->generateAltchaComponent('altcha_on_login', $templateMgr);
+
+        $this->_generateAltchaComponent('altcha_on_login', $templateMgr);
         $templateMgr->display('frontend/pages/userLogin.tpl');
     }
 
@@ -213,7 +213,8 @@ class LoginHandler extends Handler
 
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
-        $this->generateAltchaComponent('altcha_on_lost_password', $templateMgr);
+
+        $this->_generateAltchaComponent('altcha_on_lost_password', $templateMgr);
         $templateMgr->display('frontend/pages/userLostPassword.tpl');
     }
 
@@ -225,10 +226,10 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $altchaHasError = $this->validateAltchaResponse($request, 'altcha_on_lost_password');
+        $altchaHasError = $this->_validateAltchasResponse($request, 'altcha_on_lost_password');
 
         if ($altchaHasError) {
-            $this->generateAltchaComponent('altcha_on_lost_password', $templateMgr);
+            $this->_generateAltchaComponent('altcha_on_lost_password', $templateMgr);
 
             $templateMgr
                 ->assign([
@@ -244,7 +245,7 @@ class LoginHandler extends Handler
         $user = $email ? Repo::user()->getByEmail($email, true) : null;
         if ($user !== null) {
             if ($user->getDisabled()) {
-                $this->generateAltchaComponent('altcha_on_lost_password', $templateMgr);
+                $this->_generateAltchaComponent('altcha_on_lost_password', $templateMgr);
 
                 $templateMgr
                     ->assign([
@@ -418,9 +419,6 @@ class LoginHandler extends Handler
 
     /**
      * Sign in as another user.
-     *
-     * @param array $args ($userId)
-     * @param PKPRequest $request
      */
     public function signInAsUser($args, $request)
     {
@@ -455,9 +453,6 @@ class LoginHandler extends Handler
 
     /**
      * Restore original user account after signing in as a user.
-     *
-     * @param array $args
-     * @param PKPRequest $request
      */
     public function signOutAsUser($args, $request)
     {
@@ -479,8 +474,6 @@ class LoginHandler extends Handler
 
     /**
      * Redirect to redirectURL if exists else send to Home
-     *
-     * @param PKPRequest $request
      */
     public function _redirectByURL($request)
     {
@@ -495,8 +488,6 @@ class LoginHandler extends Handler
     /**
      * Send the user "home" (typically to the dashboard, but that may not
      * always be available).
-     *
-     * @param PKPRequest $request
      */
     protected function sendHome($request)
     {
@@ -510,10 +501,9 @@ class LoginHandler extends Handler
     /**
      * Validate if ALTCHA user's response is valid
      *
-     * @param PKPRequest $request
      * @param string $altchaConfigKey the key to search on config.inc.php
      */
-    private function validateAltchaResponse($request, $altchaConfigKey): ?string
+    private function _validateAltchasResponse($request, $altchaConfigKey): ?string
     {
         if (Config::getVar('captcha', 'altcha') && Config::getVar('captcha', $altchaConfigKey)) {
             try {
@@ -530,9 +520,8 @@ class LoginHandler extends Handler
      * is enabled on the specific page
      *
      * @param string $altchaConfigKey the key to search on config.inc.php
-     * @param TemplateManager $templateMgr
      */
-    private function generateAltchaComponent($altchaConfigKey, &$templateMgr): void
+    private function _generateAltchaComponent($altchaConfigKey, &$templateMgr): void
     {
         if (Config::getVar('captcha', 'altcha') && Config::getVar('captcha', $altchaConfigKey)) {
             FormValidatorAltcha::addAltchaJavascript($templateMgr);

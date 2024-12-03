@@ -1,14 +1,13 @@
 <?php
 
-// TODO : update once pkp/pkp-lib#4787 merged
 /**
- * @file api/v1/reviewers/recommendations/formRequests/EditReviewerRecommendation.php
+ * @file api/v1/reviewers/recommendations/formRequests/UpdateStatusReviewerRecommendation.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class EditReviewerRecommendation
+ * @class UpdateStatusReviewerRecommendation
  *
  * @brief 
  *
@@ -16,9 +15,9 @@
 
 namespace PKP\API\v1\reviewers\recommendations\formRequests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use PKP\API\v1\reviewers\recommendations\formRequests\EditReviewerRecommendation;
 
-class EditReviewerRecommendation extends FormRequest
+class UpdateStatusReviewerRecommendation extends EditReviewerRecommendation
 {
     /**
      * Get the validation rules that apply to the request.
@@ -26,10 +25,6 @@ class EditReviewerRecommendation extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => [
-                'required',
-                // need to add multilingual validation once #4787 merged
-            ],
             'status' => [
                 'required',
                 'boolean'

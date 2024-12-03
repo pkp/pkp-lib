@@ -240,9 +240,11 @@ class PKPTemplateManager extends Smarty
                     array_push($contexts, 'frontend-login-index', 'frontend-login-signIn');
                 }
                 if (count($contexts)) {
+                    // These are the supported locales: https://developers.google.com/recaptcha/docs/language
+                    // It seems Google has already mapping for locales missing in that list, so that we can provide locale es it is.
                     $this->addJavaScript(
                         'recaptcha',
-                        'https://www.google.com/recaptcha/api.js?hl=' . substr(Locale::getLocale(), 0, 2),
+                        'https://www.google.com/recaptcha/api.js?hl=' . Locale::getLocale(),
                         [
                             'contexts' => $contexts,
                         ]
@@ -657,7 +659,7 @@ class PKPTemplateManager extends Smarty
     public function registerJSLibrary(): void
     {
         $baseUrl = $this->_request->getBaseUrl();
-        $localeChecks = [Locale::getLocale(), strtolower(substr(Locale::getLocale(), 0, 2))];
+        $localeChecks = [Locale::getLocale(), \Locale::getPrimaryLanguage(Locale::getLocale())];
 
         // Common $args array used for all our core JS files
         $args = [

@@ -16,6 +16,8 @@
 namespace PKP\API\v1\reviewers\recommendations;
 
 use Illuminate\Http\JsonResponse;
+use PKP\API\v1\reviewers\recommendations\formRequests\UpdateStatusReviewerRecommendation;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +88,10 @@ class ReviewerRecommendationController extends PKPBaseController
         Route::put('{recommendationId}', $this->edit(...))
             ->name('reviewer.recommendations.edit')
             ->whereNumber(['contextId', 'recommendationId']);
+        
+        Route::put('{recommendationId}/status', $this->updateStatus(...))
+            ->name('reviewer.recommendations.edit.status')
+            ->whereNumber(['contextId', 'recommendationId']);
 
         Route::delete('{recommendationId}', $this->delete(...))
             ->name('reviewer.recommendations.delete')
@@ -150,6 +156,11 @@ class ReviewerRecommendationController extends PKPBaseController
                 ->toArray($illuminateRequest), 
             Response::HTTP_OK
         );
+    }
+
+    public function updateStatus(UpdateStatusReviewerRecommendation $illuminateRequest): JsonResponse
+    {
+        return $this->edit($illuminateRequest);
     }
 
     public function delete(Request $illuminateRequest): JsonResponse

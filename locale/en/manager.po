@@ -1987,6 +1987,18 @@ msgstr "Deactivate"
 msgid "manager.reviewerRecommendations.confirmDelete"
 msgstr "Are you sure you want to delete the recommendation {$title}"
 
+msgid "manager.reviewerRecommendations.confirmActivate"
+msgstr "Are you sure you want to activate the recommendation {$title}"
+
+msgid "manager.reviewerRecommendations.activate.title"
+msgstr "Activate Reviewer Recommendation"
+
+msgid "manager.reviewerRecommendations.confirmDeactivate"
+msgstr "Are you sure you want to deactivate the recommendation {$title}"
+
+msgid "manager.reviewerRecommendations.deactivate.title"
+msgstr "Deactivate Reviewer Recommendation"
+
 msgid "manager.reviewForms"
 msgstr "Review Forms"
 

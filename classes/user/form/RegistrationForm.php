@@ -51,12 +51,7 @@ class RegistrationForm extends Form
     /** @var bool whether or not captcha is enabled for this form */
     public $altchaEnabled;
 
-    /**
-     * Constructor.
-     *
-     * @param Site $site
-     */
-    public function __construct($site)
+    public function __construct(Site $site)
     {
         parent::__construct('frontend/pages/userRegister.tpl');
 

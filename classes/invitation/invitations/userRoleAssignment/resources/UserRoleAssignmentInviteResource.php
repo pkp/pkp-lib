@@ -38,7 +38,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
             $newUser->setAffiliation($this->getPayload()->affiliation, null);
             $newUser->setFamilyName($this->getPayload()->familyName, null);
             $newUser->setGivenName($this->getPayload()->givenName, null);
-            $newUser->setCountry($this->getPayload()->country);
+            $newUser->setCountry($this->getPayload()->userCountry);
             $newUser->setUsername($this->getPayload()->username);
             $newUser->setEmail($this->getPayload()->sendEmailAddress);
         }
@@ -49,7 +49,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'givenName' => $this->getPayload()->givenName,
             'familyName' => $this->getPayload()->familyName,
             'affiliation' => $this->getPayload()->affiliation,
-            'country' => $this->getPayload()->country,
+            'country' => $this->getPayload()->userCountry,
             'emailSubject' => $this->getPayload()->emailSubject,
             'emailBody' => $this->getPayload()->emailBody,
             'userGroupsToAdd' => $this->transformUserGroups($this->getPayload()->userGroupsToAdd),

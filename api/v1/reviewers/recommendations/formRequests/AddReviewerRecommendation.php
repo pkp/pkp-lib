@@ -37,6 +37,7 @@ class AddReviewerRecommendation extends FormRequest
             ],
             'title' => [
                 'required',
+                // need to add multilingual validation once #4787 merged
             ],
             'status' => [
                 'required',

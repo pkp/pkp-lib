@@ -31,8 +31,8 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
         $existingUser = null;
         $newUser = null;
 
-        if ($this->getPayload()->shouldUseInviteData) {
-            $payload = UserRoleAssignmentInvitePayload::fromArray($this->getPayload()->inviteStagePayload);
+        if ($payload->shouldUseInviteData) {
+            $payload = UserRoleAssignmentInvitePayload::fromArray($payload->inviteStagePayload);
 
             $newUser = $this->createNewUserFromPayload($payload);
         } else {
@@ -45,7 +45,13 @@ class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignment
 
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($baseData, [
-            'orcid' => $payload->userOrcid,
+            'orcid' => $payload->orcid,
+            'orcidAccessDenied' => $payload->orcidAccessDenied,
+            'orcidAccessExpiresOn' => $payload->orcidAccessExpiresOn,
+            'orcidAccessScope' => $payload->orcidAccessScope,
+            'orcidAccessToken' => $payload->orcidAccessToken,
+            'orcidIsVerified' => $payload->orcidIsVerified,
+            'orcidRefreshToken' => $payload->orcidRefreshToken,
             'givenName' => $payload->givenName,
             'familyName' => $payload->familyName,
             'affiliation' => $payload->affiliation,

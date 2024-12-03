@@ -65,7 +65,7 @@ class AcceptUserDetailsForm extends FormComponent
                 'isRequired' => false,
                 'isMultilingual' => true,
                 'size' => 'large',
-                'value' => ''
+                'value' => '',
             ]))
             ->addField(new FieldText('affiliation', [
                 'label' => __('user.affiliation'),
@@ -73,6 +73,7 @@ class AcceptUserDetailsForm extends FormComponent
                 'isMultilingual' => true,
                 'isRequired' => false,
                 'size' => 'large',
+                'value' => '',
 
             ]))
             ->addField(new FieldSelect('userCountry', [

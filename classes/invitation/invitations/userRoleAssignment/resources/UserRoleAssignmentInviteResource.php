@@ -30,29 +30,37 @@ class UserRoleAssignmentInviteResource extends BaseUserRoleAssignmentInviteResou
         $existingUser = $this->getExistingUser();
         $newUser = null;
 
+        $payload = $this->getPayload();
+
         if (!isset($existingUser)) {
             $newUser = new User();
 
-            $newUser->setAffiliation($this->getPayload()->affiliation, null);
-            $newUser->setFamilyName($this->getPayload()->familyName, null);
-            $newUser->setGivenName($this->getPayload()->givenName, null);
-            $newUser->setCountry($this->getPayload()->userCountry);
-            $newUser->setUsername($this->getPayload()->username);
-            $newUser->setEmail($this->getPayload()->sendEmailAddress);
+            $newUser->setAffiliation($payload->affiliation, null);
+            $newUser->setFamilyName($payload->familyName, null);
+            $newUser->setGivenName($payload->givenName, null);
+            $newUser->setCountry($payload->userCountry);
+            $newUser->setUsername($payload->username);
+            $newUser->setEmail($payload->sendEmailAddress);
         }
 
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($baseData, [
-            'orcid' => $this->getPayload()->userOrcid,
-            'givenName' => $this->getPayload()->givenName,
-            'familyName' => $this->getPayload()->familyName,
-            'affiliation' => $this->getPayload()->affiliation,
-            'country' => $this->getPayload()->userCountry,
-            'emailSubject' => $this->getPayload()->emailSubject,
-            'emailBody' => $this->getPayload()->emailBody,
-            'userGroupsToAdd' => $this->transformUserGroups($this->getPayload()->userGroupsToAdd),
-            'username' => $this->getPayload()->username,
-            'sendEmailAddress' => $this->getPayload()->sendEmailAddress,
+            'orcid' => $payload->orcid,
+            'orcidAccessDenied' => $payload->orcidAccessDenied,
+            'orcidAccessExpiresOn' => $payload->orcidAccessExpiresOn,
+            'orcidAccessScope' => $payload->orcidAccessScope,
+            'orcidAccessToken' => $payload->orcidAccessToken,
+            'orcidIsVerified' => $payload->orcidIsVerified,
+            'orcidRefreshToken' => $payload->orcidRefreshToken,
+            'givenName' => $payload->givenName,
+            'familyName' => $payload->familyName,
+            'affiliation' => $payload->affiliation,
+            'country' => $payload->userCountry,
+            'emailSubject' => $payload->emailSubject,
+            'emailBody' => $payload->emailBody,
+            'userGroupsToAdd' => $this->transformUserGroups($payload->userGroupsToAdd),
+            'username' => $payload->username,
+            'sendEmailAddress' => $payload->sendEmailAddress,
             'existingUser' => $this->transformUser($this->getExistingUser()),
             'newUser' => $this->transformUser($newUser),
         ]);

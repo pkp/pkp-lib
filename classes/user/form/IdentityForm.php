@@ -18,6 +18,7 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use Illuminate\Support\Str;
 use PKP\orcid\OrcidManager;
 use PKP\user\User;
 
@@ -98,6 +99,7 @@ class IdentityForm extends BaseProfileForm
             'familyName' => $user->getFamilyName(null),
             'preferredPublicName' => $user->getPreferredPublicName(null),
             'orcid' => $user->getOrcid(),
+            'preferredAvatarInitials' => $user->getPreferredAvatarInitials(null),
         ];
     }
 
@@ -109,7 +111,7 @@ class IdentityForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'givenName', 'familyName', 'preferredPublicName', 'orcid','removeOrcidId'
+            'givenName', 'familyName', 'preferredPublicName', 'orcid', 'removeOrcidId', 'preferredAvatarInitials'
         ]);
     }
 
@@ -123,7 +125,7 @@ class IdentityForm extends BaseProfileForm
 
 
         // Request to delete ORCID token is handled separately from other form field updates
-        if($this->getData('removeOrcidId') === 'true') {
+        if ($this->getData('removeOrcidId') === 'true') {
             $user->setOrcid(null);
             $user->setOrcidVerified(false);
             OrcidManager::removeOrcidAccessToken($user);
@@ -131,6 +133,7 @@ class IdentityForm extends BaseProfileForm
             $user->setGivenName($this->getData('givenName'), null);
             $user->setFamilyName($this->getData('familyName'), null);
             $user->setPreferredPublicName($this->getData('preferredPublicName'), null);
+            $user->setPreferredAvatarInitials(trim(Str::upper($this->getData('preferredAvatarInitials') ?? '')), null);
         }
 
         parent::execute(...$functionArgs);

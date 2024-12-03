@@ -22,6 +22,13 @@
 				$('#removeOrcidId').remove();
 			}
 		});
+
+		$(function() {ldelim}
+			$('input[name="preferredAvatarInitials"]').on('keyup', function() {
+				const capitalizedValue = $(this).val().toUpperCase().trim();
+				$(this).val(capitalizedValue);
+			});
+			{rdelim});
 	{rdelim});
 </script>
 
@@ -42,12 +49,17 @@
 	{fbvFormArea id="userFormCompactLeft"}
 		{fbvFormSection title="user.name"}
 			{fbvElement type="text" label="user.givenName" multilingual="true" required="true" id="givenName" value=$givenName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.familyName" multilingual="true" id="familyName" value=$familyName maxlength="255" inline=true size=$fbvStyles.size.MEDIUM  onkeyup="this.value = this.value.toUpperCase();"}
 		{/fbvFormSection}
 	{/fbvFormArea}
 
 	{fbvFormSection for="preferredPublicName" description="user.preferredPublicName.description"}
 		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
+	{/fbvFormSection}
+
+
+	{fbvFormSection for="preferredAvatarInitials" description="user.preferredAvatarInitials.description"}
+		{fbvElement type="text" label="user.preferredAvatarInitials" name="preferredAvatarInitials" maxlength="2" id="preferredAvatarInitials" value=$preferredAvatarInitials size=$fbvStyles.size.SMALL}
 	{/fbvFormSection}
 
 	{if $orcidEnabled}

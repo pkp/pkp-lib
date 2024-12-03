@@ -201,6 +201,23 @@ class Identity extends \PKP\core\DataObject
         $this->setData('preferredPublicName', $preferredPublicName, $locale);
     }
 
+
+    /**
+     * Set preferred avatar initials.
+     */
+    public function setPreferredAvatarInitials(string $preferredAvatarInitials, ?string $locale): void
+    {
+        $this->setData('preferredAvatarInitials', $preferredAvatarInitials, $locale);
+    }
+
+    /**
+     * Get preferred avatar initials.
+     */
+    public function getPreferredAvatarInitials(?string $locale): ?string
+    {
+        return $this->getData('preferredAvatarInitials', $locale);
+    }
+
     /**
      * Get affiliation (position, institution, etc.).
      *

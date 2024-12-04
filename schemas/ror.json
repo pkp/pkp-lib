@@ -1,0 +1,49 @@
+{
+	"title": "Ror",
+	"description": "Ror is an institution on ror.org, this table is a cache of the data dump.",
+	"required": [
+		"ror",
+		"displayLocale",
+		"isActive",
+		"name"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique id of ror in the database.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"ror": {
+			"type": "string",
+			"description": "The [ROR](https://ror.org/) id of this institution.",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:#https://ror.org/0[^ILOU]{6}\\d{2}#"
+			]
+		},
+		"displayLocale": {
+			"type": "string",
+			"description": "The display language on ror.org of this institution.",
+			"apiSummary": true,
+			"validation": [
+				"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
+			]
+		},
+		"isActive": {
+			"type": "boolean",
+			"description": "Whether this organisation is active or inactive.",
+			"apiSummary": true
+		},
+		"name": {
+			"type": "string",
+			"description": "The name of this institution.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		}
+	}
+}

@@ -187,6 +187,14 @@
 			<element name="givenname" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="familyname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="affiliation" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+            <element name="rorAffiliation" minOccurs="0" maxOccurs="unbounded">
+                <complexType>
+                    <sequence>
+                        <element name="ror" type="string" minOccurs="0" maxOccurs="unbounded" />
+                        <element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="email" type="string" />
 			<element name="url" type="anyURI" minOccurs="0" maxOccurs="1" />

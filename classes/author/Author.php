@@ -3,8 +3,8 @@
 /**
  * @file classes/author/Author.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\author\Author
@@ -59,6 +59,22 @@ class Author extends Identity
     //
     // Get/set methods
     //
+
+    /**
+     * Get ID of publication.
+     */
+    public function getPublicationId(): ?int
+    {
+        return $this->getData('publicationId');
+    }
+
+    /**
+     * Set ID of publication.
+     */
+    public function setPublicationId(int $publicationId): void
+    {
+        $this->setData('publicationId', $publicationId);
+    }
 
     /**
      * Get ID of submission.
@@ -255,5 +271,73 @@ class Author extends Identity
     public function getLocalizedCompetingInterests(): ?string
     {
         return $this->getLocalizedData('competingInterests');
+    }
+
+    /**
+     * Get affiliations (position, institution, etc.).
+     */
+    public function getAffiliations(): array
+    {
+        return $this->getData('affiliations');
+    }
+
+    /**
+     * Set affiliations.
+     */
+    public function setAffiliations(array $affiliations): void
+    {
+        $this->setData('affiliations', $affiliations);
+    }
+
+    /**
+     * Get localized affiliations.
+     */
+    public function getLocalizedAffiliations(?string $preferredLocale = null): array
+    {
+        $value = [];
+
+        $affiliations = $this->getAffiliations();
+        foreach ($affiliations as $affiliation) {
+            foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
+                $value[] = [
+                    "id" => $affiliation->getId(),
+                    "authorId" => $affiliation->getAuthorId(),
+                    "ror" => $affiliation->getRor(),
+                    "name" => $affiliation->getLocalizedName()
+                ];
+            }
+        }
+
+        return $value;
+    }
+
+    /**
+     * Get the localized affiliations as an array.
+     */
+    public function getLocalizedAffiliationNames(?string $preferredLocale = null): array
+    {
+        $value = [];
+
+        foreach ($this->getAffiliations() as $affiliation) {
+            foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
+                $name = $affiliation->getData('name');
+                if (!empty($name[$locale])) {
+                    $value[] = $name[$locale];
+                }
+            }
+        }
+
+        return $value;
+    }
+
+    /**
+     * Get the localized affiliations as a string.
+     */
+    public function getLocalizedAffiliationNamesAsString(?string $preferredLocale = null, ?string $separator = '; '): string
+    {
+        return implode(
+            $separator,
+            $this->getLocalizedAffiliationNames($preferredLocale)
+        );
     }
 }

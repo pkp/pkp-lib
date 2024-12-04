@@ -8,14 +8,15 @@
 		"userGroupId"
 	],
 	"properties": {
-		"affiliation": {
-			"type": "string",
+		"affiliations": {
+			"type": "array",
 			"description": "The scholarly institution this contributor is employed by or affiliated with.",
-			"multilingual": true,
 			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"$ref": "#/definitions/Affiliation"
+			}
 		},
 		"biography": {
 			"type": "string",

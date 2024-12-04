@@ -149,9 +149,9 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $authorAffiliations = [];
         $authors = [];
         foreach($submissionAuthors as $submissionAuthor) {
-            $affiliation = $submissionAuthor->getLocalizedData('affiliation');
-            $authorAffiliations[] = $affiliation;
-            $authors[$submissionAuthor->getFullName(true, false, $locale)] = $affiliation;
+            $affiliations = $submissionAuthor->getLocalizedAffiliationNamesAsString(null, ', ');
+            $authorAffiliations[] = $affiliations;
+            $authors[$submissionAuthor->getFullName(true, false, $locale)] = $affiliations;
         }
 
         // Get reviewers list

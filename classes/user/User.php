@@ -3,12 +3,11 @@
  * @defgroup user User
  * Implements data objects and DAOs concerned with managing user accounts.
  */
-
 /**
  * @file classes/user/User.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class User
@@ -511,6 +510,30 @@ class User extends Identity implements Authenticatable
     public function getRememberTokenName()
     {
         return 'remember_token';
+    }
+
+    /**
+     * Get affiliation (position, institution, etc.).
+     */
+    public function getAffiliation(?string $locale): string|array
+    {
+        return $this->getData('affiliation', $locale);
+    }
+
+    /**
+     * Set affiliation.
+     */
+    public function setAffiliation(array $affiliation, ?string $locale): void
+    {
+        $this->setData('affiliation', $affiliation, $locale);
+    }
+
+    /**
+     * Get the localized affiliation
+     */
+    public function getLocalizedAffiliation(): ?string
+    {
+        return $this->getLocalizedData('affiliation');
     }
 }
 

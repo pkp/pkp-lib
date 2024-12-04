@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPSchemaService.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSchemaService
@@ -28,6 +28,7 @@ use PKP\plugins\Hook;
  */
 class PKPSchemaService
 {
+    public const SCHEMA_AFFILIATION = 'affiliation';
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
     public const SCHEMA_AUTHOR = 'author';
     public const SCHEMA_CATEGORY = 'category';
@@ -42,6 +43,7 @@ class PKPSchemaService
     public const SCHEMA_PUBLICATION = 'publication';
     public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';
     public const SCHEMA_REVIEW_ROUND = 'reviewRound';
+    public const SCHEMA_ROR = 'ror';
     public const SCHEMA_SECTION = 'section';
     public const SCHEMA_SITE = 'site';
     public const SCHEMA_SUBMISSION = 'submission';

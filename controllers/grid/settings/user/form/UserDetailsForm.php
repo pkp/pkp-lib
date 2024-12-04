@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/user/form/UserDetailsForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserDetailsForm
@@ -182,7 +182,7 @@ class UserDetailsForm extends UserForm
             $data = [
                 'givenName' => $author->getGivenName(null), // Localized
                 'familyName' => $author->getFamilyName(null), // Localized
-                'affiliation' => $author->getAffiliation(null), // Localized
+                'affiliations' => $author->getAffiliations(),
                 'preferredPublicName' => $author->getPreferredPublicName(null), // Localized
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),

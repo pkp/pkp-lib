@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorNativeXmlFilter
@@ -106,9 +106,21 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
         // Add metadata
         $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
         $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
-
-        $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
-
+        $affiliations = $author->getAffiliations();
+        foreach($affiliations as $affiliation) {
+            if(empty($affiliation->getData('ror') && !empty($affiliation->getData('name')))) {
+                $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $affiliation->getData('name'));
+            }
+        }
+        foreach($affiliations as $affiliation) {
+            if(!empty($affiliation->getData('ror'))) {
+                $rorAffiliationNode = $doc->createElementNS($deployment->getNamespace(), 'rorAffiliation');
+                $rorAffiliationRor = $doc->createElementNS($deployment->getNamespace(), 'ror', $affiliation->getData('ror'));
+                $rorAffiliationNode->appendChild($rorAffiliationRor);
+                $this->createLocalizedNodes($doc, $rorAffiliationNode, 'name', $affiliation->getData('name'));
+                $authorNode->appendChild($rorAffiliationNode);
+            }
+        }
         $this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
         $authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));
         $this->createOptionalNode($doc, $authorNode, 'url', $author->getUrl());

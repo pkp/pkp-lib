@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/author/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -207,12 +208,12 @@ class Repository
      *
      * @hook Author::newAuthorFromUser [[$author, $user]]
      */
-    public function newAuthorFromUser(User $user): Author
+    public function newAuthorFromUser(User $user, array $allowedLocales): Author
     {
         $author = Repo::author()->newDataObject();
         $author->setGivenName($user->getGivenName(null), null);
         $author->setFamilyName($user->getFamilyName(null), null);
-        $author->setAffiliation($user->getAffiliation(null), null);
+        $author->setAffiliations([Repo::affiliation()->migrateAffiliation($user->getAffiliation(null), $allowedLocales)]);
         $author->setCountry($user->getCountry());
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());

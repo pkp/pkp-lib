@@ -1,0 +1,40 @@
+{
+	"title": "Affiliation",
+	"description": "Affiliation is an institution with which an author is associated.",
+	"required": [
+		"name",
+		"authorId"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique id of affiliation in the database.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"authorId": {
+			"type": "integer",
+			"description": "The author to which this affiliation is associated with.",
+			"writeDisabledInApi": true,
+			"apiSummary": true
+		},
+		"ror": {
+			"type": "string",
+			"description": "The [ROR](https://ror.org/) id of this institution.",
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:#https://ror.org/0[^ILOU]{6}\\d{2}#"
+			]
+		},
+		"name": {
+			"type": "string",
+			"description": "The name of this institution.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		}
+	}
+}

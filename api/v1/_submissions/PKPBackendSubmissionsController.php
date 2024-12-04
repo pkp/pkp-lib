@@ -93,6 +93,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ->middleware([
                 self::roleAuthorizer([
                     Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_AUTHOR,
                 ]),
             ]);
 
@@ -466,11 +467,20 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             $submissionIds[] = $id;
         }
 
-        $submissions = $this->getSubmissionCollector($illuminateRequest->query())
+        $collector = $this->getSubmissionCollector($illuminateRequest->query())
             ->filterBySubmissionIds($submissionIds)
-            ->filterByIncomplete(true)
-            ->getMany()
-            ->all();
+            ->filterByIncomplete(true);
+
+        $request = Application::get()->getRequest();
+        $context = $this->getRequest()->getContext();
+        $user = $request->getUser();
+
+        if ($user->hasRole([Role::ROLE_ID_AUTHOR], $context->getId())) {
+            $userId = $request->getUser()->getId();
+            $collector->assignedTo([$userId]);
+        }
+
+        $submissions = $collector->getMany()->all();
 
         $submissionIdsFound = array_map(fn (Submission $submission) => $submission->getData('id'), $submissions);
 
@@ -480,7 +490,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $context = $this->getRequest()->getContext();
 
         foreach ($submissions as $submission) {
             if ($context->getId() != $submission->getData('contextId')) {

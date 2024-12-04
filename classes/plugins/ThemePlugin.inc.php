@@ -461,6 +461,32 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 	}
 
 	/**
+	 * Get the localized value of an option
+	 *
+	 * Modelled on DataObject::getLocalizedData()
+	 *
+	 * @param string $name The name of the option
+	 */
+	public function getLocalizedOption($name)
+	{
+		$value = $this->getOption($name);
+
+		if (!is_array($value)) {
+			return null;
+		}
+
+		$localePrecedence = AppLocale::getLocalePrecedence();
+		foreach ($localePrecedence as $localeKey) {
+			if (is_array($value) && !empty($value[$localeKey])) {
+				return $value[$localeKey];
+			}
+		}
+
+		// Fallback: Get the first available piece of data
+		return $value[array_key_first($value)];
+	}
+
+	/**
 	 * Get an option's configuration settings
 	 *
 	 * This retrives option settings for any option attached to this theme or

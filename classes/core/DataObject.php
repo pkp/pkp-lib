@@ -20,6 +20,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use Exception;
+use PKP\core\traits\LocalizedData;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -33,6 +34,8 @@ use PKP\metadata\MetadataSchema;
  */
 class DataObject
 {
+    use LocalizedData;
+
     /** @var array Array of object data */
     public array $_data = [];
 
@@ -51,19 +54,6 @@ class DataObject
     /** @var mixed Whether injection adapters have already been loaded from the database */
     public mixed $_injectionAdaptersLoaded = false;
 
-    /** @var Conversion table for locales */
-    public array $_localesTable = [
-        'be@cyrillic' => 'be',
-        'bs' => 'bs_Latn',
-        'fr_FR' => 'fr',
-        'nb' => 'nb_NO',
-        'sr@cyrillic' => 'sr_Cyrl',
-        'sr@latin' => 'sr_Latn',
-        'uz@cyrillic' => 'uz',
-        'uz@latin' => 'uz_Latn',
-        'zh_CN' => 'zh_Hans',
-    ];
-
     /**
      * Constructor
      */
@@ -80,57 +70,11 @@ class DataObject
      */
     public function getLocalizedData(string $key, ?string $preferredLocale = null, ?string &$selectedLocale = null): mixed
     {
-        foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
-            $value = & $this->getData($key, $locale);
-            if (!empty($value)) {
-                $selectedLocale = $locale;
-                return $value;
-            }
-            unset($value);
+        $value = $this->getData($key);
+        if (!is_array($value)) {
+            return $value;
         }
-
-        // Fallback: Get the first available piece of data.
-        $data = $this->getData($key, null);
-        foreach ((array) $data as $locale => $dataValue) {
-            if (!empty($dataValue)) {
-                $selectedLocale = $locale;
-                return $dataValue;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Get the locale precedence order for object in the following order
-     *
-     * 1. Preferred Locale if provided
-     * 2. User's current local
-     * 3. Object's default locale if set
-     * 4. Context's primary locale if context available
-     * 5. Site's primary locale
-     */
-    public function getLocalePrecedence(?string $preferredLocale = null): array
-    {
-        $request = Application::get()->getRequest();
-
-        return array_unique(
-            array_filter([
-                $preferredLocale ?? Locale::getLocale(),
-                $this->_localesTable[$preferredLocale ?? Locale::getLocale()] ?? null,
-                $this->getDefaultLocale(),
-                $request->getContext()?->getPrimaryLocale(),
-                $request->getSite()->getPrimaryLocale(),
-            ])
-        );
-    }
-
-    /**
-     * Get the default locale for object
-     */
-    public function getDefaultLocale(): ?string
-    {
-        return null;
+        return $this->getBestLocalizedData((array) $this->getData($key), $preferredLocale, $selectedLocale);
     }
 
     /**

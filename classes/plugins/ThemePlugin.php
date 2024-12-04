@@ -28,6 +28,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPSessionGuard;
+use PKP\core\traits\LocalizedData;
 use PKP\db\DAORegistry;
 
 define('LESS_FILENAME_SUFFIX', '.less');
@@ -35,6 +36,8 @@ define('THEME_OPTION_PREFIX', 'themeOption_');
 
 abstract class ThemePlugin extends LazyLoadPlugin
 {
+    use LocalizedData;
+
     /**
      * Collection of styles
      *
@@ -488,6 +491,14 @@ abstract class ThemePlugin extends LazyLoadPlugin
             $option = $this->parent->getOption($name);
         }
         return $option->default ?? null;
+    }
+
+    /**
+     * Get the localized value of an option
+     */
+    public function getLocalizedOption(string $name, string $preferredLocale = null, string &$selectedLocale = null): mixed
+    {
+        return $this->getBestLocalizedData($this->getOption($name), $preferredLocale, $selectedLocale);
     }
 
     /**

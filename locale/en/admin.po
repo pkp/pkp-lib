@@ -1015,6 +1015,13 @@ msgstr "No matching scheduled task found."
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Which command would you like to run?"
 
+msgid "admin.submissions.incomplete.bulkDelete.button"
+msgstr "Delete Incomplete Submissions"
+
+msgid "admin.submissions.incomplete.bulkDelete.column.description"
+msgstr "Select incomplete submissions to be deleted."
+
+
 msgid "admin.submissions.incomplete.bulkDelete.confirm"
 msgstr "Confirm Delete of Incomplete Submissions"
 

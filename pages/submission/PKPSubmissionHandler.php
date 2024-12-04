@@ -219,10 +219,6 @@ abstract class PKPSubmissionHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
 
-        if (!$userGroups instanceof LazyCollection) {
-            $userGroups = $userGroups->lazy();
-        }
-
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
             'components' => [
@@ -509,7 +505,7 @@ abstract class PKPSubmissionHandler extends Handler
                 }
             });
         }
-        
+
         return $userGroups;
     }
 
@@ -772,7 +768,7 @@ abstract class PKPSubmissionHandler extends Handler
     protected function getWorkflowUrl(Submission $submission, User $user): string
     {
         $request = Application::get()->getRequest();
-        
+
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
         $hasStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])

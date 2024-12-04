@@ -1077,7 +1077,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

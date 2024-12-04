@@ -23,14 +23,12 @@ use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
-use PKP\note\Note;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\userGroup\relationships\UserUserGroup;
-
 
 class Repository
 {
@@ -231,7 +229,7 @@ class Repository
             ->withSubmissionIds([$submission->getId()])
             ->withUserId($userId)
             ->get();
-        
+
         foreach ($stageAssignments as $stageAssignment) {
             $userGroup = $stageAssignment->userGroup;
             $roleId = $userGroup->roleId;
@@ -373,11 +371,11 @@ class Repository
                 ->withUserId($newUserId)
                 ->withUserGroupId($userUserGroup->userGroupId)
                 ->exists();
-        
+
             if (!$exists) {
                 UserUserGroup::create([
                     'userId' => $newUserId,
-                    'userGroupId' => $userUserGroup->userGroupId,
+                    'userGroupId' => $userUserGroup->id,
                     'dateStart' => $userUserGroup->dateStart,
                     'dateEnd' => $userUserGroup->dateEnd,
                     'masthead' => $userUserGroup->masthead,

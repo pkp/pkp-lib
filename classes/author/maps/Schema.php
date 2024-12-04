@@ -16,7 +16,6 @@ namespace PKP\author\maps;
 use APP\author\Author;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -29,13 +28,13 @@ class Schema extends \PKP\core\maps\Schema
 
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
-    protected LazyCollection $authorUserGroups;
+    protected Enumerable $authorUserGroups;
 
     public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
 
-        $this->authorUserGroups = UserGroup::withRoleIds(Role::ROLE_ID_AUTHOR)->withContextIds($this->context->getId())->cursor();
+        $this->authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds([$this->context->getId()])->get();
     }
 
     /**

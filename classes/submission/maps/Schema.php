@@ -43,8 +43,8 @@ class Schema extends \PKP\core\maps\Schema
     /** @copydoc \PKP\core\maps\Schema::$schema */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
-    /** @var LazyCollection<int,UserGroup> The user groups for this context. */
-    public LazyCollection $userGroups;
+    /** @var Enumerable<int,UserGroup> The user groups for this context. */
+    public Enumerable $userGroups;
 
     /** @var Genre[] The file genres in this context. */
     public array $genres;
@@ -104,7 +104,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the submission schema.
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
@@ -112,7 +112,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function map(
         Submission $item,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
@@ -131,7 +131,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the submission schema.
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
@@ -139,7 +139,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function summarize(
         Submission $item,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
@@ -158,11 +158,11 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::map
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function mapMany(Enumerable $collection, LazyCollection $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
+    public function mapMany(Enumerable $collection, Enumerable $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
@@ -192,11 +192,11 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function summarizeMany(Enumerable $collection, LazyCollection $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
+    public function summarizeMany(Enumerable $collection, Enumerable $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
@@ -229,7 +229,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map a submission with extra properties for the submissions list
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
@@ -237,7 +237,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapToSubmissionsList(
         Submission $item,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
@@ -261,7 +261,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapManyToSubmissionsList(
         Enumerable $collection,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         bool|Collection $anonymizeReviews = false
     ): Enumerable {

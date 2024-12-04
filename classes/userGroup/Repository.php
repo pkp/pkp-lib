@@ -168,8 +168,7 @@ class Repository
      */
     public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
     {
-        $query = UserGroup::query()
-            ->withRoleIds($roleIds)
+        $query = UserGroup::withRoleIds($roleIds)
             ->withContextIds([$contextId]);
 
         if ($default !== null) {
@@ -384,9 +383,9 @@ class Repository
     /**
      * Get the user groups assigned to each stage.
      *
-     * @return LazyCollection<int, UserGroup>
+     * @return Collection<int, UserGroup>
      */
-    public function getUserGroupsByStage(int $contextId, int $stageId, ?int $roleId = null, ?int $count = null): LazyCollection
+    public function getUserGroupsByStage(int $contextId, int $stageId, ?int $roleId = null, ?int $count = null): Collection
     {
         $query = UserGroup::query()
             ->withContextIds([$contextId])
@@ -402,7 +401,7 @@ class Repository
             $query->limit($count);
         }
 
-        return $query->cursor();
+        return $query->get();
     }
 
     /**
@@ -500,7 +499,7 @@ class Repository
             // Save the UserGroup instance to the database
             $userGroup->save();
 
-            $userGroupId = $userGroup->userGroupId;
+            $userGroupId = $userGroup->id;
 
             // Install default groups for each stage
             foreach ($defaultStages as $stageId) {

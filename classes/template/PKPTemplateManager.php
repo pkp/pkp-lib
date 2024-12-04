@@ -1359,7 +1359,7 @@ class PKPTemplateManager extends Smarty
 
                 $userRoles = [];
                 foreach ($userGroups as $userGroup) {
-                    $userRoles[] = (int) $userGroup->role_id;
+                    $userRoles[] = (int) $userGroup->roleId;
                 }
                 $currentUser = [
                     'csrfToken' => $this->_request->getSession()->token(),

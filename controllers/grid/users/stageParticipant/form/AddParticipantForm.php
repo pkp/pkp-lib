@@ -165,7 +165,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
             'userGroupId' => '',
             'userIdSelected' => '',
         ]);
-        
+
 
         if ($this->_assignmentId) {
             $stageAssignment = StageAssignment::find($this->_assignmentId);
@@ -276,10 +276,10 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
                 // insert the assignment
                 $stageAssignment = Repo::stageAssignment()
                     ->build(
-                        $submission->getId(), 
-                        $userGroup->id, 
-                        $userId, 
-                        $recommendOnly, 
+                        $submission->getId(),
+                        $userGroup->id,
+                        $userId,
+                        $recommendOnly,
                         $canChangeMetadata
                     );
             }

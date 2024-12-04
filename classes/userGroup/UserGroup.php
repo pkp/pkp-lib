@@ -57,16 +57,7 @@ class UserGroup extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'contextId',
-        'roleId',
-        'isDefault',
-        'showTitle',
-        'permitSelfRegistration',
-        'permitMetadataEdit',
-        'permitSettings',
-        'masthead',
-    ];
+    protected $guarded = ['userGroupId', 'id'];
 
     /**
      * Get the settings table name
@@ -82,18 +73,6 @@ class UserGroup extends Model
     public static function getSchemaName(): ?string
     {
         return PKPSchemaService::SCHEMA_USER_GROUP;
-    }
-
-    /**
-     * Define multilingual properties
-     */
-    public function getMultilingualProps(): array
-    {
-        return [
-            'name',
-            'namePlural',
-            'abbrev',
-        ];
     }
 
     /**
@@ -339,16 +318,6 @@ class UserGroup extends Model
         return $builder;
     }
 
-    /**
-     * Ensure casts are string values.
-     *
-     * @param array $casts
-     */
-    protected function ensureCastsAreStringValues($casts): array
-    {
-        return array_map(fn ($cast) => (string) $cast, $casts);
-    }
-
 
     /**
      * Scope a query to filter by publication IDs.
@@ -357,9 +326,8 @@ class UserGroup extends Model
      */
     protected function scopeWithPublicationIds(EloquentBuilder $builder, array $publicationIds): EloquentBuilder
     {
-        return $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($publicationIds) {
-            $q->whereIn('publication_id', $publicationIds);
-        });
+        return $builder->join('authors as a', $this->table . '.' . $this->primaryKey, '=', 'a.user_group_id')
+            ->whereIn('a.publication_id', $publicationIds);
     }
 
     /**

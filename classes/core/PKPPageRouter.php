@@ -17,7 +17,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -26,8 +25,6 @@ use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\userGroup\UserGroup;
-use PKP\userGroup\relationships\UserUserGroup;
-
 
 class PKPPageRouter extends PKPRouter
 {
@@ -418,22 +415,22 @@ class PKPPageRouter extends PKPRouter
                     $query->where('user_id', $userId)
                         ->where(function ($q) {
                             $q->whereNull('date_end')
-                              ->orWhere('date_end', '>', now());
+                                ->orWhere('date_end', '>', now());
                         })
                         ->where(function ($q) {
                             $q->whereNull('date_start')
-                              ->orWhere('date_start', '<=', now());
+                                ->orWhere('date_start', '<=', now());
                         });
                 })
                 ->get();
-    
+
             if ($userGroups->isEmpty()
                 || ($userGroups->count() == 1 && $userGroups->first()->role_id == Role::ROLE_ID_READER)
             ) {
                 return $request->url(null, 'index');
             }
 
-            if(Config::getVar('features', 'enable_new_submission_listing')) {
+            if (Config::getVar('features', 'enable_new_submission_listing')) {
 
                 $roleIdsArray = $userGroups->pluck('role_id')->all();
 
@@ -458,11 +455,11 @@ class PKPPageRouter extends PKPRouter
                     $query->where('user_id', $userId)
                         ->where(function ($q) {
                             $q->whereNull('date_end')
-                              ->orWhere('date_end', '>', now());
+                                ->orWhere('date_end', '>', now());
                         })
                         ->where(function ($q) {
                             $q->whereNull('date_start')
-                              ->orWhere('date_start', '<=', now());
+                                ->orWhere('date_start', '<=', now());
                         });
                 })
                 ->get();
@@ -470,11 +467,11 @@ class PKPPageRouter extends PKPRouter
             if ($userGroups->count() == 1) {
                 $firstUserGroup = $userGroups->first();
                 $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($firstUserGroup->context_id);
+                $context = $contextDao->getById($firstUserGroup->contextId);
                 if (!isset($context)) {
                     $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
                 }
-                if ($firstUserGroup->role_id == Role::ROLE_ID_READER) {
+                if ($firstUserGroup->roleId == Role::ROLE_ID_READER) {
                     $request->redirect(null, 'index');
                 }
             }

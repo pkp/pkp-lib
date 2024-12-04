@@ -14,6 +14,7 @@
 namespace PKP\user\maps;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
@@ -22,9 +23,8 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
-use PKP\workflow\WorkflowStageDAO;
-use APP\submission\Submission;
 use PKP\userGroup\UserGroup;
+use PKP\workflow\WorkflowStageDAO;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -177,7 +177,7 @@ class Schema extends \PKP\core\maps\Schema
                                 'recommendOnly' => (bool) $userGroup->recommendOnly,
                                 'dateStart' => UserUserGroup::withUserId($user->getId())
                                     ->withActive()
-                                    ->withUserGroupId($userGroup->getId())
+                                    ->withUserGroupId($userGroup->id)
                                     ->pluck('date_start')->first()
                             ];
                         }

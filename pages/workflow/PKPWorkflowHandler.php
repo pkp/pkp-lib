@@ -206,7 +206,7 @@ abstract class PKPWorkflowHandler extends Handler
             } else {
                 foreach ($stageAssignments as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {
-                        if ($stageAssignment->userGroupId == $workflowUserGroup->userGroupId &&
+                        if ($stageAssignment->userGroupId == $workflowUserGroup->id &&
                             !$stageAssignment->recommendOnly) {
                             $canPublish = true;
                             break;

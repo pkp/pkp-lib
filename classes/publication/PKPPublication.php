@@ -189,7 +189,7 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         if ($includeInBrowseOnly) {
-            $authors = $authors->filter(fn($author) => $author->getData('includeInBrowse'));
+            $authors = $authors->filter(fn ($author) => $author->getData('includeInBrowse'));
         }
 
         // create a mapping of user group ids to user groups for quick lookup

@@ -21,7 +21,6 @@ use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
-use PKP\user\InterestManager;
 use PKP\user\User;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
@@ -141,8 +140,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         }
 
         // Add Reviewing Interests, if any.
-        $interestManager = new InterestManager();
-        $interests = $interestManager->getInterestsString($user);
+        $interests = Repo::userInterest()->getInterestsString($user);
         $this->createOptionalNode($doc, $userNode, 'review_interests', $interests);
 
         return $userNode;

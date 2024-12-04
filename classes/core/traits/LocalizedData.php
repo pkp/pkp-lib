@@ -36,8 +36,7 @@ trait LocalizedData
     ];
 
     /**
-     * Get a piece of data, localized to the current
-     * locale if possible.
+     * Get a localized value from a multilingual data array
      *
      * @param array $data An assoc array with localized data, where each
      *   key is the localeKey. Example: ['en' => 'Journal', 'de' => 'Zeitschrift']

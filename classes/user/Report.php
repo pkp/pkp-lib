@@ -21,7 +21,6 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\userGroup\UserGroup;
 
@@ -96,11 +95,11 @@ class Report
                 $query->where('user_id', $user->getId())
                     ->where(function ($q) {
                         $q->whereNull('date_end')
-                        ->orWhere('date_end', '>', now());
+                            ->orWhere('date_end', '>', now());
                     })
                     ->where(function ($q) {
                         $q->whereNull('date_start')
-                        ->orWhere('date_start', '<=', now());
+                            ->orWhere('date_start', '<=', now());
                     });
             })
             ->get();
@@ -119,7 +118,7 @@ class Report
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
             ...array_map(
-                fn (UserGroup $userGroup) => __(in_array($userGroup->user_group_id, $userGroupIds) ? 'common.yes' : 'common.no'),
+                fn (UserGroup $userGroup) => __(in_array($userGroup->id, $userGroupIds) ? 'common.yes' : 'common.no'),
                 $this->_getUserGroups()
             )
         ];

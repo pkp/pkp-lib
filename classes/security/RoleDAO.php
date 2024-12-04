@@ -19,12 +19,10 @@
 namespace PKP\security;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\db\DAO;
-use PKP\db\DAORegistry;
 use PKP\userGroup\UserGroup;
 
 class RoleDAO extends DAO
@@ -96,20 +94,20 @@ class RoleDAO extends DAO
                 $query->where('user_id', $userId)
                     ->where(function ($q) {
                         $q->whereNull('date_end')
-                          ->orWhere('date_end', '>', now());
+                            ->orWhere('date_end', '>', now());
                     })
                     ->where(function ($q) {
                         $q->whereNull('date_start')
-                          ->orWhere('date_start', '<=', now());
+                            ->orWhere('date_start', '<=', now());
                     });
             })
             ->get();
-    
+
         $roles = [];
         foreach ($userGroups as $userGroup) {
             $role = $this->newDataObject();
-            $role->setRoleId($userGroup->role_id);
-            $roles[(int) $userGroup->context_id][$userGroup->role_id] = $role;
+            $role->setRoleId($userGroup->roleId);
+            $roles[(int) $userGroup->contextId][$userGroup->roleId] = $role;
         }
 
         return $roles;

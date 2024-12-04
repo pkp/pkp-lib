@@ -23,7 +23,6 @@ use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
@@ -190,7 +189,7 @@ class PKPPublication extends \PKP\core\DataObject
         }
 
         if ($includeInBrowseOnly) {
-            $authors = $authors->filter(fn($author) => $author->getData('includeInBrowse'));
+            $authors = $authors->filter(fn ($author) => $author->getData('includeInBrowse'));
         }
 
         // create a mapping of user group ids to user groups for quick lookup
@@ -443,7 +442,7 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Get languages from locale, metadata, and authors' props.
      * Include optional additional languages.
-     * 
+     *
      * Publication: locale, multilingual metadata props
      * Authors: multilingual props
      */

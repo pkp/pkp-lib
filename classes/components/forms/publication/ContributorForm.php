@@ -15,7 +15,6 @@
 
 namespace PKP\components\forms\publication;
 
-use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldOrcid;
@@ -52,7 +51,7 @@ class ContributorForm extends FormComponent
             ->withContextIds([$context->getId()])
             ->get()
             ->map(fn (UserGroup $authorUserGroup) => [
-                'value' => (int) $authorUserGroup->usergroupid,
+                'value' => (int) $authorUserGroup->id,
                 'label' => $authorUserGroup->getLocalizedData('name'),
             ]);
         $isoCodes = app(IsoCodesFactory::class);

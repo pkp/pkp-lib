@@ -30,6 +30,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\session\SessionManager;
 
 define('LESS_FILENAME_SUFFIX', '.less');
@@ -490,6 +491,56 @@ abstract class ThemePlugin extends LazyLoadPlugin
             $option = $this->parent->getOption($name);
         }
         return $option->default ?? null;
+    }
+
+    /**
+     * Get the localized value of an option
+     *
+     * Modelled on DataObject::getLocalizedData()
+     */
+    public function getLocalizedOption(string $name, string $preferredLocale = null, string &$selectedLocale = null): mixed
+    {
+        $value = $this->getOption($name);
+
+        if (!is_array($value)) {
+            return null;
+        }
+
+        foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
+            if (!empty($value[$locale])) {
+                $selectedLocale = $locale;
+                return $value[$locale];
+            }
+        }
+
+        // Fallback: Get the first available piece of data]
+        foreach ($value as $locale => $dataValue) {
+            if (!empty($dataValue)) {
+                $selectedLocale = $locale;
+                return $dataValue;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the locale precedence order
+     *
+     * @see DataObject::getLocalePrecedence()
+     * @deprecated 3.4
+     */
+    protected function getLocalePrecedence(string $preferredLocale = null): array
+    {
+        $request = Application::get()->getRequest();
+
+        return array_unique(
+            array_filter([
+                $preferredLocale ?? Locale::getLocale(),
+                $request->getContext()?->getPrimaryLocale(),
+                $request->getSite()->getPrimaryLocale(),
+            ])
+        );
     }
 
     /**

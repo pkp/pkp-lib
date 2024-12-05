@@ -2037,7 +2037,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} -ի խմբագիրը հաստատել է {$submissionId} ներկայացման {$round} "
+"{$editorName} -ի խմբագիրը հաստատել է {$submissionId} ներկայացման {$round} "
 "փուլի գրախոսությունը:"
 
 msgid "log.review.reviewReady"

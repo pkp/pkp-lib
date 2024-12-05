@@ -183,4 +183,9 @@ class ReviewerRecommendation extends Model
     {
         return $query->where('status', $active);
     }
+
+    public function scopeWithRecommendation(Builder $query, int $recommendation): Builder
+    {
+        return $query->where('value', $recommendation);
+    }
 }

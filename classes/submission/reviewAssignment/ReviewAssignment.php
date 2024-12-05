@@ -799,9 +799,12 @@ class ReviewAssignment extends \PKP\core\DataObject
      *
      * @return array recommendation => localizedTitle
      */
-    public static function getReviewerRecommendationOptions(?Context $context = null, ?bool $active = true): array
+    public static function getReviewerRecommendationOptions(
+        Context $context = null,
+        ?bool $active = true,
+        ?self $reviewAssignment = null
+    ): array
     {
-        $context ??= Application::get()->getRequest()->getContext();
         static $reviewerRecommendationOptions = [];
         
         if (!empty($reviewerRecommendationOptions)) {
@@ -811,6 +814,14 @@ class ReviewAssignment extends \PKP\core\DataObject
         return $reviewerRecommendationOptions = ReviewerRecommendation::query()
             ->withContextId($context->getId())
             ->when(!is_null($active), fn ($query) => $query->withActive($active))
+            ->when(
+                $reviewAssignment, 
+                fn ($query) => $query->orWhere(
+                    fn ($query) => $query->withRecommendation(
+                        $reviewAssignment->getData("recommendation")
+                    )
+                )
+            )
             ->get()
             ->mapWithKeys(
                 fn (ReviewerRecommendation $recommendation): array => [
@@ -824,13 +835,13 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Return a localized string representing the reviewer recommendation.
      */
-    public function getLocalizedRecommendation(): string
+    public function getLocalizedRecommendation(?Context $context = null): string
     {
-        $options = static::getReviewerRecommendationOptions();
-        
-        return array_key_exists($this->getRecommendation(), $options)
-            ? $options[$this->getRecommendation()]
-            : '';
+        $options = static::getReviewerRecommendationOptions(
+            $context ?? Application::get()->getRequest()->getContext()
+        );
+
+        return $options[$this->getRecommendation()] ?? '';
     }
 
     /**

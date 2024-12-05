@@ -833,7 +833,10 @@ class PKPReviewerGridHandler extends GridHandler
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR),
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR),
             ],
-            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions($context),
+            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(
+                context: $context,
+                reviewAssignment: $reviewAssignment
+            ),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {

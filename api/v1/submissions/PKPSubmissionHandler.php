@@ -743,6 +743,16 @@ class PKPSubmissionHandler extends APIHandler
             Repo::eventLog()->add($eventLog);
         }
 
+
+        $notificationManager = new NotificationManager();
+        $notificationManager->updateNotification(
+            Application::get()->getRequest(),
+            [PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION],
+            null,
+            PKPApplication::ASSOC_TYPE_SUBMISSION,
+            $submission->getId()
+        );
+
         $userGroups = Repo::userGroup()
             ->getCollector()
             ->filterByContextIds([$context->getId()])

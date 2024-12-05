@@ -191,14 +191,12 @@ class ReviewerGridRow extends GridRow
             // Get the context (journal) to check for the Manager role
             $context = $request->getContext();
             $contextId = $context ? $context->getId() : 0;
+            $canAdminister = Validation::getAdministrationLevel($reviewerId, $currentUser->getId(), $contextId) === Validation::ADMINISTRATION_FULL;
 
             if (
                 !Validation::loggedInAs() &&
                 $currentUser->getId() != $reviewerId &&
-                (
-                    Validation::isSiteAdmin() ||
-                    $currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId)
-                ) &&
+                $canAdminister &&
                 !$reviewAssignment->getCancelled()
             ) {
                 $dispatcher = $router->getDispatcher();

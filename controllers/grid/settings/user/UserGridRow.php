@@ -177,15 +177,14 @@ class UserGridRow extends GridRow
                 $currentUser = $request->getUser();
                 $targetUserId = $this->getId();
                 $context = $request->getContext();
-                $contextId = $context ? $context->getId() : 0; // Use 0 if context is not available
+                $contextId = $context ? $context->getId() : null; // Use null if context is not available
+                
+                $canAdminister = Validation::getAdministrationLevel($targetUserId, $currentUser->getId(), $contextId) === Validation::ADMINISTRATION_FULL;
     
                 if (
                     !Validation::loggedInAs() &&
                     $currentUser->getId() != $targetUserId &&
-                    (
-                        Validation::isSiteAdmin() ||
-                        $currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId)
-                    )
+                    $canAdminister
                 ) {
                     $dispatcher = $router->getDispatcher();
                     $this->addAction(

@@ -110,13 +110,12 @@ class StageParticipantGridRow extends GridRow
 
             $user = $request->getUser();
             $contextId = $context ? $context->getId() : 0; // 0 in case context is not available
+            $canAdminister = Validation::getAdministrationLevel($userId, $user->getId(), $contextId) === Validation::ADMINISTRATION_FULL;
+
             if (
                 !Validation::loggedInAs() &&
                 $user->getId() != $userId &&
-                (
-                    Validation::isSiteAdmin() ||
-                    $user->hasRole([Role::ROLE_ID_MANAGER], $contextId)
-                )
+                $canAdminister
             ) {
                 $dispatcher = $router->getDispatcher();
                 $userGroup = Repo::userGroup()->get($userGroupId);

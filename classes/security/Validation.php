@@ -463,7 +463,8 @@ class Validation
             ->filterByContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
             ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
             ->filterByUserIds([$administeredUserId])
-            ->getCount() > 0;
+            ->getQueryBuilder()
+            ->exists();
 
         if ($isAdministeredSiteAdmin) {
             return self::ADMINISTRATION_PROHIBITED;
@@ -475,7 +476,8 @@ class Validation
             ->filterByContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
             ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN])
             ->filterByUserIds([$administratorUserId])
-            ->getCount() > 0;
+            ->getQueryBuilder()
+            ->exists();
 
         if ($isAdministratorSiteAdmin) {
             return self::ADMINISTRATION_FULL;
@@ -486,7 +488,8 @@ class Validation
             ->getCollector()
             ->filterByUserIds([$administratorUserId])
             ->filterByRoleIds([Role::ROLE_ID_MANAGER])
-            ->getCount() > 0;
+            ->getQueryBuilder()
+            ->exists();
 
         if (!$hasManagerRole) {
             return self::ADMINISTRATION_PROHIBITED;

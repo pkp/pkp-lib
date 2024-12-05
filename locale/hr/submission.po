@@ -2014,7 +2014,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Urednik {$userName} je potvrdio recenziju za rundu {$round} recenzije za "
+"Urednik {$editorName} je potvrdio recenziju za rundu {$round} recenzije za "
 "predaju {$submissionId}."
 
 msgid "log.review.reviewReady"

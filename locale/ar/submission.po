@@ -1976,7 +1976,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"المحرر {$userName} قد أكد إجراء الجولة {$round} لتحكيم طلب التقديم "
+"المحرر {$editorName} قد أكد إجراء الجولة {$round} لتحكيم طلب التقديم "
 "{$submissionId}."
 
 msgid "log.review.reviewReady"

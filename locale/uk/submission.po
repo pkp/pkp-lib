@@ -2053,7 +2053,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Редактор {$userName} підтвердив рецензію для раунду {$round} рецензування "
+"Редактор {$editorName} підтвердив рецензію для раунду {$round} рецензування "
 "для подання {$submissionId}."
 
 msgid "log.review.reviewReady"

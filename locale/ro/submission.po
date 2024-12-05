@@ -1928,7 +1928,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editorul {$userName} a confirmat o revizie pentru runda {$round} pentru "
+"Editorul {$editorName} a confirmat o revizie pentru runda {$round} pentru "
 "manuscrisul {$submissionId}."
 
 msgid "log.review.reviewReady"

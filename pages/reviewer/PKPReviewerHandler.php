@@ -239,7 +239,7 @@ class PKPReviewerHandler extends Handler
         PKPRequest $request,
         Submission $reviewSubmission,
         ReviewAssignment $reviewAssignment
-    ): ReviewerReviewForm {
+    ): ?ReviewerReviewForm {
         switch ($step) {
             case 1:
                 return new \PKP\submission\reviewer\form\PKPReviewerReviewStep1Form($request, $reviewSubmission, $reviewAssignment);

@@ -133,8 +133,8 @@ class ReviewerAction
 
         // Get editorial contact name
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        // Eager loading 'userGroup' and 'user' relationships
-        $stageAssignments = StageAssignment::with(['userGroup', 'user'])
+        // Eager loading 'userGroup' relationship
+        $stageAssignments = StageAssignment::with(['userGroup'])
             ->withSubmissionIds([$submission->getId()])
             ->withStageIds([$reviewAssignment->getStageId()])
             ->get();
@@ -146,7 +146,7 @@ class ReviewerAction
                 continue;
             }
 
-            $recipients[] = $stageAssignment->user;
+            $recipients[] = Repo::user()->get($stageAssignment->userId);
         }
 
         // Create dummy user if no one assigned

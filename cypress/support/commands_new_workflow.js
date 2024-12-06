@@ -208,7 +208,7 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 	cy.login(username, password, context);
 	cy.get('nav').contains(viewName).click();
 	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').click()
+		cy.get('button').contains('View').scrollIntoView().should('be.visible').click()
 	})
 });
 
@@ -562,7 +562,7 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 });
 
 Cypress.Commands.add('clickStageParticipantButton', (participantName, buttonLabel) => {
-	cy.get(`[aria-label="${participantName} More Actions"]`).click();
+	cy.get(`[aria-label="${participantName} More Actions"]`).scrollIntoView().should('be.visible').click();
 	cy.get('button').contains(buttonLabel).click();
 });
 

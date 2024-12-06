@@ -71,6 +71,8 @@ class ReviewerRecommendationsListPanel extends ListPanel
                 'confirmActivateMessage' => __('manager.reviewerRecommendations.confirmActivate'),
                 'deactivateTitle' => __('manager.reviewerRecommendations.deactivate.title'),
                 'confirmDeactivateMessage' => __('manager.reviewerRecommendations.confirmDeactivate'),
+                'recommendationNameTitle' => __('manager.reviewerRecommendations.list.name.title'),
+                'recommendationStatusTitle' => __('manager.reviewerRecommendations.list.status.title'),
                 'apiUrl' => $this->getReviewerRecommendationsApiUrl(),
                 'form' => $this->getLocalizedForm(),
                 'items' => $this->items,

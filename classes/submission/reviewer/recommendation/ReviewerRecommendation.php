@@ -143,7 +143,7 @@ class ReviewerRecommendation extends Model
     protected function removable(): Attribute
     {
         return Attribute::make(
-            get: fn () => Repo::reviewAssignment()
+            get: fn () => !Repo::reviewAssignment()
                 ->getCollector()
                 ->filterByRecommenddations([$this->value])
                 ->getQueryBuilder()

@@ -17,6 +17,8 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use Illuminate\Support\Arr;
+
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -49,6 +51,7 @@ use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\submission\GenreDAO;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -522,6 +525,25 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         $context = $this->get($context->getId());
 
+        $locales = array_merge(
+            Arr::wrap($context->getData('primaryLocale')),
+            $context->getData('supportedLocales')
+        );
+        foreach(ReviewerRecommendation::seedableRecommendations() as $recommendationValue => $translatableKey) {
+            ReviewerRecommendation::create([
+                'contextId' => $context->getId(),
+                'value' => $recommendationValue,
+                'status' => 1,
+                'title' => collect($locales)
+                    ->mapWithKeys(
+                        fn (string $locale): array => [
+                            $locale => Locale::get($translatableKey, [], $locale)
+                        ]
+                    )
+                    ->toArray(),
+            ]);
+        }
+
         // Move uploaded files into place and update the settings
         $supportedLocales = $context->getSupportedFormLocales();
         $fileUploadProps = ['favicon', 'homepageImage', 'pageHeaderLogoImage'];
@@ -629,7 +651,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao->deleteByContextId($context->getId());
 
         // TODO is it OK to delete without listening Model's delete-associated events (not loading each Model)?
-        Announcement::withContextIds([$context->getId])->delete();
+        Announcement::withContextIds([$context->getId()])->delete();
+        ReviewerRecommendation::query()->withContextId($context->getId())->delete();
 
         Repo::highlight()
             ->getCollector()

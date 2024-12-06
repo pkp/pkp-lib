@@ -17,6 +17,7 @@
 namespace PKP\navigationMenu;
 
 use APP\core\Application;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;

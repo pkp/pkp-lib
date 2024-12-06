@@ -94,16 +94,36 @@ class LocaleConversion
     /**
      * Translate the PKP locale identifier into an ISO639-2b compatible 3-letter string.
      */
-    public static function get3LetterIsoFromLocale(?string $locale): ?string
+    public static function get3LetterIsoFromLocale(string $locale): ?string
     {
-        $iso2Letter = substr($locale, 0, 2);
-        return static::get3LetterFrom2LetterIsoLanguage($iso2Letter);
+        if (!Locale::isLocaleValid($locale)) {
+            return null;
+        }
+        try {
+            $languages = self::getISO6392b();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+        $language = \Locale::getPrimaryLanguage($locale);
+
+        foreach (reset($languages) as $languageRaw) {
+            if (($languageRaw['alpha_2'] ?? null) === $language || $languageRaw['alpha_3'] === $language) {
+                if ($languageRaw['bibliographic'] ?? null) {
+                    return $languageRaw['bibliographic'];
+                }
+                return $languageRaw['alpha_3'] ?? null;
+            }
+        }
+        return null;
     }
 
     /**
      * Translate an ISO639-2b compatible 3-letter string into the PKP locale identifier.
      * This can be ambiguous if several locales are defined for the same language. In this case we'll use the primary locale to disambiguate.
      * If that still doesn't determine a unique locale then we'll choose the first locale found.
+     *
+     * @deprecated 3.5
      */
     public static function getLocaleFrom3LetterIso(?string $iso3Letter): ?string
     {
@@ -140,7 +160,7 @@ class LocaleConversion
     /**
      * Translate the ISO 2-letter language string (ISO639-1) into ISO639-3.
      */
-    public static function getIso3FromIso1(?string $iso1): ?string
+    public static function getIso3FromIso1(string $iso1): ?string
     {
         $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha2() === $iso1);
         return $locale ? $locale->getIsoAlpha3() : null;
@@ -149,7 +169,7 @@ class LocaleConversion
     /**
      * Translate the ISO639-3 into ISO639-1.
      */
-    public static function getIso1FromIso3(?string $iso3): ?string
+    public static function getIso1FromIso3(string $iso3): ?string
     {
         $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha3() === $iso3);
         return $locale ? $locale->getIsoAlpha2() : null;
@@ -158,17 +178,24 @@ class LocaleConversion
     /**
      * Translate the PKP locale identifier into an ISO639-3 compatible 3-letter string.
      */
-    public static function getIso3FromLocale(?string $locale): ?string
+    public static function getIso3FromLocale(string $locale): ?string
     {
-        $iso1 = substr($locale, 0, 2);
-        return static::getIso3FromIso1($iso1);
+        if (!Locale::isLocaleValid($locale)) {
+            return null;
+        }
+        $localeMetadata = new LocaleMetadata($locale);
+        return $localeMetadata->getIsoAlpha3();
     }
 
     /**
      * Translate the PKP locale identifier into an ISO639-1 compatible 2-letter string.
      */
-    public static function getIso1FromLocale(?string $locale): string
+    public static function getIso1FromLocale(string $locale): ?string
     {
-        return substr($locale, 0, 2);
+        if (!Locale::isLocaleValid($locale)) {
+            return null;
+        }
+        $localeMetadata = new LocaleMetadata($locale);
+        return $localeMetadata->getIsoAlpha2();
     }
 }

@@ -308,6 +308,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register custom functions
+        $this->registerPlugin('modifier', 'trim', trim(...));
         $this->registerPlugin('modifier', 'date_format', $this->smartyDateFormat(...));
         $this->registerPlugin('modifier', 'is_numeric', is_numeric(...));
         $this->registerPlugin('modifier', 'get_class', get_class(...));
@@ -987,7 +988,7 @@ class PKPTemplateManager extends Smarty
 
                 if ($request->getContext()) {
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
-                        if(Config::getVar('features', 'enable_new_submission_listing')) {
+                        if (Config::getVar('features', 'enable_new_submission_listing')) {
                             if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
                                 $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                                 $requestedPage = $router->getRequestedPage($request);
@@ -1016,7 +1017,7 @@ class PKPTemplateManager extends Smarty
                                     'submenu' => $viewsData
                                 ];
                             }
-                            if(count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
+                            if (count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
                                 $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_REVIEWER]);
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
@@ -1037,7 +1038,7 @@ class PKPTemplateManager extends Smarty
                                     'icon' => 'ReviewAssignments',
                                 ];
                             }
-                            if(count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
+                            if (count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
                                 $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_AUTHOR]);
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);

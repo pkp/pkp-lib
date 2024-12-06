@@ -1999,6 +1999,12 @@ msgstr "Are you sure you want to deactivate the recommendation {$title}"
 msgid "manager.reviewerRecommendations.deactivate.title"
 msgstr "Deactivate Reviewer Recommendation"
 
+msgid "manager.reviewerRecommendations.list.name.title"
+msgstr "Recommendations"
+
+msgid "manager.reviewerRecommendations.list.status.title"
+msgstr "Activate"
+
 msgid "manager.reviewForms"
 msgstr "Review Forms"
 

@@ -59,6 +59,12 @@ class Email extends Section
         $config->variables = [];
         $config->locale = Locale::getLocale();
         $config->locales = [];
+        foreach ($this->locales as $locale) {
+            $config->locales[] = [
+                'locale' => $locale,
+                'name' => Locale::getMetadata($locale)->getDisplayName(),
+            ];
+        }
         return $config;
     }
 

@@ -47,7 +47,7 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
     {
         $this->recommendationInstallMigration->up();
 
-        $this->seedNonRemovableRecommendations();
+        $this->seedNonRemovableRecommendations($this->systemDefineNonRemovableRecommendations());
     }
 
     /**
@@ -59,15 +59,13 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
     }
 
     // TODO : Optimize the process if possible 
-    protected function seedNonRemovableRecommendations(): void
+    protected function seedNonRemovableRecommendations(array $nonRemovablerecommendations): void
     {
-        $nonRemovablerecommendations = $this->systemDefineNonRemovableRecommendations();
-
         if (empty($nonRemovablerecommendations)) {
             return;
         }
 
-        $currentLocale = Locale::getLocale();
+        // $currentLocale = Locale::getLocale();
         $contextSupportedLocales = DB::table($this->recommendationInstallMigration->contextTable())
             ->select($this->recommendationInstallMigration->contextPrimaryKey())
             ->addSelect([
@@ -93,7 +91,6 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
                 $recommendations[$recommendationValue] = [
                     'contextId' => null,
                     'value' => $recommendationValue,
-                    'removable' => 0,
                     'status' => 1,
                     'title' => [],
                 ];
@@ -111,14 +108,18 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
 
             foreach ($allContextSupportLocales as $locale) {
                 
-                Locale::setLocale($locale);
+                // Locale::setLocale($locale);
 
                 foreach ($nonRemovablerecommendations as $recommendationValue => $translatableKey) {
-                    $recommendations[$recommendationValue]['title'][$locale] = __($translatableKey);
+                    $recommendations[$recommendationValue]['title'][$locale] = Locale::get(
+                        $translatableKey,
+                        [],
+                        $locale
+                    );
                 }
             }
             
-            Locale::setLocale($currentLocale);
+            // Locale::setLocale($currentLocale);
 
             $contextSupportedLocales->each(
                 fn (array $supportedLocales, int $contextId) => collect($recommendations)->each(
@@ -142,7 +143,7 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
         } catch (Throwable $exception) {
 
             DB::rollBack();
-            Locale::setLocale($currentLocale);
+            // Locale::setLocale($currentLocale);
             ReviewerRecommendation::reguard();
 
             throw $exception;

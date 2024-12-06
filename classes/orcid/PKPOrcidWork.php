@@ -88,11 +88,15 @@ abstract class PKPOrcidWork
             ],
             'publication-date' => $this->buildOrcidPublicationDate($this->publication),
             'url' => $publicationUrl,
-            'language-code' => LocaleConversion::getIso1FromLocale($publicationLocale),
             'contributors' => [
                 'contributor' => $this->buildOrcidContributors($this->authors, $this->context, $this->publication)
             ]
         ];
+
+        $iso1PublicationLocale = LocaleConversion::getIso1FromLocale($publicationLocale);
+        if ($iso1PublicationLocale) {
+            $orcidWork['language-code'] = $iso1PublicationLocale;
+        }
 
         $bibtexCitation = $this->getBibtexCitation($submission);
         if (!empty($bibtexCitation)) {
@@ -106,7 +110,10 @@ abstract class PKPOrcidWork
 
         foreach ($this->publication->getData('title') as $locale => $title) {
             if ($locale !== $publicationLocale) {
-                $orcidWork['title']['translated-title'] = ['value' => $title, 'language-code' => LocaleConversion::getIso1FromLocale($locale)];
+                $iso1Locale = LocaleConversion::getIso1FromLocale($locale);
+                if ($iso1Locale) {
+                    $orcidWork['title']['translated-title'] = ['value' => $title, 'language-code' => $iso1Locale];
+                }
             }
         }
 
@@ -293,8 +300,6 @@ abstract class PKPOrcidWork
     /**
      * Gets any non-DOI PubId external IDs, e.g. for Issues
      *
-     * @param PubIdPlugin $plugin
-     * @return array
      */
     protected function getAppPubIdExternalIds(PubIdPlugin $plugin): array
     {
@@ -304,7 +309,6 @@ abstract class PKPOrcidWork
     /**
      * Gets any app-specific DOI external IDs, e.g. for Issues
      *
-     * @return array
      */
     protected function getAppDoiExternalIds(): array
     {
@@ -314,8 +318,6 @@ abstract class PKPOrcidWork
     /**
      * Uses the CitationStyleLanguage plugin to get bibtex citation if possible
      *
-     * @param Submission $submission
-     * @return string
      */
     protected function getBibtexCitation(Submission $submission): string
     {

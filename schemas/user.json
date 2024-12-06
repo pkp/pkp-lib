@@ -221,7 +221,7 @@
 			"type": "string",
 			"description": "An optional field for users to specify the initials that they want to be displayed in their avatars.",
 			"multilingual": false,
-			"apiSummary": true,
+			"apiSummary": false,
 			"validation": [
 				"nullable",
 				"max:2"
@@ -337,6 +337,11 @@
 					}
 				}
 			}
+		},
+		"displayInitials": {
+			"description": "The initials that will be displayed for a user.",
+			"type": "string",
+			"apiSummary": true
 		}
 	}
 }

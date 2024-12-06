@@ -454,7 +454,8 @@ class Schema extends \PKP\core\maps\Schema
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
-                'reviewMethod' => $reviewAssignment->getData('reviewMethod')
+                'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
+                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId())->getDisplayInitials()
             ];
         }
 

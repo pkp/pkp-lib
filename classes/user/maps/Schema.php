@@ -257,6 +257,9 @@ class Schema extends \PKP\core\maps\Schema
 
                     $output['stageAssignments'] = $results;
                     break;
+                case 'displayInitials':
+                    $output['displayInitials'] = $user->getDisplayInitials();
+                    break;
                 default:
                     $output[$prop] = $user->getData($prop);
                     break;

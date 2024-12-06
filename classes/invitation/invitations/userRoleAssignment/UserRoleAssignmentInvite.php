@@ -35,6 +35,7 @@ use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
 use PKP\security\Validation;
+use PKP\user\User;
 
 class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 {
@@ -166,6 +167,11 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 $this->getPayload()->userGroupsToAdd
             );
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new UserMustExistRule($this->getUserId());
+        }
+
+        if (
+            $validationContext === ValidationContext::VALIDATION_CONTEXT_FINALIZE
+        ) {
             $invitationValidationRules[Invitation::VALIDATION_RULE_GENERIC][] = new EmailMustNotExistRule($this->getEmail());
         }
 
@@ -207,5 +213,25 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         // Call the parent updatePayload method to continue the normal update process
         return parent::updatePayload($validationContext);
     }
-    
+
+    public function changeInvitationUserIdUsingUserEmail(): ?bool
+    {
+        $invitationUserByEmail = $this->getExistingUserByEmail();
+
+        if (!isset($this->invitationModel->userId) && isset($invitationUserByEmail)) {
+            $this->invitationModel->userId = $invitationUserByEmail->getId();
+            $this->invitationModel->email = null;
+
+            $result =  $this->invitationModel->save();
+
+            if ($result) {
+                $this->getPayload()->shouldUseInviteData = true;
+
+                return $this->updatePayload();
+            }
+        }
+
+        return null;
+    }
+
 }

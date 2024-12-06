@@ -27,7 +27,7 @@ class ReviewerRecommendation extends Model
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
-    // TODO : add `recommendation_id` and `removable` as guarded column once pkp/pkp-lib#10292 and pkp/pkp-lib#10562 merged
+    // TODO : add `recommendation_id` as guarded column once pkp/pkp-lib#10292 and pkp/pkp-lib#10562 merged
     protected $guarded = [];
 
     /**
@@ -39,7 +39,6 @@ class ReviewerRecommendation extends Model
             'value'         => 'integer',
             'context_id'    => 'integer',
             'status'        => 'integer', // We cast the boolean to corresponding int e.g. true/false to 1/0
-            'removable'     => 'boolean',
         ];
     }
 
@@ -48,9 +47,9 @@ class ReviewerRecommendation extends Model
      */
     protected static function booted(): void
     {
-        static::creating(function (Model $recommendation) {
-            $recommendation->value = $recommendation->value;
-        });
+        static::creating(
+            fn (self $recommendation) => $recommendation->value = $recommendation->value
+        );
     }
 
     /**
@@ -59,6 +58,21 @@ class ReviewerRecommendation extends Model
     public function getSettingsTable(): string
     {
         return 'reviewer_recommendation_settings';
+    }
+
+    /**
+     * Get default recommendation seed data
+     */
+    public static function seedableRecommendations(): array
+    {
+        return [
+            1 => 'reviewer.article.decision.accept', // SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT
+            2 => 'reviewer.article.decision.pendingRevisions', // SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS
+            3 => 'reviewer.article.decision.resubmitHere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE
+            4 => 'reviewer.article.decision.resubmitElsewhere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE
+            5 => 'reviewer.article.decision.decline', // SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE
+            6 => 'reviewer.article.decision.seeComments', // SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS
+        ];
     }
 
     /**
@@ -101,7 +115,7 @@ class ReviewerRecommendation extends Model
                     $existingRecommendation = static::query()
                         ->withContextId($this->contextId)
                         ->where('value', $value)
-                        ->first();
+                        ->exists();
                     
                     if ($existingRecommendation) {
                         throw new Exception(
@@ -129,25 +143,11 @@ class ReviewerRecommendation extends Model
     protected function removable(): Attribute
     {
         return Attribute::make(
-            get: function () {
-                if (!$this->getRawOriginal('removable')) {
-                    return false;
-                }
-
-                $reviewAssignmentCount = Repo::reviewAssignment()
-                    ->getCollector()
-                    ->filterByRecommenddations([$this->value])
-                    ->getCount();
-                
-                return $reviewAssignmentCount === 0;
-            },
-            // TODO : MUST FIX ME !!! This cause issue at data seeding in migration process
-            set: function (bool $value) {
-                if (!is_null($this->getRawOriginal('removable'))) {
-                    return $this->getRawOriginal('removable');
-                }
-                return $value;
-            }
+            get: fn () => Repo::reviewAssignment()
+                ->getCollector()
+                ->filterByRecommenddations([$this->value])
+                ->getQueryBuilder()
+                ->exists()
         )->shouldCache();
     }
 

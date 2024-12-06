@@ -53,11 +53,6 @@ abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
                 ->default(true)
                 ->comment('The status which determine if will be showen in recommendation list');
 
-            $table
-                ->boolean('removable')
-                ->default(true)
-                ->comment('Describe if system define and non removable');
-
             $table->timestamps();
 
         });

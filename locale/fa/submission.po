@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2024-12-07 20:03+0000\n"
+"PO-Revision-Date: 2024-12-08 08:52+0000\n"
 "Last-Translator: Forouzan Karimi <forouzan.karimi@gmail.com>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fa/>\n"
@@ -1158,43 +1158,43 @@ msgid "submission.submit.form.keywordsRequired"
 msgstr "لطفا یک کلیدواژه را وارد کنید."
 
 msgid "submission.submit.form.coverageRequired"
-msgstr ""
+msgstr "لطفا اطلاعات پوشش محتوا را وارد کنید."
 
 msgid "submission.submit.form.typeRequired"
-msgstr ""
+msgstr "لطفا نوع را وارد کنید."
 
 msgid "submission.submit.form.sourceRequired"
-msgstr ""
+msgstr "لطفا منبع را وارد کنید."
 
 msgid "submission.submit.form.rightsRequired"
-msgstr ""
+msgstr "لطفا حقوق را وارد کنید."
 
 msgid "submission.submit.form.citationsRequired"
-msgstr ""
+msgstr "لطفا مراجع را وارد کنید."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "لطفاً بیانیه در دسترس بودن داده ها را وارد کنید."
 
 msgid "submission.form.name"
-msgstr "نام فایل را مشخص کنید( برای مثال: متن مقاله؛ جدول 1)"
+msgstr "نام فایل را مشخص کنید (برای مثال: متن مقاله؛ جدول 1)"
 
 msgid "submission.form.replaceExisting"
 msgstr "جایگزینی با فایل موجود؟"
 
 msgid "workflow.review.internalReview"
-msgstr "داور داخلی"
+msgstr "داوری داخلی"
 
 msgid "workflow.stage.any"
-msgstr "همه ی مراحل"
+msgstr "هر مرحله"
 
 msgid "workflow.stage"
 msgstr "مرحله"
 
 msgid "submission.status.editorial"
-msgstr "در حال ویراستیاری"
+msgstr "در حال ویراستاری"
 
 msgid "submission.status.production"
-msgstr "در حل بازبینی نهایی"
+msgstr "در مرحله بازبینی نهایی"
 
 msgid "submission.status.review"
 msgstr "در حال داوری"
@@ -1203,7 +1203,7 @@ msgid "submission.status.submission"
 msgstr "منتظر تصمیم سردبیر"
 
 msgid "submission.status.unassigned"
-msgstr "مشخص نشده"
+msgstr "اختصاص داده نشده است"
 
 msgid "submission.status.declined"
 msgstr "رد شده"
@@ -1215,55 +1215,56 @@ msgid "submission.submit.uploadStep"
 msgstr "1. آپلود فایل"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "آپلود فایل مقاله"
+msgstr "آپلود فایل دست نوشته"
 
 msgid "submission.submit.metadataStep"
-msgstr "2. بازبینی جزییات"
+msgstr "2. بازبینی جزئیات"
 
 msgid "submission.submit.finishingUpStep"
-msgstr "3. تایید"
+msgstr "3. تأیید"
 
 msgid "submission.submit.fileNameRequired"
-msgstr "باید برای این فایل یک نام مشخص کنید"
+msgstr "باید برای این فایل، یک نام مشخص کنید"
 
 msgid "submission.upload.noGenre"
-msgstr "اجزاء نامعتبر یا ناموجود!"
+msgstr "اجزای نامعتبر یا ناموجود!"
 
 msgid "submission.upload.invalidUserGroup"
 msgstr "گروه کاربری نامعتبر یا ناموجود!"
 
 msgid "submission.upload.possibleRevision"
-msgstr "شناسایی احتمالی فایل تکراری"
+msgstr "شناسایی فایل تکراری یا تجدیدنظرشده"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
-"نام فایل آپلودی با فایل آپلود شده قبلی شباهت داد ({$revisedFileName}). آیا "
-"میخواهید این فایل جایگزین شود؟ اگر بله که فایل را از زیر انتخاب کنید. وگرنه "
-"گزینه \"این فایل نسخه اصلاحی فایل موجود نیست\" را انتخاب کنید"
+"نام فایل آپلودشده، شبیه نام یک فایل آپلودشده قبلی، \"{$revisedFileName}\" "
+"است. آیا این فایل قرار است جایگزین «{$revisedFileName}» شود؟ اگر چنین است، "
+"فایل زیر را انتخاب کنید. در غیر این صورت، قبل از ادامه، \"This is not a "
+"revision of an موجود فایل\" را انتخاب کنید."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr "لطفاً فایلی که مایلید اصلاح کنید را انتخاب کنید."
+msgstr "لطفاً فایلی را که مایلید اصلاح کنید، انتخاب کنید."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
-"اگر قصد تغییر فایلی که پیشتر بارگذاری کرده اید را دارید ، نوع آن را مشخص کنید"
+"اگر قصد تغییر فایلی که پیشتر بارگذاری کرده اید را دارید، نوع آن را مشخص کنید."
 
 msgid "submission.upload.uploadNewFile"
-msgstr "این فایل نسخه اصلاحی فایل موجود نیست"
+msgstr "این، نسخه بازبینی شده و اصلاحی یک فایل موجود، نیست"
 
 msgid "submission.upload.userGroup"
-msgstr "بارگزاری این فایل تحت عنوان نقش …"
+msgstr "آپلود این فایل در نقش من به عنوان..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
-"اگر د رحال ثبت شماره ویراش شده هستید، باید تمامی فصل های این شماره را به "
-"صورت جداگانه آپلود کنید."
+"اگر یک جلد ویرایش شده ارسال می کنید، باید تمام فصل های جلد را به صورت "
+"جداگانه و تحت نقش خود به عنوان دبیر جلد آپلود کنید."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "آپلود فایل کتابخانه"
 
 msgid "submission.upload.libraryCategory"
-msgstr "ثبت حوزه سند"
+msgstr "ثبت دسته بندی و حوزه سند"
 
 msgid "submission.upload.finalDraft"
 msgstr "آپلود فایل"
@@ -1280,95 +1281,94 @@ msgstr ""
 "نظرات خود را در فایل جداگانه ای نوشته و آپلود نمایید."
 
 msgid "submission.upload.productionReady"
-msgstr "فایل آماده به تولید را آپلود کنید"
+msgstr "فایل آماده تولید را آپلود کنید"
 
 msgid "submission.upload.proof"
-msgstr "فایل آماده به انتشار را آپلود کنید."
+msgstr "فایل آماده انتشار را آپلود کنید"
 
 msgid "submission.upload.noAvailableReviewFiles"
-msgstr "هیچ فایلی برای بررسی در این مرحله وجود ندارد."
+msgstr "در حال حاضر، هیچ فایلی جهت اصلاح، برای شما وجود ندارد."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "نیازمند انجام اصلاحات"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "اصلاحات ثبت شد."
+msgstr "اصلاحات، ثبت شده است و تصمیم گیری لازم است."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr ""
+msgstr "دست نوشته، باید دوباره برای یک دور داوری دیگر ارسال شود."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr ""
+msgstr "دست نوشته، برای یک دور داوری دیگر، مجدداً ارسال شده است."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "ارسال به داور خارجی"
+msgstr "به داور خارجی ارسال شد."
 
 msgid "editor.submission.roundStatus.accepted"
-msgstr "مقاله ارسالی پذیرش شد."
+msgstr "دست نوشته ارسالی، پذیرش شد."
 
 msgid "editor.submission.roundStatus.declined"
-msgstr "مقاله ارسالی پذیرش نشد."
+msgstr "دست نوشته ارسالی، پذیرش نشد."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
 msgstr "در حال انتظار برای انتخاب داور"
 
 msgid "editor.submission.roundStatus.pendingReviews"
-msgstr "درخواست‌های داوری در انتظار تأیید"
+msgstr "در انتظار پاسخ از داوران."
 
 msgid "editor.submission.roundStatus.reviewsReady"
-msgstr "داوری جدید ثبت شد."
+msgstr "داوری های جدید ثبت شدند."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "داوری تکمیل شد."
+msgstr "همه داورها، پاسخ داده اند و تصمیم گیری لازم است."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr "مهلت داوری سپری شده است."
+msgstr "مهلت داوری، سپری شده است."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "در انتظار توصیه دبیر"
+msgstr "در انتظار توصیه های دبیران"
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "یک توصیه جدید ثبت شد."
+msgstr "یک توصیه جدید توسط دبیر ثبت شد."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "تمام توصیه‌ها ثبت شده است و نیازمند اتخاذ تصمیم است"
+msgstr "تمام توصیه‌ها ثبت شده است و نیازمند اتخاذ تصمیم است."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "برای بیش از {$days} روز در مرحله {$stage} غیرفعال است."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "یک دست نوشته جدید در انتظار ارسال برای بررسی است، یا رد شده است."
 
 msgid "editor.submission.stageParticipants"
-msgstr "همکاران"
+msgstr "مشارکت کنندگان (همکاران)"
 
 msgid "editor.submission.noneAssigned"
 msgstr "انتساب داده نشده"
 
 msgid "editor.submission.participant"
-msgstr "همکار"
+msgstr "مشارکت کننده (همکار)"
 
 msgid "editor.submission.addStageParticipant"
-msgstr "افزودن همکار"
+msgstr "افزودن مشارکت کننده (همکار)"
 
 msgid "editor.submission.editStageParticipant"
-msgstr ""
+msgstr "ویرایش محتوا"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
-"کاربران بر اساس گروه کاربری‌شان به مراحل گردش کار انتساب داده می‌شوند.هر "
-"کاربری که به این مرحله افزوده شود. به صورت خودکار به تمامی مرحله‌هایی که آن "
-"گروه کاربری می‌تواند انتساب یابد، انتساب داده می‌شود. این عمل به صورت معمول "
-"برای سردبیر، نویسنده و مترجمان است."
+"کاربران بر اساس گروه کاربری‌شان به مراحل گردش کار انتساب داده می‌شوند. هر "
+"کاربری که به این مرحله افزوده شود، به صورت خودکار به تمامی مرحله‌هایی که آن "
+"گروه کاربری می‌تواند منتسب شود، انتساب داده می‌شود. این عمل به صورت معمول "
+"برای سردبیر، مؤلفین، و مترجمین است."
 
 msgid "editor.submission.removeStageParticipant"
-msgstr "حذف همکار"
+msgstr "حذف مشارکت کننده (همکار)"
 
 msgid "editor.submission.removeStageParticipant.description"
 msgstr ""
-"شما در حال حذف این همکار از <strong>تمامی</strong> مراحل هستید. حتی اگر یک "
-"حسابرسی در حال انجام نیز داشته باشد، تمامی آن‌ها حذف خواهند شد."
+"شما در حال حذف این مشارکت کننده (همکار) از <strong>تمامی</strong> مراحل "
+"هستید."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "باید یک گروه کاربری انتخاب شود."
@@ -1408,7 +1408,7 @@ msgid ""
 msgstr ""
 
 msgid "editor.submission.decision.accept"
-msgstr "ارسال برای ویراستاری"
+msgstr "پذیرش دست نوشته"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
@@ -2713,3 +2713,6 @@ msgstr "مؤلفین"
 
 msgid "submission.author.list"
 msgstr "فهرست مؤلفین ارسال کننده دست نوشته"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "بازگشت به داوری."

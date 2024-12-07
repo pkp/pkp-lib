@@ -436,6 +436,23 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
+     * Retrieves the issue ID associated with the publication.
+     */
+    public function getIssueId(): ?int
+    {
+        return $this->getData('issueId');
+    }
+
+
+    /**
+     * Sets the issue ID associated with the publication.
+     */
+    public function setIssueId(?int $issueId): void
+    {
+        $this->setData('issueId', $issueId);
+    }
+
+    /**
      * Get metadata language names
      */
     public function getLanguageNames(): array
@@ -446,7 +463,7 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Get languages from locale, metadata, and authors' props.
      * Include optional additional languages.
-     * 
+     *
      * Publication: locale, multilingual metadata props
      * Authors: multilingual props
      */

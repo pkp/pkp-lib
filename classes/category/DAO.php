@@ -155,22 +155,4 @@ class DAO extends EntityDAO
         }
     }
 
-    /**
-     * Assign a publication to a category
-     */
-    public function insertPublicationAssignment(int $categoryId, int $publicationId)
-    {
-        DB::table('publication_categories')->insert([
-            'category_id' => $categoryId,
-            'publication_id' => $publicationId,
-        ]);
-    }
-
-    /**
-     * Delete the assignment of a category to a publication
-     */
-    public function deletePublicationAssignments(int $publicationId)
-    {
-        DB::table('publication_categories')->where('publication_id', '=', $publicationId)->delete();
-    }
 }

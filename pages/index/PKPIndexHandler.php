@@ -46,7 +46,7 @@ class PKPIndexHandler extends Handler
             $announcements->withContextIds($contextIds);
 
             $templateMgr->assign([
-                'announcements' => $announcements->get()->toArray(),
+                'announcements' => $announcements->get(),
                 'numAnnouncementsHomepage' => $numAnnouncementsHomepage,
             ]);
         }

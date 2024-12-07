@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/announcement/Announcement.php
  *
@@ -15,6 +16,7 @@ namespace PKP\announcement;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -166,13 +168,14 @@ class Announcement extends Model
     }
 
     /**
+     * Limit returned announcements to those that have not expired by the specified date.
      *
      * @param string $date Optionally filter announcements by those
-     *    not expired until $date (YYYY-MM-DD)
+     *    not expired until $date
      */
-    protected function scopeWithActiveByDate(EloquentBuilder $builder, string $date = ''): EloquentBuilder
+    protected function scopeWithActiveByDate(EloquentBuilder $builder, Carbon $date = null): EloquentBuilder
     {
-        return $builder->where('date_expire', '>', empty($date) ? Core::getCurrentDate() : $date)
+        return $builder->where('date_expire', '>', $date ?? Carbon::now())
             ->orWhereNull('date_expire');
     }
 

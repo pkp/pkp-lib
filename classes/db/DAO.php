@@ -174,36 +174,11 @@ class DAO
     }
 
     /**
-     * Insert a row in a table, replacing an existing row if necessary.
-     *
-     * @param $arrFields Associative array of colName => value
-     * @param $keyCols Array of column names that are keys
-     *
-     * @deprecated 3.4
-     */
-    public function replace(string $table, array $arrFields, array $keyCols): void
-    {
-        $matchValues = array_filter($arrFields, fn ($key) => in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
-        $additionalValues = array_filter($arrFields, fn ($key) => !in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
-        DB::table($table)->updateOrInsert($matchValues, $additionalValues);
-    }
-
-    /**
      * Return the last ID inserted in an autonumbered field.
      */
     protected function getInsertId(): int
     {
         return DB::getPdo()->lastInsertId();
-    }
-
-    /**
-     * Return the last ID inserted in an autonumbered field.
-     *
-     * @deprecated 3.4
-     */
-    public function _getInsertId(): int
-    {
-        return $this->getInsertId();
     }
 
     /**
@@ -368,16 +343,6 @@ class DAO
         }
 
         return $value;
-    }
-
-    /**
-     * Cast the given parameter to an int, or leave it null.
-     *
-     * @deprecated 3.4
-     */
-    public function nullOrInt(mixed $value): ?int
-    {
-        return (empty($value) ? null : (int) $value);
     }
 
     /**
@@ -549,20 +514,6 @@ class DAO
                 empty($row->locale) ? null : $row->locale
             );
         }
-    }
-
-    /**
-     * Get the direction specifier for sorting from a SORT_DIRECTION_... constant.
-     *
-     * @deprecated 3.4
-     */
-    public function getDirectionMapping(int $direction): string
-    {
-        return match($direction) {
-            self::SORT_DIRECTION_ASC => 'ASC',
-            self::SORT_DIRECTION_DESC => 'DESC',
-            default => 'ASC'
-        };
     }
 
     /**

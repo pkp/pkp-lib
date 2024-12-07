@@ -20,7 +20,7 @@ namespace PKP\announcement;
 
 use APP\core\Application;
 use Generator;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
 class AnnouncementTypeDAO extends \PKP\db\DAO

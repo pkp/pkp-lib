@@ -454,7 +454,10 @@ class DAO
                             $updateArray['setting_type'] = null;
                             // Convert the data value and implicitly set the setting type.
                             $updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
-                            $this->replace($tableName, $updateArray, $idFields);
+
+                            $matchValues = array_filter($updateArray, fn ($key) => in_array($key, $idFields), ARRAY_FILTER_USE_KEY);
+                            $additionalValues = array_filter($updateArray, fn ($key) => !in_array($key, $idFields), ARRAY_FILTER_USE_KEY);
+                            DB::table($tableName)->updateOrInsert($matchValues, $additionalValues);
                         }
                     } else {
                         // Data is maintained "sparsely". Only set fields will be

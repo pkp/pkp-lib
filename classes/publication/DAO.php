@@ -28,6 +28,7 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @template T of Publication
@@ -489,13 +490,12 @@ class DAO extends EntityDAO
      */
     protected function setCategories(Publication $publication)
     {
-        $publication->setData(
-            'categoryIds',
-            Repo::category()->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->getIds()
-                ->toArray()
-        );
+        try {
+            $categoryIds = PublicationCategory::getCategoriesByPublicationId($publication->getId());
+            $publication->setData('categoryIds', $categoryIds);
+        } catch (\Exception $e) {
+            error_log('Error setting categories: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -503,11 +503,14 @@ class DAO extends EntityDAO
      */
     protected function saveCategories(Publication $publication)
     {
-        Repo::category()->dao->deletePublicationAssignments($publication->getId());
-        if (!empty($publication->getData('categoryIds'))) {
-            foreach ($publication->getData('categoryIds') as $categoryId) {
-                Repo::category()->dao->insertPublicationAssignment($categoryId, $publication->getId());
+        try {
+            $categoryIds = (array) $publication->getData('categoryIds');
+            if (empty($categoryIds)) {
+                $categoryIds = [];
             }
+            PublicationCategory::assignCategoriesToPublication($publication->getId(), $categoryIds);
+        } catch (\Exception $e) {
+            error_log('Failed to save categories for publication: ' . $e->getMessage());
         }
     }
 
@@ -516,7 +519,11 @@ class DAO extends EntityDAO
      */
     protected function deleteCategories(int $publicationId)
     {
-        Repo::category()->dao->deletePublicationAssignments($publicationId);
+        try {
+            PublicationCategory::where('publication_id', $publicationId)->delete();
+        } catch (\Exception $e) {
+            error_log('Failed to delete categories for publication: ' . $e->getMessage());
+        }
     }
 
     /**

@@ -37,7 +37,6 @@ use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
-use PKP\components\forms\publication\PublicationVersionStageForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\context\Context;
@@ -2077,33 +2076,6 @@ class PKPSubmissionController extends PKPBaseController
         $submissionLocale = $submission->getData('locale');
 
         return response()->json($this->getLocalizedForm($changeSubmissionLanguageMetadataForm, $submissionLocale, $locales), Response::HTTP_OK);
-    }
-
-    /**
-     * Get ChangeSubmissionLanguageMetadata Form component
-     */
-    protected function getJAVStageMetadata(Request $illuminateRequest): JsonResponse
-    {
-        $request = $this->getRequest();
-        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
-
-        $context = $data['context']; /** @var Context $context*/
-        $submission = $data['submission']; /** @var Submission $submission */
-        $publication = $data['publication']; /** @var Publication $publication*/
-
-        $locales = $this->getPublicationFormLocales($context, $submission);
-
-        $changeVersionStageApiUrl = $request->getDispatcher()->url(
-            $request,
-            Application::ROUTE_API,
-            $context->getData('urlPath'),
-            "submissions/{$submission->getId()}/publications/{$publication->getId()}/changeJavStageAndNumbering"
-        );
-
-        $changePublicationVersionStageForm = new PublicationVersionStageForm($changeVersionStageApiUrl, $submission, $publication, $context);
-        $submissionLocale = $submission->getData('locale');
-
-        return response()->json($this->getLocalizedForm($changePublicationVersionStageForm, $submissionLocale, $locales), Response::HTTP_OK);
     }
 
     /**

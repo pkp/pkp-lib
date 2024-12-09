@@ -93,7 +93,7 @@ class LanguageGridHandler extends GridHandler
         $permittedSettings = ['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales', 'supportedSubmissionMetadataLocales'];
         if (in_array($settingName, $permittedSettings) && $locale) {
             $currentSettingValue = (array) $context->getData($settingName);
-            $isValidLocale = in_array($settingName, array_slice($permittedSettings, 0, 2)) ? Locale::isLocaleValid($locale) : Locale::isSubmissionLocaleValid($locale);
+            $isValidLocale = Locale::isLocaleValid($locale);
             if ($isValidLocale && array_key_exists($locale, $availableLocales)) {
                 if ($settingValue) {
                     (array_push($currentSettingValue, $locale) && sort($currentSettingValue));
@@ -215,7 +215,7 @@ class LanguageGridHandler extends GridHandler
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);
 
-        if (Locale::isSubmissionLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
+        if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
             app()->get('context')->edit(
                 $context,

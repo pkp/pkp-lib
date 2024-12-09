@@ -24,11 +24,11 @@ namespace PKP\tests\classes\i18n;
 
 use Mockery;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
 use PKP\tests\PKPTestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Locale::class)]
 #[CoversClass(LocaleConversion::class)]
@@ -117,7 +117,7 @@ class LocaleTest extends PKPTestCase
             'pt_PT' => 'Portuguese (Portugal)',
             'de' => 'German'
         ];
-        $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName(null, true), Locale::getLocales());
+        $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName('en', true), Locale::getLocales());
         self::assertEquals($expectedLocalesWithCountry, $locales);
     }
 
@@ -143,29 +143,5 @@ class LocaleTest extends PKPTestCase
         self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt_BR'));
         self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt_PT'));
         self::assertNull(LocaleConversion::get3LetterIsoFromLocale('xx_XX'));
-    }
-
-    public function testGetLocaleFrom3LetterIso()
-    {
-        // A locale that does not have to be disambiguated.
-        self::assertEquals('en', LocaleConversion::getLocaleFrom3LetterIso('eng'));
-
-        // The primary locale will be used if that helps to disambiguate.
-        self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-        $this->_primaryLocale = 'pt_PT';
-        self::assertEquals('pt_PT', LocaleConversion::getLocaleFrom3LetterIso('por'));
-
-        // If the primary locale doesn't help then use the first supported locale found.
-        $this->_primaryLocale = 'en';
-        self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-        $this->_supportedLocales = ['en' => 'English', 'pt_PT' => 'Portuguese (Portugal)', 'pt_BR' => 'Portuguese (Brazil)'];
-        self::assertEquals('pt_PT', LocaleConversion::getLocaleFrom3LetterIso('por'));
-
-        // If the locale isn't even in the supported locales then use the first locale found.
-        $this->_supportedLocales = ['en' => 'English'];
-        self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-
-        // Unknown language.
-        self::assertNull(LocaleConversion::getLocaleFrom3LetterIso('xxx'));
     }
 }

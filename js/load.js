@@ -39,6 +39,8 @@ import PanelSection from '@/components/Panel/PanelSection.vue';
 import PkpButton from '@/components/Button/Button.vue';
 import PkpHeader from '@/components/Header/Header.vue';
 import Spinner from '@/components/Spinner/Spinner.vue';
+import SpinnerFullScreen from '@/components/Spinner/SpinnerFullScreen.vue';
+
 import Step from '@/components/Steps/Step.vue';
 import Steps from '@/components/Steps/Steps.vue';
 import Tab from '@/components/Tabs/Tab.vue';
@@ -134,6 +136,8 @@ VueRegistry.registerComponent('PkpButton', PkpButton);
 VueRegistry.registerComponent('PkpHeader', PkpHeader);
 VueRegistry.registerComponent('Spinner', Spinner);
 VueRegistry.registerComponent('PkpSpinner', Spinner);
+VueRegistry.registerComponent('PkpSpinnerFullScreen', SpinnerFullScreen);
+
 VueRegistry.registerComponent('Step', Step);
 VueRegistry.registerComponent('PkpStep', Step);
 VueRegistry.registerComponent('Steps', Steps);

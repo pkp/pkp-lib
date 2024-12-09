@@ -365,6 +365,7 @@ class PKPString {
 	{
 		return [
 			'html:text/xml' => 'text/html',
+			'xhtml:text/xml' => 'text/html',
 			'css:text/x-c' => 'text/css',
 			'css:text/plain' => 'text/css',
 			'csv:text/plain' => 'text/csv',

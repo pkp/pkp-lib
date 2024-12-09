@@ -23,7 +23,6 @@ use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
-use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\invitations\userRoleAssignment\helpers\UserGroupHelper;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
@@ -45,6 +44,8 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
      */
     public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool 
     {
+        $this->invitation->changeInvitationUserIdUsingUserEmail();
+
         $user = $this->invitation->getExistingUser();
         if (!isset($user)) {
             $controller->addPolicy(new AnonymousUserPolicy($request));

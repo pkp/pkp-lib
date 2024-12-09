@@ -39,13 +39,16 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
     public function acceptHandle(Request $request): void
     {
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('invitation', $this->invitation);
+
+        $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
+
+        $templateMgr->assign('invitation', $this->getInvitation());
         $context = $request->getContext();
         $steps = new AcceptInvitationStep();
-        $invitationModel = $this->invitation->invitationModel->toArray();
+        $invitationModel = $this->getInvitation()->invitationModel->toArray();
         $user = $invitationModel['userId'] ?Repo::user()->get($invitationModel['userId']) : null;
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation,$context,$user),
+            'steps' => $steps->getSteps($this->getInvitation(),$context,$user),
             'primaryLocale' => $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,
@@ -69,6 +72,8 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             $request->getDispatcher()->handle404('The link is deactivated as the invitation was cancelled');
         }
+
+        $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
 
         $context = $request->getContext();
 

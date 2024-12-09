@@ -42,6 +42,7 @@ use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 use PKP\config\Config;
+use PKP\userGroup\UserGroup;
 
 abstract class Repository
 {
@@ -176,7 +177,11 @@ abstract class Repository
         $dispatcher = $request->getDispatcher();
 
         // Check if the user is an author of this submission
-        $authorUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_AUTHOR);
+        $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->get()
+            ->map(fn($userGroup) => $userGroup->id)
+            ->toArray();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
@@ -187,6 +192,7 @@ abstract class Repository
         foreach ($stageAssignments as $stageAssignment) {
             if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
                 $authorDashboard = true;
+                break;
             }
         }
 

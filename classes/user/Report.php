@@ -21,7 +21,6 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\userGroup\UserGroup;
 
@@ -79,7 +78,7 @@ class Report
             __('common.mailingAddress'),
             __('user.dateRegistered'),
             __('common.updated'),
-            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalizedName(), $this->_getUserGroups())
+            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'), $this->_getUserGroups())
         ];
     }
 
@@ -90,11 +89,23 @@ class Report
      */
     private function _getDataRow(User $user): array
     {
-        $userGroups = Repo::userGroup()->userUserGroups($user->getId());
-        $groups = [];
-        foreach ($userGroups as $userGroup) {
-            $groups[$userGroup->getId()] = 0;
-        }
+        // fetch user groups where the user is assigned
+        $userGroups = UserGroup::query()
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->where('user_id', $user->getId())
+                    ->where(function ($q) {
+                        $q->whereNull('date_end')
+                            ->orWhere('date_end', '>', now());
+                    })
+                    ->where(function ($q) {
+                        $q->whereNull('date_start')
+                            ->orWhere('date_start', '<=', now());
+                    });
+            })
+            ->get();
+
+        // get the IDs of the user's groups
+        $userGroupIds = $userGroups->pluck('user_group_id')->all();
 
         return [
             $user->getId(),
@@ -106,7 +117,10 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            ...array_map(fn (UserGroup $userGroup) => __(isset($groups[$userGroup->getId()]) ? 'common.yes' : 'common.no'), $this->_getUserGroups())
+            ...array_map(
+                fn (UserGroup $userGroup) => __(in_array($userGroup->id, $userGroupIds) ? 'common.yes' : 'common.no'),
+                $this->_getUserGroups()
+            )
         ];
     }
 
@@ -118,9 +132,8 @@ class Report
     private function _getUserGroups(): array
     {
         static $cache;
-        return $cache ??= Repo::userGroup()->getCollector()
-            ->filterByContextIds([$this->_request->getContext()->getId()])
-            ->getMany()
+        return $cache ??= UserGroup::withContextIds([$this->_request->getContext()->getId()])
+            ->get()
             ->toArray();
     }
 }

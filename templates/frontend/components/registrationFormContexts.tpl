@@ -41,11 +41,11 @@
 									{translate key="user.register.otherContextRoles"}
 								</legend>
 								{foreach from=$readerUserGroups[$contextId] item=userGroup}
-									{if $userGroup->getPermitSelfRegistration()}
-										{assign var="userGroupId" value=$userGroup->getId()}
+									{if $userGroup->permitSelfRegistration}
+										{assign var="userGroupId" value=$userGroup->id}
 										<label>
 											<input type="checkbox" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
-											{$userGroup->getLocalizedName()}
+											{$userGroup->getLocalizedData('name')}
 										</label>
 										{if in_array($userGroupId, $userGroupIds)}
 											{assign var=isSelected value=true}
@@ -53,11 +53,11 @@
 									{/if}
 								{/foreach}
 								{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-									{if $userGroup->getPermitSelfRegistration()}
-										{assign var="userGroupId" value=$userGroup->getId()}
+									{if $userGroup->permitSelfRegistration}
+										{assign var="userGroupId" value=$userGroup->id}
 										<label>
 											<input type="checkbox" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
-											{$userGroup->getLocalizedName()}
+											{$userGroup->getLocalizedData('name')}
 										</label>
 										{if in_array($userGroupId, $userGroupIds)}
 											{assign var=isSelected value=true}

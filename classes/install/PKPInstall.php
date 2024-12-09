@@ -43,6 +43,7 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\site\SiteDAO;
 use PKP\site\Version;
+use PKP\userGroup\UserGroup;
 
 class PKPInstall extends Installer
 {
@@ -231,22 +232,29 @@ class PKPInstall extends Installer
         $user->setInlineHelp(1);
         Repo::user()->add($user);
 
-        // Create an admin user group
-        $adminUserGroup = Repo::userGroup()->newDataObject();
-        $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
-        $adminUserGroup->setContextId(\PKP\core\PKPApplication::SITE_CONTEXT_ID);
-        $adminUserGroup->setPermitSettings(true);
-        $adminUserGroup->setDefault(true);
+        // Prepare multilingual 'name' and 'namePlural' settings
+        $names = [];
+        $namePlurals = [];
         foreach ($this->installedLocales as $locale) {
-            $name = __('default.groups.name.siteAdmin', [], $locale);
-            $namePlural = __('default.groups.plural.siteAdmin', [], $locale);
-            $adminUserGroup->setData('name', $name, $locale);
-            $adminUserGroup->setData('namePlural', $namePlural, $locale);
+            $names[$locale] = __('default.groups.name.siteAdmin', [], $locale);
+            $namePlurals[$locale] = __('default.groups.plural.siteAdmin', [], $locale);
         }
-        Repo::userGroup()->add($adminUserGroup);
 
-        // Put the installer into this user group
-        Repo::userGroup()->assignUserToGroup($user->getId(), $adminUserGroup->getId());
+        // Create an admin user group
+        $adminUserGroup = new UserGroup([
+            'roleId' => Role::ROLE_ID_SITE_ADMIN,
+            'contextId' => \PKP\core\PKPApplication::SITE_CONTEXT_ID,
+            'isDefault' => true,
+            'permitSettings' => true,
+            'name' => $names,
+            'namePlural' => $namePlurals,
+        ]);
+
+        // Save the UserGroup to the database
+        $adminUserGroup->save();
+
+        // Assign the user to the admin user group
+        Repo::userGroup()->assignUserToGroup($user->getId(), $adminUserGroup->id);
 
         // Add initial site data
         /** @var SiteDAO */

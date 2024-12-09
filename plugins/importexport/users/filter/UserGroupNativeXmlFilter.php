@@ -82,17 +82,17 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
         $userGroupNode = $doc->createElementNS($deployment->getNamespace(), 'user_group');
 
         // Add metadata
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'role_id', $userGroup->getRoleId()));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'context_id', $userGroup->getContextId()));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->getDefault() ? 'true' : 'false'));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->getShowTitle() ? 'true' : 'false'));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_self_registration', $userGroup->getPermitSelfRegistration() ? 'true' : 'false'));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadata_edit', $userGroup->getPermitMetadataEdit() ? 'true' : 'false'));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'role_id', $userGroup->roleId));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'context_id', $userGroup->contextId));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->isDefault ? 'true' : 'false'));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->showTitle ? 'true' : 'false'));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_selfRegistration', $userGroup->permitSelfRegistration ? 'true' : 'false'));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadataEdit', $userGroup->permitMetadataEdit ? 'true' : 'false'));
 
-        $this->createLocalizedNodes($doc, $userGroupNode, 'name', $userGroup->getName(null));
-        $this->createLocalizedNodes($doc, $userGroupNode, 'abbrev', $userGroup->getAbbrev(null));
+        $this->createLocalizedNodes($doc, $userGroupNode, 'name', $userGroup->name);
+        $this->createLocalizedNodes($doc, $userGroupNode, 'abbrev', $userGroup->abbrev);
 
-        $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($context->getId(), $userGroup->getId())->toArray();
+        $assignedStages = $userGroup->getAssignedStageIds()->toArray();
 
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', htmlspecialchars(join(':', $assignedStages), ENT_COMPAT, 'UTF-8')));
         return $userGroupNode;

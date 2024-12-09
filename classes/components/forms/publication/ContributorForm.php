@@ -15,7 +15,6 @@
 
 namespace PKP\components\forms\publication;
 
-use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldOrcid;
@@ -48,16 +47,13 @@ class ContributorForm extends FormComponent
         $this->submission = $submission;
         $this->context = $context;
 
-        $authorUserGroupsOptions = Repo::userGroup()
-            ->getCollector()
-            ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
-            ->filterByContextIds([$context->getId()])
-            ->getMany()
+        $authorUserGroupsOptions = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withContextIds([$context->getId()])
+            ->get()
             ->map(fn (UserGroup $authorUserGroup) => [
-                'value' => (int) $authorUserGroup->getId(),
-                'label' => $authorUserGroup->getLocalizedName(),
+                'value' => (int) $authorUserGroup->id,
+                'label' => $authorUserGroup->getLocalizedData('name'),
             ]);
-
         $isoCodes = app(IsoCodesFactory::class);
         $countries = [];
         foreach ($isoCodes->getCountries() as $country) {

@@ -223,7 +223,7 @@ abstract class PKPManageFileApiHandler extends Handler
                 ->get();
 
             $authorUserIds = $submitterAssignments
-                ->pluck('userId')
+                ->pluck('user_id')
                 ->all();
 
             // Update the notifications

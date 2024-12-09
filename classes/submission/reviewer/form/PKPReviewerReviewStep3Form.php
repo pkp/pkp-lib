@@ -169,24 +169,25 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
         ]);
 
-        // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+        // Retrieve stage assignments for managers and sub-editors
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withStageIds([$submission->getData('stageId')])
+            ->whereHas('userGroup', function ($query) {
+                $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+            })
             ->get();
 
-        $receivedList = []; // Avoid sending twice to the same user.
+        $receivedList = [];
+        // get the NotificationSubscriptionSettingsDAO
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
 
-        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
         foreach ($stageAssignments as $stageAssignment) {
             $userId = $stageAssignment->userId;
             $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-
             // Never send reviewer comment notification to users other than managers and editors.
-            if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || in_array($userId, $receivedList)) {
+            if (!in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || in_array($userId, $receivedList)) {
                 continue;
             }
-
             // Notify editors
             $notification = $notificationMgr->createNotification(
                 $userId,
@@ -212,7 +213,6 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment);
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCompleteNotifyEditors::getEmailTemplateKey());
 
-            // The template may not exist, see pkp/pkp-lib#9109
             if (!$template) {
                 $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
                 $request = Application::get()->getRequest();
@@ -228,7 +228,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 ->recipients([$user])
                 ->subject($template->getLocalizedData('subject'))
                 ->body($template->getLocalizedData('body'))
-                ->allowUnsubscribe($notification);
+                ->allowUnsubscribe($notification); // include unsubscribe link
 
             Mail::send($mailable);
             Repo::emailLogEntry()->logMailable(SubmissionEmailLogEventType::REVIEW_COMPLETE, $mailable, $submission, $user);

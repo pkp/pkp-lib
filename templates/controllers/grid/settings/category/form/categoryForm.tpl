@@ -79,8 +79,8 @@
 		{fbvFormSection list=true title="manager.sections.form.assignEditors"}
 		<div>{translate key="manager.categories.form.assignEditors.description"}</div>
 		{foreach from=$assignableUserGroups item="assignableUserGroup"}
-			{assign var="role" value=$assignableUserGroup.userGroup->getLocalizedName()}
-			{assign var="userGroupId" value=$assignableUserGroup.userGroup->getId()}
+			{assign var="role" value=$assignableUserGroup.userGroup->getLocalizedData('name')}
+			{assign var="userGroupId" value=$assignableUserGroup.userGroup->id}
 			{foreach from=$assignableUserGroup.users item=$username key="id"}
 				{fbvElement
 					type="checkbox"

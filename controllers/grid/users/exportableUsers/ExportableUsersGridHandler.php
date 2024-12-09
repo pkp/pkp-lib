@@ -28,6 +28,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 
 class ExportableUsersGridHandler extends GridHandler
 {
@@ -209,13 +210,11 @@ class ExportableUsersGridHandler extends GridHandler
     {
         $context = $request->getContext();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
         $userGroupOptions = ['' => __('grid.user.allRoles')];
         foreach ($userGroups as $userGroup) {
-            $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
         $userDao = Repo::user()->dao;
         $fieldOptions = [

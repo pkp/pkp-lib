@@ -258,7 +258,8 @@ abstract class PKPOrcidWork
             ];
 
             $userGroup = $author->getUserGroup();
-            $role = self::USER_GROUP_TO_ORCID_ROLE[$userGroup->getName('en')];
+            $roleName = $userGroup->getLocalizedData('name', 'en');
+            $role = self::USER_GROUP_TO_ORCID_ROLE[$roleName];
 
             if ($role) {
                 $contributor['contributor-attributes']['contributor-role'] = $role;

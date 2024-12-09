@@ -17,10 +17,10 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\user\InterestManager;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class RolesForm extends BaseProfileForm
 {
@@ -43,10 +43,7 @@ class RolesForm extends BaseProfileForm
     {
         $templateMgr = TemplateManager::getManager($request);
 
-        $userGroupIds = Repo::userGroup()->getCollector()
-            ->filterByUserIds([$request->getUser()->getId()])
-            ->getIds()
-            ->toArray();
+        $userGroupIds = UserGroup::getIdsByUserId($request->getUser()->getId());
 
         $templateMgr->assign('userGroupIds', $userGroupIds);
 

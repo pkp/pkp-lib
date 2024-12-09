@@ -18,7 +18,6 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -39,13 +38,13 @@ class Schema extends \PKP\core\maps\Schema
     /** @var bool */
     public $anonymize;
 
-    /** @var LazyCollection UserGroup The user groups for this context. */
+    /** @var Enumerable UserGroup The user groups for this context. */
     public $userGroups;
 
     /** @var Genre[] The file genres for this context. */
     public array $genres;
 
-    public function __construct(Submission $submission, LazyCollection $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, Enumerable $userGroups, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->submission = $submission;

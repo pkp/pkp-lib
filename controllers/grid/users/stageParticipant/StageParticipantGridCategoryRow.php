@@ -48,7 +48,7 @@ class StageParticipantGridCategoryRow extends GridCategoryRow
     public function getCategoryLabel()
     {
         $userGroup = $this->getData();
-        return $userGroup->getLocalizedName();
+        return $userGroup->getLocalizedData('name');
     }
 
     //

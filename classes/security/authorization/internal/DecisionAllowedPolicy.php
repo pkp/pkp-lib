@@ -22,6 +22,7 @@ use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class DecisionAllowedPolicy extends AuthorizationPolicy
 {
@@ -67,8 +68,8 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
         } else {
             $isAllowed = false;
             foreach ($stageAssignments as $stageAssignment) {
-                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
+                $userGroup = UserGroup::findById($stageAssignment->userGroupId);
+                if ($userGroup && !in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                     continue;
                 }
                 if (Repo::decision()->isRecommendation($decisionType->getDecision()) && $stageAssignment->recommendOnly) {

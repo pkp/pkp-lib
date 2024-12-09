@@ -32,6 +32,8 @@ use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\tests\PKPTestCase;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
+
 
 abstract class PolicyTestCase extends PKPTestCase
 {
@@ -103,8 +105,8 @@ abstract class PolicyTestCase extends PKPTestCase
         // Add a user group to the authorized context
         // of the authorization context manipulation policy.
         $policy = $this->getAuthorizationContextManipulationPolicy();
-        $userGroup = Repo::userGroup()->newDataObject();
-        $userGroup->setRoleId(self::ROLE_ID_TEST);
+        $userGroup = new UserGroup();
+        $userGroup->roleId = self::ROLE_ID_TEST;
         $policy->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP, $userGroup);
 
         // Add user roles array to the authorized context.

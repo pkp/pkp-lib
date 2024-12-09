@@ -3,279 +3,410 @@
 /**
  * @file classes/userGroup/UserGroup.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2014 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\userGroup\UserGroup
  *
- * @see DAO
- *
- * @brief UserGroup metadata class.
+ * @brief Eloquent Model for UserGroup
  */
 
 namespace PKP\userGroup;
 
-class UserGroup extends \PKP\core\DataObject
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use PKP\core\PKPApplication;
+use PKP\core\traits\ModelWithSettings;
+use PKP\facades\Repo;
+use PKP\plugins\Hook;
+use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\UserUserGroup;
+
+class UserGroup extends Model
 {
+    use ModelWithSettings;
+
+
     /**
-     * Get the role ID
+     * The table associated with the model.
      *
-     * @return int ROLE_ID_...
+     * @var string
      */
-    public function getRoleId()
-    {
-        return $this->getData('roleId');
-    }
+    protected $table = 'user_groups';
 
     /**
-     * Set the role ID
+     * The primary key associated with the table.
      *
-     * @param int $roleId ROLE_ID_...
+     * @var string
      */
-    public function setRoleId($roleId)
-    {
-        $this->setData('roleId', $roleId);
-    }
+    protected $primaryKey = 'user_group_id';
 
     /**
-     * Get the role path
+     * Indicates if the model should be timestamped.
      *
-     * @return string Role path
+     * @var bool
      */
-    public function getPath()
+    public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['userGroupId', 'id'];
+
+    /**
+     * Get the settings table name
+     */
+    public function getSettingsTable(): string
     {
-        return $this->getData('path');
+        return 'user_group_settings';
     }
 
     /**
-     * Set the role path
-     * $param $path string
+     * Get the schema name for the model
      */
-    public function setPath($path)
+    public static function getSchemaName(): ?string
     {
-        $this->setData('path', $path);
+        return PKPSchemaService::SCHEMA_USER_GROUP;
     }
 
     /**
-     * Get the context ID
+     * Get assigned stage IDs
+     *
+     * @return \Illuminate\Support\Collection
      */
-    public function getContextId(): ?int
+    public function getAssignedStageIds()
     {
-        return $this->getData('contextId');
+        return $this->userGroupStages()->pluck('stage_id');
     }
 
     /**
-     * Set the context ID
+     * Define the relationship to UserUserGroups
      */
-    public function setContextId(?int $contextId): void
+    public function userUserGroups(): HasMany
     {
-        $this->setData('contextId', $contextId);
+        return $this->hasMany(UserUserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     /**
-     * Get the default flag
+     * Define the relationship to UserGroupStages
+     */
+    public function userGroupStages(): HasMany
+    {
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
+    }
+
+    protected function scopeWithContextIds(EloquentBuilder $builder, $contextIds): EloquentBuilder
+    {
+        if (empty($contextIds)) {
+            return $builder;
+        }
+
+        if (!is_array($contextIds)) {
+            $contextIds = [$contextIds];
+        }
+
+        $filteredIds = [];
+        $siteWide = false;
+        foreach ($contextIds as $contextId) {
+            if ($contextId == PKPApplication::SITE_CONTEXT_ID) {
+                $siteWide = true;
+                continue;
+            }
+
+            $filteredIds[] = $contextId;
+        }
+
+        return $builder
+            ->when(!empty($filteredIds), fn (EloquentBuilder $builder) => $builder->whereIn('context_id', $filteredIds))
+            ->when($siteWide, fn (EloquentBuilder $builder) => $builder
+                ->when(
+                    empty($filteredIds),
+                    fn (EloquentBuilder $builder) => $builder->whereNull('context_id'),
+                    fn (EloquentBuilder $builder) => $builder->orWhereNull('context_id')
+                ));
+    }
+
+    /**
+     * Scope a query to filter by user group IDs.
+     */
+    protected function scopeWithUserGroupIds(EloquentBuilder $builder, $userGroupIds): EloquentBuilder
+    {
+        if (!is_array($userGroupIds)) {
+            $userGroupIds = [$userGroupIds];
+        }
+
+        return $builder->whereIn('user_group_id', $userGroupIds);
+    }
+
+    /**
+     * Scope a query to filter by role IDs.
+     */
+    protected function scopeWithRoleIds(EloquentBuilder $builder, $roleIds): EloquentBuilder
+    {
+        if (!is_array($roleIds)) {
+            $roleIds = [$roleIds];
+        }
+
+        return $builder->whereIn('role_id', $roleIds);
+    }
+
+    /**
+     * Scope a query to exclude certain role IDs.
+     */
+    protected function scopeExcludeRoles(EloquentBuilder $builder, array $excludeRoles): EloquentBuilder
+    {
+        return $builder->whereNotIn('role_id', $excludeRoles);
+    }
+
+    /**
+     * Scope a query to filter by stage IDs.
+     */
+    protected function scopeWithStageIds(EloquentBuilder $builder, $stageIds): EloquentBuilder
+    {
+        if (!is_array($stageIds)) {
+            $stageIds = [$stageIds];
+        }
+        return $builder->whereHas('userGroupStages', function (EloquentBuilder $q) use ($stageIds) {
+            $q->whereIn('stage_id', $stageIds);
+        });
+    }
+
+    /**
+     * Scope a query to exclude role ids.
+     */
+    protected function scopeExcludeRoleIds(EloquentBuilder $builder, $roleIds): EloquentBuilder
+    {
+        if (!is_array($roleIds)) {
+            $roleIds = [$roleIds];
+        }
+        return $builder->whereNotIn('role_id', $roleIds);
+    }
+
+    /**
+     * Scope a query to filter by is_default.
+     */
+    protected function scopeIsDefault(EloquentBuilder $builder, bool $isDefault): EloquentBuilder
+    {
+        return $builder->where('is_default', $isDefault);
+    }
+
+    /**
+     * Scope a query to filter by show_title.
+     */
+    protected function scopeShowTitle(EloquentBuilder $builder, bool $showTitle): EloquentBuilder
+    {
+        return $builder->where('show_title', $showTitle);
+    }
+
+    /**
+     * Scope a query to filter by permit_self_registration.
+     */
+    protected function scopePermitSelfRegistration(EloquentBuilder $builder, bool $permitSelfRegistration): EloquentBuilder
+    {
+        return $builder->where('permit_self_registration', $permitSelfRegistration);
+    }
+
+    /**
+     * Scope a query to filter by permit_metadata_edit.
+     */
+    protected function scopePermitMetadataEdit(EloquentBuilder $builder, bool $permitMetadataEdit): EloquentBuilder
+    {
+        return $builder->where('permit_metadata_edit', $permitMetadataEdit);
+    }
+
+    /**
+     * Scope a query to filter by masthead.
+     */
+    protected function scopeMasthead(EloquentBuilder $builder, bool $masthead): EloquentBuilder
+    {
+        return $builder->where('masthead', $masthead);
+    }
+
+    /**
+     * Scope a query to filter by user IDs.
+     */
+    protected function scopeWithUserIds(EloquentBuilder $builder, array $userIds): EloquentBuilder
+    {
+        return $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($userIds) {
+            $q->whereIn('user_id', $userIds);
+        });
+    }
+
+    /**
+     * Scope a query to filter by recommendOnly setting.
+     */
+    protected function scopeIsRecommendOnly(EloquentBuilder $builder, bool $isRecommendOnly): EloquentBuilder
+    {
+        return $builder->where('recommendOnly', $isRecommendOnly);
+    }
+
+    /**
+     * Scope a query to filter by UserUserGroupStatus.
+     */
+    protected function scopeWithUserUserGroupStatus(EloquentBuilder $builder, string $status): EloquentBuilder
+    {
+        $currentDateTime = now();
+
+        if ($status === 'active') {
+            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                    $q->where('date_start', '<=', $currentDateTime)
+                        ->orWhereNull('date_start');
+                })->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                    $q->where('date_end', '>', $currentDateTime)
+                        ->orWhereNull('date_end');
+                });
+            });
+        } elseif ($status === 'ended') {
+            $builder->whereHas('userUserGroups', function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->whereNotNull('date_end')
+                    ->where('date_end', '<=', $currentDateTime);
+            });
+        }
+        // Implement other statuses if needed
+        return $builder;
+    }
+
+    /**
+     * Scope a query to order by role ID.
+     */
+    protected function scopeOrderByRoleId(EloquentBuilder $builder): EloquentBuilder
+    {
+        return $builder->orderBy('role_id', 'asc');
+    }
+
+    /**
+     * Scope a query to order by user group ID.
+     */
+    protected function scopeOrderById(EloquentBuilder $builder): EloquentBuilder
+    {
+        return $builder->orderBy('user_group_id', 'asc');
+    }
+
+    /**
+     * Scope a query to include active user count.
+     */
+    protected function scopeWithActiveUserCount(EloquentBuilder $builder, ?int $contextId = null): EloquentBuilder
+    {
+        $currentDateTime = now();
+
+        $builder->select('user_groups.user_group_id')
+            ->selectRaw('COUNT(user_user_groups.user_id) AS count')
+            ->join('user_user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
+            ->join('users', 'users.user_id', '=', 'user_user_groups.user_id')
+            ->where('users.disabled', 0)
+            ->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->where('user_user_groups.date_start', '<=', $currentDateTime)
+                    ->orWhereNull('user_user_groups.date_start');
+            })
+            ->where(function (EloquentBuilder $q) use ($currentDateTime) {
+                $q->where('user_user_groups.date_end', '>', $currentDateTime)
+                    ->orWhereNull('user_user_groups.date_end');
+            })
+            ->groupBy('user_groups.user_group_id');
+
+        if ($contextId !== null) {
+            $builder->where('user_groups.context_id', $contextId);
+        }
+
+        return $builder;
+    }
+
+
+    /**
+     * Scope a query to filter by publication IDs.
+     *
+     * @param array<int> $publicationIds Array of publication IDs to filter by.
+     */
+    protected function scopeWithPublicationIds(EloquentBuilder $builder, array $publicationIds): EloquentBuilder
+    {
+        return $builder->join('authors as a', $this->table . '.' . $this->primaryKey, '=', 'a.user_group_id')
+            ->whereIn('a.publication_id', $publicationIds);
+    }
+
+    /**
+     * Find a UserGroup by ID and optional context ID.
+     *
+     */
+    public static function findById(int $id, ?int $contextId = null): ?self
+    {
+        $query = self::where('user_group_id', $id);
+
+        if ($contextId !== null) {
+            $query->withContextIds([$contextId]);
+        }
+
+        return $query->first();
+    }
+
+    /**
+     * Save the model to the database.
      *
      * @return bool
-     */
-    public function getDefault()
-    {
-        return $this->getData('isDefault');
-    }
-
-    /**
-     * Set the default flag
      *
-     * @param bool $isDefault
+     * @hook UserGroup::add [[$this]]
+     * @hook UserGroup::edit [[$this]]
      */
-    public function setDefault($isDefault)
+    public function save(array $options = [])
     {
-        $this->setData('isDefault', $isDefault);
+        $isNew = !$this->exists;
+
+        $saved = parent::save($options);
+
+        // Reload the model to ensure all relationships and settings are loaded
+        $this->refresh();
+
+        if ($isNew) {
+            // This is a new record
+            Hook::call('UserGroup::add', [$this]);
+        } else {
+            // This is an update
+            Hook::call('UserGroup::edit', [$this]);
+        }
+
+        // Clear editorial masthead cache if the role is on the masthead
+        if ($this->masthead) {
+            Repo::userGroup()->forgetEditorialCache($this->contextId);
+            Repo::userGroup()->forgetEditorialHistoryCache($this->contextId);
+        }
+
+        return $saved;
     }
 
     /**
-     * Get the "show title" flag (whether or not the title of the role
-     * should be included in the list of submission contributor names)
+     * Booted method to handle model events.
      *
-     * @return bool
+     * @hook UserGroup::delete::before [[$userGroup]]
      */
-    public function getShowTitle()
+    protected static function booted()
     {
-        return $this->getData('showTitle');
+        static::deleting(function ($userGroup) {
+            // Equivalent to 'UserGroup::delete::before' hook
+            Hook::call('UserGroup::delete::before', [$userGroup]);
+
+            if ($userGroup->masthead) {
+                Repo::userGroup()->forgetEditorialCache($userGroup->contextId);
+                Repo::userGroup()->forgetEditorialHistoryCache($userGroup->contextId);
+            }
+        });
+
+        static::deleted(function ($userGroup) {
+            Hook::call('UserGroup::delete', [$userGroup]);
+        });
     }
 
     /**
-     * Set the "show title" flag
-     *
-     * @param bool $showTitle
+     * Define the relationship to StageAssignments.
      */
-    public function setShowTitle($showTitle)
+    public function stageAssignments(): HasMany
     {
-        $this->setData('showTitle', $showTitle);
+        return $this->hasMany(StageAssignment::class, 'user_group_id', 'user_group_id');
     }
 
-    /**
-     * Get the "permit self-registration" flag (whether or not users may
-     * self-register for this role, i.e. in the case of external
-     * reviewers, or whether it should be prohibited, in the case of
-     * internal reviewers).
-     *
-     * @return bool True IFF user self-registration is permitted
-     */
-    public function getPermitSelfRegistration()
-    {
-        return $this->getData('permitSelfRegistration');
-    }
-
-    /**
-     * Set the "permit self-registration" flag
-     */
-    public function setPermitSelfRegistration(bool $permitSelfRegistration)
-    {
-        $this->setData('permitSelfRegistration', $permitSelfRegistration);
-    }
-
-    /**
-     * Get the recommendOnly option (whether or not the manager or the sub-editor role
-     * can only recommend or also make decisions in the submission review)
-     *
-     * @return bool
-     */
-    public function getRecommendOnly()
-    {
-        return $this->getData('recommendOnly');
-    }
-
-    /**
-     * Set the recommendOnly option (whether or not the manager or the sub-editor role
-     * can only recommend or also make decisions in the submission review)
-     *
-     * @param bool $recommendOnly
-     */
-    public function setRecommendOnly($recommendOnly)
-    {
-        $this->setData('recommendOnly', $recommendOnly);
-    }
-
-    /**
-     * Get the localized role name
-     *
-     * @return string
-     */
-    public function getLocalizedName()
-    {
-        return $this->getLocalizedData('name');
-    }
-
-    /**
-     * Get localized user group name, or array of localized names if $locale is null
-     *
-     * @param string|null $locale
-     *
-     * @return string|array|null localized name or array of localized names or null
-     */
-    public function getName($locale)
-    {
-        return $this->getData('name', $locale);
-    }
-
-    /**
-     * Set user group name
-     *
-     * @param string $name
-     * @param string $locale
-     */
-    public function setName($name, $locale)
-    {
-        $this->setData('name', $name, $locale);
-    }
-
-    /**
-     * Get the localized abbreviation
-     *
-     * @return string
-     */
-    public function getLocalizedAbbrev()
-    {
-        return $this->getLocalizedData('abbrev');
-    }
-
-    /**
-     * Get localized user group abbreviation, or array of localized abbreviations if $locale is null
-     *
-     * @param string|null $locale
-     *
-     * @return string|array|null localized abbreviation or array of localized abbreviations or null
-     */
-    public function getAbbrev($locale)
-    {
-        return $this->getData('abbrev', $locale);
-    }
-
-    /**
-     * Set user group abbreviation
-     *
-     * @param string $abbrev
-     * @param string $locale
-     */
-    public function setAbbrev($abbrev, $locale)
-    {
-        $this->setData('abbrev', $abbrev, $locale);
-    }
-
-    /**
-     * Getter for permitMetadataEdit attribute.
-     *
-     * @return bool
-     */
-    public function getPermitMetadataEdit()
-    {
-        return $this->getData('permitMetadataEdit');
-    }
-
-    /**
-     * Setter for permitMetadataEdit attribute.
-     */
-    public function setPermitMetadataEdit(bool $permitMetadataEdit)
-    {
-        $this->setData('permitMetadataEdit', $permitMetadataEdit);
-    }
-
-    /**
-     * Getter for permitSettings attribute.
-     *
-     * @return bool
-     */
-    public function getPermitSettings()
-    {
-        return $this->getData('permitSettings');
-    }
-
-    /**
-     * Setter for permitSettings attribute.
-     */
-    public function setPermitSettings(bool $permitSettings)
-    {
-        $this->setData('permitSettings', $permitSettings);
-    }
-
-    /**
-     * Get the masthead flag
-     */
-    public function getMasthead(): bool
-    {
-        return $this->getData('masthead');
-    }
-
-    /**
-     * Set the masthead flag
-     */
-    public function setMasthead(bool $masthead)
-    {
-        $this->setData('masthead', $masthead);
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\userGroup\UserGroup', '\UserGroup');
 }

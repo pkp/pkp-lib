@@ -29,10 +29,12 @@ namespace PKP\submission;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\DAO;
+use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
+use PKP\publication\enums\JavStage;
+use PKP\publication\helpers\JavStageAndNumbering;
 
 /**
  * @extends \PKP\core\DataObject<DAO>
@@ -288,6 +290,59 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public function getUIDisplayString()
     {
         return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getCurrentPublication()->getLocalizedTitle()]);
+    }
+
+    /**
+     * Return a collection of all existing JAV Stages 
+     * for the submission's publications
+     *
+     * @return Collection<JavStageAndNumbering>
+     */
+    public function getExistingJavStagesByPublications(): Collection
+    {
+        $publications = $this->getData('publications');
+        if ($publications->isEmpty()) {
+            return collect(); // Return an empty collection
+        }
+
+        return collect($publications->map(function ($publication) {
+            return $publication->getCurrentVersionStage();
+        })->filter()); // Remove any null entries from the collection
+    }
+
+    public function getNextAvailableJavVersionNumberingForStage(JavStage $versioningStage, bool $isMinorChange = true): JavStageAndNumbering
+    {
+        $nextVersionStage = new JavStageAndNumbering();
+        $nextVersionStage->javStage = $versioningStage;
+        $nextVersionStage->javVersionMajor = JavStageAndNumbering::JAV_DEFAULT_NUMBERING_MAJOR;
+        $nextVersionStage->javVersionMinor = JavStageAndNumbering::JAV_DEFAULT_NUMBERING_MINOR;
+
+        $submissionVersionStages = $this->getExistingJavStagesByPublications();
+
+        // Filter to find the version stages that match the current versioningStage but with potentially updated versionMajor or versionMinor
+        $matchingVersionStages = $submissionVersionStages->filter(function ($existingVersionStage) use ($versioningStage) {
+            return $existingVersionStage->javStage === $versioningStage;
+        });
+
+        if (!$matchingVersionStages->isEmpty()) {
+            // Sort the version stages by versionMajor and versionMinor (descending order)
+            $sortedVersionStages = $matchingVersionStages->sort(function ($a, $b) {
+                return $b->javVersionMajor <=> $a->javVersionMajor ?: $b->javVersionMinor <=> $a->javVersionMinor;
+            });
+
+            $nextVersionStage = $sortedVersionStages->first();
+
+            if ($isMinorChange) {
+                // Increment the minor version
+                $nextVersionStage->javVersionMinor += 1;
+            } else {
+                // Increment the major version and reset the minor version
+                $nextVersionStage->javVersionMajor += 1;
+                $nextVersionStage->javVersionMinor = JavStageAndNumbering::JAV_DEFAULT_NUMBERING_MINOR;
+            }
+        }
+
+        return $nextVersionStage;
     }
 }
 

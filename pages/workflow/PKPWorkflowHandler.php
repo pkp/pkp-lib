@@ -16,6 +16,7 @@
 
 namespace PKP\pages\workflow;
 
+use PKP\components\forms\publication\PublicationVersionStageForm;
 use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\core\PageRouter;
@@ -303,6 +304,9 @@ abstract class PKPWorkflowHandler extends Handler
         $changeSubmissionLanguageApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getData('urlPath'), "submissions/{$submission->getId()}/publications/{$latestPublication->getId()}/changeLocale");
         $changeSubmissionLanguageMetadataForm = new ChangeSubmissionLanguageMetadataForm($changeSubmissionLanguageApiUrl, $submission, $latestPublication, $submissionContext);
 
+        $changePublicationVersionStageApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $submissionContext->getData('urlPath'), "submissions/{$submission->getId()}/publications/{$latestPublication->getId()}/changeLocale");
+        $changePublicationVersionStageForm = new PublicationVersionStageForm($changePublicationVersionStageApiUrl, $submission, $latestPublication, $submissionContext);
+
         $templateMgr->setConstants([
             'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
@@ -313,6 +317,7 @@ abstract class PKPWorkflowHandler extends Handler
             'FORM_PUBLICATION_LICENSE' => $publicationLicenseForm::FORM_PUBLICATION_LICENSE,
             'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
             'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
+            'FORM_PUBLICATION_VERSION_STAGE' => $changePublicationVersionStageForm::FORM_PUBLICATION_VERSION_STAGE,
         ]);
         $templateMgr->registerClass($publicationLicenseForm::class, $publicationLicenseForm::class); // FORM_PUBLICATION_LICENSE
         $templateMgr->registerClass(PublishForm::class, PublishForm::class); // FORM_PUBLISH;

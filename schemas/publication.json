@@ -332,6 +332,44 @@
 			"validation": [
 				"min:1"
 			]
+		},
+		"javVersionStage": {
+			"type": "string",
+			"description": "",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"javVersionIsMinor": {
+			"type": "boolean",
+			"description": "",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"javVersionMinor": {
+			"type": "integer",
+			"description": "",
+			"apiSummary": true,
+			"validation": [
+				"min:0"
+			]
+		},
+		"javVersionMajor": {
+			"type": "integer",
+			"description": "",
+			"apiSummary": true,
+			"validation": [
+				"min:1"
+			]
+		},
+		"javStageDisplay": {
+			"type": "string",
+			"description": "",
+			"apiSummary": true,
+			"readOnly": true
 		}
 	}
 }

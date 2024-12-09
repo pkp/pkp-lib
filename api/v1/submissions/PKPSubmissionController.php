@@ -37,6 +37,7 @@ use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
+use PKP\components\forms\publication\PublicationVersionStageForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\context\Context;
@@ -53,6 +54,7 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\publication\enums\JavStage;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -111,7 +113,10 @@ class PKPSubmissionController extends PKPBaseController
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
         'getPublicationTitleAbstractForm',
-        'getChangeLanguageMetadata'
+        'getChangeLanguageMetadata',
+        'getJAVStageMetadata',
+        'changeJavStageAndNumbering',
+        'getNextAvailableJavVersionNumberingForStage',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -122,6 +127,7 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'changeLocale',
+        'changeJavStageAndNumbering'
     ];
 
     /** @var array Handlers that must be authorized to access a submission's production stage */
@@ -236,6 +242,14 @@ class PKPSubmissionController extends PKPBaseController
             Route::put('{submissionId}/publications/{publicationId}/changeLocale', $this->changeLocale(...))
                 ->name('submission.publication.changeLocale')
                 ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::put('{submissionId}/publications/{publicationId}/changeJavStageAndNumbering', $this->changeJavStageAndNumbering(...))
+                ->name('submission.publication.changeJavStageAndNumbering')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::get('{submissionId}/getNextAvailableJavVersionNumberingForStage', $this->getNextAvailableJavVersionNumberingForStage(...))
+                ->name('submission.getNextAvailableJavVersionNumberingForStage')
+                ->whereNumber(['submissionId']);
         });
 
         Route::middleware([
@@ -301,6 +315,7 @@ class PKPSubmissionController extends PKPBaseController
                 Route::get('reference', $this->getPublicationReferenceForm(...))->name('submission.publication._components.reference');
                 Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
                 Route::get('changeLanguageMetadata', $this->getChangeLanguageMetadata(...))->name('submission.publication._components.changeLanguageMetadata');
+                Route::get('getJAVStageMetadata', $this->getJAVStageMetadata(...))->name('submission.publication._components.getJAVStageMetadata');
             })->whereNumber(['submissionId', 'publicationId']);
         });
 
@@ -941,6 +956,68 @@ class PKPSubmissionController extends PKPBaseController
         $this->copyMultilingualData($submission, $newLocale);
 
         return $this->edit($illuminateRequest);
+    }
+
+    /**
+     * Change version stage
+     */
+    public function changeJavStageAndNumbering(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // $submission = Repo::submission()->get((int) $illuminateRequest->route('submissionId'));
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
+
+        $submissionContext = $request->getContext();
+
+        $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $versionStage = $params['javVersionStage'];
+        $versionStageIsMinor = (bool) $params['javVersionIsMinor'];
+
+        Repo::publication()->updateJavVersionStageAndNumbering($publication, JavStage::from($versionStage), $versionStageIsMinor);
+
+        return $this->edit($illuminateRequest);
+    }
+
+    /**
+     * Get next potential JAV version stage
+     */
+    public function getNextAvailableJavVersionNumberingForStage(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $params = $illuminateRequest->input();
+        $potentialVersionStage = JavStage::from($params['javVersionStage']);
+        $potentialIsMinor = ($params['javVersionIsMinor'] === 'false') ? false : (bool) $params['javVersionIsMinor'];
+
+        $potentialVersionStage = $submission->getNextAvailableJavVersionNumberingForStage($potentialVersionStage, $potentialIsMinor);
+
+        $retValue = $potentialVersionStage->getVersionStageDisplay();
+
+        return response()->json(
+            $retValue,
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -2000,6 +2077,33 @@ class PKPSubmissionController extends PKPBaseController
         $submissionLocale = $submission->getData('locale');
 
         return response()->json($this->getLocalizedForm($changeSubmissionLanguageMetadataForm, $submissionLocale, $locales), Response::HTTP_OK);
+    }
+
+    /**
+     * Get ChangeSubmissionLanguageMetadata Form component
+     */
+    protected function getJAVStageMetadata(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        $context = $data['context']; /** @var Context $context*/
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+
+        $locales = $this->getPublicationFormLocales($context, $submission);
+
+        $changeVersionStageApiUrl = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getData('urlPath'),
+            "submissions/{$submission->getId()}/publications/{$publication->getId()}/changeJavStageAndNumbering"
+        );
+
+        $changePublicationVersionStageForm = new PublicationVersionStageForm($changeVersionStageApiUrl, $submission, $publication, $context);
+        $submissionLocale = $submission->getData('locale');
+
+        return response()->json($this->getLocalizedForm($changePublicationVersionStageForm, $submissionLocale, $locales), Response::HTTP_OK);
     }
 
     /**

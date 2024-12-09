@@ -23,7 +23,8 @@ use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
+use PKP\publication\enums\JavStage;
+use PKP\publication\helpers\JavStageAndNumbering;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
@@ -469,6 +470,50 @@ class PKPPublication extends \PKP\core\DataObject
             ->unique()
             ->values()
             ->toArray();
+    }
+
+    /**
+     * Get the JAV string that describes the 
+     * given publication.
+     */
+    public function getJavStageAndNumberingDisplay(): ?string 
+    {
+        $currentVersionStage = $this->getCurrentVersionStage();
+        if (!isset($currentVersionStage)) {
+            return null;
+        }
+
+        return $currentVersionStage->getVersionStageDisplay();
+    }
+
+    /**
+     * Get the current JAV stage object that describes the 
+     * given publication version.
+     */
+    public function getCurrentVersionStage(): ?JavStageAndNumbering 
+    {
+        $versionStageStr = $this->getData('javVersionStage');
+        if (!isset($versionStageStr)) {
+            return null;
+        }
+
+        $versionStage = new JavStageAndNumbering();
+        $versionStage->javStage = JavStage::from($versionStageStr);
+        $versionStage->javVersionMajor = $this->getData('javVersionMajor');
+        $versionStage->javVersionMinor = $this->getData('javVersionMinor');
+
+        return $versionStage;
+    }
+
+    /**
+     * Set the current JAV stage of the publication 
+     * given a JavStageAndNumbering object
+     */
+    public function setVersionStage(JavStageAndNumbering $versionStage): void
+    {
+        $this->setData('javVersionStage', $versionStage->javStage->value);
+        $this->setData('javVersionMajor', $versionStage->javVersionMajor);
+        $this->setData('javVersionMinor', $versionStage->javVersionMinor);
     }
 }
 if (!PKP_STRICT_MODE) {

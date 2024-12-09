@@ -2454,3 +2454,51 @@ msgstr "Please disclose any competing interests this author may have with the re
 
 msgid "submission.localeNotSupported"
 msgstr "The language of the submission ({$language}) is not one of the supported submission languages. You can still edit the submission details but new submissions are not currently accepted with this language."
+
+msgid "publication.changeVersionStage.title"
+msgstr "Version Stage"
+
+msgid "publication.changeVersionStage.buttonLabel"
+msgstr "Manage version stage"
+
+msgid "publication.versionStage.minorOrMajor"
+msgstr "Version Impact"
+
+msgid "publication.versionStage.minorOrMajor.description"
+msgstr ""
+
+msgid "publication.versionStage.minorOrMajor.minor"
+msgstr "Minor Version"
+
+msgid "publication.versionStage.minorOrMajor.major"
+msgstr "Major Version"
+
+msgid "publication.versionStage"
+msgstr "Version Stage"
+
+msgid "publication.versionStage.description"
+msgstr "Description of this version changes"
+
+msgid "versioning.authorOriginal"
+msgstr "Author Original"
+
+msgid "versioning.acceptedManuscript"
+msgstr "Accepted Manuscript"
+
+msgid "versioning.submittedManuscript"
+msgstr "Submitted Manuscript"
+
+msgid "versioning.proof"
+msgstr "Proof"
+
+msgid "versioning.versionOfRecord"
+msgstr "Version of Record"
+
+msgid "publication.changeVersionStage.currentStage"
+msgstr "Current Publication Version Stage"
+
+msgid "publication.changeVersionStage.currentStage.notAssigned"
+msgstr "Version not assigned"
+
+msgid "publication.changeVersionStage.newStage"
+msgstr "Publication Version Stage after submit"

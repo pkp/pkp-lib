@@ -443,7 +443,7 @@ class DAO extends EntityDAO
      */
     protected function setCategories(Publication $publication): void
     {
-        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id');
+        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id')->toArray();
         $publication->setData('categoryIds', $categoryIds);
     }
 

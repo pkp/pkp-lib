@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2024-12-08 08:52+0000\n"
+"PO-Revision-Date: 2024-12-10 06:22+0000\n"
 "Last-Translator: Forouzan Karimi <forouzan.karimi@gmail.com>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fa/>\n"
@@ -1378,46 +1378,64 @@ msgstr "باید کاربری را برای گروه کاربری مشخص شد�
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
+"شرکت‌کننده‌ای که انتخاب کرده‌اید، برای انجام یک داوری ناشناس اختصاص یافته "
+"است. اگر او را به عنوان یک شرکت کننده اختصاص دهید، به هویت نویسنده دسترسی "
+"خواهد داشت. لذا به شما پیشنهاد می کنیم که این شرکت‌کننده را تعیین نکنید؛ مگر "
+"اینکه بتوانید به طور مستقل از یکپارچگی فرآیند داوری همتایان، اطمینان حاصل "
+"کنید."
 
 msgid "editor.submission.removePermissionToEdit"
-msgstr ""
+msgstr "ویرایش فراداده (متادیتا) را مجاز نکنید"
 
 msgid "editor.submission.addPermissionToEdit"
-msgstr ""
+msgstr "اجازه ویرایش فراداده (متادیتا)"
 
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
+"آیا مطمئن هستید که می خواهید مؤلفین این دست نوشته ارسالی نتوانند متادیتای "
+"(فراداده) دست نوشته را در آن مرحله ویرایش کنند؟"
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
+"آیا مطمئن هستید که می خواهید مؤلفین (نویسندگان) این دست نوشته ارسالی بتوانند "
+"در آن مرحله، فراداده های (متاداده های) آن را ویرایش کنند؟"
 
 msgid "editor.submission.decision"
 msgstr "تصمیم"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "به مؤلفین (نویسندگان) اطلاع دهید"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "به داوران اطلاع دهید"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"برای داوران، ایمیلی بفرستید تا از بررسی آنها تشکر کنید و به آنها اطلاع دهید "
+"که تصمیمی گرفته شده است. برای هر داور، یک ایمیل جداگانه برای محافظت از "
+"ناشناس بودن ارسال می شود. عبارت {$recipientName} را می‌توان در پیام استفاده "
+"کرد تا نام هر داور را به طور ایمن درج کند."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"یک ایمیل به داوران تخصیص داده شده، ارسال کنید تا به آنها اطلاع دهید که داوری "
+"آنها برای دست نوشته مورد نظر، لغو شده است."
 
 msgid "editor.submission.decision.accept"
 msgstr "پذیرش دست نوشته"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"این دست نوشته ارسالی، برای انتشار پذیرفته می شود و برای ویرایش ارسال می گردد."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} این دست نوشته ارسالی را پذیرفت و آن را به مرحله ویرایش، ارسال "
+"کرد."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "دست نوشته ارسالی، پذیرفته شد"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""

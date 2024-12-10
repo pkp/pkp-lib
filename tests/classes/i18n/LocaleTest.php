@@ -35,7 +35,7 @@ use PKP\tests\PKPTestCase;
 class LocaleTest extends PKPTestCase
 {
     private \PKP\i18n\Locale $_locale;
-    private array $_supportedLocales = ['en' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt_PT' => 'Portuguese (Portugal)'];
+    private array $_supportedLocales = ['en' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt' => 'Portuguese'];
     private string $_primaryLocale = 'pt_BR';
 
     protected function setUp(): void
@@ -53,7 +53,7 @@ class LocaleTest extends PKPTestCase
                 [
                     'en' => $this->_createMetadataMock('en', true),
                     'pt_BR' => $this->_createMetadataMock('pt_BR'),
-                    'pt_PT' => $this->_createMetadataMock('pt_PT'),
+                    'pt' => $this->_createMetadataMock('pt'),
                     'de' => $this->_createMetadataMock('de')
                 ]
             )
@@ -102,7 +102,7 @@ class LocaleTest extends PKPTestCase
         $expectedLocales = [
             'en' => 'English',
             'pt_BR' => 'Portuguese',
-            'pt_PT' => 'Portuguese',
+            'pt' => 'Portuguese',
             'de' => 'German'
         ];
         $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName(), Locale::getLocales());
@@ -114,7 +114,7 @@ class LocaleTest extends PKPTestCase
         $expectedLocalesWithCountry = [
             'en' => 'English',
             'pt_BR' => 'Portuguese (Brazil)',
-            'pt_PT' => 'Portuguese (Portugal)',
+            'pt' => 'Portuguese',
             'de' => 'German'
         ];
         $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName('en', true), Locale::getLocales());
@@ -141,7 +141,7 @@ class LocaleTest extends PKPTestCase
     {
         self::assertEquals('eng', LocaleConversion::get3LetterIsoFromLocale('en'));
         self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt_BR'));
-        self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt_PT'));
+        self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt'));
         self::assertNull(LocaleConversion::get3LetterIsoFromLocale('xx_XX'));
     }
 }

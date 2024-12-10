@@ -156,7 +156,7 @@ class PKPAnnouncementController extends PKPBaseController
             switch ($param) {
                 case 'typeIds':
                     $announcements->withTypeIds(
-                        array_map('intval', paramToArray($val))
+                        array_map(intval(...), paramToArray($val))
                     );
                     break;
                 case 'count':

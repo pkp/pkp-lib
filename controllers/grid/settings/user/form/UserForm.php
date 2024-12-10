@@ -96,7 +96,7 @@ class UserForm extends Form
 
         $templateMgr->assign([
             'allUserGroups' => $allUserGroups,
-            'assignedUserGroups' => array_map('intval', $this->getData('userGroupIds')),
+            'assignedUserGroups' => array_map(intval(...), $this->getData('userGroupIds')),
         ]);
 
         return $this->fetch($request);

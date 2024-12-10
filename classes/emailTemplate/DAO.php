@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/emailTemplate/DAO.php
  *
@@ -250,7 +251,7 @@ class DAO extends EntityDAO
         }
 
         // if locales is empty, it will use the site's installed locales
-        $locales = array_filter(array_map('trim', $locales));
+        $locales = array_filter(array_map(trim(...), $locales));
         if (empty($locales)) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
             $site = $siteDao->getSite(); /** @var Site $site */

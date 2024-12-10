@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/AllowedHostsPolicy.php
  *
@@ -56,7 +57,7 @@ class AllowedHostsPolicy extends AuthorizationPolicy
         // The list of server hosts, when specified, is a JSON array. Decode it
         // and make it lowercase.
         $allowedHosts = Config::getVar('general', 'allowed_hosts');
-        $allowedHosts = array_map('strtolower', json_decode($allowedHosts));
+        $allowedHosts = array_map(strtolower(...), json_decode($allowedHosts));
         $serverHost = $this->_request->getServerHost(null, false);
         return in_array(strtolower($serverHost), $allowedHosts) ?
             AuthorizationPolicy::AUTHORIZATION_PERMIT : AuthorizationPolicy::AUTHORIZATION_DENY;

@@ -192,7 +192,7 @@ class PKPDoiController extends PKPBaseController
                     $collector->offset((int) $val);
                     break;
                 case 'status':
-                    $collector->filterByStatus(array_map('intval', paramToArray($val)));
+                    $collector->filterByStatus(array_map(intval(...), paramToArray($val)));
                     break;
             }
         }

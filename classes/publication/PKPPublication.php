@@ -23,7 +23,6 @@ use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
@@ -359,7 +358,7 @@ class PKPPublication extends \PKP\core\DataObject
         $pageArray = [];
         foreach ($ranges as $range) {
             // hyphens (or double-hyphens) indicate range spans
-            $pageArray[] = array_map('trim', explode('-', str_replace(['--', '–'], '-', $range), 2));
+            $pageArray[] = array_map(trim(...), explode('-', str_replace(['--', '–'], '-', $range), 2));
         }
         return $pageArray;
     }
@@ -446,7 +445,7 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Get languages from locale, metadata, and authors' props.
      * Include optional additional languages.
-     * 
+     *
      * Publication: locale, multilingual metadata props
      * Authors: multilingual props
      */

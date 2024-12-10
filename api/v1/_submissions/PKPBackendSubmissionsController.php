@@ -463,15 +463,15 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
 
                 case 'status':
-                    $collector->filterByStatus(array_map('intval', paramToArray($val)));
+                    $collector->filterByStatus(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'stageIds':
-                    $collector->filterByStageIds(array_map('intval', paramToArray($val)));
+                    $collector->filterByStageIds(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'categoryIds':
-                    $collector->filterByCategoryIds(array_map('intval', paramToArray($val)));
+                    $collector->filterByCategoryIds(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'daysInactive':

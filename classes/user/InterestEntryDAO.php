@@ -85,7 +85,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
      */
     public function getByIds($entryIds)
     {
-        $entryString = join(',', array_map('intval', $entryIds));
+        $entryString = join(',', array_map(intval(...), $entryIds));
 
         $result = $this->retrieve(
             'SELECT * FROM controlled_vocab_entries WHERE controlled_vocab_entry_id IN (' . $entryString . ')'

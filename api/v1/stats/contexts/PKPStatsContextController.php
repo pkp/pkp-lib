@@ -415,7 +415,7 @@ class PKPStatsContextController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $returnParams[$requestParam] = array_map('intval', $value);
+                    $returnParams[$requestParam] = array_map(intval(...), $value);
                     break;
             }
         }

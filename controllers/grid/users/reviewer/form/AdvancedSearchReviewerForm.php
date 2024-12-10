@@ -142,13 +142,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             ->getIds()
             ->toArray();
         $warnOnAssignment = array_merge($warnOnAssignment, $userIds);
-        $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
+        $warnOnAssignment = array_values(array_unique(array_map(intval(...), $warnOnAssignment)));
 
         $locale = Locale::getLocale();
         $submissionAuthors = $this->getSubmission()->getCurrentPublication()->getData('authors');
         $authorAffiliations = [];
         $authors = [];
-        foreach($submissionAuthors as $submissionAuthor) {
+        foreach ($submissionAuthors as $submissionAuthor) {
             $affiliation = $submissionAuthor->getLocalizedData('affiliation');
             $authorAffiliations[] = $affiliation;
             $authors[$submissionAuthor->getFullName(true, false, $locale)] = $affiliation;

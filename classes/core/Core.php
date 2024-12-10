@@ -265,7 +265,7 @@ class Core
             // of contexts, eg.:
             // base_url[context1] = http://somesite.com/
             // base_url[context2] = http://somesite.com/context2
-            $sortedBaseUrls = array_combine($contextBaseUrls, array_map('strlen', $contextBaseUrls));
+            $sortedBaseUrls = array_combine($contextBaseUrls, array_map(strlen(...), $contextBaseUrls));
             arsort($sortedBaseUrls);
 
             foreach (array_keys($sortedBaseUrls) as $workingBaseUrl) {

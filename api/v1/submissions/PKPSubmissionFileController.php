@@ -170,7 +170,7 @@ class PKPSubmissionFileController extends PKPBaseController
                     } elseif (!is_array($val)) {
                         $val = [$val];
                     }
-                    $params[$param] = array_map('intval', $val);
+                    $params[$param] = array_map(intval(...), $val);
                     break;
             }
         }

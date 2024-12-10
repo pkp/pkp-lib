@@ -124,7 +124,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $params[$param] = array_map('intval', $value);
+                    $params[$param] = array_map(intval(...), $value);
                     break;
             }
         }
@@ -178,7 +178,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $params[$param] = array_map('intval', $value);
+                    $params[$param] = array_map(intval(...), $value);
                     break;
             }
         }

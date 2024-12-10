@@ -472,15 +472,15 @@ class PKPSubmissionController extends PKPBaseController
                     break;
 
                 case 'categoryIds':
-                    $collector->filterByCategoryIds(array_map('intval', paramToArray($val)));
+                    $collector->filterByCategoryIds(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'status':
-                    $collector->filterByStatus(array_map('intval', paramToArray($val)));
+                    $collector->filterByStatus(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'stageIds':
-                    $collector->filterByStageIds(array_map('intval', paramToArray($val)));
+                    $collector->filterByStageIds(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'assignedTo':
@@ -515,7 +515,7 @@ class PKPSubmissionController extends PKPBaseController
                     $collector->filterByOverdue(true);
                     break;
                 case 'doiStatus':
-                    $collector->filterByDoiStatuses(array_map('intval', paramToArray($val)));
+                    $collector->filterByDoiStatuses(array_map(intval(...), paramToArray($val)));
                     break;
                 case 'hasDois':
                     $collector->filterByHasDois((bool) $val, $context->getEnabledDoiTypes());
@@ -958,8 +958,8 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $decisionTypes = array_map('intval', paramToArray($illuminateRequest->input('decisionTypes') ?? []));
-        $editorIds = array_map('intval', paramToArray($illuminateRequest->input('editorIds') ?? []));
+        $decisionTypes = array_map(intval(...), paramToArray($illuminateRequest->input('decisionTypes') ?? []));
+        $editorIds = array_map(intval(...), paramToArray($illuminateRequest->input('editorIds') ?? []));
         $reviewRoundId = $illuminateRequest->input('reviewRoundId') ? [(int)$illuminateRequest->input('reviewRoundId')] : null;
         $stageId = $illuminateRequest->input('stageId') ? [(int)$illuminateRequest->input('stageId')] : null;
 

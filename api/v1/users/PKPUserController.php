@@ -263,7 +263,7 @@ class PKPUserController extends PKPBaseController
                     } elseif (!is_array($value)) {
                         $value = [$value];
                     }
-                    $params[$param] = array_map('intval', $value);
+                    $params[$param] = array_map(intval(...), $value);
                     break;
                 case 'mappings':
                     if (is_string($value) && str_contains($value, ',')) {
@@ -384,7 +384,7 @@ class PKPUserController extends PKPBaseController
                     } elseif (!is_array($val)) {
                         $val = [$val];
                     }
-                    $returnParams[$param] = array_map('intval', $val);
+                    $returnParams[$param] = array_map(intval(...), $val);
                     break;
                 case 'assignedToCategory':
                 case 'assignedToSection':
@@ -402,9 +402,9 @@ class PKPUserController extends PKPBaseController
                 case 'daysSinceLastAssignment':
                 case 'averageCompletion':
                     if (is_array($val)) {
-                        $val = array_map('intval', $val);
+                        $val = array_map(intval(...), $val);
                     } elseif (strpos($val, '-') !== false) {
-                        $val = array_map('intval', explode('-', $val));
+                        $val = array_map(intval(...), explode('-', $val));
                     } else {
                         $val = [(int) $val];
                     }

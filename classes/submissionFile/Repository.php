@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submissionFile/Repository.php
  *
@@ -778,7 +779,7 @@ abstract class Repository
                 }
             }
             if (!empty($sentDates)) {
-                $lastNotification = max(array_map('strtotime', $sentDates));
+                $lastNotification = max(array_map(strtotime(...), $sentDates));
             }
         }
 

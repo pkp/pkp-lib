@@ -56,7 +56,7 @@ class CitationListTokenizerFilter extends Filter
             $citations = explode("\n", $input);
         }
         // 4) Remove whitespace from the beginning and the end of each citation.
-        $citations = array_map('trim', $citations);
+        $citations = array_map(trim(...), $citations);
 
         return $citations;
     }

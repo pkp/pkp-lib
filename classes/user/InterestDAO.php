@@ -18,12 +18,11 @@
 
 namespace PKP\user;
 
+use Illuminate\Support\Facades\DB;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
 use PKP\core\ArrayItemIterator;
 use PKP\db\DAORegistry;
-use Illuminate\Support\Facades\DB;
-
 
 class InterestDAO extends ControlledVocabDAO
 {
@@ -119,7 +118,7 @@ class InterestDAO extends ControlledVocabDAO
         $interests = array_unique($interests);
 
         // Trim whitespace
-        $interests = array_map('trim', $interests);
+        $interests = array_map(trim(...), $interests);
 
         // Delete the existing interests association.
         $this->update(
@@ -148,8 +147,8 @@ class InterestDAO extends ControlledVocabDAO
             }
 
             $entry = [
-                [ "user_id" => (int) $userId, "controlled_vocab_entry_id" => (int) $interestEntry->getId()]
-                    ];
+                [ 'user_id' => (int) $userId, 'controlled_vocab_entry_id' => (int) $interestEntry->getId()]
+            ];
             DB::table('user_interests')->insertOrIgnore(
                 $entry
             );

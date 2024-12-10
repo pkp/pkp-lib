@@ -720,7 +720,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Otherwise retrieve and register all script files
-        $minifiedScripts = array_filter(array_map('trim', file('registry/minifiedScripts.txt')), function ($s) {
+        $minifiedScripts = array_filter(array_map(trim(...), file('registry/minifiedScripts.txt')), function ($s) {
             return strlen($s) && $s[0] != '#'; // Exclude empty and commented (#) lines
         });
         foreach ($minifiedScripts as $key => $script) {
@@ -1413,7 +1413,7 @@ class PKPTemplateManager extends Smarty
     public function clearCssCache()
     {
         $cacheDirectory = Core::getBaseDir() . '/cache';
-        array_map('unlink', glob($cacheDirectory . '/*.' . self::CSS_FILENAME_SUFFIX));
+        array_map(unlink(...), glob($cacheDirectory . '/*.' . self::CSS_FILENAME_SUFFIX));
     }
 
     /**
@@ -1617,16 +1617,16 @@ class PKPTemplateManager extends Smarty
                 $params['options'] = $newOptions;
             } else {
                 // Just translate output
-                $params['options'] = array_map('__', $params['options']);
+                $params['options'] = array_map(__(...), $params['options']);
             }
         }
 
         if (isset($params['output'])) {
-            $params['output'] = array_map('__', $params['output']);
+            $params['output'] = array_map(__(...), $params['output']);
         }
 
         if (isset($params['values']) && isset($params['translateValues'])) {
-            $params['values'] = array_map('__', $params['values']);
+            $params['values'] = array_map(__(...), $params['values']);
         }
 
         require_once('lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_options.php');

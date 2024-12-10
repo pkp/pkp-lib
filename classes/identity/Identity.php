@@ -22,6 +22,7 @@
 namespace PKP\identity;
 
 use APP\core\Application;
+use Illuminate\Support\Str;
 use PKP\facades\Locale;
 use PKP\orcid\traits\HasOrcid;
 
@@ -375,6 +376,31 @@ class Identity extends \PKP\core\DataObject
     public function setBiography($biography, $locale)
     {
         $this->setData('biography', $biography, $locale);
+    }
+
+    /***
+     * Get the initials that should be displayed when representing the user.
+     */
+    public function getDisplayInitials(): string
+    {
+        $initials = $this->getPreferredAvatarInitials(null);
+
+        if (!$initials) {
+            // Get the individual name parts. Using hyphens and spaces as delimiters
+            $words = collect(preg_split('/[\s-]+/', $this->getFullName()));
+
+            foreach ([$words->first(), $words->last()] as $word) {
+                if (!$word) {
+                    continue;
+                }
+
+                // Get first character
+                $first = Str::substr($word, 0, 1);
+                $initials .= $first;
+            }
+        }
+
+        return Str::upper($initials);
     }
 }
 

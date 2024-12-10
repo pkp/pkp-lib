@@ -20,6 +20,7 @@ namespace PKP\API\v1\_submissions;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Collector;
+use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -85,6 +86,14 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                             Role::ROLE_ID_ASSISTANT,
                         ]
                 ),
+            ]);
+
+        Route::delete('', $this->bulkDeleteIncompleteSubmissions(...))
+            ->name('_submission.incomplete.delete')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                ]),
             ]);
 
         Route::delete('{submissionId}', $this->delete(...))
@@ -426,6 +435,70 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
 
         Repo::submission()->delete($submission);
+
+        return response()->json([], Response::HTTP_OK);
+    }
+
+    /**
+     * Delete a list of incomplete submissions
+     */
+    public function bulkDeleteIncompleteSubmissions(Request $illuminateRequest): JsonResponse
+    {
+        $submissionIdsRaw = paramToArray($illuminateRequest->query('ids') ?? []);
+
+        if (empty($submissionIdsRaw)) {
+            return response()->json([
+                'error' => __('api.submission.400.missingQueryParam'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $submissionIds = [];
+
+        foreach ($submissionIdsRaw as $id) {
+            $integerId = intval($id);
+
+            if (!$integerId) {
+                return response()->json([
+                    'error' => __('api.submission.400.invalidId', ['id' => $id])
+                ], Response::HTTP_BAD_REQUEST);
+            }
+
+            $submissionIds[] = $id;
+        }
+
+        $submissions = $this->getSubmissionCollector($illuminateRequest->query())
+            ->filterBySubmissionIds($submissionIds)
+            ->filterByIncomplete(true)
+            ->getMany()
+            ->all();
+
+        $submissionIdsFound = array_map(fn (Submission $submission) => $submission->getData('id'), $submissions);
+
+        if (array_diff($submissionIds, $submissionIdsFound)) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $context = $this->getRequest()->getContext();
+
+        foreach ($submissions as $submission) {
+            if ($context->getId() != $submission->getData('contextId')) {
+                return response()->json([
+                    'error' => __('api.submissions.403.deleteSubmissionOutOfContext'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+
+            if (!Repo::submission()->canCurrentUserDelete($submission)) {
+                return response()->json([
+                    'error' => __('api.submissions.403.unauthorizedDeleteSubmission'),
+                ], Response::HTTP_FORBIDDEN);
+            }
+        }
+
+        foreach ($submissions as $submission) {
+            Repo::submission()->delete($submission);
+        }
 
         return response()->json([], Response::HTTP_OK);
     }

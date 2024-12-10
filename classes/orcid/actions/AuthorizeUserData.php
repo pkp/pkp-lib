@@ -156,6 +156,14 @@ class AuthorizeUserData
                     </script></body></html>
                 ';
                 break;
+            case 'invitation':
+                echo '
+                    <html><body><script type="text/javascript">
+                      alert("It worked!");
+                      window.close();
+                    </script></body></html>
+                ';
+                break;
             default:
                 throw new \Exception('Invalid targetOp');
         }

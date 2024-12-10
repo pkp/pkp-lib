@@ -18,7 +18,6 @@ namespace PKP\galley;
 
 use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;

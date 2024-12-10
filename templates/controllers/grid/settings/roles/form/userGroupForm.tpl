@@ -15,7 +15,7 @@
 			'$.pkp.controllers.grid.settings.roles.form.UserGroupFormHandler', {ldelim}
 			selfRegistrationRoleIds: {$selfRegistrationRoleIds|@json_encode},
 			permitSettingsRoleIds: {$permitSettingsRoleIds|@json_encode},
-			mySettingsAccessUserGroupIds: {$mySettingsAccessUserGroupIds|@json_encode},
+			mySettingsAccessUserGroupIds: {$mySettingsAccessUserGroupIds|default:[]|@json_encode},
 			recommendOnlyRoleIds: {$recommendOnlyRoleIds|@json_encode},
 			roleForbiddenStagesJSON: {$roleForbiddenStagesJSON},
 			notChangeMetadataEditPermissionRoles: {$notChangeMetadataEditPermissionRoles|@json_encode},

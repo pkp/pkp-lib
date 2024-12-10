@@ -1,19 +1,20 @@
 # Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
+# Forouzan Karimi <forouzan.karimi@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2021-08-19 04:05+0000\n"
-"Last-Translator: Rahman Ramsi <rahmanramsi19@gmail.com>\n"
+"PO-Revision-Date: 2024-12-10 06:22+0000\n"
+"Last-Translator: Forouzan Karimi <forouzan.karimi@gmail.com>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/fa_IR/>\n"
-"Language: fa_IR\n"
+"submission/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "این مقاله منتشر شده است و ویرایش نویسندگان این مقاله مقدور نیست."
@@ -29,6 +30,9 @@ msgstr "داوری جدید ثبت شده و توسط سردبیر بررسی خ
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"یک یا چند نفر از داوران، در داوری، تأخیر دارند. به تیم تحریریه اطلاع داده "
+"شده است و برای اطمینان از تکمیل بررسی ها اقدام خواهد شد. در این زمان نیازی "
+"به انجام هیچ اقدامی نیست. پس از تصمیم گیری به شما اطلاع داده خواهد شد."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "ارسال به عنوان"
@@ -40,30 +44,31 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"اگر می‌خواهید این دست نوشته را خودتان ویرایش و منتشر کنید، نقش سردبیری را "
+"انتخاب کنید."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "موارد ضروری برای ارسال"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
 "پیش از آغاز فرایند ارسال مقاله باید ضمن مطالعه دقیق موارد خواسته‌شده زیر، "
-"لحاظ شدن تک‌تک موارد را تایید کنید."
+"لحاظ شدن تک‌تک موارد را تأیید کنید."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "بله، دست نوشته من تمام این شرایط را دارد."
 
 msgid "submission.submit.submissionComplete"
 msgstr "ثبت مقاله تکمیل شد"
 
 msgid "submission.submit.genre.label"
-msgstr ""
+msgstr "این چه نوع فایلی است؟"
 
 msgid "submission.submit.genre.description"
-msgstr ""
+msgstr "گزینه ای را انتخاب کنید که این فایل را به بهترین شکل توصیف می کند."
 
 msgid "submission.submit.removeConfirm"
-msgstr ""
+msgstr "آیا مطمئن هستید که می خواهید این فایل را حذف کنید؟"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "شما می توانید:"
@@ -457,16 +462,18 @@ msgstr "مراجع"
 
 msgid "submission.citations.description"
 msgstr ""
+"هر مرجع را در یک سطر جدید وارد کنید تا بتوان آنها را جداگانه استخراج و ثبت "
+"کرد."
 
 msgid "submission.parsedCitations"
-msgstr ""
+msgstr "منابع استخراج شده"
 
 msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
 msgstr ""
-"فهرست مراجع زیر از مقاله استخراج شده است و با مشخصات مقاله ارتباط داده "
+"فهرست مراجع زیر، از مقاله استخراج شده است و با مشخصات مقاله ارتباط داده "
 "خواهند شد."
 
 msgid "submission.parsedAndSaveCitations"
@@ -515,7 +522,7 @@ msgid "submission.complete"
 msgstr "کامل"
 
 msgid "submission.contributors"
-msgstr "لیست پدید آورندگان"
+msgstr "فهرست مشارکت کنندگان (لیست پدیدآورندگان)"
 
 msgid "submission.copyedited"
 msgstr "ویراستاری شده"
@@ -524,19 +531,19 @@ msgid "submission.copyediting"
 msgstr "ویراستاری"
 
 msgid "submission.queryNoteFiles"
-msgstr "فایل بررسی"
+msgstr "فایل های بحث و گفتگو"
 
 msgid "submission.coverage"
 msgstr "اطلاعات پوشش داده شده"
 
 msgid "submission.details"
-msgstr ""
+msgstr "جزئیات ارسال"
 
 msgid "submission.done"
 msgstr "انجام شد"
 
 msgid "submission.downloads"
-msgstr "دانلود"
+msgstr "دانلودها"
 
 msgid "submission.dueDate"
 msgstr "مهلت"
@@ -557,7 +564,7 @@ msgid "submission.email.backToEmailLog"
 msgstr "بازگشت به سوابق ایمیل"
 
 msgid "submission.email.confirmClearLog"
-msgstr "آیا میخواهید سوابق ایمیل این مقاله ارسالی را حذف کنید؟"
+msgstr "آیا میخواهید سوابق ایمیل این دست نوشته ارسالی را حذف کنید؟"
 
 msgid "submission.email.confirmDeleteLogEntry"
 msgstr "آیا میخواهید این سابقه ایمیل را حذف کنید؟"
@@ -588,19 +595,20 @@ msgstr "حذف سابقه"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"ایمیلی درباره این تصمیم برای {$recipientCount} داور(ها) با موضوع {$subject} "
+"ارسال شد."
 
 msgid "submission.event.submissionSubmitted"
-msgstr "مقاله اراسل شد."
+msgstr "ثبت اولیه دست نوشته، تکمیل شد."
 
 msgid "submission.event.copyrightAgreed"
-msgstr ""
+msgstr "{$filename} ({$username}) با شرایط حق نشر برای ارسال موافقت کرد."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "اصلاحات \"{$filename}\" (با شناسه فایل {$submissionFileId}) آپلود شد."
+msgstr "اصلاحات \"{$filename}\" برای فایل {$submissionFileId} آپلود شد."
 
 msgid "submission.event.general.metadataUpdated"
-msgstr "فراداده ارسال شده به روز رسانی شد"
+msgstr "فراداده ارسال شده، به روز رسانی شد"
 
 msgid "submission.event.general.suppFileUpdated"
 msgstr "فایل ارسال شده به روز رسانی شد"
@@ -624,61 +632,67 @@ msgid "submission.event.reviewer.reviewerRated"
 msgstr "تخصیص امتیاز به داور"
 
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "داور تعیین شده لغو شد"
+msgstr "داور تعیین شده، لغو شد"
 
 msgid "submission.event.reviewer.reviewFile"
-msgstr "نسخه داوری به روز رسانی شد"
+msgstr "نسخه داوری، به روز رسانی شد"
 
 msgid "submission.event.reviewer.reviewInitiated"
-msgstr "داوری آغاز شد"
+msgstr "داوری، آغاز شد"
 
 msgid "submission.event.reviewer.reviewRecommendation"
-msgstr "نظرات داوری"
+msgstr "فایل نظرات داوری"
 
 msgid "submission.event.reviewer.reviewReinitiated"
-msgstr "داوری دوباره از سرگرفته شد"
+msgstr "داوری، دوباره از سرگرفته شد"
 
 msgid "submission.event.reviewer.reviewResubmitted"
-msgstr "داوری دوباره اغاز شد"
+msgstr "نظریه داوری، دوباره ارسال شد"
 
 msgid "submission.event.reviewer.reviewRevision"
-msgstr "نسخه داوری"
+msgstr "فایل بازبینی داور، به‌روزرسانی شد"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} یک یادآوری به {$recipientName} در مورد تکلیف داوری، ارسال کرد"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"یک ایمیل یادآوری خودکار به {$recipientName} در رابطه با تکلیف داوری، ارسال شد"
 
 msgid "submission.event.subjectPrefix"
 msgstr "یک ایمیل ارسال شده است:"
 
 msgid "submission.event.viewEmail"
-msgstr "نمایش ایمیل"
+msgstr "مشاهده ایمیل"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"مؤلفین، اکنون مجاز به ویرایش فراداده، هنگام ارسال در مرحله {stage} هستند."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"مؤلفین، اکنون مجاز به ویرایش فراداده، در هنگام ارسال در مرحله {stage} نیستند."
 
 msgid "submission.files"
 msgstr "فایل ها"
 
 msgid "submission.files.downloadAll"
-msgstr "دانلود همه ی فایل ها"
+msgstr "دانلود همه فایل ها"
 
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
+"یک رکورد از آپلودکننده فایل، هنگام ایجاد فایل ذخیره می شود و نمی توان آن را "
+"تغییر داد."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "انتشار برای اولین بار"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "برای دبیران"
 
 msgid "submission.galley"
-msgstr "کلیشه چاپی"
+msgstr "کلیشه چاپی (کلیشه آماده نشر)"
 
 msgid "submission.history.clearLog"
 msgstr "پاک کردن سوابق"
@@ -699,34 +713,36 @@ msgid "submission.history.submissionEventLog"
 msgstr "سوابق رویدادها"
 
 msgid "submission.history.submissionNotes"
-msgstr "یاداشتهای ارسال شده"
+msgstr "یادداشتهای ارسال شده"
 
 msgid "submission.history.viewLog"
 msgstr "مشاهده سوابق"
 
 msgid "submission.howToCite"
-msgstr "ارجاع به مقاله"
+msgstr "نحوه استناد به مقاله"
 
 msgid "submission.howToCite.citationFormats"
-msgstr "شیوه ی ارجاع دهی"
+msgstr "فرمت های دیگر استناددهی"
 
 msgid "submission.howToCite.downloadCitation"
-msgstr "دانلود ارجاعات"
+msgstr "دانلود استنادات"
 
 msgid "submission.initiated"
 msgstr "آغاز پردازش"
 
 msgid "submission.updatedOn"
-msgstr ""
+msgstr "{$datePublished} — به روز شده در {$dateUpdated}"
 
 msgid "submission.versions"
-msgstr ""
+msgstr "نسخه ها"
 
 msgid "submission.versionIdentity"
-msgstr ""
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr ""
+"این یک نسخه قدیمی است که در {$datePublished} منتشر شده است. <a href=\""
+"{$urlRecentVersion}\">جدیدترین نسخه</a> را بخوانید."
 
 msgid "submission.identifiers"
 msgstr "شناسه ها"
@@ -736,21 +752,24 @@ msgstr "شناسه ناشر"
 
 msgid "submission.publisherId.description"
 msgstr ""
+"شناسه ناشر ممکن است برای ضبط شناسه از یک پایگاه داده خارجی استفاده شود. برای "
+"مثال، مواردی که برای ذخیره سازی داده به PubMed صادر می‌شوند، ممکن است شامل "
+"شناسه ناشر باشد. این شناسه نباید برای DOI استفاده شود."
 
 msgid "submission.publisherId.enable"
-msgstr ""
+msgstr "فعال کردن برای {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
-msgstr "اطلاعات مقاله ارسالی"
+msgstr "اطلاعات دست نوشته ارسالی"
 
 msgid "submission.informationCenter.metadata"
 msgstr "فراداده"
 
 msgid "submission.informationCenter.notes"
-msgstr "یادداشت"
+msgstr "یادداشتها"
 
 msgid "submission.informationCenter.history"
-msgstr "سوابق"
+msgstr "سابقه"
 
 msgid "submission.informationCenter.history.allEvents"
 msgstr "رخدادهای نسخه های قبلی را نیز نمایش بده"
@@ -762,22 +781,22 @@ msgid "submission.lastModified"
 msgstr "تاریخ آخرین تغییر در وضعیت"
 
 msgid "submission.layout.addGalley"
-msgstr "افزودن کلیشه چاپی"
+msgstr "افزودن کلیشه چاپی (نسخه آماده نشر)"
 
 msgid "submission.layout.confirmDeleteGalley"
-msgstr "آیا میخواهید برای همیشه این کلیشه چاپی را حذف کنید؟"
+msgstr "آیا میخواهید برای همیشه این کلیشه چاپی (نسخه آماده نشر) را حذف کنید؟"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
-msgstr "آیا میخواهید این تصویر را از این کلیشه چاپی حذف کنید؟"
+msgstr "آیا میخواهید این تصویر را از این کلیشه چاپی (نسخه آماده نشر) حذف کنید؟"
 
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "حذف این استایل شیت"
 
 msgid "submission.layout.editGalley"
-msgstr "ویرایش کلیشه چاپی"
+msgstr "ویرایش کلیشه چاپی (نسخه آماده نشر)"
 
 msgid "submission.layout.galleyFormat"
-msgstr "فرمت کلیشه چاپی"
+msgstr "فرمت کلیشه چاپی (نسخه آماده نشر)"
 
 msgid "submission.layout.galleyHTMLData"
 msgstr "فایل های کلیشه چاپی  HTML"
@@ -792,13 +811,13 @@ msgid "submission.layout.galleyLabelInstructions"
 msgstr "برچسب کلیشه چاپی برای شناسایی فرمت فایل میباشد. مانند  HTML, PDF"
 
 msgid "submission.layout.galleyLabelRequired"
-msgstr "برچسبی برای این کلیشه چاپی لازم است"
+msgstr "برچسبی برای این کلیشه چاپی لازم است."
 
 msgid "submission.layout.galleyLanguageRequired"
-msgstr "زبان کلیشه چاپی می بایست مشخص شود"
+msgstr "زبان کلیشه چاپی می بایست مشخص شود."
 
 msgid "submission.layout.galleyLocaleRequired"
-msgstr "زبان کلیشه چاپی می بایست مشخص شود"
+msgstr "زبان کلیشه چاپی می بایست مشخص شود."
 
 msgid "submission.layout.galleyRemoteURL"
 msgstr "آدرس اینترنتی"
@@ -810,31 +829,31 @@ msgid "submission.layout.galleyNoImages"
 msgstr "فاقد تصویر"
 
 msgid "submission.layout.galleys"
-msgstr "کلیشه های چاپی"
+msgstr "کلیشه های چاپی (نسخه های آماده نشر)"
 
 msgid "submission.layout.galleyStylesheet"
 msgstr "فایل استایل شیت"
 
 msgid "submission.layout.galleyStyle"
-msgstr "استایل"
+msgstr "سبک (استایل)"
 
 msgid "submission.layout.initialGalleyCreation"
 msgstr "ایجاد کلیشه چاپی اولیه"
 
 msgid "submission.layout.layoutFile"
-msgstr "فایل صفحه‌آرا"
+msgstr "فایل صفحه‌آرایی"
 
 msgid "submission.layout"
 msgstr "صفحه‌آرایی"
 
 msgid "submission.layout.layoutVersion"
-msgstr "نسخه صفحه‌آرا"
+msgstr "نسخه صفحه‌آرایی"
 
 msgid "submission.layout.newGalley"
 msgstr "ایجاد کلیشه چاپی جدید"
 
 msgid "submission.layout.noStyleFile"
-msgstr "هیچ فایل استایل شیتی برای این کلیشه چاپی تعیین نشده است"
+msgstr "هیچ فایل استایل شیتی به این کلیشه چاپی اضافه نشده است."
 
 msgid "submission.layout.viewingGalley"
 msgstr "مشاهده کلیشه چاپی ارسال شده"
@@ -843,10 +862,10 @@ msgid "submission.layout.viewProof"
 msgstr "مشاهده نسخه بازبینی"
 
 msgid "submission.metadata"
-msgstr "فراداده مقاله ارسالی"
+msgstr "فراداده دست نوشته ارسالی"
 
 msgid "submission.noReviewAssignments"
-msgstr "داوری منتسب نشده است"
+msgstr "داور، منتسب نشده است"
 
 msgid "submission.notes.addNewNote"
 msgstr "افزودن یادداشت جدید"
@@ -861,7 +880,7 @@ msgid "submission.notes.breadcrumb"
 msgstr "یادداشت ها"
 
 msgid "submission.notes.clearAllNotes"
-msgstr "پاک کردن تمام یادداشت"
+msgstr "پاک کردن تمام یادداشت ها"
 
 msgid "submission.notes.collapseNotes"
 msgstr "جمع کردن یادداشتها"
@@ -870,7 +889,7 @@ msgid "submission.notes.confirmDeleteAll"
 msgstr "آیا تمام یادداشتها ی ارسال شده پاک شود؟"
 
 msgid "submission.notes.confirmDelete"
-msgstr "آیا این یادداشت ارسال شده پاک شود؟"
+msgstr "آیا این یادداشت ارسال شده، پاک شود؟"
 
 msgid "submission.notes.createNewNote"
 msgstr "ایجاد یادداشت جدید"
@@ -882,19 +901,19 @@ msgid "submission.notes.editNote"
 msgstr "ویرایش یادداشت"
 
 msgid "submission.notes.expandNotes"
-msgstr "باز کردن یادداشتها"
+msgstr "بازکردن یادداشتها"
 
 msgid "submission.notes.noSubmissionNotes"
-msgstr "بدون یادداشت"
+msgstr "بدون یادداشت ارسالی"
 
 msgid "submission.notes.removeUploadedFile"
 msgstr "حذف فایل بارگذاری شده"
 
 msgid "submission.notes"
-msgstr "یادداشتهای مقاله ارسالی"
+msgstr "یادداشتهای ارسالی"
 
 msgid "submission.notes.updateNote"
-msgstr "به روز کردن یادداشت"
+msgstr "به روزرسانی یادداشت"
 
 msgid "submission.notes.viewNotes"
 msgstr "مشاهده یادداشتها"
@@ -945,7 +964,7 @@ msgid "submission.review"
 msgstr "داوری"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "داوری و ارسال کنید"
 
 msgid "submission.reviewed"
 msgstr "داوری شده"
@@ -957,10 +976,10 @@ msgid "submission.rights"
 msgstr "حقوق"
 
 msgid "submissions.active"
-msgstr "جاری"
+msgstr "جاری (فعال)"
 
 msgid "submissions.archived"
-msgstr "آرشیو"
+msgstr "بایگانی"
 
 msgid "submission.saveMetadata"
 msgstr "ذخیره کردن فراداده"
@@ -969,13 +988,13 @@ msgid "submissions.completed"
 msgstr "تکمیل شده"
 
 msgid "submissions.declined"
-msgstr "رد"
+msgstr "ردشده"
 
 msgid "submissions.incomplete"
 msgstr "ناتمام"
 
 msgid "submissions.noSubmissions"
-msgstr "خالی"
+msgstr "خالی (چیزی ارسال نشده)"
 
 msgid "submissions.queuedEditing"
 msgstr "در نوبت ویرایش"
@@ -984,7 +1003,8 @@ msgid "submissions.queued"
 msgstr "در نوبت"
 
 msgid "submissions.queuedUnassigned"
-msgstr "منتظر انتساب"
+msgstr ""
+"هیچ دبیری به این دست نوشته ارسال شده، اختصاص داده نشده است (منتظر انتساب)."
 
 msgid "submissions.ruling"
 msgstr "اتخاذ تصمیم"
@@ -1026,28 +1046,25 @@ msgid "submission.submit.fileInformation"
 msgstr "اطلاعات فایل"
 
 msgid "submission.submit.fileAdded"
-msgstr "فایل شما با موفقیت اضافه شد"
+msgstr "فایل، با موفقیت، اضافه شد"
 
 msgid "submission.submit.includeInBrowse"
 msgstr "آیا این پدیدآورنده در فهرست پدیدآورندگان نمایش داده شود؟"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "فهرست های انتشارات"
 
 msgid "submission.submit.newFile"
 msgstr "افزودن فایل جدید"
 
 msgid "submission.submit.metadataForm"
-msgstr "پالایش بیشتر"
+msgstr "اصلاحات اضافی"
 
 msgid "submission.submit.submissionLocale"
 msgstr "زبان مقاله"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"مقاله را می توانید در چندین زبان مختلف ارسال کنید. از منوی زیر می توانید "
-"زبان اصلی مقاله را انتخاب نمایید"
+msgstr "زبان اصلی مقاله را انتخاب کنید."
 
 msgid "submission.submit.submissionFiles"
 msgstr "فایل مقاله"
@@ -1060,33 +1077,34 @@ msgstr "مدیریت فایل های وابسته"
 
 msgid "submission.upload.instructions"
 msgstr ""
+"هر فایلی را که تیم تحریریه برای ارزیابی دست نوشته شما نیاز دارد، آپلود کنید."
 
 msgid "submission.upload.percentComplete"
-msgstr ""
+msgstr "بارگذاری {$percent}% کامل شد"
 
 msgid "submission.upload.dependent"
 msgstr "آپلود یک فایل وابسته"
 
 msgid "submission.upload.query"
-msgstr "آپلود فایل گفتگو"
+msgstr "آپلود فایل بحث و گفتگو"
 
 msgid "submission.summary"
 msgstr "خلاصه"
 
 msgid "submission.supportingAgencies"
-msgstr "آژانس های پشتیبانی کننده"
+msgstr "سازمان های پشتیبانی کننده"
 
 msgid "submission.currentAgencies"
-msgstr "نمایندگان جاری"
+msgstr "سازمان های فعلی"
 
 msgid "submission.indexingInformation"
-msgstr "اطلاعات نمایه"
+msgstr "اطلاعات نمایه سازی"
 
 msgid "submission.titleAndAbstract"
 msgstr "عنوان و چکیده"
 
 msgid "submission.underway"
-msgstr "شروع"
+msgstr "در جریان است"
 
 msgid "submission.uploadFileTo"
 msgstr "آپلود فایل در"
@@ -1098,22 +1116,22 @@ msgid "submission.viewMetadata"
 msgstr "مشاهده فراداده"
 
 msgid "submission.views"
-msgstr "دیده شده"
+msgstr "بازدیدها"
 
 msgid "submission.uploadSuccessful"
-msgstr "فایل شما آپلود شد"
+msgstr "فایل شما آپلود شد."
 
 msgid "submission.loadMessage"
 msgstr "لطفا تا آپلود کامل فایل صبر کنید."
 
 msgid "submission.artworkFileDetails"
-msgstr "جزئیات فایل هنری"
+msgstr "جزئیات فایل اثر"
 
 msgid "submission.fileDetails"
 msgstr "جزئیات فایل"
 
 msgid "submission.nameRequired"
-msgstr "برای این مورد یک نام لازم است"
+msgstr "برای این مورد، یک نام لازم است."
 
 msgid "submission.date.mmdd"
 msgstr "MM-DD"
@@ -1128,55 +1146,55 @@ msgid "submission.submit.addAuthor"
 msgstr "افزودن مشارکت کننده"
 
 msgid "submission.submit.form.languagesRequired"
-msgstr ""
+msgstr "لطفا یک زبان وارد کنید."
 
 msgid "submission.submit.form.subjectsRequired"
-msgstr ""
+msgstr "لطفا موضوعی را وارد کنید."
 
 msgid "submission.submit.form.disciplinesRequired"
-msgstr ""
+msgstr "لطفا یک رشته تحصیلی را وارد کنید."
 
 msgid "submission.submit.form.keywordsRequired"
-msgstr ""
+msgstr "لطفا یک کلیدواژه را وارد کنید."
 
 msgid "submission.submit.form.coverageRequired"
-msgstr ""
+msgstr "لطفا اطلاعات پوشش محتوا را وارد کنید."
 
 msgid "submission.submit.form.typeRequired"
-msgstr ""
+msgstr "لطفا نوع را وارد کنید."
 
 msgid "submission.submit.form.sourceRequired"
-msgstr ""
+msgstr "لطفا منبع را وارد کنید."
 
 msgid "submission.submit.form.rightsRequired"
-msgstr ""
+msgstr "لطفا حقوق را وارد کنید."
 
 msgid "submission.submit.form.citationsRequired"
-msgstr ""
+msgstr "لطفا مراجع را وارد کنید."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "لطفاً بیانیه در دسترس بودن داده ها را وارد کنید."
 
 msgid "submission.form.name"
-msgstr "نام فایل را مشخص کنید( برای مثال: متن مقاله؛ جدول 1)"
+msgstr "نام فایل را مشخص کنید (برای مثال: متن مقاله؛ جدول 1)"
 
 msgid "submission.form.replaceExisting"
 msgstr "جایگزینی با فایل موجود؟"
 
 msgid "workflow.review.internalReview"
-msgstr "داور داخلی"
+msgstr "داوری داخلی"
 
 msgid "workflow.stage.any"
-msgstr "همه ی مراحل"
+msgstr "هر مرحله"
 
 msgid "workflow.stage"
 msgstr "مرحله"
 
 msgid "submission.status.editorial"
-msgstr "در حال ویراستیاری"
+msgstr "در حال ویراستاری"
 
 msgid "submission.status.production"
-msgstr "در حل بازبینی نهایی"
+msgstr "در مرحله بازبینی نهایی"
 
 msgid "submission.status.review"
 msgstr "در حال داوری"
@@ -1185,7 +1203,7 @@ msgid "submission.status.submission"
 msgstr "منتظر تصمیم سردبیر"
 
 msgid "submission.status.unassigned"
-msgstr "مشخص نشده"
+msgstr "اختصاص داده نشده است"
 
 msgid "submission.status.declined"
 msgstr "رد شده"
@@ -1197,55 +1215,56 @@ msgid "submission.submit.uploadStep"
 msgstr "1. آپلود فایل"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "آپلود فایل مقاله"
+msgstr "آپلود فایل دست نوشته"
 
 msgid "submission.submit.metadataStep"
-msgstr "2. بازبینی جزییات"
+msgstr "2. بازبینی جزئیات"
 
 msgid "submission.submit.finishingUpStep"
-msgstr "3. تایید"
+msgstr "3. تأیید"
 
 msgid "submission.submit.fileNameRequired"
-msgstr "باید برای این فایل یک نام مشخص کنید"
+msgstr "باید برای این فایل، یک نام مشخص کنید"
 
 msgid "submission.upload.noGenre"
-msgstr "اجزاء نامعتبر یا ناموجود!"
+msgstr "اجزای نامعتبر یا ناموجود!"
 
 msgid "submission.upload.invalidUserGroup"
 msgstr "گروه کاربری نامعتبر یا ناموجود!"
 
 msgid "submission.upload.possibleRevision"
-msgstr "شناسایی احتمالی فایل تکراری"
+msgstr "شناسایی فایل تکراری یا تجدیدنظرشده"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
-"نام فایل آپلودی با فایل آپلود شده قبلی شباهت داد ({$revisedFileName}). آیا "
-"میخواهید این فایل جایگزین شود؟ اگر بله که فایل را از زیر انتخاب کنید. وگرنه "
-"گزینه \"این فایل نسخه اصلاحی فایل موجود نیست\" را انتخاب کنید"
+"نام فایل آپلودشده، شبیه نام یک فایل آپلودشده قبلی، \"{$revisedFileName}\" "
+"است. آیا این فایل قرار است جایگزین «{$revisedFileName}» شود؟ اگر چنین است، "
+"فایل زیر را انتخاب کنید. در غیر این صورت، قبل از ادامه، \"This is not a "
+"revision of an موجود فایل\" را انتخاب کنید."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr "لطفاً فایلی که مایلید اصلاح کنید را انتخاب کنید."
+msgstr "لطفاً فایلی را که مایلید اصلاح کنید، انتخاب کنید."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
-"اگر قصد تغییر فایلی که پیشتر بارگذاری کرده اید را دارید ، نوع آن را مشخص کنید"
+"اگر قصد تغییر فایلی که پیشتر بارگذاری کرده اید را دارید، نوع آن را مشخص کنید."
 
 msgid "submission.upload.uploadNewFile"
-msgstr "این فایل نسخه اصلاحی فایل موجود نیست"
+msgstr "این، نسخه بازبینی شده و اصلاحی یک فایل موجود، نیست"
 
 msgid "submission.upload.userGroup"
-msgstr "بارگزاری این فایل تحت عنوان نقش …"
+msgstr "آپلود این فایل در نقش من به عنوان..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
-"اگر د رحال ثبت شماره ویراش شده هستید، باید تمامی فصل های این شماره را به "
-"صورت جداگانه آپلود کنید."
+"اگر یک جلد ویرایش شده ارسال می کنید، باید تمام فصل های جلد را به صورت "
+"جداگانه و تحت نقش خود به عنوان دبیر جلد آپلود کنید."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "آپلود فایل کتابخانه"
 
 msgid "submission.upload.libraryCategory"
-msgstr "ثبت حوزه سند"
+msgstr "ثبت دسته بندی و حوزه سند"
 
 msgid "submission.upload.finalDraft"
 msgstr "آپلود فایل"
@@ -1262,95 +1281,94 @@ msgstr ""
 "نظرات خود را در فایل جداگانه ای نوشته و آپلود نمایید."
 
 msgid "submission.upload.productionReady"
-msgstr "فایل آماده به تولید را آپلود کنید"
+msgstr "فایل آماده تولید را آپلود کنید"
 
 msgid "submission.upload.proof"
-msgstr "فایل آماده به انتشار را آپلود کنید."
+msgstr "فایل آماده انتشار را آپلود کنید"
 
 msgid "submission.upload.noAvailableReviewFiles"
-msgstr "هیچ فایلی برای بررسی در این مرحله وجود ندارد."
+msgstr "در حال حاضر، هیچ فایلی جهت اصلاح، برای شما وجود ندارد."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "نیازمند انجام اصلاحات"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "اصلاحات ثبت شد."
+msgstr "اصلاحات، ثبت شده است و تصمیم گیری لازم است."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr ""
+msgstr "دست نوشته، باید دوباره برای یک دور داوری دیگر ارسال شود."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr ""
+msgstr "دست نوشته، برای یک دور داوری دیگر، مجدداً ارسال شده است."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "ارسال به داور خارجی"
+msgstr "به داور خارجی ارسال شد."
 
 msgid "editor.submission.roundStatus.accepted"
-msgstr "مقاله ارسالی پذیرش شد."
+msgstr "دست نوشته ارسالی، پذیرش شد."
 
 msgid "editor.submission.roundStatus.declined"
-msgstr "مقاله ارسالی پذیرش نشد."
+msgstr "دست نوشته ارسالی، پذیرش نشد."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
 msgstr "در حال انتظار برای انتخاب داور"
 
 msgid "editor.submission.roundStatus.pendingReviews"
-msgstr "درخواست‌های داوری در انتظار تأیید"
+msgstr "در انتظار پاسخ از داوران."
 
 msgid "editor.submission.roundStatus.reviewsReady"
-msgstr "داوری جدید ثبت شد."
+msgstr "داوری های جدید ثبت شدند."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "داوری تکمیل شد."
+msgstr "همه داورها، پاسخ داده اند و تصمیم گیری لازم است."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr "مهلت داوری سپری شده است."
+msgstr "مهلت داوری، سپری شده است."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "در انتظار توصیه دبیر"
+msgstr "در انتظار توصیه های دبیران"
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "یک توصیه جدید ثبت شد."
+msgstr "یک توصیه جدید توسط دبیر ثبت شد."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "تمام توصیه‌ها ثبت شده است و نیازمند اتخاذ تصمیم است"
+msgstr "تمام توصیه‌ها ثبت شده است و نیازمند اتخاذ تصمیم است."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "برای بیش از {$days} روز در مرحله {$stage} غیرفعال است."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "یک دست نوشته جدید در انتظار ارسال برای بررسی است، یا رد شده است."
 
 msgid "editor.submission.stageParticipants"
-msgstr "همکاران"
+msgstr "مشارکت کنندگان (همکاران)"
 
 msgid "editor.submission.noneAssigned"
 msgstr "انتساب داده نشده"
 
 msgid "editor.submission.participant"
-msgstr "همکار"
+msgstr "مشارکت کننده (همکار)"
 
 msgid "editor.submission.addStageParticipant"
-msgstr "افزودن همکار"
+msgstr "افزودن مشارکت کننده (همکار)"
 
 msgid "editor.submission.editStageParticipant"
-msgstr ""
+msgstr "ویرایش محتوا"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
-"کاربران بر اساس گروه کاربری‌شان به مراحل گردش کار انتساب داده می‌شوند.هر "
-"کاربری که به این مرحله افزوده شود. به صورت خودکار به تمامی مرحله‌هایی که آن "
-"گروه کاربری می‌تواند انتساب یابد، انتساب داده می‌شود. این عمل به صورت معمول "
-"برای سردبیر، نویسنده و مترجمان است."
+"کاربران بر اساس گروه کاربری‌شان به مراحل گردش کار انتساب داده می‌شوند. هر "
+"کاربری که به این مرحله افزوده شود، به صورت خودکار به تمامی مرحله‌هایی که آن "
+"گروه کاربری می‌تواند منتسب شود، انتساب داده می‌شود. این عمل به صورت معمول "
+"برای سردبیر، مؤلفین، و مترجمین است."
 
 msgid "editor.submission.removeStageParticipant"
-msgstr "حذف همکار"
+msgstr "حذف مشارکت کننده (همکار)"
 
 msgid "editor.submission.removeStageParticipant.description"
 msgstr ""
-"شما در حال حذف این همکار از <strong>تمامی</strong> مراحل هستید. حتی اگر یک "
-"حسابرسی در حال انجام نیز داشته باشد، تمامی آن‌ها حذف خواهند شد."
+"شما در حال حذف این مشارکت کننده (همکار) از <strong>تمامی</strong> مراحل "
+"هستید."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "باید یک گروه کاربری انتخاب شود."
@@ -1360,46 +1378,64 @@ msgstr "باید کاربری را برای گروه کاربری مشخص شد�
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
+"شرکت‌کننده‌ای که انتخاب کرده‌اید، برای انجام یک داوری ناشناس اختصاص یافته "
+"است. اگر او را به عنوان یک شرکت کننده اختصاص دهید، به هویت نویسنده دسترسی "
+"خواهد داشت. لذا به شما پیشنهاد می کنیم که این شرکت‌کننده را تعیین نکنید؛ مگر "
+"اینکه بتوانید به طور مستقل از یکپارچگی فرآیند داوری همتایان، اطمینان حاصل "
+"کنید."
 
 msgid "editor.submission.removePermissionToEdit"
-msgstr ""
+msgstr "ویرایش فراداده (متادیتا) را مجاز نکنید"
 
 msgid "editor.submission.addPermissionToEdit"
-msgstr ""
+msgstr "اجازه ویرایش فراداده (متادیتا)"
 
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
+"آیا مطمئن هستید که می خواهید مؤلفین این دست نوشته ارسالی نتوانند متادیتای "
+"(فراداده) دست نوشته را در آن مرحله ویرایش کنند؟"
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
+"آیا مطمئن هستید که می خواهید مؤلفین (نویسندگان) این دست نوشته ارسالی بتوانند "
+"در آن مرحله، فراداده های (متاداده های) آن را ویرایش کنند؟"
 
 msgid "editor.submission.decision"
 msgstr "تصمیم"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "به مؤلفین (نویسندگان) اطلاع دهید"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "به داوران اطلاع دهید"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"برای داوران، ایمیلی بفرستید تا از بررسی آنها تشکر کنید و به آنها اطلاع دهید "
+"که تصمیمی گرفته شده است. برای هر داور، یک ایمیل جداگانه برای محافظت از "
+"ناشناس بودن ارسال می شود. عبارت {$recipientName} را می‌توان در پیام استفاده "
+"کرد تا نام هر داور را به طور ایمن درج کند."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"یک ایمیل به داوران تخصیص داده شده، ارسال کنید تا به آنها اطلاع دهید که داوری "
+"آنها برای دست نوشته مورد نظر، لغو شده است."
 
 msgid "editor.submission.decision.accept"
-msgstr "ارسال برای ویراستاری"
+msgstr "پذیرش دست نوشته"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"این دست نوشته ارسالی، برای انتشار پذیرفته می شود و برای ویرایش ارسال می گردد."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} این دست نوشته ارسالی را پذیرفت و آن را به مرحله ویرایش، ارسال "
+"کرد."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "دست نوشته ارسالی، پذیرفته شد"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
@@ -2690,3 +2726,11 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "فایل مقاله ارسالی"
 
+msgid "submission.authors.label"
+msgstr "مؤلفین"
+
+msgid "submission.author.list"
+msgstr "فهرست مؤلفین ارسال کننده دست نوشته"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "بازگشت به داوری."

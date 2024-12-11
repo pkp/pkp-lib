@@ -55,6 +55,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -119,6 +120,8 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc CollectorInterface::getQueryBuilder()
+     *
+     * @hook Category::Collector [[&$qb, $this]]
      */
     public function getQueryBuilder(): Builder
     {
@@ -135,11 +138,10 @@ class Collector implements CollectorInterface
         });
 
         $qb->when($this->publicationIds !== null, function ($query) {
-            $query->whereIn('c.category_id', function ($query) {
-                $query->select('category_id')
-                      ->from((new PublicationCategory)->getTable())
-                      ->whereIn('publication_id', $this->publicationIds);
-            });
+            $query->whereIn('c.category_id', PublicationCategory::select('category_id')
+                ->whereIn('publication_id', $this->publicationIds)
+                ->toBase()
+            );
         });
 
         $qb->when($this->parentIds !== null, function ($query) {

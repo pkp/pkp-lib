@@ -276,6 +276,7 @@ abstract class Collector implements CollectorInterface
 
     /**
      * Add APP-specific filtering methods for checking if submission sub objects have DOIs assigned
+     *
      */
     abstract protected function addHasDoisFilterToQuery(Builder $q);
 
@@ -512,8 +513,9 @@ abstract class Collector implements CollectorInterface
         }
 
         if (isset($this->categoryIds)) {
-            $publicationIds = PublicationCategory::whereIn('category_id', $this->categoryIds)
-            ->pluck('publication_id')->toArray();
+            $publicationIds = PublicationCategory::withCategoryIds($this->categoryIds)
+                                ->select('publication_id')
+                                ->toBase();
 
             $q->whereIn('s.current_publication_id', $publicationIds);
         }

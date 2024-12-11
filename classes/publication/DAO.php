@@ -488,42 +488,27 @@ class DAO extends EntityDAO
     /**
      * Set a publication's category property
      */
-    protected function setCategories(Publication $publication)
+    protected function setCategories(Publication $publication): void
     {
-        try {
-            $categoryIds = PublicationCategory::getCategoriesByPublicationId($publication->getId());
-            $publication->setData('categoryIds', $categoryIds);
-        } catch (\Exception $e) {
-            error_log('Error setting categories: ' . $e->getMessage());
-        }
+        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id');
+        $publication->setData('categoryIds', $categoryIds);
     }
 
     /**
      * Save the assigned categories
      */
-    protected function saveCategories(Publication $publication)
+    protected function saveCategories(Publication $publication): void
     {
-        try {
-            $categoryIds = (array) $publication->getData('categoryIds');
-            if (empty($categoryIds)) {
-                $categoryIds = [];
-            }
-            PublicationCategory::assignCategoriesToPublication($publication->getId(), $categoryIds);
-        } catch (\Exception $e) {
-            error_log('Failed to save categories for publication: ' . $e->getMessage());
-        }
+        $categoryIds = (array) $publication->getData('categoryIds');
+        Repo::publication()->assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 
     /**
      * Delete the category assignments
      */
-    protected function deleteCategories(int $publicationId)
+    protected function deleteCategories(int $publicationId): void
     {
-        try {
-            PublicationCategory::where('publication_id', $publicationId)->delete();
-        } catch (\Exception $e) {
-            error_log('Failed to delete categories for publication: ' . $e->getMessage());
-        }
+        PublicationCategory::where('publication_id', $publicationId)->delete();
     }
 
     /**

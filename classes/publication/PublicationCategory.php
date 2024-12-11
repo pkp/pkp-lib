@@ -1,8 +1,20 @@
 <?php
+/**
+ * @file classes/publication/PublicationCategory.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PublicationCategory
+ *
+ * @brief Handles operations related to publication categories
+ */
 
 namespace PKP\publication;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class PublicationCategory extends Model
 {
@@ -16,31 +28,21 @@ class PublicationCategory extends Model
     ];
 
     /**
-     * Get the categories associated with a publication.
-     *
+     * Scope a query to only include records with a specific publicationId
      */
-    public static function getCategoriesByPublicationId(int $publicationId)
+    public function scopeWithPublicationId(Builder $query, int $publicationId): Builder
     {
-        return self::where('publication_id', $publicationId)->pluck('category_id');
+        return $query->where('publication_id', $publicationId);
     }
 
     /**
-     * Assign categories to a publication.
+     * Scope a query to only include records with specific categoryIds
      *
+     * @param int[] $categoryIds Array of category IDs
      */
-    public static function assignCategoriesToPublication(int $publicationId, array $categoryIds)
+    public function scopeWithCategoryIds(Builder $query, array $categoryIds): Builder
     {
-        // delete all existing entries for the publication
-        self::where('publication_id', $publicationId)->delete();
-    
-        //  insert if the category IDs are provided
-        if (!empty($categoryIds)) {
-            foreach ($categoryIds as $categoryId) {
-                self::create([
-                    'publication_id' => $publicationId,
-                    'category_id' => $categoryId
-                ]);
-            }
-        }
+        return $query->whereIn('category_id', $categoryIds);
     }
+
 }

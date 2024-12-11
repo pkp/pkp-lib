@@ -49,6 +49,7 @@
 		"categoryIds": {
 			"type": "array",
 			"apiSummary": true,
+			"readOnly": true,
 			"items": {
 				"type": "integer"
 			}

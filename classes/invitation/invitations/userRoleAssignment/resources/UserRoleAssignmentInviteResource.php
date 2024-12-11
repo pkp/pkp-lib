@@ -46,6 +46,12 @@ class UserRoleAssignmentInviteResource extends JsonResource
         // Return specific fields from the UserRoleAssignmentInvite
         return array_merge($invitationData, [
             'orcid' => $this->getPayload()->orcid,
+            'orcidAccessDenied' => $this->getPayload()->orcidAccessDenied,
+            'orcidAccessExpiresOn' => $this->getPayload()->orcidAccessExpiresOn,
+            'orcidAccessScope' => $this->getPayload()->orcidAccessScope,
+            'orcidAccessToken' => $this->getPayload()->orcidAccessToken,
+            'orcidIsVerified' => $this->getPayload()->orcidIsVerified,
+            'orcidRefreshToken' => $this->getPayload()->orcidRefreshToken,
             'givenName' => $this->getPayload()->givenName,
             'familyName' => $this->getPayload()->familyName,
             'affiliation' => $this->getPayload()->affiliation,

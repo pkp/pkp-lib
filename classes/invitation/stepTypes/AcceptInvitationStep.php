@@ -67,7 +67,7 @@ class AcceptInvitationStep extends InvitationStepTypes
         $sections->addSection(
             null,
             [
-                'validateFields' => ['userOrcid'],
+                'validateFields' => ['orcid', 'orcidIsVerified', 'orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn'],
                 'orcidUrl' => OrcidManager::getOrcidUrl(),
                 'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => 'invitation']),
             ]

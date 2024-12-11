@@ -25,7 +25,6 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\galley\Galley;
-use PKP\validation\Validator;
 
 class PreprintGalleyForm extends Form
 {
@@ -64,7 +63,7 @@ class PreprintGalleyForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
         // Ensure a locale is provided and valid
-        $locales = $submission->getPublicationLanguages($request->getServer()->getSupportedSubmissionMetadataLocales(), $preprintGalley?->getLanguages());
+        $locales = $submission->getPublicationLanguages($request->getServer()->getSupportedSubmissionLocales(), $preprintGalley?->getLanguages());
         $this->addCheck(
             new \PKP\form\validation\FormValidatorCustom(
                 $this,
@@ -95,7 +94,7 @@ class PreprintGalleyForm extends Form
             ]);
         }
 
-        $supportedLocales = $request->getContext()->getSupportedSubmissionMetadataLocaleNames() + $this->_submission->getPublicationLanguageNames() + ($this->_preprintGalley?->getLanguageNames() ?? []);
+        $supportedLocales = $request->getContext()->getSupportedSubmissionLocaleNames() + $this->_submission->getPublicationLanguageNames() + ($this->_preprintGalley?->getLanguageNames() ?? []);
         ksort($supportedLocales);
 
         $templateMgr->assign([

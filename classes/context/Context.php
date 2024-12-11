@@ -335,7 +335,7 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Return associative array of all locales supported by forms on the site.
      *
-     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata::LANGUAGE_LOCALE_*
      *
      * @return array
      */
@@ -377,7 +377,7 @@ abstract class Context extends \PKP\core\DataObject
      * Return associative array of all locales supported by the site.
      * These locales are used to provide a language toggle on the main site pages.
      *
-     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     * @param  int  $langLocaleStatus The const value of one of LocaleMetadata::LANGUAGE_LOCALE_*
      *
      * @return array
      */

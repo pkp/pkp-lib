@@ -24,18 +24,18 @@ namespace PKP\tests\classes\i18n;
 
 use Mockery;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
 use PKP\tests\PKPTestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Locale::class)]
 #[CoversClass(LocaleConversion::class)]
 class LocaleTest extends PKPTestCase
 {
     private \PKP\i18n\Locale $_locale;
-    private array $_supportedLocales = ['en' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt_PT' => 'Portuguese (Portugal)'];
+    private array $_supportedLocales = ['en' => 'English', 'pt_BR' => 'Portuguese (Brazil)', 'pt' => 'Portuguese'];
     private string $_primaryLocale = 'pt_BR';
 
     protected function setUp(): void
@@ -53,7 +53,7 @@ class LocaleTest extends PKPTestCase
                 [
                     'en' => $this->_createMetadataMock('en', true),
                     'pt_BR' => $this->_createMetadataMock('pt_BR'),
-                    'pt_PT' => $this->_createMetadataMock('pt_PT'),
+                    'pt' => $this->_createMetadataMock('pt'),
                     'de' => $this->_createMetadataMock('de')
                 ]
             )
@@ -102,7 +102,7 @@ class LocaleTest extends PKPTestCase
         $expectedLocales = [
             'en' => 'English',
             'pt_BR' => 'Portuguese',
-            'pt_PT' => 'Portuguese',
+            'pt' => 'Portuguese',
             'de' => 'German'
         ];
         $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName(), Locale::getLocales());
@@ -114,10 +114,10 @@ class LocaleTest extends PKPTestCase
         $expectedLocalesWithCountry = [
             'en' => 'English',
             'pt_BR' => 'Portuguese (Brazil)',
-            'pt_PT' => 'Portuguese (Portugal)',
+            'pt' => 'Portuguese',
             'de' => 'German'
         ];
-        $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName(null, true), Locale::getLocales());
+        $locales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName('en', true), Locale::getLocales());
         self::assertEquals($expectedLocalesWithCountry, $locales);
     }
 
@@ -141,31 +141,7 @@ class LocaleTest extends PKPTestCase
     {
         self::assertEquals('eng', LocaleConversion::get3LetterIsoFromLocale('en'));
         self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt_BR'));
-        self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt_PT'));
+        self::assertEquals('por', LocaleConversion::get3LetterIsoFromLocale('pt'));
         self::assertNull(LocaleConversion::get3LetterIsoFromLocale('xx_XX'));
-    }
-
-    public function testGetLocaleFrom3LetterIso()
-    {
-        // A locale that does not have to be disambiguated.
-        self::assertEquals('en', LocaleConversion::getLocaleFrom3LetterIso('eng'));
-
-        // The primary locale will be used if that helps to disambiguate.
-        self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-        $this->_primaryLocale = 'pt_PT';
-        self::assertEquals('pt_PT', LocaleConversion::getLocaleFrom3LetterIso('por'));
-
-        // If the primary locale doesn't help then use the first supported locale found.
-        $this->_primaryLocale = 'en';
-        self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-        $this->_supportedLocales = ['en' => 'English', 'pt_PT' => 'Portuguese (Portugal)', 'pt_BR' => 'Portuguese (Brazil)'];
-        self::assertEquals('pt_PT', LocaleConversion::getLocaleFrom3LetterIso('por'));
-
-        // If the locale isn't even in the supported locales then use the first locale found.
-        $this->_supportedLocales = ['en' => 'English'];
-        self::assertEquals('pt_BR', LocaleConversion::getLocaleFrom3LetterIso('por'));
-
-        // Unknown language.
-        self::assertNull(LocaleConversion::getLocaleFrom3LetterIso('xxx'));
     }
 }

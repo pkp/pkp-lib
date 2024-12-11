@@ -99,7 +99,7 @@ class DataObject
      * @param mixed $value can be either a single value or
      *  an array of of localized values in the form:
      *   array(
-     *     'fr_FR' => 'en français',
+     *     'fr' => 'en français',
      *     'en' => 'in English',
      *     ...
      *   )

@@ -1,0 +1,8 @@
+msgid "userAccess.tableHeader.startDate"
+msgstr "Start Date"
+
+msgid "userAccess.tableHeader.name"
+msgstr "Name"
+
+msgid "userAccess.search"
+msgstr "Search User"

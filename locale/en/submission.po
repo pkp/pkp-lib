@@ -2425,6 +2425,12 @@ msgstr "Completed / Declined"
 msgid "submission.stage.externalReviewWithRound"
 msgstr "Review (Round {$round})"
 
+msgid "submission.stage.scheduledForPublication"
+msgstr "Scheduled For Publication"
+
+msgid "submission.stage.published"
+msgstr "Published"
+
 msgid "publication.jats"
 msgstr "JATS XML"
 

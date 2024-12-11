@@ -35,9 +35,6 @@ msgstr "Reviewers assigned"
 msgid "dashboard.reviewUpdateCounts"
 msgstr "Review update {$reviewsCompletedCount}/{$reviewsTotalCount}"
 
-msgid "dashboard.action"
-msgstr "Action"
-
 msgid "dashboard.applyFilters"
 msgstr "Apply Filters"
 
@@ -159,24 +156,6 @@ msgstr "View recommendation"
 msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
 msgstr "View unread recommendation"
 
-msgid "dashboard.summary.editorsAssigned"
-msgstr "Editors assigned"
-
-msgid "dashboard.summary.issueNo"
-msgstr "Issue No"
-
-msgid "dashboard.summary.notAssigned"
-msgstr "Not assigned"
-
-msgid "dashboard.summary.assignToIssue"
-msgstr "Assign To Issue"
-
-msgid "dashboard.summary.viewActivityLog"
-msgstr "View activity log"
-
-msgid "dashboard.summary.viewSubmissionInDetail"
-msgstr "View submission in detail"
-
 msgid "dashboard.summary.deskReviewFiles"
 msgstr "Desk Review Files"
 
@@ -191,15 +170,6 @@ msgstr "These files have been submitted by the author after revisions were reque
 
 msgid "dashboard.summary.filesForReview"
 msgstr "Files for review"
-
-msgid "dashboard.summary.filesForReviewDescription"
-msgstr "These files will be sent to the reviewers to review"
-
-msgid "dashboard.summary.reviewersAttachments"
-msgstr "Reviewer's Attachments"
-
-msgid "dashboard.summary.reviewersAttachmentsDescription"
-msgstr "These files have been submitted by the autho"
 
 msgid "dashboard.summary.copyeditedFiles"
 msgstr "Copyedited Files"
@@ -219,79 +189,11 @@ msgstr "Production Ready Files"
 msgid "dashboard.summary.productionReadyFilesDescription"
 msgstr "These are the files that will be sent for publication"
 
-msgid "dashboard.summary.galleys"
-msgstr "Galleys"
-
-msgid "dashboard.summary.uploadRevisions"
-msgstr "Upload Revisions"
-
-msgid "dashboard.summary.sendSubmissionForReview"
-msgstr "Send submission for review"
-
-msgid "dashboard.summary.acceptAndSkipReview"
-msgstr "Accept and skip review"
-
-msgid "dashboard.summary.declineSubmission"
-msgstr "Decline Submission"
-
 msgid "dashboard.summary.requestRevisions"
 msgstr "Request Revisions"
 
-msgid "dashboard.summary.acceptSubmission"
-msgstr "Accept Submission"
-
-msgid "dashboard.summary.cancelReviewRound"
-msgstr "Cancel Review Round"
-
-msgid "dashboard.summary.acceptReview"
-msgstr "Accept review"
-
-msgid "dashboard.summary.accessReviewForm"
-msgstr "Access review form"
-
-msgid "dashboard.summary.uploadFile"
-msgstr "Upload File"
-
-msgid "dashboard.summary.decline"
-msgstr "Decline"
-
-msgid "dashboard.summary.sendToProduction"
-msgstr "Send to Production"
-
-msgid "dashboard.summary.cancelCopyEditing"
-msgstr "Cancel Copyediting"
-
-
-msgid "dashboard.summary.backToCopyediting"
-msgstr "Back to Copyediting"
-
 msgid "dashboard.summary.preview"
 msgstr "Preview"
-
-
-msgid "dashboard.summary.submittedOn"
-msgstr "Submitted on"
-
-msgid "dashboard.summary.daysSinceSubmission"
-msgstr "Days since submission"
-
-msgid "dashboard.summary.daysInSubmission"
-msgstr "Days in submission"
-
-msgid "dashboard.summary.daysInReview"
-msgstr "Days in review"
-
-msgid "dashboard.summary.daysInCopyediting"
-msgstr "Days in copyediting"
-
-msgid "dashboard.summary.daysInProduction"
-msgstr "Days in production"
-
-msgid "dashboard.summary.journalName"
-msgstr "Journal name"
-
-msgid "dashboard.summary.submissionLanguage"
-msgstr "Submission Language"
 
 msgid "dashboard.summary.reviewers"
 msgstr "Reviewers"
@@ -319,9 +221,6 @@ msgstr "Only allowed to recommend an editorial decision"
 
 msgid "dashboard.workflow.reviewRoundN"
 msgstr "Review Round {$number}"
-
-msgid "dashboard.startNewSubmission"
-msgstr "Start a New Submission"
 
 msgid "workflow.stageNotStarted"
 msgstr "The {$stage} stage has not yet been initiated."

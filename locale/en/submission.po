@@ -2454,3 +2454,174 @@ msgstr "Please disclose any competing interests this author may have with the re
 
 msgid "submission.localeNotSupported"
 msgstr "The language of the submission ({$language}) is not one of the supported submission languages. You can still edit the submission details but new submissions are not currently accepted with this language."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Reviewers assigned"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Review update {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Apply Filters"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Start A New Submission"
+
+msgid "dashboard.assignReviewers"
+msgstr "Assign Reviewers"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Revisions requested from author"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Revisions requested from the author to be taken to a new review round"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "New review round to be created"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revision requested"
+
+msgid "dashboard.submitRevisions"
+msgstr "Submit revisions"
+
+msgid "dashboard.acceptOrDeclineRequestDate"
+msgstr "Please accept or decline this request {$date}"
+
+msgid "dashboard.deadlineForRespondingAcceptOrDecline"
+msgstr "Deadline for responding to this request has passed. Please accept or decline this request at the earliest."
+
+msgid "dashboard.completeReviewByDate"
+msgstr "Please complete this review by {$date}."
+
+msgid "dashboard.deadlineForCompletingReviewHasPassed"
+msgstr "Deadline for completing this review has passed. Please complete the review at the earliest."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Awaiting Response from the reviewer"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr "Review request has been shared with reviewer. Awaiting response in <b>{$days} days on {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Review Request declined on {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Reviewer declined the review request on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Review Request overdue by {$days} days"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr "This reviewer has not responded to the review request. A response was due on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Ongoing review - request accepted"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr "This reviewer has accepted the review request. Their review is due in <b>{$days} days on {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Review overdue by {$days} days"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr "This reviewer has not completed their review. A response was due on <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Review completed on {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr "The review was completed on {$date} with the following recommendation: <b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Review was confirmed by editor"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "The review was accepted by the editor on {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Reviewer cancelled review request"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Reviewer has cancelled the review request on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Awaiting Response from the reviewer"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr "Review request has been reshared with reviewer. Awaiting response in {$days} days on {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "View details"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Resend Review Request"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancel Reviewer"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Unassign"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Edit Due Date"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "View recommendation"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "View unread recommendation"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Declined during the {$stageName} stage.
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr "Recommending Editors are tasked to advise the next steps for this submission"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "An editorial recommendation has been received"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "All editorial recommendations have been received, and a decision is required."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Only allowed to recommend an editorial decision"
+
+msgid "workflow.stageNotStarted"
+msgstr "The {$stage} stage has not yet been initiated."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "The submission is currently in the {$stage} stage."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr "The submission advanced to the next review round, was accepted, and is currently in the {$stage} stage."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "The submission has been advanced to the next round of review"
+
+msgid "workflow.reviewRoundN"
+msgstr "Review Round {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "These are the files that will be taken forward to the review stage in the workflow."
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "These files have been submitted by the author after revisions were requested"
+
+msgid "fileManager.filesForReview"
+msgstr "Files for review"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Copyedited Files"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "These are edited files that will be taken to the production stage"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "These are files from the review stage which are to be copyedited"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "These are the files that will be sent for publication"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Reviewer status"

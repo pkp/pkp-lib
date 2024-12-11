@@ -157,7 +157,7 @@ class Schema extends \PKP\core\maps\Schema
                         $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $this->context->getId());
                         $output[$prop] = [];
                         foreach ($userGroups as $userGroup) {
-                           $output[$prop][] = [
+                            $output[$prop][] = [
                                 'id' => (int) $userGroup->getId(),
                                 'name' => $userGroup->getName(null),
                                 'abbrev' => $userGroup->getAbbrev(null),
@@ -167,9 +167,9 @@ class Schema extends \PKP\core\maps\Schema
                                 'permitMetadataEdit' => (bool) $userGroup->getPermitMetadataEdit(),
                                 'recommendOnly' => (bool) $userGroup->getRecommendOnly(),
                                 'dateStart' => UserUserGroup::withUserId($user->getId())
-                                   ->withActive()
-                                   ->withUserGroupId($userGroup->getId())
-                                   ->pluck('date_start')->first()
+                                    ->withActive()
+                                    ->withUserGroupId($userGroup->getId())
+                                    ->pluck('date_start')->first()
                             ];
                         }
                     }
@@ -239,6 +239,9 @@ class Schema extends \PKP\core\maps\Schema
                         $output['stageAssignments'] = $results;
                     }
 
+                    break;
+                case 'displayInitials':
+                    $output['displayInitials'] = $user->getDisplayInitials();
                     break;
                 default:
                     $output[$prop] = $user->getData($prop);

@@ -2422,6 +2422,9 @@ msgstr "Pending"
 msgid "submission.dashboard.view.reviewAssignments.archived"
 msgstr "Completed / Declined"
 
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Review (Round {$round})"
+
 msgid "publication.jats"
 msgstr "JATS XML"
 

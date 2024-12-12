@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2024-12-11 04:59+0000\n"
+"PO-Revision-Date: 2024-12-12 07:19+0000\n"
 "Last-Translator: Forouzan Karimi <forouzan.karimi@gmail.com>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fa/>\n"
@@ -1492,33 +1492,43 @@ msgstr "دور دیگری از داوری را برای این دست نوشته
 
 msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
+"{$editorName} دور جدیدی از داوری را برای این دست نوشته ارسالی، ایجاد کرد."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "دور داوری، ایجاد شد"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"دور جدیدی از داوری برای دست نوشته ارسالی، ارسال ایجاد شده است. {$title}. به "
+"مؤلف (نویسنده) اطلاع داده شده است، مگر اینکه شما بخواهید آن ایمیل را رد کنید."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"برای مؤلفین (نویسندگان) ایمیلی ارسال کنید تا به آنها اطلاع دهید که ارسال "
+"آنها برای دور جدید داوری، ارسال شده است. این ایمیل تا زمانی که تصمیم ثبت "
+"نشده باشد، ارسال نخواهد شد."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "فایل هایی را انتخاب کنید که باید به مرحله ویرایش فنی ارسال شوند."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "فایل هایی را که باید برای داوری ارسال شوند، انتخاب کنید."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "فایل هایی را که باید به مرحله تولید ارسال شوند، انتخاب کنید."
 
 msgid "editor.submission.decision.requestRevisions"
-msgstr "درخواست اصلاحات"
+msgstr "درخواست اصلاحات، بازنگری، و تجدیدنظر"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"مؤلف (نویسنده) باید قبل از اینکه این دست نوشته ارسالی، برای انتشار پذیرفته "
+"شود، اصلاحات و بازبینی هایی را انجام و ارائه دهد."
 
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr ""
+"{$editorName} برای این دست نوشته ارسالی، درخواست اصلاحات، ویرایش، و تجدید "
+"نظر کرد."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr ""

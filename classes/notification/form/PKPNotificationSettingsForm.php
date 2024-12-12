@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup notification_form Notification Form
  */
@@ -59,10 +60,8 @@ class PKPNotificationSettingsForm extends Form
 
     /**
      * Get all notification settings form names and their setting type values
-     *
-     * @return array
      */
-    protected function getNotificationSettingsMap()
+    protected function getNotificationSettingsMap(): array
     {
         $notificationManager = new NotificationManager();
         return $notificationManager->getNotificationSettingsMap();

@@ -310,6 +310,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register custom functions
+        $this->registerPlugin('modifier', 'in_array', in_array(...));
         $this->registerPlugin('modifier', 'trim', trim(...));
         $this->registerPlugin('modifier', 'date_format', $this->smartyDateFormat(...));
         $this->registerPlugin('modifier', 'is_numeric', is_numeric(...));

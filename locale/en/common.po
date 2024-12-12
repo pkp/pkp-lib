@@ -370,9 +370,6 @@ msgstr "Delete Selection"
 msgid "common.deselect"
 msgstr "Deselect"
 
-msgid "common.deselectAll"
-msgstr "Deselect All"
-
 msgid "common.designation"
 msgstr "Designation"
 

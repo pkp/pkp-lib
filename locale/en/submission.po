@@ -2634,3 +2634,15 @@ msgstr "These are the files that will be sent for publication"
 
 msgid "reviewerManager.reviewerStatus"
 msgstr "Reviewer status"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirm Delete of Incomplete Submissions"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr "Are you sure you want to delete the selected items? This action cannot be undone. Please confirm to proceed."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Select incomplete submissions to be deleted."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Delete Incomplete Submissions"

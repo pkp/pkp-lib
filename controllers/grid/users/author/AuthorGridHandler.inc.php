@@ -256,7 +256,7 @@ class AuthorGridHandler extends GridHandler {
 		if ($submission->getDateSubmitted() == null) return true;
 
 		// The user may not be allowed to edit the metadata
-		if (Services::get('submission')->canEditPublication($submission->getId(), $user->getId())) {
+		if (Services::get('submission')->canEditPublication($submission, $user->getId())) {
 			return true;
 		}
 

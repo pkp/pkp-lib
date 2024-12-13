@@ -51,8 +51,8 @@
 					{else}
 						{assign var="emailChecked" value="0"}
 					{/if}
-					{fbvElement type="checkbox" id=$settingName|default:"FIXME1" checked=$checked label="notification.allow"}
-					{fbvElement type="checkbox" id=$emailSettingName|default:"FIXME2" checked=$emailChecked label="notification.email"}
+					{fbvElement type="checkbox" id=$settingName checked=$checked label="notification.allow"}
+					{fbvElement type="checkbox" id=$emailSettingName checked=$emailChecked label="notification.email"}
 				{/fbvFormSection}
 			{/foreach}
 		{/foreach}

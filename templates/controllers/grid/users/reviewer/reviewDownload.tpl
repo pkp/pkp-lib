@@ -27,6 +27,7 @@
 	</style>
 </head>
 <body>
+<div class="section context-title">{$contextTitle|escape}</div>
 <div class="section">
 	<h2>{$cleanTitle}</h2>
 </div>

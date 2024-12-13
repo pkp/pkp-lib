@@ -325,28 +325,28 @@ class PKPReviewController extends PKPBaseController
         $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, true);
         $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
         $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
-        $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
+        $cleanTitle = str_replace('&nbsp;', ' ', strip_tags($title));
         $mpdf = new Mpdf([
             'default_font' => 'NotoSansSC',
             'mode' => '+aCJK',
-            "autoScriptToLang" => true,
-            "autoLangToFont" => true,
+            'autoScriptToLang' => true,
+            'autoLangToFont' => true,
         ]);
 
-        if($authorFriendly) {
+        if ($authorFriendly) {
             $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();
             $alphabet = range('A', 'Z');
-            $reviewerLetter = "";
+            $reviewerLetter = '';
             $i = 0;
-            foreach($reviewAssignments as $submissionReviewAssignment) {
-                if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
+            foreach ($reviewAssignments as $submissionReviewAssignment) {
+                if ($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
                     $reviewerLetter = $alphabet[$i];
                 }
                 $i++;
             }
-            $reviewerName = __('user.role.reviewer') . ": $reviewerLetter";
+            $reviewerName = __('user.role.reviewer') . ": {$reviewerLetter}";
         } else {
-            $reviewerName = __('user.role.reviewer') . ": " .  $reviewAssignment->getReviewerFullName();
+            $reviewerName = __('user.role.reviewer') . ': ' . $reviewAssignment->getReviewerFullName();
         }
 
         $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
@@ -402,7 +402,7 @@ class PKPReviewController extends PKPBaseController
     public function exportReviewPDF(Request $illuminateRequest): JsonResponse
     {
         $validated = $this->validateReviewExport($illuminateRequest);
-        if(isset($validated['error'])) {
+        if (isset($validated['error'])) {
             return response()->json([
                 'error' => $validated['error']
             ], $validated['status']);
@@ -429,10 +429,12 @@ class PKPReviewController extends PKPBaseController
         $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
         $submissionId = $submission->getId();
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
-        $impl = new DOMImplementation();
-        $doctype = $impl->createDocumentType('article',
+        $impl = new \DOMImplementation();
+        $doctype = $impl->createDocumentType(
+            'article',
             '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN',
-            'JATS-archivearticle1.dtd');
+            'JATS-archivearticle1.dtd'
+        );
 
         $xml = $impl->createDocument(null, '', $doctype);
         $xml->encoding = 'UTF-8';
@@ -476,22 +478,22 @@ class PKPReviewController extends PKPBaseController
         $contrib->setAttribute('contrib-type', 'author');
         $contribGroup->appendChild($contrib);
 
-        if($authorFriendly) {
+        if ($authorFriendly) {
             $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submissionId])->getMany();
             $alphabet = range('A', 'Z');
-            $reviewerLetter = "";
+            $reviewerLetter = '';
             $i = 0;
-            foreach($reviewAssignments as $submissionReviewAssignment) {
-                if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
+            foreach ($reviewAssignments as $submissionReviewAssignment) {
+                if ($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
                     $reviewerLetter = $alphabet[$i];
                 }
                 $i++;
             }
-            $reviewerName = __('user.role.reviewer') . ": $reviewerLetter";
+            $reviewerName = __('user.role.reviewer') . ": {$reviewerLetter}";
             $anonymous = $xml->createElement('anonymous');
             $contrib->appendChild($anonymous);
         } else {
-            $reviewerName = __('user.role.reviewer') . ": " .  $reviewAssignment->getReviewerFullName();
+            $reviewerName = __('user.role.reviewer') . ': ' . $reviewAssignment->getReviewerFullName();
         }
 
         $role = $xml->createElement('role');
@@ -577,7 +579,9 @@ class PKPReviewController extends PKPBaseController
             $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
             while ($reviewFormElement = $reviewFormElements->next()) {
-                if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
+                if ($authorFriendly && !$reviewFormElement->getIncluded()) {
+                    continue;
+                }
                 $elementId = $reviewFormElement->getId();
                 if ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
                     $results = [];
@@ -621,7 +625,7 @@ class PKPReviewController extends PKPBaseController
                 $customMetaGroupObject->appendChild($customMetaCommentsObject);
             }
 
-            if(!$authorFriendly) {
+            if (!$authorFriendly) {
                 $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewAssignment->getReviewerId(), $reviewId, false);
                 foreach ($submissionCommentsPrivate->records as $key => $commentPrivate) {
                     $customMetaCommentsPrivateObject = $xml->createElement('custom-meta');
@@ -652,9 +656,9 @@ class PKPReviewController extends PKPBaseController
     /**
      * Validates review id and submission id for current context when downloading a review
      */
-    protected function validateReviewExport(Request $illuminateRequest) : array
+    protected function validateReviewExport(Request $illuminateRequest): array
     {
-        if(!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
+        if (!in_array($illuminateRequest->authorFriendly, ['0', '1'])) {
             return [
                 'error' => __('api.400.invalidAuthorFriendlyParameter'),
                 'status' => Response::HTTP_BAD_REQUEST
@@ -673,7 +677,7 @@ class PKPReviewController extends PKPBaseController
         $submissionId = (int) $request->getUserVar('submissionId');
         $reviewId = (int) $request->getUserVar('reviewAssignmentId');
         $reviewAssignment = Repo::reviewAssignment()->get($reviewId, $submissionId);
-        if(!$reviewAssignment) {
+        if (!$reviewAssignment) {
             return [
                 'error' => __('api.404.resourceNotFound'),
                 'status' => Response::HTTP_NOT_FOUND
@@ -689,7 +693,7 @@ class PKPReviewController extends PKPBaseController
     public function exportReviewXML(Request $illuminateRequest): JsonResponse
     {
         $validated = $this->validateReviewExport($illuminateRequest);
-        if(isset($validated['error'])) {
+        if (isset($validated['error'])) {
             return response()->json([
                 'error' => $validated['error']
             ], $validated['status']);

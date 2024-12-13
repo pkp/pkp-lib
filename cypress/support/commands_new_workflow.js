@@ -958,7 +958,7 @@ Cypress.Commands.add('confirmationByUser', user => {
 	cy.get('#acceptUserDetails-familyName-control-fr_CA').type(user.familyName);
 	cy.get('#acceptUserDetails-affiliation-control-fr_CA').type(user.country);
 	cy.get('.pkpButton').contains('Save and continue').click();
-	cy.get('.pkpButton').contains('Accept And Continue to OJS').click();
+	cy.get('.pkpButton').contains('Accept And Continue to').click();
 	cy.get('.pkpButton').contains('View All Submissions').click();
 });
 

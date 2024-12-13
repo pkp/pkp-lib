@@ -222,7 +222,7 @@ class InvitationHandler extends Handler
                 : __('invitation.wizard.pageTitleDescription'),
         ]);
         $templateMgr->assign([
-            'pageComponent' => 'PageOJS',
+            'pageComponent' => 'Page',
             'breadcrumbs' => $breadcrumbs,
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);

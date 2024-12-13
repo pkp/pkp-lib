@@ -793,11 +793,12 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return boolean
 	 */
 	public function canEditPublication($submission, $userId) {
+                $contextId = Application::get()->getRequest()->getContext()->getId();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, null)->toArray();
                 $userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $userId)->toArray());
-                // If the submission is declined and the current user is an author of the submission
-                if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor) {
+                // If the user is an author of a declined submission and user can't edit anyway ie. is not manager
+                if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor && !$this->_canUserAccessUnassignedSubmissions($contextId, $userId)) {
                         return false;
                 }
 		// Check for permission from stage assignments
@@ -807,8 +808,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 		// If user has no stage assigments, check if user can edit anyway ie. is manager
-		$context = Application::get()->getRequest()->getContext();
-		if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+		if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($contextId, $userId)) {
 			return true;
 		}
 		// Else deny access

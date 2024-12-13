@@ -359,6 +359,7 @@ class PKPReviewController extends PKPBaseController
         $templateMgr->assign(
             [
                 'cleanTitle' => $cleanTitle,
+                'contextTitle' => $request->getContext()->getLocalizedTitle(),
                 'reviewerName' => $reviewerName,
                 'dateCompleted' => $reviewAssignment->getDateCompleted(),
                 'recommendation' => $reviewAssignment->getLocalizedRecommendation(),

@@ -347,5 +347,11 @@ msgstr "Only 'accept' and 'decline' are valid values"
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "The provided section does not exist."
 
+msgid "api.submission.400.missingQueryParam"
+msgstr "The request is missing the required query parameter `ids`. Please provide the `ids` of the submissions you wish to delete."
+
+msgid "api.submission.400.invalidId"
+msgstr "Invalid ID: \"{$id}\" provided."
+
 msgid "api.publications.403.noEnabledIdentifiers"
 msgstr "Publication identifiers form is unavailable as there are no enabled Identifiers."

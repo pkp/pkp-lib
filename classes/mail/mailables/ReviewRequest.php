@@ -61,8 +61,11 @@ class ReviewRequest extends Mailable
             return [];
         }
 
-        $messageId = $this->reviewAssignment->assignMessageId();
-        Repo::reviewAssignment()->edit($this->reviewAssignment, ['messageId' => $messageId]);
+        if (!$this->reviewAssignment->getMessageId()) {
+            error_log('Assigning message ID: ' . $messageId);
+            $messageId = $this->reviewAssignment->assignMessageId();
+            Repo::reviewAssignment()->edit($this->reviewAssignment, ['messageId' => $messageId]);
+        }
 
         $dateDue = $this->reviewAssignment->getDateDue();
         $vCalendar = new VObject\Component\VCalendar([

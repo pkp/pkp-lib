@@ -53,7 +53,7 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
             'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
         ]);
         $templateMgr->assign([
-            'pageComponent' => 'PageOJS',
+            'pageComponent' => 'Page',
         ]);
         $templateMgr->display('invitation/acceptInvitation.tpl');
     }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2024-12-12 07:19+0000\n"
+"PO-Revision-Date: 2024-12-13 09:59+0000\n"
 "Last-Translator: Forouzan Karimi <forouzan.karimi@gmail.com>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fa/>\n"
@@ -1531,127 +1531,174 @@ msgstr ""
 "نظر کرد."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "بازبینی ها و تجدید نظرهای درخواست شده"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"بازبینی و تجدیدنظر برای دست نوشته ارسالی، {$title}، درخواست شده است. همه "
+"اعلان‌ها ارسال شده‌اند، به جز هر اعلانی که انتخاب کرده‌اید تا رد شود."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"یک ایمیل به مؤلفین (نویسندگان) ارسال کنید تا بدانند که قبل از پذیرش این دست "
+"نوشته ارسالی برای انتشار، بازبینی و تجدیدنظر لازم است. تمام جزئیاتی را که "
+"مؤلف (نویسنده) برای بازبینی و تجدید نظر در دست نوشته خود به آن نیاز دارد، "
+"درج کنید. در صورت لزوم، به یاد داشته باشید که همه نظرات داور/داوران را "
+"ناشناس بگذارید. این ایمیل تا زمانی که تصمیم ثبت نشود، ارسال نخواهد شد."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "لغو دور داوری"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"دور فعلی داوری را لغو کنید و ارسال را به آخرین دور داوری، ارسال کنید. اگر "
+"این اولین دور داوری باشد، به مرحله ارسال بازگردانده می شود."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} دور داوری را لغو کرد."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "آخرین دور داوری، لغو شد."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"دور داوری برای دست نوشته ارسالی، {$title}، لغو شده است. همه اعلان‌ها ارسال "
+"شده‌اند، به جز هر اعلانی که انتخاب کرده‌اید رد شود."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"فقط در صورتی می توان دور داوری را لغو کرد که هیچ داوری، داوری تکمیل شده یا "
+"ارسال شده ای نداشته باشد."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "ارسال مجدد برای داوری"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"مؤلف (نویسنده) باید اصلاحاتی را ارائه کند که قبل از پذیرش این دست نوشته "
+"ارسالی برای انتشار، برای دور دیگر داوری ارسال شود."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} اصلاحاتی را برای این دست نوشته ارسالی درخواست کرد که باید برای "
+"دور دیگر داوری، ارسال شود."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "بازبینی، اصلاحات، و تجدیدنظر، درخواست شده است"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"اصلاحات و بازبینی برای دست نوشته ارسالی، {$title}، درخواست شده است. تصمیمی "
+"مبنی بر ارسال اصلاحات و بازبینی ها برای دور دیگری از داوری ها بررسی ها ثبت "
+"شد. همه اعلان‌ها ارسال شده‌اند؛ به جز هر اعلانی که انتخاب کرده‌اید رد شود."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"برای مؤلفین (نویسندگان) ایمیلی ارسال کنید تا بدانند که اصلاحات و بازبینی‌ها "
+"باید تکمیل شوند و برای دور دیگری از داوری ارسال شوند. تمام جزئیاتی را که "
+"مؤلف (نویسنده) برای انجام اصلاحات و تجدید نظر در ارسال خود به آن نیاز دارد، "
+"درج کنید. در صورت لزوم، به یاد داشته باشید که کلیه نظرات داور/داوران را "
+"ناشناس بگذارید."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "برای داوری ارسال کنید"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "این دست نوشته ارسالی، آماده ارسال برای بررسی همتایان (داوران) است."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} این دست نوشته ارسالی را به مرحله داوری ارسال کرد."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "برای داوری ارسال شد"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"دست نوشته ارسالی، {$title}، به مرحله داوری ارسال شده است. به مؤلف (نویسنده) "
+"اطلاع داده شده است؛ مگر اینکه شما بخواهید آن ایمیل را رد کنید."
 
 msgid "editor.submission.decision.newRound"
-msgstr ""
+msgstr "دور جدید داوری"
 
 msgid "editor.submission.decision.sendToProduction"
 msgstr "ارسال برای چاپ"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"این دست نوشته ارسالی را به مرحله تولید ارسال کنید تا برای انتشار آماده شود."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} این دست نوشته ارسالی را به مرحله تولید، ارسال کرد."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "برای تولید، ارسال شد"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"دست نوشته ارسالی، {$title}، به مرحله تولید، ارسال شد. به مؤلف (نویسنده) "
+"اطلاع داده شده است؛ مگر اینکه شما بخواهید آن ایمیل را رد کنید."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"برای مؤلفین (نویسندگان) ایمیل ارسال کنید تا بدانند این دست نوشته ارسالی، به "
+"مرحله تولید، ارسال شده است. این ایمیل تا زمانی که تصمیم، ثبت نشود، ارسال "
+"نخواهد شد."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "لغو ویرایش فنی"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "این دست نوشته ارسالی را از مرحله ویرایش فنی، برگردانید (پس بفرستید)."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} این دست نوشته ارسالی را از مرحله ویرایش فنی، بازگردانده است."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "از مرحله ویرایش فنی، برگردانده شد"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"دست نوشته ارسالی، {$title}، از مرحله ویرایش فنی بازگردانده شد. به مؤلف "
+"(نویسنده) اطلاع داده شده است؛ مگر اینکه شما بخواهید آن ایمیل را رد کنید."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"برای مؤلفین (نویسندگان)، ایمیلی ارسال کنید تا به آنها اطلاع دهید که ویرایش "
+"فنی، لغو شده است و دست نوشته ارسالی آنها تحت بررسی و داوری ادیتوریال بیشتری "
+"قرار خواهد گرفت."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "بازگشت به ویرایش فنی"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "این دست نوشته ارسالی را به مرحله ویرایش فنی برگردانید."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} این دست نوشته ارسالی را به مرحله ویرایش فنی برگرداند."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "به ویرایش فنی، بازگشت داده شد"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"دست نوشته ارسالی، {$title}، به مرحله ویرایش فنی بازگردانده شد. به مؤلف "
+"(نویسنده) اطلاع داده شده است؛ مگر اینکه شما بخواهید آن ایمیل را رد کنید."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"برای مؤلفین (نویسندگان) ایمیل ارسال کنید تا بدانند که این ارسال به مرحله "
+"ویرایش فنی بازگردانده شده است. توضیح دهید که چرا این تصمیم گرفته شده است و "
+"به مؤلف (نویسنده) اطلاع دهید که قبل از آماده شدن این دست نوشته برای تولید، "
+"چه ویرایش بیشتری لازم است."
 
 msgid "editor.submission.decision.skipReview"
-msgstr "پذیرفتن و نادیده گرفتن داوری"
+msgstr "پذیرفتن و نادیده گرفتن (ردکردن) مرحله داوری"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"این دست نوشته ارسالی را برای انتشار بپذیرید و از مرحله داوری، بگذرید (رد "
+"شوید). این تصمیم، دست نوشته را به مرحله ویرایش فنی می فرستد."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
@@ -1682,7 +1729,7 @@ msgstr ""
 "می‌خواهید پذیرش این نسخه را لغو کنید؟"
 
 msgid "editor.submission.decision.revertDecline"
-msgstr ""
+msgstr "تصمیم مبنی بر \"رد\" دست نوشته ارسال را برگردانید"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""

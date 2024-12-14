@@ -151,7 +151,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
         foreach ($userGroups as $userGroup) {
-            if (in_array($userGroupName, $userGroup->getName(null))) {
+            if (in_array($userGroupName, $userGroup->name)) {
                 // Found a candidate; stash it.
                 $author->setUserGroupId($userGroup->id);
                 break;

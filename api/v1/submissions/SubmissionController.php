@@ -33,6 +33,7 @@ use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
+use PKP\userGroup\UserGroup;
 
 class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionController
 {
@@ -154,9 +155,8 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds([[$submission->getData('contextId')]])
+            ->get();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');

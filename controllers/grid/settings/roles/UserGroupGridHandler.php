@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\settings\roles;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
@@ -186,30 +185,26 @@ class UserGroupGridHandler extends GridHandler
             $stageIdFilter = $filter['selectedStageId'];
         }
 
-        $query = UserGroup::withContextIds($contextId);
+        $builder = UserGroup::withContextIds($contextId);
 
         if (!empty($roleIdFilter)) {
-            $query->where('roleId', $roleIdFilter);
+            $builder->withRoleIds([$roleIdFilter]);
         }
-        
+
         if (!empty($stageIdFilter)) {
-            $query->whereHas('userGroupStages', function ($q) use ($stageIdFilter) {
-                $q->where('stageId', $stageIdFilter);
-            });
+            $builder->scopeWithStageIds([$stageIdFilter]);
         }
-    
+
         // pagination
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
         $perPage = $rangeInfo->getCount();
         $page = max(1, $rangeInfo->getPage());
         $offset = ($page - 1) * $perPage;
-    
-        $query->offset($offset)->limit($perPage);
-    
+
+        $builder->offset($offset)->limit($perPage);
+
         // results
-        $userGroups = $query->get();
-    
-        return $userGroups;
+        return $builder->get()->all();
     }
 
     /**

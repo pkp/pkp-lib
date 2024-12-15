@@ -78,6 +78,6 @@ class LibraryFileForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['libraryFileName', 'fileType', 'publicAccess']);
+        $this->readUserVars(['libraryFileName', 'description', 'fileType', 'publicAccess']);
     }
 }

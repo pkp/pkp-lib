@@ -1895,7 +1895,9 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionLocale = $submission->getData('locale');
         $locales = $this->getPublicationFormLocales($context, $submission);
-        $authorUserGroups = UserGroup::query()->withContextIds([$submission->getData('contextId')])->withRoleIds([Role::ROLE_ID_AUTHOR])->cursor();
+        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withContextIds([$submission->getData('contextId')])
+            ->get();
         $publicationLicenseForm = new PKPPublicationLicenseForm($publicationApiUrl, $locales, $publication, $context, $authorUserGroups);
 
         return response()->json($this->getLocalizedForm($publicationLicenseForm, $submissionLocale, $locales), Response::HTTP_OK);

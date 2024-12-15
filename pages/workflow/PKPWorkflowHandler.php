@@ -166,7 +166,9 @@ abstract class PKPWorkflowHandler extends Handler
         $workflowRoles = Application::getWorkflowTypeRoles();
         $editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
 
-        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
+        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withContextIds([$submission->getData('contextId')])
+            ->get();
         $workflowUserGroups = Repo::userGroup()->getByRoleIds($editorialWorkflowRoles, $submission->getData('contextId'));
 
         // Publication tab

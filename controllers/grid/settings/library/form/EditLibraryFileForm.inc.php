@@ -53,6 +53,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 	function initData() {
 		$this->_data = array(
 			'libraryFileName' => $this->libraryFile->getName(null), // Localized
+			'description' => $this->libraryFile->getData('description'), // Localized
 			'libraryFile' => $this->libraryFile, // For read-only info
 			'publicAccess' => $this->libraryFile->getPublicAccess() ? true : false,
 			'temporaryFileId' => null,
@@ -84,6 +85,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		}
 
 		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
+		$this->libraryFile->setData('description', $this->getData('description'), null); // Localized
 		$this->libraryFile->setType($this->getData('fileType'));
 		$this->libraryFile->setPublicAccess($this->getData('publicAccess'));
 

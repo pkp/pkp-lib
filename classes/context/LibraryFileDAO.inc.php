@@ -91,7 +91,7 @@ class LibraryFileDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return ['name'];
+		return ['name', 'description'];
 	}
 
 	/**

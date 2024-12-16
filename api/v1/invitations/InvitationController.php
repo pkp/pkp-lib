@@ -30,11 +30,8 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
-use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
-use PKP\invitation\invitations\userRoleAssignment\rules\EmailMustNotExistRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\invitation\models\InvitationModel;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\validation\ValidatorFactory;
 use Validator;
@@ -45,18 +42,24 @@ class InvitationController extends PKPBaseController
     public const PARAM_ID = 'invitationId';
     public const PARAM_KEY = 'key';
 
-    public $notNeedAPIHandler = [
-        'getMany',
+    public $actionsInvite = [
+        'get',
+        'populate',
+        'invite',
         'getMailable',
-        'cancel',
     ];
 
-    public $noParamRequired = [
-        'getMany',
+    public $actionsReceive = [
+        'receive',
+        'finalize',
+        'refine',
+        'decline',
+        'cancel',
     ];
 
     public $requiresType = [
         'add',
+        'getMany',
     ];
 
     public $requiresOnlyId = [
@@ -124,7 +127,7 @@ class InvitationController extends PKPBaseController
             ]),
         ])->group(function () {
 
-            Route::get('', $this->getMany(...))
+            Route::get('{type}', $this->getMany(...))
                 ->name('invitation.getMany');
 
             // Get By Id Methods
@@ -207,44 +210,38 @@ class InvitationController extends PKPBaseController
             $invitation = Repo::invitation()->getByIdAndKey($invitationId, $invitationKey);
         }
 
-        if ($actionName == 'getMany') {
-            $this->addPolicy(new UserRolesRequiredPolicy($request), true);
-        } else {
-            if (!isset($invitation)) {
-                throw new Exception('Invitation could not be created');
-            }
-
-            $this->invitation = $invitation;
-
-            if (!in_array($actionName, $this->notNeedAPIHandler)) {
-                if (!$this->invitation instanceof IApiHandleable) {
-                    throw new Exception('This invitation does not support API handling');
-                }
-
-                if (in_array($actionName, $this->requiresOnlyId) && $this->invitation->getStatus() != InvitationStatus::INITIALIZED) {
-                    throw new Exception('This action is not allowed');
-                }
-
-                if (in_array($actionName, $this->requiresIdAndKey) && $this->invitation->getStatus() != InvitationStatus::PENDING) {
-                    throw new Exception('This action is not allowed');
-                }
-
-                $this->createInvitationHandler = $invitation->getCreateInvitationController($this->invitation);
-                $this->receiveInvitationHandler = $invitation->getReceiveInvitationController($this->invitation);
-
-                if (!isset($this->createInvitationHandler) || !isset($this->receiveInvitationHandler)) {
-                    throw new Exception('This invitation should have defined its API handling code');
-                }
-
-                $this->selectedHandler = $this->getHandlerForAction($actionName);
-
-                if (!method_exists($this->selectedHandler, $actionName)) {
-                    throw new Exception("The handler does not support the method: {$actionName}");
-                }
-
-                $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
-            }
+        if (!isset($invitation)) {
+            throw new Exception('Invitation could not be created');
         }
+
+        $this->invitation = $invitation;
+
+        if (!$this->invitation instanceof IApiHandleable) {
+            throw new Exception('This invitation does not support API handling');
+        }
+
+        if (in_array($actionName, $this->actionsInvite) && $this->invitation->getStatus() != InvitationStatus::INITIALIZED) {
+            throw new Exception('This action is not allowed');
+        }
+
+        if (in_array($actionName, $this->actionsReceive) && $this->invitation->getStatus() != InvitationStatus::PENDING) {
+            throw new Exception('This action is not allowed');
+        }
+
+        $this->createInvitationHandler = $invitation->getCreateInvitationController($this->invitation);
+        $this->receiveInvitationHandler = $invitation->getReceiveInvitationController($this->invitation);
+
+        if (!isset($this->createInvitationHandler) || !isset($this->receiveInvitationHandler)) {
+            throw new Exception('This invitation should have defined its API handling code');
+        }
+
+        $this->selectedHandler = $this->getHandlerForAction($actionName);
+
+        if (!method_exists($this->selectedHandler, $actionName)) {
+            throw new Exception("The handler does not support the method: {$actionName}");
+        }
+
+        $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -269,7 +266,6 @@ class InvitationController extends PKPBaseController
                 'nullable',
                 'required_without:userId',
                 'email',
-                new EmailMustNotExistRule($payload['inviteeEmail']),
             ]
         ];
 
@@ -338,48 +334,19 @@ class InvitationController extends PKPBaseController
         $context = $illuminateRequest->attributes->get('context'); /** @var \PKP\context\Context $context */
         $invitationType = $this->getParameter(self::PARAM_TYPE);
 
-        $count = $illuminateRequest->query('count', 10); // default count to 10 if not provided
-        $offset = $illuminateRequest->query('offset', 0); // default offset to 0 if not provided
-        
+        // Build the common query
         $query = InvitationModel::query()
-            ->when($invitationType, function ($query, $invitationType) {
-                return $query->byType($invitationType);
-            })
-            ->when($context, function ($query, $context) {
-                return $query->byContextId($context->getId());
-            })
+            ->when($invitationType, fn($query) => $query->byType($invitationType))
+            ->when($context, fn($query) => $query->byContextId($context->getId()))
             ->stillActive();
-        
-        $maxCount = $query->count();
 
-        $invitations = $query->skip($offset)
-            ->take($count)
-            ->get();
-
-        $finalCollection = $invitations->map(function ($invitation) {
-            $specificInvitation = Repo::invitation()->getById($invitation->id);
-            return $specificInvitation;
-        });
+        // Delegate to the specific handler for additional logic
+        $specificData = $this->selectedHandler->getMany($illuminateRequest, $query);
 
         return response()->json([
-            'itemsMax' => $maxCount,
-            'items' => (UserRoleAssignmentInviteResource::collection($finalCollection)),
+            'itemsMax' => $query->count(),
+            'items' => $specificData,
         ], Response::HTTP_OK);
-    }
-
-    public function getMailable(Request $illuminateRequest): JsonResponse
-    {
-        if (in_array(HasMailable::class, class_uses($this->invitation))) {
-            $mailable = $this->invitation->getMailable();
-            
-            return response()->json([
-                'mailable' => $mailable,
-            ], Response::HTTP_OK);
-        }
-
-        return response()->json([
-            'error' => __('invitation.api.error.invitationTypeNotHasMailable'),
-        ], Response::HTTP_BAD_REQUEST);
     }
 
     public function cancel(Request $illuminateRequest): JsonResponse
@@ -390,11 +357,28 @@ class InvitationController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $this->invitation->updateStatus(InvitationStatus::CANCELLED);
+        try {
+            return $this->selectedHandler->cancel();
+        } catch (\Exception $e) {
+            return response()->json([], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 
-        return response()->json(
-            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
-            Response::HTTP_OK
-        );
+    public function getMailable(Request $illuminateRequest): JsonResponse
+    {
+        // Ensure the invitation supports mailables
+        if (!in_array(HasMailable::class, class_uses($this->invitation))) {
+            return response()->json([
+                'error' => __('invitation.api.error.invitationTypeNotHasMailable'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        try {
+            return $this->selectedHandler->getMailable();
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

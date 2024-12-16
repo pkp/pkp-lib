@@ -32,7 +32,6 @@ use PKP\invitation\models\InvitationModel;
 use PKP\pages\invitation\InvitationHandler;
 use PKP\security\Validation;
 use PKP\user\User;
-use Symfony\Component\Mailer\Exception\TransportException;
 
 abstract class Invitation
 {
@@ -52,10 +51,10 @@ abstract class Invitation
      */
     protected array $notAccessibleBeforeInvite = [];
 
-     /**
-     * The properties of the invitation that are added here should not change
-     * at the "Receive" stage of the invitation
-     */
+    /**
+    * The properties of the invitation that are added here should not change
+    * at the "Receive" stage of the invitation
+    */
     protected array $notAccessibleAfterInvite = [];
 
     /**
@@ -117,7 +116,7 @@ abstract class Invitation
         }
 
         if (isset($userId)) {
-            unset($email);
+            $email = null;
         }
 
         InvitationModel::byStatus(InvitationStatus::INITIALIZED)
@@ -369,7 +368,7 @@ abstract class Invitation
         $user = null;
         if ($this->invitationModel->userId) {
             $user = Repo::user()->get($this->invitationModel->userId);
-            
+
             $sendIdentity->setFamilyName($user->getFamilyName($locale), $locale);
             $sendIdentity->setGivenName($user->getGivenName($locale), $locale);
             $sendIdentity->setEmail($user->getEmail());
@@ -455,7 +454,7 @@ abstract class Invitation
         return $this->invitationModel->email;
     }
 
-    protected function array_diff_assoc_recursive($array1, $array2) 
+    protected function array_diff_assoc_recursive($array1, $array2)
     {
         $difference = [];
 

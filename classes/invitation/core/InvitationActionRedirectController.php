@@ -27,7 +27,7 @@ abstract class InvitationActionRedirectController extends Controller
         $this->invitation = $invitation;
     }
 
-    abstract public function preRedirectActions(InvitationAction $action);
+    abstract public function preRedirectActions(InvitationAction $action): void;
 
     abstract public function acceptHandle(Request $request): void;
     abstract public function declineHandle(Request $request): void;

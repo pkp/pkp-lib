@@ -70,6 +70,9 @@ msgstr "For added user groups, a masthead must be provided"
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "This invitation type does not have a mailable defined"
 
+msgid "invitation.api.error.operationFailed"
+msgstr "This invitation operation failed"
+
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "The provided user group ID {$userGroupId} does not exist"
 

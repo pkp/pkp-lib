@@ -113,6 +113,21 @@ class Doi extends DataObject
         $replace = ['%25', '%22', '%23', '%20', '%3c', '%3e', '%7b'];
         return str_replace($search, $replace, $pubId);
     }
+
+    /**
+     * Checks if a string starts with a DOI prefix pattern.
+     *
+     * This method does not validate the entire DOI format, but only checks if the string
+     * begins with a numeric value followed by a period.
+     *
+     * @param string $text The string to check.
+     *
+     */
+    public static function beginsWithDoiPrefixPattern(string $text): bool
+    {
+        $pattern = '/^\d+\./i';
+        return (bool)preg_match($pattern, $text);
+    }
 }
 
 if (!PKP_STRICT_MODE) {

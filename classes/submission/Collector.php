@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\doi\Doi;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
@@ -372,6 +373,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
     abstract protected function addHasDoisFilterToQuery(Builder $q);
 
     /**
+     * Add APP-specific filtering for checking if a submission has sub objects with DOI ID matching that given via the searchPhrase property.
+     */
+    abstract protected function addFilterByAssociatedDoiIdsToQuery(Builder $q);
+
+    /**
      * @copydoc CollectorInterface::getQueryBuilder()
      *
      * @hook Submission::Collector [[&$q, $this]]
@@ -395,8 +401,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
             $q->whereIn('s.submission_id', array_map(intval(...), $this->submissionIds));
         }
 
+        // Add support to search using DOI identifiers
+        // search phrases starting with number followed by a '.'  will be interpreted as a DOI identifier. E.g: 10.1
+        $isSearchPhraseDoi = Doi::beginsWithDoiPrefixPattern($this->searchPhrase ?: '');
         // Prepare keywords (allows short and numeric words)
-        $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true, true))
+        $keywords = collect(!$isSearchPhraseDoi ? Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true, true) : [])
             ->unique()
             ->take($this->maxSearchKeywords ?? PHP_INT_MAX);
 
@@ -642,16 +651,16 @@ abstract class Collector implements CollectorInterface, ViewsCount
                             )
                     )
             );
-        } elseif (strlen($this->searchPhrase ?? '')) {
+        } elseif (strlen($this->searchPhrase ?? '') && !$isSearchPhraseDoi) {
             // If there's search text, but no keywords could be extracted from it, force the query to return nothing
             $q->whereRaw('1 = 0');
         }
 
         if (isset($this->categoryIds)) {
             $publicationIds = PublicationCategory::withCategoryIds($this->categoryIds)
-                                ->select('publication_id')
-                                ->toBase();
-        
+                ->select('publication_id')
+                ->toBase();
+
             $q->whereIn('s.current_publication_id', $publicationIds);
         }
 
@@ -677,6 +686,8 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         ->whereIn('ra.review_id', $this->reviewIds)
                 )
         );
+
+        $q->when($isSearchPhraseDoi, fn(Builder $q) => $this->addFilterByAssociatedDoiIdsToQuery($q));
 
         // Limit and offset results for pagination
         if (isset($this->count)) {

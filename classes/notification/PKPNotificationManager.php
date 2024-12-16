@@ -56,7 +56,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager
             case Notification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
             case Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
             case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
-                error_log('NOTIFICATION_TYPE_EDITOR_ASSIGN');
                 if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }

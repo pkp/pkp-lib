@@ -35,7 +35,6 @@ use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\UserMustExistRule;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
 use PKP\security\Validation;
-use PKP\user\User;
 
 class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 {

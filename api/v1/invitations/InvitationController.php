@@ -359,7 +359,9 @@ class InvitationController extends PKPBaseController
         try {
             return $this->selectedHandler->cancel();
         } catch (\Exception $e) {
-            return response()->json([], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return response()->json([
+                'error' => $e->getMessage()
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 

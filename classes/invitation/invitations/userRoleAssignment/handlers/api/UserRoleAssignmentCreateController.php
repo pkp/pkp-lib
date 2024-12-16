@@ -162,7 +162,9 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $result = $this->invitation->updateStatus(InvitationStatus::CANCELLED);
 
         if (!$result) {
-            return response()->json([], Response::HTTP_CONFLICT);
+            return response()->json([
+                'error' => __('invitation.api.error.operationFailed')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         return response()->json([], Response::HTTP_OK);
@@ -173,7 +175,9 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $mailable = $this->invitation->getMailable();
 
         if (!isset($mailable)) {
-            return response()->json([], Response::HTTP_NOT_FOUND);
+            return response()->json([
+                'error' => __('invitation.api.error.invitationTypeNotHasMailable')
+            ], Response::HTTP_NOT_FOUND);
         }
 
         return response()->json([

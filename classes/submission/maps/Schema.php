@@ -43,8 +43,8 @@ class Schema extends \PKP\core\maps\Schema
     /** @copydoc \PKP\core\maps\Schema::$schema */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
-    /** @var LazyCollection<int,UserGroup> The user groups for this context. */
-    public LazyCollection $userGroups;
+    /** @var Enumerable<int,UserGroup> The user groups for this context. */
+    public Enumerable $userGroups;
 
     /** @var Genre[] The file genres in this context. */
     public array $genres;
@@ -104,7 +104,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the submission schema.
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
@@ -112,7 +112,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function map(
         Submission $item,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
@@ -131,7 +131,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the submission schema.
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
@@ -139,7 +139,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function summarize(
         Submission $item,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
@@ -158,11 +158,11 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::map
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function mapMany(Enumerable $collection, LazyCollection $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
+    public function mapMany(Enumerable $collection, Enumerable $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
@@ -192,11 +192,11 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function summarizeMany(Enumerable $collection, LazyCollection $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
+    public function summarizeMany(Enumerable $collection, Enumerable $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
@@ -229,7 +229,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map a submission with extra properties for the submissions list
      *
-     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
+     * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
@@ -237,7 +237,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapToSubmissionsList(
         Submission $item,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
@@ -261,7 +261,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapManyToSubmissionsList(
         Enumerable $collection,
-        LazyCollection $userGroups,
+        Enumerable $userGroups,
         array $genres,
         bool|Collection $anonymizeReviews = false
     ): Enumerable {
@@ -544,7 +544,7 @@ class Schema extends \PKP\core\maps\Schema
                 foreach ($stageAssignments as $stageAssignment) {
                     $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
                     if ($userGroup) {
-                        $currentUserAssignedRoles[] = $userGroup->getRoleId();
+                        $currentUserAssignedRoles[] = $userGroup->roleId;
                     }
                 }
 
@@ -555,9 +555,9 @@ class Schema extends \PKP\core\maps\Schema
 
                 // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
                 foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+                    $userGroup = UserGroup::find($stageAssignment->userGroupId);
                     $stageAssignmentsOverview[] = [
-                        'roleId' => $userGroup->getRoleId(),
+                        'roleId' => $userGroup?->roleId ?? null,
                         'recommendOnly' => $stageAssignment->recommendOnly,
                         'canChangeMetadata' => $stageAssignment->canChangeMetadata,
                         'userId' => $stageAssignment->userId
@@ -567,8 +567,8 @@ class Schema extends \PKP\core\maps\Schema
             $stage['currentUserAssignedRoles'] = array_values(array_unique($currentUserAssignedRoles));
             // FIXME - $stageAssignments are just temporarly added until https://github.com/pkp/pkp-lib/issues/10480 is ready
             $stage['stageAssignments'] = $stageAssignmentsOverview;
-            if(!$stage['currentUserAssignedRoles']) {
-                if(in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
+            if (!$stage['currentUserAssignedRoles']) {
+                if (in_array(Role::ROLE_ID_MANAGER, $currentRoles)) {
                     $stage['currentUserAssignedRoles'][] = Role::ROLE_ID_MANAGER;
                 }
             }
@@ -675,9 +675,8 @@ class Schema extends \PKP\core\maps\Schema
 
     protected function getUserGroup(int $userGroupId): ?UserGroup
     {
-        /** @var UserGroup $userGroup */
         foreach ($this->userGroups as $userGroup) {
-            if ($userGroup->getId() === $userGroupId) {
+            if ($userGroup->id === $userGroupId) {
                 return $userGroup;
             }
         }
@@ -765,8 +764,8 @@ class Schema extends \PKP\core\maps\Schema
         if (!$makeRecommendation && !$makeDecision) {
             $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
             foreach ($userGroups as $userGroup) {
-                if (in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
-                    if (!$userGroup->getRecommendOnly()) {
+                if (in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
+                    if (!$userGroup->recommendOnly) {
                         $makeDecision = true;
                     } else {
                         $makeRecommendation = true;

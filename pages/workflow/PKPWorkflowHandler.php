@@ -35,6 +35,7 @@ use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\components\PublicationSectionJats;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -54,8 +55,8 @@ use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
-use PKP\config\Config;
 
 abstract class PKPWorkflowHandler extends Handler
 {
@@ -133,7 +134,7 @@ abstract class PKPWorkflowHandler extends Handler
         assert(isset($workingStageId));
 
         $router = $request->getRouter();
-        if(Config::getVar('features', 'enable_new_submission_listing')) {
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
             return $request->redirectUrl($router->url($request, null, 'dashboard', 'editorial', null, ['workflowSubmissionId' => $submission->getId()]));
         }
         $request->redirectUrl($router->url($request, null, 'workflow', 'index', [$submission->getId(), $workingStageId]));
@@ -165,10 +166,9 @@ abstract class PKPWorkflowHandler extends Handler
         $workflowRoles = Application::getWorkflowTypeRoles();
         $editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
 
-        $result = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
-        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
+        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withContextIds([$submission->getData('contextId')])
+            ->get();
         $workflowUserGroups = Repo::userGroup()->getByRoleIds($editorialWorkflowRoles, $submission->getData('contextId'));
 
         // Publication tab
@@ -177,14 +177,14 @@ abstract class PKPWorkflowHandler extends Handler
         // they are not assigned in any role and have a manager role in the
         // context.
         $currentStageId = $submission->getData('stageId');
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $canAccessPublication = false; // View title, metadata, etc.
         $canEditPublication = Repo::submission()->canEditPublication($submission->getId(), $request->getUser()->getId());
         $canAccessProduction = false; // Access to galleys and issue entry
         $canPublish = false; // Ability to publish, unpublish and create versions
         $canAccessEditorialHistory = false; // Access to activity log
+        $accessibleRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES) ?? [];
         // unassigned managers
-        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN] ?? [])) {
+        if (!$accessibleWorkflowStages && array_intersect($accessibleRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
             $canAccessProduction = true;
             $canPublish = true;
             $canAccessPublication = true;
@@ -194,7 +194,8 @@ abstract class PKPWorkflowHandler extends Handler
             $canAccessPublication = true;
 
             // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-            $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            $stageAssignments = StageAssignment::query()
+                ->withSubmissionIds([$submission->getId()])
                 ->withUserId($request->getUser()->getId())
                 ->withStageIds([WORKFLOW_STAGE_ID_PRODUCTION])
                 ->get();
@@ -204,14 +205,11 @@ abstract class PKPWorkflowHandler extends Handler
             // have been granted access and should be allowed to publish.
             if ($stageAssignments->isEmpty() && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? null)) {
                 $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
-
-                // Otherwise, check stage assignments
-                // "Recommend only" stage assignments can not publish
             } else {
                 foreach ($stageAssignments as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {
-                        if ($stageAssignment->userGroupId == $workflowUserGroup->getId() &&
-                                !$stageAssignment->recommendOnly) {
+                        if ($stageAssignment->userGroupId == $workflowUserGroup->id &&
+                            !$stageAssignment->recommendOnly) {
                             $canPublish = true;
                             break;
                         }
@@ -580,14 +578,17 @@ abstract class PKPWorkflowHandler extends Handler
         // see if the user is manager, and
         // if the group is recommendOnly
         if (!$makeRecommendation && !$makeDecision) {
-            $userGroups = Repo::userGroup()->userUserGroups($user->getId(), $request->getContext()->getId());
+            $userGroups = UserGroup::query()
+                ->withContextIds([$request->getContext()->getId()])
+                ->withUserIds([$user->getId()])
+                ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
+                ->get();
+
             foreach ($userGroups as $userGroup) {
-                if (in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])) {
-                    if (!$userGroup->getRecommendOnly()) {
-                        $makeDecision = true;
-                    } else {
-                        $makeRecommendation = true;
-                    }
+                if (!$userGroup->recommendOnly) {
+                    $makeDecision = true;
+                } else {
+                    $makeRecommendation = true;
                 }
             }
         }

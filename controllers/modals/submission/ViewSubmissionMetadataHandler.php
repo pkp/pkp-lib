@@ -22,6 +22,7 @@ use APP\template\TemplateManager;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\userGroup\UserGroup;
 
 class ViewSubmissionMetadataHandler extends handler
 {
@@ -53,11 +54,9 @@ class ViewSubmissionMetadataHandler extends handler
         $context = $request->getContext();
         $templateMgr = TemplateManager::getManager($request);
         $publication = $submission->getCurrentPublication();
-
+        
         if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) { /* ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS or _OPEN */
-            $userGroups = Repo::userGroup()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->getMany();
+            $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
             $templateMgr->assign('authors', $publication->getAuthorString($userGroups));
 

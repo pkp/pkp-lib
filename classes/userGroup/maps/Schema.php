@@ -84,7 +84,7 @@ class Schema extends \PKP\core\maps\Schema
         foreach ($props as $prop) {
             switch ($prop) {
                 default:
-                    $output[$prop] = $item->getData($prop);
+                    $output[$prop] = $item->getAttribute($prop);
                     break;
             }
         }

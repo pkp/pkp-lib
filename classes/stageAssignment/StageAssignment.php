@@ -26,8 +26,11 @@ use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use PKP\user\User;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\UserGroup;
 
 class StageAssignment extends Model
 {
@@ -53,6 +56,11 @@ class StageAssignment extends Model
     public function userGroupStages(): HasMany
     {
         return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
+    }
+
+    public function userGroup(): BelongsTo
+    {
+        return $this->belongsTo(UserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     // Accessors and Mutators

@@ -60,6 +60,7 @@ use PKP\submission\DashboardView;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
+use PKP\userGroup\UserGroup;
 use Smarty;
 use Smarty_Internal_Template;
 
@@ -1116,7 +1117,7 @@ class PKPTemplateManager extends Smarty
                         }
 
                         $userGroups = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);
-                        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->getPermitSettings(), false);
+                        $hasSettingsAccess = array_reduce($userGroups, fn ($carry, $userGroup) => $carry || $userGroup->permitSettings, false);
                         if ($hasSettingsAccess) {
                             $menu['settings'] = [
                                 'name' => __('navigation.settings'),
@@ -1341,11 +1342,24 @@ class PKPTemplateManager extends Smarty
         if (Application::isInstalled()) {
             $user = $this->_request->getUser();
             if ($user) {
-                $userGroups = Repo::userGroup()->userUserGroups($user->getId());
+                // Fetch user groups where the user is assigned
+                $userGroups = UserGroup::query()
+                    ->whereHas('userUserGroups', function ($query) use ($user) {
+                        $query->where('user_id', $user->getId())
+                            ->where(function ($q) {
+                                $q->whereNull('date_end')
+                                    ->orWhere('date_end', '>', now());
+                            })
+                            ->where(function ($q) {
+                                $q->whereNull('date_start')
+                                    ->orWhere('date_start', '<=', now());
+                            });
+                    })
+                    ->get();
 
                 $userRoles = [];
                 foreach ($userGroups as $userGroup) {
-                    $userRoles[] = (int) $userGroup->getRoleId();
+                    $userRoles[] = (int) $userGroup->roleId;
                 }
                 $currentUser = [
                     'csrfToken' => $this->_request->getSession()->token(),

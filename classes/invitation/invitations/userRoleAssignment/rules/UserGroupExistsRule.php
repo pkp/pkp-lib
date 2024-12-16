@@ -14,8 +14,8 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\rules;
 
-use APP\facades\Repo;
 use Illuminate\Contracts\Validation\Rule;
+use PKP\userGroup\UserGroup;
 
 class UserGroupExistsRule implements Rule
 {
@@ -23,10 +23,9 @@ class UserGroupExistsRule implements Rule
     public function passes($attribute, $value)
     {
         $this->userGroupId = $value;
-        $userGroup = Repo::userGroup()->get($value);
+        $userGroup = UserGroup::find($value);
         return isset($userGroup);
     }
-
     public function message()
     {
         return __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting', [

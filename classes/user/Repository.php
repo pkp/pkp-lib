@@ -23,12 +23,12 @@ use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
-use PKP\note\Note;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\SubmissionCommentDAO;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class Repository
 {
@@ -225,15 +225,14 @@ class Repository
 
         $accessibleWorkflowStages = [];
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignment::with(['userGroupStages'])
+        $stageAssignments = StageAssignment::with(['userGroup.userGroupStages'])
             ->withSubmissionIds([$submission->getId()])
             ->withUserId($userId)
             ->get();
 
-        // Assigned users have access based on their assignment
         foreach ($stageAssignments as $stageAssignment) {
-            $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-            $roleId = $userGroup->getRoleId();
+            $userGroup = $stageAssignment->userGroup;
+            $roleId = $userGroup->roleId;
 
             // Check global user roles within the context, e.g., user can be assigned in the role, which was revoked
             if (!in_array($roleId, $userRoleIds)) {
@@ -361,15 +360,33 @@ class Repository
         $subEditorsDao->deleteByUserId($oldUserId);
 
         // Transfer old user's roles
-        $userGroups = Repo::userGroup()->userUserGroups($oldUserId);
-        foreach ($userGroups as $userGroup) {
-            if (!Repo::userGroup()->userInGroup($newUserId, $userGroup->getId())) {
-                $mastheadStatus = Repo::userGroup()->getUserUserGroupMastheadStatus($oldUserId, $userGroup->getId());
-                Repo::userGroup()->assignUserToGroup($newUserId, $userGroup->getId(), null, null, $mastheadStatus);
+        $userUserGroups = UserUserGroup::query()
+            ->withUserId($oldUserId)
+            ->get();
+
+        // Transfer assignments to the new user
+        foreach ($userUserGroups as $userUserGroup) {
+            // Check if the new user is already assigned to this user group
+            $exists = UserUserGroup::query()
+                ->withUserId($newUserId)
+                ->withUserGroupId($userUserGroup->userGroupId)
+                ->exists();
+
+            if (!$exists) {
+                UserUserGroup::create([
+                    'userId' => $newUserId,
+                    'userGroupId' => $userUserGroup->id,
+                    'dateStart' => $userUserGroup->dateStart,
+                    'dateEnd' => $userUserGroup->dateEnd,
+                    'masthead' => $userUserGroup->masthead,
+                ]);
             }
         }
 
-        Repo::userGroup()->deleteAssignmentsByUserId($oldUserId);
+        // Delete all user group assignments for the old user
+        UserUserGroup::query()
+            ->withUserId($oldUserId)
+            ->delete();
 
         // Transfer stage assignments.
         $stageAssignments = StageAssignment::withUserId($oldUserId)->get();

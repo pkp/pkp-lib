@@ -17,7 +17,7 @@ namespace PKP\components\forms\publication;
 
 use APP\core\Application;
 use APP\publication\Publication;
-use Illuminate\Support\LazyCollection;
+use Illuminate\Support\Enumerable;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
@@ -34,9 +34,9 @@ class PKPPublicationLicenseForm extends FormComponent
      * @param array $locales Supported locales
      * @param Publication $publication The publication to change settings for
      * @param \PKP\context\Context $context The publication's context
-     * @param LazyCollection<int,\PKP\userGroup\UserGroup> $userGroups User groups in this context
+     * @param Enumerable<int,\PKP\userGroup\UserGroup> $userGroups User groups in this context
      */
-    public function __construct($action, $locales, $publication, $context, LazyCollection $userGroups)
+    public function __construct($action, $locales, $publication, $context, Enumerable $userGroups)
     {
         $this->action = $action;
         $this->locales = $locales;

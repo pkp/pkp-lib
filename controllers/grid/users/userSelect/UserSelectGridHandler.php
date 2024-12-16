@@ -76,10 +76,10 @@ class UserSelectGridHandler extends GridHandler
         $this->_userGroupOptions = [];
         foreach ($userGroups as $userGroup) {
             // Exclude reviewers.
-            if ($userGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+            if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            $this->_userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
+            $this->_userGroupOptions[$userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $this->setTitle('editor.submission.findAndSelectUser');
@@ -103,12 +103,14 @@ class UserSelectGridHandler extends GridHandler
                 null,
                 null,
                 $cellProvider,
-                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
+                [
+                    'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
                     'width' => 30
                 ]
             )
         );
     }
+    
 
 
     //

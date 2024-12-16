@@ -57,7 +57,7 @@ class Announcement extends Model
      *
      * @var array
      */
-    protected $guarded = ['announcementId', 'datePosted'];
+    protected $guarded = ['announcementId', 'id', 'datePosted'];
 
     /**
      * @inheritDoc

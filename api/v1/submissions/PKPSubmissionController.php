@@ -32,6 +32,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -425,9 +426,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $anonymizeReviews = $this->anonymizeReviews($submissions);
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($context->getId())->cursor();
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -533,9 +532,8 @@ class PKPSubmissionController extends PKPBaseController
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+
 
         // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
         $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
@@ -599,20 +597,20 @@ class PKPSubmissionController extends PKPBaseController
                 }
             }
         }
+        $submitterUserGroups = UserGroup::withContextIds($context->getId())
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->withUserId($user->getId());
+            })
+            ->get();
 
-        $submitterUserGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByUserIds([$user->getId()])
-            ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
-            ->getMany();
 
         $userGroupIdPropName = 'userGroupId';
 
         if (isset($params[$userGroupIdPropName])) {
             $submitAsUserGroup = $submitterUserGroups
                 ->first(function (UserGroup $userGroup) use ($params, $userGroupIdPropName) {
-                    return $userGroup->getId() === $params[$userGroupIdPropName];
+                    return $userGroup->id === $params[$userGroupIdPropName];
                 });
             if (!$submitAsUserGroup) {
                 $errors[$userGroupIdPropName] = [__('api.submissions.400.invalidSubmitAs')];
@@ -624,13 +622,13 @@ class PKPSubmissionController extends PKPBaseController
                 })
                 ->first();
         } else {
-            $submitAsUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
+            $submitAsUserGroup = UserGroup::withContextIds($context->getId())->withRoleIds(Role::ROLE_ID_AUTHOR)->first();
             if (!$submitAsUserGroup) {
                 $errors[$userGroupIdPropName] = [__('submission.wizard.notAllowed.description')];
             } else {
                 Repo::userGroup()->assignUserToGroup(
                     $user->getId(),
-                    $submitAsUserGroup->getId()
+                    $submitAsUserGroup->id
                 );
             }
         }
@@ -655,31 +653,33 @@ class PKPSubmissionController extends PKPBaseController
         Repo::stageAssignment()
             ->build(
                 $submission->getId(),
-                $submitAsUserGroup->getId(),
+                $submitAsUserGroup->id,
                 $request->getUser()->getId(),
-                $submitAsUserGroup->getRecommendOnly(),
+                $submitAsUserGroup->recommendOnly,
                 // Authors can always edit metadata before submitting
                 $submission->getData('submissionProgress')
                     ? true
-                    : $submitAsUserGroup->getPermitMetadataEdit()
+                    : $submitAsUserGroup->permitMetadataEdit
             );
 
         // Create an author record from the submitter's user account
-        if ($submitAsUserGroup->getRoleId() === Role::ROLE_ID_AUTHOR) {
+        if ($submitAsUserGroup->roleId === Role::ROLE_ID_AUTHOR) {
             $author = Repo::author()->newAuthorFromUser($request->getUser());
             $author->setData('publicationId', $publication->getId());
-            $author->setUserGroupId($submitAsUserGroup->getId());
+            $author->setUserGroupId($submitAsUserGroup->id);
             $authorId = Repo::author()->add($author);
             Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+
+        if (!$userGroups instanceof LazyCollection) {
+            $userGroups = $userGroups->lazy();
+        }
 
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
@@ -712,9 +712,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submission = Repo::submission()->get($submission->getId());
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -766,11 +764,7 @@ class PKPSubmissionController extends PKPBaseController
         Mail::send($mailable);
 
         $submission = Repo::submission()->get($submission->getId());
-
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -847,10 +841,10 @@ class PKPSubmissionController extends PKPBaseController
             Repo::eventLog()->add($eventLog);
         }
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
+        $contextId = $context->getId();
+        $userGroups = UserGroup::withContextIds($contextId)->cursor();
+
+
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -881,9 +875,8 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1042,9 +1035,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $publications = $collector->getMany();
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
@@ -1086,9 +1077,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1126,9 +1115,8 @@ class PKPSubmissionController extends PKPBaseController
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1207,9 +1195,7 @@ class PKPSubmissionController extends PKPBaseController
             Mail::send($mailable);
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1283,9 +1269,7 @@ class PKPSubmissionController extends PKPBaseController
         Repo::publication()->edit($publication, $params);
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1345,9 +1329,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1389,9 +1372,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
+
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1433,9 +1415,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByContextIds([$submission->getData('contextId')])
-            ->getMany();
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
@@ -1799,7 +1779,7 @@ class PKPSubmissionController extends PKPBaseController
 
     protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup
     {
-        return $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getRoleId() === $role);
+        return $userGroups->first(fn (UserGroup $userGroup) => $userGroup->roleId === $role);
     }
 
     /**
@@ -1915,8 +1895,9 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionLocale = $submission->getData('locale');
         $locales = $this->getPublicationFormLocales($context, $submission);
-        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
-
+        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withContextIds([$submission->getData('contextId')])
+            ->get();
         $publicationLicenseForm = new PKPPublicationLicenseForm($publicationApiUrl, $locales, $publication, $context, $authorUserGroups);
 
         return response()->json($this->getLocalizedForm($publicationLicenseForm, $submissionLocale, $locales), Response::HTTP_OK);

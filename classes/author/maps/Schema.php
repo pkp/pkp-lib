@@ -16,7 +16,6 @@ namespace PKP\author\maps;
 use APP\author\Author;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
-use Illuminate\Support\LazyCollection;
 use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -29,13 +28,13 @@ class Schema extends \PKP\core\maps\Schema
 
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
-    protected LazyCollection $authorUserGroups;
+    protected Enumerable $authorUserGroups;
 
     public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
 
-        $this->authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $this->context->getId());
+        $this->authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds([$this->context->getId()])->get();
     }
 
     /**
@@ -94,8 +93,8 @@ class Schema extends \PKP\core\maps\Schema
             switch ($prop) {
                 case 'userGroupName':
                     /** @var UserGroup $userGroup */
-                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $item->getData('userGroupId'));
-                    $output[$prop] = $userGroup ? $userGroup->getName(null) : new stdClass();
+                    $userGroup = $this->authorUserGroups->first(fn (UserGroup $userGroup) => $userGroup->id === $item->getData('userGroupId'));
+                    $output[$prop] = $userGroup ? $userGroup->name : new stdClass();
                     break;
                 case 'fullName':
                     $output[$prop] = $item->getFullName();

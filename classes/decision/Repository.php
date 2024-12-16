@@ -428,7 +428,7 @@ abstract class Repository
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->withStageIds([$decisionType->getStageId()])
             ->get()
-            ->pluck('userId')
+            ->pluck('user_id')
             ->all();
 
         $notificationMgr->updateNotification(

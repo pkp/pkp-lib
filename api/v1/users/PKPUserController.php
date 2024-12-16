@@ -309,7 +309,7 @@ class PKPUserController extends PKPBaseController
         // Will not appear if role has ended or if user never had role to begin with
         $userGroupId = $request->route('userGroupId');
         $userUserGroups = Repo::userGroup()->userUserGroups($userId); /** @var LazyCollection<UserGroup> $userUserGroups */
-        $userGroup = $userUserGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === (int) $userGroupId); /** @var UserGroup $userGroup */
+        $userGroup = $userUserGroups->first(fn (UserGroup $userGroup) => $userGroup->id === (int) $userGroupId); /** @var UserGroup $userGroup */
         if (!$userGroup) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound')

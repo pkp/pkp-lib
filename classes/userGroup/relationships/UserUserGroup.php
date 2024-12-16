@@ -17,8 +17,10 @@ namespace PKP\userGroup\relationships;
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Eloquence\Behaviours\HasCamelCasing;
 use PKP\core\Core;
+use PKP\userGroup\UserGroup;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 {
@@ -37,12 +39,12 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
         );
     }
 
-    public function userGroup(): Attribute
+    /**
+     * Define the relationship to UserGroup
+     */
+    public function userGroup(): BelongsTo
     {
-        return Attribute::make(
-            get: fn ($value, $attributes) => Repo::userGroup()->get($attributes['user_group_id']),
-            set: fn ($value) => $value->getId()
-        );
+        return $this->belongsTo(UserGroup::class, 'user_group_id', 'user_group_id');
     }
 
     public function scopeWithUserId(Builder $query, int $userId): Builder

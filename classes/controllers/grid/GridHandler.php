@@ -399,12 +399,16 @@ class GridHandler extends PKPHandler
     public function setGridDataElements($data)
     {
         $this->callFeaturesHook('setGridDataElements', ['grid' => &$this, 'data' => &$data]);
-
+    
         $this->_data = match (true) {
-            $data instanceof Enumerable => $this->toAssociativeArray($data),
+            $data instanceof LazyCollection => $this->toAssociativeArray($data),
+    
+            $data instanceof Enumerable => $this->toAssociativeArray(LazyCollection::make($data)),
+    
             $data instanceof DAOResultFactory => $data->toAssociativeArray(),
             $data instanceof ItemIterator => $data->toArray(),
-            is_iterable($data) => $data
+            is_iterable($data) => $data,
+            default => [],
         };
     }
 

@@ -50,8 +50,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
-    public const UNASSIGNED = -1;
-
     public DAO $dao;
     public ?array $categoryIds = null;
     public ?array $contextIds = null;
@@ -70,6 +68,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?array $doiStatuses = null;
     public ?bool $hasDois = null;
     public ?array $excludeIds = null;
+    public bool $isUnassigned = false;
 
     /** @var array Which DOI types should be considered when checking if a submission has DOIs set */
     public array $enabledDoiTypes = [];
@@ -186,6 +185,15 @@ abstract class Collector implements CollectorInterface, ViewsCount
         $this->isIncomplete = $isIncomplete;
         return $this;
     }
+    /**
+     * Limit results to unassigned submissions
+     *
+     */
+    public function filterByisUnassigned(bool $isUnassigned): AppCollector
+    {
+        $this->isUnassigned = $isUnassigned;
+        return $this;
+    }
 
     /**
      * Limit results to submissions with overdue tasks
@@ -268,7 +276,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
      * Limit results to submissions assigned to these users
      *
      * @param int|array $assignedTo An array of user IDs
-     *  or self::UNASSIGNED to get unassigned submissions
      */
     public function assignedTo($assignedTo): AppCollector
     {
@@ -279,7 +286,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     /**
      * Limit results to submissions currently being reviewed by this users
      *
-     * @param int|array|null $isReviewedBy An array of user IDs or self::UNASSIGNED to get unassigned submissions
+     * @param int|array|null $isReviewedBy An array of user IDs
      */
     public function isReviewedBy(int|array|null $isReviewedBy): AppCollector
     {
@@ -536,7 +543,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     ->whereNotNull('sa.stage_assignment_id')
                     ->orWhereNotNull('ra.review_id')
             );
-        } elseif ($this->assignedTo === self::UNASSIGNED) {
+        } elseif ($this->isUnassigned) {
             $sub = DB::table('stage_assignments')
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')
@@ -556,7 +563,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 $q->leftJoinSub(
                     fn (Builder $q) => $q
                         ->from('review_assignments', 'ra')
-                        ->whereIn('ra.reviewer_id', $this->assignedTo == self::UNASSIGNED ? [] : (array) $this->assignedTo)
+                        ->whereIn('ra.reviewer_id', $this->isUnassigned ? [] : (array) $this->assignedTo)
                         ->select(DB::raw('1 AS value'))
                         ->limit(1),
                     'any_assignment',

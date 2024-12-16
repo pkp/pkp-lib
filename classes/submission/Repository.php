@@ -875,10 +875,10 @@ abstract class Repository
                         [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER],
                         Repo::submission()->getCollector()
                             ->filterByContextIds([$context->getId()])
-                            ->assignedTo(SubmissionCollector::UNASSIGNED)
+                            ->filterByisUnassigned(true)
                             ->filterByStatus([PKPSubmission::STATUS_QUEUED]),
                         null,
-                        ['assignedTo' => SubmissionCollector::UNASSIGNED, 'status' => [PKPSubmission::STATUS_QUEUED]]
+                        ['isUnassigned' => true, 'status' => [PKPSubmission::STATUS_QUEUED]]
                     );
                 case DashboardView::TYPE_SUBMISSION:
                     $collector = Repo::submission()->getCollector()

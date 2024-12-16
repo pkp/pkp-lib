@@ -199,11 +199,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
-                    $val = array_map(intval(...), paramToArray($val));
-                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
-                        $val = array_shift($val);
-                    }
-                    $collector->assignedTo($val);
+                    $collector->assignedTo(array_map(intval(...), paramToArray($val)));
                     break;
             }
         }
@@ -581,6 +577,9 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 case 'isIncomplete':
                     $collector->filterByIncomplete(true);
                     break;
+                case 'isUnassigned':
+                    $collector->filterByisUnassigned(true);
+                    break;             
             }
         }
 

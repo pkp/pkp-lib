@@ -22,6 +22,7 @@ use APP\handler\Handler;
 use APP\search\PreprintSearch;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
+use PKP\userGroup\UserGroup;
 
 class SearchHandler extends Handler
 {
@@ -167,10 +168,9 @@ class SearchHandler extends Handler
             'simDocsEnabled' => true,
             'results' => $results,
             'error' => $error,
-            'authorUserGroups' => Repo::userGroup()->getCollector()
-                ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
-                ->filterByContextIds($searchFilters['searchServer'] ? [$searchFilters['searchServer']->getId()] : null)
-                ->getMany()->remember(),
+            'authorUserGroups' => UserGroup::withRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
+                ->withContextIds($searchFilters['searchServer'] ? [$searchFilters['searchServer']->getId()] : null)
+                ->get(),
         ]);
         $templateMgr->display('frontend/pages/search.tpl');
     }

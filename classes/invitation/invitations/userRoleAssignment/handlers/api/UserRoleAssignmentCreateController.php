@@ -13,14 +13,18 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
+use APP\facades\Repo;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\CreateInvitationController;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
-use PKP\invitation\core\Invitation;
+use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteManagerDataResource;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -110,6 +114,8 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
             $this->invitation->getPayload()->sendEmailAddress = $existingUser->getEmail();
         }
 
+        $this->invitation->getPayload()->inviteStagePayload = $this->invitation->getPayload();
+
         $this->invitation->updatePayload();
         
         if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_INVITE)) {
@@ -130,5 +136,48 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
             (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
             Response::HTTP_OK
         );
+    }
+
+    public function getMany(Request $illuminateRequest, Builder $query): Collection
+    {
+        $count = $illuminateRequest->query('count', 10); // Default count
+        $offset = $illuminateRequest->query('offset', 0); // Default offset
+
+        // Apply pagination and retrieve results
+        $invitations = $query
+            ->skip($offset)
+            ->take($count)
+            ->get();
+        
+        $finalCollection = $invitations->map(function ($invitation) {
+            $specificInvitation = Repo::invitation()->getById($invitation->id);
+            return $specificInvitation;
+        });
+
+        return UserRoleAssignmentInviteManagerDataResource::collection($finalCollection)->collect();
+    }
+
+    public function cancel(): JsonResponse
+    {
+        $result = $this->invitation->updateStatus(InvitationStatus::CANCELLED);
+
+        if (!$result) {
+            return response()->json([], Response::HTTP_CONFLICT);
+        }
+
+        return response()->json([], Response::HTTP_OK);
+    }
+
+    public function getMailable(): JsonResponse
+    {
+        $mailable = $this->invitation->getMailable();
+
+        if (!isset($mailable)) {
+            return response()->json([], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json([
+            'mailable' => $mailable,
+        ], Response::HTTP_OK);
     }
 }

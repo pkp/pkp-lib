@@ -14,12 +14,13 @@
 
 namespace PKP\invitation\core;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Collection;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\invitation\core\Invitation;
 
 abstract class CreateInvitationController extends Controller
 {
@@ -30,4 +31,8 @@ abstract class CreateInvitationController extends Controller
     abstract public function populate(Request $illuminateRequest): JsonResponse;
     abstract public function invite(Request $illuminateRequest): JsonResponse;
     abstract public function get(Request $illuminateRequest): JsonResponse;
+
+    abstract public function cancel(): JsonResponse;
+    abstract public function getMailable(): JsonResponse;
+    abstract public function getMany(Request $illuminateRequest, Builder $query): Collection;
 }

@@ -236,11 +236,7 @@ abstract class Invitation
             }
         }
 
-        // Update the payload attribute on the invitation model
-        $this->invitationModel->setAttribute('payload', $currentPayloadArray);
-
-        // Save the updated invitation model to the database
-        return $this->invitationModel->save();
+        return $this->invitationModel->update(['payload' => $currentPayloadArray]);
     }
 
     public function getNotAccessibleBeforeInvite(): array
@@ -349,6 +345,15 @@ abstract class Invitation
         }
 
         return Repo::user()->get($this->invitationModel->userId);
+    }
+
+    public function getExistingUserByEmail(): ?User
+    {
+        if (!isset($this->invitationModel->email)) {
+            return null;
+        }
+
+        return Repo::user()->getByEmail($this->invitationModel->email);
     }
 
     public function getContext(): ?Context
@@ -480,10 +485,10 @@ abstract class Invitation
         return $difference;
     }
 
-    public function updateStatus(InvitationStatus $status): void
+    public function updateStatus(InvitationStatus $status): bool
     {
         $this->invitationModel->status = $status;
-        $this->invitationModel->save();
+        return $this->invitationModel->save();
     }
 
     public function isPending(): bool

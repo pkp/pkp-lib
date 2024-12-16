@@ -34,11 +34,8 @@ class AcceptInvitationStep extends InvitationStepTypes
 
         switch ($user) {
             case !null:
-                if(!$user->getData('orcidAccessToken')) {
-                    if (OrcidManager::isEnabled($context)) {
-                        $steps[] = $this->verifyOrcidStep();
-                    }
-                    $steps[] = $this->acceptInvitationReviewStep($context);
+                if(!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
+                    $steps[] = $this->verifyOrcidStep();
                 }
                 break;
             default:
@@ -47,8 +44,8 @@ class AcceptInvitationStep extends InvitationStepTypes
                 }
                 $steps[] = $this->userAccountDetailsStep();
                 $steps[] = $this->userDetailsStep($context);
-                $steps[] = $this->acceptInvitationReviewStep($context);
         }
+        $steps[] = $this->acceptInvitationReviewStep($context);
         return $steps;
     }
 

@@ -164,7 +164,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
             'userGroupsToAdd.*.dateStart' => 'required|date',
             // FIXME: A duplication of existing rules in user schema. Can they be reused?
             'orcid' => [
-                Rule::when(in_array($validationContext, [ValidationContext::VALIDATION_CONTEXT_INVITE, ValidationContext::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
+                'nullable',
                 'orcid'
             ],
             'orcidAccessDenied' => [

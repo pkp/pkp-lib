@@ -22,7 +22,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection class="formButtons"}
-		{fbvElement type="submit" class="pkp_button_link" id="previewButton" label="common.preview"}
+		{fbvElement type="button" class="pkp_button_link" id="previewButton" label="common.preview"}
 	{/fbvFormSection}
 </div>
 

@@ -65,14 +65,20 @@ class I9860_EditorialMastheadNavMenuItem extends Migration
                 // Resequence all main About nav menu children, so that the new Editorial Masthead is on the third place (considering the default About nav menu and its order).
                 $seq = 0;
                 $allAboutNavMenuChildren = $navigationMenuItemAssignmentDao->getByMenuIdAndParentId($mainAboutNavMenuId, $mainAboutNavMenuItemId);
+                $found = false;
                 while ($aboutNavMenuChild = $allAboutNavMenuChildren->next()) {
                     if ($seq == 2) {
                         $editorialMastheadMenuItemAssignment->setSequence($seq);
+                        $found = true;
                     } else {
                         $aboutNavMenuChild->setSequence($seq);
                         $navigationMenuItemAssignmentDao->updateObject($aboutNavMenuChild);
                     }
                     $seq++;
+                }
+                if (!$found) {
+                    // If the right spot to insert the menu item could not be located, add it to the end of the list.
+                    $editorialMastheadMenuItemAssignment->setSequence($seq);
                 }
                 $navigationMenuItemAssignmentDao->insertObject($editorialMastheadMenuItemAssignment);
             }

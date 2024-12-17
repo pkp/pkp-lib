@@ -22,7 +22,6 @@ use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
-use function Clue\StreamFilter\fun;
 
 class I9771_OrcidMigration extends Migration
 {
@@ -57,6 +56,7 @@ class I9771_OrcidMigration extends Migration
 
     /**
      * @inheritDoc
+     *
      * @throws DowngradeNotSupportedException
      */
     public function down(): void
@@ -76,6 +76,7 @@ class I9771_OrcidMigration extends Migration
 
         $results = $q->get();
         $mappedResults = $results->map(function ($item) {
+            $item->locale = '';
             if (!Str::startsWith($item->setting_name, 'orcid')) {
                 $item->setting_name = 'orcid' . Str::ucfirst($item->setting_name);
             }
@@ -134,6 +135,7 @@ class I9771_OrcidMigration extends Migration
             $carry[] = [
                 'setting_name' => $key,
                 'setting_value' => $value,
+                'locale' => '',
             ];
 
             return $carry;
@@ -187,13 +189,13 @@ class I9771_OrcidMigration extends Migration
             /** @var Collection $insertValues */
             $insertValues = collect($results)
                 ->filter(function (array $item) {
-                    if (empty($item["orcid"]) || empty($item["orcidAccessToken"])) {
+                    if (empty($item['orcid']) || empty($item['orcidAccessToken'])) {
                         return false;
                     }
 
                     return true;
                 })
-                ->map(function(array $item, int $key) use ($tableInfo) {
+                ->map(function (array $item, int $key) use ($tableInfo) {
                     return [
                         $tableInfo['id'] => $key,
                         'setting_name' => 'orcidIsVerified',

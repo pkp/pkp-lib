@@ -158,10 +158,8 @@ class ControlledVocab extends Model
      *
      * @return array $controlledVocabEntryId => name
      */
-    public function enumerate(?string $settingName = null): array
+    public function enumerate(string $settingName = 'name'): array
     {    
-        $settingName ??= $this->symbolic;
-
         return DB::table('controlled_vocab_entries AS e')
             ->leftJoin(
                 'controlled_vocab_entry_settings AS l',

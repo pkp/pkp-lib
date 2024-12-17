@@ -432,7 +432,6 @@ class DAO extends EntityDAO
     protected function deleteControlledVocab(int $publicationId)
     {
         ControlledVocab::query()
-            ->withSymbolics(ControlledVocab::getDefinedVocabSymbolic())
             ->withAssoc(Application::ASSOC_TYPE_PUBLICATION, $publicationId)
             ->delete();
     }

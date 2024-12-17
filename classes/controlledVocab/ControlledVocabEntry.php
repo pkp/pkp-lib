@@ -133,8 +133,8 @@ class ControlledVocabEntry extends Model
     {
         return $query->whereExists(
             fn ($query) => $query
-                ->select("{$this->primaryKey}")
-                ->from("{$this->getSettingsTable()}")
+                ->select($this->primaryKey)
+                ->from($this->getSettingsTable())
                 ->whereColumn(
                     "{$this->getSettingsTable()}.{$this->primaryKey}",
                     "{$this->getTable()}.{$this->primaryKey}"
@@ -150,8 +150,8 @@ class ControlledVocabEntry extends Model
     {
         return $query->whereExists(
             fn ($query) => $query
-                ->select("{$this->primaryKey}")
-                ->from("{$this->getSettingsTable()}")
+                ->select($this->primaryKey)
+                ->from($this->getSettingsTable())
                 ->whereColumn(
                     "{$this->getSettingsTable()}.{$this->primaryKey}",
                     "{$this->getTable()}.{$this->primaryKey}"
@@ -175,13 +175,13 @@ class ControlledVocabEntry extends Model
         Builder $query,
         string $settingName,
         string $settingValue,
-        ControlledVocabEntryMatch $match = ControlledVocabEntryMatch::PARTIAL
+        ControlledVocabEntryMatch $match = ControlledVocabEntryMatch::EXACT
     ): Builder
     {
         return $query->whereExists(
             fn ($query) => $query
-                ->select("{$this->primaryKey}")
-                ->from("{$this->getSettingsTable()}")
+                ->select($this->primaryKey)
+                ->from($this->getSettingsTable())
                 ->whereColumn(
                     "{$this->getSettingsTable()}.{$this->primaryKey}",
                     "{$this->getTable()}.{$this->primaryKey}"

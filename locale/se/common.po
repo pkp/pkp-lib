@@ -2,7 +2,7 @@
 # Sara Ellen Gaup <sara.e.gaup@uit.no>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-12-17 11:05+0000\n"
+"PO-Revision-Date: 2024-12-17 16:39+0000\n"
 "Last-Translator: Sara Ellen Gaup <sara.e.gaup@uit.no>\n"
 "Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/se/>\n"
@@ -24,3 +24,63 @@ msgstr "Oza"
 
 msgid "navigation.search"
 msgstr "Oza"
+
+msgid "search.advancedFilters"
+msgstr "Seagáš filttar"
+
+msgid "search.dateFrom"
+msgstr "Almmuhan maŋŋil"
+
+msgid "search.dateTo"
+msgstr "Almmuhan ovdal"
+
+msgid "search.noResults"
+msgstr "Ii gávdnon"
+
+msgid "search.title"
+msgstr "Bajalčála"
+
+msgid "navigation.archives"
+msgstr "Vuorká"
+
+msgid "navigation.register"
+msgstr "Registrere iežat"
+
+msgid "navigation.login"
+msgstr "Sisabeassan"
+
+msgid "navigation.submissions"
+msgstr "Boahtán čállosat"
+
+msgid "about.contact"
+msgstr "Oktavuohta"
+
+msgid "about.contact.principalContact"
+msgstr "Oktavuođaolmmoš"
+
+msgid "about.contact.supportContact"
+msgstr "Teknihkalaš oktavuođaolmmoš"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Ruoktot"
+
+msgid "common.keywords"
+msgstr "Čoavddasánit"
+
+msgid "common.subtitle"
+msgstr "Liigenamahus"
+
+msgid "navigation.home"
+msgstr "Ruoktot"
+
+msgid "navigation.about"
+msgstr "Dieđut"
+
+msgid "navigation.browseByAuthor"
+msgstr "Čálli"
+
+msgid "navigation.infoForReaders"
+msgstr "Lohkkiide"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Diehtu lohkkiide"

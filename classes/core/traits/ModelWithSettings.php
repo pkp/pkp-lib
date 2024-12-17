@@ -201,7 +201,9 @@ trait ModelWithSettings
             return parent::getAttribute($key);
         }
 
-        return $this->isRelation($key) ? parent::getAttribute($key) : parent::getAttribute($this->getSnakeKey($key));
+        return $this->isRelation($key)
+            ? parent::getAttribute($key)
+            : parent::getAttribute($this->getSnakeKey($key));
     }
 
     /**

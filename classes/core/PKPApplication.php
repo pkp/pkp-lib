@@ -101,6 +101,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /** @deprecated 3.5 Use Application::SITE_CONTEXT_PATH, which had the value modified to "index" */
     public const CONTEXT_ID_ALL = self::SITE_CONTEXT_ID_ALL;
 
+    public const ASSOC_TYPE_SITE = 0x0;
     public const ASSOC_TYPE_PRODUCTION_ASSIGNMENT = 0x0000202;
     public const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;
     public const ASSOC_TYPE_REVIEW_RESPONSE = 0x0000204;
@@ -163,6 +164,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
                 'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL',
 
+                'ASSOC_TYPE_SITE',
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',
                 'ASSOC_TYPE_REVIEW_RESPONSE',

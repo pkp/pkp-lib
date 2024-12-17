@@ -14,6 +14,7 @@
 
 namespace PKP\user\interest;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\user\User;
 use PKP\user\interest\UserInterest;
@@ -28,8 +29,8 @@ class Repository
     {
         $controlledVocab = Repo::controlledVocab()->build(
             UserInterest::CONTROLLED_VOCAB_INTEREST,
-            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
-            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID,
+            Application::ASSOC_TYPE_SITE,
+            (int)Application::SITE_CONTEXT_ID,
         );
 
         return ControlledVocabEntry::query()
@@ -58,8 +59,8 @@ class Repository
                 fn ($query) => $query
                     ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
-                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
-                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID
+                        Application::ASSOC_TYPE_SITE,
+                        (int)Application::SITE_CONTEXT_ID,
                     )
             )
             ->whereHas("userInterest", fn ($query) => $query->withUserId($user->getId()))
@@ -89,8 +90,8 @@ class Repository
 
         $controlledVocab = Repo::controlledVocab()->build(
             UserInterest::CONTROLLED_VOCAB_INTEREST,
-            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
-            UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID,
+            Application::ASSOC_TYPE_SITE,
+            (int)Application::SITE_CONTEXT_ID,
         );
 
         $currentInterests = ControlledVocabEntry::query()
@@ -99,8 +100,8 @@ class Repository
                 fn ($query) => $query
                     ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
-                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_TYPE,
-                        UserInterest::CONTROLLED_VOCAB_INTEREST_ASSOC_ID
+                        Application::ASSOC_TYPE_SITE,
+                        (int)Application::SITE_CONTEXT_ID,
                     )
             )
             ->withLocales([''])

@@ -25,6 +25,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabEntry;
+use PKP\controlledVocab\ControlledVocabEntryMatch;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
@@ -118,11 +119,14 @@ class PKPVocabController extends PKPBaseController
         if (ControlledVocab::hasDefinedVocabSymbolic($vocab)) {
             $entries = ControlledVocabEntry::query()
                 ->whereHas(
-                    "controlledVocab",
+                    'controlledVocab',
                     fn ($query) => $query->withSymbolics([$vocab])->withContextId($context->getId())
                 )
                 ->withLocales([$locale])
-                ->when($term, fn ($query) => $query->withSetting($vocab, $term))
+                ->when(
+                    $term,
+                    fn ($query) => $query->withSetting($vocab, $term, ControlledVocabEntryMatch::PARTIAL)
+                )
                 ->get();
         } else {
             $entries = [];

@@ -24,6 +24,7 @@ use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
 
 class Repository
@@ -134,9 +135,11 @@ class Repository
         //  If assignedUserGroupIds were passed to limit email access, check that the user groups exists within the context
         if (isset($props['assignedUserGroupIds'])) {
             $validator->after(function () use ($validator, $props, $context) {
-                $existingGroupIds = Repo::userGroup()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByUserGroupIds($props['assignedUserGroupIds'])->getIds()->toArray();
+                $existingGroupIds = UserGroup::withContextIds([$context->getId()])
+                    ->withUserGroupIds($props['assignedUserGroupIds'])
+                    ->get()
+                    ->pluck('userGroupId')
+                    ->toArray();
 
                 if (!empty(array_diff($existingGroupIds, $props['assignedUserGroupIds']))) {
                     $validator->errors()->add('assignedUserGroupIds', __('api.emailTemplates.404.userGroupIds'));
@@ -200,7 +203,7 @@ class Repository
     {
         foreach ($collector->getMany() as $emailTemplate) {
             $this->delete($emailTemplate);
-            $this->deleteTemplateGroupAccess(Application::get()->getRequest()->getContext()->getId(), $emailTemplate);
+            $this->deleteTemplateGroupAccess(Application::get()->getRequest()->getContext()->getId(), [$emailTemplate->getData('key')]);
         }
     }
 
@@ -267,7 +270,7 @@ class Repository
         $templateUserGroups = $this->getAssignedGroupsIds($template->getData('key'), $contextId);
 
         foreach ($userUserGroups as $userGroup) {
-            if (in_array($userGroup->getId(), $templateUserGroups)) {
+            if (in_array($userGroup->id, $templateUserGroups)) {
                 return true;
             }
         }

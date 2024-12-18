@@ -33,13 +33,12 @@ class EmailTemplateForm extends FormComponent
         $this->action = $action;
         $this->method = 'POST';
         $this->locales = $locales;
-
         $userGroups = collect();
-        Repo::userGroup()->getCollector()
-            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-            ->getMany()->each(fn (UserGroup $group) => $userGroups->add([
-                'value' => $group->getId(),
-                'label' => $group->getLocalizedName()
+
+        collect(UserGroup::all())
+            ->each(fn(UserGroup $group) => $userGroups->add([
+                'value' => $group->id,
+                'label' => $group->getLocalizedData('name', null)
             ]));
 
         $this->addField(new FieldText('name', [

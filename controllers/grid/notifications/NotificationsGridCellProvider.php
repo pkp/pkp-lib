@@ -123,7 +123,7 @@ class NotificationsGridCellProvider extends GridCellProvider
                 if ($queuedPayment) {
                     switch ($queuedPayment->getType()) {
                         case \PKP\payment\PaymentManager::PAYMENT_TYPE_PUBLICATION: // FIXME: This is OJS-only; move out of pkp-lib
-                            return Repo::submission()->get($queuedPayment->getAssocId())->getLocalizedTitle();
+                            return Repo::submission()->get($queuedPayment->getAssocId())->getCurrentPublication()->getLocalizedTitle();
                     }
                 }
                 assert(false);

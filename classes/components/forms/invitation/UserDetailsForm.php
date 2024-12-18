@@ -17,6 +17,7 @@ namespace PKP\components\forms\invitation;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\orcid\OrcidManager;
 
 class UserDetailsForm extends FormComponent
 {
@@ -43,20 +44,22 @@ class UserDetailsForm extends FormComponent
             'description' => __('invitation.email.description'),
             'isRequired' => true,
             'size' => 'large',
+        ]));
+        if (OrcidManager::isEnabled()) {
+            $this->addField(new FieldHTML('orcid', [
+                    'label' => __('user.orcid'),
+                    'description' => __('invitation.orcid.description'),
+                    'isRequired' => false,
+                    'size' => 'large',
+                ]));
+        }
+        $this->addField(new FieldText('givenName', [
+            'label' => __('user.givenName'),
+            'description' => __('invitation.givenName.description'),
+            'isRequired' => false,
+            'isMultilingual' => true,
+            'size' => 'large',
         ]))
-            ->addField(new FieldHTML('orcid', [
-                'label' => __('user.orcid'),
-                'description' => __('invitation.orcid.description'),
-                'isRequired' => false,
-                'size' => 'large',
-            ]))
-            ->addField(new FieldText('givenName', [
-                'label' => __('user.givenName'),
-                'description' => __('invitation.givenName.description'),
-                'isRequired' => false,
-                'isMultilingual' => true,
-                'size' => 'large',
-            ]))
             ->addField(new FieldText('familyName', [
                 'label' => __('user.familyName'),
                 'description' => __('invitation.familyName.description'),

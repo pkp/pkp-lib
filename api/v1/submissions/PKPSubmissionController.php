@@ -483,11 +483,7 @@ class PKPSubmissionController extends PKPBaseController
                     break;
 
                 case 'assignedTo':
-                    $val = array_map(intval(...), paramToArray($val));
-                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
-                        $val = array_shift($val);
-                    }
-                    $collector->assignedTo($val);
+                    $collector->assignedTo(array_map(intval(...), paramToArray($val)));
                     break;
 
                 case 'daysInactive':
@@ -519,6 +515,9 @@ class PKPSubmissionController extends PKPBaseController
                 case 'hasDois':
                     $collector->filterByHasDois((bool) $val, $context->getEnabledDoiTypes());
                     break;
+                case 'isUnassigned':
+                    $collector->filterByisUnassigned(true);
+                    break;    
             }
         }
 

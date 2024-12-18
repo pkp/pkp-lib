@@ -797,8 +797,15 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, null)->toArray();
                 $userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $userId)->toArray());
-                // If the user is an author of a declined submission and user can't edit anyway ie. is not manager
-                if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor && !$this->_canUserAccessUnassignedSubmissions($contextId, $userId)) {
+                // If the submission is rejected and the user's only role is an author
+                if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor) {
+                        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+                        $roles = $roleDao->getByUserId($userId, $contextId);
+                        foreach ($roles as $role) {
+                                if ($role->getRoleId() != ROLE_ID_AUTHOR && $role->getRoleId() != ROLE_ID_READER) {
+                                        return true;
+                                }
+                        }
                         return false;
                 }
 		// Check for permission from stage assignments

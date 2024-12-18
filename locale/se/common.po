@@ -2,8 +2,8 @@
 # Sara Ellen Gaup <sara.e.gaup@uit.no>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-12-17 16:39+0000\n"
-"Last-Translator: Sara Ellen Gaup <sara.e.gaup@uit.no>\n"
+"PO-Revision-Date: 2024-12-18 14:05+0000\n"
+"Last-Translator: Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>\n"
 "Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/se/>\n"
 "Language: se\n"
@@ -84,3 +84,15 @@ msgstr "Lohkkiide"
 
 msgid "navigation.infoForReaders.long"
 msgstr "Diehtu lohkkiide"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "common.language"
+msgstr "Giella"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"

@@ -104,8 +104,11 @@ class I9771_OrcidMigration extends Migration
                 ]);
             });
 
-        DB::table($this->settingsTableName)
-            ->insert($mappedResults->toArray());
+        // Insert max 100 results at a time
+        foreach ($mappedResults->chunk(16000) as $mappedResultsChunk) {
+            DB::table($this->settingsTableName)
+                ->insert($mappedResultsChunk->toArray());
+        }
 
         DB::table('plugin_settings')
             ->where('plugin_name', '=', 'orcidprofileplugin')
@@ -200,12 +203,15 @@ class I9771_OrcidMigration extends Migration
                         $tableInfo['id'] => $key,
                         'setting_name' => 'orcidIsVerified',
                         'setting_value' => true,
+                        'locale' => '',
                     ];
                 });
 
             if ($insertValues->isNotEmpty()) {
-                DB::table($tableInfo['name'])
-                    ->insert($insertValues->toArray());
+                foreach ($insertValues->chunk(16000) as $chunkedInsertValues) {
+                    DB::table($tableInfo['name'])
+                        ->insert($chunkedInsertValues->toArray());
+                }
             }
         }
     }

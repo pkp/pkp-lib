@@ -108,17 +108,15 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
         $affiliations = $author->getAffiliations();
         foreach($affiliations as $affiliation) {
-            if(empty($affiliation->getData('ror') && !empty($affiliation->getData('name')))) {
-                $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $affiliation->getData('name'));
-            }
-        }
-        foreach($affiliations as $affiliation) {
             if(!empty($affiliation->getData('ror'))) {
                 $rorAffiliationNode = $doc->createElementNS($deployment->getNamespace(), 'rorAffiliation');
                 $rorAffiliationRor = $doc->createElementNS($deployment->getNamespace(), 'ror', $affiliation->getData('ror'));
                 $rorAffiliationNode->appendChild($rorAffiliationRor);
                 $this->createLocalizedNodes($doc, $rorAffiliationNode, 'name', $affiliation->getData('name'));
                 $authorNode->appendChild($rorAffiliationNode);
+            }
+            elseif (!empty($affiliation->getData('name'))){
+                $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $affiliation->getData('name'));
             }
         }
         $this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());

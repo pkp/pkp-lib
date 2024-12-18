@@ -41,7 +41,7 @@ class Affiliation extends DataObject
     /**
      * Get the ROR
      */
-    public function getROR(): ?string
+    public function getROR(): mixed
     {
         return $this->getData('ror');
     }
@@ -57,17 +57,17 @@ class Affiliation extends DataObject
     /**
      * Get name
      */
-    public function getName(): ?array
+    public function getName(?string $locale = null): mixed
     {
-        return $this->getData('name');
+        return $this->getData('name', $locale);
     }
 
     /**
      * Set name
      */
-    public function setName(?array $name): void
+    public function setName(mixed $name, ?string $locale = null): void
     {
-        $this->setData('name', $name);
+        $this->setData('name', $name, $locale);
     }
 
     /**

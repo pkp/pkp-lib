@@ -213,7 +213,11 @@ class Repository
         $author = Repo::author()->newDataObject();
         $author->setGivenName($user->getGivenName(null), null);
         $author->setFamilyName($user->getFamilyName(null), null);
-        $author->setAffiliations([Repo::affiliation()->migrateAffiliation($user->getAffiliation(null), $allowedLocales)]);
+        if($user->getAffiliation(null)){
+            $author->setAffiliations(
+                [Repo::affiliation()->migrateAffiliation($user->getAffiliation(null), $allowedLocales)]
+            );
+        }
         $author->setCountry($user->getCountry());
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());

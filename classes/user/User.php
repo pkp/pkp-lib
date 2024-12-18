@@ -515,7 +515,7 @@ class User extends Identity implements Authenticatable
     /**
      * Get affiliation (position, institution, etc.).
      */
-    public function getAffiliation(?string $locale): string|array
+    public function getAffiliation(?string $locale): mixed
     {
         return $this->getData('affiliation', $locale);
     }
@@ -531,7 +531,7 @@ class User extends Identity implements Authenticatable
     /**
      * Get the localized affiliation
      */
-    public function getLocalizedAffiliation(): ?string
+    public function getLocalizedAffiliation(): mixed
     {
         return $this->getLocalizedData('affiliation');
     }

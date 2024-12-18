@@ -93,67 +93,51 @@ class Repository
      *
      * @hook Affiliation::validate [[&$errors, $object, $props, $submission, $context]]
      */
-    public function validate(?Author $author, array $props, Submission $submission, Context $context): array
+    public function validate(?Affiliation $affiliation, array $props, Submission $submission, Context $context): array
     {
         $errors = [];
-
-        $affiliations = (empty($author)) ? $props['affiliations'] : $author->getAffiliations();
 
         $schemaService = app()->get('schema');
         $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
 
         // Check if author exists
-        if(!empty($props['id'])){
+        if (isset($props['authorId'])) {
+            $author = Repo::author()->get($props['authorId']);
+            if (!$author) {
+                $errors = $schemaService->formatValidationErrors(
+                    ['affiliations-authorId', __('author.authorNotFound')]
+                );
+            }
+        }
+
+        if (empty($errors)) {
+            $affiliation['authorId'] = $props['id'];
             $validator = ValidatorFactory::make(
-                $props,
-                $schemaService->getValidationRules(PKPSchemaService::SCHEMA_AUTHOR, $allowedLocales)
+                $affiliation,
+                $schemaService->getValidationRules($this->dao->schema, $allowedLocales)
             );
-            $validator->after(function ($validator) use ($props) {
-                if (isset($props['id']) && !$validator->errors()->get('id')) {
-                    $author = Repo::author()->get($props['id']);
-                    if (!$author) {
-                        $validator->errors()->add('affiliations-authorId', __('author.authorNotFound'));
-                    }
+
+            // FIXME @bozana consider affiliation locales for submission metadata
+            // // Check for input from disallowed locales
+            // ValidatorFactory::allowedLocales(
+            //     $validator,
+            //     $this->schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AFFILIATION),
+            //     $allowedLocales
+            // );
+
+            // The ror or one name must exist
+            $validator->after(function ($validator) use ($affiliation) {
+                if (empty($affiliation['ror']) && empty($affiliation['name'])) {
+                    $validator->errors()->add('affiliations-affiliationId', __('author.affiliationRorAndNameEmpty'));
                 }
             });
 
             if ($validator->fails()) {
-                $errors = $schemaService->formatValidationErrors($validator->errors());
-            }
-            unset($validator);
-        }
-
-        if(empty($errors)) {
-            foreach ($affiliations as $affiliation) {
-            $affiliation['authorId'] = $props['id'];
-
-                $validator = ValidatorFactory::make(
-                    $affiliation,
-                    $schemaService->getValidationRules($this->dao->schema, $allowedLocales)
-                );
-
-//                // Check for input from disallowed locales
-//                ValidatorFactory::allowedLocales(
-//                    $validator,
-//                    $this->schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AFFILIATION),
-//                    $allowedLocales
-//                );
-
-                // The ror or one name must exist
-                $validator->after(function ($validator) use ($affiliation) {
-                    if (empty($affiliation['ror']) && empty($affiliation['name'])) {
-                        $validator->errors()->add('affiliations-affiliationId', __('author.affiliationRorAndNameEmpty'));
-                    }
-                });
-
-                if ($validator->fails()) {
-                    $errors = $this->schemaService->formatValidationErrors($validator->errors());
-                    break;
-                }
+                $errors = $this->schemaService->formatValidationErrors($validator->errors());
             }
         }
 
-        Hook::call('Affiliation::validate', [&$errors, $author, $props, $submission, $context]);
+        Hook::call('Affiliation::validate', [&$errors, $affiliation, $props, $submission, $context]);
 
         return $errors;
     }
@@ -198,11 +182,10 @@ class Repository
      */
     public function getByAuthorId(int $authorId, ?string $submissionLocale = null): array
     {
-        return iterator_to_array(
-            $this->getCollector()
-                ->filterByAuthorId($authorId)
-                ->getMany($submissionLocale)
-        );
+        return $this->getCollector()
+            ->filterByAuthorId($authorId)
+            ->getMany($submissionLocale)
+            ->all();
     }
 
     /**
@@ -261,7 +244,7 @@ class Repository
                 $affiliation->setData('authorId', $authorId);
             }
 
-            if($affiliation->getROR() !== null) {
+            if ($affiliation->getROR() !== null) {
                 $affiliation->setName(null);
             }
 
@@ -272,31 +255,38 @@ class Repository
     /**
      * Migrates affiliation.
      */
-    public function migrateAffiliation(array $userAffiliation, array $allowedLocales): Affiliation
+    public function migrateAffiliation(string|array $userAffiliation, array $allowedLocales): ?Affiliation
     {
-        $affiliation = $this->newDataObject();
-        $params = [
+        $affiliation = $this->newDataObject([
             "id" => null,
             "authorId" => null,
             "ror" => null,
-            "name" => array_intersect_key($userAffiliation, $allowedLocales)
-        ];
+            "name" => null
+        ]);
 
-        foreach ($userAffiliation as $affiliationName) {
-            $ror = Repo::ror()->getCollector()->filterByName($affiliationName)->getMany()->first();
+        if (is_string($userAffiliation)) {
+            $ror = Repo::ror()->getCollector()->filterByName($userAffiliation)->getMany()->first();
             if ($ror) {
-                $params = [
-                    "id" => null,
-                    "authorId" => null,
-                    "ror" => $ror->_data['ror'],
-                    "name" => $ror->_data['name']
-                ];
-                break;
+                $affiliation->setROR($ror->getROR());
+            } else {
+                foreach ($allowedLocales as $locale) {
+                    $affiliation->setName($userAffiliation, $locale);
+                }
+            }
+        } else {
+            foreach ($userAffiliation as $locale => $name) {
+                $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
+                if ($ror) {
+                    $affiliation->setROR($ror->getROR());
+                    break;
+                } else {
+                    $affiliation->setName($name, $locale);
+                }
             }
         }
 
-        $affiliation->setAllData($params);
+        if ($affiliation->getROR()) $affiliation->setName(null);
 
-        return $affiliation;
+        return ($affiliation->getROR() || $affiliation->getName()) ? $affiliation : null;
     }
 }

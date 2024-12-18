@@ -50,4 +50,36 @@ class Ror extends DataObject
     {
         return self::NO_LANG_CODE;
     }
+
+    /**
+     * Get display locale
+     */
+    public function getDisplayLocale(): mixed
+    {
+        return $this->getData('displayLocale');
+    }
+
+    /**
+     * Get name.
+     */
+    public function getName(?string $locale = null): mixed
+    {
+        return $this->getData('name', $locale);
+    }
+
+    /**
+     * Get cleaned name, e.g. remove NO_LANG_CODE, set required locale
+     */
+    public function getNameCleaned(?string $requiredLocale = null): mixed
+    {
+        $rorName = $this->getName();
+
+        unset($rorName[self::NO_LANG_CODE]);
+
+        if ($requiredLocale && empty($rorName[$requiredLocale])) {
+            $rorName[$requiredLocale] = $this->getName($this->getDisplayLocale());
+        }
+
+        return $rorName;
+    }
 }

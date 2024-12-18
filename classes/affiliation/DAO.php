@@ -95,8 +95,6 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of affiliations matching the configured query.
-     * If the submission locale is not found in rors / ror_settings table,
-     * use the display locale name.
      */
     public function getMany(Collector $query, ?string $submissionLocale = null): LazyCollection
     {
@@ -105,32 +103,25 @@ class DAO extends EntityDAO
             ->get();
 
         return LazyCollection::make(function () use ($rows, $submissionLocale) {
-            $rorIds = [];
             foreach ($rows as $row) {
-                if ($row->ror) $rorIds[] = $row->ror;
-            }
-            $rors = iterator_to_array(Repo::ror()->getCollector()->filterByRors($rorIds)->getManyRorAsCollectionId());
-
-            foreach ($rows as $row) {
-                $fromRow = $this->fromRow($row);
-                if ($fromRow->_data['ror']) {
-                    $fromRow->_data['name'] = $rors[$fromRow->_data['ror']]->_data['name'];
-                    unset($fromRow->_data['name'][Ror::NO_LANG_CODE]);
-                    if(empty($fromRow->_data['name'][$submissionLocale])) {
-                        $displayLocale = $rors[$fromRow->_data['ror']]->_data['displayLocale'];
-                        $fromRow->_data['name'][$submissionLocale] =
-                            $rors[$fromRow->_data['ror']]->_data['name'][$displayLocale];
-                    }
-                }
-                yield $row->author_affiliation_id => $fromRow;
+                yield $row->author_affiliation_id => $this->fromRow($row, $submissionLocale);
             }
         });
     }
 
     /** @copydoc EntityDAO::fromRow() */
-    public function fromRow(object $row): Affiliation
+    public function fromRow(object $row, ?string $submissionLocale = null): Affiliation
     {
-        return parent::fromRow($row);
+        $affiliation = parent::fromRow($row);
+
+        // get names from rors/ror_settings tables for ROR affiliations
+        if ($affiliation->getData('ror')) {
+            /** @var Ror $ror */
+            $ror = Repo::ror()->getCollector()->filterByRor($affiliation->getData('ror'))->getMany()->first();
+            $affiliation->setData('name', $ror->getNameCleaned($submissionLocale));
+        }
+
+        return $affiliation;
     }
 
     /** @copydoc EntityDAO::insert() */

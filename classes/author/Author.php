@@ -19,6 +19,7 @@
 namespace PKP\author;
 
 use APP\facades\Repo;
+use PKP\affiliation\Affiliation;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 
@@ -303,8 +304,9 @@ class Author extends Identity
                     "id" => $affiliation->getId(),
                     "authorId" => $affiliation->getAuthorId(),
                     "ror" => $affiliation->getRor(),
-                    "name" => $affiliation->getLocalizedName()
+                    "name" => $affiliation->getLocalizedName($locale)
                 ];
+                break;
             }
         }
 
@@ -312,17 +314,20 @@ class Author extends Identity
     }
 
     /**
-     * Get the localized affiliations as an array.
+     * Get the localized affiliation names.
      */
     public function getLocalizedAffiliationNames(?string $preferredLocale = null): array
     {
         $value = [];
 
+        /** @var Affiliation $affiliation */
         foreach ($this->getAffiliations() as $affiliation) {
             foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
-                $name = $affiliation->getData('name');
-                if (!empty($name[$locale])) {
-                    $value[] = $name[$locale];
+                if(empty($locale)) continue;
+                $name = $affiliation->getData('name', $locale);
+                if (!empty($name)) {
+                    $value[] = $name;
+                    break;
                 }
             }
         }
@@ -331,7 +336,7 @@ class Author extends Identity
     }
 
     /**
-     * Get the localized affiliations as a string.
+     * Get the localized affiliation names.
      */
     public function getLocalizedAffiliationNamesAsString(?string $preferredLocale = null, ?string $separator = '; '): string
     {

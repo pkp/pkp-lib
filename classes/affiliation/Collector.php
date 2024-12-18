@@ -35,15 +35,6 @@ class Collector implements CollectorInterface
     /** @var int|null Get affiliations with author id */
     public ?int $authorId = null;
 
-    /** @var int[]|null Get affiliations with author ids */
-    public ?array $authorIds = null;
-
-    /** Get affiliations with a name */
-    public ?string $name = null;
-
-    /** Get affiliations with a searchPhrase */
-    public ?string $searchPhrase = null;
-
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
@@ -73,33 +64,6 @@ class Collector implements CollectorInterface
     public function filterByAuthorId(?int $authorId): self
     {
         $this->authorId = $authorId;
-        return $this;
-    }
-
-    /**
-     * Filter by authors
-     */
-    public function filterByAuthorIds(?array $authorIds): self
-    {
-        $this->authorIds = $authorIds;
-        return $this;
-    }
-
-    /**
-     * Filter by affiliation name.
-     */
-    public function filterByName(?string $name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * Filter rors by those matching a search query
-     */
-    public function searchPhrase(?string $phrase): self
-    {
-        $this->searchPhrase = $phrase;
         return $this;
     }
 
@@ -139,19 +103,6 @@ class Collector implements CollectorInterface
         if (!is_null($this->authorId)) {
             $qb->where('a.author_id', '=', $this->authorId);
         }
-
-        if (!is_null($this->authorIds)) {
-            $qb->whereIn('a.author_id', $this->authorIds);
-        }
-
-        $qb->when($this->name !== null, function (Builder $qb) {
-            $qb->whereIn('a.author_affiliation_id', function (Builder $qb) {
-                $qb->select('author_affiliation_id')
-                    ->from($this->dao->settingsTable)
-                    ->where('setting_name', '=', 'name')
-                    ->where('setting_value', $this->name);
-            });
-        });
 
         // Add app-specific query statements
         Hook::call('Affiliation::Collector', [&$qb, $this]);

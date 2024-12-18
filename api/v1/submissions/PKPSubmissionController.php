@@ -350,7 +350,8 @@ class PKPSubmissionController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        $illuminateRequest = $args[0];
+        /** @var \Illuminate\Http\Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
@@ -371,7 +372,7 @@ class PKPSubmissionController extends PKPBaseController
 
         if ($actionName === 'addDecision') {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
-            $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
+            $this->addPolicy(new DecisionWritePolicy($request, $args, (int)$request->getUserVar('decision'), $request->getUser()));
         }
 
         if (in_array(
@@ -492,11 +493,11 @@ class PKPSubmissionController extends PKPBaseController
                     break;
 
                 case 'daysInactive':
-                    $collector->filterByDaysInactive((int) $val);
+                    $collector->filterByDaysInactive((int)$val);
                     break;
 
                 case 'offset':
-                    $collector->offset((int) $val);
+                    $collector->offset((int)$val);
                     break;
 
                 case 'searchPhrase':
@@ -504,7 +505,7 @@ class PKPSubmissionController extends PKPBaseController
                     break;
 
                 case 'count':
-                    $collector->limit(min(self::MAX_COUNT, (int) $val));
+                    $collector->limit(min(self::MAX_COUNT, (int)$val));
                     break;
 
                 case 'isIncomplete':
@@ -518,7 +519,7 @@ class PKPSubmissionController extends PKPBaseController
                     $collector->filterByDoiStatuses(array_map('intval', paramToArray($val)));
                     break;
                 case 'hasDois':
-                    $collector->filterByHasDois((bool) $val, $context->getEnabledDoiTypes());
+                    $collector->filterByHasDois((bool)$val, $context->getEnabledDoiTypes());
                     break;
             }
         }
@@ -791,7 +792,7 @@ class PKPSubmissionController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        /** @var Submission $submission*/
+        /** @var Submission $submission */
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $submission->getCurrentPublication();
 
@@ -893,7 +894,7 @@ class PKPSubmissionController extends PKPBaseController
      */
     public function changeLocale(Request $illuminateRequest): JsonResponse
     {
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -920,11 +921,9 @@ class PKPSubmissionController extends PKPBaseController
         // Convert a form field value to multilingual (if it is not) and merge rest values
         collect(app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION))
             ->each(
-                fn (string $prop) =>
-                $illuminateRequest->whenHas(
+                fn(string $prop) => $illuminateRequest->whenHas(
                     $prop,
-                    fn ($value) =>
-                    $illuminateRequest->merge([
+                    fn($value) => $illuminateRequest->merge([
                         $prop => array_merge(
                             $publication->getData($prop) ?? [],
                             (is_array($value) && array_key_exists($newLocale, $value)) ? $value : [$newLocale => $value]
@@ -990,7 +989,7 @@ class PKPSubmissionController extends PKPBaseController
         $context = $request->getContext();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $args = $illuminateRequest->input();
-        $stageId = $args['stageId'] ?? $illuminateRequest->route('stageId') !== null ? (int) $illuminateRequest->route('stageId') : null;
+        $stageId = $args['stageId'] ?? $illuminateRequest->route('stageId') !== null ? (int)$illuminateRequest->route('stageId') : null;
 
         if (!$submission || $submission->getData('contextId') !== $context->getId()) {
             return response()->json([
@@ -1064,7 +1063,7 @@ class PKPSubmissionController extends PKPBaseController
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1139,7 +1138,7 @@ class PKPSubmissionController extends PKPBaseController
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
         $context = $request->getContext();
 
         if (!$publication) {
@@ -1178,13 +1177,13 @@ class PKPSubmissionController extends PKPBaseController
 
             // Check if user is subscribed to this type of notification emails
             if (!$notification || in_array(
-                Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
-                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                    $user->getId(),
-                    (int) $context->getId()
-                )
-            )) {
+                    Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                        $user->getId(),
+                        (int)$context->getId()
+                    )
+                )) {
                 continue;
             }
 
@@ -1222,7 +1221,7 @@ class PKPSubmissionController extends PKPBaseController
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1301,7 +1300,7 @@ class PKPSubmissionController extends PKPBaseController
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1358,7 +1357,7 @@ class PKPSubmissionController extends PKPBaseController
     public function unpublishPublication(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1406,7 +1405,7 @@ class PKPSubmissionController extends PKPBaseController
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1448,8 +1447,8 @@ class PKPSubmissionController extends PKPBaseController
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
-        $author = Repo::author()->get((int) $illuminateRequest->route('contributorId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+        $author = Repo::author()->get((int)$illuminateRequest->route('contributorId'));
 
         if (!$publication) {
             return response()->json([
@@ -1487,7 +1486,7 @@ class PKPSubmissionController extends PKPBaseController
     public function getContributors(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1522,7 +1521,7 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1558,16 +1557,20 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $author = Repo::author()->newDataObject($params);
-        $newId = Repo::author()->add($author);
 
-        $params['id'] = $newId;
-        $author->setId($newId);
-        $author->setAffiliations($params['affiliations']);
-        $errors = Repo::affiliation()->validate($author, $params, $submission, $submissionContext);
-        if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        $affiliations = [];
+        foreach ($params['affiliations'] as $affiliationParam) {
+            $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
+            $affiliations[] = $affiliation;
+
+            $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+            if (!empty($affiliationErrors)) {
+                return response()->json($affiliationErrors, Response::HTTP_BAD_REQUEST);
+            }
         }
+        $author->setAffiliations($affiliations);
 
+        $newId = Repo::author()->add($author);
         $author = Repo::author()->get($newId);
 
         return response()->json(
@@ -1585,8 +1588,8 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
-        $author = Repo::author()->get((int) $illuminateRequest->route('contributorId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+        $author = Repo::author()->get((int)$illuminateRequest->route('contributorId'));
 
         if (!$publication) {
             return response()->json([
@@ -1635,8 +1638,8 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
-        $author = Repo::author()->get((int) $illuminateRequest->route('contributorId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+        $author = Repo::author()->get((int)$illuminateRequest->route('contributorId'));
 
         if (!$publication) {
             return response()->json([
@@ -1691,14 +1694,19 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::author()->edit($author, $params);
+        $affiliations = [];
+        foreach ($params['affiliations'] as $affiliationParam) {
+            $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
+            $affiliations[] = $affiliation;
 
-        $author->setAffiliations($params['affiliations']);
-        $errors = Repo::affiliation()->validate($author, $params, $submission, $submissionContext);
-        if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+            $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+            if (!empty($affiliationErrors)) {
+                return response()->json($affiliationErrors, Response::HTTP_BAD_REQUEST);
+            }
         }
+        $author->setAffiliations($affiliations);
 
+        Repo::author()->edit($author, $params);
         $author = Repo::author()->get($author->getId());
 
         return response()->json(
@@ -1718,7 +1726,7 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
 
         if (!$publication) {
             return response()->json([
@@ -1742,7 +1750,7 @@ class PKPSubmissionController extends PKPBaseController
         if (!empty($params['sortedAuthors'])) {
             $authors = [];
             foreach ($params['sortedAuthors'] as $author) {
-                $newAuthor = Repo::author()->get((int) $author['id']);
+                $newAuthor = Repo::author()->get((int)$author['id']);
 
                 array_push($authors, $newAuthor);
             }
@@ -1772,8 +1780,10 @@ class PKPSubmissionController extends PKPBaseController
     public function addDecision(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
-        $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var DecisionType $decisionType */
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        /** @var Submission $submission */
+        $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
+        /** @var DecisionType $decisionType */
 
         if ($submission->getData('status') === Submission::STATUS_PUBLISHED) {
             return response()->json([
@@ -1808,7 +1818,7 @@ class PKPSubmissionController extends PKPBaseController
 
     protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup
     {
-        return $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getRoleId() === $role);
+        return $userGroups->first(fn(UserGroup $userGroup) => $userGroup->getRoleId() === $role);
     }
 
     /**
@@ -1817,10 +1827,10 @@ class PKPSubmissionController extends PKPBaseController
     protected function isEditor(): bool
     {
         return !empty(
-            array_intersect(
-                Section::getEditorRestrictedRoles(),
-                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
-            )
+        array_intersect(
+            Section::getEditorRestrictedRoles(),
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
+        )
         );
     }
 
@@ -1867,13 +1877,17 @@ class PKPSubmissionController extends PKPBaseController
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
 
         if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
+            return response()->json(['error' => $data['error'],], $data['status']);
         }
 
-        $submission = $data['submission']; /** @var Submission $submission */
-        $publication = $data['publication']; /** @var Publication $publication*/
-        $context = $data['context']; /** @var Context $context*/
-        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+        $submission = $data['submission'];
+        /** @var Submission $submission */
+        $publication = $data['publication'];
+        /** @var Publication $publication */
+        $context = $data['context'];
+        /** @var Context $context */
+        $publicationApiUrl = $data['publicationApiUrl'];
+        /** @var String $publicationApiUrl */
 
         $submissionLocale = $submission->getData('locale');
         $locales = $this->getPublicationFormLocales($context, $submission);
@@ -1894,11 +1908,13 @@ class PKPSubmissionController extends PKPBaseController
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
 
         if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
+            return response()->json(['error' => $data['error'],], $data['status']);
         }
 
-        $publication = $data['publication']; /** @var Publication $publication*/
-        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+        $publication = $data['publication'];
+        /** @var Publication $publication */
+        $publicationApiUrl = $data['publicationApiUrl'];
+        /** @var String $publicationApiUrl */
 
         $citationsForm = new PKPCitationsForm($publicationApiUrl, $publication);
 
@@ -1914,13 +1930,17 @@ class PKPSubmissionController extends PKPBaseController
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
 
         if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
+            return response()->json(['error' => $data['error'],], $data['status']);
         }
 
-        $submission = $data['submission']; /** @var Submission $submission */
-        $publication = $data['publication']; /** @var Publication $publication*/
-        $context = $data['context']; /** @var Context $context*/
-        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+        $submission = $data['submission'];
+        /** @var Submission $submission */
+        $publication = $data['publication'];
+        /** @var Publication $publication */
+        $context = $data['context'];
+        /** @var Context $context */
+        $publicationApiUrl = $data['publicationApiUrl'];
+        /** @var String $publicationApiUrl */
 
         $submissionLocale = $submission->getData('locale');
         $locales = $this->getPublicationFormLocales($context, $submission);
@@ -1957,13 +1977,17 @@ class PKPSubmissionController extends PKPBaseController
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
 
         if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
+            return response()->json(['error' => $data['error'],], $data['status']);
         }
 
-        $submission = $data['submission']; /** @var Submission $submission */
-        $publication = $data['publication']; /** @var Publication $publication*/
-        $context = $data['context']; /** @var Context $context*/
-        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+        $submission = $data['submission'];
+        /** @var Submission $submission */
+        $publication = $data['publication'];
+        /** @var Publication $publication */
+        $context = $data['context'];
+        /** @var Context $context */
+        $publicationApiUrl = $data['publicationApiUrl'];
+        /** @var String $publicationApiUrl */
         $locales = $this->getPublicationFormLocales($context, $submission);
 
         $identifiersForm = new PKPPublicationIdentifiersForm($publicationApiUrl, $locales, $publication, $context);
@@ -1973,16 +1997,17 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Get Publication TitleAbstract Form component
-    */
+     */
     protected function getPublicationTitleAbstractForm(Request $illuminateRequest): JsonResponse
     {
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
 
         if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
+            return response()->json(['error' => $data['error'],], $data['status']);
         }
 
-        $submission = $data['submission']; /** @var Submission $submission */
+        $submission = $data['submission'];
+        /** @var Submission $submission */
         $locales = $this->getPublicationFormLocales($data['context'], $submission);
         $submissionLocale = $submission->getData('locale');
         $titleAbstract = new TitleAbstractForm($data['publicationApiUrl'], $locales, $data['publication']);
@@ -2002,9 +2027,12 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json(['error' => $data['error']], $data['status']);
         }
 
-        $context = $data['context']; /** @var Context $context*/
-        $submission = $data['submission']; /** @var Submission $submission */
-        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context'];
+        /** @var Context $context */
+        $submission = $data['submission'];
+        /** @var Submission $submission */
+        $publication = $data['publication'];
+        /** @var Publication $publication */
         $locales = $this->getPublicationFormLocales($context, $submission);
 
         $changeSubmissionLanguageApiUrl = $request->getDispatcher()->url(
@@ -2022,11 +2050,11 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Utility method used to get the metadata locale information for a submission publications and context
-    */
+     */
     protected function getPublicationFormLocales(Context $context, Submission $submission): array
     {
         return collect($context->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
-            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->map(fn(string $name, string $locale) => ['key' => $locale, 'label' => $name])
             ->values()
             ->toArray();
     }
@@ -2057,7 +2085,7 @@ class PKPSubmissionController extends PKPBaseController
         $config['primaryLocale'] = $submissionLocale;
         $config['visibleLocales'] = [$submissionLocale];
         $config['supportedFormLocales'] = collect($locales)
-            ->sortBy([fn (array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
+            ->sortBy([fn(array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
             ->values()
             ->toArray();
 
@@ -2128,8 +2156,8 @@ class PKPSubmissionController extends PKPBaseController
     protected function copyMultilingualData(Submission $submission, string $newLocale): void
     {
         $oldLocale = $submission->getData('locale');
-        $editProps = fn (Author|SubmissionFile $item, array $props): array => collect($props)
-            ->mapWithKeys(fn (string $prop): array => [$prop => ($data = $item->getData($prop)[$oldLocale] ?? null) ? [$newLocale => $data] : null])
+        $editProps = fn(Author|SubmissionFile $item, array $props): array => collect($props)
+            ->mapWithKeys(fn(string $prop): array => [$prop => ($data = $item->getData($prop)[$oldLocale] ?? null) ? [$newLocale => $data] : null])
             ->filter()
             ->toArray();
 
@@ -2141,7 +2169,7 @@ class PKPSubmissionController extends PKPBaseController
             ->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->getMany()
-            ->each(fn (SubmissionFile $file) => Repo::submissionFile()->edit($file, $editProps($file, $fileProps)));
+            ->each(fn(SubmissionFile $file) => Repo::submissionFile()->edit($file, $editProps($file, $fileProps)));
 
         // Contributor
         $contributorProps = [

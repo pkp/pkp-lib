@@ -118,21 +118,10 @@ class DAO extends EntityDAO
         });
     }
 
-    /**
-     * Get a collection of rors matching the configured query.
-     * Return with ror as id, instead of rors.ror_id)
-     */
-    public function getManyRorAsCollectionId(Collector $query): LazyCollection
+    /** @copydoc EntityDAO::fromRow() */
+    public function fromRow(object $row): Ror
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
-            foreach ($rows as $row) {
-                yield $row->ror => $this->fromRow($row);
-            }
-        });
+        return parent::fromRow($row);
     }
 
     /** @copydoc EntityDAO::insert() */
@@ -170,6 +159,18 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Get ror object for given ror.
+     */
+    public function getByRor(string $ror): ?Ror
+    {
+        $row = DB::table($this->table)
+            ->where('ror', '=', $ror)
+            ->first();
+
+        return $row ? $this->fromRow($row) : null;
+    }
+
+    /**
      * Check if ror exists with given ror
      */
     public function existsByRor(string $ror): bool
@@ -177,6 +178,25 @@ class DAO extends EntityDAO
         return DB::table($this->table)
             ->where('ror', '=', $ror)
             ->exists();
+    }
+
+    /**
+     * Get names by given ror.
+     */
+    public function getNameByRor(string $ror, ?string $requiredLocale): ?array
+    {
+        $ror = $this->getByRor($ror);
+        $rorName = $ror->getName();
+
+        unset($rorName[$ror->getNoLangCode()]);
+
+        if($rorName){
+            if (empty($rorName[$requiredLocale])) {
+                $rorName[$requiredLocale] = $rorName->getName($ror->getDisplayLocale());
+            }
+        }
+
+        return $rorName;
     }
 
     /**

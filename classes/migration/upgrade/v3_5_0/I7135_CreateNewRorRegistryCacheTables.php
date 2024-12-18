@@ -109,6 +109,8 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
             ->distinct()
             ->get();
 
+        // TODO @GaziYucel only SQLs
+
         foreach ($rows as $row) {
             $ror = Repo::ror()->get($row->ror_id);
 
@@ -152,6 +154,8 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
             ->select(['a.author_id', 'a_s.locale', 'a_s.setting_value'])
             ->distinct()
             ->get();
+
+        // TODO @GaziYucel only SQLs
 
         foreach ($rows as $row) {
             $affiliation = Repo::affiliation()->newDataObject();

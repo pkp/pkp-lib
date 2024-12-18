@@ -106,6 +106,16 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         }
                         $author->setFamilyName($n->textContent, $locale);
                         break;
+                    case 'affiliation':
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $publication->getData('locale');
+                        }
+                        $affiliationMigrated = Repo::affiliation()->migrateAffiliation($n->textContent, [$locale]);
+                        if($affiliationMigrated) {
+                            $author->setAffiliations([$affiliationMigrated]);
+                        }
+                        break;
                     case 'country': $author->setCountry($n->textContent);
                         break;
                     case 'email': $author->setEmail($n->textContent);

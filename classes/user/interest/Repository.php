@@ -44,7 +44,13 @@ class Repository
             )
             ->get()
             ->sortBy(UserInterest::CONTROLLED_VOCAB_INTEREST)
-            ->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)
+            ->mapWithKeys(
+                fn(ControlledVocabEntry $controlledVocabEntry, int $id) => [
+                    $id => collect(
+                        $controlledVocabEntry->{UserInterest::CONTROLLED_VOCAB_INTEREST}
+                    )->first()
+                ]
+            )
             ->toArray();
     }
 
@@ -65,7 +71,13 @@ class Repository
             )
             ->whereHas("userInterest", fn ($query) => $query->withUserId($user->getId()))
             ->get()
-            ->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST, 'id')
+            ->mapWithKeys(
+                fn(ControlledVocabEntry $controlledVocabEntry, int $id) => [
+                    $id => collect(
+                        $controlledVocabEntry->{UserInterest::CONTROLLED_VOCAB_INTEREST}
+                    )->first()
+                ]
+            )
             ->toArray();
     }
 
@@ -107,14 +119,14 @@ class Repository
             ->withLocales([''])
             ->withSettings(UserInterest::CONTROLLED_VOCAB_INTEREST, $interests)
             ->get();
-        
-        // Delete the existing interests association.
+
+        // Delete user's existing interests association.
         UserInterest::query()->withUserId($user->getId())->delete();
-            
+
         $newInterestIds = collect(
                 array_diff(
                     $interests,
-                    $currentInterests->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)->toArray()
+                    $currentInterests->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)->flatten()->toArray()
                 )
             )
             ->map(fn (string $interest): string => trim($interest))

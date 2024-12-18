@@ -17,6 +17,7 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
@@ -42,7 +43,11 @@ class RolesForm extends BaseProfileForm
     {
         $templateMgr = TemplateManager::getManager($request);
 
-        $userGroupIds = UserGroup::getIdsByUserId($request->getUser()->getId());
+        $userGroupIds = UserGroup::query()
+            ->withUserIds([$request->getUser()->getId()])
+            ->get()
+            ->pluck('id')
+            ->toArray();
 
         $templateMgr->assign('userGroupIds', $userGroupIds);
 

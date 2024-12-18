@@ -76,12 +76,6 @@ trait EntityUpdate
             }
 
             if (!empty($propSchema->multilingual)) {
-                // first we will delete the settings entries for the locale keys which are not present in update query
-                DB::table($this->getSettingsTable())
-                    ->where($this->getPrimaryKeyName(), '=', $modelId)
-                    ->where('setting_name', '=', $propName)
-                    ->whereNotIn('locale', array_keys($props[$propName]))
-                    ->delete();
 
                 foreach ($props[$propName] as $localeKey => $localeValue) {
                     // Delete rows with a null value

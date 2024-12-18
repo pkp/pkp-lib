@@ -50,6 +50,6 @@ class MultilingualSettingAttribute implements CastsInboundAttributes
             return [$key =>  [Locale::getLocale() => $value]];
         }
 
-        return [$key => array_filter($value)];
+        return [$key => $value];
     }
 }

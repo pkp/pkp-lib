@@ -2612,13 +2612,19 @@ msgid "workflow.reviewRoundN"
 msgstr "Review Round {$number}"
 
 msgid "fileManager.submissionFilesDescription"
-msgstr "These are the files that will be taken forward to the review stage in the workflow."
+msgstr "Files uploaded at the time of submission"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisions Uploaded"
 
 msgid "fileManager.revisionsUploadedDescription"
 msgstr "These files have been submitted by the author after revisions were requested"
 
 msgid "fileManager.filesForReview"
-msgstr "Files for review"
+msgstr "Files for Review"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "These files will be sent to the reviewers to review"
 
 msgid "fileManager.copyeditedFiles"
 msgstr "Copyedited Files"

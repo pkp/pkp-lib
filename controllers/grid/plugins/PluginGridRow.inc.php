@@ -74,6 +74,7 @@ class PluginGridRow extends GridRow {
 					'delete'
 				));
 
+				import('lib.pkp.classes.linkAction.request.AjaxModal');
 				$this->addAction(new LinkAction(
 					'upgrade',
 					new AjaxModal(

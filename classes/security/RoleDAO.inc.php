@@ -167,6 +167,9 @@ class RoleDAO extends DAO {
 
 		$roles = array();
 		while ($userGroup = $userGroupsFactory->next()) {
+			// The site admin role MUST only be present for context ID 0.
+			if ($userGroup->getContextId() != 0 && $userGroup->getRoleId() == ROLE_ID_SITE_ADMIN) continue;
+
 			$role = $roleDao->newDataObject();
 			$role->setRoleId($userGroup->getRoleId());
 			$roles[$userGroup->getContextId()][$userGroup->getRoleId()] = $role;

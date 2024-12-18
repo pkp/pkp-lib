@@ -81,7 +81,7 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 			}
 
 			for ($n = $node->firstChild; $n !== null; $n=$n->nextSibling) if (is_a($n, 'DOMElement')) switch($n->tagName) {
-				case 'role_id': $userGroup->setRoleId($n->textContent); break;
+				case 'role_id': $userGroup->setRoleId((int) $n->textContent); break;
 				case 'is_default': $userGroup->setDefault($n->textContent); break;
 				case 'show_title': $userGroup->setShowTitle($n->textContent); break;
 				case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale')); break;
@@ -90,6 +90,12 @@ class NativeXmlUserGroupFilter extends NativeImportFilter {
 				case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent); break;
 			}
 
+			if (!in_array(
+				$userGroup->getRoleId(),
+				[ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_AUTHOR, ROLE_ID_REVIEWER, ROLE_ID_ASSISTANT, ROLE_ID_READER, ROLE_ID_SUBSCRIPTION_MANAGER]
+			)) {
+				fatalError('Unacceptable role_id ' . $userGroup->getRoleId());
+			}
 			$userGroupId = $userGroupDao->insertObject($userGroup);
 
 			$stageNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'stage_assignments');

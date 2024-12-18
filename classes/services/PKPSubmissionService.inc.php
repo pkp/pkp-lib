@@ -788,13 +788,26 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	/**
 	 * Check if a user can edit a publications metadata
 	 *
-	 * @param int $submissionId
+	 * @param Submission $submission
 	 * @param int $userId
 	 * @return boolean
 	 */
-	public function canEditPublication($submissionId, $userId) {
+	public function canEditPublication($submission, $userId) {
+                $contextId = Application::get()->getRequest()->getContext()->getId();
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null)->toArray();
+		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, null)->toArray();
+                $userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $userId)->toArray());
+                // If the submission is rejected and the user's only role is an author
+                if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor) {
+                        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+                        $roles = $roleDao->getByUserId($userId, $contextId);
+                        foreach ($roles as $role) {
+                                if ($role->getRoleId() != ROLE_ID_AUTHOR && $role->getRoleId() != ROLE_ID_READER) {
+                                        return true;
+                                }
+                        }
+                        return false;
+                }
 		// Check for permission from stage assignments
 		foreach ($stageAssignments as $stageAssignment) {
 			if ($stageAssignment->getCanChangeMetadata()) {
@@ -802,8 +815,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 		// If user has no stage assigments, check if user can edit anyway ie. is manager
-		$context = Application::get()->getRequest()->getContext();
-		if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+		if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($contextId, $userId)) {
 			return true;
 		}
 		// Else deny access

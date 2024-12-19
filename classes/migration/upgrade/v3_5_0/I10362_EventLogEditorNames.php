@@ -43,21 +43,26 @@ class I10362_EventLogEditorNames extends Migration
             ->pluck('user_id', 'log_id');
 
         $inserts = [];
-        foreach ($idsToUpdate as $eventLogId => $userId) {
-            $editorName = Repo::user()->get($userId)->getFullName();
 
-            if ($editorName) {
-                $inserts[] = [
-                    'log_id' => $eventLogId,
-                    'locale' => '',
-                    'setting_name' => 'editorName',
-                    'setting_value' => $editorName
-                ];
+        if ($idsToUpdate) {
+            foreach ($idsToUpdate as $eventLogId => $userId) {
+                $editorName = Repo::user()->get($userId)->getFullName();
+
+                if ($editorName) {
+                    $inserts[] = [
+                        'log_id' => $eventLogId,
+                        'locale' => '',
+                        'setting_name' => 'editorName',
+                        'setting_value' => $editorName
+                    ];
+                }
             }
         }
 
-        DB::table('event_log_settings')
-            ->insert($inserts);
+        if ($inserts) {
+            DB::table('event_log_settings')
+                ->insert($inserts);
+        }
     }
 
     /**

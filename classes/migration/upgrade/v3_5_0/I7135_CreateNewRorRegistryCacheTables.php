@@ -77,54 +77,47 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
      * Migrate affiliations with an exact name in rors table.
      * Only migrate if author has none in author_affiliations.
      *
-     * select distinct r.ror_id, a_s.author_id
-     * from rors as r
-     * join ror_settings as r_s on r.ror_id = r_s.ror_id
-     * join author_settings as a_s on r_s.setting_value = a_s.setting_value
-     * where r_s.setting_name = 'name' and a_s.setting_name = 'affiliation' and r_s.locale = a_s.locale
+     * select distinct a_s.author_id, r.ror
+     * from author_settings as a_s
+     * join ror_settings as r_s on r_s.locale = a_s.locale  and r_s.setting_value = a_s.setting_value and r_s.setting_name = 'name'
+     * join rors as r on r_s.ror_id = r.ror_id
+     * left join author_affiliations as a_a on a_s.author_id = a_a.author_id and r.ror = a_a.ror
+     * where a_s.setting_name = 'affiliation' and a_a.author_affiliation_id is null;
      *
      * @return void
      */
     public function migrateRorAffiliations(): void
     {
-        $rows = DB::table('rors as r')
+        // get all rows from author_settings which do not exist in author_affiliations
+        $rows = DB::table('author_settings as a_s')
             ->join('ror_settings as r_s',
                 function (JoinClause $join) {
                     $join
-                        ->on('r.ror_id', '=', 'r_s.ror_id')
+                        ->on('r_s.locale', '=', 'a_s.locale')
+                        ->on('r_s.setting_value', '=', 'a_s.setting_value')
                         ->where('r_s.setting_name', '=', 'name');
                 }
             )
-            ->join('author_settings as a_s',
+            ->join('rors as r', 'r.ror_id', '=', 'r_s.ror_id')
+            ->leftJoin('author_affiliations as a_a',
                 function (JoinClause $join) {
                     $join
-                        ->on('r_s.setting_value', '=', 'a_s.setting_value')
-                        ->on('r_s.locale', '=', 'a_s.locale')
-                        ->where('a_s.setting_name', '=', 'affiliation');
+                        ->on('a_a.author_id', '=', 'a_s.author_id')
+                        ->on('a_a.ror', '=', 'r.ror');
                 }
             )
-            ->leftJoin('author_affiliations as aa', 'a_s.author_id', '=', 'aa.author_id')
-            ->where('aa.author_id', '=', null)
-            ->select(['r.ror_id', 'a_s.author_id'])
+            ->where('a_a.author_affiliation_id', '=', null)
+            ->select(['a_s.author_id', 'r.ror'])
             ->distinct()
             ->get();
 
-        // TODO @GaziYucel only SQLs
-
-        foreach ($rows as $row) {
-            $ror = Repo::ror()->get($row->ror_id);
-
-            $affiliation = Repo::affiliation()->newDataObject();
-            $params = [
-                "id" => null,
-                "authorId" => $row->author_id,
-                "ror" => $ror->_data['ror'],
-                "name" => $ror->_data['name']
-            ];
-            $affiliation->setAllData($params);
-
-            Repo::affiliation()->dao->updateOrInsert($affiliation);
-        }
+        $rows->each(function ($row) {
+            DB::table('author_affiliations')
+                ->insert([
+                    'author_id' => $row->author_id,
+                    'ror' => $row->ror
+                ]);
+        });
     }
 
     /**
@@ -135,7 +128,7 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
      * from authors as a
      * join author_settings as a_s on a.author_id = a_s.author_id and a_s.setting_name = 'affiliation'
      * left join author_affiliations as aa on a.author_id = aa.author_id
-     * where aa.author_id is null
+     * where aa.author_id is null;
      *
      * @return void
      */
@@ -155,21 +148,19 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
             ->distinct()
             ->get();
 
-        // TODO @GaziYucel only SQLs
+        $rows->each(function ($row) {
+            DB::table('author_affiliations')
+                ->insert(['author_id' => $row->author_id]);
 
-        foreach ($rows as $row) {
-            $affiliation = Repo::affiliation()->newDataObject();
-            $params = [
-                "id" => null,
-                "authorId" => $row->author_id,
-                "ror" => '',
-                "name" => [
-                    $row->locale => $row->setting_value
-                ]
-            ];
-            $affiliation->setAllData($params);
+            $newId = DB::getPdo()->lastInsertId();
 
-            Repo::affiliation()->dao->updateOrInsert($affiliation);
-        }
+            DB::table('author_affiliation_settings')
+                ->insert([
+                    'author_affiliation_id' => $newId,
+                    'locale' => $row->locale,
+                    'setting_name' => 'name',
+                    'setting_value' => $row->setting_value
+                ]);
+        });
     }
 }

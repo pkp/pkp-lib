@@ -16,7 +16,6 @@ namespace PKP\invitation\invitations\userRoleAssignment\resources;
 
 use Illuminate\Http\Request;
 use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
-use PKP\user\User;
 
 class UserRoleAssignmentInviteManagerDataResource extends BaseUserRoleAssignmentInviteResource
 {

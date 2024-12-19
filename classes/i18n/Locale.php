@@ -276,7 +276,7 @@ class Locale implements LocaleInterface
      */
     public function getSupportedLocales(): array
     {
-        return $this->supportedLocaleNames ??= array_map(fn (string $locale) => $this->getMetadata($locale)->getDisplayName(), $this->_getSupportedLocales());
+        return $this->supportedLocaleNames ??= array_map(fn (string $locale) => $this->getMetadata($locale)?->getDisplayName() ?? $locale, $this->_getSupportedLocales());
     }
 
     /**

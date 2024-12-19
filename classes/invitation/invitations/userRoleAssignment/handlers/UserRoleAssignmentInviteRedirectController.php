@@ -23,6 +23,9 @@ use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\invitation\stepTypes\AcceptInvitationStep;
 use APP\facades\Repo;
 
+/**
+ * @extends InvitationActionRedirectController<UserRoleAssignmentInvite>
+ */
 class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirectController
 {
     public function getInvitation(): UserRoleAssignmentInvite

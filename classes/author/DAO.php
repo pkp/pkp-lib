@@ -155,7 +155,7 @@ class DAO extends EntityDAO
         $author = parent::fromRow($row);
 
         // Set the primary locale from the submission
-        $author->setData('locale', $row->submission_locale);
+        $author->setData('submissionLocale', $row->submission_locale);
 
         return $author;
     }

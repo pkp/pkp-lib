@@ -18,7 +18,6 @@ namespace PKP\submissionFile;
 
 use APP\facades\Repo;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -55,40 +54,11 @@ class SubmissionFile extends \PKP\core\DataObject
 
     /**
      * Get the default/fall back locale the values should exist for
+     * (see LocalizedData trait)
      */
     public function getDefaultLocale(): ?string
     {
-        return $this->getData('locale');
-    }
-
-    /**
-     * Get the locale of the submission.
-     * This is not properly a property of the submission file
-     * (e.g. it won't be persisted to the DB with the update function)
-     * It helps solve submission locale requirement for file's multilingual metadata
-     *
-     * @deprecated 3.3.0.0
-     *
-     * @return string
-     */
-    public function getSubmissionLocale()
-    {
-        return $this->getData('locale');
-    }
-
-    /**
-     * Set the locale of the submission.
-     * This is not properly a property of the submission file
-     * (e.g. it won't be persisted to the DB with the update function)
-     * It helps solve submission locale requirement for file's multilingual metadata
-     *
-     * @deprecated 3.3.0.0
-     *
-     * @param string $submissionLocale
-     */
-    public function setSubmissionLocale($submissionLocale)
-    {
-        $this->setData('locale', $submissionLocale);
+        return $this->getData('submissionLocale');
     }
 
     /**
@@ -401,7 +371,7 @@ class SubmissionFile extends \PKP\core\DataObject
     {
         $props = app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
         $locales = array_map(fn (string $prop): array => array_keys($this->getData($prop) ?? []), $props);
-        return collect([$this->getData('locale')])
+        return collect([$this->getData('submissionLocale')])
             ->concat($locales)
             ->flatten()
             ->filter()

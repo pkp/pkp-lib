@@ -17,6 +17,7 @@
  */
 
 namespace PKP\author;
+
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\userGroup\UserGroup;
@@ -25,10 +26,11 @@ class Author extends Identity
 {
     /**
      * Get the default/fall back locale the values should exist for
+     * (see LocalizedData trait)
      */
     public function getDefaultLocale(): ?string
     {
-        return $this->getSubmissionLocale();
+        return $this->getData('submissionLocale');
     }
 
     /**
@@ -77,26 +79,6 @@ class Author extends Identity
     public function setSubmissionId($submissionId)
     {
         $this->setData('submissionId', $submissionId);
-    }
-
-    /**
-     * Get submission locale.
-     *
-     * @return string
-     */
-    public function getSubmissionLocale()
-    {
-        return $this->getData('locale');
-    }
-
-    /**
-     * Set submission locale.
-     *
-     * @param string $locale
-     */
-    public function setSubmissionLocale($locale)
-    {
-        return $this->setData('locale', $locale);
     }
 
     /**

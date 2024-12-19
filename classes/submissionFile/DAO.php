@@ -163,7 +163,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     public function fromRow(object $primaryRow): SubmissionFile
     {
         $submissionFile = parent::fromRow($primaryRow);
-        $submissionFile->setData('locale', $primaryRow->locale);
+        $submissionFile->setData('submissionLocale', $primaryRow->submission_locale);
         $submissionFile->setData('path', $primaryRow->path);
         $submissionFile->setData('mimetype', $primaryRow->mimetype);
 

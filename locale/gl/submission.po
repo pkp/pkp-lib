@@ -1911,7 +1911,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"O editor/a {$userName} confirmou unha revisión da rolda de revisión {$round} "
+"O editor/a {$editorName} confirmou unha revisión da rolda de revisión {$round} "
 "do envío {$submissionId}."
 
 msgid "log.review.reviewReady"

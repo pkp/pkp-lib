@@ -111,9 +111,8 @@ class Repository
         }
 
         if (empty($errors)) {
-            $affiliation['authorId'] = $props['id'];
             $validator = ValidatorFactory::make(
-                $affiliation,
+                $props,
                 $schemaService->getValidationRules($this->dao->schema, $allowedLocales)
             );
 
@@ -126,8 +125,8 @@ class Repository
             // );
 
             // The ror or one name must exist
-            $validator->after(function ($validator) use ($affiliation) {
-                if (empty($affiliation['ror']) && empty($affiliation['name'])) {
+            $validator->after(function ($validator) use ($props) {
+                if (empty($props['ror']) && empty($props['name'])) {
                     $validator->errors()->add('affiliations-affiliationId', __('author.affiliationRorAndNameEmpty'));
                 }
             });

@@ -34,7 +34,7 @@ msgid "author.authorNotFound"
 msgstr "The author for this affiliations could not be found."
 
 msgid "author.affiliationRorAndNameEmpty"
-msgstr "The author for this affiliations could not be found."
+msgstr "Please provide a ROR affiliation or at least one affiliation name."
 
 msgid "submission.author.list"
 msgstr "Submission Author List"

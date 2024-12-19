@@ -222,7 +222,7 @@ class PKPUserController extends PKPBaseController
             ->filterByContextIds([$context->getId()])
             ->includeReviewerData()
             ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
-            ->filterByWorkflowStageIds([$params['reviewStage']])
+            ->filterByWorkflowStageIds($params['reviewStage'] ? [$params['reviewStage']] : null)
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->filterByReviewerRating($params['reviewerRating'] ?? null)
             ->filterByReviewsCompleted($params['reviewsCompleted'][0] ?? null)

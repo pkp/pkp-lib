@@ -79,7 +79,7 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
         $request->redirectUrl($url);
     }
 
-    public function preRedirectActions(InvitationAction $action)
+    public function preRedirectActions(InvitationAction $action): void
     {
         if ($action == InvitationAction::ACCEPT) {
             $this->getInvitation()->finalize();

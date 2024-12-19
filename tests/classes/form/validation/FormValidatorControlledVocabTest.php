@@ -3,15 +3,11 @@
 /**
  * @file tests/classes/form/validation/FormValidatorControlledVocabTest.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorControlledVocabTest
- *
- * @ingroup tests_classes_form_validation
- *
- * @see FormValidatorControlledVocab
  *
  * @brief Test class for FormValidatorControlledVocab.
  */
@@ -19,70 +15,71 @@
 namespace PKP\tests\classes\form\validation;
 
 use APP\core\Application;
-use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\MockObject\MockObject;
+use APP\facades\Repo;
+use Illuminate\Support\Facades\DB;
 use PKP\form\validation\FormValidatorControlledVocab;
-use PKP\controlledVocab\ControlledVocab;
-use PKP\controlledVocab\ControlledVocabDAO;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\controlledVocab\ControlledVocab;
+use PKP\controlledVocab\ControlledVocabEntry;
 
 #[CoversClass(FormValidatorControlledVocab::class)]
 class FormValidatorControlledVocabTest extends PKPTestCase
 {
-    /**
-     * @see PKPTestCase::getMockedDAOs()
-     */
-    protected function getMockedDAOs(): array
-    {
-        return [...parent::getMockedDAOs(), 'ControlledVocabDAO'];
-    }
-
     public function testIsValid()
     {
         // Test form
         $form = new Form('some template');
 
-        // Mock a ControlledVocab object
-        /** @var ControlledVocab|MockObject */
-        $mockControlledVocab = $this->getMockBuilder(ControlledVocab::class)
-            ->onlyMethods(['enumerate'])
-            ->getMock();
-        $mockControlledVocab->setId(1);
-        $mockControlledVocab->setAssocType(Application::ASSOC_TYPE_CITATION);
-        $mockControlledVocab->setAssocId(333);
-        $mockControlledVocab->setSymbolic('testVocab');
+        $assocId = (DB::table("publications")
+            ->select("publication_id as id")
+            ->orderBy("publication_id", "desc")
+            ->first()
+            ->id ?? 0) + 100;
 
-        // Set up the mock enumerate() method
-        $mockControlledVocab->expects($this->any())
-            ->method('enumerate')
-            ->willReturn([1 => 'vocab1', 2 => 'vocab2']);
+        $testControlledVocab = Repo::controlledVocab()->build(
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            Application::ASSOC_TYPE_CITATION,
+            $assocId
+        );
 
-        // Mock the ControlledVocabDAO
-        $mockControlledVocabDao = $this->getMockBuilder(ControlledVocabDAO::class)
-            ->onlyMethods(['getBySymbolic'])
-            ->getMock();
+        $controlledVocabEntryId1 = ControlledVocabEntry::create([
+            'controlledVocabId' => $testControlledVocab->id,
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+                'en' => 'testEntry',
+            ],
+        ])->id;
 
-        // Set up the mock getBySymbolic() method
-        $mockControlledVocabDao->expects($this->any())
-            ->method('getBySymbolic')
-            ->with('testVocab', Application::ASSOC_TYPE_CITATION, 333)
-            ->willReturn($mockControlledVocab);
-
-        DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDao);
+        $controlledVocabEntryId2 = ControlledVocabEntry::create([
+            'controlledVocabId' => $testControlledVocab->id,
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+                'en' => 'testEntry',
+            ],
+        ])->id;
 
         // Instantiate validator
-        $validator = new \PKP\form\validation\FormValidatorControlledVocab($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', Application::ASSOC_TYPE_CITATION, 333);
+        $validator = new FormValidatorControlledVocab(
+            $form,
+            'testData',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key',
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            Application::ASSOC_TYPE_CITATION,
+            $assocId
+        );
 
-        $form->setData('testData', '1');
+        $form->setData('testData', $controlledVocabEntryId1);
         self::assertTrue($validator->isValid());
 
-        $form->setData('testData', '2');
+        $form->setData('testData', $controlledVocabEntryId2);
         self::assertTrue($validator->isValid());
 
-        $form->setData('testData', '3');
+        $form->setData('testData', 3);
         self::assertFalse($validator->isValid());
+
+        // Delete the test vocab along with entries
+        ControlledVocab::find($testControlledVocab->id)->delete();
     }
 }

@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use PKP\filter\FilterGroup;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
+use PKP\security\Role;
 
 class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -90,7 +91,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
                 if ($n instanceof \DOMElement) {
                     switch ($n->tagName) {
-                        case 'role_id': $userGroup->setRoleId($n->textContent);
+                        case 'role_id': $userGroup->setRoleId((int) $n->textContent);
                             break;
                         case 'is_default': $userGroup->setDefault($n->textContent ?? false);
                             break;
@@ -106,6 +107,13 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                             break;
                     }
                 }
+            }
+
+            if (!in_array(
+	        $userGroup->getRoleId(),
+	        [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_READER, Role::ROLE_ID_SUBSCRIPTION_MANAGER]
+                )) {
+                throw new \Exception('Unacceptable role_id ' . $userGroup->getRoleId());
             }
 
             $userGroupId = Repo::userGroup()->add($userGroup);

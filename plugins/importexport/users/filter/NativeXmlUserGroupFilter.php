@@ -16,12 +16,10 @@
 
 namespace PKP\plugins\importexport\users\filter;
 
-use APP\facades\Repo;
 use PKP\filter\FilterGroup;
+use PKP\security\Role;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
-use PKP\userGroup\Repository as UserGroupRepository;
-use Illuminate\Support\Facades\App;
 
 class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -74,7 +72,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
         // Create the UserGroup object.
         $userGroup = new UserGroup();
         $userGroup->contextId = $context->getId();
-        
+
         // Extract the name node element to see if this user group exists already.
         $nodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'name');
         if ($nodeList->length > 0) {
@@ -82,7 +80,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             $userGroups = UserGroup::query()
                 ->withContextIds($context->getId())
                 ->get();
-        
+
             foreach ($userGroups as $testGroup) {
                 if (in_array($content[1], $testGroup->name)) {
                     return $testGroup;  // We found one with the same name.
@@ -122,6 +120,14 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                     }
                 }
             }
+
+            if (!in_array(
+                $userGroup->roleId,
+                [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_READER, Role::ROLE_ID_SUBSCRIPTION_MANAGER]
+            )) {
+                throw new \Exception('Unacceptable role_id ' . $userGroup->roleId);
+            }
+
             $userGroup->save();
             $userGroupId = $userGroup->id;
 

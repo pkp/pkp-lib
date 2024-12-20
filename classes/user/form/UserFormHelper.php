@@ -3,8 +3,8 @@
 /**
  * @file classes/user/form/UserFormHelper.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserFormHelper
@@ -23,6 +23,7 @@ use PKP\form\Form;
 use PKP\security\Role;
 use PKP\template\PKPTemplateManager;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class UserFormHelper
 {
@@ -63,9 +64,9 @@ class UserFormHelper
             if ($context->getData('disableUserReg')) {
                 continue;
             }
-            $reviewerUserGroups[$context->getId()] = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_REVIEWER], $context->getId())->toArray();
-            $authorUserGroups[$context->getId()] = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->toArray();
-            $readerUserGroups[$context->getId()] = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_READER], $context->getId())->toArray();
+            $reviewerUserGroups[$context->getId()] = UserGroup::withRoleIds([Role::ROLE_ID_REVIEWER])->withContextIds($context->getId())->get();
+            $authorUserGroups[$context->getId()] = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds($context->getId())->get();
+            $readerUserGroups[$context->getId()] = UserGroup::withRoleIds([Role::ROLE_ID_READER])->withContextIds($context->getId())->get();
         }
         $templateMgr->assign([
             'reviewerUserGroups' => $reviewerUserGroups,

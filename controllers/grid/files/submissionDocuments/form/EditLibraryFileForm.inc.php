@@ -47,6 +47,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 		$this->_data = array(
 			'submissionId' => $this->libraryFile->getSubmissionId(),
 			'libraryFileName' => $this->libraryFile->getName(null), // Localized
+			'description' => $this->libraryFile->getData('description'), // Localized
 			'libraryFile' => $this->libraryFile // For read-only info
 		);
 	}
@@ -56,6 +57,7 @@ class EditLibraryFileForm extends LibraryFileForm {
 	 */
 	function execute(...$functionArgs) {
 		$this->libraryFile->setName($this->getData('libraryFileName'), null); // Localized
+		$this->libraryFile->setData('description', $this->getData('description'), null); // Localized
 		$this->libraryFile->setType($this->getData('fileType'));
 
 		$libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */

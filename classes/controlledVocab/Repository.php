@@ -26,7 +26,7 @@ class Repository
     public function build(
         string $symbolic,
         int $assocType,
-        int $assocId
+        ?int $assocId
     ): ControlledVocab
     {
         return ControlledVocab::query()
@@ -45,7 +45,7 @@ class Repository
     public function getBySymbolic(
         string $symbolic,
         int $assocType,
-        int $assocId,
+        ?int $assocId,
         ?array $locales = []
     ): array
     {
@@ -74,7 +74,7 @@ class Repository
         string $symbolic,
         array $vocabs,
         int $assocType,
-        int $assocId,
+        ?int $assocId,
         bool $deleteFirst = true,
     ): void
     {

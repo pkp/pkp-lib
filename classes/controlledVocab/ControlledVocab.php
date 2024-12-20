@@ -123,7 +123,7 @@ class ControlledVocab extends Model
     /**
      * Scope a query to only include vocabs with a specific assoc type and assoc ID.
      */
-    public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
+    public function scopeWithAssoc(Builder $query, int $assocType, ?int $assocId): Builder
     {
         return $query->where('assoc_type', $assocType)->where('assoc_id', $assocId);
     }

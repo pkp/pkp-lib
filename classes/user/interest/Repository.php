@@ -30,7 +30,7 @@ class Repository
         $controlledVocab = Repo::controlledVocab()->build(
             UserInterest::CONTROLLED_VOCAB_INTEREST,
             Application::ASSOC_TYPE_SITE,
-            (int)Application::SITE_CONTEXT_ID,
+            Application::SITE_CONTEXT_ID,
         );
 
         return ControlledVocabEntry::query()
@@ -66,7 +66,7 @@ class Repository
                     ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
                         Application::ASSOC_TYPE_SITE,
-                        (int)Application::SITE_CONTEXT_ID,
+                        Application::SITE_CONTEXT_ID,
                     )
             )
             ->whereHas("userInterest", fn ($query) => $query->withUserId($user->getId()))
@@ -103,7 +103,7 @@ class Repository
         $controlledVocab = Repo::controlledVocab()->build(
             UserInterest::CONTROLLED_VOCAB_INTEREST,
             Application::ASSOC_TYPE_SITE,
-            (int)Application::SITE_CONTEXT_ID,
+            Application::SITE_CONTEXT_ID,
         );
 
         $currentInterests = ControlledVocabEntry::query()
@@ -113,7 +113,7 @@ class Repository
                     ->withSymbolics([UserInterest::CONTROLLED_VOCAB_INTEREST])
                     ->withAssoc(
                         Application::ASSOC_TYPE_SITE,
-                        (int)Application::SITE_CONTEXT_ID,
+                        Application::SITE_CONTEXT_ID,
                     )
             )
             ->withLocales([''])

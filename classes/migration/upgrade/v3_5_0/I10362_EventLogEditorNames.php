@@ -29,7 +29,7 @@ class I10362_EventLogEditorNames extends Migration
     public function up(): void
     {
         $idsToUpdate = DB::table('event_log as e')
-            ->select('e.log_id', 'e.user_id', 'e.event_type')
+            ->select('e.log_id', 'e.user_id')
             ->leftJoin('event_log_settings as es', function (JoinClause $join) {
                 $join->on('es.log_id', '=', 'e.log_id')
                     ->where('es.setting_name', '=', 'editorName');
@@ -40,7 +40,7 @@ class I10362_EventLogEditorNames extends Migration
                 0x30000004 // PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION
             ])
             ->orderBy('e.log_id')
-            ->pluck('user_id', 'log_id');
+            ->pluck('e.user_id', 'e.log_id');
 
         $inserts = [];
 

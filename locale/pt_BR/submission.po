@@ -2059,7 +2059,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor(a) {$userName} confirmou uma avaliação para a rodada {$round} de "
+"Editor(a) {$editorName} confirmou uma avaliação para a rodada {$round} de "
 "avaliação para a submissão {$submissionId}."
 
 msgid "log.review.reviewReady"

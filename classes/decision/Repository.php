@@ -2,8 +2,8 @@
 /**
  * @file classes/decision/Repository.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -242,6 +242,7 @@ abstract class Repository
                 ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION
                 : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'editorName' => $editor->getFullName(),
             'message' => $decisionType->getLog(),
             'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()

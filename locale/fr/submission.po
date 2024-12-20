@@ -2098,7 +2098,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Le rédacteur ou la rédactrice {$userName} a confirmé une évaluation pour le "
+"Le rédacteur ou la rédactrice {$editorName} a confirmé une évaluation pour le "
 "cycle d'évaluation {$round} pour la soumission {$submissionId}."
 
 msgid "log.review.reviewReady"

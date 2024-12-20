@@ -2101,7 +2101,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} adlı redaktor {$submissionId} nömrəli üçün {$round}. tur "
+"{$editorName} adlı redaktor {$submissionId} nömrəli üçün {$round}. tur "
 "incələməsi üçün bir dəyərləndirmə təsdiqləndi için bir değerlendirme "
 "doğruladı."
 

@@ -2016,7 +2016,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} adlı editör {$submissionId} nuaralı için {$round}. tur "
+"{$editorName} adlı editör {$submissionId} nuaralı için {$round}. tur "
 "incelemesi için bir değerlendirme doğruladı."
 
 msgid "log.review.reviewReady"

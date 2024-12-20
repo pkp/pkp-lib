@@ -2115,7 +2115,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redakteur/in {$userName} hat ein Gutachten aus Begutachtungsrunde {$round} "
+"Redakteur/in {$editorName} hat ein Gutachten aus Begutachtungsrunde {$round} "
 "für die Einreichung {$submissionId} bestätigt."
 
 msgid "log.review.reviewReady"

@@ -1916,7 +1916,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor {$userName} telah mengesahkan ulasan untuk ulasan pusingan {$round} "
+"Editor {$editorName} telah mengesahkan ulasan untuk ulasan pusingan {$round} "
 "untuk penyerahan {$submissionId}."
 
 msgid "log.review.reviewReady"

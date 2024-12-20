@@ -23,6 +23,7 @@ use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\mail\Mailable;
+use PKP\security\Role;
 
 abstract class SubmissionEmailVariable extends Variable
 {
@@ -37,13 +38,16 @@ abstract class SubmissionEmailVariable extends Variable
     public const SUBMISSION_WIZARD_URL = 'submissionWizardUrl';
 
     protected Submission $submission;
+    protected int|null $recipientRoleId;
     protected Publication $currentPublication;
+    
 
-    public function __construct(Submission $submission, Mailable $mailable)
+    public function __construct(Submission $submission, int|null$recipientRoleId = null, Mailable $mailable)
     {
         parent::__construct($mailable);
 
         $this->submission = $submission;
+        $this->recipientRoleId = $recipientRoleId;
         $this->currentPublication = $this->submission->getCurrentPublication();
     }
 
@@ -120,6 +124,9 @@ abstract class SubmissionEmailVariable extends Variable
      */
     protected function getSubmissionUrl(Context $context): string
     {
+        if ($this->recipientRoleId === Role::ROLE_ID_AUTHOR) {
+            return $this->getAuthorSubmissionUrl($context);
+        }
         $application = PKPApplication::get();
         $request = $application->getRequest();
         $dispatcher = $application->getDispatcher();

@@ -20,6 +20,7 @@
 
 namespace PKP\user;
 
+use APP\facades\Repo;
 use Illuminate\Contracts\Auth\Authenticatable;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
@@ -192,8 +193,7 @@ class User extends Identity implements Authenticatable
      */
     public function getInterestString()
     {
-        $interestManager = new InterestManager();
-        return $interestManager->getInterestsString($this);
+        return Repo::userInterest()->getInterestsString($this);
     }
 
     /**

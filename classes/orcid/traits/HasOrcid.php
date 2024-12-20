@@ -32,4 +32,15 @@ trait HasOrcid
     {
         $this->setData('orcidIsVerified', $status);
     }
+
+    /**
+     * Sets all ORCID OAuth related fields to the Identity (User or Author)
+     */
+    public function setVerifiedOrcidOAuthData(array $data): void
+    {
+        $allowedFields = ['orcid', 'orcidIsVerified', 'orcidAccessDenied', 'orcidAccessToken', 'orcidAccessScope', 'orcidRefreshToken', 'orcidAccessExpiresOn'];
+
+        $items = collect($data);
+        $items->only($allowedFields)->each(fn (mixed $item, string $key) => $this->setData($key, $item));
+    }
 }

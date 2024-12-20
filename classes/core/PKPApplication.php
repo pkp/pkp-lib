@@ -241,11 +241,27 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $laravelContainer = new PKPContainer();
         $laravelContainer->registerConfiguredProviders();
 
+        $this->setTransactionIsolation();
         $this->initializeTimeZone();
 
         if (Config::getVar('database', 'debug')) {
             DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
+    }
+
+    /**
+     * Setup the default transaction isolation
+     */
+    protected function setTransactionIsolation(): void
+    {
+        if (!Application::isInstalled()) {
+            return;
+        }
+
+        DB::statement(match (DB::connection()::class) {
+            MySqlConnection::class => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+            PostgresConnection::class => 'SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED'
+        });
     }
 
     /**

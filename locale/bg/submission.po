@@ -2065,7 +2065,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Радакторът {$userName} потвърди рецензията за кръг (етап) {$round} за "
+"Радакторът {$editorName} потвърди рецензията за кръг (етап) {$round} за "
 "подадените материали {$submissionId}."
 
 msgid "log.review.reviewReady"

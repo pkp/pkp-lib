@@ -1905,7 +1905,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Editor {$userName} telah mengonfirmasi review untuk tahap {$round} review "
+"Editor {$editorName} telah mengonfirmasi review untuk tahap {$round} review "
 "untuk naskah {$submissionId}."
 
 msgid "log.review.reviewReady"

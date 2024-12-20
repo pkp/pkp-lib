@@ -2025,7 +2025,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Redaktören {$userName} har bekräftat granskning av bidraget {$submissionId} "
+"Redaktören {$editorName} har bekräftat granskning av bidraget {$submissionId} "
 "för granskningsomgång {$round}."
 
 msgid "log.review.reviewReady"

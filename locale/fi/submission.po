@@ -2060,7 +2060,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Toimittaja {$userName} on vahvistanut arvion käsikirjoitukselle "
+"Toimittaja {$editorName} on vahvistanut arvion käsikirjoitukselle "
 "{$submissionId} kierroksella {$round}."
 
 msgid "log.review.reviewReady"

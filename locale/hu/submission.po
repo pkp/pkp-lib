@@ -1967,7 +1967,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"{$userName} szerkesztőként megerősítette a(z) {$submissionId} beküldés "
+"{$editorName} szerkesztőként megerősítette a(z) {$submissionId} beküldés "
 "szakmai lektorálását a {$round} számú lektorálási körben."
 
 msgid "log.review.reviewReady"

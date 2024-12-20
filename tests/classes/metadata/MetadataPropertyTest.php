@@ -153,7 +153,7 @@ class MetadataPropertyTest extends PKPTestCase
 
         $controlledVocabEntry = ControlledVocabEntry::create([
             'controlledVocabId' => $vocab->id,
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+            'name' => [
                 'en' => 'testEntry',
             ],
         ]);

@@ -97,14 +97,6 @@ class ControlledVocab extends Model
     }
 
     /**
-     * Check if a provided vocab symbolic defined in pre defined symbolic list
-     */
-    public static function hasDefinedVocabSymbolic(string $vocab): bool
-    {
-        return in_array($vocab, static::getDefinedVocabSymbolic());
-    }
-
-    /**
      * Get all controlled vocab entries for this controlled vocab
      */
     public function controlledVocabEntries(): HasMany

@@ -83,11 +83,7 @@ class ControlledVocabEntry extends Model
      */
     public function getMultilingualProps(): array
     {
-        return array_merge(
-            $this->multilingualProps,
-            ControlledVocab::getDefinedVocabSymbolic(),
-            Arr::wrap(UserInterest::CONTROLLED_VOCAB_INTEREST)
-        );
+        return array_merge($this->multilingualProps, ['name']);
     }
 
     /**
@@ -95,11 +91,7 @@ class ControlledVocabEntry extends Model
      */
     public function getSettings(): array
     {
-        return array_merge(
-            $this->settings,
-            ControlledVocab::getDefinedVocabSymbolic(),
-            Arr::wrap(UserInterest::CONTROLLED_VOCAB_INTEREST)
-        );
+        return array_merge($this->settings, ['name']);
     }
 
     /**

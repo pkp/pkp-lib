@@ -37,18 +37,13 @@ class Repository
             ->withControlledVocabId($controlledVocab->id)
             ->when(
                 $filter,
-                fn ($query) => $query->withSetting(
-                    UserInterest::CONTROLLED_VOCAB_INTEREST,
-                    $filter
-                )
+                fn ($query) => $query->withSetting('name', $filter)
             )
             ->get()
             ->sortBy(UserInterest::CONTROLLED_VOCAB_INTEREST)
             ->mapWithKeys(
                 fn(ControlledVocabEntry $controlledVocabEntry, int $id) => [
-                    $id => collect(
-                        $controlledVocabEntry->{UserInterest::CONTROLLED_VOCAB_INTEREST}
-                    )->first()
+                    $id => collect($controlledVocabEntry->name)->first()
                 ]
             )
             ->toArray();
@@ -73,9 +68,7 @@ class Repository
             ->get()
             ->mapWithKeys(
                 fn(ControlledVocabEntry $controlledVocabEntry, int $id) => [
-                    $id => collect(
-                        $controlledVocabEntry->{UserInterest::CONTROLLED_VOCAB_INTEREST}
-                    )->first()
+                    $id => collect($controlledVocabEntry->name)->first()
                 ]
             )
             ->toArray();
@@ -117,7 +110,7 @@ class Repository
                     )
             )
             ->withLocales([''])
-            ->withSettings(UserInterest::CONTROLLED_VOCAB_INTEREST, $interests)
+            ->withSettings('name', $interests)
             ->get();
 
         // Delete user's existing interests association.
@@ -126,7 +119,7 @@ class Repository
         $newInterestIds = collect(
                 array_diff(
                     $interests,
-                    $currentInterests->pluck(UserInterest::CONTROLLED_VOCAB_INTEREST)->flatten()->toArray()
+                    $currentInterests->pluck('name')->flatten()->toArray()
                 )
             )
             ->map(fn (string $interest): string => trim($interest))
@@ -134,7 +127,7 @@ class Repository
             ->map(
                 fn (string $interest) => ControlledVocabEntry::create([
                     'controlledVocabId' => $controlledVocab->id,
-                    UserInterest::CONTROLLED_VOCAB_INTEREST => [
+                    'name' => [
                         '' => $interest
                     ],
                 ])->id

@@ -116,7 +116,7 @@ class PKPVocabController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        if (ControlledVocab::hasDefinedVocabSymbolic($vocab)) {
+        if (in_array($vocab, ControlledVocab::getDefinedVocabSymbolic())) {
             $entries = ControlledVocabEntry::query()
                 ->whereHas(
                     'controlledVocab',
@@ -135,7 +135,7 @@ class PKPVocabController extends PKPBaseController
 
         $data = [];
         foreach ($entries as $entry) {
-            $data[] = $entry->getLocalizedData($vocab, $locale);
+            $data[] = $entry->getLocalizedData('name', $locale);
         }
 
         $data = array_values(array_unique($data));

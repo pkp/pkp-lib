@@ -42,14 +42,14 @@ class ValidatorControlledVocabTest extends PKPTestCase
 
         $controlledVocabEntryId1 = ControlledVocabEntry::create([
             'controlledVocabId' => $testControlledVocab->id,
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+            'name' => [
                 'en' => 'testEntry',
             ],
         ])->id;
 
         $controlledVocabEntryId2 = ControlledVocabEntry::create([
             'controlledVocabId' => $testControlledVocab->id,
-            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD => [
+            'name' => [
                 'en' => 'testEntry',
             ],
         ])->id;

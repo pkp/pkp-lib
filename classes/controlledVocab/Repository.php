@@ -53,13 +53,13 @@ class Repository
 
         ControlledVocabEntry::query()
             ->whereHas(
-                "controlledVocab",
+                'controlledVocab',
                 fn ($query) => $query->withSymbolics([$symbolic])->withAssoc($assocType, $assocId)
             )
             ->when(!empty($locales), fn ($query) => $query->withLocales($locales))
             ->get()
-            ->each(function ($entry) use (&$result, $symbolic) {
-                foreach ($entry->{$symbolic} as $locale => $value) {
+            ->each(function ($entry) use (&$result) {
+                foreach ($entry->name as $locale => $value) {
                     $result[$locale][] = $value;
                 }
             });
@@ -98,7 +98,7 @@ class Repository
                             ControlledVocabEntry::create([
                                 'controlledVocabId' => $controlledVocab->id,
                                 'seq' => $index + 1,
-                                "{$symbolic}" => [
+                                'name' => [
                                     $locale => $vocab
                                 ],
                             ]) 

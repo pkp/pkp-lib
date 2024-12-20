@@ -82,15 +82,13 @@ class ReviewAssignmentEmailVariable extends Variable
 
     protected function formatDate(string $date, string $locale, Context $context): ?string
     {
-        $time = strtotime($date);
-
-        if ($time === -1 || $time === false) {
+        try {
+            $carbonDate = (new \Carbon\Carbon($date));
+            $format = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort($locale));
+            return $carbonDate->locale($locale)->translatedFormat($format);
+        } catch (\Carbon\Exceptions\InvalidFormatException $exp) {
             return null;
         }
-
-        $format = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort($locale));
-
-        return (new \Carbon\Carbon($time))->locale($locale)->translatedFormat($format);
     }
 
     protected function getRecommendation(string $locale): string

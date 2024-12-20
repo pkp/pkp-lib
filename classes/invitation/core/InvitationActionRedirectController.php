@@ -18,8 +18,12 @@ use APP\core\Request;
 use Illuminate\Routing\Controller;
 use PKP\invitation\core\enums\InvitationAction;
 
+/**
+ * @template TInvitation of Invitation
+ */
 abstract class InvitationActionRedirectController extends Controller
 {
+    /** @var TInvitation */
     protected Invitation $invitation;
 
     public function __construct(Invitation $invitation)
@@ -27,7 +31,7 @@ abstract class InvitationActionRedirectController extends Controller
         $this->invitation = $invitation;
     }
 
-    abstract public function preRedirectActions(InvitationAction $action);
+    abstract public function preRedirectActions(InvitationAction $action): void;
 
     abstract public function acceptHandle(Request $request): void;
     abstract public function declineHandle(Request $request): void;

@@ -23,6 +23,8 @@ namespace PKP\plugins\importexport;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use DOMDocument;
+use DOMXPath;
 use Error;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -82,6 +84,9 @@ class PKPImportExportDeployment
     /** @var array A list of exported root elements to display to the user after the export is complete */
     private $_exportRootEntities;
 
+    /** @var  array list of custom errors */
+    private $customErrors = [];
+
     /**
      * Constructor
      *
@@ -103,6 +108,16 @@ class PKPImportExportDeployment
     //
     // Deployment items for subclasses to override
     //
+
+    /**
+     * Get Custom errors
+     * @return array
+     */
+    public function getCustomErrors(): array
+    {
+        return $this->customErrors;
+    }
+
     /**
      * Get the submission node name
      *
@@ -552,27 +567,32 @@ class PKPImportExportDeployment
      */
     public function import($rootFilter, $importXml)
     {
-        $dbConnection = DB::connection();
-        try {
-            $currentFilter = PKPImportExportFilter::getFilter($rootFilter, $this);
-
-            $dbConnection->beginTransaction();
-
-            libxml_use_internal_errors(true);
-
-            $result = $currentFilter->execute($importXml);
-
-            $dbConnection->commit();
-
-            $this->processResult = $result;
-        } catch (Error | Exception $e) {
-            $this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, $e->getMessage());
-            $dbConnection->rollBack();
-
+        if ($this->isUnsupportedSubmissionStage($importXml)) {
             $this->processFailed = true;
-        } finally {
-            $this->xmlValidationErrors = array_filter(libxml_get_errors(), fn (LibXMLError $error) => in_array($error->level, [LIBXML_ERR_ERROR, LIBXML_ERR_FATAL]));
-            libxml_clear_errors();
+        } else {
+            $dbConnection = DB::connection();
+            try {
+                $currentFilter = PKPImportExportFilter::getFilter($rootFilter, $this);
+
+                $dbConnection->beginTransaction();
+
+                libxml_use_internal_errors(true);
+
+                $result = $currentFilter->execute($importXml);
+
+                $dbConnection->commit();
+
+                $this->processResult = $result;
+            } catch (Error|Exception $e) {
+                $this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, $e->getMessage());
+                $dbConnection->rollBack();
+
+                $this->processFailed = true;
+            } finally {
+                $this->xmlValidationErrors = array_filter(libxml_get_errors(), fn(LibXMLError $error) => in_array($error->level, [LIBXML_ERR_ERROR, LIBXML_ERR_FATAL]));
+                libxml_clear_errors();
+
+            }
         }
     }
 
@@ -677,6 +697,7 @@ class PKPImportExportDeployment
     {
         $problems = [];
         $objectTypes = $this->getObjectTypes();
+        $genericError = $objectTypes[PKPApplication::ASSOC_TYPE_NONE];
         foreach ($objectTypes as $assocType => $name) {
             $foundWarnings = $this->getProcessedObjectsWarnings($assocType);
             if (!empty($foundWarnings)) {
@@ -689,9 +710,11 @@ class PKPImportExportDeployment
             }
         }
         if (count($validationErrors = $this->getXMLValidationErrors())) {
-            $validationErrors = array_map(fn (LibXMLError $e) => "Line {$e->line} Column {$e->column}: {$e->message}", $validationErrors);
-            $genericError = $objectTypes[PKPApplication::ASSOC_TYPE_NONE];
+            $validationErrors = array_map(fn(LibXMLError $e) => "Line {$e->line} Column {$e->column}: {$e->message}", $validationErrors);
             $problems['errors'][$genericError][] = [$validationErrors];
+        }
+        if (count($customErrors = $this->getCustomErrors())) {
+            $problems['errors'][$genericError][] = [$customErrors];
         }
 
         return $problems;
@@ -728,6 +751,32 @@ class PKPImportExportDeployment
         }
 
         return false;
+    }
+
+    /**
+     * @param string $xmlString
+     * @return bool Returns true, if the submission stage is not supported
+     */
+    public function isUnsupportedSubmissionStage(string $xmlString): bool
+    {
+        $unsupportedStage = false;
+        $DOMDocument = new DOMDocument();
+        $DOMDocument->loadXML($xmlString);
+
+        $xpath = new DOMXPath($DOMDocument);
+        $xpath->registerNamespace('ns', 'http://pkp.sfu.ca');
+
+        foreach (['article', 'monograph', 'preprint'] as $submissionType) {
+            $reviewStateQuery = '//ns:' . $submissionType . '[@stage="externalReview" or @stage="internalReview"]';
+            $reviewStages = $xpath->query($reviewStateQuery);
+            if ($reviewStages->length > 0) {
+                $unsupportedStage = true;
+                foreach ($reviewStages as $reviewStage) {
+                    $this->customErrors [] = __("plugins.importexport.common.error.unsupportedStage");
+                }
+            }
+        }
+        return $unsupportedStage;
     }
 }
 

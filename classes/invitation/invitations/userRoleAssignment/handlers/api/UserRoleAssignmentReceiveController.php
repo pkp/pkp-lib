@@ -36,14 +36,14 @@ use Validation;
 
 class UserRoleAssignmentReceiveController extends ReceiveInvitationController
 {
-    public function __construct(public UserRoleAssignmentInvite $invitation) 
+    public function __construct(public UserRoleAssignmentInvite $invitation)
     {
     }
 
     /**
      * @inheritDoc
      */
-    public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool 
+    public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $user = $this->invitation->getExistingUser();
         if (!isset($user)) {
@@ -55,14 +55,14 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
 
             $controller->addPolicy(new UserRequiredPolicy($request));
         }
-        
+
         return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function decline(Request $illuminateRequest): JsonResponse 
+    public function decline(Request $illuminateRequest): JsonResponse
     {
         $this->invitation->decline();
 
@@ -75,7 +75,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     /**
      * @inheritDoc
      */
-    public function finalize(Request $illuminateRequest): JsonResponse 
+    public function finalize(Request $illuminateRequest): JsonResponse
     {
         if (!$this->invitation->validate([], ValidationContext::VALIDATION_CONTEXT_FINALIZE)) {
             return response()->json([
@@ -97,7 +97,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             $user->setCountry($this->invitation->getPayload()->userCountry);
             $user->setAffiliation($this->invitation->getPayload()->affiliation, null);
 
-            $user->setOrcid($this->invitation->getPayload()->userOrcid);
+            $user->setVerifiedOrcidOAuthData($this->invitation->getPayload()->toArray());
 
             $user->setDateRegistered(Core::getCurrentDate());
             $user->setInlineHelp(1); // default new users to having inline help visible.
@@ -105,8 +105,8 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
 
             Repo::user()->add($user);
         } else {
-            if (empty($user->getOrcid()) && isset($this->invitation->getPayload()->userOrcid)) {
-                $user->setOrcid($this->invitation->getPayload()->userOrcid);
+            if (empty($user->getOrcid()) && isset($this->invitation->getPayload()->orcid)) {
+                $user->setVerifiedOrcidOAuthData($this->invitation->getPayload()->toArray());
                 Repo::user()->edit($user);
             }
         }
@@ -125,8 +125,8 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
                 $userGroupHelper->userGroupId,
                 $effectiveDateStart,
                 $userGroupHelper->dateEnd,
-                isset($userGroupHelper->masthead) && $userGroupHelper->masthead 
-                    ? UserUserGroupMastheadStatus::STATUS_ON 
+                isset($userGroupHelper->masthead) && $userGroupHelper->masthead
+                    ? UserUserGroupMastheadStatus::STATUS_ON
                     : UserUserGroupMastheadStatus::STATUS_OFF
             );
         }
@@ -142,10 +142,10 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     /**
      * @inheritDoc
      */
-    public function receive(Request $illuminateRequest): JsonResponse 
+    public function receive(Request $illuminateRequest): JsonResponse
     {
         return response()->json(
-            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }
@@ -169,7 +169,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         $this->invitation->updatePayload(ValidationContext::VALIDATION_CONTEXT_REFINE);
 
         return response()->json(
-            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

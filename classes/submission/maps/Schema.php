@@ -21,7 +21,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;

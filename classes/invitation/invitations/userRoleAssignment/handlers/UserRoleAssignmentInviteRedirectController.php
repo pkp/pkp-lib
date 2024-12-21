@@ -23,6 +23,9 @@ use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\invitation\stepTypes\AcceptInvitationStep;
 use APP\facades\Repo;
 
+/**
+ * @extends InvitationActionRedirectController<UserRoleAssignmentInvite>
+ */
 class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirectController
 {
     public function getInvitation(): UserRoleAssignmentInvite
@@ -39,13 +42,16 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
     public function acceptHandle(Request $request): void
     {
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('invitation', $this->invitation);
+
+        $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
+
+        $templateMgr->assign('invitation', $this->getInvitation());
         $context = $request->getContext();
         $steps = new AcceptInvitationStep();
-        $invitationModel = $this->invitation->invitationModel->toArray();
+        $invitationModel = $this->getInvitation()->invitationModel->toArray();
         $user = $invitationModel['userId'] ?Repo::user()->get($invitationModel['userId']) : null;
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation,$context,$user),
+            'steps' => $steps->getSteps($this->getInvitation(),$context,$user),
             'primaryLocale' => $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,
@@ -70,6 +76,8 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404('The link is deactivated as the invitation was cancelled');
         }
 
+        $this->getInvitation()->changeInvitationUserIdUsingUserEmail();
+
         $context = $request->getContext();
 
         $url = PKPApplication::get()->getDispatcher()->url(
@@ -88,7 +96,7 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         $request->redirectUrl($url);
     }
 
-    public function preRedirectActions(InvitationAction $action)
+    public function preRedirectActions(InvitationAction $action): void
     {
         return;
     }

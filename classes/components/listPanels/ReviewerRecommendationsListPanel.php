@@ -8,7 +8,7 @@
  *
  * @class ReviewerRecommendationsListPanel
  *
- * @brief 
+ * @brief A ListPanel component for displaying reviewer recommendations in workflow settings
  */
 
 namespace PKP\components\listPanels;

@@ -16,10 +16,7 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer || {};
-
-
+	$.pkp.controllers.grid.users.reviewer = $.pkp.controllers.grid.users.reviewer || {};
 
 	/**
 	 * @constructor
@@ -29,58 +26,35 @@
 	 * @param {jQueryObject} $container the wrapped page element.
 	 * @param {Object} options handler options.
 	 */
-	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler =
-			function($container, options) {
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler = function($container, options) {
 		this.parent($container, options);
 
 		$container.find('.button').button();
+        var self = this;
+		
+        pkp.eventBus.$on('selected:reviewer', function (reviewer) {
+            self.handleReviewerAssign_($container, options, reviewer);
+        });
 
-		pkp.eventBus.$on('selected:reviewer', function(reviewer) {
-			$('#reviewerId').val(reviewer.id);
-			$('[id^="selectedReviewerName"]').text(reviewer.fullName);
-			$('#searchGridAndButton').hide();
-			$('#regularReviewerForm').show();
+        $('#regularReviewerForm').hide();
 
-			// Set the email message for reviewers depending
-			// on previous completed assignments
-			var $textarea = $('#reviewerFormFooter [name="personalMessage"]'),
-					$templateInput,
-					$templateOption,
-					editor,
-					templateKey;
-			if ($textarea.val()) {
-				return; // The message is already set; shouldn't happen
-			}
-			// Only 1 template available
-			$templateInput = $('#reviewerFormFooter input[name="template"]');
-			// Multiple available templates
-			$templateOption = $('#reviewerFormFooter select[name="template"]');
-			editor = tinyMCE.EditorManager.get($textarea.attr('id'));
-			templateKey = '';
-			if (options.lastRoundReviewerIds.includes(reviewer.id)) {
-				templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
-				editor.setContent(options.reviewerMessages[templateKey]);
-				$templateInput.val(templateKey);
-				$templateOption.find('[value="REVIEW_REQUEST"]').remove();
-			} else {
-				templateKey = 'REVIEW_REQUEST';
-				editor.setContent(options.reviewerMessages[templateKey]);
-				$templateInput.val(templateKey);
-				$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
-			}
-			// Select the right template option to correspond
-			// the one, which is set in TinyMCE
-			$templateOption.find('[value="' + templateKey + '"]')
-					.prop('selected', true);
-		});
+        this.bind('refreshForm', this.handleRefresh_);
 
-		$('#regularReviewerForm').hide();
-
-		this.bind('refreshForm', this.handleRefresh_);
+		// TODO : Not Working as intended to
+		// 		  we can get the editor but there is a flicker and content set to editor and then reset
+		if ($container.find('input#reviewerId').val()) {
+            this.initializeTinyMCE();
+            this.handleReviewerAssign_($container, options, {
+                id: $container.find('input#reviewerId').val(),
+                fullName: 'some name'
+            });
+        }
 	};
+
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
-			$.pkp.classes.Handler);
+		$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
+		$.pkp.classes.Handler
+	);
 
 
 	//
@@ -99,6 +73,52 @@
 		if (content) {
 			this.replaceWith(content);
 		}
+	};
+
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.handleReviewerAssign_ = function ($container, options, reviewer) {
+		$('#reviewerId').val(reviewer.id);
+		$('[id^="selectedReviewerName"]').text(reviewer.fullName);
+		$('#searchGridAndButton').hide();
+		$('#regularReviewerForm').show();
+
+		// Set the email message for reviewers depending
+		// on previous completed assignments
+		var $textarea = $('#reviewerFormFooter [name="personalMessage"]'),
+			$templateInput,
+			$templateOption,
+			editor,
+			templateKey;
+
+		if ($textarea.val()) {
+			return; // The message is already set; shouldn't happen
+		}
+		
+		// Only 1 template available
+		$templateInput = $('#reviewerFormFooter input[name="template"]');
+		
+		// Multiple available templates
+		$templateOption = $('#reviewerFormFooter select[name="template"]');
+		
+		editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+		// console.log(editor);
+		templateKey = '';
+
+		if (options.lastRoundReviewerIds.includes(reviewer.id)) {
+			templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
+			editor.setContent(options.reviewerMessages[templateKey]);
+			$templateInput.val(templateKey);
+			$templateOption.find('[value="REVIEW_REQUEST"]').remove();
+		} else {
+			templateKey = 'REVIEW_REQUEST';
+			// console.log(options.reviewerMessages[templateKey]);
+			editor.setContent(options.reviewerMessages[templateKey]);
+			$templateInput.val(templateKey);
+			$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
+		}
+
+		// Select the right template option to correspond
+		// the one, which is set in TinyMCE
+		$templateOption.find('[value="' + templateKey + '"]').prop('selected', true);
 	};
 
 

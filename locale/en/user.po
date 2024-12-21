@@ -69,6 +69,9 @@ msgstr "A workflow stage was not specified."
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Workflow access for incomplete submission is restricted."
 
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr "Add, update or delete of reviewer suggestion for completed submission is restricted."
+
 msgid "user.authorization.pluginRequired"
 msgstr "A plugin was not specified and is required."
 

@@ -20,12 +20,14 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
+use PKP\form\validation\FormValidator;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -35,6 +37,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -43,13 +46,16 @@ class AdvancedSearchReviewerForm extends ReviewerForm
      *
      * @param Submission $submission
      * @param ReviewRound $reviewRound
+     * @param ReviewerSuggestion|null $reviewerSuggestion
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
         parent::__construct($submission, $reviewRound);
+        $this->reviewerSuggestion = $reviewerSuggestion;
+
         $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
+        $this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
     }
 
     /**
@@ -61,7 +67,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars(['reviewerId']);
+        $inputData = ['reviewerId'];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**
@@ -76,7 +88,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $mailable = $this->getMailable();
 
         $templates = Repo::emailTemplate()->getCollector($context->getId())
-            ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
+            ->filterByKeys([
+                ReviewRequest::getEmailTemplateKey(),
+                ReviewRequestSubsequent::getEmailTemplateKey()
+            ])
             ->getMany()
             ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
@@ -84,6 +99,11 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $this->setData('personalMessage', '');
         $this->setData('reviewerMessages', $templates->toArray());
+
+        if ($this->reviewerSuggestion?->existingReviewerRole) {
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('reviewerId', $this->reviewerSuggestion->existingUser->getId());
+        }
     }
 
     /**
@@ -165,10 +185,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     $submissionContext->getPath(),
                     'users/reviewers'
                 ),
+                'submission' => $this->getSubmission(),
                 'authorAffiliations' => $authorAffiliations,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
+                    'submissionId' => $this->getSubmission()->getId(),
+                    'reviewRoundId' => $reviewRound->getId(),
                     'reviewStage' => $reviewRound->getStageId(),
                 ],
                 'selectorName' => 'reviewerId',
@@ -254,6 +277,48 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         }
 
         return parent::fetch($request, $template, $display);
+    }
+
+    /**
+     * @copydoc Form::execute()
+     */
+    public function execute(...$functionArgs)
+    {
+        /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = parent::execute(...$functionArgs);
+        $request = Application::get()->getRequest();
+
+        if (!$request->getContext()->getData('reviewerSuggestionEnabled')) {
+            return $reviewAssignment;
+        }
+
+        $reviewerId = $reviewAssignment->getData('reviewerId');
+
+        if ($this->reviewerSuggestion?->existingReviewerRole
+            && $this->reviewerSuggestion->existingUser->getId() == $reviewerId) {
+
+            $this->reviewerSuggestion->markAsApprove(
+                Carbon::now(),
+                $reviewerId,
+                $request->getUser()->getId()
+            );
+
+            return $reviewAssignment;
+        }
+
+        // TODO :   This check probably needed to port to `CreateReviewerForm` and `EnrollExistingReviewerForm` also
+        //          as this case can be duplicated from there also . 
+        //          Probably better to refactor to a trait or repository class ?
+        $suggestion = ReviewerSuggestion::query()
+            ->withSubmissionIds([$this->_submission->getId()])
+            ->withEmail(Repo::user()->get($reviewerId)->getData('email'))
+            ->first();
+        
+        if ($suggestion && !$suggestion->approvedAt && !$suggestion->reviewerId) {
+            $suggestion->attachReviewer($reviewerId);
+        }
+
+        return $reviewAssignment;
     }
 
     protected function getEmailTemplates(): array

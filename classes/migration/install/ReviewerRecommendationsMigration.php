@@ -9,7 +9,7 @@
  *
  * @class ReviewerRecommendationsMigration
  *
- * @brief 
+ * @brief Describe database table structures .
  */
 
 namespace PKP\migration\install;
@@ -19,10 +19,19 @@ use Illuminate\Support\Facades\Schema;
 
 abstract class ReviewerRecommendationsMigration extends \PKP\migration\Migration
 {
+    /**
+     * Get the context table name
+     */
     abstract public function contextTable(): string;
 
+    /**
+     * Get the context settings table name
+     */
     abstract public function settingTable(): string;
 
+    /**
+     * Get the context primary key name
+     */
     abstract public function contextPrimaryKey(): string;
 
     /**

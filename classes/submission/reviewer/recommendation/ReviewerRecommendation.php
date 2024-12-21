@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file lib/pkp/classes/submission/reviewer/recommendation/ReviewerRecommendation.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ReviewerRecommendation
+ *
+ * @brief ReviewerRecommendation model class
+ */
+
 namespace PKP\submission\reviewer\recommendation;
 
 use APP\facades\Repo;
@@ -103,6 +115,9 @@ class ReviewerRecommendation extends Model
         ];
     }
 
+    /**
+     * Set the recommendation value attribute
+     */
     protected function value(): Attribute
     {
         return Attribute::make(
@@ -140,6 +155,9 @@ class ReviewerRecommendation extends Model
         );
     }
     
+    /**
+     * Get attribute value removable for this recommendation
+     */
     protected function removable(): Attribute
     {
         return Attribute::make(
@@ -152,7 +170,7 @@ class ReviewerRecommendation extends Model
     }
 
     /**
-     * 
+     * Get associated context details as attribute
      */
     protected function context(): Attribute
     {
@@ -161,6 +179,9 @@ class ReviewerRecommendation extends Model
         )->shouldCache();
     }
 
+    /**
+     * Get associated review assignments details as attribute
+     */
     protected function reviewAssignments(): Attribute
     {
         return Attribute::make(
@@ -172,18 +193,24 @@ class ReviewerRecommendation extends Model
     }
 
     /**
-     * 
+     * Scope a query to filter by context id.
      */
     public function scopeWithContextId(Builder $query, int $contextId): Builder
     {
         return $query->where('context_id', $contextId);
     }
 
+    /**
+     * Scope a query to filter by recommendation active status.
+     */
     public function scopeWithActive(Builder $query, bool $active = true): Builder
     {
         return $query->where('status', $active);
     }
 
+    /**
+     * Scope a query to filter by recommendation value
+     */
     public function scopeWithRecommendation(Builder $query, int $recommendation): Builder
     {
         return $query->where('value', $recommendation);

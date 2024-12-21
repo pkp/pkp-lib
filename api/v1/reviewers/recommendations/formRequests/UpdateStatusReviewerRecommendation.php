@@ -9,7 +9,7 @@
  *
  * @class UpdateStatusReviewerRecommendation
  *
- * @brief 
+ * @brief Form request class to validation updating of resource status
  *
  */
 

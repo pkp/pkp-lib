@@ -10,7 +10,7 @@
  *
  * @class EditReviewerRecommendation
  *
- * @brief 
+ * @brief Form request class to validation updating of resource
  *
  */
 

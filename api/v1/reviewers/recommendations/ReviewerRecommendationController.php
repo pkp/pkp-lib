@@ -9,18 +9,17 @@
  *
  * @class ReviewerRecommendationController
  *
- * @brief 
+ * @brief API controller class to handle actions on reviewer recommendations
  *
  */
 
 namespace PKP\API\v1\reviewers\recommendations;
 
 use Illuminate\Http\JsonResponse;
-use PKP\API\v1\reviewers\recommendations\formRequests\UpdateStatusReviewerRecommendation;
-
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\reviewers\recommendations\formRequests\UpdateStatusReviewerRecommendation;
 use PKP\API\v1\reviewers\recommendations\resources\ReviewerRecommendationResource;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\API\v1\reviewers\recommendations\formRequests\AddReviewerRecommendation;
@@ -98,6 +97,9 @@ class ReviewerRecommendationController extends PKPBaseController
             ->whereNumber(['contextId', 'recommendationId']);
     }
 
+    /**
+     * Get specific recommendation response
+     */
     public function get(Request $illuminateRequest): JsonResponse
     {
         $recommendation = ReviewerRecommendation::find($illuminateRequest->route('recommendationId'));
@@ -114,6 +116,9 @@ class ReviewerRecommendationController extends PKPBaseController
         );
     }
 
+    /**
+     * Get all recommendations response
+     */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $recommendations = ReviewerRecommendation::query()
@@ -126,6 +131,9 @@ class ReviewerRecommendationController extends PKPBaseController
         ], Response::HTTP_OK);
     }
 
+    /**
+     * Add new recommendation
+     */
     public function add(AddReviewerRecommendation $illuminateRequest): JsonResponse
     {
         $validateds = $illuminateRequest->validated();
@@ -139,11 +147,20 @@ class ReviewerRecommendationController extends PKPBaseController
         );
     }
 
+    /**
+     * Update existing recommendation
+     */
     public function edit(EditReviewerRecommendation $illuminateRequest): JsonResponse
     {
         $validated = $illuminateRequest->validated();
 
         $recommendation = ReviewerRecommendation::find($illuminateRequest->route('recommendationId'));
+
+        if (!$recommendation->removable) {
+            return response()->json([
+                'error' => __('api.406.notAcceptable'),
+            ], Response::HTTP_NOT_ACCEPTABLE);
+        }
 
         if (!$recommendation->update($validated)) {
             return response()->json([
@@ -158,11 +175,27 @@ class ReviewerRecommendationController extends PKPBaseController
         );
     }
 
+    /**
+     * Update the status of existing recommendation
+     */
     public function updateStatus(UpdateStatusReviewerRecommendation $illuminateRequest): JsonResponse
     {
-        return $this->edit($illuminateRequest);
+        $validated = $illuminateRequest->validated();
+
+        $recommendation = ReviewerRecommendation::find($illuminateRequest->route('recommendationId'));
+
+        $recommendation->update($validated);
+
+        return response()->json(
+            (new ReviewerRecommendationResource($recommendation->refresh()))
+                ->toArray($illuminateRequest), 
+            Response::HTTP_OK
+        );
     }
 
+    /**
+     * Delete existing recommendation
+     */
     public function delete(Request $illuminateRequest): JsonResponse
     {
         $recommendation = ReviewerRecommendation::find($illuminateRequest->route('recommendationId'));

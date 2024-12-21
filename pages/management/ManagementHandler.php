@@ -22,7 +22,6 @@ use APP\components\forms\context\DoiSetupSettingsForm;
 use APP\components\forms\context\LicenseForm;
 use APP\components\forms\context\MastheadForm;
 use APP\core\Application;
-
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -684,6 +683,7 @@ class ManagementHandler extends Handler
         $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
         $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
         $templateMgr->setState(['components' => $components]);
+        $templateMgr->assign('hasCustomizableRecommendation', false);
     }
 
     /**

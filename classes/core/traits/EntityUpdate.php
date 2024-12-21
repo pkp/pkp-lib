@@ -74,7 +74,9 @@ trait EntityUpdate
                 $deleteSettings[] = $propName;
                 continue;
             }
+
             if (!empty($propSchema->multilingual)) {
+
                 foreach ($props[$propName] as $localeKey => $localeValue) {
                     // Delete rows with a null value
                     if (is_null($localeValue)) {
@@ -92,9 +94,9 @@ trait EntityUpdate
                                     'setting_name' => $propName,
                                 ],
                                 [
-                                    'setting_value' => method_exists($this, 'convertToDB') ?
-                                        $this->convertToDB($localeValue, $schema->properties->{$propName}->type) :
-                                        $localeValue
+                                    'setting_value' => method_exists($this, 'convertToDB')
+                                        ? $this->convertToDB($localeValue, $schema->properties->{$propName}->type)
+                                        : $localeValue
                                 ]
                             );
                     }
@@ -108,9 +110,9 @@ trait EntityUpdate
                             'setting_name' => $propName,
                         ],
                         [
-                            'setting_value' => method_exists($this, 'convertToDB') ?
-                                $this->convertToDB($props[$propName], $schema->properties->{$propName}->type) :
-                                $props[$propName]
+                            'setting_value' => method_exists($this, 'convertToDB')
+                                ? $this->convertToDB($props[$propName], $schema->properties->{$propName}->type)
+                                : $props[$propName]
                         ]
                     );
             }

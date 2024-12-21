@@ -8,7 +8,7 @@
  *
  * @class ReviewerRecommendationForm
  *
- * @brief 
+ * @brief Form to configure/add/edit reviewer recommendation
  */
 
 namespace PKP\components\forms\context;

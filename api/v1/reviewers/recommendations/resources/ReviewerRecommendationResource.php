@@ -9,7 +9,7 @@
  *
  * @class ReviewerRecommendationResource
  *
- * @brief 
+ * @brief API resource class
  *
  */
 

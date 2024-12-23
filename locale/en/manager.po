@@ -2348,6 +2348,9 @@ msgstr ""
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Unknown uploader {$param}"
 
+msgid "plugins.importexport.common.error.unsupportedStage"
+msgstr "Reviewer stage XMLs are not supported."
+
 msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "Temporary file {$dest} could not be created from {$source}"
 

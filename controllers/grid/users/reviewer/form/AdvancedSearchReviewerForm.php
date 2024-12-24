@@ -234,6 +234,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Used to determine the right email template
         $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);
 
+        if ($this->reviewerSuggestion?->existingReviewerRole) {
+            $templateMgr->assign('reviewerName', $this->reviewerSuggestion->existingUser->getFullName());
+        }
+
         $selectReviewerListPanel->set([
             'items' => $selectReviewerListPanel->getItems($request),
             'itemsMax' => $selectReviewerListPanel->getItemsMax(),

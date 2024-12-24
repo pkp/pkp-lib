@@ -72,7 +72,7 @@ class AddReviewerSuggestion extends FormRequest
             ],
             'familyName' => [
                 'required',
-                // 'multilingual:en,fr_CA', // Alternative way to do multilingual validation
+                // 'multilingual:en,fr_CA', // Alternative way to do multilingual validation, do not use HasMultilingualRule trait with this approach
             ],
             'givenName' => [
                 'required',

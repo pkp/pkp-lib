@@ -15,16 +15,15 @@
 				'$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler',
 				{ldelim}
 					lastRoundReviewerIds: {$lastRoundReviewerIds|json_encode},
-					reviewerMessages: {$reviewerMessages|json_encode}
+					reviewerMessages: {$reviewerMessages|json_encode},
+					reviewerName : {$reviewerName|json_encode}
 				{rdelim}
 		);
 	{rdelim});
 </script>
 
 <div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
-	{if isset($reviewerId) }
-		{include file="controllers/grid/users/reviewer/form/advancedSearchReviewerAssignmentForm.tpl"}
-	{else}
+	{if !isset($reviewerId) }
 		<div id="searchGridAndButton">
 			{assign var="uuid" value=""|uniqid|escape}
 			<div id="select-reviewer-{$uuid}">
@@ -43,15 +42,17 @@
 				{/foreach}
 			{/fbvFormSection}
 		</div>
+	{/if}
 
-		<div id="regularReviewerForm" class="pkp_reviewer_form">
-			{** Display the name of the selected reviewer **}
-			<div class="selected_reviewer">
-				<div class="label">
-					{translate key="editor.submission.selectedReviewer"}
-				</div>
-				<div class="value">
-					<span id="selectedReviewerName" class="name"></span>
+	<div id="regularReviewerForm" class="pkp_reviewer_form">
+		{** Display the name of the selected reviewer **}
+		<div class="selected_reviewer">
+			<div class="label">
+				{translate key="editor.submission.selectedReviewer"}
+			</div>
+			<div class="value">
+				<span id="selectedReviewerName" class="name"></span>
+				{if !isset($reviewerId) }
 					<span class="actions">
 						{foreach from=$reviewerActions item=action}
 							{if $action->getId() == 'advancedSearch'}
@@ -59,10 +60,10 @@
 							{/if}
 						{/foreach}
 					</span>
-				</div>
+				{/if}
 			</div>
-
-			{include file="controllers/grid/users/reviewer/form/advancedSearchReviewerAssignmentForm.tpl"}
 		</div>
-	{/if}
+
+		{include file="controllers/grid/users/reviewer/form/advancedSearchReviewerAssignmentForm.tpl"}
+	</div>
 </div>

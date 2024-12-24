@@ -344,7 +344,7 @@ class Repository
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
         $submissionComments = $submissionCommentDao->getByUserId($oldUserId);
 
-        while ($submissionComment = $submissionComments->next()) {
+        while ($submissionComment = $submissionComments->next()) { /** @var \PKP\submission\SubmissionComment $submissionComment */
             $submissionComment->setAuthorId($newUserId);
             $submissionCommentDao->updateObject($submissionComment);
         }

@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/AdvancedReviewerSearchHandler.js
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdvancedReviewerSearchHandler
@@ -46,7 +46,7 @@
             this.initializeTinyMCE();
             this.handleReviewerAssign_($container, options, {
                 id: $container.find('input#reviewerId').val(),
-                fullName: 'some name'
+                fullName: options.reviewerName
             });
         }
 	};
@@ -69,7 +69,7 @@
 	 */
 	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
 			handleRefresh_ = function(sourceElement, event, content) {
-
+		
 		if (content) {
 			this.replaceWith(content);
 		}
@@ -87,7 +87,8 @@
 			$templateInput,
 			$templateOption,
 			editor,
-			templateKey;
+			templateKey,
+			templateContent;
 
 		if ($textarea.val()) {
 			return; // The message is already set; shouldn't happen
@@ -100,21 +101,30 @@
 		$templateOption = $('#reviewerFormFooter select[name="template"]');
 		
 		editor = tinyMCE.EditorManager.get($textarea.attr('id'));
-		// console.log(editor);
 		templateKey = '';
 
 		if (options.lastRoundReviewerIds.includes(reviewer.id)) {
 			templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
-			editor.setContent(options.reviewerMessages[templateKey]);
+			templateContent = options.reviewerMessages[templateKey];
+			editor.setContent(templateContent);
 			$templateInput.val(templateKey);
 			$templateOption.find('[value="REVIEW_REQUEST"]').remove();
 		} else {
 			templateKey = 'REVIEW_REQUEST';
-			// console.log(options.reviewerMessages[templateKey]);
-			editor.setContent(options.reviewerMessages[templateKey]);
+			templateContent = options.reviewerMessages[templateKey];
+			editor.setContent(templateContent);
 			$templateInput.val(templateKey);
 			$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
 		}
+
+		// TODO : 	an ugly work around to handle the empty editor issue after a flicker, 
+		// 			need some help to figure it out.
+		setTimeout(() => {
+			console.log(editor.getContent().length);
+			if (!editor.getContent().length) {
+				editor.setContent(templateContent);
+			}
+		}, 2000);
 
 		// Select the right template option to correspond
 		// the one, which is set in TinyMCE

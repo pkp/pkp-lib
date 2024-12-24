@@ -9,7 +9,7 @@
  *
  * @class ValidationServiceProvider
  *
- * @brief Register session driver, manager and related services
+ * @brief Extends the core validation service provider
  */
 
 namespace PKP\core;
@@ -29,7 +29,7 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
      * Boot service provider
      * 
      * A good place to add any custom validation rules which will be availbale once the
-     * Service provider get registered
+     * service provider get registered
      * 
      * @return void
      */

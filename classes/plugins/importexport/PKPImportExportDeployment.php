@@ -30,7 +30,11 @@ use InvalidArgumentException;
 use LibXMLError;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\user\User;
+use DOMDocument;
+use DOMXPath;
 
 class PKPImportExportDeployment
 {
@@ -286,6 +290,7 @@ class PKPImportExportDeployment
         }
         return null;
     }
+
     /**
      * Get the processed objects errors.
      *
@@ -561,17 +566,17 @@ class PKPImportExportDeployment
             libxml_use_internal_errors(true);
 
             $result = $currentFilter->execute($importXml);
-
             $dbConnection->commit();
-
             $this->processResult = $result;
-        } catch (Error | Exception $e) {
+
+            $this->addReviewStage($importXml);
+        } catch (Error|Exception $e) {
             $this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, $e->getMessage());
             $dbConnection->rollBack();
 
             $this->processFailed = true;
         } finally {
-            $this->xmlValidationErrors = array_filter(libxml_get_errors(), fn (LibXMLError $error) => in_array($error->level, [LIBXML_ERR_ERROR, LIBXML_ERR_FATAL]));
+            $this->xmlValidationErrors = array_filter(libxml_get_errors(), fn(LibXMLError $error) => in_array($error->level, [LIBXML_ERR_ERROR, LIBXML_ERR_FATAL]));
             libxml_clear_errors();
         }
     }
@@ -609,7 +614,7 @@ class PKPImportExportDeployment
             }
 
             $this->processResult = $result;
-        } catch (Error | Exception $e) {
+        } catch (Error|Exception $e) {
             $this->addError(PKPApplication::ASSOC_TYPE_NONE, 0, $e->getMessage());
 
             $this->processFailed = true;
@@ -647,12 +652,12 @@ class PKPImportExportDeployment
     }
 
     /**
-    * Get object type string.
-    *
-    * @param mixed $assocType int or null (optional)
-    *
-    * @return mixed string or array
-    */
+     * Get object type string.
+     *
+     * @param mixed $assocType int or null (optional)
+     *
+     * @return mixed string or array
+     */
     public function getObjectTypeString($assocType = null)
     {
         $objectTypes = $this->getObjectTypes();
@@ -689,7 +694,7 @@ class PKPImportExportDeployment
             }
         }
         if (count($validationErrors = $this->getXMLValidationErrors())) {
-            $validationErrors = array_map(fn (LibXMLError $e) => "Line {$e->line} Column {$e->column}: {$e->message}", $validationErrors);
+            $validationErrors = array_map(fn(LibXMLError $e) => "Line {$e->line} Column {$e->column}: {$e->message}", $validationErrors);
             $genericError = $objectTypes[PKPApplication::ASSOC_TYPE_NONE];
             $problems['errors'][$genericError][] = [$validationErrors];
         }
@@ -728,6 +733,35 @@ class PKPImportExportDeployment
         }
 
         return false;
+    }
+
+
+    /**
+     * Add reviewer stage from an import XML
+     * @param DOMDocument $document
+     */
+    public function addReviewStage(DOMDocument $document): void
+    {
+        if ($this->processResult) {
+            $xpath = new DOMXPath($document);
+            $xpath->registerNamespace('ns', 'http://pkp.sfu.ca');
+
+            foreach (['article', 'monograph', 'preprint'] as $submissionType) {
+                $reviewStateQuery = '//ns:' . $submissionType . '[@stage="externalReview" or @stage="internalReview"]';
+                $isReviewStageSubmission = $xpath->query($reviewStateQuery);
+
+                if ($isReviewStageSubmission->length > 0) {
+                    $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+                    $submission = $this->processResult[0];
+                    $reviewRound = $reviewRoundDao->build(
+                        $submission->getId(),
+                        $submission->getData('stageId'),
+                        ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+                    );
+                }
+            }
+        }
+
     }
 }
 

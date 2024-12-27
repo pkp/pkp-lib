@@ -21,6 +21,8 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
+use Illuminate\Support\Collection;
+use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
@@ -61,7 +63,7 @@ class AboutContextHandler extends Handler
     }
 
 
-    private function getSortedMastheadUserGroups($context)
+    private function getSortedMastheadUserGroups(Context $context): Collection
     {
         $mastheadUserGroups = UserGroup::withContextIds([$context->getId()])
             ->masthead(true)
@@ -95,7 +97,7 @@ class AboutContextHandler extends Handler
     
         // Get all user IDs grouped by user group ID for the masthead roles
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
-            $mastheadRoles,
+            $mastheadRoles->all(),
             $context->getId()
         );
     
@@ -104,7 +106,7 @@ class AboutContextHandler extends Handler
             foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroupId)
+                    ->withUserGroupIds([$userGroupId])
                     ->withActive()
                     ->withMasthead()
                     ->first();
@@ -161,7 +163,7 @@ class AboutContextHandler extends Handler
     
         // get all user IDs grouped by user group ID for the masthead roles with ended status
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
-            $mastheadRoles,
+            $mastheadRoles->all(),
             $context->getId(),
             UserUserGroupStatus::STATUS_ENDED
         );
@@ -171,7 +173,7 @@ class AboutContextHandler extends Handler
             foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroupId)
+                    ->withUserGroupIds([$userGroupId])
                     ->withEnded()
                     ->withMasthead()
                     ->orderBy('date_start', 'desc')

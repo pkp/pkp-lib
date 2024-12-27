@@ -32,7 +32,7 @@ class AddUserGroupRule implements Rule
         // At this point, we know the user group exists; check if the user has it assigned
         if ($user = $this->invitation->getExistingUser()) {
             $userUserGroups = UserUserGroup::withUserId($user->getId())
-                ->withUserGroupId($value) // The $value is the userGroupId
+                ->withUserGroupIds([$value]) // The $value is the userGroupId
                 ->withActive()
                 ->get();
 

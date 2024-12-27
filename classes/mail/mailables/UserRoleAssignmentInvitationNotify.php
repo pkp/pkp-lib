@@ -188,7 +188,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
             foreach ($userGroups as $userGroup) {
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
-                    ->withUserGroupId($userGroup->id)
+                    ->withUserGroupIds([$userGroup->id])
                     ->withActive()
                     ->get();
 

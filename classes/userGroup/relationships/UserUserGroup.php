@@ -14,13 +14,13 @@
 
 namespace PKP\userGroup\relationships;
 
+use PKP\core\Core;
 use APP\facades\Repo;
+use PKP\userGroup\UserGroup;
+use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Eloquence\Behaviours\HasCamelCasing;
-use PKP\core\Core;
-use PKP\userGroup\UserGroup;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 {
@@ -52,9 +52,9 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
         return $query->where('user_user_groups.user_id', $userId);
     }
 
-    public function scopeWithUserGroupId(Builder $query, int $userGroupId): Builder
+    public function scopeWithUserGroupIds(Builder $query, array $userGroupIds): Builder
     {
-        return $query->where('user_user_groups.user_group_id', $userGroupId);
+        return $query->whereIn('user_user_groups.user_group_id', $userGroupIds);
     }
 
     public function scopeWithActive(Builder $query): Builder

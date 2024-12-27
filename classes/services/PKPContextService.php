@@ -562,7 +562,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
     
         $assignmentExists = UserUserGroup::query()
             ->withUserId($currentUser->getId())
-            ->withUserGroupId($managerUserGroup->id)
+            ->withUserGroupIds([$managerUserGroup->id])
             ->exists();
     
         if (!$assignmentExists) {

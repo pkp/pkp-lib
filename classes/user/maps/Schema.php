@@ -177,7 +177,7 @@ class Schema extends \PKP\core\maps\Schema
                                 'recommendOnly' => (bool) $userGroup->recommendOnly,
                                 'dateStart' => UserUserGroup::withUserId($user->getId())
                                     ->withActive()
-                                    ->withUserGroupId($userGroup->id)
+                                    ->withUserGroupIds([$userGroup->id])
                                     ->pluck('date_start')->first()
                             ];
                         }

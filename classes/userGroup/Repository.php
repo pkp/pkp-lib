@@ -15,6 +15,7 @@ namespace PKP\userGroup;
 
 use Carbon\Carbon;
 use DateInterval;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
@@ -218,7 +219,7 @@ class Repository
     {
         return UserUserGroup::query()
             ->withUserId($userId)
-            ->withUserGroupId($userGroupId)
+            ->withUserGroupIds($userGroupId)
             ->withActive()
             ->exists();
     }
@@ -242,7 +243,7 @@ class Repository
             ->withMasthead();
 
         if ($userGroupId) {
-            $query->withUserGroupId($userGroupId);
+            $query->withUserGroupIds([$userGroupId]);
         }
 
         return $query->exists();
@@ -256,7 +257,7 @@ class Repository
     {
         $masthead = UserUserGroup::query()
             ->withUserId($userId)
-            ->withUserGroupId($userGroupId)
+            ->withUserGroupIds([$userGroupId])
             ->withActive()
             ->pluck('masthead')
             ->first();
@@ -344,7 +345,7 @@ class Repository
         $query = UserUserGroup::query()->withUserId($userId);
 
         if ($userGroupId) {
-            $query->withUserGroupId($userGroupId);
+            $query->withUserGroupIds([$userGroupId]);
             $userGroup = $this->get($userGroupId);
             if ($userGroup && $userGroup->masthead) {
                 self::forgetEditorialCache($userGroup->contextId);
@@ -374,7 +375,7 @@ class Repository
             ->withActive();
 
         if ($userGroupId) {
-            $query->withUserGroupId($userGroupId);
+            $query->withUserGroupIds([$userGroupId]);
         }
 
         $query->update(['date_end' => $dateEnd]);
@@ -590,12 +591,13 @@ class Repository
             $users = UserUserGroup::query()
                 ->withContextId($contextId)
                 ->withUserGroupIds($mastheadRoleIds)
-                ->withUserUserGroupStatus($userUserGroupStatus->value)
-                ->withUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON->value)
+                ->whereHas('userGroup', fn (Builder $query) => $query->withUserUserGroupStatus($userUserGroupStatus->value))
+                ->withMasthead()
                 ->orderBy('user_groups.role_id', 'asc')
                 ->join('user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
                 ->join('users', 'user_user_groups.user_id', '=', 'users.user_id')
-                ->orderBy('users.family_name', 'asc')
+                ->join('user_settings', 'user_user_groups.user_id', '=', 'user_settings.user_id')
+                ->orderBy('user_settings.family_name', 'asc')
                 ->get(['user_groups.user_group_id', 'users.user_id']);
 
             // group unique user ids by UserGroup id

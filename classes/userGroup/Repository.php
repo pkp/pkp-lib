@@ -13,24 +13,25 @@
 
 namespace PKP\userGroup;
 
-use Carbon\Carbon;
 use DateInterval;
-use Illuminate\Database\Eloquent\Builder;
+use Carbon\Carbon;
+use PKP\core\Core;
+use PKP\plugins\Hook;
+use PKP\site\SiteDAO;
+use PKP\security\Role;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\xml\PKPXMLParser;
 use Illuminate\Support\Collection;
+use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
-use PKP\core\Core;
-use PKP\db\DAORegistry;
-use PKP\plugins\Hook;
-use PKP\security\Role;
-use PKP\services\PKPSchemaService;
-use PKP\site\SiteDAO;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
-use PKP\userGroup\relationships\enums\UserUserGroupStatus;
-use PKP\userGroup\relationships\UserGroupStage;
+use Illuminate\Database\Query\JoinClause;
 use PKP\userGroup\relationships\UserUserGroup;
-use PKP\validation\ValidatorFactory;
-use PKP\xml\PKPXMLParser;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
+use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 
 class Repository
 {
@@ -591,13 +592,38 @@ class Repository
             $users = UserUserGroup::query()
                 ->withContextId($contextId)
                 ->withUserGroupIds($mastheadRoleIds)
-                ->whereHas('userGroup', fn (Builder $query) => $query->withUserUserGroupStatus($userUserGroupStatus->value))
+                ->whereHas(
+                    'userGroup',
+                    fn (\Illuminate\Database\Eloquent\Builder $query) => $query->withUserUserGroupStatus($userUserGroupStatus->value)
+                )
                 ->withMasthead()
                 ->orderBy('user_groups.role_id', 'asc')
                 ->join('user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
                 ->join('users', 'user_user_groups.user_id', '=', 'users.user_id')
-                ->join('user_settings', 'user_user_groups.user_id', '=', 'user_settings.user_id')
-                ->orderBy('user_settings.family_name', 'asc')
+                ->orderBy(
+                    fn (\Illuminate\Database\Query\Builder $query) => $query
+                        ->fromSub(
+                            fn($query) => $query->from(null)->selectRaw(0),
+                            'placeholder'
+                        )
+                        ->leftJoin(
+                            'user_settings AS l',
+                            fn (JoinClause $join) => $join
+                                ->on('user_user_groups.user_id', '=', 'l.user_id')
+                                ->where('l.setting_name', 'family_name')
+                                ->where('l.locale', Locale::getLocale())
+                        )
+                        ->leftJoin(
+                            'user_settings AS p',
+                            fn (JoinClause $join) => $join
+                                ->on('user_user_groups.user_id', '=', 'p.user_id')
+                                ->where('p.setting_name', 'family_name')
+                                ->where('p.locale', Locale::getPrimaryLocale())
+                        )
+                        ->selectRaw(
+                            'CONCAT(COALESCE(l.setting_value, ""), COALESCE(p.setting_value, ""))'
+                        )
+                )
                 ->get(['user_groups.user_group_id', 'users.user_id']);
 
             // group unique user ids by UserGroup id

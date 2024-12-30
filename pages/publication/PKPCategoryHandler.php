@@ -3,13 +3,13 @@
 /**
  * @file pages/publication/PKPCategoryHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPCatalogHandler
+ * @class PKPCategoryHandler
  *
- * @ingroup pages_catalog
+ * @ingroup pages_publication
  *
  * @brief Handle requests for the public-facing category listing.
  */

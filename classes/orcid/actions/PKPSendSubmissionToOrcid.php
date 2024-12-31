@@ -12,16 +12,17 @@
  * @brief Compile and trigger deposits of submissions to ORCID.
  */
 
-
 namespace PKP\orcid\actions;
 
 use APP\facades\Repo;
+use APP\orcid\actions\SendReviewToOrcid;
 use APP\publication\Publication;
 use Carbon\Carbon;
 use PKP\context\Context;
 use PKP\jobs\orcid\DepositOrcidSubmission;
 use PKP\orcid\OrcidManager;
 use PKP\orcid\PKPOrcidWork;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 abstract class PKPSendSubmissionToOrcid
 {
@@ -65,26 +66,24 @@ abstract class PKPSendSubmissionToOrcid
 
         if (empty($authorsWithOrcid)) {
             OrcidManager::logInfo('No contributor with ORICD id or valid access token for submission ' . $this->publication->getData('submissionId'));
-            return;
+        } else {
+            $orcidWork = $this->getOrcidWork($authors->toArray());
+            OrcidManager::logInfo('Request body (without put-code): ' . json_encode($orcidWork->toArray()));
+
+            if ($orcidWork === null) {
+                return;
+            }
+            foreach ($authorsWithOrcid as $orcid => $author) {
+                dispatch(new DepositOrcidSubmission($author, $this->context, $orcidWork->toArray(), $orcid));
+            }
         }
 
-        $orcidWork = $this->getOrcidWork($authors->toArray());
-        OrcidManager::logInfo('Request body (without put-code): ' . json_encode($orcidWork->toArray()));
-
-        if ($orcidWork === null) {
-            return;
-        }
-        foreach ($authorsWithOrcid as $orcid => $author) {
-            dispatch(new DepositOrcidSubmission($author, $this->context, $orcidWork->toArray(), $orcid));
-        }
-
+        $this->depositReviewsForSubmission();
     }
 
     /**
      * Get app-specific ORCID work for sending to ORCID
      *
-     * @param array $authors
-     * @return PKPOrcidWork|null
      */
     abstract protected function getOrcidWork(array $authors): ?PKPOrcidWork;
 
@@ -93,7 +92,22 @@ abstract class PKPSendSubmissionToOrcid
      * Currently only possible for OJS and OPS.
      * FIXME: This method/check can be removed once functionality added to OMP.
      *
-     * @return bool
      */
     abstract protected function canDepositSubmission(): bool;
+
+
+    /**
+     * Deposit reviews for the submission to ORCID.
+     */
+    public function depositReviewsForSubmission(): void
+    {
+        $submissionId = $this->publication->getData('submissionId');
+        OrcidManager::logInfo('Submitting reviews for submission ' . $submissionId);
+
+        collect(Repo::reviewAssignment()->getCollector()
+            ->filterByContextIds([$this->context->getId()])
+            ->filterBySubmissionIds([$submissionId])
+            ->getMany())
+            ->each(fn (ReviewAssignment $review) => (new SendReviewToOrcid($review->getId()))->execute());
+    }
 }

@@ -65,7 +65,7 @@ abstract class PKPOrcidWork
             $this->context->getPath(),
             'article',
             'view',
-            $submission->getId(),
+            [$submission->getId()],
             urlLocaleForPage: '',
         );
 
@@ -276,7 +276,7 @@ abstract class PKPOrcidWork
                 $orcid = basename(parse_url($author->getOrcid(), PHP_URL_PATH));
 
                 if ($author->getData('orcidSandbox')) {
-                    $uri = ORCID_URL_SANDBOX . $orcid;
+                    $uri = OrcidManager::ORCID_URL_SANDBOX . $orcid;
                     $host = 'sandbox.orcid.org';
                 } else {
                     $uri = $author->getOrcid();

@@ -35,4 +35,12 @@ class SendSubmissionToOrcid extends PKPSendSubmissionToOrcid
     {
         return true;
     }
+
+    /**
+     * @inheritDoc
+     * Override with empty implementation since OPS does not have reviews
+     */
+    public function depositReviewsForSubmission(): void
+    {
+    }
 }

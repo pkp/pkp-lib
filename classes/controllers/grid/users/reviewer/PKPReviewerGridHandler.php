@@ -21,6 +21,7 @@ use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\orcid\actions\SendReviewToOrcid;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
@@ -776,6 +777,9 @@ class PKPReviewerGridHandler extends GridHandler
             ->withUserId($reviewAssignment->getReviewerId())
             ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
             ->delete();
+
+        // Deposit review to ORCID
+        (new SendReviewToOrcid($reviewAssignment->getId()))->execute();
 
         $json = DAO::getDataChangedEvent($reviewAssignment->getId());
         $json->setGlobalEvent('update:decisions');

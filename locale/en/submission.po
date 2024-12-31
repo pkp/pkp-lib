@@ -2581,8 +2581,14 @@ msgstr "View recommendation"
 msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
 msgstr "View unread recommendation"
 
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Send Review To ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Send this review to the reviewer's ORCID?"
+
 msgid "dashboard.declinedDuringStage"
-msgstr "Declined during the {$stageName} stage.
+msgstr "Declined during the {$stageName} stage."
 
 msgid "dashboard.recommendOnly.pendingRecommendations"
 msgstr "Recommending Editors are tasked to advise the next steps for this submission"

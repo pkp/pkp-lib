@@ -31,15 +31,20 @@
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="notificationSettingsFormNotification"}
-
 	{fbvFormArea id="notificationSettings"}
 		{foreach from=$notificationSettingCategories item=notificationSettingCategory}
 			<h4>{translate key=$notificationSettingCategory.categoryKey}</h4>
 			{foreach from=$notificationSettingCategory.settings item=settingId}
-				{assign var="settingName" value=$notificationSettings.$settingId.settingName}
-				{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
-				{capture assign="settingKey"}{translate key=$notificationSettings.$settingId.settingKey title="common.title"|translate}{/capture}
-
+				{if isset($notificationSettings[$settingId])}
+					{assign var="settingName" value=$notificationSettings.$settingId.settingName}
+					{assign var="emailSettingName" value=$notificationSettings.$settingId.emailSettingName}
+				{else}
+					{assign var="settingName" value="settingName_{$settingId}"}
+					{assign var="emailSettingName" value="emailSettingName_{$settingId}"}
+				{/if}
+				{capture assign="settingKey"}
+					{translate key=$notificationSettings.$settingId.settingKey title="common.title"|translate}
+				{/capture}
 				{fbvFormSection title=$settingKey list=true translate=false}
 					{if $settingId|in_array:$blockedNotifications}
 						{assign var="checked" value="0"}

@@ -39,7 +39,6 @@ use PKP\submission\DashboardView;
 use PKP\submission\PKPSubmission;
 use PKP\userGroup\UserGroup;
 
-
 abstract class PKPBackendSubmissionsController extends PKPBaseController
 {
     use AnonymizeData;
@@ -204,6 +203,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             }
         }
 
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+
         /**
          * FIXME: Clean up before release pkp/pkp-lib#7495.
          * In new submission lists this endpoint is dedicated to retrieve all submissions only by admins and managers
@@ -211,7 +212,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         if (!Config::getVar('features', 'enable_new_submission_listing')) {
 
             // Anyone not a manager or site admin can only access their assigned submissions
-            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
             Hook::run('API::_submissions::params', [$collector, $illuminateRequest]);
             if (!$canAccessUnassignedSubmission) {
@@ -238,7 +238,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres, $userRoles)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -276,6 +276,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 $submissions,
                 $userGroups,
                 $genres,
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
                 $this->anonymizeReviews($submissions)
             )->values(),
         ], Response::HTTP_OK);
@@ -343,7 +344,12 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
+                $submissions,
+                $userGroups,
+                $genres,
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
+            )->values(),
         ], Response::HTTP_OK);
     }
 

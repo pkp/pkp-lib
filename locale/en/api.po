@@ -355,3 +355,6 @@ msgstr "Invalid ID: \"{$id}\" provided."
 
 msgid "api.publications.403.noEnabledIdentifiers"
 msgstr "Publication identifiers form is unavailable as there are no enabled Identifiers."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Unable to complete the intended action on resource."

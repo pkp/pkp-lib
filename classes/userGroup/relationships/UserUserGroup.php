@@ -15,10 +15,10 @@
 namespace PKP\userGroup\relationships;
 
 use APP\facades\Repo;
+use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Eloquence\Behaviours\HasCamelCasing;
 use PKP\core\Core;
 use PKP\userGroup\UserGroup;
 
@@ -30,6 +30,10 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public $incrementing = false;
     protected $primaryKey = null;
     protected $fillable = ['userGroupId', 'userId', 'dateStart', 'dateEnd', 'masthead'];
+    protected $casts = [
+        'dateStart' => 'datetime',
+        'dateEnd' => 'datetime',
+    ];
 
     public function user(): Attribute
     {

@@ -36,6 +36,7 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $isIncomplete = false;
     public bool $isArchived = false;
     public bool $isOverdue = false;
+    public bool $isInProgress = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
     public bool $isLastReviewRound = false;
@@ -173,6 +174,15 @@ class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
+     * Filter whether it is a 
+     */
+    public function filterByIsInProgress(?bool $isInProgress): static
+    {
+        $this->isInProgress = $isInProgress;
+        return $this;
+    }
+
+    /**
      * Limit the number of objects retrieved
      */
     public function limit(?int $count): static
@@ -278,6 +288,16 @@ class Collector implements CollectorInterface, ViewsCount
                 fn (Builder $q) => $q
                     ->whereNotNull('ra.date_completed')
                     ->orWhere('declined', 1)
+            )
+        );
+
+        $q->when(
+            $this->isInProgress,
+            fn (Builder $q) =>
+            $q->where(
+                fn (Builder $q) => $q
+                    ->whereNotNull('ra.date_confirmed')
+                    ->whereNot('declined', 1)
             )
         );
 

@@ -21,7 +21,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
-use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 
 class I18nController extends PKPBaseController
@@ -40,11 +39,6 @@ class I18nController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [];
-    }
-
-    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
-    {
-        return true;
     }
 
     /**

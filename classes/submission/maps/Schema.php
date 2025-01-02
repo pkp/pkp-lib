@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/maps/Schema.php
  *
@@ -20,7 +21,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use PKP\config\Config;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -32,8 +33,9 @@ use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -47,6 +49,9 @@ class Schema extends \PKP\core\maps\Schema
 
     /** @var Enumerable<int,UserGroup> The user groups for this context. */
     public Enumerable $userGroups;
+
+    /** @var array user roles associated with the context, Role::ROLE_ID_ constants  */
+    public array $userRoles;
 
     /** @var Genre[] The file genres in this context. */
     public array $genres;
@@ -71,6 +76,7 @@ class Schema extends \PKP\core\maps\Schema
 
         $props = [
             '_href',
+            'canCurrentUserChangeMetadata',
             'contextId',
             'currentPublicationId',
             'dateLastActivity',
@@ -282,11 +288,13 @@ class Schema extends \PKP\core\maps\Schema
         Enumerable $collection,
         Enumerable $userGroups,
         array $genres,
+        array $userRoles,
         bool|Collection $anonymizeReviews = false
     ): Enumerable {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
+        $this->userRoles = $userRoles;
 
         $submissionIds = $collection->keys()->toArray();
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
@@ -377,11 +385,27 @@ class Schema extends \PKP\core\maps\Schema
 
         $reviewRounds = $this->getReviewRoundsFromSubmission($submission);
         $currentReviewRound = $reviewRounds->sortKeys()->last(); /** @var ReviewRound|null $currentReviewRound */
+        $stages = in_array('stages', $props) ?
+            $this->getPropertyStages($this->stageAssignments, $submission, $this->decisions ?? null, $currentReviewRound) :
+            [];
 
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
                     $output[$prop] = Repo::submission()->getUrlApi($this->context, $submission->getId());
+                    break;
+                case 'availableEditorialDecisions':
+                    $output[$prop] = collect(Application::get()->getApplicationStages())->mapWithKeys(function (int $stageId) use ($submission) {
+                        $availableEditorialDecisions = $this->getAvailableEditorialDecisions($stageId, $submission);
+                        return [$stageId => array_map(fn (DecisionType $decisionType) => ['id' => $decisionType->getDecision(), 'label' => $decisionType->getLabel()], $availableEditorialDecisions)];
+                    })->values()->all();
+                    break;
+                case 'canCurrentUserChangeMetadata':
+                    // Identify if current user can change metadata. Consider roles in the active stage.
+                    $output[$prop] = !empty(array_intersect(
+                        PKPApplication::getWorkflowTypeRoles()[PKPApplication::WORKFLOW_TYPE_EDITORIAL],
+                        $stages[$submission->getData('stageId')]['currentUserAssignedRoles']
+                    ));
                     break;
                 case 'editorAssigned':
                     $output[$prop] = $this->getPropertyStageAssignments($this->stageAssignments);
@@ -417,7 +441,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = __(Application::get()->getWorkflowStageName($submission->getData('stageId')));
                     break;
                 case 'stages':
-                    $output[$prop] = $this->getPropertyStages($this->stageAssignments, $submission, $this->decisions ?? null, $currentReviewRound);
+                    $output[$prop] = array_values($stages);
                     break;
                 case 'statusLabel':
                     $output[$prop] = __($submission->getStatusKey());
@@ -519,41 +543,32 @@ class Schema extends \PKP\core\maps\Schema
      *  {
      *  `id` int stage id
      *  `label` string translated stage name
-     *  `queries` array [{
-     *    `id` int query id
-     *    `assocType` int
-     *    `assocId` int
-     *    `stageId` int
-     *    `seq` int
-     *    `closed` bool
-     *   }]
-     *  `statusId` int stage status. note: on review stage, this refers to the
-     *    status of the latest round.
-     *  `status` string translated stage status name
-     *  `files` array {
-     *    `count` int number of files attached to stage. note: this only counts
-     *      revision files.
-     *   }
-     *  ]
+     *  `isActiveStage` boolean whether the stage is active
+     *  `editorAssigned` boolean whether the editor is assigned to the submission
+     *  `isDecidingEditorAssigned` boolean whether apart from recommend only editor, there is at least one editor without recommend only flag assigned
+     *  `isCurrentUserDecidingEditor` boolean whether the current user is assigned as an editor without recommend only flag (and there are recommend only editors assigned)
+     *  `currentUserAssignedRoles` array the roles of the current user in the submission per stage, user may be unassigned but have global manager role
+     *  `currentUserCanRecommendOnly`
+     *  `currentUserRecommendation` object includes the recommendation decision of the current user
+     *  {
+     *   `decision` => recommendation decision,
+     *   `label` => decision label
+     *  },
+     *  `recommendations` array shows to the deciding editor all recommendations associated with the submission in the review stages
+     *   [
+     *    decisionID =>
+     *    {
+     *     `decision` => recommendation decision,
+     *     `label` => decision label
+     *    }
+     *   ]
+     *  }
+     * ]
      */
     protected function getPropertyStages(Enumerable $stageAssignments, Submission $submission, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
-        // Replace this part with eager loaded UserGroups
-        $userGroupsByStageAssignments = $stageAssignments->mapWithKeys(
-            fn (StageAssignment $stageAssignment) =>
-            [$stageAssignment->id => $stageAssignment->userGroupId]
-        );
-
-        $userGroups = Repo::userGroup()->getCollector()
-            ->filterByUserGroupIds($userGroupsByStageAssignments->toArray())
-            ->getMany();
-
-        $userGroupsByStageAssignments = $userGroupsByStageAssignments->mapWithKeys(
-            fn (int $userGroupId, int $assignmentId) =>
-            [$assignmentId => $userGroups->get($userGroupId)]
-        );
 
         // Create stages and fill with predefined data
         $stages = [];
@@ -569,23 +584,23 @@ class Schema extends \PKP\core\maps\Schema
                 'editorAssigned' => false,
                 'isDecidingEditorAssigned' => false,
                 'isCurrentUserDecidingEditor' => false,
+                'currentUserAssignedRoles' => [],
             ];
         }
 
-        $stages['unstaged']['canCurrentUserChangeMetadata'] = false;
-
         $recommendations = [];
+        $isAssignedInAnyRole = false; // Determine if the current user is assigned to the submission in any role
 
         // Determine stage assignment related data
         foreach ($stageAssignments as $stageAssignment) {
-            $userGroup = $userGroupsByStageAssignments->get($stageAssignment->id); /** @var UserGroup $userGroup */
+            $userGroup = $stageAssignment->userGroup; /** @var UserGroup $userGroup */
 
-            foreach ($stageAssignment->userGroupStages as $groupStage) {
+            foreach ($userGroup->userGroupStages as $groupStage) { /** @var UserGroupStage $groupStage */
                 // Identify the first user with the editor
                 if (
                     !$stages[$groupStage->stageId]['editorAssigned'] &&
                     in_array(
-                        $userGroup->getRoleId(),
+                        $userGroup->roleId,
                         [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]
                     )
                 ) {
@@ -596,7 +611,8 @@ class Schema extends \PKP\core\maps\Schema
                 if (
                     !$stages[$groupStage->stageId]['isDecidingEditorAssigned'] &&
                     isset($editorAssigned) &&
-                    !$stageAssignment->recommendOnly) {
+                    !$stageAssignment->recommendOnly
+                ) {
                     $isDecidingEditorAssigned = $stages[$groupStage->stageId]['isDecidingEditorAssigned'] = true;
                 }
 
@@ -625,25 +641,23 @@ class Schema extends \PKP\core\maps\Schema
                     continue;
                 }
 
-                $stages[$groupStage->stageId]['currentUserAssignedRoles'] = [
-                    $userGroup->getRoleId(),
-                ];
+                // Identify current user roles associated with the assignment, include global roles and roles from other assignments
+                if ($roleId = $this->getAssignmentRoles($stageAssignment)) {
+                    $stages[$groupStage->stageId]['currentUserAssignedRoles'][] = $roleId;
+
+                    // Check that the user is assigned in any non-revoked role
+                    if (!$isAssignedInAnyRole) {
+                        $isAssignedInAnyRole = true;
+                    }
+                }
 
                 if (isset($isDecidingEditorAssigned)) {
                     $stages[$groupStage->stageId]['isCurrentUserDecidingEditor'] = true;
                 }
 
-                // Check if current user can edit publication
-                if (
-                    $stages[$groupStage->stageId]['isActiveStage'] &&
-                    in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-                ) {
-
-                }
-
                 // Identify if the current user gave recommendation
                 if (
-                    in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) && // this user is assigned as an editor
+                    in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) && // this user is assigned as an editor
                     !isset($isDecidingEditorAssigned) && // this user only can give recommendations, isn't a deciding editor
                     in_array($groupStage->stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW]) &&
                     isset($decisions) && $decisions->isNotEmpty() // only for submissions list
@@ -677,10 +691,20 @@ class Schema extends \PKP\core\maps\Schema
                 // if the user is assigned several times in the editorial role, and
                 // one of the assignments have recommendOnly option set, consider it here
                 if (
-                    in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) &&
+                    in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) &&
                     $stageAssignment->recommendOnly
                 ) {
                     $stages[$groupStage->stageId]['currentUserCanRecommendOnly'] = true;
+                }
+            }
+        }
+
+        // if the current user is not assigned in any non-revoked role but has a global role as a manager or admin, consider it in the submission
+        if (!$isAssignedInAnyRole) {
+            $globalRoles = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->userRoles);
+            if (!empty($globalRoles)) {
+                foreach ($stageIds as $stageId) {
+                    $stages[$stageId]['currentUserAssignedRoles'] = $globalRoles;
                 }
             }
         }
@@ -707,75 +731,23 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        // FIXME pkp/pkp-lib#7495 Backward compatibility only, remove before 3.5 release
-        if (!Config::getVar('features', 'enable_new_submission_listing')) {
-            $openPerStage = Repo::query()->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
-            foreach ($stageIds as $stageId) {
-                $stages[$stageId]['openQueryCount'] = $openPerStage[$stageId];
+        return $stages;
+    }
 
-                // Stage-specific statuses
-                switch ($stageId) {
-                    case WORKFLOW_STAGE_ID_SUBMISSION:
-                        $assignedEditors = $stages[$stageId]['editorAssigned'];
-                        if (!$assignedEditors) {
-                            $stages[$stageId]['statusId'] = Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED;
-                            $stages[$stageId]['status'] = __('submissions.queuedUnassigned');
-                        }
+    /**
+     * @return array Roles associated with the
+     */
+    protected function getAssignmentRoles(StageAssignment $stageAssignment): ?int
+    {
+        $userGroup = $stageAssignment->userGroup;
+        $userUserGroup = $userGroup->userUserGroups->first(
+            fn (UserUserGroup $userUserGroup) =>
+            $userUserGroup->userId === $stageAssignment->userId && // Check if user is associated with stage assignment
+            (!$userUserGroup->dateEnd || $userUserGroup->dateEnd->gt(now())) &&
+            (!$userUserGroup->dateStart || $userUserGroup->dateStart->lte(now()))
+        );
 
-                        // Submission stage never has revisions
-                        $stages[$stageId]['files'] = [
-                            'count' => 0,
-                        ];
-                        break;
-
-                    case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-                    case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                        $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $stageId);
-                        if ($reviewRound) {
-                            $stages[$stageId]['statusId'] = $reviewRound->determineStatus();
-                            $stages[$stageId]['status'] = __($reviewRound->getStatusKey());
-
-                            // Revision files in this round.
-                            $stages[$stageId]['files'] = [
-                                'count' => Repo::submissionFile()->getCollector()
-                                    ->filterBySubmissionIds([$submission->getId()])
-                                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
-                                    ->filterByReviewRoundIds([$reviewRound->getId()])
-                                    ->getCount()
-                            ];
-                        } else {
-                            // workaround for pkp/pkp-lib#4231, pending formal data model
-                            $stages[$stageId]['files'] = [
-                                'count' => 0
-                            ];
-                        }
-                        break;
-
-                        // Get revision files for editing and production stages.
-                        // Review rounds are handled separately in the review stage below.
-                    case WORKFLOW_STAGE_ID_EDITING:
-                    case WORKFLOW_STAGE_ID_PRODUCTION:
-                        $fileStages = [WORKFLOW_STAGE_ID_EDITING ? SubmissionFile::SUBMISSION_FILE_COPYEDIT : SubmissionFile::SUBMISSION_FILE_PROOF];
-                        // Revision files in this round.
-                        $stages[$stageId]['files'] = [
-                            'count' => Repo::submissionFile()->getCollector()
-                                ->filterBySubmissionIds([$submission->getId()])
-                                ->filterByFileStages($fileStages)
-                                ->getCount()
-                        ];
-                        break;
-                }
-            }
-
-
-            $availableEditorialDecisions = $this->getAvailableEditorialDecisions($stageId, $submission);
-            $stage['availableEditorialDecisions'] = array_map(fn (DecisionType $decisionType) => ['id' => $decisionType->getDecision(), 'label' => $decisionType->getLabel()], $availableEditorialDecisions);
-
-            $stages[] = $stage;
-        }
-
-        return array_values($stages);
+        return $userUserGroup ? $userGroup->roleId : null;
     }
 
     /**
@@ -810,7 +782,7 @@ class Schema extends \PKP\core\maps\Schema
     protected function getStageAssignmentsBySubmissions(Enumerable $submissions, array $roleIds = []): LazyCollection
     {
         $submissionIds = $submissions->map(fn (Submission $submission) => $submission->getId())->toArray();
-        $stageAssignments = StageAssignment::with(['userGroupStages'])
+        $stageAssignments = StageAssignment::with(['userGroup.userUserGroups', 'userGroup.userGroupStages'])
             ->withSubmissionIds($submissionIds)
             ->withRoleIds(empty($roleIds) ? null : $roleIds)
             ->lazy();

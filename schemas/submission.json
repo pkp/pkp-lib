@@ -11,6 +11,16 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"availableEditorialDecisions": {
+			"type": "array",
+			"description": "The list of decision types per stage",
+			"readOnly": true
+		},
+		"canCurrentUserChangeMetadata": {
+			"type": "boolean",
+			"description": "Whether the current user has access to the publication metadata",
+			"readOnly": true
+		},
 		"commentsForTheEditors": {
 			"type": "string",
 			"description": "Optional. Comments from the submitting author to the editors. This is only available for submissions that have not yet been submitted. Once submitted, the message is converted to a discussion and you can not read or write to this property.",
@@ -287,11 +297,6 @@
 					}
 				}
 			}
-		},
-		"stagesAccess": {
-			"type": "array",
-			"description": "Key data about the status, files and discussions of each stage.",
-			"readOnly": true
 		},
 		"status": {
 			"type": "integer",

@@ -52,11 +52,27 @@ class Ror extends DataObject
     }
 
     /**
-     * Get display locale
+     * Get ror.
+     */
+    public function getRor(): string
+    {
+        return $this->getData('ror');
+    }
+
+    /**
+     * Get display locale.
      */
     public function getDisplayLocale(): mixed
     {
         return $this->getData('displayLocale');
+    }
+
+    /**
+     * Get isActive.
+     */
+    public function getIsActive(): bool
+    {
+        return $this->getData('isActive') === 1;
     }
 
     /**

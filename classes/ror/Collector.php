@@ -159,7 +159,7 @@ class Collector implements CollectorInterface
             $qb->where('is_active', '=', $this->isActive);
         }
 
-        if($this->ror !== null) {
+        if ($this->ror !== null) {
             $qb->where('r.ror', $this->ror);
         }
 

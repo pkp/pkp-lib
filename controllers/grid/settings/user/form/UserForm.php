@@ -143,7 +143,7 @@ class UserForm extends Form
                     fn ($userGroupId) =>
                     UserUserGroup::query()
                         ->withUserId($this->userId)
-                        ->withUserGroupId($userGroupId)
+                        ->withUserGroupIds([$userGroupId])
                         ->withActive()
                         ->update(['date_end' => now()])
                 );

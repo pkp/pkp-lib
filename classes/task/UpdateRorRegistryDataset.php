@@ -16,43 +16,49 @@
 /**
  * Mapping Ror data dump and OJS
  *
- *  0 id                rors.ror
- * 25 names.types.label ror_settings['locale' => 'en', 'setting_name' => 'name',           'setting_value' => 'name']
- * 27 ror_display_lang  ror_settings['locale' =>   '', 'setting_name' => 'default_locale', 'setting_value' => 'en']
- * 29 status            ror_settings['locale' =>   '', 'setting_name' => 'is_active',      'setting_value' => '1']
+ *  0 id                      rors.ror
+ * 29 names.types.label       ror_settings['locale' => 'en', 'setting_name' => 'name',           'setting_value' => 'name']
+ * 30 names.types.ror_display
+ * 31 ror_display_lang        ror_settings['locale' =>   '', 'setting_name' => 'default_locale', 'setting_value' => 'en']
+ * 33 status                  ror_settings['locale' =>   '', 'setting_name' => 'is_active',      'setting_value' => '1']
  *
- * | index | ror registry                            | ojs          |
- * |-------|-----------------------------------------|--------------|
- * | 0     | id                                      | rors.ror     |
- * | 1     | admin.created.date                      |              |
- * | 2     | admin.created.schema_version            |              |
- * | 3     | admin.last_modified.date                |              |
- * | 4     | admin.last_modified.schema_version      |              |
- * | 5     | domains                                 |              |
- * | 6     | established                             |              |
- * | 7     | external_ids.type.fundref.all           |              |
- * | 8     | external_ids.type.fundref.preferred     |              |
- * | 9     | external_ids.type.grid.all              |              |
- * | 10    | external_ids.type.grid.preferred        |              |
- * | 11    | external_ids.type.isni.all              |              |
- * | 12    | external_ids.type.isni.preferred        |              |
- * | 13    | external_ids.type.wikidata.all          |              |
- * | 14    | external_ids.type.wikidata.preferred    |              |
- * | 15    | links.type.website                      |              |
- * | 16    | links.type.wikipedia                    |              |
- * | 17    | locations.geonames_id                   |              |
- * | 18    | locations.geonames_details.country_code |              |
- * | 19    | locations.geonames_details.country_name |              |
- * | 20    | locations.geonames_details.lat          |              |
- * | 21    | locations.geonames_details.lng          |              |
- * | 22    | locations.geonames_details.name         |              |
- * | 23    | names.types.acronym                     |              |
- * | 24    | names.types.alias                       |              |
- * | 25    | names.types.label                       | ror_settings |
- * | 26    | names.types.ror_display                 | ror_settings |
- * | 27    | ror_display_lang                        | ror_settings |
- * | 28    | relationships                           |              |
- * | 29    | status                                  | ror_settings |
+ * | index | ror registry                                        | ojs          |
+ * |-------|-----------------------------------------------------|--------------|
+ * | 0     | id                                                  | rors.ror     |
+ * | 1     | admin.created.date                                  |              |
+ * | 2     | admin.created.schema_version                        |              |
+ * | 3     | admin.last_modified.date                            |              |
+ * | 4     | admin.last_modified.schema_version                  |              |
+ * | 5     | domains                                             |              |
+ * | 6     | established                                         |              |
+ * | 7     | external_ids.type.fundref.all                       |              |
+ * | 8     | external_ids.type.fundref.preferred                 |              |
+ * | 9     | external_ids.type.grid.all                          |              |
+ * | 10    | external_ids.type.grid.preferred                    |              |
+ * | 11    | external_ids.type.isni.all                          |              |
+ * | 12    | external_ids.type.isni.preferred                    |              |
+ * | 13    | external_ids.type.wikidata.all                      |              |
+ * | 14    | external_ids.type.wikidata.preferred                |              |
+ * | 15    | links.type.website                                  |              |
+ * | 16    | links.type.wikipedia                                |              |
+ * | 17    | locations.geonames_id                               |              |
+ * | 18    | locations.geonames_details.continent_code           |              |
+ * | 19    | locations.geonames_details.continent_name           |              |
+ * | 20    | locations.geonames_details.country_code             |              |
+ * | 21    | locations.geonames_details.country_name             |              |
+ * | 22    | locations.geonames_details.country_subdivision_code |              |
+ * | 23    | locations.geonames_details.country_subdivision_name |              |
+ * | 24    | locations.geonames_details.lat                      |              |
+ * | 25    | locations.geonames_details.lng                      |              |
+ * | 26    | locations.geonames_details.name                     |              |
+ * | 27    | names.types.acronym                                 |              |
+ * | 28    | names.types.alias                                   |              |
+ * | 29    | names.types.label                                   | ror_settings |
+ * | 30    | names.types.ror_display                             | ror_settings |
+ * | 31    | ror_display_lang                                    | ror_settings |
+ * | 32    | relationships                                       |              |
+ * | 33    | status                                              | ror_settings |
+ * | 34    | types                                               |              |
  */
 
 namespace PKP\task;
@@ -81,14 +87,17 @@ class UpdateRorRegistryDataset extends ScheduledTask
     /** @var string The prefix used for the temporary zip file and the extracted directory. */
     private string $prefix = 'TemporaryRorRegistryCache';
 
-    /** @var array|int[] Mappings database vs CSV */
+    /** @var array|string[] Mappings database vs CSV */
     private array $dataMapping = [
-        'ror' => 0,
-        'displayLocale' => 27,
-        'displayName' => 26,
-        'isActive' => 29,
-        'names' => 25
+        'ror' => 'id',
+        'displayLocale' => 'ror_display_lang',
+        'displayName' => 'names.types.ror_display',
+        'isActive' => 'status',
+        'names' => 'names.types.label'
     ];
+
+    /** @var array|int[] Indexes of mappings database vs CSV */
+    private array $dataMappingIndex = [];
 
     /** @var string No language code available key in registry */
     private string $noLocale = 'no_lang_code';
@@ -152,8 +161,14 @@ class UpdateRorRegistryDataset extends ScheduledTask
             // process csv file
             $i = 1;
             if (($handle = fopen($pathCsv, 'r')) !== false) {
-                while (($row = fgetcsv($handle, 0)) !== false) {
-                    if ($i > 1) $this->processRow($row);
+                while (($row = fgetcsv($handle)) !== false) {
+                    if ($i === 1) {
+                        foreach ($this->dataMapping as $keyDB => $keyCSV) {
+                            $this->dataMappingIndex[$keyDB] = array_search($keyCSV, $row, true);
+                        }
+                    } else {
+                        $this->processRow($row);
+                    }
                     $i++;
                 }
                 fclose($handle);
@@ -182,19 +197,19 @@ class UpdateRorRegistryDataset extends ScheduledTask
     private function processRow(array $row): void
     {
         // ror < id
-        $ror = $row[$this->dataMapping['ror']];;
+        $ror = $row[$this->dataMappingIndex['ror']];;
 
         // display_locale : ror_display_lang
-        $displayLocale = (!empty($row[$this->dataMapping['displayLocale']]))
-            ? $row[$this->dataMapping['displayLocale']]
+        $displayLocale = (!empty($row[$this->dataMappingIndex['displayLocale']]))
+            ? $row[$this->dataMappingIndex['displayLocale']]
             : $this->noLocale;
 
         // is_active < status
-        $isActive = (strtolower($row[$this->dataMapping['isActive']]) === 'active') ? 1 : 0;
+        $isActive = (strtolower($row[$this->dataMappingIndex['isActive']]) === 'active') ? 1 : 0;
 
         // locale, name < names.types.label
         // [["name"]["en"] => "label1"],["name"]["it"] => "label2"]] < "en: label1; it: label2"
-        $namesIn = $row[$this->dataMapping['names']];
+        $namesIn = $row[$this->dataMappingIndex['names']];
         $namesOut = [];
         if (!empty($namesIn)) {
             $names = array_map('trim', explode(';', $namesIn));
@@ -206,8 +221,8 @@ class UpdateRorRegistryDataset extends ScheduledTask
             }
         }
 
-        if(empty($namesOut[$displayLocale])) {
-            $namesOut[$displayLocale] = $row[$this->dataMapping['displayName']];
+        if (empty($namesOut[$displayLocale])) {
+            $namesOut[$displayLocale] = $row[$this->dataMappingIndex['displayName']];
         }
 
         $params = [

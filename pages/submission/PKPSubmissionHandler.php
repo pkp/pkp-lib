@@ -283,7 +283,7 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setupTemplate($request);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/AuthorizationDecisionManager.php
  *
@@ -143,11 +144,19 @@ class AuthorizationDecisionManager
 
         // Call the "call on deny" advice
         if ($decision === AuthorizationPolicy::AUTHORIZATION_DENY && !is_null($callOnDeny)) {
-            assert(is_array($callOnDeny) && count($callOnDeny) == 3);
-            [$classOrObject, $method, $parameters] = $callOnDeny;
-            $methodCall = [$classOrObject, $method];
-            assert(is_callable($methodCall));
-            call_user_func_array($methodCall, $parameters);
+            if (is_array($callOnDeny)) {
+                [$classOrObject, $method, $parameters] = $callOnDeny;
+                $methodCall = [$classOrObject, $method];
+                if (!is_callable($methodCall)) {
+                    throw new \Exception('Call-on-deny advice is not a callable by array!');
+                }
+                call_user_func_array($methodCall, $parameters);
+            } else { // Callable directly specified (e.g. closure)
+                if (!is_callable($callOnDeny)) {
+                    throw new \Exception('Call-on-deny advice is not a callable!');
+                }
+                call_user_func($callOnDeny);
+            }
         }
 
         return $decision;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/PublicationRequiredPolicy.php
  *
@@ -40,10 +41,9 @@ class PublicationRequiredPolicy extends DataObjectRequiredPolicy
         parent::__construct($request, $args, $publicationParameterName, 'user.authorization.invalidPublication', $operations);
         $this->publicationParameterName = $publicationParameterName;
 
-        $callOnDeny = [$request->getDispatcher(), 'handle404', []];
         $this->setAdvice(
             AuthorizationPolicy::AUTHORIZATION_ADVICE_CALL_ON_DENY,
-            $callOnDeny
+            fn () => throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException()
         );
     }
 

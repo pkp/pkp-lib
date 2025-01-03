@@ -204,7 +204,7 @@ abstract class PKPRouter
 
                 // If the context couldn't be retrieved, it's a 404 error.
                 if (!$this->_context) {
-                    $this->getDispatcher()?->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
             }
         }
@@ -307,7 +307,7 @@ abstract class PKPRouter
         // actually being callable, e.g. a component has been named
         // that does not exist and that no plugin has registered.
         if (!is_callable($serviceEndpoint)) {
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         // Pass the dispatcher to the handler.

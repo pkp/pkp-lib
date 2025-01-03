@@ -14,6 +14,7 @@
 namespace PKP\invitation\invitations\userRoleAssignment\handlers;
 
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
@@ -21,7 +22,6 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\invitation\stepTypes\AcceptInvitationStep;
-use APP\facades\Repo;
 
 /**
  * @extends InvitationActionRedirectController<UserRoleAssignmentInvite>
@@ -35,8 +35,7 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
 
     /**
      * Redirect to accept invitation page
-     * @param Request $request
-     * @return void
+     *
      * @throws \Exception
      */
     public function acceptHandle(Request $request): void
@@ -49,9 +48,9 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
         $context = $request->getContext();
         $steps = new AcceptInvitationStep();
         $invitationModel = $this->getInvitation()->invitationModel->toArray();
-        $user = $invitationModel['userId'] ?Repo::user()->get($invitationModel['userId']) : null;
+        $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->getInvitation(),$context,$user),
+            'steps' => $steps->getSteps($this->getInvitation(), $context, $user),
             'primaryLocale' => $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,
@@ -66,14 +65,13 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
 
     /**
      * Redirect to login page after decline invitation
-     * @param Request $request
-     * @return void
+     *
      * @throws \Exception
      */
     public function declineHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
-            $request->getDispatcher()->handle404('The link is deactivated as the invitation was cancelled');
+            throw new \Symfony\Component\HttpKernel\Exception\GoneHttpException();
         }
 
         $this->getInvitation()->changeInvitationUserIdUsingUserEmail();

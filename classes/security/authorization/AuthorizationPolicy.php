@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/AuthorizationPolicy.php
  *
@@ -34,21 +35,19 @@ class AuthorizationPolicy
     public const AUTHORIZATION_ADVICE_CALL_ON_DENY = 2;
 
     /** @var array advice to be returned to the decision point */
-    public $_advice = [];
+    public array $_advice = [];
 
     /**
      * @var array a list of authorized context objects that should be
      *  returned to the caller
      */
-    public $_authorizedContext = [];
+    public array $_authorizedContext = [];
 
 
     /**
      * Constructor
-     *
-     * @param string $message
      */
-    public function __construct($message = null)
+    public function __construct(?string $message = null)
     {
         if (!is_null($message)) {
             $this->setAdvice(self::AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
@@ -60,10 +59,8 @@ class AuthorizationPolicy
     //
     /**
      * Set an advice
-     *
-     * @param int $adviceType
      */
-    public function setAdvice($adviceType, $adviceContent)
+    public function setAdvice(int $adviceType, mixed $adviceContent): void
     {
         $this->_advice[$adviceType] = $adviceContent;
     }
@@ -71,88 +68,57 @@ class AuthorizationPolicy
     /**
      * Whether this policy implements
      * the given advice type.
-     *
-     * @param int $adviceType
-     *
-     * @return bool
      */
-    public function hasAdvice($adviceType)
+    public function hasAdvice(int $adviceType): bool
     {
         return isset($this->_advice[$adviceType]);
     }
 
     /**
      * Get advice for the given advice type.
-     *
-     * @param int $adviceType
      */
-    public function &getAdvice($adviceType)
+    public function getAdvice(int $adviceType): mixed
     {
-        if ($this->hasAdvice($adviceType)) {
-            return $this->_advice[$adviceType];
-        } else {
-            $nullVar = null;
-            return $nullVar;
-        }
+        return $this->_advice[$adviceType] ?? null;
     }
 
     /**
      * Add an object to the authorized context
-     *
-     * @param int $assocType
      */
-    public function addAuthorizedContextObject($assocType, &$authorizedObject)
+    public function addAuthorizedContextObject(int $assocType, mixed $authorizedObject)
     {
-        $this->_authorizedContext[$assocType] = & $authorizedObject;
+        $this->_authorizedContext[$assocType] = $authorizedObject;
     }
 
     /**
      * Check whether an object already exists in the
      * authorized context.
-     *
-     * @param int $assocType
-     *
-     * @return bool
      */
-    public function hasAuthorizedContextObject($assocType)
+    public function hasAuthorizedContextObject(int $assocType): bool
     {
         return isset($this->_authorizedContext[$assocType]);
     }
 
     /**
      * Retrieve an object from the authorized context
-     *
-     * @param int $assocType
-     *
-     * @return mixed will return null if the context
-     *  for the given assoc type does not exist.
      */
-    public function &getAuthorizedContextObject($assocType)
+    public function getAuthorizedContextObject(int $assocType): mixed
     {
-        if ($this->hasAuthorizedContextObject($assocType)) {
-            return $this->_authorizedContext[$assocType];
-        } else {
-            $nullVar = null;
-            return $nullVar;
-        }
+        return $this->_authorizedContext[$assocType] ?? null;
     }
 
     /**
      * Set the authorized context
-     *
-     * @return array
      */
-    public function setAuthorizedContext(&$authorizedContext)
+    public function setAuthorizedContext(&$authorizedContext): void
     {
         $this->_authorizedContext = & $authorizedContext;
     }
 
     /**
      * Get the authorized context
-     *
-     * @return array
      */
-    public function &getAuthorizedContext()
+    public function &getAuthorizedContext(): array
     {
         return $this->_authorizedContext;
     }
@@ -162,10 +128,8 @@ class AuthorizationPolicy
     //
     /**
      * Whether this policy applies.
-     *
-     * @return bool
      */
-    public function applies()
+    public function applies(): bool
     {
         // Policies apply by default
         return true;
@@ -175,7 +139,7 @@ class AuthorizationPolicy
      * This method must return a value of either
      * AUTHORIZATION_DENY or AUTHORIZATION_PERMIT.
      */
-    public function effect()
+    public function effect(): int
     {
         // Deny by default.
         return self::AUTHORIZATION_DENY;

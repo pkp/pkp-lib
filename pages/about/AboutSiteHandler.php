@@ -70,8 +70,7 @@ class AboutSiteHandler extends Handler
             $privacyStatement = $request->getSite()->getLocalizedData('privacyStatement');
         }
         if (!$privacyStatement) {
-            $dispatcher = $this->getDispatcher();
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $templateMgr->assign('privacyStatement', $privacyStatement);
 

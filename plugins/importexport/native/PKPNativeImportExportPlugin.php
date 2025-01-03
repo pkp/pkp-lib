@@ -227,8 +227,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 $downloadSuccess = $this->downloadExportedFile($exportedFileContentNamePart, $exportedFileDatePart, $this->getDeployment());
 
                 if (!$downloadSuccess) {
-                    $dispatcher = $request->getDispatcher();
-                    $dispatcher->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
 
                 $this->isResultManaged = true;

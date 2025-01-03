@@ -32,7 +32,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
     public function acceptHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $context = $request->getContext();
@@ -64,7 +64,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
     public function declineHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $context = $request->getContext();

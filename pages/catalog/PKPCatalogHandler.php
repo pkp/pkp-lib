@@ -68,7 +68,7 @@ class PKPCatalogHandler extends Handler
             ->first();
 
         if (!$category) {
-            $this->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setupTemplate($request);
@@ -128,7 +128,7 @@ class PKPCatalogHandler extends Handler
                 $context = $request->getContext();
                 $category = Repo::category()->get((int) $request->getUserVar('id'));
                 if (!$category || $category->getContextId() != $context->getId()) {
-                    $this->getDispatcher()->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
                 $imageInfo = $category->getImage();
                 $contextFileManager = new ContextFileManager($context->getId());
@@ -152,7 +152,7 @@ class PKPCatalogHandler extends Handler
                 $context = $request->getContext();
                 $category = Repo::category()->get((int) $request->getUserVar('id'));
                 if (!$category || $category->getContextId() != $context->getId()) {
-                    $this->getDispatcher()->handle404();
+                    throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
                 $imageInfo = $category->getImage();
                 $contextFileManager = new ContextFileManager($context->getId());

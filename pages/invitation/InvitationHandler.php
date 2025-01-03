@@ -66,7 +66,7 @@ class InvitationHandler extends Handler
             ->getByIdAndKey($id, $key);
 
         if (is_null($invitation)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         return $invitation;
     }
@@ -80,7 +80,7 @@ class InvitationHandler extends Handler
             ->getById($id);
 
         if (is_null($invitation)) {
-            $request->getDispatcher()->handle404('The link is deactivated as the invitation was cancelled');
+            throw new \Symfony\Component\HttpKernel\Exception\GoneHttpException();
         }
         return $invitation;
     }

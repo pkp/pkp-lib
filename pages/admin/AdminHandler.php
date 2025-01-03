@@ -294,14 +294,14 @@ class AdminHandler extends Handler
         $dispatcher = $request->getDispatcher();
 
         if (!isset($args[0]) || !ctype_digit((string) $args[0])) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $contextService = app()->get('context');
         $context = $contextService->get((int) $args[0]);
 
         if (empty($context)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $apiUrl = $dispatcher->url($request, Application::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
@@ -658,7 +658,7 @@ class AdminHandler extends Handler
         $failedJob = Repo::failedJob()->get((int) $args[0]);
 
         if (!$failedJob) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $rows = collect(array_merge(HttpFailedJobResource::toResourceArray($failedJob), [

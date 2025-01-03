@@ -207,8 +207,7 @@ class PKPPageRouter extends PKPRouter
             } elseif (empty($page)) {
                 $handler = require(self::ROUTER_DEFAULT_PAGE);
             } else {
-                $dispatcher = $this->getDispatcher();
-                $dispatcher->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
         }
 
@@ -234,8 +233,7 @@ class PKPPageRouter extends PKPRouter
         // Redirect to 404 if the operation doesn't exist
         // for the handler.
         if (!is_object($handler) || !in_array($op, get_class_methods($handler))) {
-            $dispatcher = $this->getDispatcher();
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setHandler($handler);

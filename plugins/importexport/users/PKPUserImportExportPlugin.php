@@ -190,8 +190,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
                 $fileManager->deleteByPath($exportFileName);
                 break;
             default:
-                $dispatcher = $request->getDispatcher();
-                $dispatcher->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 

@@ -24,9 +24,9 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\core\Dispatcher;
+use PKP\core\PKPSessionGuard;
 use PKP\core\Registry;
 use PKP\db\DBResultRange;
-use PKP\core\PKPSessionGuard;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -142,12 +142,7 @@ class PKPHandler
      */
     public function index($args, $request)
     {
-        $dispatcher = $this->getDispatcher();
-        if (isset($dispatcher)) {
-            $dispatcher->handle404();
-        } else {
-            Dispatcher::handle404();
-        } // For old-style handlers
+        throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
     }
 
     /**
@@ -667,7 +662,7 @@ class PKPHandler
 
             // If the specified context does not exist, respond with a 404.
             if (!$context) {
-                $request->getDispatcher()->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
             }
         }
         if ($context instanceof \PKP\context\Context) {

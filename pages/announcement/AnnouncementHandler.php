@@ -39,7 +39,7 @@ class AnnouncementHandler extends Handler
     public function index($args, $request)
     {
         if (!$this->isAnnouncementsEnabled($request)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $this->setupTemplate($request);
@@ -67,7 +67,7 @@ class AnnouncementHandler extends Handler
     public function view($args, $request)
     {
         if (!$this->isAnnouncementsEnabled($request)) {
-            $request->getDispatcher()->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $this->validate();
         $this->setupTemplate($request);

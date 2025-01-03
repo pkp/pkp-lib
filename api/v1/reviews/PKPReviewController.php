@@ -19,6 +19,7 @@ namespace PKP\API\v1\reviews;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\orcid\actions\SendReviewToOrcid;
 use APP\template\TemplateManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -114,6 +115,17 @@ class PKPReviewController extends PKPBaseController
                 ->name('review.export.getFile')
                 ->whereNumber(['submissionId', 'fileId']);
         });
+
+        Route::post('{submissionId}/{reviewAssignmentId}/sendToOrcid', $this->sendToOrcid(...))
+            ->name('review.sendToOrcid')
+            ->whereNumber(['submissionId', 'reviewAssignmentId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ]);
     }
 
     /**
@@ -722,6 +734,35 @@ class PKPReviewController extends PKPBaseController
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
         }
+        return response()->json([], Response::HTTP_OK);
+    }
+
+    /**
+     * Deposits a review work to ORCID
+     */
+    public function sendToOrcid(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $reviewId = $illuminateRequest->route('reviewAssignmentId');
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if ($submission->getData('contextId') !== $context->getId()) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId, $submission->getId());
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        (new SendReviewToOrcid($reviewAssignment->getId()))->execute();
+
         return response()->json([], Response::HTTP_OK);
     }
 }

@@ -34,6 +34,7 @@ class RorsMigration extends Migration
             $table->smallInteger('is_active')->nullable(false)->default(0);
 
             $table->unique(['ror'], 'rors_unique');
+            $table->fullText(['ror'], 'rors_ror_fulltext');
             $table->index(['display_locale'], 'rors_display_locale');
             $table->index(['is_active'], 'rors_is_active');
         });
@@ -49,6 +50,7 @@ class RorsMigration extends Migration
             $table->foreign('ror_id')
                 ->references('ror_id')->on('rors')->cascadeOnDelete();
             $table->unique(['ror_id', 'locale', 'setting_name'], 'ror_settings_unique');
+            $table->fullText(['setting_value'], 'ror_settings_setting_value_fulltext');
         });
 
         // update the tables with latest data set dump from Ror.org

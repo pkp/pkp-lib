@@ -190,7 +190,7 @@ class DAO extends EntityDAO
 
         unset($rorName[$ror->getNoLangCode()]);
 
-        if($rorName){
+        if ($rorName) {
             if (empty($rorName[$requiredLocale])) {
                 $rorName[$requiredLocale] = $rorName->getName($ror->getDisplayLocale());
             }
@@ -204,7 +204,10 @@ class DAO extends EntityDAO
      */
     public function updateOrInsert(Ror $ror): void
     {
-        if ($this->existsByRor($ror->getData('ror'))) {
+        $rorDB = $this->getByRor($ror->getRor());
+
+        if ($rorDB && $rorDB->getId()) {
+            $ror->setId($rorDB->getId());
             $this->update($ror);
         } else {
             $this->insert($ror);

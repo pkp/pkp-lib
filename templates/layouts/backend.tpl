@@ -36,6 +36,7 @@
 		{rdelim});
 	</script>
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
+		<pkp-spinner-full-screen></pkp-spinner-full-screen>
 		<vue-announcer class="sr-only"></vue-announcer>
 		<pkp-announcer class="sr-only"></pkp-announcer>
 		<modal-manager></modal-manager>
@@ -161,7 +162,6 @@
 				<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
 				</pkp-side-nav>
 			{/block}
-
 			<main class="app__main">
 				<div class="app__page width{if $pageWidth} width--{$pageWidth}{/if}">
 					{block name="breadcrumbs"}

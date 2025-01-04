@@ -2346,3 +2346,6 @@ msgstr "{$from} &ndash; {$until}"
 
 msgid "common.numero"
 msgstr "No"
+
+msgid "common.refreshingData"
+msgstr "Refreshing data"

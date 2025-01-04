@@ -29,6 +29,7 @@ use stdClass;
 class SettingsBuilder extends Builder
 {
     use EntityUpdate;
+
     /**
      * Get the hydrated models without eager loading.
      *
@@ -39,6 +40,7 @@ class SettingsBuilder extends Builder
     public function getModels($columns = ['*'])
     {
         $rows = $this->getModelWithSettings($columns);
+        
         $returner = $this->model->hydrate(
             $rows->all()
         )->all();
@@ -74,9 +76,27 @@ class SettingsBuilder extends Builder
 
         $schema = null;
         if (!$this->getSchemaName()) {
-            $casts = $this->model->getCasts();
+
+            // Casts are always defined in snake key based column name to cast type
+            // Need to convert the snake key based column names to camel case
+            $casts = collect($this->model->getCasts())->mapWithKeys(
+                fn(string $cast, string $columnName): array => [
+                    Str::camel($columnName) => $cast
+                ]
+            )->toArray();
+
             foreach ($this->model->getSettings() as $settingName) {
-                $schema['properties'][$settingName]['multilingual'] = in_array($settingName, $this->model->getMultilingualProps());
+                
+                // If this settings column is not intened to update,
+                // no need to set any type for it
+                if (!$settingValues->has($settingName)) {
+                    continue;
+                }
+
+                $schema['properties'][$settingName]['multilingual'] = in_array(
+                    $settingName,
+                    $this->model->getMultilingualProps()
+                );
 
                 if (array_key_exists($settingName, $casts)) {
                     $type = $casts[$settingName];
@@ -87,11 +107,16 @@ class SettingsBuilder extends Builder
                         E_USER_WARNING
                     );
                 }
+
                 $schema['properties'][$settingName]['type'] = $type;
             }
         }
 
-        $this->updateSettings($settingValues->toArray(), $this->model->getKey(), !is_null($schema) ? json_decode(json_encode($schema)) : null);
+        $this->updateSettings(
+            $settingValues->toArray(),
+            $this->model->getKey(),
+            !is_null($schema) ? json_decode(json_encode($schema)) : null
+        );
 
         return $count ?? 0;
     }
@@ -238,11 +263,17 @@ class SettingsBuilder extends Builder
         return $this;
     }
 
+    /**
+     * @see \PKP\core\traits\EntityUpdate::getSettingsTable()
+     */
     public function getSettingsTable(): ?string
     {
         return $this->model->getSettingsTable();
     }
 
+    /**
+     * @see \PKP\core\traits\EntityUpdate::getPrimaryKeyName()
+     */
     public function getPrimaryKeyName(): string
     {
         return $this->model->getKeyName();
@@ -256,6 +287,9 @@ class SettingsBuilder extends Builder
         return in_array($settingName, $this->model->getSettings());
     }
 
+    /**
+     * @see \PKP\core\traits\EntityUpdate::getSchemaName()
+     */
     public function getSchemaName(): ?string
     {
         return $this->model->getSchemaName();
@@ -284,7 +318,9 @@ class SettingsBuilder extends Builder
 
             // Retract the row and fill it with data from a settings table
             $exactRow = $rows->pull($settingModelId);
-            if ($setting->locale) {
+
+            // Even for empty('') locale, the multilingual props need to be an array
+            if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
                 $exactRow->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
             } else {
                 $exactRow->{$setting->setting_name} = $setting->setting_value;
@@ -308,8 +344,19 @@ class SettingsBuilder extends Builder
         }
 
         $columns = Arr::wrap($columns);
-        foreach ($row as $property) {
-            if (!in_array($property, $columns)) {
+
+        // TODO : Investigate how to handle the camel to snake case issue. related to pkp/pkp-lib#10485
+        $settingColumns = $this->model->getSettings();
+        $columns = collect($columns)
+            ->map(
+                fn (string $column): string => in_array($column, $settingColumns)
+                    ? $column
+                    : Str::snake($column)
+            )
+            ->toArray();
+
+        foreach ($row as $property => $value) {
+            if (!in_array($property, $columns) && isset($row->{$property})) {
                 unset($row->{$property});
             }
         }
@@ -331,20 +378,28 @@ class SettingsBuilder extends Builder
     protected function getSettingRows(mixed $settingValues, int $id): array
     {
         $rows = [];
+
         $settingValues->each(function (mixed $settingValue, string $settingName) use ($id, &$rows) {
             $settingName = Str::camel($settingName);
             if ($this->isMultilingual($settingName)) {
                 foreach ($settingValue as $locale => $localizedValue) {
                     $rows[] = [
-                        $this->getPrimaryKeyName() => $id, 'locale' => $locale, 'setting_name' => $settingName, 'setting_value' => $localizedValue
+                        $this->getPrimaryKeyName() => $id,
+                        'locale' => $locale,
+                        'setting_name' => $settingName,
+                        'setting_value' => $localizedValue,
                     ];
                 }
             } else {
                 $rows[] = [
-                    $this->getPrimaryKeyName() => $id, 'locale' => '', 'setting_name' => $settingName, 'setting_value' => $settingValue
+                    $this->getPrimaryKeyName() => $id,
+                    'locale' => '',
+                    'setting_name' => $settingName,
+                    'setting_value' => $settingValue,
                 ];
             }
         });
+
         return $rows;
     }
 }

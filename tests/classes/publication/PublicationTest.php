@@ -21,10 +21,6 @@ use APP\publication\DAO;
 use APP\publication\Publication;
 use PKP\citation\CitationDAO;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionAgencyDAO;
-use PKP\submission\SubmissionDisciplineDAO;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -40,10 +36,6 @@ class PublicationTest extends PKPTestCase
     {
         parent::setUp();
         $this->publication = (new DAO(
-            new SubmissionKeywordDAO(),
-            new SubmissionSubjectDAO(),
-            new SubmissionDisciplineDAO(),
-            new SubmissionAgencyDAO(),
             new CitationDAO(),
             new PKPSchemaService()
         ))->newDataObject();

@@ -27,6 +27,7 @@ namespace PKP\facades;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
+use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\highlight\Repository as HighlightRepository;
@@ -43,6 +44,7 @@ use PKP\query\Repository as QueryRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\user\interest\Repository as UserInterestRepository;
 
 class Repo
 {
@@ -139,5 +141,15 @@ class Repo
     public static function query(): QueryRepository
     {
         return app(QueryRepository::class);
+    }
+    
+    public static function controlledVocab(): ControlledVocabRepository
+    {
+        return app(ControlledVocabRepository::class);
+    }
+
+    public static function userInterest(): UserInterestRepository
+    {
+        return app(UserInterestRepository::class);
     }
 }

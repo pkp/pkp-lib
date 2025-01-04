@@ -31,7 +31,6 @@ use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
 use PKP\notification\Notification;
 use PKP\security\Validation;
-use PKP\user\InterestManager;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -154,7 +153,6 @@ class UserDetailsForm extends UserForm
         if (isset($this->user)) {
             $user = $this->user;
             $templateMgr->assign('user', $user);
-            $interestManager = new InterestManager();
 
             $data = [
                 'username' => $user->getUsername(),
@@ -169,7 +167,7 @@ class UserDetailsForm extends UserForm
                 'mailingAddress' => $user->getMailingAddress(),
                 'country' => $user->getCountry(),
                 'biography' => $user->getBiography(null), // Localized
-                'interests' => $interestManager->getInterestsForUser($user),
+                'interests' => Repo::userInterest()->getInterestsForUser($user),
                 'locales' => $user->getLocales(),
             ];
             $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
@@ -392,8 +390,7 @@ class UserDetailsForm extends UserForm
             }
         }
 
-        $interestManager = new InterestManager();
-        $interestManager->setInterestsForUser($this->user, $this->getData('interests'));
+        Repo::userInterest()->setInterestsForUser($this->user, $this->getData('interests'));
 
         return $this->user;
     }

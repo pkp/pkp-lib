@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/NoteAccessPolicy.php
  *
@@ -58,7 +59,7 @@ class NoteAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if (!$this->_noteId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

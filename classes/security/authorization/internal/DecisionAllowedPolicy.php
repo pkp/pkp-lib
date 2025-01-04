@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/DecisionAllowedPolicy.php
  *
@@ -41,7 +42,7 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if (!$this->user) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

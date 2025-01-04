@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PKPSiteAccessPolicy.php
  *
@@ -54,7 +55,7 @@ class PKPSiteAccessPolicy extends PolicySet
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Retrieve the user from the session.
         $request = Application::get()->getRequest();

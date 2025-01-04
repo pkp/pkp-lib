@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/PublicationCanBeEditedPolicy.php
  *
@@ -39,7 +40,7 @@ class PublicationCanBeEditedPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
 

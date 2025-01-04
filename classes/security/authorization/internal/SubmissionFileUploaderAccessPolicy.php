@@ -27,7 +27,7 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 

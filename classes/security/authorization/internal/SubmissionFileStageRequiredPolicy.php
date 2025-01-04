@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileStageRequiredPolicy.php
  *
@@ -53,7 +54,7 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 

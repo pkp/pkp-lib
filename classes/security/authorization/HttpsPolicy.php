@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/HttpsPolicy.php
  *
@@ -43,15 +44,15 @@ class HttpsPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::applies()
      */
-    public function applies()
+    public function applies(): bool
     {
-        return (bool)Config::getVar('security', 'force_ssl');
+        return (bool) Config::getVar('security', 'force_ssl');
     }
 
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Check the request protocol
         if ($this->_request->getProtocol() == 'https') {

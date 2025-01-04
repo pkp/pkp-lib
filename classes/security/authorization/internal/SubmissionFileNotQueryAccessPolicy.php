@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileNotQueryAccessPolicy.php
  *
@@ -18,7 +19,6 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -27,7 +27,7 @@ class SubmissionFileNotQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 

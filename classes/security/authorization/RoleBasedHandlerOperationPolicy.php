@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/RoleBasedHandlerOperationPolicy.php
  *
@@ -64,7 +65,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Check whether the user has one of the allowed roles
         // assigned. If that's the case we'll permit access.

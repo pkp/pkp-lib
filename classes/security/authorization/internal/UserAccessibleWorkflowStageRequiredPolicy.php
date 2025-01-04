@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/UserAccessibleWorkflowStageRequiredPolicy.php
  *
@@ -50,7 +51,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->_request;
         $context = $request->getContext();

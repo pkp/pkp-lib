@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/QueryUserAccessibleWorkflowStageRequiredPolicy.php
  *
@@ -29,7 +30,7 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $result = parent::effect();
         if ($result === AuthorizationPolicy::AUTHORIZATION_PERMIT) {

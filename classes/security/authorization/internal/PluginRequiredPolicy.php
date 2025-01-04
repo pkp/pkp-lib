@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/PluginRequiredPolicy.php
  *
@@ -45,7 +46,7 @@ class PluginRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the plugin request data.
         $category = $this->_request->getUserVar('category');

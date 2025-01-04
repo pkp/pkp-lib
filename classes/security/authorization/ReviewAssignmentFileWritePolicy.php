@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/ReviewAssignmentFileWritePolicy.php
  *
@@ -51,7 +52,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if (!$this->_reviewAssignmentId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

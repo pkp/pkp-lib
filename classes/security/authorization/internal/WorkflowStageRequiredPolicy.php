@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/WorkflowStageRequiredPolicy.php
  *
@@ -41,7 +42,7 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Check the stage id.
         $validAppStages = Application::getApplicationStages();

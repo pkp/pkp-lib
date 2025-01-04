@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/QueryAssignedToUserAccessPolicy.php
  *
@@ -46,7 +47,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // A query should already be in the context.
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);

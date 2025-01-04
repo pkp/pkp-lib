@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/DoisEnabledPolicy.php
  *
@@ -28,7 +29,7 @@ class DoisEnabledPolicy extends AuthorizationPolicy
         $this->context = $context;
     }
 
-    public function effect()
+    public function effect(): int
     {
         $doisEnabled = $this->context->getData(Context::SETTING_ENABLE_DOIS);
         $anyDoiTypesEnabled = !empty($this->context->getData(Context::SETTING_ENABLED_DOI_TYPES));

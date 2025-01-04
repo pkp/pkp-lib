@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/UserRolesRequiredPolicy.php
  *
@@ -43,7 +44,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->_request;
         $user = $request->getUser();

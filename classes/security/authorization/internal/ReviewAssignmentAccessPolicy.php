@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/ReviewAssignmentAccessPolicy.php
  *
@@ -52,7 +53,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the user
         $user = $this->_request->getUser();

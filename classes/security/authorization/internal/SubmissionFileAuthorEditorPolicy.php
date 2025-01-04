@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileAuthorEditorPolicy.php
  *
@@ -29,7 +30,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
     /**
      * @copydoc AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 

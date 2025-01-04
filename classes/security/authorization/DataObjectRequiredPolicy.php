@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/DataObjectRequiredPolicy.php
  *
@@ -80,7 +81,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Check if the object is required for the requested Op. (No operations means check for all.)
         if (is_array($this->_operations) && !in_array($this->_request->getRequestedOp(), $this->_operations)) {

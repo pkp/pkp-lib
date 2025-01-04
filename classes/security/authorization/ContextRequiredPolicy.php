@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/ContextRequiredPolicy.php
  *
@@ -38,7 +39,7 @@ class ContextRequiredPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $router = $this->_request->getRouter();
         if (is_object($router->getContext($this->_request))) {

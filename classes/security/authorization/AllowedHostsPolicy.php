@@ -44,7 +44,7 @@ class AllowedHostsPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::applies()
      */
-    public function applies()
+    public function applies(): bool
     {
         return Config::getVar('general', 'allowed_hosts') != '';
     }
@@ -52,7 +52,7 @@ class AllowedHostsPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // The list of server hosts, when specified, is a JSON array. Decode it
         // and make it lowercase.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionFileAssignedQueryAccessPolicy.php
  *
@@ -33,7 +34,7 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $request = $this->getRequest();
 

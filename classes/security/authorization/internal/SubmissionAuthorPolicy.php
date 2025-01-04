@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/SubmissionAuthorPolicy.php
  *
@@ -49,7 +50,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Get the user
         $user = $this->_request->getUser();

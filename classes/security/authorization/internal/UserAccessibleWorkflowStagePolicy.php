@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/UserAccessibleWorkflowStagePolicy.php
  *
@@ -51,7 +52,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         $userAccessibleStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 

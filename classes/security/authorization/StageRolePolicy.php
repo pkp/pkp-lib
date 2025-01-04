@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/StageRolePolicy.php
  *
@@ -18,7 +19,6 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
@@ -58,7 +58,7 @@ class StageRolePolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // Use the submission's current stage id if none is specified in policy
         if (!$this->_stageId) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/AnonymousUserPolicy.php
  *
@@ -39,7 +40,7 @@ class AnonymousUserPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if ($this->_request->getUser()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

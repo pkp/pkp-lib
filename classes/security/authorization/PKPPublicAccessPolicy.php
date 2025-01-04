@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PKPPublicAccessPolicy.php
  *
@@ -40,7 +41,7 @@ class PKPPublicAccessPolicy extends HandlerOperationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         if ($this->_checkOperationWhitelist()) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;

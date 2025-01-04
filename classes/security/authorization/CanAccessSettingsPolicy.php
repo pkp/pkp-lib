@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/CanAccessSettingsPolicy.php
  *
@@ -24,7 +25,7 @@ class CanAccessSettingsPolicy extends AuthorizationPolicy
     /**
      * @see AuthorizationPolicy::effect()
      */
-    public function effect()
+    public function effect(): int
     {
         // At least one user group must be an admin, or a manager with setup access.
         $userGroups = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP);

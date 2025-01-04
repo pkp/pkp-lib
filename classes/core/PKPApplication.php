@@ -42,37 +42,51 @@ interface iPKPApplicationInfoProvider
 {
     /**
      * Get the top-level context DAO.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getContextDAO(): \PKP\context\ContextDAO;
 
     /**
      * Get the representation DAO.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getRepresentationDAO(): RepresentationDAOInterface;
 
     /**
      * Get a SubmissionSearchIndex instance.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getSubmissionSearchIndex(): \PKP\search\SubmissionSearchIndex;
 
     /**
      * Get a SubmissionSearchDAO instance.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getSubmissionSearchDAO(): \PKP\search\SubmissionSearchDAO;
 
     /**
      * Get the stages used by the application.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getApplicationStages(): array;
 
     /**
      * Get the file directory array map used by the application.
      * should return array('context' => ..., 'submission' => ...)
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getFileDirectories(): array;
 
     /**
      * Returns the context type for this application.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getContextAssocType(): int;
 }
@@ -155,7 +169,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         Hook::addUnsupportedHooks('Mail::send', 'EditorAction::modifyDecisionOptions', 'EditorAction::recordDecision', 'Announcement::getProperties', 'Author::getProperties::values', 'EmailTemplate::getProperties', 'Galley::getProperties::values', 'Issue::getProperties::fullProperties', 'Issue::getProperties::summaryProperties', 'Issue::getProperties::values', 'Publication::getProperties', 'Section::getProperties::fullProperties', 'Section::getProperties::summaryProperties', 'Section::getProperties::values', 'Submission::getProperties::values', 'SubmissionFile::getProperties', 'User::getProperties::fullProperties', 'User::getProperties::reviewerSummaryProperties', 'User::getProperties::summaryProperties', 'User::getProperties::values', 'Announcement::getMany::queryBuilder', 'Announcement::getMany::queryObject', 'Author::getMany::queryBuilder', 'Author::getMany::queryObject', 'EmailTemplate::getMany::queryBuilder', 'EmailTemplate::getMany::queryObject::custom', 'EmailTemplate::getMany::queryObject::default', 'Galley::getMany::queryBuilder', 'Issue::getMany::queryBuilder', 'Publication::getMany::queryBuilder', 'Publication::getMany::queryObject', 'Stats::getOrderedObjects::queryBuilder', 'Stats::getRecords::queryBuilder', 'Stats::queryBuilder', 'Stats::queryObject', 'Submission::getMany::queryBuilder', 'Submission::getMany::queryObject', 'SubmissionFile::getMany::queryBuilder', 'SubmissionFile::getMany::queryObject', 'User::getMany::queryBuilder', 'User::getMany::queryObject', 'User::getReviewers::queryBuilder', 'CategoryDAO::_fromRow', 'IssueDAO::_fromRow', 'IssueDAO::_returnIssueFromRow', 'SectionDAO::_fromRow', 'UserDAO::_returnUserFromRow', 'UserDAO::_returnUserFromRowWithData', 'UserDAO::_returnUserFromRowWithReviewerStats', 'UserGroupDAO::_returnFromRow', 'ReviewerSubmissionDAO::_fromRow', 'API::stats::publication::abstract::params', 'API::stats::publication::galley::params', 'API::stats::publications::abstract::params', 'API::stats::publications::galley::params', 'PKPLocale::installLocale', 'PKPLocale::registerLocaleFile', 'PKPLocale::registerLocaleFile::isValidLocaleFile', 'PKPLocale::translate', 'API::submissions::files::params', 'ArticleGalleyDAO::getLocalizedGalleysByArticle', 'PluginGridHandler::plugin', 'PluginGridHandler::plugin', 'SubmissionFile::assignedFileStages', 'SubmissionHandler::saveSubmit'); // From the 3.4.0 Release Notebook; remove for 3.6.0 development branch
         Hook::addUnsupportedHooks('AcronPlugin::parseCronTab'); // pkp/pkp-lib#9678 Unavailable since stable-3_5_0;
         Hook::addUnsupportedHooks('Announcement::delete::before', 'Announcement::delete', 'Announcement::Collector'); // pkp/pkp-lib#10328 Unavailable since stable-3_5_0, use Eloquent Model events instead
-        Hook::addUnsupportedHooks('UserGroup::delete::before','UserGroup::delete'); // unavailable since stable-3_6_0, use Eloquent Model events instead
+        Hook::addUnsupportedHooks('UserGroup::delete::before', 'UserGroup::delete'); // unavailable since stable-3_6_0, use Eloquent Model events instead
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {
             foreach ([
@@ -325,7 +339,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 return $client;
             }
         }
-        
+
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {
@@ -389,12 +403,32 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * This executes the application by delegating the
      * request to the dispatcher.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public function execute(): void
     {
-        // Dispatch the request to the correct handler
-        $dispatcher = $this->getDispatcher();
-        $dispatcher->dispatch($this->getRequest());
+        try {
+            // Give the Dispatcher::dispatch::catch hook a chance to handle errors first
+            try {
+                // Dispatch the request to the correct handler
+                $dispatcher = $this->getDispatcher();
+                $dispatcher->dispatch($this->getRequest());
+            } catch (\Throwable $t) {
+                if (Hook::run('PKPApplication::execute::catch', ['throwable' => $t]) !== Hook::ABORT) {
+                    // No hook handler took ownership; throw again
+                    throw $t;
+                }
+            }
+        } catch (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+            header('HTTP/1.0 404 Not Found');
+            echo "<h1>404 Not Found</h1>\n";
+            exit;
+        } catch (\Symfony\Component\HttpKernel\Exception\GoneHttpException) {
+            header('HTTP/1.0 410 Gone');
+            echo "<h1>404 Not Found</h1>\n";
+            exit;
+        }
     }
 
     /**

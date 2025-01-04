@@ -55,7 +55,7 @@ class Dispatcher
      *
      * @return array an array of Router names
      */
-    public function &getRouterNames(): array
+    public function getRouterNames(): array
     {
         return $this->_routerNames;
     }
@@ -96,7 +96,6 @@ class Dispatcher
     {
         // Make sure that we have at least one router configured
         $routerNames = $this->getRouterNames();
-        assert(count($routerNames) > 0);
 
         // Go through all configured routers by priority
         // and find out whether one supports the incoming request

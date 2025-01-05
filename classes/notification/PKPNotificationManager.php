@@ -59,7 +59,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type!');
                 }
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', [$notification->assocId]);
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'dashboard', 'editorial', null, ['workflowSubmissionId' => $notification->assocId]);
             case Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT:
                 if ($notification->assocType != Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                     throw new \Exception('Unexpected assoc type!');

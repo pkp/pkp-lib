@@ -162,9 +162,10 @@ class DecisionHandler extends Handler
                 $request,
                 Application::ROUTE_PAGE,
                 $context->getData('urlPath'),
-                'workflow',
-                'access',
-                [$this->submission->getId()]
+                'dashboard',
+                'editorial',
+                null,
+                ['workflowSubmissionId' => $this->submission->getId()]
             ),
             'submissionApiUrl' => $dispatcher->url(
                 $request,
@@ -237,9 +238,10 @@ class DecisionHandler extends Handler
                     $request,
                     Application::ROUTE_PAGE,
                     $context->getData('urlPath'),
-                    'workflow',
-                    'access',
-                    [$submission->getId()]
+                    'dashboard',
+                    'editorial',
+                    null,
+                    ['workflowSubmissionId' => $submission->getId()]
                 ),
             ],
             [

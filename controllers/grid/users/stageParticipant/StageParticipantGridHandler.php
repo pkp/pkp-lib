@@ -147,9 +147,10 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 $request,
                 PKPApplication::ROUTE_PAGE,
                 null,
-                'workflow',
-                'access',
-                [$submissionId]
+                'dashboard',
+                'editorial',
+                null,
+                ['workflowSubmissionId' => $submissionId]
             );
             $this->addAction(
                 new LinkAction(

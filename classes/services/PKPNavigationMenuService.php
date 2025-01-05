@@ -300,14 +300,11 @@ class PKPNavigationMenuService
                     break;
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID)) {
-                        $navigationMenuItem->setUrl($dispatcher->url(
-                            $request,
-                            PKPApplication::ROUTE_PAGE,
-                            null,
-                            'submissions',
-                            null,
-                            null
-                        ));
+                        $pkpPageRouter = $request->getRouter();  /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
+                        $pkpPageRouter->getHomeUrl($request);
+
+                        
+                        $navigationMenuItem->setUrl($pkpPageRouter->getHomeUrl($request));
                     } else {
                         $navigationMenuItem->setUrl($dispatcher->url(
                             $request,

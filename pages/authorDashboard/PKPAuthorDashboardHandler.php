@@ -29,6 +29,7 @@ use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -91,6 +92,13 @@ abstract class PKPAuthorDashboardHandler extends Handler
      */
     public function submission($args, $request)
     {
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
+            $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+            $router = $request->getRouter();
+            return $request->redirectUrl($router->url($request, null, 'dashboard', 'mySubmissions', null, ['workflowSubmissionId' => $submission->getId()]));
+        }
+
+
         // Pass the authorized submission on to the template.
         $this->setupTemplate($request);
 

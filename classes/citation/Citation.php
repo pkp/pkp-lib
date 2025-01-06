@@ -71,12 +71,10 @@ class Citation extends \PKP\core\DataObject
 
     /**
      * Set the rawCitation
-     *
-     * @param string $rawCitation
      */
-    public function setRawCitation($rawCitation)
+    public function setRawCitation(?string $rawCitation)
     {
-        $rawCitation = $this->_cleanCitationString($rawCitation);
+        $rawCitation = $this->_cleanCitationString($rawCitation ?? '');
         $this->setData('rawCitation', $rawCitation);
     }
 
@@ -105,12 +103,8 @@ class Citation extends \PKP\core\DataObject
     //
     /**
      * Take a citation string and clean/normalize it
-     *
-     * @param string $citationString
-     *
-     * @return string
      */
-    public function _cleanCitationString($citationString)
+    public function _cleanCitationString(string $citationString) : string
     {
         // 1) Strip slashes and whitespace
         $citationString = trim(stripslashes($citationString));

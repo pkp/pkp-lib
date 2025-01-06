@@ -220,7 +220,7 @@ class Repository
     {
         return UserUserGroup::query()
             ->withUserId($userId)
-            ->withUserGroupIds($userGroupId)
+            ->withUserGroupIds([$userGroupId])
             ->withActive()
             ->exists();
     }

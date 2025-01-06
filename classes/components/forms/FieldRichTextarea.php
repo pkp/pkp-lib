@@ -24,7 +24,7 @@ class FieldRichTextarea extends Field
     public $init;
 
     /** @var array Optional. A list of required plugins. */
-    public $plugins = 'paste,link,noneditable';
+    public $plugins = ['link'];
 
     /** @var string Optional. A preset size option. */
     public $size;

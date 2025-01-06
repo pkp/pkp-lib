@@ -692,7 +692,7 @@
 		if (typeof tinyMCE !== 'undefined') {
 			var $element = this.getHtmlElement(),
 					elementId = $element.attr('id'),
-					settings = tinyMCE.EditorManager.settings;
+					settings = $.pkp.controllers.SiteHandler.prototype.tinymceParams_;
 
 			settings.defaultToolbar = settings.toolbar;
 
@@ -701,7 +701,7 @@
 						icon = $('<div></div>'),
 						iconParent = $('<div></div>'),
 						classes, i, editor,
-						settings = tinyMCE.EditorManager.settings;
+						settings = $.pkp.controllers.SiteHandler.prototype.tinymceParams_;
 
 				// Set the extended toolbar, if requested
 				if ($(this).hasClass('extendedRichContent')) {

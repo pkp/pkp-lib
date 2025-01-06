@@ -32,7 +32,7 @@ class FieldRichText extends Field
     public $toolbar = 'formatgroup';
 
     /** @var array Optional. A list of required plugins. */
-    public $plugins = 'paste';
+    public $plugins = [];
 
     /** @var string Optional. A list of comma separated elements. */
     public $invalidElements;

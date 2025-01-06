@@ -49,7 +49,7 @@ class PKPInformationForm extends FormComponent
                 'groupId' => 'descriptions',
                 'value' => $context->getData('readerInformation'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
             ]))
             ->addField(new FieldRichTextarea('authorInformation', [
@@ -58,7 +58,7 @@ class PKPInformationForm extends FormComponent
                 'groupId' => 'descriptions',
                 'value' => $context->getData('authorInformation'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
             ]))
             ->addField(new FieldRichTextarea('librarianInformation', [
@@ -67,7 +67,7 @@ class PKPInformationForm extends FormComponent
                 'groupId' => 'descriptions',
                 'value' => $context->getData('librarianInformation'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,lists,image,code',
+                'plugins' => ['link','lists','image','code'],
                 'uploadUrl' => $imageUploadUrl,
             ]));
     }

@@ -42,14 +42,14 @@ class PKPReviewGuidanceForm extends FormComponent
             'isMultilingual' => true,
             'value' => $context->getData('reviewGuidelines'),
             'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-            'plugins' => 'paste,link,lists',
+            'plugins' => ['link','lists'],
         ]))
             ->addField(new FieldRichTextarea('competingInterests', [
                 'label' => __('manager.setup.competingInterests'),
                 'isMultilingual' => true,
                 'value' => $context->getData('competingInterests'),
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldShowEnsuringLink('showEnsuringLink', [
                 'options' => [

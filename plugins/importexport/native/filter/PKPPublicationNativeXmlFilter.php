@@ -21,8 +21,8 @@ use APP\facades\Repo;
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use APP\publication\Publication;
 use Exception;
-use PKP\controlledVocab\ControlledVocab;
 use PKP\citation\CitationDAO;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
@@ -215,7 +215,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         // add controlled vocabularies
         // get the supported locale keys
-        $supportedLocales = $deployment->getContext()->getSupportedFormLocales();
         $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
         foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
             $symbolic = $mappings[0];
@@ -223,8 +222,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
             $controlledVocabulary = Repo::controlledVocab()->getBySymbolic(
                 $symbolic,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $entity->getId(),
-                $supportedLocales
+                $entity->getId()
             );
             $this->addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
         }

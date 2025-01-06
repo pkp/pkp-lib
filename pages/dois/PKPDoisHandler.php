@@ -53,7 +53,7 @@ abstract class PKPDoisHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        $this->addPolicy(new \PKP\security\authorization\ContextRequiredPolicy($request, $roleAssignments));
+        $this->addPolicy(new \PKP\security\authorization\ContextRequiredPolicy($request));
 
         // DOIs must be enabled to access DOI management page
         $this->addPolicy(new DoisEnabledPolicy($request->getContext()));

@@ -75,7 +75,7 @@ class OrcidController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $validate = $this->validateRequest($illuminateRequest);
 
-        if ($validate['error']) {
+        if ($validate['error'] ?? false) {
             return response()->json([
                 'error' => $validate['error'],
             ], $validate['status']);

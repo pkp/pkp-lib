@@ -12,9 +12,19 @@
 			"apiSummary": true
 		},
 		"availableEditorialDecisions": {
+			"description": "The editorial decisions that are available for this stage.",
 			"type": "array",
-			"description": "The list of decision types per stage",
-			"readOnly": true
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"label": {
+						"type": "string"
+					}
+				}
+			}
 		},
 		"canCurrentUserChangeMetadata": {
 			"type": "boolean",
@@ -243,55 +253,37 @@
 							"type": "integer"
 						}
 					},
-					"status": {
-						"type": "string"
+					"editorAssigned": {
+						"type": "boolean"
 					},
-					"statusId": {
-						"type": "integer"
+					"isDecidingEditorAssigned": {
+						"type": "boolean"
 					},
-					"files": {
+					"isCurrentUserDecidingEditor": {
+						"type": "boolean"
+					},
+					"currentUserCanRecommendOnly": {
+						"type": "boolean"
+					},
+					"currentUserRecommendation": {
 						"type": "object",
 						"properties": {
-							"count": {
-								"type": "integer"
+							"decision": {
+								"type": "int"
+							},
+							"label": {
+								"type": "string"
 							}
 						}
 					},
-					"queries": {
+					"recommendations": {
 						"type": "array",
-						"items": {
-							"id": {
-								"type": "integer"
+						"properties": {
+							"decision": {
+								"type": "int"
 							},
-							"assocType": {
-								"type": "integer"
-							},
-							"assocId": {
-								"type": "integer"
-							},
-							"stageId": {
-								"type": "integer"
-							},
-							"seq": {
-								"type": "integer"
-							},
-							"closed": {
-								"type": "boolean"
-							}
-						}
-					},
-					"availableEditorialDecisions": {
-						"description": "The editorial decisions that are available for this stage.",
-						"type": "array",
-						"items": {
-							"type": "object",
-							"properties": {
-								"id": {
-									"type": "integer"
-								},
-								"label": {
-									"type": "string"
-								}
+							"label": {
+								"type": "string"
 							}
 						}
 					}

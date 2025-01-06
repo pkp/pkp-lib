@@ -517,7 +517,7 @@ class PKPSubmissionController extends PKPBaseController
                     break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
-                    break;    
+                    break;
             }
         }
 
@@ -548,6 +548,7 @@ class PKPSubmissionController extends PKPBaseController
             $userGroups,
             $genres,
             $reviewAssignments,
+            null,
             null,
             !$anonymizeReviews || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews
         ), Response::HTTP_OK);

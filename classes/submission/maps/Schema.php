@@ -548,7 +548,7 @@ class Schema extends \PKP\core\maps\Schema
      *  `isDecidingEditorAssigned` boolean whether apart from recommend only editor, there is at least one editor without recommend only flag assigned
      *  `isCurrentUserDecidingEditor` boolean whether the current user is assigned as an editor without recommend only flag (and there are recommend only editors assigned)
      *  `currentUserAssignedRoles` array the roles of the current user in the submission per stage, user may be unassigned but have global manager role
-     *  `currentUserCanRecommendOnly`
+     *  `currentUserCanRecommendOnly` whether the current user is an editor with the recommend only flag
      *  `currentUserRecommendation` object includes the recommendation decision of the current user
      *  {
      *   `decision` => recommendation decision,

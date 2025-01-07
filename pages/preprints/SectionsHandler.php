@@ -66,13 +66,11 @@ class SectionsHandler extends Handler
         // The page $arg can only contain an integer that's not 1. The first page
         // URL does not include page $arg
         if (isset($args[1]) && (!ctype_digit((string) $args[1]) || $args[1] == 1)) {
-            $request->getDispatcher()->handle404();
-            exit;
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         if (!$sectionPath || !$contextId) {
-            $request->getDispatcher()->handle404();
-            exit;
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $sections = Repo::section()->getCollector()->filterByContextIds([$contextId])->getMany();
@@ -86,8 +84,7 @@ class SectionsHandler extends Handler
         }
 
         if (!$sectionExists) {
-            $request->getDispatcher()->handle404();
-            exit;
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $collector = Repo::submission()->getCollector()
@@ -102,8 +99,7 @@ class SectionsHandler extends Handler
             ->getMany()->toArray();
 
         if ($page > 1 && !$submissions->count()) {
-            $request->getDispatcher()->handle404();
-            exit;
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $showingStart = $collector->offset + 1;

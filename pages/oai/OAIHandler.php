@@ -44,8 +44,7 @@ class OAIHandler extends Handler
 
         $oai = new ServerOAI(new OAIConfig($request->url(null, 'oai'), Config::getVar('oai', 'repository_id')));
         if (!$request->getServer() && $request->getRouter()->getRequestedContextPath($request) != Application::SITE_CONTEXT_PATH) {
-            $dispatcher = $request->getDispatcher();
-            return $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
         $oai->execute();
     }

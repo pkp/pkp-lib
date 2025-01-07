@@ -39,8 +39,7 @@ class NativeImportExportPlugin extends \PKP\plugins\importexport\native\PKPNativ
 
         switch ($this->opType) {
             default:
-                $dispatcher = $request->getDispatcher();
-                $dispatcher->handle404();
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 

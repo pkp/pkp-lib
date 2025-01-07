@@ -284,8 +284,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 $request->redirect(null, null, null, $path, null, $tab);
             }
         } else {
-            $dispatcher = $request->getDispatcher();
-            $dispatcher->handle404();
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 

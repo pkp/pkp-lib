@@ -13,14 +13,17 @@
 
 namespace PKP\userGroup;
 
+use stdClass;
 use DateInterval;
 use Carbon\Carbon;
 use PKP\core\Core;
+use APP\facades\Repo;
 use PKP\plugins\Hook;
 use PKP\site\SiteDAO;
 use PKP\security\Role;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use APP\core\Application;
 use PKP\xml\PKPXMLParser;
 use Illuminate\Support\Collection;
 use PKP\services\PKPSchemaService;
@@ -589,49 +592,32 @@ class Repository
             // Query that gets all users that are or were active in the given masthead roles
             // and that have accepted to be displayed on the masthead for the roles.
             // Sort the results by role ID and user family name.
-            $users = UserUserGroup::query()
-                ->withContextId($contextId)
-                ->withUserGroupIds($mastheadRoleIds)
-                ->whereHas(
-                    'userGroup',
-                    fn (\Illuminate\Database\Eloquent\Builder $query) => $query->withUserUserGroupStatus($userUserGroupStatus->value)
-                )
-                ->withMasthead()
-                ->orderBy('user_groups.role_id', 'asc')
-                ->join('user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
-                ->join('users', 'user_user_groups.user_id', '=', 'users.user_id')
+            $usersCollector = Repo::user()->getCollector();
+            $usersQuery = $usersCollector
+                ->filterByContextIds([$contextId])
+                ->filterByUserGroupIds($mastheadRoleIds)
+                ->filterByUserUserGroupStatus($userUserGroupStatus)
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
                 ->orderBy(
-                    fn (\Illuminate\Database\Query\Builder $query) => $query
-                        ->fromSub(
-                            fn($query) => $query->from(null)->selectRaw(0),
-                            'placeholder'
-                        )
-                        ->leftJoin(
-                            'user_settings AS l',
-                            fn (JoinClause $join) => $join
-                                ->on('user_user_groups.user_id', '=', 'l.user_id')
-                                ->where('l.setting_name', 'family_name')
-                                ->where('l.locale', Locale::getLocale())
-                        )
-                        ->leftJoin(
-                            'user_settings AS p',
-                            fn (JoinClause $join) => $join
-                                ->on('user_user_groups.user_id', '=', 'p.user_id')
-                                ->where('p.setting_name', 'family_name')
-                                ->where('p.locale', Locale::getPrimaryLocale())
-                        )
-                        ->selectRaw(
-                            'CONCAT(COALESCE(l.setting_value, ""), COALESCE(p.setting_value, ""))'
-                        )
+                    $usersCollector::ORDERBY_FAMILYNAME,
+                    $usersCollector::ORDER_DIR_ASC, 
+                    [
+                        Locale::getLocale(),
+                        Application::get()->getRequest()->getSite()->getPrimaryLocale()
+                    ]
                 )
-                ->get(['user_groups.user_group_id', 'users.user_id']);
+                ->orderByUserGroupIds($mastheadRoleIds)
+                ->getQueryBuilder()
+                ->get();
 
-            // group unique user ids by UserGroup id
-            $userIdsByUserGroupId = $users->groupBy('user_group_id')->map(function ($group) {
-                return $group->pluck('user_id')->unique()->toArray();
-            })->toArray();
+            // Get unique user IDs grouped by user group ID
+            $userIdsByUserGroupId = $usersQuery->mapToGroups(function (stdClass $item, int $key) {
+                return [$item->user_group_id => $item->user_id];
+            })->map(function ($item) {
+                return collect($item)->unique();
+            });
 
-            return $userIdsByUserGroupId;
+            return $userIdsByUserGroupId->toArray();
         });
     }
 

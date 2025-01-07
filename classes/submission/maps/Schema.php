@@ -117,6 +117,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param array $userRoles The roles associated with the current user within the context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
      * @param ?Enumerable $decisions decisions associated with a submission
@@ -126,6 +127,7 @@ class Schema extends \PKP\core\maps\Schema
         Submission $item,
         Enumerable $userGroups,
         array $genres,
+        array $userRoles,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
         ?Enumerable $decisions = null,
@@ -133,6 +135,7 @@ class Schema extends \PKP\core\maps\Schema
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
+        $this->userRoles = $userRoles;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
@@ -174,13 +177,20 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param Enumerable<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param array $userRoles roles of the current user within the context
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function mapMany(Enumerable $collection, Enumerable $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
-    {
+    public function mapMany(
+        Enumerable $collection,
+        Enumerable $userGroups,
+        array $genres,
+        array $userRoles,
+        bool|Collection $anonymizeReviews = false
+    ): Enumerable {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
+        $this->userRoles = $userRoles;
 
         $submissionIds = $collection->keys()->toArray();
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
@@ -202,6 +212,7 @@ class Schema extends \PKP\core\maps\Schema
                 $item,
                 $this->userGroups,
                 $this->genres,
+                $this->userRoles,
                 $associatedReviewAssignments->get($item->getId()),
                 $associatedStageAssignments->get($item->getId()),
                 $associatedDecisions->get($item->getId()),
@@ -278,11 +289,13 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map a collection of submissions with extra properties for the submissions list
      *
-     * @see self::map
-     *
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param array $userRoles The roles associated with the current user
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
+     *
+     *@see self::map
+     *
      */
     public function mapManyToSubmissionsList(
         Enumerable $collection,

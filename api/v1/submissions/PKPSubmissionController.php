@@ -532,7 +532,7 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
         $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
@@ -547,6 +547,7 @@ class PKPSubmissionController extends PKPBaseController
             $submission,
             $userGroups,
             $genres,
+            $userRoles,
             $reviewAssignments,
             null,
             null,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/PrimitiveTypeDescription.php
  *
@@ -39,7 +40,7 @@ class PrimitiveTypeDescription extends TypeDescription
     /**
      * @see TypeDescription::parseTypeName()
      */
-    public function parseTypeName($typeName)
+    public function parseTypeName(string $typeName): bool
     {
         // This should be a primitive type
         if (!in_array($typeName, $this->_supportedPrimitiveTypes())) {
@@ -53,7 +54,7 @@ class PrimitiveTypeDescription extends TypeDescription
     /**
      * @see TypeDescription::checkType()
      */
-    public function checkType($object)
+    public function checkType($object): bool
     {
         // We expect a primitive type
         if (!is_scalar($object)) {

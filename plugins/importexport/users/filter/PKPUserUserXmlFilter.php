@@ -136,7 +136,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
             ->get();
 
         foreach ($userGroups as $userGroup) {
-            $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->getName($context->getPrimaryLocale()), ENT_COMPAT, 'UTF-8')));
+            $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->name[$context->getPrimaryLocale()], ENT_COMPAT, 'UTF-8')));
         }
 
         // Add Reviewing Interests, if any.
@@ -152,8 +152,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $context = $deployment->getContext();
         $userGroupsNode = $doc->createElementNS($deployment->getNamespace(), 'user_groups');
 
-        $userGroups = UserGroup::withContextIds([$context->getId()])
-        ->get();
+        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');
@@ -161,8 +160,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $exportFilter = array_shift($userGroupExportFilters);
         $exportFilter->setDeployment($this->getDeployment());
 
-        $userGroupsArray = $userGroups->toArray();
-        $userGroupsDoc = $exportFilter->execute($userGroupsArray);
+        $userGroupsDoc = $exportFilter->execute($userGroups->all());
         if ($userGroupsDoc->documentElement instanceof \DOMElement) {
             $clone = $doc->importNode($userGroupsDoc->documentElement, true);
             $rootNode->appendChild($clone);

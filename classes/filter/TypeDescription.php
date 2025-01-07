@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/TypeDescription.php
  *
@@ -179,20 +180,13 @@ abstract class TypeDescription
     //
     /**
      * Parse a type name
-     *
-     * @param string $typeName
-     *
-     * @return bool true if success, otherwise false
      */
-    abstract public function parseTypeName($typeName);
+    abstract public function parseTypeName(string $typeName): bool;
 
     /**
      * Validates an object against the internal type description.
-     *
-     *
-     * @return bool
      */
-    abstract public function checkType($object);
+    abstract public function checkType($object): bool;
 
 
     //

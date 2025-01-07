@@ -30,9 +30,6 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
-use PKP\core\PKPAppKey;
-use PKP\core\ConsoleCommandServiceProvider;
-use PKP\core\ScheduleServiceProvider;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -104,7 +101,7 @@ class PKPContainer extends Container
                 {
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
-                    if($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                    if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
                         return response()->json(
                             [
                                 'error' => $exception->getMessage()
@@ -453,11 +450,15 @@ class PKPContainer extends Container
 
         // Cache configuration
         $items['cache'] = [
-            'default' => 'opcache',
+            'default' => Config::getVar('cache', 'default', 'opcache'),
             'stores' => [
                 'opcache' => [
                     'driver' => 'opcache',
-                    'path' => Core::getBaseDir() . '/cache/opcache'
+                    'path' => Config::getVar('cache', 'path', Core::getBaseDir() . '/cache/opcache')
+                ],
+                'file' => [
+                    'driver' => 'file',
+                    'path' => Config::getVar('cache', 'path', Core::getBaseDir() . '/cache/opcache')
                 ]
             ]
         ];
@@ -567,7 +568,7 @@ class PKPContainer extends Container
         if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
             return true;
         }
-        
+
         if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
             return true;
         }

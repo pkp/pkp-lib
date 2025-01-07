@@ -22,6 +22,7 @@ namespace PKP\payment;
 use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
+use PKP\notification\Notification;
 
 class QueuedPaymentDAO extends \PKP\db\DAO
 {

@@ -14,10 +14,14 @@ import 'cypress-iframe'
 
 Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 	cy.window().then((win) => {
-		cy.waitUntil(() => win.tinymce?.editors[tinyMceId]?.initialized, {timeout: 10000}).then(() => {
+		let currentEditor;
+		cy.waitUntil(() => {
+			currentEditor = win.tinymce.get(tinyMceId);
+			return currentEditor?.initialized;
+		}, {timeout: 10000}).then(() => {
 
 			// Clear any pre-existing content in the editor
-			const editor = win.tinymce.editors[tinyMceId].setContent('');
+			currentEditor.setContent('');
 
 			// The .type() command does not accept an empty string,
 			// so we simulate interaction with the field that leaves
@@ -38,9 +42,12 @@ Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 
 Cypress.Commands.add('getTinyMceContent', (tinyMceId, content) => {
 	return cy.window().then((win) => {
-		return cy.waitUntil(() => win.tinymce?.editors[tinyMceId]?.initialized, {timeout: 10000}).then(() => {
-			const editor = win.tinymce.editors[tinyMceId];
-			return editor.getContent();
+		let currentEditor;
+		return cy.waitUntil(() => {
+			currentEditor = win.tinymce.get(tinyMceId);
+			return currentEditor?.initialized
+		}, {timeout: 10000}).then(() => {
+			return currentEditor.getContent();
 		});
 	});
 });

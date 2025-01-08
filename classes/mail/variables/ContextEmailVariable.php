@@ -134,7 +134,7 @@ class ContextEmailVariable extends Variable
             $this->request,
             PKPApplication::ROUTE_PAGE,
             $this->context->getPath(),
-            'submissions',
+            'dashboard',
         );
     }
 

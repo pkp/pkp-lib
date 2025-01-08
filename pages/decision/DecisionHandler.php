@@ -221,13 +221,13 @@ class DecisionHandler extends Handler
 
         return [
             [
-                'id' => 'submissions',
-                'name' => __('navigation.submissions'),
+                'id' => 'dashboard',
+                'name' => __('navigation.dashboard'),
                 'url' => $dispatcher->url(
                     $request,
                     Application::ROUTE_PAGE,
                     $context->getData('urlPath'),
-                    'submissions'
+                    'dashboard'
                 ),
             ],
             [

@@ -109,9 +109,10 @@ abstract class SubmissionEmailVariable extends Variable
             $request,
             PKPApplication::ROUTE_PAGE,
             $context->getData('urlPath'),
-            'authorDashboard',
-            'submission',
-            [$this->submission->getId()]
+            'dashboard',
+            'mySubmissions',
+            null,
+            ['workflowSubmissionId' => $this->submission->getId()]
         );
     }
 

@@ -219,9 +219,10 @@ abstract class Repository
                 $request,
                 Application::ROUTE_PAGE,
                 $submissionContext->getPath(),
-                'authorDashboard',
-                'submission',
-                [$submission->getId()]
+                'dashboard',
+                'mySubmissions',
+                null,
+                ['workflowSubmissionId' => $submission->getId()]
             );
         }
 
@@ -376,7 +377,7 @@ abstract class Repository
                             Application::get()->getRequest(),
                             Application::ROUTE_PAGE,
                             $context->getData('path'),
-                            'submissions'
+                            'dashboard'
                         )
                 ]
             );
@@ -770,9 +771,10 @@ abstract class Repository
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,
             $context->getData('urlPath'),
-            'authorDashboard',
-            'submission',
-            [$submissionId]
+            'dashboard',
+            'mySubmissions',
+            null,
+            ['workflowSubmissionId' => $submissionId]
         );
     }
 

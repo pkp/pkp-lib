@@ -141,7 +141,9 @@ trait ModelWithSettings
 
         $multilingualProp = $this->getAttribute($data);
 
-        return $this->getBestLocalizedData($multilingualProp, $locale);
+        return $multilingualProp 
+            ? $this->getBestLocalizedData($multilingualProp, $locale)
+            : null;
     }
 
     /**

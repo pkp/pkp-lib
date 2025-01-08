@@ -16,7 +16,7 @@
 namespace PKP\components\forms\context;
 
 use APP\core\Application;
-use Illuminate\Support\LazyCollection;
+use Illuminate\Support\Collection;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
@@ -31,7 +31,7 @@ class PKPRestrictBulkEmailsForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      */
-    public function __construct($action, $context, LazyCollection $userGroups)
+    public function __construct($action, $context, Collection $userGroups)
     {
         $this->action = $action;
 

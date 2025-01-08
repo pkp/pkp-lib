@@ -323,7 +323,7 @@ class AdminHandler extends Handler
 
         $bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
         if ($bulkEmailsEnabled) {
-            $userGroups = UserGroup::withContextIds([$context->getId()])->get()->toArray();
+            $userGroups = UserGroup::withContextIds([$context->getId()])->get();
 
             $restrictBulkEmailsForm = new \PKP\components\forms\context\PKPRestrictBulkEmailsForm($apiUrl, $context, $userGroups);
             $components[$restrictBulkEmailsForm->id] = $restrictBulkEmailsForm->getConfig();

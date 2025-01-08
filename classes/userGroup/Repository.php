@@ -13,23 +13,28 @@
 
 namespace PKP\userGroup;
 
-use Carbon\Carbon;
+use stdClass;
 use DateInterval;
+use Carbon\Carbon;
+use PKP\core\Core;
+use APP\facades\Repo;
+use PKP\plugins\Hook;
+use PKP\site\SiteDAO;
+use PKP\security\Role;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use APP\core\Application;
+use PKP\xml\PKPXMLParser;
 use Illuminate\Support\Collection;
+use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
-use PKP\core\Core;
-use PKP\db\DAORegistry;
-use PKP\plugins\Hook;
-use PKP\security\Role;
-use PKP\services\PKPSchemaService;
-use PKP\site\SiteDAO;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
-use PKP\userGroup\relationships\enums\UserUserGroupStatus;
-use PKP\userGroup\relationships\UserGroupStage;
+use Illuminate\Database\Query\JoinClause;
 use PKP\userGroup\relationships\UserUserGroup;
-use PKP\validation\ValidatorFactory;
-use PKP\xml\PKPXMLParser;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
+use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 
 class Repository
 {
@@ -218,7 +223,7 @@ class Repository
     {
         return UserUserGroup::query()
             ->withUserId($userId)
-            ->withUserGroupId($userGroupId)
+            ->withUserGroupIds([$userGroupId])
             ->withActive()
             ->exists();
     }
@@ -242,7 +247,7 @@ class Repository
             ->withMasthead();
 
         if ($userGroupId) {
-            $query->withUserGroupId($userGroupId);
+            $query->withUserGroupIds([$userGroupId]);
         }
 
         return $query->exists();
@@ -256,7 +261,7 @@ class Repository
     {
         $masthead = UserUserGroup::query()
             ->withUserId($userId)
-            ->withUserGroupId($userGroupId)
+            ->withUserGroupIds([$userGroupId])
             ->withActive()
             ->pluck('masthead')
             ->first();
@@ -344,7 +349,7 @@ class Repository
         $query = UserUserGroup::query()->withUserId($userId);
 
         if ($userGroupId) {
-            $query->withUserGroupId($userGroupId);
+            $query->withUserGroupIds([$userGroupId]);
             $userGroup = $this->get($userGroupId);
             if ($userGroup && $userGroup->masthead) {
                 self::forgetEditorialCache($userGroup->contextId);
@@ -374,7 +379,7 @@ class Repository
             ->withActive();
 
         if ($userGroupId) {
-            $query->withUserGroupId($userGroupId);
+            $query->withUserGroupIds([$userGroupId]);
         }
 
         $query->update(['date_end' => $dateEnd]);
@@ -587,23 +592,32 @@ class Repository
             // Query that gets all users that are or were active in the given masthead roles
             // and that have accepted to be displayed on the masthead for the roles.
             // Sort the results by role ID and user family name.
-            $users = UserUserGroup::query()
-                ->withContextId($contextId)
-                ->withUserGroupIds($mastheadRoleIds)
-                ->withUserUserGroupStatus($userUserGroupStatus->value)
-                ->withUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON->value)
-                ->orderBy('user_groups.role_id', 'asc')
-                ->join('user_groups', 'user_user_groups.user_group_id', '=', 'user_groups.user_group_id')
-                ->join('users', 'user_user_groups.user_id', '=', 'users.user_id')
-                ->orderBy('users.family_name', 'asc')
-                ->get(['user_groups.user_group_id', 'users.user_id']);
+            $usersCollector = Repo::user()->getCollector();
+            $usersQuery = $usersCollector
+                ->filterByContextIds([$contextId])
+                ->filterByUserGroupIds($mastheadRoleIds)
+                ->filterByUserUserGroupStatus($userUserGroupStatus)
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->orderBy(
+                    $usersCollector::ORDERBY_FAMILYNAME,
+                    $usersCollector::ORDER_DIR_ASC, 
+                    [
+                        Locale::getLocale(),
+                        Application::get()->getRequest()->getSite()->getPrimaryLocale()
+                    ]
+                )
+                ->orderByUserGroupIds($mastheadRoleIds)
+                ->getQueryBuilder()
+                ->get();
 
-            // group unique user ids by UserGroup id
-            $userIdsByUserGroupId = $users->groupBy('user_group_id')->map(function ($group) {
-                return $group->pluck('user_id')->unique()->toArray();
-            })->toArray();
+            // Get unique user IDs grouped by user group ID
+            $userIdsByUserGroupId = $usersQuery->mapToGroups(function (stdClass $item, int $key) {
+                return [$item->user_group_id => $item->user_id];
+            })->map(function ($item) {
+                return collect($item)->unique();
+            });
 
-            return $userIdsByUserGroupId;
+            return $userIdsByUserGroupId->toArray();
         });
     }
 

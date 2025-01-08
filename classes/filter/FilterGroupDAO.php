@@ -29,7 +29,7 @@ class FilterGroupDAO extends \PKP\db\DAO
      *
      * @return int the new filter group id
      */
-    public function insertObject(FilterGroup &$filterGroup): int
+    public function insertObject(FilterGroup $filterGroup): int
     {
         $this->update(
             sprintf('INSERT INTO filter_groups
@@ -87,7 +87,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Update an existing filter group.
      */
-    public function updateObject(FilterGroup $filterGroup)
+    public function updateObject(FilterGroup $filterGroup): void
     {
         $this->update(
             'UPDATE	filter_groups

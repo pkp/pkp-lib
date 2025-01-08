@@ -16,7 +16,6 @@
 
 namespace PKP\plugins\importexport\users\filter;
 
-use APP\facades\Repo;
 use DOMDocument;
 use PKP\filter\FilterGroup;
 use PKP\userGroup\UserGroup;
@@ -86,8 +85,8 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'context_id', $userGroup->contextId));
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'is_default', $userGroup->isDefault ? 'true' : 'false'));
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'show_title', $userGroup->showTitle ? 'true' : 'false'));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_selfRegistration', $userGroup->permitSelfRegistration ? 'true' : 'false'));
-        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadataEdit', $userGroup->permitMetadataEdit ? 'true' : 'false'));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_self_registration', $userGroup->permitSelfRegistration ? 'true' : 'false'));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'permit_metadata_edit', $userGroup->permitMetadataEdit ? 'true' : 'false'));
 
         $this->createLocalizedNodes($doc, $userGroupNode, 'name', $userGroup->name);
         $this->createLocalizedNodes($doc, $userGroupNode, 'abbrev', $userGroup->abbrev);

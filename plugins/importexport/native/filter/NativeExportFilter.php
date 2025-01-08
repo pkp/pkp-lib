@@ -50,23 +50,27 @@ abstract class NativeExportFilter extends PKPImportExportFilter
     public function supports(&$input, &$output): bool
     {
         // Validate input
-        $inputType = & $this->getInputType();
-        $validInput = $inputType->isCompatible($input);
+        $inputType = $this->getInputType();
+        if (!$inputType || !$inputType->isCompatible($input)) {
+            return false;
+        }
 
         // If output is null then we're done
         if (is_null($output)) {
-            return $validInput;
+            return true;
         }
 
         // Validate output
-        $outputType = & $this->getOutputType();
+        $outputType = $this->getOutputType();
+        if (!$outputType) {
+            return false;
+        }
 
-        if ($outputType instanceof XMLTypeDescription && $this->getNoValidation()) {
+        if ($this->getNoValidation()) {
             $outputType->setValidationStrategy(XMLTypeDescription::XML_TYPE_DESCRIPTION_VALIDATE_NONE);
         }
-        $validOutput = $outputType->isCompatible($output);
 
-        return $validInput && $validOutput;
+        return $outputType->isCompatible($output);
     }
 
     //

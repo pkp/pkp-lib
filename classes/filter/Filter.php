@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/Filter.php
  *
@@ -187,7 +188,7 @@ abstract class Filter extends \PKP\core\DataObject
     /**
      * Get the input type
      */
-    public function &getInputType(): TypeDescription
+    public function getInputType(): TypeDescription
     {
         return $this->_inputType;
     }
@@ -195,7 +196,7 @@ abstract class Filter extends \PKP\core\DataObject
     /**
      * Get the output type
      */
-    public function &getOutputType(): TypeDescription
+    public function getOutputType(): TypeDescription
     {
         return $this->_outputType;
     }
@@ -278,9 +279,9 @@ abstract class Filter extends \PKP\core\DataObject
      * Set the required runtime environment
      *
      */
-    public function setRuntimeEnvironment(RuntimeEnvironment &$runtimeEnvironment): void
+    public function setRuntimeEnvironment(RuntimeEnvironment $runtimeEnvironment): void
     {
-        $this->_runtimeEnvironment = &$runtimeEnvironment;
+        $this->_runtimeEnvironment = $runtimeEnvironment;
 
         // Inject the runtime settings into the data object
         // for persistence.
@@ -294,7 +295,7 @@ abstract class Filter extends \PKP\core\DataObject
     /**
      * Get the required runtime environment
      */
-    public function &getRuntimeEnvironment(): RuntimeEnvironment
+    public function getRuntimeEnvironment(): RuntimeEnvironment
     {
         return $this->_runtimeEnvironment;
     }
@@ -339,7 +340,7 @@ abstract class Filter extends \PKP\core\DataObject
     public function supports(&$input, &$output): bool
     {
         // Validate input
-        $inputType = &$this->getInputType();
+        $inputType = $this->getInputType();
         $validInput = $inputType->isCompatible($input);
 
         // If output is null then we're done
@@ -348,7 +349,7 @@ abstract class Filter extends \PKP\core\DataObject
         }
 
         // Validate output
-        $outputType = &$this->getOutputType();
+        $outputType = $this->getOutputType();
         $validOutput = $outputType->isCompatible($output);
 
         return $validInput && $validOutput;

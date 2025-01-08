@@ -21,6 +21,7 @@ use Exception;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use PKP\core\traits\LocalizedData;
 use PKP\core\casts\MultilingualSettingAttribute;
 use PKP\core\maps\Schema;
 use PKP\core\SettingsBuilder;
@@ -31,6 +32,7 @@ use stdClass;
 trait ModelWithSettings
 {
     use HasCamelCasing;
+    use LocalizedData;
 
     /**
      * @see \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guardableColumns
@@ -131,10 +133,6 @@ trait ModelWithSettings
      */
     public function getLocalizedData(string $data, ?string $locale = null): mixed
     {
-        if (is_null($locale)) {
-            $locale = Locale::getLocale();
-        }
-
         if (!in_array($data, $this->getMultilingualProps())) {
             throw new Exception(
                 sprintf('Given localized property %s does not exist in %s model', $data, static::class)
@@ -143,7 +141,7 @@ trait ModelWithSettings
 
         $multilingualProp = $this->getAttribute($data);
 
-        return $multilingualProp[$locale] ?? null;
+        return $this->getBestLocalizedData($multilingualProp, $locale);
     }
 
     /**

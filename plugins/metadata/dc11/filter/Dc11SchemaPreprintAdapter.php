@@ -28,7 +28,6 @@ use APP\plugins\PubIdPlugin;
 use APP\submission\Submission;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use PKP\metadata\MetadataDataObjectAdapter;
 use PKP\metadata\MetadataDescription;
 use PKP\plugins\Hook;
@@ -87,19 +86,16 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         }
 
         // Subject
-        $supportedLocales = array_keys(Locale::getSupportedFormLocales());
         $subjects = array_merge_recursive(
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId(),
-                $supportedLocales
+                $publication->getId()
             ),
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId(),
-                $supportedLocales
+                $publication->getId()
             )
         );
         $this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);

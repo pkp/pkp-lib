@@ -376,6 +376,11 @@ class PKPSchemaService
                 return $newArray;
             case 'object':
                 $newObject = []; // we handle JSON objects as assoc arrays in PHP
+                
+                if (isValidJson($value)) {
+                    $value = json_decode($value, true);
+                }
+
                 foreach ($schema->properties as $propName => $propSchema) {
                     if (!isset($value[$propName]) || !empty($propSchema->readOnly)) {
                         continue;

@@ -119,7 +119,7 @@ class Announcement extends Model
 
         Hook::call('Announcement::add', [$this]);
 
-        $hasNewImage = $this?->image?->temporaryFileId;
+        $hasNewImage = isset($this?->image?->temporaryFileId) ? $this->image->temporaryFileId : null;
 
         // if announcement is being inserted and includes new image, upload it
         if ($newlyCreated) {
@@ -133,6 +133,16 @@ class Announcement extends Model
         if ($hasNewImage) {
             $this->deleteImage();
             $this->handleImageUpload();
+        }
+
+        // If there is no new image and image data exists in DB and it's now removed
+        // need to delete the image for this announcement model instance
+        if (!$hasNewImage && !$this?->image && $this->fresh()->image) {
+            $this->deleteImage();
+            DB::table($this->getSettingsTable())
+                ->where($this->getkeyName(), $this->getKey())
+                ->where('setting_name', 'image')
+                ->delete();
         }
 
         return $saved;
@@ -280,7 +290,7 @@ class Announcement extends Model
     protected function imageAltText(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->image?->altText ?? ''
+            get: fn () => isset($this->image?->altText) ? $this->image->altText : ''
         );
     }
 
@@ -289,8 +299,9 @@ class Announcement extends Model
      */
     protected function deleteImage(): void
     {
-        $image = $this->getAttribute('image');
-        if ($image?->uploadName) {
+        $image = $this->fresh()->image;
+
+        if ($image && isset($image->uploadName)) {
             $publicFileManager = new PublicFileManager();
             $filesPath = $this->hasAttribute('assocId')
                 ? $publicFileManager->getContextFilesPath($this->getAttribute('assocId'))
@@ -314,7 +325,8 @@ class Announcement extends Model
     protected function handleImageUpload(): void
     {
         $image = $this->getAttribute('image');
-        if (!$image?->temporaryFileId) {
+
+        if (!isset($image?->temporaryFileId)) {
             return;
         }
 
@@ -351,7 +363,7 @@ class Announcement extends Model
             'name' => $temporaryFile->getOriginalFileName(),
             'uploadName' => $this->getImageFilename($temporaryFile),
             'dateUploaded' => Core::getCurrentDate(),
-            'altText' => $image->altText ?? '',
+            'altText' => isset($image->altText) ? $image->altText : '',
         ];
     }
 

@@ -70,6 +70,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'index',
                 'saved',
                 'wizard', // @deprecated 3.4
+                'cancelled',
             ]
         );
     }
@@ -81,7 +82,7 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $submissionId = (int) $request->getUserVar('id');
 
-        // Creating a new submission
+        // Creating a new submission or viewing cancelled screen
         if ($submissionId === 0) {
             $this->addPolicy(new UserRequiredPolicy($request));
             $this->markRoleAssignmentsChecked();
@@ -258,6 +259,39 @@ abstract class PKPSubmissionHandler extends Handler
             'reviewSteps' => $this->getReviewStepsForSmarty($steps),
         ]);
 
+
+
+        // Check if the user is an author of this submission
+        $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
+        ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->get()
+            ->map(fn($userGroup) => $userGroup->id)
+            ->toArray();
+
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withUserId($request->getUser()->getId())
+            ->get();
+
+
+        $isAuthor = false;
+        foreach ($stageAssignments as $stageAssignment) {
+            if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
+                $isAuthor = true;
+                break;
+            }
+        }
+
+        if ($isAuthor) {
+            $templateMgr->setState([
+                'submissionCancelApiUrl' => $this->getSubmissionCancelUrl($request, $submission->getId()),
+                'submissionCancelledUrl' => $this->getSubmissionCancelledUrl($request),
+            ]);
+
+            $templateMgr->assign([
+                'canCancelSubmission' => true,
+            ]);
+        }
+
         $templateMgr->display('submission/wizard.tpl');
     }
 
@@ -274,6 +308,21 @@ abstract class PKPSubmissionHandler extends Handler
             'workflowUrl' => $this->getWorkflowUrl($submission, $request->getUser()),
         ]);
         $templateMgr->display('submission/complete.tpl');
+    }
+
+    /**
+     * Display the submission cancelled screen
+     */
+    public function cancelled(array $args, Request $request): void
+    {
+        $this->setupTemplate($request);
+
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'pageTitle' =>  __('submission.wizard.submissionCancelled'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_NARROW,
+        ]);
+        $templateMgr->display('submission/cancelled.tpl');
     }
 
     /**
@@ -365,6 +414,39 @@ abstract class PKPSubmissionHandler extends Handler
                 [
                     'id' => $submissionId,
                 ]
+            );
+    }
+    /**
+     * Get the API endpoint to cancel the submission.
+     */
+    protected function getSubmissionCancelUrl(Request $request, int $submissionId): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_API,
+                $request->getContext()->getPath(),
+                '_submissions',
+                null,
+                null,
+                ['ids' => $submissionId],
+            );
+    }
+
+    /**
+     * Get the URL to the page that is shown after the submission has been cancelled
+     */
+    protected function getSubmissionCancelledUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                'submission',
+                'cancelled',
             );
     }
 

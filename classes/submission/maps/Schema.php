@@ -137,7 +137,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->genres = $genres;
         $this->userRoles = $userRoles;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
-        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
 
         return $this->mapByProperties($this->getProps(), $item, $anonymizeReviews);
@@ -165,7 +165,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
-        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
 
         return $this->mapByProperties($this->getSummaryProps(), $item, $anonymizeReviews);
     }
@@ -236,7 +236,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
-        $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
 
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(
             fn (ReviewAssignment $reviewAssignment, int $key) =>
@@ -408,10 +408,17 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = Repo::submission()->getUrlApi($this->context, $submission->getId());
                     break;
                 case 'availableEditorialDecisions':
-                    $output[$prop] = collect(Application::get()->getApplicationStages())->mapWithKeys(function (int $stageId) use ($submission) {
-                        $availableEditorialDecisions = $this->getAvailableEditorialDecisions($stageId, $submission);
-                        return [$stageId => array_map(fn (DecisionType $decisionType) => ['id' => $decisionType->getDecision(), 'label' => $decisionType->getLabel()], $availableEditorialDecisions)];
-                    })->values()->all();
+                    $output[$prop] = collect($this->getAvailableEditorialDecisions(
+                        $submission->getData('stageId'),
+                        $submission
+                    ))->map(
+                        fn (DecisionType $decisionType) =>
+                        [
+                            'stageId' => $submission->getData('stageId'),
+                            'id' => $decisionType->getDecision(),
+                            'label' => $decisionType->getLabel(),
+                        ]
+                    )->toArray();
                     break;
                 case 'canCurrentUserChangeMetadata':
                     // Identify if current user can change metadata. Consider roles in the active stage.
@@ -595,58 +602,44 @@ class Schema extends \PKP\core\maps\Schema
 
                 // values false by default, to be determined later
                 'editorAssigned' => false,
-                'isDecidingEditorAssigned' => false,
                 'isCurrentUserDecidingEditor' => false,
                 'currentUserAssignedRoles' => [],
             ];
         }
 
-        $recommendations = [];
         $isAssignedInAnyRole = false; // Determine if the current user is assigned to the submission in any role
+        $hasDecidingEditor = false;
+        $hasRecommendingEditors = false;
+        $isCurrentUserDecidingEditor = false;
 
         // Determine stage assignment related data
         foreach ($stageAssignments as $stageAssignment) {
+
+            // Record recommendations for review stages
+            if ($stageAssignment->recommendOnly) {
+                if (!$hasRecommendingEditors) {
+                    $hasRecommendingEditors = true;
+                }
+            }
+
             $userGroup = $stageAssignment->userGroup; /** @var UserGroup $userGroup */
 
             foreach ($userGroup->userGroupStages as $groupStage) { /** @var UserGroupStage $groupStage */
                 // Identify the first user with the editor
                 if (
                     !$stages[$groupStage->stageId]['editorAssigned'] &&
-                    in_array(
-                        $userGroup->roleId,
-                        [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]
-                    )
+                    in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                 ) {
-                    $editorAssigned = $stages[$groupStage->stageId]['editorAssigned'] = true;
+                    $stages[$groupStage->stageId]['editorAssigned'] = true;
                 }
 
-                // Identify the first user with the editor role and without recommend only flag
+                // Identify the first user with the editor role and with a recommend only flag
                 if (
-                    !$stages[$groupStage->stageId]['isDecidingEditorAssigned'] &&
-                    isset($editorAssigned) &&
+                    !$hasDecidingEditor &&
+                    in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) &&
                     !$stageAssignment->recommendOnly
                 ) {
-                    $isDecidingEditorAssigned = $stages[$groupStage->stageId]['isDecidingEditorAssigned'] = true;
-                }
-
-                // Record recommendations for review stages
-                if (
-                    $stageAssignment->recommendOnly &&
-                    isset($currentReviewRound) &&
-                    isset($decisions) && $decisions->isNotEmpty()
-                ) {
-                    foreach ($decisions as $decision) {
-                        if ($currentReviewRound->getId() != $decision->getData('reviewRoundId')) {
-                            continue;
-                        }
-
-                        $decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
-                        $recommendations[$decision->getId()] = [
-                            'decision' => $decision->getData('decision'),
-                            'label' => $decisionType->getLabel(),
-                            'stageId' => $decision->getData('stageId'),
-                        ];
-                    }
+                    $hasDecidingEditor = true;
                 }
 
                 // Identify properties related to the current user
@@ -664,41 +657,13 @@ class Schema extends \PKP\core\maps\Schema
                     }
                 }
 
-                if (isset($isDecidingEditorAssigned)) {
-                    $stages[$groupStage->stageId]['isCurrentUserDecidingEditor'] = true;
+                // Identify data associated with editorial roles
+                if (!in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
+                    continue;
                 }
 
-                // Identify if the current user gave recommendation
-                if (
-                    in_array($userGroup->roleId, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) && // this user is assigned as an editor
-                    !isset($isDecidingEditorAssigned) && // this user only can give recommendations, isn't a deciding editor
-                    in_array($groupStage->stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW]) &&
-                    isset($decisions) && $decisions->isNotEmpty() // only for submissions list
-                ) {
-                    foreach ($decisions as $decision) {
-                        if (isset($stages[$groupStage->stageId]['currentUserRecommendation'])) {
-                            break; // Decision is already recorded, skip
-                        }
-
-                        if ($decision->getData('editorId') != $currentUser->getId()) {
-                            continue;
-                        }
-
-                        if (!in_array($decision->getData('stageId'), [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
-                            continue;
-                        }
-
-                        if ($currentReviewRound->getId() != $decision->getData('reviewRoundId')) {
-                            continue;
-                        }
-
-                        $decision = $decision->getData('decision');
-                        $decisionType = Repo::decision()->getDecisionType($decision);
-                        $stages[$groupStage->stageId]['currentUserRecommendation'] = [
-                            'decision' => $decision,
-                            'label' => $decisionType->getLabel(),
-                        ];
-                    }
+                if (!$stageAssignment->recommendOnly) {
+                    $isCurrentUserDecidingEditor = $stages[$groupStage->stageId]['isCurrentUserDecidingEditor'] = true;
                 }
 
                 // if the user is assigned several times in the editorial role, and
@@ -722,25 +687,45 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        // Set recommendation if current user is a deciding editor
-        foreach ($stages as $stageId => $stage) {
-            if (empty($recommendations)) {
-                break;
-            }
+        // Set recommendation related props
+        if (
+            isset($currentReviewRound) &&
+            isset($decisions) && $decisions->isNotEmpty()
+        ) {
+            foreach ($decisions as $decision) {
 
-            if (!in_array($stageId, [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])) {
-                continue;
-            }
+                // Get only recommendations
+                $decisionType = Repo::decision()->getDecisionType($decision->getData('decision'));
+                if (!Repo::decision()->isRecommendation($decisionType->getDecision())) {
+                    continue;
+                }
 
-            if (!$stage['isCurrentUserDecidingEditor']) {
-                continue;
-            }
+                // Get only decisions related to the relevant review round
+                if ($currentReviewRound->getId() != $decision->getData('reviewRoundId')) {
+                    continue;
+                }
 
-            foreach ($recommendations as $recommendationId => $recommendation) {
-                $stages[$recommendation['stageId']]['recommendations'][$recommendationId] = [
-                    'decision' => $recommendation['decision'],
-                    'label' => $recommendation['label'],
+                $recommendation = [
+                    'decision' => $decision->getData('decision'),
+                    'label' => $decisionType->getLabel(),
                 ];
+
+                // Set recommendations for the deciding editor
+                if ($isCurrentUserDecidingEditor) {
+                    $stages[$decision->getData('stageId')]['recommendations'][] = $recommendation;
+                }
+
+                // Set own recommendations of the current user
+                if ($currentUser == $decision->getData('editorId')) {
+                    $stages[$decision->getData('stageId')]['currentUserRecommendation'] = $recommendation;
+                }
+            }
+        }
+
+        foreach ($stages as $stageId => $stage) {
+            // Determine if deciding editor is assigned
+            if ($hasDecidingEditor && $hasRecommendingEditors) {
+                $stages[$stageId]['isDecidingEditorAssigned'] = true;
             }
         }
 

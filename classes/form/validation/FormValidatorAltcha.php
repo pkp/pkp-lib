@@ -91,7 +91,7 @@ class FormValidatorAltcha extends FormValidator
         }
     }
 
-    public static function addAltchaJavascript(TemplateManager &$templateMgr): void
+    public static function addAltchaJavascript(TemplateManager $templateMgr): void
     {
         $request = Application::get()->getRequest();
         $altchaPath = $request->getBaseUrl() . '/node_modules/altcha/dist/altcha.js';
@@ -100,7 +100,7 @@ class FormValidatorAltcha extends FormValidator
         $templateMgr->addHeader('altcha', $altchaHeader);
     }
 
-    public static function insertFormChallenge(TemplateManager &$templateMgr): void
+    public static function insertFormChallenge(TemplateManager $templateMgr): void
     {
         $options = new ChallengeOptions([
             'hmacKey' => Config::getVar('captcha', 'altcha_hmackey'),

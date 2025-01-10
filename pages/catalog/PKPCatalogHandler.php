@@ -108,8 +108,7 @@ class PKPCatalogHandler extends Handler
             'publishedSubmissions' => $submissions->toArray(),
             'authorUserGroups' => UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->withContextIds([$context->getId()])
-                ->get()
-                ->remember(),
+                ->get(),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');

@@ -510,6 +510,7 @@ class LoginHandler extends Handler
                 return 'common.captcha.error.missing-input-response';
             }
         }
+        return null;
     }
 
     /**

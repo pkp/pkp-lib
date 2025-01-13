@@ -18,6 +18,7 @@ namespace APP\search;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\orcid\actions\SendSubmissionToOrcid;
 use APP\server\Server;
 use APP\server\ServerDAO;
 use APP\submission\Submission;
@@ -75,6 +76,11 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         $this->_updateTextIndex($submissionId, SubmissionSearch::SUBMISSION_SEARCH_TYPE, (array) $publication->getData('type'));
         $this->_updateTextIndex($submissionId, SubmissionSearch::SUBMISSION_SEARCH_COVERAGE, (array) $publication->getData('coverage'));
         // FIXME Index sponsors too?
+
+        $context = app()->get('context')->get($submission->getData('contextId'));
+        if ($publication && $context) {
+            (new SendSubmissionToOrcid($publication, $context))->execute();
+        }
     }
 
     /**

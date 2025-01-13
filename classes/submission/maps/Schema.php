@@ -716,7 +716,7 @@ class Schema extends \PKP\core\maps\Schema
                 }
 
                 // Set own recommendations of the current user
-                if ($currentUser == $decision->getData('editorId')) {
+                if ($currentUser->getId() == $decision->getData('editorId')) {
                     $stages[$decision->getData('stageId')]['currentUserRecommendation'] = $recommendation;
                 }
             }

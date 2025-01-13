@@ -21,11 +21,13 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\stepTypes\SendInvitationStep;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class InvitationHandler extends Handler
 {
@@ -161,7 +163,7 @@ class InvitationHandler extends Handler
             $invitationPayload['affiliation'] = $user ? $user->getAffiliation(null) : $payload['affiliation'];
             $invitationPayload['country'] = $user ? $user->getCountry() : $payload['userCountry'];
             $invitationPayload['userGroupsToAdd'] = $payload['userGroupsToAdd'];
-            $invitationPayload['currentUserGroups'] = !$invitationModel['userId'] ? [] : $this->getUserUserGroups($invitationModel['userId']);
+            $invitationPayload['currentUserGroups'] = !$invitationModel['userId'] ? [] : $this->getUserUserGroups($invitationModel['userId'],$request->getContext());
             $invitationPayload['userGroupsToRemove'] = !$payload['userGroupsToRemove'] ? null : $payload['userGroupsToRemove'];
             $invitationPayload['emailComposer'] = [
                 'emailBody' => $payload['emailBody'],
@@ -249,7 +251,7 @@ class InvitationHandler extends Handler
             $invitationPayload['biography'] = $user->getBiography(null);
             $invitationPayload['phone'] = $user->getPhone();
             $invitationPayload['userGroupsToAdd'] = [];
-            $invitationPayload['currentUserGroups'] = $this->getUserUserGroups($args[0]);
+            $invitationPayload['currentUserGroups'] = $this->getUserUserGroups($args[0],$request->getContext());
             $invitationPayload['userGroupsToRemove'] = [];
             $invitationPayload['emailComposer'] = [
                 'emailBody' => '',
@@ -301,7 +303,7 @@ class InvitationHandler extends Handler
                     ),
             ]);
             $templateMgr->assign([
-                'pageComponent' => 'PageOJS',
+                'pageComponent' => 'Page',
                 'breadcrumbs' => $breadcrumbs,
                 'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
             ]);
@@ -313,9 +315,24 @@ class InvitationHandler extends Handler
 
     /**
      * Get current user user groups
+     * @param Context $context
+     * @param int $id
      */
-    private function getUserUserGroups(int $id): array
+    private function getUserUserGroups(int $id , Context $context): array
     {
-        return Repo::userGroup()->userUserGroups($id)->toArray();
+        $userGroups = [];
+        $userUserGroups = UserUserGroup::query()
+            ->withUserId($id)
+            ->withContextId($context->getId())
+            ->get()
+            ->toArray();
+        foreach ($userUserGroups as $key => $userUserGroup) {
+                $userGroups[$key] = $userUserGroup;
+                $userGroups[$key]['masthead'] = $userUserGroup['masthead'] === 1;
+                $userGroups[$key]['name'] = Repo::userGroup()
+                    ->get($userUserGroup['userGroupId'])
+                    ->toArray()['name'][Locale::getLocale()];
+        }
+        return $userGroups;
     }
 }

@@ -161,7 +161,8 @@
 				statusbar: false,
 				content_css: contentCSS,
 				browser_spellcheck: true,
-				skin: 'tinymce-5'
+				skin: 'tinymce-5',
+				license_key: 'gpl',
 			};
 
 			// Support image uploads

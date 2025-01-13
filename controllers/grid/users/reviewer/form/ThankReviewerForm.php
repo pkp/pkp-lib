@@ -125,8 +125,6 @@ class ThankReviewerForm extends Form
 
         Hook::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
 
-        (new SendReviewToOrcid($reviewAssignment->getId()))->execute();
-
         if (!$this->getData('skipEmail')) {
             $mailable->setData(Locale::getLocale());
             try {

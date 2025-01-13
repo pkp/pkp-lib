@@ -25,4 +25,6 @@
 	<!-- Reader Role -->
 	<group roleId="0x00100000" stages="" name="default.groups.name.reader" plural="default.groups.plural.reader" abbrev="default.groups.abbrev.reader" permitSelfRegistration="true" />
 
+  <!-- Editorial Board Member Role -->
+	<group roleId="0x00001001" stages="" name="default.groups.name.editorialBoardMember" plural="default.groups.plural.editorialBoardMember" abbrev="default.groups.abbrev.editorialBoardMember" masthead="true" />
 </groups>

@@ -234,19 +234,22 @@ class PKPStageParticipantNotifyForm extends Form
             Notification::NOTIFICATION_LEVEL_TASK
         );
 
-        $mailable->allowUnsubscribe($notification);
         $logDao = null;
-        try {
-            Mail::send($mailable);
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
-        } catch (TransportException $e) {
-            $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification(
-                $request->getUser()->getId(),
-                PKPNotification::NOTIFICATION_TYPE_ERROR,
-                ['contents' => __('email.compose.error')]
-            );
-            error_log($e->getMessage());
+        if ($notification) {
+            // Only send the email if notifications have not been disabled
+            $mailable->allowUnsubscribe($notification);
+            try {
+                Mail::send($mailable);
+                $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+            } catch (TransportException $e) {
+                $notificationMgr = new NotificationManager();
+                $notificationMgr->createTrivialNotification(
+                    $request->getUser()->getId(),
+                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    ['contents' => __('email.compose.error')]
+                );
+                error_log($e->getMessage());
+            }
         }
 
         // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email

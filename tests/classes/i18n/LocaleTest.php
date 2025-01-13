@@ -98,7 +98,7 @@ class LocaleTest extends PKPTestCase
 
     public function testGetLocales()
     {
-        $this->_primaryLocale = 'en_US';
+        $this->_primaryLocale = 'en';
         $expectedLocales = [
             'en' => 'English',
             'pt_BR' => 'Portuguese',

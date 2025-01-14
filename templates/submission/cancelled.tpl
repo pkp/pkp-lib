@@ -10,9 +10,9 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<h1 class="app__pageHeading app__pageHeading--center app__pageHeading--spacious">
-		{translate key="submission.wizard.submissionCancelled"}
-	</h1>
+    <h1 class="app__pageHeading app__pageHeading--center app__pageHeading--spacious">
+        {translate key="submission.wizard.submissionCancelled"}
+    </h1>
 
     <div class="app__contentPanel">
         <p>{translate key="submission.wizard.submissionCancelled.description"}</p>

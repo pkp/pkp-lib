@@ -260,28 +260,30 @@ abstract class PKPSubmissionHandler extends Handler
         ]);
 
 
-
-        // Check if the user is an author of this submission
-        $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
-        ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->get()
-            ->map(fn($userGroup) => $userGroup->id)
-            ->toArray();
-
-        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
-            ->withUserId($request->getUser()->getId())
-            ->get();
-
-
+        $currentUser = $request->getUser();
+        $isAdmin = $currentUser->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
         $isAuthor = false;
-        foreach ($stageAssignments as $stageAssignment) {
-            if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
-                $isAuthor = true;
-                break;
+
+        if (!$isAdmin) {
+            $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->get()
+                ->map(fn($userGroup) => $userGroup->id)
+                ->toArray();
+
+            $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+                ->withUserId($currentUser->getId())
+                ->get();
+
+            foreach ($stageAssignments as $stageAssignment) {
+                if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
+                    $isAuthor = true;
+                    break;
+                }
             }
         }
 
-        if ($isAuthor) {
+        if ($isAdmin || $isAuthor) {
             $templateMgr->setState([
                 'submissionCancelApiUrl' => $this->getSubmissionCancelUrl($request, $submission->getId()),
                 'submissionCancelledUrl' => $this->getSubmissionCancelledUrl($request),

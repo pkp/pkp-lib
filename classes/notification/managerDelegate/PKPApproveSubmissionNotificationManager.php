@@ -32,7 +32,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     {
         $dispatcher = Application::get()->getDispatcher();
         $context = $request->getContext();
-        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', [$notification->assocId]);
+        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'dashboard', 'editorial', null, ['workflowSubmissionId' => $notification->assocId]);
     }
 
     /**

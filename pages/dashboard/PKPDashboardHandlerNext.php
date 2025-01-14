@@ -60,7 +60,7 @@ abstract class PKPDashboardHandlerNext extends Handler
     public int $perPage = 30;
 
     /** Identify in which context is looking at the submissions */
-    public DashboardPage $dashboardPage;
+    public ?DashboardPage $dashboardPage;
 
     /**
      * editorial, review_assignments
@@ -69,10 +69,9 @@ abstract class PKPDashboardHandlerNext extends Handler
     /**
      * Constructor
      */
-    public function __construct(DashboardPage $dashboardPage)
+    public function __construct(?DashboardPage $dashboardPage = null)
     {
         parent::__construct();
-
         $this->dashboardPage = $dashboardPage;
 
         if($this->dashboardPage === DashboardPage::EditorialDashboard) {
@@ -85,7 +84,7 @@ abstract class PKPDashboardHandlerNext extends Handler
 
         $this->addRoleAssignment(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
-            ['index', 'editorial']
+            ['editorial']
         );
 
         $this->addRoleAssignment(
@@ -104,6 +103,11 @@ abstract class PKPDashboardHandlerNext extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        if(!$this->dashboardPage) {
+            $pkpPageRouter = $request->getRouter();  /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
+            $pkpPageRouter->redirectHome($request);
+        }
+
         $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -117,7 +121,6 @@ abstract class PKPDashboardHandlerNext extends Handler
     public function index($args, $request)
     {
         $context = $request->getContext();
-        $dispatcher = $request->getDispatcher();
 
         if (!$context) {
             $request->redirect(null, 'user');

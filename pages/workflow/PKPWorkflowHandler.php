@@ -106,6 +106,7 @@ abstract class PKPWorkflowHandler extends Handler
      */
     public function access($args, $request)
     {
+
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $currentStageId = $submission->getData('stageId');
@@ -149,6 +150,14 @@ abstract class PKPWorkflowHandler extends Handler
      */
     public function index($args, $request)
     {
+
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
+            $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+            $router = $request->getRouter();
+            return $request->redirectUrl($router->url($request, null, 'dashboard', 'editorial', null, ['workflowSubmissionId' => $submission->getId()]));
+        }
+
+
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 

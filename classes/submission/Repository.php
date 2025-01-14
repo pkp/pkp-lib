@@ -219,9 +219,10 @@ abstract class Repository
                 $request,
                 Application::ROUTE_PAGE,
                 $submissionContext->getPath(),
-                'authorDashboard',
-                'submission',
-                [$submission->getId()]
+                'dashboard',
+                'mySubmissions',
+                null,
+                ['workflowSubmissionId' => $submission->getId()]
             );
         }
 
@@ -250,9 +251,10 @@ abstract class Repository
             $request,
             Application::ROUTE_PAGE,
             $submissionContext->getPath(),
-            'workflow',
-            'access',
-            [$submission->getId()]
+            'dashboard',
+            'editorial',
+            null,
+            ['workflowSubmissionId' => $submission->getId()]
         );
     }
 
@@ -376,7 +378,7 @@ abstract class Repository
                             Application::get()->getRequest(),
                             Application::ROUTE_PAGE,
                             $context->getData('path'),
-                            'submissions'
+                            'dashboard'
                         )
                 ]
             );
@@ -770,9 +772,10 @@ abstract class Repository
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,
             $context->getData('urlPath'),
-            'authorDashboard',
-            'submission',
-            [$submissionId]
+            'dashboard',
+            'mySubmissions',
+            null,
+            ['workflowSubmissionId' => $submissionId]
         );
     }
 
@@ -785,9 +788,10 @@ abstract class Repository
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,
             $context->getData('urlPath'),
-            'workflow',
-            'access',
-            [$submissionId]
+            'dashboard',
+            'editorial',
+            null,
+            ['workflowSubmissionId' => $submissionId]
         );
     }
 

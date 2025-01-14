@@ -60,7 +60,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                 if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
                     throw new \Exception('Unexpected assoc type for notification!');
                 }
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', [$notification->assocId]);
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'dashboard', 'editorial', null, ['workflowSubmissionId' => $notification->assocId]);
         }
         throw new \Exception('Unmatched notification type!');
     }

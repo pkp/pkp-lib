@@ -128,11 +128,6 @@
 							{/if}
 							<div class="pkpDropdown__section">
 								<ul>
-									<li v-if="backToDashboardLink">
-										<a :href="backToDashboardLink.url" class="pkpDropdown__action">
-											{{ backToDashboardLink.name }}
-										</a>
-									</li>
 									<li>
 										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
 											{translate key="user.profile.editProfile"}

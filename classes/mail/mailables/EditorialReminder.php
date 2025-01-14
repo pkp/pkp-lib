@@ -72,9 +72,10 @@ class EditorialReminder extends Mailable
                 Application::get()->getRequest(),
                 Application::ROUTE_PAGE,
                 $this->context->getPath(),
-                'workflow',
-                'access',
-                [$submission->getId()]
+                'dashboard',
+                'editorial',
+                null,
+                ['workflowSubmissionId' => $submission->getId()]
             );
 
             $outstandingTasks[] = '

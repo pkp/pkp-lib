@@ -970,7 +970,7 @@ class PKPTemplateManager extends Smarty
                 // Admins should switch to the same page on another context where possible
                 $requestedOp = $request->getRequestedOp() === 'index' ? null : $request->getRequestedOp();
                 $isSwitchable = $isAdmin && in_array($request->getRequestedPage(), [
-                    'submissions',
+                    'dashboard',
                     'manageIssues',
                     'management',
                     'payment',

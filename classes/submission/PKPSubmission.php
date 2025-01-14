@@ -29,10 +29,12 @@ namespace PKP\submission;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\DAO;
+use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
+use PKP\publication\enums\VersionStage;
+use PKP\publication\helpers\VersionData;
 
 /**
  * @extends \PKP\core\DataObject<DAO>
@@ -288,6 +290,59 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public function getUIDisplayString()
     {
         return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getCurrentPublication()->getLocalizedTitle()]);
+    }
+
+    /**
+     * Return a collection of all existing Version Data 
+     * for the submission's publications
+     *
+     * @return Collection<VersionData>
+     */
+    public function getAllVersionDataByPublications(): Collection
+    {
+        $publications = $this->getData('publications');
+        if ($publications->isEmpty()) {
+            return collect(); // Return an empty collection
+        }
+
+        return collect($publications->map(function ($publication) {
+            return $publication->getCurrentVersionStage();
+        })->filter()); // Remove any null entries from the collection
+    }
+
+    public function getNextAvailableVersionData(VersionStage $versioningStage, bool $isMinorChange = true): VersionData
+    {
+        $nextVersionStage = new VersionData();
+        $nextVersionStage->javStage = $versioningStage;
+        $nextVersionStage->majorNumbering = VersionData::DEFAULT_MAJOR_NUMBERING;
+        $nextVersionStage->minorNumbering = VersionData::DEFAULT_MINOR_NUMBERING;
+
+        $submissionVersionStages = $this->getAllVersionDataByPublications();
+
+        // Filter to find the version stages that match the current versioningStage but with potentially updated versionMajor or versionMinor
+        $matchingVersionStages = $submissionVersionStages->filter(function ($existingVersionStage) use ($versioningStage) {
+            return $existingVersionStage->stage === $versioningStage;
+        });
+
+        if (!$matchingVersionStages->isEmpty()) {
+            // Sort the version stages by versionMajor and versionMinor (descending order)
+            $sortedVersionStages = $matchingVersionStages->sort(function ($a, $b) {
+                return $b->majorNumbering <=> $a->majorNumbering ?: $b->minorNumbering <=> $a->minorNumbering;
+            });
+
+            $nextVersionStage = $sortedVersionStages->first();
+
+            if ($isMinorChange) {
+                // Increment the minor version
+                $nextVersionStage->minorNumbering += 1;
+            } else {
+                // Increment the major version and reset the minor version
+                $nextVersionStage->majorNumbering += 1;
+                $nextVersionStage->minorNumbering = VersionData::DEFAULT_MINOR_NUMBERING;
+            }
+        }
+
+        return $nextVersionStage;
     }
 }
 

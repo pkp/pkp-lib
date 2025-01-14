@@ -177,7 +177,7 @@ class DecisionHandler extends Handler
                 $request,
                 Application::ROUTE_PAGE,
                 $context->getData('urlPath'),
-                'submissions',
+                'dashboard',
             ),
             'viewAllSubmissionsLabel' => __('submission.list.viewAllSubmissions'),
             'viewSubmissionLabel' => __('submission.list.viewSubmission'),

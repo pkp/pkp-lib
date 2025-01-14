@@ -56,6 +56,7 @@ class NewLibraryFileForm extends LibraryFileForm {
 		assert(isset($libraryFile));
 		$libraryFile->setContextId($this->contextId);
 		$libraryFile->setName($this->getData('libraryFileName'), null); // Localized
+		$libraryFile->setData('description', $this->getData('description'), null); // Localized
 		$libraryFile->setType($this->getData('fileType'));
 		$libraryFile->setPublicAccess($this->getData('publicAccess'));
 

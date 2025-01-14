@@ -65,7 +65,7 @@ class LibraryFileForm extends Form {
 	 * @see Form::readInputData()
 	 */
 	function readInputData() {
-		$this->readUserVars(array('libraryFileName', 'fileType', 'publicAccess'));
+		$this->readUserVars(array('libraryFileName', 'description', 'fileType', 'publicAccess'));
 	}
 }
 

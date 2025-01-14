@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/publication/VersionData.php
+ * @file classes/publication/helpers/VersionData.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -9,7 +9,7 @@
  *
  * @class VersionData
  *
- * @brief Base class for VersionData. Incorpoprates the underlying data for defining a publication version
+ * @brief The underlying data of a publication's version
  */
 
 namespace PKP\publication\helpers;

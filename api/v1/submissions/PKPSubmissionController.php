@@ -55,6 +55,7 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\enums\VersionStage;
+use PKP\publication\helpers\VersionDataResource;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -1009,10 +1010,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $potentialVersionStage = $submission->getNextAvailableVersionData($potentialVersionStage, $potentialIsMinor);
 
-        $retValue = $potentialVersionStage->getVersionStageDisplay();
-
         return response()->json(
-            $retValue,
+            (new VersionDataResource($potentialVersionStage))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

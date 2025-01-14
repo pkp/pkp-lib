@@ -55,6 +55,7 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\publication\enums\VersionStage;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -113,7 +114,9 @@ class PKPSubmissionController extends PKPBaseController
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
         'getPublicationTitleAbstractForm',
-        'getChangeLanguageMetadata'
+        'getChangeLanguageMetadata',
+        'changeVersionData',
+        'getNextAvailableVersionData',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -124,6 +127,7 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'changeLocale',
+        'changeVersionData'
     ];
 
     /** @var array Handlers that must be authorized to access a submission's production stage */
@@ -238,6 +242,14 @@ class PKPSubmissionController extends PKPBaseController
             Route::put('{submissionId}/publications/{publicationId}/changeLocale', $this->changeLocale(...))
                 ->name('submission.publication.changeLocale')
                 ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::put('{submissionId}/publications/{publicationId}/changeVersionData', $this->changeVersionData(...))
+                ->name('submission.publication.changeVersionData')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::get('{submissionId}/getNextAvailableVersionData', $this->getNextAvailableVersionData(...))
+                ->name('submission.getNextAvailableVersionData')
+                ->whereNumber(['submissionId']);
         });
 
         Route::middleware([
@@ -951,6 +963,67 @@ class PKPSubmissionController extends PKPBaseController
         $this->copyMultilingualData($submission, $newLocale);
 
         return $this->edit($illuminateRequest);
+    }
+
+    /**
+     * Change version data for publication
+     */
+    public function changeVersionData(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
+
+        $submissionContext = $request->getContext();
+
+        $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $versionStage = $params['versionStage'];
+        $versionStageIsMinor = (bool) $params['versionIsMinor'];
+
+        Repo::publication()->updateVersionData($publication, VersionStage::from($versionStage), $versionStageIsMinor);
+
+        return $this->edit($illuminateRequest);
+    }
+
+    /**
+     * Get next potential version for submission
+     */
+    public function getNextAvailableVersionData(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $params = $illuminateRequest->input();
+        $potentialVersionStage = VersionStage::from($params['versionStage']);
+        $potentialIsMinor = ($params['versionIsMinor'] === 'false') ? false : (bool) $params['versionIsMinor'];
+
+        $potentialVersionStage = $submission->getNextAvailableVersionData($potentialVersionStage, $potentialIsMinor);
+
+        $retValue = $potentialVersionStage->getVersionStageDisplay();
+
+        return response()->json(
+            $retValue,
+            Response::HTTP_OK
+        );
     }
 
     /**

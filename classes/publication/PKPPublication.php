@@ -23,6 +23,8 @@ use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
+use PKP\publication\enums\VersionStage;
+use PKP\publication\helpers\VersionData;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
@@ -463,6 +465,49 @@ class PKPPublication extends \PKP\core\DataObject
             ->unique()
             ->values()
             ->toArray();
+    }
+
+    /**
+     * Get the string that describes the 
+     * given publication's version.
+     */
+    public function getVersionDataDisplay(): ?string 
+    {
+        $currentVersionStage = $this->getCurrentVersionStage();
+        if (!isset($currentVersionStage)) {
+            return null;
+        }
+
+        return $currentVersionStage->getVersionStageDisplay();
+    }
+
+    /**
+     * Get the current version data
+     */
+    public function getCurrentVersionStage(): ?VersionData 
+    {
+        $versionStageStr = $this->getData('versionStage');
+        if (!isset($versionStageStr)) {
+            return null;
+        }
+
+        $versionStage = new VersionData();
+        $versionStage->stage = VersionStage::from($versionStageStr);
+        $versionStage->majorNumbering = $this->getData('versionMajor');
+        $versionStage->minorNumbering = $this->getData('versionMinor');
+
+        return $versionStage;
+    }
+
+    /**
+     * Set the current version of the publication 
+     * given a VersionData object
+     */
+    public function setVersionStage(VersionData $versionData): void
+    {
+        $this->setData('versionStage', $versionData->stage->value);
+        $this->setData('versionMajor', $versionData->majorNumbering);
+        $this->setData('versionMinor', $versionData->minorNumbering);
     }
 }
 if (!PKP_STRICT_MODE) {

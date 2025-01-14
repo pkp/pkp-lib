@@ -31,6 +31,7 @@ use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
+use PKP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
@@ -335,6 +336,19 @@ abstract class Repository
         $newPublication->setData('datePublished', null);
         $newPublication->setData('status', Submission::STATUS_QUEUED);
         $newPublication->setData('version', $publication->getData('version') + 1);
+
+        // VersionStage Update
+        $currentVersionStage = $newPublication->getCurrentVersionStage();
+
+        if (isset($currentVersionStage)) {
+            $submission = Repo::submission()->get($publication->getData('submissionId'));
+            
+            $newVersionStage = $submission->getNextAvailableVersionData($currentVersionStage->stage);
+            $newPublication->setVersionStage($newVersionStage);
+
+            $newPublication->setData('versionDescription', null);
+        }
+
         $newPublication->stampModified();
 
         $request = Application::get()->getRequest();
@@ -381,7 +395,6 @@ abstract class Repository
         Hook::call('Publication::version', [&$newPublication, $publication]);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
-
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
@@ -660,6 +673,37 @@ abstract class Repository
         Repo::submission()->updateStatus($submission, null, $section);
 
         Hook::call('Publication::delete', [&$publication]);
+    }
+
+    /**
+     * Given a Version Stage and a flag of whether the Version isMinor, 
+     * the publication's related data is being updated
+     *
+     * @hook 'Publication::updateVersionData::before' [[ &$newPublication, $publication ]]
+     */
+    public function updateVersionData(Publication $publication, VersionStage $versioningStage, bool $isMinor = true): Publication
+    {
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $nextAvailableVersionStage = $submission->getNextAvailableVersionData($versioningStage, $isMinor);
+
+        $newPublication = clone $publication;
+        $newPublication->setData('versionIsMinor', $isMinor);
+        $newPublication->setVersionStage($nextAvailableVersionStage);
+
+        $newPublication->stampModified();
+        Hook::call(
+            'Publication::updateVersionData::before',
+            [
+                &$newPublication,
+                $publication
+            ]
+        );
+
+        $this->dao->update($newPublication);
+
+        $newPublication = Repo::publication()->get($newPublication->getId());
+
+        return $newPublication;
     }
 
     /**

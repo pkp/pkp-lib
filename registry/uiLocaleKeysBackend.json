@@ -53,7 +53,6 @@
   "common.filtersClear",
   "common.findTemplate",
   "common.geographic",
-  "common.id",
   "common.insert",
   "common.insertContent",
   "common.insertContentSearch",
@@ -67,6 +66,7 @@
   "common.noItemsFound",
   "common.none",
   "common.numberedMore",
+  "common.numero",
   "common.ok",
   "common.order",
   "common.orderDown",
@@ -79,6 +79,7 @@
   "common.pagination.previous",
   "common.preview",
   "common.publications",
+  "common.refreshingData",
   "common.remove",
   "common.removeItem",
   "common.required",
@@ -126,6 +127,8 @@
   "dashboard.reviewAssignment.action.cancelReviewer",
   "dashboard.reviewAssignment.action.editDueDate",
   "dashboard.reviewAssignment.action.resendReviewRequest",
+  "dashboard.reviewAssignment.action.sendReviewToOrcid",
+  "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm",
   "dashboard.reviewAssignment.action.unassignReviewer",
   "dashboard.reviewAssignment.action.viewDetails",
   "dashboard.reviewAssignment.action.viewRecommendation",
@@ -352,7 +355,6 @@
   "manager.statistics.counterR5Reports.description",
   "manager.statistics.counterR5Reports.usageNotPossible",
   "manager.workflow",
-  "navigation.backTo",
   "navigation.dashboards",
   "navigation.mySubmissions",
   "navigation.reviewAssignments",
@@ -536,5 +538,6 @@
   "workflow.stageNotStarted",
   "workflow.submissionInFutureStage",
   "workflow.submissionInNextReviewRound",
-  "workflow.submissionNextReviewRoundInFutureStage"
+  "workflow.submissionNextReviewRoundInFutureStage",
+  "workflow.uploadRevisions"
 ]

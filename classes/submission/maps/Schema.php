@@ -707,7 +707,7 @@ class Schema extends \PKP\core\maps\Schema
 
                 $recommendation = [
                     'decision' => $decision->getData('decision'),
-                    'label' => $decisionType->getLabel(),
+                    'label' => $decisionType->getRecommendationLabel(),
                 ];
 
                 // Set recommendations for the deciding editor

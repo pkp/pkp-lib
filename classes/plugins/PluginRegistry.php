@@ -73,7 +73,8 @@ class PluginRegistry
         try {
             $pluginName = $plugin->getName();
         } catch (Throwable $e) {
-            error_log("Plugin getName() call has failed\n{$e}");
+            $pluginClass = $plugin::class;
+            error_log("Plugin {$pluginClass} getName() call has failed\n{$e}");
             return false;
         }
         $plugins = & static::getPlugins();
@@ -84,7 +85,8 @@ class PluginRegistry
                 return false;
             }
         } catch (Throwable $e) {
-            error_log("Plugin failed to be registered\n{$e}");
+            $pluginClass = $plugin::class;
+            error_log("Plugin {$pluginClass} failed to be registered\n{$e}");
             return false;
         }
 
@@ -208,7 +210,7 @@ class PluginRegistry
                 ? new $pluginClassName()
                 : static::deprecatedInstantiatePlugin($category, $pluginName);
         } catch (Throwable $e) {
-            error_log("Plugin instantiation has failed\n{$e}");
+            error_log("Instantiation of the plugin {$category}/{$pluginName} has failed\n{$e}");
             return null;
         }
 
@@ -220,7 +222,7 @@ class PluginRegistry
         }
         if ($plugin !== null && !($plugin instanceof $classToCheck)) {
             $type = $isObject ? $plugin::class : gettype($plugin);
-            error_log(new Exception("Plugin {$pluginName} expected to inherit from {$classToCheck}, actual type {$type}"));
+            error_log(new Exception("Plugin {$category}/{$pluginName} expected to inherit from {$classToCheck}, actual type {$type}"));
             return null;
         }
         return $plugin;
@@ -297,7 +299,8 @@ class PluginRegistry
         try {
             return $plugin->getSeq();
         } catch (Throwable $e) {
-            error_log("Plugin getSeq() call has failed\n{$e}");
+            $pluginClass = $plugin::class;
+            error_log("Plugin {$pluginClass} getSeq() call has failed\n{$e}");
             return 0;
         }
     }

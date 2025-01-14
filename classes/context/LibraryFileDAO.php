@@ -112,7 +112,7 @@ class LibraryFileDAO extends \PKP\db\DAO
      */
     public function getLocaleFieldNames(): array
     {
-        return ['name'];
+        return ['name', 'description'];
     }
 
     /**

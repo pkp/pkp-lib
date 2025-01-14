@@ -346,10 +346,9 @@ class UserGroupGridHandler extends GridHandler
 
         $user = $request->getUser();
         $userGroup = $this->_userGroup;
-        $contextId = $this->_getContextId();
         $notificationMgr = new NotificationManager();
 
-        $usersAssignedToUserGroupCount = $userGroup->usersInContext($contextId)->count();
+        $usersAssignedToUserGroupCount = $userGroup->userUserGroups()->count();
 
         if ($usersAssignedToUserGroupCount == 0) {
             if ($userGroup->isDefault) {

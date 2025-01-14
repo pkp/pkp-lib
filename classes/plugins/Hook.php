@@ -164,8 +164,8 @@ class Hook
                     }
                 } catch (Throwable $e) {
                     foreach ($e->getTrace() as $stackFrame) {
-                        if (is_subclass_of($stackFrame['class'] ?? null, Plugin::class)) {
-                            error_log("Hook handler failure detected at {$stackFrame['class']}\n{$e}");
+                        if (is_subclass_of($class = $stackFrame['class'] ?? null, Plugin::class)) {
+                            error_log("Hook handler failure detected at {$class}\n{$e}");
                             continue 2;
                         }
                     }

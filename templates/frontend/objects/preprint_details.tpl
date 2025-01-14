@@ -71,7 +71,7 @@
 	{if $publication->getData('status') !== \PKP\submission\PKPSubmission::STATUS_PUBLISHED}
 		<div class="cmp_notification notice">
 
-			{capture assign="submissionUrl"}{url page="workflow" op="access" path=$preprint->getId()}{/capture}
+			{capture assign="submissionUrl"}{url page="dashboard" op="editorial" workflowSubmissionId=$preprint->getId()}{/capture}
 
 			{translate key="submission.viewingPreview" url=$submissionUrl}
 		</div>

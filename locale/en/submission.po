@@ -2494,6 +2494,9 @@ msgstr "Revision requested"
 msgid "dashboard.submitRevisions"
 msgstr "Submit revisions"
 
+msgid "workflow.uploadRevisions"
+msgstr "Upload revisions"
+
 msgid "dashboard.acceptOrDeclineRequestDate"
 msgstr "Please accept or decline this request {$date}"
 

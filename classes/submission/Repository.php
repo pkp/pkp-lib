@@ -788,9 +788,10 @@ abstract class Repository
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,
             $context->getData('urlPath'),
-            'workflow',
-            'access',
-            [$submissionId]
+            'dashboard',
+            'editorial',
+            null,
+            ['workflowSubmissionId' => $submissionId]
         );
     }
 

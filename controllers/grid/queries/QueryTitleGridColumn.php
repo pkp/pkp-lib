@@ -94,7 +94,7 @@ class QueryTitleGridColumn extends GridColumn
                     'readQuery',
                     new AjaxModal(
                         $router->url($request, null, null, 'readQuery', null, $actionArgs),
-                        $headNote ? htmlspecialchars($headNote->title) : '&mdash;',
+                        $headNote ? $headNote->title : '—',
                     ),
                     ($headNote?->title != '') ? htmlspecialchars($headNote->title) : '&mdash;',
                     null

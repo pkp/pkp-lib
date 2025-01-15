@@ -156,6 +156,9 @@
                     {{ lastAutosavedMessage }}
                 </template>
             </span>
+            {if $canCancelSubmission}
+                <pkp-button  :is-warnable="true" :is-link="true" id='cancelSubmission' @click="cancelSubmission">{translate key="common.cancel"}</pkp-button>
+            {/if}
             <pkp-button
                 :is-disabled="isDisconnected"
                 @click="saveForLater"

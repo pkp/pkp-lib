@@ -63,6 +63,15 @@ msgstr "Yes, my submission meets all of these requirements."
 msgid "submission.submit.submissionComplete"
 msgstr "Submission complete"
 
+msgid "submission.wizard.submissionCancelled"
+msgstr "Submission cancelled"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancel submission"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Submission has been cancelled, and all associated data has been deleted."
+
 msgid "submission.submit.genre.label"
 msgstr "What kind of file is this?"
 
@@ -2152,6 +2161,9 @@ msgstr "Change Submission Settings"
 
 msgid "submission.wizard.completeSteps"
 msgstr "Complete the steps to make a submission"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr "Are you sure you wish to cancel this submission? This will delete the submission and all associated data. This action cannot be undone."
 
 msgid "submission.wizard.confirmSubmit"
 msgstr "The submission, <strong>{$title}</strong>, will be submitted to <strong>{$context}</strong> for editorial review. Are you sure you want to complete this submission?"

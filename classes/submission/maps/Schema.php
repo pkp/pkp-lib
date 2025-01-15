@@ -683,6 +683,7 @@ class Schema extends \PKP\core\maps\Schema
             if (!empty($globalRoles)) {
                 foreach ($stageIds as $stageId) {
                     $stages[$stageId]['currentUserAssignedRoles'] = $globalRoles;
+                    $isCurrentUserDecidingEditor = $stages[$stageId]['isCurrentUserDecidingEditor'] = true;
                 }
             }
         }

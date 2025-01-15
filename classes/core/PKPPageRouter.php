@@ -29,7 +29,7 @@ use PKP\userGroup\UserGroup;
 class PKPPageRouter extends PKPRouter
 {
     /** @var array pages that don't need an installed system to be displayed */
-    public $_installationPages = ['install', 'help', 'header', 'sidebar'];
+    public $_installationPages = ['install', 'help'];
 
     public const ROUTER_DEFAULT_PAGE = './pages/index/index.php';
     public const ROUTER_DEFAULT_OP = 'index';

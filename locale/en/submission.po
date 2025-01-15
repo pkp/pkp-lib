@@ -2679,3 +2679,8 @@ msgstr "undefined version"
 
 msgid "publication.versionStage.display"
 msgstr "{$stage} {$majorNumbering}.{$minorNumbering}"
+
+msgid "publication.required.versionStage"
+msgstr ""
+"The publication must have a version stage assigned before it can "
+"be published."

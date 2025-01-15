@@ -279,6 +279,12 @@ abstract class Repository
             }
         }
 
+        // Publication Version check
+        $publicationVersion = $publication->getCurrentVersionData();
+        if (!isset($publicationVersion)) {
+            $errors['versionStage'] = __('publication.required.versionStage');
+        }
+
         Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);
 
         return $errors;

@@ -570,7 +570,7 @@ abstract class Repository
         $submission = Repo::submission()->get($submissionId);
 
         $publication->setData('submissionId', $submission->getId());
-        $publication->setData('version', 1);
+
         if (!$publication->getData('status')) {
             $publication->setData('status', $submission->getData('status'));
         }

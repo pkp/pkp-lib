@@ -80,7 +80,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $publication->stampModified();
         $publication = $this->populateObject($publication, $node);
 
-        $publication->setData('version', $node->getAttribute('version'));
+        $publication->setData('versionStage', $node->getAttribute('version_stage'));
+        $publication->setData('versionMinor', $node->getAttribute('version_minor'));
+        $publication->setData('versionMajor', $node->getAttribute('version_major'));
         $publication->setData('seq', $node->getAttribute('seq'));
         $publication->setData('accessStatus', $node->getAttribute('access_status'));
         $publication->setData('status', $node->getAttribute('status'));

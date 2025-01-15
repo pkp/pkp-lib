@@ -328,24 +328,29 @@ abstract class Repository
      *
      * @hook Publication::version [[&$newPublication, $publication]]
      */
-    public function version(Publication $publication): int
+    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true): int
     {
         $newPublication = clone $publication;
         $newPublication->setData('id', null);
         $newPublication->setData('datePublished', null);
         $newPublication->setData('status', Submission::STATUS_QUEUED);
-        $newPublication->setData('version', $publication->getData('version') + 1);
+
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
 
         // VersionStage Update
-        $currentVersionStage = $newPublication->getCurrentVersionStage();
+        $newVersionStage = $versionStage;
+        $newIsMinorVersion = $isMinorVersion;
 
-        if (isset($currentVersionStage)) {
-            $submission = Repo::submission()->get($publication->getData('submissionId'));
-            
-            $newVersionStage = $submission->getNextAvailableVersionData($currentVersionStage->stage);
-            $newPublication->setVersionStage($newVersionStage);
+        if (!isset($newVersionStage)) {
+            $currentVersionData = $newPublication->getCurrentVersionData();
+            if (isset($currentVersionData)) {
+                $newVersionStage = $currentVersionData->stage;
+            }
+        }
 
-            $newPublication->setData('versionDescription', null);
+        if (isset($newVersionStage)) {
+            $newVersionStage = $submission->getNextAvailableVersionData($newVersionStage, $newIsMinorVersion);
+            $newPublication->setVersionData($newVersionStage);
         }
 
         $newPublication->stampModified();
@@ -393,7 +398,6 @@ abstract class Repository
 
         Hook::call('Publication::version', [&$newPublication, $publication]);
 
-        $submission = Repo::submission()->get($newPublication->getData('submissionId'));
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
@@ -687,7 +691,7 @@ abstract class Repository
 
         $newPublication = clone $publication;
         $newPublication->setData('versionIsMinor', $isMinor);
-        $newPublication->setVersionStage($nextAvailableVersionStage);
+        $newPublication->setVersionData($nextAvailableVersionStage);
 
         $newPublication->stampModified();
         Hook::call(

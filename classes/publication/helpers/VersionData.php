@@ -25,7 +25,7 @@ class VersionData extends \PKP\core\DataObject
     public int $majorNumbering;
     public int $minorNumbering;
 
-    public function getVersionStageDisplay(): string 
+    public function display(): string 
     {
         $versionStageLabel = $this->stage->label();
 

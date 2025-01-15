@@ -306,7 +306,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
         }
 
         return collect($publications->map(function ($publication) {
-            return $publication->getCurrentVersionStage();
+            return $publication->getCurrentVersionData();
         })->filter()); // Remove any null entries from the collection
     }
 

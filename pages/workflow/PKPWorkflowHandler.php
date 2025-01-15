@@ -329,7 +329,7 @@ abstract class PKPWorkflowHandler extends Handler
                 'id' => $publication->getId(),
                 'datePublished' => $publication->getData('datePublished'),
                 'status' => $publication->getData('status'),
-                'version' => $publication->getData('version')
+                'version' => $publication->getVersionDataDisplay()
             ];
         })->values();
 

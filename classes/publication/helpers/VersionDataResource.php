@@ -28,7 +28,7 @@ class VersionDataResource extends JsonResource
             'stageLabel' => $this->stage->label(),
             'majorNumbering' => $this->majorNumbering,
             'minorNumbering' => $this->minorNumbering,
-            'display' => $this->getVersionStageDisplay(),
+            'display' => $this->display(),
         ];
     }
 }

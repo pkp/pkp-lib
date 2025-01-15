@@ -35,5 +35,15 @@ class VersionData extends \PKP\core\DataObject
             'minorNumbering' => $this->minorNumbering,
         ]);
     }
+
+    public static function createDefaultForStage(VersionStage $versionStage): VersionData
+    {
+        $defaultVersionStage = new VersionData();
+        $defaultVersionStage->stage = $versionStage;
+        $defaultVersionStage->majorNumbering = VersionData::DEFAULT_MAJOR_NUMBERING;
+        $defaultVersionStage->minorNumbering = VersionData::DEFAULT_MINOR_NUMBERING;
+
+        return $defaultVersionStage;
+    }
 }
 

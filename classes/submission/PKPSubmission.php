@@ -307,10 +307,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
 
     public function getNextAvailableVersionData(VersionStage $versioningStage, bool $isMinorChange = true): VersionData
     {
-        $nextVersionStage = new VersionData();
-        $nextVersionStage->stage = $versioningStage;
-        $nextVersionStage->majorNumbering = VersionData::DEFAULT_MAJOR_NUMBERING;
-        $nextVersionStage->minorNumbering = VersionData::DEFAULT_MINOR_NUMBERING;
+        $nextVersionStage = VersionData::createDefaultForStage($versioningStage);
 
         $submissionVersionStages = $this->getAllVersionDataByPublications();
 

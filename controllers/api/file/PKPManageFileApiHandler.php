@@ -102,7 +102,7 @@ abstract class PKPManageFileApiHandler extends Handler
 
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $originalFile = $request->getUserVar('originalFile') ? (array)$request->getUserVar('originalFile') : null;
-        $revisedFileId = $request->getUserVar('fileId') ? (int)$request->getUserVar('fileId') : null;
+        $fileIdToCancel = $request->getUserVar('fileId') ? (int)$request->getUserVar('fileId') : null;
 
         // Get revisions and check file IDs
         $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
@@ -111,46 +111,49 @@ abstract class PKPManageFileApiHandler extends Handler
             $revisionIds[] = $revision->fileId;
         }
 
-        if (!$revisedFileId || !in_array($revisedFileId, $revisionIds)) {
+        if (!$fileIdToCancel || !in_array($fileIdToCancel, $revisionIds)) {
             return new JSONMessage(false);
         }
 
-        if (!isset($originalFile['fileId']) || !in_array($originalFile['fileId'], $revisionIds)) {
-            return new JSONMessage(false);
+        // Original file is only present in request when the file to be cancelled was being upload as a revision of a previous file
+        if (!empty($originalFile)) {
+            if (!isset($originalFile['fileId']) || !in_array($originalFile['fileId'], $revisionIds)) {
+                return new JSONMessage(false);
+            }
+
+            $originalFileId = (int) $originalFile['fileId'];
+
+            // Get the file name and uploader user ID
+            $originalUserId = $originalFile['uploaderUserId'] ? (int)$originalFile['uploaderUserId'] : null;
+            $originalFileName = $originalFile['name'] ? (array)$originalFile['name'] : null;
+            if (!$originalUserId || !$originalFileName) {
+                return new JSONMessage(false);
+            }
+
+            $originalUser = Repo::user()->get($originalUserId);
+            if (!$originalUser) {
+                return new JSONMessage(false);
+            }
+
+            $originalUsername = $originalUser->getUsername();
+            $matchedLogEntry = $this->findMatchedLogEntry($submissionFile, $originalFileId, $originalUsername, $originalFileName);
+            if (!$matchedLogEntry) {
+                return new JSONMessage(false);
+            }
+
+            // Restore original submission file
+            Repo::submissionFile()->edit(
+                $submissionFile,
+                [
+                    'fileId' => $matchedLogEntry->getData('fileId'),
+                    'name' => $matchedLogEntry->getData('filename'),
+                    'uploaderUserId' => Repo::user()->getByUsername($matchedLogEntry->getData('username'))->getId(),
+                ]
+            );
         }
-
-        $originalFileId = (int) $originalFile['fileId'];
-
-        // Get the file name and uploader user ID
-        $originalUserId = $originalFile['uploaderUserId'] ? (int)$originalFile['uploaderUserId'] : null;
-        $originalFileName = $originalFile['name'] ? (array)$originalFile['name'] : null;
-        if (!$originalUserId || !$originalFileName) {
-            return new JSONMessage(false);
-        }
-
-        $originalUser = Repo::user()->get($originalUserId);
-        if (!$originalUser) {
-            return new JSONMessage(false);
-        }
-
-        $originalUsername = $originalUser->getUsername();
-        $matchedLogEntry = $this->findMatchedLogEntry($submissionFile, $originalFileId, $originalUsername, $originalFileName);
-        if (!$matchedLogEntry) {
-            return new JSONMessage(false);
-        }
-
-        // Restore original submission file
-        Repo::submissionFile()->edit(
-            $submissionFile,
-            [
-                'fileId' => $matchedLogEntry->getData('fileId'),
-                'name' => $matchedLogEntry->getData('filename'),
-                'uploaderUserId' => Repo::user()->getByUsername($matchedLogEntry->getData('username'))->getId(),
-            ]
-        );
 
         // Remove uploaded file
-        app()->get('file')->delete($revisedFileId);
+        app()->get('file')->delete($fileIdToCancel);
 
         $this->setupTemplate($request);
         return \PKP\db\DAO::getDataChangedEvent();

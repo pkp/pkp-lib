@@ -192,6 +192,9 @@ msgstr "Designado"
 msgid "common.assigned.date"
 msgstr "Designado em: {$dateAssigned}"
 
+msgid "common.assignments"
+msgstr "Designações"
+
 msgid "common.available"
 msgstr "Disponível"
 

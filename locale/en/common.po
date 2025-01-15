@@ -216,6 +216,9 @@ msgstr "Assigned"
 msgid "common.assigned.date"
 msgstr "Assigned: {$dateAssigned}"
 
+msgid "common.assignments"
+msgstr "Assignments"
+
 msgid "common.available"
 msgstr "Available"
 

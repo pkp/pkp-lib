@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/Collector.php
  *
@@ -29,11 +30,10 @@ use PKP\doi\Doi;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\publication\PublicationCategory;
 use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\publication\PublicationCategory;
-
 
 /**
  * @template T of Submission
@@ -374,6 +374,8 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
     /**
      * Add APP-specific filtering for checking if a submission has sub objects with DOI ID matching that given via the searchPhrase property.
+     *
+     * @hook Submission::Collector [[&$q, $this]]
      */
     abstract protected function addFilterByAssociatedDoiIdsToQuery(Builder $q);
 
@@ -498,33 +500,40 @@ abstract class Collector implements CollectorInterface, ViewsCount
         }
 
         if ($this->isOverdue) {
-            $q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
-                ->leftJoin(
-                    'review_rounds as rr',
-                    fn (Builder $table) =>
-                    $table->on('rr.submission_id', '=', 's.submission_id')
-                        ->on('raod.review_round_id', '=', 'rr.review_round_id')
-                );
-            // Only get overdue assignments on active review rounds
-            $q->whereNotIn('rr.status', [
-                ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
-                ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
-                ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
-                ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
-            ]);
-            $q->where(
+            $q->whereIn(
+                's.submission_id',
                 fn (Builder $q) =>
-                $q->where('raod.declined', '<>', 1)
-                    ->where('raod.cancelled', '<>', 1)
+                $q->select('s.submission_id')
+                    ->from('submissions AS s')
+                    ->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
+                    ->leftJoin(
+                        'review_rounds as rr',
+                        fn (Builder $table) =>
+                        $table->on('rr.submission_id', '=', 's.submission_id')
+                            ->on('raod.review_round_id', '=', 'rr.review_round_id')
+                    )
+
+                     // Only get overdue assignments on active review rounds
+                    ->whereNotIn('rr.status', [
+                        ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
+                        ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
+                        ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
+                        ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
+                    ])
                     ->where(
                         fn (Builder $q) =>
-                        $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                            ->whereNull('raod.date_completed')
-                    )
-                    ->orWhere(
-                        fn (Builder $q) =>
-                        $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                            ->whereNull('raod.date_confirmed')
+                                    $q->where('raod.declined', '<>', 1)
+                                        ->where('raod.cancelled', '<>', 1)
+                                        ->where(
+                                            fn (Builder $q) =>
+                                            $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                                                ->whereNull('raod.date_completed')
+                                        )
+                                        ->orWhere(
+                                            fn (Builder $q) =>
+                                            $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                                                ->whereNull('raod.date_confirmed')
+                                        )
                     )
             );
         }
@@ -567,7 +576,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
         // Search phrase
         if ($keywords->count()) {
             $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
-            if(!empty($this->assignedTo)) {
+            if (!empty($this->assignedTo)) {
                 // Holds a single random row to check whether we have any assignment
                 $q->leftJoinSub(
                     fn (Builder $q) => $q
@@ -687,7 +696,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 )
         );
 
-        $q->when($isSearchPhraseDoi, fn(Builder $q) => $this->addFilterByAssociatedDoiIdsToQuery($q));
+        $q->when($isSearchPhraseDoi, fn (Builder $q) => $this->addFilterByAssociatedDoiIdsToQuery($q));
 
         // Limit and offset results for pagination
         if (isset($this->count)) {

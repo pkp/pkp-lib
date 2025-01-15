@@ -300,12 +300,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function getAllVersionDataByPublications(): Collection
     {
-        $publications = $this->getData('publications');
-        if ($publications->isEmpty()) {
-            return collect(); // Return an empty collection
-        }
-
-        return collect($publications->map(function ($publication) {
+        return collect($this->getData('publications')->map(function ($publication) {
             return $publication->getCurrentVersionData();
         })->filter()); // Remove any null entries from the collection
     }

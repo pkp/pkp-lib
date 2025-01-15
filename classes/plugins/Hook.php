@@ -17,6 +17,8 @@
 namespace PKP\plugins;
 
 use PKP\core\Registry;
+use ReflectionClass;
+use ReflectionFunction;
 use Throwable;
 
 class Hook
@@ -163,10 +165,24 @@ class Hook
                         return static::ABORT;
                     }
                 } catch (Throwable $e) {
+                    $pluginDirectories = [realpath(BASE_SYS_DIR . '/' . PKP_LIB_PATH . '/plugins'), realpath(BASE_SYS_DIR . '/plugins')];
                     foreach ($e->getTrace() as $stackFrame) {
-                        if (is_subclass_of($pluginClass = $stackFrame['class'] ?? null, Plugin::class)) {
-                            error_log("Plugin {$pluginClass} failed to handle the hook {$hookName}\n{$e}");
-                            continue 2;
+                        $filename = (($class = $stackFrame['class'] ?? null) ? (new ReflectionClass($class))->getFileName() : null)
+                            ?? (($function = $stackFrame['function'] ?? null) ? (new ReflectionFunction($function))->getFileName() : null)
+                            ?? $stackFrame['file']
+                            ?? null;
+
+                        if (!$filename) {
+                            continue;
+                        }
+
+                        $filename = realpath($filename);
+                        foreach ($pluginDirectories as $pluginDirectory) {
+                            if (strpos($filename, $pluginDirectory) === 0) {
+                                $pieces = explode(DIRECTORY_SEPARATOR, substr($filename, strlen($pluginDirectory) + 1));
+                                error_log("Plugin {$pieces[0]}/{$pieces[1]} failed to handle the hook {$hookName}\n{$e}");
+                                continue 3;
+                            }
                         }
                     }
                     throw $e;

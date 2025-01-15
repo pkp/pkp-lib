@@ -169,9 +169,6 @@ class PKPPageRouter extends PKPRouter
             // the system is not yet installed. Redirect to
             // the installation page.
             $request->redirect(Application::SITE_CONTEXT_PATH, 'install');
-        } elseif (Application::isInstalled() && in_array($page, $this->getInstallationPages())) {
-            // Redirect to the index page
-            $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
         }
 
         // Redirect requests from logged-out users to a context which is not

@@ -17,6 +17,9 @@
 namespace PKP\plugins;
 
 use PKP\core\Registry;
+use ReflectionClass;
+use ReflectionFunction;
+use Throwable;
 
 class Hook
 {
@@ -60,7 +63,7 @@ class Hook
      */
     public static function addUnsupportedHooks(...$hookNames): void
     {
-        self::$unsupportedHooks = array_merge(self::$unsupportedHooks, array_flip($hookNames));
+        static::$unsupportedHooks = array_merge(static::$unsupportedHooks, array_flip($hookNames));
     }
 
     /**
@@ -81,7 +84,7 @@ class Hook
      */
     public static function add(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void
     {
-        if (isset(self::$unsupportedHooks[$hookName])) {
+        if (isset(static::$unsupportedHooks[$hookName])) {
             throw new \Exception("Hook {$hookName} is not supported (possibly removed) and callbacks should not be added to it!");
         }
         $hooks = & static::getHooks();
@@ -96,7 +99,7 @@ class Hook
      */
     public static function register(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void
     {
-        self::add($hookName, $callback, $hookSequence);
+        static::add($hookName, $callback, $hookSequence);
     }
 
     /**
@@ -118,7 +121,7 @@ class Hook
         // Called only by Unit Test
         // This behaviour is DEPRECATED and not replicated in the preferred
         // Hook::call function.
-        if (self::rememberCalledHooks(true)) {
+        if (static::rememberCalledHooks(true)) {
             // Remember the called hooks for testing.
             $calledHooks = & static::getCalledHooks();
             $calledHooks[] = [
@@ -126,7 +129,7 @@ class Hook
             ];
         }
 
-        return self::run($hookName, [$args]);
+        return static::run($hookName, [$args]);
     }
 
     /**
@@ -146,7 +149,7 @@ class Hook
     {
         $hooks = & static::getHooks();
         if (!isset($hooks[$hookName])) {
-            return self::CONTINUE;
+            return static::CONTINUE;
         }
 
         // Sort callbacks if the list is dirty
@@ -155,15 +158,52 @@ class Hook
             $hooks[$hookName]['dirty'] = false;
         }
 
-        foreach ($hooks[$hookName]['hooks'] as $priority => $hookList) {
+        foreach ($hooks[$hookName]['hooks'] as $hookList) {
             foreach ($hookList as $callback) {
-                if (call_user_func_array($callback, [$hookName, ...$args]) === self::ABORT) {
-                    return self::ABORT;
+                try {
+                    if (call_user_func_array($callback, [$hookName, ...$args]) === static::ABORT) {
+                        return static::ABORT;
+                    }
+                } catch (Throwable $e) {
+                    /**
+                     * This is an attempt to improve the application's resilience against errors inside plugins
+                     * If an exception happens at a hook handler which was implemented inside a plugin (callbacks implemented inside a plugin-derived class or located inside the folders "lib/pkp/plugins" or "plugins"), the exception will be logged and the hook flow will continue
+                     * @see https://github.com/pkp/pkp-lib/discussions/9083
+                    */
+                    $pluginDirectories = [realpath(BASE_SYS_DIR . '/' . PKP_LIB_PATH . '/plugins'), realpath(BASE_SYS_DIR . '/plugins')];
+                    foreach ($e->getTrace() as $stackFrame) {
+                        // If the code was implemented inside a plugin class, let the hook flow continue
+                        if (is_subclass_of($class = $stackFrame['class'] ?? null, Plugin::class)) {
+                            error_log("Plugin {$class} failed to handle the hook {$hookName}\n{$e}");
+                            continue 2;
+                        }
+
+                        // Attempt to recover the file where the callback was implemented
+                        $filename = ($class ? (new ReflectionClass($class))->getFileName() : null)
+                            ?? (($function = $stackFrame['function'] ?? null) ? (new ReflectionFunction($function))->getFileName() : null)
+                            ?? $stackFrame['file']
+                            ?? null;
+                        if (!$filename) {
+                            continue;
+                        }
+
+                        // If the code was implemented inside a plugin folder, let the hook flow continue
+                        $filename = realpath($filename);
+                        foreach ($pluginDirectories as $pluginDirectory) {
+                            if (strpos($filename, $pluginDirectory) === 0) {
+                                $pieces = explode(DIRECTORY_SEPARATOR, substr($filename, strlen($pluginDirectory) + 1));
+                                error_log("Plugin {$pieces[0]}/{$pieces[1]} failed to handle the hook {$hookName}\n{$e}");
+                                continue 3;
+                            }
+                        }
+                    }
+
+                    throw $e;
                 }
             }
         }
 
-        return self::CONTINUE;
+        return static::CONTINUE;
     }
 
 

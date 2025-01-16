@@ -165,17 +165,29 @@ class Hook
                         return static::ABORT;
                     }
                 } catch (Throwable $e) {
+                    /**
+                     * This is an attempt to improve the application's resilience against errors inside plugins
+                     * If an exception happens at a hook handler which was implemented inside a plugin (callbacks implemented inside a plugin-derived class or located inside the folders "lib/pkp/plugins" or "plugins"), the exception will be logged and the hook flow will continue
+                     * @see https://github.com/pkp/pkp-lib/discussions/9083
+                    */
                     $pluginDirectories = [realpath(BASE_SYS_DIR . '/' . PKP_LIB_PATH . '/plugins'), realpath(BASE_SYS_DIR . '/plugins')];
                     foreach ($e->getTrace() as $stackFrame) {
-                        $filename = (($class = $stackFrame['class'] ?? null) ? (new ReflectionClass($class))->getFileName() : null)
+                        // If the code was implemented inside a plugin class, let the hook flow continue
+                        if (is_subclass_of($class = $stackFrame['class'] ?? null, Plugin::class)) {
+                            error_log("Plugin {$class} failed to handle the hook {$hookName}\n{$e}");
+                            continue 2;
+                        }
+
+                        // Attempt to recover the file where the callback was implemented
+                        $filename = ($class ? (new ReflectionClass($class))->getFileName() : null)
                             ?? (($function = $stackFrame['function'] ?? null) ? (new ReflectionFunction($function))->getFileName() : null)
                             ?? $stackFrame['file']
                             ?? null;
-
                         if (!$filename) {
                             continue;
                         }
 
+                        // If the code was implemented inside a plugin folder, let the hook flow continue
                         $filename = realpath($filename);
                         foreach ($pluginDirectories as $pluginDirectory) {
                             if (strpos($filename, $pluginDirectory) === 0) {
@@ -185,6 +197,7 @@ class Hook
                             }
                         }
                     }
+
                     throw $e;
                 }
             }

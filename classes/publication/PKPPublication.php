@@ -470,19 +470,6 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
-     * Get the string that describes the 
-     * given publication's version.
-     */
-    public function getVersionDataDisplay(): string 
-    {
-        $currentVersionStage = $this->getCurrentVersionData();
-        if (!isset($currentVersionStage)) {
-            return __('publication.versionStage.undefinedVersion');
-        }
-
-        return $currentVersionStage->display();
-    }
-    /**
      * Get the current version data
      */
     public function getCurrentVersionData(): ?VersionData 
@@ -506,7 +493,7 @@ class PKPPublication extends \PKP\core\DataObject
      */
     public function setVersionData(VersionData $versionData): void
     {
-        $this->setData('versionStage', $versionData->stage?->value ?? null);
+        $this->setData('versionStage', $versionData->stage->value);
         $this->setData('versionMajor', $versionData->majorNumbering);
         $this->setData('versionMinor', $versionData->minorNumbering);
     }

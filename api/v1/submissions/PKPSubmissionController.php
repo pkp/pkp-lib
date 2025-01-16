@@ -1008,7 +1008,7 @@ class PKPSubmissionController extends PKPBaseController
         $potentialVersionStage = VersionStage::from($params['versionStage']);
         $potentialIsMinor = ($params['versionIsMinor'] === 'false') ? false : (bool) $params['versionIsMinor'];
 
-        $potentialVersionStage = $submission->getNextAvailableVersionData($potentialVersionStage, $potentialIsMinor);
+        $potentialVersionStage = Repo::submission()->getNextAvailableVersionData($submission, $potentialVersionStage, $potentialIsMinor);
 
         return response()->json(
             (new VersionDataResource($potentialVersionStage))->toArray($illuminateRequest),

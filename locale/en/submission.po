@@ -2674,8 +2674,8 @@ msgstr "Proof"
 msgid "publication.versionStage.versionOfRecord"
 msgstr "Version of Record"
 
-msgid "publication.versionStage.undefinedVersion"
-msgstr "undefined version"
+msgid "publication.versionStage.unassignedVersion"
+msgstr "unassigned version ({$publicationCreatedDate})"
 
 msgid "publication.versionStage.display"
 msgstr "{$stage} {$majorNumbering}.{$minorNumbering}"
@@ -2684,3 +2684,10 @@ msgid "publication.required.versionStage"
 msgstr ""
 "The publication must have a version stage assigned before it can "
 "be published."
+
+msgid "publication.required.versionStage.assignment"
+msgstr "The stage version that will be assigned to the publication is '{$versionDataDisplay}'"
+
+msgid "publication.required.versionStage.alreadyAssignment"
+msgstr "The publication version is '{$versionDataDisplay}'"
+

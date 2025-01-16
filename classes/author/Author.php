@@ -54,7 +54,7 @@ class Author extends Identity
             return $this->getFamilyName($locale);
         }
         // Fall back on the submission locale.
-        return $this->getFamilyName($this->getSubmissionLocale());
+        return $this->getFamilyName($this->getData('submissionLocale'));
     }
 
     //

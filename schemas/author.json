@@ -79,7 +79,7 @@
 			"default": true,
 			"apiSummary": true
 		},
-		"locale": {
+		"submissionLocale": {
 			"type": "string",
 			"description": "The primary locale of the submission this author is attached to. This locale is used as the fallback when a language is missing from a multilingual property.",
 			"apiSummary": true,

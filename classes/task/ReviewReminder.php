@@ -129,6 +129,14 @@ class ReviewReminder extends ScheduledTask
         $incompleteAssignments = $reviewAssignmentDao->getIncompleteReviewAssignments();
         $inviteReminderDays = $submitReminderDays = null;
         foreach ($incompleteAssignments as $reviewAssignment) {
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+            $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($reviewAssignment->getSubmissionId());
+
+            if ($reviewAssignment->getRound() != $lastReviewRound->getRound() || 
+                $reviewAssignment->getStageId() != $lastReviewRound->getStageId()) {
+                continue;
+            }
+
             // Avoid review assignments that a reminder exists for.
             if ($reviewAssignment->getDateReminded() !== null) {
                 continue;

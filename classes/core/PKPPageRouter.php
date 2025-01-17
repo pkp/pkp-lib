@@ -503,6 +503,7 @@ class PKPPageRouter extends PKPRouter
         $contextPath = $this->_getRequestedUrlParts(Core::getContextPath(...), $request);
         $urlLocale = $this->_getRequestedUrlParts(Core::getLocalization(...), $request);
         $multiLingual = count($this->_getContextAndLocales($request, $contextPath)[1]) > 1;
+        // Quit if there's no new locale to be set and the request URL is already well-formed
         if (!$setLocale && ($multiLingual ? $urlLocale === Locale::getLocale() : !$urlLocale)) {
             return;
         }
@@ -523,19 +524,20 @@ class PKPPageRouter extends PKPRouter
             $request->setCookieVar('currentLocale', $newLocale);
         }
 
-        // Do not permit basic auth strings in source parameter for redirects
+        // Do not permit basic auth strings (user:password@url) in source parameter for redirects
         if (preg_match('#^/\w#', $source = str_replace('@', '', $request->getUserVar('source') ?? ''))) {
             $request->redirectUrl($source);
         }
 
-        $indexUrl = $this->getIndexUrl($request);
-        $uri = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
         $newUrlLocale = $multiLingual ? "/{$newLocale}" : '';
-        $pathInfo = $uri
-            ? preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[/?\\#]|$)#', "/{$contextPath}{$newUrlLocale}", $uri, 1)
-            : "/index{$newUrlLocale}";
-
-        $request->redirectUrl($indexUrl . $pathInfo);
+        $indexUrl = $this->getIndexUrl($request);
+        $pathInfo = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
+        $newPathInfo = preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[\\/?#])\b/', "/{$contextPath}{$newUrlLocale}", $pathInfo, 1, $replaceCount);
+        // Failed to setup the new URL, fallback to the default initial URL
+        if (!$replaceCount) {
+            $newPathInfo = "/index{$newUrlLocale}";
+        }
+        $request->redirectUrl($indexUrl . $newPathInfo);
     }
 }
 

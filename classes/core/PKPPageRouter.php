@@ -443,33 +443,6 @@ class PKPPageRouter extends PKPRouter
 
             return $request->url(null, 'submissions');
         } else {
-            // The user is at the site context
-            $userGroups = UserGroup::query()
-                ->where('context_id', \PKP\core\PKPApplication::SITE_CONTEXT_ID)
-                ->whereHas('userUserGroups', function ($query) use ($userId) {
-                    $query->where('user_id', $userId)
-                        ->where(function ($q) {
-                            $q->whereNull('date_end')
-                                ->orWhere('date_end', '>', now());
-                        })
-                        ->where(function ($q) {
-                            $q->whereNull('date_start')
-                                ->orWhere('date_start', '<=', now());
-                        });
-                })
-                ->get();
-
-            if ($userGroups->count() == 1) {
-                $firstUserGroup = $userGroups->first();
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($firstUserGroup->contextId);
-                if (!isset($context)) {
-                    $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
-                }
-                if ($firstUserGroup->roleId == Role::ROLE_ID_READER) {
-                    $request->redirect(null, 'index');
-                }
-            }
             return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
     }

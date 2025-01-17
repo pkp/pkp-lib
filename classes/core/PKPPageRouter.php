@@ -507,28 +507,31 @@ class PKPPageRouter extends PKPRouter
             return;
         }
 
-        $sessionLocale = (function (string $l) use ($request): string {
-            $session = $request->getSession();
-            if (Locale::isSupported($l) && $l !== $session->get('currentLocale')) {
-                $session->put('currentLocale', $l);
-                $request->setCookieVar('currentLocale', $l);
-            }
-            // In case session current locale has been set to non-supported locale, or is null, somewhere else
-            if (!Locale::isSupported($session->get('currentLocale') ?? '')) {
-                $session->put('currentLocale', Locale::getLocale());
-                $request->setCookieVar('currentLocale', Locale::getLocale());
-            }
-            return $session->get('currentLocale');
-        })($setLocale ?? $urlLocale);
+        $session = $request->getSession();
+        $currentLocale = $session->get('currentLocale') ?? '';
+        if (!Locale::isSupported($currentLocale ?? '')) {
+            $currentLocale = null;
+        }
 
+        $newLocale = $setLocale ?? $urlLocale;
+        if (!Locale::isSupported($newLocale)) {
+            $newLocale = $currentLocale ?? Locale::getLocale();
+        }
+
+        if ($newLocale !== $currentLocale) {
+            $session->put('currentLocale', $newLocale);
+            $request->setCookieVar('currentLocale', $newLocale);
+        }
+
+        // Do not permit basic auth strings in source parameter for redirects
         if (preg_match('#^/\w#', $source = str_replace('@', '', $request->getUserVar('source') ?? ''))) {
             $request->redirectUrl($source);
         }
 
         $indexUrl = $this->getIndexUrl($request);
         $uri = preg_replace("#^{$indexUrl}#", '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
-        $newUrlLocale = $multiLingual ? "/{$sessionLocale}" : '';
-        $pathInfo = ($uri)
+        $newUrlLocale = $multiLingual ? "/{$newLocale}" : '';
+        $pathInfo = $uri
             ? preg_replace("#^/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : '') . '(?=[/?\\#]|$)#', "/{$contextPath}{$newUrlLocale}", $uri, 1)
             : "/index{$newUrlLocale}";
 

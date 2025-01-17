@@ -1,13 +1,14 @@
 # rl <biuro@fimagis.pl>, 2022, 2024.
 # Pressto <pressto@amu.edu.pl>, 2022.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
+# Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2024-09-14 09:43+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2025-01-17 19:08+0000\n"
+"Last-Translator: Kamil Janeda <kamil.janeda@ue.wroc.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
 "Language: pl\n"
@@ -1616,7 +1617,7 @@ msgid "notification.notification"
 msgstr "Powiadomienie"
 
 msgid "notification.notifications"
-msgstr "Powiadomienia RSS / Atom"
+msgstr "Powiadomienia"
 
 msgid "notification.sentNotification"
 msgstr "Powiadomienie wysłane."

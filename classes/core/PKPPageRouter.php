@@ -504,7 +504,7 @@ class PKPPageRouter extends PKPRouter
         $urlLocale = $this->_getRequestedUrlParts(['Core', 'getLocalization'], $request);
         $multiLingual = count($this->_getContextAndLocales($request, $contextPath)[1]) > 1;
 
-        if (!$multiLingual && !$urlLocale && !$setLocale || $multiLingual && !$setLocale && $urlLocale === Locale::getLocale()) {
+        if (!$setLocale && ($multiLingual ? $urlLocale === Locale::getLocale() : !$urlLocale)) {
             return;
         }
 

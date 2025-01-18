@@ -319,7 +319,7 @@ abstract class PKPRouter
         if ($serviceEndpoint[0]->authorize($request, $args, $roleAssignments)) {
             // Execute class-wide data integrity checks.
             if ($validate) {
-                $serviceEndpoint[0]->validate($request, $args);
+                $serviceEndpoint[0]->validate(null, $request);
             }
 
             // Let the handler initialize itself.

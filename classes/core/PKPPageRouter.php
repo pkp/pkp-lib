@@ -17,6 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -399,81 +400,45 @@ class PKPPageRouter extends PKPRouter
      */
     public function getHomeUrl(PKPRequest $request): string
     {
-        $user = Auth::user(); /** @var \PKP\user\User $user */
-        $userId = $user->getId();
-
-        if ($context = $this->getContext($request)) {
-            // fetch user groups for the user in the current context
-            $userGroups = UserGroup::query()
-                ->where('context_id', $context->getId())
-                ->whereHas('userUserGroups', function ($query) use ($userId) {
-                    $query->where('user_id', $userId)
-                        ->where(function ($q) {
-                            $q->whereNull('date_end')
-                                ->orWhere('date_end', '>', now());
-                        })
-                        ->where(function ($q) {
-                            $q->whereNull('date_start')
-                                ->orWhere('date_start', '<=', now());
-                        });
-                })
-                ->get();
-
-            if ($userGroups->isEmpty()
-                || ($userGroups->count() == 1 && $userGroups->first()->role_id == Role::ROLE_ID_READER)
-            ) {
-                return $request->url(null, 'index');
-            }
-
-            if (Config::getVar('features', 'enable_new_submission_listing')) {
-
-                $roleIdsArray = $userGroups->pluck('role_id')->all();
-
-                if (array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray)) {
-                    return $request->url(null, 'dashboard', 'editorial');
-
-                }
-                if (in_array(Role::ROLE_ID_REVIEWER, $roleIdsArray)) {
-                    return $request->url(null, 'dashboard', 'reviewAssignments');
-                }
-                if (in_array(Role::ROLE_ID_AUTHOR, $roleIdsArray)) {
-                    return $request->url(null, 'dashboard', 'mySubmissions');
-                }
-            }
-
-            return $request->url(null, 'submissions');
-        } else {
-            // The user is at the site context
-            $userGroups = UserGroup::query()
-                ->where('context_id', \PKP\core\PKPApplication::SITE_CONTEXT_ID)
-                ->whereHas('userUserGroups', function ($query) use ($userId) {
-                    $query->where('user_id', $userId)
-                        ->where(function ($q) {
-                            $q->whereNull('date_end')
-                                ->orWhere('date_end', '>', now());
-                        })
-                        ->where(function ($q) {
-                            $q->whereNull('date_start')
-                                ->orWhere('date_start', '<=', now());
-                        });
-                })
-                ->get();
-
-            if ($userGroups->count() == 1) {
-                $firstUserGroup = $userGroups->first();
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($firstUserGroup->contextId);
-                if (!isset($context)) {
-                    $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
-                }
-                if ($firstUserGroup->roleId == Role::ROLE_ID_READER) {
-                    $request->redirect(null, 'index');
-                }
-            }
+        $context = $this->getContext($request);
+        if (!$context) {
             return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
-    }
 
+        $user = Auth::user(); /** @var \PKP\user\User $user */
+        $userId = $user->getId();
+        // fetch user groups for the user in the current context
+        $userGroups = UserGroup::query()
+            ->where('context_id', $context->getId())
+            ->whereHas(
+                'userUserGroups',
+                fn (Builder $query) => $query->where('user_id', $userId)
+                    ->where(fn (Builder $q) => $q->whereNull('date_end')->orWhere('date_end', '>', now()))
+                    ->where(fn (Builder $q) => $q->whereNull('date_start')->orWhere('date_start', '<=', now()))
+            )
+            ->get();
+        if ($userGroups->isEmpty() || ($userGroups->count() == 1 && $userGroups->first()->role_id == Role::ROLE_ID_READER)) {
+            return $request->url(null, 'index');
+        }
+
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
+            $roleIdsArray = $userGroups->pluck('role_id')->all();
+
+            if (array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray)) {
+                return $request->url(null, 'dashboard', 'editorial');
+            }
+
+            if (in_array(Role::ROLE_ID_REVIEWER, $roleIdsArray)) {
+                return $request->url(null, 'dashboard', 'reviewAssignments');
+            }
+
+            if (in_array(Role::ROLE_ID_AUTHOR, $roleIdsArray)) {
+                return $request->url(null, 'dashboard', 'mySubmissions');
+            }
+        }
+
+        return $request->url(null, 'submissions');
+    }
 
     //
     // Private helper methods.

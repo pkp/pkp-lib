@@ -21,7 +21,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -511,8 +510,8 @@ class Schema extends \PKP\core\maps\Schema
         // If user is assigned, check editorial global roles, journal admin and managers should have access for editing metadata
         if (!$isAssigned) {
             if (!empty(array_intersect(
-                PKPApplication::getWorkflowTypeRoles()[PKPApplication::WORKFLOW_TYPE_EDITORIAL],
-                $stages[$submission->getData('stageId')]['currentUserAssignedRoles']
+                $this->userRoles,
+                [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]
             ))) {
                 return true;
             }
@@ -760,7 +759,7 @@ class Schema extends \PKP\core\maps\Schema
 
             // Set recommendations for the deciding editor
             if ($isCurrentUserDecidingEditor) {
-                $stages[$decision->getData('stageId')]['recommendations'] = $recommendationData;
+                $stages[$decision->getData('stageId')]['recommendations'][] = $recommendationData;
             }
 
             // Set own recommendations of the current user

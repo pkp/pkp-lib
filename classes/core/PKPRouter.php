@@ -180,11 +180,9 @@ abstract class PKPRouter
     /**
      * A Generic call to a context defining object (e.g. a Journal, Press, or Server)
      *
-     * @param $forceReload (optional) Reset a context even if it's already been loaded
-     *
-     * @return Context
+     * @param bool $forceReload (optional) Reset a context even if it's already been loaded
      */
-    public function getContext(PKPRequest $request, $forceReload = false)
+    public function getContext(PKPRequest $request, bool $forceReload = false): ?Context
     {
         if ($forceReload || !isset($this->_context)) {
             // Retrieve the requested context path (this validates the path)
@@ -296,10 +294,10 @@ abstract class PKPRouter
      * 3) initialization
      * 4) execution
      * 5) client response
-     *
-     * @param $validate whether or not to execute the validation step.
+     * @param array{0:PKPHandler,1:string} $serviceEndpoint
+     * @param bool $validate whether or not to execute the validation step.
      */
-    public function _authorizeInitializeAndCallRequest(callable $serviceEndpoint, PKPRequest $request, array $args, bool $validate = true): void
+    public function _authorizeInitializeAndCallRequest(callable|array $serviceEndpoint, PKPRequest $request, array $args, bool $validate = true): void
     {
         $dispatcher = $this->getDispatcher();
 

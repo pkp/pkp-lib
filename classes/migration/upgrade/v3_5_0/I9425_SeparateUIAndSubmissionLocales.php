@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_5_0/I9425_SeparateUIAndSubmissionLocales.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I9425_SeparateUIAndSubmissionLocales
@@ -14,11 +14,11 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use Illuminate\Database\PostgresConnection;
+use DateInterval;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use APP\core\Application;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
@@ -50,9 +50,9 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
 
         $update = function (object $localeId, string $settingName, string $settingValue): void {
             DB::table($this->getContextSettingsTable())
-            ->where($this->getContextIdColumn(), '=', $localeId->{$this->getContextIdColumn()})
-            ->where('setting_name', '=', $settingName)
-            ->update(['setting_value' => $settingValue]);
+                ->where($this->getContextIdColumn(), '=', $localeId->{$this->getContextIdColumn()})
+                ->where('setting_name', '=', $settingName)
+                ->update(['setting_value' => $settingValue]);
         };
 
         $pluck = fn (object $localeId, string $settingName): array => json_decode(
@@ -88,71 +88,25 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
         /**
          * Update locale character lengths
          */
+        // Cache will be cleared at the end of I9707_WeblateUILocales
+        $key = 'localeUpdates1 day';
+        $tableLocaleColumns = Cache::remember($key, DateInterval::createFromDateString('1 day'), function () {
+            $tableLocaleColumns = [];
+            foreach (Schema::getTables() as $table) {
+                $columns = collect(Schema::getColumns($table['name']))->whereIn('name', ['primary_locale', 'locale']);
+                if ($columns->count() > 0) {
+                    $tableLocaleColumns[$table['name']] = $columns;
+                }
+            }
+            return $tableLocaleColumns;
+        });
 
-        $schemaLocName = (DB::connection() instanceof PostgresConnection)
-            ? 'TABLE_CATALOG'
-            : 'TABLE_SCHEMA';
-
-        $updateLength = fn (string $l) => collect(
-            DB::select("
-                SELECT DISTINCT TABLE_NAME 
-                FROM INFORMATION_SCHEMA.COLUMNS 
-                WHERE COLUMN_NAME = ? AND $schemaLocName = ?",
-                [$l, DB::connection()->getDatabaseName()]
-            )
-        )->each(fn (\stdClass $sc) => Schema::table(
-                $sc->TABLE_NAME ?? $sc->table_name,
-                fn (Blueprint $table) => collect(Schema::getColumns($sc->TABLE_NAME ?? $sc->table_name))
-                    ->where('name', $l)
-                    ->first(default:[])['nullable'] ?? false
-                        ? $table->string($l, 28)->nullable()->change()
-                        : $table->string($l, 28)->change()
-            )
-        );
-
-        $updateLength('primary_locale');
-        $updateLength('locale');
-
-        /**
-         * Convert locales 
-         */
-
-        $localesTable = [
-            "be@cyrillic" => "be",
-            "bs" => "bs_Latn",
-            "fr_FR" => "fr",
-            "nb" => "nb_NO",
-            "sr@cyrillic" => "sr_Cyrl",
-            "sr@latin" => "sr_Latn",
-            "uz@cyrillic" => "uz",
-            "uz@latin" => "uz_Latn",
-            "zh_CN" => "zh_Hans",
-        ];
-
-        $tableNames = array_merge([
-            'author_settings',
-            'controlled_vocab_entry_settings',
-            'publication_settings',
-            'submission_file_settings',
-            'submission_settings',
-            'submissions',
-        ], Application::get()->getName() === 'omp'
-            ? ['publication_format_settings', 'submission_chapter_settings',]
-            : ['publication_galley_settings', 'publication_galleys',]
-        );
-
-        collect($tableNames)
-            ->each(fn (string $tn) => collect(DB::table($tn)->select('locale')->distinct()->get())
-                ->each(function (\stdClass $sc) use ($tn, $localesTable) {
-                    if (isset($localesTable[$sc->locale])) {
-                        DB::table($tn)
-                            ->where('locale', '=', $sc->locale)
-                            ->update([
-                                'locale' => $localesTable[$sc->locale]
-                            ]);
-                    }
-                })
+        foreach ($tableLocaleColumns as $tableName => $localeColumns) {
+            $localeColumns->each(
+                fn ($column) =>
+                    Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->change())
             );
+        }
     }
 
     /**

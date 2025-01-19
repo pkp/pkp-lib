@@ -75,8 +75,8 @@ class MetadataDataObjectAdapter extends PersistableFilter
         // extracting meta-data.
         $metadataTypeDescription = null; /** @var MetadataTypeDescription $metadataTypeDescription */
         $dataObjectTypeDescription = null; /** @var ClassTypeDescription $dataObjectTypeDescription */
-        $inputType = & $this->getInputType();
-        $outputType = & $this->getOutputType();
+        $inputType = $this->getInputType();
+        $outputType = $this->getOutputType();
         if (is_null($mode)) {
             if ($inputType instanceof \PKP\metadata\MetadataTypeDescription) {
                 $mode = self::METADATA_DOA_INJECTION_MODE;

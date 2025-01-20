@@ -68,9 +68,9 @@ class FileInformationCenterHandler extends InformationCenterHandler
     /**
      * @copydoc InformationCenterHandler::initialize
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
-        parent::initialize($request);
+        parent::initialize($request, $args);
 
         $this->_stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $this->submissionFile = Repo::submissionFile()->get($request->getUserVar('submissionFileId'));

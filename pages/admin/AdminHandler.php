@@ -107,7 +107,7 @@ class AdminHandler extends Handler
     /**
      * @copydoc PKPHandler::initialize()
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
         $templateMgr = TemplateManager::getManager($request);
 
@@ -141,7 +141,7 @@ class AdminHandler extends Handler
             ]);
         }
 
-        return parent::initialize($request);
+        return parent::initialize($request, $args);
     }
 
     /**

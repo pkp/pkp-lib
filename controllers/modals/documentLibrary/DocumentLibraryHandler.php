@@ -49,9 +49,9 @@ class DocumentLibraryHandler extends Handler
     /**
      * @copydoc PKPHandler::initialize()
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
-        parent::initialize($request);
+        parent::initialize($request, $args);
 
         $this->_submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $this->setupTemplate($request);

@@ -72,9 +72,9 @@ class ManagementHandler extends Handler
     /**
      * @see PKPHandler::initialize()
      */
-    public function initialize($request)
+    public function initialize($request, $args = null)
     {
-        parent::initialize($request);
+        parent::initialize($request, $args);
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('pageComponent', 'SettingsPage');

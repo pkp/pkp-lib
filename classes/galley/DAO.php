@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/galley/DAO.php
  *
@@ -204,10 +205,10 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      */
     public function changePubId($pubObjectId, $pubIdType, $pubId)
     {
-        DB::table('publication_galley_settings')
-            ->where('setting_name', 'pub-id::' . $pubIdType)
-            ->where('galley_id', (int) $pubObjectId)
-            ->update(['setting_value' => (string) $pubId]);
+        DB::table('publication_galley_settings')->updateOrInsert(
+            ['galley_id' => (int) $pubObjectId, 'locale' => '', 'setting_name' => 'pub-id::' . $pubIdType],
+            ['setting_value' => (string) $pubId]
+        );
     }
 
     /**

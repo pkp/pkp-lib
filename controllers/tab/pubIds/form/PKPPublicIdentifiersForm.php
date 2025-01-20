@@ -223,7 +223,9 @@ class PKPPublicIdentifiersForm extends Form
         parent::execute(...$functionArgs);
 
         $pubObject = $this->getPubObject();
-        $pubObject->setStoredPubId('publisher-id', $this->getData('publisherId'));
+        if ($this->getData('publisherId')) {
+            $pubObject->setStoredPubId('publisher-id', $this->getData('publisherId'));
+        }
 
         $pubIdPluginHelper = new PKPPubIdPluginHelper();
         $pubIdPluginHelper->execute($this->getContextId(), $this, $pubObject);
@@ -231,13 +233,11 @@ class PKPPublicIdentifiersForm extends Form
         if ($pubObject instanceof Representation) {
             $representationDao = Application::getRepresentationDAO();
             $representationDao->updateObject($pubObject);
-
             return;
         }
 
         if ($pubObject instanceof SubmissionFile) {
             Repo::submissionFile()->edit($pubObject, []);
-
             return;
         }
     }

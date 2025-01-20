@@ -316,7 +316,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
             }
             $newPubId = $this->constructPubId($pubIdPrefix, $fieldValue, $contextId);
 
-            if (!$this->checkDuplicate($newPubId, get_class($pubObject), $pubObject->getId(), $contextId)) {
+            if (!$this->checkDuplicate($newPubId, $pubObject, $contextId)) {
                 $errorMsg = $this->getNotUniqueErrorMsg();
                 return false;
             }
@@ -470,30 +470,28 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * Check for duplicate public identifiers.
      *
      * Checks to see if a pubId has already been assigned to any object
-     * in the context.
+     * in the context (excluding the given object).
      *
      * @param string $pubId
-     * @param string $pubObjectType Class name of the pub object being checked
-     * @param int $excludeId This object id will not be checked for duplicates
+     * @param object $pubObject Pub object being checked
      *
      * @return bool
      */
-    public function checkDuplicate($pubId, $pubObjectType, $excludeId, int $contextId)
+    public function checkDuplicate($pubId, $pubObject, int $contextId)
     {
         foreach ($this->getPubObjectTypes() as $type => $fqcn) {
-            if ($type === 'Publication') {
-                $typeDao = Repo::publication()->dao;
-            } elseif ($type === 'Representation') {
-                $typeDao = Application::getRepresentationDAO();
-            } elseif ($type === 'SubmissionFile') {
-                $typeDao = Repo::submissionFile()->dao;
+            if (!$pubObject instanceof $fqcn) {
+                continue;
             }
-            $excludeTypeId = $type === $pubObjectType ? $excludeId : null;
-            if (isset($typeDao) && $typeDao->pubIdExists($this->getPubIdType(), $pubId, $excludeTypeId, $contextId)) {
+            $typeDao = match ($type) {
+                'Publication' => Repo::publication()->dao,
+                'Representation' => Application::getRepresentationDAO(),
+                'SubmissionFile' => Repo::submissionFile()->dao,
+            };
+            if (isset($typeDao) && $typeDao->pubIdExists($this->getPubIdType(), $pubId, $pubObject->getId(), $contextId)) {
                 return false;
             }
         }
-
         return true;
     }
 

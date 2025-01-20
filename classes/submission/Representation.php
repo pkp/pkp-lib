@@ -172,7 +172,7 @@ class Representation extends \PKP\core\DataObject
     /**
      * @copydoc \PKP\core\DataObject::getDAO()
      */
-    public function getDAO(): \PKP\db\DAO
+    public function getDAO(): \PKP\galley\DAO
     {
         return Application::getRepresentationDAO();
     }

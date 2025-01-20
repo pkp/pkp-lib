@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/DAO.php
  *
@@ -13,8 +14,8 @@
 
 namespace PKP\publication;
 
-use APP\facades\Repo;
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
@@ -278,12 +279,14 @@ class DAO extends EntityDAO
     public function changePubId($pubObjectId, $pubIdType, $pubId)
     {
         DB::table($this->settingsTable)
-            ->update([
-                'publication_id' => (int) $pubObjectId,
-                'locale' => '',
-                'setting_name' => 'pub-id::' . $pubIdType,
-                'setting_value' => (string) $pubId
-            ]);
+            ->updateOrInsert(
+                [
+                    'publication_id' => (int) $pubObjectId,
+                    'locale' => '',
+                    'setting_name' => 'pub-id::' . (string) $pubIdType,
+                ],
+                ['setting_value' => (string) $pubId]
+            );
     }
 
     /**

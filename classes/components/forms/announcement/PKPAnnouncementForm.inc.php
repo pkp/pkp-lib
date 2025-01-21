@@ -32,8 +32,10 @@ class PKPAnnouncementForm extends FormComponent {
 	 * @param $action string URL to submit the form to
 	 * @param $locales array Supported locales
 	 * @param $announcementContext Context The context to get supported announcement types
+	 * @param $temporaryFileApiUrl string URL to upload files to
+	 * @param $imageUploadUrl string The API endpoint for images uploaded through the rich text field
 	 */
-	public function __construct($action, $locales, $announcementContext) {
+	public function __construct($action, $locales, $announcementContext, $temporaryFileApiUrl, $imageUploadUrl) {
 		$this->action = $action;
 		$this->locales = $locales;
 
@@ -46,14 +48,24 @@ class PKPAnnouncementForm extends FormComponent {
 				'label' => __('manager.announcements.form.descriptionShort'),
 				'description' => __('manager.announcements.form.descriptionShortInstructions'),
 				'isMultilingual' => true,
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,image,lists,code',
+				'uploadUrl' => $imageUploadUrl,
+				'options' => [
+					'url' => $temporaryFileApiUrl,
+				],
 			]))
 			->addField(new FieldRichTextarea('description', [
 				'label' => __('manager.announcements.form.description'),
 				'description' => __('manager.announcements.form.descriptionInstructions'),
 				'isMultilingual' => true,
 				'size' => 'large',
-				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-				'plugins' => 'paste,link,lists',
+				'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+				'plugins' => 'paste,link,image,lists,code',
+				'uploadUrl' => $imageUploadUrl,
+				'options' => [
+					'url' => $temporaryFileApiUrl,
+				],
 			]))
 			->addField(new FieldText('dateExpire', [
 				'label' => __('manager.announcements.form.dateExpire'),

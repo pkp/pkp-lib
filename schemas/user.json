@@ -342,6 +342,14 @@
 			"description": "The initials that will be displayed for a user.",
 			"type": "string",
 			"apiSummary": true
+		},
+		"orcidDisplayValue": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/author/maps/Schema.php
  *
@@ -101,6 +102,9 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'hasVerifiedOrcid':
                     $output[$prop] = $item->hasVerifiedOrcid();
+                    break;
+                case 'orcidDisplayValue':
+                    $output[$prop] = $item->getOrcidDisplayValue();
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

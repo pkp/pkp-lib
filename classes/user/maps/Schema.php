@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/user/maps/Schema.php
  *
@@ -187,7 +188,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = [];
                     if ($this->context) {
                         $interests = collect(Repo::userInterest()->getInterestsForUser($user))
-                            ->map(fn($value, $index) => ['id' => $index, 'interest' => $value])
+                            ->map(fn ($value, $index) => ['id' => $index, 'interest' => $value])
                             ->values()
                             ->toArray();
 
@@ -254,6 +255,9 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'displayInitials':
                     $output['displayInitials'] = $user->getDisplayInitials();
+                    break;
+                case 'orcidDisplayValue':
+                    $output[$prop] = $user->getOrcidDisplayValue();
                     break;
                 default:
                     $output[$prop] = $user->getData($prop);

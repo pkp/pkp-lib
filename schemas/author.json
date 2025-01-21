@@ -197,6 +197,14 @@
 		"orcidVerificationRequested": {
 			"type": "boolean",
 			"apiSummary": false
+		},
+		"orcidDisplayValue": {
+			"type": "string",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

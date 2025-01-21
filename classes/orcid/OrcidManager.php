@@ -80,6 +80,17 @@ class OrcidManager
     }
 
     /**
+     * Return a string of the ORCiD unauthenticated SVG icon
+     *
+     */
+    public static function getUnauthenticatedIcon(): string
+    {
+        $path = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/templates/images/orcid_unauthenticated.svg';
+        return file_exists($path) ? file_get_contents($path) : '';
+    }
+
+
+    /**
      * Checks if ORCID functionality is enabled. Works at the context-level.
      */
     public static function isEnabled(?Context $context = null): bool

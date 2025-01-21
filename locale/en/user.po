@@ -627,6 +627,9 @@ msgstr "See below to request authenticated ORCID iD"
 msgid "orcid.author.unauthenticated"
 msgstr "ORCID iD not authenticated! Please request authentication from the contributor."
 
+msgid "orcid.unauthenticated"
+msgstr "(unauthenticated)"
+
 msgid "orcid.verify.title"
 msgstr "ORCID Authorization"
 

@@ -281,6 +281,19 @@ class Identity extends \PKP\core\DataObject
     }
 
     /**
+     * Return the string that should be displayed when showing a user's ORCiD
+     *
+     */
+    public function getOrcidDisplayValue(): ?string
+    {
+        if (!$this->getOrcid()) {
+            return null;
+        }
+
+        return $this->hasVerifiedOrcid() ? $this->getOrcid() : $this->getOrcid() . ' ' . __('orcid.unauthenticated');
+    }
+
+    /**
      * Set ORCID identifier.
      *
      * @param string $orcid

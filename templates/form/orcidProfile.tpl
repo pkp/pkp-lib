@@ -11,20 +11,25 @@
  *}
 
 {capture name=orcidButton assign=orcidButton}
-    <button id="connect-orcid-button" class="pkp_button" onclick="return openORCID();">
-        {if $orcid && !$orcidAuthenticated }
-            <div class="orcid_button_container">{$orcidIcon}{translate key='orcid.authorise'}</div>
-        {else}
+
+    {if $orcid && !$orcidAuthenticated }
+        <a href="{$orcid}" target="_blank" class='flex gap-2 mb-4'>{$orcidUnauthenticatedIcon}{$orcidDisplayValue}</a>
+        <button id="connect-orcid-button" class="pkp_button" onclick="return openORCID();">
+            {$orcidIcon}{translate key='orcid.authorise'}
+        </button>
+    {else}
+        <button id="connect-orcid-button" class="pkp_button" onclick="return openORCID();">
             <div class="orcid_button_container">{$orcidIcon} {translate key='orcid.connect'}</div>
-        {/if}
-    </button>
-    <a href="{url router="page" page="orcid" op="about"}">{translate key='orcid.about.title'}</a>
+        </button>
+    {/if}
+
+    <a href="{url router="page" page="orcid" op="about"}" onclick="return openORCID();">{translate key='orcid.about.title'}</a>
 {/capture}
 
 
 {capture name=orcidLink assign=orcidLink}
     {if $orcidAuthenticated}
-        <a href="{$orcid}" target="_blank" id='orcid-link'>{$orcidIcon}{$orcid}</a>
+        <a href="{$orcid}" target="_blank" id='orcid-link'>{$orcidIcon}{$orcidDisplayValue}</a>
     {else}
         {$orcidButton}
     {/if}

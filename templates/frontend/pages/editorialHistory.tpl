@@ -26,12 +26,12 @@
 							{foreach name="services" from=$mastheadUser['services'] item="service"}
 								{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}
 								{if !$smarty.foreach.services.last}{translate key="common.commaListSeparator"}{/if}
-							{/foreach}	
+							{/foreach}
 						</span>
 						<span class="name">
 							{$mastheadUser['user']->getFullName()|escape}
-							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')}
-								<span class="orcid">	
+							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->hasVerifiedOrcid()}
+								<span class="orcid">
 									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$mastheadUser['user']->getFullName()|escape}">
 										{$orcidIcon}
 									</a>

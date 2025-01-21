@@ -202,7 +202,7 @@ abstract class PKPStatisticsHelper
             $this->geoDataCache = [];
         }
 
-        $cachedGeoData &= $this->geoDataCache;
+        $cachedGeoData =& $this->geoDataCache;
         if (array_key_exists($hashedIp, $cachedGeoData)) {
             return $cachedGeoData[$hashedIp];
         }

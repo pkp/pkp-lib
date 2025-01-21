@@ -119,7 +119,7 @@ class Announcement extends Model
 
         Hook::call('Announcement::add', [$this]);
 
-        $hasNewImage = isset($this?->image?->temporaryFileId) ? $this->image->temporaryFileId : null;
+        $hasNewImage = $this?->image?->temporaryFileId ?? null;
 
         // if announcement is being inserted and includes new image, upload it
         if ($newlyCreated) {
@@ -135,7 +135,7 @@ class Announcement extends Model
             $this->handleImageUpload();
         }
 
-        // If there is no new image and image data exists in DB and it's now removed
+        // If there is no new image and image data exists in DB and it's now removed as part of update
         // need to delete the image for this announcement model instance
         if (!$hasNewImage && !$this?->image && $this->fresh()->image) {
             $this->deleteImage();
@@ -290,7 +290,7 @@ class Announcement extends Model
     protected function imageAltText(): Attribute
     {
         return Attribute::make(
-            get: fn () => isset($this->image?->altText) ? $this->image->altText : ''
+            get: fn () => $this->image?->altText ?? ''
         );
     }
 
@@ -363,7 +363,7 @@ class Announcement extends Model
             'name' => $temporaryFile->getOriginalFileName(),
             'uploadName' => $this->getImageFilename($temporaryFile),
             'dateUploaded' => Core::getCurrentDate(),
-            'altText' => isset($image->altText) ? $image->altText : '',
+            'altText' => $image->altText ?? '',
         ];
     }
 

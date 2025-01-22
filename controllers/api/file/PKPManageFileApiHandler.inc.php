@@ -26,7 +26,7 @@ abstract class PKPManageFileApiHandler extends Handler {
 		parent::__construct();
 		$this->addRoleAssignment(
 			array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER, ROLE_ID_AUTHOR),
-			array('deleteFile', 'editMetadata', 'editMetadataTab', 'saveMetadata')
+			array('deleteFile', 'editMetadata', 'editMetadataTab', 'saveMetadata', 'cancelFileUpload')
 		);
 		// Load submission-specific translations
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
@@ -170,6 +170,109 @@ abstract class PKPManageFileApiHandler extends Handler {
 		return array(NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS);
 	}
 
+	/**
+	 * Restore original file when cancelling the upload wizard
+	 */
+	public function cancelFileUpload(array $args, Request $request): JSONMessage
+	{
+		if (!$request->checkCSRF()) {
+			return new JSONMessage(false);
+		}
+
+		$submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE); /* @var SubmissionFile $submissionFile */
+		$originalFile = $request->getUserVar('originalFile') ? (array)$request->getUserVar('originalFile') : null;
+		$revisedFileId = $request->getUserVar('fileId') ? (int)$request->getUserVar('fileId') : null;
+
+		$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+
+		// Get revisions and check file IDs
+		$revisions = $submissionFileDao->getRevisions($submissionFile->getId());
+		$revisionIds = [];
+		foreach ($revisions as $revision) {
+			$revisionIds[] = $revision->fileId;
+		}
+
+		if (!$revisedFileId || !in_array($revisedFileId, $revisionIds)) {
+			return new JSONMessage(false);
+		}
+
+		if (!empty($originalFile)) {
+			if (!isset($originalFile['fileId']) || !in_array($originalFile['fileId'], $revisionIds)) {
+				return new JSONMessage(false);
+			}
+
+			$originalFileId = (int)$originalFile['fileId'];
+
+			// Get the file name and uploader user ID
+			$originalUserId = $originalFile['uploaderUserId'] ? (int)$originalFile['uploaderUserId'] : null;
+			$originalFileName = $originalFile['name'] ? (array)$originalFile['name'] : null;
+			if (!$originalUserId || !$originalFileName) {
+				return new JSONMessage(false);
+			}
+
+			$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
+
+			$originalUser = $userDao->getById($originalUserId);
+			if (!$originalUser) {
+				return new JSONMessage(false);
+			}
+
+			$originalUsername = $originalUser->getUsername();
+			$matchedLogEntry = $this->findMatchedLogEntry($submissionFile, $originalFileId, $originalUsername, $originalFileName);
+			if (!$matchedLogEntry) {
+				return new JSONMessage(false);
+			}
+
+			// Restore original submission file
+			$matchedLogEntryParams = $matchedLogEntry->getParams();
+			$submissionFile->setData('fileId', $matchedLogEntryParams['fileId']);
+			$submissionFile->setData('name', $originalFileName);
+			$submissionFile->setData('uploaderUserId', $userDao->getByUsername($matchedLogEntryParams['username'])->getId());
+			$submissionFileDao->updateObject($submissionFile);
+		}
+
+		// Remove uploaded file
+		Services::get('file')->delete($revisedFileId);
+		$this->setupTemplate($request);
+		return DAO::getDataChangedEvent();
+	}
+
+	/**
+	 * Compare user supplied data when cancelling file upload with saved in the event log;
+	 * assuming we found the right entry if they match
+	 */
+	protected function findMatchedLogEntry(
+		SubmissionFile $submissionFile,
+		int            $originalFileId,
+		string         $originalUsername,
+		array          $originalFileName
+	): ?EventLogEntry
+	{
+		$submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /* @var $submissionFileEventLogDao SubmissionFileEventLogDAO */
+
+		$logEntries = $submissionFileEventLogDao->getBySubmissionFileId($submissionFile->getId());
+		$match = null;
+		foreach ($logEntries->toIterator() as $logEntry) {
+			$params = $logEntry->getParams();
+			$loggedUsername = $params['username'];
+			$loggedFileName = $params['originalFileName'];
+			$loggedFileId = $params['fileId'];
+			if (!$loggedUsername || !$loggedFileName || !$loggedFileId) {
+				continue;
+			}
+
+			if (
+				$loggedUsername === $originalUsername &&
+				in_array($loggedFileName, $originalFileName) &&
+				$loggedFileId === $originalFileId
+			) {
+				$match = $logEntry;
+				break;
+			}
+		}
+
+		return $match;
+	}
 }
 
 

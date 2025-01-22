@@ -26,7 +26,8 @@
 				finishButtonText: {translate|json_encode key="common.complete"},
 				deleteUrl: {url|json_encode component="api.file.ManageFileApiHandler" op="deleteFile" submissionId=$submissionId stageId=$stageId fileStage=$fileStage suppressNotification=true escape=false},
 				metadataUrl: {url|json_encode op="editMetadata" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage assocType=$assocType assocId=$assocId queryId=$queryId escape=false},
-				finishUrl: {url|json_encode op="finishFileSubmission" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage assocType=$assocType assocId=$assocId queryId=$queryId escape=false}
+				finishUrl: {url|json_encode op="finishFileSubmission" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId fileStage=$fileStage assocType=$assocType assocId=$assocId queryId=$queryId escape=false},
+				cancelUrl: {url|json_encode component="api.file.ManageFileApiHandler" op="cancelFileUpload" submissionId=$submissionId stageId=$stageId fileStage=$fileStage escape=false}
 			{rdelim}
 		);
 	{rdelim});

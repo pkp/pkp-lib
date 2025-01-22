@@ -77,7 +77,7 @@ class Report
             __('common.mailingAddress'),
             __('user.dateRegistered'),
             __('common.updated'),
-            $this->
+            ...$this->
                 _getUserGroups()
                 ->map(fn (UserGroup $userGroup): string => $userGroup->getLocalizedData('name'))
                 ->toArray()
@@ -119,7 +119,7 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            $this
+            ...$this
                 ->_getUserGroups()
                 ->map(
                     fn (UserGroup $userGroup): string => __(

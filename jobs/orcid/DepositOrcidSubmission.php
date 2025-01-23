@@ -20,12 +20,14 @@ use APP\author\Author;
 use APP\core\Application;
 use APP\facades\Repo;
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\jobs\BaseJob;
+use PKP\orcid\enums\OrcidDepositType;
 use PKP\orcid\OrcidManager;
 
-class DepositOrcidSubmission extends BaseJob
+class DepositOrcidSubmission extends BaseJob implements ShouldBeUnique
 {
     public function __construct(
         private Author $author,
@@ -51,11 +53,22 @@ class DepositOrcidSubmission extends BaseJob
             return;
         }
 
+        if (!OrcidManager::isMemberApiEnabled($this->context)) {
+            return;
+        }
+
+        // Check author scope, if public API, stop here and request member scope
+        if ($this->author->getData('orcidAccessScope') !== OrcidManager::ORCID_API_SCOPE_MEMBER) {
+            // Request member scope and retry deposit
+            dispatch(new SendUpdateScopeMail($this->author, $this->context->getId(), $this->author->getData('publicationId'), OrcidDepositType::WORK));
+            return;
+        }
+
         $uri = OrcidManager::getApiPath($this->context) . OrcidManager::ORCID_API_VERSION_URL . $this->authorOrcid . '/' . OrcidManager::ORCID_WORK_URL;
         $method = 'POST';
 
         if ($putCode = $this->author->getData('orcidWorkPutCode')) {
-            // Submission has already been sent to ORCID. Use PUT to update meta data
+            // Submission has already been sent to ORCID. Use PUT to update metadata
             $uri .= '/' . $putCode;
             $method = 'PUT';
             $this->orcidWork['put-code'] = $putCode;
@@ -133,5 +146,10 @@ class DepositOrcidSubmission extends BaseJob
             default:
                 OrcidManager::logError("Unexpected status {$httpStatus} response, body: " . $response->getBody());
         }
+    }
+
+    public function uniqueId(): string
+    {
+        return $this->author->getId();
     }
 }

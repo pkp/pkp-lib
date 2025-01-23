@@ -152,30 +152,29 @@ class OrcidManager
      *
      * @throws \Exception
      */
-    public static function buildOAuthUrl(string $handlerMethod, array $redirectParams): string
+    public static function buildOAuthUrl(string $handlerMethod, array $redirectParams, ?Context $context = null): string
     {
         $request = Application::get()->getRequest();
-        $context = $request->getContext();
+        $context = $context ?? $request->getContext();
         if ($context === null) {
             throw new \Exception('OAuth URLs can only be made in a Context, not site wide.');
         }
 
-        $scope = self::isMemberApiEnabled() ? self::ORCID_API_SCOPE_MEMBER : self::ORCID_API_SCOPE_PUBLIC;
+        $scope = self::isMemberApiEnabled($context) ? self::ORCID_API_SCOPE_MEMBER : self::ORCID_API_SCOPE_PUBLIC;
 
         // We need to construct a page url, but the request is using the component router.
         // Use the Dispatcher to construct the url and set the page router.
         $redirectUrl = $request->getDispatcher()->url(
             $request,
             Application::ROUTE_PAGE,
-            null,
-            'orcid',
-            $handlerMethod,
-            null,
-            $redirectParams,
+            newContext: $context->getPath(),
+            handler: 'orcid',
+            op: $handlerMethod,
+            params: $redirectParams,
             urlLocaleForPage: '',
         );
 
-        return self::getOauthPath() . 'authorize?' . http_build_query(
+        return self::getOauthPath($context) . 'authorize?' . http_build_query(
             [
                 'client_id' => self::getClientId($context),
                 'response_type' => 'code',
@@ -232,7 +231,7 @@ class OrcidManager
             $context = Application::get()->getRequest()->getContext();
         }
 
-        return $context->getData(self::LOG_LEVEL) ?? self::LOG_LEVEL_ERROR;
+        return $context?->getData(self::LOG_LEVEL) ?? self::LOG_LEVEL_ERROR;
     }
 
 
@@ -251,9 +250,9 @@ class OrcidManager
     /**
      * Helper method that gets OAuth endpoint for configured ORCID URL (production or sandbox)
      */
-    public static function getOauthPath(): string
+    public static function getOauthPath(?Context $context = null): string
     {
-        return self::getOrcidUrl() . 'oauth/';
+        return self::getOrcidUrl($context) . 'oauth/';
     }
 
     /**
@@ -352,9 +351,9 @@ class OrcidManager
     /**
      * Gets the ORCID API endpoint to revoke an access token
      */
-    public static function getTokenRevocationUrl(): string
+    public static function getTokenRevocationUrl(?Context $context = null): string
     {
-        return self::getOauthPath() . 'revoke';
+        return self::getOauthPath($context) . 'revoke';
     }
 
     /**

@@ -280,6 +280,13 @@
 				"nullable"
 			]
 		},
+		"orcidEmailToken": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"orcidIsVerified": {
 			"type": "boolean",
 			"apiSummary": true,

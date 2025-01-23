@@ -50,7 +50,13 @@ trait OrcidVariables
 
         $this->addData([
             self::$authorOrcidUrl => $oauthUrl,
-            self::$orcidAboutUrl => $dispatcher->url($request, Application::ROUTE_PAGE, null, 'orcid', 'about', urlLocaleForPage: ''),
+            self::$orcidAboutUrl => $dispatcher->url(
+                $request,
+                Application::ROUTE_PAGE,
+                newContext: $context->getPath(),
+                handler: 'orcid',
+                op: 'about',
+                urlLocaleForPage: ''),
             self::$principalContactSignature => $principalContact->getLocalizedSignature(),
         ]);
     }

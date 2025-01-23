@@ -25,11 +25,15 @@ use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPSessionGuard;
+use PKP\identity\Identity;
 use PKP\orcid\actions\AuthorizeUserData;
 use PKP\orcid\actions\VerifyAuthorWithOrcid;
+use PKP\orcid\actions\VerifyIdentityWithOrcid;
+use PKP\orcid\enums\OrcidDepositType;
 use PKP\orcid\OrcidManager;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
+use PKP\user\User;
 
 class OrcidHandler extends Handler
 {
@@ -42,7 +46,7 @@ class OrcidHandler extends Handler
         // Authorize all requests
         $this->addPolicy(new PKPSiteAccessPolicy(
             $request,
-            ['verify', 'authorizeOrcid', 'about'],
+            ['verify', 'authorizeOrcid', 'about', 'updateScope'],
             PKPSiteAccessPolicy::SITE_ACCESS_ALL_ROLES
         ));
 
@@ -96,7 +100,9 @@ class OrcidHandler extends Handler
             $this->handleUserDeniedAccess($author, $templateMgr, $request->getUserVar('error_description'));
         }
 
-        (new VerifyAuthorWithOrcid($author, $request))->execute()->updateTemplateMgrVars($templateMgr);
+        (new VerifyIdentityWithOrcid($author, $request, OrcidDepositType::WORK))
+            ->execute()
+            ->updateTemplateMgrVars($templateMgr);
 
         $templateMgr->display(self::VERIFY_TEMPLATE_PATH);
     }
@@ -127,6 +133,51 @@ class OrcidHandler extends Handler
         $templateMgr->assign('isMemberApi', OrcidManager::isMemberApiEnabled($context));
         $templateMgr->display(self::ABOUT_TEMPLATE_PATH);
 
+    }
+
+    /**
+     * Displays page for completed OAuth process when the goal is to update the author's/user's OAuth scope and
+     * resubmit the ORCID item for deposit requiring the updated scope.
+     */
+    public function updateScope(array $args, Request $request): void
+    {
+        // If the application is set to sandbox mode, it will not reach out to external services
+        if (Config::getVar('general', 'sandbox', false)) {
+            error_log('Application is set to sandbox mode and will not interact with the ORCID service');
+            return;
+        }
+
+        $templateMgr = TemplateManager::getManager($request);
+
+        // Initialise template parameters
+        $templateMgr->assign([
+            'currentUrl' => $request->url(null, 'index'),
+            'verifySuccess' => false,
+            'authFailure' => false,
+            'notPublished' => false,
+            'sendSubmission' => false,
+            'sendSubmissionSuccess' => false,
+            'denied' => false,
+            'contextName' => $request->getContext()->getName($request->getContext()->getPrimaryLocale()),
+        ]);
+
+        $identity = $this->getIdentityToVerify($request);
+
+        if ($identity === null) {
+            $this->handleNoAuthorWithToken($templateMgr);
+        } elseif ($request->getUserVar('error') === 'access_denied') {
+            // Handle access denied
+            $this->handleUserDeniedAccess($identity, $templateMgr, $request->getUserVar('error_description'));
+        }
+
+        $depositType = OrcidDepositType::tryFrom($request->getUserVar('itemType'));
+        if ($depositType !== null) {
+            (new VerifyIdentityWithOrcid($identity, $request, $depositType))
+                ->execute()
+                ->updateTemplateMgrVars($templateMgr);
+        }
+
+        $templateMgr->display(self::VERIFY_TEMPLATE_PATH);
     }
 
     /**
@@ -165,19 +216,49 @@ class OrcidHandler extends Handler
     /**
      * Remove previously assigned ORCID OAuth related fields and assign denied variable to TemplateManagerA
      */
-    private function handleUserDeniedAccess(Author $author, TemplateManager $templateMgr, string $errorDescription): void
+    private function handleUserDeniedAccess(Identity $identity, TemplateManager $templateMgr, string $errorDescription): void
     {
         // User denied access
         // Store the date time the author denied ORCID access to remember this
-        $author->setData('orcidAccessDenied', Core::getCurrentDate());
+        $identity->setData('orcidAccessDenied', Core::getCurrentDate());
         // remove all previously stored ORCID access token
-        $author->setData('orcidAccessToken', null);
-        $author->setData('orcidAccessScope', null);
-        $author->setData('orcidRefreshToken', null);
-        $author->setData('orcidAccessExpiresOn', null);
-        $author->setData('orcidEmailToken', null);
-        Repo::author()->dao->update($author);
+        $identity->setData('orcidAccessToken', null);
+        $identity->setData('orcidAccessScope', null);
+        $identity->setData('orcidRefreshToken', null);
+        $identity->setData('orcidAccessExpiresOn', null);
+        $identity->setData('orcidEmailToken', null);
+
+        if ($identity instanceof Author) {
+            Repo::author()->dao->update($identity);
+        } else if ($identity instanceof User) {
+            Repo::user()->dao->update($identity);
+        }
         OrcidManager::logError('OrcidHandler::verify - ORCID access denied. Error description: ' . $errorDescription);
         $templateMgr->assign('denied', true);
+    }
+
+    private function getIdentityToVerify(Request $request): ?Identity
+    {
+        return match (OrcidDepositType::tryFrom($request->getUserVar('itemType'))) {
+            OrcidDepositType::WORK => $this->getAuthorToVerify($request),
+            OrcidDepositType::REVIEW => $this->getReviewerToVerify($request),
+            default => null,
+        };
+    }
+
+    private function getReviewerToVerify(Request $request): ?User
+    {
+        $user = null;
+        $userId = $request->getUserVar('userId');
+        $user = Repo::user()->get($userId);
+        if (
+            $user === null ||
+            empty($request->getUserVar('token')) ||
+            $user->getData('orcidEmailToken') != $request->getUserVar('token')
+        ) {
+            return null;
+        }
+
+        return $user;
     }
 }

@@ -39,8 +39,9 @@ class ReviewerRecommendation extends Model
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
-    // TODO : add `recommendation_id` as guarded column once pkp/pkp-lib#10292 and pkp/pkp-lib#10562 merged
-    protected $guarded = [];
+    protected $guarded = [
+        'recommendation_id',
+    ];
 
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts

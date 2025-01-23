@@ -745,26 +745,44 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $latestRecommendation = $reviewRecommendations->sortByDesc(
-            fn (Decision $recommendation) =>
-            strtotime($recommendation->getData('dateDecided'))
-        )->first();
+        if ($reviewRecommendations->isNotEmpty()) {
+            // Group recommendations by user ID [userId => $recommendations]
+            $recommendationsByUserIds = $reviewRecommendations->groupBy(
+                fn (Decision $decision) =>
+                $decision->getData('editorId')
+            );
 
-        if ($latestRecommendation) {
+            $currentUserRecommendation = null;
+            $latestRecommendations = [];
 
-            $recommendationData = [
-                'decision' => $latestRecommendation->getData('decision'),
-                'label' => Repo::decision()->getDecisionType($latestRecommendation->getData('decision'))->getRecommendationLabel(),
-            ];
+            foreach ($recommendationsByUserIds as $userId => $userRecommendations) {
+
+                // Get the latest recommendation only
+                $latestRecommendation = $userRecommendations->sortByDesc(
+                    fn (Decision $recommendation) =>
+                    strtotime($recommendation->getData('dateDecided'))
+                )->first();
+
+                $recommendationData = [
+                    'decision' => $latestRecommendation->getData('decision'),
+                    'label' => Repo::decision()->getDecisionType($latestRecommendation->getData('decision'))->getRecommendationLabel(),
+                ];
+
+                $latestRecommendations[] = $recommendationData;
+
+                if ($userId === $currentUser->getId()) {
+                    $currentUserRecommendation = $recommendationData;
+                }
+            }
 
             // Set recommendations for the deciding editor
-            if ($isCurrentUserDecidingEditor) {
-                $stages[$decision->getData('stageId')]['recommendations'][] = $recommendationData;
+            if ($isCurrentUserDecidingEditor && !empty($latestRecommendations)) {
+                $stages[$decision->getData('stageId')]['recommendations'] = $latestRecommendations;
             }
 
             // Set own recommendations of the current user
-            if ($currentUser->getId() == $decision->getData('editorId')) {
-                $stages[$decision->getData('stageId')]['currentUserRecommendation'] = $recommendationData;
+            if ($currentUserRecommendation) {
+                $stages[$decision->getData('stageId')]['currentUserRecommendation'] = $currentUserRecommendation;
             }
         }
 

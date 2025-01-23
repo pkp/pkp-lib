@@ -6,13 +6,11 @@
 /**
  * @file lib/pkp/classes/user/Report.php
  *
- * Copyright (c) 2003-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2003-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * @class Report
- *
- * @ingroup lib_pkp_classes_user
  *
  * @brief Generates a CSV report with basic user information given a list of users and an output stream.
  */
@@ -21,6 +19,7 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\core\Request;
+use Illuminate\Support\Collection;
 use PKP\facades\Locale;
 use PKP\userGroup\UserGroup;
 
@@ -78,7 +77,10 @@ class Report
             __('common.mailingAddress'),
             __('user.dateRegistered'),
             __('common.updated'),
-            ...array_map(fn (UserGroup $userGroup) => $userGroup->getLocalizedData('name'), $this->_getUserGroups())
+            ...$this->
+                _getUserGroups()
+                ->map(fn (UserGroup $userGroup): string => $userGroup->getLocalizedData('name'))
+                ->toArray()
         ];
     }
 
@@ -117,23 +119,26 @@ class Report
             $user->getMailingAddress(),
             $user->getDateRegistered(),
             $user->getLocalizedData('dateProfileUpdated'),
-            ...array_map(
-                fn (UserGroup $userGroup) => __(in_array($userGroup->id, $userGroupIds) ? 'common.yes' : 'common.no'),
-                $this->_getUserGroups()
-            )
+            ...$this
+                ->_getUserGroups()
+                ->map(
+                    fn (UserGroup $userGroup): string => __(
+                        in_array($userGroup->id, $userGroupIds)
+                            ? 'common.yes'
+                            : 'common.no'
+                    )
+                )->toArray()
         ];
     }
 
     /**
      * Retrieves the user groups
-     *
-     * @return UserGroup[]
      */
-    private function _getUserGroups(): array
+    private function _getUserGroups(): Collection
     {
         static $cache;
-        return $cache ??= UserGroup::withContextIds([$this->_request->getContext()->getId()])
-            ->get()
-            ->toArray();
+        return $cache ??= UserGroup::query()
+            ->withContextIds([$this->_request->getContext()->getId()])
+            ->get();
     }
 }

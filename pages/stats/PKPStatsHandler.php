@@ -581,7 +581,7 @@ class PKPStatsHandler extends Handler
         $reportPlugins = PluginRegistry::loadCategory('reports');
 
         if ($pluginName == '' || !isset($reportPlugins[$pluginName])) {
-            $request->redirect(null, null, 'stats', 'reports');
+            $request->redirect(null, null, 'stats', ['reports']);
         }
 
         $plugin = $reportPlugins[$pluginName];

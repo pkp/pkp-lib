@@ -112,7 +112,7 @@ msgstr "Dosya yüklemenize izin verilmiyor."
 msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
 "Kullanıcı dizininde yeterli alan yok. Yüklediğiniz dosya {$fileUploadSize}kb "
-"ancak {$ dirSizeLeft}kb boş alana sahipsiniz."
+"ancak {$dirSizeLeft}kb boş alana sahipsiniz."
 
 msgid "api.publicFiles.500.badFilesDir"
 msgstr ""

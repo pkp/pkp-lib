@@ -1985,7 +1985,7 @@ msgid "validator.max.string"
 msgstr "Не може да биде повеќе од {$max} знаци."
 
 msgid "validator.max.array"
-msgstr "Не може да има повеќе од {$ max} ставки."
+msgstr "Не може да има повеќе од {$max} ставки."
 
 msgid "validator.mimes"
 msgstr "Ова мора да биде датотека од типот {$values}."

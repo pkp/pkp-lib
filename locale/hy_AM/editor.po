@@ -432,7 +432,7 @@ msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Հանրային ցուցիչը՝ '{$publicIdentifier}' չպետք է լինի թիվ:"
 
 msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "{$ Pattern} օրինակը չի թույլատրվում հանրային նույնացուցիչի համար:"
+msgstr "{$Pattern} օրինակը չի թույլատրվում հանրային նույնացուցիչի համար:"
 
 msgid "reviewer.list.filterRating"
 msgstr "Գնահատված՝ նվազագույն"

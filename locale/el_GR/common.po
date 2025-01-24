@@ -1922,7 +1922,7 @@ msgid "validator.between.string"
 msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} χαρακτήρες."
 
 msgid "validator.between.array"
-msgstr "Αυτό πρέπει να έχει από {$ min} ως {$ max} στοιχεί."
+msgstr "Αυτό πρέπει να έχει από {$min} ως {$max} στοιχεί."
 
 msgid "validator.boolean"
 msgstr "Αυτό το πεδίο πρέπει να ισχύει ή όχι."
@@ -2057,7 +2057,7 @@ msgstr ""
 "Αυτό το πεδίο απαιτείται όταν δεν υπάρχει καμία από τις τιμές {$values}."
 
 msgid "validator.same"
-msgstr "Τα χαρακτηριστικά {$attribute} και {$ other} πρέπει να ταιριάζουν."
+msgstr "Τα χαρακτηριστικά {$attribute} και {$other} πρέπει να ταιριάζουν."
 
 msgid "validator.size.numeric"
 msgstr "Πρέπει να έχει μέγεθος {$size}."

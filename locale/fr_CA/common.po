@@ -1118,7 +1118,7 @@ msgstr "Veuillez corriger {$count} erreurs."
 
 msgid "form.errors"
 msgstr ""
-"Le formulaire n'a pas été enregistré car {$ count} erreurs ont été "
+"Le formulaire n'a pas été enregistré car {$count} erreurs ont été "
 "rencontrées. Veuillez corriger ces erreurs et réessayer."
 
 msgid "form.errorsOccurred"
@@ -1156,7 +1156,7 @@ msgid "form.required"
 msgstr "(* Obligatoire)"
 
 msgid "form.requirePrimaryLocale"
-msgstr "Vous devez remplir ce champ en {$ language}."
+msgstr "Vous devez remplir ce champ en {$language}."
 
 msgid "form.requireId"
 msgstr "Vous devez fournir un identifiant (ID) valide."

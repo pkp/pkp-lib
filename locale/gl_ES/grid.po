@@ -655,7 +655,7 @@ msgstr "O rol {$userGroupName} é predeterminado e non se pode eliminar."
 msgid "grid.userGroup.cantRemoveUserGroup"
 msgstr ""
 "Non se pode eliminar o rol de {$userGroupName}. Actualmente están asignados/"
-"as {{users_Count} usuarios."
+"as {$usersCount} usuarios."
 
 msgid "grid.userGroup.removed"
 msgstr "Rol de {$userGroupName} eliminado."

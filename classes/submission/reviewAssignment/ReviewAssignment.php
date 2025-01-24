@@ -817,8 +817,8 @@ class ReviewAssignment extends \PKP\core\DataObject
             ->when(
                 $reviewAssignment, 
                 fn ($query) => $query->orWhere(
-                    fn ($query) => $query->withRecommendation(
-                        $reviewAssignment->getData("recommendation")
+                    fn ($query) => $query->withRecommendations(
+                        [$reviewAssignment->getData("recommendation")]
                     )
                 )
             )

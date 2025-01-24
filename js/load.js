@@ -36,7 +36,7 @@ Vue.use(VModal, {
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
 Vue.mixin(GlobalMixins);
-Vue.directive("strip-unsafe-html", stripUnsafeHtml);
+Vue.directive('strip-unsafe-html', stripUnsafeHtml);
 
 // Register global components
 Vue.component('Badge', Badge);

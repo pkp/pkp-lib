@@ -2084,7 +2084,7 @@ msgid "validator.timezone"
 msgstr "Ce n'est pas un fuseau horaire valide."
 
 msgid "validator.unique"
-msgstr "Le,La {$ attribut} est déjà pris-e."
+msgstr "Le,La {$attribute} est déjà pris-e."
 
 msgid "validator.url"
 msgstr "Ceci n'est pas un URL valide."

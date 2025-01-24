@@ -352,9 +352,11 @@ class ManagementHandler extends Handler
     {
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
+        $context = $request->getContext();
+        $dispatcher = $request->getDispatcher();
+        $publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
-        $context = $request->getContext();
 
         $locales = $this->getSupportedFormLocales($context);
 
@@ -363,7 +365,7 @@ class ManagementHandler extends Handler
             $locales,
             Repo::announcement()->getFileUploadBaseUrl($context),
             $this->getTemporaryFileApiUrl($context),
-            $request->getContext()
+            $request->getContext(),  $publicFileApiUrl
         );
 
         $collector = Repo::announcement()

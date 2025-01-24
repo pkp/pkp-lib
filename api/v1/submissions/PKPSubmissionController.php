@@ -517,7 +517,7 @@ class PKPSubmissionController extends PKPBaseController
                     break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
-                    break;    
+                    break;
             }
         }
 
@@ -532,7 +532,7 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
         $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
@@ -547,7 +547,9 @@ class PKPSubmissionController extends PKPBaseController
             $submission,
             $userGroups,
             $genres,
+            $userRoles,
             $reviewAssignments,
+            null,
             null,
             !$anonymizeReviews || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews
         ), Response::HTTP_OK);
@@ -680,7 +682,9 @@ class PKPSubmissionController extends PKPBaseController
             $userGroups = $userGroups->lazy();
         }
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
     }
 
     /**
@@ -716,8 +720,9 @@ class PKPSubmissionController extends PKPBaseController
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
     }
 
     /**
@@ -768,8 +773,9 @@ class PKPSubmissionController extends PKPBaseController
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
     }
 
     /**
@@ -848,6 +854,7 @@ class PKPSubmissionController extends PKPBaseController
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $notificationManager = new NotificationManager();
         $notificationManager->updateNotification(
@@ -858,7 +865,7 @@ class PKPSubmissionController extends PKPBaseController
             $submission->getId()
         );
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
     }
 
     /**
@@ -880,8 +887,9 @@ class PKPSubmissionController extends PKPBaseController
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres);
+        $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles);
 
         Repo::submission()->delete($submission);
 

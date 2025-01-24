@@ -220,6 +220,8 @@ abstract class PKPSubmissionHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
 
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
             'components' => [
@@ -241,7 +243,7 @@ abstract class PKPSubmissionHandler extends Handler
             'publicationApiUrl' => $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId()),
             'reconfigurePublicationProps' => $this->getReconfigurePublicationProps(),
             'reconfigureSubmissionProps' => $this->getReconfigureSubmissionProps(),
-            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres),
+            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles),
             'submissionApiUrl' => Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
             'submissionSavedUrl' => $this->getSubmissionSavedUrl($request, $submission->getId()),
             'submissionWizardUrl' => Repo::submission()->getUrlSubmissionWizard($context, $submission->getId()),
@@ -266,9 +268,9 @@ abstract class PKPSubmissionHandler extends Handler
 
         if (!$isAdmin) {
             $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
-            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->get()
-                ->map(fn($userGroup) => $userGroup->id)
+                ->map(fn ($userGroup) => $userGroup->id)
                 ->toArray();
 
             $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
@@ -321,7 +323,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'pageTitle' =>  __('submission.wizard.submissionCancelled'),
+            'pageTitle' => __('submission.wizard.submissionCancelled'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_NARROW,
         ]);
         $templateMgr->display('submission/cancelled.tpl');

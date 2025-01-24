@@ -30,6 +30,10 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public $incrementing = false;
     protected $primaryKey = null;
     protected $fillable = ['userGroupId', 'userId', 'dateStart', 'dateEnd', 'masthead'];
+    protected $casts = [
+        'dateStart' => 'datetime',
+        'dateEnd' => 'datetime',
+    ];
 
     public function user(): Attribute
     {

@@ -164,6 +164,7 @@ class ReviewerRecommendation extends Model
         return Attribute::make(
             get: fn () => !Repo::reviewAssignment()
                 ->getCollector()
+                ->filterByContextIds([$this->contextId])
                 ->filterByRecommenddations([$this->value])
                 ->getQueryBuilder()
                 ->exists()
@@ -188,7 +189,8 @@ class ReviewerRecommendation extends Model
         return Attribute::make(
             get: fn () => Repo::reviewAssignment()
                 ->getCollector()
-                ->filterByRecommenddations([$this->id])
+                ->filterByContextIds([$this->contextId])
+                ->filterByRecommenddations([$this->value])
                 ->getMany()
         )->shouldCache();
     }
@@ -212,8 +214,8 @@ class ReviewerRecommendation extends Model
     /**
      * Scope a query to filter by recommendation value
      */
-    public function scopeWithRecommendation(Builder $query, int $recommendation): Builder
+    public function scopeWithRecommendations(Builder $query, array $recommendations): Builder
     {
-        return $query->where('value', $recommendation);
+        return $query->whereIn('value', $recommendations);
     }
 }

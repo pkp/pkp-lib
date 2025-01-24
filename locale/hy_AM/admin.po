@@ -291,10 +291,10 @@ msgid "admin.version"
 msgstr "Տարբերակ"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "{$Path} հիմնական ուղին պետք է լինի հանրային ֆայլերի ուղեցույցում:"
+msgstr "{$path} հիմնական ուղին պետք է լինի հանրային ֆայլերի ուղեցույցում:"
 
 msgid "admin.fileLoader.pathNotAccessible"
-msgstr "{$Path} պանակը ուղեցույց չէ կամ ընթերցելի չէ:"
+msgstr "{$path} պանակը ուղեցույց չէ կամ ընթերցելի չէ:"
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
@@ -315,7 +315,7 @@ msgstr "Սխալ: {$tmpDir} ժամանակավոր պանակաը չի կարո�
 
 msgid "admin.copyAccessLogFileTool.error.acessingFile"
 msgstr ""
-"Սխալ: {$FilePath} ֆայլը գոյություն չունի կամ հնարավոր չէ մուտք գործել:"
+"Սխալ: {$filePath} ֆայլը գոյություն չունի կամ հնարավոր չէ մուտք գործել:"
 
 msgid "admin.copyAccessLogFileTool.error.copyingFile"
 msgstr "Սխալ: չի կարող ֆայլը պատճենել {$filePath} - ից {$tmpFilePath}:"
@@ -333,7 +333,7 @@ msgstr "Հաջողություն: {$filePath} to {$destinationPath}"
 
 msgid "admin.error.utilExecutionProblem"
 msgstr ""
-"«{$UtilPath}» ծրագրի կատարումը պարունակում է հետևյալ սխալը՝ {$Output}"
+"«{$utilPath}» ծրագրի կատարումը պարունակում է հետևյալ սխալը՝ {$output}"
 
 msgid "admin.error.executingUtil"
 msgstr ""

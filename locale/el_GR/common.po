@@ -1053,7 +1053,7 @@ msgstr ""
 "περίπτωση;"
 
 msgid "form.disallowedLocales"
-msgstr "Επιτρέπονται μόνο οι ακόλουθες γλώσσες: {$Languages}."
+msgstr "Επιτρέπονται μόνο οι ακόλουθες γλώσσες: {$languages}."
 
 msgid "form.disallowedProp"
 msgstr "Αυτή η ιδιότητα δεν επιτρέπεται."
@@ -2001,7 +2001,7 @@ msgid "validator.max.array"
 msgstr "Δεν επιτρέπεται να υπάρχουν περισσότερα από {$max} στοιχεία."
 
 msgid "validator.mimes"
-msgstr "Πρέπει να είναι αρχείο τύπου {$Values}."
+msgstr "Πρέπει να είναι αρχείο τύπου {$values}."
 
 msgid "validator.min.numeric"
 msgstr "Πρέπει να είναι τουλάχιστον {$min}."

@@ -991,7 +991,7 @@ msgid "email.from"
 msgstr "Från"
 
 msgid "email.invalid"
-msgstr "E-postadressen {$Email} är ogiltig."
+msgstr "E-postadressen {$email} är ogiltig."
 
 msgid "email.multipart"
 msgstr "Det här är ett multi-part-meddelande i MIME-format."

@@ -77,7 +77,9 @@ class IdentityForm extends BaseProfileForm
                 'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => $targetOp]),
                 'orcidClientId' => OrcidManager::getClientId(),
                 'orcidIcon' => OrcidManager::getIcon(),
+                'orcidUnauthenticatedIcon' => OrcidManager::getUnauthenticatedIcon(),
                 'orcidAuthenticated' => $user !== null && $user->hasVerifiedOrcid(),
+                'orcidDisplayValue' => $user->getOrcidDisplayValue(),
             ]);
         } else {
             $templateMgr->assign([

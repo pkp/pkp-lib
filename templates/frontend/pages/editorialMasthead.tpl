@@ -24,8 +24,8 @@
 						<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
 						<span class="name">
 							{$mastheadUser['user']->getFullName()|escape}
-							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->getData('orcidAccessToken')}
-								<span class="orcid">	
+							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->hasVerifiedOrcid()}
+								<span class="orcid">
 									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$mastheadUser['user']->getFullName()|escape}">
 										{$orcidIcon}
 									</a>
@@ -55,9 +55,9 @@
 			<li>
 				{strip}
 					<span class="name">
-						{$reviewer->getFullName()|escape} 
+						{$reviewer->getFullName()|escape}
 						{if $reviewer->getData('orcid') && $reviewer->getData('orcidAccessToken')}
-							<span class="orcid">	
+							<span class="orcid">
 								<a href="{$reviewer->getData('orcid')|escape}" target="_blank" aria-label="{translate key="common.editorialHistory.page.orcidLink" name=$reviewer->getFullName()|escape}">
 									{$orcidIcon}
 								</a>

@@ -41,6 +41,8 @@ class ReviewerRecommendation extends Model
      */
     protected $guarded = [
         'recommendation_id',
+        'recommendationId',
+        'value',
     ];
 
     /**
@@ -122,24 +124,9 @@ class ReviewerRecommendation extends Model
     protected function value(): Attribute
     {
         return Attribute::make(
-            set: function (?int $value) {
+            set: function () {
                 if ($this->getRawOriginal('value')) {
                     return $this->getRawOriginal('value');
-                }
-
-                if ($value) {
-                    $existingRecommendation = static::query()
-                        ->withContextId($this->contextId)
-                        ->where('value', $value)
-                        ->exists();
-                    
-                    if ($existingRecommendation) {
-                        throw new Exception(
-                            "Given recommendation value : {$value} already exist for given context"
-                        );
-                    }
-
-                    return $value;
                 }
 
                 $lastRecommendationValue = static::query()

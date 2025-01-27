@@ -1,11 +1,11 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
-# Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
+# Pia Spriensma <p.j.huizinga@rug.nl>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-11-05 22:30+0000\n"
+"PO-Revision-Date: 2025-01-27 23:50+0000\n"
 "Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/user/nl/>"
 "\n"
@@ -211,7 +211,7 @@ msgid "user.logOut"
 msgstr "Afmelden"
 
 msgid "user.logOutAs"
-msgstr "Meld me af als"
+msgstr "Meld me af als {$username}"
 
 msgid "user.hello"
 msgstr "Hallo, "

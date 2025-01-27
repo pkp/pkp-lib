@@ -43,7 +43,7 @@ class PKPPrivacyForm extends FormComponent
             'isMultilingual' => true,
             'value' => $context->getData('privacyStatement'),
             'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-            'plugins' => 'paste,link,lists,image,code',
+            'plugins' => ['link','lists','image','code'],
             'uploadUrl' => $imageUploadUrl,
         ]));
     }

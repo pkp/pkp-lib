@@ -61,7 +61,7 @@ class PKPAnnouncementForm extends FormComponent
                 'isMultilingual' => true,
                 'size' => 'large',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'plugins' => ['link','lists'],
             ]))
             ->addField(new FieldUploadImage('image', [
                 'label' => __('manager.image'),

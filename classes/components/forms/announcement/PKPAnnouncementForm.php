@@ -36,8 +36,10 @@ class PKPAnnouncementForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
+     * @param string $temporaryFileApiUrl URL to upload files to
+     * @param string $imageUploadUrl The API endpoint for images uploaded through the rich text field
      */
-    public function __construct($action, $locales, string $baseUrl, string $temporaryFileApiUrl, ?Context $context = null)
+    public function __construct($action, $locales, string $baseUrl, string $temporaryFileApiUrl, ?Context $context = null, string $imageUploadUrl)
     {
         $this->action = $action;
         $this->locales = $locales;
@@ -54,14 +56,24 @@ class PKPAnnouncementForm extends FormComponent
                 'label' => __('manager.announcements.form.descriptionShort'),
                 'description' => __('manager.announcements.form.descriptionShortInstructions'),
                 'isMultilingual' => true,
+                'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+                'plugins' => 'paste,link,image,lists,code',
+                'uploadUrl' => $imageUploadUrl,
+                'options' => [
+                    'url' => $temporaryFileApiUrl,
+                ],
             ]))
             ->addField(new FieldRichTextarea('description', [
                 'label' => __('manager.announcements.form.description'),
                 'description' => __('manager.announcements.form.descriptionInstructions'),
                 'isMultilingual' => true,
                 'size' => 'large',
-                'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => 'paste,link,lists',
+                'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
+                'plugins' => 'paste,link,lists,image,code',
+                'uploadUrl' => $imageUploadUrl,
+                'options' => [
+                    'url' => $temporaryFileApiUrl,
+                ],
             ]))
             ->addField(new FieldUploadImage('image', [
                 'label' => __('manager.image'),

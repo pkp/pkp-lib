@@ -176,10 +176,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		// Retrieve the submission's context for properties that require it
 		if (array_intersect(['_href', 'urlAuthorWorkflow', 'urlEditorialWorkflow'], $props)) {
-			$submissionContext = $request->getContext();
-			if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
-				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
-			}
+			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 		}
 
 		foreach ($props as $prop) {
@@ -251,7 +248,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $request->getContext()->getSupportedSubmissionLocales());
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $submissionContext);
 
 		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
 
@@ -317,7 +314,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 			$request = \Application::get()->getRequest();
 			$currentUser = $request->getUser();
-			$context = $request->getContext();
+			$context = Services::get('context')->get($submission->getData('contextId'));
 			$dateFormatShort = $context->getLocalizedDateFormatShort();
 			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
 			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
@@ -396,7 +393,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		}
 
 		$currentUser = \Application::get()->getRequest()->getUser();
-		$context = \Application::get()->getRequest()->getContext();
+		$context = Services::get('context')->get($submission->getData('contextId'));
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$stages = array();
@@ -550,11 +547,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			return false;
 		}
 
-		$submissionContext = $request->getContext();
-
-		if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
-			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
-		}
+		$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 
 		$dispatcher = $request->getDispatcher();
 
@@ -793,7 +786,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return boolean
 	 */
 	public function canEditPublication($submission, $userId) {
-                $contextId = Application::get()->getRequest()->getContext()->getId();
+                $contextId = $submission->getData('contextId');
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, null)->toArray();
                 $userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $userId)->toArray());

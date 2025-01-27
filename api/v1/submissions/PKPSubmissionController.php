@@ -243,8 +243,8 @@ class PKPSubmissionController extends PKPBaseController
                 ->name('submission.publication.changeLocale')
                 ->whereNumber(['submissionId', 'publicationId']);
 
-            Route::put('{submissionId}/publications/{publicationId}/changeVersionData', $this->changeVersionData(...))
-                ->name('submission.publication.changeVersionData')
+            Route::put('{submissionId}/publications/{publicationId}/versionData', $this->changeVersionData(...))
+                ->name('submission.publication.versionData')
                 ->whereNumber(['submissionId', 'publicationId']);
 
             Route::get('{submissionId}/getNextAvailableVersionData', $this->getNextAvailableVersionData(...))

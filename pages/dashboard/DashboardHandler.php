@@ -124,7 +124,7 @@ class DashboardHandler extends Handler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
-        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups, $genres);
+        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups, $genres, $userRoles);
 
         $myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
             SUBMISSIONS_LIST_MY_QUEUE,

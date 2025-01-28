@@ -1,3 +1,538 @@
-# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024.
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-01-28 15:51+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/user/mr/"
+">\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.accountInformation"
+msgstr "वापरकर्त्याच्या खात्यातील माहिती"
+
+msgid "user.editMyProfile"
+msgstr "माझा संक्षिप्‍त परिचय - निर्मिती/बदल"
+
+msgid "user.profile.form.emailRequired"
+msgstr "वैध ई-मेल पत्ता बंधनकारक आहे."
+
+msgid "user.role.copyeditors"
+msgstr "सुसंगतता आणि अचूकता तपासणारे (copyeditors)"
+
+msgid "user.profile"
+msgstr "संक्षिप्‍त परिचय"
+
+msgid "user.role.layoutEditors"
+msgstr "मांडणी करणारे (layout) संपादक"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "नव्या पासवर्डची फेरनोंद करा"
+
+msgid "user.usernameOrEmail"
+msgstr "वापरकर्त्याचे नाव (युजरनेम) किंवा ईमेल"
+
+msgid "user.changePassword"
+msgstr "पासवर्ड बदला"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "नवे सादरीकरण"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "मला सतत लॉग-इन ठेवा"
+
+msgid "user.role.readers"
+msgstr "वाचक (अनेक)"
+
+msgid "user.mailingAddress"
+msgstr "पत्र व्यवहाराचा पत्ता"
+
+msgid "user.role.siteAdmins"
+msgstr "संकेतस्थळ संचालक (अनेक)"
+
+msgid "user.preferredPublicName"
+msgstr "पसंतीचे टोपणनाव"
+
+msgid "user.affiliation"
+msgstr "संलग्नता"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "प्रक्रिया प्रमाणीकरण टोकन गहाळ किंवा अवैध आहे."
+
+msgid "user.authorization.accessDenied"
+msgstr "प्रवेश नाकारला."
+
+msgid "user.affiliations"
+msgstr "संबंधित संस्था"
+
+msgid "user.authorization.loginRequired"
+msgstr "लॉग-इन करणे बंधनकारक आहे."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"तुम्हाला हे संकेतस्थळ वापरण्याची परवानगी नाही. या संकेतस्थळावर सध्या प्रवेश "
+"नियंत्रित करण्यात आला आहे."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"या सादरीकरणाकरता तुम्हाला नियुक्त केलेले नसल्याने त्यासंबंधीच्या "
+"क्रियाकलापांना परवानगी नाही."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr ""
+"कार्यप्रवाहाच्या त्या टप्प्यावर असलेल्या क्रियाकलापांसाठी तुम्हाला सध्या "
+"परवानगी नाही."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "कार्यप्रवाहाचा टप्पा निर्दिष्ट केलेला नाही."
+
+msgid "user.authorization.pluginRequired"
+msgstr "प्लगइनचा तपशील दिलेला नाही पण तो आवश्यक आहे."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "ही समीक्षा पाहायला तुम्हाला परवानगी नाही."
+
+msgid "user.authorization.submissionQuery"
+msgstr "ही चर्चा पाहायला तुम्हाला परवानगी नाही."
+
+msgid "user.biography"
+msgstr "व्यवसायात्मक विधान (उदा. विभाग आणि पद)"
+
+msgid "user.changeMyPassword"
+msgstr "माझा पासवर्ड बदला"
+
+msgid "user.dateLastLogin"
+msgstr "शेवटचा संकेतस्थळ प्रवेश"
+
+msgid "user.dateRegistered"
+msgstr "नोंदणीची तारीख"
+
+msgid "user.email"
+msgstr "ई-मेल"
+
+msgid "user.givenName"
+msgstr "वैयक्तिक नाव"
+
+msgid "user.interests"
+msgstr "समीक्षण स्वारस्य"
+
+msgid "user.gossip"
+msgstr "संपादकीय नोंदी/टीपा"
+
+msgid "user.group"
+msgstr "वापरकर्ता गट"
+
+msgid "user.familyName"
+msgstr "आडनाव"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "तुमचे खाते खालील कारणास्तव निष्क्रिय केले गेले आहे: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"तुमचे खाते निष्क्रिय केले गेले आहे. अधिक माहितीसाठी संचालकाशी (Administrator "
+") संपर्क साधावा."
+
+msgid "user.login.activate"
+msgstr "खाते सक्रिय करा"
+
+msgid "user.login.forgotPassword"
+msgstr "तुमचा पासवर्ड विसरलात?"
+
+msgid "user.login.loginError"
+msgstr "अग्राह्य युजरनेम/ई-मेल किंवा पासवर्ड. कृपया पुन्हा प्रयत्न करा."
+
+msgid "user.login"
+msgstr "लॉग-इन करा"
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"क्षमस्व, तुम्ही क्लिक केलेल्या लिंकची मुदत संपली आहे किंवा ती वैध नाही. कृपया"
+" तुमचा पासवर्ड पुन्हा सेट करण्याचा प्रयत्न करा."
+
+msgid "user.login.registeredEmail"
+msgstr "नोंदणीकृत वापरकर्त्याचा ई-मेल"
+
+msgid "user.login.registrationComplete"
+msgstr "नोंदणी पूर्ण झाली"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "नोंदणी केल्याबद्दल धन्यवाद! तुम्हाला आता काय करायचे आहे?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "सादरीकरणांचे अवलोकन करा"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "पुढे नजर टाकणे (browsing) चालू ठेवा"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "नोंदणी पडताळणीच्या प्रतीक्षेत आहे"
+
+msgid "user.login.resetPassword"
+msgstr "पासवर्ड रिसेट करा"
+
+msgid "user.logOut"
+msgstr "लॉग-आउट करा"
+
+msgid "user.logOutAs"
+msgstr "{$username} च्या खात्यातून लॉगआउट करा"
+
+msgid "user.hello"
+msgstr "नमस्कार, "
+
+msgid "user.myAccount"
+msgstr "माझे खाते"
+
+msgid "user.name"
+msgstr "नाव"
+
+msgid "user.password"
+msgstr "पासवर्ड"
+
+msgid "user.repeatPassword"
+msgstr "पासवर्डची फेर नोंद"
+
+msgid "user.phone"
+msgstr "फोन क्रमांक"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"तुमच्या खात्याचा पासवर्ड बदलण्यासाठी खाली तुमच्या वर्तमान आणि नव्या पासवर्डची"
+" नोंद करा."
+
+msgid "user.profile.editProfile"
+msgstr "संक्षिप्‍त परिचयात फेरफार करा"
+
+msgid "user.profile.form.countryRequired"
+msgstr "देशाचे नाव बंधनकारक आहे."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "वैयक्तिक नाव बंधनकारक आहे."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "पत्रव्यवहाराचा पत्ता असणे बंधनकारक आहे."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "आपण आपल्या नव्या पासवर्डचीच नोंद करणे आवश्यक आहे."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "तुम्ही नोंदलेला पासवर्ड चुकीचा आहे."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "पासवर्ड हवा."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "तुमचा नवा पासवर्ड जुन्या पासवर्डशी मिळता-जुळता आहे."
+
+msgid "user.profile.form.profileImage"
+msgstr "परिचय पत्रासाठीची प्रतिमा"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "वापरकर्ता गट बंधनकारक आहे."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "वापरकर्त्याचे नाव (युजरनेम) बंधनकारक आहे."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "सध्याचा पासवर्ड कार्यरत ठेवण्यासाठी पासवर्ड फील्ड रिक्त ठेवा."
+
+msgid "user.profile.newPassword"
+msgstr "नवा पासवर्ड"
+
+msgid "user.profile.oldPassword"
+msgstr "सध्याचा पासवर्ड"
+
+msgid "user.profile.publicProfile"
+msgstr "वापरकर्त्याचा संक्षिप्‍त परिचय"
+
+msgid "user.login.registerNewAccount"
+msgstr "नोंदणी करा"
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"होय, मी <a href=\"{$privacyUrl}\" target=\"_blank\">गोपनीयता विधानानुसार</a> "
+"माझ्याबाबतची माहिती संकलित आणि संग्रहित करण्यास सहमती देतो/देते."
+
+msgid "user.register.form.emailExists"
+msgstr "हा ई-मेल पत्ता पूर्वीपासूनच दुसऱ्या वापरकर्त्याद्वारे वापरात आहे."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "हा पासवर्ड जुळत नाही."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "हा ई-मेल पत्ता जुळत नाही."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "किमान एक भूमिका निवडणे आवश्यक आहे."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "पासवर्ड किमान {$length} वर्णांचा असणे आवश्यक आहे."
+
+msgid "user.register.registerAs"
+msgstr "...म्हणून {$contextName} मध्ये नोंदणी करा"
+
+msgid "user.register"
+msgstr "नोंदणी करा"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"तुम्ही यशस्वीरित्या नोंदणी केली आहे. वापरकर्त्याचा संक्षिप्‍त परिचय पूर्ण "
+"करण्यासाठी <a href=\"{$profileUrl}\">येथे क्लिक करा</a>."
+
+msgid "user.role.assistant"
+msgstr "सहाय्यक"
+
+msgid "user.role.author"
+msgstr "लेखक (एक)"
+
+msgid "user.role.author_s"
+msgstr "लेखक (एक/अनेक)"
+
+msgid "user.role.authors"
+msgstr "लेखक (अनेक)"
+
+msgid "user.role.editor"
+msgstr "संपादक"
+
+msgid "user.role.editors"
+msgstr "संपादक (अनेक)"
+
+msgid "user.role.reader"
+msgstr "वाचक"
+
+msgid "user.role.reviewer"
+msgstr "समीक्षक"
+
+msgid "user.role.reviewers"
+msgstr "समीक्षक (अनेक)"
+
+msgid "user.role.siteAdmin"
+msgstr "संकेतस्थळ संचालक"
+
+msgid "user.role.copyeditor"
+msgstr "सुसंगतता आणि अचूकता तपासणारा (copyeditor)"
+
+msgid "user.role.proofreader"
+msgstr "मुद्रित लेखन तपासणारा (proofreader)"
+
+msgid "user.role.proofreaders"
+msgstr "मुद्रित लेखन तपासणारे (proofreaders)"
+
+msgid "user.role.layoutEditor"
+msgstr "मांडणी करणारा (layout) संपादक"
+
+msgid "user.roles"
+msgstr "भूमिका"
+
+msgid "user.sendPassword"
+msgstr "पुष्टीकरण"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"पुष्टीकरण करण्यासाठी मला माझे वापरकर्तानाव (username) आणि पासवर्ड ई-मेल ने "
+"पाठवावे"
+
+msgid "user.signature"
+msgstr "स्वाक्षरी"
+
+msgid "user.title"
+msgstr "उपाधी"
+
+msgid "user.url"
+msgstr "मुखपृष्ठ URL"
+
+msgid "user.userHome"
+msgstr "वापरकर्त्याचे मुखपृष्ठ"
+
+msgid "user.username"
+msgstr "वापरकर्त्याचे नाव (युजरनेम)"
+
+msgid "user.workingLanguages"
+msgstr "संवादाची प्राथमिक भाषा"
+
+msgid "user.orcid"
+msgstr "ORCID ओळख"
+
+msgid "user.profile.identity"
+msgstr "ओळख"
+
+msgid "user.profile.contact"
+msgstr "संपर्क"
+
+msgid "user.profile.public"
+msgstr "सार्वजनिक"
+
+msgid "user.apiKey"
+msgstr "API चिन्ह"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"या खात्यात शिरकाव करण्यासाठी API key (चिन्हा) सकट इतर आज्ञावली कार्यांन्वित "
+"करा"
+
+msgid "user.apiKey.generate"
+msgstr "API key (चिन्ह) निर्माण करा"
+
+msgid "user.apiKey.remove"
+msgstr "वगळा/ काढून टाका"
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "तुम्ही खात्रीपूर्वक ही API key (चिन्ह) हटवू इच्छिता का?"
+
+msgid "user.privacyLink"
+msgstr ""
+"तुमच्याबाबतची माहिती आमच्या <a href=\"{$privacyUrl}\" target=\"_blank\""
+">गोपनीयता विधानानुसार</a> संग्रहित केली जाते."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"पासवर्ड रिसेट करण्याच्या विनंतीवर कार्यवाही करण्यात {$reason} ही अडचण आहे."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "पासवर्ड यशस्वीरित्या बदलला आहे. कृपया बदललेल्या पासवर्डसह लॉग इन करा."
+
+msgid "user.affiliation.description"
+msgstr "(तुमच्या संस्थेचे नाव, उदा. \"गोवा विद्यापीठ\")"
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"संदर्भ संगती (वृत्तपत्र, नियतकालिक, संमेलन, इत्यादी) शिवाय ही क्रिया करण्यास "
+"मनाई आहे."
+
+msgid "user.authorization.privateOperation"
+msgstr ""
+"तुम्ही अस्तित्वात नसलेल्या अथवा निषिद्ध असलेल्या प्रक्रियेत शिरकाव करण्याचा "
+"प्रयत्न करीत आहात."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "सध्याच्या भूमिकेत या क्रियेसाठी तुम्हाला परवानगी नाही."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"यासंबंधीच्या क्रियाकलापांसाठी तुम्हाला वैध वापरकर्ता गट निर्माण करावा लागेल."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"तुम्ही या टप्प्यावर व्यवस्थापकाची भूमिका असलेला वापरकर्ता (अर्थात निर्मिती "
+"संपादक) नियुक्त करणे आवश्यक आहे."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "अपूर्ण सादरीकरणामुळे कार्यप्रवाहात प्रवेश प्रतिबंधित केला आहे."
+
+msgid "user.gossip.description"
+msgstr ""
+"या समीक्षकाबद्दल तुम्ही इतर प्रशासक, व्यवस्थापक आणि सर्व संपादकांना खुल्या "
+"ठेवू इच्छिता अशा नोंदी करा. यापुढील समीक्षण कामगिरी दरम्यान या खुल्या ठेवल्या"
+" जातील."
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"परिचय पत्रासाठीची प्रतिमा अप्रमाण प्रारूपात आहेत किंवा त्याचा आकार खूप मोठा "
+"आहे. .gif, .jpg किंवा .png प्रारूपेच स्वीकारली जातात. तसेच प्रतिमाकार "
+"150x150 पिक्सेलहून अधिक नसावा."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"आम्ही तुम्हाला {$email} या ई-मेल पत्त्यावर खात्री करण्यासाठी एक संदेश पाठवला "
+"आहे. तुमचे नवीन खाते सक्रिय करण्यासाठी कृपया त्या संदेशामधील सूचनांचे पालन "
+"करा. तुम्हाला ई-मेल दिसत नसल्यास, तो तुमच्या स्पॅम फोल्डरमध्ये गेला आहे का ते"
+" तपासा."
+
+msgid "user.login.activated"
+msgstr ""
+"तुमचे खाते सक्रिय केल्याबद्दल धन्यवाद. खाते निर्माण करताना नमूद केलेली तुमची "
+"ओळख वापरून तुम्ही आता लॉग-इन करू शकता."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"तुम्ही या संकेतस्थळावर लॉग-इन करण्यापूर्वी तुम्हाला नवा पासवर्ड निवडणे आवश्"
+"यक आहे.<br /><br />तुमच्या खात्याचा पासवर्ड बदलण्यासाठी कृपया तुमचे युजरनेम "
+"तसेच तुमचा वर्तमान आणि नवा पासवर्ड खालील चौकटीत नोंदवा."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"मिळतेजुळते खाते आढळल्यामुळे खात्री करण्यासाठी तुमच्या ई-मेल पत्त्यावर एक संदे"
+"श पाठवला आहे. तुमचा पासवर्ड रिसेट करण्यासाठी कृपया ई-मेलमधील सूचनांचे पालन "
+"करा."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"तुमच्या ई-मेल पत्त्यावर नवा पासवर्ड पाठवला आहे. तुम्ही आता तुमच्या नव्या "
+"पासवर्डने संकेतस्थळावर लॉग-इन करू शकता."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"प्रकाशित लेखनावर नोंद करण्यासाठी लेखकाचे प्रचलित संपूर्ण नाव लिहा. उदा : "
+"मुरारी पुरुषोत्तम तपस्वी"
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"तुम्ही तुमच्या भाषेत / लिपीत नोंदलेल्या नावात वैयक्तिक नाव नसून फक्त आडनाव "
+"आहे. वैयक्तिक नावाची नोंद तुमच्या भाषेत / लिपीत बंधनकारक आहे."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "खुल्या स्वरुपातल्या उपलब्ध (ओपन अ‍ॅक्सेस) लेखनासंबंधी ई-मेलने सूचना"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "नवा अंक प्रकाशित झाल्याची ई-मेलने सूचना"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"नमूद केलेला URL ग्राह्य नाही. कृपया URL पुन्हा तपासा आणि प्रयत्न करा. (सूचना "
+": URL च्या सुरुवातीला http:// ची जोड द्या.)"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "तुम्ही गोपनीयता विधानाच्या अटींशी सहमत असणे आवश्यक आहे."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"खाली तुमच्या ई-मेल पत्त्याची नोंद करा. या पत्त्यावर पासवर्ड कसा रिसेट करायचा "
+"याच्या सूचना पाठवल्या जातील."
+
+msgid "user.register.form.emailConsent"
+msgstr "होय, मला नवे लेख आणि निवेदनांबद्दल सूचित केलेले आवडेल."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"वापरकर्त्याच्या नावात (username) फक्त रोमन लिपीतली लहान अक्षरे (lower-case) "
+"आणि अंक, अधोरेखन (underscore) आणि जोड (hyphen) चिन्हांचा वापर करता येईल तसेच "
+"त्याची सुरुवात आणि शेवट केवळ लहान अक्षरे (lower-case) आणि अंकांनीच करणे आवश्"
+"यक आहे."
+
+msgid "user.register.form.usernameExists"
+msgstr ""
+"निवडलेले वापरकर्त्याचे नाव (username) पूर्वीपासूनच दुसऱ्या वापरकर्त्याद्वारे "
+"वापरात आहे."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"वापरकर्त्याच्या नावात (username) फक्त रोमन लिपीतली लहान अक्षरे (lower-case) "
+"आणि अंक, अधोरेखन (underscore) आणि जोड चिन्हांचा (hyphen) वापर करता येईल."
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"तुम्ही निर्दिष्ट केलेला ORCID iD अप्रमाण आहे. कृपया संपूर्ण URI समाविष्ट करा "
+"(उदा. \"https://orcid.org/0000-0001-8385-2484\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"नवीन API key (चिन्ह) निर्माण केल्यास या वापरकर्त्यासाठी अस्तित्वात असलेली "
+"कोणतीही key (चिन्ह) अवैध ठरेल."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"key (चिन्ह) काढून टाकल्यामुळे तिचा वापर करणार्‍या सगळ्या आज्ञावलींचा वापर "
+"करणे अशक्य होईल."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"API key (चिन्ह) निर्माण करण्यापूर्वी, तुमच्या संकेतस्थळ संचालकाने कॉन्फिगरे"
+"शन फाइलमध्ये एक गुप्त टोकन बसवणे (set a secret token) आवश्यक आहे ("
+"\"api_key_secret\")."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "लॉग इन पासवर्ड बदलण्यासाठी नवीन पासवर्डची नोंद करा."

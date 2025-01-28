@@ -22,14 +22,14 @@ class SubmissionFileEventLogEntry extends EventLogEntry
     public const SUBMISSION_LOG_FILE_REVISION_UPLOAD = 1342177288; // 0x50000008
     public const SUBMISSION_LOG_FILE_EDIT = 1342177296; // 0x50000010
 
-    // Audit events
+    // Deprecated events. Preserve for historical logs
+    /*
     public const SUBMISSION_LOG_FILE_AUDITOR_ASSIGN = 1342177284; // 0x50000004
     public const SUBMISSION_LOG_FILE_AUDITOR_CLEAR = 1342177285; // 0x50000005
     public const SUBMISSION_LOG_FILE_AUDIT_UPLOAD = 1342177286; // 0x50000006
     public const SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF = 1342177287; // 0x50000007
-
-    // Deprecated events. Preserve for historical logs
     public const SUBMISSION_LOG_FILE_REVISION_DELETE = 1342177289; // 0x50000009
+    */
 }
 
 if (!PKP_STRICT_MODE) {
@@ -39,11 +39,6 @@ if (!PKP_STRICT_MODE) {
         'SUBMISSION_LOG_FILE_DELETE',
         'SUBMISSION_LOG_FILE_REVISION_UPLOAD',
         'SUBMISSION_LOG_FILE_EDIT',
-        'SUBMISSION_LOG_FILE_AUDITOR_ASSIGN',
-        'SUBMISSION_LOG_FILE_AUDITOR_CLEAR',
-        'SUBMISSION_LOG_FILE_AUDIT_UPLOAD',
-        'SUBMISSION_LOG_FILE_SIGNOFF_SIGNOFF',
-        'SUBMISSION_LOG_FILE_REVISION_DELETE',
     ] as $constantName) {
         define($constantName, constant('\SubmissionFileEventLogEntry::' . $constantName));
     }

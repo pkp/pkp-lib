@@ -94,8 +94,10 @@ trait NotifyAuthors
                     continue;
                 }
                 $mailable->to($author->getEmail(), $author->getFullName());
-                Mail::send($mailable);
-            }
+	    }
+            if ( sizeof($mailable->to) > 0 ) {
+		    Mail::send($mailable);
+	    }
         }
     }
 

@@ -1,3 +1,138 @@
-# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024.
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-01-28 15:51+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. मार्गदर्शकतत्त्वे"
+
+msgid "reviewer.step1.request"
+msgstr "समीक्षणाकरता विनंती"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. विनंती"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. डाउनलोड करा आणि समीक्षण करा"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. समापन/शेवट"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "सगळ्या सादरीकरणांचे तपशील पहा"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "समीक्षकाच्या फाईल्स"
+
+msgid "reviewer.submission.declineReview"
+msgstr "समीक्षणासाठी नकार कळवा"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"खालील चौकटीमध्ये हे समीक्षणाचे कार्य नाकारण्याची कारणे तुम्ही संपादकांना कळवू"
+" शकता."
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "लगेच तिसर्‍या टप्प्यावर जा"
+
+msgid "reviewer.submission.submitReview"
+msgstr "समीक्षण सादर करा"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "लांबणीवर टाकायचे असल्यास सेव्ह करा"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "माझे यात कोणतेही स्पर्धात्मक हितसंबंध नाहीत"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "माझे यात संभाव्य स्पर्धात्मक हितसंबंध असू शकतात (खाली निर्दिष्ट करा)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "स्पर्धात्मक हितसंबंध"
+
+msgid "reviewer.submission.guidelines"
+msgstr "समीक्षणासाठी मार्गदर्शक तत्त्वे"
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"खालील फॉर्ममध्ये या सादरीकरणावरचे तुमचे समीक्षण टाइप करा (किंवा पेस्ट करा)."
+
+msgid "reviewer.complete"
+msgstr "समीक्षण सादर केले"
+
+msgid "reviewer.confirmSubmit"
+msgstr "तुम्ही हे समीक्षण आता खात्रीपूर्वक सादर करू इच्छिता का?"
+
+msgid "reviewer.aboutDueDates"
+msgstr "अपेक्षित नियत-तारखांबद्दल"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"तुम्ही तुमचा स्वीकार किंवा नकाराचा प्रतिसाद अपेक्षित तारखेपर्यंत तसेच ही "
+"जबाबदारी स्वीकारल्यास समीक्षणाची प्रक्रियाही नमूद केलेल्या अपेक्षित "
+"तारखेपर्यंत पूर्ण करावी अशी संपादकाची प्रार्थना आहे."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "लेखक आणि संपादकाकरता"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "केवळ संपादकाकरता"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "समीक्षकांना पाठवा"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"खालील लेखनाच्या सादरीकरणासाठी संभाव्य समीक्षक म्हणून तुमची निवड केली गेली आहे"
+". या सादरीकरणाचा गोषवारा तसेच हे समीक्षण पूर्ण करण्यासाठी वेळेचे बंधन "
+"खालीलप्रमाणे आहे. आपण हे कार्य स्वीकारून सहभागी व्हाल असा आम्हाला विश्वास "
+"वाटतो."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "समीक्षणाच्या विनंतीचा स्वीकार, दुसर्‍या टप्प्यावर जा"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "समीक्षकासाठी मार्गदर्शक तत्त्वे"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"समीक्षकांचे संभाव्य हितसंबंध प्रकट करण्याचे धोरण हे नियतकालिक पाळते. कृपया हे"
+" धोरण समजावून घेण्यासाठी पुरेसा वेळ द्या."
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "या प्रकाशकाने समीक्षकासाठी मार्गदर्शक तत्त्वे तयार केलेली नाहीत."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"या सादरीकरणाशी संबंधित फाईल्स डाउनलोड करण्यासाठी खालील फाईल्सच्या नावांवर "
+"क्लिक करा."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"मूळ सादरीकरणाच्या फाईलवर आपण केलेल्या समीक्षणाची आवृत्ती आणि "
+"संपादकाने/लेखकाने अधिक माहितीसाठी वाचन करावेसे तुम्हाला वाटत असेल तर "
+"त्याच्याशी संबंधित फाईल्सही संक्रमित (अपलोड) करा."
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"या सादरीकरणावरील आपले समीक्षण पूर्ण केल्याबद्दल धन्यवाद. तुमचे समीक्षण "
+"यशस्वीरित्या दाखल (सबमिट) केले गेले आहे. आम्ही प्रकाशित करत असलेल्या लेखांची "
+"गुणवत्ता टिकवून ठेवण्यासाठी तुमच्या योगदानाबद्दल आम्ही आभारी आहोत. गरज "
+"भासल्यास संपादक अधिक माहितीसाठी तुमच्याशी पुन्हा संपर्क साधतील."
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "खालील समीक्षकांना या ई-मेल सूचनेची गुप्त प्रत (BCC) पाठवा."
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"वर्तमान वापरकर्त्यास विनंती केलेल्या सादरीकरणासाठी समीक्षक म्हणून नियुक्त "
+"केलेले नाही."

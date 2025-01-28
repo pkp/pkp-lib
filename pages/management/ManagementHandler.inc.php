@@ -315,6 +315,10 @@ class ManagementHandler extends Handler {
 		$templateMgr = TemplateManager::getManager($request);
 		$this->setupTemplate($request);
 
+		$context = $request->getContext();
+		$dispatcher = $request->getDispatcher();
+		$temporaryFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), 'temporaryFiles');
+		$publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
 		$apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $request->getContext()->getPath(), 'announcements');
 
 		$supportedFormLocales = $request->getContext()->getSupportedFormLocales();
@@ -323,7 +327,7 @@ class ManagementHandler extends Handler {
 			return ['key' => $localeKey, 'label' => $localeNames[$localeKey]];
 		}, $supportedFormLocales);
 
-		$announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
+		$announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext(), $temporaryFileApiUrl, $publicFileApiUrl);
 
 		$getParams = [
 			'contextIds' => $request->getContext()->getId(),

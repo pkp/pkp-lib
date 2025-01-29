@@ -1,7 +1,7 @@
 # Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-29 10:38+0000\n"
+"PO-Revision-Date: 2025-01-29 17:28+0000\n"
 "Last-Translator: Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>\n"
 "Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/se/>\n"
@@ -53,3 +53,6 @@ msgstr ""
 "Juo, mun dohkkehan ahte dieđut mu birra čohkkejuvvojit ja vurkejuvvojit <a "
 "href=\"{$privacyUrl}\" target=\"_blank\">persovdnasuodjalus-cealkámuša</a> "
 "olis."
+
+msgid "user.affiliation"
+msgstr "Instituvnnálaš gullevašvuohta"

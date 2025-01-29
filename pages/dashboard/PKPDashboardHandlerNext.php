@@ -383,7 +383,7 @@ abstract class PKPDashboardHandlerNext extends Handler
                 $this->createColumn('id', __('common.id'), 'CellSubmissionId', true),
                 $this->createColumn('title', __('navigation.submissions'), 'CellSubmissionTitle'),
                 $this->createColumn('stage', __('workflow.stage'), 'CellSubmissionStage'),
-                $this->createColumn('days', __('editor.submission.days'), 'CellSubmissionDays'),
+                $this->createColumn('lastActivity', __('editor.submission.days'), 'CellSubmissionDays', true),
                 $this->createColumn('activity', __('stats.editorialActivity'), 'CellSubmissionActivity'),
                 $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellSubmissionActions')
             ];

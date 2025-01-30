@@ -1988,19 +1988,40 @@ class PKPTemplateManager extends Smarty {
 			return $htmlContent;
 		}
 
-		$links = '';
 		$styles = $this->getResourcesByContext($this->_styleSheets, 'htmlGalley');
 
 		if (!empty($styles)) {
 			ksort($styles);
+			$links = '';
 			foreach ($styles as $priorityGroup) {
 				foreach ($priorityGroup as $htmlStyle) {
-					$links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+					$links .= !empty($htmlStyle['inline'])
+						? '<style type="text/css">' . $htmlStyle['style'] . '</style>'
+						: '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">';
+					$links .= "\n";
 				}
 			}
+			$htmlContent = str_ireplace('<head>', '<head>' . "\n" . $links, $htmlContent);
 		}
 
-		return str_ireplace('<head>', '<head>' . "\n" . $links, $htmlContent);
+
+		$scripts = $this->getResourcesByContext($this->_javaScripts, 'htmlGalley');
+
+		if (!empty($scripts)) {
+			$links = '';
+			ksort($scripts);
+			foreach ($scripts as $priorityGroup) {
+				foreach ($priorityGroup as $script) {
+					$links .= !empty($script['inline'])
+						? '<script type="' . $script['type'] . '">' . $script['script'] . '</script>'
+						: '<script src="' . $script['script'] . '" type="' . $script['type'] . '"></script>';
+					$links .= "\n";
+				}
+			}
+			$htmlContent = str_ireplace('</body>', $links . "\n</body>", $htmlContent);
+		}
+
+		return $htmlContent;
 	}
 
 	/**

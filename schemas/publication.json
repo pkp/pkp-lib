@@ -142,7 +142,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"doiObject": {
@@ -180,7 +197,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"lastModified": {
@@ -256,7 +290,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"submissionId": {
@@ -281,7 +332,24 @@
 				"nullable"
 			],
 			"items": {
-				"type": "string"
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"source": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					},
+					"identifier": {
+						"type": "string",
+						"validation": [
+							"nullable"
+						]
+					}
+				}
 			}
 		},
 		"status": {

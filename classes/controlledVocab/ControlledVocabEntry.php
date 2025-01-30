@@ -27,6 +27,9 @@ use PKP\controlledVocab\ControlledVocabEntryMatch;
 class ControlledVocabEntry extends Model
 {
     use ModelWithSettings;
+
+    public const CONTROLLED_VOCAB_ENTRY_IDENTIFIER = 'identifier';
+    public const CONTROLLED_VOCAB_ENTRY_SOURCE = 'source';
     
     /**
      * @copydoc \Illuminate\Database\Eloquent\Model::$table
@@ -67,6 +70,8 @@ class ControlledVocabEntry extends Model
             'controlled_vocab_entry_id' => 'integer',
             'controlled_vocab_id' => 'integer',
             'seq' => 'float',
+            self::CONTROLLED_VOCAB_ENTRY_IDENTIFIER => 'string',
+            self::CONTROLLED_VOCAB_ENTRY_SOURCE => 'string',
         ];
     }
 
@@ -91,7 +96,7 @@ class ControlledVocabEntry extends Model
      */
     public function getSettings(): array
     {
-        return array_merge($this->settings, ['name']);
+        return array_merge($this->settings, ['name', self::CONTROLLED_VOCAB_ENTRY_IDENTIFIER, self::CONTROLLED_VOCAB_ENTRY_SOURCE]);
     }
 
     /**
@@ -189,5 +194,24 @@ class ControlledVocabEntry extends Model
                     $match->searchKeyword($settingValue)
                 )
         );
+    }
+
+    /**
+     * Get entry related data
+     */
+    public function getEntryData(string $locale = null): ?array
+    {
+        $multilingualProps = array_flip($this->getMultilingualProps());
+        $attributes = Arr::mapWithKeys($this->getSettings(), function (string $prop) use ($locale, $multilingualProps): array {
+            $propData = $this->getAttribute($prop);
+            $data = isset($multilingualProps[$prop]) && $locale ? $propData[$locale] ?? null : $propData;
+            return $data ? [$prop => $data] : [];
+        });
+
+        if (!isset($attributes['name'])) {
+            return null;
+        }
+
+        return $attributes;
     }
 }

@@ -20,6 +20,8 @@ use PKP\controlledVocab\ControlledVocabEntry;
 
 class Repository
 {
+    const AS_ENTRY_DATA = true;
+
     /**
      * Fetch a Controlled Vocab by symbolic info, building it if needed.
      */
@@ -46,7 +48,8 @@ class Repository
         string $symbolic,
         int $assocType,
         ?int $assocId,
-        ?array $locales = []
+        ?array $locales = [],
+        bool $asEntryData = !Repository::AS_ENTRY_DATA
     ): array
     {
         $result = [];
@@ -58,9 +61,9 @@ class Repository
             )
             ->when(!empty($locales), fn ($query) => $query->withLocales($locales))
             ->get()
-            ->each(function ($entry) use (&$result) {
+            ->each(function ($entry) use (&$result, $asEntryData) {
                 foreach ($entry->name as $locale => $value) {
-                    $result[$locale][] = $value;
+                    $result[$locale][] = $asEntryData ? $entry->getEntryData($locale) : $value;
                 }
             });
         
@@ -80,6 +83,11 @@ class Repository
     {
         $controlledVocab = $this->build($symbolic, $assocType, $assocId);
         $controlledVocab->load('controlledVocabEntries');
+        $controlledVocabEntry = new ControlledVocabEntry;
+        $controlledVocabEntrySettings = $controlledVocabEntry->getSettings();
+        $multilingualProps = array_flip($controlledVocabEntry->getMultilingualProps());
+        $idKey = ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_IDENTIFIER;
+        $srcKey = ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_SOURCE;
 
         if ($deleteFirst) {
             ControlledVocabEntry::query()
@@ -93,17 +101,28 @@ class Repository
         collect($vocabs)
             ->each(
                 fn (array|string $entries, string $locale) => collect(array_values(Arr::wrap($entries)))
+                    ->reject(fn (string|array $vocab) => is_array($vocab) && isset($vocab[$idKey]) && !isset($vocab[$srcKey])) // Remove vocabs that have id but not source
+                    ->unique(fn (string|array $vocab): string => ($vocab[$idKey] ?? '') . ($vocab[$srcKey] ?? '') . ($vocab['name'] ?? $vocab))
                     ->each(
-                        fn (string $vocab, int $index) => 
+                        fn (array|string $vocab, int $index) => 
                             ControlledVocabEntry::create([
                                 'controlledVocabId' => $controlledVocab->id,
                                 'seq' => $index + 1,
-                                'name' => [
-                                    $locale => $vocab
-                                ],
+                                ...is_array($vocab)
+                                    ? collect($vocab)
+                                        ->only($controlledVocabEntrySettings)
+                                        ->whereNotNull()
+                                        ->map(fn ($prop, string $propName) => isset($multilingualProps[$propName])
+                                            ? [$locale => $prop]
+                                            : $prop
+                                        )
+                                        ->toArray()
+                                    : ['name' => [$locale => $vocab]],
                             ]) 
                     )
             );
+
+        $this->resequence($controlledVocab->id);
     }
 
     /**

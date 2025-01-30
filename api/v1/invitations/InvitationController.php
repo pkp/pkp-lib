@@ -20,6 +20,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rule;
 use PKP\core\PKPBaseController;
@@ -257,7 +258,7 @@ class InvitationController extends PKPBaseController
                 'nullable',
                 'required_without:inviteeEmail',
                 'integer',
-                new UserMustExistRule($payload['userId']),
+                new UserMustExistRule(Arr::get($payload, 'userId')),
             ],
             'inviteeEmail' => [
                 Rule::prohibitedIf(isset($payload['userId'])),
@@ -288,7 +289,7 @@ class InvitationController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $inviter = $this->getRequest()->getUser();
 
-        $this->invitation->initialize($payload['userId'], $context->getId(), $payload['inviteeEmail'], $inviter->getId());
+        $this->invitation->initialize(Arr::get($payload, 'userId'), $context->getId(), Arr::get($payload, 'inviteeEmail'), $inviter->getId());
 
         return $this->selectedHandler->add($illuminateRequest);
     }

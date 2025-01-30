@@ -42,6 +42,9 @@ class VerifyAuthorWithOrcid
     public function execute(): self
     {
         $context = $this->request->getContext();
+        if (!OrcidManager::isEnabled($context)) {
+            return $this;
+        }
 
         // Fetch the access token
         $oauthTokenUrl = OrcidManager::getApiPath($context) . OrcidManager::OAUTH_TOKEN_URL;

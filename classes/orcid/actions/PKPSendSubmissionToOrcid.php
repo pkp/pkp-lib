@@ -37,6 +37,10 @@ abstract class PKPSendSubmissionToOrcid
      */
     public function execute(): void
     {
+        if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
         if (!OrcidManager::isMemberApiEnabled($this->context) || $this->canDepositSubmission() === false) {
             // Sending to ORCID only works with the member API
             // FIXME: OMP cannot deposit submissions currently. Check can be removed once added

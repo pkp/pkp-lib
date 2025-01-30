@@ -44,6 +44,10 @@ class SendAuthorMail extends BaseJob
             throw new \Exception('Author ORCID emails should only be sent from a Context, never site-wide');
         }
 
+        if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
         $contextId = $this->context->getId();
         $publicationId = $this->author->getData('publicationId');
         $publication = Repo::publication()->get($publicationId);

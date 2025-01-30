@@ -2,7 +2,7 @@
 # Sara Ellen Gaup <sara.e.gaup@uit.no>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-29 10:38+0000\n"
+"PO-Revision-Date: 2025-01-30 21:50+0000\n"
 "Last-Translator: Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>\n"
 "Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/se/>\n"
@@ -99,3 +99,6 @@ msgstr "/"
 
 msgid "common.country"
 msgstr "Riika"
+
+msgid "user.email"
+msgstr "E-poastačujuhus"

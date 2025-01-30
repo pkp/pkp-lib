@@ -47,6 +47,10 @@ class DepositOrcidSubmission extends BaseJob
             return;
         }
 
+        if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
         $uri = OrcidManager::getApiPath($this->context) . OrcidManager::ORCID_API_VERSION_URL . $this->authorOrcid . '/' . OrcidManager::ORCID_WORK_URL;
         $method = 'POST';
 

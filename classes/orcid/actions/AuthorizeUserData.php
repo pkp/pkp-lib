@@ -35,6 +35,11 @@ class AuthorizeUserData
     public function execute(): void
     {
         $context = $this->request->getContext();
+
+        if (!OrcidManager::isEnabled($context)) {
+            return;
+        }
+
         $httpClient = Application::get()->getHttpClient();
 
         $errorMessages = [];

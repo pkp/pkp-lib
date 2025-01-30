@@ -38,6 +38,10 @@ class RevokeOrcidToken extends BaseJob
      */
     public function handle(): void
     {
+        if (!OrcidManager::isEnabled($this->context)) {
+            return;
+        }
+
         $token = $this->identity->getData('orcidAccessToken');
         $httpClient = Application::get()->getHttpClient();
         $headers = ['Accept' => 'application/json'];

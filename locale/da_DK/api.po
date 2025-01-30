@@ -23,7 +23,7 @@ msgstr ""
 "eller at API-token ikke længere er gyldigt."
 
 msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "ApiToken kunne ikke afkodes på grund af følgende fejl: {$ error}"
+msgstr "ApiToken kunne ikke afkodes på grund af følgende fejl: {$error}"
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Det er ikke muligt at ændre det tidspunkt, hvor det blev oprettet."

@@ -367,14 +367,20 @@ class FileUploadWizardHandler extends Handler {
 			return new JSONMessage(true, $uploadForm->fetch($request));
 		}
 
+		$submissionFileId = $uploadForm->getRevisedFileId();
+		// Store the data of the submission file before it's replaced by the revised file
+		if ($submissionFileId) {
+			$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+			$originalFile = $submissionFileDao->getById($submissionFileId);
+		}
+
 		$uploadedFile = $uploadForm->execute(); /* @var $uploadedFile SubmissionFile */
 		if (!is_a($uploadedFile, 'SubmissionFile')) {
 			return new JSONMessage(false, __('common.uploadFailed'));
 		}
 
 		// Retrieve file info to be used in a JSON response.
-		$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
-		$reviewRound = $this->getReviewRound();
+		$uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile, $originalFile ?? null);
 
 		// Advance to the next step (i.e. meta-data editing).
 		return new JSONMessage(true, '', '0', $uploadedFileInfo);
@@ -398,7 +404,7 @@ class FileUploadWizardHandler extends Handler {
 		import('lib.pkp.controllers.wizard.fileUpload.form.SubmissionFilesMetadataForm');
 		$form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
 		$form->initData();
-		
+
 		return new JSONMessage(true, $form->fetch($request));
 	}
 
@@ -462,8 +468,8 @@ class FileUploadWizardHandler extends Handler {
 	 * @param SubmissionFile $uploadedFile
 	 * @return array
 	 */
-	function _getUploadedFileInfo($uploadedFile) {
-		return array(
+	function _getUploadedFileInfo($uploadedFile, $originalFile = null) {
+		$uploadedFile = array(
 			'uploadedFile' => array(
 				'id' => $uploadedFile->getId(),
 				'fileId' => $uploadedFile->getData('fileId'),
@@ -471,5 +477,15 @@ class FileUploadWizardHandler extends Handler {
 				'genreId' => $uploadedFile->getGenreId(),
 			)
 		);
+
+		if ($originalFile) {
+			$uploadedFile['uploadedFile']['originalFile'] = [
+				'fileId' => $originalFile->getData('fileId'),
+				'name' => $originalFile->getData('name'),
+				'uploaderUserId' => $originalFile->getData('uploaderUserId'),
+			];
+		}
+
+		return $uploadedFile;
 	}
 }

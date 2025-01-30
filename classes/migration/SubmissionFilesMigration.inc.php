@@ -60,7 +60,7 @@ class SubmissionFilesMigration extends Migration {
 			$table->bigInteger('submission_file_id')->unsigned();
 			$table->bigInteger('file_id')->unsigned();
 			$table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files');
-			$table->foreign('file_id')->references('file_id')->on('files');
+			$table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade')->onUpdate('cascade');
 		});
 	}
 

@@ -66,10 +66,11 @@ class UserSelectGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
+        $contextId = $request->getContext()->getId();
         $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $userGroups = Repo::userGroup()->getUserGroupsByStage(
-            $request->getContext()->getId(),
+            $contextId,
             $stageId
         );
 
@@ -85,7 +86,7 @@ class UserSelectGridHandler extends GridHandler
         $this->setTitle('editor.submission.findAndSelectUser');
 
         // Columns
-        $cellProvider = new UserSelectGridCellProvider();
+        $cellProvider = new UserSelectGridCellProvider($contextId);
         $this->addColumn(
             new GridColumn(
                 'select',
@@ -104,6 +105,19 @@ class UserSelectGridHandler extends GridHandler
                 null,
                 $cellProvider,
                 ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
+                    'width' => 30
+                ]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'assignments',
+                'common.assignments',
+                null,
+                null,
+                $cellProvider,
+                [
+                    'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
                     'width' => 30
                 ]
             )

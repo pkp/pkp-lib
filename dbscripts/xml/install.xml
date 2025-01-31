@@ -3,8 +3,8 @@
 <!--
   * dbscripts/xml/install.xml
   *
-  * Copyright (c) 2014-2021 Simon Fraser University
-  * Copyright (c) 2003-2021 John Willinsky
+  * Copyright (c) 2014-2025 Simon Fraser University
+  * Copyright (c) 2003-2025 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Installation descriptor file.
@@ -47,10 +47,13 @@
 	<migration class="PKP\migration\install\HighlightsMigration" />
 	<migration class="PKP\migration\install\InstitutionsMigration" />
 	<migration class="APP\migration\install\MetricsMigration" />
+	<migration class="PKP\migration\install\AffiliationsMigration" />
+	<migration class="PKP\migration\install\RorsMigration" />
 
 	<!-- Other install tasks -->
 	<code function="createData"/>
 	<code function="createConfig"/>
 	<code function="addPluginVersions"/>
 	<code function="installDefaultNavigationMenus"/>
+	<code function="updateRorRegistryDataset"/>
 </install>

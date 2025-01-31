@@ -20,9 +20,11 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\Core;
+use PKP\db\DAORegistry;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\observers\events\BatchMetadataChanged;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\workflow\WorkflowStageDAO;
 
 class NativeXmlSubmissionFilter extends NativeImportFilter
@@ -82,8 +84,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $submission->stampModified();
         $submission->setData('status', $node->getAttribute('status'));
         $submission->setData('submissionProgress', '');
-
-        $submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
+        $stageName = $node->getAttribute('stage');
+        $submission->setData('stageId', WorkflowStageDAO::getIdFromPath($stageName));
 
         // Handle any additional attributes etc.
         $submission = $this->populateObject($submission, $node);
@@ -105,6 +107,9 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
 
         $deployment->addImportedRootEntity(Application::ASSOC_TYPE_SUBMISSION, $submission);
 
+        if ($stageName === "externalReview" or $stageName === "internalReview") {
+            $this->createReviewRound($submission);
+        }
         return $submission;
     }
 
@@ -173,15 +178,15 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     }
 
     /**
-     * @see Filter::process()
-     *
      * @param \DOMDocument|string $document
      *
      * @return array Array of imported documents
+     * @see Filter::process()
+     *
      */
     public function &process(&$document)
     {
-        $importedObjects = & parent::process($document);
+        $importedObjects = &parent::process($document);
 
         $deployment = $this->getDeployment();
 
@@ -238,4 +243,21 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
     {
         assert(false); // Subclasses should override
     }
+
+    /**
+     * Create review round
+     * @param Submission $submission
+     * @return void
+     */
+    public function createReviewRound(Submission $submission): void
+    {
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+            $reviewRound = $reviewRoundDao->build(
+                $submission->getId(),
+                $submission->getData('stageId'),
+                1,
+                ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+            );
+        }
+
 }

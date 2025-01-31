@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPAuthorFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPAuthorFilter
@@ -108,11 +108,43 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         $author->setFamilyName($n->textContent, $locale);
                         break;
                     case 'affiliation':
-                        $locale = $n->getAttribute('locale');
-                        if (empty($locale)) {
-                            $locale = $publication->getData('locale');
+                        $affiliation = Repo::affiliation()->newDataObject();
+                        for ($affiliationNode = $n->firstChild; $affiliationNode !== null; $affiliationNode = $affiliationNode->nextSibling) {
+                            if ($affiliationNode instanceof \DOMElement) {
+                                switch ($affiliationNode->tagName) {
+                                    case 'name':
+                                        $name = $affiliationNode->textContent;
+                                        // Does also locale needs to match???
+                                        $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
+                                        if ($ror) {
+                                            $affiliation->setRor($ror->getRor());
+                                            $affiliation->setName(null);
+                                            break;
+                                            break;
+                                        }
+                                        $locale = $n->getAttribute('locale');
+                                        if (empty($locale)) {
+                                            $locale = $publication->getData('locale');
+                                        }
+                                        $affiliation->setName($name, $locale);
+                                        break;
+                                }
+                            }
                         }
-                        $author->setAffiliation($n->textContent, $locale);
+                        $author->addAffiliation($affiliation);
+                        break;
+                    case 'rorAffiliation':
+                        for ($rorNode = $n->firstChild; $rorNode !== null; $rorNode = $rorNode->nextSibling) {
+                            if ($rorNode instanceof \DOMElement) {
+                                switch ($rorNode->tagName) {
+                                    case 'ror':
+                                        $rorAffiliation = Repo::affiliation()->newDataObject();
+                                        $rorAffiliation->setRor($rorNode->textContent);
+                                        $author->addAffiliation($rorAffiliation);
+                                        break;
+                                }
+                            }
+                        }
                         break;
                     case 'country': $author->setCountry($n->textContent);
                         break;
@@ -143,6 +175,20 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                     'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
                 ])
             );
+        }
+
+        foreach ($author->getAffiliations() as $affiliation) {
+            if (!$affiliation->getRor() && !array_key_exists($publication->getData('locale'), $affiliation->getName())) {
+                // Shell it be an error, or the affiliation could just be skipped ?
+                $deployment->addError(
+                    Application::ASSOC_TYPE_SUBMISSION,
+                    $publication->getId(),
+                    __('plugins.importexport.common.error.missingAffiliationName', [
+                        'authorName' => $author->getLocalizedGivenName(),
+                        'localeName' => Locale::getMetadata($publication->getData('locale'))->getDisplayName()
+                    ])
+                );
+            }
         }
 
         // Identify the user group by name

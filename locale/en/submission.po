@@ -30,6 +30,15 @@ msgstr "New reviews have been submitted and are being considered by the editor."
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
 
+msgid "author.authorNotFound"
+msgstr "The author for this affiliation could not be found."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Please provide a ROR affiliation or at least one affiliation name."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Please provide affiliation name in the subsmission primary locale."
+
 msgid "submission.author.list"
 msgstr "Submission Author List"
 

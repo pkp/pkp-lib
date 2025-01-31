@@ -2345,6 +2345,12 @@ msgstr ""
 "language, {$localeName}. The submission can not be imported without this "
 "information."
 
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"The author {$authorName} does not have an affiliation name in the submission's "
+"language, {$localeName}. The submission can not be imported without this "
+"information."
+
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Unknown uploader {$param}"
 

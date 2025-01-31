@@ -355,3 +355,6 @@ msgstr "Invalid ID: \"{$id}\" provided."
 
 msgid "api.publications.403.noEnabledIdentifiers"
 msgstr "Publication identifiers form is unavailable as there are no enabled Identifiers."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "The ror you requested was not found."

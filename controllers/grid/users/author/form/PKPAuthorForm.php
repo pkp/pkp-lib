@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/author/form/PKPAuthorForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorForm
@@ -127,7 +127,7 @@ class PKPAuthorForm extends Form
                 'givenName' => $author->getGivenName(null),
                 'familyName' => $author->getFamilyName(null),
                 'preferredPublicName' => $author->getPreferredPublicName(null),
-                'affiliation' => $author->getAffiliation(null),
+                'affiliations' => $author->getAffiliations(),
                 'country' => $author->getCountry(),
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
@@ -184,7 +184,7 @@ class PKPAuthorForm extends Form
             'givenName',
             'familyName',
             'preferredPublicName',
-            'affiliation',
+            'affiliations',
             'country',
             'email',
             'userUrl',
@@ -225,7 +225,7 @@ class PKPAuthorForm extends Form
         $author->setGivenName(array_map(trim(...), $this->getData('givenName')), null);
         $author->setFamilyName($this->getData('familyName'), null);
         $author->setPreferredPublicName($this->getData('preferredPublicName'), null);
-        $author->setAffiliation($this->getData('affiliation'), null); // localized
+        $author->setAffiliations($this->getData('affiliations'));
         $author->setCountry($this->getData('country'));
         $author->setEmail($this->getData('email'));
         $author->setUrl($this->getData('userUrl'));

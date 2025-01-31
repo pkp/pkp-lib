@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionController.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2023-2024 Simon Fraser University
+ * Copyright (c) 2023-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionController
@@ -665,7 +665,7 @@ class PKPSubmissionController extends PKPBaseController
 
         // Create an author record from the submitter's user account
         if ($submitAsUserGroup->roleId === Role::ROLE_ID_AUTHOR) {
-            $author = Repo::author()->newAuthorFromUser($request->getUser());
+            $author = Repo::author()->newAuthorFromUser($request->getUser(), $submission, $context);
             $author->setData('publicationId', $publication->getId());
             $author->setUserGroupId($submitAsUserGroup->id);
             $authorId = Repo::author()->add($author);
@@ -1552,6 +1552,22 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $author = Repo::author()->newDataObject($params);
+
+        $affiliations = [];
+        foreach ($params['affiliations'] as $affiliationParam) {
+            $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+            if (!empty($affiliationErrors)) {
+                return response()->json($affiliationErrors, Response::HTTP_BAD_REQUEST);
+            }
+            $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
+            // rorObject will be an array, replace with ror object
+            if($affiliation->getRor() !== null){
+                $affiliation->setData('rorObject', Repo::ror()->newDataObject($affiliationParam['rorObject']));
+            }
+            $affiliations[] = $affiliation;
+        }
+        $author->setAffiliations($affiliations);
+
         $newId = Repo::author()->add($author);
         $author = Repo::author()->get($newId);
 
@@ -1675,6 +1691,28 @@ class PKPSubmissionController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
+
+        $affiliations = [];
+        foreach ($params['affiliations'] as $affiliationParam) {
+            $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+            if (!empty($affiliationErrors)) {
+                return response()->json($affiliationErrors, Response::HTTP_BAD_REQUEST);
+            }
+            // Create a new affiliation object even if an existing affiliation is edited.
+            // This way we will have the list of all actual affiliations from the edited form.
+            // Later, in Repo::affiliation()->saveAffiliations(), we compare this list with
+            // the author affiliations that exist in the DB, to see if any was removed in the edited form.
+            $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
+            // rorObject will be an array, replace with ror object
+            if($affiliation->getRor() !== null){
+                $affiliation->setData('rorObject', Repo::ror()->newDataObject($affiliationParam['rorObject']));
+            }
+            $affiliations[] = $affiliation;
+        }
+        $author->setAffiliations($affiliations);
+        // remove affiliations parameters because we have already set them properly for the author
+        // so that they are not considered once again when editing the author below
+        unset($params['affiliations']);
 
         Repo::author()->edit($author, $params);
         $author = Repo::author()->get($author->getId());

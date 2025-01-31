@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/core/EntityDAO.php
  *
@@ -15,9 +16,9 @@
 
 namespace PKP\core\traits;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use PKP\core\DataObject;
+use PKP\core\EntityDAO;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -119,7 +120,7 @@ trait EntityUpdate
         }
 
         // Entity DAO passes all properties for the update and removes all that aren't set
-        if (count($deleteSettings) && is_a($this, DataObject::class)) {
+        if (count($deleteSettings) && is_a($this, EntityDAO::class)) {
             DB::table($this->getSettingsTable())
                 ->where($this->getPrimaryKeyName(), '=', $modelId)
                 ->whereIn('setting_name', $deleteSettings)

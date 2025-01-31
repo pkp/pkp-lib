@@ -35,6 +35,7 @@ abstract class PKPStatisticsHelper
     public const STATISTICS_DIMENSION_FILE_TYPE = 'file_type';
     public const STATISTICS_DIMENSION_SUBMISSION_FILE_ID = 'submission_file_id';
     public const STATISTICS_DIMENSION_REPRESENTATION_ID = 'representation_id';
+    public const STATISTICS_DIMENSION_INSTITUTION_ID = 'institution_id';
 
     // 2) time dimension:
     public const STATISTICS_DIMENSION_YEAR = 'year';

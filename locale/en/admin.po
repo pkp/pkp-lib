@@ -209,6 +209,9 @@ msgstr ""
 "Renaming the DB-IP city lite database file {$sourceFilename} to "
 "{$targetFilename} failed."
 
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Update Ror registry dataset cache"
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Usage statistics file loader task"
 

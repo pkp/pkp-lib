@@ -141,7 +141,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         } elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
             $symbolic = $controlledVocabulariesMappings[$n->tagName][0];
             $controlledVocabulary = [];
-            
+
             for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
                 if ($nc instanceof \DOMElement) {
                     $controlledVocabulary[] = $nc->textContent;

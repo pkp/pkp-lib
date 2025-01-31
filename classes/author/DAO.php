@@ -3,8 +3,8 @@
 /**
  * @file classes/author/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -157,6 +157,10 @@ class DAO extends EntityDAO
         // Set the primary locale from the submission
         $author->setData('submissionLocale', $row->submission_locale);
 
+        $author->setAffiliations(
+            Repo::affiliation()->getByAuthorId($author->getId())
+        );
+
         return $author;
     }
 
@@ -165,7 +169,13 @@ class DAO extends EntityDAO
      */
     public function insert(Author $author): int
     {
-        return parent::_insert($author);
+        $newAuthorId = parent::_insert($author);
+
+        $author->setId($newAuthorId);
+
+        Repo::affiliation()->saveAffiliations($author);
+
+        return $newAuthorId;
     }
 
     /**
@@ -173,6 +183,8 @@ class DAO extends EntityDAO
      */
     public function update(Author $author)
     {
+        Repo::affiliation()->saveAffiliations($author);
+
         parent::_update($author);
     }
 

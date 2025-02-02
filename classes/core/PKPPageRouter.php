@@ -500,40 +500,44 @@ class PKPPageRouter extends PKPRouter
      */
     private function _setLocale(PKPRequest $request, ?string $setLocale): void
     {
-        $contextPath = $this->_getRequestedUrlParts(['Core', 'getContextPath'], $request);
-        $urlLocale = $this->_getRequestedUrlParts(['Core', 'getLocalization'], $request);
+        $contextPath = $this->_getRequestedUrlParts(Core::getContextPath(...), $request);
+        $urlLocale = $this->_getRequestedUrlParts(Core::getLocalization(...), $request);
         $multiLingual = count($this->_getContextAndLocales($request, $contextPath)[1]) > 1;
-
-        if (!$multiLingual && !$urlLocale && !$setLocale || $multiLingual && !$setLocale && $urlLocale === Locale::getLocale()) {
+        // Quit if there's no new locale to be set and the request URL is already well-formed
+        if (!$setLocale && ($multiLingual ? $urlLocale === Locale::getLocale() : !$urlLocale)) {
             return;
         }
 
-        $sessionLocale = (function (string $l) use ($request): string {
-            $session = $request->getSession();
-            if (Locale::isSupported($l) && $l !== $session->get('currentLocale')) {
-                $session->put('currentLocale', $l);
-                $request->setCookieVar('currentLocale', $l);
-            }
-            // In case session current locale has been set to non-supported locale, or is null, somewhere else
-            if (!Locale::isSupported($session->get('currentLocale') ?? '')) {
-                $session->put('currentLocale', Locale::getLocale());
-                $request->setCookieVar('currentLocale', Locale::getLocale());
-            }
-            return $session->get('currentLocale');
-        })($setLocale ?? $urlLocale);
+        $session = $request->getSession();
+        $currentLocale = $session->get('currentLocale') ?? '';
+        if (!Locale::isSupported($currentLocale ?? '')) {
+            $currentLocale = null;
+        }
 
+        $newLocale = $setLocale ?? $urlLocale;
+        if (!Locale::isSupported($newLocale)) {
+            $newLocale = $currentLocale ?? Locale::getLocale();
+        }
+
+        if ($newLocale !== $currentLocale) {
+            $session->put('currentLocale', $newLocale);
+            $request->setCookieVar('currentLocale', $newLocale);
+        }
+
+        // Do not permit basic auth strings (user:password@url) in source parameter for redirects
         if (preg_match('#^/\w#', $source = str_replace('@', '', $request->getUserVar('source') ?? ''))) {
             $request->redirectUrl($source);
         }
 
+        $newUrlLocale = $multiLingual ? "/{$newLocale}" : '';
         $indexUrl = $this->getIndexUrl($request);
-        $uri = preg_replace("#^{$indexUrl}#", '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
-        $newUrlLocale = $multiLingual ? "/{$sessionLocale}" : '';
-        $pathInfo = ($uri)
-            ? preg_replace("#^/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : '') . '(?=[/?\\#]|$)#', "/{$contextPath}{$newUrlLocale}", $uri, 1)
-            : "/index{$newUrlLocale}";
-
-        $request->redirectUrl($indexUrl . $pathInfo);
+        $pathInfo = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
+        $newPathInfo = preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[\\/?#])\b/', "/{$contextPath}{$newUrlLocale}", $pathInfo, 1, $replaceCount);
+        // Failed to setup the new URL, fallback to the default initial URL
+        if (!$replaceCount) {
+            $newPathInfo = "/index{$newUrlLocale}";
+        }
+        $request->redirectUrl($indexUrl . $newPathInfo);
     }
 }
 

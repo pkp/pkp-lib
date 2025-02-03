@@ -14,6 +14,7 @@
 
 namespace PKP\user\maps;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
@@ -26,6 +27,7 @@ use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
+use PKP\security\Validation;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -125,6 +127,13 @@ class Schema extends \PKP\core\maps\Schema
                     if (Repo::user()->canCurrentUserGossip($user->getId())) {
                         $output[$prop] = $user->getGossip();
                     }
+                    break;
+                case 'canLoginAs':
+                    $output[$prop] = $this->getPropertyCanLoginAs($user);
+                    break;
+        
+                case 'canMergeUsers':
+                    $output[$prop] = $this->getPropertyCanMergeUsers($user);
                     break;
                 case 'reviewsActive':
                     $output[$prop] = $user->getData('incompleteCount');
@@ -271,5 +280,50 @@ class Schema extends \PKP\core\maps\Schema
         ksort($output);
 
         return $output;
+    }
+
+    /**
+     * Decide if the current user can "log in as" the target user
+     */
+    protected function getPropertyCanLoginAs(User $targetUser): bool
+    {
+        $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
+        if (!$currentUser) {
+            return false; // Not logged in
+        }
+
+        // Prevent logging in as self
+        if ($currentUser->getId() === $targetUser->getId()) {
+            return false;
+        }
+
+        // This calls Validation::canUserLoginAs(...) if you have it
+        return Validation::canUserLoginAs($targetUser->getId(), $currentUser->getId());
+    }
+
+    /**
+     * Determine if the current user can merge the target user
+     */
+    protected function getPropertyCanMergeUsers(User $targetUser): bool
+    {
+        $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
+
+        // ensure a user is logged in
+        if (!$currentUser) {
+            return false;
+        }
+
+        // prevent merging oneself
+        if ($currentUser->getId() === $targetUser->getId()) {
+            return false;
+        }
+
+        // ensure user administration permissions
+        $canAdminister = Validation::getAdministrationLevel($targetUser->getId(), $currentUser->getId()) === Validation::ADMINISTRATION_FULL;
+
+        // allow merging if the current user is a site admin or has full admin rights over the target user
+        return Validation::isSiteAdmin() || $canAdminister;
     }
 }

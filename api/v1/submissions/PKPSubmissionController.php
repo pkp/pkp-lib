@@ -1552,10 +1552,14 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
+        $affiliationParams = $params['affiliations'];
+        unset($params['affiliations']);
         $author = Repo::author()->newDataObject($params);
+        $newId = Repo::author()->add($author);
 
         $affiliations = $newAffiliationErrors = [];
-        foreach ($params['affiliations'] as $position => $affiliationParam) {
+        foreach ($affiliationParams as $position => $affiliationParam) {
+            $affiliationParam['authorId'] = $newId;
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
             // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {
@@ -1572,13 +1576,10 @@ class PKPSubmissionController extends PKPBaseController
         if (!empty($newAffiliationErrors)) {
             return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
         }
+        foreach ($affiliations as $affiliation) {
+            Repo::affiliation()->add($affiliation);
+        }
 
-        $author->setAffiliations($affiliations);
-        // remove affiliations parameters because we have already set them properly for the author
-        // so that they are not considered once again when editing the author below
-        unset($params['affiliations']);
-
-        $newId = Repo::author()->add($author);
         $author = Repo::author()->get($newId);
 
         return response()->json(

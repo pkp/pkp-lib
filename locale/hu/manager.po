@@ -1145,10 +1145,12 @@ msgstr "Alapértelmezett válaszadási határidő"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Alapértelmezett teljesítési határidő"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Szakmai lektori felkérés elfogadásának határideje (hét)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Engedélyezett hetek száma a lektorálás befejezéséig"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

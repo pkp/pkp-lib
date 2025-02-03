@@ -1203,10 +1203,12 @@ msgstr "Zadano vrijeme odgovora"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Zadani rok za završetak"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Vrijeme za odgovor na zahtjev za pregled (tjedni)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Vrijeme za dovršetak izvješća (tjedni)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

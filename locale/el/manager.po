@@ -1160,12 +1160,14 @@ msgstr "Προκαθορισμένη προθεσμία απόκρισης"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Προκαθορισμένη προθεσμία ολοκλήρωσης"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Αριθμός εβδομάδων που επιτρέπεται να γίνεται δεκτό ή να απορρίπτεται ένα "
 "αίτημα Κρίσης."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Αριθμός εβδομάδων για την ολοκλήρωση μιας Κρίσης"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

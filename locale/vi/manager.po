@@ -1137,10 +1137,12 @@ msgstr "Thời hạn phản hồi mặc định"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Thời hạn hoàn thành mặc định"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Số tuần để chấp nhận hoặc từ chối Yêu cầu phản biện."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Các tuần được phép để hoàn thành phản biện"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

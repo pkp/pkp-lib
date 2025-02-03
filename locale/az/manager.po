@@ -559,7 +559,8 @@ msgstr "Defolt cavab son tarixi"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Defolt Tamamlama tarixi"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Dəyərləndirmə üçün tamamlanan həftələr"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
@@ -1599,7 +1600,8 @@ msgstr ""
 "edilə bilən veb saytınızda baxıla biləcək idarə heyəti üçün əlaqə "
 "məlumatlarını daxil edin."
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Bir dəyərləndirmə istəyini qəbul etmə və ya rədd etmə prosesi həftələri."
 

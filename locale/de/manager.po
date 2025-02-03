@@ -1254,10 +1254,12 @@ msgstr "Standardfrist für Antwort"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Standardfrist für Fertigstellung"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Zeit für Antwort auf Begutachtungsanfrage (Wochen)"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Zeit für Abschluss des Gutachtens (Wochen)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

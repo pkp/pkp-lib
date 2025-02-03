@@ -79,7 +79,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
             throw new Exception('The context is nessesary');
         }
 
-        return ($context->getData('numWeeksPerReview') + 4) * 7;
+        return $context->getData('numDaysPerReview');
     }
 
     public function getNotAccessibleAfterInvite(): array

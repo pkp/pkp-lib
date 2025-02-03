@@ -41,7 +41,7 @@ class OrcidManager
     public const ORCID_PROFILE_URL = 'person';
     public const ORCID_WORK_URL = 'work';
     public const ORCID_REVIEW_URL = 'peer-review';
-
+    public const ORCID_ALL_REVIEWS_URL = 'peer-reviews';
     // Setting names and values used in ORCID settings forms
     public const ENABLED = 'orcidEnabled';
     public const CLIENT_ID = 'orcidClientId';

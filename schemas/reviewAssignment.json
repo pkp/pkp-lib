@@ -189,7 +189,7 @@
 		"reviewerId": {
 			"type": "integer",
 			"description": "reviewer's unique ID",
-			"apiSummary": true,			
+			"apiSummary": true,
 			"validation": [
 				"nullable"
 			]
@@ -248,6 +248,14 @@
 			"multilingual": true,
 			"description": "The title of the associated with the current publication",
 			"readOnly": true
+		},
+		"orcidReviewPutCode": {
+			"type": "string",
+			"description": "Put Code for a review work submitted to ORCID.",
+			"apiSummary": false,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

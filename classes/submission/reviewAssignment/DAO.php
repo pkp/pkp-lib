@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/reviewAssignment/DAO.php
  *
@@ -68,6 +69,8 @@ class DAO extends EntityDAO
         'requestResent' => 'request_resent',
     ];
 
+    /** @copydoc EntityDAO::$settingsTable */
+    public $settingsTable = 'review_assignment_settings';
     /**
      * Instantiate a new DataObject
      */

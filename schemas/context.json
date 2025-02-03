@@ -556,17 +556,17 @@
 				"min:1"
 			]
 		},
-		"numWeeksPerResponse": {
+		"numDaysPerResponse": {
 			"type": "integer",
-			"default": 4,
+			"default": 30,
 			"validation": [
 				"nullable",
 				"min:0"
 			]
 		},
-		"numWeeksPerReview": {
+		"numDaysPerReview": {
 			"type": "integer",
-			"default": 4,
+			"default": 30,
 			"validation": [
 				"nullable",
 				"min:0"

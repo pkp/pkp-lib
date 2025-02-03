@@ -1107,10 +1107,12 @@ msgstr ""
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr ""
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "مهلت زمان (به هفته) قبول یا رد انجام داوری"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "متوسط مهلت داوری"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -1209,10 +1209,12 @@ msgstr "Výchozí termín odpovědi"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Výchozí termín dokončení"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Počet týdnů k přijetí či odmítnutí požadavku na recenzi."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Počet týdnů na odevzdání hotové recenze"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

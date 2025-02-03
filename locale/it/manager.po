@@ -1195,11 +1195,13 @@ msgstr "Scadenza di default della risposta"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Scadenza di default di completamento"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Settimane concesse per accettare o rifiutare una richiesta di revisione."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Numero di settimane a disposizione per completare la revisione"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

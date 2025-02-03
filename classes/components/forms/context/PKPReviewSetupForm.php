@@ -92,17 +92,17 @@ class PKPReviewSetupForm extends FormComponent
                 ],
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))
-            ->addField(new FieldText('numWeeksPerResponse', [
+            ->addField(new FieldText('numDaysPerResponse', [
                 'label' => __('manager.setup.reviewOptions.defaultReviewResponseTime'),
-                'description' => __('manager.setup.reviewOptions.numWeeksPerResponse'),
-                'value' => $context->getData('numWeeksPerResponse'),
+                'description' => __('manager.setup.reviewOptions.numDaysPerResponse'),
+                'value' => $context->getData('numDaysPerResponse'),
                 'size' => 'small',
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))
-            ->addField(new FieldText('numWeeksPerReview', [
+            ->addField(new FieldText('numDaysPerReview', [
                 'label' => __('manager.setup.reviewOptions.defaultReviewCompletionTime'),
-                'description' => __('manager.setup.reviewOptions.numWeeksPerReview'),
-                'value' => $context->getData('numWeeksPerReview'),
+                'description' => __('manager.setup.reviewOptions.numDaysPerReview'),
+                'value' => $context->getData('numDaysPerReview'),
                 'size' => 'small',
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))

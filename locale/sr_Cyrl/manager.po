@@ -1119,11 +1119,13 @@ msgstr ""
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr ""
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Број недеља дозвољених за прихватање или одбијање рецензентског захтева"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Број недеља дозвољених зазавршетак рецензије"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -179,7 +179,7 @@ Cypress.Commands.add('register', data => {
 
 Cypress.Commands.add('openSubmission', (familyName) => {
 	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').click()
+		cy.get('button').contains('View').click({force: true})
 	})
 });
 
@@ -214,9 +214,11 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 	viewName = viewName || 'Active submissions';
 	cy.login(username, password, context);
 	cy.get('nav').contains(viewName).click();
-	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').scrollIntoView().should('be.visible').click()
-	})
+	cy.contains('table tr', familyName)
+		.contains('button', 'View')
+		.scrollIntoView()
+		.should('be.visible')
+		.click({force: true});
 });
 
 // Provides: @csrfToken

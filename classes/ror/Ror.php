@@ -22,10 +22,8 @@ use PKP\core\DataObject;
 
 class Ror extends DataObject
 {
-    public const int STATUS_ACTIVE = 1;
-    public const int STATUS_INACTIVE = 0;
-
-    public const string NO_LANG_CODE = 'no_lang_code';
+    public const STATUS_ACTIVE = 1;
+    public const STATUS_INACTIVE = 0;
 
     /**
      * Get the default/fall back locale the values should exist for

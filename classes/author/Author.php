@@ -265,7 +265,7 @@ class Author extends Identity
      */
     public function addAffiliation(Affiliation $affiliation): void
     {
-        $this->setAffiliations($this->getAffiliations() + [$affiliation]);
+        $this->setAffiliations(array_merge($this->getAffiliations(), [$affiliation]));
     }
 
     /**

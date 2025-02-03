@@ -188,14 +188,15 @@ class DAO extends EntityDAO
     /**
      * Insert on duplicate update.
      */
-    public function updateOrInsert(Ror $ror): void
+    public function updateOrInsert(Ror $ror): int
     {
         $existingRor = $this->getByRor($ror->getRor());
         if ($existingRor && $existingRor->getId()) {
             $ror->setId($existingRor->getId());
             $this->update($ror);
+            return $existingRor->getId();
         } else {
-            $this->insert($ror);
+            return $this->insert($ror);
         }
     }
 }

@@ -173,7 +173,10 @@ class DAO extends EntityDAO
 
         $author->setId($newAuthorId);
 
-        Repo::affiliation()->saveAffiliations($author);
+        foreach ($author->getAffiliations() as $affiliation) {
+            $affiliation->setAuthorId($newAuthorId);
+            Repo::affiliation()->add($affiliation);
+        }
 
         return $newAuthorId;
     }

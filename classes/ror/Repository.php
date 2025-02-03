@@ -18,6 +18,7 @@ use APP\core\Request;
 use Illuminate\Support\Facades\App;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 
 class Repository
 {
@@ -75,6 +76,56 @@ class Repository
         return app('maps')->withExtensions($this->schemaMap);
     }
 
+    /**
+     * Validate properties for a ror
+     *
+     * Perform validation checks on data used to add or edit a ror.
+     *
+     * @param Ror|null $ror Ror being added or edited. Pass `null` if creating a new ror
+     * @param array $props A key/value array with the new data to validate
+     *
+     * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Ror::validate [[$errors, $ror, $props]]
+     */
+    public function validate(?Ror $ror, array $props): array
+    {
+        $errors = [];
+
+        if (!isset($props['name'])) {
+            return ['name' => [__('ror.nameRequired')]];
+        }
+        if (!isset($props['displayLocale'])) {
+            return ['displayLocale' => [__('ror.displayLocaleRequired')]];
+        }
+
+        $allowedLocales = array_keys($props['name']);
+        $primaryLocale = $props['displayLocale'];
+
+        $validator = ValidatorFactory::make(
+            $props,
+            $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales)
+        );
+
+        // Check required fields if we're adding an institution
+        ValidatorFactory::required(
+            $validator,
+            $ror,
+            $this->schemaService->getRequiredProps($this->dao->schema),
+            $this->schemaService->getMultilingualProps($this->dao->schema),
+            $allowedLocales,
+            $primaryLocale
+        );
+
+        if ($validator->fails()) {
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
+        }
+
+        Hook::call('Ror::validate', [&$errors, $ror, $props, $allowedLocales, $primaryLocale]);
+
+        return $errors;
+    }
+
     /** @copydoc DAO::insert() */
     public function add(Ror $ror): int
     {
@@ -113,8 +164,8 @@ class Repository
     /**
      * Insert on duplicate update.
      */
-    public function updateOrInsert(Ror $ror): void
+    public function updateOrInsert(Ror $ror): int
     {
-        $this->dao->updateOrInsert($ror);
+        return $this->dao->updateOrInsert($ror);
     }
 }

@@ -3,8 +3,8 @@
 /**
  * @file classes/affiliation/Collector.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Collector
@@ -32,7 +32,6 @@ class Collector implements CollectorInterface
 
     public ?int $offset = null;
 
-    /** @var int|null Get affiliations with author id */
     public ?int $authorId = null;
 
     public function __construct(DAO $dao)

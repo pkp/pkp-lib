@@ -8,8 +8,8 @@
 /**
  * @file classes/user/User.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class User
@@ -516,16 +516,23 @@ class User extends Identity implements Authenticatable
 
     /**
      * Get affiliation (position, institution, etc.).
+     *
+     * @param string $locale
+     *
+     * @return string|array
      */
-    public function getAffiliation(?string $locale): mixed
+    public function getAffiliation($locale)
     {
         return $this->getData('affiliation', $locale);
     }
 
     /**
      * Set affiliation.
+     *
+     * @param string $affiliation
+     * @param string $locale
      */
-    public function setAffiliation(array $affiliation, ?string $locale): void
+    public function setAffiliation($affiliation, $locale)
     {
         $this->setData('affiliation', $affiliation, $locale);
     }

@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPAuthorFilter.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPAuthorFilter
@@ -109,12 +109,11 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         break;
                     case 'affiliation':
                         $affiliation = Repo::affiliation()->newDataObject();
-                        for ($affiliationNode = $n->firstChild; $affiliationNode !== null; $affiliationNode = $affiliationNode->nextSibling) {
-                            if ($affiliationNode instanceof \DOMElement) {
-                                switch ($affiliationNode->tagName) {
+                        for ($affiliationChildNode = $n->firstChild; $affiliationChildNode !== null; $affiliationChildNode = $affiliationChildNode->nextSibling) {
+                            if ($affiliationChildNode instanceof \DOMElement) {
+                                switch ($affiliationChildNode->tagName) {
                                     case 'name':
-                                        $name = $affiliationNode->textContent;
-                                        // Does also locale needs to match???
+                                        $name = $affiliationChildNode->textContent;
                                         $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
                                         if ($ror) {
                                             $affiliation->setRor($ror->getRor());
@@ -122,7 +121,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                                             break;
                                             break;
                                         }
-                                        $locale = $n->getAttribute('locale');
+                                        $locale = $affiliationChildNode->getAttribute('locale');
                                         if (empty($locale)) {
                                             $locale = $publication->getData('locale');
                                         }
@@ -134,12 +133,12 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         $author->addAffiliation($affiliation);
                         break;
                     case 'rorAffiliation':
-                        for ($rorNode = $n->firstChild; $rorNode !== null; $rorNode = $rorNode->nextSibling) {
-                            if ($rorNode instanceof \DOMElement) {
-                                switch ($rorNode->tagName) {
+                        for ($rorAffiliationChildNode = $n->firstChild; $rorAffiliationChildNode !== null; $rorAffiliationChildNode = $rorAffiliationChildNode->nextSibling) {
+                            if ($rorAffiliationChildNode instanceof \DOMElement) {
+                                switch ($rorAffiliationChildNode->tagName) {
                                     case 'ror':
                                         $rorAffiliation = Repo::affiliation()->newDataObject();
-                                        $rorAffiliation->setRor($rorNode->textContent);
+                                        $rorAffiliation->setRor($rorAffiliationChildNode->textContent);
                                         $author->addAffiliation($rorAffiliation);
                                         break;
                                 }

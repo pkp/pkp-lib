@@ -3,8 +3,8 @@
 /**
  * @file classes/ror/DAO.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\ror\DAO
@@ -188,14 +188,15 @@ class DAO extends EntityDAO
     /**
      * Insert on duplicate update.
      */
-    public function updateOrInsert(Ror $ror): void
+    public function updateOrInsert(Ror $ror): int
     {
         $existingRor = $this->getByRor($ror->getRor());
         if ($existingRor && $existingRor->getId()) {
             $ror->setId($existingRor->getId());
             $this->update($ror);
+            return $existingRor->getId();
         } else {
-            $this->insert($ror);
+            return $this->insert($ror);
         }
     }
 }

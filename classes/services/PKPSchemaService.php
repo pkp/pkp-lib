@@ -3,8 +3,8 @@
 /**
  * @file classes/services/PKPSchemaService.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSchemaService
@@ -72,6 +72,7 @@ class PKPSchemaService
      *
      * @hook Schema::get::(schemaName) [[schema]]
      * @hook Schema::get::
+     * @hook Schema::get::before::
      * @hook Schema::get::before::
      * @hook Schema::get::before::
      */
@@ -273,13 +274,13 @@ class PKPSchemaService
             if (empty($propSchema->origin)) {
                 continue;
             }
-    
+
             // Exclude readonly if specified
             if ($excludeReadOnly && !empty($propSchema->readOnly) && $propSchema->readOnly) {
                 continue;
             }
-    
-            switch($propSchema->origin) {
+
+            switch ($propSchema->origin) {
                 case Schema::ATTRIBUTE_ORIGIN_SETTINGS:
                     $propsByOrigin[Schema::ATTRIBUTE_ORIGIN_SETTINGS][] = $propName;
                     break;
@@ -292,10 +293,10 @@ class PKPSchemaService
                     break;
             }
         }
-    
+
         return $propsByOrigin;
     }
-    
+
 
     /**
      * Sanitize properties according to a schema
@@ -379,7 +380,7 @@ class PKPSchemaService
                 return $newArray;
             case 'object':
                 $newObject = []; // we handle JSON objects as assoc arrays in PHP
-                
+
                 if (isValidJson($value)) {
                     $value = json_decode($value, true);
                 }

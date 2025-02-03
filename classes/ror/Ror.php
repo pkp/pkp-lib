@@ -3,8 +3,8 @@
 /**
  * @file classes/ror/Ror.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Ror
@@ -22,10 +22,8 @@ use PKP\core\DataObject;
 
 class Ror extends DataObject
 {
-    public const int STATUS_ACTIVE = 1;
-    public const int STATUS_INACTIVE = 0;
-
-    public const string NO_LANG_CODE = 'no_lang_code';
+    public const STATUS_ACTIVE = 1;
+    public const STATUS_INACTIVE = 0;
 
     /**
      * Get the default/fall back locale the values should exist for

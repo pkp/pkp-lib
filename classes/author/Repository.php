@@ -3,8 +3,8 @@
 /**
  * @file classes/author/Repository.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -272,9 +272,18 @@ class Repository
                     // copy only the given name with the old locale to the new locale, because the given name is required
                     $author->setGivenName($author->getGivenName($oldLocale), $newLocale);
                 }
-
-                $this->dao->update($author);
             }
+
+            $newAffiliations = [];
+            foreach ($author->getAffiliations() as $affiliation) {
+                if (!$affiliation->getRor()) {
+                    $affiliation->setName($affiliation->getName($oldLocale), $newLocale);
+                }
+                $newAffiliations[] = $affiliation;
+            }
+            $author->setAffiliations($newAffiliations);
+
+            $this->dao->update($author);
         }
     }
 

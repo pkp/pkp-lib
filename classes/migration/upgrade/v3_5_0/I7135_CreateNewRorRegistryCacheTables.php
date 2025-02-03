@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_5_0/I7135_CreateNewRorRegistryCacheTables.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7135_CreateNewRorRegistryCacheTables
@@ -85,29 +85,29 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
      * left join author_affiliations as a_a on a_s.author_id = a_a.author_id and r.ror = a_a.ror
      * where a_s.setting_name = 'affiliation' and a_a.author_affiliation_id is null;
      *
-     * @return void
      */
     public function migrateRorAffiliations(): void
     {
-        $sql = DB::table('author_settings as a_s')
-            ->join('ror_settings as r_s',
+        $sql = DB::table('author_settings as as')
+            ->join(
+                'ror_settings as rs',
                 function (JoinClause $join) {
                     $join
-                        ->on('r_s.locale', '=', 'a_s.locale')
-                        ->on('r_s.setting_value', '=', 'a_s.setting_value')
-                        ->where('r_s.setting_name', '=', 'name');
+                        ->on('rs.setting_value', '=', 'as.setting_value')
+                        ->where('rs.setting_name', '=', 'name');
                 }
             )
-            ->join('rors as r', 'r.ror_id', '=', 'r_s.ror_id')
-            ->leftJoin('author_affiliations as a_a',
+            ->join('rors as r', 'r.ror_id', '=', 'rs.ror_id')
+            ->leftJoin(
+                'author_affiliations as aa',
                 function (JoinClause $join) {
                     $join
-                        ->on('a_a.author_id', '=', 'a_s.author_id')
-                        ->on('a_a.ror', '=', 'r.ror');
+                        ->on('aa.author_id', '=', 'as.author_id')
+                        ->on('aa.ror', '=', 'r.ror');
                 }
             )
-            ->where('a_a.author_affiliation_id', '=', null)
-            ->select(['a_s.author_id', 'r.ror'])
+            ->where('aa.author_affiliation_id', '=', null)
+            ->select(['as.author_id', 'r.ror'])
             ->distinct();
 
         DB::table('author_affiliations')->insertUsing(['author_id', 'ror'], $sql);
@@ -123,28 +123,29 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
      * left join author_affiliations as aa on a.author_id = aa.author_id
      * where aa.author_id is null;
      *
-     * @return void
      */
     public function migrateNonRorAffiliations(): void
     {
         $rows = DB::table('authors as a')
-            ->join('author_settings as a_s',
+            ->join(
+                'author_settings as as',
                 function (JoinClause $join) {
                     $join
-                        ->on('a.author_id', '=', 'a_s.author_id')
-                        ->where('a_s.setting_name', '=', 'affiliation');
+                        ->on('a.author_id', '=', 'as.author_id')
+                        ->where('as.setting_name', '=', 'affiliation');
                 }
             )
             ->leftJoin('author_affiliations as aa', 'a.author_id', '=', 'aa.author_id')
             ->where('aa.author_id', '=', null)
-            ->select(['a.author_id', 'a_s.locale', 'a_s.setting_value'])
+            ->select(['a.author_id', 'as.locale', 'as.setting_value'])
             ->distinct()
             ->get();
 
         $rows->each(function ($row) {
-            $newId = DB::table('author_affiliations')
-                ->insertGetId(['author_id' => $row->author_id]);
+            DB::table('author_affiliations')
+                ->insert(['author_id' => $row->author_id]);
 
+            $newId = DB::getPdo()->lastInsertId();
             DB::table('author_affiliation_settings')
                 ->insert([
                     'author_affiliation_id' => $newId,

@@ -3,8 +3,8 @@
 /**
  * @file classes/author/Author.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\author\Author
@@ -265,7 +265,7 @@ class Author extends Identity
      */
     public function addAffiliation(Affiliation $affiliation): void
     {
-        $this->setAffiliations($this->getAffiliations() + [$affiliation]);
+        $this->setAffiliations(array_merge($this->getAffiliations(), [$affiliation]));
     }
 
     /**

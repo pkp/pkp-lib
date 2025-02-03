@@ -1,8 +1,8 @@
 /**
  * @file cypress/support/commands.js
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  */
@@ -317,8 +317,8 @@ Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
 			}).then(xhr => {
 				data.additionalAuthors.forEach(author => {
 					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en === pAuthor.givenName.en && author.familyName.en === pAuthor.familyName.en);
-					if (typeof author.affiliation !== 'undefined') {
-						expect(publicationAuthor.affiliation.en).to.equal(author.affiliation.en);
+					if (typeof author.affiliations !== 'undefined') {
+						expect(publicationAuthor.affiliations[0].name.en).to.equal(author.affiliations[0].name.en);
 					}
 					expect(publicationAuthor.email).to.equal(author.email);
 					expect(publicationAuthor.country).to.equal(author.country);

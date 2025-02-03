@@ -3,8 +3,8 @@
 /**
  * @file api/v1/submissions/PKPSubmissionController.php
  *
- * Copyright (c) 2023-2024 Simon Fraser University
- * Copyright (c) 2023-2024 John Willinsky
+ * Copyright (c) 2023-2025 Simon Fraser University
+ * Copyright (c) 2023-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionController
@@ -33,6 +33,7 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\LazyCollection;
+use PKP\affiliation\Affiliation;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -1551,24 +1552,31 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
+        $affiliationParams = $params['affiliations'];
+        unset($params['affiliations']);
         $author = Repo::author()->newDataObject($params);
+        $newId = Repo::author()->add($author);
 
-        $affiliations = [];
-        foreach ($params['affiliations'] as $affiliationParam) {
+        $affiliations = $newAffiliationErrors = [];
+        foreach ($affiliationParams as $position => $affiliationParam) {
+            $affiliationParam['authorId'] = $newId;
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+            // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {
-                return response()->json($affiliationErrors, Response::HTTP_BAD_REQUEST);
+                $newAffiliationErrors['affiliations'][$position] = $affiliationErrors;
             }
             $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
-            // rorObject will be an array, replace with ror object
-            if($affiliation->getRor() !== null){
-                $affiliation->setData('rorObject', Repo::ror()->newDataObject($affiliationParam['rorObject']));
-            }
             $affiliations[] = $affiliation;
         }
-        $author->setAffiliations($affiliations);
 
-        $newId = Repo::author()->add($author);
+        if (!empty($newAffiliationErrors)) {
+            return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
+        }
+
+        foreach ($affiliations as $affiliation) {
+            Repo::affiliation()->add($affiliation);
+        }
+
         $author = Repo::author()->get($newId);
 
         return response()->json(
@@ -1692,23 +1700,25 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $affiliations = [];
-        foreach ($params['affiliations'] as $affiliationParam) {
+        $affiliations = $newAffiliationErrors = [];
+        foreach ($params['affiliations'] as $position => $affiliationParam) {
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
+            // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {
-                return response()->json($affiliationErrors, Response::HTTP_BAD_REQUEST);
+                $newAffiliationErrors['affiliations'][$position] = $affiliationErrors;
             }
             // Create a new affiliation object even if an existing affiliation is edited.
             // This way we will have the list of all actual affiliations from the edited form.
             // Later, in Repo::affiliation()->saveAffiliations(), we compare this list with
             // the author affiliations that exist in the DB, to see if any was removed in the edited form.
             $affiliation = Repo::affiliation()->newDataObject($affiliationParam);
-            // rorObject will be an array, replace with ror object
-            if($affiliation->getRor() !== null){
-                $affiliation->setData('rorObject', Repo::ror()->newDataObject($affiliationParam['rorObject']));
-            }
             $affiliations[] = $affiliation;
         }
+
+        if (!empty($newAffiliationErrors)) {
+            return response()->json($newAffiliationErrors, Response::HTTP_BAD_REQUEST);
+        }
+
         $author->setAffiliations($affiliations);
         // remove affiliations parameters because we have already set them properly for the author
         // so that they are not considered once again when editing the author below
@@ -2145,7 +2155,7 @@ class PKPSubmissionController extends PKPBaseController
     protected function copyMultilingualData(Submission $submission, string $newLocale): void
     {
         $oldLocale = $submission->getData('locale');
-        $editProps = fn (Author|SubmissionFile $item, array $props): array => collect($props)
+        $editProps = fn (Author|SubmissionFile|Affiliation $item, array $props): array => collect($props)
             ->mapWithKeys(fn (string $prop): array => [$prop => ($data = $item->getData($prop)[$oldLocale] ?? null) ? [$newLocale => $data] : null])
             ->filter()
             ->toArray();
@@ -2166,11 +2176,17 @@ class PKPSubmissionController extends PKPBaseController
             'familyName',
             'preferredPublicName',
         ];
+        $affiliationProps = [
+            'name',
+        ];
         Repo::author()
             ->getCollector()
             ->filterByPublicationIds([$submission->getLatestPublication()->getId()])
             ->getMany()
-            ->each(function (Author $contributor) use ($contributorProps, $editProps, $newLocale) {
+            ->each(function (Author $contributor) use ($contributorProps, $affiliationProps, $editProps, $newLocale) {
+                foreach ($contributor->getAffiliations() as $affiliation) {
+                    Repo::affiliation()->edit($affiliation, $editProps($affiliation, $affiliationProps));
+                }
                 if (!($contributor->getData('givenName')[$newLocale] ?? null)) {
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));
                 }

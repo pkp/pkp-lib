@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
@@ -116,6 +117,93 @@ class PKPUserController extends PKPBaseController
         return response()->json(Repo::user()->getSchemaMap()->map($user), Response::HTTP_OK);
     }
 
+    protected function getUserPermissions(array $userIds, Request $request): array
+    {
+        $currentUser = $request->user();
+        $currentUserId = $currentUser->getId();
+    
+        $permissions = [];
+    
+        // check if the current user is a Site Admin
+        $isSiteAdmin = $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
+    
+        // fetch all user group assignments for current user and target users
+        $allUserIds = array_merge($userIds, [$currentUserId]);
+        $userGroupAssignments = Repo::userGroup()->getCollector()
+            ->filterByUserIds($allUserIds)
+            ->getMany()
+            ->groupBy(function ($item) {
+                return $item->getData('userId');
+            });
+    
+        // get context ids where the current user is a Manager
+        $managerContextIds = [];
+        if (!$isSiteAdmin) {
+            $currentUserGroups = $userGroupAssignments->get($currentUserId, collect());
+            foreach ($currentUserGroups as $userGroup) {
+                if ($userGroup->getRoleId() === Role::ROLE_ID_MANAGER) {
+                    $managerContextIds[] = $userGroup->getContextId();
+                }
+            }
+        }
+    
+        foreach ($userIds as $userId) {
+            $permissions[$userId] = [
+                'canLoginAs' => false,
+                'canMergeUser' => false,
+            ];
+    
+            // skip if the user is the current user
+            if ($userId === $currentUserId) {
+                continue;
+            }
+    
+            // skip if logged in as another user
+            if (\PKP\security\Validation::loggedInAs()) {
+                continue;
+            }
+    
+            // site Admin can administer all users
+            if ($isSiteAdmin) {
+                $permissions[$userId]['canLoginAs'] = true;
+                $permissions[$userId]['canMergeUser'] = true;
+                continue;
+            }
+    
+            // check if the current user has full administrative rights over the target user
+            $targetUserGroups = $userGroupAssignments->get($userId, collect());
+
+            $canAdminister = true;
+    
+            foreach ($targetUserGroups as $userGroup) {
+                $roleId = $userGroup->getRoleId();
+                $contextId = $userGroup->getContextId();
+    
+                // if the target user is a Site Admin
+                if ($roleId === Role::ROLE_ID_SITE_ADMIN) {
+                    $canAdminister = false;
+                    break;
+                }
+    
+                // if the target user has roles in contexts the current user does not manage
+                if (!in_array($contextId, $managerContextIds)) {
+                    $canAdminister = false;
+                    break;
+                }
+            }
+    
+            if ($canAdminister) {
+                $permissions[$userId]['canLoginAs'] = true;
+                $permissions[$userId]['canMergeUser'] = true;
+            }
+        }
+    
+        return $permissions;
+    }
+    
+
+    
+
     /**
      * Get a collection of users
      *
@@ -124,6 +212,8 @@ class PKPUserController extends PKPBaseController
     public function getMany(Request $request): JsonResponse
     {
         $context = $request->attributes->get('context'); /** @var Context $context */
+
+        $includePermissions = $request->query('includePermissions', false);
 
         $params = $this->_processAllowedParams($request->query(null), [
             'assignedToCategory',
@@ -180,14 +270,32 @@ class PKPUserController extends PKPBaseController
         $users = $collector->getMany();
 
         $map = Repo::user()->getSchemaMap();
-        $items = [];
-        foreach ($users as $user) {
-            $items[] = $map->summarize($user);
-        }
+        $usersArray = [];
+        $userIds = [];
 
+        foreach ($users as $user) {
+            $userData = $map->summarize($user);
+            $usersArray[] = $userData;
+    
+            if ($includePermissions) {
+                $userIds[] = $user->getId();
+            }
+        }
+    
+        // add permissions if requested
+        if ($includePermissions && !empty($userIds)) {
+            $permissions = $this->getUserPermissions($userIds, $request);
+    
+            foreach ($usersArray as &$userData) {
+                $userId = $userData['id'];
+                $userData['canLoginAs'] = $permissions[$userId]['canLoginAs'] ?? false;
+                $userData['canMergeUser'] = $permissions[$userId]['canMergeUser'] ?? false;
+            }
+        }
+    
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => $items,
+            'items' => $usersArray,
         ], Response::HTTP_OK);
     }
 

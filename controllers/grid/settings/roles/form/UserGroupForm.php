@@ -232,11 +232,11 @@ class UserGroupForm extends Form
             if (in_array($userGroup->roleId, Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->permitMetadataEdit = true;
             } else {
-                $userGroup->permitMetadataEdit = $this->getData('permitMetadataEdit') ?? false;
+                $userGroup->permitMetadataEdit = (bool) $this->getData('permitMetadataEdit');
             }
 
             $userGroup->recommendOnly = $this->getData('recommendOnly') && in_array($userGroup->roleId, $this->getRecommendOnlyRoles());
-            $userGroup->masthead = $this->getData('masthead') ?? false;
+            $userGroup->masthead = (bool) $this->getData('masthead');
 
             // set localized fields
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
@@ -251,7 +251,7 @@ class UserGroupForm extends Form
             // update localized fields
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
             $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->getRoleId() == Role::ROLE_ID_MANAGER;
-            $userGroup->showTitle = $this->getData('showTitle') ?? false;
+            $userGroup->showTitle = (bool) $this->getData('showTitle');
             $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
 
             $previousPermitMetadataEdit = $userGroup->permitMetadataEdit;
@@ -276,7 +276,7 @@ class UserGroupForm extends Form
             }
 
             $userGroup->recommendOnly = $this->getData('recommendOnly') && in_array($userGroup->roleId, $this->getRecommendOnlyRoles());
-            $userGroup->masthead = $this->getData('masthead') ?? false;
+            $userGroup->masthead = (bool) $this->getData('masthead');
             $userGroup->save();
         }
 
@@ -355,21 +355,26 @@ class UserGroupForm extends Form
         $supportedLocales = $context->getSupportedLocales();
         $name = $this->getData('name');
         $abbrev = $this->getData('abbrev');
+        $userGroupNames = $userGroup->name;
+        $userGroupAbbrevs = $userGroup->abbrev;
 
         if (!empty($supportedLocales)) {
             foreach ($supportedLocales as $localeKey) {
                 if (isset($name[$localeKey])) {
-                    $userGroup->name[$localeKey] = $name[$localeKey];
+                    $userGroupNames[$localeKey] = $name[$localeKey];
                 }
                 if (isset($abbrev[$localeKey])) {
-                    $userGroup->abbrev[$localeKey] = $abbrev[$localeKey];
+                    $userGroupAbbrevs[$localeKey] = $abbrev[$localeKey];
                 }
             }
         } else {
             $localeKey = Locale::getLocale();
-            $userGroup->name[$localeKey] = $name[$localeKey] ?? '';
-            $userGroup->abbrev[$localeKey] = $abbrev[$localeKey] ?? '';
+            $userGroupNames[$localeKey] = $name[$localeKey] ?? '';
+            $userGroupAbbrevs[$localeKey] = $abbrev[$localeKey] ?? '';
         }
+
+        $userGroup->name = $userGroupNames;
+        $userGroup->abbrev = $userGroupAbbrevs;
 
         return $userGroup;
     }

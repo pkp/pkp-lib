@@ -30,6 +30,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
 
 class PKPRorController extends PKPBaseController
 {
@@ -75,6 +76,9 @@ class PKPRorController extends PKPBaseController
 
         Route::get('', $this->getMany(...))
             ->name('ror.getMany');
+
+        Route::post('', $this->addOrEdit(...))
+            ->name('ror.addOrEdit');
     }
 
     /**
@@ -147,5 +151,27 @@ class PKPRorController extends PKPBaseController
             'itemsMax' => $collector->getCount(),
             'items' => Repo::ror()->getSchemaMap()->summarizeMany($rors->values())->values(),
         ], Response::HTTP_OK);
+    }
+
+
+    /**
+     * Add or edit a ror
+     */
+    public function addOrEdit(Request $illuminateRequest): JsonResponse
+    {
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ROR, $illuminateRequest->input());
+
+        $errors = Repo::ror()->validate(null, $params);
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $ror = Repo::ror()->newDataObject($params);
+        $id = Repo::ror()->updateOrInsert($ror);
+        $ror = Repo::ror()->get($id);
+
+        return response()->json(Repo::ror()->getSchemaMap()->map($ror), Response::HTTP_OK);
+
     }
 }

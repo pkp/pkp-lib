@@ -78,11 +78,7 @@ use ZipArchive;
 
 class UpdateRorRegistryDataset extends ScheduledTask
 {
-    /** @var PrivateFileManager */
     private PrivateFileManager $fileManager;
-
-    /** @var string Prefix of ROR iD, e.g. https://ror.org/ */
-    private string $rorPrefix = 'https://ror.org/';
 
     /** @var string API Url of the data dump versions. */
     private string $urlVersions = 'https://zenodo.org/api/communities/ror-data/records?q=&sort=newest';
@@ -109,7 +105,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
     private string $noLocale = 'no_lang_code';
 
     /** @var string Name of temporary table */
-    private string $temporaryTable = 'rors__temporary';
+    private string $temporaryTable = 'rors_temporary';
 
     /** @copydoc ScheduledTask::getName() */
     public function getName(): string
@@ -130,12 +126,18 @@ class UpdateRorRegistryDataset extends ScheduledTask
             $this->createTemporaryTable();
 
             $downloadUrl = $this->getDownloadUrl();
-            if (empty($downloadUrl)) return false;
+            if (empty($downloadUrl)) {
+                return false;
+            }
 
-            if (!$this->downloadAndExtract($downloadUrl, $pathZipFile, $pathZipDir)) return false;
+            if (!$this->downloadAndExtract($downloadUrl, $pathZipFile, $pathZipDir)) {
+                return false;
+            }
 
             $pathCsv = $this->getPathCsv($pathZipDir);
-            if (empty($pathCsv || !$this->fileManager->fileExists($pathCsv))) return false;
+            if (empty($pathCsv || !$this->fileManager->fileExists($pathCsv))) {
+                return false;
+            }
 
             $this->processCsv($pathCsv);
 
@@ -193,7 +195,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             // download file
             $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
-            if (!$this->fileManager->fileExists($pathZipFile)) return false;
+            if (!$this->fileManager->fileExists($pathZipFile)) {
+                return false;
+            }
 
             // extract file
             $zip = new ZipArchive();
@@ -201,7 +205,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 $zip->extractTo($pathZipDir);
                 $zip->close();
             }
-            if (!$this->fileManager->fileExists($pathZipDir, 'dir')) return false;
+            if (!$this->fileManager->fileExists($pathZipDir, 'dir')) {
+                return false;
+            }
 
             return true;
         } catch (GuzzleException|Exception $e) {
@@ -263,7 +269,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
             fclose($handle);
 
             // insert / update last batch
-            if ($batchCounter > 0) $this->processBatch($batchRows);
+            if ($batchCounter > 0) {
+                $this->processBatch($batchRows);
+            }
         }
     }
 
@@ -273,7 +281,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
     private function processRow(array $row): array
     {
         // ror < id
-        $ror = $row[$this->dataMappingIndex['ror']];;
+        $ror = $row[$this->dataMappingIndex['ror']];
 
         // display_locale : ror_display_lang
         $displayLocale = (!empty($row[$this->dataMappingIndex['displayLocale']]))
@@ -284,7 +292,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
         $isActive = (strtolower($row[$this->dataMappingIndex['isActive']]) === 'active') ? 1 : 0;
 
         // search_phrase
-        $searchPhrase = str_replace($this->rorPrefix, '', $ror);
+        $searchPhrase = $ror;
 
         // locale, name < names.types.label
         // [["name"]["en"] => "label1"],["name"]["it"] => "label2"]] < "en: label1; it: label2"
@@ -309,7 +317,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
             'ror' => $ror,
             'displayLocale' => $displayLocale,
             'isActive' => $isActive,
-            'searchPhrase' => null, // trim($searchPhrase),
+            'searchPhrase' => trim($searchPhrase),
             'name' => $namesOut,
         ];
     }
@@ -380,18 +388,37 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 ];
             }
         }
+
         DB::table($this->temporaryTable)->insert($values);
 
         // table rors
-        $values = DB::table('rors__temporary as tmp')
+        $values = DB::table($this->temporaryTable . ' as tmp')
             ->select('tmp.ror', 'tmp.display_locale', 'tmp.is_active', 'tmp.search_phrase')
+            ->distinct()
             ->leftJoin('rors as r', 'tmp.ror', '=', 'r.ror')
             ->get()
             ->map(function ($item) {
                 return (array)$item;
             })
-            ->toArray();
+            ->all();
+
         DB::table('rors')->upsert($values, ['ror'], ['display_locale', 'is_active', 'search_phrase']);
+
+        // remove settings/names that do not exist any more
+        $orphanedSettings = DB::table('ror_settings AS rs')
+            ->select('rs.ror_setting_id')
+            ->join('rors as r', 'rs.ror_id', '=', 'r.ror_id')
+            ->join($this->temporaryTable . ' as tmp1', 'tmp1.ror', '=', 'r.ror')
+            ->leftJoin($this->temporaryTable . ' AS tmp2', function ($join) {
+                $join
+                    ->on('tmp2.ror', '=', 'tmp1.ror')
+                    ->on('tmp2.locale', '=', 'rs.locale')
+                    ->on('tmp2.setting_name', '=', 'rs.setting_name');
+            })
+            ->whereNull('tmp2.locale')
+            ->distinct()
+            ->pluck('rs.ror_setting_id');
+        DB::table('ror_settings')->whereIn('ror_setting_id', $orphanedSettings)->delete();
 
         // table ror_settings
         $values = DB::table($this->temporaryTable . ' as tmp')
@@ -408,7 +435,8 @@ class UpdateRorRegistryDataset extends ScheduledTask
             ->map(function ($item) {
                 return (array)$item;
             })
-            ->toArray();
+            ->all();
+
         DB::table('ror_settings')->upsert($values, ['ror_id', 'locale', 'setting_name'], ['setting_value']);
 
         // truncate temporary table

@@ -272,9 +272,18 @@ class Repository
                     // copy only the given name with the old locale to the new locale, because the given name is required
                     $author->setGivenName($author->getGivenName($oldLocale), $newLocale);
                 }
-
-                $this->dao->update($author);
             }
+
+            $newAffiliations = [];
+            foreach ($author->getAffiliations() as $affiliation) {
+                if (!$affiliation->getRor()) {
+                    $affiliation->setName($affiliation->getName($oldLocale), $newLocale);
+                }
+                $newAffiliations[] = $affiliation;
+            }
+            $author->setAffiliations($newAffiliations);
+
+            $this->dao->update($author);
         }
     }
 

@@ -316,6 +316,9 @@ msgstr ""
 "You have added a family name for a language that is missing the given name. "
 "Please add a given name for this language."
 
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Please add an affiliation in the submission language."
+
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "A mailing address is required."
 

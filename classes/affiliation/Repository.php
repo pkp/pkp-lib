@@ -101,41 +101,46 @@ class Repository
         $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
         $primaryLocale = $submission->getData('locale');
 
-        // Check if author exists
-        if (isset($props['authorId']) && $props['authorId'] !== '0') {
-            $author = Repo::author()->get($props['authorId']);
-            if (!$author) {
-                $errors = $schemaService->formatValidationErrors(
-                    ['affiliations-authorId', __('author.authorNotFound')]
-                );
+        $validator = ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules($this->dao->schema, $allowedLocales)
+        );
+
+
+        // Check required fields if we're adding an institution
+        ValidatorFactory::required(
+            $validator,
+            $affiliation,
+            $this->schemaService->getRequiredProps($this->dao->schema),
+            $this->schemaService->getMultilingualProps($this->dao->schema),
+            $allowedLocales,
+            $primaryLocale
+        );
+
+        ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AFFILIATION), $allowedLocales);
+
+        // The author needs to exist, as well as ror or one name
+        $validator->after(function ($validator) use ($props, $primaryLocale) {
+            if (isset($props['authorId']) && $props['authorId'] !== '0' && !$validator->errors()->get('authorId')) {
+                $author = Repo::author()->get($props['authorId']);
+                if (!$author) {
+                    $validator->errors()->add('authorId', __('author.authorNotFound'));
+                }
             }
-        }
-
-        if (empty($errors)) {
-            $validator = ValidatorFactory::make(
-                $props,
-                $schemaService->getValidationRules($this->dao->schema, $allowedLocales)
-            );
-
-            ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AFFILIATION), $allowedLocales);
-
-            // The ror or one name must exist
-            $validator->after(function ($validator) use ($props, $primaryLocale) {
-                if (empty($props['ror'])) {
-                    if (empty($props['name'])) {
-                        $validator->errors()->add('affiliations-affiliationId', __('author.affiliationRorAndNameEmpty'));
-                    } else {
-                        // a name must exist in submission locale
-                        if (!array_key_exists($primaryLocale, $props['name']) || empty($props['name'][$primaryLocale])) {
-                            $validator->errors()->add('affiliations-affiliationId', __('author.affiliationNamePrimaryLocaleMissing'));
-                        }
+            if (empty($props['ror'])) {
+                if (empty($props['name'])) {
+                    $validator->errors()->add('name', __('author.affiliationRorAndNameEmpty'));
+                } else {
+                    // a name must exist in submission locale
+                    if (!array_key_exists($primaryLocale, $props['name']) || empty($props['name'][$primaryLocale])) {
+                        $validator->errors()->add("name.{$primaryLocale}", __('author.affiliationNamePrimaryLocaleMissing'));
                     }
                 }
-            });
-
-            if ($validator->fails()) {
-                $errors = $this->schemaService->formatValidationErrors($validator->errors());
             }
+        });
+
+        if ($validator->fails()) {
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         Hook::call('Affiliation::validate', [&$errors, $affiliation, $props, $submission, $context]);
@@ -234,9 +239,6 @@ class Repository
             }
             if ($affiliation->getRor() !== null) {
                 $affiliation->setName(null);
-
-                // update ror record
-                Repo::ror()->updateOrInsert($affiliation->getRorObject());
             }
             $this->dao->updateOrInsert($affiliation);
         }

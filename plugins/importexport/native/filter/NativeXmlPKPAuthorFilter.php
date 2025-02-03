@@ -109,11 +109,11 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         break;
                     case 'affiliation':
                         $affiliation = Repo::affiliation()->newDataObject();
-                        for ($affiliationNode = $n->firstChild; $affiliationNode !== null; $affiliationNode = $affiliationNode->nextSibling) {
-                            if ($affiliationNode instanceof \DOMElement) {
-                                switch ($affiliationNode->tagName) {
+                        for ($affiliationChildNode = $n->firstChild; $affiliationChildNode !== null; $affiliationChildNode = $affiliationChildNode->nextSibling) {
+                            if ($affiliationChildNode instanceof \DOMElement) {
+                                switch ($affiliationChildNode->tagName) {
                                     case 'name':
-                                        $name = $affiliationNode->textContent;
+                                        $name = $affiliationChildNode->textContent;
                                         // Does also locale needs to match???
                                         $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
                                         if ($ror) {
@@ -122,7 +122,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                                             break;
                                             break;
                                         }
-                                        $locale = $n->getAttribute('locale');
+                                        $locale = $affiliationChildNode->getAttribute('locale');
                                         if (empty($locale)) {
                                             $locale = $publication->getData('locale');
                                         }
@@ -134,12 +134,12 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
                         $author->addAffiliation($affiliation);
                         break;
                     case 'rorAffiliation':
-                        for ($rorNode = $n->firstChild; $rorNode !== null; $rorNode = $rorNode->nextSibling) {
-                            if ($rorNode instanceof \DOMElement) {
-                                switch ($rorNode->tagName) {
+                        for ($rorAffiliationChildNode = $n->firstChild; $rorAffiliationChildNode !== null; $rorAffiliationChildNode = $rorAffiliationChildNode->nextSibling) {
+                            if ($rorAffiliationChildNode instanceof \DOMElement) {
+                                switch ($rorAffiliationChildNode->tagName) {
                                     case 'ror':
                                         $rorAffiliation = Repo::affiliation()->newDataObject();
-                                        $rorAffiliation->setRor($rorNode->textContent);
+                                        $rorAffiliation->setRor($rorAffiliationChildNode->textContent);
                                         $author->addAffiliation($rorAffiliation);
                                         break;
                                 }

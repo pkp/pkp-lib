@@ -317,8 +317,8 @@ Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
 			}).then(xhr => {
 				data.additionalAuthors.forEach(author => {
 					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en === pAuthor.givenName.en && author.familyName.en === pAuthor.familyName.en);
-					if (typeof author.affiliation !== 'undefined') {
-						expect(publicationAuthor.affiliation.en).to.equal(author.affiliation.en);
+					if (typeof author.affiliations !== 'undefined') {
+						expect(publicationAuthor.affiliations[0].name.en).to.equal(author.affiliations[0].name.en);
 					}
 					expect(publicationAuthor.email).to.equal(author.email);
 					expect(publicationAuthor.country).to.equal(author.country);

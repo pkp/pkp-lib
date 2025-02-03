@@ -121,7 +121,7 @@ class Repository
 
         // The author needs to exist, as well as ror or one name
         $validator->after(function ($validator) use ($props, $primaryLocale) {
-            if (isset($props['authorId']) && $props['authorId'] !== '0' && !$validator->errors()->get('authorId')) {
+            if (isset($props['authorId']) && !$validator->errors()->get('authorId')) {
                 $author = Repo::author()->get($props['authorId']);
                 if (!$author) {
                     $validator->errors()->add('authorId', __('author.authorNotFound'));

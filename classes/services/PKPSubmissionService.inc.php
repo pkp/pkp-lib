@@ -317,7 +317,10 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 			$request = \Application::get()->getRequest();
 			$currentUser = $request->getUser();
-			$context = Services::get('context')->get($submission->getData('contextId'));
+                        $context = $request->getContext();
+                        if (!$context || $context->getId() != $submission->getData('contextId')) {
+                                $context = Services::get('context')->get($submission->getData('contextId'));
+                        }
 			$dateFormatShort = $context->getLocalizedDateFormatShort();
 			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
 			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
@@ -396,7 +399,10 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		}
 
 		$currentUser = \Application::get()->getRequest()->getUser();
-		$context = Services::get('context')->get($submission->getData('contextId'));
+		$context = \Application::get()->getRequest()->getContext();
+                if (!$context || $context->getId() != $submission->getData('contextId')) {
+                        $context = Services::get('context')->get($submission->getData('contextId'));
+                }
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$stages = array();
@@ -550,7 +556,11 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			return false;
 		}
 
-		$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+		$submissionContext = $request->getContext();
+
+		if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
+			$submissionContext = Services::get('context')->get($submission->getData('contextId'));
+		}
 
 		$dispatcher = $request->getDispatcher();
 

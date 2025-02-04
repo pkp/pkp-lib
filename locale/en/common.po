@@ -158,7 +158,10 @@ msgid "common.editorialMasthead"
 msgstr "Editorial Masthead"
 
 msgid "common.editorialMasthead.peerReviewers"
-msgstr "Peer Reviewers"
+msgstr "Peer Reviewers in Previous Year"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Peer Reviewers in Past Years"
 
 msgid "common.editorialMasthead.peerReviewers.description"
 msgstr "The editors express their appreciation of the reviewers for {$year} listed below."

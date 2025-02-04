@@ -23,6 +23,8 @@ use PKP\jobs\BaseJob;
 
 class RemoveDoubleClicks extends BaseJob
 {
+    public int $timeout = 600;
+
     /**
      * The load ID = usage stats log file name
      */

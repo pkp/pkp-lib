@@ -235,7 +235,7 @@ class PKPContainer extends Container
             'driver' => 'database',
             'table' => 'jobs',
             'queue' => 'default',
-            'retry_after' => 240,
+            'retry_after' => 610,
             'after_commit' => true,
         ];
         $items['queue']['failed'] = [
@@ -316,7 +316,7 @@ class PKPContainer extends Container
      */
     protected static function getDefaultMailer(): string
     {
-        $default = Config::getVar('general', 'sandbox', false) 
+        $default = Config::getVar('general', 'sandbox', false)
             ? 'log'
             : Config::getVar('email', 'default');
 
@@ -374,7 +374,6 @@ class PKPContainer extends Container
      * Override Laravel method; always false.
      * Prevents the undefined method error when the Log Manager tries to determine the driver
      *
-     * @return bool
      */
     public function runningUnitTests(): bool
     {

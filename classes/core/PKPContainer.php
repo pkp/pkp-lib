@@ -450,7 +450,7 @@ class PKPContainer extends Container
 
         // Cache configuration
         $items['cache'] = [
-            'default' => Config::getVar('cache', 'default', 'opcache'),
+            'default' => Config::getVar('cache', 'default', 'file'),
             'stores' => [
                 'opcache' => [
                     'driver' => 'opcache',

@@ -18,6 +18,7 @@ use APP\facades\Repo;
 use APP\orcid\actions\SendReviewToOrcid;
 use APP\publication\Publication;
 use Carbon\Carbon;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use PKP\context\Context;
 use PKP\jobs\orcid\DepositOrcidSubmission;
 use PKP\orcid\OrcidManager;
@@ -78,7 +79,7 @@ abstract class PKPSendSubmissionToOrcid
                 return;
             }
             foreach ($authorsWithOrcid as $orcid => $author) {
-                dispatch(new DepositOrcidSubmission($author, $this->context, $orcidWork->toArray(), $orcid));
+                dispatch(new DepositOrcidSubmission($author, $this->context, $orcidWork->toArray(), $orcid, $this->publication->getId()));
             }
         }
 

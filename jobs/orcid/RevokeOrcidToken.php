@@ -55,7 +55,7 @@ class RevokeOrcidToken extends BaseJob
         try {
             $httpClient->request(
                 'POST',
-                OrcidManager::getTokenRevocationUrl(),
+                OrcidManager::getTokenRevocationUrl($this->context),
                 [
                     'headers' => $headers,
                     'form_params' => $postData,

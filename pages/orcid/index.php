@@ -21,5 +21,6 @@ switch ($op) {
     case 'verify':
     case 'authorizeOrcid':
     case 'about':
+    case 'updateScope':
         return new \PKP\pages\orcid\OrcidHandler();
 }

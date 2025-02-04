@@ -115,7 +115,10 @@ class PKPSectionForm extends Form
         $assignableUserGroups = UserGroup::query()
             ->withContextIds([$request->getContext()->getId()])
             ->withRoleIds($this->assignableRoles)
-            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+            ->withStageIds([
+                // WORKFLOW_STAGE_ID_SUBMISSION for OJS/OMP and WORKFLOW_STAGE_ID_PRODUCTION for OPS, see pkp/pkp-lib#10874
+                min(Application::getApplicationStages())
+            ])
             ->get()
             ->map(function (UserGroup $userGroup) use ($request) {
                 return [

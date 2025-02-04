@@ -525,16 +525,31 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false): array
     {
+        $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
+        $currentUserRoleIds = array_map(
+            function (Role $role) {
+                return $role->getId();
+            },
+            $currentUser->getRoles($this->context->getId())
+        );
+
+        // is the user a manager, sub-editor, or site admin?
+        $canSeeAllReviewAssignments = (
+            in_array(Role::ROLE_ID_MANAGER, $currentUserRoleIds) ||
+            in_array(Role::ROLE_ID_SUB_EDITOR, $currentUserRoleIds) ||
+            in_array(Role::ROLE_ID_SITE_ADMIN, $currentUserRoleIds)
+        );
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {
-            // @todo for now, only show reviews that haven't been
-            // declined or cancelled
-            if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
+            // declined or cancelled are only show to editors, sub-editors and site admin
+            if (
+                !$canSeeAllReviewAssignments &&
+                ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled())
+            ) {
                 continue;
             }
 
-            $request = Application::get()->getRequest();
-            $currentUser = $request->getUser();
             $dateDue = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
             $dateResponseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
             $dateConfirmed = is_null($reviewAssignment->getDateConfirmed()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateConfirmed()));

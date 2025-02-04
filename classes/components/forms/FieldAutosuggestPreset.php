@@ -15,6 +15,8 @@
 
 namespace PKP\components\forms;
 
+use PKP\controlledVocab\ControlledVocabEntry;
+
 class FieldAutosuggestPreset extends FieldBaseAutosuggest
 {
     /** @copydoc Field::$component */
@@ -75,7 +77,7 @@ class FieldAutosuggestPreset extends FieldBaseAutosuggest
         }
         return [
             'value' => $value,
-            'label' => $value,
+            'label' => $value['name'] ?? $value,
         ];
     }
 }

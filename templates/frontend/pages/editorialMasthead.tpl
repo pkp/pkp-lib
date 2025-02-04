@@ -41,11 +41,11 @@
 			</ul>
 		{/if}
 	{/foreach}
-	<hr>
 	<p>
 		{capture assign=editorialHistoryUrl}{url page="about" op="editorialHistory" router=\PKP\core\PKPApplication::ROUTE_PAGE}{/capture}
 		{translate key="about.editorialMasthead.linkToEditorialHistory" url=$editorialHistoryUrl}
 	</p>
+	<hr>
 
 	{if $reviewers->count()}
 		<h2>{translate key="common.editorialMasthead.peerReviewers"}</h2>

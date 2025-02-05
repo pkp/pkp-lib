@@ -325,13 +325,35 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
-		"version": {
+		"versionStage": {
+			"type": "string",
+			"description": "",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"versionMinor": {
 			"type": "integer",
-			"description": "The version number of this publication. Version numbers should increment by one so that the third publication of a submission will have the version number `3`. Version numbers should typically be set automatically and editorial staff should not be encouraged to modify them.",
+			"description": "",
+			"apiSummary": true,
+			"validation": [
+				"min:0"
+			]
+		},
+		"versionMajor": {
+			"type": "integer",
+			"description": "",
 			"apiSummary": true,
 			"validation": [
 				"min:1"
 			]
+		},
+		"versionDataDisplay": {
+			"type": "string",
+			"description": "",
+			"apiSummary": true,
+			"readOnly": true
 		}
 	}
 }

@@ -1267,6 +1267,12 @@ msgstr "Please correct one error."
 msgid "form.errorMany"
 msgstr "Please correct {$count} errors."
 
+msgid "form.errorSummaryOne"
+msgstr "1 error detected! Please correct the error below before proceeding."
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} errors detected! Please correct the errors below before proceeding."
+
 msgid "form.errors"
 msgstr ""
 "The form was not saved because {$count} error(s) were encountered. Please "

@@ -201,6 +201,20 @@
 					"reviewerHasOrcid": {
 						"type": "boolean",
 						"readOnly": true
+					},
+					"canLoginAs": {
+						"type": "boolean",
+						"description": "Whether the current user can log in as this reviewer.",
+						"readOnly": true,
+						"apiSummary": true,
+						"apiDetail": true
+					},
+					"canGossip": {
+						"type": "boolean",
+						"description": "Whether the current user can access the gossip field for this reviewer.",
+						"readOnly": true,
+						"apiSummary": true,
+						"apiDetail": true
 					}
 				}
 			}
@@ -223,6 +237,7 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
+
 		"stageId": {
 			"type": "integer",
 			"description": "The stage of the editorial workflow that this submission is currently in. One of the `WORKFLOW_STAGE_ID_` constants. Default is `WORKFLOW_STAGE_ID_SUBMISSION`.",
@@ -233,6 +248,31 @@
 				"min:1",
 				"max:5"
 			]
+		},
+		"participants": {
+			"type": "array",
+			"description": "A list of users who are assigned to this submission (e.g. authors, editors, or other stage participants).",
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"description": "User ID of the participant."
+					},
+					"fullName": {
+						"type": "string",
+						"description": "Participant's display name."
+					},
+					"canLoginAs": {
+						"type": "boolean",
+						"description": "Whether the current user can log in as this participant.",
+						"readOnly": true,
+						"apiSummary": true,
+						"apiDetail": true
+					}
+				}
+			}
 		},
 		"stages": {
 			"type": "array",

@@ -56,6 +56,11 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
         return $query->where('user_user_groups.user_id', $userId);
     }
 
+    public function scopeWithUserIds(Builder $query, array $userIds): Builder
+    {
+        return $query->whereIn('user_user_groups.user_id', $userIds);
+    }
+
     public function scopeWithUserGroupIds(Builder $query, array $userGroupIds): Builder
     {
         return $query->whereIn('user_user_groups.user_group_id', $userGroupIds);

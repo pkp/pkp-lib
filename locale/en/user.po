@@ -23,6 +23,54 @@ msgstr "(Your institution, e.g. \"Simon Fraser University\")"
 msgid "user.affiliations"
 msgstr "Affiliations"
 
+msgid "user.affiliations.description"
+msgstr ""
+"Enter the full name of the institution below, avoiding any acronyms. "
+"Select the name from the dropdown and click \"Add\" to include the "
+"affiliation in your profile. (e.g. \"Simon Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Institution"
+
+msgid "user.affiliations.translation"
+msgstr "More information"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Edit institution name"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Remove institution"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Click to edit or delete"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "All translations available"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} of {$total} languages completed"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Type the institute name in {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Institute name in {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Are you sure?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "The affiliation <strong>{$affiliation}</strong> will be deleted."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Type the institute name in {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Your search phrase could not be found"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "The primary language {$primaryLocale} is required"
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 
@@ -267,6 +315,9 @@ msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
 "You have added a family name for a language that is missing the given name. "
 "Please add a given name for this language."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Please add an affiliation in the submission language."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "A mailing address is required."

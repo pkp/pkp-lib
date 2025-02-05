@@ -327,11 +327,13 @@ class InvitationHandler extends Handler
             ->get()
             ->toArray();
         foreach ($userUserGroups as $key => $userUserGroup) {
-                $userGroups[$key] = $userUserGroup;
-                $userGroups[$key]['masthead'] = $userUserGroup['masthead'] === 1;
-                $userGroups[$key]['name'] = Repo::userGroup()
-                    ->get($userUserGroup['userGroupId'])
-                    ->toArray()['name'][Locale::getLocale()];
+            $userGroup = Repo::userGroup()
+                ->get($userUserGroup['userGroupId'])
+                ->toArray();
+            $userGroups[$key] = $userUserGroup;
+            $userGroups[$key]['masthead'] = $userUserGroup['masthead'] === 1;
+            $userGroups[$key]['name'] = $userGroup['name'][Locale::getLocale()];
+            $userGroups[$key]['id'] = $userGroup['userGroupId'];
         }
         return $userGroups;
     }

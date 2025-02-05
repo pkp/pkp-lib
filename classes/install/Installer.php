@@ -19,7 +19,6 @@ namespace PKP\install;
 use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -37,6 +36,7 @@ use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use PKP\task\UpdateRorRegistryDataset;
 use PKP\xml\PKPXMLParser;
 use PKP\xml\XMLNode;
 
@@ -943,6 +943,17 @@ class Installer
         $this->setError(self::INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
         return false;
     }
+
+    /**
+     * Update the tables rors and ror_settings with latest data set dump from Ror.org
+     */
+    public function updateRorRegistryDataset(): bool
+    {
+        $updateRorRegistryDataset = new UpdateRorRegistryDataset();
+        $updateRorRegistryDataset->execute();
+        return true;
+    }
+
 }
 
 if (!PKP_STRICT_MODE) {

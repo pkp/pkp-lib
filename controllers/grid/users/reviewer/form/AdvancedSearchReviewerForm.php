@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/AdvancedSearchReviewerForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdvancedSearchReviewerForm
@@ -148,10 +148,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $submissionAuthors = $this->getSubmission()->getCurrentPublication()->getData('authors');
         $authorAffiliations = [];
         $authors = [];
-        foreach ($submissionAuthors as $submissionAuthor) {
-            $affiliation = $submissionAuthor->getLocalizedData('affiliation');
-            $authorAffiliations[] = $affiliation;
-            $authors[$submissionAuthor->getFullName(true, false, $locale)] = $affiliation;
+        foreach($submissionAuthors as $submissionAuthor) {
+            $affiliations = $submissionAuthor->getLocalizedAffiliationNamesAsString(null, ', ');
+            $authorAffiliations[] = $affiliations;
+            $authors[$submissionAuthor->getFullName(true, false, $locale)] = $affiliations;
         }
 
         // Get reviewers list

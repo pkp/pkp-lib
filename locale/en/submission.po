@@ -30,6 +30,21 @@ msgstr "New reviews have been submitted and are being considered by the editor."
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
 
+msgid "author.authorNotFound"
+msgstr "The author for this affiliation could not be found."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Please provide a ROR affiliation or at least one affiliation name."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Please provide affiliation name in the submission primary locale."
+
+msgid "ror.nameRequired"
+msgstr "A ROR name is required."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR display locale is required."
+
 msgid "submission.author.list"
 msgstr "Submission Author List"
 
@@ -2191,6 +2206,9 @@ msgstr "No contributors have been added for this submission."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr "The given name is missing in {$language} for one or more of the contributors."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr "The affiliation name is missing in {$language} for one or more affiliations for one or more of the contributors."
 
 msgid "submission.wizard.notAllowed"
 msgstr "Not Allowed"

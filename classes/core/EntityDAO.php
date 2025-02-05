@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/core/EntityDAO.php
  *

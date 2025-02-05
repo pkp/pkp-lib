@@ -1,7 +1,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-12-11 19:07+0000\n"
+"PO-Revision-Date: 2025-02-05 18:43+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr_FR/>\n"
@@ -505,8 +505,9 @@ msgstr "Réinitialiser tout"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
-"Si vous réinitialisez tous les modèles, toutes vos modifications des modèles "
-"de courriels seront perdues. Souhaitez-vous confirmer cette opération ?"
+"Si vous réinitialisez tous les modèles, toutes les modifications apportées "
+"aux modèles de courriel seront perdues. Souhaitez-vous confirmer cette "
+"opération ?"
 
 msgid "manager.emails.reset.message"
 msgstr ""

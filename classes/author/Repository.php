@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/author/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -19,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\context\Context;
+use PKP\identity\Identity;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
@@ -207,16 +209,35 @@ class Repository
      *
      * @hook Author::newAuthorFromUser [[$author, $user]]
      */
-    public function newAuthorFromUser(User $user): Author
+    public function newAuthorFromUser(User $user, Submission $submission, Context $context): Author
     {
         $author = Repo::author()->newDataObject();
-        $author->setGivenName($user->getGivenName(null), null);
-        $author->setFamilyName($user->getFamilyName(null), null);
-        $author->setAffiliation($user->getAffiliation(null), null);
+        // set author multilingual data only in allowed locales
+        $multilingualData = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'biography'];
+        $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
+        $submissionLocale = $submission->getData('locale');
+
+        foreach ($multilingualData as $dataKey) {
+            $data = $user->getData($dataKey, null);
+            if (!empty($data)) {
+                $author->setData(
+                    $dataKey,
+                    array_filter($data, fn ($key) => in_array($key, $allowedLocales), ARRAY_FILTER_USE_KEY),
+                    null
+                );
+            }
+        }
+        // given name has to exist in the submission locale:
+        // if there is no user given name in the submission locale
+        // copy the given name in the user's default (site) locale
+        if (!array_key_exists($submissionLocale, $user->getGivenName(null))) {
+            $author->setGivenName($user->getGivenName($user->getDefaultLocale()), $submissionLocale);
+        }
+
+        $author->setAffiliations([Repo::affiliation()->migrateUserAffiliation($user, $submission, $context)]);
         $author->setCountry($user->getCountry());
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());
-        $author->setBiography($user->getBiography(null), null);
         $author->setIncludeInBrowse(1);
         $author->setOrcid($user->getOrcid());
 
@@ -251,9 +272,18 @@ class Repository
                     // copy only the given name with the old locale to the new locale, because the given name is required
                     $author->setGivenName($author->getGivenName($oldLocale), $newLocale);
                 }
-
-                $this->dao->update($author);
             }
+
+            $newAffiliations = [];
+            foreach ($author->getAffiliations() as $affiliation) {
+                if (!$affiliation->getRor()) {
+                    $affiliation->setName($affiliation->getName($oldLocale), $newLocale);
+                }
+                $newAffiliations[] = $affiliation;
+            }
+            $author->setAffiliations($newAffiliations);
+
+            $this->dao->update($author);
         }
     }
 

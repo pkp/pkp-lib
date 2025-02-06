@@ -3,8 +3,8 @@
 /**
  * @file classes/scheduledTask/PKPScheduler.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPScheduler
@@ -17,22 +17,21 @@ namespace PKP\scheduledTask;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use PKP\core\PKPContainer;
-use PKP\task\UpdateIPGeoDB;
-use PKP\task\ProcessQueueJobs;
-use PKP\task\RemoveFailedJobs;
-use PKP\task\StatisticsReport;
-use PKP\plugins\PluginRegistry;
-use PKP\scheduledTask\ScheduledTask;
-use PKP\task\RemoveExpiredInvitations;
-use PKP\scheduledTask\ScheduleTaskRunner;
-use PKP\task\RemoveUnvalidatedExpiredUsers;
 use PKP\plugins\interfaces\HasTaskScheduler;
+use PKP\plugins\PluginRegistry;
+use PKP\task\ProcessQueueJobs;
+use PKP\task\RemoveExpiredInvitations;
+use PKP\task\RemoveFailedJobs;
+use PKP\task\RemoveUnvalidatedExpiredUsers;
+use PKP\task\StatisticsReport;
+use PKP\task\UpdateIPGeoDB;
+use PKP\task\UpdateRorRegistryDataset;
 
 abstract class PKPScheduler
 {
     /**
      * Constructor
-     * 
+     *
      * @param Schedule $schedule The core illuminate Schedule that is responsible to run schedule tasks
      */
     public function __construct(protected Schedule $schedule)
@@ -41,7 +40,7 @@ abstract class PKPScheduler
 
     /**
      * Add a new schedule task into the core illuminate Schedule
-     * 
+     *
      * This method allow dynamic injection of schedule tasks at run time. One
      * particular use is allow plugin to add own schedule tasks.
      */
@@ -65,49 +64,56 @@ abstract class PKPScheduler
      * Register core schedule tasks
      */
     public function registerSchedules(): void
-    {   
+    {
         $this
             ->schedule
-            ->call(fn () => (new StatisticsReport)->execute())
+            ->call(fn () => (new StatisticsReport())->execute())
             ->daily()
             ->name(StatisticsReport::class)
             ->withoutOverlapping();
-            
+
         $this
             ->schedule
-            ->call(fn () => (new RemoveUnvalidatedExpiredUsers)->execute())
+            ->call(fn () => (new RemoveUnvalidatedExpiredUsers())->execute())
             ->daily()
             ->name(RemoveUnvalidatedExpiredUsers::class)
             ->withoutOverlapping();
-        
+
         $this
             ->schedule
-            ->call(fn () => (new UpdateIPGeoDB)->execute())
+            ->call(fn () => (new UpdateIPGeoDB())->execute())
             ->cron('0 0 1,10,20 * *')
             ->name(UpdateIPGeoDB::class)
             ->withoutOverlapping();
 
         $this
             ->schedule
-            ->call(fn () => (new ProcessQueueJobs)->execute())
+            ->call(fn () => (new ProcessQueueJobs())->execute())
             ->everyMinute()
             ->name(ProcessQueueJobs::class)
             ->withoutOverlapping();
 
         $this
             ->schedule
-            ->call(fn () => (new RemoveFailedJobs)->execute())
+            ->call(fn () => (new RemoveFailedJobs())->execute())
             ->daily()
             ->name(RemoveFailedJobs::class)
             ->withoutOverlapping();
-        
+
         $this
             ->schedule
-            ->call(fn () => (new RemoveExpiredInvitations)->execute())
+            ->call(fn () => (new RemoveExpiredInvitations())->execute())
             ->daily()
             ->name(RemoveExpiredInvitations::class)
             ->withoutOverlapping();
-        
+
+        $this
+            ->schedule
+            ->call(fn () => (new UpdateRorRegistryDataset())->execute())
+            ->twiceMonthly()
+            ->name(UpdateRorRegistryDataset::class)
+            ->withoutOverlapping();
+
         // We only load all plugins and register their scheduled tasks when running under the CLI
         // On the web based task runner the scheduled tasks must be registered before it starts running
         if (PKPContainer::getInstance()->runningInConsole()) {

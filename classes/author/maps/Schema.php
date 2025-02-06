@@ -3,8 +3,8 @@
 /**
  * @file classes/author/maps/Schema.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -105,6 +105,13 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'orcidDisplayValue':
                     $output[$prop] = $item->getOrcidDisplayValue();
+                    // no break
+                case 'affiliations':
+                    $data = [];
+                    foreach ($item->getAffiliations() as $affiliation) {
+                        $data[] = Repo::affiliation()->getSchemaMap()->map($affiliation);
+                    }
+                    $output[$prop] = $data;
                     break;
                 default:
                     $output[$prop] = $item->getData($prop);

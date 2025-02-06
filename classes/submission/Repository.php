@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/submission/Repository.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -25,6 +26,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -40,9 +42,8 @@ use PKP\submission\Collector as SubmissionCollector;
 use PKP\submission\reviewAssignment\Collector as ReviewCollector;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
-use PKP\validation\ValidatorFactory;
-use PKP\config\Config;
 use PKP\userGroup\UserGroup;
+use PKP\validation\ValidatorFactory;
 
 abstract class Repository
 {
@@ -180,7 +181,7 @@ abstract class Repository
         $authorUserGroupIds = UserGroup::withContextIds([$submission->getData('contextId')])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get()
-            ->map(fn($userGroup) => $userGroup->id)
+            ->map(fn ($userGroup) => $userGroup->id)
             ->toArray();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
@@ -398,6 +399,17 @@ abstract class Repository
                 }
                 $errors['contributors'][] = __('submission.wizard.missingContributorLanguage', ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]]);
                 break;
+            }
+            foreach ($author->getAffiliations() as $affiliation) {
+                if (!$affiliation->getRor()) {
+                    if (!$affiliation->getName($submission->getData('locale'))) {
+                        if (!isset($errors['contributors'])) {
+                            $errors['contributors'] = [];
+                        }
+                        $errors['contributors'][] = __('submission.wizard.missingContributorAffiliationLanguage', ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]]);
+                        break;
+                    }
+                }
             }
         }
 
@@ -754,7 +766,7 @@ abstract class Repository
      */
     public function getUrlAuthorWorkflow(Context $context, int $submissionId): string
     {
-        if(Config::getVar('features', 'enable_new_submission_listing')) {
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
             return Application::get()->getDispatcher()->url(
                 Application::get()->getRequest(),
                 Application::ROUTE_PAGE,
@@ -825,7 +837,7 @@ abstract class Repository
         foreach ($roles as $role) {
             $roleIds[] = $role->getRoleId();
         }
-        if($selectedRoleIds) {
+        if ($selectedRoleIds) {
             $roleIds = array_values(array_intersect($roleIds, $selectedRoleIds));
         }
 
@@ -834,7 +846,7 @@ abstract class Repository
         $views = $this->mapDashboardViews($types, $context, $user, $canAccessUnassignedSubmission);
         $filteredViews = $this->filterViewsByUserRoles($views, $roleIds);
 
-        if($includeCount) {
+        if ($includeCount) {
             return $this->setViewsCount($filteredViews);
         }
 

@@ -8,8 +8,8 @@
 /**
  * @file classes/identity/Identity.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Identity
@@ -217,37 +217,6 @@ class Identity extends \PKP\core\DataObject
     public function getPreferredAvatarInitials(?string $locale): ?string
     {
         return $this->getData('preferredAvatarInitials', $locale);
-    }
-
-    /**
-     * Get affiliation (position, institution, etc.).
-     *
-     * @param string $locale
-     *
-     * @return string|array
-     */
-    public function getAffiliation($locale)
-    {
-        return $this->getData('affiliation', $locale);
-    }
-
-    /**
-     * Set affiliation.
-     *
-     * @param string $affiliation
-     * @param string $locale
-     */
-    public function setAffiliation($affiliation, $locale)
-    {
-        $this->setData('affiliation', $affiliation, $locale);
-    }
-
-    /**
-     * Get the localized affiliation
-     */
-    public function getLocalizedAffiliation()
-    {
-        return $this->getLocalizedData('affiliation');
     }
 
     /**

@@ -3,8 +3,8 @@
 <!--
   * xml/importexport.xsd
   *
-  * Copyright (c) 2014-2021 Simon Fraser University
-  * Copyright (c) 2003-2021 John Willinsky
+  * Copyright (c) 2014-2025 Simon Fraser University
+  * Copyright (c) 2003-2025 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Schema describing common XML import/export elements shared across PKP applications
@@ -14,7 +14,7 @@
 	<!-- Identifies a particular I18N locale, e.g. en -->
 	<simpleType name="locale">
 		<restriction base="string">
-			<pattern value="([a-z]{2,3})((_[A-Z]{2})?)(@[a-z]{0,})?" />
+			<pattern value="([A-Za-z]{2,4})(([_-][A-Za-z]{4,5}|[0-9]{4})?([_-]([A-Za-z]{2}|[0-9]{3}))?)(@[a-z]{2,30})?" />
 		</restriction>
 	</simpleType>
 

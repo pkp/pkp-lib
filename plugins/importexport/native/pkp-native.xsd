@@ -3,8 +3,8 @@
 <!--
   * plugins/importexport/native/pkp-native.xsd
   *
-  * Copyright (c) 2014-2021 Simon Fraser University
-  * Copyright (c) 2003-2021 John Willinsky
+  * Copyright (c) 2014-2025 Simon Fraser University
+  * Copyright (c) 2003-2025 John Willinsky
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * Schema describing native XML import/export elements shared across PKP applications
@@ -186,7 +186,23 @@
 		<sequence>
 			<element name="givenname" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
 			<element name="familyname" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
-			<element name="affiliation" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<element name="affiliation" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="rorAffiliation" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="ror" type="string" minOccurs="1" maxOccurs="unbounded" />
+							<element name="name" type="pkp:localizedNode" minOccurs="1" maxOccurs="unbounded" />
+						</sequence>
+					</complexType>
+				</element>
+			</choice>
 			<element name="country" type="string" minOccurs="0" maxOccurs="1" />
 			<element name="email" type="string" />
 			<element name="url" type="anyURI" minOccurs="0" maxOccurs="1" />

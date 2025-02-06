@@ -3,8 +3,8 @@
 /**
  * @file classes/author/Author.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class \PKP\author\Author
@@ -18,6 +18,7 @@
 
 namespace PKP\author;
 
+use PKP\affiliation\Affiliation;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\userGroup\UserGroup;
@@ -237,5 +238,52 @@ class Author extends Identity
     public function getLocalizedCompetingInterests(): ?string
     {
         return $this->getLocalizedData('competingInterests');
+    }
+
+    /**
+     * Get affiliations (position, institution, etc.).
+     *
+     * @return array<Affiliation>
+     */
+    public function getAffiliations(): array
+    {
+        return $this->getData('affiliations') ?? [];
+    }
+
+    /**
+     * Set affiliations.
+     *
+     * @param array<Affiliation>
+     */
+    public function setAffiliations(array $affiliations): void
+    {
+        $this->setData('affiliations', $affiliations);
+    }
+
+    /**
+     * Add an affiliation.
+     */
+    public function addAffiliation(Affiliation $affiliation): void
+    {
+        $this->setAffiliations(array_merge($this->getAffiliations(), [$affiliation]));
+    }
+
+    /**
+     * Get the localized affiliation names.
+     */
+    public function getLocalizedAffiliationNames(?string $preferredLocale = null): array
+    {
+        return array_map(fn ($affiliation) => $affiliation->getLocalizedName($preferredLocale), $this->getAffiliations());
+    }
+
+    /**
+     * Get the localized affiliation names.
+     */
+    public function getLocalizedAffiliationNamesAsString(?string $preferredLocale = null, ?string $separator = '; '): string
+    {
+        return implode(
+            $separator,
+            $this->getLocalizedAffiliationNames($preferredLocale)
+        );
     }
 }

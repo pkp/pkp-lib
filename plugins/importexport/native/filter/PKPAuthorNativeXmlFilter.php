@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/PKPAuthorNativeXmlFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAuthorNativeXmlFilter
@@ -79,6 +79,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
     {
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
+        $submission = $deployment->getSubmission();
 
         // Create the author node
         $authorNode = $doc->createElementNS($deployment->getNamespace(), 'author');
@@ -107,7 +108,24 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $authorNode, 'givenname', $author->getGivenName(null));
         $this->createLocalizedNodes($doc, $authorNode, 'familyname', $author->getFamilyName(null));
 
-        $this->createLocalizedNodes($doc, $authorNode, 'affiliation', $author->getAffiliation(null));
+        foreach ($author->getAffiliations() as $affiliation) {
+            if ($affiliation->getRorObject()) {
+                $rorAffiliationNode = $doc->createElementNS($deployment->getNamespace(), 'rorAffiliation');
+                $rorAffiliationRor = $doc->createElementNS($deployment->getNamespace(), 'ror', $affiliation->getRor());
+                $rorAffiliationNode->appendChild($rorAffiliationRor);
+                // The rorAffiliation->name element is only read only ie. it will not be considered at import.
+                // Export the ror names mapped to all allowed submission locales
+                // Eventually to export only the ror name mapped to the submission primary locale ?
+                // Or the ror names as they are, with the ror locales ?
+                $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
+                $this->createLocalizedNodes($doc, $rorAffiliationNode, 'name', $affiliation->getAffiliationName(null, $allowedLocales));
+                $authorNode->appendChild($rorAffiliationNode);
+            } elseif (!empty($affiliation->getName())) {
+                $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
+                $this->createLocalizedNodes($doc, $affiliationNode, 'name', $affiliation->getName());
+                $authorNode->appendChild($affiliationNode);
+            }
+        }
 
         $this->createOptionalNode($doc, $authorNode, 'country', $author->getCountry());
         $authorNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($author->getEmail(), ENT_COMPAT, 'UTF-8')));

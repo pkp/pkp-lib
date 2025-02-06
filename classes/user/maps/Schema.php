@@ -169,8 +169,7 @@ class Schema extends \PKP\core\maps\Schema
                         $userGroups = UserGroup::query()
                             ->withContextIds($this->context->getId())
                             ->whereHas('userUserGroups', function ($query) use ($user) {
-                                $query->withUserId($user->getId())
-                                    ->withActive();
+                                $query->withUserId($user->getId());
                             })
                             ->get();
 
@@ -186,7 +185,6 @@ class Schema extends \PKP\core\maps\Schema
                                 'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
                                 'recommendOnly' => (bool) $userGroup->recommendOnly,
                                 'dateStart' => UserUserGroup::withUserId($user->getId())
-                                    ->withActive()
                                     ->withUserGroupIds([$userGroup->id])
                                     ->pluck('date_start')->first()
                             ];

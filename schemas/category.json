@@ -68,6 +68,14 @@
 			"items": {
 				"type": "string"
 			}
+		},
+		"subCategories": {
+			"description": "List of sub categories that belongs to this category",
+			"apiSummary": false,
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/Category"
+			}
 		}
 	}
 }

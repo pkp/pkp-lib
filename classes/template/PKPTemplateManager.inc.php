@@ -167,7 +167,7 @@ class PKPTemplateManager extends Smarty {
 			if (!empty($favicon)) {
 				$publicFileManager = new PublicFileManager();
 				$faviconDir = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($currentContext->getId());
-				$this->addHeader('favicon', '<link rel="icon" href="' . $faviconDir . '/' . $favicon['uploadName'] . '">', ['contexts' => ['frontend', 'backend']]);
+				$this->addHeader('favicon', '<link rel="icon" href="' . $faviconDir . '/' . $favicon['uploadName'] . '" />', ['contexts' => ['frontend', 'backend']]);
 			}
 		}
 
@@ -218,12 +218,12 @@ class PKPTemplateManager extends Smarty {
 			// Register meta tags
 			if (Config::getVar('general', 'installed')) {
 				if (($request->getRequestedPage()=='' || $request->getRequestedPage() == 'index') && $currentContext && $currentContext->getLocalizedData('searchDescription')) {
-					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedData('searchDescription') . '">');
+					$this->addHeader('searchDescription', '<meta name="description" content="' . $currentContext->getLocalizedData('searchDescription') . '" />');
 				}
 
 				$this->addHeader(
 					'generator',
-					'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '">',
+					'<meta name="generator" content="' . __($application->getNameKey()) . ' ' . $application->getCurrentVersion()->getVersionString(false) . '" />',
 					[
 						'contexts' => ['frontend', 'backend'],
 					]
@@ -240,7 +240,7 @@ class PKPTemplateManager extends Smarty {
 			if ($currentContext && !$currentContext->getEnabled()) {
 				$this->addHeader(
 					'noindex',
-					'<meta name="robots" content="noindex,nofollow">',
+					'<meta name="robots" content="noindex,nofollow" />',
 					[
 						'contexts' => ['frontend', 'backend'],
 					]
@@ -1917,7 +1917,7 @@ class PKPTemplateManager extends Smarty {
 			case 'json': return json_encode($csrfToken);
 			case 'html':
 			default:
-				return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($csrfToken) . '">';
+				return '<input type="hidden" name="csrfToken" value="' . htmlspecialchars($csrfToken) . '" />';
 		}
 	}
 
@@ -1995,7 +1995,7 @@ class PKPTemplateManager extends Smarty {
 			ksort($styles);
 			foreach ($styles as $priorityGroup) {
 				foreach ($priorityGroup as $htmlStyle) {
-					$links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+					$links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css" />' . "\n";
 				}
 			}
 		}

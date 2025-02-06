@@ -78,13 +78,12 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
      * Migrate affiliations with an exact name in rors table.
      * Only migrate if author has none in author_affiliations.
      *
-     * select distinct a_s.author_id, r.ror
-     * from author_settings as a_s
-     * join ror_settings as r_s on r_s.locale = a_s.locale  and r_s.setting_value = a_s.setting_value and r_s.setting_name = 'name'
-     * join rors as r on r_s.ror_id = r.ror_id
-     * left join author_affiliations as a_a on a_s.author_id = a_a.author_id and r.ror = a_a.ror
-     * where a_s.setting_name = 'affiliation' and a_a.author_affiliation_id is null;
-     *
+     * select distinct as.author_id, r.ror
+     * from author_settings as as
+     * join ror_settings as rs on rs.setting_value = as.setting_value and as.setting_name = 'affiliation' and rs.setting_name = 'name'
+     * join rors as r on rs.ror_id = r.ror_id
+     * left join author_affiliations as aa on as.author_id = aa.author_id and r.ror = aa.ror
+     * where aa.author_affiliation_id is null;
      */
     public function migrateRorAffiliations(): void
     {
@@ -94,6 +93,7 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
                 function (JoinClause $join) {
                     $join
                         ->on('rs.setting_value', '=', 'as.setting_value')
+                        ->where('as.setting_name', '=', 'affiliation')
                         ->where('rs.setting_name', '=', 'name');
                 }
             )
@@ -117,12 +117,11 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
      * Migrates affiliations which have not migrated yet.
      * Only migrate rows which don't exist.
      *
-     * select distinct a.author_id, a_s.locale, a_s.setting_value
+     * select distinct a.author_id, as.locale, as.setting_value
      * from authors as a
-     * join author_settings as a_s on a.author_id = a_s.author_id and a_s.setting_name = 'affiliation'
+     * join author_settings as as on a.author_id = as.author_id and as.setting_name = 'affiliation'
      * left join author_affiliations as aa on a.author_id = aa.author_id
      * where aa.author_id is null;
-     *
      */
     public function migrateNonRorAffiliations(): void
     {

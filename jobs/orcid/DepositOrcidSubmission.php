@@ -58,7 +58,7 @@ class DepositOrcidSubmission extends BaseJob
             // Submission has already been sent to ORCID. Use PUT to update meta data
             $uri .= '/' . $putCode;
             $method = 'PUT';
-            $orcidWork['put-code'] = $putCode;
+            $this->orcidWork['put-code'] = $putCode;
         } else {
             // Remove put-code from body because the work has not yet been sent
             unset($this->orcidWork['put-code']);
@@ -99,7 +99,7 @@ class DepositOrcidSubmission extends BaseJob
                 OrcidManager::logInfo("Work updated in profile, putCode: {$putCode}");
                 break;
             case 201:
-                $location = $responseHeaders['Location'][0];
+                $location = $responseHeaders['location'][0];
                 // Extract the ORCID work put code for updates/deletion.
                 $putCode = intval(basename(parse_url($location, PHP_URL_PATH)));
                 OrcidManager::logInfo("Work added to profile, putCode: {$putCode}");

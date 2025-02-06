@@ -49,6 +49,7 @@
 	<migration class="APP\migration\install\MetricsMigration" />
 	<migration class="PKP\migration\install\AffiliationsMigration" />
 	<migration class="PKP\migration\install\RorsMigration" />
+	<migration class="PKP\migration\install\ReviewAssignmentSettings" />
 
 	<!-- Other install tasks -->
 	<code function="createData"/>

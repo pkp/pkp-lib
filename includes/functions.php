@@ -185,7 +185,7 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
 
 /**
  * Check if run on CLI
- * 
+ *
  * @deprecated 3.5.0 use PKPContainer::getInstance()->runningInConsole()
  */
 if (!function_exists('runOnCLI')) {
@@ -234,7 +234,7 @@ if (!function_exists('convertHrToBytes')) {
 if (!function_exists('isValidJson')) {
     function isValidJson(mixed $data): bool
     {
-        if (!empty($data)) {
+        if (!empty($data) && is_string($data)) {
             @json_decode($data);
             return (json_last_error() === JSON_ERROR_NONE);
         }

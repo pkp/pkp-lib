@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/maps/Schema.php
  *
@@ -13,8 +14,10 @@
 
 namespace PKP\category\maps;
 
+use APP\core\Application;
 use Illuminate\Support\Enumerable;
 use PKP\category\Category;
+use PKP\facades\Repo;
 use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
@@ -76,6 +79,19 @@ class Schema extends \PKP\core\maps\Schema
 
         foreach ($props as $prop) {
             switch ($prop) {
+                case 'subCategories':
+                    $children = Repo::category()->getCollector()
+                        ->filterByParentIds([$category->getId()])
+                        ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                        ->getMany();
+
+                    if ($children->isNotEmpty()) {
+                        $output['subCategories'] = $children->map(function ($child) use ($props) {
+                            return $this->mapByProperties($props, $child);
+                        })->values();
+                    }
+
+                    break;
                 default:
                     $output[$prop] = $category->getData($prop);
                     break;

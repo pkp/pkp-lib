@@ -239,7 +239,7 @@ class InvitationHandler extends Handler
         $invitation = null;
         $invitationPayload =[];
         if(!empty($args)) {
-            $invitationMode = 'edit';
+            $invitationMode = 'editUser';
             $user = Repo::user()->get($args[0]);
             $invitationPayload['userId'] = $args[0];
             $invitationPayload['inviteeEmail'] = $user->getEmail();

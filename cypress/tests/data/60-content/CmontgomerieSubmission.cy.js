@@ -1,8 +1,8 @@
 /**
  * @file cypress/tests/data/60-content/CmontgomerieSubmission.cy.js
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  */
@@ -29,7 +29,11 @@ describe('Data suite: Cmontgomerie', function() {
 					givenName: {en: 'Mark'},
 					familyName: {en: 'Irvine'},
 					country: 'CA',
-					affiliation: {en: 'University of Victoria'},
+					affiliations: [
+						{
+							name: {en: 'University of Victoria'}
+						}
+					],
 					email: 'mirvine@mailinator.com',
 					userGroupId: Cypress.env('authorUserGroupId')
 				}

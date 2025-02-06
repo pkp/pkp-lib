@@ -3,8 +3,8 @@
 /**
  * @file pages/preprint/PreprintHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintHandler
@@ -27,6 +27,7 @@ use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
 use PKP\citation\CitationDAO;
 use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\orcid\OrcidManager;
@@ -185,6 +186,9 @@ class PreprintHandler extends Handler
             return empty($a) || strtotime((string) $b->getData('datePublished')) < strtotime((string) $a->getData('datePublished')) ? $b : $a;
         }, 0);
 
+        $rorIconPath = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/templates/images/ror.svg';
+        $rorIdIcon = file_exists($rorIconPath) ? file_get_contents($rorIconPath) : '';
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'preprint' => $preprint,
@@ -196,6 +200,7 @@ class PreprintHandler extends Handler
             'submissionFileId' => $this->submissionFileId,
             'orcidIcon' => OrcidManager::getIcon(),
             'orcidUnauthenticatedIcon' => OrcidManager::getUnauthenticatedIcon(),
+            'rorIdIcon' => $rorIdIcon,
         ]);
         $this->setupTemplate($request);
 

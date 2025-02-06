@@ -27,6 +27,8 @@ use SplFileObject;
 
 abstract class PKPProcessUsageStatsLogFile extends BaseJob
 {
+    public int $timeout = 600;
+
     /**
      * Create a new job instance.
      *

@@ -198,4 +198,12 @@ class LocaleConversion
         $localeMetadata = new LocaleMetadata($locale);
         return $localeMetadata->getIsoAlpha2();
     }
+
+    /**
+     * Convert Weblate locale to IETF BCP 47 language tag.
+     */
+    public static function toBcp47(string $locale): string
+    {
+        return str_replace(['_', '@'], '-', $locale);
+    }
 }

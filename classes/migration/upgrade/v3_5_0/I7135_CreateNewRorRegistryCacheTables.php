@@ -77,13 +77,6 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
     /**
      * Migrate affiliations with an exact name in rors table.
      * Only migrate if author has none in author_affiliations.
-     *
-     * select distinct as.author_id, r.ror
-     * from author_settings as as
-     * join ror_settings as rs on rs.setting_value = as.setting_value and as.setting_name = 'affiliation' and rs.setting_name = 'name'
-     * join rors as r on rs.ror_id = r.ror_id
-     * left join author_affiliations as aa on as.author_id = aa.author_id and r.ror = aa.ror
-     * where aa.author_affiliation_id is null;
      */
     public function migrateRorAffiliations(): void
     {
@@ -116,12 +109,6 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
     /**
      * Migrates affiliations which have not migrated yet.
      * Only migrate rows which don't exist.
-     *
-     * select distinct a.author_id, as.locale, as.setting_value
-     * from authors as a
-     * join author_settings as as on a.author_id = as.author_id and as.setting_name = 'affiliation'
-     * left join author_affiliations as aa on a.author_id = aa.author_id
-     * where aa.author_id is null;
      */
     public function migrateNonRorAffiliations(): void
     {
@@ -131,7 +118,8 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
                 function (JoinClause $join) {
                     $join
                         ->on('a.author_id', '=', 'as.author_id')
-                        ->where('as.setting_name', '=', 'affiliation');
+                        ->where('as.setting_name', '=', 'affiliation')
+                        ->whereNotNull('as.setting_value');
                 }
             )
             ->leftJoin('author_affiliations as aa', 'a.author_id', '=', 'aa.author_id')

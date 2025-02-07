@@ -100,9 +100,7 @@ class PKPContainer extends Container
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
                     if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
-                        
                         if ($exception instanceof \Illuminate\Validation\ValidationException) {
-
                             return response()
                                 ->json($exception->errors(), $exception->status)
                                 ->send();

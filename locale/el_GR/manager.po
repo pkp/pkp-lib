@@ -2302,7 +2302,7 @@ msgid "stats.dateRange.invalidEndDateMax"
 msgstr "Η ημερομηνία λήξης δεν μπορεί να είναι μετά από {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Η ημερομηνία έναρξης δεν μπορεί να είναι νωρίτερα από {$ date}."
+msgstr "Η ημερομηνία έναρξης δεν μπορεί να είναι νωρίτερα από {$date}."
 
 msgid "stats.dateRange.last12Months"
 msgstr "Τελευταίοι 12 μήνες"

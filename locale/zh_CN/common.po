@@ -1904,7 +1904,7 @@ msgid "validator.localeKey"
 msgstr "必须使用语言环境代码指定语言。 例如：en_US，fr_CA，sr_RS@cyrillic。"
 
 msgid "validator.max.numeric"
-msgstr "此项不得大于{$ max}。"
+msgstr "此项不得大于{$max}。"
 
 msgid "validator.max.file"
 msgstr "此项不得超过 {$max} 千字节。"

@@ -48,6 +48,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
+use PKP\i18n\LocaleConversion;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -281,7 +282,7 @@ class PKPTemplateManager extends Smarty
                         $path = $router->getRequestedArgs($request);
                         $url = fn (string $locale = ''): string => $router->url($request, null, $page, $op, $path, urlLocaleForPage: $locale);
                         collect($supportedLocales)
-                            ->each(fn (string $l) => $this->addHeader("language-{$l}", "<link rel='alternate' hreflang='" . str_replace(['_', '@'], '-', $l) . "' href='" . $url($l) . "' />"));
+                            ->each(fn (string $l) => $this->addHeader("language-{$l}", "<link rel='alternate' hreflang='" . LocaleConversion::toBcp47($l) . "' href='" . $url($l) . "' />"));
                         $this->addHeader('language-xdefault', "<link rel='alternate' hreflang='x-default' href='" . $url() . "' />");
                     })();
                 }

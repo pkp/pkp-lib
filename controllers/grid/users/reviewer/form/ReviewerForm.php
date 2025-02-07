@@ -3,13 +3,11 @@
 /**
  * @file controllers/grid/users/reviewer/form/ReviewerForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerForm
- *
- * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Base Form for adding a reviewer to a submission.
  * N.B. Requires a subclass to implement the "reviewerId" to be added.
@@ -23,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Carbon\Carbon;
 use PKP\context\Context;
 use PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
@@ -30,6 +29,10 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorDateCompare;
+use PKP\form\validation\FormValidator;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -69,30 +72,32 @@ class ReviewerForm extends Form
      *
      * @param Submission $submission
      * @param ReviewRound $reviewRound
+     * @param ReviewerSuggestion $reviewerSuggestion
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
         parent::__construct('controllers/grid/users/reviewer/form/defaultReviewerForm.tpl');
         $this->setSubmission($submission);
         $this->setReviewRound($reviewRound);
+        $this->reviewerSuggestion = $reviewerSuggestion;
 
         // Validation checks for this form
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(new FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(new FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
 
         $this->addCheck(
-            new \PKP\form\validation\FormValidatorDateCompare(
+            new FormValidatorDateCompare(
                 $this,
                 'reviewDueDate',
-                \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
+                Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
                 \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
                 'required',
                 'editor.review.errorAddingReviewer.dateValidationFailed'
             )
         );
 
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     //
@@ -390,6 +395,22 @@ class ReviewerForm extends Form
             Notification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __($msgKey, ['reviewerName' => $reviewer->getFullName()])]
         );
+
+        $this->reviewerSuggestion ??= ReviewerSuggestion::query()
+            ->withSubmissionIds([$this->getSubmission()->getId()])
+            ->withApproved(false)
+            ->withEmail($reviewer->getData('email'))
+            ->first();
+
+        if ($this->reviewerSuggestion?->existingReviewerRole
+            && $this->reviewerSuggestion->existingUser->getId() == $reviewerId) {
+
+            $this->reviewerSuggestion->approveAndAttachReviewer(
+                Carbon::now(),
+                $reviewerId,
+                $currentUser->getId()
+            );
+        }
 
         return $reviewAssignment;
     }

@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
@@ -37,21 +36,15 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
-{
+{   
     /**
-     * Constructor.
-     *
-     * @param Submission $submission
-     * @param ReviewRound $reviewRound
-     * @param ReviewerSuggestion|null $reviewerSuggestion
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
     public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
-        parent::__construct($submission, $reviewRound);
-        $this->reviewerSuggestion = $reviewerSuggestion;
+        parent::__construct($submission, $reviewRound, $reviewerSuggestion);
 
         $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
@@ -281,48 +274,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         }
 
         return parent::fetch($request, $template, $display);
-    }
-
-    /**
-     * @copydoc Form::execute()
-     */
-    public function execute(...$functionArgs)
-    {
-        /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
-        $reviewAssignment = parent::execute(...$functionArgs);
-        $request = Application::get()->getRequest();
-
-        if (!$request->getContext()->getData('reviewerSuggestionEnabled')) {
-            return $reviewAssignment;
-        }
-
-        $reviewerId = $reviewAssignment->getData('reviewerId');
-
-        if ($this->reviewerSuggestion?->existingReviewerRole
-            && $this->reviewerSuggestion->existingUser->getId() == $reviewerId) {
-
-            $this->reviewerSuggestion->markAsApprove(
-                Carbon::now(),
-                $reviewerId,
-                $request->getUser()->getId()
-            );
-
-            return $reviewAssignment;
-        }
-
-        // TODO :   This check probably needed to port to `CreateReviewerForm` and `EnrollExistingReviewerForm` also
-        //          as this case can be duplicated from there also . 
-        //          Probably better to refactor to a trait or repository class ?
-        $suggestion = ReviewerSuggestion::query()
-            ->withSubmissionIds([$this->_submission->getId()])
-            ->withEmail(Repo::user()->get($reviewerId)->getData('email'))
-            ->first();
-        
-        if ($suggestion && !$suggestion->approvedAt && !$suggestion->reviewerId) {
-            $suggestion->attachReviewer($reviewerId);
-        }
-
-        return $reviewAssignment;
     }
 
     protected function getEmailTemplates(): array

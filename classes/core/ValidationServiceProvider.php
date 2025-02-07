@@ -218,8 +218,13 @@ class ValidationServiceProvider extends \Illuminate\Validation\ValidationService
                                 // messages out of the translator service for this validation rule.
                                 $key = "validator.{$lowerRule}";
 
-                                if ($key !== ($value = $this->translator->get($key))) {
-                                    return $value;
+                                $translatedValue = $this->translator->get(
+                                    $key, 
+                                    $customMessage === '##'.$customKey.'##' ? ['attribute' => $attribute] : []
+                                );
+                                
+                                if ($key !== $translatedValue) {
+                                    return $translatedValue;
                                 }
 
                                 return $this->getFromLocalArray(

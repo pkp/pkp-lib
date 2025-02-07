@@ -1267,7 +1267,7 @@ class PKPReviewerGridHandler extends GridHandler
                 throw new Exception('Given reviewer suggestion ID is invalid');
             }
 
-            if ($reviewerSuggestion->hasApproved()) {
+            if ($reviewerSuggestion->isApproved()) {
                 throw new Exception('Not allowed to add reviewer suggestion as reviewer that has already been approved');
             }
 

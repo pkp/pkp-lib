@@ -2519,7 +2519,7 @@ msgid "reviewerSuggestion.suggestionReason"
 msgstr "Reasons for suggesting reviewer"
 
 msgid "reviewerSuggestion.suggestionReason.description"
-msgstr "Please share why you are recommending this reviewer and metion is there are any potential conflict of interest."
+msgstr "Please share why you are recommending this reviewer and mention is there are any potential conflict of interest."
 
 msgid "submission.localeNotSupported"
 msgstr "The language of the submission ({$language}) is not one of the supported submission languages. You can still edit the submission details but new submissions are not currently accepted with this language."

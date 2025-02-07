@@ -15,14 +15,16 @@
 
 namespace PKP\API\v1\reviewers\suggestions;
 
-use PKP\API\v1\reviewers\suggestions\formRequests\EditReviewerSuggestion;
-use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
-use PKP\API\v1\reviewers\suggestions\formRequests\AddReviewerSuggestion;
-use PKP\security\authorization\internal\SubmissionIncompletePolicy;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\reviewers\suggestions\formRequests\EditReviewerSuggestion;
+use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
+use PKP\API\v1\reviewers\suggestions\formRequests\AddReviewerSuggestion;
+use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionIncompletePolicy;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -67,9 +69,16 @@ class ReviewerSuggestionController extends PKPBaseController
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
         if (in_array($actionName, ['add', 'edit', 'delete'])) {
-            $this->addPolicy(new SubmissionIncompletePolicy($request, $args));
+            $this->addPolicy(
+                new SubmissionIncompletePolicy(
+                    request: $request,
+                    args: $args,
+                    message: 'user.authorization.submission.complete.reviewerSuggestionRestrict'
+                )
+            );
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -100,6 +109,9 @@ class ReviewerSuggestionController extends PKPBaseController
             ->whereNumber('suggestionId');
     }
 
+    /**
+     * Get specific suggestion details
+     */
     public function get(Request $illuminateRequest): JsonResponse
     {
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));
@@ -116,6 +128,9 @@ class ReviewerSuggestionController extends PKPBaseController
         );
     }
 
+    /**
+     * Get all the suggestions
+     */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $suggestions = ReviewerSuggestion::query()
@@ -134,6 +149,9 @@ class ReviewerSuggestionController extends PKPBaseController
         ], Response::HTTP_OK);
     }
 
+    /**
+     * Add new suggestion
+     */
     public function add(AddReviewerSuggestion $illuminateRequest): JsonResponse
     {
         $validateds = $illuminateRequest->validated();
@@ -147,6 +165,9 @@ class ReviewerSuggestionController extends PKPBaseController
         );
     }
 
+    /**
+     * Edit an existing suggestion
+     */
     public function edit(EditReviewerSuggestion $illuminateRequest): JsonResponse
     {
         $validated = $illuminateRequest->validated();
@@ -166,6 +187,9 @@ class ReviewerSuggestionController extends PKPBaseController
         );
     }
 
+    /**
+     * Delete an existing suggestion
+     */
     public function delete(Request $illuminateRequest): JsonResponse
     {
         $reviewerSuggestion = ReviewerSuggestion::find($illuminateRequest->route('suggestionId'));

@@ -29,17 +29,19 @@ class SubmissionIncompletePolicy extends DataObjectRequiredPolicy
      * @param PKPRequest 	$request 					The PKP core request object
      * @param array 		$args 						Request parameters
      * @param string 		$submissionParameterName 	The request parameter we expect the submission id in.
+     * @param string|null   $message                    The localized message to show on policy failure
      * @param mixed|null 	$operation 					Optional list of operations for which this check takes effect. If specified, 
      * 													operations outside this set will not be checked against this policy
      */
-    function __construct(PKPRequest $request, array &$args, string $submissionParameterName = 'submissionId', mixed $operations = null) {
-        parent::__construct(
-            $request,
-            $args,
-            $submissionParameterName,
-            'user.authorization.submission.complete.reviewerSuggestionRestrict',
-            $operations
-        );
+    function __construct(
+        PKPRequest $request,
+        array &$args,
+        string $submissionParameterName = 'submissionId',
+        ?string $message = null,
+        mixed $operations = null
+    )
+    {
+        parent::__construct($request, $args, $submissionParameterName, $message, $operations);
     }
 
 
@@ -49,15 +51,18 @@ class SubmissionIncompletePolicy extends DataObjectRequiredPolicy
     /**
      * @see DataObjectRequiredPolicy::dataObjectEffect()
      */
-    public function dataObjectEffect() {
-        $submissionId = $this->getDataObjectId();
+    public function dataObjectEffect()
+    {
+        $submissionExists =  Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$this->_request->getContext()->getId()])
+            ->filterByIncomplete(true)
+            ->filterBySubmissionIds([$this->getDataObjectId()])
+            ->getQueryBuilder()
+            ->exists();
 
-        $submission = Repo::submission()->get((int) $submissionId);
-
-        if ($submission->getData('submissionProgress') > 0) {
-            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
-        }
-
-        return AuthorizationPolicy::AUTHORIZATION_DENY;
+        return $submissionExists
+            ? AuthorizationPolicy::AUTHORIZATION_PERMIT
+            : AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 }

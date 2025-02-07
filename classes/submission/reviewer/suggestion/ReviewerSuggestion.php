@@ -16,6 +16,8 @@ namespace PKP\submission\reviewer\suggestion;
 
 use APP\facades\Repo;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Builder;
@@ -40,8 +42,9 @@ class ReviewerSuggestion extends Model
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
-    // TODO : add `reviewer_suggestion_id` as guarded column once pkp/pkp-lib#10292 and pkp/pkp-lib#10562 merged
-    protected $guarded = [];
+    protected $guarded = [
+        'reviewerSuggestionId',
+    ];
 
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\HasAttributes::casts
@@ -95,6 +98,7 @@ class ReviewerSuggestion extends Model
     {
         return [
             'fullName',
+            'displayInitial',
             'familyName',
             'givenName',
             'affiliation',
@@ -105,9 +109,29 @@ class ReviewerSuggestion extends Model
     /**
      * Has this suggestion approved yet
      */
-    public function hasApproved(): ?Carbon
+    public function isApproved(): bool
     {
-        return $this->approvedAt;
+        return $this->approvedAt ? true : false;
+    }
+
+    /**
+     * Make sure not to update approved_at once it's set
+     */
+    protected function approvedAt(): Attribute
+    {
+        return Attribute::make(
+            set: fn ($value) => $this->fresh()?->approvedAt ?? $value
+        );
+    }
+
+    /**
+     * Make sure not to update reviewer_id once it's set
+     */
+    protected function reviewerId(): Attribute
+    {
+        return Attribute::make(
+            set: fn ($value) => $this->fresh()?->reviewerId ?? $value
+        );
     }
 
     /**
@@ -119,6 +143,25 @@ class ReviewerSuggestion extends Model
             get: fn () => collect($this->givenName)
                 ->map(fn ($givenName, $locale) => $givenName . ' ' . $this->familyName[$locale])
                 ->toArray()
+        )->shouldCache();
+    }
+
+    /**
+     * Get the display initial
+     */
+    protected function displayInitial(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => collect($this->fullName)
+                ->map(
+                    fn(string $fullname): string => strtoupper(
+                        collect(Str::of($fullname)->explode(' '))
+                            ->map(fn(string $value): string => Str::of($value)->charAt(0))
+                            ->implode('')
+                    )
+                )
+                ->toArray()
+
         )->shouldCache();
     }
 
@@ -199,22 +242,16 @@ class ReviewerSuggestion extends Model
     /**
      * Mark this suggestion approve
      */
-    public function markAsApprove(Carbon $approvedAtTimestamp, ?int $reviewerId = null, ?int $approverId = null): bool
+    public function approveAndAttachReviewer(
+        Carbon $approvedAtTimestamp,
+        ?int $reviewerId = null,
+        ?int $approverId = null
+    ): bool
     {
         return (bool)$this->update([
             'approvedAt' => $approvedAtTimestamp,
             'reviewerId' => $reviewerId,
             'approverId' => $approverId,
-        ]);
-    }
-
-    /**
-     * Attached a reviewer id to this suggestion
-     */
-    public function attachReviewer(int $reviewerId): bool
-    {
-        return (bool)$this->update([
-            'reviewerId' => $reviewerId,
         ]);
     }
 

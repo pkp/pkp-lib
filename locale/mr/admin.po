@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-04 11:50+0000\n"
+"PO-Revision-Date: 2025-02-07 10:19+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "mr/>\n"
@@ -796,13 +796,13 @@ msgstr "उतरवून घेण्यासाठी (डाउनलोड
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
-"प्रतीक्षेत असलेली कार्ये अ‍ॅप्लिकेशनच्या देखभालीची प्रथम गरज असल्याने करता "
+"अ‍ॅप्लिकेशनच्या देखभालीची प्रथम गरज असल्याने प्रतीक्षेत असलेली कार्ये करता "
 "येणे शक्य नाही."
 
 msgid "admin.cli.tool.jobs.sandbox.message"
 msgstr ""
-"प्रतीक्षेत असलेली कार्ये अ‍ॅप्लिकेशन सुरक्षा कार्यात मग्न (सँडबॉक्स मोड) "
-"असल्याने करता येणे शक्य नाही."
+"अ‍ॅप्लिकेशन सुरक्षा कार्यात मग्न (सँडबॉक्स मोड) असल्याने प्रतीक्षेत असलेली "
+"कार्ये करता येणे शक्य नाही."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""

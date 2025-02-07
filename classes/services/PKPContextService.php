@@ -559,12 +559,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             ->withRoleIds([Role::ROLE_ID_MANAGER])
             ->isDefault(true)
             ->firstOrFail();
-    
+
         $assignmentExists = UserUserGroup::query()
             ->withUserId($currentUser->getId())
             ->withUserGroupIds([$managerUserGroup->id])
             ->exists();
-    
+
         if (!$assignmentExists) {
             UserUserGroup::create([
                 'userId' => $currentUser->getId(),
@@ -652,7 +652,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $genreDao->deleteByContextId($context->getId());
 
         // TODO is it OK to delete without listening Model's delete-associated events (not loading each Model)?
-        Announcement::withContextIds([$context->getId])->delete();
+        Announcement::withContextIds([$context->getId()])->delete();
 
         Repo::highlight()
             ->getCollector()

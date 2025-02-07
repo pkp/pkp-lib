@@ -18,6 +18,7 @@ namespace PKP\navigationMenu;
 
 use APP\core\Application;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\site\SiteDAO;

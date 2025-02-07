@@ -17,8 +17,6 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
-use Carbon\Carbon;
-
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
@@ -32,16 +30,11 @@ use PKP\security\RoleDAO;
 class EnrollExistingReviewerForm extends ReviewerForm
 {
     /**
-     * Constructor.
-     *
-     * @param Submission $submission
-     * @param ReviewRound $reviewRound
-     * @param ReviewerSuggestion|null $reviewerSuggestion
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
     public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
-        parent::__construct($submission, $reviewRound);
-        $this->reviewerSuggestion = $reviewerSuggestion;
+        parent::__construct($submission, $reviewRound, $reviewerSuggestion);
 
         $this->setTemplate('controllers/grid/users/reviewer/form/enrollExistingReviewerForm.tpl');
 
@@ -104,9 +97,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
      * @copydoc Form::execute()
      */
     public function execute(...$functionArgs)
-    {
-        $request = Application::get()->getRequest();
-        
+    {   
         // Assign a reviewer user group to an existing non-reviewer
         $userId = (int) $this->getData('userId');
 
@@ -120,16 +111,6 @@ class EnrollExistingReviewerForm extends ReviewerForm
 
         // Set the reviewerId in the Form for the parent class to use
         $this->setData('reviewerId', $userId);
-
-        if ($this->reviewerSuggestion?->existingUser
-            && $this->reviewerSuggestion->existingUser->getId() == $userId) {
-            
-            $this->reviewerSuggestion->markAsApprove(
-                Carbon::now(),
-                $userId,
-                $request->getUser()->getId()
-            );
-        }
 
         return parent::execute(...$functionArgs);
     }

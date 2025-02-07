@@ -33,6 +33,7 @@ class ReviewerSuggestionResource extends JsonResource
             'familyName' => $this->familyName,
             'givenName' => $this->givenName,
             'fullName' => $this->fullname,
+            'displayInitial' => $this->displayInitial,
             'email' => $this->email,
             'orcidId' => $this->orcidId,
             'affiliation' => $this->affiliation,
@@ -41,14 +42,6 @@ class ReviewerSuggestionResource extends JsonResource
             'existingUserId' => $this->existingUser?->getId(),
             'existingReviewerRole' => $this->existingReviewerRole,
             'reviewerId' => $this->reviewerId,
-            
-            // TODO :   should go with this approach? Didn't quite like it as `reviewer` will always
-            //          present even when it's not asked for as `null` which seems misleading informtion.
-
-            // 'reviewer' => $this->mergeWhen(
-            //     $request->get('include_reviewer_data') && $this->reviewerId,
-            //     fn () => Repo::user()->getSchemaMap()->summarizeReviewer($this->reviewer)
-            // )?->data ?? null,
         ];
 
         if ($request->get('include_reviewer_data') && $this->reviewerId) {

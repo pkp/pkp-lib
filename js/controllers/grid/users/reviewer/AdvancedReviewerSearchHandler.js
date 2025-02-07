@@ -69,7 +69,7 @@
 	 */
 	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.
 			handleRefresh_ = function(sourceElement, event, content) {
-		
+
 		if (content) {
 			this.replaceWith(content);
 		}

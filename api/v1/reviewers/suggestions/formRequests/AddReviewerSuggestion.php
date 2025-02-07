@@ -17,6 +17,7 @@ namespace PKP\API\v1\reviewers\suggestions\formRequests;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
@@ -80,6 +81,8 @@ class AddReviewerSuggestion extends FormRequest
             'email' => [
                 'required',
                 'email',
+                Rule::unique((new ReviewerSuggestion)->getTable())
+                    ->where(fn (Builder $query) => $query->where('submission_id', [$this->route('submissionId')])),
             ],
             'affiliation' => [
                 'required',
@@ -91,7 +94,7 @@ class AddReviewerSuggestion extends FormRequest
                 'sometimes',
                 'nullable',
                 'string',
-                // TODO; should have a orcid id vaidation rule ?
+                'orcid',
             ],
         ];
     }

@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorEmail;
@@ -39,16 +38,11 @@ use Symfony\Component\Mailer\Exception\TransportException;
 class CreateReviewerForm extends ReviewerForm
 {
     /**
-     * Constructor.
-     *
-     * @param Submission $submission
-     * @param ReviewRound $reviewRound
-     * @param ReviewerSuggestion|null $reviewerSuggestion
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
     public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
     {
-        parent::__construct($submission, $reviewRound);
-        $this->reviewerSuggestion = $reviewerSuggestion;
+        parent::__construct($submission, $reviewRound, $reviewerSuggestion);
         
         $this->setTemplate('controllers/grid/users/reviewer/form/createReviewerForm.tpl');
 
@@ -196,12 +190,6 @@ class CreateReviewerForm extends ReviewerForm
                 error_log($e->getMessage());
             }
         }
-
-        $this->reviewerSuggestion?->markAsApprove(
-            Carbon::now(),
-            $reviewerId,
-            $request->getUser()->getId()
-        );
 
         return parent::execute(...$functionArgs);
     }

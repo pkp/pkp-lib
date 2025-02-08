@@ -87,7 +87,8 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
                     $join
                         ->on('rs.setting_value', '=', 'as.setting_value')
                         ->where('as.setting_name', '=', 'affiliation')
-                        ->where('rs.setting_name', '=', 'name');
+                        ->where('rs.setting_name', '=', 'name')
+                        ->whereNotNull('as.setting_value');
                 }
             )
             ->join('rors as r', 'r.ror_id', '=', 'rs.ror_id')

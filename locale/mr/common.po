@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-09 11:44+0000\n"
+"PO-Revision-Date: 2025-02-09 20:43+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -232,7 +232,7 @@ msgid "common.acknowledged"
 msgstr "पोच दिली"
 
 msgid "common.action"
-msgstr "कार्यवाही"
+msgstr "एक कार्यवाही"
 
 msgid "common.activate"
 msgstr "सक्रिय करा"
@@ -579,7 +579,7 @@ msgid "common.error"
 msgstr "त्रुटी"
 
 msgid "common.notice"
-msgstr "सूचना"
+msgstr "पूर्वसूचना"
 
 msgid "common.changesSaved"
 msgstr "तुमचे बदल सेव्ह केले गेले आहेत."
@@ -1100,7 +1100,7 @@ msgid "form.disallowedProp"
 msgstr "या गुणधर्माला परवानगी नाही."
 
 msgid "form.dropzone.dictDefaultMessage"
-msgstr "संक्रमित (अपलोड) करण्यासाठी फाईल्स येथे टाका (ड्रॉप करा)."
+msgstr "संक्रमित (अपलोड) करण्यासाठी फाईल्स येथे टाका (ड्रॉप करा)"
 
 msgid "form.dropzone.dictFallbackText"
 msgstr ""
@@ -2005,7 +2005,7 @@ msgid "notification.type.reviewAssignmentUpdated"
 msgstr "समीक्षण कामगिरी अपडेट केली आहे."
 
 msgid "notification.type.auditorRequest"
-msgstr "\"{$file}\" च्या ऑडिटसाठी विनंती."
+msgstr "\"{$file}\" च्या ऑडिटसाठी विनंती"
 
 msgid "notification.type.pendingRevisions"
 msgstr "या {$stage} टप्प्यावर सुधारणांवर करायचा विचार."
@@ -2185,4 +2185,126 @@ msgstr ""
 "sr_RS@cyrillic."
 
 msgid "validator.max.file"
-msgstr "याचा आकार {$max} किलोबाइटपेक्षा जास्त असू शकत नाही."
+msgstr "याचा आकार {$max} किलोबाइटस पेक्षा जास्त असू शकत नाही."
+
+msgid "validator.max.array"
+msgstr "यामध्ये {$max} हून अधिक घटक (items) असू शकत नाहीत."
+
+msgid "validator.mimes"
+msgstr "ही {$values} प्रकारचीच फाईल हवी."
+
+msgid "validator.min.array"
+msgstr "यात किमान {$min} घटक (items) हवेत."
+
+msgid "validator.not_in"
+msgstr "निवडलेला {$attribute} गुणधर्म अवैध आहे."
+
+msgid "validator.numeric"
+msgstr "हा वैध क्रमांक नाही."
+
+msgid "validator.present"
+msgstr "{$attribute} फील्ड असणे आवश्यक आहे."
+
+msgid "validator.required_with_all"
+msgstr "जेव्हा {$values} असतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.same"
+msgstr "{$attribute} आणि {$other} जुळलेच पाहिजेत."
+
+msgid "validator.required_without_all"
+msgstr "जेव्हा कोणत्याही {$values} नसतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.size.numeric"
+msgstr "याचे आकारमान {$size} असायलाच हवे."
+
+msgid "validator.size.string"
+msgstr "हे {$size} अक्षरांचे असायलाच हवे."
+
+msgid "validator.size.array"
+msgstr "यामध्ये {$size} घटक (items) असणे आवश्यक आहे."
+
+msgid "validator.timezone"
+msgstr "हा वैध आंतरराष्ट्रीय कालविभाग (time zone) नाही."
+
+msgid "validator.url"
+msgstr "हा वैध URL नाही."
+
+msgid "validator.no_new_line"
+msgstr "नव्या ओळीला परवानगी नाही."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "फक्त [{$tags}] html tags ना परवानगी आहे."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML नोड import करता आला नाही"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "अज्ञात आज्ञा (कमांड) : {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "लेखकाचा समावेश केला."
+
+msgid "notification.editedAuthor"
+msgstr "लेखकाची माहिती संपादित केली."
+
+msgid "common.sandbox"
+msgstr "आज्ञावली (Application) सँडबॉक्स मोडमध्ये चालू आहे."
+
+msgid "validator.required"
+msgstr "हे फील्ड आवश्यक आहे."
+
+msgid "validator.min.numeric"
+msgstr "ही किमान {$min} हवी."
+
+msgid "validator.string"
+msgstr "ही वैध सूत्र (string) नाही."
+
+msgid "validator.orcid"
+msgstr "हा वैध ORCID नाही."
+
+msgid "validator.max.string"
+msgstr "हे {$max} अक्षरांपेक्षा मोठे असू शकत नाही."
+
+msgid "validator.min.file"
+msgstr "ही किमान {$min} किलोबाईटस हवी."
+
+msgid "validator.min.string"
+msgstr "ही किमान {$min} अक्षरांची हवी."
+
+msgid "validator.regex"
+msgstr "हे योग्यरित्या स्वरूपित (format) केलेले नाही."
+
+msgid "validator.required_if"
+msgstr "जेव्हा {$other} {$value} असते तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.required_unless"
+msgstr "{$other} {$values} मध्ये नसल्यास हे फील्ड आवश्यक असते."
+
+msgid "validator.required_with"
+msgstr "जेव्हा {$values} असतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.required_without"
+msgstr "जेव्हा कोणत्याही {$values} नसतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.size.file"
+msgstr "ही {$size} किलोबाइट्स असायलाच हवी."
+
+msgid "validator.unique"
+msgstr "{$attribute} आधीच वापरले गेले आहे."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"तुमच्या इंस्टॉलेशनमध्ये सोय नसलेले (not supported) ट्रान्सफॉर्मेशन राबवण्याचा"
+" प्रयत्न करत आहे."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"फिल्टर ({$displayName}) इनपुट {$inputTypeName} ला समर्थन देते - "
+"{$typeofInput} दिले आहे, Filter ({$displayName}) supports input "
+"{$inputTypeName} - {$typeofInput} given"

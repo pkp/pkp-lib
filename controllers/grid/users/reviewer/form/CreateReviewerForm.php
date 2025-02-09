@@ -40,7 +40,7 @@ class CreateReviewerForm extends ReviewerForm
     /**
      * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
-    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
+    public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
         parent::__construct($submission, $reviewRound, $reviewerSuggestion);
         

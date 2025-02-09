@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-09 09:22+0000\n"
+"PO-Revision-Date: 2025-02-09 09:54+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -531,7 +531,7 @@ msgid "common.subjects"
 msgstr "विषय (अनेक)"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "{$name} वर जा (Switch to)"
 
 msgid "common.switchTo"
 msgstr "वर जा (Switch to)"
@@ -878,3 +878,372 @@ msgid "common.requiredField"
 msgstr ""
 "आवश्यक फील्ड ताराचिन्हाने (*) दर्शविले आहेत :<abbr class=\"required\" title="
 "\"required\">*</abbr>"
+
+msgid "common.true"
+msgstr "TRUE (खरे)"
+
+msgid "common.plugins"
+msgstr "प्लग-इन्स"
+
+msgid "email.addBccRecipient"
+msgstr "BCC वर पत्ता लिहा"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "फाईल वगळा"
+
+msgid "email.subject"
+msgstr "विषय"
+
+msgid "defaultMetric.title"
+msgstr "सर्वसाधारण मूल्य (Default Metric)"
+
+msgid "email.addAttachment"
+msgstr "जोडणी संलग्न करा (Add Attachment)"
+
+msgid "common.title"
+msgstr "शीर्षक"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "शिखर (Top)"
+
+msgid "common.type"
+msgstr "प्रकार (Type)"
+
+msgid "common.uploadedByAndWhen"
+msgstr "{$name} यांनी {$date} रोजी संक्रमित (अपलोड) केले"
+
+msgid "common.component"
+msgstr "घटक (Component)"
+
+msgid "common.uninitiated"
+msgstr "सुरुवात केली नाही (Uninitiated)"
+
+msgid "common.unread"
+msgstr "न वाचलेले"
+
+msgid "common.unsavedChanges"
+msgstr "सेव्ह न केलेले बदल"
+
+msgid "common.untitled"
+msgstr "शीर्षक नसलेले"
+
+msgid "common.updated"
+msgstr "अद्ययावत केले"
+
+msgid "common.uploadedDate"
+msgstr "संक्रमित (अपलोड) केल्याची तारीख"
+
+msgid "common.upload"
+msgstr "संक्रमित (अपलोड) करा"
+
+msgid "common.uploadFailed"
+msgstr "फाईल संक्रमित (अपलोड) किंवा त्यात सुधारणा (revise) करता आली नाही."
+
+msgid "common.up"
+msgstr "वर"
+
+msgid "common.addFile"
+msgstr "फाईल जोडा"
+
+msgid "common.upload.addFile"
+msgstr "फाईल संक्रमित (अपलोड) करा"
+
+msgid "common.upload.restore"
+msgstr "मूळ फाईल पुनर्संचयित (Restore) करा"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "निवडलेल्या प्रतिमेचे पूर्वावलोकन."
+
+msgid "common.upload.changeFile"
+msgstr "फाईल बदला"
+
+msgid "common.url"
+msgstr "URL पत्ता"
+
+msgid "common.user"
+msgstr "वापरकर्ता"
+
+msgid "common.user.nonexistent"
+msgstr "[अस्तित्वात नसलेला वापरकर्ता]"
+
+msgid "common.view"
+msgstr "पहा"
+
+msgid "common.viewError"
+msgstr "त्रुटी पहा"
+
+msgid "common.viewWithName"
+msgstr "{$name} पहा"
+
+msgid "common.weeks"
+msgstr "आठवडे"
+
+msgid "common.width"
+msgstr "रुंदी"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "वर्ष"
+
+msgid "common.yes"
+msgstr "होय"
+
+msgid "common.loading"
+msgstr "संक्रमण (लोड) चालू आहे"
+
+msgid "common.count"
+msgstr "गणन (Count)"
+
+msgid "common.publicAccess"
+msgstr "सगळ्यांसाठी उपलब्ध (Public Access)"
+
+msgid "debug.executionTime"
+msgstr "यात तयार केलेले पृष्ठ"
+
+msgid "debug.memoryUsage"
+msgstr "स्मृतिकोशाचा (मेमरी) वापर"
+
+msgid "debug.notes.localeLoad"
+msgstr "XML मधून \"{$localeFile}\" ही लोकॅलची फाईल लोड केली"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "\"{$key}\" ही लोकॅलची सूची (key) गहाळ झालेली आहे."
+
+msgid "debug.notes"
+msgstr "टिप्पण्या :"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "समीक्षणाची फाईल संक्रमित (अपलोड) करा"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "सादरीकरणाच्या फाईल्स जोडा"
+
+msgid "email.addCcRecipient"
+msgstr "CC वर पत्ता लिहा"
+
+msgid "email.attachments"
+msgstr "जोडण्या"
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} ही फाईल जोडता आलेली नाही."
+
+msgid "email.body"
+msgstr "मजकूराची जागा (ई-मेल मधील)"
+
+msgid "email.cc"
+msgstr ""
+"CC (ई-मेलची प्रत एकमेकांना पाठवलेली दिसली तरी हरकत नाही अशा पत्त्यांसाठी "
+"जागा)"
+
+msgid "email.compose"
+msgstr "ई-मेल पाठवा"
+
+msgid "email.compose.tooManyRecipients"
+msgstr ""
+"तुम्ही पाठवण्याचा प्रयत्न करत असलेल्या संदेशात प्राप्तकर्त्यांची संख्या "
+"मर्यादेपलिकडे आहे."
+
+msgid "email.email"
+msgstr "ई-मेल"
+
+msgid "email.from"
+msgstr "यांचेकडून"
+
+msgid "email.invalid"
+msgstr "{$email} हा ई-मेल पत्ता अवैध आहे."
+
+msgid "email.multipart"
+msgstr "अनेक भागात असलेला हा MIME स्वरूपातला संदेश आहे."
+
+msgid "email.recipient"
+msgstr "प्राप्तकर्ता"
+
+msgid "email.recipients"
+msgstr "प्राप्तकर्ते"
+
+msgid "email.sender"
+msgstr "प्रेषक (पाठवणारा)"
+
+msgid "email.senderName"
+msgstr "प्रेषकाचे (पाठवणार्‍याचे) नाव"
+
+msgid "email.senderEmail"
+msgstr "प्रेषकाचा (पाठवणार्‍याचा) ई-मेल पत्ता"
+
+msgid "email.send"
+msgstr "पाठवा"
+
+msgid "email.skip"
+msgstr "ई-मेल वगळा"
+
+msgid "email.subjectRequired"
+msgstr "कृपया ई-मेलचा विषय द्या."
+
+msgid "email.to"
+msgstr "प्रति"
+
+msgid "form.url.invalid"
+msgstr "निर्दिष्ट URL अवैध आहे. कृपया तो तपासून पुन्हा प्रयत्न करा."
+
+msgid "form.confirmSubmit.title"
+msgstr "खात्री करा (Confirm)"
+
+msgid "form.disallowedLocales"
+msgstr "फक्त खालील भाषा वापरता येतील : {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "या गुणधर्माला परवानगी नाही."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "संक्रमित (अपलोड) करण्यासाठी फाईल्स येथे टाका (ड्रॉप करा)."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"तुमच्या फाईल्स संक्रमित (अपलोड) करण्यासाठी कृपया खालील फॉलबॅक फॉर्म वापरा."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "या प्रकारच्या फाईल्स अपलोड करता येत नाहीत."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "संक्रमण (अपलोड) रद्द करा"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "संक्रमण (अपलोड) रद्द केले"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "तुम्ही खात्रीने हे संक्रमण (अपलोड) रद्द करू इच्छिता ना?"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel} वर जा: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "पुढील त्रुटी पहा"
+
+msgid "form.errorOne"
+msgstr "कृपया एका त्रुटीत दुरुस्ती करा."
+
+msgid "form.errorsOccurred"
+msgstr "या फॉर्मवर प्रक्रिया करताना त्रुटी आल्या"
+
+msgid "common.upload.addFile.description"
+msgstr "तुमच्या संगणकावरून फाईल संक्रमित (अपलोड) करा."
+
+msgid "common.uploadedBy"
+msgstr "{$name} यांनी संक्रमित (अपलोड) केले"
+
+msgid "common.unknownError"
+msgstr ""
+"एक अनपेक्षित त्रुटी आली आहे. कृपया पृष्ठ पुनर्स्थापित (रिलोड) करून पुन्हा "
+"प्रयत्न करा."
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"आम्हाला {$when} मधे सेव्ह न केलेले बदल आढळले. काम करताना सर्व्हरशी कनेक्शन "
+"तुटल्यास असे होऊ शकते. ते बदल पुनर्संचयित (Restore) केल्याने तुम्ही त्या "
+"वेळेपासून केलेले कोणतेही बदल अधिलिखित (overwrite) होऊ शकतात. तुम्हाला ते बदल "
+"आता पुनर्संचयित (Restore) करायचे आहेत का?"
+
+msgid "common.upload.dragFile"
+msgstr ""
+"फाईल संक्रमण (अपलोड) सुरू करण्यासाठी येथे फाईल ओढा आणि टाका (ड्रॅग आणि ड्रॉप "
+"करा)"
+
+msgid "common.viewProfile"
+msgstr "संक्षिप्त वर्णन (प्रोफाईल) पहा"
+
+msgid "debug.databaseQueries"
+msgstr "डेटाबेसवर केल्या गेलेल्या शोधांची (queries) संख्या"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XML मधून \"{$localeList}\" ही लोकॅलची यादी लोड केली"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "फाईल संक्रमित (अपलोड) करा"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "सादरीकरणाच्या टप्प्यात लेखकाने संक्रमित (अपलोड) केलेल्या फाईल्स जोडा."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"सादरीकरणाच्या कार्यप्रवाहादरम्यान (वर्कफ्लो) सुधारित संस्करणे किंवा "
+"समीक्षणासाठी संक्रमित (अपलोड) केलेल्या फाईल्स जोडा."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "संग्रहीत (लायब्ररी) फाईल्स"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "संग्रहीत (लायब्ररी) फाईल्स जोडा"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "सादरीकरण आणि प्रकाशक लायब्ररीमधील फाईल्स जोडा."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "समीक्षणाच्या फाईल्स जोडा"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "समीक्षकांनी संक्रमित (अपलोड) केलेल्या फाईल्स जोडा"
+
+msgid "email.addToRecipient"
+msgstr "प्राप्तकर्त्याचा पत्ता लिहा"
+
+msgid "email.bcc"
+msgstr "BCC (ई-मेलची प्रत एकमेकांना पाठवलेली दिसणार नाही अशा पत्त्यांसाठी जागा)"
+
+msgid "email.bccSender"
+msgstr "या संदेशाची एक प्रत माझ्या या पत्त्यावर ({$address}) पाठवा"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"तुम्ही खात्रीने हा ई-मेल तयार करण्यासाठी {$localeName} मध्ये बदलू इच्छिता ना"
+"? असे केल्याने ई-मेलचा विषय आणि मजकूराच्या भागामध्ये तुम्ही केलेले सगळे बदल "
+"गमावतील."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"तुम्ही एका पाठोपाठ संदेश पाठवत आहात. कृपया दोन संदेशांमध्ये थोडा अवधी द्या."
+
+msgid "email.compose.error"
+msgstr ""
+"ई-मेल संदेश पाठवण्यात समस्या आली. कृपया नंतर पुन्हा प्रयत्न करा किंवा तुमच्या"
+" सिस्टम प्रशासकाशी संपर्क साधा."
+
+msgid "email.bodyRequired"
+msgstr "कृपया ई-मेलमधला मजकूर द्या."
+
+msgid "form.confirmSubmit"
+msgstr "तुम्हाला हा फॉर्म नक्की दाखल करायचा आहे ना?"
+
+msgid "form.dataHasChanged"
+msgstr ""
+"या फॉर्मवरील डेटा बदलला आहे. तुम्हाला सेव्ह न करता तसेच पुढे जायचे आहे का?"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"तुमच्या ब्राउझरवर ओढा आणि टाका (ड्रॅग आणि ड्रॉप) पद्धतीने फाईल संक्रमित "
+"(अपलोड) करता येत नाही."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"फाईल खूप मोठी आहे ({{filesize}}mb). {{maxFilesize}}mb पेक्षा मोठ्या फाईल्स "
+"संक्रमित (अपलोड) करता येत नाहीत."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"सर्व्हरने {{statusCode}} या कोड क्रमांकाने प्रतिसाद दिला. ही समस्या पुन्हा "
+"आल्यास कृपया प्रणाली व्यवस्थापकाशी संपर्क साधा."
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "तुम्ही आणखी फाईल्स संक्रमित (अपलोड) करू शकत नाही."
+
+msgid "form.errorMany"
+msgstr "कृपया {$count} त्रुटींमध्ये दुरुस्ती करा."
+
+msgid "form.errors"
+msgstr ""
+"{$count} त्रुटी आढळल्यामुळे फॉर्म सेव्ह झाला नाही. कृपया या त्रुटी "
+"टाळण्यासाठी दुरूस्ती करा आणि पुन्हा प्रयत्न करा."

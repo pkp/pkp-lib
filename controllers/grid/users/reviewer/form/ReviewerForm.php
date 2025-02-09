@@ -72,9 +72,9 @@ class ReviewerForm extends Form
      *
      * @param Submission $submission
      * @param ReviewRound $reviewRound
-     * @param ReviewerSuggestion $reviewerSuggestion
+     * @param ReviewerSuggestion|null $reviewerSuggestion
      */
-    public function __construct($submission, $reviewRound, $reviewerSuggestion = null)
+    public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
         parent::__construct('controllers/grid/users/reviewer/form/defaultReviewerForm.tpl');
         $this->setSubmission($submission);

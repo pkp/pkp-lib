@@ -89,7 +89,6 @@ abstract class I7191_InstallSubmissionHelpDefaults extends \PKP\migration\Migrat
             'forTheEditorsHelp' => 'default.submission.step.forTheEditors',
             'reviewHelp' => 'default.submission.step.review',
             'uploadFilesHelp' => 'default.submission.step.uploadFiles',
-            'reviewerSuggestionsHelp' => 'default.submission.step.reviewerSuggestions',
         ]);
     }
 

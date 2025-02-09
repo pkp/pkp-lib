@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-09 11:17+0000\n"
+"PO-Revision-Date: 2025-02-09 11:18+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -1862,3 +1862,15 @@ msgid "notification.addedReviewerNoEmail"
 msgstr ""
 "{$reviewerName} ला या सादरीकरणाचे समीक्षण करण्यासाठी नियुक्त करण्यात आले होते"
 " पण त्यांना ई-मेल सूचना पाठवली नव्हती."
+
+msgid "notification.reinstatedReviewer"
+msgstr "समीक्षकाला पुन्हा नियुक्त करण्यात आले."
+
+msgid "notification.reviewerResendRequest"
+msgstr "समीक्षणाच्या कामगिरीचा पुनर्विचार करण्याची विनंती केली होती."
+
+msgid "notification.addedStageParticipant"
+msgstr "वापरकर्त्याला व्यासपीठाच्या गटात सहभागी करून घेतले."
+
+msgid "notification.editStageParticipant"
+msgstr "व्यासपीठावरील कामगिरीत बदल करण्यात आला आहे."

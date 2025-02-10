@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-09 20:43+0000\n"
+"PO-Revision-Date: 2025-02-10 08:35+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -112,7 +112,7 @@ msgid "common.editItem"
 msgstr "{$name} संपादित करा"
 
 msgid "common.enable"
-msgstr "सक्रिय करा"
+msgstr "कार्यान्वित करा (enable)"
 
 msgid "common.fullscreen"
 msgstr "पूर्णस्क्रीन पद्धत"
@@ -190,7 +190,7 @@ msgid "announcement.announcements"
 msgstr "घोषणा"
 
 msgid "announcement.announcementsHome"
-msgstr "सूचना"
+msgstr "घोषणा"
 
 msgid "announcement.moreAnnouncements"
 msgstr "अधिक सूचना..."
@@ -292,7 +292,7 @@ msgid "common.discipline"
 msgstr "ज्ञानशाखा"
 
 msgid "common.done"
-msgstr "पूर्ण झाले"
+msgstr "पूर्ण केले"
 
 msgid "common.download"
 msgstr "डाउनलोड करा"
@@ -301,7 +301,7 @@ msgid "common.downloadReport"
 msgstr "अहवाल डाउनलोड करा"
 
 msgid "common.enabled"
-msgstr "सक्रिय केले"
+msgstr "कार्यान्वित केले (enabled)"
 
 msgid "common.error.databaseErrorUnknown"
 msgstr "एक अज्ञात डेटाबेस कनेक्शन त्रुटी आढळली आहे."
@@ -405,7 +405,7 @@ msgid "common.plugin"
 msgstr "प्लग-इन करा"
 
 msgid "common.pluginDisabled"
-msgstr "\"{$pluginName}\" हे प्लगइन अक्रिय केले आहे."
+msgstr "\"{$pluginName}\" हे प्लगइन अकार्यान्वित (disable) केले आहे."
 
 msgid "common.prefix"
 msgstr "उपसर्ग (Prefix)"
@@ -735,7 +735,7 @@ msgid "common.inProgress"
 msgstr "प्रगतीपथावर"
 
 msgid "common.insert"
-msgstr "समावेश करा"
+msgstr "समाविष्ट करा"
 
 msgid "common.insertContent"
 msgstr "मजकूर समाविष्ट करा"
@@ -849,7 +849,7 @@ msgid "common.homePageHeaderLogo.altText"
 msgstr "मुख्यपृष्ठाच्या शीर्षलेखातील परिचय चिन्ह (Logo)"
 
 msgid "common.insertContentSearch"
-msgstr "समावेश करण्याकरता मजकूर शोधा"
+msgstr "समाविष्ट करण्याकरता मजकूर शोधा"
 
 msgid "common.lastSaved"
 msgstr "{$when} दरम्यान शेवटचे सेव्ह केलेले आहे"
@@ -872,7 +872,7 @@ msgid "common.orderDown"
 msgstr "{$itemTitle} खालच्या क्रमावर घाला"
 
 msgid "common.pluginEnabled"
-msgstr "\"{$pluginName}\" हे प्लगइन सक्रिय केले आहे."
+msgstr "\"{$pluginName}\" हे प्लगइन कार्यान्वित (enable) केले आहे."
 
 msgid "common.requiredField"
 msgstr ""
@@ -1563,7 +1563,7 @@ msgid "notification.updatedReviewFiles"
 msgstr "समीक्षणाच्या फाईल्स अपडेट केल्या."
 
 msgid "notification.allow"
-msgstr "या प्रकारच्या सूचना सक्रिय करा."
+msgstr "या प्रकारच्या सूचना कार्यान्वित करा."
 
 msgid "notification.editedAnnouncementType"
 msgstr "सूचनेचा हा प्रकार संपादित केला."
@@ -1664,7 +1664,7 @@ msgid "search.operator.or"
 msgstr "किंवा (Boolean OR)"
 
 msgid "search.SearchFor"
-msgstr "शोधा"
+msgstr "हे शोधा"
 
 msgid "search.searchResults"
 msgstr "शोधाचा निष्कर्ष"
@@ -2290,7 +2290,7 @@ msgid "validator.required_with"
 msgstr "जेव्हा {$values} असतात तेव्हा हे फील्ड आवश्यक असते."
 
 msgid "validator.required_without"
-msgstr "जेव्हा कोणत्याही {$values} नसतात तेव्हा हे फील्ड आवश्यक असते."
+msgstr "जेव्हा {$values} नसतात तेव्हा हे फील्ड आवश्यक असते."
 
 msgid "validator.size.file"
 msgstr "ही {$size} किलोबाइट्स असायलाच हवी."

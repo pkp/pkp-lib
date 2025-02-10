@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-09 20:43+0000\n"
+"PO-Revision-Date: 2025-02-10 08:35+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/mr/"
 ">\n"
@@ -121,7 +121,7 @@ msgid "grid.user.enroll"
 msgstr "वापरकर्त्याची नोंद करा"
 
 msgid "grid.user.enable"
-msgstr "सक्रिय करा (Enable)"
+msgstr "कार्यान्वित करा (Enable)"
 
 msgid "grid.user.mustChangePassword"
 msgstr "पासवर्ड बदला"
@@ -253,7 +253,7 @@ msgid "grid.action.settings"
 msgstr "सेटिंग्ज"
 
 msgid "grid.action.orderItems"
-msgstr "अनुक्रमाची रीत वापरण्यासाठी तयार करा (Enable ordering mode)"
+msgstr "अनुक्रमाची रीत कार्यान्वित करा (Enable ordering mode)"
 
 msgid "grid.action.resetAll"
 msgstr "सगळे घटक सर्वसाधारण (डीफॉल्ट) मूल्यांवर रीसेट करा"
@@ -319,7 +319,7 @@ msgid "grid.action.history"
 msgstr "पूर्वेतिहास पहा"
 
 msgid "grid.action.enable"
-msgstr "सक्रिय किंवा वापरासाठी उपलब्ध करा"
+msgstr "कार्यान्वित करा (Enable)"
 
 msgid "grid.action.bookInfo"
 msgstr "सादरीकरणासंबंधी माहिती"
@@ -450,10 +450,10 @@ msgid "grid.user.email"
 msgstr "ई-मेल"
 
 msgid "grid.user.disable"
-msgstr "अक्रिय करा (Disable)"
+msgstr "अकार्यान्वित करा (Disable)"
 
 msgid "grid.user.enableReason"
-msgstr "वापरकर्ता सक्रिय (Enable) करण्याचे कारण"
+msgstr "वापरकर्ता कार्यान्वित (Enable) करण्याचे कारण"
 
 msgid "grid.user.error"
 msgstr ""
@@ -679,7 +679,7 @@ msgid "contributor.listPanel.preview.description"
 msgstr "या प्रकाशनातील योगदानकर्त्यांची ओळख खालील स्वरूपात पटवली जाईल."
 
 msgid "grid.user.disableReason"
-msgstr "वापरकर्ता अक्रिय (Disable) करण्याचे कारण"
+msgstr "वापरकर्ता अकार्यान्वित (Disable) करण्याचे कारण"
 
 msgid "grid.user.errorEmail"
 msgstr ""

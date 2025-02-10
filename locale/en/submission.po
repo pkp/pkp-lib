@@ -1336,7 +1336,7 @@ msgid "editor.submission.stageParticipants"
 msgstr "Participants"
 
 msgid "editor.submission.reviewerSuggestions"
-msgstr "Reviewer Suggestions"
+msgstr "Reviewers Suggested by Author"
 
 msgid "editor.submission.noneAssigned"
 msgstr "None Assigned"

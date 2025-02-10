@@ -27,6 +27,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Нови рецензии се доставени и ги разгледува уредникот."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Еден или повеќе рецензенти го пропуштија рокот. Редакцискиот тим е известен "
@@ -1322,10 +1323,12 @@ msgstr "Потребни се корекции."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ревизии се поднесени и потребна е одлука."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "Поднесокот мора повторно да биде поднесен за уште една рунда на рецензија."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Поднесокот беше повторно поднесен за уште една рунда на рецензија."
 

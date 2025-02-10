@@ -26,6 +26,7 @@ msgstr "给文章提供一个格式化好的参考文献列表。请用一个空
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "新的评论已提交，编辑正在考虑中。"
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
@@ -1246,9 +1247,11 @@ msgstr ""
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 

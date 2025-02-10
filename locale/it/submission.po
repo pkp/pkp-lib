@@ -36,6 +36,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Nuove revisioni sono state inviate e sono in analisi da parte dell'editor."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Uno o più revisori hanno mancato la scadenza. La redazione è stata informata "
@@ -1327,10 +1328,12 @@ msgstr "Le revisioni sono state richieste."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Le revisioni sono state inviate e serve una decisione."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "La proposta deve essere inviata di nuovo per un altro giro di revisione."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "La proposta è stata inviata di nuovo per un altro giro di revisione."
 

@@ -28,7 +28,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted and are being considered by the editor."
 
 msgid "author.submission.roundStatus.reviewOverdue"
-msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
+msgstr "One or more reviewers missed their deadline. The editorial team is aware and will ensure the reviews are completed. No action is needed from you right now. You'll be notified once a decision is made."
 
 msgid "author.authorNotFound"
 msgstr "The author for this affiliation could not be found."
@@ -1276,13 +1276,13 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisions have been submitted and a decision is needed."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "The submission must be resubmitted for another review round."
+msgstr "Revisions requested from the author to be taken to a new review round."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Submission has been resubmitted for another review round."
+msgstr "Revisions submitted. A new review round needs to be created."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Sent to external review."
+msgstr "Sent for external review."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Submission accepted."

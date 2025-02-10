@@ -28,6 +28,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Рецензенттер жаңа рецензияларды жіберді, олар редактордың тексеруінен өтті."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Бір немесе бірнеше рецензент жіберу мерзімін өткізіп алды. Бұл туралы "
@@ -1308,9 +1309,11 @@ msgstr "Жаңа нұсқалар сұралды."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Жаңа нұсқалар жіберілді."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Материалды қайта қарауға жіберу керек."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Материал қайта қарауға жіберілді."
 

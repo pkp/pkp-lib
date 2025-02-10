@@ -25,6 +25,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
@@ -1237,9 +1238,11 @@ msgstr ""
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 

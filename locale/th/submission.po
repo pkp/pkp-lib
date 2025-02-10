@@ -223,6 +223,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "มีการส่งการทบทวนใหม่และกำลังถูกพิจารณาโดยบรรณาธิการ"
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "หนึ่งหรือหลายผู้รีวิวพลาดกำหนดส่ง "
@@ -1396,9 +1397,11 @@ msgstr "ขอให้มีการแก้ไขแล้ว"
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "การแก้ไขถูกส่งมาแล้วและจำเป็นต้องมีการตัดสินใจ"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "การส่งต้องถูกส่งกลับมาเพื่อรอบการทบทวนใหม่"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "การส่งถูกส่งกลับมาเพื่อรอบการทบทวนใหม่"
 

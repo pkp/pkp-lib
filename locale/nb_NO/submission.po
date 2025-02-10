@@ -32,6 +32,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nye fagfellevurderinger er sendt inn. De vurderes av redaktøren."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "En eller flere fagfeller har overskrevet fristen. Redaksjonen er varslet og "
@@ -1314,9 +1315,11 @@ msgstr "Revideringer har blitt forespurt."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revideringer er levert inn."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Innleveringen må sendes inn på ny for en ny fagfellevurderingsrunde."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Innleveringen er levert til ny fagfellevurderingsrunde."
 

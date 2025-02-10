@@ -28,6 +28,7 @@ msgstr "Eman aurkezpenean aipatutako lanen erreferentzien formatudun zerrenda."
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
@@ -1270,9 +1271,11 @@ msgstr ""
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Zuzenketak aurkeztu dira eta erabaki bat behar da."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 

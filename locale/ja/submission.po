@@ -26,6 +26,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "新しい査読が提出され、現在は編集者によって検討中です。"
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "一人また複数の査読者が期限を過ぎています。 編集チームに通知され、査読が完了し"
@@ -1288,9 +1289,11 @@ msgstr "改訂が要求されました。"
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "改訂版が提出されており、決定が必要です。"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "投稿は、別の査読ラウンドのために再提出する必要があります。"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "投稿は、別の査読ラウンドに再提出されました。"
 

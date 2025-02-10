@@ -33,6 +33,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Новые рецензии были отправлены рецензентами и рассмотрены редактором."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Один или несколько рецензентов пропустили сроки отправки. Редакция была "
@@ -1319,9 +1320,11 @@ msgstr "Новые версии были запрошены."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Новые версии были отправлены, нужно принять решение."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Материал нужно повторно отправить на рецензирование."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Материал был повторно отправлен на рецензирование."
 

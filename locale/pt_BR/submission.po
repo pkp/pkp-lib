@@ -34,6 +34,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Novas avaliações foram enviados e estão sendo considerados pelo editor."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Um ou mais avaliadores perderam o prazo. A equipe editorial foi notificada e "
@@ -1320,9 +1321,11 @@ msgstr "Revisões foram solicitadas."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "As revisões foram enviadas e uma decisão é necessária."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "A submissão deve ser ressubmetida para outra rodada de avaliação."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "A submissão foi ressubmetida para outra rodada de avaliação."
 

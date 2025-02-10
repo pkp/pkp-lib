@@ -30,6 +30,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Új lektori véleményeket küldtek be, hogy a szerkesztő átnézhesse."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Egy vagy több bíráló elmulasztotta a határidőt. A szerkesztőséget "
@@ -1318,9 +1319,11 @@ msgstr "Felülvizsgálat szükséges."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Felülvizsgálat elküldve."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "A beküldés újabb lektorálásához annak ismételt benyújtása szükséges."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Beküldés került újra benyújtásra egy ismételt lektorálási körhöz."
 

@@ -31,6 +31,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Έχουν υποβληθεί νέες αξιολογήσεις και ελέγχονται από τον επιμελητή."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
@@ -1326,9 +1327,11 @@ msgstr "Έχουν ζητηθεί αναθεωρήσεις."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Οι αναθεωρήσεις έχουν υποβληθεί."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Η υποβολή πρέπει να υποβληθεί εκ νέου για έναν νέο γύρο ελέγχου."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 

@@ -32,6 +32,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Uusia arvioita on lähetetty ja ne ovat toimittajan käsittelyssä."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Yhden tai useamman arvioijan arvio on myöhässä. Toimittajat pyrkivät "
@@ -1311,9 +1312,11 @@ msgstr "Korjauksia on pyydetty."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Uusi versioita on lähetetty, ja tarvitaan päätös."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Käsikirjoitus pitää lähettää uudelle arviointikierrokselle."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Käsikirjoitus on lähetetty uudelle arviointikierrokselle."
 

@@ -31,6 +31,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "S'han tramès noves revisions i l'editor/a les està considerant."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Un o més revisors/ores han excedit la data límit. L'equip editorial ha estat "
@@ -1323,10 +1324,12 @@ msgstr "S'han sol·licitat les revisions."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "S'han enviat les revisions i ara s'ha de prendre una decisió."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "La tramesa s'ha de tornar a enviar per fer-hi una altra ronda de revisió."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "La tramesa s'ha tornat a enviar per fer-hi una altra ronda de revisió."
 

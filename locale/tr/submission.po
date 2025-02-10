@@ -30,6 +30,7 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Yeni değerlendirmeler gönderilmiştir ve editör tarafından incelenmektedir."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Bir veya daha fazla hakem değerlendirme için verilen son tarihte dönüş "
@@ -1300,9 +1301,11 @@ msgstr "Düzeltmeler talep edildi."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Düzeltmeler gönderildi ve karara ihtiyaç var."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Gönderi başka bir değerlendirme turu için tekrar gönderilmelidir."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Gönderi başka bir inceleme turu için tekrar gönderildi."
 

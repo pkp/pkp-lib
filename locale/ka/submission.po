@@ -28,6 +28,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "წარმოდგენილია ახალი მიმოხილვები, რომელსაც განიხილავს რედაქტორი."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "ერთმა ან მეტმა მიმომხილველმა ვადა დაკარგა. სარედაქციო გუნდს ეცნობა და "
@@ -1303,9 +1304,11 @@ msgstr "მოითხოვნილია შესწორებები."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "შესწორებები შევიდა."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "წარდგენა ხელახლა უნდა გაიგზავნოს განხილვის სხვა რაუნდისთვის."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "წარდგენა ხელახლა გაიგზავნა განხილვის სხვა რაუნდისთვის."
 

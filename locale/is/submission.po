@@ -29,6 +29,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nýrri ritrýni hefur verið skilað og er í athugun hjá ritstjóra."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Einn eða fleiri ritrýnar eru á eftir áætlun. Ritstjórateymið hefur verið "
@@ -1305,9 +1306,11 @@ msgstr "Búið er að biðja um ritrýni."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ritrýni hefur verið send inn."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Það þarf að senda innsendinguna aftur inn fyrir næstu umferð ritrýni."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Búið er að endursenda innsendinguna fyrir nýja umferð ritrýni."
 

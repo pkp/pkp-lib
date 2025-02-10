@@ -32,6 +32,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "لقد تم تسليم تحكيمات جديدة وقد تم الأخذ بها من قبل المحرر."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "واحد أو أكثر من المحكمين قد تأخر عن موعده. تم إشعار فريق هيئة التحرير "
@@ -1291,9 +1292,11 @@ msgstr "تم التماس التنقيحات."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "تم تسليم التنقيحات وبانتظار القرار."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "لقد أُعيد تقديم الطلب إلى جولة تحكيم أخرى."
 

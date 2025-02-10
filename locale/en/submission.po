@@ -27,7 +27,6 @@ msgstr "Provide a formatted list of references for works cited in this submissio
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted and are being considered by the editor."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr "One or more reviewers missed their deadline. The editorial team is aware and will ensure the reviews are completed. No action is needed from you right now. You'll be notified once a decision is made."
 
@@ -1261,11 +1260,9 @@ msgstr "Revisions have been requested."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisions have been submitted and a decision is needed."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Revisions requested from the author to be taken to a new review round."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Revisions submitted. A new review round needs to be created."
 

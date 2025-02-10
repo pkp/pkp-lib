@@ -37,6 +37,7 @@ msgstr ""
 "Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in "
 "geprüft."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Eine/r oder mehrere Gutachter/innen haben die Frist verpaßt. Die Redaktion "
@@ -1345,11 +1346,13 @@ msgstr "Überarbeitungen wurden angefordert."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Überarbeitungen wurden eingereicht und eine Entscheidung wird benötigt."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "Die Einreichung muss wieder eingereicht werden für eine neue "
 "Begutachtungsrunde."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 "Die Einreichung wurde wieder eingereicht für eine neue Begutachtungsrunde."

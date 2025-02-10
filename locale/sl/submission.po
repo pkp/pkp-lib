@@ -32,6 +32,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nove recenzije so končane in so v pregledu pri uredniku."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Eden ali več recenzentov zamuja z recenzijo. Uredništvo je bilo obveščeno o "
@@ -1312,9 +1313,11 @@ msgstr "Zahtevani so popravki."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Popravki so bili oddani, potrebno je sprejeti uredniško odločitev."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Prispevek mora biti ponovno poslan v nov recenzijski krog."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Prispevek je bil poslan v nov recenzijski krog."
 

@@ -33,6 +33,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nowe recenzje zostały przesłane i są rozpatrywane przez redaktora."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Recenzent (ci) nie przesłał (li) recenzji w ustalonym terminie. Redaktorzy "
@@ -1312,9 +1313,11 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr ""
 "Poprawki zostały przesłane. Wymagana decyzja o dalszym toku postępowania."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Tekst musi zostać ponownie przesłany do kolejnej rundy recenzji."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Tekst został ponownie przesłany do kolejnej rudny recenzji."
 

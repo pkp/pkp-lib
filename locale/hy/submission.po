@@ -30,6 +30,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Նոր գրախոսություններ են ներկայացվել և դիտարկվում են խմբագրի կողմից։"
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Մեկ կամ մի քանի գրախոսներ բաց են թողել ներկայացման վերջնաժամկետը։ Խմբագրական "
@@ -1310,9 +1311,11 @@ msgstr "Վերանայումներ են պահանջվել:"
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ներկայացվել են վերանայումներ և անհրաժեշտ է որոշում։"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Ներկայացումը պետք է նորից ներկայացվի գրախոսման մեկ այլ փուլի համար:"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Ներկայացումը կրկին ներկայացվել է գրախոսման մեկ այլ փուլի համար:"
 

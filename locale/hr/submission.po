@@ -33,6 +33,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Predane su nove recenzije i urednik ih razmatra."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Jedan ili više recenzenata propustili su svoj rok. Urednički tim je "
@@ -1301,9 +1302,11 @@ msgstr "Zatražene su revizije."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revizije su predane i potrebna je odluka."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Podnesak se mora ponovno poslati za drugi krug pregleda."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Podnesak je ponovno poslan na drugi krug pregleda."
 

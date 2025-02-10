@@ -28,6 +28,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Au fost trimise recenzii noi și sunt luate în considerare de editor."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Unul sau mai mulți recenzori au depășit termenul alocat. Echipa de redacție "
@@ -1314,9 +1315,11 @@ msgstr "Au fost solicitate revizuiri."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Reviziile au fost încărcate."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Manuscrisul va trebui redepus pentru o altă rundă de revizie."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Manuscrisul a fost redepus pentru o nouă rundă de revizie."
 

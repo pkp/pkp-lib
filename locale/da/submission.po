@@ -33,6 +33,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nye bedømmelser er blevet indsendt og bliver behandlet af redaktøren."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "En eller flere bedømmere har overskredet deadline. Redaktionen er blevet "
@@ -1316,9 +1317,11 @@ msgstr "Der udbedes en revision."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Rettelserne er blevet indsendt, og en beslutning er nødvendig."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Indsendelsen skal fremsendes igen til en ny bedømmelsesrunde."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr "Indsendelsen er blevet fremsendt igen til en ny bedømmelsesrunde."
 

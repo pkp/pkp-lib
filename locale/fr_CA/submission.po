@@ -38,6 +38,7 @@ msgstr ""
 "De nouvelles évaluations ont été soumises et sont examinées par le,la "
 "rédacteur-trice."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Un ou plusieurs évaluateurs-trices ont outrepassé leur date limite. L'équipe "
@@ -1342,10 +1343,12 @@ msgstr "Les révisions ont été demandées."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Les révisions ont été soumises et une décision est requise."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 "La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 "La soumission a été soumise à nouveau pour un autre cycle d'évaluation."

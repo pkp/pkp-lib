@@ -25,6 +25,7 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nema podnesenih recenzija niti recenzija koje urednik razmatra."
 
+#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
@@ -1272,9 +1273,11 @@ msgstr "Zahteva se revizija."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 

@@ -551,9 +551,7 @@ class Schema extends \PKP\core\maps\Schema
             if ($reviewerId) {
                 $canLoginAs = \PKP\security\Validation::canUserLoginAs(
                     $reviewerId,
-                    $currentUser->getId(),
-                    // pass null for a site-wide check, or submission->getData('contextId') for a context check
-                    null
+                    $currentUser->getId()
                 );
             }
 
@@ -632,13 +630,11 @@ class Schema extends \PKP\core\maps\Schema
             return [];
         }
 
-        // collect all users assigned to this submission
-        // also can optionally pass a stageId if to get participants from a specific stage,
-        // but here getting them all.
+        // collect all users assigned to this submission. this retrieves users across all stages.
         $usersIterator = Repo::user()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->assignedTo($submission->getId(), null /* or pass a stageId if desired */)
+            ->assignedTo($submission->getId())
             ->getMany();
 
         // build the array for each user

@@ -320,10 +320,7 @@ class Schema extends \PKP\core\maps\Schema
             return false;
         }
 
-        // ensure user administration permissions
-        $canAdminister = Validation::getAdministrationLevel($targetUser->getId(), $currentUser->getId()) === Validation::ADMINISTRATION_FULL;
-
-        // allow merging if the current user is a site admin or has full admin rights over the target user
-        return Validation::isSiteAdmin() || $canAdminister;
+        // check if the current user has full administration rights over the target user. it fully covers the site admin case.
+        return Validation::getAdministrationLevel($targetUser->getId(), $currentUser->getId()) === Validation::ADMINISTRATION_FULL;
     }
 }

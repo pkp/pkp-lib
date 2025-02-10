@@ -490,91 +490,76 @@ class Validation
         int $administratorUserId,
         ?int $contextId = null
     ): int {
-    
+
         if ($administeredUserId === $administratorUserId) {
             return self::ADMINISTRATION_FULL;
         }
-    
+
         $siteContextId = PKPApplication::SITE_CONTEXT_ID;
-    
+
         // single query to fetch user groups assigned to either user
         $allUserGroups = UserGroup::query()
-            ->whereHas('userUserGroups', function ($q) use ($administratorUserId, $administeredUserId) {
-                $q->withActive()->withUserIds([$administratorUserId, $administeredUserId]);
-            })
-            ->with(['userUserGroups' => function ($q) use ($administratorUserId, $administeredUserId) {
-                $q->withActive()->withUserIds([$administratorUserId, $administeredUserId]);
-            }])
+            ->whereHas('userUserGroups', fn($q) =>
+                $q->withActive()->withUserIds([$administratorUserId, $administeredUserId])
+            )
+            ->with(['userUserGroups' => fn($q) =>
+                $q->withActive()->withUserIds([$administratorUserId, $administeredUserId])
+            ])
             ->get();
-    
-        // parsing them in memory
-        $adminUserRoles = [
-            'siteAdmin' => false,
-            'managerContexts' => [],
-            'anyRoleContexts' => [],
-        ];
-        $administeredUserRoles = [
-            'siteAdmin' => false,
-            'allContexts' => [],
-        ];
-    
+
+        $administratorMap = [];
+        $administeredMap = [];
+
         foreach ($allUserGroups as $userGroup) {
             $roleId = $userGroup->roleId;
-            $ctxId = $userGroup->contextId ?? 0;
-    
+            $userGroupContextId = $userGroup->contextId ?? PKPApplication::SITE_CONTEXT_ID;
+
             // then each user assignment row
             foreach ($userGroup->userUserGroups as $uug) {
-                $uid = $uug->userId;
-    
-                // checking site admin
-                if ($roleId === Role::ROLE_ID_SITE_ADMIN && $ctxId === $siteContextId) {
-                    if ($uid === $administeredUserId) {
-                        $administeredUserRoles['siteAdmin'] = true;
-                    } elseif ($uid === $administratorUserId) {
-                        $adminUserRoles['siteAdmin'] = true;
-                    }
-                }
-    
-                // manager role => store context
-                if ($roleId === Role::ROLE_ID_MANAGER && $uid === $administratorUserId) {
-                    $adminUserRoles['managerContexts'][] = $ctxId;
-                }
-    
-                // for the administered user => track any role’s context
-                if ($uid === $administeredUserId) {
-                    $administeredUserRoles['allContexts'][] = $ctxId;
-                }
-    
-                // for the administrator => track all roles
-                if ($uid === $administratorUserId) {
-                    $adminUserRoles['anyRoleContexts'][] = $ctxId;
+                if ($uug->userId === $administratorUserId) {
+                    $administratorMap[$userGroupContextId][] = $roleId;
+                } elseif ($uug->userId === $administeredUserId) {
+                    $administeredMap[$userGroupContextId][] = $roleId;
                 }
             }
         }
-    
-        // perform the same siteAdmin / manager checks
-        if ($administeredUserRoles['siteAdmin']) {
+
+        if (
+            isset($administeredMap[$siteContextId]) &&
+            in_array(Role::ROLE_ID_SITE_ADMIN, $administeredMap[$siteContextId], true)
+        ) {
             return self::ADMINISTRATION_PROHIBITED;
         }
-        if ($adminUserRoles['siteAdmin']) {
+
+        // if administrator user is site admin => FULL
+        if (
+            isset($administratorMap[$siteContextId]) &&
+            in_array(Role::ROLE_ID_SITE_ADMIN, $administratorMap[$siteContextId], true)
+        ) {
             return self::ADMINISTRATION_FULL;
         }
 
-        $administratorManagerContexts = array_unique($adminUserRoles['managerContexts']);
+        // gather manager contexts for the administrator
+        $administratorManagerContexts = [];
+        foreach ($administratorMap as $ctx => $roles) {
+            if (in_array(Role::ROLE_ID_MANAGER, $roles, true)) {
+                $administratorManagerContexts[] = $ctx;
+            }
+        }
+
         if (empty($administratorManagerContexts)) {
             return self::ADMINISTRATION_PROHIBITED;
         }
-    
-        $administeredUserContexts = array_unique($administeredUserRoles['allContexts']);
+
+        $administeredUserContexts = array_keys($administeredMap);
         $conflictingContexts = array_diff($administeredUserContexts, $administratorManagerContexts);
-    
-        if ($conflictingContexts) {
-            if ($contextId !== null && in_array($contextId, $administratorManagerContexts)) {
+        if (!empty($conflictingContexts)) {
+            if ($contextId !== null && in_array($contextId, $administratorManagerContexts, true)) {
                 return self::ADMINISTRATION_PARTIAL;
             }
             return self::ADMINISTRATION_PROHIBITED;
         }
-    
+
         return self::ADMINISTRATION_FULL;
     }
 

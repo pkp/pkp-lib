@@ -2527,16 +2527,29 @@ msgstr "Submit revisions"
 msgid "workflow.uploadRevisions"
 msgstr "Upload revisions"
 
-msgid "dashboard.acceptOrDeclineRequestDate"
-msgstr "Please accept or decline this request {$date}"
+msgid "dashboard.actions.respondToRequest"
+msgstr "Respond to request"
 
-msgid "dashboard.deadlineForRespondingAcceptOrDecline"
+msgid "dashboard.actions.finishReview"
+msgstr "Finish review"
+
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Please accept or decline this request by {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Request declined on {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Review submitted on {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
 msgstr "Deadline for responding to this request has passed. Please accept or decline this request at the earliest."
 
-msgid "dashboard.completeReviewByDate"
+msgid "dashboard.reviewAssignment.completeReviewByDate"
 msgstr "Please complete this review by {$date}."
 
-msgid "dashboard.deadlineForCompletingReviewHasPassed"
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
 msgstr "Deadline for completing this review has passed. Please complete the review at the earliest."
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"

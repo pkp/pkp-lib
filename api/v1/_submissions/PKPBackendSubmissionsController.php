@@ -585,7 +585,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
-                    break;             
+                    break;
             }
         }
 

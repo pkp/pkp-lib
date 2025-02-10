@@ -475,12 +475,16 @@ class PKPReviewerGridHandler extends GridHandler
         $context = $request->getContext();
         $term = $request->getUserVar('term');
 
-        $reviewerUserGroupIds = UserGroup::withContextIds([$context->getId()])
+        $reviewerUserGroupIds = UserGroup::query()
+            ->withContextIds([$context->getId()])
             ->withRoleIds([Role::ROLE_ID_REVIEWER])
-            ->getIds();
+            ->get()
+            ->pluck('id')
+            ->toArray();
 
-        $users = Repo::user()->getCollector()
-            ->filterExcludeUserGroupIds(iterator_to_array($reviewerUserGroupIds))
+        $users = Repo::user()
+            ->getCollector()
+            ->filterExcludeUserGroupIds($reviewerUserGroupIds)
             ->searchPhrase($term)
             ->getMany();
 

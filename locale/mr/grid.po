@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-10 08:35+0000\n"
+"PO-Revision-Date: 2025-02-11 19:11+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/mr/"
 ">\n"
@@ -265,7 +265,7 @@ msgid "grid.action.editPreparedEmail"
 msgstr "हा ई-मेल मजकूर (टेम्पलेट) संपादित करा"
 
 msgid "grid.action.disableEmail"
-msgstr "हा ई-मेल मजकूर (टेम्पलेट) निष्क्रिय करा (Disable)"
+msgstr "हा ई-मेल मजकूर (टेम्पलेट) अकार्यान्वित (disable) करा"
 
 msgid "grid.action.expandAll"
 msgstr "सगळ्यांचाच विस्तार (Expand) करा"
@@ -280,7 +280,7 @@ msgid "grid.action.removeUserGroup"
 msgstr "हा वापरकर्ता गट वगळा"
 
 msgid "grid.action.disable"
-msgstr "निष्क्रिय करा (Disable)"
+msgstr "अकार्यान्वित (disable) करा"
 
 msgid "grid.action.details"
 msgstr "हा आयटम पहा"
@@ -569,7 +569,7 @@ msgid "grid.plugin.allCategories"
 msgstr "सगळे प्रवर्ग (Categories)"
 
 msgid "grid.plugin.disable"
-msgstr "तुम्हाला हा प्लग-इन निष्क्रिय करायचा आहे का?"
+msgstr "तुम्हाला हा प्लग-इन अकार्यान्वित (disable) करायचा आहे का?"
 
 msgid "grid.action.fileUnconsider"
 msgstr "मुद्रित शोधन दुरुस्त्या झालेल्या आहेत. तुम्ही हे काम रद्द करू शकता"

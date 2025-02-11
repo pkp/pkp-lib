@@ -528,24 +528,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         $context = $this->get($context->getId());
 
-        $locales = array_merge(
-            Arr::wrap($context->getData('primaryLocale')),
-            $context->getData('supportedLocales')
-        );
-        foreach(ReviewerRecommendation::seedableRecommendations() as $recommendationValue => $translatableKey) {
-            ReviewerRecommendation::create([
-                'contextId' => $context->getId(),
-                'value' => $recommendationValue,
-                'status' => 1,
-                'title' => collect($locales)
-                    ->mapWithKeys(
-                        fn (string $locale): array => [
-                            $locale => Locale::get($translatableKey, [], $locale)
-                        ]
-                    )
-                    ->toArray(),
-            ]);
-        }
+        Repo::reviewerRecommendation()->addDefaultRecommendations($context);
 
         // Move uploaded files into place and update the settings
         $supportedLocales = $context->getSupportedFormLocales();

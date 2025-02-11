@@ -73,17 +73,17 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
         $contextSupportedLocales = DB::table($this->recommendationInstallMigration->contextTable())
             ->select($this->recommendationInstallMigration->contextPrimaryKey())
             ->addSelect([
-                "supportedLocales" => DB::table($this->recommendationInstallMigration->settingTable())
-                    ->select("setting_value")
+                'supportedLocales' => DB::table($this->recommendationInstallMigration->settingTable())
+                    ->select('setting_value')
                     ->whereColumn(
                         $this->recommendationInstallMigration->contextPrimaryKey(),
                         "{$this->recommendationInstallMigration->contextTable()}.{$this->recommendationInstallMigration->contextPrimaryKey()}"
                     )
-                    ->where("setting_name", "supportedLocales")
+                    ->where('setting_name', 'supportedLocales')
                     ->limit(1)
             ])
             ->get()
-            ->pluck("supportedLocales", $this->recommendationInstallMigration->contextPrimaryKey())
+            ->pluck('supportedLocales', $this->recommendationInstallMigration->contextPrimaryKey())
             ->filter()
             ->map(fn($locales) => json_decode($locales));
 

@@ -42,7 +42,9 @@
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
 		"platform": {
-			"php": "8.2.0"
+			"php": "8.2.0",
+			"ext-xml": "*",
+			"ext-mbstring": "*"
 		},
 		"allow-plugins": {
 			"cweagans/composer-patches": true,

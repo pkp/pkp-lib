@@ -4,6 +4,7 @@
 		"ext-zip": "*",
 		"ext-xml": "*",
 		"ext-mbstring": "*",
+		"ext-intl": "*",
 		"altcha-org/altcha": "^0.1.2",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",

@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-10 08:35+0000\n"
+"PO-Revision-Date: 2025-02-11 19:11+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "mr/>\n"
@@ -415,13 +415,13 @@ msgid "admin.settings.sharedReviewerStatistics"
 msgstr "समीक्षकांसंबंधीची आकडेवारी"
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
-msgstr "समीक्षकांची एकत्रित आकडेवारी पुरवण्याची सोय बंद करा"
+msgstr "समीक्षकांची एकत्रित आकडेवारी पुरवण्याची सोय अकार्यान्वित (disable) करा"
 
 msgid "admin.settings.restrictBulkEmails"
 msgstr "एकाच वेळी अनेकांना पाठवायच्या एकाच मजकूराच्या ई-मेल्सवर मर्यादा घाला"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "भूमिकांवर मर्यादा घाला (Disable Roles)"
+msgstr "भूमिका अकार्यान्वित (disable) करा"
 
 msgid "admin.settings.siteLanguage"
 msgstr "संकेतस्थळाची भाषा"
@@ -603,7 +603,7 @@ msgstr ""
 msgid "admin.languages.cantDisable"
 msgstr ""
 "या संकेतस्थळाची प्राथमिक भाषा या लोकॅलप्रमाणे आहे. दुसर्‍या लोकॅलची निवड "
-"केल्याशिवाय ती तुम्हाला अक्षम करता येणार नाही."
+"केल्याशिवाय ती तुम्हाला अकार्यान्वित (disable) करता येणार नाही."
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""

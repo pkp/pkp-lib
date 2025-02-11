@@ -45,5 +45,7 @@ module.exports = defineConfig({
     experimentalRunAllSpecs: true,
   },
   // Allow cypress to interact with iframes
-  chromeWebSecurity: false
+  chromeWebSecurity: false,
+  viewportWidth: 3024,
+  viewportHeight: 1964
 })

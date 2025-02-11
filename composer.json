@@ -45,6 +45,7 @@
 	"config": {
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
+		"platform-check": true,
 		"platform": {
 			"php": "8.2.0"
 		},

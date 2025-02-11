@@ -1,6 +1,9 @@
 {
 	"require": {
 		"php": "^8.2",
+		"ext-zip": "*",
+		"ext-xml": "*",
+		"ext-mbstring": "*",
 		"altcha-org/altcha": "^0.1.2",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",
@@ -42,9 +45,7 @@
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
 		"platform": {
-			"php": "8.2.0",
-			"ext-xml": "*",
-			"ext-mbstring": "*"
+			"php": "8.2.0"
 		},
 		"allow-plugins": {
 			"cweagans/composer-patches": true,

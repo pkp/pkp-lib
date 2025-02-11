@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-10 08:35+0000\n"
+"PO-Revision-Date: 2025-02-11 19:11+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -100,7 +100,7 @@ msgid "common.re"
 msgstr "Re:"
 
 msgid "common.disable"
-msgstr "अक्षम करा"
+msgstr "अकार्यान्वित (disable) करा"
 
 msgid "common.downloadPdf"
 msgstr "पीडीएफ डाउनलोड करा"
@@ -286,7 +286,7 @@ msgid "common.disconnected"
 msgstr "संबंध विलग केले (Disconnected)"
 
 msgid "common.disabled"
-msgstr "अक्षम केले"
+msgstr "अकार्यान्वित (disable) केले"
 
 msgid "common.discipline"
 msgstr "ज्ञानशाखा"

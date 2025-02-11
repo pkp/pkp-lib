@@ -186,7 +186,10 @@ class Schema extends \PKP\core\maps\Schema
                                 'recommendOnly' => (bool) $userGroup->recommendOnly,
                                 'dateStart' => UserUserGroup::withUserId($user->getId())
                                     ->withUserGroupIds([$userGroup->id])
-                                    ->pluck('date_start')->first()
+                                    ->pluck('date_start')->first(),
+                                'dateEnd' => UserUserGroup::withUserId($user->getId())
+                                    ->withUserGroupIds([$userGroup->id])
+                                    ->pluck('date_end')->first(),
                             ];
                         }
                     }

@@ -16,7 +16,6 @@ namespace PKP\submission\reviewer\recommendation;
 
 use APP\facades\Repo;
 use APP\core\Application;
-use Exception;
 use PKP\core\traits\ModelWithSettings;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -76,21 +75,6 @@ class ReviewerRecommendation extends Model
     }
 
     /**
-     * Get default recommendation seed data
-     */
-    public static function seedableRecommendations(): array
-    {
-        return [
-            1 => 'reviewer.article.decision.accept', // SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT
-            2 => 'reviewer.article.decision.pendingRevisions', // SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS
-            3 => 'reviewer.article.decision.resubmitHere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE
-            4 => 'reviewer.article.decision.resubmitElsewhere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE
-            5 => 'reviewer.article.decision.decline', // SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE
-            6 => 'reviewer.article.decision.seeComments', // SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS
-        ];
-    }
-
-    /**
      * @copydoc \PKP\core\traits\ModelWithSettings::getSchemaName
      */
     public static function getSchemaName(): ?string
@@ -138,7 +122,12 @@ class ReviewerRecommendation extends Model
                     ->orderBy($this->getKeyName(), 'desc')
                     ->first()?->value ?? 0;
                 
-                return $lastRecommendationValue + 1;
+                $lastDefaultRecommendationValue = last(array_keys(Repo::reviewerRecommendation()->getDefaultRecommendations()));
+
+                return ($lastRecommendationValue >= $lastDefaultRecommendationValue 
+                    ? $lastRecommendationValue 
+                    : $lastDefaultRecommendationValue
+                ) + 1;
             }
         );
     }

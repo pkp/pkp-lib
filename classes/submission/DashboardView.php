@@ -34,13 +34,13 @@ class DashboardView
     public const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
     public const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
     public const TYPE_REVIEWS_OVERDUE = 'reviews-overdue';
+    public const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
+    public const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
     public const TYPE_COPYEDITING = 'copyediting';
     public const TYPE_PRODUCTION = 'production';
     public const TYPE_SCHEDULED = 'scheduled';
     public const TYPE_PUBLISHED = 'published';
     public const TYPE_DECLINED = 'declined';
-    public const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
-    public const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
     public const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
     public const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
     public const TYPE_REVIEWER_ASSIGNMENTS_PENDING = 'reviewer-assignments-pending';

@@ -1,8 +1,9 @@
 # Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>, 2025.
+# Sara Ellen Gaup <sara.e.gaup@uit.no>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-29 17:28+0000\n"
-"Last-Translator: Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>\n"
+"PO-Revision-Date: 2025-02-13 11:50+0000\n"
+"Last-Translator: Sara Ellen Gaup <sara.e.gaup@uit.no>\n"
 "Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/se/>\n"
 "Language: se\n"
@@ -56,3 +57,6 @@ msgstr ""
 
 msgid "user.affiliation"
 msgstr "Instituvnnálaš gullevašvuohta"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Sádde čállosa sisa"

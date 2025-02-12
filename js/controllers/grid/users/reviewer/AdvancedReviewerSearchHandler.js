@@ -40,8 +40,6 @@
 
         this.bind('refreshForm', this.handleRefresh_);
 
-		// TODO : Not Working as intended to
-		// 		  we can get the editor but there is a flicker and content set to editor and then reset
 		if ($container.find('input#reviewerId').val()) {
             this.initializeTinyMCE();
             this.handleReviewerAssign_($container, options, {
@@ -117,14 +115,11 @@
 			$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
 		}
 
-		// TODO : 	an ugly work around to handle the empty editor issue after a flicker, 
-		// 			need some help to figure it out.
-		setTimeout(() => {
-			console.log(editor.getContent().length);
+		editor.on('activate', function () {
 			if (!editor.getContent().length) {
 				editor.setContent(templateContent);
 			}
-		}, 2000);
+		});
 
 		// Select the right template option to correspond
 		// the one, which is set in TinyMCE

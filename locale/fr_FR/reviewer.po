@@ -1,11 +1,11 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2024-07-03 21:39+0000\n"
+"PO-Revision-Date: 2025-02-14 16:50+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "fr_FR/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
-msgstr "1. Requête"
+msgstr "1. Demande"
 
 msgid "reviewer.reviewSteps.guidelines"
 msgstr "2. Lignes directrices"
@@ -29,7 +29,7 @@ msgid "reviewer.reviewSteps.completion"
 msgstr "4. Terminer"
 
 msgid "reviewer.step1.request"
-msgstr "Requête d'examen"
+msgstr "Demande d’évaluation"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
@@ -45,7 +45,7 @@ msgid "reviewer.submission.reviewerFiles"
 msgstr "Fichiers du rapporteur"
 
 msgid "reviewer.submission.declineReview"
-msgstr "Refuser la requête d'examen"
+msgstr "Refuser la demande d’évaluation"
 
 msgid "reviewer.submission.declineReviewMessage"
 msgstr ""

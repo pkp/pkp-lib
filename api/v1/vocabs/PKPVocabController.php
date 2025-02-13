@@ -125,7 +125,7 @@ class PKPVocabController extends PKPBaseController
                 ->withLocales([$locale])
                 ->when(
                     $term,
-                    fn ($query) => $query->withSetting($vocab, $term, ControlledVocabEntryMatch::PARTIAL)
+                    fn ($query) => $query->withSetting('name', $term, ControlledVocabEntryMatch::PARTIAL)
                 )
                 ->get();
         } else {
@@ -133,12 +133,17 @@ class PKPVocabController extends PKPBaseController
             Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
         }
 
-        $data = [];
-        foreach ($entries as $entry) {
-            $data[] = $entry->getLocalizedData('name', $locale);
-        }
+        $data = collect($entries)
+            ->map(fn (ControlledVocabEntry $entry): array => $entry->getEntryData($locale))
+            ->unique(fn (array $entryData): string => 
+                ($entryData[ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_IDENTIFIER] ?? '') .
+                ($entryData[ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_SOURCE] ?? '') .
+                $entryData['name']
+            )
+            ->values()
+            ->toArray();
 
-        $data = array_values(array_unique($data));
+        Hook::run('API::vocabs::external', [$vocab, $term, $locale, &$data, &$entries, $illuminateRequest, response(), $request]);
 
         return response()->json($data, Response::HTTP_OK);
     }

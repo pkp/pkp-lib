@@ -1,7 +1,7 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-03-31 01:24+0000\n"
+"PO-Revision-Date: 2025-01-27 23:50+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -346,3 +346,9 @@ msgstr "Bu resmi yüklerken bir hata oluştu."
 
 msgid "api.highlights.400.noOrderData"
 msgstr "Sipariş bilgileri bulunamadığı için Highlight siparişi kaydedilemedi."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Bu ögeye bir DOI atanamaz."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr "Bir veya daha fazla vurgu bulunamadığı için vurgu sırası kaydedilemedi."

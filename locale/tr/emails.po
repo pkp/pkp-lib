@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2025-01-27 23:50+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "tr/>\n"
@@ -177,6 +177,14 @@ msgstr "Aday makaleniz için yeni bir değerlendirme turu başlatıldı"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
+"<p>Sayın {$recipientName},</p>\n"
+"<p>{$submissionTitle} başlıklı aday makaleniz yeni bir değerlendirme turuna "
+"gönderilmiştir. \n"
+"Yeni değerlendirme turu tamamlandığında tarafınıza dönüş sağlanacaktır.</p>\n"
+"<p>Eğer her hangi bir sorunuz varsa <a href=\"{$authorSubmissionUrl}\""
+">değerlendirme ekranı</a> tartışma kısmından iletişime geçebilirsiniz.</p>\n"
+"<p>Saygılarımla,</p>\n"
+"<p>{$signature}</p>\n"
 
 msgid "emails.editorDecisionRevertDecline.subject"
 msgstr "Makalenizin reddedilmesi kararı geri alınmıştır"
@@ -240,12 +248,21 @@ msgstr ""
 
 msgid "emails.footer.unsubscribe"
 msgstr ""
+"<br><br>—<br><a href=\"{$contextUrl}\">{$contextName}</a> tarafından "
+"gönderilen e-postalar için <a href=\"{$unsubscribeUrl}\">Abonelikten Çık</a>."
 
 msgid "emails.footer.unsubscribe.discussion"
 msgstr ""
+"<br><br>—<br>Bu yorumu <a href=\"{$submissionUrl}\">#{$submissionId} "
+"{$authorsShort}</a> bağlantısı üzerinden yanıtlayın veya <a href=\""
+"{$contextUrl}\">{$contextName}</a> tarafından gönderilen e-posta <a href=\""
+"{$unsubscribeUrl}\">Aboneliğinden Çıkın</a>."
 
 msgid "emails.footer.unsubscribe.automated"
 msgstr ""
+"<br><br>—<br>Bu e-posta <a href=\"{$contextUrl}\">{$contextName}</a> sistemi "
+"tarafından otomatik gönderilmiştir. Dilediğiniz zaman bu e-posta <a href=\""
+"{$unsubscribeUrl}\">aboneliğinden çıkabilirsiniz</a>."
 
 msgid "emailTemplate.variable.unsubscribe"
 msgstr "Bu bağlantı e-posta aboneliğinden çıkmak içindir."
@@ -264,19 +281,22 @@ msgstr ""
 
 msgid "emails.reviewComplete.subject"
 msgstr ""
+"Değerlendirme tamamlandı: {$reviewerName}. Öneri: {$reviewRecommendation}. "
+"#{$submissionId} {$authorsShort} — {$submissionTitle}"
 
 msgid "emails.reviewComplete.body"
 msgstr ""
 
 msgid "emails.reviewEdit.subject"
-msgstr ""
+msgstr "{$contextName} için değerlendirme süreniz değiştirildi."
 
 msgid "emails.reviewEdit.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.reviewConfirm.subject"
-msgstr "Değerlendirmeyi Yapacağım"
+msgstr ""
+"Değerlendirme talei kabul: {$reviewerName} değerlendirmeyi kabul etti. "
+"#{$submissionId} {$authorsShort} — {$submissionTitle}"
 
 #, fuzzy
 msgid "emails.reviewConfirm.body"

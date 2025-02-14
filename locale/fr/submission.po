@@ -1,7 +1,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 msgid ""
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2024-07-16 14:18+0000\n"
-"Last-Translator: Kay <kay.pepping@huygens.knaw.nl>\n"
+"PO-Revision-Date: 2025-02-05 18:43+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -1932,7 +1932,7 @@ msgid "submission.actionNeeded"
 msgstr "Action requise"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Fichiers d'évaluation"
+msgstr "Fichiers à évaluer"
 
 msgid "submission.submit.currentFile"
 msgstr "Fichier en cours"
@@ -2063,7 +2063,7 @@ msgid "notification.type.revertDecline"
 msgstr "La décision de refuser cette soumission à été annulée."
 
 msgid "grid.reviewAttachments.title"
-msgstr "Pièces jointes du rapporteur"
+msgstr "Pièces jointes de l'évaluation"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr "Sélectionner les rapports à partager avec l'auteur·e"

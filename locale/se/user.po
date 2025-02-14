@@ -1,0 +1,62 @@
+# Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>, 2025.
+# Sara Ellen Gaup <sara.e.gaup@uit.no>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-02-13 11:50+0000\n"
+"Last-Translator: Sara Ellen Gaup <sara.e.gaup@uit.no>\n"
+"Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"user/se/>\n"
+"Language: se\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 2) ? 1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.familyName"
+msgstr "Goargu"
+
+msgid "user.login.registerNewAccount"
+msgstr "Registrere iežat"
+
+msgid "user.givenName"
+msgstr "Ovdanamma"
+
+msgid "user.login.forgotPassword"
+msgstr "Leat go vajáldahttán beassansáni?"
+
+msgid "user.username"
+msgstr "Geavaheaddjinamma"
+
+msgid "user.repeatPassword"
+msgstr "Gearddut beassansáni"
+
+msgid "user.login"
+msgstr "Sisabeassan"
+
+msgid "user.password"
+msgstr "Beassansátni"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Doalat mu sisaloggema"
+
+msgid "user.register.form.emailConsent"
+msgstr "Juo, áinnas háliidan dieđuid ođđa nummiriid ja almmuhusaid."
+
+msgid "user.register"
+msgstr "Registrere iežat"
+
+msgid "user.profile"
+msgstr "Profiila"
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Juo, mun dohkkehan ahte dieđut mu birra čohkkejuvvojit ja vurkejuvvojit <a "
+"href=\"{$privacyUrl}\" target=\"_blank\">persovdnasuodjalus-cealkámuša</a> "
+"olis."
+
+msgid "user.affiliation"
+msgstr "Instituvnnálaš gullevašvuohta"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Sádde čállosa sisa"

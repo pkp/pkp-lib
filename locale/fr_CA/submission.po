@@ -1,14 +1,14 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
-# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"PO-Revision-Date: 2025-01-25 07:54+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
@@ -2815,3 +2815,6 @@ msgid "submission.query.allowedEditTime"
 msgstr ""
 "Vous pouvez mettre à jour cette discussion pour {$allowedEditTimeNoticeLimit}"
 " minutes."
+
+msgid "submission.author.list"
+msgstr "Liste des auteurs-es de la soumission"

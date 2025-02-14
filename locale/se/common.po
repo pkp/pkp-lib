@@ -1,8 +1,8 @@
-# Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>, 2024.
+# Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>, 2024, 2025.
 # Sara Ellen Gaup <sara.e.gaup@uit.no>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-12-18 14:05+0000\n"
+"PO-Revision-Date: 2025-01-30 21:50+0000\n"
 "Last-Translator: Karl Magnus Nilsen <karl.magnus.nilsen@uit.no>\n"
 "Language-Team: Sami (Northern) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/se/>\n"
@@ -96,3 +96,9 @@ msgstr ", "
 
 msgid "navigation.breadcrumbSeparator"
 msgstr "/"
+
+msgid "common.country"
+msgstr "Riika"
+
+msgid "user.email"
+msgstr "E-poastačujuhus"

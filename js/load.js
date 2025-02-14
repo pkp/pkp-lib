@@ -114,7 +114,7 @@ import FieldTextarea from '@/components/Form/fields/FieldTextarea.vue';
 import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
-import Category from '@/components/Category/Category.vue';
+import Category from '@/managers/CategoryManager/Category.vue';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';

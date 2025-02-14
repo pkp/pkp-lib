@@ -17,7 +17,10 @@
 namespace PKP\components;
 
 use APP\core\Application;
+use APP\file\PublicFileManager;
+use PKP\components\forms\context\CategoryForm;
 use PKP\context\Context;
+use PKP\facades\Locale;
 use PKP\facades\Repo;
 
 class CategoryPage
@@ -33,30 +36,28 @@ class CategoryPage
 
     }
 
-    public function getConfig()
+    public function getConfig(): array
     {
-        $config = [];
 
-        $config = array_merge(
-            $config,
-            [
-                'apiUrl' => $this->getCategoriesApiUrl(),
-                'categories' => $this->getCategories(),
-            ]
-        );
+        $config = [
+            'apiUrl' => $this->getCategoriesApiUrl(),
+            'categories' => $this->getCategories(),
+            'primaryLocale' => Locale::getLocale(),
+            'columns' => $this->getComponentTableColumns(),
+            'categoryForm' => $this->getCategoryForm()->getConfig(),
+        ];
 
         return $config;
     }
 
     protected function getCategoriesApiUrl(): string
     {
-        return
-            Application::get()->getRequest()->getDispatcher()->url(
-                Application::get()->getRequest(),
-                Application::ROUTE_API,
-                $this->context->getPath(),
-                'categories'
-            );
+        return Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_API,
+            $this->context->getPath(),
+            'categories'
+        );
     }
 
     protected function getCategories()
@@ -68,5 +69,34 @@ class CategoryPage
             ->getMany()->all())->map(function ($category) {
                 return Repo::category()->getSchemaMap()->map($category);
             })->values();
+    }
+
+    private function getComponentTableColumns(): array
+    {
+        return [
+            [
+                'name' => 'Category Name',
+                'label' => 'Category Name',
+            ],
+            [
+                'name' => 'Assigned To',
+                'label' => 'Assigned To',
+            ]
+        ];
+    }
+
+    private function getCategoryForm(): CategoryForm
+    {
+        $request = Application::get()->getRequest();
+        $locales = $this->context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        $publicFileManager = new PublicFileManager();
+
+
+        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($this->context->getId()) . '/categories';
+        $dispatcher = $request->getDispatcher();
+        $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $this->context->getPath(), 'temporaryFiles');
+
+        return new CategoryForm($this->getCategoriesApiUrl(), $locales, $baseUrl, $temporaryFileApiUrl);
     }
 }

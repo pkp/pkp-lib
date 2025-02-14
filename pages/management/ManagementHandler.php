@@ -354,7 +354,7 @@ class ManagementHandler extends Handler
         $this->setupTemplate($request);
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
-        $publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
+        $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
 

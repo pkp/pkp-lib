@@ -391,7 +391,7 @@ class ManagementHandler extends Handler
         $dispatcher = $request->getDispatcher();
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
-        $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
+        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'announcements');
 
         $locales = $this->getSupportedFormLocales($context);
 
@@ -404,7 +404,7 @@ class ManagementHandler extends Handler
             $context
         );
 
-        $announcements = Announcement::withContextIds([$request->getContext()->getId()]);
+        $announcements = Announcement::withContextIds([$context->getId()]);
 
         $itemsMax = $announcements->count();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
@@ -418,7 +418,7 @@ class ManagementHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $announcementForm,
                 'getParams' => [
-                    'contextIds' => [$request->getContext()->getId()],
+                    'contextIds' => [$context->getId()],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

@@ -365,7 +365,8 @@ class ManagementHandler extends Handler
             $locales,
             Repo::announcement()->getFileUploadBaseUrl($context),
             $this->getTemporaryFileApiUrl($context),
-            $request->getContext(),  $publicFileApiUrl
+            $publicFileApiUrl,
+            $context
         );
 
         $collector = Repo::announcement()

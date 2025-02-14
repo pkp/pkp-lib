@@ -15,9 +15,10 @@
 namespace PKP\category\maps;
 
 use APP\core\Application;
+use App\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\category\Category;
-use PKP\facades\Repo;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
@@ -91,6 +92,18 @@ class Schema extends \PKP\core\maps\Schema
                         })->values();
                     }
 
+                    break;
+                case 'assignedSubeditors':
+                    $output['assignedSubeditors'] = Repo::user()
+                        ->getCollector()
+                        ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                        ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])
+                        ->assignedToCategoryIds([$category->getId()])
+                        ->getIds()
+                        ->toArray();
+                    break;
+                case 'image':
+                    $output['image'] = $category->getImage();
                     break;
                 default:
                     $output[$prop] = $category->getData($prop);

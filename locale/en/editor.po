@@ -295,6 +295,9 @@ msgstr "Review Confirmed"
 msgid "editor.review.reviewSubmitted"
 msgstr "Review Submitted"
 
+msgid "editor.review.reviewViewed"
+msgstr "Review Viewed"
+
 msgid "editor.review.reviewerThanked"
 msgstr "Reviewer Thanked"
 

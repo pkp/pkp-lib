@@ -1,7 +1,6 @@
 # Open Preprint Systems
 
 [![Build Status](https://github.com/pkp/ops/actions/workflows/main.yml/badge.svg)](https://github.com/pkp/ops/actions/workflows/main.yml)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pkp/ops/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/pkp/ops/?branch=main)
 
 Open Preprint Systems (OPS) is open source software developed by the [Public Knowledge Project](https://pkp.sfu.ca/) to manage a preprint server. [Learn More](https://pkp.sfu.ca/software/ops/)
 

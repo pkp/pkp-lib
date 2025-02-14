@@ -198,6 +198,7 @@ class AdminHandler extends Handler
         $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'temporaryFiles');
         $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'announcements');
+        $publicFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, '_uploadPublicFile');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -216,7 +217,7 @@ class AdminHandler extends Handler
         $siteStatisticsForm = new PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
         $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
-        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::Announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
+        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl, $publicFileApiUrl);
         $announcementsListPanel = $this->getAnnouncementsListPanel($announcementsApiUrl, $announcementsForm);
 
         $templateMgr = TemplateManager::getManager($request);

@@ -1,0 +1,2310 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-02-13 11:50+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tहे काम <a rel=\"license\" target=\"_blank\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  "
+"License</a> अंतर्गत परवानाकृत आहे.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tहे काम <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/"
+"3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a> अंतर्"
+"गत परवानाकृत आहे.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.currentStyleSheet"
+msgstr "सध्याचे शैलीपत्रक (Stylesheet)"
+
+msgid "about.contact.supportContact"
+msgstr "मदतीकरता संपर्क"
+
+msgid "common.navigation.sidebar"
+msgstr "कडेच्या पट्टीवर (साइडबार)"
+
+msgid "common.dateCompleted"
+msgstr "पूर्ण झाल्याची तारीख"
+
+msgid "common.none"
+msgstr "कोणालाही नाही/काहीही नाही"
+
+msgid "common.submenu"
+msgstr "दुव्यांची उप-यादी (Submenu)"
+
+msgid "common.attachedFiles"
+msgstr "जोडलेल्या फाईल्स"
+
+msgid "common.dateRequested"
+msgstr "विनंती केल्याची तारीख"
+
+msgid "common.notAvailable"
+msgstr "उपलब्ध नाही"
+
+msgid "common.order"
+msgstr "क्रम (ऑर्डर)"
+
+msgid "common.deactivate"
+msgstr "निष्क्रिय करा"
+
+msgid "common.subtitle"
+msgstr "उपशीर्षक"
+
+msgid "common.deleteSelection"
+msgstr "निवडलेले हटवा"
+
+msgid "common.pagination.label"
+msgstr "अतिरिक्त पृष्ठे पहा"
+
+msgid "common.deselect"
+msgstr "निवड रद्द करा"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "उदाहरणे : A, The"
+
+msgid "common.suggest"
+msgstr "सुचवा (Suggest)"
+
+msgid "common.description"
+msgstr "वर्णन"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.disable"
+msgstr "अकार्यान्वित (disable) करा"
+
+msgid "common.downloadPdf"
+msgstr "पीडीएफ डाउनलोड करा"
+
+msgid "common.edit"
+msgstr "संपादित करा"
+
+msgid "common.editItem"
+msgstr "{$name} संपादित करा"
+
+msgid "common.enable"
+msgstr "कार्यान्वित करा (enable)"
+
+msgid "common.fullscreen"
+msgstr "पूर्णस्क्रीन पद्धत"
+
+msgid "common.readMoreWithTitle"
+msgstr "{$title} बद्दल अधिक वाचा"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.related"
+msgstr "संबंधित"
+
+msgid "common.highlights"
+msgstr "प्रमुख मुद्दे (Highlights)"
+
+msgid "common.remote"
+msgstr "दूरस्थ (रिमोट)"
+
+msgid "common.replaceFile"
+msgstr "फाईल बदला"
+
+msgid "common.searchQuery"
+msgstr "शोध पृच्छा (क्वेरी)"
+
+msgid "common.selectedPrefix"
+msgstr "निवडलेले :"
+
+msgid "common.lessThanOnly"
+msgstr "हून कमी"
+
+msgid "common.month"
+msgstr "महिना"
+
+msgid "common.moreThan"
+msgstr "{$value} किंवा त्याहून अधिक"
+
+msgid "common.showAllSteps"
+msgstr "सगळ्या पायऱ्या दाखवा"
+
+msgid "about.description"
+msgstr "वर्णन"
+
+msgid "about.guidelines"
+msgstr "मार्गदर्शक"
+
+msgid "about.aboutSite"
+msgstr "संकेतस्थळाबद्दल"
+
+msgid "about.contact"
+msgstr "संपर्क"
+
+msgid "about.contact.email"
+msgstr "ई-मेल"
+
+msgid "about.contact.phone"
+msgstr "फोन"
+
+msgid "about.contact.principalContact"
+msgstr "प्रमुख संपर्क"
+
+msgid "about.other"
+msgstr "इतर"
+
+msgid "about.people"
+msgstr "समुदाय"
+
+msgid "about.policies"
+msgstr "धोरणे"
+
+msgid "about.siteMap"
+msgstr "संकेतस्थळाचा नकाशा"
+
+msgid "announcement.announcements"
+msgstr "घोषणा"
+
+msgid "announcement.announcementsHome"
+msgstr "घोषणा"
+
+msgid "announcement.moreAnnouncements"
+msgstr "अधिक सूचना..."
+
+msgid "announcement.posted"
+msgstr "जाहीर केलेल्या"
+
+msgid "announcement.postedOn"
+msgstr "{$postDate} रोजी जाहीर केलेल्या"
+
+msgid "announcement.view"
+msgstr "सूचना पहा"
+
+msgid "common.allDownloads"
+msgstr "सगळे डाउनलोड्स"
+
+msgid "common.navigation.site"
+msgstr "संकेतस्थळावरील मार्गनिर्देशन दुवे (Navigation)"
+
+msgid "common.navigation.user"
+msgstr "वापरकर्त्याने निवडलेली संकेतस्थळावरील संचरणपद्धत (Navigation)"
+
+msgid "common.tasks"
+msgstr "कार्ये"
+
+msgid "common.list"
+msgstr "यादी"
+
+msgid "common.grid"
+msgstr "ग्रिड"
+
+msgid "common.abstract"
+msgstr "सारांश"
+
+msgid "common.accepted"
+msgstr "स्वीकारले"
+
+msgid "common.acknowledged"
+msgstr "पोच दिली"
+
+msgid "common.action"
+msgstr "एक कार्यवाही"
+
+msgid "common.activate"
+msgstr "सक्रिय करा"
+
+msgid "common.active"
+msgstr "सक्रिय"
+
+msgid "common.inactive"
+msgstr "निष्क्रिय"
+
+msgid "common.add"
+msgstr "समावेश करा"
+
+msgid "common.addFiles"
+msgstr "फाईल्स अंतर्भूत करा"
+
+msgid "common.addSelf"
+msgstr "मेल प्रतीसाठी स्वतःचा पत्ता लिहा"
+
+msgid "common.attachFiles"
+msgstr "फाईल्स जोडा"
+
+msgid "common.attachSelected"
+msgstr "निवडलेल्या (फाईल्स) जोडा"
+
+msgid "common.name"
+msgstr "नाव"
+
+msgid "common.all"
+msgstr "सगळ्या"
+
+msgid "common.alreadyAssigned"
+msgstr "नियुक्त केलेले"
+
+msgid "common.altText"
+msgstr "पर्यायी मजकूर"
+
+msgid "common.designation"
+msgstr "पदनाम"
+
+msgid "common.details"
+msgstr "तपशील"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} पिक्सेल्स"
+
+msgid "common.discardChanges"
+msgstr "नाही, सेव्ह न केलेले बदल रद्द करा"
+
+msgid "common.disconnected"
+msgstr "संबंध विलग केले (Disconnected)"
+
+msgid "common.disabled"
+msgstr "अकार्यान्वित (disable) केले"
+
+msgid "common.discipline"
+msgstr "ज्ञानशाखा"
+
+msgid "common.done"
+msgstr "पूर्ण केले"
+
+msgid "common.download"
+msgstr "डाउनलोड करा"
+
+msgid "common.downloadReport"
+msgstr "अहवाल डाउनलोड करा"
+
+msgid "common.enabled"
+msgstr "कार्यान्वित केले (enabled)"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "एक अज्ञात डेटाबेस कनेक्शन त्रुटी आढळली आहे."
+
+msgid "common.more"
+msgstr "अधिक"
+
+msgid "common.moreThanOnly"
+msgstr "पेक्षा अधिक"
+
+msgid "common.noneAssigned"
+msgstr "काहीही/कोणालाही नियुक्त केलेले नाही"
+
+msgid "common.noneSelected"
+msgstr "काहीही/कोणालाही निवडलेले नाही"
+
+msgid "common.noneProvided"
+msgstr "काहीही/कोणालाही दिलेले नाही"
+
+msgid "common.no"
+msgstr "नाही"
+
+msgid "common.noComments"
+msgstr "कोणत्याही टिप्पण्या नाहीत"
+
+msgid "common.notApplicable"
+msgstr "लागू नाही"
+
+msgid "common.notApplicableShort"
+msgstr "लागू नाही (N/A)"
+
+msgid "common.note"
+msgstr "टीप"
+
+msgid "common.notes"
+msgstr "टीपा"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"टीपा (पिवळा : नवीन टीपा (नोट्स) आहेत; निळा: टीपा (नोट्स) पाहिल्या आहेत; "
+"राखाडी: टीपा (नोट्स) नाहीत)"
+
+msgid "common.notified"
+msgstr "सूचित केले गेले"
+
+msgid "common.noMatches"
+msgstr "कोणतेही जुळणारे नाहीत"
+
+msgid "common.numberedMore"
+msgstr "{$number} हून अधिक"
+
+msgid "common.off"
+msgstr "बंद"
+
+msgid "common.on"
+msgstr "चालू"
+
+msgid "common.ok"
+msgstr "समाधानकारक"
+
+msgid "common.options"
+msgstr "पर्याय"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} वरच्या क्रमावर घाला"
+
+msgid "common.originalFileName"
+msgstr "मूळ फाईलचे नाव"
+
+msgid "common.or"
+msgstr "किंवा"
+
+msgid "common.other"
+msgstr "इतर"
+
+msgid "common.overdue"
+msgstr "मुदत संपली"
+
+msgid "common.override"
+msgstr "नकाराधिकार"
+
+msgid "common.pagination"
+msgstr "{$total} मधील {$start}-{$end}"
+
+msgid "common.pagination.goToPage"
+msgstr "पान क्र. {$page} वर जा"
+
+msgid "common.pagination.next"
+msgstr "पुढील पृष्ठ"
+
+msgid "common.pagination.previous"
+msgstr "मागील पृष्ठ"
+
+msgid "common.pageNumber"
+msgstr "पृष्ठ क्रमांक {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "प्लग-इन करा"
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" हे प्लगइन अकार्यान्वित (disable) केले आहे."
+
+msgid "common.prefix"
+msgstr "उपसर्ग (Prefix)"
+
+msgid "common.preview"
+msgstr "पूर्वावलोकन"
+
+msgid "common.publisher"
+msgstr "प्रकाशक"
+
+msgid "common.quality"
+msgstr "गुणवत्ता/दर्जा (Quality)"
+
+msgid "common.queue.long.active"
+msgstr "सर्व सक्रिय"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.readMore"
+msgstr "पुढे वाचा"
+
+msgid "common.reconnecting"
+msgstr "पुन्हा जोडत (कनेक्ट करीत) आहे"
+
+msgid "common.record"
+msgstr "नोंद (रेकॉर्ड)"
+
+msgid "common.refresh"
+msgstr "उजाळा द्या (Refresh)"
+
+msgid "common.reminder"
+msgstr "स्मरणपत्र"
+
+msgid "common.reminded.date"
+msgstr "{$dateReminded} या तारखेला स्मरणपत्र पाठवले"
+
+msgid "common.remoteURL"
+msgstr "दूरस्थ (रिमोट) URL"
+
+msgid "common.remove"
+msgstr "काढून टाका"
+
+msgid "common.removeItem"
+msgstr "{$item} काढा"
+
+msgid "common.removeSelection"
+msgstr "निवड हटवा"
+
+msgid "common.replaced"
+msgstr "बदलले"
+
+msgid "common.required"
+msgstr "आवश्यक"
+
+msgid "common.reset"
+msgstr "रीसेट करा"
+
+msgid "common.reviewRoundNumber"
+msgstr "फेरी {$round}"
+
+msgid "common.role"
+msgstr "भूमिका (रोल)"
+
+msgid "common.saveAndContinue"
+msgstr "सेव्ह करा आणि सुरू ठेवा"
+
+msgid "common.saveAndEmail"
+msgstr "सेव्ह करा आणि ई-मेल करा"
+
+msgid "common.save"
+msgstr "सेव्ह करा"
+
+msgid "common.saving"
+msgstr "सेव्ह करीत आहे"
+
+msgid "common.search"
+msgstr "शोधा"
+
+msgid "common.searchPhrase"
+msgstr "शब्दसमूह शोधा"
+
+msgid "common.searching"
+msgstr "शोधत आहे"
+
+msgid "common.clearSearch"
+msgstr "शोध शब्दसमूह काढून टाका"
+
+msgid "common.second"
+msgstr "सेकंद"
+
+msgid "common.selectAll"
+msgstr "सगळेच घ्या/निवडा (Select All)"
+
+msgid "common.selectNone"
+msgstr "काहीही निवडू नका"
+
+msgid "common.select"
+msgstr "निवडा"
+
+msgid "common.selectWithName"
+msgstr "{$name} निवडा"
+
+msgid "common.sendEmail"
+msgstr "ई-मेल पाठवा"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} पायऱ्या"
+
+msgid "common.size"
+msgstr "आकार (Size)"
+
+msgid "common.source"
+msgstr "स्रोत (Source)"
+
+msgid "common.status"
+msgstr "स्थिती (Status)"
+
+msgid "common.subject"
+msgstr "विषय"
+
+msgid "common.subjects"
+msgstr "विषय (अनेक)"
+
+msgid "common.switchToNamedItem"
+msgstr "{$name} वर जा (Switch to)"
+
+msgid "common.switchTo"
+msgstr "वर जा (Switch to)"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"ब्राउझरमध्ये फक्त मजकूर वाचनासाठी किंवा सहाय्यक उपकरणांसह संकेतस्थळाला भेट "
+"देणाऱ्या अभ्यागतांसाठी अक्षराशिवाय असलेल्या मजकूराचे वर्णन करा. उदाहरणार्थ: "
+"\"आमचे संपादक PKP परिषदेत बोलत आहेत.\""
+
+msgid "common.and"
+msgstr "आणि"
+
+msgid "common.applyAction"
+msgstr "कृती लागू करा"
+
+msgid "common.assign"
+msgstr "नियुक्त करा"
+
+msgid "common.assigned"
+msgstr "नियुक्त केलेले"
+
+msgid "common.assigned.date"
+msgstr "{$dateAssigned}: या तारखेला नियुक्त केलेले"
+
+msgid "common.available"
+msgstr "उपलब्ध"
+
+msgid "common.back"
+msgstr "मागे"
+
+msgid "common.between"
+msgstr "मध्ये"
+
+msgid "common.cancel"
+msgstr "रद्द करा"
+
+msgid "common.cancelled"
+msgstr "रद्द केलेले"
+
+msgid "common.warning"
+msgstr "इशारा"
+
+msgid "common.error"
+msgstr "त्रुटी"
+
+msgid "common.notice"
+msgstr "पूर्वसूचना"
+
+msgid "common.changesSaved"
+msgstr "तुमचे बदल सेव्ह केले गेले आहेत."
+
+msgid "common.chooseOne"
+msgstr "एकाची निवड करा"
+
+msgid "common.close"
+msgstr "बंद करा"
+
+msgid "common.closePanel"
+msgstr "पॅनल बंद करा"
+
+msgid "common.closeWindow"
+msgstr "विंडो बंद करा"
+
+msgid "common.complete"
+msgstr "पूर्ण"
+
+msgid "common.completed"
+msgstr "पूर्ण झाले"
+
+msgid "common.completed.date"
+msgstr "{$dateCompleted}: या तारखेला पूर्ण झाले"
+
+msgid "common.confirm"
+msgstr "खात्री करा"
+
+msgid "common.content"
+msgstr "मजकूर"
+
+msgid "common.contents"
+msgstr "अनुक्रम"
+
+msgid "common.continue"
+msgstr "पुढे चालू ठेवा"
+
+msgid "common.copy"
+msgstr "उतरवून घ्या (कॉपी करा)"
+
+msgid "common.country"
+msgstr "देश"
+
+msgid "common.create"
+msgstr "निर्माण करा"
+
+msgid "common.dateDecided"
+msgstr "निर्णयाची तारीख"
+
+msgid "common.date"
+msgstr "तारीख"
+
+msgid "common.dateModified"
+msgstr "बदल केल्याची तारीख"
+
+msgid "common.dateSubmitted"
+msgstr "सादर केल्याची तारीख"
+
+msgid "common.dateUploaded"
+msgstr "संक्रमित (अपलोड) केल्याची तारीख"
+
+msgid "common.dateHijri"
+msgstr "हिजरी कॅलेंडर"
+
+msgid "common.day"
+msgstr "दिवस"
+
+msgid "common.default"
+msgstr "सर्वसाधारण (डीफॉल्ट)"
+
+msgid "common.declined"
+msgstr "नाकारले"
+
+msgid "common.delete"
+msgstr "हटवा"
+
+msgid "common.deleting"
+msgstr "हटवत आहे"
+
+msgid "common.event"
+msgstr "उपक्रम (इव्हेंट)"
+
+msgid "common.export"
+msgstr "स्थानांतर करा (Export)"
+
+msgid "common.finish"
+msgstr "समाप्त"
+
+msgid "common.fullscreenOff"
+msgstr "पूर्णस्क्रीन प्रदर्शन नको"
+
+msgid "common.false"
+msgstr "भ्रामक (FALSE)"
+
+msgid "common.file"
+msgstr "फाईल"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "फाईलचे नाव"
+
+msgid "common.fileSize"
+msgstr "फाईलचा आकार"
+
+msgid "common.fileType"
+msgstr "फाईलचा प्रकार"
+
+msgid "common.filter"
+msgstr "फिल्टर्स"
+
+msgid "common.filterAdd"
+msgstr "{$filterTitle}: फिल्टर समाविष्ट करा (Add)"
+
+msgid "common.filterRemove"
+msgstr "{$filterTitle}: फिल्टर मोकळा करा (Clear)"
+
+msgid "common.findTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) शोधा"
+
+msgid "common.formatting"
+msgstr "फॉरमॅटिंग"
+
+msgid "common.geographic"
+msgstr "भौगोलिक"
+
+msgid "common.go"
+msgstr "प्रयत्न करा (Go)"
+
+msgid "common.height"
+msgstr "उंची"
+
+msgid "common.highlight"
+msgstr "ठळक करा (Highlight)"
+
+msgid "common.homepageNavigationLabel"
+msgstr "मुख्यपृष्ठ"
+
+msgid "common.hour"
+msgstr "तास"
+
+msgid "common.id"
+msgstr "आयडी (ID)"
+
+msgid "common.import"
+msgstr "दाखल करुन घ्या (Import)"
+
+msgid "common.initiate"
+msgstr "सुरुवात करा"
+
+msgid "common.inProgress"
+msgstr "प्रगतीपथावर"
+
+msgid "common.insert"
+msgstr "समाविष्ट करा"
+
+msgid "common.insertContent"
+msgstr "मजकूर समाविष्ट करा"
+
+msgid "common.itemsPerPage"
+msgstr "प्रत्येक पानागणिक आयटम्स"
+
+msgid "common.keywords"
+msgstr "सूचक शब्द (की-वर्ड)"
+
+msgid "common.label"
+msgstr "लेबल"
+
+msgid "common.language"
+msgstr "भाषा"
+
+msgid "common.languages"
+msgstr "भाषा (अनेक)"
+
+msgid "common.lastActivity"
+msgstr "{$date} रोजी सक्रियता (activity) असल्याची शेवटची नोंद आहे."
+
+msgid "common.less"
+msgstr "कमी"
+
+msgid "common.lessThan"
+msgstr "{$value} किंवा त्यापेक्षा कमी"
+
+msgid "common.keepWorking"
+msgstr "कार्यरत रहा"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "व्यवस्थापित करा"
+
+msgid "common.mailingAddress"
+msgstr "टपाल पत्ता"
+
+msgid "common.minute"
+msgstr "मिनिट/मिनिटे"
+
+msgid "common.modify"
+msgstr "फेरफार करा"
+
+msgid "common.publicKnowledgeProject"
+msgstr "पब्लिक नॉलेज प्रॉजेक्ट"
+
+msgid "announcement.noneExist"
+msgstr "कोणत्याही सूचना प्रकाशित झालेल्या नाहीत."
+
+msgid "common.navigation.siteContext"
+msgstr ""
+"संकेतस्थळावरील संदर्भ संगतीनुसार मार्गनिर्देशन दुवे (Context Navigation)"
+
+msgid "common.confirmDelete"
+msgstr ""
+"तुम्हाला खात्री आहे की तुम्ही हा आयटम हटवू इच्छिता? ही कृती रद्द करता येणार "
+"नाही."
+
+msgid "common.addCCBCC"
+msgstr "सीसी/बीसीसी (मेल) मध्ये समावेश करा"
+
+msgid "common.alphaList"
+msgstr "अ ते ज्ञ (वर्णानुक्रमानुसार यादी)"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"चा आणि किंवा पण आहे जर मग अन्यथा जेव्हा पासून चालू बंद साठी मध्ये बाहेर "
+"करण्यासाठी मध्ये सह - इंग्रजीतील असे शब्द ज्यांसाठी शीर्षक केसचा वापर केला जा"
+"त नाही"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"स्पॅम सादरीकरण टाळण्यासाठी तुम्ही पडताळणी तपासणीची पूर्तता करणे आवश्यक आहे."
+
+msgid "common.confirmed.date"
+msgstr "{$dateConfirmed}: रोजी खात्री केली"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; {$dpi} DPI/PPI वर"
+
+msgid "common.dragAndDropHere"
+msgstr "येथे फाईल्स ओढा आणि टाका (ड्रॅग आणि ड्रॉप करा)."
+
+msgid "common.orUploadFile"
+msgstr "किंवा फाईल संक्रमित (अपलोड) करा"
+
+msgid "common.emailTemplates"
+msgstr "ई-मेलचे तयार मजकूर (टेम्पलेट्स)"
+
+msgid "common.error.databaseError"
+msgstr "{$error}: ही डेटाबेस त्रुटी आढळून आली आहे"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"या पृष्ठासाठी फ्रेम्सची आवश्यकता आहे. नॉन-फ्रेम आवृत्तीसाठी <a href=\"{$url}"
+"\">येथे क्लिक करा</a>."
+
+msgid "common.fileUploaderError"
+msgstr ""
+"'सिस्टम फाईल अपलोडर' लोड होत आहे. जर ही प्रक्रिया स्क्रिनवर दिसत नसेल तर "
+"कदाचित आपला ब्राउझर त्याच्या कोणत्याही रनटाइमला आधार देत नाही. कृपया अधिक "
+"माहितीसाठी प्रणाली प्रशासकाशी संपर्क साधा."
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "मुख्यपृष्ठाच्या शीर्षलेखातील परिचय चिन्ह (Logo)"
+
+msgid "common.insertContentSearch"
+msgstr "समाविष्ट करण्याकरता मजकूर शोधा"
+
+msgid "common.lastSaved"
+msgstr "{$when} दरम्यान शेवटचे सेव्ह केलेले आहे"
+
+msgid "common.billingAddress"
+msgstr "देयकावर लिहायचा पत्ता (वेगळा असल्यास)"
+
+msgid "common.noItemsFound"
+msgstr "कोणतेही आयटम्स सापडले नाहीत."
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"तुम्ही संक्रमित (अपलोड) केलेली फाईल सापडली नाही. कृपया ती पुन्हा संक्रमित "
+"(अपलोड) करण्याचा प्रयत्न करा."
+
+msgid "common.notified.date"
+msgstr "सूचित केल्याची तारीख : {$dateNotified}"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} खालच्या क्रमावर घाला"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\" हे प्लगइन कार्यान्वित (enable) केले आहे."
+
+msgid "common.requiredField"
+msgstr ""
+"आवश्यक फील्ड ताराचिन्हाने (*) दर्शविले आहेत :<abbr class=\"required\" title="
+"\"required\">*</abbr>"
+
+msgid "common.true"
+msgstr "TRUE (खरे)"
+
+msgid "common.plugins"
+msgstr "प्लग-इन्स"
+
+msgid "email.addBccRecipient"
+msgstr "BCC वर पत्ता लिहा"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "फाईल वगळा"
+
+msgid "email.subject"
+msgstr "विषय"
+
+msgid "defaultMetric.title"
+msgstr "सर्वसाधारण मूल्य (Default Metric)"
+
+msgid "email.addAttachment"
+msgstr "जोडणी संलग्न करा (Add Attachment)"
+
+msgid "common.title"
+msgstr "शीर्षक"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "शिखर (Top)"
+
+msgid "common.type"
+msgstr "प्रकार (Type)"
+
+msgid "common.uploadedByAndWhen"
+msgstr "{$name} यांनी {$date} रोजी संक्रमित (अपलोड) केले"
+
+msgid "common.component"
+msgstr "घटक (Component)"
+
+msgid "common.uninitiated"
+msgstr "सुरुवात केली नाही (Uninitiated)"
+
+msgid "common.unread"
+msgstr "न वाचलेले"
+
+msgid "common.unsavedChanges"
+msgstr "सेव्ह न केलेले बदल"
+
+msgid "common.untitled"
+msgstr "शीर्षक नसलेले"
+
+msgid "common.updated"
+msgstr "अद्ययावत केले"
+
+msgid "common.uploadedDate"
+msgstr "संक्रमित (अपलोड) केल्याची तारीख"
+
+msgid "common.upload"
+msgstr "संक्रमित (अपलोड) करा"
+
+msgid "common.uploadFailed"
+msgstr "फाईल संक्रमित (अपलोड) किंवा त्यात सुधारणा (revise) करता आली नाही."
+
+msgid "common.up"
+msgstr "वर"
+
+msgid "common.addFile"
+msgstr "फाईल जोडा"
+
+msgid "common.upload.addFile"
+msgstr "फाईल संक्रमित (अपलोड) करा"
+
+msgid "common.upload.restore"
+msgstr "मूळ फाईल पुनर्संचयित (Restore) करा"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "निवडलेल्या प्रतिमेचे पूर्वावलोकन."
+
+msgid "common.upload.changeFile"
+msgstr "फाईल बदला"
+
+msgid "common.url"
+msgstr "URL पत्ता"
+
+msgid "common.user"
+msgstr "वापरकर्ता"
+
+msgid "common.user.nonexistent"
+msgstr "[अस्तित्वात नसलेला वापरकर्ता]"
+
+msgid "common.view"
+msgstr "पहा"
+
+msgid "common.viewError"
+msgstr "त्रुटी पहा"
+
+msgid "common.viewWithName"
+msgstr "{$name} पहा"
+
+msgid "common.weeks"
+msgstr "आठवडे"
+
+msgid "common.width"
+msgstr "रुंदी"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "वर्ष"
+
+msgid "common.yes"
+msgstr "होय"
+
+msgid "common.loading"
+msgstr "संक्रमण (लोड) चालू आहे"
+
+msgid "common.count"
+msgstr "गणन (Count)"
+
+msgid "common.publicAccess"
+msgstr "सगळ्यांसाठी उपलब्ध (Public Access)"
+
+msgid "debug.executionTime"
+msgstr "यात तयार केलेले पृष्ठ"
+
+msgid "debug.memoryUsage"
+msgstr "स्मृतिकोशाचा (मेमरी) वापर"
+
+msgid "debug.notes.localeLoad"
+msgstr "XML मधून \"{$localeFile}\" ही लोकॅलची फाईल लोड केली"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "\"{$key}\" ही लोकॅलची सूची (key) गहाळ झालेली आहे."
+
+msgid "debug.notes"
+msgstr "टिप्पण्या :"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "समीक्षणाची फाईल संक्रमित (अपलोड) करा"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "सादरीकरणाच्या फाईल्स जोडा"
+
+msgid "email.addCcRecipient"
+msgstr "CC वर पत्ता लिहा"
+
+msgid "email.attachments"
+msgstr "जोडण्या"
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} ही फाईल जोडता आलेली नाही."
+
+msgid "email.body"
+msgstr "मजकूराची जागा (ई-मेल मधील)"
+
+msgid "email.cc"
+msgstr ""
+"CC (ई-मेलची प्रत एकमेकांना पाठवलेली दिसली तरी हरकत नाही अशा पत्त्यांसाठी "
+"जागा)"
+
+msgid "email.compose"
+msgstr "ई-मेल पाठवा"
+
+msgid "email.compose.tooManyRecipients"
+msgstr ""
+"तुम्ही पाठवण्याचा प्रयत्न करत असलेल्या संदेशात प्राप्तकर्त्यांची संख्या "
+"मर्यादेपलिकडे आहे."
+
+msgid "email.email"
+msgstr "ई-मेल"
+
+msgid "email.from"
+msgstr "यांचेकडून"
+
+msgid "email.invalid"
+msgstr "{$email} हा ई-मेल पत्ता अवैध आहे."
+
+msgid "email.multipart"
+msgstr "अनेक भागात असलेला हा MIME स्वरूपातला संदेश आहे."
+
+msgid "email.recipient"
+msgstr "प्राप्तकर्ता"
+
+msgid "email.recipients"
+msgstr "प्राप्तकर्ते"
+
+msgid "email.sender"
+msgstr "प्रेषक (पाठवणारा)"
+
+msgid "email.senderName"
+msgstr "प्रेषकाचे (पाठवणार्‍याचे) नाव"
+
+msgid "email.senderEmail"
+msgstr "प्रेषकाचा (पाठवणार्‍याचा) ई-मेल पत्ता"
+
+msgid "email.send"
+msgstr "पाठवा"
+
+msgid "email.skip"
+msgstr "ई-मेल वगळा"
+
+msgid "email.subjectRequired"
+msgstr "कृपया ई-मेलचा विषय द्या."
+
+msgid "email.to"
+msgstr "प्रति"
+
+msgid "form.url.invalid"
+msgstr "निर्दिष्ट URL अवैध आहे. कृपया तो तपासून पुन्हा प्रयत्न करा."
+
+msgid "form.confirmSubmit.title"
+msgstr "खात्री करा (Confirm)"
+
+msgid "form.disallowedLocales"
+msgstr "फक्त खालील भाषा वापरता येतील : {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "या गुणधर्माला परवानगी नाही."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "संक्रमित (अपलोड) करण्यासाठी फाईल्स येथे टाका (ड्रॉप करा)"
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"तुमच्या फाईल्स संक्रमित (अपलोड) करण्यासाठी कृपया खालील फॉलबॅक फॉर्म वापरा."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "या प्रकारच्या फाईल्स अपलोड करता येत नाहीत."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "संक्रमण (अपलोड) रद्द करा"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "संक्रमण (अपलोड) रद्द केले"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "तुम्ही खात्रीने हे संक्रमण (अपलोड) रद्द करू इच्छिता ना?"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel} वर जा: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "पुढील त्रुटी पहा"
+
+msgid "form.errorOne"
+msgstr "कृपया एका त्रुटीत दुरुस्ती करा."
+
+msgid "form.errorsOccurred"
+msgstr "या फॉर्मवर प्रक्रिया करताना त्रुटी आल्या"
+
+msgid "common.upload.addFile.description"
+msgstr "तुमच्या संगणकावरून फाईल संक्रमित (अपलोड) करा."
+
+msgid "common.uploadedBy"
+msgstr "{$name} यांनी संक्रमित (अपलोड) केले"
+
+msgid "common.unknownError"
+msgstr ""
+"एक अनपेक्षित त्रुटी आली आहे. कृपया पृष्ठ पुनर्स्थापित (रिलोड) करून पुन्हा "
+"प्रयत्न करा."
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"आम्हाला {$when} मधे सेव्ह न केलेले बदल आढळले. काम करताना सर्व्हरशी कनेक्शन "
+"तुटल्यास असे होऊ शकते. ते बदल पुनर्संचयित (Restore) केल्याने तुम्ही त्या "
+"वेळेपासून केलेले कोणतेही बदल अधिलिखित (overwrite) होऊ शकतात. तुम्हाला ते बदल "
+"आता पुनर्संचयित (Restore) करायचे आहेत का?"
+
+msgid "common.upload.dragFile"
+msgstr ""
+"फाईल संक्रमण (अपलोड) सुरू करण्यासाठी येथे फाईल ओढा आणि टाका (ड्रॅग आणि ड्रॉप "
+"करा)"
+
+msgid "common.viewProfile"
+msgstr "संक्षिप्त वर्णन (प्रोफाईल) पहा"
+
+msgid "debug.databaseQueries"
+msgstr "डेटाबेसवर केल्या गेलेल्या शोधांची (queries) संख्या"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XML मधून \"{$localeList}\" ही लोकॅलची यादी लोड केली"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "फाईल संक्रमित (अपलोड) करा"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "सादरीकरणाच्या टप्प्यात लेखकाने संक्रमित (अपलोड) केलेल्या फाईल्स जोडा."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"सादरीकरणाच्या कार्यप्रवाहादरम्यान (वर्कफ्लो) सुधारित संस्करणे किंवा "
+"समीक्षणासाठी संक्रमित (अपलोड) केलेल्या फाईल्स जोडा."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "संग्रहीत (लायब्ररी) फाईल्स"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "संग्रहीत (लायब्ररी) फाईल्स जोडा"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "सादरीकरण आणि प्रकाशक लायब्ररीमधील फाईल्स जोडा."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "समीक्षणाच्या फाईल्स जोडा"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "समीक्षकांनी संक्रमित (अपलोड) केलेल्या फाईल्स जोडा"
+
+msgid "email.addToRecipient"
+msgstr "प्राप्तकर्त्याचा पत्ता लिहा"
+
+msgid "email.bcc"
+msgstr "BCC (ई-मेलची प्रत एकमेकांना पाठवलेली दिसणार नाही अशा पत्त्यांसाठी जागा)"
+
+msgid "email.bccSender"
+msgstr "या संदेशाची एक प्रत माझ्या या पत्त्यावर ({$address}) पाठवा"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"तुम्ही खात्रीने हा ई-मेल तयार करण्यासाठी {$localeName} मध्ये बदलू इच्छिता ना"
+"? असे केल्याने ई-मेलचा विषय आणि मजकूराच्या भागामध्ये तुम्ही केलेले सगळे बदल "
+"गमावतील."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"तुम्ही एका पाठोपाठ संदेश पाठवत आहात. कृपया दोन संदेशांमध्ये थोडा अवधी द्या."
+
+msgid "email.compose.error"
+msgstr ""
+"ई-मेल संदेश पाठवण्यात समस्या आली. कृपया नंतर पुन्हा प्रयत्न करा किंवा तुमच्या"
+" सिस्टम प्रशासकाशी संपर्क साधा."
+
+msgid "email.bodyRequired"
+msgstr "कृपया ई-मेलमधला मजकूर द्या."
+
+msgid "form.confirmSubmit"
+msgstr "तुम्हाला हा फॉर्म नक्की दाखल करायचा आहे ना?"
+
+msgid "form.dataHasChanged"
+msgstr ""
+"या फॉर्मवरील डेटा बदलला आहे. तुम्हाला सेव्ह न करता तसेच पुढे जायचे आहे का?"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"तुमच्या ब्राउझरवर ओढा आणि टाका (ड्रॅग आणि ड्रॉप) पद्धतीने फाईल संक्रमित "
+"(अपलोड) करता येत नाही."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"फाईल खूप मोठी आहे ({{filesize}}mb). {{maxFilesize}}mb पेक्षा मोठ्या फाईल्स "
+"संक्रमित (अपलोड) करता येत नाहीत."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"सर्व्हरने {{statusCode}} या कोड क्रमांकाने प्रतिसाद दिला. ही समस्या पुन्हा "
+"आल्यास कृपया प्रणाली व्यवस्थापकाशी संपर्क साधा."
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "तुम्ही आणखी फाईल्स संक्रमित (अपलोड) करू शकत नाही."
+
+msgid "form.errorMany"
+msgstr "कृपया {$count} त्रुटींमध्ये दुरुस्ती करा."
+
+msgid "form.errors"
+msgstr ""
+"{$count} त्रुटी आढळल्यामुळे फॉर्म सेव्ह झाला नाही. कृपया या त्रुटी "
+"टाळण्यासाठी दुरूस्ती करा आणि पुन्हा प्रयत्न करा."
+
+msgid "icon.checked.alt"
+msgstr "तपासले"
+
+msgid "icon.font_small.alt"
+msgstr "लहान"
+
+msgid "informationCenter.informationCenter"
+msgstr "माहिती केंद्र"
+
+msgid "navigation.nextStep"
+msgstr "पुढील पायरी"
+
+msgid "notification.removedAuditor"
+msgstr "ऑडिटर काढून टाकला."
+
+msgid "search.dateTo"
+msgstr "या तारखेपूर्वी प्रकाशित झालेले"
+
+msgid "search.noResults"
+msgstr "याविषयी काही आढळले नाही"
+
+msgid "grid.action.markNew"
+msgstr "'नवे' असे चिन्हांकित करा"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "संपादकाची विनंती"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.goBack"
+msgstr "मागे जा"
+
+msgid "navigation.previousStep"
+msgstr "मागील पायरी"
+
+msgid "notification.notifications"
+msgstr "सूचना (अनेक)"
+
+msgid "navigation.setup"
+msgstr "सेटअप"
+
+msgid "search.indexTerms"
+msgstr "सूचीसाठी शोध-शब्द"
+
+msgid "navigation.submissions"
+msgstr "सादरीकरणे"
+
+msgid "navigation.userHome"
+msgstr "वापरकर्त्याचे मुख्यपृष्ठ"
+
+msgid "search.advancedSearchLess"
+msgstr "आणखी शोध पर्याय लपवा"
+
+msgid "search.matchAll"
+msgstr "सगळे प्रवर्ग (Category) जुळवा"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} लेख सापडले."
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "समीक्षणाचे वेळापत्रक"
+
+msgid "navigation.viewFrontend"
+msgstr "संकेतस्थळ पहा"
+
+msgid "institution.institutions"
+msgstr "संस्था"
+
+msgid "form.formLanguage.description"
+msgstr "खालील माहिती अतिरिक्त भाषांमध्ये नोंदवण्यासाठी, प्रथम भाषा निवडा."
+
+msgid "form.formLanguage"
+msgstr "फॉर्मची भाषा"
+
+msgid "form.contains"
+msgstr "समावेश आहे"
+
+msgid "form.is"
+msgstr "आहे"
+
+msgid "form.startsWith"
+msgstr "सुरुवात होते"
+
+msgid "form.postRequired"
+msgstr "फॉर्म योग्यरित्या दाखल झालेला नाही."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"फॉर्म दाखल करता आलेला नाही. तुम्ही कदाचित लॉग-आउट झाला असाल. कृपया पृष्ठ "
+"पुनर्स्थापित (रिलोड) करून पुन्हा प्रयत्न करा."
+
+msgid "form.required"
+msgstr "(* आवश्यक)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "तुम्ही हे फील्ड {$language} भाषेमध्येच भरले पाहिजे."
+
+msgid "form.resubmit"
+msgstr "पुन्हा सादर करा"
+
+msgid "form.saved"
+msgstr "सेव्ह झाले"
+
+msgid "form.saveToUpload"
+msgstr "फाईल संक्रमित (अपलोड) करण्यासाठी सेव्ह वापरा."
+
+msgid "form.send"
+msgstr "पाठवा"
+
+msgid "form.submit"
+msgstr "सादर करा"
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName} मध्ये {$label}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} भाषा पूर्ण झाल्या"
+
+msgid "help.help"
+msgstr "मदत"
+
+msgid "help.toc"
+msgstr "अनुक्रमणिका"
+
+msgid "help.previous"
+msgstr "मागील"
+
+msgid "help.next"
+msgstr "पुढील"
+
+msgid "help.upALevel"
+msgstr "एक पातळी वर"
+
+msgid "icon.comment.alt"
+msgstr "टिप्पणी"
+
+msgid "icon.delete.alt"
+msgstr "हटवा"
+
+msgid "icon.edit.alt"
+msgstr "संपादित करा"
+
+msgid "icon.folder.alt"
+msgstr "फोल्डर"
+
+msgid "icon.font_large.alt"
+msgstr "मोठा"
+
+msgid "icon.font_medium.alt"
+msgstr "मध्यम"
+
+msgid "icon.info.alt"
+msgstr "माहिती"
+
+msgid "icon.letter.alt"
+msgstr "पत्र"
+
+msgid "icon.mail.alt"
+msgstr "मेल"
+
+msgid "icon.unchecked.alt"
+msgstr "न तपासलेले (Unchecked)"
+
+msgid "icon.view.alt"
+msgstr "पहा"
+
+msgid "informationCenter.editorialHistory"
+msgstr "संपादकीय पूर्वेतिहास"
+
+msgid "informationCenter.addNote"
+msgstr "टीप समाविष्ट करा (Add Note)"
+
+msgid "informationCenter.pastHistory"
+msgstr "पूर्वीची सुधारित संस्करणे (Revisions)"
+
+msgid "informationCenter.history.notePosted"
+msgstr "नवी टिप्पणी दाखल (पोस्ट) केली आहे."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "वापरकर्त्यांना सूचना पाठवली आहे."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "चर्चा सुरू करा"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "पूर्वनिर्धारित संदेश पाठवण्यासाठी निवडा किंवा खालील फॉर्म भरा."
+
+msgid "stageParticipants.notify.message"
+msgstr "संदेश"
+
+msgid "stageParticipants.options"
+msgstr "सोपवलेल्या कामातील सवलती (Assignment privileges)"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "परवानग्या"
+
+msgid "stageParticipants.selectedUser"
+msgstr "सहभागी व्यक्ती"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "या सहभागी व्यक्तीबाबत कोणतेही बदल करता येणार नाहीत"
+
+msgid "locale.primary"
+msgstr "प्राथमिक लोकॅल"
+
+msgid "locale.supported"
+msgstr "इतर समर्थित लोकॅल"
+
+msgid "navigation.access"
+msgstr "वापरकर्ते आणि भूमिका"
+
+msgid "navigation.about"
+msgstr "संबंधी"
+
+msgid "navigation.admin"
+msgstr "प्रशासन"
+
+msgid "navigation.archives"
+msgstr "संग्रह"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "तुम्ही येथे आहात :"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "साधने"
+
+msgid "navigation.tools.importExport"
+msgstr "दाखल करा (Import)/पाठवा (export)"
+
+msgid "navigation.tools.statistics"
+msgstr "आकडेवारी"
+
+msgid "navigation.browse"
+msgstr "ब्राउझ करा"
+
+msgid "navigation.backTo"
+msgstr "⟵ {$page} वर परत जा"
+
+msgid "navigation.browseByAuthor"
+msgstr "लेखकानुसार"
+
+msgid "navigation.browseByTitle"
+msgstr "शीर्षकानुसार"
+
+msgid "navigation.dashboard"
+msgstr "डॅशबोर्ड"
+
+msgid "navigation.data"
+msgstr "डेटा"
+
+msgid "navigation.home"
+msgstr "मुख्यपृष्ठ"
+
+msgid "navigation.infoForReaders"
+msgstr "वाचकांसाठी"
+
+msgid "navigation.infoForReaders.long"
+msgstr "वाचकांसाठी माहिती"
+
+msgid "navigation.items"
+msgstr "एकूण {$total} आयटम्सपैकी {$from} - {$to}"
+
+msgid "navigation.login"
+msgstr "लॉग-इन"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.publicMenu"
+msgstr "सर्वांसाठी दुव्यांची यादी (Public Menu)"
+
+msgid "navigation.register"
+msgstr "नोंदणी करा"
+
+msgid "navigation.search"
+msgstr "शोधा"
+
+msgid "navigation.settings"
+msgstr "सेटिंग्ज"
+
+msgid "navigation.sitemap"
+msgstr "संकेतस्थळाचे चित्रण (Site Map)"
+
+msgid "navigation.skip.announcements"
+msgstr "सूचना पृष्ठावर जा"
+
+msgid "navigation.skip.main"
+msgstr "मध्यवर्ती कल्पनेवर (main content) जा"
+
+msgid "navigation.skip.footer"
+msgstr "संकेतस्थळावरील पानाच्या तळाशी (footer) जा"
+
+msgid "navigation.stepNumber"
+msgstr "पायरी {$step}"
+
+msgid "navigation.system"
+msgstr "प्रणाली (System)"
+
+msgid "navigation.user"
+msgstr "वापरकर्ता"
+
+msgid "notification.addedAuditor"
+msgstr "ऑडिटर समाविष्ट केला."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "आभारप्रदर्शनाचा ई-मेल समीक्षकाला पाठवला."
+
+msgid "notification.updatedReviewFiles"
+msgstr "समीक्षणाच्या फाईल्स अपडेट केल्या."
+
+msgid "notification.allow"
+msgstr "या प्रकारच्या सूचना कार्यान्वित करा."
+
+msgid "notification.editedAnnouncementType"
+msgstr "सूचनेचा हा प्रकार संपादित केला."
+
+msgid "notification.removedAnnouncementType"
+msgstr "सूचनेचा हा प्रकार काढून टाकला."
+
+msgid "notification.removedAnnouncement"
+msgstr "सूचना वगळली."
+
+msgid "notification.confirmSuccess"
+msgstr "तुम्ही यशस्वीरित्या सदस्य झाला आहात."
+
+msgid "notification.noneExist"
+msgstr "सध्या तुमच्यासाठी कोणत्याही सूचना नाहीत."
+
+msgid "notification.addedNote"
+msgstr "टीप प्रकाशित केली."
+
+msgid "notification.removedNote"
+msgstr "टीप हटवली."
+
+msgid "notification.removedFile"
+msgstr "फाईल काढून टाकली."
+
+msgid "notification.removedSubmission"
+msgstr "सादरीकरण काढून टाकले."
+
+msgid "notification.notification"
+msgstr "सूचना"
+
+msgid "notification.sentNotification"
+msgstr "सूचना पाठवली."
+
+msgid "notification.settings"
+msgstr "सूचनांबाबतचे सेटिंग्ज"
+
+msgid "notification.reminderError"
+msgstr ""
+"तुमचा पासवर्ड पाठवताना एक त्रुटी आली, कृपया तुम्ही तुमचा ई-मेल पत्ता "
+"योग्यरित्या प्रविष्ट केला आहे याची खात्री करा."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "सादरीकरणाचा मेटाडेटा (शीर्षक, लेखक, वगैरे) सेव्ह केला आहे."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "सर्व नोंदणीकृत वापरकर्त्यांना याबद्दल ई-मेल पाठवा."
+
+msgid "search.author"
+msgstr "लेखक"
+
+msgid "search.abstract"
+msgstr "सारांश"
+
+msgid "search.advancedFilters"
+msgstr "प्रगत फिल्टर"
+
+msgid "search.advancedSearchMore"
+msgstr "आणखी शोध पर्याय"
+
+msgid "search.searchAgain"
+msgstr "पुन्हा शोधा"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "शोधशब्द वगळत आहे"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "काम पूर्ण झाले"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "त्रुटी आली"
+
+msgid "search.coverage"
+msgstr "व्याप्ति (Coverage)"
+
+msgid "search.date"
+msgstr "प्रकाशनाची तारीख"
+
+msgid "search.dateFrom"
+msgstr "या तारखेनंतर प्रकाशित झालेले"
+
+msgid "search.deleteFilter"
+msgstr "हटवा"
+
+msgid "search.discipline"
+msgstr "ज्ञानशाखा (Disciplines)"
+
+msgid "search.fullText"
+msgstr "संपूर्ण लेख"
+
+msgid "search.operator.and"
+msgstr "आणि (Boolean AND)"
+
+msgid "search.operator.not"
+msgstr "नाही (Boolean NOT)"
+
+msgid "search.operator.or"
+msgstr "किंवा (Boolean OR)"
+
+msgid "search.SearchFor"
+msgstr "हे शोधा"
+
+msgid "search.searchResults"
+msgstr "शोधाचा निष्कर्ष"
+
+msgid "search.searchResults.foundSingle"
+msgstr "एक लेख सापडला."
+
+msgid "search.subject"
+msgstr "शोध-शब्द"
+
+msgid "search.titleIndex"
+msgstr "शीर्षक सूचीवरून नजर फिरवा"
+
+msgid "search.title"
+msgstr "शीर्षक"
+
+msgid "grid.action.downloadFile"
+msgstr "ही फाईल उतरवून घ्या (डाउनलोड)"
+
+msgid "context.path"
+msgstr "पत्ता (Path)"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "सध्याचे समीक्षण धोरण वाचा"
+
+msgid "grid.action.deleteNotification"
+msgstr "ठरवलेले कार्य हटवा"
+
+msgid "grid.action.markRead"
+msgstr "'वाचलेले' असे चिन्हांकित करा"
+
+msgid "dashboard.tasks"
+msgstr "कार्ये"
+
+msgid "dashboard.myQueue"
+msgstr "माझ्या यादीतली प्रलंबित कार्ये"
+
+msgid "submission.task.responseDueDate"
+msgstr "प्रतिसाद देण्याची अंतिम तारीख"
+
+msgid "notification.removedReviewer"
+msgstr "समीक्षकाला काढून टाकण्यात आले."
+
+msgid "notification.cancelledReviewer"
+msgstr "समीक्षकाला रद्द करण्यात आले."
+
+msgid "form.fileRequired"
+msgstr "फाईल संक्रमित (अपलोड) करणे आवश्यक आहे."
+
+msgid "form.requireId"
+msgstr "तुम्ही एक वैध ID प्रदान करणे आवश्यक आहे."
+
+msgid "form.invalidImage"
+msgstr ""
+"चुकीच्या स्वरूपात प्रतिमा संक्रमित (अपलोड) केली. स्वीकृत स्वरूपे .png, .gif, "
+"किंवा .jpg आहेत."
+
+msgid "informationCenter.noNotes"
+msgstr "दाखवण्यासाठी कोणत्याही टिप्पण्या (नोट्स) नाहीत."
+
+msgid "informationCenter.pastNotes"
+msgstr "पूर्वीच्या सुधारित संस्करणांवरील (Revision) टिप्पण्या (नोट्स)"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "तुम्ही खात्रीने ही टिप्पणी हटवू इच्छिता ना?"
+
+msgid "informationCenter.currentHistory"
+msgstr "आताचे (Current) सुधारित संस्करण (Revision)"
+
+msgid "informationCenter.history.noItems"
+msgstr "कोणत्याही कार्यक्रमांची नोंद झालेली नाही."
+
+msgid "informationCenter.history.messageSent"
+msgstr "वापरकर्त्यांना सूचना पाठवली आहे."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "तुम्ही {$userFullName} बरोबर चर्चा सुरू करा."
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"कृपया खात्री करा की तुम्ही संदेशाचा मजकूर (फील्ड) लिहिला आहे आणि चर्चेत "
+"स्वतःशिवाय इतरांचाही समावेश केला आहे."
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"या सहभागी व्यक्तीला निर्णयासाठी संपादकाला फक्त शिफारस करण्याची परवानगी आहे. "
+"संपादकीय निर्णयाची नोंद करण्यासाठी अधिकृत संपादकाची आवश्यकता असेल."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"या व्यक्तीला प्रकाशनाच्या शीर्षक, सारांश, मेटाडेटा आणि इतर प्रकाशन तपशीलात "
+"बदल करण्याची परवानगी द्या. जर सादरीकरणाची अंतिम तपासणी झाली असेल आणि ते "
+"प्रकाशनासाठी तयार असेल तर तुम्ही हा विशेषाधिकार रद्द करू शकता."
+
+msgid "navigation.items.shownTotal"
+msgstr "एकूण {$total} आयटम्सपैकी {$shown}"
+
+msgid "navigation.skip.description"
+msgstr "दुव्यांवरील पानांवर जा (Jump to content links)"
+
+msgid "navigation.skip.nav"
+msgstr "मुख्य मार्गनिर्देशन दुव्यांवर (Navigation menu) जा"
+
+msgid "navigation.userManagement"
+msgstr "वापरकर्त्याचे व्यवस्थापन"
+
+msgid "notification.addedQuery"
+msgstr "चर्चा समाविष्ट केली (Added discussion)"
+
+msgid "notification.reviewAcknowledged"
+msgstr "समीक्षणाची पोच दिली म्हणून चिन्हांकित केले. पण ई-मेल पाठवलेला नाही."
+
+msgid "notification.addedAnnouncementType"
+msgstr "सूचनेचा हा प्रकार समाविष्ट केला."
+
+msgid "notification.confirmError"
+msgstr "तुमच्या सदस्यतेची पुष्टी करताना एक त्रुटी आली."
+
+msgid "notification.email"
+msgstr "या प्रकारच्या सूचनांसाठी मला ई-मेल पाठवू नका."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"तुम्हाला ज्या प्रणालीद्वारे होणाऱ्या उपक्रमांबद्दलच्या (events) सूचनांमध्ये "
+"स्वारस्य आहे त्या निवडा. उपक्रम न-निवड (अन-चेक) केल्यावर त्या "
+"उपक्रमांबद्दलच्या सूचना प्रणालीवर दिसणार नाहीत आणि त्याबाबत ई-मेलही पाठवले "
+"जाणार नाहीत. निवडलेल्या (चेक केलेल्या) उपक्रमांबद्दलच्या सूचना प्रणालीवर "
+"दिसतील शिवाय ई-मेलद्वारे तीच सूचना मिळवण्याचा किंवा न मिळवण्याचा अतिरिक्त "
+"पर्याय तुमच्याकडे आहे."
+
+msgid "notification.reminderSent"
+msgstr "तुमचा नवा पासवर्ड नमूद केलेल्या ई-मेल पत्त्यावर पाठवला गेला आहे."
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} लेख सूचिकरणांसाठी योजलेले आहेत"
+
+msgid "search.indexTermsLong"
+msgstr "सगळ्या शोध-शब्दांकरता रकाना (फील्ड)"
+
+msgid "search.typeMethodApproach"
+msgstr "प्रकार (पद्धत/दृष्टिकोन)"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "सगळ्या फाईल्समधील माहिती निनावी आहे याची खात्री कशी करायची"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "सगळ्या फाईल्समधील माहिती निनावी आहे याची खात्री कशी करायची"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>निनावी तज्ज्ञ समीक्षण सचोटीने व्हावे या उद्देशाने लेखक आणि समीक्षकांची "
+"ओळख एकमेकांना होऊ नये यासाठी सर्वतोपरी प्रयत्न केले पाहिजेत. यासाठी लेखकांनी"
+", शिवाय संपादक आणि समीक्षकांनी - समीक्षणाचा भाग म्हणून - दस्तऐवज संक्रमित "
+"(अपलोड) केलेली आहेत त्यातील मजकूर आणि फाईल्सच्या गुणधर्मांबाबत खालील पावले "
+"उचलली गेली आहेत का ते तपासणे आवश्यक आहे : </p>\n"
+"<ul><li>दस्तऐवजाच्या लेखकांनी लेखकांची नावे मजकुरातून त्यांची नावे हटवली आहे"
+"त, तसेच संदर्भात आणि तळटीपांमध्ये \"लेखक\" आणि वर्ष असा उल्लेख न करता "
+"लेखाच्या लेखकाचे नाव, त्याचे शिर्षक, वगैरे लिहिलेले असेल.</li>\n"
+"<li>दस्तऐवजाच्या लेखकांनी फाईलच्या गुणधर्मांमधून वैयक्तिक माहिती काढून "
+"टाकण्यासाठी खालील पावले उचली आहेत :\n"
+"<ul><li>विंडोज मधील मायक्रोसॉफ्ट वर्डसाठी :\n"
+"<ul><li>फाईल वर जा</li>\n"
+"<li>Info वर जा</li>\n"
+"<li>Check for Issues वर क्लिक करा</li>\n"
+"<li>Inspect Document वर क्लिक करा</li>\n"
+"<li>Document Inspector या संवाद बॉक्समध्ये तुम्हाला तपासण्यासाठी hidden "
+"content प्रकार निवडण्यासाठी चेक बॉक्स निवडा.</li>\n"
+"<li>Remove All क्लिक करा</li>\n"
+"<li>Close क्लिक करा</li>\n"
+"<li>दस्तऐवज सेव्ह करा<li></ul>\n"
+"<li>मॅकओएस मधील मायक्रोसॉफ्ट वर्ड साठी :\n"
+"<ul><li>Tools वर जा</li>\n"
+"<li>Protect Document क्लिक करा</li>\n"
+"<li>Remove personal information for this file सेव्ह करताना निवडा</li>\n"
+"<li>OK वर क्लिक करा आणि फाईल सेव्ह करा</li></ul></li>\n"
+"<li>PDF फाईलसाठी :\n"
+"<ul><li>File वर जा</li>\n"
+"<li>Properties निवडा</li>\n"
+"<li>Author field मध्ये असलेले कुठलेही नाव वगळा</li>\n"
+"<li></li><li>OK वर क्लिक करा</li>\n"
+"<li>document सेव्ह करा</li></ul></li></ul>\n"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "प्रतिसाद देण्याची अंतिम तारीख"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "समीक्षण सादर करण्याची अंतिम तारीख"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} ला या सादरीकरणाचे समीक्षण करण्यासाठी नियुक्त करण्यात आले होते"
+" आणि त्यांना ई-मेल सूचना पाठवली होती."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} ला या सादरीकरणाचे समीक्षण करण्यासाठी नियुक्त करण्यात आले होते"
+" पण त्यांना ई-मेल सूचना पाठवली नव्हती."
+
+msgid "notification.reinstatedReviewer"
+msgstr "समीक्षकाला पुन्हा नियुक्त करण्यात आले."
+
+msgid "notification.reviewerResendRequest"
+msgstr "समीक्षणाच्या कामगिरीचा पुनर्विचार करण्याची विनंती केली होती."
+
+msgid "notification.addedStageParticipant"
+msgstr "वापरकर्त्याला व्यासपीठाच्या गटात सहभागी करून घेतले."
+
+msgid "notification.editStageParticipant"
+msgstr "व्यासपीठावरील कामगिरीत बदल करण्यात आला आहे."
+
+msgid "notification.addedNavigationMenuItem"
+msgstr ""
+"मार्गनिर्देशन दुव्यांच्या यादीत (Navigation menu) एक दुवा यशस्वीरित्या "
+"समाविष्ट केला गेला"
+
+msgid "notification.addedNavigationMenu"
+msgstr ""
+"मार्गनिर्देशन दुव्यांची यादी (Navigation menu) यशस्वीरित्या समाविष्ट केली "
+"गेली"
+
+msgid "notification.editedNavigationMenu"
+msgstr ""
+"मार्गनिर्देशन दुव्यांची यादी (Navigation menu) यशस्वीरित्या अपडेट करण्यात आली"
+
+msgid "notification.removedNavigationMenu"
+msgstr ""
+"मार्गनिर्देशन दुव्यांची यादी (Navigation menu) यशस्वीरित्या काढून टाकण्यात "
+"आली"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "आम्ही तुमचे सदस्यत्व रद्द करू शकलो नाही"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"एक अनपेक्षित त्रुटी आल्याने आम्ही {$email} हा ई-मेल पत्ता रद्द करू शकलेलो "
+"नाही. तुम्ही तुमच्या <a href=\"{$profileNotificationUrl}\">वापरकर्ता माहिती "
+"(प्रोफाईल)</a> मधील सर्व ई-मेल सूचनांचे सदस्यत्व रद्द करू शकता किंवा मदतीसाठी"
+" थेट आमच्याशी संपर्क साधू शकता."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "सदस्यत्व रद्द करा"
+
+msgid "list.viewMore"
+msgstr "{$name} यांचा विस्तारित तपशील दाखवा"
+
+msgid "list.viewLess"
+msgstr "{$name} यांचा विस्तारित तपशील लपवा"
+
+msgid "list.collapseAll"
+msgstr "सगळेच लपवा (Collapse all)"
+
+msgid "list.expandAll"
+msgstr "सगळ्याचाच विस्तार (Expand) करा"
+
+msgid "showLess"
+msgstr "कमी दाखवा"
+
+msgid "validator.accepted"
+msgstr "कृपया हा आयटम स्वीकारा."
+
+msgid "validator.active_url"
+msgstr "हा URL ग्राह्य नाही."
+
+msgid "validator.alpha"
+msgstr "यामध्ये फक्त अक्षरांचाच समावेश होऊ शकतो."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"यामध्ये फक्त अक्षरे, अंक, डॅश, अंडरस्कोअर आणि पूर्णविरामाचाच समावेश होऊ शकतो."
+
+msgid "validator.array"
+msgstr "ही मांडणी (array) ग्राह्य नाही."
+
+msgid "validator.before"
+msgstr "{$date} या तारखेच्या पूर्वीची ही तारीख असणे आवश्यक आहे."
+
+msgid "validator.between.file"
+msgstr "ही {$min} आणि {$max} किलोबाइट दरम्यान असणे आवश्यक आहे."
+
+msgid "validator.between.array"
+msgstr "हे किमान {$min} आणि कमाल {$max} घटकांनी (items) बनलेले असणे आवश्यक आहे."
+
+msgid "validator.boolean"
+msgstr "हे फील्ड true किंवा false असणे आवश्यक आहे."
+
+msgid "validator.country"
+msgstr "हा ग्राह्य देश नाही."
+
+msgid "validator.currency"
+msgstr "हे ग्राह्य चलन नाही."
+
+msgid "validator.date"
+msgstr "ही ग्राह्य तारीख नाही."
+
+msgid "validator.date_format"
+msgstr "हे {$format} स्वरूपाशी जुळत नाही."
+
+msgid "validator.different"
+msgstr "{$attribute} आणि {$other} वेगळे असले पाहिजेत."
+
+msgid "validator.digits"
+msgstr "हे {$digits} अंकांनीच बनलेले असायला हवे."
+
+msgid "validator.digits_between"
+msgstr "हा आकडा {$min} आणि {$max} दरम्यान असणे आवश्यक आहे."
+
+msgid "validator.exists"
+msgstr "निवडलेला {$attribute} अवैध आहे."
+
+msgid "validator.filled"
+msgstr "हे फील्ड आवश्यक आहे."
+
+msgid "validator.image"
+msgstr "ही प्रतिमाच (image) असायला हवी."
+
+msgid "validator.ip"
+msgstr "हा वैध IP पत्ता नाही."
+
+msgid "validator.json"
+msgstr "हे वैध JSON सूत्र (JSON string) नाही."
+
+msgid "validator.max.numeric"
+msgstr "ही संख्या {$max} पेक्षा मोठी असू शकत नाही."
+
+msgid "notification.type.reviewAssignment"
+msgstr "प्रलंबित समीक्षण."
+
+msgid "showAll"
+msgstr "सगळेच दाखवा"
+
+msgid "validator.issn"
+msgstr "हा वैध ISSN नाही."
+
+msgid "notification.type.newAnnouncement"
+msgstr "नवीन सूचना."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "समीक्षण कामगिरी अपडेट केली आहे."
+
+msgid "notification.type.auditorRequest"
+msgstr "\"{$file}\" च्या ऑडिटसाठी विनंती"
+
+msgid "notification.type.pendingRevisions"
+msgstr "या {$stage} टप्प्यावर सुधारणांवर करायचा विचार."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "या {$stage} टप्प्यावर सादर केलेल्या सुधारणा."
+
+msgid "notification.type.reviewerComment"
+msgstr "एका समीक्षकाने \"{$title}\" वर टिप्पणी दिली आहे."
+
+msgid "notification.signedFile"
+msgstr "फाईलवर विचार केला जात आहे."
+
+msgid "timeZone"
+msgstr "आंतरराष्ट्रीय कालविभाग (Time zone)"
+
+msgid "user.email"
+msgstr "ई-मेल पत्ता"
+
+msgid "user.authorization.invalidPublication"
+msgstr "अवैध प्रकाशन."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "अवैध सादरीकरण."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "अवैध प्रतिनिधित्व."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "समीक्षणाची अवैध फेरी."
+
+msgid "user.authorization.invalidQuery"
+msgstr "अवैध चर्चा."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "तुमच्यासाठी ही समीक्षणाची कामगिरी उपलब्ध नाही."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "गोपनीयतेचे पर्याय"
+
+msgid "notification.type.queryActivity"
+msgstr "चर्चा."
+
+msgid "notification.type.queryAdded"
+msgstr "चर्चा समाविष्ट केली."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "कॉपीएडिट्सच्या प्रतीक्षेत आहे."
+
+msgid "notification.type.editorialReport"
+msgstr "सांख्यिकी अहवालाचा सारांश."
+
+msgid "notification.type.editorialReminder"
+msgstr "शिल्लक कामांचा आढावा घेण्यासाठीचा साप्ताहिक ई-मेल"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"सर्व समीक्षकांनी प्रतिसाद दिला आहे आणि {$stage} या टप्प्यावर निर्णय आवश्यक "
+"आहे."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"{$stage} मध्ये तुमच्या संपादकाच्या नजरेतून विचार करण्याकरता एक सुधारित फाईल "
+"संक्रमित (अपलोड) करण्यात आली आहे."
+
+msgid "user.authorization.submissionFile"
+msgstr "या वापरकर्त्याला निर्दिष्ट सादरीकरणाची फाईल पहाण्याची परवानगी नाही."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "तुम्हाला या चर्चेत भाग घेण्याची परवानगी नाही."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"तुमच्याकडे सध्या सादरीकरण पाहण्यासाठी पुरेसे विशेषाधिकार नाहीत. \"नोंदणी करा"
+"\" अंतर्गत तुम्हाला योग्य भूमिका देण्यात आल्या आहेत याची खात्री करण्यासाठी "
+"कृपया तुमच्याबाबतची माहिती (प्रोफाईल) संपादित करा."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"तुम्ही पाहू इच्छित असलेल्या या सादरीकरणाचे लेखक नाहीत. कृपया तुम्ही योग्य "
+"वापरकर्ता खात्याने लॉग-इन केले आहे की नाही याची पडताळणी करा."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"यादीतील सहभागी व्यक्तीची कॉपीएडिटर म्हणून नियुक्ती करण्यासाठी नियुक्ती "
+"दुव्याचा (Assign link) वापर करा."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} फेरीची स्थिती (Status)"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"संपादकीय अहवालाद्वारे तुमच्या नियतकालिकाचे स्वास्थ्य तपासण्यासाठी हे स्मरणपत्"
+"र पाठवले आहे."
+
+msgid "notification.editedNavigationMenuItem"
+msgstr ""
+"मार्गनिर्देशन दुव्यांची यादी (Navigation menu) यशस्वीरित्या अपडेट करण्यात आली"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr ""
+"मार्गनिर्देशन दुव्यांच्या यादीतील (Navigation menu) एक दुवा यशस्वीरित्या काढू"
+"न टाकण्यात आला"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "तुमचे सदस्यत्व रद्द केले गेले आहे"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"तुम्हाला आता {$contextName} तर्फे पाठवले जाणारे ज्या प्रकारचे ई-मेल नको आहेत "
+"त्या {$email} ची निवड करा."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"तुम्ही तुमच्या <a href=\"{$profileNotificationUrl}\">वापरकर्ता माहिती "
+"(प्रोफाईल)</a> वरून कधीही ई-मेल सूचनांचे सदस्यत्व पुन्हा मिळवू शकता."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} हा ई-मेल पत्ता यशस्वीरित्या रद्द करण्यात आला आहे. आम्ही आता तुम्हाला"
+" ई-मेल पाठवणार नाही. तुम्ही तुमच्या <a href=\"{$profileNotificationUrl}\""
+">वापरकर्ता माहिती (प्रोफाईल)</a> वरून कधीही ई-मेल सूचनांचे सदस्यत्व पुन्हा "
+"मिळवू शकता."
+
+msgid "validation.invalidOption"
+msgstr "हा पर्याय ग्राह्य नाही."
+
+msgid "validator.after"
+msgstr "{$date} या नंतरची ही तारीख असावी."
+
+msgid "validator.alpha_dash"
+msgstr "यामध्ये फक्त अक्षरे, अंक, डॅश आणि अंडरस्कोअरचाच समावेश होऊ शकतो."
+
+msgid "validator.alpha_num"
+msgstr "यामध्ये फक्त अक्षरे आणि अंकांचाच समावेश होऊ शकतो."
+
+msgid "validator.between.numeric"
+msgstr "ही {$min} आणि {$max} दरम्यान असणे आवश्यक आहे."
+
+msgid "validator.between.string"
+msgstr "हे किमान {$min} आणि कमाल {$max} अक्षरांनी बनलेले असणे आवश्यक आहे."
+
+msgid "validator.confirmed"
+msgstr ""
+"या फील्डसाठी पुष्टीकरण जुळत नाही. (The confirmation for this field does not "
+"match)."
+
+msgid "validator.country.regex"
+msgstr ""
+"हा ग्राह्य देश नाही. देशांच्या २-अक्षरी आंतरराष्ट्रीय संकेतलिपीशी (code) तो "
+"जुळणारा हवा. सगळ्या संकेतलिपींची यादी https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements वर पहा."
+
+msgid "validator.email"
+msgstr "हा ग्राह्य ई-मेल पत्ता नाही."
+
+msgid "validator.in"
+msgstr "निवडलेला {$attribute} अग्राह्य आहे."
+
+msgid "validator.integer"
+msgstr "ही वैध पूर्ण संख्या नाही."
+
+msgid "validator.locale"
+msgstr "या भाषेचा वापर स्वीकारार्ह नाही."
+
+msgid "validator.localeExpected"
+msgstr ""
+"हे फील्ड बहुभाषिक आहे. प्रत्येक पुरस्कारित भाषेसाठी स्वतंत्र मूल्ये प्रदान "
+"करणे आवश्यक आहे."
+
+msgid "validator.localeKey"
+msgstr ""
+"लोकॅल कोड वापरून भाषा निर्दिष्ट करणे आवश्यक आहे. उदाहरणार्थ : en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.file"
+msgstr "याचा आकार {$max} किलोबाइटस पेक्षा जास्त असू शकत नाही."
+
+msgid "validator.max.array"
+msgstr "यामध्ये {$max} हून अधिक घटक (items) असू शकत नाहीत."
+
+msgid "validator.mimes"
+msgstr "ही {$values} प्रकारचीच फाईल हवी."
+
+msgid "validator.min.array"
+msgstr "यात किमान {$min} घटक (items) हवेत."
+
+msgid "validator.not_in"
+msgstr "निवडलेला {$attribute} गुणधर्म अवैध आहे."
+
+msgid "validator.numeric"
+msgstr "हा वैध क्रमांक नाही."
+
+msgid "validator.present"
+msgstr "{$attribute} फील्ड असणे आवश्यक आहे."
+
+msgid "validator.required_with_all"
+msgstr "जेव्हा {$values} असतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.same"
+msgstr "{$attribute} आणि {$other} जुळलेच पाहिजेत."
+
+msgid "validator.required_without_all"
+msgstr "जेव्हा कोणत्याही {$values} नसतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.size.numeric"
+msgstr "याचे आकारमान {$size} असायलाच हवे."
+
+msgid "validator.size.string"
+msgstr "हे {$size} अक्षरांचे असायलाच हवे."
+
+msgid "validator.size.array"
+msgstr "यामध्ये {$size} घटक (items) असणे आवश्यक आहे."
+
+msgid "validator.timezone"
+msgstr "हा वैध आंतरराष्ट्रीय कालविभाग (time zone) नाही."
+
+msgid "validator.url"
+msgstr "हा वैध URL नाही."
+
+msgid "validator.no_new_line"
+msgstr "नव्या ओळीला परवानगी नाही."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "फक्त [{$tags}] html tags ना परवानगी आहे."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML नोड import करता आला नाही"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "अज्ञात आज्ञा (कमांड) : {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "लेखकाचा समावेश केला."
+
+msgid "notification.editedAuthor"
+msgstr "लेखकाची माहिती संपादित केली."
+
+msgid "common.sandbox"
+msgstr "आज्ञावली (Application) सँडबॉक्स मोडमध्ये चालू आहे."
+
+msgid "validator.required"
+msgstr "हे फील्ड आवश्यक आहे."
+
+msgid "validator.min.numeric"
+msgstr "ही किमान {$min} हवी."
+
+msgid "validator.string"
+msgstr "ही वैध सूत्र (string) नाही."
+
+msgid "validator.orcid"
+msgstr "हा वैध ORCID नाही."
+
+msgid "validator.max.string"
+msgstr "हे {$max} अक्षरांपेक्षा मोठे असू शकत नाही."
+
+msgid "validator.min.file"
+msgstr "ही किमान {$min} किलोबाईटस हवी."
+
+msgid "validator.min.string"
+msgstr "ही किमान {$min} अक्षरांची हवी."
+
+msgid "validator.regex"
+msgstr "हे योग्यरित्या स्वरूपित (format) केलेले नाही."
+
+msgid "validator.required_if"
+msgstr "जेव्हा {$other} {$value} असते तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.required_unless"
+msgstr "{$other} {$values} मध्ये नसल्यास हे फील्ड आवश्यक असते."
+
+msgid "validator.required_with"
+msgstr "जेव्हा {$values} असतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.required_without"
+msgstr "जेव्हा {$values} नसतात तेव्हा हे फील्ड आवश्यक असते."
+
+msgid "validator.size.file"
+msgstr "ही {$size} किलोबाइट्स असायलाच हवी."
+
+msgid "validator.unique"
+msgstr "{$attribute} आधीच वापरले गेले आहे."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"तुमच्या इंस्टॉलेशनमध्ये सोय नसलेले (not supported) ट्रान्सफॉर्मेशन राबवण्याचा"
+" प्रयत्न करत आहे."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"फिल्टर ({$displayName}) इनपुट {$inputTypeName} ला समर्थन देते - "
+"{$typeofInput} दिले आहे, Filter ({$displayName}) supports input "
+"{$inputTypeName} - {$typeofInput} given"

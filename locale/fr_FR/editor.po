@@ -1,12 +1,12 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-05-31 16:41+0000\n"
+"PO-Revision-Date: 2025-02-14 16:50+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr_FR/>\n"
@@ -286,10 +286,10 @@ msgid "editor.review.responseDue"
 msgstr "Réponse due pour le {$date}"
 
 msgid "editor.review.requestSent"
-msgstr "Requête envoyée"
+msgstr "Demande envoyée"
 
 msgid "editor.review.requestAccepted"
-msgstr "Requête acceptée"
+msgstr "Demande acceptée"
 
 msgid "editor.review.requestDeclined"
 msgstr "Demande refusée"

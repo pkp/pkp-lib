@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-09-16 01:58+0000\n"
+"PO-Revision-Date: 2025-01-27 23:50+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
@@ -297,7 +297,7 @@ msgstr ""
 "ögeler."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Kayıt sürecinde bir hatayla karşılaşan tüm ögeler."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""

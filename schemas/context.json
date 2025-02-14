@@ -378,6 +378,13 @@
 				"nullable"
 			]
 		},
+		"licenseTerms": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"licenseUrl": {
 			"type": "string",
 			"validation": [

@@ -183,10 +183,11 @@ class InvitationHandler extends Handler
                 ->getDispatcher()
                 ->url(
                     $request,
-                    PKPApplication::ROUTE_PAGE,
-                    $request->getContext()->getPath(),
+                    Application::ROUTE_PAGE,
+                    null,
                     'management',
                     'settings',
+                    ['access']
                 )
         ];
         $breadcrumbs[] = [

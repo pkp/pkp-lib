@@ -441,6 +441,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'reviewAssignments':
                     $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews);
                     break;
+                case 'participants':
+                    $output[$prop] = $this->getPropertyParticipants($submission);
+                    break;
                 case 'reviewersNotAssigned':
                     $output[$prop] = $currentReviewRound && $this->reviewAssignments->count() >= intval($this->context->getData('numReviewersPerSubmission'));
                     break;
@@ -526,6 +529,9 @@ class Schema extends \PKP\core\maps\Schema
     protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false): array
     {
         $reviews = [];
+        $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
+
         foreach ($reviewAssignments as $reviewAssignment) {
             // @todo for now, only show reviews that haven't been
             // declined or cancelled
@@ -533,17 +539,31 @@ class Schema extends \PKP\core\maps\Schema
                 continue;
             }
 
-            $request = Application::get()->getRequest();
-            $currentUser = $request->getUser();
             $dateDue = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
             $dateResponseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
             $dateConfirmed = is_null($reviewAssignment->getDateConfirmed()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateConfirmed()));
             $dateCompleted = is_null($reviewAssignment->getDateCompleted()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateCompleted()));
             $dateAssigned = is_null($reviewAssignment->getDateAssigned()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateAssigned()));
 
+            // calculate canLoginAs, default to false
+            $canLoginAs = false;
+            $reviewerId = $reviewAssignment->getReviewerId();
+            if ($reviewerId) {
+                $canLoginAs = \PKP\security\Validation::canUserLoginAs(
+                    $reviewerId,
+                    $currentUser->getId()
+                );
+            }
+
+            // check canGossip (only if this is a reviewer)
+            $canGossip = false;
+            if ($reviewerId) {
+                $canGossip = Repo::user()->canCurrentUserGossip($reviewerId);
+            }
+
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),
-                'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
+                'isCurrentUserAssigned' => $currentUser->getId() === (int) $reviewAssignment->getReviewerId(),
                 'statusId' => (int) $reviewAssignment->getStatus(),
                 'status' => __($reviewAssignment->getStatusKey()),
                 'dateDue' => $dateDue,
@@ -559,8 +579,10 @@ class Schema extends \PKP\core\maps\Schema
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
+                'canLoginAs' => $canLoginAs,
+                'canGossip' => $canGossip,
                 'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId())->getDisplayInitials(),
-                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId())->getData('orcidIsVerified'),
+                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId())->getData('orcidIsVerified')
             ];
         }
 
@@ -586,6 +608,57 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return $rounds;
+    }
+
+    /**
+     * Get a list of participants assigned to this submission
+     * and build an array with canLoginAs
+     *
+     * @param Submission $submission
+     * @return array
+     */
+    protected function getPropertyParticipants(Submission $submission): array
+    {
+        $participants = [];
+
+        $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
+        $context = $request->getContext();
+
+        if (!$context) {
+            // If the context is somehow null, bail out
+            return [];
+        }
+
+        // collect all users assigned to this submission. this retrieves users across all stages.
+        $usersIterator = Repo::user()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->assignedTo($submission->getId())
+            ->getMany();
+
+        // build the array for each user
+        foreach ($usersIterator as $user) {
+            // gather the properties to return
+            $userId = $user->getId();
+            $fullName = $user->getFullName();
+
+            // get value of canLoginAs
+            $canLoginAs = \PKP\security\Validation::canUserLoginAs(
+                $userId,
+                $currentUser->getId(),
+                // passing the submission's contextId null for site-wide check
+                $submission->getData('contextId')
+            );
+
+            $participants[] = [
+                'id' => $userId,
+                'fullName' => $fullName,
+                'canLoginAs' => $canLoginAs,
+            ];
+        }
+
+        return $participants;
     }
 
     /**

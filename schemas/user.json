@@ -357,6 +357,20 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"canLoginAs": {
+			"type": "boolean",
+			"description": "Whether the current user can log in as this user.",
+			"readOnly": true,
+			"apiSummary": true,
+			"apiDetail": true
+		},
+		"canMergeUsers": {
+			"type": "boolean",
+			"description": "Whether the current user can merge this user account with another.",
+			"readOnly": true,
+			"apiSummary": true,
+			"apiDetail": true
 		}
 	}
 }

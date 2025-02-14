@@ -859,3 +859,12 @@ msgstr "Your role is scheduled to begin on "
 
 msgid "user.futureRole.notification.description"
 msgstr "Until then, you can review and update your profile. If you believe this is an error, please contact journal administrator."
+
+msgid "user.disabledModal.description"
+msgstr "Current Roles : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Disable {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Enable {$fullName}"

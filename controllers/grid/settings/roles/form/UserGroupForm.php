@@ -307,7 +307,6 @@ class UserGroupForm extends Form
         $contextId = $this->getContextId();
         $roleId = $this->getData('roleId');
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        $stageIds = $this->getData('assignedStages') ?? [];
 
 
         // Current existing workflow stages.
@@ -317,7 +316,6 @@ class UserGroupForm extends Form
         UserGroupStage::query()
             ->withContextId($contextId)
             ->withUserGroupId($userGroupId)
-            ->withStageIds($stageIds)
             ->delete();
 
         // Assign new stages

@@ -22,6 +22,11 @@ export default {
 	_globalComponents: {},
 
 	/**
+	 * Registry of all global directives
+	 */
+	_globalDirectives: {},
+
+	/**
 	 * Initialize a Vue controller
 	 *
 	 * This method is often called directly from a <script> tag in a template
@@ -100,5 +105,21 @@ export default {
 	 */
 	getAllComponents() {
 		return this._globalComponents;
+	},
+
+	/**
+	 * Register a global Vue directive
+	 * @param {string} directiveName - The directive name
+	 * @param {object} directive - The directive object
+	 */
+	registerDirective(directiveName, directive) {
+		this._globalDirectives[directiveName] = directive;
+	},
+
+	/**
+	 * Retrieve all registered directives
+	 */
+	getAllDirectives() {
+		return this._globalDirectives;
 	},
 };

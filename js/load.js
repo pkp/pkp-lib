@@ -26,6 +26,9 @@ import emitter from 'tiny-emitter/instance';
 import dialog from '@/mixins/dialog.js';
 import localizeMoment from '@/mixins/localizeMoment.js';
 
+// Directives
+import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
+
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
@@ -115,6 +118,8 @@ import UserAccessManager from '@/managers/UserAccessManager/UserAccessManager.vu
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
+
+VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 
 // Register global components
 VueRegistry.registerComponent('Badge', Badge);
@@ -269,6 +274,12 @@ function pkpCreateVueApp(createAppArgs) {
 	const allGlobalComponents = VueRegistry.getAllComponents();
 	Object.keys(allGlobalComponents).forEach((componentName) => {
 		vueApp.component(componentName, allGlobalComponents[componentName]);
+	});
+
+	// register all global directives
+	const allGlobalDirectives = VueRegistry.getAllDirectives();
+	Object.keys(allGlobalDirectives).forEach((directiveName) => {
+		vueApp.directive(directiveName, allGlobalDirectives[directiveName]);
 	});
 
 	return vueApp;

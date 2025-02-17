@@ -1255,6 +1255,8 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
 
+        \APP\_helper\LogHelper::logInfo($params);
+
         // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
         // should be used instead.
         if (array_key_exists('status', $params)) {
@@ -1927,6 +1929,8 @@ class PKPSubmissionController extends PKPBaseController
         $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
 
         $citationsForm = new PKPCitationsForm($publicationApiUrl, $publication);
+
+        \APP\_helper\LogHelper::logInfo($citationsForm->getConfig());
 
         return response()->json($citationsForm->getConfig(), Response::HTTP_OK);
     }

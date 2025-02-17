@@ -98,22 +98,20 @@
 		// Multiple available templates
 		$templateOption = $('#reviewerFormFooter select[name="template"]');
 		
-		editor = tinyMCE.EditorManager.get($textarea.attr('id'));
+		editor = window.tinyMCE.EditorManager.get($textarea.attr('id'));
 		templateKey = '';
 
 		if (options.lastRoundReviewerIds.includes(reviewer.id)) {
 			templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
-			templateContent = options.reviewerMessages[templateKey];
-			editor.setContent(templateContent);
-			$templateInput.val(templateKey);
 			$templateOption.find('[value="REVIEW_REQUEST"]').remove();
 		} else {
 			templateKey = 'REVIEW_REQUEST';
-			templateContent = options.reviewerMessages[templateKey];
-			editor.setContent(templateContent);
-			$templateInput.val(templateKey);
 			$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
 		}
+
+		templateContent = options.reviewerMessages[templateKey];
+		editor.setContent(templateContent);
+		$templateInput.val(templateKey);
 
 		editor.on('activate', function () {
 			if (!editor.getContent().length) {
@@ -127,4 +125,4 @@
 	};
 
 
-}(jQuery));
+}(window.jQuery));

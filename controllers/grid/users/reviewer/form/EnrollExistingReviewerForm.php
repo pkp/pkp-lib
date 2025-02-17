@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/EnrollExistingReviewerForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EnrollExistingReviewerForm
@@ -97,7 +97,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
      * @copydoc Form::execute()
      */
     public function execute(...$functionArgs)
-    {   
+    {
         // Assign a reviewer user group to an existing non-reviewer
         $userId = (int) $this->getData('userId');
 

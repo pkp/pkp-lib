@@ -29,7 +29,11 @@
 			<div id="select-reviewer-{$uuid}">
 			</div>
 			<script type="text/javascript">
-				pkp.registry.init('select-reviewer-{$uuid}', 'AdvancedSearchReviewerContainer', {$selectReviewerListData|@json_encode});
+				pkp.registry.init(
+					'select-reviewer-{$uuid}',
+					'AdvancedSearchReviewerContainer',
+					{$selectReviewerListData|@json_encode}
+				);
 			</script>
 
 			{** This button will get the reviewer selected in the grid and insert their ID into the form below **}

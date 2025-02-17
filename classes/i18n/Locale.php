@@ -318,7 +318,7 @@ class Locale implements LocaleInterface
         $getter = function () use ($locale): LocaleBundle {
             $bundle = [];
             foreach ($this->paths as $folder => $priority) {
-                $bundle += $this->_getLocaleFiles($folder, $locale, $priority);
+                $bundle += $this->_getLocaleFiles((string)$folder, $locale, $priority);
             }
             foreach ($this->loaders as $loader) {
                 $loader($locale, $bundle);

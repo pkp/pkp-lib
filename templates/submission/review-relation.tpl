@@ -29,7 +29,7 @@
         <div class="submissionWizard__reviewPanel__item">
             <template v-if="publication.relationStatus === {\APP\publication\Publication::PUBLICATION_RELATION_PUBLISHED}">
                 <template v-if="publication.vorDoi">
-                    <span v-html="replaceLocaleParams(i18nRelationWithLink, {ldelim}vorDoi: publication.vorDoi{rdelim})"></span>
+                    <span v-strip-unsafe-html="replaceLocaleParams(i18nRelationWithLink, {ldelim}vorDoi: publication.vorDoi{rdelim})"></span>
                 </template>
                 <template v-else>
                     {translate key="publication.relation.published"}

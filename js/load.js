@@ -116,6 +116,7 @@ import UserAccessManager from '@/managers/UserAccessManager/UserAccessManager.vu
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
+
 // Register global components
 VueRegistry.registerComponent('Badge', Badge);
 VueRegistry.registerComponent('PkpBadge', Badge);
@@ -234,6 +235,9 @@ VueRegistry.registerComponent('UserAccessManager', UserAccessManager);
 
 const pinia = createPinia();
 
+VueRegistry.attachPiniaInstance(pinia)
+
+
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
@@ -280,6 +284,7 @@ export default {
 	// especially useful when using composition api
 	modules: {
 		vue,
+		piniaInstance: pinia,
 	},
 	pkpCreateVueApp,
 	createApp,

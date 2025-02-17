@@ -10,7 +10,11 @@
  *
  * @brief Registry and initialization class for Vue.js handlers
  */
+
+import { getComponentStoreByName } from "@/utils/defineComponentStore";
+
 export default {
+	_piniaInstance: null,
 	/**
 	 * Registry of all active vue instances
 	 */
@@ -68,6 +72,10 @@ export default {
 		});
 	},
 
+	attachPiniaInstance(piniaInstance) {
+		this._piniaInstance = piniaInstance;
+	},
+
 	/**
 	 * Keeps track of all globally registered vue components
 	 *
@@ -101,4 +109,33 @@ export default {
 	getAllComponents() {
 		return this._globalComponents;
 	},
+
+	/** Get pinia store by name */
+	getPiniaStore(storeName) {
+		return getComponentStoreByName(storeName);
+	},
+
+	storeExtendFn(storeName, fnName, extenderFn) {
+		this._piniaInstance.use((context) => {
+
+			if (context.store.$id === storeName) {
+				context.store.extender.extendFn(fnName, extenderFn)
+			}
+
+		})
+		
+	},
+
+	storeListExtendableFns(storeName) {
+		if(!storeName) {
+			throw new Error('missing storeName')
+		}
+		const store = getComponentStoreByName(storeName);
+
+		if(store.extender) {
+			return store.extender.listExtendableFns()
+		}
+		return false;
+
+	}
 };

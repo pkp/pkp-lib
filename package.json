@@ -55,6 +55,7 @@
     "cypress-file-upload": "^5.0.8",
     "cypress-iframe": "^1.0.1",
     "cypress-wait-until": "^2.0.1",
+    "dompurify": "^3.2.4",
     "eslint": "^8.48.0",
     "eslint-plugin-vue": "^9.17.0",
     "google-closure-compiler-java": "^20200719.0.0",

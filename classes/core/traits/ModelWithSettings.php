@@ -34,6 +34,8 @@ trait ModelWithSettings
     use HasCamelCasing;
     use LocalizedData;
 
+    public const LOCALE_MATCH_STRICT = true;
+
     /**
      * @see \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guardableColumns
      */
@@ -124,14 +126,23 @@ trait ModelWithSettings
     }
 
     /**
-     * @param string $data Model's localized attribute
-     * @param ?string $locale Locale to retrieve data for, default - current locale
+     * @param string    $data           Model's localized attribute
+     * @param ?string   $locale         Locale to retrieve data for, default - current locale
+     * @param bool      $LocaleMatch    should retrieve the localized data in exact given locale 
+     * @param ?string   $selectedLocale Optional param to contain the final selected locale 
+     *                                  that has been returned if no match found for $locale param
+     *                                
      *
      * @throws Exception
      *
      * @return mixed Localized value
      */
-    public function getLocalizedData(string $data, ?string $locale = null): mixed
+    public function getLocalizedData(
+        string $data,
+        ?string $locale = null,
+        bool $localeMatch = !self::LOCALE_MATCH_STRICT,
+        ?string &$selectedLocale = null,
+    ): mixed
     {
         if (!in_array($data, $this->getMultilingualProps())) {
             throw new Exception(
@@ -141,8 +152,12 @@ trait ModelWithSettings
 
         $multilingualProp = $this->getAttribute($data);
 
+        if ($localeMatch === self::LOCALE_MATCH_STRICT) {
+            return $multilingualProp[$locale] ?? null;
+        }
+
         return $multilingualProp 
-            ? $this->getBestLocalizedData($multilingualProp, $locale)
+            ? $this->getBestLocalizedData($multilingualProp, $locale, $selectedLocale)
             : null;
     }
 

@@ -26,6 +26,13 @@ import emitter from 'tiny-emitter/instance';
 import dialog from '@/mixins/dialog.js';
 import localizeMoment from '@/mixins/localizeMoment.js';
 
+// Composables
+import * as useLocalize from '@/composables/useLocalize.js';
+import * as useModal from '@/composables/useModal.js';
+import * as useFetch from '@/composables/useFetch.js';
+import * as useFetchPaginated from '@/composables/useFetchPaginated.js';
+import * as useUrl from '@/composables/useUrl.js';
+
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
@@ -285,6 +292,11 @@ export default {
 	modules: {
 		vue,
 		piniaInstance: pinia,
+		useLocalize,
+		useModal,
+		useFetch,
+		useFetchPaginated,
+		useUrl
 	},
 	pkpCreateVueApp,
 	createApp,

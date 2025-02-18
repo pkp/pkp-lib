@@ -36,7 +36,7 @@
     <div
         class="submissionWizard__reviewPanel__item__value"
         {if $type === 'html'}
-            v-html="publication.{$localizedProp|escape}
+            v-strip-unsafe-html="publication.{$localizedProp|escape}
                 ? publication.{$localizedProp|escape}
                 : '{translate key="common.noneProvided"}'"
         {/if}
@@ -54,7 +54,7 @@
                 {translate key="common.noneProvided"}
             </template>
         {elseif $type === 'html'}
-            {* empty. see v-html above *}
+            {* empty. see v-strip-unsafe-html above *}
         {else}
             <template v-if="publication.{$localizedProp|escape}">
                 {{ publication.{$localizedProp|escape} }}

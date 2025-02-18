@@ -126,6 +126,15 @@ export default {
 		
 	},
 
+	storeAddFn(storeName, fnName, fn) {
+		this._piniaInstance.use((context) => {
+
+			if (context.store.$id === storeName) {
+				context.store[fnName] = fn;
+			}
+		})
+	},
+
 	storeListExtendableFns(storeName) {
 		if(!storeName) {
 			throw new Error('missing storeName')
@@ -138,4 +147,6 @@ export default {
 		return false;
 
 	}
+
+
 };

@@ -724,7 +724,7 @@ msgid "grid.user.logInAs"
 msgstr "Login As"
 
 msgid "grid.user.enableReasonDescription"
-msgstr "Once the user enabled, they will regain access to OJS, and you'll be able to invite them to roles as needed."
+msgstr "Once the user is enabled, they will regain access to OJS, and you'll be able to invite them to roles as needed."
 
 msgid "grid.user.disableReasonDescription"
 msgstr "Please note that once a user is disabled, you won't be able to add them to any roles until they are enabled again."

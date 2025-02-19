@@ -105,7 +105,7 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'orcidDisplayValue':
                     $output[$prop] = $item->getOrcidDisplayValue();
-                    // no break
+                    break;
                 case 'affiliations':
                     $data = [];
                     foreach ($item->getAffiliations() as $affiliation) {

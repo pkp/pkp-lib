@@ -1327,6 +1327,7 @@ msgstr "Hakemlerden yanıtı bekliyor."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Yeni değerlendirmeler gönderildi."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Tüm değerlendirmeler bekliyor ve bir karar gerekli."
 

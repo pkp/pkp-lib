@@ -1300,7 +1300,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "New reviews have been submitted."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "All reviewers have responded and a decision is needed."
+msgstr "All reviews are confirmed and a decision is needed."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "A review is overdue."

@@ -1298,6 +1298,7 @@ msgstr "Чека се одговор од рецензената."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Достављене су нове рецензије."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Рецензије су завршене."
 

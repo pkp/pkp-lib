@@ -1343,6 +1343,7 @@ msgstr "Afventer svar fra bedømmere."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nye bedømmelser er indsendt."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Bedømmelserne afsluttet."
 

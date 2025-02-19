@@ -1831,6 +1831,7 @@ msgstr "Tiek gaidītas atbildes no recenzentiem."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ir iesniegtas jaunas recenzijas."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Visi recenzenti ir snieguši atbildes, un ir jāpieņem lēmums."
 

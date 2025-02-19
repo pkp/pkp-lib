@@ -1350,6 +1350,7 @@ msgstr "Во исчекување на одговори од рецензент�
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Поднесени се нови рецензии."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Сите рецензенти имаат одговорено и потребна е одлука."
 

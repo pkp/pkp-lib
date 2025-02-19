@@ -1353,6 +1353,7 @@ msgstr "Σε αναμονή αποκρίσεων από κριτές."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Έχουν υποβληθεί νέες κρίσεις."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Έχουν κατατεθεί όλες οι κρίσεις και αναμένεται μια απόφαση."
 

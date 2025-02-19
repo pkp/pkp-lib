@@ -1330,6 +1330,7 @@ msgstr "ელოდება მიმოხილვების პასუ�
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "გაგზავნილია ახალი მიმოხილვები."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "ყველა მიმომხილველმა უპასუხა და გადაწყვეტილება საჭიროა {$stage}-ზე."
 

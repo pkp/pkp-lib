@@ -1339,6 +1339,7 @@ msgstr "Oczekiwanie na odpowiedzi recenzentów."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nowe recenzje zostały przesłane."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Wszyscy recenzenci odpowiedzieli. Wymagana decyzja redaktora."
 

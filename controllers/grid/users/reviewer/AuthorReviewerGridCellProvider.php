@@ -120,8 +120,6 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                     $user = $request->getUser();
                     return [new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.AuthorReviewerGridHandler', true)];
-                default:
-                    return null;
             }
         }
         return parent::getCellActions($request, $row, $column, $position);

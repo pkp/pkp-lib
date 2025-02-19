@@ -1305,6 +1305,9 @@ msgstr "All reviews are confirmed and a decision is needed."
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "A review is overdue."
 
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Recommendation has been made by you."
+
 msgid "editor.submission.roundStatus.pendingRecommendations"
 msgstr "Awaiting recommendations from editors."
 

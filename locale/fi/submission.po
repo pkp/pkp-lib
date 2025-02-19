@@ -1338,6 +1338,7 @@ msgstr "Odottaa vastauksia arvioijilta."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Uusia arviointeja on lähetetty."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Arvioinnit suoritettu."
 

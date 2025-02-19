@@ -1335,6 +1335,7 @@ msgstr "Рецензенттерден жауап күту."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Жаңа пікірлер жіберілді."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Барлық рецензенттер өз пікірлерін жіберді, шешім қабылдау керек."
 

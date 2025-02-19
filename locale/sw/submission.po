@@ -1258,6 +1258,7 @@ msgstr ""
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr ""
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr ""
 

@@ -1355,6 +1355,7 @@ msgstr "Esperando las respuestas de los revisores/as."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Se han recibido nuevas revisiones."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Todos los revisores/as han contestado y hay que tomar una decisión."
 

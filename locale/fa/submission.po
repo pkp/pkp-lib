@@ -1322,6 +1322,7 @@ msgstr "در انتظار پاسخ از داوران."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "داوری های جدید ثبت شدند."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "همه داورها، پاسخ داده اند و تصمیم گیری لازم است."
 

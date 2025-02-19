@@ -1375,6 +1375,7 @@ msgstr "Warte auf Antworten von Gutachter/innen."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Neue Gutachten wurden eingereicht."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Gutachten abgeschlossen."
 

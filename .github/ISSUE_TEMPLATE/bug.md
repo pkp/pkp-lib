@@ -25,7 +25,7 @@ Clear, unambiguous, step-by-step instructions on how to trigger the bug.
 **Expected Result:** Describe what the system should do under normal conditions.
 **Actual Result:** Describe what the system actually does (the problematic behavior).
 
-**Environment Details:** Operating system, browser version, or device type.
+**Environment Details:** If known, include things such as Client/Server Operating System, PHP version, browser version, device type or etc..
 
 **What application are you using?**
  OJS, OMP or OPS version X.X.X

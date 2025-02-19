@@ -16,11 +16,16 @@
 
 namespace PKP\controllers\grid\users\userSelect;
 
+use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 
 class UserSelectGridCellProvider extends DataObjectGridCellProvider
 {
+    /** @var int ID of the current context */
+    public $_contextId;
+
     /** @var int User ID of already-selected user */
     public $_userId;
 
@@ -29,8 +34,9 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider
      *
      * @param int $userId ID of preselected user.
      */
-    public function __construct($userId = null)
+    public function __construct($contextId, $userId = null)
     {
+        $this->_contextId = $contextId;
         $this->_userId = $userId;
     }
 
@@ -56,7 +62,22 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider
 
             case 'name': // User's name
                 return ['label' => $element->getFullName()];
+
+            case 'assignments': //User's assignments count
+                $countUserAssignments = $this->getCountUserAssignments($element->getId());
+                return ['label' => $countUserAssignments];
         }
         assert(false);
+    }
+
+    private function getCountUserAssignments($userId)
+    {
+        $countAssignedSubmissions = Repo::submission()->getCollector()
+            ->filterByContextIds([$this->_contextId])
+            ->filterByStatus([Submission::STATUS_QUEUED])
+            ->assignedTo([$userId])
+            ->getCount();
+
+        return $countAssignedSubmissions;
     }
 }

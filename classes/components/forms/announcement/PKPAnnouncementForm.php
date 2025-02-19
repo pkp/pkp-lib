@@ -46,7 +46,7 @@ class PKPAnnouncementForm extends FormComponent
      * @param string $temporaryFileApiUrl URL to upload files to
      * @param string $imageUploadUrl The API endpoint for images uploaded through the rich text field
      */
-    public function __construct($action, $locales, string $baseUrl, string $temporaryFileApiUrl, ?Context $context = null, string $imageUploadUrl)
+    public function __construct($action, $locales, string $baseUrl, string $temporaryFileApiUrl, string $imageUploadUrl, ?Context $context = null)
     {
         $this->action = $action;
         $this->locales = $locales;

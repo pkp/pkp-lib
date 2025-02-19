@@ -9,7 +9,7 @@ assignees: ''
 Do not forget to change the default title text!!!
 
 **Description:**
-A detailed explanation of the bug, include any unusual behaviour or unique details.
+Include a detailed explanation of the bug with any unusual behavior or unique details.
 
 **Preconditions**
 These are requirements that need to be in place before trying to follow the steps to reproduce bug behaviour.  If necessary, it is helpful to include details like user role, related plugins or submission workflow stage. Sometimes the best precondition is that it is seen using "basic install with default dataset".

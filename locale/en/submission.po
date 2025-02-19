@@ -2165,6 +2165,9 @@ msgstr "Days since last activity"
 msgid "submission.list.assignEditor"
 msgstr "Assign Editor"
 
+msgid "submission.list.completeSubmission"
+msgstr "Complete submission"
+
 msgid "submission.wizard.alreadySubmitted"
 msgstr "This submission has already been submitted. Please visit your <a href=\"{$url}\">submissions dashboard</a> to view it."
 
@@ -2520,6 +2523,9 @@ msgstr "Revisions requested from the author to be taken to a new review round"
 
 msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "New review round to be created"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "To be published in issue ${issue}"
 
 msgid "dashboard.revisionRequested"
 msgstr "Revision requested"

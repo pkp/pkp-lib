@@ -439,7 +439,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $currentReviewRound ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;
                     break;
                 case 'reviewAssignments':
-                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews);
+                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews, $submission);
                     break;
                 case 'participants':
                     $output[$prop] = $this->getPropertyParticipants($submission);
@@ -526,27 +526,24 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Get details about the review assignments for a submission
      */
-    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false): array
+    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false, Submission $submission): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
-        $currentUserRoleIds = array_map(
-            function (Role $role) {
-                return $role->getId();
-            },
-            $currentUser->getRoles($this->context->getId())
-        );
 
-        // is the user a manager, sub-editor, or site admin?
-        $canSeeAllReviewAssignments = (
-            in_array(Role::ROLE_ID_MANAGER, $currentUserRoleIds) ||
-            in_array(Role::ROLE_ID_SUB_EDITOR, $currentUserRoleIds) ||
-            in_array(Role::ROLE_ID_SITE_ADMIN, $currentUserRoleIds)
-        );
+        // current user's assigned roles from the submission's stages
+        $currentUserAssignedRoles = [];
+        foreach ($this->getPropertyStages($this->stageAssignments, $submission, $this->decisions ?? null, null) as $stage) {
+            if (isset($stage['currentUserAssignedRoles'])) {
+                $currentUserAssignedRoles = array_merge($currentUserAssignedRoles, $stage['currentUserAssignedRoles']);
+            }
+        }
+        $currentUserAssignedRoles = array_unique($currentUserAssignedRoles);
+
+        // define the roles that can see declined or cancelled review assignments
+        $allowedRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_SITE_ADMIN];
+        $canSeeAllReviewAssignments = !empty(array_intersect($currentUserAssignedRoles, $allowedRoles));
         $reviews = [];
-        $request = Application::get()->getRequest();
-        $currentUser = $request->getUser();
-
         foreach ($reviewAssignments as $reviewAssignment) {
             // declined or cancelled are only show to editors, sub-editors and site admin
             if (
@@ -580,7 +577,7 @@ class Schema extends \PKP\core\maps\Schema
 
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),
-                'isCurrentUserAssigned' => $currentUser->getId() === (int) $reviewAssignment->getReviewerId(),
+                'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
                 'statusId' => (int) $reviewAssignment->getStatus(),
                 'status' => __($reviewAssignment->getStatusKey()),
                 'dateDue' => $dateDue,

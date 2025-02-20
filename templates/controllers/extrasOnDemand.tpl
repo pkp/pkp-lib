@@ -10,8 +10,9 @@
 <script>
 	// Initialise JS handler.
 	$(function() {ldelim}
-		$('#{$id}').pkpHandler(
-			'$.pkp.controllers.ExtrasOnDemandHandler');
+		$(('{$parentContainer}' + ' #{$id}').trim())
+			.last()
+			.pkpHandler('$.pkp.controllers.ExtrasOnDemandHandler');
 	{rdelim});
 </script>
 <div id="{$id}" class="pkp_controllers_extrasOnDemand">

@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\languages;
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -100,6 +101,7 @@ class LanguageGridHandler extends GridHandler
                     if ($settingName == 'supportedFormLocales') {
                         // reload localized default context settings
                         $contextService->restoreLocaleDefaults($context, $request, $locale);
+                        Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd($context, $locale);
                     } elseif ($settingName == 'supportedSubmissionLocales') {
                         // if a submission locale is enabled, and this locale is not in the metadata locales, add it
                         $supportedSubmissionMetadataLocales = (array) $context->getSupportedSubmissionMetadataLocales();
@@ -173,9 +175,11 @@ class LanguageGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
+        
         $locale = (string) $request->getUserVar('rowId');
         $context = $request->getContext();
         $availableLocales = $this->getGridDataElements($request);
+        $currentPrimaryLocale = $context->getPrimaryLocale();
 
         if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
@@ -190,6 +194,12 @@ class LanguageGridHandler extends GridHandler
             $context->setPrimaryLocale($locale);
             $contextDao = Application::getContextDAO();
             $contextDao->updateObject($context);
+            
+            Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd(
+                $context,
+                $locale,
+                $currentPrimaryLocale
+            );
 
             $notificationManager = new NotificationManager();
             $user = $request->getUser();

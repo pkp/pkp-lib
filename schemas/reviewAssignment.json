@@ -43,7 +43,7 @@
 				"in:0,1,2,3,4"
 			]
 		},
-		"dateEditorConfirmed": {
+		"dateConsidered": {
 		"type": "string",
 		"description": "Date when the editor confirmed the review",
 		"format": "date-time",

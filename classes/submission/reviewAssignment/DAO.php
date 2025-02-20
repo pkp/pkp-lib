@@ -66,7 +66,7 @@ class DAO extends EntityDAO
         'step' => 'step',
         'reviewFormId' => 'review_form_id',
         'considered' => 'considered',
-        'dateEditorConfirmed' => 'date_editor_confirmed',
+        'dateConsidered' => 'date_considered',
         'requestResent' => 'request_resent',
     ];
 

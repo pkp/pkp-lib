@@ -2527,6 +2527,9 @@ msgstr "New review round to be created"
 msgid "dashboard.toBePublishedInIssue"
 msgstr "To be published in issue ${issue}"
 
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Copyedited Files Uploaded: ${count}"
+
 msgid "dashboard.revisionRequested"
 msgstr "Revision requested"
 

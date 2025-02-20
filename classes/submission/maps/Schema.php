@@ -439,7 +439,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $currentReviewRound ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;
                     break;
                 case 'reviewAssignments':
-                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews, $submission);
+                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews, $submission, $stages);
                     break;
                 case 'participants':
                     $output[$prop] = $this->getPropertyParticipants($submission);
@@ -526,16 +526,25 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Get details about the review assignments for a submission
      */
-    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false, Submission $submission): array
+    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false, Submission $submission, array $stages): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
+    
+        // application specific review stages
+        $reviewStageIds = [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
+        if (Application::get()->getName() === 'omp') {
+            $reviewStageIds[] = WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
+        }
 
-        // current user's assigned roles from the submission's stages
+        // get roles from review stages only
         $currentUserAssignedRoles = [];
-        foreach ($this->getPropertyStages($this->stageAssignments, $submission, $this->decisions ?? null, null) as $stage) {
-            if (isset($stage['currentUserAssignedRoles'])) {
-                $currentUserAssignedRoles = array_merge($currentUserAssignedRoles, $stage['currentUserAssignedRoles']);
+        foreach ($stages as $stage) {
+            if (in_array($stage['id'], $reviewStageIds) && !empty($stage['currentUserAssignedRoles'])) {
+                $currentUserAssignedRoles = array_merge(
+                    $currentUserAssignedRoles,
+                    $stage['currentUserAssignedRoles']
+                );
             }
         }
         $currentUserAssignedRoles = array_unique($currentUserAssignedRoles);

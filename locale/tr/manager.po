@@ -1187,10 +1187,12 @@ msgstr "Varsayılan Yanıt Son Tarihi"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Varsayılan Tamamlanma Tarihi"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Bir değerlendirme isteğini kabul etme veya reddetme süresi haftaları."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Değerlendirme  için tamamlanan haftalar"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

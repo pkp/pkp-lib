@@ -1204,10 +1204,12 @@ msgstr "Noklusējuma atbildes termiņš"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Noklusējuma izpildes termiņš"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Nedēļas līdz recenzēšanas pieprasījuma pieņemšanai vai noraidīšanai."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Recenzijas pabeigšanai atvēlētās nedēļas"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

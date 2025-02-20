@@ -1198,10 +1198,12 @@ msgstr "Standaard antwoorddatum"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Standaard reviewdatum"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Uiterste datum voor het beantwoorden van een reviewverzoek (in weken)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Uiterste datum voor het voltooien van een review (in weken)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -1220,10 +1220,12 @@ msgstr "Стандарден краен рок за одговор"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Стандарден краен рок за завршување"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Број на недели за прифаќање или одбивање на барање за рецензија."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Недели дозволени да се заврши прегледот"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

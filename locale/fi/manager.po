@@ -1221,12 +1221,13 @@ msgstr "Oletusaika vastauksen takarajalle"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Oletusaika arvion takarajalle"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr ""
-"Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (vk)."
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
+msgstr "Arviointipyynnön hyväksymiseen tai siitä kieltäytymiseen annettava aika (päivää)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Arvioinnin suorittamiseen annettava aika (vk)"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
+msgstr "Arvioinnin suorittamiseen annettava aika (päivää)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Älä muistuta koskaan"

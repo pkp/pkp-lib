@@ -546,7 +546,7 @@ class Schema extends \PKP\core\maps\Schema
             $dateConfirmed = is_null($reviewAssignment->getDateConfirmed()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateConfirmed()));
             $dateCompleted = is_null($reviewAssignment->getDateCompleted()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateCompleted()));
             $dateAssigned = is_null($reviewAssignment->getDateAssigned()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateAssigned()));
-            $dateEditorConfirmed = is_null($reviewAssignment->getData('dateEditorConfirmed')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateEditorConfirmed')));
+            $dateConsidered = is_null($reviewAssignment->getData('dateConsidered')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateConsidered')));
 
 
             // calculate canLoginAs, default to false
@@ -574,7 +574,7 @@ class Schema extends \PKP\core\maps\Schema
                 'dateResponseDue' => $dateResponseDue,
                 'dateConfirmed' => $dateConfirmed,
                 'dateCompleted' => $dateCompleted,
-                'dateEditorConfirmed' =>  $dateEditorConfirmed,
+                'dateConsidered' =>  $dateConsidered,
                 'dateAssigned' => $dateAssigned,
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),

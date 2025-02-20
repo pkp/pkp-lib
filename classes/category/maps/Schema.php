@@ -76,13 +76,13 @@ class Schema extends \PKP\core\maps\Schema
     protected function mapByProperties(array $props, Category $category): array
     {
         $output = [];
-
+        $context = Application::get()->getRequest()->getContext();
         foreach ($props as $prop) {
             switch ($prop) {
                 case 'subCategories':
                     $children = Repo::category()->getCollector()
                         ->filterByParentIds([$category->getId()])
-                        ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                        ->filterByContextIds([$context->getId()])
                         ->getMany();
 
                     if ($children->isNotEmpty()) {
@@ -101,6 +101,6 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        return $output;
+        return $this->schemaService->addMissingMultilingualValues($this->schema, $output, $context->getSupportedFormLocales());
     }
 }

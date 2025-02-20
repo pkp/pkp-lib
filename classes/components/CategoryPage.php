@@ -93,8 +93,7 @@ class CategoryPage
         $publicFileManager = new PublicFileManager();
 
 
-        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($this->context->getId()) . '/categories';
-        $dispatcher = $request->getDispatcher();
+        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($this->context->getId());
         $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $this->context->getPath(), 'temporaryFiles');
 
         return new CategoryForm($this->getCategoriesApiUrl(), $locales, $baseUrl, $temporaryFileApiUrl);

@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-17 17:40+0000\n"
+"PO-Revision-Date: 2025-02-20 19:37+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "mr/>\n"
@@ -1302,7 +1302,7 @@ msgstr "अनुपलब्ध"
 
 msgid "manager.plugins.wrongCategory"
 msgstr ""
-"संक्रमित (अपलोड) केलेले प्लग-इन अपग्रेड केलेल्या प्लग-इनच्या श्रेणीमध्ये "
+"संक्रमित (अपलोड) केलेले प्लग-इन अपग्रेड केलेल्या प्लग-इनच्या प्रवर्गामध्ये "
 "(category) बसत नाही."
 
 msgid "manager.plugins.pleaseInstall"
@@ -1663,10 +1663,10 @@ msgstr ""
 "स्वतःचे व्यक्तिगत (Custom) तयार करा"
 
 msgid "grid.category.add"
-msgstr "नव्या श्रेणीचा (Category) समावेश करा"
+msgstr "प्रवर्ग (Category) समाविष्ट करा"
 
 msgid "grid.category.edit"
-msgstr "श्रेणी (Category) संपादित करा"
+msgstr "प्रवर्ग (Category) संपादित करा"
 
 msgid "grid.category.name"
 msgstr "नाव"
@@ -1676,20 +1676,20 @@ msgstr "पत्ता (Path)"
 
 msgid "grid.category.pathExists"
 msgstr ""
-"श्रेणीचा (Category) पत्ता (Path) यापूर्वीच अस्तित्वात आहे. कृपया एक एकमेव "
+"प्रवर्गाचा (Category) पत्ता (Path) यापूर्वीच अस्तित्वात आहे. कृपया एक एकमेव "
 "पत्ता (Path) नोंदवा."
 
 msgid "grid.category.description"
 msgstr "वर्णन (Description)"
 
 msgid "grid.category.parentCategory"
-msgstr "मूळ श्रेणी (Parent Category)"
+msgstr "मूळ प्रवर्ग (Parent Category)"
 
 msgid "grid.category.nameRequired"
-msgstr "कृपया श्रेणीच्या (Category) नावाची नोंद करा."
+msgstr "कृपया प्रवर्गाच्या (Category) नावाची नोंद करा."
 
 msgid "grid.category.categoryDetails"
-msgstr "श्रेणीचा (Category) तपशील"
+msgstr "प्रवर्गाचा (Category) तपशील"
 
 msgid "stats.allUsers"
 msgstr "सर्व वापरकर्ते"
@@ -2072,8 +2072,8 @@ msgstr ""
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
-"या श्रेणीतील (category - विविध विषय) सगळ्या नव्या सादरीकरणांसाठी स्वयंचलितपणे"
-" नियुक्त केलेले संपादकीय वापरकर्ते निवडा."
+"या प्रवर्गातील (category) सगळ्या नव्या सादरीकरणांसाठी स्वयंचलितपणे नियुक्त "
+"केलेले संपादकीय वापरकर्ते निवडा."
 
 msgid "plugins.categories.metadata.description"
 msgstr "मेटाडेटासाठीचे प्लग-इन्स अतिरिक्त मेटाडेटा मानके लागू करतात."
@@ -2133,9 +2133,9 @@ msgid "manager.plugins.description"
 msgstr ""
 "हे पृष्ठ व्यवस्थापकाला सध्या स्थापित केलेल्या प्लग-इनचे पुनरावलोकन करायची आणि"
 " संभाव्यतः कॉन्फिगर करायची संधी देते. प्लग-इन त्यांच्या उपयुक्ततेनुसार विविध "
-"श्रेणींमध्ये (categories) विभागले गेले आहेत. श्रेणींची (categories) यादी खाली"
-" दिली आहे आणि प्रत्येक श्रेणीमध्ये, त्यांच्या सध्या अस्तित्वात असलेल्या "
-"प्लग-इन्सचा संच आहे."
+"प्रवर्गांमध्ये (categories) विभागले गेले आहेत. प्रवर्गांची (categories) यादी "
+"खाली दिली आहे आणि प्रत्येक प्रवर्गामध्ये, त्यांच्या सध्या अस्तित्वात असलेल्या"
+" प्लग-इन्सचा संच आहे."
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
@@ -2606,15 +2606,15 @@ msgstr ""
 "privacy statement) प्रविष्ट केले असेल तरच हा दुवा (link) प्रदर्शित होईल."
 
 msgid "grid.category.urlWillBe"
-msgstr "श्रेणीची (Category) URL अशी असेल : {$sampleUrl}"
+msgstr "प्रवर्गाचा (Category) URL असा असेल : {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
 msgstr ""
-"श्रेणीचा (Category) पत्ता (Path) लिहिताना फक्त अक्षरे आणि आकड्यांचाच उपयोग "
+"प्रवर्गाचा (Category) पत्ता (Path) लिहिताना फक्त अक्षरे आणि आकड्यांचाच उपयोग "
 "करणे आवश्यक आहे."
 
 msgid "grid.category.removeText"
-msgstr "तुम्ही खात्रीने ही श्रेणी (Category) काढून टाकू इच्छिता ना?"
+msgstr "तुम्ही खात्रीने हा प्रवर्ग (Category) काढून टाकू इच्छिता ना?"
 
 msgid "stats.views.timelineInterval"
 msgstr "तारखेनुसार एकूण अवलोकन करणारे (Views)"

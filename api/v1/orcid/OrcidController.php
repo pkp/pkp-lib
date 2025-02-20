@@ -102,7 +102,7 @@ class OrcidController extends PKPBaseController
     {
         $validate = $this->validateRequest($illuminateRequest);
 
-        if ($validate['error']) {
+        if (array_key_exists('error', $validate)) {
             return response()->json(['error' => $validate['error']], $validate['status']);
         }
 

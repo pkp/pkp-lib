@@ -14,7 +14,7 @@
  * @brief Job to revoke a user's ORCID access token for the application.
  */
 
-namespace pkp\jobs\orcid;
+namespace PKP\jobs\orcid;
 
 use APP\core\Application;
 use GuzzleHttp\Exception\ClientException;

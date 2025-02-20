@@ -699,7 +699,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         Repo::reviewAssignment()->edit($reviewAssignment, [
             'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED,
-            'dateEditorConfirmed' => null
+            'dateConsidered' => null
         ]);
 
         // log the unconsider.
@@ -753,7 +753,7 @@ class PKPReviewerGridHandler extends GridHandler
             : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
 
         // set the date when the editor confirms the review
-        $newReviewData['dateEditorConfirmed'] = Core::getCurrentDate();
+        $newReviewData['dateConsidered'] = Core::getCurrentDate();
 
         if (!$reviewAssignment->getDateCompleted()) {
             // Editor completes the review.

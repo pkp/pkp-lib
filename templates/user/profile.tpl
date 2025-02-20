@@ -12,7 +12,7 @@
 {block name="page"}
 	{if $userFutureRoleStartDate}
 		<Notification>
-			<h2 class="text-3xl-bold text-heading"> {translate key="user.futureRole.notification.message"} {$userFutureRoleStartDate}</h2>
+			<h2 class="text-3xl-bold text-heading"> {translate key="user.futureRole.notification.message" roleStartDate=$userFutureRoleStartDate}</h2>
 			<p> {translate key="user.futureRole.notification.description"}</p>
 		</Notification>
 	{/if}

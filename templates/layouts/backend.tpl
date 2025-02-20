@@ -154,7 +154,7 @@
 
 		<div class="app__body">
 			{block name="menu"}
-				{if $currentUser->getRoles($currentContext->getId())|count > 0}
+				{if isset($currentContext) && isset($currentUser) && $currentUser->getRoles($currentContext->getId())|count > 0}
 					<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
 					</pkp-side-nav>
 				{/if}

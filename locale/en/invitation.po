@@ -134,10 +134,10 @@ msgid "userInvitation.searchUser.nextButtonLabel"
 msgstr "Search User"
 
 msgid "userInvitation.searchUser.stepDescription"
-msgstr "If the user does not exist, you can invite them to take on roles and become part of your journal. If the user already exists in the system, you can view their information and invite them to take on additional roles."
+msgstr "If the user does not exist, you can invite them to take on roles. If the user already exists in the system, you can view their information and invite them to take on additional roles."
 
 msgid "userInvitation.searchField.description"
-msgstr "e.g. aeinstein@example.com or aeinstein or 0000-0000-0000-0000"
+msgstr "e.g. aeinstein@example.com or aeinstein or 0000-0002-1825-0097"
 
 msgid "userInvitation.enterDetails.stepName"
 msgstr "Enter details"
@@ -374,6 +374,6 @@ msgid "userInvitation.user.disableTitle"
 msgstr "The user is currently disabled."
 
 msgid "userInvitation.user.disableMessage"
-msgstr "The user was disabled. You cannot assign them a role while they are disabled. Please enable the user first to invite them to a  role."
+msgstr "The user was disabled. You cannot assign them a role while they are disabled. Please enable the user first to invite them to a role."
 
 

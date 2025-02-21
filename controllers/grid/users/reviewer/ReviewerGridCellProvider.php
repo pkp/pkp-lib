@@ -156,6 +156,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED:
                     return [new UnconsiderReviewLinkAction($request, $reviewAssignment, $submission)];
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_VIEWED:
                     $user = $request->getUser();
                     return [new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.ReviewerGridHandler', true)];
             }
@@ -190,6 +191,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
             case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
                 return '<span class="state declined" title="' . __('editor.review.requestCancelled.tooltip') . '">' . __('editor.review.requestCancelled') . '</span>';
             case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED:
                 return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
             case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED:
                 return  $this->_getStatusWithRecommendation('editor.review.reviewerThanked', $reviewAssignment);

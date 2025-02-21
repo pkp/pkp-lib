@@ -1869,6 +1869,9 @@ msgstr "This review has been accepted."
 msgid "submission.review.status.received"
 msgstr "The reviewer has submitted their review."
 
+msgid "submission.review.status.viewed"
+msgstr "The editor has viewed the review."
+
 msgid "submission.review.status.complete"
 msgstr "This review has been completed."
 

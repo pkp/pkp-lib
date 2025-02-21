@@ -261,6 +261,7 @@ class ReviewRound extends \PKP\core\DataObject
                     break;
 
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_VIEWED:
                     $anyUnreadReview = true;
                     break;
             }

@@ -40,7 +40,7 @@
 			"description": "Whether editor considered a review assignment request",
 			"apiSummary": true,
 			"validation": [
-				"in:0,1,2,3"
+				"in:0,1,2,3,4"
 			]
 		},
 		"dateAcknowledged": {

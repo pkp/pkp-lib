@@ -179,7 +179,7 @@ Cypress.Commands.add('register', data => {
 
 Cypress.Commands.add('openSubmission', (familyName) => {
 	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').click({force: true})
+		cy.get('button').contains(/Complete submission|View/).click({force: true})
 	})
 });
 

@@ -26,8 +26,8 @@ Clear, unambiguous, step-by-step instructions on how to trigger the bug.
 **Actual Result:** Describe what the system actually does (the problematic behaviour).
 
 **Environment Details:** If known, include details such as
- * Server-side Operating System, PHP version or DB type
- * Client-side browser configuration or device specs 
+ * Server operating system, PHP version and database type
+ * Client browser configuration and device
 
 **What application are you using?**
  OJS, OMP or OPS version X.X.X

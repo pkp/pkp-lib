@@ -9,13 +9,12 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\category\Category;
 use PKP\components\forms\context\CategoryForm;
 use PKP\context\Context;
-use PKP\context\SubEditorsDAO;
 use PKP\core\Core;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\file\ContextFileManager;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
@@ -83,9 +82,12 @@ class PkpCategoryCategoryController extends PKPBaseController
     private function saveCategory(Request $illuminateRequest): JsonResponse
     {
         $context = Application::get()->getRequest()->getContext();
+        $temporaryFileManager = new TemporaryFileManager();
+        $user = Application::get()->getRequest()->getUser();
 
         $parentId = $illuminateRequest->input('parentCategoryId') ? (int)$illuminateRequest->input('parentCategoryId') : null;
         $categoryId = $illuminateRequest->route('categoryId') ? (int)$illuminateRequest->route('categoryId') : null;
+        $temporaryFileId = $illuminateRequest->input('image') ? $illuminateRequest->input('image')['temporaryFileId'] : null;
 
         // Get a category object to edit or create
         if ($categoryId == null) {
@@ -93,18 +95,26 @@ class PkpCategoryCategoryController extends PKPBaseController
             $category->setContextId($context->getId());
         } else {
             $category = Repo::category()->get($categoryId);
-            if ($category->getContextId() != $context->getId()) {
-                return response()->json(['error' => 'Wrong context ID for category!'], Response::HTTP_BAD_REQUEST);
-            }
         }
 
-        // add validator method to validate all the props. see if u can port those in the OG form to this
+        $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $illuminateRequest->input());
+        $params['contextId'] = $category->getContextId();
+        $params['image'] = $params['image'] ?: [];
+        $errors = Repo::category()->validate($category, $params, $context);
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
         // Set the editable properties of the category object
         $category->setTitle($illuminateRequest->input('title'), null); // Localized
         $category->setDescription($illuminateRequest->input('description'), null); // Localized
         $category->setParentId($parentId);
         $category->setPath($illuminateRequest->input('path'));
         $category->setSortOption($illuminateRequest->input('sortOption'));
+
+        // Fetch the temporary file storing the uploaded image
+        $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
 
         // Update or insert the category object
         if ($categoryId == null) {
@@ -116,33 +126,14 @@ class PkpCategoryCategoryController extends PKPBaseController
         }
 
         // Update category editors
-        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-        /** @var SubEditorsDAO $subEditorsDao */
-        $subEditorsDao->deleteBySubmissionGroupId($categoryId, Application::ASSOC_TYPE_CATEGORY, $category->getContextId());
         $subEditors = $illuminateRequest->input('subEditors');
-        $category->getData('subEditors');
-        if (!empty($subEditors)) {
-            $allowedEditors = Repo::user()
-                ->getCollector()
-                ->filterByRoleIds($this->getAssignableRoles())
-                ->filterByContextIds([$context->getId()])
-                ->getIds();
-            foreach ($subEditors as $userGroupId => $userIds) {
-                foreach ($userIds as $userId) {
-                    if (!$allowedEditors->contains($userId)) {
-                        continue;
-                    }
-                    $subEditorsDao->insertEditor($context->getId(), $categoryId, $userId, Application::ASSOC_TYPE_CATEGORY, (int)$userGroupId);
-                }
-            }
-        }
+        Repo::category()->updateEditors($categoryId, $subEditors, Category::$ASSIGNABLE_ROLES, $context->getId());
 
         $contextFileManager = new ContextFileManager($context->getId());
-        $temporaryFileId = $illuminateRequest->input('image')['temporaryFileId'] ?: null;
         $basePath = $contextFileManager->getBasePath() . '/categories/'; // Location on disk
 
-        if (!$illuminateRequest->input('image')) {
-            // If no image was submitted, then delete the old image if it exists
+        // Delete the old image if a new one was submitted or if the existing one was removed
+        if ($temporaryFileId || !$illuminateRequest->input('image')) {
             $oldSetting = $category->getImage();
             if ($oldSetting) {
                 $contextFileManager->deleteByPath($basePath . $oldSetting['thumbnailName']);
@@ -153,37 +144,18 @@ class PkpCategoryCategoryController extends PKPBaseController
                 $publicFileManager->removeContextFile($category->getContextId(), $oldSetting['uploadName']);
                 $category->setImage(null);
             }
-        } elseif ($temporaryFileId) {
-            $user = Application::get()->getRequest()->getUser();
-            $temporaryFileManager = new TemporaryFileManager();
-            // Fetch the temporary file storing the uploaded image
-            $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
+        }
 
-            if (!$temporaryFile ||
-                !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
-                !($_sizeArray = getimagesize($temporaryFile->getFilePath())) ||
-                $_sizeArray[0] <= 0 || $_sizeArray[1] <= 0
-            ) {
-                return response()->json(['error' => __('form.invalidImage')], Response::HTTP_BAD_REQUEST);
-            }
-
-
-            // Delete the old file if it exists
-            $oldSetting = $category->getImage();
-            if ($oldSetting) {
-                $contextFileManager->deleteByPath($basePath . $oldSetting['thumbnailName']);
-                $contextFileManager->deleteByPath($basePath . $oldSetting['name']);
-            }
-
-
+        if ($temporaryFile) {
             $thumbnail = $this->generateThumbnail($temporaryFile, $context, $categoryId, $basePath);
             $filenameBase = $categoryId . '-category';
             // Moves the temporary file to the public directory
             $fileName = app()->get('context')->moveTemporaryFile($context, $temporaryFile, $filenameBase, $user->getId());
 
+            $_sizeArray = getimagesize($temporaryFile->getFilePath());
             $category->setImage([
                 'name' => $fileName, // Name given to file stored on disk in old category form upload
-                'width' => $_sizeArray[0],
+                'width' => $_sizeArray[0], // storing this may longer be necessary
                 'height' => $_sizeArray[1],
                 'thumbnailName' => $thumbnail['thumbnailName'],
                 'thumbnailWidth' => $thumbnail['thumbnailWidth'],
@@ -192,7 +164,6 @@ class PkpCategoryCategoryController extends PKPBaseController
                 'dateUploaded' => Core::getCurrentDate(),
             ]);
         }
-
 
         // Update category object to store image information.
         Repo::category()->edit($category, []);

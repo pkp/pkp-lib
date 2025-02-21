@@ -9,7 +9,7 @@ assignees: ''
 Do not forget to change the default title text!!!
 
 **Description:**
-Include a detailed explanation of the bug with any unusual behavior or unique details.
+Include a detailed explanation of the bug with any unusual behaviour or unique details.
 
 **Preconditions**
 These are requirements that need to be in place before trying to follow the steps to reproduce bug behaviour.  If necessary, it is helpful to include details like user role, related plugins or submission workflow stage. Sometimes the best precondition is that it is seen using "basic install with default dataset".
@@ -23,7 +23,7 @@ Clear, unambiguous, step-by-step instructions on how to trigger the bug.
 5. Select submit button
 
 **Expected Result:** Describe what the system should do under normal conditions.
-**Actual Result:** Describe what the system actually does (the problematic behavior).
+**Actual Result:** Describe what the system actually does (the problematic behaviour).
 
 **Environment Details:** If known, include details such as
  * Server-side Operating System, PHP version or DB type

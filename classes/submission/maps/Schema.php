@@ -530,12 +530,9 @@ class Schema extends \PKP\core\maps\Schema
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
-    
+
         // application specific review stages
-        $reviewStageIds = [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
-        if (Application::get()->getName() === 'omp') {
-            $reviewStageIds[] = WORKFLOW_STAGE_ID_INTERNAL_REVIEW;
-        }
+        $reviewStageIds = Application::get()->getReviewStages();
 
         // get roles from review stages only
         $currentUserAssignedRoles = [];
@@ -549,15 +546,12 @@ class Schema extends \PKP\core\maps\Schema
         }
         $currentUserAssignedRoles = array_unique($currentUserAssignedRoles);
 
-        // define the roles that can see declined or cancelled review assignments
-        $allowedRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_SITE_ADMIN];
-        $canSeeAllReviewAssignments = !empty(array_intersect($currentUserAssignedRoles, $allowedRoles));
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {
-            // declined or cancelled are only show to editors, sub-editors and site admin
+            // skip declined/cancelled assignments if the user lacks permission for this specific stage.
             if (
-                !$canSeeAllReviewAssignments &&
-                ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled())
+                !$this->canSeeAllReviewAssignments($reviewAssignment, $stages)
+                && ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled())
             ) {
                 continue;
             }
@@ -610,6 +604,30 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return $reviews;
+    }
+
+    /**
+     * Checks whether the current user can see declined/cancelled review assignments
+     * for the stage of the given $reviewAssignment.
+     */
+    protected function canSeeAllReviewAssignments(ReviewAssignment $reviewAssignment, array $stages): bool
+    {
+        $stageId = $reviewAssignment->getStageId();
+
+        // if we don't have information for this stage or no roles were assigned, user can't see everything
+        if (!isset($stages[$stageId]['currentUserAssignedRoles']) || empty($stages[$stageId]['currentUserAssignedRoles'])) {
+            return false;
+        }
+
+        $roles = $stages[$stageId]['currentUserAssignedRoles'];
+
+        // only managers, sub-editors, or site admins at THIS stage can see
+        // the declined/cancelled assignments for that stage
+        if (array_intersect($roles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_SITE_ADMIN])) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

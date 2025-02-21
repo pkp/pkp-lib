@@ -89,6 +89,13 @@ interface iPKPApplicationInfoProvider
      * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getContextAssocType(): int;
+
+    /**
+     * Get the review workflow stages used by this application.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
+     */
+    public function getReviewStages(): array;
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
@@ -454,6 +461,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * application.
      */
     abstract public function getVersionDescriptorUrl(): string;
+
+    /**
+     * Get the review workflow stages used by this application.
+     */
+    abstract public function getReviewStages(): array;
 
     /**
      * This function retrieves all enabled product versions once

@@ -25,7 +25,9 @@ use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
+use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
 
@@ -107,9 +109,10 @@ class CategoryForm extends FormComponent
                     'baseUrl' => $baseUrl,
                     'options' => [
                         'url' => $temporaryFileApiUrl,
+                        'acceptedFiles' => 'image/jpeg,image/png,image/gif,image/jpg',
                     ],
                     'groupId' => 'categoryDetails',
-                    'value' => $category ? $category->getData('image') : []
+                    'value' => $category ? $category->getData('image') : ''
                 ])
             );
 
@@ -132,6 +135,26 @@ class CategoryForm extends FormComponent
                 ];
             });
 
+        $assignedSubeditors = $category ? Repo::user()
+            ->getCollector()
+            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+            ->filterByRoleIds($this->assignableRoles)
+            ->assignedToCategoryIds([$category->getId()])
+            ->getIds()
+            ->toArray() : [];
+
+        $subeditorUserGroups = [];
+        if (!empty($assignedSubeditors)) {
+            $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+
+            //  A list of user group IDs for each assigned editor, keyed by user ID.
+            $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
+                Application::get()->getRequest()->getContext()->getId(),
+                Application::ASSOC_TYPE_CATEGORY,
+                $category->getId(),
+                $assignedSubeditors
+            )->toArray();
+        }
 
         foreach ($assignableUserGroups as $assignableUserGroup) {
             $assignableUserOptions = [];
@@ -153,13 +176,8 @@ class CategoryForm extends FormComponent
                     'options' => $assignableUserOptions,
                     'groupId' => 'subEditors',
                     'type' => 'checkbox',
-                    'value' => $category ? Repo::user()
-                        ->getCollector()
-                        ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                        ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT])
-                        ->assignedToCategoryIds([$category->getId()])
-                        ->getIds()
-                        ->toArray() : []
+                    'value' => array_keys(array_filter($subeditorUserGroups, fn ($values) => in_array($assignableUserGroup['userGroup']->id, $values)))
+
                 ]));
             }
 

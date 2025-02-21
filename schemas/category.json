@@ -64,9 +64,42 @@
 			"apiSummary": true
 		},
 		"image": {
-			"type": "array",
-			"items": {
-				"type": "string"
+			"type": "object",
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"thumbnailName": {
+					"type": "string"
+				},
+				"thumbnailWidth": {
+					"type": "integer"
+				},
+				"thumbnailHeight": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string",
+					"validation": [
+						"nullable"
+					]
+				}
 			}
 		},
 		"subCategories": {

@@ -1,0 +1,123 @@
+name: "Bug report"
+description: "File a bug report in OJS, OMP, or OPS. Try our Software Support forum if you cannot provide reproducible steps and technical specifications."
+
+title: "[Main Feature] | Workflow Section - Page, Description of bug"
+labels: ""
+assignees: ""
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thanks for taking the time to fill out this bug report!
+        ### Do not forget to change the default title text!!!
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Include a detailed explanation of the bug with any unusual behavior or unique details."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Clear, unambiguous, step-by-step instructions on how to trigger the bug."
+      value: |
+        1. Login with User/Role '...'
+        2. Navigate to '...'
+        3. Click on '...'
+        4. Scroll down to '...'
+        5. Select submit button
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: "Expected Result"
+      description: "Describe what the system should do under normal conditions."
+      placeholder: "What should the system do?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: "Actual Result"
+      description: "Describe what the system actually does (the problematic behavior).""
+      placeholder: "What is seen after the final step"
+    validations:
+      required: true
+
+  - type: input
+    id: environment-details
+    attributes:
+      label: "Environment Details"
+      description: "If known, include details such as server OS, PHP version, and database type, as well as client browser configuration and device."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: repro-rate
+    attributes:
+      label: "Reproduction Rate"
+      description: "How often does the issue occur?"
+      options:
+        - "Intermittently"
+        - "50-99%"
+        - "100%"
+    validations:
+      required: true
+
+  - type: input
+    id: application-version
+    attributes:
+      label: Application Version
+      placeholder: "OJS, OMP or OPS version X.X.X"
+      description: |
+        "What application are you using?"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: application
+    attributes:
+      label: "What application are you using?"
+      options:
+        - "OJS"
+        - "OMP"
+        - "OPS"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: "What version are you using?"
+      options:
+        - "3.3"
+        - "3.4"
+        - "3.5"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs"
+      description: "If you have access to the PHP server logs, you can show them here. Be careful not to divulge sensitive information."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: "Additional Information"
+      description: "Please add any screenshots, videos, or other information we can use to investigate this bug report."
+    validations:
+      required: false

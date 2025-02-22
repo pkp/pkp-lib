@@ -282,6 +282,17 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @return \Illuminate\Database\Query\Builder
      */
     abstract public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
+
+    /**
+     * Set the OAI data
+     *
+     * @param OAIRecord|OAIIdentifier $record
+     * @param array $row
+     * @param bool $isRecord
+     *
+     * @return OAIRecord|OAIIdentifier
+     */
+    abstract public function setOAIData($record, $row, $isRecord = true);
 }
 
 if (!PKP_STRICT_MODE) {

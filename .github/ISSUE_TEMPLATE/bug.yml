@@ -1,5 +1,5 @@
 name: "Bug report"
-description: "File a bug report in OJS, OMP, or OPS. Try our Software Support forum if you cannot provide reproducible steps and technical specifications."
+description: "File a bug report in OJS, OMP, or OPS. Try our [Software Support forum](https://forum.pkp.sfu.ca/c/questions/5) if you cannot provide reproducible steps and technical specifications."
 
 title: "[Main Feature] | Workflow Section - Page, Description of bug"
 
@@ -7,8 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Thanks for taking the time to fill out this bug report!
-        ### Do not forget to change the default title text!!!
+        ### Thanks for taking the time to fill out this bug report! Please update the title to describe your issue.
 
   - type: textarea
     id: description
@@ -22,7 +21,7 @@ body:
     id: steps-to-reproduce
     attributes:
       label: "Steps to Reproduce"
-      description: "Clear, unambiguous, step-by-step instructions on how to trigger the bug."
+      description: "Clear step-by-step instructions on how to trigger the bug."
       value: |
         1. Login with User/Role '...'
         2. Navigate to '...'

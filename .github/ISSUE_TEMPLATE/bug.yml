@@ -16,7 +16,7 @@ body:
     id: description
     attributes:
       label: "Description"
-      description: "Include a detailed explanation of the bug with any unusual behavior or unique details."
+      description: "Include a detailed explanation of the bug with any unusual behaviour or unique details."
     validations:
       required: true
 
@@ -47,7 +47,7 @@ body:
     id: actual-result
     attributes:
       label: "Actual Result"
-      description: "Describe what the system actually does (the problematic behavior).""
+      description: "Describe what the system actually does (the problematic behaviour)."
       placeholder: "What is seen after the final step"
     validations:
       required: true

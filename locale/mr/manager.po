@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-20 19:37+0000\n"
+"PO-Revision-Date: 2025-02-22 20:41+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "mr/>\n"
@@ -1903,7 +1903,7 @@ msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
 "कोणीही नाही (None) - DOI चे शेवटचे भाग (Suffix)<a href=\"{$doiManagementUrl}"
 "\">DOI व्यवस्थापन पृष्ठा</a> वर जाऊन तुम्हाला स्वतःला (मॅन्युअली) प्रविष्ट "
-"करावे लागतील आणि ते स्वयंचलितपणे तयार केले जाणार नाहीत."
+"करावे लागतील आणि ते स्वयंचलितपणे तयार केले जाणार नाहीत"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr "कृपया DOI जमा करण्यासाठी नोंदणी एजन्सीची निवड करा."
@@ -2483,7 +2483,7 @@ msgstr ""
 "{$revisionId}\" प्रतिनोंद (duplicate record) निर्माण करेल"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "सादरीकरणाची फाईल दाखल (import) करुन घेता आली नाही."
+msgstr "सादरीकरणाची फाईल दाखल (import) करुन घेता आली नाही"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
@@ -2769,3 +2769,1060 @@ msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
 "{$registrationAgency} द्वारे कळवण्यात आलेल्या खालील संदेशात नोंदणीबद्दलचे "
 "तपशील असे आहेत :"
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "संपादकीय कार्यप्रवाहाच्या या टप्प्यावर हा निर्णय घेण्यात आला"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "शिल्लक कामांसह सादरीकरणांची यादी"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "प्राप्तकर्त्याचे किंवा सर्व प्राप्तकर्त्यांचे पूर्ण नाव"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "समीक्षण या तारखेपर्यंत पूर्ण झाले पाहिजे"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+"या तारखेपर्यंत समीक्षण कार्याचा स्वीकार किंवा नकार समीक्षकाने कळवायला हवा"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "समीक्षणाच्या कामासाठी URL"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "या तारखेला याचे समीक्षण करायला दिले"
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr "समीक्षकाची शिफारस, जसे की सादरीकरण स्वीकारावे अथवा नाकारावे"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "समीक्षणाची फेरी, फेरी १ किंवा फेरी २ याप्रमाणे"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "समीक्षकाचे नाव"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "सादरीकरणांच्या माहितीचे स्थानांतर करा (Export)"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "स्थानांतर (Export) केलेली फाईल डाउनलोड करा"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "स्थानांतर (Export) यशस्वीरित्या पूर्ण झाले."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "सर्वसामान्य (Generic) आयटम्स"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "त्रुटी :"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr ""
+"नमूद केलेल्या नियतकालिकाचा पत्ता (path), \"{$contextPath}\", अस्तित्वात नाही."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "लेखकांची विश्लेषण प्रक्रिया (parsing) अयशस्वी"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "प्रकाशनांची विश्लेषण प्रक्रिया (parsing) अयशस्वी"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "सादरीकरणाच्या लेखकांची नावे आणि संलग्नता (affiliations)."
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "अहवालाचे वर्ष"
+
+msgid "stats.dateRange.from"
+msgstr "पासून"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average} प्रतिवर्षी)"
+
+msgid "stats.daily"
+msgstr "दररोज"
+
+msgid "stats.dateRange"
+msgstr "दोन तारखांदरम्यान (Date Range)"
+
+msgid "stats.dateRange.allDates"
+msgstr "सगळ्याच दिवसांसाठी"
+
+msgid "stats.dateRange.apply"
+msgstr "लागू करा (Apply)"
+
+msgid "stats.dateRange.change"
+msgstr "दरम्यानच्या तारखा बदला (Change date range)"
+
+msgid "stats.dateRange.customRange"
+msgstr "दोन तारखांमधील एक निश्चित कालावधी (Custom Range)"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "नोंदलेल्या तारखांपैकी एक अस्तित्वात नाही."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"प्रत्येक तारीख YYYY-MM-DD या प्रारूपातच नोंद करा. उदाहरणार्थ, ५ जानेवारी "
+"२०२५ ची नोंद 2025-01-05 अशा पद्धतीने करा."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"तारीख योग्य प्रारूपात नाही. प्रत्येक तारीख YYYY-MM-DD याच प्रारूपात नोंदवा."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "सुरुवातीची तारीख शेवटच्या तारखेपूर्वीची असायला हवी."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "शेवटची तारीख {$date} यानंतरची असता कामा नये."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "सुरुवातीची तारीख {$date} यापूर्वीची असता कामा नये."
+
+msgid "stats.dateRange.last12Months"
+msgstr "गेल्या १२ महिन्यांतील"
+
+msgid "stats.dateRange.last30Days"
+msgstr "गेल्या ३० दिवसांतील"
+
+msgid "stats.dateRange.last90Days"
+msgstr "गेल्या ९० दिवसांतील"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "गेल्या दोन वर्षातील"
+
+msgid "stats.dateRange.lastYear"
+msgstr "गेल्या वर्षी"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} पासून"
+
+msgid "stats.dateRange.thisYear"
+msgstr "या वर्षापासून आजपावेतो"
+
+msgid "stats.dateRange.to"
+msgstr "ते"
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date} पर्यंत"
+
+msgid "stats.name.declineRate"
+msgstr "नकार दर"
+
+msgid "stats.descriptionForStat"
+msgstr "{$stat} चे वर्णन (Description)"
+
+msgid "stats.editorialActivity"
+msgstr "संपादकीय क्रियाकलाप"
+
+msgid "stats.file.type.primaryFile"
+msgstr "प्राथमिक फाईल"
+
+msgid "stats.file.type.suppFile"
+msgstr "पूरक फाईल"
+
+msgid "stats.fileViews"
+msgstr "फाईलचा वापर (File Views)"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "मासिक"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
+msgstr "भौगोलिक स्थान <a href='https://db-ip.com'>DB-IP</a> द्वारे पुरवले जाते"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "भौगोलिक स्थानाबद्दल"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} ते {$endDate} दरम्यान"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "सर्व {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "डाउनलोड केलेल्या फाईल्स"
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "विविध ठिकाणांहून (भौगोलिक) होणार्‍या डाउनलोड्सची संख्या"
+
+msgid "stats.region"
+msgstr "प्रादेशिक"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "शीर्षक, लेखक आणि ID नुसार केला गेलेला शोध"
+
+msgid "stats.submissionsActive"
+msgstr "सक्रिय सादरीकरणांची संख्या"
+
+msgid "stats.timeline"
+msgstr "कालबद्ध (Timeline)"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "प्रत्येक {$interval} साठी {$type} ची संख्या."
+
+msgid "stats.timelineInterval"
+msgstr "कालावधीनुसार (Timeline Interval)"
+
+msgid "stats.timelineType"
+msgstr "कालक्रमाचा प्रकार (Timeline Type)"
+
+msgid "stats.total"
+msgstr "एकूण"
+
+msgid "stats.unique"
+msgstr "अनन्यसाधारण (Unique)"
+
+msgid "stats.trends"
+msgstr "कल (Trends)"
+
+msgid "stats.unknown"
+msgstr "अज्ञात"
+
+msgid "stats.userStatistics"
+msgstr "वापरकर्त्यांची आकडेवारी"
+
+msgid "stats.name.submissionsReceived"
+msgstr "सादरीकरणे पोहोचली"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "इतर सादरीकरणे"
+
+msgid "stats.name.submissionsImported"
+msgstr "दाखल करून घेतलेली (Imported) सादरीकरणे"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "सादरीकरण स्वीकारले"
+
+msgid "stats.name.submissionsPublished"
+msgstr "सादरीकरणे प्रकाशित झाली"
+
+msgid "stats.name.daysToDecision"
+msgstr "पहिल्या संपादकीय निर्णयासाठीचा कालावधी"
+
+msgid "stats.name.daysToAccept"
+msgstr "स्वीकारण्यासाठी लागलेले दिवस"
+
+msgid "stats.name.acceptanceRate"
+msgstr "स्वीकार दर"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "प्रेषकाचे (sender) पूर्ण नाव"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "प्रेषकाचा (sender) ई-मेल पत्ता"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "प्रेषकाची (sender) ई-मेल स्वाक्षरी"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "संकेतस्थळाच्या प्राथमिक संपर्काचे पूर्ण नाव"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "संकेतस्थळाच्या प्राथमिक संपर्काचा ई-मेल"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+"मानवी नियंत्रणाशिवाय पाठवलेल्या (automated) ई-मेलसाठी संकेतस्थळाची ई-मेल "
+"स्वाक्षरी"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "या सादरीकरणासाठी नियुक्त केलेले आणि निर्णयाचा अधिकार असलेले संपादक"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "सादरीकरणाचे शीर्षक"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "सादरीकरणाचा एकमेव ID क्रमांक"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "लेखकांची नावे \"जोशी, इत्यादी\" सारख्या स्वल्प सूत्र रूपात"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "लेखकांची पूर्ण नावे"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "संपादकीय कार्यासाठी सादरीकरणाचा URL"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "प्रकाशित सादरीकरणाचा URL"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"हॅश केलेला URL जो वापरकर्त्याला त्याची ओळख पटवून पासवर्ड बदलण्यासाठी (रीसेट) "
+"पाठवला जातो"
+
+msgid "emailTemplate.variable.password"
+msgstr "नवा यादृच्छिक (random) वापरकर्ता पासवर्ड"
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "समीक्षकाची पुनर्नियुक्ती"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "समीक्षकाला समीक्षणासाठी पुन्हा आमंत्रित करा"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "घोषणेचे/सूचनेचे शीर्षक"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "घोषणेचे/सूचनेचे संक्षिप्त वर्णन"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "घोषणेचा/सूचनेचा URL"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "नाकारलेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "स्वीकारलेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "प्राप्त झालेल्या एकूण सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "अहवालाचा महिना"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "अहवालाचे वर्ष"
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "समीक्षक निलंबीत करा (unassign)"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+"जेव्हा संपादक समीक्षकाला निलंबीत (unassign) करतो तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "ई-मेल (संकेतस्थळ) विधीग्राह्य करा"
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "इतर लेखकांना सूचित करा"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "सादरीकरण करणाऱ्या लेखकाला पाठवलेल्या ई-मेल संदेशाची प्रत"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "समीक्षकांचा निर्णय सूचित करा"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"समीक्षकांना या निर्णयाबद्दल पाठवलेल्या ई-मेलमध्ये या निर्णयाची त्यांना "
+"संक्षिप्त रूपात माहिती कळावी हा हेतू असतो"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr ""
+"आम्ही हे सादरीकरण कोणत्याही सुधारणांशिवाय स्वीकारण्याचा निर्णय घेत आहोत."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "आम्ही लेखकांना सुधारित आवृत्ती सादर करण्यासाठी आमंत्रित केले आहे."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "सादरीकरणाच्या आमंत्रित समीक्षकाला निलंबित (unassign) केले आहे."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "सादरीकरण स्वीकारण्यात आले आहे"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "सादरीकरण पुनः कॉपीएडिटिंगसाठी पाठवले"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण कॉपीएडिटिंग टप्प्यावर परत "
+"पाठवले गेले आहे."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "समीक्षणाची फेरी रद्द केली"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांच्या सादरीकरणासाठी समीक्षणाची फेरी रद्द "
+"करण्यात आली आहे."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "सादरीकरण नाकारण्यात आले"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "सादरीकरण नाकारले (पूर्व-पुनरावलोकन)"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "नवी समीक्षण फेरी सुरू केली"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "सुधारित आवृत्तीसाठी विनंती"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला तज्ज्ञ समीक्षणादरम्यान सुधारित आवृत्तीसाठी मागणी केली "
+"गेल्याची माहिती देतो."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "समीक्षणासाठी पुन्हा सादर करा"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "नाकारलेले सादरीकरण पुनःस्थापित करण्याबाबत"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "समीक्षणाशिवाय नाकारलेले सादरीकरण पुनःस्थापित करण्याबाबत"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "समीक्षणाकरता पाठवले"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण समीक्षणाच्या टप्प्यात पाठवले "
+"जात आहे."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "प्रकाशनाच्या टप्प्यावर पाठवले"
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "सादरीकरण स्वीकारले (समीक्षणाशिवाय)"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "शिफारस केली"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "समीक्षण करण्यासाठी होकार"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"जेव्हा समीक्षक समीक्षणाची विनंती स्वीकारतो तेव्हा हा ई-मेल मानवी "
+"हस्तक्षेपाशिवाय (automatically) पाठवला जातो"
+
+msgid "mailable.reviewDecline.name"
+msgstr "समीक्षणाच्या सोपवलेल्या कामाला नकार"
+
+msgid "mailable.reviewDecline.description"
+msgstr "समीक्षणाची विनंती नाकारण्यासाठी हा ई-मेल समीक्षकाकडून पाठवला जातो"
+
+msgid "mailable.reviewRemind.name"
+msgstr "समीक्षणाच्या सोपवलेल्या कामासंबंधी स्मरणपत्र"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"समीक्षणाचे सोपवलेले काम अद्याप झालेले नाही याची आठवण करून देण्यासाठी "
+"समीक्षकाला हा ई-मेल संपादकाद्वारे पाठवला जातो."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "समीक्षणाचे काम पूर्ण केल्याबद्दल पोचपत्र"
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr ""
+"समीक्षणाच्या सोपवलेल्या कामासाठी होकार/नकार कळवण्याची मुदत संपली (मानवी "
+"हस्तक्षेपाशिवाय - Automated)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"समीक्षकाने समीक्षणाच्या विनंतीला होकार/नकार कळवण्याची मुदत संपल्यानंतर हा "
+"ई-मेल मानवी हस्तक्षेपाशिवाय (Automated) पाठवला जातो."
+
+msgid "mailable.reviewRequest.name"
+msgstr "समीक्षणासाठी विनंती"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "पुढच्या फेरीतील समीक्षणासाठी विनंती"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "सादरीकरणाचे सध्याचे प्रकाशन गहाळ आहे"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "सादरीकरणाच्या {$child} वर प्रक्रिया अयशस्वी"
+
+msgid "mailable.editorialReminder.name"
+msgstr "संपादकीय स्मरणपत्र"
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+"मानवी हस्तक्षेपाशिवाय (Automated) संपादकांना पाठवलेला शिल्लक कामांच्या यादीचा"
+" ई-मेल"
+
+msgid "mailable.userRegister.name"
+msgstr "वापरकर्ता निर्माण केला"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "समीक्षकांची नोंदणी"
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"हा ई-मेल नव्या नोंदणीकृत समीक्षकाचे स्वागत करून त्याला त्याचे वापरकर्तानाव "
+"आणि पासवर्डची नोंद पुरवण्यासाठी पाठवला जातो."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+"सादरीकरण प्रक्रियेतील नोंदलेली माहिती जतन करून शिल्लक भाग नंतर भरता येईल हे "
+"कळवण्यासाठी"
+
+msgid "mailable.submissionAck.name"
+msgstr "सादरीकरण प्रक्रिया पूर्ण झाल्याबद्दल दुजोरा"
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "सादरीकरण प्रक्रिया पूर्ण केल्याबद्दल दुजोरा (इतर लेखकांना)"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "चर्चासत्र (सादरीकरण)"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"सादरीकरणाच्या टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर "
+"दिले जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.discussionReview.name"
+msgstr "चर्चासत्र (समीक्षणादरम्यान)"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "चर्चासत्र (कॉपीएडिटिंग)"
+
+msgid "mailable.discussionProduction.name"
+msgstr "चर्चासत्र (प्रकाशन)"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"प्रकाशन टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर दिले "
+"जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "सुधारित आवृत्तीची सूचना"
+
+msgid "mailable.announcementNotify.name"
+msgstr "नवी घोषणा"
+
+msgid "mailable.announcementNotify.description"
+msgstr "नवी घोषणा निर्माण केल्यावर हा ई-मेल पाठवला जातो."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "सांख्यिकी अहवालासंबंधी सूचना"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "समीक्षणासंबंधीच्या सूचनेचे संपादन"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "समीक्षकाने मतप्रदर्शन केले आहे, संपादकांना सूचित करा"
+
+msgid "manager.people.authSource"
+msgstr "स्रोताचे प्रमाणीकरण (Authentication source)"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "सादरीकरण पुन्हा समीक्षण टप्प्यावर पाठवले"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "सादरीकरण पुन्हा सादरीकरण टप्प्यावर पाठवले"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्याचे सादरीकरण परत सादरीकरण टप्प्यावर पाठवले "
+"गेले आहे."
+
+msgid "manager.manageEmails"
+msgstr "ई-मेल्सचे व्यवस्थापन"
+
+msgid "manager.mailables.templates"
+msgstr "तयार मजकूर (टेम्पलेट्स)"
+
+msgid "manager.mailables.editTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) संपादित करा"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) हटवा"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "तयार मजकूर (टेम्पलेट) पुनर्स्थापित (रीसेट) करा"
+
+msgid "manager.mailables.search"
+msgstr "नाव किंवा वर्णनानुसार शोधा"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "हा तयार मजकूर (टेम्पलेट) शोधायला त्याचे त्रोटक नाव दाखल करा."
+
+msgid "manager.newSubmission"
+msgstr "नवे सादरीकरण"
+
+msgid "manager.submissionAck.description"
+msgstr "नव्या सादरीकरणाची नोंद झाल्यावर ई-मेल सूचना कोणा-कोणाला पाठवली जावी."
+
+msgid "manager.submissionAck.off"
+msgstr "ई-मेल पाठवू नका."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "सर्व लेखकांना ई-मेल पाठवा."
+
+msgid "manager.editorialDecisions"
+msgstr "संपादकीय निर्णय"
+
+msgid "manager.forEditors"
+msgstr "संपादकांसाठी"
+
+msgid "manager.forEditors.description"
+msgstr "संपादकांना ई-मेल सूचना पाठवण्यासाठी कॉन्फिगर करा."
+
+msgid "manager.editorialStatistics"
+msgstr "संपादकीय सांख्यिकी माहिती"
+
+msgid "manager.editorialStatistics.on"
+msgstr "संपादकांना दरमहा ई-मेल पाठवा."
+
+msgid "manager.editorialStatistics.off"
+msgstr "संपादकांना ई-मेल पाठवू नका."
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"सादरीकरण करणाऱ्या लेखकाला प्रवर्ग (category) निवडण्यास सांगितले पाहिजे का?"
+
+msgid "manager.submitWithCategories.no"
+msgstr "नाही, लेखकांना हे फील्ड दाखवू नका."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "कॉपीएडिटसाठी विनंती करा"
+
+msgid "mailable.editorAssign.name"
+msgstr "संपादक नियुक्त केला"
+
+msgid "mailable.layoutRequest.name"
+msgstr "प्रकाशनासाठी तयार"
+
+msgid "mailable.system"
+msgstr "प्रणाली (सिस्टम)"
+
+msgid "mailable.reviewComplete.name"
+msgstr "समीक्षण पूर्ण झाले"
+
+msgid "mailable.reviewEdit.name"
+msgstr "समीक्षणाचे संपादन झाले"
+
+msgid "mailable.editorAssigned.name"
+msgstr "संपादक नियुक्ती (आपोआप - Auto)"
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "संपादक नियुक्त करा"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "सादरीकरणासाठी संपादक आवश्यक आहे"
+
+msgid "plugins.importexport.common.validation"
+msgstr "स्थानांतर (Export) आणि नोंदणीपूर्वी XML विधीग्राह्य (validate) करा."
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "प्रकाशित अंकाचा URL"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"निवडलेल्या दोन तारखांदरम्यान (Date Range) सादर झालेली सादरीकरणे आणि त्यांच्या"
+"वर घेतलेला अखेरचा निर्णय विचारात घेऊन स्वीकृती दराची टक्केवारी मोजली "
+"जाते.<br><br>उदाहरणार्थ, या दोन तारखांदरम्यान (Date Range) दहा सादरीकरणे सा"
+"दर झाली. चार स्वीकारली गेली, चार नाकारली गेली आणि दोन अद्याप अंतिम निर्णयाची "
+"वाट पाहत आहेत.<br><br>तर स्वीकृती दर ५०% असेल (८ सादरीकरणांपैकी ४) कारण अंति"
+"म निर्णय न झालेल्या दोन सादरीकरणांना विचारात घेतले जाऊ शकत नाही."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"सादरीकरणांना नकार (desk rejection) किंवा समीक्षणासाठी पुढे पाठवण्यासारख्या "
+"पहिल्या संपादकीय निर्णयासाठी लागणारे दिवस.<br><br>सादरीकरणांवर किती "
+"दिवसांच्या आत निर्णय होण्याची शक्यता आहे याचा अंदाज यावरून बांधता येऊ "
+"शकतो.<br><br>तुमच्या नियतकालिकामध्ये सादरीकरण करणाऱ्या लेखकांना त्यावरील "
+"निर्णयासाठी किती दिवस लागू शकतात याचा अंदाज बांधण्याचा प्रयत्न यातून केला "
+"जातो."
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "इतरत्र समाविष्ट न केलेल्या सादरीकरणांची संख्या"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"अर्थात यामध्ये अजूनही समीक्षणाच्या टप्प्यात असलेल्या किंवा ज्यांची सादरीकरण "
+"प्रक्रिया अपूर्ण राहिलेली आहे अशा एकूण संख्येत न मोजल्या जाणार्‍या इतर "
+"सादरीकरणांचा समावेश असतो."
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "प्रत्येक फाईलच्या डाउनलोड्सची संख्या."
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr ""
+"प्रत्येक शहर, प्रदेश किंवा देशागणिक झालेला वापर (File Views) आणि डाउनलोड्सची "
+"संख्या."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "कालबद्ध डाउनलोड्स (Download Timeline)"
+
+msgid "stats.totalWithinDateRange"
+msgstr "दोन तारखांच्या कालावधीत एकूण"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "प्रगतीपथावरील सादरीकरणे"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "सादरीकरण नाकारले"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "सादरीकरणांना नाकारले (समीक्षणोत्तर)"
+
+msgid "stats.name.daysToReject"
+msgstr "नाकारण्यासाठी लागलेले दिवस"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "सुरूवातीलाच संपादकाकडून नाकारण्याचा (Desk Reject) दर"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "सादरीकरणांना संपादकीय स्तरावर सुरूवातीलाच नाकारले (Desk Reject)"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "समीक्षणोत्तर नाकारण्याचा दर"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "प्रक्रिया अयशस्वी झाली. सूचना/त्रुटींसाठी खालील बाबींची पडताळणी करा."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "खालील बटण वापरून स्थानांतर (Export) केलेली फाईल डाउनलोड करा."
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"चुकीचे फिल्टर कॉन्फिगरेशन [{$filterName}]: {$filterCount} वेळा. फक्त एकच असणे"
+" आवश्यक आहे."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"पूर्ण झालेल्या समीक्षणाच्या सर्व टिप्पण्या. अनामिक समीक्षणप्रक्रियेमुळे "
+"समीक्षकांची नावे गुप्त राखली आहेत"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "हरवलेला पासवर्ड पुन: मिळवण्यासाठी वापरकर्त्यासाठी URL पत्ता"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "वापरकर्त्याने सादर केलेली सर्व सादरीकरणे पाहण्यासाठी URL पत्ता"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr ""
+"वापरकर्त्याला त्याची माहिती (प्रोफाइल) पाहण्यासाठी आणि संपादित करण्यासाठी "
+"URL पत्ता"
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "ई-मेलचा तयार मजकूर (टेम्पलेट) निवडण्यासाठी घेतलेल्या निर्णयाचे नाव"
+
+msgid "emailTemplate.variable.decision.description"
+msgstr ""
+"ई-मेलचा तयार मजकूर (टेम्पलेट) निवडण्यासाठी घेण्यात आलेल्या निर्णयाचे वर्णन"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "खंड, अंक, वर्ष आणि शीर्षकाद्वारे अंकाची ओळख"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"जर निर्णय समीक्षण टप्प्याशी संबंधित असेल तर ज्यात हा निर्णय घेण्यात आला ती "
+"समीक्षण फेरी"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "चर्चेचा विषय"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "नवीन चर्चेचा किंवा उत्तराचा आशय"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "या संपादकाला नियुक्त केलेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "प्राप्तकर्त्याचे किंवा सर्व प्राप्तकर्त्यांचे वापरकर्तानाव"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "शिफारस, जसे की सादरीकरण स्वीकारावे"
+
+msgid "emailTemplate.variable.review.method"
+msgstr "समीक्षणाचा प्रकार, जसे की अनामिक, दुहेरी अनामिक किंवा मुक्त"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "समीक्षकाने संक्रमित (अपलोड) केलेल्या फाईल्स"
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"या नियतकालिकाकडून दुहेरी-अनामिक तज्ज्ञ समीक्षण केले जाते. समीक्षकांना तुमच्या"
+" किंवा तुमच्या सह-लेखकांबद्दल कोणतीही ओळख पटवणारी माहिती दिसणार नाही. "
+"त्याचप्रमाणे, तुमच्या सादरीकरणाचे समीक्षक कोण हे तुम्हाला कळणार नाही आणि "
+"तुम्हाला थेट समीक्षकाकडून याबाबत काहीही माहिती मिळणार नाही."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"हे नियतकालिक \"अनामिक समीक्षक\" तज्ज्ञ समीक्षणाची पद्धत आचरते. तुमचे आणि "
+"तुमच्या सहलेखकांची नावे समीक्षकांना दिसतील; तथापि, समीक्षकांची ओळख अनामिक "
+"राहील."
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"हे नियतकालिक मुक्त तज्ज्ञ समीक्षणाची पद्धत (open peer review) आचरते. समीक्षक "
+"तुमचे नाव आणि संलग्नता तसेच तुमच्या सह-लेखकांची नावे आणि संलग्नता पाहू शकती"
+"ल. त्याचप्रमाणे, तुम्हाला समीक्षकांची नावे आणि संलग्नता दिसतील."
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "सादरीकरणाचा सारांश"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "सादरीकरणासाठी लेखकाचा URL"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "सादरीकरणाच्या कार्याच्या पायर्‍यांमधील (wizard) सादरीकरणाचा URL"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"सादरीकरणाच्या कार्यप्रवाहाची (workflow) माहिती घेण्यासाठी नियुक्त केलेल्या "
+"लेखकांची नावे. सहसा हा सादरीकरण सादर करण्याची जबाबदारी घेणारा लेखक असतो"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "सादरीकरणाची फाईल संक्रमित (अपलोड) करणाऱ्या वापरकर्त्याचे पूर्ण नाव"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "या महिन्यात प्राप्त झालेल्या सादरीकरणांची संख्या"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "संपादकीय क्रियाकलापासाठीच्या पृष्ठाचा दुवा (link)"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "ई-मेल खाते विधीग्राह्य (validate) करण्यासाठी दुवा (link)"
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"संपादकाने केलेल्या समीक्षकाच्या पुनर्नियुक्तीनंतर समीक्षकाला हा ई-मेल पाठवला "
+"जातो."
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"संपादकाद्वारे समीक्षण कार्याची विनंती नाकारलेल्या समीक्षकाला जेव्हा संपादक "
+"पुन्हा आमंत्रित करतो तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"जेव्हा नवा वापरकर्ता संकेतस्थळावर नोंदणी करतो तेव्हा सेटिंग्जसाठी त्याचा ई-मे"
+"ल पत्ता सत्यापित (validate) करण्यासाठी हा ई-मेल आपोआप पाठवला जातो."
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"हा ई-मेल सादरीकरणाच्या अशा लेखकांना सूचित करण्यासाठी पाठवला जातो ज्यांना यात "
+"सहभागी म्हणून नियुक्त केलेले आहे पण त्यांना या सादरीकरणाची कल्पना नसण्याची "
+"शक्यता आहे. सहसा हे सादरीकरण प्रक्रिया पूर्ण करणाऱ्या लेखकाशिवाय इतर सर्व "
+"असतात."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"हा ई-मेल संपादकातर्फे समीक्षकाला पाठवून त्याला सूचित केले जाते की त्यानी "
+"समीक्षण केलेल्या सादरीकरणाबद्दल निर्णय घेण्यात आला आहे."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "आम्ही हे सादरीकरण नाकारण्याचा निर्णय घेतला आहे."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"आम्ही लेखकांना पुढील समीक्षणासाठी सुधारित आवृत्ती सादर करण्यासाठी आमंत्रित "
+"केले आहे."
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण प्रकाशनासाठी स्वीकारले गेले "
+"आहे."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "कॉपीएडिटिंग करून सादरीकरण परतले"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण कॉपीएडिटिंग टप्प्यावरून परतले"
+" आहे."
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण तज्ज्ञ समीक्षणानंतर नाकारण्या"
+"त आले आहे."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांच्या सादरीकरणासाठी समीक्षणाची एक नवी फेरी"
+" सुरू होत आहे."
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला त्यांच्या सादरीकरणाबद्दल \"सुधारित आवृत्ती लिहून पुन्हा सा"
+"दर\" करण्याच्या निर्णयाची माहिती देतो."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की तज्ज्ञ समीक्षणानंतर त्यांचे सादरीकरण "
+"नाकारण्याचा पूर्वीचा निर्णय रद्द केला जात आहे."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की समीक्षणाशिवाय त्यांचे सादरीकरण नाकारण्याचा "
+"पूर्वीचा निर्णय रद्द केला जात आहे."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण प्रकाशनाच्या टप्प्यावर पाठवले"
+" जात आहे."
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण थेट कॉपीएडिटिंगच्या टप्प्या"
+"वर पाठवले जात आहे आणि त्याचे तज्ज्ञ समीक्षण केले जाणार नाही."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"हा संदेश वरिष्ठ संपादक किंवा विभाग संपादकाला सूचित करतो की त्यांची नेमणूक "
+"केलेल्या सादरीकरणांपैकी एकाबद्दल संपादकीय शिफारस केली आहे. हा संदेश तेव्हा "
+"वापरला जातो जेव्हा संपादकाला फक्त संपादकीय निर्णयाची शिफारस करण्याची परवानगी "
+"असते आणि संपादकीय निर्णयाची नोंद करण्यासाठी अधिकृत संपादकाची आवश्यकता असते. "
+"सहभागींना सादरीकरणासाठी नियुक्त करताना हा पर्याय निवडला जाऊ शकतो."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr ""
+"समीक्षणाच्या सोपवलेल्या कामासंबंधी स्मरणपत्र (मानवी हस्तक्षेपाशिवाय - "
+"Automated)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"समीक्षणाचे सोपवलेले काम नियत तारखेपर्यंत झालेले नाही याची आठवण करून "
+"देण्यासाठी हा ई-मेल समीक्षकाला आपोआप पाठवला जातो."
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"हा ई-मेल संपादकाद्वारे समीक्षकाला त्याचे समीक्षण मिळाल्याची पुष्टी करण्यासाठी"
+" आणि त्याच्या योगदानाबद्दल त्यांचे आभार मानण्यासाठी पाठवला जातो."
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"विभाग संपादकाकडून समीक्षकाला पाठवलेला हा ई-मेल समीक्षकाने सादरीकरणाचे समीक्"
+"षण करण्याचे काम स्वीकारावे किंवा नाकारावे अशी विनंती करतो. "
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"संपादकाकडून समीक्षकाला पाठवलेला हा ई-मेल समीक्षकाने समीक्षणाच्या पुढील "
+"फेरीसाठी सादरीकरणाचे समीक्षण करण्याचे काम स्वीकारावे किंवा नाकारावे अशी "
+"विनंती करतो. शिवाय सादरीकरणाचे शीर्षक, सारांश तसेच समीक्षणाची अंतिम तारीख आणि"
+" सादरीकरण कोठून मिळवायचे याबद्दलची माहितीही प्रदान करतो."
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "पासवर्ड रीसेट करण्यासाठी"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"नोंदणीकृत वापरकर्ता जेव्हा सूचित करतो की तो त्याचा पासवर्ड विसरला आहे किंवा "
+"लॉग-इन करू शकत नाही तेव्हा त्याला हा ई-मेल पाठवला जातो. तो वापरकर्त्याला "
+"त्याचा पासवर्ड रीसेट करण्यासाठी URL पत्ता प्रदान करतो."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"संपादकीय व्यवस्थापकाने वापरकर्ता सेटिंग्जद्वारे नव्या वापरकर्त्याची नोंद "
+"केल्यावर हा ई-मेल नव्या वापरकर्त्याला पाठवला जातो. या ई-मेलद्वारे त्याचे "
+"प्रणालीमध्ये स्वागत करून त्याला त्याच्या वापरकर्तानाव आणि पासवर्ड या माहितीची"
+" नोंद पुरवणे अपेक्षित आहे."
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"सादरीकरण प्रक्रियेतील नोंदलेली माहिती जतन करून शिल्लक भाग नंतर भरता येईल हे "
+"कळवण्यासाठी लेखकाला मानवी हस्तक्षेपाशिवाय (Automated) एक ई-मेल पाठवला जातो"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"लेखक जेव्हा सादरीकरण प्रक्रिया पूर्ण करतो तेव्हा त्याला हा ई-मेल मानवी "
+"हस्तक्षेपाशिवाय (Automated) पाठवला जातो. सादरीकरण केल्याबद्दल त्यात लेखकाचे "
+"आभार मानले जातात आणि सादरीकरण संपादकीय प्रक्रियेत कुठल्या टप्प्यावर आहे याचा "
+"मागोवा कसा घ्यावा याबद्दल माहिती प्रदान केली जाते."
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"हा ई-मेल सादरीकरण प्रक्रिया पूर्ण करणार्‍या लेखकाव्यतिरिक्त नोंदलेल्या इतर "
+"लेखकांना मानवी हस्तक्षेपाशिवाय (Automated) पाठवला जातो."
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"समीक्षण टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर दिले "
+"जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"कॉपीएडिटिंग टप्प्यात चर्चासत्र निर्माण केले जाते किंवा आणि चर्चेला उत्तर दिले"
+" जाते तेव्हा हा ई-मेल पाठवला जातो."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"लेखकाने लेखाची सुधारित आवृत्ती संक्रमित (अपलोड) केल्यावर हा ई-मेल आपोआप "
+"(automatically) नियुक्त केलेल्या संपादकाला पाठवला जातो."
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"सादरीकरणाच्या समीक्षणाच्या कामाचे तपशील बदलल्यावर हा ई-मेल आपोआप "
+"(automatically) समीक्षकाला सूचित करतो."
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"समीक्षक समीक्षणादरम्यान शिफारस करतो तेव्हा हा ई-मेल आपोआप (automatically) "
+"नियुक्त केलेल्या संपादकांना पाठवला जातो"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"हा ई-मेल लेखकाला सूचित करतो की त्यांचे सादरीकरण समीक्षण टप्प्यावर परत पाठवले "
+"गेले आहे."
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p>प्रणालीतर्फे पाठवल्या जाणार्‍या सगळ्या ई-मेल्ससाठी <a href=\"{$url}\">तया"
+"र मजकूरांचा (टेम्पलेट्स) समावेश करून त्यांचे संपादन</a> करा.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"वापरकर्ता जेव्हा हा ई-मेल पाठवत असेल तेव्हा ई-मेलचा तयार मजकूर (टेम्पलेट्स) "
+"त्याला उपलब्ध करून देण्यासाठी असे तयार मजकूरांचे (टेम्पलेट्स) समावेश करून "
+"त्यांचे संपादन करा. सर्वसाधारण (Default) मजकूर आपोआप (automatically) लोड हो"
+"ईलच शिवाय वापरकर्ता तुम्ही येथे समाविष्ट केलेले इतर कोणतेही तयार मजकूर "
+"(टेम्पलेट्स) विनाविलंब लोड करू शकेल."
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"तुम्ही खात्रीने <strong>{$template}</strong> हा तयार मजकूर (टेम्पलेट) हटवू "
+"इच्छिता ना?"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"तुम्ही खात्रीने <strong>{$template}</strong> या तयार मजकूराचा (टेम्पलेट) वि"
+"षय आणि मुख्य भाग त्यांच्या सर्वसाधारण (डीफॉल्ट) मूल्यांवर पुनर्स्थापित "
+"(रीसेट) करू इच्छिता ना?"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"जेव्हा नव्या सादरीकरणाची नोंद होते तेव्हा ई-मेल सूचना पाठवण्यासाठी कॉन्फिगर "
+"करा."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "फक्त सादरीकरण प्रक्रियेत भाग घेणाऱ्या लेखकालाच ई-मेल पाठवा."
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"संपादकीय निर्णयाची नोंद केल्यावर लेखकांना ई-मेल सूचना पाठवण्यासाठी कॉन्फिगर "
+"करा."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"नियतकालिकाच्या सादरीकरणांच्या स्वीकार आणि नकाराबाबतची आकडेवारी संपादकांना "
+"दरमहा ई-मेलने पाठवायची की नाही? संपादक त्यांच्या वापरकर्ता प्रोफाइलवर असा "
+"ई-मेल नको असल्यास यासंबंधीची सदस्यता रद्द करू शकतात."
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+"होय, सादरीकरणाच्या टप्प्यावर (wizard) प्रवर्गाची (category) निवड करण्यासाठी "
+"त्या फिल्डचा समावेश करा."
+
+msgid "mailable.versionCreated.name"
+msgstr "आवृत्ती तयार केली"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "इतर लेखकांना सादरीकरणाची पोच"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"जेव्हा संपादकाला सादरीकरणासाठी आपोआप (automatically) नियुक्त केले जाते तेव्हा"
+" त्याला हा ई-मेल पाठवला जातो."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"सादरीकरण करणाऱ्या लेखकांनी त्यांच्या सादरीकरणासह हितसंबंध संघर्षाचे ("
+"Competing Interest - CI) विधान दाखल करणे आवश्यक आहे."

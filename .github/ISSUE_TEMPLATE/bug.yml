@@ -46,7 +46,7 @@ body:
     attributes:
       label: "Actual Result"
       description: "Describe what the system actually does (the problematic behaviour)."
-      placeholder: "What is seen after the final step"
+      placeholder: "What is seen after the final step?"
     validations:
       required: true
 

@@ -1125,10 +1125,12 @@ msgstr "デフォルトの応答期限"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "デフォルトの完了期限"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "査読依頼を受理または断るまでの週数。"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "査読完了までの週数"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

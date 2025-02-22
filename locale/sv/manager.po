@@ -1186,11 +1186,13 @@ msgstr "Default svarsdatum"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Defaultvärde för sista datum för kompletteringar"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Antal veckor tillåtna för granskning"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -1207,10 +1207,12 @@ msgstr "Domyślny czas na odpowiedź"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Domyślny czas ukończenia"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Liczba tygodni na zaakceptowanie lub odrzucenie prośby o recenzję."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Liczba tygodni na ukończenie recenzji"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -50,7 +50,7 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: environment-details
     attributes:
       label: "Environment Details"
@@ -77,30 +77,6 @@ body:
       placeholder: "OJS, OMP or OPS version X.X.X"
       description: |
         "What application are you using?"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: application
-    attributes:
-      label: "What application are you using?"
-      options:
-        - "OJS"
-        - "OMP"
-        - "OPS"
-        - "Other"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: version
-    attributes:
-      label: "What version are you using?"
-      options:
-        - "3.3"
-        - "3.4"
-        - "3.5"
-        - "Other"
     validations:
       required: true
 

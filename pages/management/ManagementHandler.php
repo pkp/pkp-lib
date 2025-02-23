@@ -60,9 +60,6 @@ use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
-use PKP\API\v1\reviewers\recommendations\resources\ReviewerRecommendationResource;
-use PKP\components\listPanels\ReviewerRecommendationsListPanel;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 class ManagementHandler extends Handler
 {
@@ -684,22 +681,9 @@ class ManagementHandler extends Handler
         $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
         $reviewSetupForm = new PKPReviewSetupForm($contextApiUrl, $locales, $context);
 
-        $recommendations = ReviewerRecommendation::query()->withContextId($context->getId())->get();
-        $reviewerRecommendationsListPanel = new ReviewerRecommendationsListPanel(
-            __('manager.reviewerRecommendations'),
-            $context,
-            $locales,
-            array_values(
-                ReviewerRecommendationResource::collection($recommendations)
-                    ->toArray(app()->get('request'))
-            ),
-            $recommendations->count()
-        );
-
         $components = $templateMgr->getState('components');
         $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
         $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
-        $components[$reviewerRecommendationsListPanel->id] = $reviewerRecommendationsListPanel->getConfig();
         
         $templateMgr->setState(['components' => $components]);
     }

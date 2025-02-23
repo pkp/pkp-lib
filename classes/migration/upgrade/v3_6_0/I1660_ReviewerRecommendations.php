@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_6_0/I1660_ReviewerRecommendations.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I1660_ReviewerRecommendations
@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\DB;
 use PKP\facades\Locale;
 use PKP\install\Installer;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
-use Throwable;
 
 abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
 {
@@ -87,65 +86,51 @@ abstract class I1660_ReviewerRecommendations extends \PKP\migration\Migration
             ->filter()
             ->map(fn($locales) => json_decode($locales));
 
-        try {
 
-            $recommendations = [];
+        $recommendations = [];
 
-            foreach ($nonRemovablerecommendations as $recommendationValue => $translatableKey) {
-                $recommendations[$recommendationValue] = [
-                    'contextId' => null,
-                    'value' => $recommendationValue,
-                    'status' => 1,
-                    'title' => [],
-                ];
-            }
-            
-            $allContextSupportLocales = $contextSupportedLocales
-                ->values()
-                ->flatten()
-                ->unique()
-                ->toArray();
-
-            ReviewerRecommendation::unguard();
-
-            DB::beginTransaction();
-
-            foreach ($allContextSupportLocales as $locale) {
-                foreach ($nonRemovablerecommendations as $recommendationValue => $translatableKey) {
-                    $recommendations[$recommendationValue]['title'][$locale] = Locale::get(
-                        $translatableKey,
-                        [],
-                        $locale
-                    );
-                }
-            }
-
-            $contextSupportedLocales->each(
-                fn (array $supportedLocales, int $contextId) => collect($recommendations)->each(
-                    fn (array $recommendation) => 
-                        ReviewerRecommendation::create(
-                            array_merge($recommendation, [
-                                'contextId' => $contextId,
-                                'title' => array_intersect_key(
-                                    $recommendation['title'],
-                                    array_flip($supportedLocales)
-                                )
-                            ])
-                        )
-                )
-            );
-
-            DB::commit();
-
-            ReviewerRecommendation::reguard();
-
-        } catch (Throwable $exception) {
-
-            DB::rollBack();
-
-            ReviewerRecommendation::reguard();
-
-            throw $exception;
+        foreach ($nonRemovablerecommendations as $recommendationValue => $translatableKey) {
+            $recommendations[$recommendationValue] = [
+                'contextId' => null,
+                'value' => $recommendationValue,
+                'status' => 1,
+                'title' => [],
+            ];
         }
+        
+        $allContextSupportLocales = $contextSupportedLocales
+            ->values()
+            ->flatten()
+            ->unique()
+            ->toArray();
+
+        ReviewerRecommendation::unguard();
+
+        foreach ($allContextSupportLocales as $locale) {
+            foreach ($nonRemovablerecommendations as $recommendationValue => $translatableKey) {
+                $recommendations[$recommendationValue]['title'][$locale] = Locale::get(
+                    $translatableKey,
+                    [],
+                    $locale
+                );
+            }
+        }
+
+        $contextSupportedLocales->each(
+            fn (array $supportedLocales, int $contextId) => collect($recommendations)->each(
+                fn (array $recommendation) => 
+                    ReviewerRecommendation::create(
+                        array_merge($recommendation, [
+                            'contextId' => $contextId,
+                            'title' => array_intersect_key(
+                                $recommendation['title'],
+                                array_flip($supportedLocales)
+                            )
+                        ])
+                    )
+            )
+        );
+
+        ReviewerRecommendation::reguard();
     }
 }

@@ -38,7 +38,6 @@ use PKP\submission\DashboardView;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -174,12 +173,6 @@ abstract class PKPDashboardHandler extends Handler
                     'contributorForm' => $contributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
                 ],
-                'recommendations' => ReviewerRecommendation::query()
-                    ->withContextId($context->getId())
-                    ->get()
-                    ->select(['recommendationId', 'status', 'value', 'title'])
-                    ->values()
-                    ->toArray(),
             ]
         ]);
 

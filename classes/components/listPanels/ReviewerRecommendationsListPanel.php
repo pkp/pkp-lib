@@ -91,7 +91,7 @@ class ReviewerRecommendationsListPanel extends ListPanel
             Application::get()->getRequest(),
             Application::ROUTE_API,
             $this->context->getPath(),
-            "contexts/{$this->context->getId()}/reviewers/recommendations"
+            "reviewers/recommendations"
         );
     }
 

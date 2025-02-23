@@ -315,7 +315,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Get the current application object
      */
-    public static function get(): self
+    public static function get(): static
     {
         return Registry::get('application');
     }

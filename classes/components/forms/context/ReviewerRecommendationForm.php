@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/ReviewerRecommendationForm.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerRecommendationForm
@@ -28,7 +28,7 @@ class ReviewerRecommendationForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param \PKP\context\Context $context Journal or Press to change settings for
+     * @param \PKP\context\Context $context Context change settings for
      */
     public function __construct($action, $locales)
     {

@@ -3,8 +3,8 @@
 /**
  * @file api/v1/reviewers/recommendations/ReviewerRecommendationController.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerRecommendationController
@@ -15,6 +15,7 @@
 
 namespace PKP\API\v1\reviewers\recommendations;
 
+use APP\core\Application;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -37,7 +38,7 @@ class ReviewerRecommendationController extends PKPBaseController
      */
     public function getHandlerPath(): string
     {
-        return 'contexts/{contextId}/reviewers/recommendations';
+        return 'reviewers/recommendations';
     }
 
     /**
@@ -74,27 +75,25 @@ class ReviewerRecommendationController extends PKPBaseController
     {
         Route::get('{recommendationId}', $this->get(...))
             ->name('reviewer.recommendations.get')
-            ->whereNumber(['contextId', 'recommendationId']);
+            ->whereNumber(['recommendationId']);
 
         Route::get('', $this->getMany(...))
-            ->name('reviewer.recommendations.getMany')
-            ->whereNumber(['contextId']);
+            ->name('reviewer.recommendations.getMany');
 
         Route::post('', $this->add(...))
-            ->name('reviewer.recommendations.add')
-            ->whereNumber(['contextId']);
+            ->name('reviewer.recommendations.add');
 
         Route::put('{recommendationId}', $this->edit(...))
             ->name('reviewer.recommendations.edit')
-            ->whereNumber(['contextId', 'recommendationId']);
+            ->whereNumber(['recommendationId']);
         
         Route::put('{recommendationId}/status', $this->updateStatus(...))
             ->name('reviewer.recommendations.edit.status')
-            ->whereNumber(['contextId', 'recommendationId']);
+            ->whereNumber(['recommendationId']);
 
         Route::delete('{recommendationId}', $this->delete(...))
             ->name('reviewer.recommendations.delete')
-            ->whereNumber(['contextId', 'recommendationId']);
+            ->whereNumber(['recommendationId']);
     }
 
     /**
@@ -122,7 +121,7 @@ class ReviewerRecommendationController extends PKPBaseController
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $recommendations = ReviewerRecommendation::query()
-            ->withContextId($illuminateRequest->route('contextId'))
+            ->withContextId(Application::get()->getRequest()->getContext()->getId())
             ->get();
 
         return response()->json([

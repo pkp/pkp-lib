@@ -59,10 +59,9 @@
                     <h5> {{ reviewerSuggestion.email }} </h5>
                 </div>
                 
-                {* TODO: check alternative of v-html as v-strip-unsafe-html not working *}
                 <div
                     class="submissionWizard__reviewPanel__item__value" 
-                    v-html = "localize(reviewerSuggestion.suggestionReason)"
+                    v-strip-unsafe-html="localize(reviewerSuggestion.suggestionReason)"
                 ></div>
             </li>
             {call_hook name="Template::SubmissionWizard::Section::Review::ReviewerSuggestions" submission=$submission step=$step.id}

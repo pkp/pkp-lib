@@ -67,7 +67,6 @@ trait HasMultilingualRule
                 continue;
             }
 
-            // TODO : check if this string check necessary ?
             if (is_string($rules[$input])) {
                 $rules[$input] = array_map('trim', explode('|', $rules[$input]));
             }
@@ -85,6 +84,9 @@ trait HasMultilingualRule
         return $rules;
     }
 
+    /**
+     * Check if the given input is a multilingula data
+     */
     protected function isMultilingual(string $inputName): bool
     {
         return in_array($inputName, $this->multilingualInputs());

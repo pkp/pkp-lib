@@ -75,7 +75,7 @@ class MultilingualInput implements ValidationRule, ValidatorAwareRule
     {
         $this->passed = true;
         
-        // TODO : Should an array_filter needed to be applied ?
+        // Should an array_filter needed to be applied ?
         // This will cause disallowed locales with null value to get bypassed even though those
         // locale with null value have no impact.
         $givenLocales = array_keys(array_filter($value));

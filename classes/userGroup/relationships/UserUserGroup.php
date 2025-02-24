@@ -104,4 +104,12 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     {
         return $query->orderBy('user_user_groups.' . $column, $direction);
     }
+
+    public function scopeWithActiveInFuture(Builder $query): Builder
+    {
+        $currentDateTime = Core::getCurrentDate();
+        return $query->whereNotNull('user_user_groups.date_start')
+            ->where('user_user_groups.date_start', '>', $currentDateTime)
+            ->orderBy('user_user_groups.date_start', 'asc');
+    }
 }

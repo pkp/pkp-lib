@@ -22,6 +22,7 @@ use APP\template\TemplateManager;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class ProfileHandler extends UserHandler
 {
@@ -58,8 +59,9 @@ class ProfileHandler extends UserHandler
     public function profile($args, $request)
     {
         $context = $request->getContext();
+        $user = $request->getUser();
+        $date_start = null;
         if (!$context) {
-            $user = $request->getUser();
             $contextDao = Application::getContextDAO();
             $workingContexts = $contextDao->getAvailable($user ? $user->getId() : null);
             [$firstContext, $secondContext] = [$workingContexts->next(), $workingContexts->next()];
@@ -74,11 +76,20 @@ class ProfileHandler extends UserHandler
             $request->redirect(null, null, null, null, null, $anchor);
         }
 
+        if(count($user->getRoles($context->getId())) === 0){
+           $userFutureRoleStartDate = UserUserGroup::withUserId($user->getId())
+               ->withActiveInFuture()
+               ->pluck('date_start')
+               ->first();
+            $date_start = new \DateTime($userFutureRoleStartDate);
+        }
+
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'pageTitle' => __('user.profile'),
+            'userFutureRoleStartDate'=> $date_start?->format('Y-m-d'),
         ]);
         $templateMgr->display('user/profile.tpl');
     }

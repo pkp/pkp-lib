@@ -298,7 +298,7 @@ class PKPUserController extends PKPBaseController
     {
         // Ensure user exists
         $userId = $request->route('userId');
-        $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId, true);
         if (!$user) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound')
@@ -331,7 +331,7 @@ class PKPUserController extends PKPBaseController
         Mail::send($mailable);
 
         // Return updated user model
-        $user = Repo::user()->get($userId);
+        $user = Repo::user()->get($userId, true);
         return response()->json(Repo::user()->getSchemaMap()->map($user), Response::HTTP_OK);
     }
 

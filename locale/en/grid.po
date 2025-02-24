@@ -508,10 +508,10 @@ msgid "grid.user.email"
 msgstr "Email"
 
 msgid "grid.user.enable"
-msgstr "Enable"
+msgstr "Enable User"
 
 msgid "grid.user.disable"
-msgstr "Disable"
+msgstr "Disable User"
 
 msgid "grid.user.disableReason"
 msgstr "Reason for disabling user"
@@ -716,3 +716,17 @@ msgstr "In Browse Lists"
 
 msgid "grid.action.editContributor"
 msgstr "Edit Contributor"
+
+msgid "grid.user.remove"
+msgstr "Remove User"
+
+msgid "grid.user.logInAs"
+msgstr "Login As"
+
+msgid "grid.user.enableReasonDescription"
+msgstr "Once the user is enabled, they will regain access to the site, and you'll be able to invite them to roles as needed."
+
+msgid "grid.user.disableReasonDescription"
+msgstr "Please note that once a user is disabled, you won't be able to add them to any roles until the user is enabled again."
+
+

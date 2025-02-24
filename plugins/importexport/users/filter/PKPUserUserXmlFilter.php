@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/users/filter/PKPUserUserXmlFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserUserXmlFilter
@@ -91,7 +91,10 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         // Add metadata
         $this->createLocalizedNodes($doc, $userNode, 'givenname', $user->getGivenName(null));
         $this->createLocalizedNodes($doc, $userNode, 'familyname', $user->getFamilyName(null));
-        $this->createLocalizedNodes($doc, $userNode, 'affiliation', $user->getAffiliation(null));
+
+        $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
+        $this->createLocalizedNodes($doc, $affiliationNode, 'name', $user->getAffiliation(null));
+        $userNode->appendChild($affiliationNode);
 
         $this->createOptionalNode($doc, $userNode, 'country', $user->getCountry());
         $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($user->getEmail(), ENT_COMPAT, 'UTF-8')));

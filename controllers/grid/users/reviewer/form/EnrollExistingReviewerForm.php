@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/reviewer/form/EnrollExistingReviewerForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EnrollExistingReviewerForm
@@ -19,6 +19,10 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\submission\reviewRound\ReviewRound;
+use APP\submission\Submission;
+use PKP\form\validation\FormValidator;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -26,15 +30,16 @@ use PKP\security\RoleDAO;
 class EnrollExistingReviewerForm extends ReviewerForm
 {
     /**
-     * Constructor.
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
-        parent::__construct($submission, $reviewRound);
+        parent::__construct($submission, $reviewRound, $reviewerSuggestion);
+
         $this->setTemplate('controllers/grid/users/reviewer/form/enrollExistingReviewerForm.tpl');
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
+        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+        $this->addCheck(new FormValidator($this, 'userId', 'required', 'manager.people.existingUserRequired'));
     }
 
     /**
@@ -48,6 +53,13 @@ class EnrollExistingReviewerForm extends ReviewerForm
         $context = Application::get()->getRequest()->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
+
+        if ($this->reviewerSuggestion && $this->reviewerSuggestion->existingUser) {
+            $existingUser = $this->reviewerSuggestion->existingUser; /** @var \PKP\user\User $existingUser */
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('userId', $existingUser->getId());
+            $this->setData('selectedUser', $existingUser->getFullName().' (' . $existingUser->getData('email') . ')');
+        }
     }
 
     /**
@@ -72,7 +84,13 @@ class EnrollExistingReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars(['userId', 'userGroupId']);
+        $inputData = ['userId', 'userGroupId'];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**

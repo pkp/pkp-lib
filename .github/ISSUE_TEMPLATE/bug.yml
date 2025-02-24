@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Thanks for taking the time to fill out this bug report! Please update the title to describe your issue.
+        Thanks for taking the time to fill out this bug report! Please update the title to describe your issue.
 
   - type: textarea
     id: description
@@ -57,25 +57,13 @@ body:
     validations:
       required: false
 
-  - type: dropdown
-    id: repro-rate
-    attributes:
-      label: "Reproduction Rate"
-      description: "How often does the issue occur?"
-      options:
-        - "Intermittently"
-        - "50-99%"
-        - "100%"
-    validations:
-      required: true
-
   - type: input
     id: application-version
     attributes:
       label: Application Version
       placeholder: "OJS, OMP or OPS version X.X.X"
       description: |
-        "What application are you using?"
+        "What application and version are you using? [How to determine application version](https://forum.pkp.sfu.ca/t/how-do-i-determine-my-pkp-softwares-version/28534)"
     validations:
       required: true
 
@@ -83,7 +71,7 @@ body:
     id: logs
     attributes:
       label: "Logs"
-      description: "If you have access to the PHP server logs, you can show them here. Be careful not to divulge sensitive information."
+      description: "If you have access to the PHP server logs, you can show them here. Be careful not to divulge sensitive information. [How do I find PHP Error Logs](https://forum.pkp.sfu.ca/t/how-do-i-find-my-php-error-log/29374)"
     validations:
       required: false
 

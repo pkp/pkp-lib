@@ -126,7 +126,7 @@ Cypress.Commands.add('install', function() {
 
 	// Complete the installation
 	cy.get('button[id^=submitFormButton-]').click();
-	cy.get('p:contains("has completed successfully.")', {timeout:1200000});
+	cy.get('p:contains("has completed successfully.")');
 });
 
 Cypress.Commands.add('login', (username, password, context) => {

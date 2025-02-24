@@ -47,7 +47,6 @@ use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\user\interest\Repository as UserInterestRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
-use PKP\submission\reviewer\recommendation\Repository as ReviewerRecommendationRepository;
 
 class Repo
 {
@@ -166,8 +165,4 @@ class Repo
         return app(UserInterestRepository::class);
     }
 
-    public static function reviewerRecommendation(): ReviewerRecommendationRepository
-    {
-        return app(ReviewerRecommendationRepository::class);
-    }
 }

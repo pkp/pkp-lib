@@ -89,7 +89,7 @@ class LanguageGridHandler extends GridHandler
         $availableLocales = $this->getGridDataElements($request);
         $context = $request->getContext();
 
-        $contextService = app()->get('context');
+        $contextService = app()->get('context'); /** @var \APP\services\ContextService $contextService */
 
         $permittedSettings = ['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales', 'supportedSubmissionMetadataLocales'];
         if (in_array($settingName, $permittedSettings) && $locale) {

@@ -531,21 +531,6 @@ class Schema extends \PKP\core\maps\Schema
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
 
-        // application specific review stages
-        $reviewStageIds = Application::get()->getReviewStages();
-
-        // get roles from review stages only
-        $currentUserAssignedRoles = [];
-        foreach ($stages as $stage) {
-            if (in_array($stage['id'], $reviewStageIds) && !empty($stage['currentUserAssignedRoles'])) {
-                $currentUserAssignedRoles = array_merge(
-                    $currentUserAssignedRoles,
-                    $stage['currentUserAssignedRoles']
-                );
-            }
-        }
-        $currentUserAssignedRoles = array_unique($currentUserAssignedRoles);
-
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {
             // skip declined/cancelled assignments if the user lacks permission for this specific stage.

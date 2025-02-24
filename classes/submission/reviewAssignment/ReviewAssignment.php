@@ -838,6 +838,12 @@ class ReviewAssignment extends \PKP\core\DataObject
     ): array
     {
         static $reviewerRecommendationOptions = [];
+
+        $contextService = app()->get('context'); /** @var \APP\services\ContextService $contextService */
+        
+        if (!$contextService->hasCustomizableReviewerRecommendation()) {
+            return [];
+        }
         
         if (!empty($reviewerRecommendationOptions)) {
             return $reviewerRecommendationOptions;

@@ -164,4 +164,5 @@ class Repo
     {
         return app(UserInterestRepository::class);
     }
+
 }

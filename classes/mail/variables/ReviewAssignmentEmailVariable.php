@@ -95,7 +95,7 @@ class ReviewAssignmentEmailVariable extends Variable
 
     protected function getRecommendation(string $locale): string
     {
-        $recommendationOptions = ReviewAssignment::getReviewerRecommendationOptions();
+        $recommendationOptions = ReviewAssignment::getReviewerRecommendationOptions($this->getContext());
 
         return isset($recommendationOptions[$this->reviewAssignment->getRecommendation()])
             ? __($recommendationOptions[$this->reviewAssignment->getRecommendation()], [], $locale)

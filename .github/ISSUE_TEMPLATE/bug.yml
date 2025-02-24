@@ -62,8 +62,7 @@ body:
     attributes:
       label: Application Version
       placeholder: "OJS, OMP or OPS version X.X.X"
-      description: |
-        "What application and version are you using? [How to determine application version](https://forum.pkp.sfu.ca/t/how-do-i-determine-my-pkp-softwares-version/28534)"
+      description: "What application and version are you using? [How to determine application version](https://forum.pkp.sfu.ca/t/how-do-i-determine-my-pkp-softwares-version/28534)"
     validations:
       required: true
 

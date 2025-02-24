@@ -729,8 +729,10 @@ abstract class Collector implements CollectorInterface, ViewsCount
             return $q;
         }
 
-        $reviewStageFilters = array_intersect($this->getReviewStages(), $this->stageIds ?? []);
-        $stagesToFilter = array_diff($this->getReviewStages(), $reviewStageFilters);
+        $reviewStages = Application::get()->getReviewStages();
+        $reviewStageFilters = array_intersect($reviewStages, $this->stageIds ?? []);
+        $stagesToFilter = array_diff($reviewStages, $reviewStageFilters);
+
         if (!empty($stagesToFilter)) {
             $q->whereIn('s.stage_id', $stagesToFilter);
         }
@@ -911,10 +913,5 @@ abstract class Collector implements CollectorInterface, ViewsCount
             $q->selectSub($subQuery, $key);
         });
         return $q;
-    }
-
-    protected function getReviewStages(): array
-    {
-        return [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
     }
 }

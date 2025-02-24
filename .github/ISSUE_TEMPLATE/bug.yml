@@ -70,7 +70,7 @@ body:
     id: logs
     attributes:
       label: "Logs"
-      description: "If you have access to the PHP server logs, you can show them here. Be careful not to divulge sensitive information. [How do I find PHP Error Logs](https://forum.pkp.sfu.ca/t/how-do-i-find-my-php-error-log/29374)"
+      description: "If you have access to the PHP server logs, you can show them here. Be careful not to divulge sensitive information. [How to find my PHP error logs](https://forum.pkp.sfu.ca/t/how-do-i-find-my-php-error-log/29374)"
     validations:
       required: false
 

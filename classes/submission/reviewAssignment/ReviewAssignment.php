@@ -277,7 +277,7 @@ class ReviewAssignment extends \PKP\core\DataObject
      *
      * @return string|null
      */
-    public function dateConsidered(): ?string
+    public function getDateConsidered(): ?string
     {
         return $this->getData('dateConsidered');
     }

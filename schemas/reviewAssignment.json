@@ -46,7 +46,6 @@
 		"dateConsidered": {
 		"type": "string",
 		"description": "Date when the editor confirmed the review",
-		"format": "date-time",
 		"validation": [
 			"date:Y-m-d H:i:s",
 			"nullable"

@@ -127,7 +127,6 @@ Cypress.Commands.add('install', function() {
 
 	// Complete the installation
 	cy.get('button[id^=submitFormButton-]').click();
-	cy.wait(120000);
 	cy.get('p:contains("has completed successfully.")');
 });
 

@@ -27,7 +27,7 @@
 		"mpdf/mpdf": "^8.2",
 		"phpmailer/phpmailer": "6.*",
 		"ralouphie/getallheaders": "*",
-		"smarty/smarty": "5.*",
+		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",
 		"sokil/php-isocodes-db-i18n": "^4.0",
 		"symfony/mailer": "^7.0",

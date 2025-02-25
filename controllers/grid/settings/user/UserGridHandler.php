@@ -581,7 +581,7 @@ class UserGridHandler extends GridHandler
                 ->whereHas('userGroup', function ($query) use ($context) {
                     $query->withContextIds($context->getId());
                 })
-                ->update(['dateEnd' => now()]);
+                ->update(['date_end' => now()]);
         
             return \PKP\db\DAO::getDataChangedEvent($userId);
         }

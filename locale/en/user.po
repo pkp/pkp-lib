@@ -853,3 +853,18 @@ msgstr "This ORCID has not been verified. Please remove this unverified ORCID an
 
 msgid "user.removeRole.message"
 msgstr "Are you sure want remove this role permanently?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Your role is scheduled to begin on {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr "Until then, you can review and update your profile. If you believe this is an error, please contact the administrator."
+
+msgid "user.disabledModal.description"
+msgstr "Current Roles : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Disable {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Enable {$fullName}"

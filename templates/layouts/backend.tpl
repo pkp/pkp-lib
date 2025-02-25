@@ -92,7 +92,7 @@
 								{/if}
 							></initials-avatar>
 							{if $isUserLoggedInAs}
-								<initials-avatar 
+								<initials-avatar
 									class="absolute right-2 top-2 rounded-full h-5 w-5"
 									:is-warnable="true"
 									:shrink="true"
@@ -154,8 +154,10 @@
 
 		<div class="app__body">
 			{block name="menu"}
-				<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
-				</pkp-side-nav>
+				{if isset($currentContext) && isset($currentUser) && $currentUser->getRoles($currentContext->getId())|count > 0}
+					<pkp-side-nav :links="menu" aria-label="{translate key="common.navigation.site"}">
+					</pkp-side-nav>
+				{/if}
 			{/block}
 			<main class="app__main">
 				<div class="app__page width{if $pageWidth} width--{$pageWidth}{/if}">

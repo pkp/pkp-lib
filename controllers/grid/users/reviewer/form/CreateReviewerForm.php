@@ -22,6 +22,12 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorEmail;
+use PKP\form\validation\FormValidatorUsername;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorLocale;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\core\Core;
 use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\Notification;
@@ -32,14 +38,12 @@ use Symfony\Component\Mailer\Exception\TransportException;
 class CreateReviewerForm extends ReviewerForm
 {
     /**
-     * Constructor.
-     *
-     * @param Submission $submission
-     * @param ReviewRound $reviewRound
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
-        parent::__construct($submission, $reviewRound);
+        parent::__construct($submission, $reviewRound, $reviewerSuggestion);
+        
         $this->setTemplate('controllers/grid/users/reviewer/form/createReviewerForm.tpl');
 
         // the users register for the site, thus
@@ -48,8 +52,8 @@ class CreateReviewerForm extends ReviewerForm
         $this->addSupportedFormLocale($site->getPrimaryLocale());
 
         $form = $this;
-        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
+        $this->addCheck(new FormValidatorLocale($this, 'givenName', 'required', 'user.profile.form.givenNameRequired', $site->getPrimaryLocale()));
+        $this->addCheck(new FormValidatorCustom($this, 'familyName', 'optional', 'user.profile.form.givenNameRequired.locale', function ($familyName) use ($form) {
             $givenNames = $form->getData('givenName');
             foreach ($familyName as $locale => $value) {
                 if (!empty($value) && empty($givenNames[$locale])) {
@@ -58,13 +62,13 @@ class CreateReviewerForm extends ReviewerForm
             }
             return true;
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [true], true));
-        $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email) {
+        $this->addCheck(new FormValidatorCustom($this, 'username', 'required', 'user.register.form.usernameExists', [Repo::user(), 'getByUsername'], [true], true));
+        $this->addCheck(new FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
+        $this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
+        $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', function ($email) {
             return !Repo::user()->getByEmail($email, true);
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
+        $this->addCheck(new FormValidator($this, 'userGroupId', 'required', 'user.profile.form.usergroupRequired'));
     }
 
     /**
@@ -78,6 +82,14 @@ class CreateReviewerForm extends ReviewerForm
         $context = Application::get()->getRequest()->getContext();
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         $this->setData('personalMessage', Mail::compileParams($template->getLocalizedData('body'), $mailable->viewData));
+
+        if ($this->reviewerSuggestion) {
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('familyName', $this->reviewerSuggestion->familyName);
+            $this->setData('givenName', $this->reviewerSuggestion->givenName);
+            $this->setData('email', $this->reviewerSuggestion->email);
+            $this->setData('affiliation', $this->reviewerSuggestion->affiliation);
+        }
     }
 
     /**
@@ -104,7 +116,7 @@ class CreateReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars([
+        $inputData = [
             'givenName',
             'familyName',
             'affiliation',
@@ -113,7 +125,13 @@ class CreateReviewerForm extends ReviewerForm
             'email',
             'skipEmail',
             'userGroupId',
-        ]);
+        ];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**

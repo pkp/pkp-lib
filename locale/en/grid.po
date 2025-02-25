@@ -409,6 +409,17 @@ msgstr ""
 "Are you sure you want to remove {$name} as a contributor? This action can "
 "not be undone."
 
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Add Reviewer Suggestion"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Delete Reviewer Suggestion"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Are you sure you want to remove this suggestion? This action can "
+"not be undone."
+
 msgid "grid.action.newVersion"
 msgstr "Create a new version"
 

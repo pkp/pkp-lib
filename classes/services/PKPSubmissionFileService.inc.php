@@ -600,6 +600,24 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			]
 		);
 
+		import('lib.pkp.classes.log.SubmissionLog');
+		import('classes.log.SubmissionEventLogEntry');
+		$submission = Services::get('submission')->get($submissionFile->getData('submissionId'));
+		\SubmissionLog::logEvent(
+			Application::get()->getRequest(),
+			$submission,
+			SUBMISSION_LOG_FILE_DELETE,
+			'submission.event.fileDeleted',
+			[
+				'fileStage' => $submissionFile->getData('fileStage'),
+				'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
+				'submissionFileId' => $submissionFile->getId(),
+				'submissionId' => $submissionFile->getData('submissionId'),
+				'username' => $user ? $user->getUsername() : null,
+				'originalFileName' => $submissionFile->getLocalizedData('name'),
+			]
+		);
+
 		HookRegistry::call('SubmissionFile::delete', [&$submissionFile]);
 	}
 

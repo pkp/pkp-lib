@@ -98,7 +98,8 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {
                 switch ($n->tagName) {
-                    case 'username': $user->setUsername($n->textContent);
+                    case 'username':
+                        $user->setUsername($n->textContent);
                         break;
                     case 'givenname':
                         $locale = $n->getAttribute('locale');
@@ -115,25 +116,33 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         $user->setFamilyName($n->textContent, $locale);
                         break;
                     case 'affiliation':
-                        $locale = $n->getAttribute('locale');
+                        $affiliationNameNode = $n->firstElementChild;
+                        $locale = $affiliationNameNode->getAttribute('locale');
                         if (empty($locale)) {
                             $locale = $site->getPrimaryLocale();
                         }
-                        $user->setAffiliation($n->textContent, $locale);
+                        $user->setAffiliation($affiliationNameNode->textContent, $locale);
                         break;
-                    case 'country': $user->setCountry($n->textContent);
+                    case 'country':
+                        $user->setCountry($n->textContent);
                         break;
-                    case 'email': $user->setEmail($n->textContent);
+                    case 'email':
+                        $user->setEmail($n->textContent);
                         break;
-                    case 'url': $user->setUrl($n->textContent);
+                    case 'url':
+                        $user->setUrl($n->textContent);
                         break;
-                    case 'orcid': $user->setOrcid($n->textContent);
+                    case 'orcid':
+                        $user->setOrcid($n->textContent);
                         break;
-                    case 'phone': $user->setPhone($n->textContent);
+                    case 'phone':
+                        $user->setPhone($n->textContent);
                         break;
-                    case 'billing_address': $user->setBillingAddress($n->textContent);
+                    case 'billing_address':
+                        $user->setBillingAddress($n->textContent);
                         break;
-                    case 'mailing_address': $user->setMailingAddress($n->textContent);
+                    case 'mailing_address':
+                        $user->setMailingAddress($n->textContent);
                         break;
                     case 'biography':
                         $locale = $n->getAttribute('locale');
@@ -142,7 +151,8 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         }
                         $user->setBiography($n->textContent, $locale);
                         break;
-                    case 'gossip': $user->setGossip($n->textContent);
+                    case 'gossip':
+                        $user->setGossip($n->textContent);
                         break;
                     case 'signature':
                         $locale = $n->getAttribute('locale');
@@ -151,21 +161,29 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         }
                         $user->setSignature($n->textContent, $locale);
                         break;
-                    case 'date_registered': $user->setDateRegistered($n->textContent);
+                    case 'date_registered':
+                        $user->setDateRegistered($n->textContent);
                         break;
-                    case 'date_last_login': $user->setDateLastLogin($n->textContent);
+                    case 'date_last_login':
+                        $user->setDateLastLogin($n->textContent);
                         break;
-                    case 'date_last_email': $user->setDateLastEmail($n->textContent);
+                    case 'date_last_email':
+                        $user->setDateLastEmail($n->textContent);
                         break;
-                    case 'date_validated': $user->setDateValidated($n->textContent);
+                    case 'date_validated':
+                        $user->setDateValidated($n->textContent);
                         break;
-                    case 'inline_help':$n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ;
+                    case 'inline_help':
+                        $n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ;
                         break;
-                    case 'auth_string': $user->setAuthStr($n->textContent);
+                    case 'auth_string':
+                        $user->setAuthStr($n->textContent);
                         break;
-                    case 'disabled_reason': $user->setDisabledReason($n->textContent);
+                    case 'disabled_reason':
+                        $user->setDisabledReason($n->textContent);
                         break;
-                    case 'locales': $user->setLocales(preg_split('/:/', $n->textContent));
+                    case 'locales':
+                        $user->setLocales(preg_split('/:/', $n->textContent));
                         break;
                     case 'password':
                         if ($n->getAttribute('must_change') == 'true') {
@@ -204,7 +222,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             $user = $userByUsername;
             $userId = $user->getId();
         } elseif (!$userByUsername && !$userByEmail) {
-            // if user names do not exists in the site primary locale
+            // if usernames do not exist in the site primary locale
             // copy one of the existing for the default/required site primary locale
             if (empty($user->getGivenName($site->getPrimaryLocale()))) {
                 // get all user given names, family names and affiliations
@@ -298,15 +316,17 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             // no exception thrown as is the case with \PKP\author\Author import.
             $userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
             if ($userGroupNodeList->length > 0) {
-                for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
+                for ($i = 0; $i < $userGroupNodeList->length; $i++) {
                     $n = $userGroupNodeList->item($i);
 
                     /** @var \PKP\userGroup\UserGroup $userGroup */
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
                         // and the user is not already assigned to that group
-                        if (in_array($n->textContent, $userGroup->name) &&
-                            !Repo::userGroup()->userInGroup($userId, $userGroup->id)) {
+                        if (
+                            in_array($n->textContent, $userGroup->name) &&
+                            !Repo::userGroup()->userInGroup($userId, $userGroup->id)
+                        ) {
                             // Found a candidate; assign user to it.
                             Repo::userGroup()->assignUserToGroup($userId, $userGroup->id);
                         }

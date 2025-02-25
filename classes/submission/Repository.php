@@ -961,6 +961,19 @@ abstract class Repository
                         'reviews',
                         ['reviewsSubmitted' => true]
                     );
+                case DashboardView::TYPE_REVIEWS_OVERDUE:
+                    $collector = Repo::submission()->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByReviewsOverdue(true)
+                        ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewsOverdue'),
+                        [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+                        $canAccessUnassignedSubmission ? $collector : $collector->assignedTo([$user->getId()]),
+                        'reviews',
+                        ['reviewsOverdue' => true]
+                    );
                 case DashboardView::TYPE_COPYEDITING:
                     $collector = Repo::submission()->getCollector()
                         ->filterByContextIds([$context->getId()])
@@ -1037,15 +1050,15 @@ abstract class Repository
                         ['revisionsRequested' => true]
                     );
                 case DashboardView::TYPE_REVISIONS_SUBMITTED:
+                    $collector = Repo::submission()->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByRevisionsSubmitted(true)
+                        ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,
                         __('submission.dashboard.view.revisionsSubmitted'),
-                        [Role::ROLE_ID_AUTHOR],
-                        Repo::submission()->getCollector()
-                            ->assignedTo([$user->getId()])
-                            ->filterByContextIds([$context->getId()])
-                            ->filterByRevisionsSubmitted(true)
-                            ->filterByStatus([PKPSubmission::STATUS_QUEUED]),
+                        [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
+                        $canAccessUnassignedSubmission ? $collector : $collector->assignedTo([$user->getId()]),
                         'reviews',
                         ['revisionsSubmitted' => true]
                     );

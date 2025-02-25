@@ -80,6 +80,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?array $reviewersNumber = null;
     public ?bool $awaitingReviews = null;
     public ?bool $reviewsSubmitted = null;
+    public ?bool $reviewsOverdue = null;
     public ?bool $revisionsRequested = null;
     public ?bool $revisionsSubmitted = null;
     public ?array $reviewIds = null;
@@ -231,6 +232,15 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public function filterByReviewsSubmitted(?bool $hasSubmittedReviews): AppCollector
     {
         $this->reviewsSubmitted = $hasSubmittedReviews;
+        return $this;
+    }
+
+    /**
+     * Limit results by submissions in the review stage with overdue review assignments
+     */
+    public function filterByReviewsOverdue(?bool $reviewsOverdue): AppCollector
+    {
+        $this->reviewsOverdue = $reviewsOverdue;
         return $this;
     }
 
@@ -723,7 +733,8 @@ abstract class Collector implements CollectorInterface, ViewsCount
             $this->awaitingReviews,
             $this->reviewsSubmitted,
             $this->revisionsRequested,
-            $this->revisionsSubmitted
+            $this->revisionsSubmitted,
+            $this->reviewsOverdue
         ])->filter();
         if ($reviewFilters->isEmpty()) {
             return $q;
@@ -741,7 +752,15 @@ abstract class Collector implements CollectorInterface, ViewsCount
         $currentReviewRound = DB::table('review_rounds', 'rr')
             ->select('rr.submission_id')
             ->selectRaw('MAX(rr.round) as current_round')
-            ->groupBy('rr.submission_id');
+            ->groupBy('rr.submission_id')
+            // narrow results to the active workflow stage, needed for OMP
+            ->whereIn(
+                'rr.stage_id',
+                fn (Builder $q) => $q
+                    ->from('submissions AS s')
+                    ->select('s.stage_id')
+                    ->whereColumn('rr.stage_id', 's.stage_id')
+            );
 
         $q->when(
             $this->isReviewedBy !== null,
@@ -859,6 +878,36 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         ->whereNotNull('ra.date_completed')
                         ->whereColumn('ra.round', '=', 'agrr.current_round')
                 )
+        );
+
+        $q->when(
+            $this->reviewsOverdue !== null,
+            fn (Builder $q) =>
+            $q->whereIn(
+                's.submission_id',
+                fn (Builder $q) => $q
+                    ->select('ra.submission_id')
+                    ->from('review_assignments AS ra')
+                    ->joinSub(
+                        $currentReviewRound,
+                        'agrr',
+                        fn (JoinClause $join) =>
+                        $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                    )
+                    ->whereColumn('ra.round', '=', 'agrr.current_round')
+                    ->where('ra.declined', 0)
+                    ->where('ra.cancelled', 0)
+                    ->where(
+                        fn (Builder $q) =>
+                        $q->where('ra.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('ra.date_completed')
+                    )
+                    ->orWhere(
+                        fn (Builder $q) =>
+                        $q->where('ra.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('ra.date_confirmed')
+                    )
+            )
         );
 
         $q->when(

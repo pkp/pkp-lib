@@ -577,7 +577,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
 
                 case 'isOverdue':
-                    $collector->filterByOverdue(true);
+                    $collector->filterByReviewsOverdue(true);
                     break;
 
                 case 'isIncomplete':

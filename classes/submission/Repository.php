@@ -964,7 +964,7 @@ abstract class Repository
                 case DashboardView::TYPE_REVIEWS_OVERDUE:
                     $collector = Repo::submission()->getCollector()
                         ->filterByContextIds([$context->getId()])
-                        ->filterByOverdue(true)
+                        ->filterByReviewsOverdue(true)
                         ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,

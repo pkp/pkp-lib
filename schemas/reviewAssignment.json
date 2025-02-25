@@ -43,6 +43,15 @@
 				"in:0,1,2,3,4"
 			]
 		},
+		"dateConsidered": {
+			"type": "string",
+			"description": "Date when the editor confirmed the review",
+			"validation": [
+				"date:Y-m-d H:i:s",
+				"nullable"
+			],
+			"apiSummary": true
+		},
 		"dateAcknowledged": {
 			"type": "string",
 			"description": "Date editor was familiarized with the review",

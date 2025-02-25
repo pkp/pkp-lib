@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "07af7682ff0115ebf904e7f7bb8e00f5",
+	"content-hash": "6dd364061069a222d0759556c0d95c13",
 	"packages": [
 		{
 			"name": "altcha-org/altcha",
@@ -5035,39 +5035,35 @@
 		},
 		{
 			"name": "smarty/smarty",
-			"version": "v5.4.3",
+			"version": "v4.5.5",
 			"source": {
 				"type": "git",
 				"url": "https://github.com/smarty-php/smarty.git",
-				"reference": "c6bff5795081ca5e60aabda59fb87daa511acd1e"
+				"reference": "c4851c12e34ff80073ddeb7d98b059d57dea9de2"
 			},
 			"dist": {
 				"type": "zip",
-				"url": "https://api.github.com/repos/smarty-php/smarty/zipball/c6bff5795081ca5e60aabda59fb87daa511acd1e",
-				"reference": "c6bff5795081ca5e60aabda59fb87daa511acd1e",
+				"url": "https://api.github.com/repos/smarty-php/smarty/zipball/c4851c12e34ff80073ddeb7d98b059d57dea9de2",
+				"reference": "c4851c12e34ff80073ddeb7d98b059d57dea9de2",
 				"shasum": ""
 			},
 			"require": {
-				"php": "^7.2 || ^8.0",
-				"symfony/polyfill-mbstring": "^1.27"
+				"php": "^7.1 || ^8.0"
 			},
 			"require-dev": {
 				"phpunit/phpunit": "^8.5 || ^7.5",
-				"smarty/smarty-lexer": "^4.0.2"
+				"smarty/smarty-lexer": "^3.1"
 			},
 			"type": "library",
 			"extra": {
 				"branch-alias": {
-					"dev-master": "5.0.x-dev"
+					"dev-master": "4.0.x-dev"
 				}
 			},
 			"autoload": {
-				"files": [
-					"src/functions.php"
-				],
-				"psr-4": {
-					"Smarty\\": "src/"
-				}
+				"classmap": [
+					"libs/"
+				]
 			},
 			"notification-url": "https://packagist.org/downloads/",
 			"license": [
@@ -5099,9 +5095,9 @@
 			"support": {
 				"forum": "https://github.com/smarty-php/smarty/discussions",
 				"issues": "https://github.com/smarty-php/smarty/issues",
-				"source": "https://github.com/smarty-php/smarty/tree/v5.4.3"
+				"source": "https://github.com/smarty-php/smarty/tree/v4.5.5"
 			},
-			"time": "2024-12-23T00:38:44+00:00"
+			"time": "2024-11-21T22:06:22+00:00"
 		},
 		{
 			"name": "sokil/php-isocodes",

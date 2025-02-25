@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submissionFile/Repository.php
  *
@@ -26,9 +27,9 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
-use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
@@ -497,6 +498,20 @@ abstract class Repository
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
                 'assocId' => $submissionFile->getId(),
+                'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
+                'message' => 'submission.event.fileDeleted',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+            ]
+        ));
+        Repo::eventLog()->add($logEntry);
+
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+        $logEntry = Repo::eventLog()->newDataObject(array_merge(
+            $this->getSubmissionFileLogData($submissionFile),
+            [
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
                 'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
                 'message' => 'submission.event.fileDeleted',
                 'isTranslated' => false,

@@ -2607,13 +2607,13 @@ msgid "dashboard.reviewAssignment.statusComplete.title"
 msgstr "Review was confirmed by editor"
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
-msgstr "The review was accepted by the editor on {$date}.</b>"
+msgstr "The review was accepted by the editor on <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusCancelled.title"
 msgstr "Reviewer cancelled review request"
 
 msgid "dashboard.reviewAssignment.statusCancelled.description"
-msgstr "Reviewer has cancelled the review request on <b>{$date}</b>"
+msgstr "Reviewer has cancelled the review request on <b>{$date}</b>."
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
 msgstr "Awaiting Response from the reviewer"

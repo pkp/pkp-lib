@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/log/Repository.php
  *
@@ -18,6 +19,7 @@ namespace PKP\log;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
@@ -107,13 +109,18 @@ class Repository
 
             DB::table('email_log_users')
                 ->where('user_id', $oldUserId)
-                ->whereNotIn('email_log_id', function ($query) use ($newUserId, $oldUserId) {
+                ->whereNotIn('email_log_id', function (Builder $query) use ($oldUserId, $newUserId) {
                     $query->select('t1.email_log_id')
-                        ->from(DB::table('email_log_users')->as('t1'))
-                        ->join(DB::table('email_log_users')->as('t2'), 't1.email_log_id', '=', 't2.email_log_id')
-                        ->where('t1.user_id', $newUserId)
-                        ->where('t2.user_id', $oldUserId);
-                })->update(['user_id' => $newUserId])
+                        ->from(DB::raw('(SELECT email_log_id FROM email_log_users WHERE user_id = ?) as t1'))
+                        ->join(
+                            DB::raw('(SELECT email_log_id FROM email_log_users WHERE user_id = ?) as t2'),
+                            't1.email_log_id',
+                            '=',
+                            't2.email_log_id'
+                        )
+                        ->setBindings([$newUserId, $oldUserId]);
+                })
+                ->update(['user_id' => $newUserId])
         ];
     }
 

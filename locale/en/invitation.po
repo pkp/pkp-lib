@@ -134,16 +134,10 @@ msgid "userInvitation.searchUser.nextButtonLabel"
 msgstr "Search User"
 
 msgid "userInvitation.searchUser.stepDescription"
-msgstr "Search for the user using their email address, username or ORCID ID. Enter at least one details to get started. If the user does not exist, you can invite them to take up roles and be a part of your journal. If the user already exist in the system, you can view user information and invite to take a additional roles."
+msgstr "If the user does not exist, you can invite them to take on roles. If the user already exists in the system, you can view their information and invite them to take on additional roles."
 
-msgid "userInvitation.emailField.description"
-msgstr "e.g. aeinstein@example.com"
-
-msgid "userInvitation.usernameField.description"
-msgstr "e.g. mickeymouse"
-
-msgid "userInvitation.orcidField.description"
-msgstr "e.g. 0000-0000-0000-0000"
+msgid "userInvitation.searchField.description"
+msgstr "e.g. aeinstein@example.com or aeinstein or 0000-0002-1825-0097"
 
 msgid "userInvitation.enterDetails.stepName"
 msgstr "Enter details"
@@ -372,3 +366,14 @@ msgstr "Invitation not accepted. You're logged in as a different user."
 
 msgid "acceptInvitation.authorization.message"
 msgstr "Please log out and sign in with the correct account to accept this invitation."
+
+msgid "userInvitation.searchField"
+msgstr "Search for a user by email address, username, or ORCID iD. Enter only one to get started!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "The user is currently disabled."
+
+msgid "userInvitation.user.disableMessage"
+msgstr "The user was disabled. You cannot assign them a role while they are disabled. Please enable the user first to invite them to a role."
+
+

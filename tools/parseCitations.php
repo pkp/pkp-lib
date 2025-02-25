@@ -3,8 +3,8 @@
 /**
  * @file tools/parseCitations.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CitationsParsingTool
@@ -16,7 +16,6 @@
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
@@ -57,7 +56,6 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
-        $citationDao = DAORegistry::getDAO('CitationDAO');
         $contextDao = Application::getContextDAO();
 
         switch (array_shift($this->parameters)) {
@@ -106,11 +104,12 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
      */
     private function _parseSubmission($submission)
     {
-        /** @var CitationDAO */
-        $citationDao = DAORegistry::getDAO('CitationDAO');
         foreach ($submission->getData('publications') as $publication) {
             if (!empty($publication->getData('citationsRaw'))) {
-                $citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
+                Repo::citation()->dao->importCitations(
+                    $publication->getId(),
+                    $publication->getData('citationsRaw')
+                );
             }
         }
     }

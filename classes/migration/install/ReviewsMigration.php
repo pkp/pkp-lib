@@ -63,6 +63,7 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->datetime('date_notified')->nullable();
             $table->datetime('date_confirmed')->nullable();
             $table->datetime('date_completed')->nullable();
+            $table->datetime('date_considered')->nullable();
             $table->datetime('date_acknowledged')->nullable();
             $table->datetime('date_due')->nullable();
             $table->datetime('date_response_due')->nullable();

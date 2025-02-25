@@ -509,6 +509,21 @@ abstract class Repository
         ));
         Repo::eventLog()->add($logEntry);
 
+        $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
+
+        $logEntry = Repo::eventLog()->newDataObject(array_merge(
+            $this->getSubmissionFileLogData($submissionFile),
+            [
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
+                'message' => 'submission.event.fileDeleted',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+            ]
+        ));
+        Repo::eventLog()->add($logEntry);
+
         Hook::call('SubmissionFile::delete', [$submissionFile]);
     }
 

@@ -2419,6 +2419,9 @@ msgstr "Awaiting reviews"
 msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Reviews submitted"
 
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Reviews overdue"
+
 msgid "submission.dashboard.view.copyediting"
 msgstr "All in copyediting"
 

@@ -577,7 +577,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
 
                 case 'isOverdue':
-                    $collector->filterByOverdue(true);
+                    $collector->filterByReviewsOverdue(true);
                     break;
 
                 case 'isIncomplete':
@@ -585,7 +585,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
-                    break;             
+                    break;
             }
         }
 

@@ -1291,7 +1291,7 @@ msgid "plugins.categories.metadata"
 msgstr "Plugin Metadata"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Plugin Metadata melaksanakan piawaian meta-data tambahan."
+msgstr "Plugin Metadata melaksanakan piawaian metadata tambahan."
 
 msgid "plugins.categories.auth"
 msgstr "Plugin Kebenaran"

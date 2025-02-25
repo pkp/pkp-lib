@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "plugins.metadata.dc11.displayName"
-msgstr "Dublin Core 1.1 meta-data"
+msgstr "Dublin Core 1.1 metadata"
 
 msgid "plugins.metadata.dc11.description"
 msgstr "Contributes Dublin Core version 1.1 schemas and application adapters."

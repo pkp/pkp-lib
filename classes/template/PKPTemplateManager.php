@@ -1015,11 +1015,13 @@ class PKPTemplateManager extends Smarty
                                     ];
                                 });
 
-                                $viewsData['newSubmission'] = [
-                                    'name' => __('dashboard.startNewSubmission'),
-                                    'url' => $router->url($request, null, 'submission')
-                                ];
-
+                                if(!$request->getContext()->getData('disableSubmissions')) {
+                                    $viewsData['newSubmission'] = [
+                                        'name' => __('dashboard.startNewSubmission'),
+                                        'url' => $router->url($request, null, 'submission')
+                                    ];
+                                }
+                                
                                 $menu['dashboards'] = [
                                     'name' => __('navigation.dashboards'),
                                     'icon' => 'Dashboard',
@@ -1063,10 +1065,12 @@ class PKPTemplateManager extends Smarty
                                     ];
                                 });
 
-                                $viewsData['newSubmission'] = [
-                                    'name' => __('dashboard.startNewSubmission'),
-                                    'url' => $router->url($request, null, 'submission')
-                                ];
+                                if(!$request->getContext()->getData('disableSubmissions')) {
+                                    $viewsData['newSubmission'] = [
+                                        'name' => __('dashboard.startNewSubmission'),
+                                        'url' => $router->url($request, null, 'submission')
+                                    ];
+                                }
 
 
                                 $menu['mySubmissions'] = [

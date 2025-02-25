@@ -1446,7 +1446,7 @@ msgid "plugins.categories.metadata"
 msgstr "Metadata Plugins"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Metadata Plugins implement additional meta-data standards."
+msgstr "Metadata Plugins implement additional metadata standards."
 
 msgid "plugins.categories.auth"
 msgstr "Authorization Plugins"

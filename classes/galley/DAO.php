@@ -245,7 +245,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      * @param string $pubIdType
      * @param string $title optional
      * @param string $author optional
-     * @param int $issueId optional
      * @param string $pubIdSettingName optional
      * (e.g. medra::status or medra::registeredDoi)
      * @param string $pubIdSettingValue optional
@@ -255,7 +254,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      *
      * @return DAOResultFactory<Galley>
      */
-    public function getExportable(int $contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null)
+    public function getExportable(int $contextId, $pubIdType = null, $title = null, $author = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null)
     {
 
         $q = DB::table('publication_galleys', 'g')
@@ -276,7 +275,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->when($pubIdType != null, fn (Builder $q) => $q->where('gs.setting_name', '=', "pub-id::{$pubIdType}")->whereNotNull('gs.setting_value'))
             ->when($title != null, fn (Builder $q) => $q->where('pst.setting_name', '=', 'title')->where('pst.setting_value', 'LIKE', "%{$title}%"))
             ->when($author != null, fn (Builder $q) => $q->whereRaw("CONCAT(COALESCE(asgs.setting_value, ''), ' ', COALESCE(asfs.setting_value, '')) LIKE ?", ["%{$author}%"]))
-            ->when($issueId !== null, fn (Builder $q) => $q->where('p.issue_id', '=', $issueId))
 
             ->when(
                 $pubIdSettingName,

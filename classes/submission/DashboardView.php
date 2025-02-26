@@ -41,10 +41,14 @@ class DashboardView
     public const TYPE_SCHEDULED = 'scheduled';
     public const TYPE_PUBLISHED = 'published';
     public const TYPE_DECLINED = 'declined';
+
     public const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
+    public const TYPE_REVIEWER_ACTION_REQUIRED = 'reviewer-action-required';
     public const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
-    public const TYPE_REVIEWER_ASSIGNMENTS_PENDING = 'reviewer-assignments-pending';
+    public const TYPE_REVIEWER_ASSIGNMENTS_COMPLETED = 'reviewer-assignments-completed';
+    public const TYPE_REVIEWER_ASSIGNMENTS_PUBLISHED = 'reviewer-assignments-published';
     public const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
+    public const TYPE_REVIEWER_ASSIGNMENTS_DECLINED = 'reviewer-assignments-declined';
 
     // The number of submissions in the view
     protected int $count = 0;

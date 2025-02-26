@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/reviewAssignment/Collector.php
  *
@@ -20,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\submission\PKPSubmission;
 use PKP\submission\ViewsCount;
 
 /**
@@ -34,8 +36,13 @@ class Collector implements CollectorInterface, ViewsCount
     public ?array $contextIds = null;
     public ?array $submissionIds = null;
     public bool $isIncomplete = false;
+    public bool $isActive = false;
+    public bool $actionRequiredByReviewer = false;
+    public bool $isCompleted = false;
+    public bool $isPublished = false;
     public bool $isArchived = false;
     public bool $isOverdue = false;
+    public bool $isDeclined = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
     public bool $isLastReviewRound = false;
@@ -110,7 +117,7 @@ class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
-     * Filter by completed or declined assignments
+     * Filter review assignments which are incomplete but submission was moved forward to the editing or production stage
      */
     public function filterByIsArchived(?bool $isArchived): static
     {
@@ -121,9 +128,57 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by overdue assignments
      */
-    public function filterByIsOverdue(?bool $isOverdue): static
+    public function filterByIsOverdue(bool $isOverdue): static
     {
         $this->isOverdue = $isOverdue;
+        return $this;
+    }
+
+    /**
+     * Filter by review assignments, which require attention from reviewer:
+     *   awaiting respond from reviewer to accept the review or to finish the review (accepted but not completed)
+     *   due dates are missed
+     * Don't include assignments that aren't on a correspondent review stage
+     */
+    public function filterByActionRequiredByReviewer(bool $actionsRequired): static
+    {
+        $this->actionRequiredByReviewer = $actionsRequired;
+        return $this;
+    }
+
+    /**
+     * Filter by submissions there are not: cancelled, declined, published
+     */
+    public function filterByActive(bool $isActive): static
+    {
+        $this->isActive = $isActive;
+        return $this;
+    }
+
+    /**
+     * Filter by completed review assignments, applies for all submissions stages, except submission is published (see filterByPublished)
+     */
+    public function filterByCompleted(bool $isCompleted): static
+    {
+        $this->isCompleted = $isCompleted;
+        return $this;
+    }
+
+    /**
+     * Filter by complete review assignments made on submissions which subsequently were published
+     */
+    public function filterByPublished(bool $isPublished): static
+    {
+        $this->isPublished = $isPublished;
+        return $this;
+    }
+
+    /**
+     * Filter by declined review assignments
+     */
+    public function filterByDeclined(bool $isDeclined): static
+    {
+        $this->isDeclined = $isDeclined;
         return $this;
     }
 
@@ -272,12 +327,80 @@ class Collector implements CollectorInterface, ViewsCount
         });
 
         $q->when(
+            $this->actionRequiredByReviewer,
+            fn (Builder $q) => $q
+                ->whereNull('ra.date_completed')
+                ->where('ra.declined', '<>', 1)
+                ->where('ra.cancelled', '<>', 1)
+                ->whereIn(
+                    'ra.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('s.submission_id')
+                        ->from('submissions AS s')
+                        ->whereColumn('s.submission_id', 'ra.submission_id')
+                        ->whereColumn('s.stage_id', 'ra.stage_id')
+                )
+        );
+
+        $q->when(
+            $this->isActive,
+            fn (Builder $q) => $q
+                ->where('ra.declined', '<>', 1)
+                ->where('ra.cancelled', '<>', 1)
+                ->whereIn(
+                    'ra.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('s.submission_id')
+                        ->from('submissions AS s')
+                        ->whereColumn('s.submission_id', 'ra.submission_id')
+                        ->where('s.status', '<>', PKPSubmission::STATUS_PUBLISHED)
+                )
+        );
+
+        $q->when(
+            $this->isDeclined,
+            fn (Builder $q) => $q->where('ra.declined', 1)
+        );
+
+        $q->when(
+            $this->isPublished || $this->isCompleted,
+            fn (Builder $q) => $q
+                ->whereNotNull('ra.date_completed')
+                ->whereIn(
+                    'ra.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('s.submission_id')
+                        ->from('submissions AS s')
+                        ->whereColumn('s.submission_id', 'ra.submission_id')
+                        ->when(
+                            $this->isPublished,
+                            fn (Builder $q) => $q
+                                ->where('s.status', PKPSubmission::STATUS_PUBLISHED)
+                        )
+                        ->when(
+                            $this->isCompleted,
+                            fn (Builder $q) => $q
+                            // Don't include published submissions
+                                ->where('s.status', '<>', PKPSubmission::STATUS_PUBLISHED)
+                            // If the submission is returned to the submission stage, exclude it
+                                ->where('s.stage_id', '<>', WORKFLOW_STAGE_ID_SUBMISSION)
+                        )
+                )
+        );
+
+        $q->when(
             $this->isArchived,
-            fn (Builder $q) =>
-            $q->where(
+            fn (Builder $q) => $q->where(
                 fn (Builder $q) => $q
-                    ->whereNotNull('ra.date_completed')
-                    ->orWhere('declined', 1)
+                    ->whereNull('ra.date_completed')
+                    ->whereIn(
+                        'ra.submission_id',
+                        fn (Builder $q) => $q
+                            ->select('s.submission_id')
+                            ->from('submissions AS s')
+                            ->whereColumn('s.submission_id', 'ra.submission_id')
+                            ->whereIn('s.stage_id', [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])
+                    )
             )
         );
 

@@ -1074,6 +1074,18 @@ abstract class Repository
                         'assigned',
                         ['isIncomplete' => true]
                     );
+                case DashboardView::TYPE_REVIEWER_ACTION_REQUIRED:
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewAssignments.actionRequired'),
+                        [Role::ROLE_ID_REVIEWER],
+                        Repo::reviewAssignment()->getCollector()
+                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByContextIds([$context->getId()])
+                            ->filterByActionRequiredByReviewer(true),
+                        'reviewerAssignments',
+                        ['actionRequired' => true]
+                    );
                 case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_ALL:
                     return new DashboardView(
                         $key,
@@ -1081,20 +1093,34 @@ abstract class Repository
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
                             ->filterByReviewerIds([$user->getId()])
-                            ->filterByContextIds([$context->getId()]),
-                        'reviewerAssignments'
+                            ->filterByContextIds([$context->getId()])
+                            ->filterByActive(true),
+                        'reviewerAssignments',
+                        ['active' => true]
                     );
-                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_PENDING:
+                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_COMPLETED:
                     return new DashboardView(
                         $key,
-                        __('submission.dashboard.view.reviewAssignments.pending'),
+                        __('submission.dashboard.view.reviewAssignments.completed'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
                             ->filterByReviewerIds([$user->getId()])
                             ->filterByContextIds([$context->getId()])
-                            ->filterByIsIncomplete(true),
+                            ->filterByCompleted(true),
                         'reviewerAssignments',
-                        ['pending' => true]
+                        ['completed' => true]
+                    );
+                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_PUBLISHED:
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewAssignments.published'),
+                        [Role::ROLE_ID_REVIEWER],
+                        Repo::reviewAssignment()->getCollector()
+                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByContextIds([$context->getId()])
+                            ->filterByPublished(true),
+                        'reviewerAssignments',
+                        ['published' => true]
                     );
                 case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED:
                     return new DashboardView(
@@ -1108,6 +1134,19 @@ abstract class Repository
                         'reviewerAssignments',
                         ['archived' => true]
                     );
+                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_DECLINED:
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewAssignments.declined'),
+                        [Role::ROLE_ID_REVIEWER],
+                        Repo::reviewAssignment()->getCollector()
+                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByContextIds([$context->getId()])
+                            ->filterByDeclined(true),
+                        'reviewerAssignments',
+                        ['declined' => true]
+                    );
+
             }
         });
     }

@@ -10,7 +10,8 @@ body:
         Thanks for taking the time to fill out this bug report! Please update the title to describe your issue.
   
   - type: checkboxes
-    id: "Title Update"
+    id: valid-title
+    label: "Valid Title"
     attributes:
       options:
         - label: I have updated the title to accurately reflect the bug description

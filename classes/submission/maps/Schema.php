@@ -30,6 +30,8 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
@@ -63,6 +65,9 @@ class Schema extends \PKP\core\maps\Schema
 
     /** @var Enumerable Decisions associated with submissions. */
     public Enumerable $decisions;
+    
+    /** @var Enumerable Reviewer Suggestions associated with submissions. */
+    public Enumerable $reviewerSuggestions;
 
     /**
      * Get extra property names used in the submissions list
@@ -121,6 +126,7 @@ class Schema extends \PKP\core\maps\Schema
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
      * @param ?Enumerable $decisions decisions associated with a submission
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
+     * @param ?Enumerable $reviewerSuggestions List of suggested reviewer associated with submission
      */
     public function map(
         Submission $item,
@@ -130,7 +136,8 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
         ?Enumerable $decisions = null,
-        bool|Collection $anonymizeReviews = false
+        bool|Collection $anonymizeReviews = false,
+        ?Enumerable $reviewerSuggestions = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -138,6 +145,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
+        $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
 
         return $this->mapByProperties($this->getProps(), $item, $anonymizeReviews);
     }
@@ -152,6 +160,7 @@ class Schema extends \PKP\core\maps\Schema
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
+     * @param ?Enumerable $reviewerSuggestions List of suggested reviewer associated with submission
      */
     public function summarize(
         Submission $item,
@@ -160,11 +169,13 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
         bool|Collection $anonymizeReviews = false,
+        ?Enumerable $reviewerSuggestions = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
+        $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
 
         return $this->mapByProperties($this->getSummaryProps(), $item, $anonymizeReviews);
     }
@@ -205,6 +216,17 @@ class Schema extends \PKP\core\maps\Schema
             $decision->getData('submissionId')
         );
 
+        $associatedStageAssignments = $this->stageAssignments
+            ->groupBy(
+                fn (StageAssignment $stageAssignment, int $key) => $stageAssignment->submissionId
+            );
+
+        /** @var \Illuminate\Support\LazyCollection $associatedReviewerSuggestions */
+        $associatedReviewerSuggestions = ReviewerSuggestion::query()
+            ->withSubmissionIds($collection->keys()->toArray())
+            ->cursor()
+            ->groupBy('submissionId');
+
         return $collection->map(
             fn ($item) =>
             $this->map(
@@ -215,7 +237,8 @@ class Schema extends \PKP\core\maps\Schema
                 $associatedReviewAssignments->get($item->getId()),
                 $associatedStageAssignments->get($item->getId()),
                 $associatedDecisions->get($item->getId()),
-                $anonymizeReviews
+                $anonymizeReviews,
+                $associatedReviewerSuggestions->get($item->getId())
             )
         );
     }
@@ -241,10 +264,17 @@ class Schema extends \PKP\core\maps\Schema
             fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId')
         );
+
         $associatedStageAssignment = $this->stageAssignments->groupBy(
             fn (StageAssignment $stageAssignment, int $key) =>
             $stageAssignment->submissionId
         );
+
+        /** @var \Illuminate\Support\LazyCollection $associatedReviewerSuggestions */
+        $associatedReviewerSuggestions = ReviewerSuggestion::query()
+            ->withSubmissionIds($collection->keys()->toArray())
+            ->cursor()
+            ->groupBy('submissionId');
 
         return $collection->map(
             fn ($item) =>
@@ -254,7 +284,8 @@ class Schema extends \PKP\core\maps\Schema
                 $this->genres,
                 $associatedReviewAssignments->get($item->getId()),
                 $associatedStageAssignment->get($item->getId()),
-                $anonymizeReviews
+                $anonymizeReviews,
+                $associatedReviewerSuggestions->get($item->getId())
             )
         );
     }
@@ -282,6 +313,8 @@ class Schema extends \PKP\core\maps\Schema
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
+        $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
+        
         return $this->mapByProperties($this->getSubmissionsListProps(), $item, $anonymizeReviews);
     }
 
@@ -326,6 +359,12 @@ class Schema extends \PKP\core\maps\Schema
             $decision->getData('submissionId')
         );
 
+        /** @var \Illuminate\Support\LazyCollection $associatedReviewerSuggestions */
+        $associatedReviewerSuggestions = ReviewerSuggestion::query()
+            ->withSubmissionIds($collection->keys()->toArray())
+            ->cursor()
+            ->groupBy('submissionId');
+
         return $collection->map(
             fn ($item) =>
             $this->mapToSubmissionsList(
@@ -335,7 +374,8 @@ class Schema extends \PKP\core\maps\Schema
                 $associatedReviewAssignments->get($item->getId()),
                 $associatedStageAssignments->get($item->getId()),
                 $associatedDecisions->get($item->getId()),
-                $anonymizeReviews
+                $anonymizeReviews,
+                $associatedReviewerSuggestions->get($item->getId())
             )
         );
     }
@@ -372,6 +412,7 @@ class Schema extends \PKP\core\maps\Schema
 
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions(collect([$item]));
+        $this->reviewerSuggestions = ReviewerSuggestion::query()->withSubmissionIds($item->getId())->get();
 
         return $this->mapByProperties($props, $item);
     }
@@ -477,6 +518,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'urlWorkflow':
                     $output[$prop] = Repo::submission()->getWorkflowUrlByUserRoles($submission);
                     break;
+                case 'reviewerSuggestions': 
+                    $output[$prop] = $this->getPropertyReviewerSuggestions($this->reviewerSuggestions);
+                    break;
                 default:
                     $output[$prop] = $submission->getData($prop);
                     break;
@@ -521,6 +565,40 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return false;
+    }
+    
+    /**
+     * Get details about the reviewer suggestions for a submission
+     */
+    protected function getPropertyReviewerSuggestions(Enumerable $reviewerSuggestions): array
+    {
+        $reviewerSuggestionProps = collect(
+            $this->schemaService
+                ->get($this->schema)
+                ->properties
+                ->reviewerSuggestions
+                ->items
+                ->properties
+        )->keys()->toArray();
+
+        $reviewerSuggestions = collect(
+            array_values(
+                ReviewerSuggestionResource::collection($reviewerSuggestions)
+                    ->toArray(app()->get("request"))
+            )
+        )->map(
+            fn (array $suggestion): array => array_intersect_key(
+                $suggestion, 
+                array_flip($reviewerSuggestionProps)
+            )
+        )->toArray();
+        
+        return $reviewerSuggestions;
+    }
+
+    public function summarizeReviewerSuggestion(Enumerable $reviewerSuggestions): array
+    {
+        return $this->getPropertyReviewerSuggestions($reviewerSuggestions);
     }
 
     /**

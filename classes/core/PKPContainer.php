@@ -3,13 +3,11 @@
 /**
  * @file classes/core/PKPContainer.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContainer
- *
- * @ingroup core
  *
  * @brief Bootstraps Laravel services, application-level parts and creates bindings
  */
@@ -102,6 +100,12 @@ class PKPContainer extends Container
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
                     if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                        if ($exception instanceof \Illuminate\Validation\ValidationException) {
+                            return response()
+                                ->json($exception->errors(), $exception->status)
+                                ->send();
+                        }
+
                         return response()->json(
                             [
                                 'error' => $exception->getMessage()
@@ -181,6 +185,8 @@ class PKPContainer extends Container
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
+        $this->register(new \PKP\core\ValidationServiceProvider($this));
+        $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
     }
 
     /**

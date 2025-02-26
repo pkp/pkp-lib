@@ -17,9 +17,9 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Cache;
-use PageRouter;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;

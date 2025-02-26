@@ -1344,6 +1344,15 @@ msgstr "Recommended Reviewers Number"
 msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
 msgstr "Sufficient number of reviewers needed per submission to make recommendation before making a decision"
 
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Reviewer Suggestion at Submission"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr "Author can suggest several potential reviewers before completing the submission which can streamline the review process and provide valuable input for editorial team."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "Allow authors to suggest potential reviewers at submission process"
+
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsor Relationship and Policy Description"
 

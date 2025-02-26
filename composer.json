@@ -1,10 +1,10 @@
 {
 	"require": {
 		"php": "^8.2",
-		"ext-zip": "*",
-		"ext-xml": "*",
-		"ext-mbstring": "*",
 		"ext-intl": "*",
+		"ext-mbstring": "*",
+		"ext-xml": "*",
+		"ext-zip": "*",
 		"altcha-org/altcha": "^0.1.2",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",
@@ -32,7 +32,7 @@
 		"sokil/php-isocodes-db-i18n": "^4.0",
 		"symfony/mailer": "^7.0",
 		"tinymce/tinymce": "^7.6",
-		"wikimedia/less.php": "5.*"
+		"wikimedia/less.php": "3.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~11",

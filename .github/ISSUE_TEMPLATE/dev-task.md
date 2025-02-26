@@ -1,6 +1,6 @@
 ---
-name: Dev task report
-about: File a dev task report in OJS, OMP or OPS. Try our [Software Support forum](https://forum.pkp.sfu.ca/c/questions/5) if the issue requires more investigation or cannot be immediately resolved.
+name: (internal) Dev task report
+about: (Internal Use only) File a dev task report in OJS, OMP or OPS. Try our [Software Support forum](https://forum.pkp.sfu.ca/c/questions/5) if the issue requires more investigation or cannot be immediately resolved.
 title: ''
 labels: ''
 assignees: ''

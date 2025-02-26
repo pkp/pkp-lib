@@ -28,6 +28,7 @@ module.exports = defineConfig({
   },
   watchForFileChanges: false,
   defaultCommandTimeout: 500000,
+  pageLoadTimeout: 120000,
   video: false,
   numTestsKeptInMemory: 0,
   e2e: {

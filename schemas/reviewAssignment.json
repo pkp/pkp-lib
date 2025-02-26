@@ -238,6 +238,17 @@
 			"description": "The ID of the submission associated with the assignment",
 			"apiSummary": true
 		},
+		"submissionStageId": {
+			"type": "integer",
+			"description": "The stage of the editorial workflow that this submission is currently in. One of the `WORKFLOW_STAGE_ID_` constants. Default is `WORKFLOW_STAGE_ID_SUBMISSION`.",
+			"apiSummary": true,
+			"default": 1,
+			"writeDisabledInApi": true,
+			"validation": [
+				"min:1",
+				"max:5"
+			]
+		},
 		"submissionLocale": {
 			"type": "string",
 			"description": "The locale of the submission associated with the assignment",

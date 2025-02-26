@@ -43,6 +43,7 @@
 	{/capture}
 	<div id="filesAccordian" class="section">
 		{include file="controllers/extrasOnDemand.tpl"
+			parentContainer="div#filesAccordian"
 			id="filesAccordianController"
 			widgetWrapper="#filesAccordian"
 			moreDetailsText="editor.submissionReview.restrictFiles"

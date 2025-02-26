@@ -1347,6 +1347,7 @@ msgstr "Aguardando respostas dos avaliadores."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Novas avaliações estão prontas."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Avaliações completadas."
 

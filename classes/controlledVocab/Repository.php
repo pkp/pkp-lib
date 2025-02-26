@@ -82,7 +82,6 @@ class Repository
     ): void
     {
         $controlledVocab = $this->build($symbolic, $assocType, $assocId);
-        $controlledVocab->load('controlledVocabEntries');
         $controlledVocabEntry = new ControlledVocabEntry;
         $controlledVocabEntrySettings = $controlledVocabEntry->getSettings();
         $multilingualProps = array_flip($controlledVocabEntry->getMultilingualProps());
@@ -90,12 +89,7 @@ class Repository
         $srcKey = ControlledVocabEntry::CONTROLLED_VOCAB_ENTRY_SOURCE;
 
         if ($deleteFirst) {
-            ControlledVocabEntry::query()
-                ->whereIn(
-                    (new ControlledVocabEntry)->getKeyName(),
-                    $controlledVocab->controlledVocabEntries->pluck('id')->toArray()
-                )
-                ->delete();
+            ControlledVocabEntry::query()->withControlledVocabId($controlledVocab->id)->delete();
         }
 
         collect($vocabs)
@@ -122,7 +116,11 @@ class Repository
                     )
             );
 
-        $this->resequence($controlledVocab->id);
+        // Only resequence at the time of insert when `$deleteFirst` set to false
+        // Otherwise all existing data will be deleted and sequenced at the time of insertion.
+        if (!$deleteFirst) {
+            $this->resequence($controlledVocab->id);
+        }
     }
 
     /**

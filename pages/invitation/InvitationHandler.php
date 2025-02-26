@@ -129,6 +129,7 @@ class InvitationHandler extends Handler
             'givenName' => '',
             'familyName' => '',
             'orcidValidation' => false,
+            'disabled' => false,
             'userGroupsToAdd' => [
                 [
                     'userGroupId' => null,
@@ -169,6 +170,7 @@ class InvitationHandler extends Handler
                 'emailBody' => $payload['emailBody'],
                 'emailSubject' => $payload['emailSubject'],
             ];
+            $invitationPayload['disabled'] = false;
         }
         $templateMgr = TemplateManager::getManager($request);
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
@@ -181,10 +183,11 @@ class InvitationHandler extends Handler
                 ->getDispatcher()
                 ->url(
                     $request,
-                    PKPApplication::ROUTE_PAGE,
-                    $request->getContext()->getPath(),
+                    Application::ROUTE_PAGE,
+                    null,
                     'management',
                     'settings',
+                    ['access']
                 )
         ];
         $breadcrumbs[] = [
@@ -239,8 +242,8 @@ class InvitationHandler extends Handler
         $invitation = null;
         $invitationPayload =[];
         if(!empty($args)) {
-            $invitationMode = 'edit';
-            $user = Repo::user()->get($args[0]);
+            $invitationMode = 'editUser';
+            $user = Repo::user()->get($args[0],true);
             $invitationPayload['userId'] = $args[0];
             $invitationPayload['inviteeEmail'] = $user->getEmail();
             $invitationPayload['orcid'] = $user->getData('orcid');
@@ -250,6 +253,7 @@ class InvitationHandler extends Handler
             $invitationPayload['country'] = $user->getCountry();
             $invitationPayload['biography'] = $user->getBiography(null);
             $invitationPayload['phone'] = $user->getPhone();
+            $invitationPayload['disabled'] = $user->getData('disabled');
             $invitationPayload['userGroupsToAdd'] = [];
             $invitationPayload['currentUserGroups'] = $this->getUserUserGroups($args[0],$request->getContext());
             $invitationPayload['userGroupsToRemove'] = [];
@@ -268,10 +272,11 @@ class InvitationHandler extends Handler
                     ->getDispatcher()
                     ->url(
                         $request,
-                        PKPApplication::ROUTE_PAGE,
-                        $request->getContext()->getPath(),
+                        Application::ROUTE_PAGE,
+                        null,
                         'management',
                         'settings',
+                        ['access']
                     )
             ];
             $breadcrumbs[] = [

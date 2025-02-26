@@ -67,6 +67,10 @@
 		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
+	{if $reviewerSuggestionId}
+		{fbvElement type="hidden" id="reviewerSuggestionId" name="reviewerSuggestionId" value=$reviewerSuggestionId}
+	{/if}
+
 	{include file="controllers/grid/users/reviewer/form/reviewerFormFooter.tpl"}
 
 	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

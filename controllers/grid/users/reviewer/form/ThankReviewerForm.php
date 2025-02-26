@@ -153,6 +153,10 @@ class ThankReviewerForm extends Form
                 ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
                 : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
         }
+
+        // set the date when the editor confirms the review
+        $newData['dateConsidered'] = Core::getCurrentDate();
+
         Repo::reviewAssignment()->edit($reviewAssignment, $newData);
 
         parent::execute(...$functionArgs);

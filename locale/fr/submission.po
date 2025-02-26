@@ -1368,6 +1368,7 @@ msgstr "En attente des réponses des évaluateur·rice·s."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "L'évaluation est terminée."
 

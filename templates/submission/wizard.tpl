@@ -22,7 +22,7 @@
             </template>
             <template v-if="localize(publication.title)">
                 <span class="app__breadcrumbsSeparator" aria-hidden="true">/</span>
-                <span v-html="localize(publication.title)">
+                <span v-strip-unsafe-html="localize(publication.title)">
             </template>
         </div>
         <h1 class="app__pageHeading" ref="pageTitle">
@@ -66,7 +66,7 @@
                     <panel-section v-for="section in step.sections" :key="section.id">
                         <template #header>
                             <h2>{{ section.name }}</h2>
-                            <div v-html="section.description" />
+                            <div v-strip-unsafe-html="section.description" />
                         </template>
                         <pkp-form
                             v-if="section.type === 'form'"
@@ -88,6 +88,14 @@
                             @updated:contributors="setContributors"
                             @updated:publication="setPublication"
                         ></contributors-list-panel>
+                        <reviewer-suggestions-list-panel
+                            v-else-if="section.type === 'reviewerSuggestions'"
+                            v-bind="components.reviewerSuggestions"
+                            :items="submission.reviewerSuggestions"
+                            :submission="submission"
+                            :publication="publication"
+                            @updated:reviewer-suggestions="setReviewerSuggestion"
+                        ></reviewer-suggestions-list-panel>
                         <template v-else-if="section.type === 'review'">
                             <notification
                                 v-if="Object.keys(errors).length" type="warning"

@@ -89,6 +89,11 @@ interface iPKPApplicationInfoProvider
      * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public static function getContextAssocType(): int;
+
+    /**
+     * Get the review workflow stages used by this application.
+     */
+    public function getReviewStages(): array;
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
@@ -429,6 +434,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             echo "<h1>404 Not Found</h1>\n";
             exit;
         }
+    }
+
+    /**
+     * Get the review workflow stages used by this application.
+     */
+    public function getReviewStages(): array
+    {
+        return [];
     }
 
     /**

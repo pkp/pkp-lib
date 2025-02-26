@@ -1423,6 +1423,7 @@ msgstr "กำลังรอคำตอบจากผู้รีวิว"
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "การทบทวนใหม่ถูกส่งมาแล้ว"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "ผู้รีวิวทั้งหมดตอบกลับแล้วและจำเป็นต้องมีการตัดสินใจ"
 

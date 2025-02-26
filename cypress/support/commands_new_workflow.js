@@ -179,7 +179,7 @@ Cypress.Commands.add('register', data => {
 
 Cypress.Commands.add('openSubmission', (familyName) => {
 	cy.contains('table tr', familyName).within(() => {
-		cy.get('button').contains('View').click({force: true})
+		cy.get('button').contains(/Complete submission|View/).click({force: true})
 	})
 });
 
@@ -939,8 +939,8 @@ Cypress.Commands.add('inviteUser', user => {
 	cy.contains('div > a > span', 'Users & Roles').click();
 	cy.waitJQuery();
 	cy.contains('button', 'Invite to a role').click();
-	cy.get('#-email-control').click();
-	cy.get('#-email-control').type(user.username + '@mailinator.com');
+	cy.get('#-search-control').click();
+	cy.get('#-search-control').type(user.username + '@mailinator.com');
 	cy.get('.bg-primary').click();
 	cy.get('select[name="userGroupId"]').select(user.roles);
 	cy.get('#-dateStart-control').type(currentDate);

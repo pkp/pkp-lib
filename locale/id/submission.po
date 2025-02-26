@@ -1324,6 +1324,7 @@ msgstr "Menunggu tanggapan dari mitra bestari."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Review baru telah telah dikirim."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Semua mitra bestari telah menanggapi dan keputusan perlu diambil."
 

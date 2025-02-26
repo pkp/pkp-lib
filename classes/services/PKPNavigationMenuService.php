@@ -17,6 +17,7 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Cache;
 use PKP\core\PKPApplication;
@@ -301,8 +302,10 @@ class PKPNavigationMenuService
                 case NavigationMenuItem::NMI_TYPE_USER_DASHBOARD:
                     if ($currentUser->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID)) {
                         $pkpPageRouter = $request->getRouter();  /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
-                       
-                        $navigationMenuItem->setUrl($pkpPageRouter->getHomeUrl($request));
+
+                        if ($pkpPageRouter instanceof PageRouter) {
+                            $navigationMenuItem->setUrl($pkpPageRouter->getHomeUrl($request));
+                        }
                     } else {
                         $navigationMenuItem->setUrl($dispatcher->url(
                             $request,

@@ -14,6 +14,9 @@
 
 namespace PKP\controlledVocab;
 
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
+
 enum ControlledVocabEntryMatch
 {
     case EXACT;
@@ -22,8 +25,8 @@ enum ControlledVocabEntryMatch
     public function operator(): string
     {
         return match ($this) {
-            static::EXACT => "=",
-            static::PARTIAL => "LIKE"
+            static::EXACT => '=',
+            static::PARTIAL => DB::connection() instanceof PostgresConnection ? 'ILIKE' : 'LIKE'
         };
     }
 

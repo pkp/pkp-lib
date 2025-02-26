@@ -26,6 +26,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
+use PKP\form\validation\FormValidator;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -35,21 +36,20 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
-{
+{   
     /**
-     * Constructor.
-     *
-     * @param Submission $submission
-     * @param ReviewRound $reviewRound
+     * @copydoc \PKP\controllers\grid\users\reviewer\form\ReviewerForm::__construct
      */
-    public function __construct($submission, $reviewRound)
+    public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
-        parent::__construct($submission, $reviewRound);
+        parent::__construct($submission, $reviewRound, $reviewerSuggestion);
+
         $this->setTemplate('controllers/grid/users/reviewer/form/advancedSearchReviewerForm.tpl');
 
-        $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
+        $this->addCheck(new FormValidator($this, 'reviewerId', 'required', 'editor.review.mustSelect'));
     }
 
     /**
@@ -61,7 +61,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $this->readUserVars(['reviewerId']);
+        $inputData = ['reviewerId'];
+
+        if ($this->reviewerSuggestion) {
+            array_push($inputData, 'reviewerSuggestionId');
+        }
+
+        $this->readUserVars($inputData);
     }
 
     /**
@@ -76,7 +82,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $mailable = $this->getMailable();
 
         $templates = Repo::emailTemplate()->getCollector($context->getId())
-            ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
+            ->filterByKeys([
+                ReviewRequest::getEmailTemplateKey(),
+                ReviewRequestSubsequent::getEmailTemplateKey()
+            ])
             ->getMany()
             ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
@@ -84,6 +93,11 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $this->setData('personalMessage', '');
         $this->setData('reviewerMessages', $templates->toArray());
+
+        if ($this->reviewerSuggestion?->existingReviewerRole) {
+            $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
+            $this->setData('reviewerId', $this->reviewerSuggestion->existingUser->getId());
+        }
     }
 
     /**
@@ -165,10 +179,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     $submissionContext->getPath(),
                     'users/reviewers'
                 ),
+                'submission' => $this->getSubmission(),
                 'authorAffiliations' => $authorAffiliations,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
+                    'submissionId' => $this->getSubmission()->getId(),
+                    'reviewRoundId' => $reviewRound->getId(),
                     'reviewStage' => $reviewRound->getStageId(),
                 ],
                 'selectorName' => 'reviewerId',
@@ -210,6 +227,10 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $templateMgr = TemplateManager::getManager($request);
         // Used to determine the right email template
         $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);
+
+        if ($this->reviewerSuggestion?->existingReviewerRole) {
+            $templateMgr->assign('reviewerName', $this->reviewerSuggestion->existingUser->getFullName());
+        }
 
         $selectReviewerListPanel->set([
             'items' => $selectReviewerListPanel->getItems($request),

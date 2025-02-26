@@ -1297,6 +1297,7 @@ msgstr ""
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ebaluazio berriak aurkeztu dira."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr ""
 

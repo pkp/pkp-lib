@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/AdvancedReviewerSearchHandler.js
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdvancedReviewerSearchHandler
@@ -16,10 +16,7 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.controllers.grid.users.reviewer =
-			$.pkp.controllers.grid.users.reviewer || {};
-
-
+	$.pkp.controllers.grid.users.reviewer = $.pkp.controllers.grid.users.reviewer || {};
 
 	/**
 	 * @constructor
@@ -29,58 +26,33 @@
 	 * @param {jQueryObject} $container the wrapped page element.
 	 * @param {Object} options handler options.
 	 */
-	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler =
-			function($container, options) {
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler = function($container, options) {
 		this.parent($container, options);
 
 		$container.find('.button').button();
+        var self = this;
+		
+        pkp.eventBus.$on('selected:reviewer', function (reviewer) {
+            self.handleReviewerAssign_($container, options, reviewer);
+        });
 
-		pkp.eventBus.$on('selected:reviewer', function(reviewer) {
-			$('#reviewerId').val(reviewer.id);
-			$('[id^="selectedReviewerName"]').text(reviewer.fullName);
-			$('#searchGridAndButton').hide();
-			$('#regularReviewerForm').show();
+        $('#regularReviewerForm').hide();
 
-			// Set the email message for reviewers depending
-			// on previous completed assignments
-			var $textarea = $('#reviewerFormFooter [name="personalMessage"]'),
-					$templateInput,
-					$templateOption,
-					editor,
-					templateKey;
-			if ($textarea.val()) {
-				return; // The message is already set; shouldn't happen
-			}
-			// Only 1 template available
-			$templateInput = $('#reviewerFormFooter input[name="template"]');
-			// Multiple available templates
-			$templateOption = $('#reviewerFormFooter select[name="template"]');
-			editor = tinyMCE.EditorManager.get($textarea.attr('id'));
-			templateKey = '';
-			if (options.lastRoundReviewerIds.includes(reviewer.id)) {
-				templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
-				editor.setContent(options.reviewerMessages[templateKey]);
-				$templateInput.val(templateKey);
-				$templateOption.find('[value="REVIEW_REQUEST"]').remove();
-			} else {
-				templateKey = 'REVIEW_REQUEST';
-				editor.setContent(options.reviewerMessages[templateKey]);
-				$templateInput.val(templateKey);
-				$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
-			}
-			// Select the right template option to correspond
-			// the one, which is set in TinyMCE
-			$templateOption.find('[value="' + templateKey + '"]')
-					.prop('selected', true);
-		});
+        this.bind('refreshForm', this.handleRefresh_);
 
-		$('#regularReviewerForm').hide();
-
-		this.bind('refreshForm', this.handleRefresh_);
+		if ($container.find('input#reviewerId').val()) {
+            this.initializeTinyMCE();
+            this.handleReviewerAssign_($container, options, {
+                id: $container.find('input#reviewerId').val(),
+                fullName: options.reviewerName
+            });
+        }
 	};
+
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
-			$.pkp.classes.Handler);
+		$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler,
+		$.pkp.classes.Handler
+	);
 
 
 	//
@@ -101,5 +73,56 @@
 		}
 	};
 
+	$.pkp.controllers.grid.users.reviewer.AdvancedReviewerSearchHandler.prototype.handleReviewerAssign_ = function ($container, options, reviewer) {
+		$('#reviewerId').val(reviewer.id);
+		$('[id^="selectedReviewerName"]').text(reviewer.fullName);
+		$('#searchGridAndButton').hide();
+		$('#regularReviewerForm').show();
 
-}(jQuery));
+		// Set the email message for reviewers depending
+		// on previous completed assignments
+		var $textarea = $('#reviewerFormFooter [name="personalMessage"]'),
+			$templateInput,
+			$templateOption,
+			editor,
+			templateKey,
+			templateContent;
+
+		if ($textarea.val()) {
+			return; // The message is already set; shouldn't happen
+		}
+		
+		// Only 1 template available
+		$templateInput = $('#reviewerFormFooter input[name="template"]');
+		
+		// Multiple available templates
+		$templateOption = $('#reviewerFormFooter select[name="template"]');
+		
+		editor = window.tinyMCE.EditorManager.get($textarea.attr('id'));
+		templateKey = '';
+
+		if (options.lastRoundReviewerIds.includes(reviewer.id)) {
+			templateKey = 'REVIEW_REQUEST_SUBSEQUENT';
+			$templateOption.find('[value="REVIEW_REQUEST"]').remove();
+		} else {
+			templateKey = 'REVIEW_REQUEST';
+			$templateOption.find('[value="REVIEW_REQUEST_SUBSEQUENT"]').remove();
+		}
+
+		templateContent = options.reviewerMessages[templateKey];
+		editor.setContent(templateContent);
+		$templateInput.val(templateKey);
+
+		editor.on('activate', function () {
+			if (!editor.getContent().length) {
+				editor.setContent(templateContent);
+			}
+		});
+
+		// Select the right template option to correspond
+		// the one, which is set in TinyMCE
+		$templateOption.find('[value="' + templateKey + '"]').prop('selected', true);
+	};
+
+
+}(window.jQuery));

@@ -41,7 +41,8 @@ class SubmissionGuidanceSettings extends FormComponent
             'submissions'
         );
 
-        $this->addField(new FieldRichTextarea('authorGuidelines', [
+        $this
+            ->addField(new FieldRichTextarea('authorGuidelines', [
             'label' => __('manager.setup.authorGuidelines'),
             'description' => __('manager.setup.authorGuidelines.description', ['url' => $submissionUrl]),
             'isMultilingual' => true,
@@ -113,5 +114,28 @@ class SubmissionGuidanceSettings extends FormComponent
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => ['link','lists'],
             ]));
+
+        $this->addReviewSuggestionGuidanceDetail($this->context);
+    }
+
+    /**
+     * Add review suggestion guidance text
+     */
+    protected function addReviewSuggestionGuidanceDetail(Context $context): void
+    {
+        $schema = app()->get('schema'); /** @var \PKP\services\PKPSchemaService $schema */
+
+        if (!collect($schema->get("context")->properties)->has("reviewerSuggestionEnabled")) {
+            return;
+        }
+
+        $this->addField(new FieldRichTextarea('reviewerSuggestionsHelp', [
+            'label' => __('submission.forReviewerSuggestion'),
+            'description' => __('manager.setup.workflow.reviewerSuggestionsHelp.description'),
+            'isMultilingual' => true,
+            'value' => $context->getData('reviewerSuggestionsHelp'),
+            'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
+            'plugins' => 'paste,link,lists',
+        ]));
     }
 }

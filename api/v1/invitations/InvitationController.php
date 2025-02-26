@@ -257,7 +257,7 @@ class InvitationController extends PKPBaseController
                 'nullable',
                 'required_without:inviteeEmail',
                 'integer',
-                new UserMustExistRule($payload['userId']),
+                new UserMustExistRule($payload['userId'] ?? null),
             ],
             'inviteeEmail' => [
                 Rule::prohibitedIf(isset($payload['userId'])),
@@ -288,7 +288,13 @@ class InvitationController extends PKPBaseController
         $context = $this->getRequest()->getContext();
         $inviter = $this->getRequest()->getUser();
 
-        $this->invitation->initialize($payload['userId'], $context->getId(), $payload['inviteeEmail'], $inviter->getId());
+        $this->invitation->initialize(
+            $payload['userId'] ?? null,
+            $context->getId(),
+            $payload['inviteeEmail'] ?? null,
+            $inviter->getId()
+        );
+
 
         return $this->selectedHandler->add($illuminateRequest);
     }

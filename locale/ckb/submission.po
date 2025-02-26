@@ -1315,6 +1315,7 @@ msgstr "لە چاوەڕوانی وەڵامی هەڵسەنگێنەران دایە
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "هەڵسەنگاندنی نوێ پێشکەش کرا."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "هەمو هەڵسەنگاندنەکان نێردرانەوە و لە چاوەڕوانی بڕیاری کۆتایی دان."
 

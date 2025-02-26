@@ -1337,6 +1337,7 @@ msgstr "Սպասում ենք գրախոսների պատասխաններին:"
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Նոր գրախոսություններ են ներկայացվել։"
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Բոլոր գրախոսները արձագանքել են, և անհրաժեշտ է որոշում:"
 

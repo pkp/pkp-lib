@@ -1318,6 +1318,7 @@ msgstr "بانتظار إجابات المحكمين."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "تحكيمات جديدة قد تم تقديمها."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "كل المحكمين وردت تحكيماتهم وبصدد اتخاذ القرار."
 

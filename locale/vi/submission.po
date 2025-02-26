@@ -1318,6 +1318,7 @@ msgstr "Đang chờ phản hồi từ các phản biện."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Đánh giá mới đã được gửi."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Tất cả những người đánh giá đã phản hồi và cần có quyết định."
 

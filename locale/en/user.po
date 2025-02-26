@@ -117,6 +117,9 @@ msgstr "A workflow stage was not specified."
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Workflow access for incomplete submission is restricted."
 
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr "Add, update or delete of reviewer suggestion for completed submission is restricted."
+
 msgid "user.authorization.pluginRequired"
 msgstr "A plugin was not specified and is required."
 
@@ -724,13 +727,14 @@ msgid "orcid.connect"
 msgstr "Create or Connect your ORCID iD"
 
 msgid "orcid.authorise"
-msgstr "Authorise and Connect your ORCID iD"
+msgstr "Authorize and Connect your ORCID iD"
 
 msgid "orcid.about.title"
 msgstr "What is ORCID?"
 
+#, fuzzy
 msgid "orcid.about.orcidExplanation"
-msgstr "ORCID is an independent non-profit organization that provides a persistent identifier – an ORCID iD – that distinguishes you from other researchers and a mechanism for linking your research outputs and activities to your iD. ORCID is integrated into many systems used by publishers, funders, institutions, and other research-related services. Learn more at <a href=\"https://orcid.org\">orcid.org</a>."
+msgstr "ORCID is an independent non-profit organization that provides a persistent identifier – an ORCID iD – that distinguishes you from other researchers and a mechanism for linking your research outputs and activities to your iD. ORCID is integrated into many systems used by publishers, funders, institutions, and other research-related services. Learn more at https://orcid.org."
 
 msgid "orcid.about.howAndWhy.title"
 msgstr "How and why we collect ORCID iDs?"
@@ -738,7 +742,7 @@ msgstr "How and why we collect ORCID iDs?"
 #, fuzzy
 msgid "orcid.about.howAndWhyPublicAPI"
 msgstr ""
-"This journal is collecting your ORCID iD so we and the wider community can "
+"This site is collecting your ORCID iD so we and the wider community can "
 "be confident that you are correctly identified and connected with your "
 "publication(s). This will ensure your connection to your full body of work "
 "stays with you throughout your career. <br>\n"
@@ -750,13 +754,13 @@ msgstr ""
 "\tLearn more in <a href=\"https://info.orcid.org/"
 "whats-so-special-about-signing-in/\">What’s so special about signing "
 "in.</a><br>\n"
-"This journal will collect and display authenticated authors’ and coauthors’ "
-"iDs on the OJS profile and article page."
+"This site will collect and display authenticated authors’ and coauthors’ "
+"iDs on the user profile and where authorship is listed."
 
 #, fuzzy
 msgid "orcid.about.howAndWhyMemberAPI"
 msgstr ""
-"This journal is collecting your ORCID iD so we and the wider community can "
+"This site is collecting your ORCID iD so we and the wider community can "
 "be confident you are correctly identified and connected with your "
 "publication(s). This will ensure your connection to your full body of work "
 "stays with you throughout your career.<br>\n"
@@ -768,8 +772,8 @@ msgstr ""
 "\tLearn more in <a href=\"https://info.orcid.org/"
 "whats-so-special-about-signing-in/\">What’s so special about signing "
 "in.</a><br>\n"
-"\tThis journal will collect and display authenticated authors’ and coauthors’"
-" iDs on the OJS profile and article page. In addition, article metadata will "
+"\tThis site will collect and display authenticated authors’ and coauthors’"
+" iDs on the profile and where authorship is listed. In addition, publication metadata will "
 "automatically be pushed to your ORCID record, enabling us to help you keep "
 "your record up-to-date with trusted information. Learn more in <a href=\""
 "https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Six "
@@ -852,3 +856,18 @@ msgstr "This ORCID has not been verified. Please remove this unverified ORCID an
 
 msgid "user.removeRole.message"
 msgstr "Are you sure want remove this role permanently?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Your role is scheduled to begin on {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr "Until then, you can review and update your profile. If you believe this is an error, please contact the administrator."
+
+msgid "user.disabledModal.description"
+msgstr "Current Roles : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Disable {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Enable {$fullName}"

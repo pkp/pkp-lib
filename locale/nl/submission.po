@@ -1338,6 +1338,7 @@ msgstr "In afwachting van antwoorden van reviewers."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Er zijn nieuwe reviews ingediend."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Alle reviews zijn voltooid, er moet een beslissing worden genomen."
 

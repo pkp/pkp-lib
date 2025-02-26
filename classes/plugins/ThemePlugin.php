@@ -662,7 +662,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
         if (is_null($contextId)) {
             $context = Application::get()->getRequest()->getContext();
-            $contextId = $context->getId();
+            if ($context) {
+                $contextId = $context->getId();
+            }
         }
 
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */

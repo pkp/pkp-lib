@@ -104,7 +104,7 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
         foreach ($tableLocaleColumns as $tableName => $localeColumns) {
             $localeColumns->each(
                 fn ($column) =>
-                    Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->change())
+                    Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->default($column['default'])->change())
             );
         }
     }

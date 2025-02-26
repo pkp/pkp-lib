@@ -2514,6 +2514,7 @@ msgstr "Hazırda nəzərdən keçirə biləcəyiniz bir fayl yoxdur."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Yeni dəyərləndirmə göndərildi."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Bütün dəyərləndirmələr gözləyir və bir qərar tələb olunur."
 

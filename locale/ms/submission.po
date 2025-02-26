@@ -1328,6 +1328,7 @@ msgstr "Menunggu respon daripada pengulas."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ulasan baharu telah diserahkan."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Semua pengulas telah memberi maklum balas dan keputusan diperlukan."
 

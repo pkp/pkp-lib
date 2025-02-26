@@ -1332,6 +1332,7 @@ msgstr "Väntar på svar från granskare."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nya granskningar har inkommit."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Alla granskningar har inkommit och nu behövs ett redaktörsbeslut."
 

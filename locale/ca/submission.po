@@ -1351,6 +1351,7 @@ msgstr "En espera de respostes dels revisors/ores."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Hi ha noves revisions preparades."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Tots els revisors/ores han contestat i s'ha de prendre una decisió."
 

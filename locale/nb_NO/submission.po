@@ -1341,6 +1341,7 @@ msgstr "Avventer respons fra fagfeller."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nye fagfellevurderinger er levert inn."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Alle fagfellevurderinger er fullført."
 

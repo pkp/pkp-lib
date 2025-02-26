@@ -1331,6 +1331,7 @@ msgstr "Čeká se na odpovědi recenzentů."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Byly odevzdány nové recenze."
 
+#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Recenze byly ukončeny."
 

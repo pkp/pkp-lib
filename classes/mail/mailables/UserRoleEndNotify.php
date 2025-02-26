@@ -78,7 +78,7 @@ class UserRoleEndNotify extends Mailable
         $targetPath = Core::getBaseDir() . '/lib/pkp/styles/mailables/style.css';
         $emailTemplateStyle = file_get_contents($targetPath);
 
-        $role = $this->userGroup->getName($locale);
+        $role = $this->userGroup->getLocalizedData('name');
 
         // Set view data for the template
         $this->viewData = array_merge(

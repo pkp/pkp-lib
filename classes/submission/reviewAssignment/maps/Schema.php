@@ -106,6 +106,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'submissionLocale':
                     $output[$prop] = $submission->getData('locale');
                     break;
+                case 'submissionStageId':
+                    $output[$prop] = $submission->getData('stageId');
+                    break;
                 case 'publicationTitle':
                     $output[$prop] = $submission->getCurrentPublication()->getFullTitles('html');
                     break;

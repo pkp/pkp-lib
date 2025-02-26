@@ -394,11 +394,23 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
-                case 'pending':
-                    $collector->filterByIsIncomplete(true);
+                case 'actionRequired':
+                    $collector->filterByActionRequiredByReviewer(true);
+                    break;
+                case 'active':
+                    $collector->filterByActive(true);
                     break;
                 case 'archived':
                     $collector->filterByIsArchived(true);
+                    break;
+                case 'declined':
+                    $collector->filterByDeclined(true);
+                    break;
+                case 'completed':
+                    $collector->filterByCompleted(true);
+                    break;
+                case 'published':
+                    $collector->filterByPublished(true);
                     break;
             }
         }

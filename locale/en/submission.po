@@ -2458,11 +2458,20 @@ msgstr "Completed / Declined"
 msgid "submission.dashboard.view.reviewAssignments.all"
 msgstr "All assignments"
 
-msgid "submission.dashboard.view.reviewAssignments.pending"
-msgstr "Pending"
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Action Required by me"
 
 msgid "submission.dashboard.view.reviewAssignments.archived"
-msgstr "Completed / Declined"
+msgstr "Archived"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Declined"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Completed"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Published"
 
 msgid "submission.stage.externalReviewWithRound"
 msgstr "Review (Round {$round})"

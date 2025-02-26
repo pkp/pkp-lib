@@ -11,8 +11,8 @@ body:
   
   - type: checkboxes
     id: valid-title
-    label: "Valid Title"
     attributes:
+      label: "Valid Title"
       options:
         - label: I have updated the title to accurately reflect the bug description
           required: true

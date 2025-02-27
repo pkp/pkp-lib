@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_5_0;
 
 use DateInterval;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,7 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
         /**
          * Update/add locale arrays
          */
+        $isPostgres = DB::connection() instanceof PostgresConnection;
 
         $insert = function (object $localeId, string $settingName, string $settingValue): void {
             DB::table($this->getContextSettingsTable())->insert(
@@ -102,10 +104,15 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
         });
 
         foreach ($tableLocaleColumns as $tableName => $localeColumns) {
-            $localeColumns->each(
-                fn ($column) =>
-                    Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->default($column['default'])->change())
-            );
+            $localeColumns->each(function ($column) use ($tableName, $isPostgres) {
+                $default = match($isPostgres) {
+                    // PostgreSQL describes defaults in terms like: 'en'::character varying
+                    // If there is a '-delimited string part, fetch and use it.
+                    true => empty($column['default']) ? null : strtok($column['default'], "'"),
+                    false => $column['default'],
+                };
+                Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->default($default)->change());
+            });
         }
     }
 

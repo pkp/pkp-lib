@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/classes/submission/reviewer/recommendation/ReviewerRecommendation.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerRecommendation
@@ -52,7 +52,7 @@ class ReviewerRecommendation extends Model
         return [
             'value'         => 'integer',
             'context_id'    => 'integer',
-            'status'        => 'integer', // We cast the boolean to corresponding int e.g. true/false to 1/0
+            'status'        => 'integer', // cast the boolean to corresponding int e.g. true/false to 1/0
         ];
     }
 

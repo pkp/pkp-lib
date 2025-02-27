@@ -29,6 +29,7 @@ use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
+use PKP\citation\Repository as CitationRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\highlight\Repository as HighlightRepository;
@@ -63,6 +64,11 @@ class Repo
     public static function author(): AuthorRepository
     {
         return app(AuthorRepository::class);
+    }
+
+    public static function citation(): CitationRepository
+    {
+        return app(CitationRepository::class);
     }
 
     public static function decision(): DecisionRepository

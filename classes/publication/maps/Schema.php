@@ -2,8 +2,8 @@
 /**
  * @file classes/publication/maps/Schema.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -18,7 +18,6 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\citation\CitationDAO;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
@@ -135,12 +134,11 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $publication->getData('categoryIds');
                     break;
                 case 'citations':
-                    $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
                     $output[$prop] = array_map(
                         function ($citation) {
                             return $citation->getCitationWithLinks();
                         },
-                        $citationDao->getByPublicationId($publication->getId())->toArray()
+                        Repo::citation()->getByPublicationId($publication->getId())
                     );
                     break;
                 case 'doiObject':

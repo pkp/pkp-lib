@@ -4,8 +4,8 @@
 /**
  * @file api/v1/reviewers/recommendations/formRequests/EditReviewerRecommendation.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditReviewerRecommendation
@@ -16,9 +16,9 @@
 
 namespace PKP\API\v1\reviewers\recommendations\formRequests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use PKP\API\v1\reviewers\recommendations\formRequests\AddReviewerRecommendation;
 
-class EditReviewerRecommendation extends FormRequest
+class EditReviewerRecommendation extends AddReviewerRecommendation
 {
     /**
      * Get the validation rules that apply to the request.
@@ -28,7 +28,6 @@ class EditReviewerRecommendation extends FormRequest
         return [
             'title' => [
                 'required',
-                // need to add multilingual validation once #4787 merged
             ],
             'status' => [
                 'required',

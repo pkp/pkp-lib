@@ -871,3 +871,6 @@ msgstr "Disable {$fullName}"
 
 msgid "user.enabledModal.title"
 msgstr "Enable {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Bio Statement"

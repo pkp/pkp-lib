@@ -2361,3 +2361,6 @@ msgstr "No"
 
 msgid "common.refreshingData"
 msgstr "Refreshing data"
+
+msgid "common.viewMoreDetails"
+msgstr "View more details"

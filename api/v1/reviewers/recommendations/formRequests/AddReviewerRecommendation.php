@@ -1,11 +1,10 @@
 <?php
 
-// TODO : update once pkp/pkp-lib#4787 merged
 /**
  * @file api/v1/reviewers/recommendations/formRequests/AddReviewerRecommendation.php
  *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddReviewerRecommendation
@@ -19,9 +18,37 @@ namespace PKP\API\v1\reviewers\recommendations\formRequests;
 use APP\core\Application;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\validation\traits\HasMultilingualRule;
 
 class AddReviewerRecommendation extends FormRequest
 {
+    use HasMultilingualRule;
+
+    /**
+     * @copydoc \PKP\validation\traits\HasMultilingualRule::multilingualInputs()
+     */
+    public function multilingualInputs(): array 
+    {
+        return (new ReviewerRecommendation)->getMultilingualProps();
+    }
+
+    /**
+     * @copydoc \PKP\validation\traits\HasMultilingualRule::primaryLocale()
+     */
+    public function primaryLocale(): ?string 
+    {
+        return Application::get()->getRequest()->getContext()->getPrimaryLocale();
+    }
+
+    /**
+     * @copydoc \PKP\validation\traits\HasMultilingualRule::allowedLocales()
+     */
+    public function allowedLocales(): array 
+    {
+        return Application::get()->getRequest()->getContext()->getSupportedFormLocales();
+    }
+    
     /**
      * Get the validation rules that apply to the request.
      */
@@ -37,7 +64,6 @@ class AddReviewerRecommendation extends FormRequest
             ],
             'title' => [
                 'required',
-                // need to add multilingual validation once #4787 merged
             ],
             'status' => [
                 'required',
@@ -52,8 +78,7 @@ class AddReviewerRecommendation extends FormRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            'contextId' => $this->route('contextId'),
-            'removable' => 1,
+            'contextId' => Application::get()->getRequest()->getContext()->getId(),
         ]);
     }
 }

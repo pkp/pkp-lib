@@ -329,7 +329,6 @@ class Collector implements CollectorInterface, ViewsCount
         $q->when(
             $this->actionRequiredByReviewer || $this->isActive,
             fn (Builder $q) => $q
-                ->whereNull('ra.date_completed')
                 ->where('ra.declined', '<>', 1)
                 ->where('ra.cancelled', '<>', 1)
                 ->whereIn(
@@ -342,6 +341,7 @@ class Collector implements CollectorInterface, ViewsCount
                             $this->actionRequiredByReviewer,
                             fn (Builder $q) => $q
                                 ->whereColumn('s.stage_id', 'ra.stage_id')
+                                ->whereNull('ra.date_completed')
                         )
                         ->when(
                             $this->isActive,

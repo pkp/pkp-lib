@@ -135,7 +135,7 @@ class SubmissionGuidanceSettings extends FormComponent
             'isMultilingual' => true,
             'value' => $context->getData('reviewerSuggestionsHelp'),
             'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-            'plugins' => 'paste,link,lists',
+            'plugins' => ['link', 'lists'],
         ]));
     }
 }

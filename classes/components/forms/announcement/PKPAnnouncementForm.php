@@ -57,7 +57,7 @@ class PKPAnnouncementForm extends FormComponent
                 'description' => __('manager.announcements.form.descriptionShortInstructions'),
                 'isMultilingual' => true,
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
-                'plugins' => 'paste,link,image,lists,code',
+                'plugins' => ['link', 'image', 'lists', 'code'],
                 'uploadUrl' => $imageUploadUrl,
                 'options' => [
                     'url' => $temporaryFileApiUrl,

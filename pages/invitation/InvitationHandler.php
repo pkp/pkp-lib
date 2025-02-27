@@ -367,6 +367,6 @@ class InvitationHandler extends Handler
     private function getWorkingLanguages(Context $context,$userLocales): string
     {
         $locales = $context->getSupportedLocaleNames();
-        return implode(', ', array_map(fn($key) => $locales[$key], $userLocales));
+        return join(__('common.commaListSeparator'), array_map(fn($key) => $locales[$key], $userLocales));
     }
 }

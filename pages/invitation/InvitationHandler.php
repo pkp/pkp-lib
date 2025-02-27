@@ -24,9 +24,11 @@ use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\stepTypes\SendInvitationStep;
+use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 
 class InvitationHandler extends Handler
@@ -153,24 +155,10 @@ class InvitationHandler extends Handler
             $invitationModel = $invitation->invitationModel->toArray();
 
             $invitationMode = 'edit';
-            if ($invitationModel['userId']) {
-                $user = Repo::user()->get($invitationModel['userId']);
-            }
-            $invitationPayload['userId'] = $invitationModel['userId'];
-            $invitationPayload['inviteeEmail'] = $invitationModel['email'] ?: $user->getEmail();
-            $invitationPayload['orcid'] = $payload['orcid'];
-            $invitationPayload['givenName'] = $user ? $user->getGivenName(null) : $payload['givenName'];
-            $invitationPayload['familyName'] = $user ? $user->getFamilyName(null) : $payload['familyName'];
-            $invitationPayload['affiliation'] = $user ? $user->getAffiliation(null) : $payload['affiliation'];
-            $invitationPayload['country'] = $user ? $user->getCountry() : $payload['userCountry'];
-            $invitationPayload['userGroupsToAdd'] = $payload['userGroupsToAdd'];
-            $invitationPayload['currentUserGroups'] = !$invitationModel['userId'] ? [] : $this->getUserUserGroups($invitationModel['userId'],$request->getContext());
-            $invitationPayload['userGroupsToRemove'] = !$payload['userGroupsToRemove'] ? null : $payload['userGroupsToRemove'];
-            $invitationPayload['emailComposer'] = [
-                'emailBody' => $payload['emailBody'],
-                'emailSubject' => $payload['emailSubject'],
-            ];
-            $invitationPayload['disabled'] = false;
+            $payload['email']=$invitationModel['email'];
+            $invitationData = $this->generateInvitationPayload($invitationModel['userId'],$payload,$request->getContext())['invitationPayload'];
+            $user = $invitationData['user'];
+            $invitationPayload = $invitationData['invitationPayload'];
         }
         $templateMgr = TemplateManager::getManager($request);
         $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
@@ -240,27 +228,11 @@ class InvitationHandler extends Handler
     public function editUser($args, $request): void
     {
         $invitation = null;
-        $invitationPayload =[];
         if(!empty($args)) {
             $invitationMode = 'editUser';
-            $user = Repo::user()->get($args[0],true);
-            $invitationPayload['userId'] = $args[0];
-            $invitationPayload['inviteeEmail'] = $user->getEmail();
-            $invitationPayload['orcid'] = $user->getData('orcid');
-            $invitationPayload['givenName'] = $user->getGivenName(null);
-            $invitationPayload['familyName'] = $user->getFamilyName(null);
-            $invitationPayload['affiliation'] = $user->getAffiliation(null);
-            $invitationPayload['country'] = $user->getCountry();
-            $invitationPayload['biography'] = $user->getBiography(null);
-            $invitationPayload['phone'] = $user->getPhone();
-            $invitationPayload['disabled'] = $user->getData('disabled');
-            $invitationPayload['userGroupsToAdd'] = [];
-            $invitationPayload['currentUserGroups'] = $this->getUserUserGroups($args[0],$request->getContext());
-            $invitationPayload['userGroupsToRemove'] = [];
-            $invitationPayload['emailComposer'] = [
-                'emailBody' => '',
-                'emailSubject' => '',
-            ];
+            $invitationData = $this->generateInvitationPayload($args[0],[],$request->getContext());
+            $user = $invitationData['user'];
+            $invitationPayload = $invitationData['invitationPayload'];
             $templateMgr = TemplateManager::getManager($request);
             $breadcrumbs = $templateMgr->getTemplateVars('breadcrumbs');
             $this->setupTemplate($request);
@@ -341,5 +313,60 @@ class InvitationHandler extends Handler
             $userGroups[$key]['id'] = $userGroup['userGroupId'];
         }
         return $userGroups;
+    }
+
+    /**
+     * generate invitation payload
+     * @param $userId
+     * @param array $payload
+     * @param Context $context
+     * @return array
+     */
+    private function generateInvitationPayload($userId, array $payload, Context $context): array
+    {
+        $user = null;
+        if($userId){
+            $user = Repo::user()->get($userId,true);
+        }
+
+        $invitationPayload =[];
+        $invitationPayload['userId'] = $user ? $user->getId() : $userId;
+        $invitationPayload['inviteeEmail'] = $user ? $user->getEmail() : $payload['email'];
+        $invitationPayload['orcid'] = $user ? $user->getData('orcid') : $payload['orcid'];
+        $invitationPayload['givenName'] = $user ? $user->getGivenName(null) : $payload['givenName'];
+        $invitationPayload['familyName'] = $user ? $user->getFamilyName(null) : $payload['familyName'];
+        $invitationPayload['affiliation'] = $user ? $user->getAffiliation(null) : $payload['affiliation'];
+        $invitationPayload['country'] = $user ? $user->getCountryLocalized() : $payload['userCountry'];
+        $invitationPayload['biography'] = $user?->getBiography(null);
+        $invitationPayload['phone'] = $user?->getPhone();
+        $invitationPayload['mailingAddress'] = $user?->getMailingAddress();
+        $invitationPayload['signature'] = $user?->getSignature(null);
+        $invitationPayload['locales'] = $user? $this->getWorkingLanguages($context,$user->getLocales()) : null;
+        $invitationPayload['reviewInterests'] = $user?->getInterestString();
+        $invitationPayload['homePageUrl'] = $user?->getUrl();
+        $invitationPayload['disabled'] = $user?->getData('disabled');
+        $invitationPayload['userGroupsToAdd'] = !$payload['userGroupsToAdd'] ? [] : $payload['userGroupsToAdd'];
+        $invitationPayload['currentUserGroups'] = !$userId ? [] : $this->getUserUserGroups($userId,$context);
+        $invitationPayload['userGroupsToRemove'] = [];
+        $invitationPayload['emailComposer'] = [
+            'emailBody' => '',
+            'emailSubject' => '',
+        ];
+        return [
+            'invitationPayload' => $invitationPayload,
+            'user' => $user
+        ];
+    }
+
+    /**
+     * get user working languages
+     * @param Context $context
+     * @param $userLocales
+     * @return string
+     */
+    private function getWorkingLanguages(Context $context,$userLocales): string
+    {
+        $locales = $context->getSupportedLocaleNames();
+        return implode(', ', array_map(fn($key) => $locales[$key], $userLocales));
     }
 }

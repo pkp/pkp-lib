@@ -198,7 +198,7 @@ class AdminHandler extends Handler
         $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'temporaryFiles');
         $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'announcements');
-        $publicFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, '_uploadPublicFile');
+        $publicFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, '_uploadPublicFile');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();

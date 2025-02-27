@@ -79,13 +79,6 @@
 				}
 			}
 		},
-		"licenseTerms": {
-			"type": "string",
-			"multilingual": true,
-			"validation": [
-				"nullable"
-			]
-		},
 		"enableOai": {
 			"type": "boolean",
 			"default": 1,

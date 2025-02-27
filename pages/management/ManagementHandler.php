@@ -354,9 +354,9 @@ class ManagementHandler extends Handler
         $this->setupTemplate($request);
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
-        $publicFileApiUrl = $dispatcher->url($request, ROUTE_API, $context->getPath(), '_uploadPublicFile');
+        $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
-        $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
+        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'announcements');
 
         $locales = $this->getSupportedFormLocales($context);
 
@@ -365,12 +365,13 @@ class ManagementHandler extends Handler
             $locales,
             Repo::announcement()->getFileUploadBaseUrl($context),
             $this->getTemporaryFileApiUrl($context),
-            $request->getContext(),  $publicFileApiUrl
+            $publicFileApiUrl,
+            $context
         );
 
         $collector = Repo::announcement()
             ->getCollector()
-            ->filterByContextIds([$request->getContext()->getId()]);
+            ->filterByContextIds([$context->getId()]);
 
         $itemsMax = $collector->getCount();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
@@ -384,7 +385,7 @@ class ManagementHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $announcementForm,
                 'getParams' => [
-                    'contextIds' => [$request->getContext()->getId()],
+                    'contextIds' => [$context->getId()],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

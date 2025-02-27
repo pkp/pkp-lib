@@ -54,6 +54,8 @@ describe('Data suite tests', function() {
 		});
 
 		cy.get('input[name="temporaryFileId"][value]', {timeout:20000});
+		cy.wait(1000);
+
 		cy.get('form#importXmlForm button[type="submit"]').click();
 		cy.contains('The import completed successfully.', {timeout:20000});
 	});

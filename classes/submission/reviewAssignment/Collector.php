@@ -327,7 +327,7 @@ class Collector implements CollectorInterface, ViewsCount
         });
 
         $q->when(
-            $this->actionRequiredByReviewer,
+            $this->actionRequiredByReviewer || $this->isActive,
             fn (Builder $q) => $q
                 ->whereNull('ra.date_completed')
                 ->where('ra.declined', '<>', 1)
@@ -338,22 +338,24 @@ class Collector implements CollectorInterface, ViewsCount
                         ->select('s.submission_id')
                         ->from('submissions AS s')
                         ->whereColumn('s.submission_id', 'ra.submission_id')
-                        ->whereColumn('s.stage_id', 'ra.stage_id')
-                )
-        );
-
-        $q->when(
-            $this->isActive,
-            fn (Builder $q) => $q
-                ->where('ra.declined', '<>', 1)
-                ->where('ra.cancelled', '<>', 1)
-                ->whereIn(
-                    'ra.submission_id',
-                    fn (Builder $q) => $q
-                        ->select('s.submission_id')
-                        ->from('submissions AS s')
-                        ->whereColumn('s.submission_id', 'ra.submission_id')
-                        ->where('s.status', '<>', PKPSubmission::STATUS_PUBLISHED)
+                        ->when(
+                            $this->actionRequiredByReviewer,
+                            fn (Builder $q) => $q
+                                ->whereColumn('s.stage_id', 'ra.stage_id')
+                        )
+                        ->when(
+                            $this->isActive,
+                            fn (Builder $q) => $q
+                                ->where(
+                                    fn (Builder $q) => $q
+                                        ->whereColumn('s.stage_id', 'ra.stage_id')
+                                        ->orWhere(
+                                            fn (Builder $q) => $q
+                                                ->where('s.status', '<>', PKPSubmission::STATUS_PUBLISHED)
+                                                ->whereNotNull('ra.date_completed')
+                                        )
+                                )
+                        )
                 )
         );
 

@@ -81,7 +81,7 @@ class ProfileHandler extends UserHandler
                ->withActiveInFuture()
                ->pluck('date_start')
                ->first();
-            $date_start = new \DateTime($userFutureRoleStartDate);
+            $date_start = !is_null($userFutureRoleStartDate) ? new \DateTime($userFutureRoleStartDate) : null;
         }
 
         $this->setupTemplate($request);

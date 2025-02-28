@@ -1100,7 +1100,7 @@ msgstr "Corrixa {$count} erros."
 
 msgid "form.errors"
 msgstr ""
-"O formulario non se gardou porque se atoparon {$ count} erros. Corrixe estes "
+"O formulario non se gardou porque se atoparon {$count} erros. Corrixe estes "
 "erros e téntao de novo."
 
 msgid "form.errorsOccurred"

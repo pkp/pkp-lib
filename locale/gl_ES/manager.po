@@ -472,7 +472,7 @@ msgstr "Fusionar usuario/a"
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
 "Estás seguro de que desexas combinar a conta {$oldAccountCount} coa conta "
-"\"{$newUsername}\"? A conta {$ oldAccountCount} eliminarase. Esta acción non "
+"\"{$newUsername}\"? A conta {$oldAccountCount} eliminarase. Esta acción non "
 "é reversible."
 
 msgid "manager.people.mergeUsers"

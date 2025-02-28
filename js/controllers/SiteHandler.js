@@ -174,26 +174,27 @@
 				tinymceParamDefaults.remove_script_host = false;
 				// https://www.tiny.cloud/docs/general-configuration-guide/upload-images/
 				tinymceParamDefaults.images_upload_handler = function(
-						blobInfo, success, failure) {
-
-					/*global FormData: false */
-					var data = new FormData();
-					data.append('file', blobInfo.blob(), blobInfo.filename());
-					$.ajax({
-						method: 'POST',
-						url: $.pkp.plugins.generic.tinymceplugin.uploadUrl,
-						data: data,
-						processData: false,
-						contentType: false,
-						headers: {
-							'X-Csrf-Token': pkp.currentUser.csrfToken
-						},
-						success: function(r) {
-							success(r.url);
-						},
-						error: function(r) {
-							failure(r.responseJSON.errorMessage);
-						}
+						blobInfo, progress) {
+					return new Promise(function (resolve, reject) {
+						/*global FormData: false */
+						var data = new FormData();
+						data.append('file', blobInfo.blob(), blobInfo.filename());
+						$.ajax({
+							method: 'POST',
+							url: $.pkp.plugins.generic.tinymceplugin.uploadUrl,
+							data: data,
+							processData: false,
+							contentType: false,
+							headers: {
+								'X-Csrf-Token': pkp.currentUser.csrfToken
+							},
+							success: function(r) {
+								resolve(r.url);
+							},
+							error: function(r) {
+								reject(r.responseJSON.error);
+							}
+						});
 					});
 				};
 			}

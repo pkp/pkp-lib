@@ -281,6 +281,9 @@ msgstr "Add Announcement Type"
 msgid "grid.action.addAnnouncement"
 msgstr "Add Announcement"
 
+msgid "grid.action.addReviewerRecommendation"
+msgstr "Add Recommendation"
+
 msgid "grid.action.addInstitution"
 msgstr "Add Institution"
 

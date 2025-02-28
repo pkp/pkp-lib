@@ -167,6 +167,9 @@
 		"name": {
 			"type": "string",
 			"multilingual": true,
+			"validation": [
+				"nullable"
+			],
 			"apiSummary": true
 		},
 		"path": {

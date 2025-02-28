@@ -60,7 +60,7 @@ class ProfileHandler extends UserHandler
     {
         $context = $request->getContext();
         $user = $request->getUser();
-        $date_start = null;
+        $dateStart = null;
         if (!$context) {
             $contextDao = Application::getContextDAO();
             $workingContexts = $contextDao->getAvailable($user ? $user->getId() : null);
@@ -76,12 +76,12 @@ class ProfileHandler extends UserHandler
             $request->redirect(null, null, null, null, null, $anchor);
         }
 
-        if(count($user->getRoles($context->getId())) === 0){
+        if($context && count($user->getRoles($context->getId())) === 0){
            $userFutureRoleStartDate = UserUserGroup::withUserId($user->getId())
                ->withActiveInFuture()
                ->pluck('date_start')
                ->first();
-            $date_start = !is_null($userFutureRoleStartDate) ? new \DateTime($userFutureRoleStartDate) : null;
+            $dateStart = !is_null($userFutureRoleStartDate) ? new \DateTime($userFutureRoleStartDate) : null;
         }
 
         $this->setupTemplate($request);
@@ -89,7 +89,7 @@ class ProfileHandler extends UserHandler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'pageTitle' => __('user.profile'),
-            'userFutureRoleStartDate'=> $date_start?->format('Y-m-d'),
+            'userFutureRoleStartDate'=> $dateStart?->format('Y-m-d'),
         ]);
         $templateMgr->display('user/profile.tpl');
     }

@@ -72,14 +72,6 @@ echo "Copyright (c) 2010-2021 John Willinsky" >&2
 
 ### Checking Requirements ###
 MISSING_REQUIREMENT=''
-if [ -z `which gjslint` ]; then
-	echo >&2
-	echo "Google Closure Linter not found in PATH. Please go" >&2
-	echo "to <https://developers.google.com/closure/utilities/docs/linter_howto>" >&2
-	echo "and make sure that you correctly install the tool before you run" >&2
-	echo "buildjs.sh." >&2
-	MISSING_REQUIREMENT='gjslint'
-fi
 
 if [ ! -e "$TOOL_PATH/jslint4java.jar" ]; then
 	echo >&2
@@ -122,7 +114,7 @@ for JS_FILE in $LINT_FILES; do
 	echo -n "...$JS_FILE" >&2
 	echo "...$JS_FILE"
 
-	# Prepare file for gjslint and compiler check:
+	# Prepare file for compiler check:
 	# - transforms whitespace to comply with Google style guide
 	# - wraps @extends type in curly braces to comply with Google style guide.
 	# - works around http://code.google.com/p/closure-compiler/issues/detail?id=61 by removing the jQuery closure.
@@ -139,13 +131,6 @@ for JS_FILE in $LINT_FILES; do
 	# Only lint file if it has been changed since last compilation.
 	if [ ! \( -e "$JS_OUTPUT" \) -o \( "$JS_FILE" -nt "$JS_OUTPUT" \) -o \( "$DO_CACHE" -eq 0 \) ]; then
 
-		#############################
-		### Google Closure Linter ###
-		#############################
-
-		# Run gjslint on the file.
-		gjslint --strict --nosummary --custom_jsdoc_tags=defgroup,ingroup,file,brief "$WORKDIR/$JS_FILE" | grep '^Line' | sed "s/^/${TAB}/"
-
 
 		##################################
 		### Douglas Crockford's JSLint ###
@@ -154,9 +139,7 @@ for JS_FILE in $LINT_FILES; do
 		# Run JSLint on the file:
 		# - Allow for loops without "hasOwnProperty()" check because we operate in an environment
 		#   where additions to the Object prototype are not allowed (same as jQuery).
-		# - Do not alert on whitespace checking which we prefer to be checked by gjslint.
-		#   This is necessary to remove inconsistency between gjslint's and
-		#   jslint's whitespace rules.
+		# - Do not alert on whitespace checking
 		# - We allow dangling underscores (_) to mark private properties and let the
 		#   Closure compiler enforce it.
 		# - We allow the ++ and == syntax
@@ -179,34 +162,6 @@ echo >&2
 ###############################
 ### Google Closure Compiler ###
 ###############################
-
-# Transform lint file list into Closure input parameter list.
-LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
-
-# Run Closure - first pass to check with transformed files.
-echo >> "$WORKDIR/.compile-warnings.out"
-echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
-echo "Compile (Check)..." >&2
-java -jar ${CLOSURE_COMPILER_JAR} --language_in=ECMASCRIPT5 --jscomp_warning visibility --warning_level DEFAULT \
-	$CLOSURE_EXTERNS $LINT_FILES --js_output_file /dev/null 2>&1 \
-	| sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
-
-# Only minify when there were no warnings.
-if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	' | grep -v 'Picked up _JAVA_OPTIONS'`" ]; then
-	# Issue warnings. If interactive, use "less".
-	case "$-" in
-		*i*)	less "$WORKDIR/.compile-warnings.out" ;;
-		*)	cat "$WORKDIR/.compile-warnings.out" ;;
-	esac
-	echo >&2
-	echo "Found Errors! Not minified."
-	echo "Exiting!"
-
-	# Remove the temporary directory.
-	rm -r "$WORKDIR"
-
-	exit -1
-fi
 
 # Show the list of files we are going to compile:
 echo >&2

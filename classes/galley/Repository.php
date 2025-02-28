@@ -152,8 +152,6 @@ class Repository
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('galley.publicationNotFound'));
-                } elseif (in_array($publication->getData('status'), [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED])) {
-                    $validator->errors()->add('publicationId', __('galley.editPublishedDisabled'));
                 }
             }
         });

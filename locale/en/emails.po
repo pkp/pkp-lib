@@ -595,7 +595,11 @@ msgid "orcid.orcidCollectAuthorId.name"
 msgstr "orcidCollectAuthorId"
 
 #, fuzzy
-msgid "emails.userRoleAssignmentInvitationNotify.description"
+msgid "mailable.userRoleAssignmentInvitationNotify.name"
+msgstr "User Role Invited Notification"
+
+#, fuzzy
+msgid "mailable.userRoleAssignmentInvitationNotify.description"
 msgstr "This email is sent to users that are invited to obtain certain roles"
 
 #, fuzzy
@@ -719,5 +723,3 @@ msgstr "This is the accept invitation URL"
 #, fuzzy
 msgid "emailTemplate.variable.invitation.declineUrl"
 msgstr "This is the decline invitation URL"
-
-

@@ -33,6 +33,7 @@ class Collector implements CollectorInterface
     public ?int $count;
     public ?int $offset;
 
+
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;

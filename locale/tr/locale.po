@@ -301,7 +301,7 @@ msgid "installer.installationInstructions"
 msgstr ""
 "<h4>OPS Sürümü {$version}</h4><p> Public Knowledge Project'in Open Preprint "
 "Sistemlerini indirdiğiniz için teşekkür ederiz. Devam etmeden önce, lütfen "
-"bu yazılımla birlikte gelen <a href=\"{$baseUrl}README</a> dosyasını okuyun. "
+"bu yazılımla birlikte gelen <a href=\"{$baseUrl}/README</a> dosyasını okuyun. "
 "Public Knowledge Project ve yazılım projeleri hakkında daha fazla bilgi için "
 "lütfen <a href=\"http://pkp.sfu.ca/\" target=\"_blank\">PKP web sitesini</a> "
 "ziyaret edin. Açık Ön Baskı Sistemleri hakkında hata raporlarınız veya "
@@ -348,6 +348,7 @@ msgstr ""
 "dizin oluşturulmalı ve yazılabilir hale getirilmelidir (aşağıdaki \"Dosya "
 "Ayarları\" bölümüne bakın).</p>"
 
+#, fuzzy
 msgid "installer.upgradeInstructions"
 msgstr "<h4>OPS Sürüm {$version}</h4>"
 

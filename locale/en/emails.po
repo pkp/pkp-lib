@@ -596,7 +596,7 @@ msgstr "orcidCollectAuthorId"
 
 #, fuzzy
 msgid "mailable.userRoleAssignmentInvitationNotify.name"
-msgstr "User Role Invited Notification"
+msgstr "User Invited to Role Notification"
 
 #, fuzzy
 msgid "mailable.userRoleAssignmentInvitationNotify.description"

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/log/Repository.php
  *
@@ -107,13 +108,13 @@ class Repository
 
             DB::table('email_log_users')
                 ->where('user_id', $oldUserId)
-                ->whereNotIn('email_log_id', function ($query) use ($newUserId, $oldUserId) {
-                    $query->select('t1.email_log_id')
-                        ->from(DB::table('email_log_users')->as('t1'))
-                        ->join(DB::table('email_log_users')->as('t2'), 't1.email_log_id', '=', 't2.email_log_id')
-                        ->where('t1.user_id', $newUserId)
-                        ->where('t2.user_id', $oldUserId);
-                })->update(['user_id' => $newUserId])
+                ->whereNotIn('email_log_id', DB::table('email_log_users as t1')
+                    ->select('t1.email_log_id')
+                    ->join('email_log_users as t2', 't1.email_log_id', '=', 't2.email_log_id')
+                    ->where('t1.user_id', $newUserId)
+                    ->where('t2.user_id', $oldUserId)
+                    ->pluck('t1.email_log_id')
+                    ->toArray())->update(['user_id' => $newUserId])
         ];
     }
 

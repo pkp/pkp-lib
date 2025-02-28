@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/user/Repository.php
  *
@@ -375,7 +376,7 @@ class Repository
             if (!$exists) {
                 UserUserGroup::create([
                     'userId' => $newUserId,
-                    'userGroupId' => $userUserGroup->id,
+                    'userGroupId' => $userUserGroup->userGroupId,
                     'dateStart' => $userUserGroup->dateStart,
                     'dateEnd' => $userUserGroup->dateEnd,
                     'masthead' => $userUserGroup->masthead,

@@ -1311,11 +1311,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.alreadyPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {

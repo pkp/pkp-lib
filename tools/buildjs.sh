@@ -93,7 +93,7 @@ fi
 if [ ! -e "$CLOSURE_COMPILER_JAR" ]; then
 	echo >&2
 	echo "Google Closure Compiler not found in '$CLOSURE_COMPILER_JAR'" >&2
-	echo "Please run 'npm npm install --save google-closure-compiler' and try again." >&2
+	echo "Please run 'npm install --save google-closure-compiler' and try again." >&2
 	MISSING_REQUIREMENT='closure'
 fi
 

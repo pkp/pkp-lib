@@ -116,6 +116,13 @@ class PKPFileService {
 		if ($this->fs->has($path) && !$this->fs->delete($path)) {
 			throw new Exception("Unable to delete file $id at $path.");
 		}
+
+		// Delete dependent data
+		Capsule::table('submission_file_revisions')
+			->where('file_id', '=', $id)
+			->delete();
+
+		// Delete file
 		Capsule::table('files')
 			->where('file_id', '=', $file->id)
 			->delete();

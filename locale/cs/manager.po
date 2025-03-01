@@ -1,11 +1,11 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-11-08 15:32+0000\n"
+"PO-Revision-Date: 2025-03-01 10:45+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -3779,3 +3779,121 @@ msgstr "Validujte XML před exportem a registrací."
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Nainstalovaná verze: {$version}"
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Autor {$authorName} nemá název afiliace v jazyce podání, {$localeName}. Bez "
+"této informace nelze podání nahrát."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Odkaz na stránku zobrazující všechny aktivní redakční služby."
+
+msgid "notification.submissionLocales"
+msgstr "Byly aktualizovány lokalizace příspěvku."
+
+msgid "settings.roles.masthead"
+msgstr "Zvažte roli v seznamu v záhlaví"
+
+msgid "settings.roles.permitSettings"
+msgstr "Dovolte změny v Nastavení"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Definovat pořadí redakčních rolí v záhlaví pro veřejné zobrazení."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Jazyky webových stránek"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Přidat/odebrat jazyky"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Zvolte jazyky příspěvku a metadat."
+
+msgid "manager.language.submission.from.error"
+msgstr "Je třeba vybrat alespoň jednu lokalizaci."
+
+msgid "manager.language.submissionLanguages"
+msgstr "Jazyky příspěvků"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Počet doporučených recenzentů"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Dostatečný počet recenzentů potřebných pro jeden příspěvek, aby bylo možné "
+"vydat doporučení před přijetím rozhodnutí"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenti budou zobrazeni ve standardizovaném formátu, aby byla zachována "
+"jednotnost a zajištěna snadná vyhledatelnost v této sekci."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Návrh recenzenta při podání příspěvku"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Uveďte historii redakce, včetně celého jména, příslušnosti a data začátku a "
+"konce působení každého redaktora."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Autor může navrhnout několik potenciálních recenzentů ještě před dokončením "
+"odeslání, což může zefektivnit proces recenzování a poskytnout cenné podněty "
+"redakčnímu týmu."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Změňte adresu emailové pozvánky"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Nastavení jazyka se nepodařilo uložit. Je třeba povolit všechny možnosti."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Definujte pořadí rolí v záhlaví pro veřejné zobrazení."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Nastavení připomenutí pro recenzi"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Odeslání e-mailové upomínky před nebo po zaslání žádosti o recenzi (pokud "
+"recenzent ještě neodpověděl na žádost o recenzi) nebo po termínu na zaslání "
+"recenze (pokud recenzent ještě recenzi nezaslal)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odpověď na žádost o recenzi – před termínem"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odpověď na žádost o recenzi – po termínu"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Podání recenze – před termínem"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Podání recenze – po termínu"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dnů před termínem"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dnů po termínu"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Žádný"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Nebylo nastaveno připomenutí"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Umožnit autorům navrhnout potenciální recenzenty při odesílání příspěvků"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"V kroku návrhů recenzentů se autorům zobrazí následující informace. "
+"Poskytněte stručné vysvětlení, jaké informace by měl autor poskytnout o "
+"sobě, spoluautorech a případných dalších přispěvatelích."

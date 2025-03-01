@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-01 18:18+0000\n"
+"PO-Revision-Date: 2025-03-01 19:16+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2867,3 +2867,33 @@ msgstr "Zobrazit shrnutí příspěvku"
 
 msgid "submission.list.completeSubmission"
 msgstr "Dokončit příspěvek"
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Lhůta pro dokončení této recenze uplynula. Prosíme, abyste recenzi dokončili "
+"co nejdříve."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Žádost o recenzi byla předána recenzentovi. Čeká se na odpověď během "
+"<b>{$days} dnů ke datu {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Očekává se odpověď od recenzenta"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Požadavek na recenzi byl odmítnut dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Recenzent žádost o přezkum zamítl dne <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Žádost o recenzi je opožděná o {$days} dní"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Tento recenzent na žádost o recenzi nereagoval. Odpověď měla být zaslána dne "
+"<b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Probíhající recenze – požadavek byl přijat"

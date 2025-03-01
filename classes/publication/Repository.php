@@ -24,13 +24,16 @@ use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
+use PKP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
@@ -328,13 +331,31 @@ abstract class Repository
      *
      * @hook Publication::version [[&$newPublication, $publication]]
      */
-    public function version(Publication $publication): int
+    public function version(Publication $publication, ?VersionStage $versionStage = null, bool $isMinorVersion = true): int
     {
         $newPublication = clone $publication;
         $newPublication->setData('id', null);
         $newPublication->setData('datePublished', null);
         $newPublication->setData('status', Submission::STATUS_QUEUED);
-        $newPublication->setData('version', $publication->getData('version') + 1);
+
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+
+        // VersionStage Update
+        $newVersionStage = $versionStage;
+        $newIsMinorVersion = $isMinorVersion;
+
+        if (!isset($newVersionStage)) {
+            $currentVersionData = $newPublication->getCurrentVersionData();
+            if (isset($currentVersionData)) {
+                $newVersionStage = $currentVersionData->stage;
+            }
+        }
+
+        if (isset($newVersionStage)) {
+            $newVersionStage = Repo::submission()->getNextAvailableVersionData($submission, $newVersionStage, $newIsMinorVersion);
+            $newPublication->setVersionData($newVersionStage);
+        }
+
         $newPublication->stampModified();
 
         $request = Application::get()->getRequest();
@@ -379,8 +400,6 @@ abstract class Repository
         $newPublication = Repo::publication()->get($newPublication->getId());
 
         Hook::call('Publication::version', [&$newPublication, $publication]);
-
-        $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -499,6 +518,12 @@ abstract class Repository
                     $newPublication
                 )
             );
+        }
+
+        // Update publication version data
+        $currentVersionData = $newPublication->getCurrentVersionData();
+        if (!isset($currentVersionData)) {
+            $this->updateVersionData($newPublication, VersionStage::VERSION_OF_RECORD, false);
         }
 
         Hook::call('Publication::publish::before', [&$newPublication, $publication]);
@@ -660,6 +685,66 @@ abstract class Repository
         Repo::submission()->updateStatus($submission, null, $section);
 
         Hook::call('Publication::delete', [&$publication]);
+    }
+
+    /**
+     * Given a Version Stage and a flag of whether the Version isMinor, 
+     * the publication's related data is being updated
+     *
+     * @hook 'Publication::updateVersionData::before' [[ &$newPublication, $publication ]]
+     */
+    public function updateVersionData(Publication $publication, VersionStage $versioningStage, bool $isMinor = true): Publication
+    {
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $nextAvailableVersionStage = Repo::submission()->getNextAvailableVersionData($submission, $versioningStage, $isMinor);
+
+        $newPublication = clone $publication;
+        $newPublication->setData('versionIsMinor', $isMinor);
+        $newPublication->setVersionData($nextAvailableVersionStage);
+
+        $newPublication->stampModified();
+        Hook::call(
+            'Publication::updateVersionData::before',
+            [
+                &$newPublication,
+                $publication
+            ]
+        );
+
+        $this->dao->update($newPublication);
+
+        $newPublication = Repo::publication()->get($newPublication->getId());
+
+        return $newPublication;
+    }
+
+    /**
+     * Get the string that describes the 
+     * given publication's version.
+     */
+    public function getVersionDataDisplay(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string 
+    {
+        $currentVersionStage = $publication->getCurrentVersionData();
+
+        if (!isset($currentVersionStage)) {
+            if (!isset($submissionContext)) {
+                if (!isset($submission)) {
+                    $submission = Repo::submission()->get($publication->getData('submissionId'));
+                }
+
+                $submissionContext = app()->get('context')->get($submission->getData('contextId'));
+            }
+
+            $dateFormatShort = PKPString::convertStrftimeFormat($submissionContext->getLocalizedDateFormatShort());
+
+            return __('publication.versionStage.unassignedVersion', [
+                'publicationCreatedDate' => (new \Carbon\Carbon($publication->getData('lastModified')))
+                    ->locale(Locale::getLocale())
+                    ->translatedFormat($dateFormatShort),
+            ]);
+        }
+
+        return $currentVersionStage->display();
     }
 
     /**

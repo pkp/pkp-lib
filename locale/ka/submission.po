@@ -41,7 +41,116 @@ msgstr "შეტანა, როგორც"
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "აირჩიეთ როლი, რომელიც საუკეთესოდ აღწერს თქვენს წვლილს ამ წარდგენაში."
 
+<<<<<<< HEAD
 msgid "submission.submit.managerUserGroupsDescription"
+=======
+msgid "submission.submission"
+msgstr "ახალი შენატანი"
+
+msgid "metadata.property.displayName.date"
+msgstr "გამოქვეყნების თარიღი"
+
+msgid "metadata.property.displayName.issue"
+msgstr "გამოცემა"
+
+msgid "metadata.property.displayName.volume"
+msgstr "ტომი"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "გამომცემლის ადგილმდებარეობა"
+
+msgid "metadata.property.displayName.issn"
+msgstr "ბეჭდვითი ISSN"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "ქვესათაური"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "აბსტრაქტი"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "მიუნიჭებელი"
+
+msgid "common.queue.long.myAssigned"
+msgstr "ჩემზე მინიჭებული"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "დაარქივებული შენატანები"
+
+msgid "submission.changeComments"
+msgstr "შეცვლილია"
+
+msgid "submission.changeFile"
+msgstr "ფაილის შეცვლა"
+
+msgid "submission.copyedited"
+msgstr "ლიტერატურული ჩასწორება გაიარა"
+
+msgid "submission.copyediting"
+msgstr "ლიტერატურული რედაქტირება"
+
+msgid "submission.editorial"
+msgstr "ლიტერატურული რედაქტირება"
+
+msgid "submission.history.submissionEventLog"
+msgstr "ღონისძიების ჟურნალი"
+
+msgid "submission.identifiers"
+msgstr "იდენტიფიკატორები"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "წარდგენის ინფორმაცია"
+
+msgid "submission.layout.galleys"
+msgstr "სვეტები"
+
+msgid "submission.list.reviewComplete"
+msgstr "რეცენზია წარდგენილია"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "სათაური (ა-ჰ)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "სათაური (ჰ-ა)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "გამოქვეყნების თარიღი (ჯერ უფრო ძველი)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "გამოქვეყნების თარიღი (ჯერ უფრო ახალი)"
+
+msgid "category.noItems"
+msgstr "ამ განყოფილებაში ჯერ არაფერი გამოქვეყნებულა."
+
+msgid "submissions.noSubmissions"
+msgstr "არ არის გაგზავნილი მასალები"
+
+msgid "submission.indexingInformation"
+msgstr "ინფორმაცია ინდექსაციისათვის"
+
+msgid "submission.submit.addAuthor"
+msgstr "წევრის დამატება"
+
+msgid "submission.status.review"
+msgstr "რეცენზირების რეჟიმში"
+
+msgid "submission.status.unassigned"
+msgstr "მიუნიჭებელი"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "წარდგენა მიღებულია."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "გაგზავნა უარყოფილია."
+
+msgid "editor.submission.participant"
+msgstr "მონაწილე"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "მონაწილის დანიშვნა"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+>>>>>>> 7731e41a09 (pkp/pkp-lib#5932 Align URL structure for browsing across all applications)
 msgstr ""
 
 msgid "submission.submit.submissionChecklist"

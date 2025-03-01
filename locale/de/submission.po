@@ -2622,7 +2622,7 @@ msgstr "Aktuelles Bild"
 msgid "catalog.category.noItems"
 msgstr "In dieser Kategorie wurde noch nichts veröffentlicht."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Unterkategorien"
 
 msgid "publication.contributors"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-01 19:33+0000\n"
+"PO-Revision-Date: 2025-03-01 20:10+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2984,3 +2984,17 @@ msgstr "Povoleno pouze doporučit redakční rozhodnutí"
 
 msgid "workflow.stageNotStarted"
 msgstr "Fáze {$stage} nebyla doposud zahájena."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "V současné době se podání nachází ve fázi {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Podání postoupilo do dalšího kola hodnocení, bylo přijato a v současné době "
+"se nachází ve fázi {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Předložené podání bylo postoupeno do dalšího recenzního kola"
+
+msgid "workflow.reviewRoundN"
+msgstr "Recenzní kolo č. {$number}"

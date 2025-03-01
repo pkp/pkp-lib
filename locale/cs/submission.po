@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-01 19:19+0000\n"
+"PO-Revision-Date: 2025-03-01 19:30+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2905,3 +2905,66 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Recenze je zpožděna o {$days} dnů"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Očekává se odpověď od recenzenta"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Žádost o recenzi byla znovu sdílena s recenzentem. Čeká se na odpověď během "
+"{$days} dnů k datu {$date}"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Datum pro ukončení úprav"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Odmítnuto během fáze {$stageName}."
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Tento recenzent recenzi nedokončil. Odpověď měla být zaslána dne "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Recenze byla ukončena dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Recenze byla dokončena dne {$date} s následujícím doporučením: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Recenze byla potvrzena redaktorem"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Recenze byla přijata redakcí dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recenzent zrušil požadavek na recenzi"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recenzent zrušil žádost o recenzi dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Zobrazit podrobnosti"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Opětovné odeslání žádosti o recenzi"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Zrušit recenzenta"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Zrušení přiřazení"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Zobrazit doporučení"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Zobrazit nepřečtená doporučení"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Odeslad recenzi do ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Odeslat tuto recenzi do recenzentova ORCIDu?"

@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-01-04 15:39+0000\n"
+"PO-Revision-Date: 2025-03-01 18:18+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -29,12 +29,11 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Byly nahrány nové recenze a nyní je posuzuje redaktor."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Jeden nebo více recenzentů zmeškalo termín. Redakční tým byl upozorněn a "
-"přijme opatření, aby zajistil dokončení recenzí. V tuto chvíli nemusíte "
-"podnikat žádné kroky. Až bude učiněno rozhodnutí, budete upozorněni."
+"Jeden nebo více recenzentů zmeškalo termín. Redakce o tom ví a zajistí "
+"dokončení recenzí. V tuto chvíli není třeba podnikat žádné kroky. Jakmile "
+"bude rozhodnuto, budete informováni."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Zaslat příspěvek jako"
@@ -1305,16 +1304,16 @@ msgstr "Byly vyžádány úpravy rukopisu."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Úpravy rukopisu byly odevzdány a je třeba udělat rozhodnutí."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Příspěvek musí být znovu podán do dalšího recenzního kola."
+msgstr ""
+"Úpravy vyžádané od autora, které budou postoupeny do nového kola recenzního "
+"řízení."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Příspěvek byl znovu nahrán pro další kolo recenzí."
+msgstr "Opravy byly nahrány. Je třeba vytvořit nové kolo recenzí."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Odesláno k externí recenzi."
+msgstr "Odesláno pro externí recenzi."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Příspěvek přijat."
@@ -1331,9 +1330,8 @@ msgstr "Čeká se na odpovědi recenzentů."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Byly odevzdány nové recenze."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Recenze byly ukončeny."
+msgstr "Všechny recenze jsou potvrzeny a je třeba přijmout rozhodnutí."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Vypršel termín pro recenzi."
@@ -2735,3 +2733,137 @@ msgstr "Střet zájmů"
 msgid "author.competingInterests.description"
 msgstr ""
 "Uveďte prosím veškeré střety zájmu, které může mít autor s předmětem výzkumu."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Uveďte prosím název afiliace v primární národní lokalizaci podání."
+
+msgid "ror.nameRequired"
+msgstr "Je požadováno ROR jméno."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Je vyžadována národní lokalizace zobrazení ROR."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Podání bylo zrušeno"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Zrušit podání"
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "Vše na stole/počáteční kontrola"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Vše v rámci peer review"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Čeká na recenze"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Odevzdané recenze"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Recenze po termínu"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Vše ve fázi copyeditování"
+
+msgid "submission.dashboard.view.production"
+msgstr "Vše ve fázi produkce"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Plánované zveřejnění"
+
+msgid "submission.dashboard.view.published"
+msgstr "Zveřejněno"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Odmítnuto"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Požadované úpravy"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Uveďte příslušnost k ROR nebo alespoň jeden název příslušnosti."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Podání bylo zrušeno a všechny související údaje byly odstraněny."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Jedná se o primární jazyk podání. Jeho změna bude mít vliv na podání a "
+"zadaná metadata"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Před změnou jazyka podání se ujistěte, že jste vyplnili následující "
+"pole metadat, aby byla zachována integrita systému. Upozorňujeme také, že "
+"informace o přispěvateli a názvy souborů budou zkopírovány z dříve zadaných "
+"informací.</strong>"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Opravdu si přejete toto podání zrušit? Tím dojde ke smazání podání a všech "
+"souvisejících údajů. Tuto akci nelze vrátit zpět."
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "Potřeby recenzentů"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Návrh na recenzenty"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Pro toto podání nebyli navrženi žádní recenzenti."
+
+msgid "author.authorNotFound"
+msgstr "Autora pro tuto afiliaci se nepodařilo najít."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Návrhy recenzenta"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Chybí název afiliace v {$language} pro jednu nebo více afiliací jednoho nebo "
+"více přispěvatelů."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Přiřazeno mně"
+
+msgid "submission.review.status.viewed"
+msgstr "Redaktor si recenzi prohlédl."
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktivní podání"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Aktuální jazyk podání:"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Potřebuje redaktora"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Doporučení bylo předloženo vámi."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Recenzenti navržení autorem"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Změnit"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Změnit jazyk podání pro"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Zde zadejte název příspěvku v {$language}. Název můžete formátovat podle "
+"potřeby"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Doporučuje se uvádět abstrakt v {$language}. Pomůže to zajistit, aby byl "
+"obsah přístupný"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Zobrazit shrnutí příspěvku"
+
+msgid "submission.list.completeSubmission"
+msgstr "Dokončit příspěvek"

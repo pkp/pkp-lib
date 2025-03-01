@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-20 19:37+0000\n"
+"PO-Revision-Date: 2025-03-01 12:17+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -940,7 +940,7 @@ msgid "common.upload"
 msgstr "संक्रमित (अपलोड) करा"
 
 msgid "common.uploadFailed"
-msgstr "फाईल संक्रमित (अपलोड) किंवा त्यात सुधारणा (revise) करता आली नाही."
+msgstr "फाईलचे संक्रमण (अपलोड) किंवा फेरसंक्रमण (revise) करता आलेले नाही."
 
 msgid "common.up"
 msgstr "वर"

@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-16 10:39+0000\n"
+"PO-Revision-Date: 2025-03-01 07:13+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/locale/cs/>\n"
 "Language: cs\n"
@@ -481,7 +481,6 @@ msgstr ""
 "na serverech, které nespravujete.</li>\t\t</ul>\tTento úkol musí provést "
 "správce webu."
 
-#, fuzzy
 msgid "installer.upgradeInstructions"
 msgstr ""
 "<h4>Verze OPS {$version}</h4>\n"

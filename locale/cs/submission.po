@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-01 19:30+0000\n"
+"PO-Revision-Date: 2025-03-01 19:33+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2968,3 +2968,19 @@ msgstr "Odeslad recenzi do ORCID"
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
 msgstr "Odeslat tuto recenzi do recenzentova ORCIDu?"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Doporučující redaktoři mají za úkol doporučit další kroky pro toto podání"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Bylo obdrženo redakční doporučení"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Všechna redakční doporučení byla přijata a je třeba rozhodnout."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Povoleno pouze doporučit redakční rozhodnutí"
+
+msgid "workflow.stageNotStarted"
+msgstr "Fáze {$stage} nebyla doposud zahájena."

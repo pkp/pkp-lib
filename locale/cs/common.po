@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2025-02-28 14:55+0000\n"
+"PO-Revision-Date: 2025-03-01 10:45+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/cs/"
 ">\n"
@@ -2316,3 +2316,87 @@ msgstr "Aplikace spuštěná v režimu sandbox (pískoviště)."
 
 msgid "common.assignments"
 msgstr "Úkoly"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Zobrazit <a href=\"{$url}\">redakční historii</a>"
+
+msgid "common.moreActions"
+msgstr "Další akce"
+
+msgid "common.editorialMasthead"
+msgstr "Redakční hlavička"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Odborní recenzenti v předchozím roce"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Odborní recenzenti v minulých letech"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Redakce vyjadřuje poděkování níže uvedeným recenzentům za {$year}."
+
+msgid "common.editorialHistory"
+msgstr "Redakční historie"
+
+msgid "common.editorialHistory.page"
+msgstr "Stránka Historie redakce"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Tato část obsahuje seznam dřívějších přispěvatelů."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Zobrazit {$name} profil ORCID"
+
+msgid "common.filtersClear"
+msgstr "Vymazat filtry"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Načteno"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Zjištěno {$count} chyb! Než budete pokračovat, opravte prosím níže uvedené "
+"chyby."
+
+msgid "navigation.mySubmissions"
+msgstr "Mé podání"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Recenze předložena na"
+
+msgid "validator.multilingual"
+msgstr "Požadavek na vícejazyčnost není pro toto pole splněn."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ne"
+
+msgid "common.refreshingData"
+msgstr "Obnovení dat"
+
+msgid "common.viewMoreDetails"
+msgstr "Zobrazit více podrobností"
+
+msgid "common.showingXofX"
+msgstr "Zobrazení <strong>{$start} do {$finish}</strong> z {$total}"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Zjištěna 1 chyba! Než budete pokračovat, opravte prosím níže uvedenou chybu."
+
+msgid "navigation.dashboards"
+msgstr "Ovládací panely"
+
+msgid "navigation.reviewAssignments"
+msgstr "Přehled úkolů"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Přijata recenze na"
+
+msgid "validator.date.comparison"
+msgstr "Neplatná data uvedená pro srovnání."

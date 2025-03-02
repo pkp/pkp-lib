@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"PO-Revision-Date: 2025-03-02 09:11+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/cs/"
 ">\n"
@@ -566,3 +566,42 @@ msgstr "orcidRequestAuthorAuthorization"
 
 msgid "orcid.orcidCollectAuthorId.name"
 msgstr "orcidCollectAuthorId"
+
+msgid "emails.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Tento e-mail je zasílán uživatelům, kteří požádají o změnu své e-mailové "
+"adresy."
+
+msgid "emails.orcidRequestUpdateScope.description"
+msgstr "Tento e-mail je odeslán s žádostí o rozsah API OAuth pro člena ORCID."
+
+msgid "emails.orcidRequestUpdateScope.subject"
+msgstr "Žádost o aktualizovaný přístup k záznamům ORCID"
+
+msgid "emails.changeProfileEmailInvitationNotify.subject"
+msgstr "Potvrzení žádosti o změnu kontaktního e-mailu účtu"
+
+msgid "emails.changeProfileEmailInvitationNotify.body"
+msgstr ""
+"<p>Vážený/á {$recipientName},</p><p>Tento e-mail je zasílán uživateli, který "
+"požádal o změnu své e-mailové adresy na {$newEmail}.</p><p>Pokud jste o "
+"změnu požádali, <a href=\"{$acceptInvitationUrl}\">potvrďte,</a> prosím, "
+"změnu emailu.</p><p>Vždy můžete <a href=\"{$declineInvitationUrl}\""
+">odmítnout</a> tuto změnu emailu.</p><p>V případě jakýchkoli dotazů "
+"týkajících se podání nebo recenzního řízení se na mě prosím obraťte.</p><p>S "
+"pozdravem,</p>{$siteContactName}"
+
+msgid "orcid.orcidRequestUpdateScope.name"
+msgstr "orcidRequestUpdateScope"
+
+msgid "mailable.userRoleEndNotify.name"
+msgstr "Oznámení o ukončení uživatelské role"
+
+msgid "mailable.userRoleEndNotify.description"
+msgstr "E-mailové oznámení zaslané uživateli při odebrání role."
+
+msgid "emails.userRoleEndNotify.subject"
+msgstr "Byli jste odvoláni z role"
+
+msgid "emailTemplate.variable.userRoleEnd.roleRemoved"
+msgstr "Toto je název odebrané role uživatele"

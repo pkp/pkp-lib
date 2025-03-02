@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-02 15:50+0000\n"
+"PO-Revision-Date: 2025-03-02 18:27+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -2401,3 +2401,12 @@ msgstr "Неправильні дати для порівняння."
 
 msgid "validator.multilingual"
 msgstr "Для цього поля не виконується вимога щодо багатомовності."
+
+msgid "common.numero"
+msgstr "Ні"
+
+msgid "common.refreshingData"
+msgstr "Оновлення даних"
+
+msgid "common.viewMoreDetails"
+msgstr "Переглянути більше деталей"

@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-03-02 15:46+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -77,7 +77,7 @@ msgid "announcement.postedOn"
 msgstr "Опубліковано {$postDate}"
 
 msgid "announcement.view"
-msgstr "Дивитися оголошення"
+msgstr "Переглянути оголошення"
 
 msgid "common.allDownloads"
 msgstr "Усі завантаження"
@@ -682,10 +682,10 @@ msgid "common.pagination.goToPage"
 msgstr "Перейти до {$page}"
 
 msgid "common.pagination.next"
-msgstr "Наступна сторінка"
+msgstr "Наступна"
 
 msgid "common.pagination.previous"
-msgstr "Попередня сторінка"
+msgstr "Попередня"
 
 msgid "common.pageNumber"
 msgstr "Сторінка {$pageNumber}"
@@ -2320,3 +2320,63 @@ msgstr "Показати менше"
 
 msgid "common.sandbox"
 msgstr "Програма працює в режимі пісочниці."
+
+msgid "common.moreActions"
+msgstr "Більше дій"
+
+msgid "common.editorialMasthead"
+msgstr "Редакційний банер"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Рецензенти в попередньому році"
+
+msgid "common.editorialHistory"
+msgstr "Редакційна історія"
+
+msgid "common.editorialHistory.page.description"
+msgstr "У цьому розділі перераховано колишніх учасників."
+
+msgid "common.loaded"
+msgstr "Завантажено"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Переглянути <a href=\"{$url}\">історію редагування</a>"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Рецензенти за минулі роки"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Редактори висловлюють свою вдячність указаним нижче рецензентам за {$year} "
+"рік."
+
+msgid "common.editorialHistory.page"
+msgstr "Сторінка редакційної історії"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Переглянути профіль ORCID {$name}"
+
+msgid "common.assignments"
+msgstr "Призначення"
+
+msgid "common.filtersClear"
+msgstr "Очистити фільтри"
+
+msgid "common.showingXofX"
+msgstr "Показано з <strong>{$start} до {$finish}</strong> із {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Виявлено 1 помилку! Перш ніж продовжити, виправте, будь ласка, наведену "
+"нижче помилку."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Виявлено {$count} помилок! Перш ніж продовжити, виправте, будь ласка, "
+"наведені нижче помилки."
+
+msgid "navigation.dashboards"
+msgstr "Приладові панелі"

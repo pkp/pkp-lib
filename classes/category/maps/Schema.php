@@ -95,6 +95,24 @@ class Schema extends \PKP\core\maps\Schema
                 case 'image':
                     $output['image'] = $category->getImage();
                     break;
+                case 'assignedEditors':
+                    $users = Repo::user()
+                        ->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByRoleIds(Category::$ASSIGNABLE_ROLES)
+                        ->assignedToCategoryIds([$category->getId()])
+                        ->getMany();
+
+                    $output['assignedEditors'] = [];
+
+                    foreach ($users as $user) {
+                        $output['assignedEditors'][] = [
+                            'id' => $user->getId(),
+                            'name' => $user->getFullName(),
+                            'editorDisplayInitials' => $user->getDisplayInitials(),
+                        ];
+                    }
+                    break;
                 default:
                     $output[$prop] = $category->getData($prop);
                     break;

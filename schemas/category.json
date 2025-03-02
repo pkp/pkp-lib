@@ -109,6 +109,26 @@
 			"items": {
 				"$ref": "#/definitions/Category"
 			}
+		},
+		"assignedEditors": {
+			"type": "array",
+			"items": {
+				"types": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"apiSummary": true
+					},
+					"name": {
+						"type": "string",
+						"apiSummary": true
+					},
+					"editorDisplayInitials": {
+						"type": "string",
+						"apiSummary": true
+					}
+				}
+			}
 		}
 	}
 }

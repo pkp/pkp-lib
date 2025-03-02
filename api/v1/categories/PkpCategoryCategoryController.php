@@ -95,6 +95,7 @@ class PkpCategoryCategoryController extends PKPBaseController
             $category->setContextId($context->getId());
         } else {
             $category = Repo::category()->get($categoryId);
+            $parentId = $category->getParentId();
         }
 
         $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_EMAIL_TEMPLATE, $illuminateRequest->input());
@@ -154,13 +155,13 @@ class PkpCategoryCategoryController extends PKPBaseController
 
             $_sizeArray = getimagesize($temporaryFile->getFilePath());
             $category->setImage([
-                'name' => $fileName, // Name given to file stored on disk in old category form upload
-                'width' => $_sizeArray[0], // storing this may longer be necessary
+                'name' => $fileName,
+                'width' => $_sizeArray[0],
                 'height' => $_sizeArray[1],
                 'thumbnailName' => $thumbnail['thumbnailName'],
                 'thumbnailWidth' => $thumbnail['thumbnailWidth'],
                 'thumbnailHeight' => $thumbnail['thumbnailHeight'],
-                'uploadName' => $fileName, // old value would be => $temporaryFile->getOriginalFileName() batman.jpg
+                'uploadName' => $fileName,
                 'dateUploaded' => Core::getCurrentDate(),
             ]);
         }

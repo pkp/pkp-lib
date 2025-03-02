@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-02 15:46+0000\n"
+"PO-Revision-Date: 2025-03-02 15:50+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -2380,3 +2380,24 @@ msgstr ""
 
 msgid "navigation.dashboards"
 msgstr "Приладові панелі"
+
+msgid "navigation.reviewAssignments"
+msgstr "Переглянути призначення"
+
+msgid "navigation.mySubmissions"
+msgstr "Мої подання"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Рецензію прийнято - Увімкнено"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Рецензію прийнято - Вимкнено"
+
+msgid "validator.date.comparison"
+msgstr "Неправильні дати для порівняння."
+
+msgid "validator.multilingual"
+msgstr "Для цього поля не виконується вимога щодо багатомовності."

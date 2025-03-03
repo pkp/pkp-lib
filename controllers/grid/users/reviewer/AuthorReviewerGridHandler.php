@@ -185,7 +185,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         $templateMgr->assign([
             'submission' => $this->getSubmission(),
             'reviewAssignment' => $reviewAssignment,
-            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions($context),
+            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getOptions($context),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {

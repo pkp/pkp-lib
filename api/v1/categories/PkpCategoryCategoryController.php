@@ -229,13 +229,19 @@ class PkpCategoryCategoryController extends PKPBaseController
             return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
         }
 
-        Repo::category()->delete($category);
-        return response()->json([], Response::HTTP_OK);
-    }
+        $image = $category->getImage();
 
-    private function getAssignableRoles(): array
-    {
-        return [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
+        Repo::category()->delete($category);
+
+        if ($image) {
+            $imageName = $image['uploadName'];
+            $thumbnailName = $image['thumbnailName'];
+            $publicFileManager = new PublicFileManager();
+            $publicFileManager->removeContextFile($category->getContextId(), $imageName);
+            $publicFileManager->removeContextFile($category->getContextId(), $thumbnailName);
+        }
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     private function generateThumbnail(TemporaryFile $temporaryFile, Context $context, $categoryId, $basePath): array
@@ -246,20 +252,11 @@ class PkpCategoryCategoryController extends PKPBaseController
         $temporaryFilePath = $temporaryFile->getFilePath();
 
         // Generate the surrogate images. Used later to create thumbnail
-        switch ($_imageExtension) {
-            case '.jpg':
-            case '.jpeg':
-                $image = imagecreatefromjpeg($temporaryFilePath);
-                break;
-            case '.png':
-                $image = imagecreatefrompng($temporaryFilePath);
-                break;
-            case '.gif':
-                $image = imagecreatefromgif($temporaryFilePath);
-                break;
-            default:
-                $image = null; // Suppress warning
-        }
+        $image = match ($_imageExtension) {
+            '.jpg', '.jpeg' => imagecreatefromjpeg($temporaryFilePath),
+            '.png' => imagecreatefrompng($temporaryFilePath),
+            '.gif' => imagecreatefromgif($temporaryFilePath),
+        };
 
         $coverThumbnailsMaxWidth = $context->getData('coverThumbnailsMaxWidth');
         $coverThumbnailsMaxHeight = $context->getData('coverThumbnailsMaxHeight');
@@ -273,19 +270,15 @@ class PkpCategoryCategoryController extends PKPBaseController
         $thumbnail = imagecreatetruecolor($thumbnailWidth, $thumbnailHeight);
         imagecopyresampled($thumbnail, $image, 0, 0, 0, 0, $thumbnailWidth, $thumbnailHeight, $_sizeArray[0], $_sizeArray[1]);
 
-        // stores the thumbnail image to disk
-        switch ($_imageExtension) {
-            case '.jpg':
-            case '.jpeg':
-                imagejpeg($thumbnail, $basePath . $thumbnailFilename);
-                break;
-            case '.png':
-                imagepng($thumbnail, $basePath . $thumbnailFilename);
-                break;
-            case '.gif':
-                imagegif($thumbnail, $basePath . $thumbnailFilename);
-                break;
-        }
+        $publicFileManager = new PublicFileManager();
+
+        // store the thumbnail
+        $fullPath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $thumbnailFilename;
+        match ($_imageExtension) {
+            '.jpg', '.jpeg' => imagejpeg($thumbnail, $fullPath),
+            '.png' => imagepng($thumbnail, $fullPath),
+            '.gif' => imagegif($thumbnail, $fullPath),
+        };
 
         imagedestroy($thumbnail);
         imagedestroy($image);

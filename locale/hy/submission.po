@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Aram Mirzoyan <mirzoyan.aram@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-08 13:56+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -30,7 +30,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Նոր գրախոսություններ են ներկայացվել և դիտարկվում են խմբագրի կողմից։"
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Մեկ կամ մի քանի գրախոսներ բաց են թողել ներկայացման վերջնաժամկետը։ Խմբագրական "
@@ -2722,3 +2721,22 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Խնդրում ենք բացահայտել ցանկացած մրցակցային հետաքրքրություն, որը կարող է "
 "ունենալ այս հեղինակը հետազոտության առարկայի հետ:"
+
+msgid "author.authorNotFound"
+msgstr "Այս պատկանելիության հեղինակը չի գտնվել:"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Խնդրում ենք տրամադրել ROR պատկանելություն կամ առնվազն մեկ պատկանելության "
+"անուն:"
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Խնդրում ենք մուտքագրել պատկանելության անունը ներկայացման առաջնային "
+"տեղայինում:"
+
+msgid "ror.nameRequired"
+msgstr "Պահանջվում է ROR անունը:"
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR ցուցադրման տեղայինն է պահանջվում:"

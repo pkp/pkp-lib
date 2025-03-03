@@ -183,6 +183,5 @@ class CategoryForm extends FormComponent
 
         }
 
-        $this->addHiddenField('temporaryFileId', '');
     }
 }

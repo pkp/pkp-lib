@@ -1,7 +1,7 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-03 05:34+0000\n"
+"PO-Revision-Date: 2025-03-03 10:31+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -367,10 +367,71 @@ msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Цьому елементу DOI не може бути надано."
 
 msgid "api.400.invalidAuthorFriendlyParameter"
-msgstr "Недійсний параметр, зручний для автора."
+msgstr "Недійсний авторський параметр."
 
 msgid "api.422.routeRequestUnableToProcess"
 msgstr "Неможливо обробити запит API."
 
 msgid "api.417.routeResponseIsNull"
 msgstr "Неможливо отримати жодну очікувану відповідь."
+
+msgid "api.400.routeNotDefined"
+msgstr "Маршрут API не надано."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Ви вказали недійсний \"Тип події\", {$eventType}, для електронних листів "
+"автора."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Ви не можете вносити зміни до авторів у матеріалах, які вам не призначені."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Ця кінцева точка недоступна із загального простору імен сайту, і її потрібно "
+"запитувати для певного контексту."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Ви не можете змінити мову цього подання, оскільки воно вже має більше однієї "
+"версії публікації або опубліковану публікацію."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Матеріал для цього рецензійного призначення не знайдено."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"У запиті відсутній обов’язковий параметр запиту \"IDs\" (ідентифікатори). "
+"Будь ласка, укажіть \"IDs\" подань, які ви бажаєте видалити."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Неможливо виконати заплановану дію на ресурсі."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "Ви не можете виконати цю операцію з вимкненою функціональністю ORCID."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Запитаного автора не знайдено"
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Рецензента для призначення не знайдено"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Дійсними значеннями є лише \"прийняти\" та \"відхилити\""
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Указаного розділу не існує."
+
+msgid "api.submission.400.invalidId"
+msgstr "Недійсний ID (ідентифікатор): надано \"{$id}\"."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Форма ідентифікаторів публікації недоступна, оскільки немає ввімкнених "
+"ідентифікаторів."
+
+msgid "api.rors.404.rorNotFound"
+msgstr ""
+"ROR (РДО - Реєстр дослідницьких організацій), який ви запитували, не "
+"знайдено."

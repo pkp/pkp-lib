@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "uk/>\n"
@@ -987,3 +987,14 @@ msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Працівники вишукано звільняться після завершення виконання поточного "
 "завдання."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+"Оновити кеш набору даних реєстру ROR (Реєстру дослідницьких організацій - "
+"РДО)"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Надішліть завдання, щоб автоматично видалити прострочені запрошення"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Відобразити параметри використання AppKey"

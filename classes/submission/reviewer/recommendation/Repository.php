@@ -15,13 +15,12 @@
 namespace PKP\submission\reviewer\recommendation;
 
 use APP\services\ContextService;
-use PKP\submission\reviewer\recommendation\RecommendationOption;
-
 use Illuminate\Support\Arr;
 use Exception;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class Repository

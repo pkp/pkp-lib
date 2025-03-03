@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2025-03-03 10:31+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "sl/>\n"
@@ -726,3 +726,28 @@ msgstr "Uredi sodelavca"
 
 #~ msgid "grid.user.authSource"
 #~ msgstr "Avtentikacijski vir"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Dodajte predlog recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Odstranite predlog recenzenta"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr "Ste prepričani, da želite odstraniti ta predlog? Akcija je nepovratna."
+
+msgid "grid.user.remove"
+msgstr "Odstrani uporabnika"
+
+msgid "grid.user.logInAs"
+msgstr "Prijavi se kot"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Ko je uporabnik omogočen, pridobi dostop do spletne strani in mu lahko "
+"dodelite vloge po potrebi."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Če je uporabnik onemogočen, mu ne morete dodati vloge, dokler ni ponovno "
+"omogočen."

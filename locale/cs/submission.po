@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-03 10:31+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -3068,3 +3068,127 @@ msgstr ""
 
 msgid "submission.files.content.error"
 msgstr "Obsah souboru \"{$fileName}\" se nepodařilo načíst."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Důvody pro navržení recenzenta"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Sdělte prosím, proč tohoto recenzenta doporučujete, a uveďte, zda existuje "
+"nějaký potenciální střet zájmů."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Jazyk podání ({$language}) není jedním z podporovaných jazyků podání. "
+"Podrobnosti o podání můžete stále upravovat, ale nová podání s tímto jazykem "
+"nejsou v současné době přijímána."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Přidělení recenzenti"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Aktualizace recenze {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Použít filtry"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Začít nové podání"
+
+msgid "dashboard.assignReviewers"
+msgstr "Přiřazení recenzentů"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Úpravy požadované po autorovi"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Úpravy vyžádané od autora, které budou postoupeny do nového kola recenzního "
+"řízení"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Bude vytvořeno nové recenzní kolo"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Bude zveřejněno v čísle ${issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Nahrané copyeditované soubory: ${count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Jsou vyžadovány úpravy"
+
+msgid "dashboard.submitRevisions"
+msgstr "Odeslání úprav"
+
+msgid "workflow.uploadRevisions"
+msgstr "Nahrát úpravy"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Odpovědět na požadavek"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Ukončit recenze"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Prosím, přijměte nebo odmítněte tuto žádost do {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Požadavek odmítnut dne {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenze odeslána dne {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Lhůta pro odpověď na tuto žádost již uplynula. Prosím, přijměte nebo "
+"odmítněte tuto žádost co nejdříve."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Tuto recenzi prosím dokončete do {$date}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Soubory nahrané v době podání"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Nahrané úpravy"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Tyto soubory byly předloženy autorem po vyžádání úprav"
+
+msgid "fileManager.filesForReview"
+msgstr "Soubory k recenzi"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Tyto soubory budou zaslány recenzentům k recenzi"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Soubory pro copyediting"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Jedná se o upravené soubory, které budou převzaty do fáze produkce"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Jedná se o soubory z recenzní fáze, které budou převzaty do fáze "
+"copyeditování"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Toto jsou soubory, které budou zaslány ke zveřejnění"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status recenzenta"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Potvrzení odstranění neúplných podání"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Opravdu chcete vybrané položky odstranit? Tuto akci nelze vrátit zpět. Pro "
+"pokračování akci potvrďte."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Vyberte neúplná podání, která mají být odstraněna."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Smazat neúplná podání"

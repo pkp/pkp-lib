@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-02-22 11:01+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/cs/>"
 "\n"
@@ -954,3 +954,16 @@ msgid "admin.job.archiveLogFile.error"
 msgstr ""
 "Soubor {$file} se nepodařilo přesunout z {$dispatchFilePath} do "
 "{$archivedFilePath}."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Spuštění úlohy pro automatické odstranění prošlých pozvánek"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Zobrazení parametrů použití klíče AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Ověření aktuálního klíče aplikace, pokud byl v konfiguračním souboru nalezen"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Aktualizace mezipaměti datové sady registru Ror"

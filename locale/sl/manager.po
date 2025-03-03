@@ -1,11 +1,11 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Matevž Rudolf <matevz.rudolf@uni-lj.si>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2024-11-12 09:41+0000\n"
+"PO-Revision-Date: 2025-03-03 10:31+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"

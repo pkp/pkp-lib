@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-01 20:10+0000\n"
+"PO-Revision-Date: 2025-03-03 10:31+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2998,3 +2998,73 @@ msgstr "Předložené podání bylo postoupeno do dalšího recenzního kola"
 
 msgid "workflow.reviewRoundN"
 msgstr "Recenzní kolo č. {$number}"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revize příspěvku byly nahrány"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Nedokončené příspěvky"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Všechny úkoly"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Čeká se"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Dokončeno/ odmítnuto"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Všechny úkoly"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Akce, které jsou požadovány ode mne"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archivované"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Odmítnuté"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Hotové"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publikované"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recenze (kolo {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Naplánováno pro publikování"
+
+msgid "submission.stage.published"
+msgstr "Publikováno"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potvrdit smazání JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Chystáte se odstranit stávající soubor JATS XML z této publikace. Jste si "
+"jisti?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Smazat soubor JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Tento soubor JATS je automaticky generován metadaty podání"
+
+msgid "publication.jats.lastModified"
+msgstr "Poslední úpravu dne {$modificationDate} udělal/a {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Při pokusu o vytvoření výchozího obsahu JATS došlo k chybě. Ujistěte se, že "
+"je nainstalován zásuvný modul JatsTemplate."
+
+msgid "submission.files.content.error"
+msgstr "Obsah souboru \"{$fileName}\" se nepodařilo načíst."

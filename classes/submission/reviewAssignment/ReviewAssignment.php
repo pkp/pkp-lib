@@ -17,9 +17,10 @@
 namespace PKP\submission\reviewAssignment;
 
 use APP\core\Application;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 class ReviewAssignment extends \PKP\core\DataObject
 {
@@ -826,57 +827,14 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get an associative array matching reviewer recommendation code/value mapped to localized title.
-     * (Includes default '' => "Choose One" string.)
-     *
-     * @return array recommendation => localizedTitle
-     */
-    public static function getReviewerRecommendationOptions(
-        Context $context = null,
-        ?bool $active = true,
-        ?self $reviewAssignment = null
-    ): array
-    {
-        static $reviewerRecommendationOptions = [];
-
-        $contextService = app()->get('context'); /** @var \APP\services\ContextService $contextService */
-        
-        if (!$contextService->hasCustomizableReviewerRecommendation()) {
-            return [];
-        }
-        
-        if (!empty($reviewerRecommendationOptions)) {
-            return $reviewerRecommendationOptions;
-        }
-
-        return $reviewerRecommendationOptions = ReviewerRecommendation::query()
-            ->withContextId($context->getId())
-            ->when(!is_null($active), fn ($query) => $query->withActive($active))
-            ->when(
-                $reviewAssignment, 
-                fn ($query) => $query->orWhere(
-                    fn ($query) => $query->withRecommendations(
-                        [$reviewAssignment->getData("recommendation")]
-                    )
-                )
-            )
-            ->get()
-            ->mapWithKeys(
-                fn (ReviewerRecommendation $recommendation): array => [
-                    $recommendation->value => $recommendation->getLocalizedData('title')
-                ]
-            )
-            ->prepend(__('common.chooseOne'), '')
-            ->toArray();
-    }
-
-    /**
      * Return a localized string representing the reviewer recommendation.
      */
     public function getLocalizedRecommendation(?Context $context = null): string
     {
-        $options = static::getReviewerRecommendationOptions(
-            $context ?? Application::get()->getRequest()->getContext()
+        $options = Repo::reviewerRecommendation()->getOptions(
+            context: $context ?? Application::getContextDAO()->getById(
+                Repo::submission()->get($this->getData('submissionId'))->getData('contextId')
+            )
         );
 
         return $options[$this->getRecommendation()] ?? '';

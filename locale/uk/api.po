@@ -1,7 +1,7 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-09-05 15:30+0000\n"
+"PO-Revision-Date: 2025-03-03 05:34+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -365,3 +365,12 @@ msgstr "Виділення, яке ви запитували, не знайде�
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Цьому елементу DOI не може бути надано."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Недійсний параметр, зручний для автора."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Неможливо обробити запит API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Неможливо отримати жодну очікувану відповідь."

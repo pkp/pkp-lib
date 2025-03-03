@@ -14,11 +14,14 @@
 
 namespace PKP\submission\reviewer\recommendation;
 
+use APP\services\ContextService;
 use Illuminate\Support\Arr;
 use Exception;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\context\Context;
 use PKP\facades\Locale;
+use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class Repository
 {
@@ -50,7 +53,7 @@ class Repository
             ->exists();
         
         if ($defaultRecommendationsExists) {
-            throw new Exception('Few or all default recommendations already added for context');
+            throw new Exception('Some or all default recommendations already added for context');
         }
 
         $locales = array_merge(
@@ -80,6 +83,12 @@ class Repository
      */
     public function setLocalizedDataOnNewLocaleAdd(Context $context, string $localeToAdd, ?string $localeToCompare = null): void
     {
+        $contextService = app()->get('context'); /** @var ContextService $contextService */
+        
+        if (!$contextService->hasCustomizableReviewerRecommendation()) {
+            return;
+        }
+
         $localeToCompare ??= $context->getPrimaryLocale();
         $defaultRecommendations = $this->getDefaultRecommendations();
         $suggestions = ReviewerRecommendation::query()
@@ -115,5 +124,50 @@ class Repository
             $title[$localeToAdd] = $localeToAddTranslation;
             $suggestion->update(['title' => $title]);
         }
+    }
+
+    /**
+     * Get an associative array matching reviewer recommendation code/value mapped to localized title.
+     * (Includes default '' => "Choose One" string.)
+     *
+     * @return array recommendation => localizedTitle
+     */
+    public static function getOptions(
+        Context $context,
+        RecommendationOption $active = RecommendationOption::ACTIVE,
+        ?ReviewAssignment $reviewAssignment = null
+    ): array
+    {
+        static $reviewerRecommendationOptions = [];
+
+        $contextService = app()->get('context'); /** @var ContextService $contextService */
+        
+        if (!$contextService->hasCustomizableReviewerRecommendation()) {
+            return [];
+        }
+        
+        if (!empty($reviewerRecommendationOptions)) {
+            return $reviewerRecommendationOptions;
+        }
+
+        return $reviewerRecommendationOptions = ReviewerRecommendation::query()
+            ->withContextId($context->getId())
+            ->withActive($active)
+            ->when(
+                $reviewAssignment, 
+                fn ($query) => $query->orWhere(
+                    fn ($query) => $query->withRecommendations(
+                        [$reviewAssignment->getData("recommendation")]
+                    )
+                )
+            )
+            ->get()
+            ->mapWithKeys(
+                fn (ReviewerRecommendation $recommendation): array => [
+                    $recommendation->value => $recommendation->getLocalizedData('title')
+                ]
+            )
+            ->prepend(__('common.chooseOne'), '')
+            ->toArray();
     }
 }

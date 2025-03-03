@@ -101,10 +101,7 @@ class LanguageGridHandler extends GridHandler
                     if ($settingName == 'supportedFormLocales') {
                         // reload localized default context settings
                         $contextService->restoreLocaleDefaults($context, $request, $locale);
-                        if ($contextService->hasCustomizableReviewerRecommendation()) {
-                            /** @disregard P1014 PHP Intelephense error suppression */
-                            Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd($context, $locale);
-                        }
+                        Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd($context, $locale);
                     } elseif ($settingName == 'supportedSubmissionLocales') {
                         // if a submission locale is enabled, and this locale is not in the metadata locales, add it
                         $supportedSubmissionMetadataLocales = (array) $context->getSupportedSubmissionMetadataLocales();
@@ -199,14 +196,11 @@ class LanguageGridHandler extends GridHandler
             $contextDao = Application::getContextDAO();
             $contextDao->updateObject($context);
             
-            if ($contextService->hasCustomizableReviewerRecommendation()) {
-                /** @disregard P1014 PHP Intelephense error suppression */
-                Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd(
-                    $context,
-                    $locale,
-                    $currentPrimaryLocale
-                );
-            }
+            Repo::reviewerRecommendation()->setLocalizedDataOnNewLocaleAdd(
+                $context,
+                $locale,
+                $currentPrimaryLocale
+            );
 
             $notificationManager = new NotificationManager();
             $user = $request->getUser();

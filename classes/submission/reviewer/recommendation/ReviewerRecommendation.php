@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/classes/submission/reviewer/recommendation/ReviewerRecommendation.php
+ * @file classes/submission/reviewer/recommendation/ReviewerRecommendation.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -15,6 +15,8 @@
 namespace PKP\submission\reviewer\recommendation;
 
 use APP\facades\Repo;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
+
 use APP\core\Application;
 use PKP\core\traits\ModelWithSettings;
 use Illuminate\Database\Eloquent\Model;
@@ -182,9 +184,9 @@ class ReviewerRecommendation extends Model
     /**
      * Scope a query to filter by recommendation active status.
      */
-    public function scopeWithActive(Builder $query, bool $active = true): Builder
+    public function scopeWithActive(Builder $query, RecommendationOption $active = RecommendationOption::ACTIVE): Builder
     {
-        return $query->where('status', $active);
+        return is_null($active->criteria()) ? $query : $query->where('status', $active->criteria());
     }
 
     /**

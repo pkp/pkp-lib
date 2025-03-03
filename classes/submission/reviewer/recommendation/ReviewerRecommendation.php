@@ -186,7 +186,7 @@ class ReviewerRecommendation extends Model
      */
     public function scopeWithActive(Builder $query, RecommendationOption $active = RecommendationOption::ACTIVE): Builder
     {
-        return is_null($active) ? $query : $query->where('status', $active);
+        return is_null($active->criteria()) ? $query : $query->where('status', $active->criteria());
     }
 
     /**

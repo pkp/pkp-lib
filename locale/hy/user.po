@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-06 18:05+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -777,3 +777,33 @@ msgstr "Հայտնաբերվել են կրկնօրինակ ORCID-ներ աջակ
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Հայտնաբերվել են չվավերացված ORCiD-ներ աջակիցների համար:"
+
+msgid "user.affiliations.institution"
+msgstr "Հաստատություն"
+
+msgid "user.affiliations.translation"
+msgstr "Ավելի տեղեկություններ"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Խմբագրել հաստատության անունը"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Հեռացնել հաստատությունը"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Սեղմեք՝ խմբագրելու կամ ջնջելու համար"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Բոլոր թարգմանությունները մատչելի են"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "Ավարտված է {$count}-ը {$total} լեզուներից"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Մուտքագրեք ինստիտուտի անունը {$language} -ում"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Ստորև մուտքագրեք հաստատության լրիվ անվանումը՝ խուսափելով որևէ հապավումից: "
+"Ընտրեք անունը բացվող ցանկից և սեղմեք «Ավելացնել»՝ պատկանելությունը ձեր "
+"պրոֆիլում ներառելու համար, (օրինակ՝ \"Simon Fraser University\")"

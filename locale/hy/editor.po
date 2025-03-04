@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy/>\n"
@@ -619,3 +619,6 @@ msgstr "{$stepName} քայլի հետ կապված խնդիր առաջացավ:"
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Նույն հաստատությունը որպես հեղինակ"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Գրախոսի առաջարկներից ընտրեք գրախոս"

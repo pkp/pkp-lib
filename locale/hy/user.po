@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-03 19:43+0000\n"
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -807,3 +807,26 @@ msgstr ""
 "Ստորև մուտքագրեք հաստատության լրիվ անվանումը՝ խուսափելով որևէ հապավումից: "
 "Ընտրեք անունը բացվող ցանկից և սեղմեք «Ավելացնել»՝ պատկանելությունը ձեր "
 "պրոֆիլում ներառելու համար, (օրինակ՝ \"Simon Fraser University\")"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Հաստատության անունը {$language} -ում"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "<strong>{$affiliation}</strong> պատկանելությունը կջնջվի:"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Մուտքագրեք հաստատության անունը {$language} -ով"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Որոնման ձեր արտահայտությունը չհաջողվեց գտնել"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Հիմնական լեզուն {$primaryLocale} պարտադիր է"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Վստա՞հ ես։"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Ավարտված ներկայացման համար գրախոսի առաջարկի ավելացումը, թարմացումը կամ "
+"ջնջումը սահմանափակված է:"

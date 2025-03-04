@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-22 11:01+0000\n"
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -969,3 +969,6 @@ msgstr "Վերագործարկեք queue worker daemons-ները իրենց ըն
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Աշխատողները նրբորեն կհեռանան ընթացիկ աշխատանքի կատարումն ավարտելուց հետո:"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Թարմացրեք Ror ռեեստրի տվյալների քեշը"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2025-03-04 18:51+0000\n"
+"PO-Revision-Date: 2025-03-04 19:22+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl/>\n"
@@ -1038,3 +1038,37 @@ msgid "admin.cli.tool.appKey.error.InvalidAppKey"
 msgstr ""
 "Nastavljen je neveljaven aplikacijski ključ, nepodprta šifra ali napačna "
 "dolžina ključa. Podprte šifre so: {$ciphers}."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Prikaz parametrov uporabe razporejevalnika."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Ali ste imeli v mislih eno od naslednjih možnosti?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Izvajanje načrtovanih opravil vsako minuto."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Registrirana niso bila nobena načrtovana opravila."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Zaženite izbrano opravilo iz načrtovanega seznama ali uporabite opcijo --"
+"name da zaženete izbrano opravilo. Izberite opcijo --no-scroll, da vidite "
+"celotno listo brez pomikanja."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Načrtovanih opravil ni mogoče zagnati, ker je aplikacija v načinu "
+"vzdrževanja."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Načrtovanih opravil ni mogoče zagnati, ker aplikacija deluje v načinu "
+"peskovnika."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Ustreznega načrtovanega opravila ni bilo mogoče najti."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Kateri ukaz želite zagnati?"

@@ -291,24 +291,16 @@ abstract class Collector implements CollectorInterface, ViewsCount
      * Limit results to submissions assigned to these users
      *
      * @param int|array $assignedTo An array of user IDs
+     * @param ?int[] $withRoles An array of user IDs
      */
-    public function assignedTo($assignedTo): AppCollector
+    public function assignedTo($assignedTo, ?array $withRoles = null): AppCollector
     {
         $this->assignedTo = $assignedTo;
-        return $this;
-    }
 
-
-    /**
-     * Limit results to submissions assigned to these role Ids, available only together with assignedTo
-     *
-     * @param int|array $assignedWithRoles An array of role IDs
-     */
-    public function assignedWithRoles($assignedWithRoles): AppCollector
-    {
-        if(is_array($assignedWithRoles) && !empty($assignedWithRoles)) {
-            $this->assignedWithRoles = $assignedWithRoles;
+        if(is_array($withRoles) && !empty($withRoles)) {
+            $this->assignedWithRoles = $withRoles;
         }
+
         return $this;
     }
 
@@ -316,27 +308,17 @@ abstract class Collector implements CollectorInterface, ViewsCount
      * Limit results to submissions not assigned to these users
      *
      * @param int|array $notAssignedTo An array of user IDs
+     * @param ?int[] $withRoles An array of user IDs
      */
-    public function notAssignedTo($notAssignedTo): AppCollector
+    public function notAssignedTo($notAssignedTo, ?array $withRoles = null): AppCollector
     {
         $this->notAssignedTo = $notAssignedTo;
-        return $this;
-    }
-
-    /**
-     * Limit results to submissions not assigned to these role Ids, available only together with notAssignedTo
-     *
-     * @param int|array $notAssignedWithRoles An array of role IDs
-     */
-    public function notAssignedWithRoles($notAssignedWithRoles): AppCollector
-    {
-        if(is_array($notAssignedWithRoles) && !empty($notAssignedWithRoles)) {
-            $this->notAssignedWithRoles = $notAssignedWithRoles;
+        if(is_array($withRoles) && !empty($withRoles)) {
+            $this->assignedWithRoles = $withRoles;
         }
+
         return $this;
     }
-
-
 
     /**
      * Limit results to submissions currently being reviewed by this users
@@ -763,7 +745,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
         // by default are included for backward compatibility
         // its only excluded when explicitly assignedWithRoles defines roles, but exclude ROLE_ID_REVIEWER 
         $includeReviewerAssignment = (!$assignedWithRoles) || ($assignedWithRoles && in_array(Role::ROLE_ID_REVIEWER, $assignedWithRoles));
-        error_log('shiiit');
         $q->select('s.submission_id')
             ->from('submissions AS s')
             ->leftJoin(

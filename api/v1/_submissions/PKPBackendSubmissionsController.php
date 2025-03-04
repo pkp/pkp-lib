@@ -196,13 +196,13 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $collector = $this->getSubmissionCollector($queryParams);
 
         // Excluded submissions where the journal manager is assigned as author/reviewer
-        $collector->notAssignedTo([$currentUser->getId()]);
-        $collector->notAssignedWithRoles([Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR]);
+        $collector->notAssignedTo([$currentUser->getId()], [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR]);
 
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
-                    $collector->assignedTo(array_map(intval(...), paramToArray($val)));
+                    // this is specifically used for assigned editors
+                    $collector->assignedTo(array_map(intval(...), paramToArray($val)), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                     break;
             }
         }
@@ -261,10 +261,11 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
 
         $collector = $this->getSubmissionCollector($illuminateRequest->query());
+        $queryParams = $illuminateRequest->query();
 
         $submissions = $collector
             ->filterByContextIds([$context->getId()])
-            ->assignedTo([$user->getId()])
+            ->assignedTo([$user->getId()], $queryParams['assignedWithRoles'] ?? null)
             ->getMany();
 
         $contextId = $context->getId();
@@ -310,7 +311,9 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         // limit results depending on a role
 
         if (!$this->canAccessAllSubmissions()) {
-            $collector->assignedTo([$currentUser->getId()]);
+            $collector->assignedTo([$currentUser->getId()], $queryParams['assignedWithRoles'] ?? null);
+        } else {
+            $collector->notAssignedTo([$currentUser->getId()], [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR]);
         }
 
         foreach ($queryParams as $param => $val) {
@@ -604,10 +607,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
                     break;
-                case 'assignedWithRoles':
-                    $collector->assignedWithRoles($val);
-                    break;
-
             }
         }
 

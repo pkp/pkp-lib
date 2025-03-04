@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-03-04 18:51+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/hy/>\n"
@@ -240,3 +240,37 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Տարբեր կարգավորումներ"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"`app_key` անունով կազմաձևման փոփոխականը սահմանված չէ «ընդհանուր» բաժնում: "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"`app_key` անունով կազմաձևման փոփոխականն արդեն սահմանված է «ընդհանուր» "
+"բաժնում: "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Հնարավոր չէ վերլուծել կազմաձևման նիշքը:"
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Հնարավոր չէ գրել հավելվածի բանալու փոփոխականը կազմաձևման նիշքում:"
+
+msgid "installer.appKey.write.error"
+msgstr "Անհնար է գրել հավելվածի բանալին կազմաձևման նիշքում:"
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Խնդրում ենք ձեռքով ավելացնել `app_key` անունով կազմաձևման փոփոխականը՝ "
+"«ընդհանուր» բաժնում կամ գործարկել `php lib/pkp/tools/appKey.php configure` "
+"հրամանը՝ այն CLI-ից կարգավորելու համար:"
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Անհնար է կարդալ կազմաձևման նիշքը կամ նիշքը գոյություն չունի սպասվող ուղու "
+"վրա: "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Չաջակցվող ծածկագիր կամ բանալու սխալ երկարություն: Աջակցվող ծածկագրերն են՝ "
+"{$ciphers}:"

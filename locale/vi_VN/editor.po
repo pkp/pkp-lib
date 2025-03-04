@@ -123,7 +123,7 @@ msgid "editor.submissionReview.sendEmail"
 msgstr "Gửi thông báo qua email cho (các) tác giả: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Gửi thông báo qua email tới (các) Biên tập viên: {$ editorNames}"
+msgstr "Gửi thông báo qua email tới (các) Biên tập viên: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Không gửi (bỏ qua) email thông báo"

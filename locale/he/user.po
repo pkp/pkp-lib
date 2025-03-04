@@ -1,3 +1,231 @@
 # Emma U <emmaupkp@gmail.com>, 2025.
+# Michal Pinkas <pinkasm@bgu.ac.il>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
+"Last-Translator: Michal Pinkas <pinkasm@bgu.ac.il>\n"
+"Language-Team: Hebrew <http://translate.pkp.sfu.ca/projects/pkp-lib/user/he/>"
+"\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 4.18.2\n"
+
+#, fuzzy
+msgid "user.affiliation"
+msgstr "השתייכות ארגונית"
+
+#, fuzzy
+msgid "user.affiliation.description"
+msgstr "(הארגון שלך, למשל: \"אוניברסיטת תל אביב\")"
+
+#, fuzzy
+msgid "user.affiliations"
+msgstr "השתייכויות ארגוניות"
+
+msgid "user.accountInformation"
+msgstr "מידע על החשבון"
+
+#, fuzzy
+msgid "user.affiliations.description"
+msgstr ""
+"הכנס שם מלא של המוסד למטה, יש להימנע מראשי תיבות. בחר.י את השם מהטבלה והקש "
+"\"הוסף\" כדי לכלול את ההשתייכות הארגונית לפרופיל שלך (למשל: \"אוניברסיטת תל "
+"אביב\")"
+
+msgid "user.affiliations.institution"
+msgstr "מוסד"
+
+msgid "user.affiliations.translation"
+msgstr "מידע נוסף"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "ערוך את שם המוסד"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "הסר את המוסד"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "הקש לעריכה או למחיקה"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "כל התרגומים זמינים"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "הקלד את שם המוסד ב{$שפה}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "האם את.ה בטוח.ה?"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "מונח החיפוש לא נמצא"
+
+msgid "user.authorization.accessDenied"
+msgstr "הגישה נדחתה."
+
+#, fuzzy
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "תהליך ההזדהות חסר או לא תקף."
+
+msgid "user.authorization.loginRequired"
+msgstr "נדרשת כניסה למערכת."
+
+msgid "user.authorization.privateOperation"
+msgstr "הפעולה שניסית לעשות פרטית או לא קיימת."
+
+#, fuzzy
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "הגישה למערכת נדחתה. הגישה מוגבלת כרגע."
+
+msgid "user.changePassword"
+msgstr "החלף סיסמה"
+
+#, fuzzy
+msgid "user.dateRegistered"
+msgstr "תאריך הרשמה"
+
+msgid "user.email"
+msgstr "דוא\"ל"
+
+msgid "user.givenName"
+msgstr "שם פרטי"
+
+#, fuzzy
+msgid "user.interests"
+msgstr "תחומי עניין"
+
+msgid "user.gossip"
+msgstr "הערות המערכת"
+
+msgid "user.group"
+msgstr "קבוצת משתמשים"
+
+msgid "user.familyName"
+msgstr "שם משפחה"
+
+#, fuzzy
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"תמונת פרופיל לא תקינה. הפורמטים האפשריים: gif, .jpg, png, מימדי התמונה לא "
+"יעלו על 150X150 פיקסלים"
+
+#, fuzzy
+msgid "user.login.accountDisabledWithReason"
+msgstr "חשבונך הושבת מהסיבה: {$סיבה}"
+
+msgid "user.login.accountDisabled"
+msgstr "חשבונך הושבת. אנא פנה למנהל האתר לפרטים נוספים."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"נשלח דוא\"ל לאישור {$מייל}. אנא עקוב אחרי ההנחיות בדוא\"ל כדי להפעיל את "
+"החשבון החדש. במידה ואינך רואה את הדוא\"ל, בדוק את תיבת הספאם."
+
+msgid "user.login.activate"
+msgstr "הפעל חשבון"
+
+msgid "user.login.activated"
+msgstr ""
+"תודה על הפעלת החשבון האישי. באפשרותך להיכנס לחשבון עם הנתונים איתם נרשמת."
+
+#, fuzzy
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"יש לבחור סיסמה חדשה לפני הכניסה לחשבון האישי. יש להכניס את שם בעל החשבון ואת "
+"הסיסמה הנוכחית ולהחליף אותה בסיסמה חדשה."
+
+msgid "user.profile.form.emailRequired"
+msgstr "נדרש דוא\"ל תקף."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "הסיסמה בה השתמשת שגויה."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "חובה לאשר את תנאי הצהרת הפרטיות."
+
+msgid "user.profile.newPassword"
+msgstr "סיסמה חדשה"
+
+msgid "user.profile.oldPassword"
+msgstr "סיסמה נוכחית"
+
+msgid "user.profile"
+msgstr "פרופיל"
+
+msgid "user.profile.publicProfile"
+msgstr "פרופיל משתמש"
+
+msgid "user.name"
+msgstr "שם"
+
+msgid "user.password"
+msgstr "סיסמה"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "חזור על הסיסמה החדשה"
+
+msgid "user.login.registerNewAccount"
+msgstr "הרשמה"
+
+msgid "user.repeatPassword"
+msgstr "חזור על הסיסמה"
+
+msgid "user.register.form.emailConsent"
+msgstr "כן, אשמח לקבל עדכונים על פרסומים חדשים והודעות."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "הסיסמאות לא תואמות."
+
+msgid "user.phone"
+msgstr "טלפון"
+
+msgid "user.profile.editProfile"
+msgstr "ערוך פרופיל"
+
+msgid "user.login.forgotPassword"
+msgstr "שכחת את הסיסמה?"
+
+msgid "user.login.loginError"
+msgstr "שם משתמש/סיסמה לא תקפים. אנא נסה שנית."
+
+msgid "user.login"
+msgstr "Login"
+
+msgid "user.preferredPublicName"
+msgstr "שם מועדף לתצוגה"
+
+msgid "user.profile.form.countryRequired"
+msgstr "נדרש שם המדינה."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "נדרש שם פרטי."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "נא הוסף את ההשתייכות הארגונית בשפת ההגשה."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "נדרשת כתובת דוא\"ל."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "חובה להכניס סיסמה חדשה."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "נדרשת סיסמה."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "הסיסמה החדשה זהה לסיסמה הישנה."
+
+msgid "user.profile.form.profileImage"
+msgstr "תמונת פרופיל"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "נדרשת קבוצת משתמשים."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "נדרש שם משתמש."
+
+msgid "user.editMyProfile"
+msgstr "עריכת הפרופיל האישי"

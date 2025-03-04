@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-03 19:43+0000\n"
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -2315,3 +2315,32 @@ msgstr "Հավելվածը աշխատում է sandbox ռեժիմում:"
 
 msgid "about.editorialMasthead.linkToEditorialHistory"
 msgstr "Դիտեք <a href=\"{$url}\">Խմբագրական պատմությունը</a>"
+
+msgid "common.editorialHistory"
+msgstr "Խմբագրական պատմություն"
+
+msgid "common.editorialHistory.page"
+msgstr "Խմբագրական պատմության էջ"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Դիտել {$name} ORCID պրոֆիլը"
+
+msgid "common.editorialMasthead"
+msgstr "Խմբագրական մաստհեդ"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Զույգով գրախոսներ նախորդ տարում"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Զույգով գրախոսներ նախորդ տարիներում"
+
+msgid "common.moreActions"
+msgstr "Ավելի շատ գործողություններ"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Խմբագիրներն իրենց երախտագիտությունն են հայտնում ստորև թվարկված գրախոսներին "
+"{$year} ընթացքում:"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Այս բաժնում թվարկված են անցյալում եղած աջակիցները։"

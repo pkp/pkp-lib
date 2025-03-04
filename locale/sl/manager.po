@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-04 19:22+0000\n"
+"PO-Revision-Date: 2025-03-04 21:17+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
@@ -3813,3 +3813,41 @@ msgstr "Izberite jezik prispevka in metapodatkov."
 
 msgid "manager.language.submission.from.error"
 msgstr "Vsaj en jezik mora biti izbran."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Pošljite email opomnik pred ali po prošnji za odziv na recenzijo (če se "
+"recenzent še ni odzval na prošnjo za recenzijo) ali opomnik za recenzijo "
+"prispevka (če recenzent še ni oddal recenznetskega mnenja)"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odziv na prošnjo za recenzijo - po datumu zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Recenzija prispevka - pred datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Recenzija prispevka - po datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dni pred datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dni po datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Noben opomnik ni nastavljen"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Priporočeno število recenzentov"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Zahtevano je zadostno število opravljenih recenzij za sprejem odločitve o "
+"prispevku"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odziv na prošnjo za recenzijo - pred datumom zapadlosti"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nobenega"

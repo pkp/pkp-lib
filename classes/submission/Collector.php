@@ -314,7 +314,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     {
         $this->notAssignedTo = $notAssignedTo;
         if(is_array($withRoles) && !empty($withRoles)) {
-            $this->assignedWithRoles = $withRoles;
+            $this->notAssignedWithRoles = $withRoles;
         }
 
         return $this;

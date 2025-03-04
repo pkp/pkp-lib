@@ -195,6 +195,10 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $collector = $this->getSubmissionCollector($queryParams);
 
+        // Excluded submissions where the journal manager is assigned as author/reviewer
+        $collector->notAssignedTo([$currentUser->getId()]);
+        $collector->notAssignedWithRoles([Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR]);
+
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
@@ -366,8 +370,10 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
         $currentUser = $request->getUser();
+        $queryParams = $illuminateRequest->query();
+        $assignedWithRoles = $queryParams['assignedWithRoles'] ?? [];
 
-        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, [], true);
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, $assignedWithRoles, true);
 
         return response()->json(
             $dashboardViews->map(fn (DashboardView $view) => $view->getCount()),
@@ -598,6 +604,10 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 case 'isUnassigned':
                     $collector->filterByisUnassigned(true);
                     break;
+                case 'assignedWithRoles':
+                    $collector->assignedWithRoles($val);
+                    break;
+
             }
         }
 

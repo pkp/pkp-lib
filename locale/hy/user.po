@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-04 12:41+0000\n"
+"PO-Revision-Date: 2025-03-05 07:14+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -830,3 +830,11 @@ msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
 msgstr ""
 "Ավարտված ներկայացման համար գրախոսի առաջարկի ավելացումը, թարմացումը կամ "
 "ջնջումը սահմանափակված է:"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Նախընտրելի Ավատարի սկզբնատառերը"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Մուտքագրեք երկու տառերը, որոնք ցանկանում եք օգտագործել որպես ձեր avatar: Այս "
+"սկզբնատառերը կցուցադրվեն ձեզ ներկայացնելու համար:"

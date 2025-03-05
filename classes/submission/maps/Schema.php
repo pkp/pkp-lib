@@ -439,7 +439,7 @@ class Schema extends \PKP\core\maps\Schema
         $reviewRounds = $this->getReviewRoundsFromSubmission($submission);
         $currentReviewRound = $reviewRounds->sortKeys()->last(); /** @var ReviewRound|null $currentReviewRound */
         $stages = in_array('stages', $props) ?
-            $this->getPropertyStages($this->stageAssignments, $submission, $this->decisions ?? null, $currentReviewRound) :
+            $this->getPropertyStages($this->stageAssignments, $this->reviewAssignments, $submission, $this->decisions ?? null, $currentReviewRound) :
             [];
 
         foreach ($props as $prop) {
@@ -798,7 +798,7 @@ class Schema extends \PKP\core\maps\Schema
      *  }
      * ]
      */
-    protected function getPropertyStages(Enumerable $stageAssignments, Submission $submission, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
+    protected function getPropertyStages(Enumerable $stageAssignments, Enumerable $reviewAssignments, Submission $submission, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
@@ -891,12 +891,21 @@ class Schema extends \PKP\core\maps\Schema
 
         // if the current user is not assigned in any non-revoked role but has a global role as a manager or admin, consider it in the submission
         if (!$isAssignedInAnyRole) {
-            $globalRoles = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->userRoles);
-            if (!empty($globalRoles)) {
-                foreach ($stageIds as $stageId) {
-                    $stages[$stageId]['currentUserAssignedRoles'] = $globalRoles;
-                    if ($hasRecommendingEditors) {
-                        $isCurrentUserDecidingEditor = $stages[$stageId]['isCurrentUserDecidingEditor'] = true;
+            $hasCurrentUserReviewAssignment = $this->reviewAssignments->contains(
+                fn (ReviewAssignment $reviewAssignment) => 
+                    $reviewAssignment->getReviewerId() === $currentUser->getId() &&
+                    !$reviewAssignment->getDeclined() &&
+                    !$reviewAssignment->getCancelled()
+            );
+            // when being assigned as reviewer to this submission, don't add global roles
+            if(!$hasCurrentUserReviewAssignment) {
+                $globalRoles = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->userRoles);
+                if (!empty($globalRoles)) {
+                    foreach ($stageIds as $stageId) {
+                        $stages[$stageId]['currentUserAssignedRoles'] = $globalRoles;
+                        if ($hasRecommendingEditors) {
+                            $isCurrentUserDecidingEditor = $stages[$stageId]['isCurrentUserDecidingEditor'] = true;
+                        }
                     }
                 }
             }

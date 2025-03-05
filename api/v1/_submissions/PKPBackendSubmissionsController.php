@@ -195,9 +195,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $collector = $this->getSubmissionCollector($queryParams);
 
-        // Excluded submissions where the journal manager is assigned as author/reviewer
-        $collector->notAssignedTo([$currentUser->getId()], [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR]);
-
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
@@ -312,8 +309,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         if (!$this->canAccessAllSubmissions()) {
             $collector->assignedTo([$currentUser->getId()], $queryParams['assignedWithRoles'] ?? null);
-        } else {
-            $collector->notAssignedTo([$currentUser->getId()], [Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR]);
         }
 
         foreach ($queryParams as $param => $val) {

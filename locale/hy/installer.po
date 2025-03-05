@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-04 18:51+0000\n"
+"PO-Revision-Date: 2025-03-05 07:14+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/hy/>\n"
@@ -274,3 +274,8 @@ msgid "installer.appKey.validate.error"
 msgstr ""
 "Չաջակցվող ծածկագիր կամ բանալու սխալ երկարություն: Աջակցվող ծածկագրերն են՝ "
 "{$ciphers}:"
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Սահմանեք `app_key` -ի արժեքը `config.inc.php` նիշքի `general` բաժնում որպես "
+"{$key}:"

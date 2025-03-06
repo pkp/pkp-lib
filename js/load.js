@@ -24,7 +24,6 @@ import emitter from 'tiny-emitter/instance';
 
 // Mixins exposed for plugins
 import dialog from '@/mixins/dialog.js';
-import localizeMoment from '@/mixins/localizeMoment.js';
 
 // Composables
 import * as useLocalize from '@/composables/useLocalize.js';
@@ -246,8 +245,7 @@ VueRegistry.registerComponent('UserAccessManager', UserAccessManager);
 
 const pinia = createPinia();
 
-VueRegistry.attachPiniaInstance(pinia)
-
+VueRegistry.attachPiniaInstance(pinia);
 
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
@@ -306,7 +304,7 @@ export default {
 		useModal,
 		useFetch,
 		useFetchPaginated,
-		useUrl
+		useUrl,
 	},
 	pkpCreateVueApp,
 	createApp,
@@ -322,6 +320,5 @@ export default {
 	currentUser: null,
 	vueMixins: {
 		dialog,
-		localizeMoment,
 	},
 };

@@ -1364,6 +1364,8 @@ class PKPTemplateManager extends Smarty
 
         $pageContext = [
             'app' => Application::get()->getName(),
+            'currentLocale' => Locale::getLocale(),
+            'primaryLocale' => Locale::getPrimaryLocale(),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(
@@ -1373,7 +1375,28 @@ class PKPTemplateManager extends Smarty
                 'componentHandler',
                 'action',
                 null,
-            )];
+            ),
+            'timeZone' => Config::getVar('general', 'time_zone')
+        ];
+
+        if($context) {
+            $pageContext = array_merge($pageContext, [                
+                'dateFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
+                'dateFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatLong()),
+                'datetimeFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort()),
+                'datetimeFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatLong()),
+                'timeFormat' => PKPString::convertStrftimeFormat($context->getLocalizedTimeFormat()),
+            ]);
+        } else {
+            $pageContext = array_merge($pageContext, [                
+                'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
+                'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
+                'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
+                'datetimeFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_long')),
+                'timeFormat' => PKPString::convertStrftimeFormat(Config::getVar('general', 'time_format')),
+            ]);
+        }
+
         $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
 
         // Load current user data

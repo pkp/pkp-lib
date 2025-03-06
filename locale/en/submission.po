@@ -2690,6 +2690,12 @@ msgstr "An editorial recommendation has been received"
 msgid "dashboard.recommendOnly.recommendationsCompleted"
 msgstr "All editorial recommendations have been received, and a decision is required."
 
+msgid "dashboard.noAccessBeingAuthor"
+msgstr "You cannot access this submission as a Journal Manager since you are the author. To view it, go to \"My Submissions\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr "You cannot access this submission as a Journal Manager since you are the reviewer. To view it, go to \"Review Assignments\""
+
 msgid "participantManager.onlyAllowedToRecommend"
 msgstr "Only allowed to recommend an editorial decision"
 

@@ -198,7 +198,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
-                    $collector->assignedTo(array_map(intval(...), paramToArray($val)));
+                    // this is specifically used for assigned editors
+                    $collector->assignedTo(array_map(intval(...), paramToArray($val)), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                     break;
             }
         }
@@ -257,10 +258,11 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
 
         $collector = $this->getSubmissionCollector($illuminateRequest->query());
+        $queryParams = $illuminateRequest->query();
 
         $submissions = $collector
             ->filterByContextIds([$context->getId()])
-            ->assignedTo([$user->getId()])
+            ->assignedTo([$user->getId()], $queryParams['assignedWithRoles'] ?? null)
             ->getMany();
 
         $contextId = $context->getId();
@@ -306,7 +308,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         // limit results depending on a role
 
         if (!$this->canAccessAllSubmissions()) {
-            $collector->assignedTo([$currentUser->getId()]);
+            $collector->assignedTo([$currentUser->getId()], $queryParams['assignedWithRoles'] ?? null);
         }
 
         foreach ($queryParams as $param => $val) {
@@ -366,8 +368,10 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
         $currentUser = $request->getUser();
+        $queryParams = $illuminateRequest->query();
+        $assignedWithRoles = $queryParams['assignedWithRoles'] ?? [];
 
-        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, [], true);
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, $assignedWithRoles, true);
 
         return response()->json(
             $dashboardViews->map(fn (DashboardView $view) => $view->getCount()),

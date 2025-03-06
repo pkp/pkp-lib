@@ -74,8 +74,10 @@ abstract class Collector implements CollectorInterface, ViewsCount
     /** @var array Which DOI types should be considered when checking if a submission has DOIs set */
     public array $enabledDoiTypes = [];
 
-    /** @var array|int */
-    public $assignedTo = null;
+    /** @var array */
+    public ?array $assignedTo = null;
+    public ?array $assignedWithRoles = null;
+
     public array|int|null $isReviewedBy = null;
     public ?array $reviewersNumber = null;
     public ?bool $awaitingReviews = null;
@@ -286,11 +288,17 @@ abstract class Collector implements CollectorInterface, ViewsCount
     /**
      * Limit results to submissions assigned to these users
      *
-     * @param int|array $assignedTo An array of user IDs
+     * @param int[] $assignedTo An array of user IDs
+     * @param ?int[] $withRoles An array of user IDs
      */
-    public function assignedTo($assignedTo): AppCollector
+    public function assignedTo(array $assignedTo, ?array $withRoles = null): AppCollector
     {
         $this->assignedTo = $assignedTo;
+
+        if(is_array($withRoles) && !empty($withRoles)) {
+            $this->assignedWithRoles = $withRoles;
+        }
+
         return $this;
     }
 
@@ -547,31 +555,52 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     )
             );
         }
-
         if (is_array($this->assignedTo)) {
             $q->whereIn(
                 's.submission_id',
-                fn (Builder $q) =>
-                $q->select('s.submission_id')
-                    ->from('submissions AS s')
-                    ->leftJoin(
-                        'stage_assignments as sa',
-                        fn (Builder $q) =>
-                        $q->on('s.submission_id', '=', 'sa.submission_id')
-                            ->whereIn('sa.user_id', $this->assignedTo)
-                    )
-                    ->leftJoin(
-                        'review_assignments as ra',
-                        fn (Builder $table) =>
-                        $table->on('s.submission_id', '=', 'ra.submission_id')
-                            ->where('ra.declined', '=', (int) 0)
-                            ->where('ra.cancelled', '=', (int) 0)
-                            ->whereIn('ra.reviewer_id', $this->assignedTo)
-                    )
-                    ->whereNotNull('sa.stage_assignment_id')
-                    ->orWhereNotNull('ra.review_id')
+                function (Builder $q) {
+                    // by default are included for backward compatibility
+                    // its only excluded when explicitly assignedWithRoles defines roles, but exclude ROLE_ID_REVIEWER 
+                    $includeReviewerAssignment = (!$this->assignedWithRoles) || ($this->assignedWithRoles && in_array(Role::ROLE_ID_REVIEWER, $this->assignedWithRoles));
+                    $q->select('s.submission_id')
+                        ->from('submissions AS s')
+                        ->leftJoin(
+                            'stage_assignments as sa',
+                            fn (Builder $q) =>
+                            $q->on('s.submission_id', '=', 'sa.submission_id')
+                                ->whereIn('sa.user_id', $this->assignedTo)
+                        );
+
+                    if($this->assignedWithRoles) {
+                        $q->leftJoin('user_groups as ug', fn (Builder $table) => 
+                            $table->on('sa.user_group_id', '=', 'ug.user_group_id')
+                                ->whereIn('ug.role_id', $this->assignedWithRoles)
+                        );
+                    }
+
+                    // nested where to group these conditions together
+                    $q->where(function (Builder $q) {
+                        $q->whereNotNull('sa.stage_assignment_id');
+                        if($this->assignedWithRoles) {
+                            $q->whereNotNull('ug.role_id');
+                        }   
+                    });
+
+                    if($includeReviewerAssignment) {
+                        $q->leftJoin(
+                            'review_assignments as ra',
+                            fn (Builder $table) =>
+                            $table->on('s.submission_id', '=', 'ra.submission_id')
+                                ->where('ra.declined', '=', (int) 0)
+                                ->where('ra.cancelled', '=', (int) 0)
+                                ->whereIn('ra.reviewer_id', $this->assignedTo)
+                        )->orWhereNotNull('ra.review_id');
+                    }
+                    
+                    return $q;
+                }
             );
-        } elseif ($this->isUnassigned) {
+        } else if ($this->isUnassigned) {
             $sub = DB::table('stage_assignments')
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')

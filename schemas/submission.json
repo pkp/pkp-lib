@@ -312,7 +312,7 @@
 						"type": "object",
 						"properties": {
 							"decision": {
-								"type": "int"
+								"type": "integer"
 							},
 							"label": {
 								"type": "string"
@@ -323,12 +323,16 @@
 						"type": "array",
 						"properties": {
 							"decision": {
-								"type": "int"
+								"type": "integer"
 							},
 							"label": {
 								"type": "string"
 							}
 						}
+					},
+					"uploadedFilesCount": {
+						"type": "integer",
+						"validation": ["nullable"]
 					}
 				}
 			}

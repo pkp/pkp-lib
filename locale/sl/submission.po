@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-03 10:31+0000\n"
+"PO-Revision-Date: 2025-03-06 15:24+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -32,7 +32,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nove recenzije so končane in so v pregledu pri uredniku."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Eden ali več recenzentov zamuja z recenzijo. Uredništvo je bilo obveščeno o "
@@ -1313,13 +1312,11 @@ msgstr "Zahtevani so popravki."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Popravki so bili oddani, potrebno je sprejeti uredniško odločitev."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Prispevek mora biti ponovno poslan v nov recenzijski krog."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Prispevek je bil poslan v nov recenzijski krog."
+msgstr "Popravki so bili oddani. Potrebno je narediti nov recenzijski krog."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Pošlji v zunanjo recenzijo."
@@ -1339,9 +1336,8 @@ msgstr "Čaka na odzive recenzentov."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nove recenzije so bile oddane."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Vsi recnezenti so končali, potrebno je sprejeti uredniško odločitev."
+msgstr "Vsi recenzenti so končali, potrebno je sprejeti uredniško odločitev."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Recenzija zamuja."
@@ -2701,3 +2697,156 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Prosimo opišite vsa morebitna navzkrižja interesov avtorja/ev v zvezi s "
 "predmetom raziskave."
+
+msgid "author.authorNotFound"
+msgstr "Avtorja za to ustanovo ni bilo mogoče najti."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Prosimo navedite ROR ustanovo ali vsaj eno ime ustanove."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Prosimo navedite ime ustanove v primarnem jeziku prispevka."
+
+msgid "ror.nameRequired"
+msgstr "ROR ime je zahtevano."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR prikazni jezik je zahtevan."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Prekini oddajo"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Recenzentski predlog"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Vi ste oddali priporočilo."
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Spremeni jezik prispevka za"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktivni prispevki"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Potrebuje urednika"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Vsi v recenziji"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Čakajoče recenzije"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Recenzije oddane"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Recenzije zamujajo"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Vsi v lektoriranju"
+
+msgid "submission.dashboard.view.production"
+msgstr "Vsi v produkciji"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Pripravljeno za objavo"
+
+msgid "submission.dashboard.view.published"
+msgstr "Objavljeno"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Zavrnjeno"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Popravki oddani"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Vse zadolžitve"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Vse zadolžitve"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Avtorjevi predlagani recenzenti"
+
+msgid "submission.review.status.viewed"
+msgstr "Urednik je pregledal recenzijo."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Trenutni jezik prispevka:"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Oddaja je bila prekinjena"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Spremeni"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Oddaja je bila prekinjena in vsi pripadajoči podatki odstranjeni."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"To je primarni jezik prispevka. Sprememba le tega, bo vplivala na prispevek "
+"in vse vnešene metapodatke"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Za recenzentski predlog"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Pred spremembo jezika prispevka zagotovite, da ste vpisali vsa "
+"spodnja polja za metapodatke, da zagotovite integriteto sistema. Opozorilo: "
+"podatki o sodelavcih in imena datotek, bodo skopirana iz predhodno vnešenih "
+"podatko.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Tukaj vnesite naslov prispevka v jeziku {$language}. Če je potrebno, lahko "
+"naslov oblikujete"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Priporočljivo je vnesti izvleček v jeziku {$language} . To pomaga "
+"zagotoviti, da je vsebina dostopna"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Poglej povzetek oddaje"
+
+msgid "submission.list.completeSubmission"
+msgstr "Zaključi oddajo"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Ali ste prepričani, da želite preklicati to oddajo prispevka? To bo "
+"avtomatično odstranilo prispevek in vse pripadajoče podatke. Tega dejanja ni "
+"mogoče preklicati."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Za ta prispevek ni bilo predlaganih nobenih recenzentov."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Ime ustanove manjka v jeziku {$language} za eno ali več ustanov ali za enega "
+"ali več sodelavcev."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Dodeljeno meni"
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "Vsi v uredniškem pregledu"
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "Potrebni so recenzenti"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Zahtevni popravki"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Nedokončana oddaja"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "V čakanju"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Kočnano/zavrnjeno"

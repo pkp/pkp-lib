@@ -1,12 +1,12 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2025.
 # Matevž Rudolf <matevz.rudolf@uni-lj.si>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2024-02-14 20:14+0000\n"
-"Last-Translator: Matevž Rudolf <matevz.rudolf@uni-lj.si>\n"
+"PO-Revision-Date: 2025-03-06 13:04+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/sl/>\n"
 "Language: sl\n"
@@ -133,3 +133,48 @@ msgstr "Pošlji recenzentom"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Trenutni uporabnik ni dodeljen kot recenzent za zahtevani dokument."
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Poglej recenzijo za krog {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Oddali ste recenzijo za recenzijski krog {$round} za"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Komentarji recenzenta"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Za urednike in avtorje"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Samo za urednike"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Komentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Razlog zavrnitve opravljanja recenzije ni bil podan."
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Metapodatki članka"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tip"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Izvleček"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Klučne besede"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Prejšnji krog recenzije"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Recenzija za krog {$round} je bila oddana {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Vzrok zavrnitve poslan preko emaila"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Datum zavrnitve"

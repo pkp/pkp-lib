@@ -34,6 +34,7 @@ use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
@@ -65,10 +66,12 @@ class Schema extends \PKP\core\maps\Schema
 
     /** @var Enumerable Decisions associated with submissions. */
     public Enumerable $decisions;
-    
+
     /** @var Enumerable Reviewer Suggestions associated with submissions. */
     public Enumerable $reviewerSuggestions;
 
+    /** Workflow stage files associated with submissions. */
+    public Enumerable $submissionStageFiles;
     /**
      * Get extra property names used in the submissions list
      *
@@ -137,7 +140,8 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $stageAssignments = null,
         ?Enumerable $decisions = null,
         bool|Collection $anonymizeReviews = false,
-        ?Enumerable $reviewerSuggestions = null
+        ?Enumerable $reviewerSuggestions = null,
+        ?Enumerable $stageFiles = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -146,6 +150,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
+        $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
 
         return $this->mapByProperties($this->getProps(), $item, $anonymizeReviews);
     }
@@ -169,14 +174,15 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
         bool|Collection $anonymizeReviews = false,
-        ?Enumerable $reviewerSuggestions = null
+        ?Enumerable $reviewerSuggestions = null,
+        ?Enumerable $stageFiles = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
-
+        $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
         return $this->mapByProperties($this->getSummaryProps(), $item, $anonymizeReviews);
     }
 
@@ -206,6 +212,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
         $this->decisions = Repo::decision()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
+        $this->submissionStageFiles = $this->getStageFilesBySubmissions($collection, [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
 
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId'));
@@ -216,16 +223,15 @@ class Schema extends \PKP\core\maps\Schema
             $decision->getData('submissionId')
         );
 
-        $associatedStageAssignments = $this->stageAssignments
-            ->groupBy(
-                fn (StageAssignment $stageAssignment, int $key) => $stageAssignment->submissionId
-            );
-
         /** @var \Illuminate\Support\LazyCollection $associatedReviewerSuggestions */
         $associatedReviewerSuggestions = ReviewerSuggestion::query()
             ->withSubmissionIds($collection->keys()->toArray())
             ->cursor()
             ->groupBy('submissionId');
+
+        $associatedSubmissionStageFiles  = $this->submissionStageFiles->groupBy(
+            fn (SubmissionFile $submissionFile, int $key) => $submissionFile->getData('submissionId')
+        );
 
         return $collection->map(
             fn ($item) =>
@@ -238,7 +244,8 @@ class Schema extends \PKP\core\maps\Schema
                 $associatedStageAssignments->get($item->getId()),
                 $associatedDecisions->get($item->getId()),
                 $anonymizeReviews,
-                $associatedReviewerSuggestions->get($item->getId())
+                $associatedReviewerSuggestions->get($item->getId()),
+                $associatedSubmissionStageFiles->get($item->getId())
             )
         );
     }
@@ -259,6 +266,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->genres = $genres;
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
+        $this->submissionStageFiles = $this->getStageFilesBySubmissions($collection, [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
 
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(
             fn (ReviewAssignment $reviewAssignment, int $key) =>
@@ -276,6 +284,10 @@ class Schema extends \PKP\core\maps\Schema
             ->cursor()
             ->groupBy('submissionId');
 
+        $associatedSubmissionStageFiles = $this->submissionStageFiles->groupBy(
+            fn (SubmissionFile $submissionFile, int $key) => $submissionFile->getData('submissionId')
+        );
+
         return $collection->map(
             fn ($item) =>
             $this->summarize(
@@ -285,7 +297,8 @@ class Schema extends \PKP\core\maps\Schema
                 $associatedReviewAssignments->get($item->getId()),
                 $associatedStageAssignment->get($item->getId()),
                 $anonymizeReviews,
-                $associatedReviewerSuggestions->get($item->getId())
+                $associatedReviewerSuggestions->get($item->getId()),
+                $associatedSubmissionStageFiles->get($item->getId())
             )
         );
     }
@@ -298,6 +311,7 @@ class Schema extends \PKP\core\maps\Schema
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
+     * @param ?Enumerable<int, SubmissionFile> $stageFiles List of stage files associated with a submission
      */
     public function mapToSubmissionsList(
         Submission $item,
@@ -306,7 +320,8 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
         ?Enumerable $decisions = null,
-        bool|Collection $anonymizeReviews = false
+        bool|Collection $anonymizeReviews = false,
+        ?Enumerable $stageFiles = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -314,7 +329,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
-        
+        $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
         return $this->mapByProperties($this->getSubmissionsListProps(), $item, $anonymizeReviews);
     }
 
@@ -345,7 +360,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
         $this->decisions = Repo::decision()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
-
+        $this->submissionStageFiles = $this->getStageFilesBySubmissions($collection, [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(
             fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId')
@@ -365,6 +380,10 @@ class Schema extends \PKP\core\maps\Schema
             ->cursor()
             ->groupBy('submissionId');
 
+        $associatedSubmissionStageFiles = $this->submissionStageFiles->groupBy(
+            fn (SubmissionFile $submissionFile, int $key) => $submissionFile->getData('submissionId')
+        );
+
         return $collection->map(
             fn ($item) =>
             $this->mapToSubmissionsList(
@@ -375,7 +394,7 @@ class Schema extends \PKP\core\maps\Schema
                 $associatedStageAssignments->get($item->getId()),
                 $associatedDecisions->get($item->getId()),
                 $anonymizeReviews,
-                $associatedReviewerSuggestions->get($item->getId())
+                $associatedSubmissionStageFiles->get($item->getId())
             )
         );
     }
@@ -439,7 +458,7 @@ class Schema extends \PKP\core\maps\Schema
         $reviewRounds = $this->getReviewRoundsFromSubmission($submission);
         $currentReviewRound = $reviewRounds->sortKeys()->last(); /** @var ReviewRound|null $currentReviewRound */
         $stages = in_array('stages', $props) ?
-            $this->getPropertyStages($this->stageAssignments, $this->reviewAssignments, $submission, $this->decisions ?? null, $currentReviewRound) :
+            $this->getPropertyStages($this->stageAssignments, $this->reviewAssignments, $submission, $this->submissionStageFiles, $this->decisions ?? null, $currentReviewRound) :
             [];
 
         foreach ($props as $prop) {
@@ -518,7 +537,7 @@ class Schema extends \PKP\core\maps\Schema
                 case 'urlWorkflow':
                     $output[$prop] = Repo::submission()->getWorkflowUrlByUserRoles($submission);
                     break;
-                case 'reviewerSuggestions': 
+                case 'reviewerSuggestions':
                     $output[$prop] = $this->getPropertyReviewerSuggestions($this->reviewerSuggestions);
                     break;
                 default:
@@ -566,7 +585,7 @@ class Schema extends \PKP\core\maps\Schema
 
         return false;
     }
-    
+
     /**
      * Get details about the reviewer suggestions for a submission
      */
@@ -588,11 +607,11 @@ class Schema extends \PKP\core\maps\Schema
             )
         )->map(
             fn (array $suggestion): array => array_intersect_key(
-                $suggestion, 
+                $suggestion,
                 array_flip($reviewerSuggestionProps)
             )
         )->toArray();
-        
+
         return $reviewerSuggestions;
     }
 
@@ -783,6 +802,7 @@ class Schema extends \PKP\core\maps\Schema
      *  `currentUserAssignedRoles` array the roles of the current user in the submission per stage, user may be unassigned but have global manager role
      *  `currentUserCanRecommendOnly` whether the current user is an editor with the recommend only flag
      *  `currentUserRecommendation` object includes the recommendation decision of the current user
+     *  `uploadedFilesCount` int || null the count of files upload to the stage. A null value indicates that the count was not included
      *  {
      *   `decision` => recommendation decision,
      *   `label` => decision label
@@ -798,7 +818,7 @@ class Schema extends \PKP\core\maps\Schema
      *  }
      * ]
      */
-    protected function getPropertyStages(Enumerable $stageAssignments, Enumerable $reviewAssignments, Submission $submission, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
+    protected function getPropertyStages(Enumerable $stageAssignments, Enumerable $reviewAssignments, Submission $submission, Enumerable $stageFiles, ?Enumerable $decisions, ?ReviewRound $currentReviewRound): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
@@ -817,6 +837,14 @@ class Schema extends \PKP\core\maps\Schema
                 'editorAssigned' => false,
                 'currentUserAssignedRoles' => [],
             ];
+
+            if ($stageId === WORKFLOW_STAGE_ID_EDITING) {
+                $stages[$stageId]['uploadedFilesCount'] = $stageFiles->filter(fn(SubmissionFile $file) => $file->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_COPYEDIT)->count();
+            } else {
+                // A `null` value is used to indicate that no count data is available.
+                // This is also done to ensure that all stage objects has the same properties
+                $stages[$stageId]['uploadedFilesCount'] = null;
+            }
         }
 
         $isAssignedInAnyRole = false; // Determine if the current user is assigned to the submission in any role
@@ -892,7 +920,7 @@ class Schema extends \PKP\core\maps\Schema
         // if the current user is not assigned in any non-revoked role but has a global role as a manager or admin, consider it in the submission
         if (!$isAssignedInAnyRole) {
             $hasCurrentUserReviewAssignment = $this->reviewAssignments->contains(
-                fn (ReviewAssignment $reviewAssignment) => 
+                fn (ReviewAssignment $reviewAssignment) =>
                     $reviewAssignment->getReviewerId() === $currentUser->getId() &&
                     !$reviewAssignment->getDeclined() &&
                     !$reviewAssignment->getCancelled()
@@ -1142,5 +1170,26 @@ class Schema extends \PKP\core\maps\Schema
             'canMakeRecommendation' => $makeRecommendation,
             'isOnlyRecommending' => $isOnlyRecommending
         ];
+    }
+
+    /**
+     *
+     * @param Enumerable<Submission> $submissions
+     * @param array $stageIds The IDs of the stages to limit results to
+     *
+     * @return LazyCollection<SubmissionFile> The collection of files associated with submissions
+     */
+    protected function getStageFilesBySubmissions(Enumerable $submissions, array $stageIds): LazyCollection
+    {
+        $submissionIds = [];
+            $submissions->each(function (Submission $submission) use (&$submissionIds) {
+                $submissionIds[] = $submission->getId();
+            });
+
+        return Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds($submissionIds)
+            ->filterByFileStages($stageIds)
+            ->getMany();
     }
 }

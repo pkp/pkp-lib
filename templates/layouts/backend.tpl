@@ -95,10 +95,12 @@
 							<span class="-screenReader">{$currentUser->getData('userName')}</span>
 							{if $isUserLoggedInAs}
 								<initials-avatar
+									initials="{$originalUser->getDisplayInitials()}"
 									class="absolute right-2 top-0 rounded-full h-5 w-5"
 									:is-warnable="true"
 									:shrink="true"
 								></initials-avatar>
+								<span class="-screenReader">{$originalUser->getData('userName')}</span>
 							{/if}
 						</template>
 						<nav aria-label="{translate key="common.navigation.user"}">

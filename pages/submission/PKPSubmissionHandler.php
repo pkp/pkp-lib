@@ -25,6 +25,7 @@ use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
@@ -611,24 +612,22 @@ abstract class PKPSubmissionHandler extends Handler
     /**
      * Get the user groups that a user can submit in
      */
-    protected function getSubmitUserGroups(Context $context, User $user): LazyCollection
+    protected function getSubmitUserGroups(Context $context, User $user): Collection
     {
         $userGroups = UserGroup::query()
             ->withContextIds([$context->getId()])
             ->withUserIds([$user->getId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
-            ->cursor();
+            ->get();
 
         // Users without a submitting role can submit as an
         // author role that allows self registration
         if ($userGroups->isEmpty()) {
-            $defaultUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
-            return LazyCollection::make(function () use ($defaultUserGroup) {
-                if ($defaultUserGroup) {
-                    yield $defaultUserGroup->id => $defaultUserGroup;
-                }
-            });
-        }
+            $userGroups = UserGroup::withContextIds([$context->getId()])
+               ->withRoleIds([Role::ROLE_ID_AUTHOR])
+               ->permitSelfRegistration(true)
+               ->get();
+         }
 
         return $userGroups;
     }

@@ -625,7 +625,8 @@ abstract class PKPSubmissionHandler extends Handler
         if ($userGroups->isEmpty()) {
             $userGroups = UserGroup::withContextIds([$context->getId()])
                ->withRoleIds([Role::ROLE_ID_AUTHOR])
-               ->permitSelfRegistration(true);
+               ->permitSelfRegistration(true)
+               ->get();
          }
 
         return $userGroups;

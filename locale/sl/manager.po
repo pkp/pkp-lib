@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-04 21:17+0000\n"
+"PO-Revision-Date: 2025-03-06 13:04+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
@@ -3851,3 +3851,63 @@ msgstr "Odziv na prošnjo za recenzijo - pred datumom zapadlosti"
 
 msgid "manager.setup.reviewOptions.reminders.min.label"
 msgstr "Nobenega"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Predlogi recenzentov ob oddaji prispevka"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Dovoli avtorjem, da predlagajo potencialne recenzente med oddajo prispevka"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Spodnje je prikazano avtorjem med oddajo prispevka. Zapišite kratko razlago "
+"katere informacije naj avtor predloži o sebi, so avtrojih in ostalih "
+"sodelavcih."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Avtor lahko predlaga potencialne recenzente pred zaključkom oddaje "
+"prispevka, kar lahko poenostavi recenzentski postopek in pomaga uredništvu "
+"pri uredniškem postopku."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Nastavitev jezika ni bilo mogoče shraniti. Omogočene morajo biti vse opcije."
+
+msgid "settings.roles.masthead"
+msgstr "Razmislite o vlogi v kolofonu"
+
+msgid "settings.roles.permitSettings"
+msgstr "Dovoli spremembe v nastavitvah"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Določite javni vrstni red vlog v kolofonu uredništva."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Avtor {$authorName} nima vpisane biografije v jeziku prispevka, {$localeName}"
+". Prispevek ne more biti uvožen brez te informacije."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Povezava do strani, ki prikazuje vse aktivne vloge v kolofonu uredništva."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Določite vrstni red vlog v kolofonu."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenti bodo prikazani v standardni obliki, da se ohranit enotnost in "
+"zagotovit enostavno iskanje v tem oddelku."
+
+msgid "notification.submissionLocales"
+msgstr "Jeziki prispevka so posodobljeni."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Prosimo vnesite uredniško zgodovino, ki vključuje polno ime, biografijo, "
+"začetni in končni datum, za vsakega urednika posebej."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Povabilo za spremembo email-a"

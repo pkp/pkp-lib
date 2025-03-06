@@ -86,19 +86,20 @@
 					<dropdown class="app__headerAction app__userNav">
 						<template #button>
 							<initials-avatar
+								initials="{$currentUser->getDisplayInitials()}"
 								:is-secondary="true"
 								{if $isUserLoggedInAs}
 								:is-disabled="true"
 								{/if}
 							></initials-avatar>
+							<span class="-screenReader">{$currentUser->getData('userName')}</span>
 							{if $isUserLoggedInAs}
 								<initials-avatar
-									class="absolute right-2 top-2 rounded-full h-5 w-5"
+									class="absolute right-2 top-0 rounded-full h-5 w-5"
 									:is-warnable="true"
 									:shrink="true"
 								></initials-avatar>
 							{/if}
-							<span class="-screenReader">{$currentUser->getData('userName')}</span>
 						</template>
 						<nav aria-label="{translate key="common.navigation.user"}">
 							{if $supportedLocales|@count > 1}

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-06 13:04+0000\n"
+"PO-Revision-Date: 2025-03-06 15:24+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/sl/>\n"
@@ -178,3 +178,21 @@ msgstr "Vzrok zavrnitve poslan preko emaila"
 
 msgid "reviewer.submission.reviewRound.reviewDeclineDate"
 msgstr "Datum zavrnitve"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Splošne informacije"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Priponke"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "To so datoteke, ki ste jih pripeli poleg vaše recenzije"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Datoteke za recenziranje"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Te datoteke so vam bile poslane v recenzijo"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Recenzija ni bila dokončana."

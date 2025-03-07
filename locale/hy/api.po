@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-04 12:41+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hy/"
 ">\n"
@@ -405,3 +405,39 @@ msgid "api.orcid.403.editWithoutPermission"
 msgstr ""
 "Դուք չեք կարող փոփոխություններ կատարել հեղինակների մեջ այն փաստաթղթերում, "
 "որոնց նշանակված չեք:"
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Դուք չեք կարող փոխել այս ներկայացման լեզուն, քանի որ այն արդեն ունի մեկից "
+"ավելի հրապարակման տարբերակներ կամ հրապարակված հրապարակումներ:"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Վավեր արժեքներ են միայն «ընդունել» և «մերժել»"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Հարցման մեջ բացակայում է հարցման պահանջվող «ids» պարամետրը: Խնդրում ենք "
+"տրամադրել այն ներկայացումների «id»-ները, որոնք ցանկանում եք ջնջել:"
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Այս վերանայման առաջադրանքի ներկայացումը չհաջողվեց գտնել:"
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Այս առաջադրանքի գրախոսին չհաջողվեց գտնել"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Տրամադրված բաժինը գոյություն չունի:"
+
+msgid "api.submission.400.invalidId"
+msgstr "Անվավեր ID՝ \"{$id}\" -ը տրամադրված է:"
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Հրապարակման նույնացուցիչների ձևն անհասանելի է, քանի որ միացված "
+"նույնացուցիչներ չկան:"
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Ձեր հայցած ror -ը չի գտնվել:"
+
+msgid "api.409.resourceActionConflict"
+msgstr "Հնարավոր չէ ռեսուրսի վրա կատարել նախատեսված գործողությունը:"

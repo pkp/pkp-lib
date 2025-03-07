@@ -34,6 +34,7 @@ use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use PKP\workflow\WorkflowStageDAO;
+use PKP\security\Role;
 
 class EditorialReminder extends BaseJob
 {
@@ -81,6 +82,17 @@ class EditorialReminder extends BaseJob
         foreach ($submissionIds as $submissionId) {
             $submission = Repo::submission()->get($submissionId);
             $submissions[$submissionId] = $submission;
+
+            /** @var \StageAssignmentDAO $stageAssignmentDao */
+            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
+            $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds(
+                $submissionId,
+                [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
+                null,
+                $this->editorId);
+            if (count($stageAssignments->toArray()) <= 0) {
+                continue;
+            }
 
             if ($submission->getData('stageId') == WORKFLOW_STAGE_ID_SUBMISSION) {
                 $outstanding[$submissionId] = __('editor.submission.status.waitingInitialReview');

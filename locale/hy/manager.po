@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-12 09:40+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -3809,3 +3809,21 @@ msgstr "Վավերացրեք XML-ը մինչև արտահանումը և գրա�
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Տեղադրված տարբերակ: {$version}"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Ներկայացման լեզուները"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Ավելացնել/հեռացնել լեզուները"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Մետատվյալներ"
+
+msgid "manager.language.submission.from.error"
+msgstr "Պետք է ընտրել առնվազն մեկ տեղային:"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Կայքի լեզուները"
+
+msgid "manager.language.submission.form.description"
+msgstr "Ընտրեք ներկայացման և մետատվյալների լեզուները:"

@@ -136,7 +136,7 @@ class InvitationController extends PKPBaseController
 
             Route::post('add/{type}', $this->add(...))
                 ->name('invitation.add');
-            
+
             Route::put('{invitationId}/populate', $this->populate(...))
                 ->name('invitation.populate')
                 ->whereNumber('invitationId');
@@ -272,9 +272,9 @@ class InvitationController extends PKPBaseController
             'inviteeEmail.prohibited' => __('invitation.api.error.initialization.noUserIdAndEmailTogether'),
             'userId.prohibited' => __('invitation.api.error.initialization.noUserIdAndEmailTogether')
         ];
-        
+
         $validator = ValidatorFactory::make(
-            $payload, 
+            $payload,
             $rules,
             $messages
         );
@@ -345,11 +345,13 @@ class InvitationController extends PKPBaseController
             ->when($context, fn($query) => $query->byContextId($context->getId()))
             ->stillActive();
 
+        $itemsMax = $query->clone()->count();
+
         // Delegate to the specific handler for additional logic
         $specificData = $this->selectedHandler->getMany($illuminateRequest, $query);
 
         return response()->json([
-            'itemsMax' => $query->count(),
+            'itemsMax' => $itemsMax,
             'items' => $specificData,
         ], Response::HTTP_OK);
     }

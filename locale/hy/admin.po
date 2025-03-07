@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-04 12:41+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -972,3 +972,43 @@ msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Թարմացրեք Ror ռեեստրի տվյալների քեշը"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Ցուցադրել AppKey-ի օգտագործման պարամետրերը"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Ավելացրեք app_key կազմաձևման փոփոխականը config.inc.php նիշքում:"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Դուք նկատի ունեի՞ք հետևյալներից մեկը."
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Ստեղծված հավելվածի բանալի՝ {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"`app_key` փոփոխականն արդեն գոյություն ունի կազմաձևման նիշքի `general` "
+"բաժնում: Գործարկեք php lib/pkp/tools/appKey.php հրամանը՝ նոր հավելվածի "
+"բանալի սահմանելու համար:"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Ուղարկեք աշխատանք՝ ժամկետանց հրավերներն ինքնաշխատ կերպով հեռացնելու համար"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Վավերացրեք ընթացիկ հավելվածի ստեղնը, եթե որևէ մեկը գտնվել է կազմաձևման "
+"նիշքում"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Ստեղծեք նոր հավելվածի բանալի և փոխարինեք կազմաձևման նիշքում: Անցնել flag --"
+"show միայն դիտելու համար և --force վերագրել գոյություն ունեցող վավեր "
+"հավելվածի բանալին:"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"`app_key` անունով բանալի փոփոխական սահմանված չէ կազմաձևման նիշքի `general` "
+"բաժնում: Խնդրում ենք թարմացնել կազմաձևման նիշքի ընդհանուր բաժինը և ավելացնել "
+"`app_key = ` տողը կամ գործարկել php lib/pkp/tools/appKey.php հրամանը՝ այն "
+"կարգավորելու համար:"

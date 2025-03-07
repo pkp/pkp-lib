@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-05 07:14+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -683,10 +683,10 @@ msgid "common.pagination.goToPage"
 msgstr "Գնալ {$page} էջ"
 
 msgid "common.pagination.next"
-msgstr "Հաջորդ էջ"
+msgstr "Հաջորդը"
 
 msgid "common.pagination.previous"
-msgstr "Նախորդ էջ"
+msgstr "Նախորդը"
 
 msgid "common.pageNumber"
 msgstr "Էջ համար {$pageNumber}"
@@ -2347,3 +2347,6 @@ msgstr "Այս բաժնում թվարկված են անցյալում եղած 
 
 msgid "common.assignments"
 msgstr "Նշանակումներ"
+
+msgid "common.filtersClear"
+msgstr "Մաքրել զտիչները"

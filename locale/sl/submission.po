@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-06 15:24+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -2850,3 +2850,12 @@ msgstr "V čakanju"
 
 msgid "submission.dashboard.view.reviewerAssignmentsFinished"
 msgstr "Kočnano/zavrnjeno"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Ukrepi zahtevani od mene"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arhivirano"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Zavrnjeno"

@@ -234,7 +234,8 @@ class Repository
             $author->setGivenName($user->getGivenName($user->getDefaultLocale()), $submissionLocale);
         }
 
-        $author->setAffiliations([Repo::affiliation()->migrateUserAffiliation($user, $submission, $context)]);
+        $migratedAffiliations = Repo::affiliation()->migrateUserAffiliation($user, $submission, $context);
+        $author->setAffiliations($migratedAffiliations ? [$migratedAffiliations] : null);
         $author->setCountry($user->getCountry());
         $author->setEmail($user->getEmail());
         $author->setUrl($user->getUrl());

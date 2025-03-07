@@ -255,7 +255,7 @@ class Author extends Identity
      *
      * @param array<Affiliation>
      */
-    public function setAffiliations(array $affiliations): void
+    public function setAffiliations(?array $affiliations): void
     {
         $this->setData('affiliations', $affiliations);
     }

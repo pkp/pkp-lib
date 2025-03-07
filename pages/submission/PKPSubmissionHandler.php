@@ -623,10 +623,12 @@ abstract class PKPSubmissionHandler extends Handler
         // Users without a submitting role can submit as an
         // author role that allows self registration
         if ($userGroups->isEmpty()) {
-            $userGroups = UserGroup::withContextIds([$context->getId()])
+            $defaultUserGroup = UserGroup::withContextIds([$context->getId()])
                ->withRoleIds([Role::ROLE_ID_AUTHOR])
                ->permitSelfRegistration(true)
-               ->get();
+               ->first();
+
+            $userGroups = collect($defaultUserGroup ? [$defaultUserGroup->id => $defaultUserGroup] : []);
          }
 
         return $userGroups;

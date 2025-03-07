@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-04 12:41+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -2749,3 +2749,6 @@ msgstr "Չեղարկել ներկայացումը"
 
 msgid "submission.wizard.submissionCancelled.description"
 msgstr "Ներկայացումը չեղարկվել է, և բոլոր առնչվող տվյալները ջնջվել են:"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Գրախոսի առաջարկի համար"

@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "bg/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Няма елементи"
@@ -510,10 +510,10 @@ msgid "grid.user.email"
 msgstr "Имейл"
 
 msgid "grid.user.enable"
-msgstr "Активиране"
+msgstr "Активиране на потребител"
 
 msgid "grid.user.disable"
-msgstr "Деактивиране"
+msgstr "Деактивиране на потребител"
 
 msgid "grid.user.disableReason"
 msgstr "Причина за деактивиране на потребител"
@@ -725,3 +725,31 @@ msgstr "Включване в списъци"
 
 msgid "grid.action.editContributor"
 msgstr "Редактиране на спомагател/спомоществовател"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Изтриване на предложение за рецензент"
+
+msgid "grid.user.logInAs"
+msgstr "Вход като"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Добавяне на предложение за рецензент"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Сигурни ли сте, че искате да премахнете това предложение? Това действие не "
+"може да бъде отменено."
+
+msgid "grid.user.remove"
+msgstr "Премахване на потребител"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"След като потребителят бъде активиран, той ще получи отново достъп до сайта "
+"и вие ще можете да го поканите в различни роли, ако е необходимо."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Моля, обърнете внимание, че след като даден потребител бъде деактивиран, "
+"няма да можете да го добавите към никакви роли, докато потребителят не бъде "
+"активиран отново."

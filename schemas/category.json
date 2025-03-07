@@ -64,9 +64,70 @@
 			"apiSummary": true
 		},
 		"image": {
+			"type": "object",
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"width": {
+					"type": "integer"
+				},
+				"height": {
+					"type": "integer"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"thumbnailName": {
+					"type": "string"
+				},
+				"thumbnailWidth": {
+					"type": "integer"
+				},
+				"thumbnailHeight": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string",
+					"validation": [
+						"nullable"
+					]
+				}
+			}
+		},
+		"subCategories": {
+			"description": "List of sub categories that belongs to this category",
+			"apiSummary": false,
 			"type": "array",
 			"items": {
-				"type": "string"
+				"$ref": "#/definitions/Category"
+			}
+		},
+		"assignedEditors": {
+			"type": "array",
+			"items": {
+				"types": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"apiSummary": true
+					},
+					"name": {
+						"type": "string",
+						"apiSummary": true
+					},
+					"editorDisplayInitials": {
+						"type": "string",
+						"apiSummary": true
+					}
+				}
 			}
 		}
 	}

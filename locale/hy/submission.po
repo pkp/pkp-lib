@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-03-09 05:50+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -1310,13 +1310,12 @@ msgstr "Վերանայումներ են պահանջվել:"
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Ներկայացվել են վերանայումներ և անհրաժեշտ է որոշում։"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Ներկայացումը պետք է նորից ներկայացվի գրախոսման մեկ այլ փուլի համար:"
+msgstr ""
+"Հեղինակից պահանջված փոփոխությունները վերանայման նոր փուլ տեղափոխելու համար:"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Ներկայացումը կրկին ներկայացվել է գրախոսման մեկ այլ փուլի համար:"
+msgstr "Ներկայացված վերանայումներ: Պետք է ստեղծվի գրախոսման նոր փուլ:"
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Ուղարկել արտաքին գրախոսության։"
@@ -1336,9 +1335,8 @@ msgstr "Սպասում ենք գրախոսների պատասխաններին:"
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Նոր գրախոսություններ են ներկայացվել։"
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Բոլոր գրախոսները արձագանքել են, և անհրաժեշտ է որոշում:"
+msgstr "Բոլոր գրախոսությունները հաստատված են և անհրաժեշտ է որոշում:"
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Գրախոսությունը ժամկետանց է։"
@@ -2752,3 +2750,444 @@ msgstr "Ներկայացումը չեղարկվել է, և բոլոր առնչվ
 
 msgid "submission.forReviewerSuggestion"
 msgstr "Գրախոսի առաջարկի համար"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Գրախոսի առաջարկները"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Առաջարկությունն արվել է ձեր կողմից:"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Գրախոսներ՝ առաջարկված հեղինակի կողմից"
+
+msgid "submission.review.status.viewed"
+msgstr "Խմբագիրը դիտել է գրախոսությունը։"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Փոփոխություն"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Փոխել ներկայացման լեզուն"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Սա ներկայացման հիմնական լեզուն է: Սրա փոխելը ազդեցություն կունենա "
+"ներկայացման և մուտքագրված մետատվյալների վրա"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Նախքան ներկայացման լեզուն փոխելը, համոզվեք, որ լրացրել եք հետևյալ "
+"մետատվյալների դաշտերը՝ համակարգի ամբողջականությունը պահպանելու համար: Նկատի "
+"ունեցեք նաև, որ աջակցողների տեղեկությունները և նիշքերի անունները պատճենվելու "
+"են նախկինում մուտքագրված տեղեկություններից:</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Մուտքագրեք ներկայացման վերնագիրն այստեղ {$language}: Դուք կարող եք ձևաչափել "
+"ձեր վերնագիրը ըստ անհրաժեշտության"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Խորհուրդ է տրվում ներառել համառոտագրությունը {$language}-ում: Սա օգնում է "
+"ապահովել բովանդակության հասանելիությունը"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Դիտեք ներկայացման ամփոփագիրը"
+
+msgid "submission.list.completeSubmission"
+msgstr "Ավարտված ներկայացում"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք չեղարկել այս ներկայացումը: Սա կջնջի ներկայացումը "
+"և դրա հետ կապված բոլոր տվյալները: Այս գործողությունը հնարավոր չէ հետարկել:"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Այս ներկայացման համար գրախոսներ չեն առաջարկվել:"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Փոխկապակցվածության անունը բացակայում է {$language}-ում մեկ կամ մի քանի "
+"մասնակիցների համար:"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Ինձ է նշանակված"
+
+msgid "submission.dashboard.view.active"
+msgstr "Ակտիվ ներկայացումներ"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Խմբագրի կարիք ունի"
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "Բոլորը գրասեղանի/նախնական վերանայման մեջ"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Բոլորը գործընկերային վերանայման մեջ է"
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "Պահանջվում են գրախոսներ"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Սպասող գրախոսություններ"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Ներկայացված գրախոսություններ"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Ժամկետանց գրախոսություններ"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Ամբողջը սրբագրման մեջ"
+
+msgid "submission.dashboard.view.production"
+msgstr "Ամբողջը թողարկման մեջ"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Նախատեսված է հրապարակման համար"
+
+msgid "submission.dashboard.view.published"
+msgstr "Հրապարակված"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Մերժված"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Պահանջվում են վերանայումներ"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Ներկայացված վերանայումներ"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Անավարտ ներկայացումներ"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Բոլոր նշանակումները"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Սպասողներ"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Ավարտված / մերժված"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Բոլոր առաջադրանքները"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Գործողություն, որը պահանջվում է իմ կողմից"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Արխիվացված"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Մերժված"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Ավարտված"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Հրատարակվել է"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Գրախոսություն (շրջանակ {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Պլանավորված է հրապարակման համար"
+
+msgid "submission.stage.published"
+msgstr "Հրատարակվել է"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Հաստատեք JATS XML ջնջումը"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Դուք պատրաստվում եք հեռացնել գոյություն ունեցող JATS XML նիշքը այս "
+"հրապարակումից: Վստա՞հ ես։"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Ջնջեք JATS նիշքը"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Այս JATS նիշքը ինքնաշխատ կերպով ստեղծվում է ներկայացման մետատվյալներից"
+
+msgid "publication.jats.lastModified"
+msgstr "Վերջին փոփոխությունը {$modificationDate} -ին {$username} -ի կողմից"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Լռելյայն JATS բովանդակությունը ստեղծելիս սխալ առաջացավ: Խնդրում ենք "
+"համոզվել, որ JatsTemplate հավելվածը տեղադրված է:"
+
+msgid "submission.files.content.error"
+msgstr "'{$fileName}' ներկայացվող նիշքի բովանդակությունը չհաջողվեց առբերել:"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Գրախոս առաջարկելու պատճառները"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Խնդրում ենք կիսվել, թե ինչու եք խորհուրդ տալիս այս գրախոսին և նշեք, արդյոք "
+"հնարավոր է շահերի բախում:"
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Ներկայացման լեզուն ({$language}) աջակցվող ներկայացման լեզուներից չէ: Դուք "
+"դեռ կարող եք խմբագրել ներկայացման մանրամասները, սակայն նոր ներկայացումները "
+"ներկայումս չեն ընդունվում այս լեզվով:"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Գրախոսներ են նշանակված"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Ստուգեք թարմացումը {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Կիրառեք զտիչները"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Սկսեք նոր ներկայացում"
+
+msgid "dashboard.assignReviewers"
+msgstr "Նշանակեք գրախոսներ"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Վերանայումներ են պահանջվել հեղինակից"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Հեղինակից պահանջված փոփոխությունները վերանայման նոր փուլ տեղափոխելու համար"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Կստեղծվի վերանայման նոր փուլ"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Հրապարակվելու է ${issue} համարում"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Սրբագրման նիշքերը վերբեռնվել են՝ ${count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Խնդրվում է վերանայում"
+
+msgid "dashboard.submitRevisions"
+msgstr "Ներկայացրե՛ք վերանայումները"
+
+msgid "workflow.uploadRevisions"
+msgstr "Վերբեռնեք վերանայումները"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Արձագանքել հարցումին"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Ավարտել վերանայումը"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Խնդրում ենք ընդունել կամ մերժել այս հարցումը մինչև {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Հայտը մերժվել է {$date}-ին"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Գրախոսությունն ուղարկվել է {$date}-ին"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Այս հարցումին պատասխանելու վերջնաժամկետը լրացել է։ Խնդրում ենք ընդունել կամ "
+"մերժել այս հարցումը հնարավորինս շուտ:"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Խնդրում ենք լրացնել այս վերանայումը մինչև {$date}:"
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Այս վերանայման ավարտի վերջնաժամկետը լրացել է: Խնդրում ենք հնարավորինս շուտ "
+"լրացնել վերանայումը:"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Սպասում է գրախոսի պատասխանին"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Վերանայման հարցումը կիսվել է գրախոսի հետ: Սպասում է պատասխանի <b>{$days} "
+"օրից՝ {$date}</b> սկսած"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Գրախոսման հարցումը մերժվել է {$date}-ին"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Գրախոսը մերժել է վերանայման հարցումը <b>{$date}</b>-ին"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Գրախոսման հարցումը ժամկետանց է {$days} օրով"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Այս գրախոսը չի պատասխանել վերանայման հարցումին: Պատասխանը պետք է տրվեր "
+"<b>{$date}</b>-ին"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Ընթացիկ վերանայում. հարցումն ընդունված է"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Այս գրախոսը ընդունել է վերանայման հարցումը: Նրանց վերանայումը նախատեսված է "
+"<b>{$days} օրից՝ {$date}:</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Գրախոսումն ուշացել է {$days} օրով"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Այս գրախոսը չի ավարտել իր վերանայումը: Պատասխանը պետք է տրվեր "
+"<b>{$date}-ին:</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Գրախոսությունն ավարտվել է {$date}-ին"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Գրախոսումն ավարտվել է {$date}-ին հետևյալ առաջարկությամբ՝ "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Գրախոսությունը հաստատվել է խմբագրի կողմից"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Գրախոսությունն ընդունվել է խմբագրի կողմից <b>{$date}</b>-ին:"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Գրախոսը չեղարկել է վերանայման հարցումը"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Գրախոսը չեղարկել է վերանայման հարցումը <b>{$date}</b>-ին:"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Սպասում է գրախոսի պատասխանին"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Վերանայման հարցումը կրկին կիսվել է գրախոսի հետ: Սպասում է պատասխանին {$days} "
+"օրից՝ {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Դիտել մանրամասները"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Կրկին ուղարկել վերանայման հարցումը"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Չեղարկել գրախոսին"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Չեղարկել նշանակումը"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Խմբագրել վերջնաժամկետը"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Դիտել առաջարկությունը"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Դիտել չկարդացած առաջարկությունը"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Կարծիք ուղարկել ORCID-ին"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Ուղարկե՞լ այս կարծիքը գրախոսողի ORCID-ին:"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Մերժվել է {$stageName} փուլում:"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Առաջարկող խմբագիրներին հանձնարարված է խորհուրդ տալ այս ներկայացման հաջորդ "
+"քայլերի վերաբերյալ"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Ստացվել է խմբագրական հանձնարարական"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Բոլոր խմբագրական առաջարկությունները ստացվել են, և անհրաժեշտ է որոշում "
+"կայացնել:"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Ներկայացումը անցավ ստուգման հաջորդ փուլ, ընդունվեց և այժմ {$stage} փուլում է:"
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Ներկայացումը փոխանցվել է գրախոսման հաջորդ փուլ"
+
+msgid "workflow.reviewRoundN"
+msgstr "Գրախոսման {$number} փուլը"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Ներկայացման պահին վերբեռնված նիշքերը"
+
+msgid "fileManager.filesForReview"
+msgstr "Վերանայման նիշքեր"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Ջնջել անավարտ ներկայացումները"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Իսկապե՞ս ուզում եք ջնջել ընտրված տարրերը: Այս գործողությունը հնարավոր չէ "
+"հետարկել: Շարունակելու համար խնդրում ենք հաստատել:"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Թույլատրվում է երաշխավորել միայն խմբագրական որոշումը"
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Ներկայացումը ներկայումս {$stage} փուլում է:"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Վերանայումները վերբեռնվեցին"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Այս նիշքերը կուղարկվեն գրախոսներին՝ վերանայելու համար"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Սրբագրման նիշքեր"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Սրանք խմբագրված նիշքեր են, որոնք տեղափոխվելու են արտադրության փուլ"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Սրանք այն նիշքերն են, որոնք կուղարկվեն հրապարակման"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Գրախոսի կարգավիճակը"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Հաստատեք անավարտ ներկայացումների ջնջումը"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Ընտրեք անավարտ ներկայացումները, որոնք պետք է ջնջվեն:"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Դուք չեք կարող մուտք գործել այս ներկայացումը որպես ամսագրի կառավարիչ, քանի "
+"որ դուք հեղինակն եք: Այն դիտելու համար անցեք «Իմ դիմումները»"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Ներկայացման ներկայիս լեզուն:"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Դուք չեք կարող մուտք գործել այս ներկայացումը որպես ամսագրի կառավարիչ, քանի "
+"որ դուք գրախոսն եք: Այն դիտելու համար անցեք «Վերանայել առաջադրանքները»"
+
+msgid "workflow.stageNotStarted"
+msgstr "{$stage} փուլը դեռ չի սկսվել:"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Այս նիշքերը ներկայացվել են հեղինակի կողմից վերանայումների պահանջից հետո"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Սրանք վերանայման փուլի նիշքեր են, որոնք պետք է սրբագրվեն"

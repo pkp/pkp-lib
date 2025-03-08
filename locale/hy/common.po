@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-03-09 05:50+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -2350,3 +2350,55 @@ msgstr "Նշանակումներ"
 
 msgid "common.filtersClear"
 msgstr "Մաքրել զտիչները"
+
+msgid "form.errorSummaryOne"
+msgstr "Հայտնաբերվել է 1 սխալ: Շարունակելուց առաջ շտկեք ստորև նշված սխալը:"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Հայտնաբերվել է {$count} սխալ: Շարունակելուց առաջ շտկեք ստորև ներկայացված "
+"սխալները:"
+
+msgid "navigation.dashboards"
+msgstr "Վահանակներ"
+
+msgid "navigation.reviewAssignments"
+msgstr "Վերանայման առաջադրանքներ"
+
+msgid "navigation.mySubmissions"
+msgstr "Իմ ներկայացումները"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Վերանայումն ուղարկված է"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ոչ"
+
+msgid "common.refreshingData"
+msgstr "Տվյալներ թարմացում"
+
+msgid "common.showingXofX"
+msgstr ""
+"Ցուցադրվում է <strong>{$start}-ից մինչև {$finish}</strong> ընդամենը "
+"{$total}-ից"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Վերանայումն ընդունված է"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Բեռնված"
+
+msgid "validator.date.comparison"
+msgstr "Համեմատության համար անվավեր ամսաթվեր են տրամադրված:"
+
+msgid "validator.multilingual"
+msgstr "Բազմալեզվության պահանջը չի կատարվում այս ոլորտի համար:"
+
+msgid "common.viewMoreDetails"
+msgstr "Դիտեք ավելի շատ մանրամասներ"

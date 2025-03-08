@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-03-09 05:50+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -1012,3 +1012,76 @@ msgstr ""
 "բաժնում: Խնդրում ենք թարմացնել կազմաձևման նիշքի ընդհանուր բաժինը և ավելացնել "
 "`app_key = ` տողը կամ գործարկել php lib/pkp/tools/appKey.php հրամանը՝ այն "
 "կարգավորելու համար:"
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Կազմաձևման նիշքում հավելվածի բանալի չկա:"
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Հավելվածի անվավեր բանալու կարգաբերում, չաջակցվող ծածկագիր կամ բանալու սխալ "
+"երկարություն: Աջակցվող ծածկագրերն են՝ {$ciphers}:"
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Կազմաձևման նիշում արդեն տեղադրված է վավեր APP բանալի: Վերագրանցելու համար "
+"փոխանցեք --force դրոշը հրամանով:"
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Հավելվածի ստեղնը հաջողությամբ դրվեց կազմաձևման նիշքում:"
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Հավելվածի ստեղնի փոփոխականը հաջողությամբ դրվեց կազմաձևման նիշքում: Գործարկեք "
+"`php lib/pkp/tools/appKey.php generate` հրամանը՝ հավելվածի նոր բանալի "
+"սահմանելու համար:"
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Հնարավոր չէ սահմանել `app_key` փոփոխականը կազմաձևման նիշքում: Խնդրում ենք "
+"թարմացնել կազմաձևման նիշքի ընդհանուր բաժինը և ավելացնել `app_key = ` տողը:"
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Կազմաձևման նիշքում տեղադրված է հավելվածի վավեր բանալի"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Գործարկեք ժամանակացույցը:"
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Նշեք բոլոր պլանավորված առաջադրանքները:"
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Սկսեք գրաֆիկի աշխատողը:"
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Ցուցադրել Scheduler-ի օգտագործման պարամետրերը:"
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Դուք նկատի ունեի՞ք հետևյալներից մեկը."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Հնարավոր չէ գործարկել պլանավորված առաջադրանքները, քանի որ հավելվածի Sandbox "
+"ռեժիմը միացված է:"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Պլանավորված առաջադրանքների կատարում ամեն րոպե:"
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Համապատասխան պլանավորված առաջադրանք չի գտնվել:"
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Ո՞ր հրամանը կցանկանայիք գործարկել:"
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Գործարկեք որոշակի պլանավորված առաջադրանք ցուցակից կամ օգտագործեք --name -ը "
+"կոնկրետ առաջադրանք գործարկելու համար: Սահմանեք դրոշը --no-scroll ամբողջական "
+"ցուցակը առանց ոլորելու դիտելու համար:"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Հնարավոր չէ գործարկել պլանավորված առաջադրանքները, քանի որ հավելվածի "
+"պահպանման ռեժիմը միացված է:"
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Պլանավորված առաջադրանքներ չեն գրանցվել։"

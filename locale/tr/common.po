@@ -1,4 +1,4 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2025-03-10 09:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr/>\n"
@@ -2308,3 +2308,6 @@ msgstr "Vurgular"
 
 msgid "common.sandbox"
 msgstr "Deneme alanı modunda çalışan uygulama."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "<a href=\"{$url}\">Editöryal Geçmişi</a> Görüntüle"

@@ -369,7 +369,7 @@ msgstr ""
 msgid "admin.error.executingUtil"
 msgstr ""
 "Грешка: не може да се изврши \"{$utilPath}\". Проверете ја поставката "
-"{{$utilVar} во конфигурацијата.inc.php."
+"{$utilVar} во config.inc.php."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нема достапни локализации за преземање."

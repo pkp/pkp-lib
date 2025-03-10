@@ -333,7 +333,7 @@ msgstr ""
 "indlæsningskatalogerne (trin, behandling, arkivering, afvisning).\n"
 "\n"
 "Anvendelse: {$scriptName} path/to/apache/log/file.log\n"
-"Anvendelse (databehandling af alle filer inde i et indeks): {$ scriptName} "
+"Anvendelse (databehandling af alle filer inde i et indeks): {$scriptName} "
 "path/to/apache/directory\n"
 "\t"
 

@@ -253,7 +253,11 @@ class Repository
         $submissionLocale = $submission->getData('locale');
 
         $affiliation = $this->newDataObject();
-        foreach ($user->getAffiliation(null) as $locale => $name) {
+        $userAffiliations = $user->getAffiliation(null);
+        if (empty($userAffiliations)) {
+            return null;
+        }
+        foreach ($userAffiliations as $locale => $name) {
             $ror = Repo::ror()->getCollector()->filterByName($name)->getMany()->first();
             if ($ror) {
                 $affiliation->setRor($ror->getRor());

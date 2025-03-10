@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-03-10 09:38+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -2859,3 +2859,126 @@ msgstr "Arhivirano"
 
 msgid "submission.dashboard.view.reviewAssignments.declined"
 msgstr "Zavrnjeno"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Zaključeno"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Objavljeno"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recenzija (Krog {$round})"
+
+msgid "submission.stage.published"
+msgstr "Objavljeno"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potrdite brisanje JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Odstani JATS datoteko"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Ta JATS datoteka je bila generirana avtomatično iz metapodtkov prispevka"
+
+msgid "publication.jats.lastModified"
+msgstr "Zadnji spremenil {$username} dne {$modificationDate}"
+
+msgid "submission.files.content.error"
+msgstr "Vsebine datoteke '{$fileName}' ni bilo mogoče prebrati."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Dodeljeni recenzenti"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Stanje recenzij {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Uporabi filtre"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Oddaj nov prispevek"
+
+msgid "dashboard.assignReviewers"
+msgstr "Določi recenzente"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Zahtevani avtorjevi popravki"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Zahtevani avtorjevi popravki za naslednji recenzijski krog"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Ustvarjen bo nov recenzijski krog"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Objavljeno bo v številki ${issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Naložene recenzentske datoteke: ${count}"
+
+msgid "dashboard.submitRevisions"
+msgstr "Oddaj popravke"
+
+msgid "workflow.uploadRevisions"
+msgstr "Naloži popravke"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Odgovori na prošnjo"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Končaj recenzijo"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Prošnja zavrnjena dne {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenzija oddana dne {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Prosimo zaključite to recenzijo do {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Rok za dokončanje te recenzije je potekel. Prosimo, da recenzijo zaključite "
+"v najkrajšem možnem času."
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "Odstranili boste JATS XML datoteko iz te publikacije. Ste prepričani?"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Razlogi za predlaganje recenzenta"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Rok za odgovor na prošnjo je potekel. Prosimo, da prošnjo čim prej sprejmete "
+"ali zavrnete."
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Načrtovano za objavo"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Prišlo je do napake pri kreiranju privzete JATS vsebine. Prosimo zagotovite, "
+"da je JatsTemplate vtičnik nameščen."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Prosimo zapišite zakaj predlagate tega recenzenta in omenite, če je obstaja "
+"potencialen konflikt interesov."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Jezik prispevka ({$language}) ni eden od podprtih jezikov. Še vedno lahko "
+"urejate podrobnosti prispevka, ampak novi prispevka v tem jeziku se trenutno "
+"ne sprejemajo."
+
+msgid "dashboard.revisionRequested"
+msgstr "Zahtevan popravek"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Prosimo sprejmite ali zavrnite to prošnjo do {$date}"

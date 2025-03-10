@@ -74,7 +74,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     /** @var array Which DOI types should be considered when checking if a submission has DOIs set */
     public array $enabledDoiTypes = [];
 
-    /** @var array */
+    /**  */
     public ?array $assignedTo = null;
     public ?array $assignedWithRoles = null;
 
@@ -295,7 +295,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     {
         $this->assignedTo = $assignedTo;
 
-        if(is_array($withRoles) && !empty($withRoles)) {
+        if (is_array($withRoles) && !empty($withRoles)) {
             $this->assignedWithRoles = $withRoles;
         }
 
@@ -560,7 +560,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 's.submission_id',
                 function (Builder $q) {
                     // by default are included for backward compatibility
-                    // its only excluded when explicitly assignedWithRoles defines roles, but exclude ROLE_ID_REVIEWER 
+                    // its only excluded when explicitly assignedWithRoles defines roles, but exclude ROLE_ID_REVIEWER
                     $includeReviewerAssignment = (!$this->assignedWithRoles) || ($this->assignedWithRoles && in_array(Role::ROLE_ID_REVIEWER, $this->assignedWithRoles));
                     $q->select('s.submission_id')
                         ->from('submissions AS s')
@@ -571,8 +571,10 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                 ->whereIn('sa.user_id', $this->assignedTo)
                         );
 
-                    if($this->assignedWithRoles) {
-                        $q->leftJoin('user_groups as ug', fn (Builder $table) => 
+                    if ($this->assignedWithRoles) {
+                        $q->leftJoin(
+                            'user_groups as ug',
+                            fn (Builder $table) =>
                             $table->on('sa.user_group_id', '=', 'ug.user_group_id')
                                 ->whereIn('ug.role_id', $this->assignedWithRoles)
                         );
@@ -581,12 +583,12 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     // nested where to group these conditions together
                     $q->where(function (Builder $q) {
                         $q->whereNotNull('sa.stage_assignment_id');
-                        if($this->assignedWithRoles) {
+                        if ($this->assignedWithRoles) {
                             $q->whereNotNull('ug.role_id');
-                        }   
+                        }
                     });
 
-                    if($includeReviewerAssignment) {
+                    if ($includeReviewerAssignment) {
                         $q->leftJoin(
                             'review_assignments as ra',
                             fn (Builder $table) =>
@@ -596,11 +598,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                 ->whereIn('ra.reviewer_id', $this->assignedTo)
                         )->orWhereNotNull('ra.review_id');
                     }
-                    
+
                     return $q;
                 }
             );
-        } else if ($this->isUnassigned) {
+        } elseif ($this->isUnassigned) {
             $sub = DB::table('stage_assignments')
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
                 ->leftJoin('user_groups', 'stage_assignments.user_group_id', '=', 'user_groups.user_group_id')

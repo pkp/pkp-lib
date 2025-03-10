@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/log/Repository.php
  *
@@ -18,6 +19,8 @@ namespace PKP\log;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
@@ -99,22 +102,19 @@ class Repository
      */
     public function changeUser(int $oldUserId, int $newUserId)
     {
-        return [
-            $this->model
-                ->newQuery()
-                ->where('sender_id', $oldUserId)
-                ->update(['sender_id' => $newUserId]),
+        $this->model
+            ->newQuery()
+            ->where('sender_id', $oldUserId)
+            ->update(['sender_id' => $newUserId]);
 
-            DB::table('email_log_users')
-                ->where('user_id', $oldUserId)
-                ->whereNotIn('email_log_id', function ($query) use ($newUserId, $oldUserId) {
-                    $query->select('t1.email_log_id')
-                        ->from(DB::table('email_log_users')->as('t1'))
-                        ->join(DB::table('email_log_users')->as('t2'), 't1.email_log_id', '=', 't2.email_log_id')
-                        ->where('t1.user_id', $newUserId)
-                        ->where('t2.user_id', $oldUserId);
-                })->update(['user_id' => $newUserId])
-        ];
+        DB::table('email_log_users AS a')
+            ->leftJoin(
+                'email_log_users AS b',
+                fn(JoinClause $j) => $j->on('b.email_log_id', '=', 'a.email_log_id')->where('b.user_id', '=', $newUserId)
+            )
+            ->where('a.user_id', $oldUserId)
+            ->whereNull('b.user_id')
+            ->update(['a.user_id' => $newUserId]);
     }
 
     /**

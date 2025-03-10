@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-10 09:38+0000\n"
+"PO-Revision-Date: 2025-03-10 10:57+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -560,3 +560,180 @@ msgstr "खंड"
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "नवी समीक्षणे सादर झालेली असून ती संपादकांकडे विचारार्ह आहेत."
+
+msgid "submission.submit.submissionLocale"
+msgstr "सादरीकरणाची भाषा"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "सादरीकरणाची प्राथमिक भाषा निवडा."
+
+msgid "submission.submit.submissionFiles"
+msgstr "सादरीकरणादरम्यानच्या फाईल्स"
+
+msgid "submission.submit.dependentFiles"
+msgstr "अवलंबित फाईल्स"
+
+msgid "submission.manageDependentFiles"
+msgstr "अवलंबित फाईल्स व्यवस्थापित करा"
+
+msgid "submission.upload.percentComplete"
+msgstr "संक्रमित (अपलोड) करण्याची प्रक्रिया {$percent}% पूर्ण झाली"
+
+msgid "submission.upload.dependent"
+msgstr "अवलंबित फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.summary"
+msgstr "गोषवारा"
+
+msgid "submission.currentAgencies"
+msgstr "सध्याच्या संस्था (Agencies)"
+
+msgid "submission.indexingInformation"
+msgstr "सूचिकरणासंबंधी माहिती"
+
+msgid "submission.underway"
+msgstr "प्रगतीपथावर"
+
+msgid "submission.uploadFileTo"
+msgstr "फाईल येथे संक्रमित (अपलोड) करा"
+
+msgid "submission.createRemote"
+msgstr "दूरस्थ पद्धतीने निर्मिती (Create remote)"
+
+msgid "submission.viewMetadata"
+msgstr "मेटाडेटा वाचा"
+
+msgid "submission.views"
+msgstr "पानावर पोहोचलेले वाचक (Views)"
+
+msgid "submission.uploadSuccessful"
+msgstr "तुमची फाईल संक्रमित (अपलोड) झाली आहे."
+
+msgid "submission.form.replaceExisting"
+msgstr "अस्तित्वात असलेली फाईल बदलायची आहे का?"
+
+msgid "workflow.review.internalReview"
+msgstr "अंतर्गत समीक्षण"
+
+msgid "workflow.stage.any"
+msgstr "कोणत्याही टप्प्यावर"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"जर तुम्ही विद्यमान फाईलचेच फेरसंक्रमण (uploading a revision) करीत असाल, तर ती"
+" फाईल कोणती हे दर्शवा."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "ही विद्यमान फाईलची सुधारीत आवृत्ती (revision) नाही"
+
+msgid "submission.upload.userGroup"
+msgstr "माझ्या या भूमिकेत ही फाईल संक्रमित (अपलोड) करा..."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "लायब्ररी फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.upload.libraryCategory"
+msgstr "सादरीकरणाच्या दस्तऐवजाचा प्रवर्ग (Category)"
+
+msgid "submission.upload.uploadFiles"
+msgstr "फाईल्स संक्रमित (अपलोड) करा"
+
+msgid "submission.upload.productionReady"
+msgstr "प्रकाशनयोग्य फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.upload.proof"
+msgstr "प्रकाशनासाठी तयार केलेली फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"संक्रमित (अपलोड) केलेल्या फाईलचे नाव पूर्वी संक्रमित (अपलोड) केलेल्या "
+"फाईलच्या नावासारखे \"{$revisedFileName}\" आहे. ही फाईल \"{$revisedFileName}\""
+" या जुन्या फाईलऐवजी संक्रमित करायची आहे का? तसे असेल तर खालील फाईलची निवड करा"
+". अन्यथा, पुढे जाण्यापूर्वी \"ही विद्यमान फाईलचे फेरसंक्रमण (Revision) नाही\""
+" हा पर्याय निवडा."
+
+msgid "submission.upload.instructions"
+msgstr ""
+"संपादकीय टीमला सादरीकरणाचे योग्य मूल्यमापन करण्यासाठी तुम्हाला आवश्यक "
+"वाटणार्‍या इतर फाईल्स संक्रमित (अपलोड) करा."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"जर तुम्ही संपादित खंड सादर करीत असाल, तर खंडाचा संपादक या तुमच्या भूमिकेतून "
+"खंडातली सगळी प्रकरणे स्वतंत्रपणे संक्रमित (अपलोड) करावीत."
+
+msgid "submission.upload.query"
+msgstr "चर्चेसाठी फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.upload.finalDraft"
+msgstr "फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.supportingAgencies"
+msgstr "सहाय्यक संस्था (Agencies)"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "कॉपी-एडिट केलेली फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.titleAndAbstract"
+msgstr "शीर्षक आणि सारांश"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"निर्दिष्ट केलेल्या फाईलचे समीक्षण केल्यानंतर, फाईलवरील टिप्पण्या खालीलप्रमाणे"
+" नोंदवा आणि/किंवा फाईलमधील मजकूरावर टीका केलेली प्रत (किंवा स्वतंत्र फाईल) "
+"संक्रमित (अपलोड) करा."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "दुरुस्त्या करण्यासाठी सध्या तुमच्याकडे फाईल्स नाहीत."
+
+msgid "submission.status.review"
+msgstr "समीक्षणाच्या टप्प्यावर"
+
+msgid "submission.status.submission"
+msgstr "संपादकाच्या निर्णयाची प्रतीक्षा आहे"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr ""
+"कृपया तुम्हाला कोणत्या फाईलचे फेरसंक्रमण (revise) करायचे त्याची निवड करा."
+
+msgid "workflow.stage"
+msgstr "टप्प्यावर"
+
+msgid "submission.status.editorial"
+msgstr "कॉपीएडिटिंगच्या टप्प्यावर"
+
+msgid "submission.status.production"
+msgstr "प्रूफरीडिंगच्या टप्प्यावर"
+
+msgid "submission.status.unassigned"
+msgstr "नियुक्त केलेले नाही"
+
+msgid "submission.status.declined"
+msgstr "नाकारलेले"
+
+msgid "submission.status.published"
+msgstr "प्रकाशित झालेले"
+
+msgid "submission.submit.uploadStep"
+msgstr "१. फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "सादरीकरणाची फाईल संक्रमित (अपलोड) करा"
+
+msgid "submission.submit.metadataStep"
+msgstr "२. तपशीलांचे पुनरावलोकन करा"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "३. पुष्टी करा"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "या फाईलसाठी फाईलच्या नावाची नोंद तुम्ही करणे आवश्यक आहे"
+
+msgid "submission.upload.noGenre"
+msgstr "वगळला गेलेला (Missing) किंवा अग्राह्य घटक!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "वगळला गेलेला (Missing) किंवा अग्राह्य वापरकर्ता गट!"
+
+msgid "submission.upload.possibleRevision"
+msgstr "द्विरुक्तीची (Duplication) किंवा फेरसंक्रमणाची (Revision) शक्यता दिसते"

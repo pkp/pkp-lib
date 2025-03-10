@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-10 11:00+0000\n"
+"PO-Revision-Date: 2025-03-10 13:16+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -3080,3 +3080,83 @@ msgstr "Naj se ta recenzija pošlje na ORCID recenzenta?"
 
 msgid "dashboard.recommendOnly.pendingRecommendations"
 msgstr "Uredniki morajo oddati priporočila glede nadaljevanje tega prispevka"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Vsa uredniška priporočila so na voljo, potrebna je uredniška odločitev."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Omogočeno vam je le oddajanje priporočila"
+
+msgid "workflow.stageNotStarted"
+msgstr "Faza {$stage} se še ni pričela."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Prispevek je trenutno v fazi {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Prispevek, ki je šel naprej v naslednji krog recenzije, je bil sprejet in je "
+"trenutno v fazi {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Prispevek je šel naprej v naslednji krog recenzije"
+
+msgid "workflow.reviewRoundN"
+msgstr "Recenzijski krog {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Datoteke naložene ob oddaji prispevka"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Popravki naloženi"
+
+msgid "fileManager.filesForReview"
+msgstr "Datoteke za recenzijo"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Te datoteke bodo poslane recenzentom za recenzijo"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Lektorirane datoteke"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Ste prepričani, da želite izbrisati izbrane elemente? Tega dejanja ni mogoče "
+"preklicati. Za nadaljevanje potrdite."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Briši nedokonačne prispevke"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Te datoteke se bodo prenesle v fazo produkcije"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Te datoteke so iz faze recensije in bodo lektorirane"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Te datoteke bodo poslane v fazo produkcije"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Potrdite brisanje nedokončanega prispevka"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status recenzenta"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Izberite nedokončane prispevke za brisanje."
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Uredniško priporočilo je na voljo"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Do prispevka ne morete dostopati kot Upravljalec Revije, ker ste avtor. Za "
+"ogled pojdite na \"Moji prispevki\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Do prispevka ne morete dostopati kot Upravljalec Revije, ker ste recenzent. "
+"Za ogled pojdite na \"Moje Recenzije\""
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Te datoteke je avtor naložil po tistej, ko so bili zahtevani popravki"

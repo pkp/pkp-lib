@@ -369,7 +369,10 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
         $currentUser = $request->getUser();
         $queryParams = $illuminateRequest->query();
-        $assignedWithRoles = $queryParams['assignedWithRoles'] ?? [];
+        $assignedWithRoles = array_map(
+            intval(...),
+            paramToArray($queryParams['assignedWithRoles'] ?? [])
+        );
 
         $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser, $assignedWithRoles, true);
 

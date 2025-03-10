@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-10 09:38+0000\n"
+"PO-Revision-Date: 2025-03-10 10:57+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -2982,3 +2982,98 @@ msgstr "Zahtevan popravek"
 
 msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
 msgstr "Prosimo sprejmite ali zavrnite to prošnjo do {$date}"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Čakanje na odziv recenzenta"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Prošnja za recenzijo je bila poslana recenzentu. Pričakovan odziv v "
+"<b>{$days} dneh na dan {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Prošnja za recenzijo zavrnjena dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Recenzent je zavrnil prošnjo za recenzijo dne <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Odziv na prošnjo za recenzijo zamuja {$days} dni"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Recenzent se še ni odzval na prošnjo za recenzijo. Rok za odziv je bil do "
+"<b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Recenzija zamuja {$days} dni"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Recenzija končana dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Urednik je potrdil recenzijo"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Urednik je sprejel recenzijo dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recenzent je zavrnil prošnjo za recenzijo"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recenzent je zvrnil prošnjo za recenzijo dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Čaka na odziv recenzenta"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Prošnja za recenzijo je bila ponovno poslana. Rok za odziv je še {$days} dni "
+"do {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Poglej podrobnosti"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Ponovno pošlji prošnjo za recenzijo"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Prekliči recenzenta"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Uredi datum za rok"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Poglej priporočilo"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Poglej neprebrano priporočilo"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Pošlji recenzijo na ORCID"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Zavrnjeno v fazi {$stageName}."
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Recenzija poteka - recenzija je bila sprejeta"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Recenzent je sprejel prošnjo za opravljanje recenzije. Za dokončanje "
+"recenzije je še <b>{$days} dni, rok je {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Ta recenzent ni dokončal recenzije. Rok za dokončanje je bil <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Recenzija je bila končana {$date} za naslednjim priporočilom: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Umakni dodelitev"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Naj se ta recenzija pošlje na ORCID recenzenta?"

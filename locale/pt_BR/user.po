@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2024-06-18 07:16+0000\n"
+"PO-Revision-Date: 2025-03-11 15:16+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_BR/>\n"
@@ -792,3 +792,67 @@ msgstr "ORCiDs duplicados para colaboradores detectados."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Detectados ORCiDs não autenticados para contribuidores."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Adicione uma afiliação no idioma de submissão."
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Seu termo de pesquisa não pôde ser encontrada"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Digite as duas letras que você gostaria de usar como avatar. Essas iniciais "
+"serão exibidas para representar você."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Insira o nome completo da instituição abaixo, evitando quaisquer siglas. "
+"Selecione o nome no menu suspenso e clique em \"Adicionar\" para incluir a "
+"afiliação em seu perfil. (por exemplo, \"Simon Fraser University\")"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Adicionar, atualizar ou excluir sugestões do avaliador para submissões "
+"concluídas são restritas."
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} de {$total} idiomas concluídos"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Iniciais de Avatar Preferenciais"
+
+msgid "user.affiliations.institution"
+msgstr "Instituição"
+
+msgid "user.affiliations.translation"
+msgstr "Mais informações"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Editar nome da instituição"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Remover instituição"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Clique para editar ou excluir"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Todas as traduções disponíveis"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Digite o nome do instituto em {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nome do instituto em {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Você tem certeza?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "A afiliação <strong>{$affiliation}</strong> será excluída."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Digite o nome do instituto em {$language}"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "O idioma principal {$primaryLocale} é obrigatório"

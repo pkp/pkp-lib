@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-10 10:57+0000\n"
+"PO-Revision-Date: 2025-03-11 15:16+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -737,3 +737,2318 @@ msgstr "वगळला गेलेला (Missing) किंवा अग्�
 
 msgid "submission.upload.possibleRevision"
 msgstr "द्विरुक्तीची (Duplication) किंवा फेरसंक्रमणाची (Revision) शक्यता दिसते"
+
+msgid "author.authorNotFound"
+msgstr "या संस्थेशी संलग्न (affiliation) लेखक सापडला नाही."
+
+msgid "ror.nameRequired"
+msgstr "संशोधन संस्था नोंदणीमधील (ROR) संस्थेचे नाव आवश्यक आहे."
+
+msgid "ror.displayLocaleRequired"
+msgstr "संशोधन संस्था नोंदणीमधील (ROR) प्रदर्शित लोकॅल आवश्यक आहे."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "सादरीकरण रद्द"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "सादरीकरण रद्द करा"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "कृपया एका वैध प्रकरणाचे शीर्षक नोंदवा."
+
+msgid "metadata.property.displayName.edition"
+msgstr "आवृत्ती"
+
+msgid "metadata.property.displayName.series"
+msgstr "मालिका"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "कृपया एक वैध CODEN नोंदवा."
+
+msgid "submission.editorial"
+msgstr "कॉपीएडिटिंग"
+
+msgid "submission.email.backToEmailLog"
+msgstr "ई-मेल लॉगवर परत फिरा"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"तुम्हाला खात्रीने या सादरीकरणासाठीचा ई-मेल लॉग मोकळा (clear) करायचा आहे ना?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "तुम्हाला खात्रीने ही ई-मेल लॉग नोंद (entry) हटवायची आहे ना?"
+
+msgid "submission.emailLog"
+msgstr "ई-मेल लॉग"
+
+msgid "submission.event.participantRemoved"
+msgstr ""
+"{$userFullName} ({$username}) यांना {$userGroupName} म्हणून काढून टाकले आहे."
+
+msgid "submission.event.backToEventLog"
+msgstr "इव्हेंट लॉगवर परत जा"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "लॉग नोंद (entry) हटवा"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "प्रारंभिक सादरीकरण पूर्ण झाले."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$filename} ({$username}) ने सादरीकरणासाठी कॉपीराइट अटींशी सहमती दर्शवली."
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"{$submissionFileId} फाईलसाठी \"{$filename}\" या नावाने सुधारलेली आवृत्ती "
+"संक्रमित (अपलोड) करण्यात आली."
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "सादरीकरणाची फाईल अपडेट केली"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "प्रॉक्सीने समीक्षणाची जबाबदारी स्वीकारली"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "समीक्षणाची जबाबदारी नाकारली"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "समीक्षण पूर्ण करण्याची अंतिम तारीख बदलली"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "समीक्षकाला या सादरीकरणासाठीच्या कामामधून वगळले आहे"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "समीक्षण कार्य सुरू झाले आहे"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "समीक्षण कार्य पुन्हा सुरू झाले आहे"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "समीक्षण पुन्हा सादर केले आहे"
+
+msgid "submission.event.subjectPrefix"
+msgstr "ई-मेल पाठवण्यात आला आहे :"
+
+msgid "submission.event.viewEmail"
+msgstr "ई-मेल पहा"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"लेखकांना आता या {stage} पायरीवर सादरीकरण करताना मेटाडेटा संपादित करण्याची "
+"परवानगी आहे."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"लेखकांना आता या {stage} पायरीवर सादरीकरण करताना मेटाडेटा संपादित करण्याची "
+"परवानगी नाही."
+
+msgid "submission.files"
+msgstr "फाईल्स"
+
+msgid "submission.files.downloadAll"
+msgstr "सर्व फाईल्स डाउनलोड करा"
+
+msgid "submission.firstPublished"
+msgstr "प्रथम प्रकाशित"
+
+msgid "submission.forTheEditors"
+msgstr "संपादकांकरता"
+
+msgid "submission.galley"
+msgstr "गॅली"
+
+msgid "submission.history.clearLog"
+msgstr "लॉग मोकळा करा (Clear Log)"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "समीक्षकाच्या सूचनेसाठी"
+
+msgid "submission.history"
+msgstr "पूर्वेतिहास"
+
+msgid "submission.history.noLogEntries"
+msgstr "लॉग नोंदी नाहीत."
+
+msgid "submission.history.submissionEmailLog"
+msgstr "ई-मेल लॉग"
+
+msgid "submission.history.submissionEventLog"
+msgstr "इव्हेंट लॉग"
+
+msgid "submission.history.submissionNotes"
+msgstr "सादरीकरणासंबंधी टिप्पणे (Notes)"
+
+msgid "submission.history.viewLog"
+msgstr "लॉग पहा"
+
+msgid "submission.howToCite"
+msgstr "उद्धरणे कशी द्यावीत"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "उद्धरण डाउनलोड करा"
+
+msgid "submission.versions"
+msgstr "आवृत्त्या"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.identifiers"
+msgstr "आयडेंटिफायर्स"
+
+msgid "submission.publisherId"
+msgstr "प्रकाशकाचा ID"
+
+msgid "submission.publisherId.enable"
+msgstr "{$objects} साठी कार्यान्वित करा"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "सादरीकरणासंबंधी माहिती"
+
+msgid "submission.informationCenter.metadata"
+msgstr "मेटाडेटा"
+
+msgid "submission.informationCenter.notes"
+msgstr "टिप्पण्या (Notes)"
+
+msgid "submission.informationCenter.history"
+msgstr "कालक्रम"
+
+msgid "submission.layout.addGalley"
+msgstr "लेआउट गॅलीचा समावेश करा"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "तुम्हाला खात्रीने ही गॅली कायमची हटवायची आहे ना?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "तुम्हाला खात्रीने ही प्रतिमा गॅलीमधून काढून टाकायची आहे ना?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "हे शैली पत्रक (style sheet) हटवा."
+
+msgid "submission.layout.editGalley"
+msgstr "लेआउट गॅली संपादित करा"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML मधील गॅली फाईल्स"
+
+msgid "submission.layout.galleyLabel"
+msgstr "गॅलीचे लेबल"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "गॅलीची भाषा हवी."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "प्रतिमा नाहीत"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "दूरस्थ (Remote) URL"
+
+msgid "submission.layout.galleys"
+msgstr "गॅली (Galleys)"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "शैली पत्रकाची (style sheet) फाईल"
+
+msgid "submission.layout.galleyStyle"
+msgstr "शैली"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "प्रारंभिक गॅली निर्मिती"
+
+msgid "submission.layout"
+msgstr "लेआउट"
+
+msgid "submission.layout.newGalley"
+msgstr "नवीन गॅली तयार करा"
+
+msgid "submission.layout.viewingGalley"
+msgstr "सादरीकरणाच्या गॅलीचे अवलोकन"
+
+msgid "submission.layout.viewProof"
+msgstr "मुद्रिताचे (Proof) अवलोकन करा"
+
+msgid "submission.metadata"
+msgstr "सादरीकरणाचा मेटाडेटा"
+
+msgid "submission.noReviewAssignments"
+msgstr "समीक्षणाची कामं नाहीत"
+
+msgid "submission.notes.addNewNote"
+msgstr "नव्या टिप्पणीचा समावेश करा"
+
+msgid "submission.notes.attachedFile"
+msgstr "फाईलची जोडणी"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "सादरीकरणाच्या टिप्पण्यांकडे परत फिरा"
+
+msgid "submission.notes.breadcrumb"
+msgstr "टिप्पण्या"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "सगळ्या टिप्पण्या पुसून टाका (Clear)"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "सादरीकरणाच्या सगळ्या टिप्पण्या काढून टाकायच्या (Remove) का?"
+
+msgid "submission.notes.createNewNote"
+msgstr "नवी टिप्पणी निर्माण करा"
+
+msgid "submission.notes.deleteNote"
+msgstr "टिप्पणी हटवा (Delete)"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "सादरीकरणाच्या टिप्पण्या नाहीत"
+
+msgid "submission.notes"
+msgstr "सादरीकरणाच्या टिप्पण्या"
+
+msgid "submission.notes.updateNote"
+msgstr "टिप्पणी अपडेट करा"
+
+msgid "submission.notes.viewNotes"
+msgstr "टिप्पण्या पहा"
+
+msgid "submission.originalFile"
+msgstr "मूळ फाईल"
+
+msgid "submission.page.history"
+msgstr "#{$id} कालक्रम"
+
+msgid "submission.page.review"
+msgstr "#{$id} समीक्षण"
+
+msgid "submission.page.citations"
+msgstr "#{$id} उद्धरणे"
+
+msgid "submission.peerReview"
+msgstr "तज्ज्ञ&nbsp;समीक्षण"
+
+msgid "submission.production"
+msgstr "प्रकाशन"
+
+msgid "submission.rejected"
+msgstr "नाकारले (Rejected)"
+
+msgid "submission.request"
+msgstr "विनंती"
+
+msgid "submission.response"
+msgstr "प्रतिसाद (Response)"
+
+msgid "submission.restrictions"
+msgstr "निर्बंध"
+
+msgid "submission.reviewed"
+msgstr "समीक्षण केलेले"
+
+msgid "submission.reviewVersion"
+msgstr "समीक्षणाची आवृत्ती"
+
+msgid "submission.rights"
+msgstr "अधिकार"
+
+msgid "submissions.active"
+msgstr "सक्रिय"
+
+msgid "submissions.archived"
+msgstr "संग्रहित"
+
+msgid "submission.saveMetadata"
+msgstr "मेटाडेटा सेव्ह करा"
+
+msgid "submissions.completed"
+msgstr "समाप्त"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "प्रकाशन सूची"
+
+msgid "submission.submit.newFile"
+msgstr "दुसर्‍या फाईलचा समावेश करा"
+
+msgid "submission.submit.metadataForm"
+msgstr "अतिरिक्त सुधारणा"
+
+msgid "submission.loadMessage"
+msgstr "तुमची फाईल सर्व्हरवर संक्रमित (अपलोड) होईपर्यंत कृपया वाट पहा."
+
+msgid "submission.artworkFileDetails"
+msgstr "कलाकृतीच्या (Artwork) फाईलचे तपशील"
+
+msgid "submission.fileDetails"
+msgstr "फाईलचा तपशील"
+
+msgid "submission.nameRequired"
+msgstr "या लेखासाठी नाव आवश्यक आहे."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD (सादरीकरणाची तारीख या स्वरूपात)"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD (सादरीकरणाची तारीख या स्वरूपात)"
+
+msgid "submission.submit.contributorRole"
+msgstr "लेखकाची भूमिका (Contributor's role)"
+
+msgid "submission.submit.addAuthor"
+msgstr "लेखकाचा (Contributor) समावेश करा"
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "कृपया विषयाची (subject) नोंद करा."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "कृपया ज्ञानशाखेची (discipline) नोंद करा."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "कृपया व्याप्तिची (Coverage) माहिती नोंदवा."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "कृपया प्रकाराची (type) नोंद करा."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "कृपया स्रोताची (source) नोंद करा."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "कृपया अधिकारांसंबंधीची (rights) नोंद करा."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "कृपया संदर्भांची (references) नोंद करा."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "कृपया डेटा उपलब्धता विधानाची (Data Availability Statement) नोंद करा."
+
+msgid "submission.form.name"
+msgstr "फाईलला नाव द्या (उदा. मूळ प्रत (Manuscript); तक्ता १)"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "सुधारीत आवृत्तीसाठी (revision) विनंती करण्यात आली आहे."
+
+msgid "submission.reviewerSuggestions"
+msgstr "समीक्षकाच्या सूचना"
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "बाह्य समीक्षणासाठी (external review) पाठवले."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "सादरीकरण स्वीकारले आहे."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "सादरीकरण नाकारले आहे."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr ""
+"सुधारीत आवृत्ती (revision) सादर केली आहे. एक नवी समीक्षण फेरी त्याकरता निर्मा"
+"ण करणे आवश्यक आहे."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "समीक्षकांच्या प्रतिसादांच्या प्रतीक्षेत."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "नवी समीक्षणे सादर झाली आहेत."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "संपादकांच्या शिफारसींच्या प्रतीक्षेत."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "नव्या संपादकीय शिफारसी सादर केल्या गेल्या आहेत."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "समीक्षणासाठी पुनः पाठवले."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "{$stage} टप्प्यात {$days} दिवसांहून अधिक काळ कार्यवाही शिवाय."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "तुम्ही शिफारस केली आहे."
+
+msgid "editor.submission.participant"
+msgstr "सहभागी (Participant)"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "सहभागी (Participant) या नात्याने नियुक्ती करा"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "लेखकाने सुचवलेले समीक्षक"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "सहभागी (Participant) काढून टाका"
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "तुम्हाला वापरकर्ता गट निवडणे आवश्यक आहे."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr ""
+"नमूद केलेल्या वापरकर्ता गटासाठी तुम्हाला एक तरी वापरकर्ता निवडणे आवश्यक आहे."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "मेटाडेटात बदल करायची परवानगी नाकारा"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "मेटाडेटात बदल करायला परवानगी द्या"
+
+msgid "editor.submission.decision"
+msgstr "निर्णय"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "लेखकांना सूचित करा"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "समीक्षकांना सूचित करा"
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"नियुक्त केलेल्या समीक्षकांना दिलेले समीक्षणाचे काम रद्द केले आहे हे "
+"कळवण्यासाठी ई-मेल पाठवा."
+
+msgid "editor.submission.decision.accept"
+msgstr "सादरीकरणाचा स्वीकार करा"
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "सादरीकरण स्वीकारले"
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"समीक्षणाचा टप्पा ओलांडला गेला आहे हे कळवण्यासाठी लेखकांना ई-मेल पाठवा. या "
+"निर्णयाची नोंद होईपर्यंत हा ई-मेल पाठवला जाणार नाही."
+
+msgid "editor.submission.decision.decline"
+msgstr "सादरीकरण नाकारा"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} ने हे सादरीकरण नाकारले."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "सादरीकरण नाकारले"
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना त्यांचे सादरीकरण नाकारले गेले आहे हे कळवण्यासाठी ई-मेल पाठवा. या "
+"निर्णयाची नोंद होईपर्यंत हा ई-मेल पाठवला जाणार नाही."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "नवी समीक्षण फेरी"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "या सादरीकरणासाठी समीक्षणाची आणखी एक फेरी उघडा."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+"{$editorName} ने या सादरीकरणासाठी समीक्षणाची एक नवी फेरी निर्माण केली आहे."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "समीक्षण फेरी निर्माण केली"
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "कॉपीएडिटिंगच्या टप्प्यावर पाठवायच्या फाईल्स निवडा."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "समीक्षणासाठी पाठवायच्या फाईल्स निवडा."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "प्रकाशनाच्या टप्प्यावर पाठवायच्या फाईल्स निवडा."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "सुधारणा करण्यासंबंधी (Revisions) विनंती करा"
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "सुधारणा करण्यासंबंधी (Revisions) विनंती केली गेली आहे"
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "समीक्षणाची फेरी रद्द करा"
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} ने समीक्षणाची फेरी रद्द केली."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "समीक्षणाची अलीकडची फेरी रद्द केली."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"{$title} या सादरीकरणासाठी समीक्षणाची फेरी रद्द करण्यात आली आहे. तुम्ही "
+"वगळलेल्या पर्यायांव्यतिरिक्त इतर सगळ्या सूचना पाठवल्या गेल्या आहेत."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "समीक्षणासाठी पुन्हा सादर करा"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} ने या सादरीकरणाच्या सुधारीत आवृत्तीची (revisions) मागणी केली "
+"आहे जी समीक्षणाच्या पुढील फेरीसाठी पाठवली जाईल."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "सुधारीत आवृत्तीसाठी (revisions) विनंती केली"
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "समीक्षणासाठी पाठवा"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "हे सादरीकरण तज्ज्ञ समीक्षणासाठी पाठवण्यासाठी तयार आहे."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} ने हे सादरीकरण समीक्षण टप्प्यावर पाठवले."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "समीक्षणासाठी पाठवले"
+
+msgid "editor.submission.decision.newRound"
+msgstr "समीक्षणाची नवी फेरी"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "प्रकाशनासाठी पाठवा"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} ने हे सादरीकरण प्रकाशनाच्या टप्प्यावर पाठवले."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "प्रकाशनासाठी पाठवले"
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} ने कॉपीएडिटिंग टप्प्यातून हे सादरीकरण परत पाठवले आहे."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "कॉपीएडिटिंग टप्प्यामधून परत पाठवले"
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "कॉपीएडिटिंगकडे परत जा"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "हे सादरीकरण कॉपीएडिटिंगच्या टप्प्यावर परत पाठवा."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} ने हे सादरीकरण कॉपीएडिटिंगच्या टप्प्यावर परत पाठवले."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "कॉपीएडिटिंगच्या टप्प्यावर परत पाठवले"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"{$title} - हे सादरीकरण कॉपीएडिटिंगच्या टप्प्यावर परत पाठवले गेले. त्याबद्दल "
+"लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "स्वीकारा आणि समीक्षणाचा टप्पा वगळा"
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "समीक्षणाचा टप्पा वगळला"
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना ई-मेल पाठवा की हे सादरीकरण प्रकाशनासाठी स्वीकारले गेले आहे आणि "
+"समीक्षणाशिवाय कॉपीएडिटिंगच्या टप्प्यावर पाठवले गेले आहे. या निर्णयाची नोंद "
+"होईपर्यंत हा ई-मेल पाठवला जाणार नाही."
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "अंतर्गत समीक्षणाच्या टप्प्यावर पाठवा"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "मुद्रित लेखनाची तपासणी (page proof) मंजूर करा"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} ने हे सादरीकरण नाकारण्याचा निर्णय उलट फिरवला."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "सादरीकरण पुन्हा सक्रिय केले"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "{$title} - हे सादरीकरण आता समीक्षणाच्या टप्प्यात सक्रिय केले गेले आहे."
+
+msgid "editor.submission.recommend.accept"
+msgstr "स्वीकारण्याची शिफारस करा"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"हे सादरीकरण प्रकाशनासाठी स्वीकारावे आणि कॉपीएडिटिंगसाठी पाठवावे अशी शिफारस "
+"करा."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} ने हे सादरीकरण स्वीकारावे आणि कॉपीएडिटिंगसाठी पाठवावे अशी शिफा"
+"रस केली."
+
+msgid "editor.submission.recommend.completed"
+msgstr "शिफारस सादर केली"
+
+msgid "editor.submission.recommend.revisions"
+msgstr "सुधारीत आवृत्तीसाठी (revisions) शिफारस करा"
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "समीक्षणासाठी पुन्हा सादर करण्याची शिफारस करा"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"सुधारीत आवृत्तीसाठी (revisions) विनंती करुन ती सुधारीत आवृत्ती (revisions) "
+"आल्यावर समीक्षणाच्या पुढील फेरीसाठी पाठवावी अशी शिफारस {$editorName} ने केली "
+"आहे."
+
+msgid "editor.submission.recommend.decline"
+msgstr "नकार कळवण्याची शिफारस करा"
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} ने हे सादरीकरण नाकारण्याची शिफारस केली आहे."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "शिफारस करा"
+
+msgid "editor.submission.recommendation"
+msgstr "शिफारस"
+
+msgid "editor.submission.recommendation.description"
+msgstr "या सादरीकरणासाठी संपादकीय निर्णयाची शिफारस करा."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "नोंदवलेल्या शिफारसी"
+
+msgid "editor.submission.recommendation.display"
+msgstr "शिफारस : {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "शिफारसी : {$recommendations}"
+
+msgid "submission.currentStage"
+msgstr "सध्याचा टप्पा"
+
+msgid "submission.noActionRequired"
+msgstr "कोणतीही कार्यवाही अपेक्षित नाही"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "फाईल्सचे समीक्षण करा"
+
+msgid "submission.submit.currentFile"
+msgstr "सध्याची फाईल"
+
+msgid "submission.finalDraft"
+msgstr "मसुदा फाईल्स"
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"ऑडिटर नियुक्त करण्याचा प्रयत्न करताना एक त्रुटी आली. कृपया पुन्हा प्रयत्न "
+"करा."
+
+msgid "submission.event.fileEdited"
+msgstr "\"{$filename}\" या फाईलचा मेटाडेटा {$username} ने बदलला."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"{$username} ने {$submissionId} या सादरीकरणाची \"{$filename}\" फाईल संक्रमित "
+"(अपलोड) केली."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"{$username} ने {$submissionId} या सादरीकरणाची \"{$filename}\" फाईल हटवली "
+"(deleted)."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"{$username} ने {$submissionId} या सादरीकरणाची सुधारीत आवृत्ती (revision) \""
+"{$filename}\" या फाईलच्या नावाने संक्रमित (अपलोड) केली."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"{$username} ने {$submissionId} या सादरीकरणाच्या सुधारीत आवृत्तीची (revision) "
+"\"{$filename}\" फाईल हटवली."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"{$username} ने अखेरच्या सुधारीत आवृत्तीची (revision) \"{$filename}\" फाईल "
+"हटवली (deleted)."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"{$userFullName} ({$username}) ने ऑडिट पूर्ण करुन \"{$filename}\" या फाईल "
+"नावाने संक्रमित (अपलोड) केले आहे"
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"{$userFullName} ({$username}) ने \"{$publicationFormatName}\" साठी मुद्रिते "
+"(proofs) मंजूर केली आहेत"
+
+msgid "submission.overview"
+msgstr "सादरीकरणाचे विहंगावलोकन (Overview)"
+
+msgid "submission.description"
+msgstr "वर्णन"
+
+msgid "submission.stageNotInitiated"
+msgstr "टप्प्याचा अद्याप प्रारंभ झालेला नाही."
+
+msgid "submission.documents"
+msgstr "सादरीकरणाचे दस्तऐवज"
+
+msgid "notification.type.editorAssign"
+msgstr ""
+"तुम्हाला \"{$title}\" या सादरीकरणासाठी संपादक म्हणून नियुक्त करण्यात आले आहे."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "तुम्हाला \"{$title}\" साठी कॉपीएडिट्सचे समीक्षण करण्यास सांगितले आहे."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "तुम्हाला \"{$title}\" साठी लेआउटचे समीक्षण करण्यास सांगितले आहे."
+
+msgid "notification.type.indexRequest"
+msgstr "तुम्हाला \"{$title}\" साठी सूचीशब्दांची नोंद करण्यास सांगितले आहे."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "संपादकाचा अलीकडचा निर्णय."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "बाह्य समीक्षण प्रक्रिया सुरू झाली."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "सुधारीत आवृत्ती (revision) आवश्यक."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "समीक्षणासाठी पुन्हा सादर करा."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "समीक्षणाची नवी फेरी सुरू झाली."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "सादरीकरण नाकारले."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "नाकारलेले सादरीकरण पुनर्विचारार्थ सक्रिय केले."
+
+msgid "notification.uploadedResponse"
+msgstr "प्रतिसाद संक्रमित (अपलोड) केला."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"समीक्षण सुरू करण्यापूर्वी संपादक नियुक्त करणे आवश्यक आहे. कृपया सहभागींच्या "
+"यादीतून संपादकाचा समावेश करा."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "सादरीकरणाची नवी आवृत्ती तयार करण्यात आली"
+
+msgid "notification.type.revertDecline"
+msgstr "हे सादरीकरण नाकारण्याचा निर्णय मागे घेण्यात आला."
+
+msgid "grid.reviewAttachments.title"
+msgstr "समीक्षकाने जोडलेल्या फाईल्स (Attachments)"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "लेखकांसोबत शेअर करण्यासाठी समीक्षणाच्या फाईल्सची निवड करा"
+
+msgid "submission.productionReady"
+msgstr "पुस्तक उपलब्ध"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "सुधारीत आवृत्तीची (revision) फाईल संक्रमित (अपलोड) करा"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} ला {$round} फेरीदरम्यान {$submissionId} या सादरीकरणाचे समीक्"
+"षण करण्यासाठी नियुक्त केले आहे."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"{$reviewerName} ने {$submissionId} या सादरीकरणाच्या {$round} फेरीदरम्यानच्या "
+"समीक्षणासाठी होकार कळवला आहे."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"{$submissionid} या सादरीकरणासाठी {$reviewerName} ना {$round} फेरीदरम्यान "
+"पुन्हा समीक्षणाची विनंती केली आहे."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"संपादक {$editorName} यांनी {$submissionId} या सादरीकरणासाठीच्या {$round} "
+"फेरीच्या समीक्षणाला दुजोरा दिला आहे."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ने {$submissionId} या सादरीकरणासाठी {$round} क्रमांकाच्या "
+"फेरीदरम्यान समीक्षण पूर्ण केले आहे."
+
+msgid "submission.review.status.accepted"
+msgstr "हे समीक्षण स्वीकारण्यात आले आहे."
+
+msgid "submission.review.status.declined"
+msgstr "समीक्षकाने ही समीक्षणाची विनंती नाकारली आहे."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "समीक्षकाने त्याचा होकार/नकार कळवण्याच्या तारखेपर्यंत उत्तर दिलेले नाही."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "समीक्षकाने अपेक्षित अंतिम तारखेपर्यंत त्याचे समीक्षण सादर केलेले नाही."
+
+msgid "submission.review.status.received"
+msgstr "समीक्षकाने त्यांचे समीक्षण सादर केले आहे."
+
+msgid "submission.review.status.viewed"
+msgstr "संपादकाने समीक्षणाचे अवलोकन केले आहे."
+
+msgid "submission.review.status.complete"
+msgstr "हे समीक्षण पूर्ण झाले आहे."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"हे समीक्षण पूर्ण झाले आहे आणि समीक्षकांचे त्यांच्या योगदानाबद्दल आभार मानले "
+"आहेत."
+
+msgid "submission.document"
+msgstr "दस्तऐवज"
+
+msgid "submission.art"
+msgstr "कलाकृती"
+
+msgid "submission.supplementary"
+msgstr "पूरक सामग्री"
+
+msgid "submission.supplementary.creator"
+msgstr "फाईलचा निर्माता (किंवा स्वामीत्व हक्कदार)"
+
+msgid "submission.supplementary.subject"
+msgstr "विषय"
+
+msgid "submission.supplementary.publisher"
+msgstr "प्रकाशक"
+
+msgid "submission.supplementary.sponsor"
+msgstr "योगदानकर्ता किंवा प्रायोजक"
+
+msgid "grid.action.itemWorkflow"
+msgstr "या सादरीकरणाच्या कार्यप्रवाहावर (वर्कफ्लो) जा"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"संपादकीय प्रक्रिया सुरू करण्यापूर्वी प्रकाशन संपादकाची नियुक्ती आवश्यक आहे. "
+"कृपया सहभागींच्या यादीचा वापर करून प्रकाशन संपादक निवडा."
+
+msgid "submission.reviewForm"
+msgstr "समीक्षणासाठी फॉर्म"
+
+msgid "submission.reviewFormResponse"
+msgstr "समीक्षणाच्या फॉर्ममधील प्रतिसाद"
+
+msgid "grid.action.editMetadata"
+msgstr "मेटाडेटात बदल करा"
+
+msgid "submission.permissions"
+msgstr "परवानग्या"
+
+msgid "submission.attachPermissions"
+msgstr "सादरीकरणादरम्यान खालील बाबींची अनुमती द्या :"
+
+msgid "submission.license"
+msgstr "परवाना"
+
+msgid "submission.copyright"
+msgstr "कॉपीराइट"
+
+msgid "submission.copyrightHolder"
+msgstr "कॉपीराइट धारक"
+
+msgid "submission.copyrightHolder.other"
+msgstr "कॉपीराइट विधानाचे प्रारुप"
+
+msgid "submission.copyrightOther"
+msgstr "कॉपीराइट विधान"
+
+msgid "submission.copyrightYear"
+msgstr "कॉपीराइट वर्ष"
+
+msgid "submission.licenseURLValid"
+msgstr "कृपया एक ग्राह्य दूरस्थ (रिमोट) URL प्रदान करा (http:// समाविष्ट करा)."
+
+msgid "submission.licenseURL"
+msgstr "परवान्याचा URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-"
+"NonCommercial-NoDerivatives 4.0 International License</a> अंतर्गत परवानाकृत "
+"आहे.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-"
+"NonCommercial 4.0 International License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons Attribution-"
+"NonCommercial-NoDerivatives 3.0 Unported License</a> अंतर्गत परवानाकृत "
+"आहे.</p>"
+
+msgid "submission.query.subject"
+msgstr "विषय"
+
+msgid "submission.query.messages"
+msgstr "संदेश"
+
+msgid "submission.queries.submission"
+msgstr "समीक्षणपूर्व चर्चा"
+
+msgid "submission.query.replies"
+msgstr "उत्तरे"
+
+msgid "submission.query.from"
+msgstr "यांचेकडून"
+
+msgid "submission.query.closed"
+msgstr "समाप्त (Closed)"
+
+msgid "submission.query.addNote"
+msgstr "संदेशाचा समावेश करा"
+
+msgid "submission.query.leaveQuery"
+msgstr "चर्चेतून बाहेर पडा"
+
+msgid "grid.action.openNoteForm"
+msgstr "चर्चेत नव्या उत्तराचा समावेश करा"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "सध्याच्या सादरीकरणाच्या भाषा :"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "बदला"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "सादरीकरणाच्या या भाषेऐवजी ही भाषा निवडा"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"येथे {$language} भाषेमध्ये सादरीकरणाच्या शीर्षकाची नोंद करा. तुम्ही तुमचे "
+"शीर्षक आवश्यकतेनुसार स्वरूपित (format) करू शकता"
+
+msgid "submission.list.responseDue"
+msgstr "उत्तर देण्याची अंतिम तारीख : {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "समीक्षणाची कामगिरी"
+
+msgid "submission.list.reviewCancelled"
+msgstr "समीक्षण रद्द केले"
+
+msgid "submission.list.confirmDelete"
+msgstr "सादरीकरण हटवायचे?"
+
+msgid "submission.list.viewSubmission"
+msgstr "सादरीकरणाचे अवलोकन करा (View)"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "नेमून दिलेली समीक्षण कार्ये पूर्ण झाली"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "सादरीकरणाचा सारांश पहा"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "कॉपीएडिट केलेल्या फाईल्स सादर केल्या"
+
+msgid "submission.list.filesPrepared"
+msgstr "फाईल्स सिद्ध केल्या"
+
+msgid "submission.list.discussions"
+msgstr "मुक्त चर्चा (Open discussions)"
+
+msgid "submission.list.activity"
+msgstr "घडामोड (Activity)"
+
+msgid "submission.list.assignEditor"
+msgstr "संपादक नियुक्त करा"
+
+msgid "submission.wizard.beforeStart"
+msgstr "सुरुवात करण्यापूर्वी"
+
+msgid "submission.wizard.changeSubmission"
+msgstr "सादरीकरणासाठीची मांडणी (Settings) बदला"
+
+msgid "submission.wizard.confirm"
+msgstr "सादर करण्यापूर्वी कृपया खालील गोष्टींची खात्री करा."
+
+msgid "submission.wizard.title"
+msgstr "सादरीकरण पूर्ण करा"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "सादरीकरणाची ही पायरी पूर्ण करा : {$step}"
+
+msgid "submission.wizard.notAllowed"
+msgstr "परवानगी नाही"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "व्यक्तीगत माहितीच्या वापरासाठी संमती (Privacy Consent)"
+
+msgid "submission.wizard.saved"
+msgstr "भविष्यकाळातील वापरासाठी सेव्ह केले"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "या सादरीकरणासाठी समीक्षक सुचवलेले नाहीत."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "हा दुवा (लिंक) तुम्हाला {$email} वर ई-मेलनेही पाठवला आहे."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "हा विभाग बंद केला"
+
+msgid "submission.wizard.start"
+msgstr "सादरीकरण प्रक्रिया सुरू करा"
+
+msgid "submission.wizard.startingStatus"
+msgstr "नव्या सादरीकरणाची सुरूवात होत आहे"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "शीर्षकानुसार उलट क्रमाने (Z-A)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "प्रकाशनाच्या तारखेनुसार (सर्वात अलिकडची प्रथम)"
+
+msgid "category.category"
+msgstr "प्रवर्ग (Categories)"
+
+msgid "category.coverImage"
+msgstr "मलपृष्ठावरील प्रतिमा"
+
+msgid "submission.submit.placement.categories"
+msgstr "प्रवर्ग (Categories)"
+
+msgid "submission.currentCoverImage"
+msgstr "वर्तमान प्रतिमा"
+
+msgid "catalog.category.subcategories"
+msgstr "उपप्रवर्ग (Subcategories)"
+
+msgid "publication.contributors"
+msgstr "योगदानकर्ते"
+
+msgid "publication.createVersion"
+msgstr "नवी आवृत्ती तयार करा"
+
+msgid "publication.event.versionCreated"
+msgstr "नवी आवृत्ती तयार केली."
+
+msgid "publication.publicationLicense"
+msgstr "परवानग्या आणि प्रकटीकरण"
+
+msgid "publication.status.scheduled"
+msgstr "प्रकाशनसाठी अनुसूचित (Scheduled)"
+
+msgid "publication.titleAbstract"
+msgstr "शीर्षक आणि सारांश"
+
+msgid "publication.unschedule"
+msgstr "अनुसूचि रद्द करा"
+
+msgid "publication.urlPath"
+msgstr "URL पत्ता"
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL पत्ता यापूर्वीच वापरला गेला आहे आणि पुन्हा वापरता येणार नाही."
+
+msgid "publication.version.all"
+msgstr "सर्व आवृत्त्या"
+
+msgid "publication.version.confirm"
+msgstr "तुम्हाला खात्रीने नवी आवृत्ती तयार करायची आहे ना?"
+
+msgid "publication.wordCount"
+msgstr "शब्द संख्या: {$count}/{$limit}"
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"DOI {$pubObjectTitle} शी नोंदणीकृत झालेला नसल्याने चिन्हांकन अयशस्वी. स्थिती"
+"त बदल अपेक्षिण्यापूर्वी सादरीकरण प्रकाशित करणे आवश्यक आहे."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"हे पूर्वावलोकन असून अप्रकाशित आहे. <a href=\"{$url}\">सादरीकरणाचे अवलोकन करा "
+"(View)</a>"
+
+msgid "author.submit.noFiles"
+msgstr "या सादरीकरणासाठी कोणत्याही फाईल्स संक्रमित (अपलोड) केलेल्या नाहीत."
+
+msgid "author.submit.confirmation"
+msgstr "दुजोरा (Confirmation)"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "संपादक आवश्यक आहे"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "मला नियुक्त केलेली"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "सगळे तज्ज्ञ समीक्षणासाठी पाठवले आहेत"
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "समीक्षक हवेत"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "समीक्षणांच्या प्रतीक्षेत"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "सादर झालेली समीक्षणे"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "सगळे कॉपीएडिटिंगकरता पाठवले आहेत"
+
+msgid "submission.dashboard.view.production"
+msgstr "सगळे प्रकाशनाकरता पाठवले आहेत"
+
+msgid "submission.dashboard.view.published"
+msgstr "प्रकाशित"
+
+msgid "submission.dashboard.view.declined"
+msgstr "नाकारले"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "सुधारीत आवृत्तींसाठी (revisions) पाठवले"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "सुधारीत आवृत्त्या (revisions) सादर केल्या गेल्या"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "अपूर्ण सादरीकरण प्रक्रियेत"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "प्रलंबित"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "एकूण सोपवलेली कामे"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "माझ्याकडून आवश्यक असलेल्या कृती"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "संग्रहित केलेले"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "पूर्णत्वाला गेलेले"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "प्रकाशित झालेले"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "समीक्षण (फेरी {$round})"
+
+msgid "submission.stage.published"
+msgstr "प्रकाशित झालेले"
+
+msgid "publication.jats"
+msgstr "JATS XML प्रारूप"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "JATS XML हटविण्यासाठी दुजोरा द्या"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "JATS फाईल हटवा"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "ही JATS फाईल सादरीकरणादरम्यानचा मेटाडेटा वापरून आपोआप निर्माण केली जाते"
+
+msgid "publication.jats.lastModified"
+msgstr "शेवटचा बदल {$modificationDate} या तारखेला {$username} द्वारे केला गेला"
+
+msgid "submission.files.content.error"
+msgstr "सादरीकरणाच्या '{$fileName}' या फाईलमधील मजकूर मिळवता आला नाही."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "समीक्षक सुचवण्याची कारणे"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "समीक्षक नियुक्त केले"
+
+msgid "dashboard.applyFilters"
+msgstr "फिल्टर लागू करा"
+
+msgid "dashboard.startNewSubmission"
+msgstr "नवीन सादरीकरण प्रक्रिया सुरू करा"
+
+msgid "dashboard.assignReviewers"
+msgstr "समीक्षकांना नियुक्त करा"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "नव्या समीक्षणासाठी फेरी निर्माण केली जाईल"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "कॉपीएडिट केलेल्या ${count} फाईल्स संक्रमित (अपलोड) केल्या"
+
+msgid "dashboard.submitRevisions"
+msgstr "सुधारीत आवृत्ती (revision) सादर करा"
+
+msgid "workflow.uploadRevisions"
+msgstr "सुधारीत आवृत्ती (revision) संक्रमित (अपलोड) करा"
+
+msgid "dashboard.actions.finishReview"
+msgstr "समीक्षण पूर्ण करा"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "कृपया हे समीक्षण कार्य {$date} पर्यंत पूर्ण करा."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"हे समीक्षण पूर्ण करण्याची अंतिम मुदत संपली आहे. कृपया लवकरात लवकर समीक्षण "
+"पूर्ण करा."
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "{$date} रोजी समीक्षणाची विनंती नाकारली"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "समीक्षकाने <b>{$date}</b> रोजी समीक्षणाची विनंती नाकारली"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "समीक्षणासाठीच्या केलेल्या विनंतीला प्रतिसाद न मिळून {$days} दिवस उलटले"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "चालू समीक्षण - विनंती स्वीकारली"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "समीक्षणाची पूर्ण करण्याची तारीख उलटून {$days} दिवस झाले आहेत"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"या समीक्षकाने त्याचे समीक्षण पूर्ण केलेले नाही. <b>{$date} पर्यंत ते अपेक्षि"
+"त होते.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "समीक्षण {$date} रोजी पूर्ण झाले"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "संपादकाने समीक्षणाला दुजोरा दिला"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "समीक्षकाचे मूल्यांकन सादर केले आहे"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "लॉग नोंद (entry) हटवा"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"या सादरीकरणासाठी {$userFullName} ({$username}) यांना {$userGroupName} म्हणून "
+"नियुक्त केले गेले होते."
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"तुम्हाला खात्रीने या सादरीकरणासाठीचा इव्हेंट लॉग मोकळा (clear) करायचा आहे ना?"
+
+msgid "submission.layout.layoutFile"
+msgstr "लेआउट फाईल"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "तुम्हाला खात्रीने ही इव्हेंट लॉग नोंद (entry) हटवायची आहे ना?"
+
+msgid "submission.layout.layoutVersion"
+msgstr "लेआउट आवृत्ती"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"निर्णयाबद्दलचा ई-मेल {$recipientCount} समीक्षकांना {$subject} या विषयाखाली "
+"पाठवण्यात आला होता."
+
+msgid "submission.layout.noStyleFile"
+msgstr "या गॅलीमध्ये कोणतीही शैली पत्रकाची (style sheet) फाईल जोडलेली नाही."
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "सादरीकरणाचा मेटाडेटा अपडेट केला"
+
+msgid "submission.notes.collapseNotes"
+msgstr "टिप्पण्या लपवा (Collapse)"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "समीक्षणाची जबाबदारी स्वीकारली"
+
+msgid "submission.notes.confirmDelete"
+msgstr "ही सादरीकरणाची टिप्पणी काढायची (Remove) का?"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "समीक्षकाला या सादरीकरणासाठी नियुक्त केले आहे"
+
+msgid "submission.notes.editNote"
+msgstr "टीप संपादित करा"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "समीक्षणाची फाईल अपडेट केली आहे"
+
+msgid "submission.notes.expandNotes"
+msgstr "टिप्पण्यांचा विस्तार (Expand) करा"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "समीक्षणोत्तर शिफारसीची फाईल"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "संक्रमित (अपलोड) केलेली फाईल काढून टाका (Remove)"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "समीक्षकाच्या समीक्षणाची फाईल अपडेट केली आहे"
+
+msgid "submission.page.editing"
+msgstr "#{$id} संपादन"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} ने {$recipientName} ला त्याच्या समीक्षण कार्यानिमित्त एक "
+"स्मरणपत्र पाठवले आहे"
+
+msgid "submission.page.summary"
+msgstr "#{$id} सारांश"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"{$recipientName} ला त्याच्या समीक्षण कार्यानिमित्त एक स्मरणपत्र ई-मेलने आपो"
+"आप (automatic) पाठवण्यात आले आहे"
+
+msgid "submission.recommendation"
+msgstr "शिफारस: {$recommendation}"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"फाईल तयार केल्यावर फाईल अपलोडरची नोंद सेव्ह केली जाते आणि ती बदलता येत नाही."
+
+msgid "submission.reviewMetadata"
+msgstr "मेटाडेटाचा आढावा घ्या"
+
+msgid "submission.history.recentLogEntries"
+msgstr "अलीकडील नोंदी"
+
+msgid "submission.review"
+msgstr "समीक्षण करा"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "उद्धरणांची वेगवेगळी स्वरूपं"
+
+msgid "submission.initiated"
+msgstr "सुरूवात केली"
+
+msgid "submission.updatedOn"
+msgstr ""
+"{$dateUpdated} या तारखेला {$datePublished} ही प्रकाशनाची तारीख अपडेट केली"
+
+msgid "submission.reviewAndSubmit"
+msgstr "समीक्षण करून सादर करा"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"ही {$datePublished} रोजी प्रकाशित झालेली जुनी आवृत्ती आहे. <a href=\""
+"{$urlRecentVersion}\">सर्वात अलीकडील आवृत्ती</a> वाचा."
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "कृपया भाषेची नोंद करा."
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"{$title} हे सादरीकरण समीक्षणाच्या टप्प्यावर पाठवले गेले आहे. त्याबद्दल "
+"लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$filename}\" या फाईलसाठी नेमलेल्या {$userFullName} ({$username}) या "
+"ऑडिटरला काढून टाकण्यात आले"
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} ने {$submissionId} या सादरीकरणाच्या {$round} फेरीचे समीक्षण "
+"विचारात न घेतलेले म्हणून चिन्हांकित केले आहे."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"{$reviewerName} द्वारे {$submissionId} या सादरीकरणासाठी {$round} या फेरीत "
+"पुन्हा समीक्षण सुरू केले आहे."
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"जर तुम्ही या चर्चेतून बाहेर पडलात तर तुम्हाला नव्या संदेशांची सूचना मिळणार "
+"नाही. तुम्हाला खरेच या चर्चेतून बाहेर पडायचे आहे का?"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"चर्चा सुरू करण्यापूर्वी तुम्ही या सादरीकरणासाठी किमान एक सहभागी नियुक्त करणे "
+"आवश्यक आहे."
+
+msgid "submission.publisherId.description"
+msgstr ""
+"प्रकाशकाचा ID बाह्य डेटाबेसमधून ID ची नोंद करण्यासाठी वापरला जाऊ शकतो. "
+"उदाहरणार्थ, PubMed मध्ये लेखांची माहिती अंतर्भूत करण्यासाठी पाठवलेल्या "
+"लेखांमध्ये प्रकाशकाच्या ID चा समावेश केलेला असू शकतो. याचा वापर DOI साठी करता"
+" कामा नये."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "कृपया सूचक शब्दाची (की-वर्ड) नोंद करा."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "प्रकाशनाची तयारी करण्यासाठी हे सादरीकरण प्रकाशनाच्या टप्प्यावर पाठवा."
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"{$userFullName} ({$username}) ने \"{$filename}\" साठी साइनऑफवर स्वाक्षरी केली"
+" आहे"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "समीक्षकाच्या उत्तराची वाट पाहत आहे."
+
+msgid "submission.query.activity"
+msgstr "{$responderName} ने {$noteTitle} ला उत्तर दिले : {$noteContents}"
+
+msgid "submission.query.allowedEditTime"
+msgstr "तुम्ही ही चर्चा {$allowedEditTimeNoticeLimit} मिनिटांपर्यंत वाढवू शकता."
+
+msgid "submission.layout.galleyFormat"
+msgstr "गॅलीचे स्वरूप (Format)"
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr ""
+"सुधारीत आवृत्ती (revision) सादर केली गेली आहे आणि त्यावर निर्णय घेणे बाकी "
+"आहे."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"{$title} - हे सादरीकरण प्रकाशनाच्या टप्प्यावर पाठवले गेले. त्याबद्दल लेखकाला"
+", तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "सादरीकरण स्वीकारले गेले."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "प्रकाशन प्रक्रिया सुरू झाली."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} ने चर्चा सुरू केली : {$noteTitle} : {$noteContents}"
+
+msgid "submission.list.infoCenter"
+msgstr "घडामोडींचा क्रमलेख (अ‍ॅक्टिव्हिटी लॉग) आणि टिपणे (नोट्स)"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "सामान्यत: फाईलचे प्रारूप कळण्यासाठी वापरले जाते (उदा. PDF, HTML, इ.)."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "समीक्षकांच्या नियुक्तीच्या प्रतीक्षेत."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना ई-मेल पाठवा की हे सादरीकरण प्रकाशनाच्या टप्प्यावर पाठवले गेले आहे. "
+"निर्णय नोंदवल्याशिवाय हा ई-मेल पाठवला जाणार नाही."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"प्रकाशन प्रक्रिया सुरू करण्यापूर्वी एक प्रकाशन संपादक नियुक्त करणे आवश्यक आहे"
+". कृपया सहभागींच्या यादीचा वापर करून प्रकाशन संपादक निवडा."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"\"{$queryTitle}\" या शीर्षकाच्या चर्चेत \"{$submissionTitle}\" या सादरीकरणाबा"
+"बत नवी घडामोड झाली (new activity) आहे."
+
+msgid "submission.list.empty"
+msgstr "सादरीकरणे आढळली नाहीत."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "गॅलीचे लेबल हवे."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "सर्व समीक्षकांचा प्रतिसाद आला आहे आणि आता निर्णयाच्या प्रतीक्षेत आहे."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "कॉपीएडिटिंग रद्द करा"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "एक नवा घटक समीक्षणाच्या फॉर्ममध्ये निर्माण करा"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"तुमचा \"{$submissionTitle}\" या सादरीकरणासाठी \"{$queryTitle}\" या "
+"शीर्षकाच्या चर्चेत समावेश केला आहे."
+
+msgid "submission.list.reviewDue"
+msgstr "समीक्षण सादर करायची अंतिम तारीख : {$date}"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "गॅलीचे लोकॅल हवे."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "समीक्षणासाठी दिलेली मुदत संपल्याने ते कार्य विलंबीत झाले आहे."
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "कॉपीएडिटिंग टप्प्यातून हे सादरीकरण परत पाठवा."
+
+msgid "submission.copyright.agree"
+msgstr "होय, मी कॉपीराइट विधानाशी सहमत आहे."
+
+msgid "submission.list.reviewComplete"
+msgstr "समीक्षण सादर केले"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "कृपया वैध दूरस्थ (रिमोट) URL प्रदान करा (http:// चा समावेश करा)."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "सर्व शिफारसी सादर झाल्या असून निर्णयाची प्रतीक्षा आहे."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"{$title} - हे सादरीकरण कॉपीएडिटिंग टप्प्यातून परत पाठवले गेले. त्याबद्दल "
+"लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
+
+msgid "submission.copyrightStatement"
+msgstr "कॉपीराइट (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "सगळ्या सादरीकरणांचे अवलोकन करा (View)"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+"एक नवे सादरीकरण समीक्षणासाठी पाठवण्याच्या किंवा नाकारण्याच्या निर्णयाच्या "
+"प्रतीक्षेत आहे."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"कॉपीएडिटिंग रद्द झाले आहे आणि त्यांचे सादरीकरण अतिरिक्त संपादकीय समीक्षणातून "
+"जाईल हे कळविण्यासाठी लेखकांना ई-मेल पाठवा."
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Attribution-"
+"NonCommercial-ShareAlike 4.0 International License</a> अंतर्गत परवानाकृत "
+"आहे.</p>"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "सुधारीत आवृत्ती (revisions) सादर केल्या"
+
+msgid "editor.submission.stageParticipants"
+msgstr "सहभागी (Participants)"
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना ई-मेल पाठवा की हे सादरीकरण कॉपीएडिटिंग टप्प्यावर परत पाठवले गेले आहे"
+". हा निर्णय का घेण्यात आला हे स्पष्ट करा आणि हे सादरीकरण प्रकाशनासाठी तयार "
+"होण्यापूर्वी त्यात आणखी कोणते बदल करणे आवश्यक असेल याची लेखकाला माहिती द्या."
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Attribution-"
+"NoDerivatives 4.0 International License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.list.galleysCreated"
+msgstr "प्रकाशनासाठी गॅली (मुद्रपाट) तयार केल्या"
+
+msgid "editor.submission.noneAssigned"
+msgstr "कोणालाही नियुक्त केलेले नाही"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"प्रकाशनासाठी हे सादरीकरण स्वीकारा आणि समीक्षणाचा टप्पा वगळा. हा निर्णय या "
+"सादरीकरणाला परस्पर कॉपीएडिटिंगच्या टप्प्यावर पाठवेल."
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 "
+"International License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"या सादरीकरणासाठी तुम्हाला अनेक भूमिका देण्यात आल्या आहेत. तुम्हाला <a href=\""
+"{$urlAuthorWorkflow}\">लेखकाचा कार्यप्रवाह (वर्कफ्लो)</a> किंवा <a href=\""
+"{$urlEditorialWorkflow}\">संपादकीय कार्यप्रवाह (वर्कफ्लो)</a> पहायचा (access)"
+" आहे का?"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "सोपवलेल्या कामात बदल करा"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} ने समीक्षणाचा टप्पा वगळून हे सादरीकरण कॉपीएडिटिंगच्या टप्प्या"
+"वर पाठवले."
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-"
+"ShareAlike 4.0 International License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"या सादरीकरणाकरता तुम्हाला संपादकीय भूमिका देण्यात आली आहे. तुम्हाला <a href="
+"\"{$urlEditorialWorkflow}\">संपादकीय कार्यप्रवाह (वर्कफ्लो)</a> पहायचा "
+"(access) आहे का?"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"वापरकर्ता गटानुसार वापरकर्त्यांना कार्यप्रवाहाच्या विविध टप्प्यांवर नियुक्त "
+"केले जाते. या टप्प्यावर नियुक्त केलेल्या कोणत्याही वापरकर्त्याला त्याच्या "
+"वापरकर्ता गटाच्या नियुक्तीनुसार इतर टप्प्यांवर आपोआप नियुक्त केले जाईल. "
+"सर्वसाधारणपणे संपादक, लेखक आणि अनुवादकांसाठी ही सोय असते."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"{$title} या सादरीकरणासाठी समीक्षणाचा टप्पा वगळून कॉपीएडिटिंगच्या टप्प्यावर "
+"पाठवले गेले आहे. त्याबद्दल लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने "
+"सूचित केले आहे."
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons Attribution-"
+"NonCommercial 3.0 Unported License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr ""
+"संपादकाने समीक्षण करण्यापूर्वी ही सादरीकरण प्रक्रिया पूर्ण करणे आवश्यक आहे."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"तुम्ही या सहभाग्याला (Participant) <strong>सगळ्या</strong> टप्प्यांमधून काढू"
+"न टाकणार आहात."
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"मुद्रित लेखनाची तपासणी पूर्ण झाल्यावर (page proof) फाईल पुढे उपलब्ध "
+"होण्यासाठी तिला मंजूरी (approve) देणे आवश्यक आहे. तुम्हाला ती मंजूर करायची "
+"आहे का?"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons Attribution-"
+"NonCommercial-ShareAlike 3.0 Unported License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.list.currentStage"
+msgstr "सध्या {$stage} या टप्प्यावर पोहोचले आहे."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"तुम्ही निवडलेल्या सहभाग्याला (participant) अनामिक समीक्षण (anonymous review) "
+"करण्यासाठी नियुक्त केले आहे. पण अशा नियुक्तीनंतर सहभाग्याला लेखकांबाबतची "
+"माहिती कळेल. जोपर्यंत तुम्हाला व्यक्तीशः याचेकडून तज्ज्ञ समीक्षण "
+"प्रक्रियेच्या सचोटीची खात्री नसेल तोपर्यंत तुम्ही या सहभाग्याला नियुक्त करू "
+"नये."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"ही मुद्रित लेखनाच्या तपासणीची (page proof) फाईल यापुढे डाउनलोड किंवा "
+"खरेदीसाठी सार्वजनिकरित्या उपलब्ध नसेल. तुम्हाला ते नामंजूर करायचे आहे का?"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons Attribution-"
+"NoDerivatives 3.0 Unported License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "शेवटची घडामोड (Activity) इतक्या दिवसांपूर्वी झाली"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"या सादरीकरणाच्या लेखकांना त्या टप्प्यावर सादरीकरणासंबंधीच्या मेटाडेटात बदल "
+"करायला खात्रीने प्रतिबंध करायचा ना?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "नकाराच्या टप्प्यावरून परत फिरा"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 "
+"Unported License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"हे सादरीकरण यापूर्वीच सादर केले गेले आहे. ते पाहण्यासाठी कृपया तुमच्या <a "
+"href=\"{$url}\">सादरीकरण डॅशबोर्ड</a> ला भेट द्या."
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"या सादरीकरणाच्या लेखकांना त्या टप्प्यावर सादरीकरणासंबंधीच्या मेटाडेटात बदल "
+"करू द्यावा याची तुम्हाला खात्री आहे का?"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"हे सादरीकरण नाकारण्याचा मागील निर्णय फिरवा आणि ते संपादकीय प्रक्रियेत सक्रिय "
+"करा. त्याबद्दल लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले "
+"आहे."
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>हे लेखन <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons Attribution-"
+"ShareAlike 3.0 Unported License</a> अंतर्गत परवानाकृत आहे.</p>"
+
+msgid "submission.wizard.categories.description"
+msgstr "तुमच्या सादरीकरणासाठी योग्य अशा प्रवर्गांचीच (categories) निवड करा."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"समीक्षकांना त्यांनी केलेल्या समीक्षणाबद्दल आभार मानण्यासाठी आणि निर्णय "
+"घेतल्याचे कळवण्यासाठी ई-मेल पाठवा. प्रत्येक समीक्षकाचे नाव गुप्त राखण्यासाठी "
+"स्वतंत्र ई-मेल पाठवला जाईल. प्रत्येक समीक्षकाचे नाव संदेशात लिहिण्यासाठी "
+"{$recipientName} हा वाक्यांश वापरून गुप्तता बाळगता येते."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"हे सादरीकरण नाकारण्याचा मागील निर्णय उलट फिरवण्यात आला आहे हे लेखकांना "
+"ई-मेलने कळवा. निर्णय का फिरवला ते स्पष्ट करा आणि सादरीकरणाचे समीक्षण केले जा"
+"ईल का ते त्यांना कळवा."
+
+msgid "submission.queries.review"
+msgstr "समीक्षणादरम्यान चर्चा"
+
+msgid "submission.wizard.completeSteps"
+msgstr "सगळ्या पायऱ्यांवरून जात सादरीकरण प्रक्रिया पूर्ण करा"
+
+msgid "editor.submission.decision.accept.description"
+msgstr "हे सादरीकरण प्रकाशनासाठी स्वीकारले जाऊन कॉपीएडिटिंगसाठी पाठवले जाईल."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"{$title} - हे सादरीकरण आता सादरीकरण टप्प्यात सक्रिय केले गेले आहे. त्याबद्दल "
+"लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
+
+msgid "submission.queries.editorial"
+msgstr "कॉपीएडिटिंगदरम्यान चर्चा"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"<strong>{$title}</strong> हे सादरीकरण संपादकीय समीक्षणासाठी "
+"<strong>{$context}</strong> वर सादर केले जाईल. तुम्ही ही सादरीकरण प्रक्रिया "
+"नक्की पूर्ण करू इच्छिता ना?"
+
+msgid "editor.submission.decision.accept.log"
+msgstr "{$editorName} ने हे सादरीकरण स्वीकारून कॉपीएडिटिंग टप्प्यावर पाठवले."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"या टप्प्यावर संपादकीय निर्णय कार्यान्वित करण्यासाठी एका संपादकाची नियुक्ती "
+"करा."
+
+msgid "submission.query.lastReply"
+msgstr "शेवटचे उत्तर"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"सादर करण्यापूर्वी एक किंवा अधिक प्रश्न सोडवणे आवश्यक आहे असे दिसते. कृपया "
+"खालील माहितीचा आढावा घेऊन योग्य ते बदल करा."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"{$title} हे सादरीकरण प्रकाशनासाठी स्वीकारून कॉपीएडिटिंग टप्प्यावर पाठवले गेले"
+" आहे. तुम्ही वगळलेल्या पर्यायांव्यतिरिक्त इतर सगळ्या सूचना पाठवल्या गेल्या "
+"आहेत."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"निर्णय घेणाऱ्या संपादकांना त्यावरील शिफारस कळवण्यासाठी संदेश पाठवा. "
+"समीक्षकांनी सादर केलेल्या शिफारसी आणि टिप्पण्यांचा विचार करुन ही शिफारस का "
+"केली गेली ते स्पष्ट करा."
+
+msgid "submission.wizard.validating"
+msgstr "तुमच्या सादरीकरण प्रक्रियेची पडताळणी केली जात आहे"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना त्यांचे सादरीकरण प्रकाशनासाठी स्वीकारले गेले आहे हे कळवण्यासाठी ई-मे"
+"ल पाठवा. स्वीकारल्याच्या निर्णयाची नोंद होईपर्यंत हा ई-मेल पाठवला जाणार नाही."
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"तुमची शिफारस नोंदवण्यात येऊन याबाबत निर्णय घेणाऱ्या संपादकांना सूचित करण्यात "
+"आले आहे."
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"तुमच्या सादरीकरणाचे मूल्यमापन करताना आधारभूत ठरेल अशी कोणतीही माहिती आमच्या "
+"संपादकीय कर्मचाऱ्यांसाठी जोडा."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"हे सादरीकरण प्रकाशनासाठी नाकारले जाईल. तज्ज्ञ समीक्षण टप्पा बंद केला जाईल आणि"
+" सादरीकरण संग्रहित केले जाईल."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"प्रकाशनासाठी हे सादरीकरण स्वीकारण्यापूर्वी लेखकाकडून सुधारीत आवृत्ती "
+"मिळवण्याकरता (revisions) शिफारस करा."
+
+msgid "submission.wizard.noContributors"
+msgstr "या सादरीकरणासाठी एकाही योगदानकर्त्याचा समावेश केला गेलेला नाही."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"{$title} हे सादरीकरण नाकारले जाऊन संग्रहीत केले गेले आहे. तुम्ही वगळलेल्या "
+"पर्यायांव्यतिरिक्त इतर सगळ्या सूचना पाठवल्या गेल्या आहेत."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} ने सुधारीत आवृत्तीसाठी (revisions) शिफारस केली आहे."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+"एका किंवा अधिक योगदानकर्त्यांचे पहिले नाव (given name) {$language} भाषेमध्ये "
+"वगळलेले दिसते."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"हे सादरीकरण प्रकाशनासाठी नाकारले जाईल. यानंतर याचे समीक्षण केले जाणार नाही "
+"आणि ते संग्रहित केले जाईल."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"लेखकाला समीक्षणाच्या पुढील फेरीसाठी सुधारीत आवृत्ती (revisions) सादर करण्यास "
+"सांगावे अशी शिफारस करा."
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"तुमच्या सादरीकरणादरम्यान सादर केलेले तपशील आमच्या प्रणालीमध्ये सेव्ह केले "
+"गेले तरी ते अद्याप विचारात घेण्यासाठी अपूर्ण आहेत. खालील दुवा (लिंक) वापरून "
+"तुम्ही पुन्हा कधीही सादरीकरण प्रक्रिया पूर्ण करण्यासाठी परत येऊ शकता."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"{$title} या सादरीकरणासाठी समीक्षणाची एक नवी फेरी निर्माण केली आहे. त्याबद्दल "
+"लेखकाला, तुम्ही प्रतिबंधीत केले नसल्यास, ई-मेलने सूचित केले आहे."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "प्रकाशनासाठी सादरीकरण नाकारण्याची शिफारस करा."
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"एका त्रुटीमुळे तुमचे सादरीकरण सेव्ह झालेले नाही. तुमच्याशी संपर्क तुटला "
+"असण्याची शक्यता आहे."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"सादरीकरणाच्या प्राथमिक लोकॅलमध्ये कृपया संलग्न संस्थेचे (affiliation) नाव "
+"द्या."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना त्यांचे सादरीकरण समीक्षणाच्या नवीन फेरीत पाठवण्यात आले आहे हे "
+"कळवण्यासाठी ई-मेल पाठवा. या निर्णयाची नोंद झाल्याशिवाय ई-मेल पाठवला जाणार "
+"नाही."
+
+msgid "editor.submission.changeRecommendation"
+msgstr "शिफारस बदला"
+
+msgid "grid.category.categories"
+msgstr "प्रवर्ग (Categories)"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "सादरीकरणा रद्द केले गेले आहे आणि सर्व संबंधित डेटा हटवला गेला आहे."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"प्रकाशनासाठी हे सादरीकरण स्वीकारण्यापूर्वी लेखकाने सुधारित आवृत्ती "
+"(revisions) पाठवणे आवश्यक आहे."
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"संपादकाला निर्णयाची नोंद करण्याची परवानगी दिल्याशिवाय तुम्ही शिफारस करू शकत "
+"नाही."
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "शीर्षकानुसार अनुक्रम (A-Z)"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"कृपया संशोधन संस्था नोंदणीमधील (ROR) संस्था किंवा किमान इतर एका संलग्न "
+"संस्थेचे (affiliation) नाव द्या."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"लेखकाकडून सुधारीत आवृत्ती (revision) आल्यावर नव्या समीक्षणाच्या फेरीत तिला "
+"स्थान द्यावे."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr ""
+"{$editorName} ने या सादरीकरणात सुधारणा करण्यासंबंधी (Revisions) विनंती केली "
+"आहे."
+
+msgid "submission.actionNeeded"
+msgstr "कार्यवाही आवश्यक आहे"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "प्रकाशनाच्या तारखेनुसार (सर्वात जुनी प्रथम)"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"ही प्राथमिक सादरीकरणाची भाषा आहे. ही बदलल्याने सादरीकरण आणि त्यासंबंधी "
+"नोंदलेल्या मेटाडेटावर त्याचा परिणाम होईल"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"{$title} या सादरीकरणात सुधारणा करण्यासाठी (Revisions) विनंती करण्यात आली आहे"
+". तुम्ही वगळलेल्या पर्यायांव्यतिरिक्त इतर सगळ्या सूचना पाठवल्या गेल्या आहेत."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$filename}\" या फाईलसाठी ऑडिटर म्हणून {$userFullName} ({$username}) चा "
+"समावेश केला"
+
+msgid "catalog.category.noItems"
+msgstr "या प्रवर्गात (category) अद्याप काहीही प्रकाशित झालेले नाही."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>सादरीकरणाची भाषा बदलण्यापूर्वी, प्रणालीत अखंडता राखण्यासाठी तुम्ही "
+"खालील मेटाडेटा फील्ड्स भरली आहेत याची खात्री करा. तसेच, योगदानकर्त्याची "
+"माहिती आणि फाईलची नावे पूर्वी नोंदलेल्या माहितीमधून कॉपी केली जातील हे ध्याना"
+"त घ्या.</strong>"
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"हे सादरीकरण प्रकाशनासाठी स्वीकारण्यापूर्वी सुधारीत आवृत्ती (revisions) आवश्"
+"यक असेल याची कल्पना लेखकांना ई-मेलने द्या. लेखकांना सुधारीत आवृत्तीत "
+"(revisions) आवश्यक असलेल्या सर्व तपशीलांची नोंद पाठवा. समीक्षकांच्या "
+"टिप्पण्या अनामिक आहेत याकडे आवश्यकतेनुसार लक्ष द्या. निर्णय नोंदवल्याशिवाय हा"
+" ई-मेल पाठवला जाणार नाही."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "तारीख YYYY-MM-DD या स्वरूपात असणे आवश्यक आहे, जसे की २०२५-०३-१५."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"{$language} भाषेमध्ये सारांश लिहिण्याची शिफारस केली जाते. हा मजकूर वाचता येणे"
+" शक्य आहे याची खात्री करण्यास याचा उपयोग होतो"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"सध्याची समीक्षणाची फेरी रद्द करा आणि सादरीकरण समीक्षणाच्या फेरीच्या शेवटच्या "
+"टप्प्यात परत पाठवा. जर ही समीक्षणाची पहिलीच फेरी असेल, तर ते सादरीकरणाच्या "
+"टप्प्यात परत पाठवले जाईल."
+
+msgid "publication.status.unpublished"
+msgstr "अप्रकाशित"
+
+msgid "submission.list.completeSubmission"
+msgstr "सादरीकरण प्रक्रिया पूर्ण करा"
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"कोणत्याही संबंधित समीक्षकाने पूर्ण केलेले किंवा सादर केलेले समीक्षण उपलब्ध "
+"नसेल तरच समीक्षणाची फेरी रद्द करता येईल."
+
+msgid "publication.urlPath.description"
+msgstr "ID ऐवजी URL मध्ये वापरण्यासाठी एक पर्यायी मार्ग."
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"तुम्हाला हे सादरीकरण रद्द करायचे आहे का? असे केल्यास सादरीकरण आणि सगळा संबंधि"
+"त डेटा हटवला जाईल. ही कृतीच्या परिणामामुळे हटवलेली माहिती पूर्ववत करता येणार "
+"नाही."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"हे सादरीकरण प्रकाशनासाठी स्वीकारण्यापूर्वी समीक्षणाच्या पुढील फेरीसाठी "
+"लेखकाने सुधारीत आवृत्ती (revisions) पाठवणे आवश्यक असेल."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL पत्ता अंकानी बनलेला असू शकत नाही."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"एक किंवा अधिक योगदानकर्त्यांच्या संलग्न संस्थांसाठी {$language} भाषेमध्ये "
+"संलग्न संस्थेचे (affiliation) नाव नोंदलेले नाही."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"{$title} या सादरीकरणासाठी सुधारीत आवृत्तीची (revisions) मागणी करण्यात आली आहे"
+". समीक्षणाच्या पुढील फेरीसाठी सुधारीत आवृत्ती (revisions) पाठवण्याच्या "
+"निर्णयाची नोंद करण्यात आली आहे. तुम्ही वगळलेल्या पर्यायांव्यतिरिक्त इतर "
+"सगळ्या सूचना पाठवल्या गेल्या आहेत."
+
+msgid "submission.dashboard.view.active"
+msgstr "सक्रिय सादरीकरणे"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"लेखकांना ई-मेल पाठवून कळवा की सुधारीत आवृत्तीची (revisions) पूर्तता करणे आवश्"
+"यक आहे आणि ती समीक्षणाच्या पुढील फेरीसाठी पाठवली जाईल. लेखकांना सुधारीत "
+"आवृत्तीत (revisions) आवश्यक असलेल्या सर्व तपशीलांची नोंद पाठवा. समीक्षकांच्या"
+" टिप्पण्या अनामिक आहेत याकडे आवश्यकतेनुसार लक्ष द्या."
+
+msgid "publication.wordCountLong"
+msgstr ""
+"सारांश खूप मोठा आहे. तो {$limit} शब्दांचा किंवा त्यापेक्षा लहान असावा. तो "
+"सध्या {$count} शब्दांचा आहे."
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "सर्व डेस्क/प्रारंभिक समीक्षणाच्या टप्प्यावर"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"चिन्हांकन अयशस्वी. DOI {$pubObjectTitle} शी जोडला जाणे आवश्यक आहे. DOI अद्या"
+"प नोंदणीकृत किंवा सादर केलेला नसल्याने तो जोडला गेला नाही त्यामुळे त्याचे "
+"चिन्हांकन अयशस्वी झाले आहे."
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "विलंबीत समीक्षणे"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "प्रकाशनासाठी नियोजित"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "समीक्षकाकडे सोपवलेली एकूण कामे"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "पूर्ण झालेली / नाकारलेली"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "नाकारलेले"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "प्रकाशनासाठी नियोजित"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"तुम्ही या प्रकाशनातून विद्यमान JATS XML फाईल खात्रीने काढून टाकणार आहात ना?"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"सर्वसाधारण (डीफॉल्ट) JATS मजकूर तयार करण्याचा प्रयत्न करताना त्रुटी आली. "
+"कृपया खात्री करा की JatsTemplate प्लग-इन स्थापित केले आहे."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"तुम्ही या समीक्षकाची शिफारस का करत आहात ते आणि हितसंबंधांचा कोणताही संभाव्य "
+"संघर्ष आहे का ते कृपया नमूद करा."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"सादरीकरणाची ({$language}) ही भाषा सादरीकरणाच्या पुरस्कृत भाषांपैकी नाही. "
+"तुम्ही अजूनही सादरीकरणाचा तपशील संपादित करू शकता. सध्या या भाषेतली नवी "
+"सादरीकरणे स्वीकारले जात नाहीत."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr ""
+"समीक्षणांची आत्ताची आकडेवारी {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "सुधारीत आवृत्तीसाठी (revisions) लेखकाला विनंती"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"लेखकाकडून आलेल्या सुधारीत आवृत्ती (revisions) नव्या समीक्षण फेरीत पाठवल्या "
+"जातील"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "${issue} या अंकात प्रकाशित होणारे"
+
+msgid "dashboard.revisionRequested"
+msgstr "सुधारीत आवृत्तीसाठी (revision) विनंती केली आहे"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "विनंतीला प्रतिसाद द्या"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "कृपया आपला होकार अथवा नकार {$date} या तारखेपर्यंत कळवा"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "{$date} रोजी विनंती नाकारली"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "{$date} रोजी समीक्षण सादर केले"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"या विनंतीला प्रतिसाद देण्याची अंतिम मुदत संपली आहे. कृपया आपला होकार अथवा नका"
+"र लवकरात लवकर कळवा."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "समीक्षकाकडून प्रतिसादाची वाट पाहत आहे"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"समीक्षण विनंती समीक्षकासोबत शेअर केली गेली आहे. <b>{$days} दिवसांत, {$date}</"
+"b> या तारखेपावेतो प्रतिसादाची वाट पाहत आहे"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"या समीक्षकाने समीक्षणासाठीच्या विनंतीला प्रतिसाद दिलेला नाही. <b>{$date}</b> "
+"पर्यंत प्रतिसाद देण्याची मुदत होती"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"या समीक्षकाने समीक्षणाची विनंती स्वीकारली आहे. त्यांचे समीक्षण <b>{$date} "
+"पर्यंत {$days} दिवसांत पूर्ण होणे अपेक्षित आहे.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"समीक्षण खालील शिफारसीसह {$date} रोजी पूर्ण झाले : <b>{$recommendation}</b>"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "मागील आवृत्त्यांपासून घटनाक्रम दाखवा"
+
+msgid "submission.stageParticipants.notify"
+msgstr "सूचित करा"
+
+msgid "submission.lastModified"
+msgstr "अखेरचे फेरफार"
+
+msgid "submission.layout.galleyImages"
+msgstr "प्रतिमा (Images)"
+
+msgid "submissions.declined"
+msgstr "नाकारले (Declined)"
+
+msgid "submissions.incomplete"
+msgstr "अपूर्ण"
+
+msgid "submission.source"
+msgstr "स्रोत"
+
+msgid "submissions.submit"
+msgstr "सादर करा"
+
+msgid "submissions.submitted"
+msgstr "सादर केले"
+
+msgid "submission.submission"
+msgstr "सादरीकरण"
+
+msgid "submissions.noSubmissions"
+msgstr "सादरीकरणे नाहीत"
+
+msgid "submissions.queuedEditing"
+msgstr "संपादन प्रक्रियेत"
+
+msgid "submissions.queued"
+msgstr "प्रतीक्षेत (Queued)"
+
+msgid "submissions.queuedUnassigned"
+msgstr "या सादरीकरणासाठी कोणत्याही संपादकाला नियुक्त केलेले नाही."
+
+msgid "submissions.ruling"
+msgstr "निवाडा"
+
+msgid "submission.submissionTitle"
+msgstr "सादरीकरणाचे शीर्षक :"
+
+msgid "submission.start"
+msgstr "सुरू करा"
+
+msgid "submission.submissionHistory"
+msgstr "सादरीकरणाचा कालक्रम"
+
+msgid "submission.submissionManuscript"
+msgstr "सादरीकरणाचे हस्तलिखित"
+
+msgid "submission.submissionReview"
+msgstr "सादरीकरणाचे समीक्षण"
+
+msgid "submission.submitter"
+msgstr "सादरीकरण करणारी व्यक्ती"
+
+msgid "submission.submit.selectFile"
+msgstr "फाईल निवडा"
+
+msgid "submission.submit.fileInformation"
+msgstr "फाईलबाबतची माहिती"
+
+msgid "submission.submit.fileAdded"
+msgstr "फाईलचा समावेश केला"
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+"प्रकाशनांच्या यादीमध्ये लेखकांची ओळख पटवताना या योगदानकर्त्याचा समावेश करा."
+
+msgid "submission.type.tip"
+msgstr ""
+"सादरीकरणाचा प्रकार सहसा 'प्रतिमा (image)', 'मजकूर' किंवा 'आज्ञावली', "
+"'सुसंवादी (interactive)' यासारख्या इतर मल्टीमीडिया प्रकारांपैकी एक असतो. "
+"कृपया तुमच्या सादरीकरणाचा सर्वात सुसंगत प्रकार निवडा. आणखी प्रकार <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/</a> येथे पहाता येतील"
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"तुमच्या सादरीकरणासाठी अतिरिक्त माहिती जोडा. प्रत्येक संज्ञेनंतर 'enter' दाबा."
+
+msgid "submission.files.required.genre"
+msgstr "तुम्ही किमान एक {$genre} फाईल संक्रमित (अपलोड) केली पाहिजे."
+
+msgid "submission.files.required.genres"
+msgstr ""
+"तुम्ही खालील प्रकारांपैकी किमान एक फाईल संक्रमित (अपलोड) केली पाहिजे : "
+"{$genres}."
+
+msgid "publication.version"
+msgstr "आवृत्ती {$version}"
+
+msgid "submission.submissionFile"
+msgstr "सादरीकरणाची फाईल"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"या लेखकाला संशोधन विषयात असलेल्या कोणत्याही स्पर्धात्मक हितसंबंधांची कृपया "
+"माहिती द्या."
+
+msgid "author.competingInterests"
+msgstr "स्पर्धात्मक हितसंबंध"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "<strong>{$language}</strong> भाषेमध्ये सादर केले जात आहे."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "<strong>{$section}</strong> या विभागात सादर केले जात आहे."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"<strong>{$language}</strong> या भाषेमध्ये <strong>{$section}</strong>या "
+"विभागात सादर केले जात आहे."
+
+msgid "submission.source.tip"
+msgstr ""
+"हे सादरीकरण इतर स्रोतावरून घेतले आहे का? जर तसे असेल तर तुम्ही त्या स्रोताचा "
+"URL किंवा वर्णनाची नोंद करू शकता."
+
+msgid "submission.rights.tip"
+msgstr ""
+"तुमची इच्छा असल्यास, तुम्ही या सादरीकरणासाठी किंवा त्याच्या उपलब्धतेबाबतच्या "
+"अधिकारांबद्दल संक्षिप्त विधान नोंदवू शकता."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "संपादकीय पत्रव्यवहारासाठी प्रमुख संपर्क."
+
+msgid "submission.dataAvailability"
+msgstr "डेटा उपलब्धता विधान (Data Availability Statement)"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"या कामाला आधारभूत ठरणारे पुरावे तुम्ही उपलब्ध करून दिले आहेत का आणि असल्यास, "
+"ते कुठे आणि कसे उपलब्ध होतील ते सांगा"

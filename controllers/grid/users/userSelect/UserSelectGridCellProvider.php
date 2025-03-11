@@ -67,6 +67,13 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider
             case 'assignments': //User's assignments count
                 $countUserAssignments = $this->getCountUserAssignments($element->getId());
                 return ['label' => $countUserAssignments];
+
+            case 'affiliation': // User's affiliations
+                return ['label' => $element->getLocalizedAffiliation()];
+
+            case 'interests': // User's interests
+                $interests = implode(', ', Repo::userInterest()->getInterestsForUser($element));
+                return ['label' => $interests];
         }
         assert(false);
     }

@@ -1,12 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
 # Anas Fanani <anas@anasfanani.com>, 2024.
+# Maria Lamury <marialamury@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2024-09-03 14:50+0000\n"
-"Last-Translator: Anas Fanani <anas@anasfanani.com>\n"
+"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/id/>\n"
 "Language: id\n"
@@ -26,11 +27,11 @@ msgid "admin.adminFunctions"
 msgstr "Fungsi Administratif"
 
 msgid "admin.deleteCache"
-msgstr "Hapus Tembolok"
+msgstr "Hapus Cache"
 
 msgid "admin.deleteCache.description"
 msgstr ""
-"Hapus berkas tembolok dari sistem. Ini hanya boleh dilakukan di lingkungan "
+"Hapus berkas cache dari sistem. Ini hanya boleh dilakukan di lingkungan "
 "pengembangan."
 
 msgid "admin.clearDataCache"
@@ -147,7 +148,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Tugas tidak menghasilkan log."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Kirimkan DOI ke organisasi pendaftaran yang dikonfigurasi"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -174,10 +175,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Bersihkan Log Eksekusi Tugas Terjadwal"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Hapus semua log dari pekerjaan terjadwal yang telah dilakukan."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Hapus Log Pekerjaan"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Terbitkan naskah yang telah dijadwalkan terbit"
@@ -186,37 +187,44 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Pengingat Review"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Notifikasi Laporan Editorial"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Pengingat masa habis berlangganan"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Hapus pengguna lama yang tidak divalidasi"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Hapus pekerjaan yang sebelumnya gagal dari daftar pekerjaan yang gagal."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Proses pekerjaan yang tertunda dalam antrian"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Perbaharui database DB-IP city lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Penggantian nama file database DB-IP city lite {$sourceFilename} to "
+"{$targetFilename} gagal."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Beban loader file statistik pemakaian"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Direktori {$directory} tidak kosong. Ini mengindikasikan proses yang telah "
+"gagal sebelumnya, atau proses yang berlangsung bersamaan. File ini akan "
+"diproses secara otomatis."
 
 msgid "admin.job.processLogFile.openFileFailed"
 msgstr "File {$file} tidak bisa dibuka sehingga ditolak."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"File {$file} adalah format file log yang lama yang tidak pernah diproses dan "
+"akan dipindahkan pada tahap direktori."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
@@ -800,3 +808,6 @@ msgstr ""
 
 #~ msgid "admin.settings.passwordCharacters"
 #~ msgstr "Karakter"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Perbarui cache dataset pendaftaran ROR"

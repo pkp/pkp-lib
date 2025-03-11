@@ -1,10 +1,10 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2024-03-16 10:39+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/pt_BR/>\n"
@@ -252,3 +252,41 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Configurações Diversas"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Variável de configuração chamada `app_key` não definida na seção `general`. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Variável de configuração chamada `app_key` já definida na seção `general`. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Não é possível ler o arquivo de configuração ou o arquivo não existe no "
+"caminho esperado. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Não foi possível analisar o arquivo de configuração."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Não é possível gravar a variável app key no arquivo de configuração."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Cifra não suportada ou comprimento de chave incorreto. As cifras suportadas "
+"são: {$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "Não é possível gravar a app key no arquivo de configuração."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Defina o valor de `app_key` na seção `general` no arquivo `config.inc.php` "
+"como {$key} ."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Adicione a variável de configuração chamada `app_key` na seção `general` "
+"manualmente ou execute o comando `php lib/pkp/tools/appKey.php configure` "
+"para defini-la na CLI."

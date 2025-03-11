@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2354,3 +2354,44 @@ msgstr "Aplicação em execução no modo sandbox."
 
 msgid "about.editorialMasthead.linkToEditorialHistory"
 msgstr "Ver <a href=\"{$url}\">Histórico Editorial</a>"
+
+msgid "common.moreActions"
+msgstr "Mais Ações"
+
+msgid "common.editorialMasthead"
+msgstr "Equipe Editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Avaliadores por pares no ano anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Avaliadores por pares em anos anteriores"
+
+msgid "common.editorialHistory"
+msgstr "Histórico Editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Página de histórico editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta seção lista os contribuidores anteriores."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ver perfil ORCID de {$name}"
+
+msgid "common.showingXofX"
+msgstr "Exibindo <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Os editores expressam seu agradecimento aos avaliadores de {$year} listados "
+"abaixo."
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Carregado"
+
+msgid "common.filtersClear"
+msgstr "Limpar filtros"

@@ -34,6 +34,7 @@ class DashboardView
     public const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
     public const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
     public const TYPE_REVIEWS_OVERDUE = 'reviews-overdue';
+    public const TYPE_REVIEW_ALL = 'review-all'; // OMP only
     public const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
     public const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
     public const TYPE_COPYEDITING = 'copyediting';

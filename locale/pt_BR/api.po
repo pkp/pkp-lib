@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_BR/>\n"
@@ -403,3 +403,43 @@ msgstr "Somente 'aceitar' e 'recusar' são valores válidos"
 
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "A seção fornecida não existe."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Você não pode executar esta operação com a funcionalidade ORCID desabilitada."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Você forneceu um \"eventType\" inválido,{$eventType}, para e-mails do autor."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Este endpoint não está disponível no namespace de todo o site e deve ser "
+"solicitado para um determinado contexto."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "O autor solicitado não foi encontrado"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Você não pode fazer alterações em autores em submissões aos quais não foram "
+"atribuídas."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"A solicitação não possui o parâmetro de consulta obrigatório `ids`. Forneça "
+"os `ids` das submissões que deseja excluir."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID inválido: \"{$id}\" fornecido."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"O formulário de identificadores de publicação está indisponível porque não "
+"há Identificadores habilitados."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "O ROR solicitado não foi encontrado."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Não é possível concluir a ação pretendida no recurso."

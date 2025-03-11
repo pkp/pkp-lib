@@ -85,22 +85,27 @@
 					</div>
 					<dropdown class="app__headerAction app__userNav">
 						<template #button>
+							{if $isUserLoggedInAs}
+								{assign var="activeUser" value=$originalUser}
+							{else}
+								{assign var="activeUser" value=$currentUser}
+							{/if}
 							<initials-avatar
-								initials="{$currentUser->getDisplayInitials()|escape}"
+								initials="{$activeUser->getDisplayInitials()|escape}"
 								:is-secondary="true"
 								{if $isUserLoggedInAs}
 								:is-disabled="true"
 								{/if}
 							></initials-avatar>
-							<span class="-screenReader">{$currentUser->getData('userName')|escape}</span>
+							<span class="-screenReader">"{$activeUser->getData('userName')|escape}"</span>
 							{if $isUserLoggedInAs}
 								<initials-avatar
-									initials="{$originalUser->getDisplayInitials()|escape}"
+									initials="{$currentUser->getDisplayInitials()|escape}"
 									class="absolute right-2 top-0 rounded-full h-5 w-5"
 									:is-warnable="true"
 									:shrink="true"
 								></initials-avatar>
-								<span class="-screenReader">{$originalUser->getData('userName')|escape}</span>
+								<span class="-screenReader">{$currentUser->getData('userName')|escape}</span>
 							{/if}
 						</template>
 						<nav aria-label="{translate key="common.navigation.user"}">

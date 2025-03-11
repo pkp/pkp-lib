@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"PO-Revision-Date: 2025-03-11 15:16+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar/>\n"
@@ -32,7 +32,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "لقد تم تسليم تحكيمات جديدة وقد تم الأخذ بها من قبل المحرر."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "واحد أو أكثر من المحكمين قد تأخر عن موعده. تم إشعار فريق هيئة التحرير "
@@ -1292,13 +1291,11 @@ msgstr "تم التماس التنقيحات."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "تم تسليم التنقيحات وبانتظار القرار."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "لا بد من إعادة تقديم الطلب إلى جولة تحكيم أخرى."
+msgstr "التنقيحات المطلوبة من المؤلف المزمع أن تذهب إلى جولة تحكيم أخرى."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "لقد أُعيد تقديم الطلب إلى جولة تحكيم أخرى."
+msgstr "التنقيحات قد تم تسليمها. بحاجة إلى إنشاء جولة تحكيم أخرى."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "أُرسل للتحكيم الخارجي."
@@ -1318,9 +1315,8 @@ msgstr "بانتظار إجابات المحكمين."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "تحكيمات جديدة قد تم تقديمها."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "كل المحكمين وردت تحكيماتهم وبصدد اتخاذ القرار."
+msgstr "كل التنقيحات حصلت على التأكيد وبحاجة إلى اتخاذ القرار."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "أحد التحكيمات تجاوز مهلة التحكيم."
@@ -2628,3 +2624,199 @@ msgstr "المصالح المتضاربة"
 
 msgid "author.competingInterests.description"
 msgstr "يرجى الإفصاح عن أي مصالح متضاربة قد تكون لدى هذا المؤلف مع موضوع البحث."
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "كل الواجبات"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "تنتظر"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "مكتملة / مرفوضة"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "كل الواجبات"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "الإجراءات المطلوبة مني"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "مؤرشفة"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "مكتمل"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "مرفوض"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "منشور"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "التحكيم (الجولة {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "مجدول للنشر"
+
+msgid "submission.stage.published"
+msgstr "منشور"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "تأكيد حذف JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "أنت على وشك حذف ملف JATS XML الموجود من هذا المنشور. هل أنت متأكد؟"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "حذف ملف JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "ملف JATS هذا مولد تلقائيًا من قبل البيانات الوصفية لطلب التقديم"
+
+msgid "publication.jats.lastModified"
+msgstr "أخر تعديل في {$modificationDate} من قبل {$username}"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"هل أنت متأكد من رغبتك في إلغاء طلب التقديم هذا؟ هذا من شأنه حذفه مع كل "
+"البيانات المصاحبة له. هذا الإجراء لا يمكن التراجع عنه."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "طلب التقديم تم إلغاؤه"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "طلب التقديم قد تم إلغاؤه وكل بياناته قد تم حذفها."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "لاقتراح المحكمين"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "المحكمون المقترحون من قبل المؤلف"
+
+msgid "submission.review.status.viewed"
+msgstr "المحرر قد عاين التحكيم."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "لغة طلب التقديم الحالية:"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "تغيير لغة طلب التقديم لـ"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"هذه هي لغة طلب التقديم الرئيسية. تغييرها ستكون له تأثيرات عليه وعلى البيانات "
+"الوصفية المُدخلة له"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>قبل تغيير لغة طلب التقديم، تأكد من أنك قد ملأت حقول البيانات الوصفية "
+"الآتية للحفاظ على تكامل النظام. أيضًا، لاحظ بأن معلومات المساهمين وأسماء "
+"الملفات سيتم نسخها من المعلومات المُدخلة سابقًا.</strong>"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"اسم جهة الانتساب مفقود باللغة {$language} لواحد أو أكثر من جهات الانتساب "
+"لبعض المساهمين."
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"وقع خطأ عند محاولة إنشاء محتوى JATS الافتراضي. يرجى التأكد من كون إضافة "
+"قوالب Jats منصبة."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "مُعين لي"
+
+msgid "submission.files.content.error"
+msgstr "تعذر استرجاع محتوى ملف طلب التقديم '{$fileName}'."
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "الكل في مرحلة الشروع بالتحكيم"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "الكل في مرحلة التدقيق"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "التنقيحات مسلمة"
+
+msgid "author.authorNotFound"
+msgstr "تعذر العثور على المؤلف لهذا الانتساب."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "يرجى تزويد اسم الانتساب باللغة الرئيسية لطلب التقديم."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "إلغاء طلب التقديم"
+
+msgid "submission.reviewerSuggestions"
+msgstr "إقتراحات المحكمين"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "التوصيات المتخذة من قبلك."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "تغيير"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"أدخل عنوان طلب التقديم هنا باللغة {$language}. يمكنك تنسيق عنوانك حسب حاجتك"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"تضمين الملخص باللغة {$language} أمر موصى به. هذا من شأنه أن يضمن إمكانية "
+"الوصول إلى المحتوى"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "معاينة موجز طلب التقديم"
+
+msgid "submission.list.completeSubmission"
+msgstr "إكمال طلب التقديم"
+
+msgid "submission.dashboard.view.active"
+msgstr "طلبات التقديم النشطة"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "تحتاج محرر"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "الكل في مرحلة التحكيم المناظر"
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "بحاجة إلى محكمين"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "بانتظار التحكيمات"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "التحكيمات مسلمة"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "التحكيمات متأخرة"
+
+msgid "submission.dashboard.view.production"
+msgstr "الكل في مرحلة الإنتاج"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "مجدولة للنشر"
+
+msgid "submission.dashboard.view.published"
+msgstr "منشورة"
+
+msgid "submission.dashboard.view.declined"
+msgstr "مرفوضة"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "التنقيحات مطلوبة"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "طلبات تقديم غير مكتملة"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "أسباب إقتراح المحكم"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"يرجى أن تشاركنا أسباب توصيتكم باعتماد هذا المحكم مع الإشارة إلى وجود تضارب "
+"مصالح محتمل."

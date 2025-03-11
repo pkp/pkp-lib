@@ -29,11 +29,11 @@ class DashboardView
     public const TYPE_NEEDS_EDITOR = 'needs-editor';
     public const TYPE_SUBMISSION = 'initial-review';
     public const TYPE_REVIEW_EXTERNAL = 'external-review';
-    public const TYPE_REVIEW_INTERNAL = 'internal-review';
     public const TYPE_NEEDS_REVIEWS = 'needs-reviews';
     public const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
     public const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
     public const TYPE_REVIEWS_OVERDUE = 'reviews-overdue';
+    public const TYPE_REVIEW_ALL = 'review-all'; // OMP only
     public const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
     public const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
     public const TYPE_COPYEDITING = 'copyediting';

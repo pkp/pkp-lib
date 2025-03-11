@@ -1,10 +1,10 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Nenhum item"
@@ -745,3 +745,30 @@ msgstr "Editar coautor"
 
 #~ msgid "grid.user.authSource"
 #~ msgstr "Fonte de autenticação"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Tem certeza de que deseja remover esta sugestão? Esta ação não pode ser "
+"desfeita."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Adicionar sugestão do avaliador"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Excluir sugestão do avaliador"
+
+msgid "grid.user.remove"
+msgstr "Remover usuário"
+
+msgid "grid.user.logInAs"
+msgstr "Entrar como"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Depois que o usuário for habilitado, ele recuperará o acesso ao site, e você "
+"poderá convidá-lo para funções conforme necessário."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Observe que, depois que um usuário for desabilitado, você não poderá "
+"adicioná-lo a nenhum papel até que ele seja habilitado novamente."

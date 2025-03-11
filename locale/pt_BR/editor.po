@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/editor/pt_BR/>\n"
@@ -646,3 +646,47 @@ msgstr "Selecione um avaliador nas sugestões do avaliador"
 
 msgid "editor.review.reviewViewed"
 msgstr "Avaliação Visualizada"
+
+msgid "editor.submission.search"
+msgstr "Pesquisar submissões, ID, autores, palavras-chave, etc."
+
+msgid "editor.submission.days"
+msgstr "Dias"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dias no estágio"
+
+msgid "editor.submission.viewSummary"
+msgstr "Resumo"
+
+msgid "editor.review.logResponse.for"
+msgstr "Resposta de log para"
+
+msgid "editor.review.logResponse"
+msgstr "Resposta de log"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Uma resposta deve ser selecionada"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "O avaliador aceitou o convite para avaliar"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "O avaliador recusou o convite para avaliar"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registre a resposta em nome do avaliador"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Se o avaliador entrar em contato com você por e-mail ou qualquer outro meio, "
+"você poderá registrar a resposta dele"
+
+msgid "editor.review.download"
+msgstr "Baixar formulário de avaliação"
+
+msgid "editor.review.authorOnly"
+msgstr "Seções exibidas somente para autores"
+
+msgid "editor.review.allSections"
+msgstr "O formulário do editor mostra todas as seções de avaliação"

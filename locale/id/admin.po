@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/id/>\n"
@@ -228,42 +228,56 @@ msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"File {$file} log dilewati karena statistik dari bulan tersebut sudah "
+"dihitung. Untuk menghitung ulang statistik dari bulan sebelumnya, anda harus "
+"menyimpan semua file log dari bulan tersebut dan menggunakan alat CLI untuk "
+"memproses statistik."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"Baris {$lineNumber} pada file {$file} log ada di dalam format yang salah "
+"sehingga akan dilewati."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Entri log yang tidak sah pada baris {$lineNumber} pada file log {$file}: "
+"{$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Time bukan merupakan tanggal yang benar."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Context ID bukan sebuah integer."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Submission ID bukan sebuah integer."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Representation ID bukan sebuah integer."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc type tidak didukung."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "File type tidak didukung."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr ""
+"Country tidak terdiri dari string yang panjangnya maksimal dua karakter "
+"alfabet."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
+"Region tidak terdiri dari string yang panjangnya maksimal tiga karakter "
+"alfanumerik."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Institution ID bukan sebuah array."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Terjadi kesalahan pada saat memproses file log {$file} pada baris "
+"{$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -356,9 +370,11 @@ msgstr "Informasi Sistem"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Lihat informasi tentang versi dan pengaturan konfigurasi pada aplikasi dan "
+"server."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Lihat Informasi Sistem"
 
 msgid "admin.versionBuild"
 msgstr "Tubuh"
@@ -418,36 +434,58 @@ msgstr "Pemuat File"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"File tidak dapat didekompresi. Sumber gz-file {$filePath} tidak dapat dibuka "
+"dengan gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"File tidak dapat didekompresi. File tujuan {$filePath} tidak dapat dibuka "
+"menggunakan fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"File tidak dapat didekompresi. Sumber gz-file {$file} tidak dapat dibaca "
+"menggunakan gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"File tidak dapat didekompresi. File tujuan {$filePath} tidak dapat ditulis "
+"menggunakan fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"File tidak dapat didekompresi. File tujuan yang dibuka {$filePath} tidak "
+"dapat ditutup menggunakan fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"File tidak dapat didekompresi. Sumber gz-file yang dibuka {$filePath} tidak "
+"dapat ditutup menggunakan gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"File tidak dapat didekompresi. Sumber gz-file yang didekompresi {$filePath} "
+"tidak dapat dihilangkan dengan unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"File tidak dapat didekompresi. File tujuan gz-file {$filePath} tidak dapat "
+"dibuka dengan gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"File tidak dapat didekompresi. File sumber {$filePath} tidak dapat dibuka "
+"dengan fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"File tidak dapat didekompresi. File sumber {$filePath} tidak dapat dibaca "
+"dengan fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"File tidak dapat didekompresi. File tujuan gz-file {$filePath} tidak dapat "
+"ditulis dengan gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
@@ -811,3 +849,18 @@ msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Perbarui cache dataset pendaftaran ROR"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistik reviewer"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Pada instalasi multi-konteks, statistik reviewer, seperti jumlah review yang "
+"dikirim, dapat ditampilkan secara individual untuk setiap konteks atau "
+"dikumpulkan secara kolektif."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Nonaktifkan statistik reviewer yang dikumpulkan"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "File {$filename} dipindahkan ke folder pengiriman."

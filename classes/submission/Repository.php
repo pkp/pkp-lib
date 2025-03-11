@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/Repository.php
  *
@@ -19,11 +20,14 @@ use APP\preprint\PreprintTombstoneManager;
 use APP\section\Section;
 use APP\server\Server;
 use APP\server\ServerDAO;
+use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiException;
+use PKP\submission\DashboardView;
 use PKP\tombstone\DataObjectTombstoneDAO;
+use PKP\user\User;
 
 class Repository extends \PKP\submission\Repository
 {
@@ -145,5 +149,19 @@ class Repository extends \PKP\submission\Repository
         }
 
         return $doiCreationFailures;
+    }
+
+    public function mapDashboardViews(Collection $types, Context $context, User $user, bool $canAccessUnassignedSubmission, array $selectedRoleIds = []): Collection
+    {
+        $appTypes = collect([
+            DashboardView::TYPE_ASSIGNED,
+            DashboardView::TYPE_ACTIVE,
+            DashboardView::TYPE_PRODUCTION,
+            DashboardView::TYPE_SCHEDULED,
+            DashboardView::TYPE_PUBLISHED,
+            DashboardView::TYPE_DECLINED
+        ])->flip();
+
+        return parent::mapDashboardViews($appTypes, $context, $user, $canAccessUnassignedSubmission, $selectedRoleIds);
     }
 }

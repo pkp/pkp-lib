@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2025-03-11 20:40+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -3410,3 +3410,46 @@ msgstr "Tudo em avaliação por pares"
 
 msgid "submission.review.status.viewed"
 msgstr "O editor visualizou a avaliação."
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Arquivos editados enviados: ${count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revisão solicitada"
+
+msgid "dashboard.submitRevisions"
+msgstr "Enviar revisões"
+
+msgid "workflow.uploadRevisions"
+msgstr "Carregar revisões"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Responder a solicitação"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Concluir revisão"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Por favor, aceite ou recuse esta solicitação até {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Solicitação recusada em {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Avaliação enviada em {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"O prazo para responder a esta solicitação já passou. Por favor, aceite ou "
+"recuse esta solicitação o mais breve possível."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Por favor, conclua esta avaliação até {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"O prazo para concluir esta avaliação já passou. Por favor, conclua a "
+"avaliação o mais breve possível."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Aguardando resposta do avaliador"

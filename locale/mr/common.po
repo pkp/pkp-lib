@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-01 12:17+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -836,8 +836,8 @@ msgstr "{$error}: ही डेटाबेस त्रुटी आढळू�
 
 msgid "common.error.framesRequired"
 msgstr ""
-"या पृष्ठासाठी फ्रेम्सची आवश्यकता आहे. नॉन-फ्रेम आवृत्तीसाठी <a href=\"{$url}"
-"\">येथे क्लिक करा</a>."
+"या पृष्ठासाठी फ्रेम्सची आवश्यकता आहे. नॉन-फ्रेम आवृत्तीसाठी (version) <a "
+"href=\"{$url}\">येथे क्लिक करा</a>."
 
 msgid "common.fileUploaderError"
 msgstr ""

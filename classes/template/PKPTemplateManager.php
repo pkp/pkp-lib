@@ -406,13 +406,21 @@ class PKPTemplateManager extends Smarty
          * database is executed (e.g., when loading installer pages).
          */
         if (!PKPSessionGuard::isSessionDisable()) {
+            $loggedInAsUserId = Validation::loggedInAs();
+
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
-                'isUserLoggedInAs' => (bool) Validation::loggedInAs(),
+                'isUserLoggedInAs' => (bool) $loggedInAsUserId,
                 'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
                 'numPageLinks' => Config::getVar('interface', 'page_links'),
                 'siteTitle' => $request->getSite()->getLocalizedData('title'),
             ]);
+
+            if ($loggedInAsUserId) {
+                $this->assign([
+                    'loggedInAsUser' => Repo::user()->get($loggedInAsUserId)
+                ]);
+            }
 
             $user = $request->getUser();
             if ($user) {

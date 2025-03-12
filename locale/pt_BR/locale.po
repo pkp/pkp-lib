@@ -1,9 +1,9 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-06 14:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2025-03-13 11:04+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "context.current"
 msgstr "Servidor Atual:"
@@ -49,7 +49,6 @@ msgstr "Séries"
 msgid "section.title"
 msgstr "Título da Série"
 
-#, fuzzy
 msgid "section.abbreviation"
 msgstr "Abreviação"
 
@@ -60,7 +59,6 @@ msgstr "A identificação da composição final pública já existe."
 msgid "section.description"
 msgstr "Descrição do arquivo da série"
 
-#, fuzzy
 msgid "section.pathDescription"
 msgstr ""
 "Caminho da URL da série. Use hifens (-) em vez de espaços. Exemplo: história-"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-11 20:40+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/id/>\n"
@@ -489,153 +489,196 @@ msgstr ""
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"File tidak dapat didekompresi. File sumber yang dibuka {$filePath} tidak "
+"dapat ditutup menggunakan fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"File tidak dapat didekompresi. gz-file tujuan yang sudah dibuka tidak dapat "
+"ditutup menggunakan gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"File tidak dapat didekompresi. Sumber file yang telah terkompresi {$filePath}"
+" tidak dapat dihilangkan menggunakan unlink."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Tidak ada bahasa yang dapat diunduh."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Penggunaan:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "perintah [argumen]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Tersedia perintah untuk `{$namespace}` namespace:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Tidak dapat menjalankan pekerjaan dalam antrian karena mode pemeliharaan "
+"aplikasi diaktifkan."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Daftar semua pekerjaan dalam antrian. Jika anda ingin membaginya dalam "
+"beberapa halaman, gunakan parameter --page= and --perPage= . Masukkan flag --"
+"failed untuk mencantumkan pekerjaan yang gagal."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Bersihkan pekerjaan dalam antrian tertentu berdasarkan IDnya. Jika anda "
+"ingin membersihkan semua, masukkan parameter --all. Jika anda ingin "
+"membersihkan semua dari antrian tertentu, masukkan parameter --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Tambahkan pekerjaan pengujian ke antrian pengujian. Gunakan pilihan "
+"parameter --only= dan masukkan 'failed' atau 'sukses' untuk mengirimkan "
+"pekerjaan yang gagal atau berhasil."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Jalankan proses daemon worker yang tak terbatas yang akan terus memproses "
+"pekerjaan. Gunakan flag --help untuk melihat opsi yang tersedia yang terkait "
+"dengan perintah ini."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Daftar semua pekerjaan yang gagal. Atur parameter --queue=QUEUE_NAME and --"
+"connection=CONNECTION_NAME untuk menyaring daftar. Juga masukkan parameter/"
+"flag --redispatch dan --clear untuk mengirimkan kembali ke daftar atau "
+"membersihkan semua/pekerjaan tertentu yang gagal."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Penugasan pekerjaan yang tersedia dalam antrian. Untuk menugaskan sebuah "
+"pekerjaan pada antrian tertentu, masukkan parameter --queue=QUEUE_NAME. "
+"Gunakan --test untuk menjalankan pekerjaan pengujian dan --once untuk "
+"berhenti sesudah satu pekerjaan."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Berhasil menjalankan {$jobCount} pekerjaan pada antrian yang dinamakan "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"Tidak ada pekerjaan yang tersedia untuk menjalankan antrian yang dinamakan "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Menampilkan total pekerjaan dalam antrian. Masukkan flag --failed untuk "
+"melihat total pekerjaan yang gagal."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Menampilkan penggunaan perintah pekerjaan"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Menampilkan parameter penggunaan pekerjaan"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Pilihan tidak boleh kosong! Gunakan metode penggunaan."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Pekerjaan dalam antrian gagal"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Pekerjaan dalam antrian"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Antrian"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Koneksi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Nama Tampilan Pekerjaan"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Usaha"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Direservasi Pada"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Tersedia Pada"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Dibuat Pada"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Gagal Pada"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Pesan Pengecualian"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Paginasi"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Saat ini"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Sebelum"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Berikutnya"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Anda harus memasukkan setidaknya sebuah Job ID, '--all' atau '--queue=' "
+"untuk menggunakan perintah ini"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Pekerjaan pengujian yang gagal dikirim dalam antrian bernama {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Pekerjaan pengujian yang sukses dikirim dalam antrian bernama{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Pilihan pekerjaan pengujian tidak sah. Hanya dapat memilih 'failed' atau "
+"'success' untuk pilihan '--only='."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Job ID tidak sah"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Pekerjaan dihapus!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Tidak ada pekerjaan yang ditemukan untuk dihapus."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Tidak memungkinkan untuk menghapus semua pekerjaan."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Menghapus semua pekerjaan!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} pekerjaan yang gagal dihapus dari daftar gagal dengan sukses."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
 msgstr ""
+"{$jobsCount} pekerjaan yang dikirim ulang dengan sukses kembali ke daftar "
+"antrian."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Kami memiliki {$total} pekerjaan yang gagal"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Kami mempunyai {$total} pekerjaan dalam daftar antrian"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Pilihan {$option} tidak ada."
 
 msgid "admin.cli.tool.jobs.mean.those"
 msgstr ""
@@ -864,3 +907,17 @@ msgstr "Nonaktifkan statistik reviewer yang dikumpulkan"
 
 msgid "admin.fileLoader.fileDispatched"
 msgstr "File {$filename} dipindahkan ke folder pengiriman."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Workers akan berhenti setelah menyelesaikan eksekusi dari pekerjaan sekarang."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Jalankan kembali daftar antrian worker daemons setelah pekerjaan yang sedang "
+"dilakukan sekarang."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Tidak dapat menjalankan pekerjaan dalam antrian karena mode aplikasi sandbox "
+"diaktifkan."

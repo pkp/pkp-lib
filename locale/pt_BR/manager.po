@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -1397,7 +1397,7 @@ msgid "plugins.categories.metadata"
 msgstr "Plugins de metadados"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Plugins de metadados implementam padrões adicionais de metadados."
+msgstr "Os plugins de metadados implementam padrões adicionais de metadados."
 
 msgid "plugins.categories.auth"
 msgstr "Plugins de Autenticação"
@@ -3910,17 +3910,14 @@ msgstr ""
 "O autor {$authorName} não tem um nome de afiliação no idioma da submissão, "
 "{$localeName}. A submissão não pode ser importado sem essas informações."
 
-#, fuzzy
 msgid "settings.roles.masthead"
-msgstr "Considere o papel na lista de expediente editorial"
+msgstr "Considere o papel na lista da equipe editorial"
 
 msgid "settings.roles.permitSettings"
 msgstr "Permitir alterações nas configurações"
 
-#, fuzzy
 msgid "manager.setup.appearance.editorialMasthead.description"
-msgstr ""
-"Defina a ordem dos papéis no expediente editorial para exibição pública."
+msgstr "Defina a ordem dos papéis da equipe editorial para exibição pública."
 
 msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
 msgstr ""
@@ -3928,8 +3925,22 @@ msgstr ""
 "avaliador. Forneça uma breve explicação de quais informações o autor deve "
 "fornecer sobre si mesmo, coautores e quaisquer outros contribuidores."
 
-#, fuzzy
 msgid "manager.navigationMenus.editorialMasthead.description"
 msgstr ""
-"Link para uma página que exibe todos os serviços do expediente editorial "
-"ativos."
+"Link para uma página que exibe todos os serviços ativos da equipe editorial."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Forneça o histórico editorial, incluindo o nome completo, afiliação e datas "
+"de início e término de cada editor."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Defina a ordem dos papéis do expediente para exibição pública."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Os avaliadores serão exibidos em um formato padronizado para manter a "
+"uniformidade e facilitar a sua identificação nesta seção."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Convite para alterar endereço de e-mail"

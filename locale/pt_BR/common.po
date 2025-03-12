@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 20:40+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -2395,3 +2395,43 @@ msgstr "Carregado"
 
 msgid "common.filtersClear"
 msgstr "Limpar filtros"
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} erros detectados! Corrija os erros abaixo antes de prosseguir."
+
+msgid "navigation.mySubmissions"
+msgstr "Minhas Submissões"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Avaliação aceita em"
+
+msgid "common.numero"
+msgstr "Nº"
+
+msgid "common.refreshingData"
+msgstr "Atualizando dados"
+
+msgid "form.errorSummaryOne"
+msgstr "1 erro detectado! Corrija o erro abaixo antes de prosseguir."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Avaliação enviada em"
+
+msgid "validator.date.comparison"
+msgstr "Datas inválidas fornecidas para comparação."
+
+msgid "navigation.dashboards"
+msgstr "Painéis"
+
+msgid "validator.multilingual"
+msgstr "O requisito multilíngue não é atendido para este campo."
+
+#, fuzzy
+msgid "navigation.reviewAssignments"
+msgstr "Avaliações atribuídas"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.viewMoreDetails"
+msgstr "Ver mais detalhes"

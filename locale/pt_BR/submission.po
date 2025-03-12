@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -3453,3 +3453,151 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
 msgstr "Aguardando resposta do avaliador"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"A solicitação de avaliação foi compartilhada com o avaliador. Aguardando "
+"resposta em <b>{$days} dias em {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Solicitação de avaliação recusada em {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "O avaliador recusou a solicitação de avaliação em <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Solicitação de avaliação atrasada por {$days} dias"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Este avaliador não respondeu à solicitação de avaliação. A resposta era "
+"esperada até <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Avaliação em andamento - solicitação aceita"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Aguardando resposta do avaliador"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"A solicitação de avaliação foi reenviada ao avaliador. Aguardando resposta "
+"em {$days} dias, até {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Ver detalhes"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Reenviar solicitação de avaliação"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancelar Avaliador"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Cancelar atribuição"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Editar data de prazo"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Ver recomendação"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Ver recomendação não lida"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Enviar avaliação para ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Enviar esta avaliação para o ORCID do avaliador?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Recusado durante o estágio {$stageName}."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Os editores recomendantes têm a responsabilidade de sugerir os próximos "
+"passos para esta submissão"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Uma recomendação editorial foi recebida"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Todas as recomendações editoriais foram recebidas, e uma decisão precisa ser "
+"tomada."
+
+msgid "workflow.reviewRoundN"
+msgstr "Rodada de Avaliação {$number}"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Selecione as submissões incompletas para serem excluídas."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Excluir submissões incompletas"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Permitido apenas recomendar uma decisão editorial"
+
+msgid "workflow.stageNotStarted"
+msgstr "O estágio {$stage} ainda não foi iniciado."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "A submissão está atualmente no estágio de {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"A submissão avançou para a próxima rodada de avaliação, foi aceita e está "
+"atualmente na fase {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "A submissão avançou para a próxima rodada de avaliação"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmar exclusão de submissões incompletas"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Arquivos enviados no momento da submissão"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisões carregadas"
+
+msgid "fileManager.filesForReview"
+msgstr "Arquivos para avaliação"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Esses arquivos serão enviados aos avaliadores para avaliação"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Arquivos editados"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Esses são arquivos editados que serão levados para a fase de editoração"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Estes são os arquivos que serão enviados para publicação"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Você não pode acessar esta submissão como um Gerente da Revista, pois você é "
+"o autor. Para visualizá-la, vá para \"Minhas Submissões\""
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Esses arquivos foram enviados pelo autor após revisões terem sido solicitadas"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Você não pode acessar esta submissão como um Gerente da Revista, pois você é "
+"o revisor. Para visualizá-la, vá para \"Avaliações Atribuídas\""
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Estes são arquivos do estágio de avaliação que serão editados"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status do avaliador"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Tem certeza de que deseja excluir os itens selecionados? Esta ação não pode "
+"ser desfeita. Por favor, confirme para prosseguir."

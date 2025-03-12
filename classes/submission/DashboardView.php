@@ -30,7 +30,7 @@ class DashboardView
     public const TYPE_SUBMISSION = 'initial-review';
     public const TYPE_REVIEW_EXTERNAL = 'external-review';
     public const TYPE_REVIEW_INTERNAL = 'internal-review';
-    public const TYPE_NEEDS_REVIEWERS = 'needs-reviewers';
+    public const TYPE_NEEDS_REVIEWS = 'needs-reviews';
     public const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
     public const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
     public const TYPE_REVIEWS_OVERDUE = 'reviews-overdue';

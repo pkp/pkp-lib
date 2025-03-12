@@ -418,7 +418,7 @@ class PKPTemplateManager extends Smarty
 
             if ($loggedInAsUserId) {
                 $this->assign([
-                    'originalUser' => Repo::user()->get($loggedInAsUserId)
+                    'loggedInAsUser' => Repo::user()->get($loggedInAsUserId)
                 ]);
             }
 

@@ -664,8 +664,37 @@ class PKPSubmissionController extends PKPBaseController
                     : $submitAsUserGroup->permitMetadataEdit
             );
 
+        // Production Editor group has Managerial role but is not assigned to submission stage.
+        $isManager = $submitAsUserGroup->roleId === Role::ROLE_ID_MANAGER && !$request->getUser()->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
+        $stagesAssignedToGroup = $isManager ? Repo::userGroup()->getAssignedStagesByUserGroupId($context->getId(), $submitAsUserGroup->id) : collect();
+        $isSubmittingAsProductionEditor = $isManager && !$stagesAssignedToGroup->contains(WORKFLOW_STAGE_ID_SUBMISSION);
+        // Temporary solution for https://github.com/pkp/pkp-lib/issues/10929
+        // If submitting as Production Editor, then also assign as Author to allow full access to submission stage
+        if ($isSubmittingAsProductionEditor) {
+            $authorGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->first();
+
+            // Assign author role to user if not already assigned
+            if (!$submitterUserGroups->contains('roleId', Role::ROLE_ID_AUTHOR)) {
+                Repo::userGroup()->assignUserToGroup(
+                    $user->getId(),
+                    $authorGroup->id
+                );
+            }
+
+            // Assign Production Editor to submission as an Author to allow access to submission stage operations
+            Repo::stageAssignment()
+                ->build(
+                    $submission->getId(),
+                    $authorGroup->id,
+                    $request->getUser()->getId(),
+                    $authorGroup->recommendOnly,
+                    // Authors can always edit metadata before submitting
+                    true
+                );
+        }
+
         // Create an author record from the submitter's user account
-        if ($submitAsUserGroup->roleId === Role::ROLE_ID_AUTHOR) {
+        if ($submitAsUserGroup->roleId === Role::ROLE_ID_AUTHOR || $isSubmittingAsProductionEditor) {
             $author = Repo::author()->newAuthorFromUser($request->getUser(), $submission, $context);
             $author->setData('publicationId', $publication->getId());
             $author->setUserGroupId($submitAsUserGroup->id);

@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-11 15:16+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "submission.submit.availableUserGroups"
-msgstr "सादर करा"
+msgstr "याप्रमाणे सादर करा"
 
 msgid "submission.author.list"
 msgstr "सादरीकरणाच्या लेखकांची यादी"
@@ -275,7 +275,7 @@ msgid "submission.changeComments"
 msgstr "याच्या बदल्यात (Change to)"
 
 msgid "submission.changeFile"
-msgstr "फाईल बदला"
+msgstr "फाईलमध्ये फेरबदल करा"
 
 msgid "submission.citations"
 msgstr "संदर्भ (अनेक)"
@@ -314,7 +314,7 @@ msgid "submission.comments.subject"
 msgstr "विषय"
 
 msgid "submission.complete"
-msgstr "पूर्ण झाले"
+msgstr "प्रक्रिया समाप्त"
 
 msgid "submission.contributors"
 msgstr "योगदानकर्त्यांची यादी"
@@ -592,7 +592,7 @@ msgid "submission.indexingInformation"
 msgstr "सूचिकरणासंबंधी माहिती"
 
 msgid "submission.underway"
-msgstr "प्रगतीपथावर"
+msgstr "चालू आहे"
 
 msgid "submission.uploadFileTo"
 msgstr "फाईल येथे संक्रमित (अपलोड) करा"
@@ -889,7 +889,7 @@ msgid "submission.howToCite.downloadCitation"
 msgstr "उद्धरण डाउनलोड करा"
 
 msgid "submission.versions"
-msgstr "आवृत्त्या"
+msgstr "आवृत्त्या (versions)"
 
 msgid "submission.versionIdentity"
 msgstr "{$datePublished} ({$version})"
@@ -1045,7 +1045,7 @@ msgid "submission.reviewed"
 msgstr "समीक्षण केलेले"
 
 msgid "submission.reviewVersion"
-msgstr "समीक्षणाची आवृत्ती"
+msgstr "समीक्षणाची आवृत्ती (version)"
 
 msgid "submission.rights"
 msgstr "अधिकार"
@@ -1060,7 +1060,7 @@ msgid "submission.saveMetadata"
 msgstr "मेटाडेटा सेव्ह करा"
 
 msgid "submissions.completed"
-msgstr "समाप्त"
+msgstr "प्रक्रिया समाप्त झाली"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "प्रकाशन सूची"
@@ -1519,7 +1519,7 @@ msgstr ""
 "यादीतून संपादकाचा समावेश करा."
 
 msgid "notification.type.submissionNewVersion"
-msgstr "सादरीकरणाची नवी आवृत्ती तयार करण्यात आली"
+msgstr "सादरीकरणाची नवी आवृत्ती (version) तयार करण्यात आली"
 
 msgid "notification.type.revertDecline"
 msgstr "हे सादरीकरण नाकारण्याचा निर्णय मागे घेण्यात आला."
@@ -1703,7 +1703,7 @@ msgid "submission.query.subject"
 msgstr "विषय"
 
 msgid "submission.query.messages"
-msgstr "संदेश"
+msgstr "संदेश (अनेक)"
 
 msgid "submission.queries.submission"
 msgstr "समीक्षणपूर्व चर्चा"
@@ -1843,10 +1843,10 @@ msgid "publication.contributors"
 msgstr "योगदानकर्ते"
 
 msgid "publication.createVersion"
-msgstr "नवी आवृत्ती तयार करा"
+msgstr "नवे स्वरूप (version) तयार करा"
 
 msgid "publication.event.versionCreated"
-msgstr "नवी आवृत्ती तयार केली."
+msgstr "नवी आवृत्ती (version) तयार केली."
 
 msgid "publication.publicationLicense"
 msgstr "परवानग्या आणि प्रकटीकरण"
@@ -1867,10 +1867,10 @@ msgid "publication.urlPath.duplicate"
 msgstr "URL पत्ता यापूर्वीच वापरला गेला आहे आणि पुन्हा वापरता येणार नाही."
 
 msgid "publication.version.all"
-msgstr "सर्व आवृत्त्या"
+msgstr "सर्व आवृत्त्या (versions)"
 
 msgid "publication.version.confirm"
-msgstr "तुम्हाला खात्रीने नवी आवृत्ती तयार करायची आहे ना?"
+msgstr "तुम्हाला खात्रीने नवी आवृत्ती (version) तयार करायची आहे ना?"
 
 msgid "publication.wordCount"
 msgstr "शब्द संख्या: {$count}/{$limit}"
@@ -2058,7 +2058,7 @@ msgid "submission.event.confirmDeleteLogEntry"
 msgstr "तुम्हाला खात्रीने ही इव्हेंट लॉग नोंद (entry) हटवायची आहे ना?"
 
 msgid "submission.layout.layoutVersion"
-msgstr "लेआउट आवृत्ती"
+msgstr "लेआउट आवृत्ती (version)"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
@@ -2148,8 +2148,8 @@ msgstr "समीक्षण करून सादर करा"
 
 msgid "submission.outdatedVersion"
 msgstr ""
-"ही {$datePublished} रोजी प्रकाशित झालेली जुनी आवृत्ती आहे. <a href=\""
-"{$urlRecentVersion}\">सर्वात अलीकडील आवृत्ती</a> वाचा."
+"ही {$datePublished} रोजी प्रकाशित झालेली जुनी आवृत्ती (version) आहे. <a href="
+"\"{$urlRecentVersion}\">सर्वात अलीकडील आवृत्ती (version) </a> वाचा."
 
 msgid "submission.submit.form.languagesRequired"
 msgstr "कृपया भाषेची नोंद करा."
@@ -2911,7 +2911,7 @@ msgstr ""
 "समीक्षण खालील शिफारसीसह {$date} रोजी पूर्ण झाले : <b>{$recommendation}</b>"
 
 msgid "submission.informationCenter.history.allEvents"
-msgstr "मागील आवृत्त्यांपासून घटनाक्रम दाखवा"
+msgstr "मागील आवृत्त्यांपासून (version) घटनाक्रम दाखवा"
 
 msgid "submission.stageParticipants.notify"
 msgstr "सूचित करा"
@@ -3008,7 +3008,7 @@ msgstr ""
 "{$genres}."
 
 msgid "publication.version"
-msgstr "आवृत्ती {$version}"
+msgstr "आवृत्ती (version) {$version}"
 
 msgid "submission.submissionFile"
 msgstr "सादरीकरणाची फाईल"
@@ -3052,3 +3052,141 @@ msgid "submission.dataAvailability.tip"
 msgstr ""
 "या कामाला आधारभूत ठरणारे पुरावे तुम्ही उपलब्ध करून दिले आहेत का आणि असल्यास, "
 "ते कुठे आणि कसे उपलब्ध होतील ते सांगा"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "<b>{$date}</b> रोजी संपादकाने समीक्षण स्वीकारले."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "समीक्षकाने समीक्षणाची विनंती नाकारली"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "समीक्षकाने <b>{$date}</b> रोजी समीक्षणाची विनंती नाकारली आहे."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "समीक्षकाकडून प्रतिसादाची वाट पाहत आहे"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"समीक्षणाची विनंती समीक्षकासोबत पुन्हा शेअर केली गेली आहे. {$days} दिवस "
+"{$date} तारखेपर्यंत प्रतिसादाची वाट पाहत आहे"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "तपशील पहा"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "नियुक्ती रद्द करा"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "शिफारस पहा"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "न वाचलेली शिफारस पहा"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "ORCID ला समीक्षण पाठवा"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "हे समीक्षण समीक्षकाच्या ORCID पत्त्यावर पाठवायचे का?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "{$stageName} टप्प्यावर नकार कळवला."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"या सादरीकरणावरील पुढील कार्यवाहीसाठी सल्ला देण्याचे काम शिफारस करणाऱ्या "
+"संपादकांना देण्यात आले आहे"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "संपादकीय शिफारस प्राप्त झाली आहे"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"सर्व संपादकीय शिफारसी प्राप्त झाल्या आहेत आणि त्यावर निर्णय घेणे बाकी आहे."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "अपूर्ण सादरीकरण हटविण्यासाठी दुजोरा द्या"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "फक्त संपादकीय निर्णयाची शिफारस करण्याची परवानगी आहे"
+
+msgid "workflow.stageNotStarted"
+msgstr "{$stage} हा टप्पा अद्याप सुरू झालेला नाही."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "सादरीकरण सध्या {$stage} या टप्प्यावर आहे."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "सादरीकरण पुढील समीक्षण फेरीत नेण्यात आले आहे"
+
+msgid "workflow.reviewRoundN"
+msgstr "समीक्षण फेरी : {$number}"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "सुधारीत आवृत्ती (revisions) संक्रमित (अपलोड) केल्या"
+
+msgid "fileManager.filesForReview"
+msgstr "समीक्षणासाठी फाईल्स"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "समीक्षकाची स्थिती (status)"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "हटवण्यासाठी अपूर्ण सादरीकरण निवडा."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "अपूर्ण सादरीकरण हटवा"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "समीक्षणाची विनंती पुन्हा पाठवा"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "समीक्षकाला रद्द करा"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "अंतिम तारखेत बदल करा"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"तुम्ही नियतकालिकाचा व्यवस्थापक या भूमिकेतून हे सादरीकरण पाहू शकत नाही कारण "
+"तुम्ही याचे लेखकही आहात. ते पाहण्यासाठी, \"माझी सादरीकरणे (My Submissions)\" "
+"वर जा"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"तुम्ही नियतकालिकाचा व्यवस्थापक या भूमिकेतून हे सादरीकरण पाहू शकत नाही कारण "
+"तुम्ही याचे समीक्षक आहात. ते पाहण्यासाठी, \"कामांचा आढावा घ्या (Review "
+"Assignments)\" वर जा"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"सादरीकरण पुढील समीक्षण फेरीत गेले, स्वीकारले गेले आणि सध्या {$stage} या "
+"टप्प्यावर आहे."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "सादरीकरणाच्या वेळी संक्रमित (अपलोड) केलेल्या फाईल्स"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"सुधारीत आवृत्तीची (revisions) विनंती केल्यानंतर लेखकाने या फाईल्स सादर केल्या"
+" आहेत"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "या फाईल्स समीक्षकांना समीक्षणासाठी पाठवल्या जातील"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "कॉपीएडिट केलेल्या फाईल्स"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"या संपादित (कॉपीएडिट) केलेल्या फाईल्स आहेत ज्या प्रकाशन टप्प्यात नेल्या जातील"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "या समीक्षण टप्प्यातील फाईल्स आहेत ज्या कॉपीएडिट करायच्या आहेत"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "या फाईल्स प्रकाशनासाठी पाठवल्या जातील"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"तुम्ही खात्रीने निवडलेले आयटम हटवू इच्छिता ना? ही हटवलेली माहिती पूर्ववत करता"
+" येणार नाही. पुढे जाण्यासाठी कृपया दुजोरा द्या."

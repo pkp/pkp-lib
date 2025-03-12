@@ -532,7 +532,7 @@ class PKPPageRouter extends PKPRouter
         $newUrlLocale = $multiLingual ? "/{$newLocale}" : '';
         $indexUrl = $this->getIndexUrl($request);
         $pathInfo = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
-        $newPathInfo = preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[\\/?#])\b/', "/{$contextPath}{$newUrlLocale}", $pathInfo, 1, $replaceCount);
+        $newPathInfo = preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[\\/?#]|$)/', "/{$contextPath}{$newUrlLocale}", $pathInfo, 1, $replaceCount);
         // Failed to setup the new URL, fallback to the default initial URL
         if (!$replaceCount) {
             $newPathInfo = "/index{$newUrlLocale}";

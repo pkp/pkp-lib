@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 20:40+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -3877,3 +3877,59 @@ msgstr ""
 "Envie um lembrete por e-mail antes ou depois da resposta da solicitação de "
 "avaliação (se o avaliador ainda não respondeu à solicitação de avaliação) ou "
 "do envio da avaliação (se o avaliador ainda não enviou a avaliação)"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Número suficiente de avaliadores necessários por submissão para fazer "
+"recomendações antes de tomar uma decisão"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Sugestão do avaliador na submissão"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"O autor pode sugerir vários avaliadores em potencial antes de concluir a "
+"submissão, o que pode agilizar o processo de avaliação e fornecer "
+"informações valiosas para a equipe editorial."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Permitir que os autores sugiram possíveis avaliadores no processo de "
+"submissão"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"A configuração de idioma não pôde ser salva. Todas as opções precisam ser "
+"habilitadas."
+
+msgid "notification.submissionLocales"
+msgstr "Idiomas de submissões atualizadas."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"O autor {$authorName} não tem um nome de afiliação no idioma da submissão, "
+"{$localeName}. A submissão não pode ser importado sem essas informações."
+
+#, fuzzy
+msgid "settings.roles.masthead"
+msgstr "Considere o papel na lista de expediente editorial"
+
+msgid "settings.roles.permitSettings"
+msgstr "Permitir alterações nas configurações"
+
+#, fuzzy
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Defina a ordem dos papéis no expediente editorial para exibição pública."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"O conteúdo a seguir é mostrado aos autores durante a etapa de sugestões do "
+"avaliador. Forneça uma breve explicação de quais informações o autor deve "
+"fornecer sobre si mesmo, coautores e quaisquer outros contribuidores."
+
+#, fuzzy
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Link para uma página que exibe todos os serviços do expediente editorial "
+"ativos."

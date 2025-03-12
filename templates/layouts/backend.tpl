@@ -86,7 +86,7 @@
 					<dropdown class="app__headerAction app__userNav">
 						<template #button>
 							{if $isUserLoggedInAs}
-								{assign var="activeUser" value=$originalUser}
+								{assign var="activeUser" value=$loggedInAsUser}
 							{else}
 								{assign var="activeUser" value=$currentUser}
 							{/if}

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -687,10 +687,10 @@ msgid "common.pagination.goToPage"
 msgstr "Ir para {$page}"
 
 msgid "common.pagination.next"
-msgstr "Próxima página"
+msgstr "Próxima"
 
 msgid "common.pagination.previous"
-msgstr "Página anterior"
+msgstr "Anterior"
 
 msgid "common.pageNumber"
 msgstr "Página {$pageNumber}"
@@ -777,7 +777,9 @@ msgid "common.replaceFile"
 msgstr "Substituir documento"
 
 msgid "common.requiredField"
-msgstr "* Indica campo obrigatório"
+msgstr ""
+"Os campos obrigatórios são marcados com um asterisco: <abbr class=\"required"
+"\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Obrigatório"
@@ -2426,9 +2428,8 @@ msgstr "Painéis"
 msgid "validator.multilingual"
 msgstr "O requisito multilíngue não é atendido para este campo."
 
-#, fuzzy
 msgid "navigation.reviewAssignments"
-msgstr "Avaliações atribuídas"
+msgstr "Avaliações Atribuídas"
 
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"

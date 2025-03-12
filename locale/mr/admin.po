@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-11 19:11+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "mr/>\n"
@@ -28,7 +28,7 @@ msgid "admin.siteSettings"
 msgstr "संकेतस्थळाची मांडणी (सेटिंग्ज)"
 
 msgid "admin.version.latest"
-msgstr "नवीनतम आवृत्ती"
+msgstr "नवीनतम आवृत्ती (version)"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "वापर :"
@@ -283,7 +283,7 @@ msgid "admin.version.downloadPatch"
 msgstr "पॅच उतरवून (डाउनलोड) घ्या"
 
 msgid "admin.versionHistory"
-msgstr "आवृत्तीचा पूर्वेतिहास"
+msgstr "आवृत्ती (version) चा पूर्वेतिहास"
 
 msgid "admin.versionMajor"
 msgstr "लक्षणीय बदल (मेजर)"
@@ -301,7 +301,7 @@ msgid "admin.version.upToDate"
 msgstr "तुमच्या संगणकाचे घटक (सिस्टम) अद्ययावत आहेत"
 
 msgid "admin.version"
-msgstr "आवृत्ती"
+msgstr "आवृत्ती (version)"
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "फोल्डर {$path} डिरेक्टरी नाहीये किंवा वाचता येत नाही."
@@ -385,16 +385,16 @@ msgstr ""
 " {$msg}"
 
 msgid "admin.server.apacheVersion"
-msgstr "अपाचेची आवृत्ती"
+msgstr "अपाचेची आवृत्ती (version)"
 
 msgid "admin.server.dbVersion"
-msgstr "डेटाबेस सर्व्हर आवृत्ती"
+msgstr "डेटाबेस सर्व्हर आवृत्ती (version)"
 
 msgid "admin.serverInformation"
 msgstr "सर्व्हरची माहिती"
 
 msgid "admin.server.phpVersion"
-msgstr "PHP आवृत्ती"
+msgstr "PHP आवृत्ती (version)"
 
 msgid "admin.server.platform"
 msgstr "OS प्लॅटफॉर्म"
@@ -746,11 +746,11 @@ msgstr ""
 
 msgid "admin.systemInformation.description"
 msgstr ""
-"सर्व्हर आणि अ‍ॅप्लिकेशनच्या आवृत्ती आणि कॉन्फिगरेशन सेटिंग्ज बद्दल माहिती "
-"पहा."
+"सर्व्हर आणि अ‍ॅप्लिकेशनच्या आवृत्ती (version) आणि कॉन्फिगरेशन सेटिंग्ज बद्दल "
+"माहिती पहा."
 
 msgid "admin.version.updateAvailable"
-msgstr "सुधारित (अपडेटेड) आवृत्ती उपलब्ध आहे"
+msgstr "सुधारित (अपडेटेड) आवृत्ती (version) उपलब्ध आहे"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "बेस पाथ {$path} हा पब्लिक फाईल्स डायरेक्टरीमध्ये असणे आवश्यक आहे."

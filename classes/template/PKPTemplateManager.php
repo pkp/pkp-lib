@@ -1011,6 +1011,7 @@ class PKPTemplateManager extends Smarty
                                 $requestedPage = $router->getRequestedPage($request);
                                 $requestedOp = $router->getRequestedOp($request);
                                 $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
+                                $isNewSubmissionLinkPresent = false;
 
                                 $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
                                     $data = $dashboardView->getData();
@@ -1028,6 +1029,7 @@ class PKPTemplateManager extends Smarty
                                         'name' => __('dashboard.startNewSubmission'),
                                         'url' => $router->url($request, null, 'submission')
                                     ];
+                                    $isNewSubmissionLinkPresent = true;
                                 }
                                 
                                 $menu['dashboards'] = [
@@ -1073,7 +1075,7 @@ class PKPTemplateManager extends Smarty
                                     ];
                                 });
 
-                                if(!$request->getContext()->getData('disableSubmissions')) {
+                                if(!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
                                     $viewsData['newSubmission'] = [
                                         'name' => __('dashboard.startNewSubmission'),
                                         'url' => $router->url($request, null, 'submission')

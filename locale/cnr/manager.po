@@ -1,7 +1,7 @@
 # Milutin Markovic <admin@fcjk.me>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-10 10:57+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Milutin Markovic <admin@fcjk.me>\n"
 "Language-Team: Montenegrin <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/cnr/>\n"
@@ -85,3 +85,6 @@ msgstr "Podešavanje distribucije"
 
 msgid "manager.statistics.reports"
 msgstr "Izvještaji"
+
+msgid "manager.announcementTypes"
+msgstr "Tipovi obavještenja"

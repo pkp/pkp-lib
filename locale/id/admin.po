@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/id/>\n"
@@ -682,174 +682,198 @@ msgstr "Pilihan {$option} tidak ada."
 
 msgid "admin.cli.tool.jobs.mean.those"
 msgstr ""
+"Apakah yang anda maksud merupakan salah satu dari beberapa pilihan berikut?"
 
 msgid "admin.jobs.totalCount"
 msgstr ""
+"Terdapat total dari <strong>{$total}</strong> pekerjaan pada daftar antrian"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Terdapat total <strong>{$total}</strong> pekerjaan yang gagal."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Lihat daftar antrian pekerjaan"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Pekerjaan"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Pekerjaan yang gagal"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detail Pekerjaan yang Gagal"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Lihat semua daftar antrian pekerjaan pada sistem dan melacak upaya yang "
+"gagal."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Lihat Pekerjaan"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Lihat Pekerjaan yang Gagal"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Lihat Detail Pekerjaan yang Gagal:{$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atribut"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Nilai Atribut"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Pekerjaan"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Antrian"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Koneksi"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Usaha"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Dibuat Pada"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Gagal Pada"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Muatan"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Pengecualian"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Tindakan"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Dibuat pada {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Dibuat pada {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Coba Lagi"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Antrian ulang Semua Pekerjaan yang Gagal"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Pekerjaan yang memuat data statistik penggunaan dari file {$file} gagal, dan "
+"file tidak dapat dipindahkan dari {$archivedFilePath} ke {$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Pekerjaan yang memuat data statistik penggunaan dari file {$file} gagal. "
+"File telah dipindahkan ke direktori tahapan."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Koleksi Data"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Konfigurasikan tipe statistik penggunaan apa yang harus dikumpulkan."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Penyimpanan Data"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Konfigurasikan statistik penggunaan apa yang harus disimpan di server."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protokol Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Konfigurasikan protokol <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, format yang diakui industri untuk "
+"penyebaran statistik penggunaan."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Statistik Bulanan atau Harian"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Apakah akan melacak atau tidak statistik penggunaan harian atau bulanan. "
+"Pengecekan statistik harian dapat meningkatkan ukuran database anda secara "
+"signifikan."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Pengecekan statistik harian dan bulanan"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Hanya mengecek statistik bulanan"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Mengkompresi Logs"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Statistik dihasilkan dari akses file log yang dipindahkan ke <code>{$path}</"
+"code> sesudah diproses. Apakah file log dikompresikan ke file <code>.gz</"
+"code> sesudah diproses? Mengkompresikan file log mungkin menghemat ruang "
+"disk pada server."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Tinggalkan file log di tempatnya"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Kompresikan file log"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
-msgstr ""
+msgstr "Akses terbatas ke API statistik COUNTER SUSHI ke manajer dan admin"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Berdasarkan protokol COUNTER SUSHI, setiap laporan statistik harus "
+"mengidentifikasi \"platform\" yang menyediakan statistik. Secara default, "
+"jurnal akan ditunjuk sebagai platform untuk seluruh statistik. Namun, jika "
+"semua jurnal pada situs diterbitkan, dimiliki atau dijalankan oleh provider "
+"yang sama, anda dapat menunjuk situs tersebut sebagai platform."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"ID platform diharuskan ketika situs diidentifikasi sebagai platform SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "Pilihan perintah pekerjaan"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "penggunaan : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Pilihan yang tersedia untuk perintah pekerjaan"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Nama koneksi antrian untuk bekerja [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Nama koneksi antrian untuk bekerja [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Nama pekerjaan [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Memori terbatas pada megabit [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
@@ -921,3 +945,11 @@ msgid "admin.cli.tool.jobs.sandbox.message"
 msgstr ""
 "Tidak dapat menjalankan pekerjaan dalam antrian karena mode aplikasi sandbox "
 "diaktifkan."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"File {$file} tidak dapat dipindahkan dari {$dispatchFilePath} ke "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "File {$file} tidak ada."

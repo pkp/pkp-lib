@@ -20,8 +20,8 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-use PKP\userGroup\UserGroup;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
 
 class UserForm extends Form
 {
@@ -56,10 +56,10 @@ class UserForm extends Form
             $userGroups = UserGroup::query()
                 ->whereHas('userUserGroups', function ($query) {
                     $query->withUserId($this->userId)
-                          ->withActive();
+                        ->withActive();
                 })
                 ->get();
-    
+
             foreach ($userGroups as $userGroup) {
                 $userGroupIds[] = $userGroup->id;
                 $masthead[$userGroup->id] = Repo::userGroup()->userOnMasthead($this->userId, $userGroup->id);
@@ -127,16 +127,17 @@ class UserForm extends Form
 
         if ($this->getData('userGroupIds')) {
             $contextId = $request->getContext()->getId();
-    
-            // get current user group IDs
+
+            // get current user group IDs for this context
             $oldUserGroupIds = UserGroup::query()
+                ->withContextIds([$contextId])
                 ->whereHas('userUserGroups', function ($query) {
                     $query->withUserId($this->userId)
-                          ->withActive();
+                        ->withActive();
                 })
                 ->pluck('user_group_id')
                 ->all();
-    
+
             $userGroupsToEnd = array_diff($oldUserGroupIds, $this->getData('userGroupIds'));
             collect($userGroupsToEnd)
                 ->each(

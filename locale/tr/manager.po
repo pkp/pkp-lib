@@ -1155,7 +1155,7 @@ msgstr "Tarih ve Saat Formatı"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Tercih ettiğiniz tarih ve saat biçimini seçin. <a href='http://php.net/"
-"manual/en/datetime.format.php#refsect1-datetime.format-parameters'>Özel "
+"manual/tr/datetime.format.php#refsect1-datetime.format-parameters'>Özel "
 "bir tarih ve saat formatı</a> için özel bir format girebilirsiniz."
 
 msgid "manager.setup.dateTime.longDate"

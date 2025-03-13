@@ -1205,7 +1205,7 @@ msgstr "Форматы даты и времени"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Выберите предпочтительный формат для даты и времени. Пользовательский формат "
-"можно ввести, используя специальные <a href='http://php.net/manual/en/"
+"можно ввести, используя специальные <a href='http://php.net/manual/ru/"
 "datetime.format.php#refsect1-datetime.format-parameters'>символы "
 "форматирования</a>."
 

@@ -1208,7 +1208,7 @@ msgstr "Formatos de fecha y hora"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Elija el formato preferido para fechas y horas. Puede introducir un formato "
-"personalizado mediante los <a href='http://php.net/manual/en/datetime."
+"personalizado mediante los <a href='http://php.net/manual/es/datetime."
 "format.php#refsect1-datetime.format-parameters'>caracteres de formato</"
 "a> especiales."
 

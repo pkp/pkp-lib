@@ -1220,7 +1220,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Wählen Sie das bevorzugte Format für Datum und Uhrzeit. Ein "
 "benutzerdefiniertes Format kann mit speziellen <a href='http://php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-"
+"manual/en/datetime.format.php#refsect1-datetime.format-"
 "parameters'>format characters</a> eingegeben werden."
 
 msgid "manager.setup.dateTime.longDate"

@@ -1195,7 +1195,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Escolha o formato de preferência para datas e horas. Um formato customizado "
 "pode ser inserido usando os <a href='https://www.php.net/manual/pt_BR/"
-"function.strftime.php#refsect1-function.strftime-parameters'>caracteres de "
+"datetime.format.php#refsect1-datetime.format-parameters'>caracteres de "
 "formato especiais</a> ."
 
 msgid "manager.setup.dateTime.longDate"

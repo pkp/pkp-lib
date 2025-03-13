@@ -20,6 +20,8 @@ namespace PKP\emailTemplate;
 
 class EmailTemplate extends \PKP\core\DataObject
 {
+    public const ACCESS_MODE_RESTRICTED = 0; // Template is only accessible to assigned user groups
+    public const ACCESS_MODE_UNRESTRICTED = 1; // Template is accessible to all user groups
 }
 
 if (!PKP_STRICT_MODE) {

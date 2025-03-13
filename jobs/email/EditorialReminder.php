@@ -21,6 +21,7 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use PKP\security\Role;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -51,13 +52,23 @@ class EditorialReminder extends BaseJob
      */
     public function handle(): void
     {
-        if (!$this->isSubscribed()) {
-            return;
-        }
-
         /** @var Context $context */
         $context = app()->get('context')->get($this->contextId);
         $editor = Repo::user()->get($this->editorId);
+
+        // Context or user was removed since job was created, or the user was disabled
+        if (!$context || !$editor) {
+            return;
+        }
+
+        // If the user has been removed form manager or editor role since the job was created
+        if (!$editor->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $context->getId())) {
+            return;
+        }
+
+        if (!$this->isSubscribed()) {
+            return;
+        }
 
         // Don't use the request locale because this job is
         // run during a scheduled task
@@ -89,33 +100,34 @@ class EditorialReminder extends BaseJob
                 /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
+                $status = $reviewRound->determineStatus();
 
-                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS) {
+                if ($status === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.pendingReviewers');
                     continue;
                 }
 
-                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWS) {
+                if ($status === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWS) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.pendingReviews');
                     continue;
                 }
 
-                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY) {
+                if ($status === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewsReady');
                     continue;
                 }
 
-                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED) {
+                if ($status === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewsCompleted');
                     continue;
                 }
 
-                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE) {
+                if ($status === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewOverdue');
                     continue;
                 }
 
-                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
+                if ($status === ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.revisionsSubmitted');
                     continue;
                 }
@@ -146,11 +158,6 @@ class EditorialReminder extends BaseJob
             return;
         }
 
-        // Context or user was removed since job was created, or the user was disabled
-        if (!$context || !$editor) {
-            return;
-        }
-
         $notificationManager = new NotificationManager();
         $notification = $notificationManager->createNotification(
             $this->editorId,
@@ -166,11 +173,8 @@ class EditorialReminder extends BaseJob
             ->from($context->getContactEmail(), $context->getLocalizedName(Locale::getLocale()))
             ->recipients([$editor])
             ->subject($emailTemplate->getLocalizedData('subject'))
-            ->body($emailTemplate->getLocalizedData('body'));
-        
-        if ($notification) {
-            $mailable->allowUnsubscribe($notification);
-        }
+            ->body($emailTemplate->getLocalizedData('body'))
+            ->allowUnsubscribe($notification);
 
         Mail::send($mailable);
 
@@ -179,13 +183,18 @@ class EditorialReminder extends BaseJob
     }
 
     /**
-     * Is this editor subscribed to this email?
+     * Is this editor subscribed to this notification type?
      */
     protected function isSubscribed(): bool
     {
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao  */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        $blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_emailed_notification', $this->editorId, $this->contextId);
+        $blockedEmails = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+            NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+            $this->editorId,
+            $this->contextId
+        );
+        
         return !in_array(Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER, $blockedEmails);
     }
 

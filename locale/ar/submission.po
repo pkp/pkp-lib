@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2025-03-13 14:56+0000\n"
+"PO-Revision-Date: 2025-03-13 16:19+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar/>\n"
@@ -2876,3 +2876,79 @@ msgstr "يرجى قبولكم لهذا الالتماس أو رفضه حتى {$d
 
 msgid "dashboard.reviewAssignment.declined"
 msgstr "الإلتماس تم رفضه في {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "التحكيم تم تسليمه في {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"الموعد النهائي للاستجابة إلى هذا الإلتماس قد انقضى. يرجى قبول هذا الإلتماس "
+"أو رفضه في أقرب ما يمكن."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "يرجى إكمال هذا التحكيم حتى {$date}."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "بانتظار استجابة المحكم"
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"الموعد النهائي لإكمال هذا التحكيم قد انقضى. يرجى إكماله في أقرب ما يمكن."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"إلتماس التحكيم قد تم إرساله إلى المحكم. بانتظار الاستجابة في غضون <b>{$days} "
+"من الأيام حتى {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "إلتماس التحكيم تم رفضه في {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "رفض المحكم إلتماس التحكيم في <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "إلتماس التحكيم تأخر عن موعده {$days} من الأيام"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"هذا المحكم لم يستجب لإلتماس التحكيم. كانت الاستجابة مستوجبة في <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "قيد الإنجاز - إلتماس التحكيم مقبول"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"هذا المحكم لم يُكمل مهمة التحكيم. الإجابة كانت مستوجبة في <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "التحكيم قد إكتمل في {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"التحكيم قد إكتمل في {$date} مع التوصيات الآتية: <b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "التحكيم قد تم تأكيده من قبل المحرر"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "التحكيم قد تم قبوله من قبل المحرر في <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "المحرر ألغى إلتماس التحكيم"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "المحرر ألغى إلتماس التحكيم في <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "بانتظار الاستجابة من المحكم"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"إلتماس التحكيم قد أعيد إرساله إلى المحكم. بانتظار الاستجابة في غضون {$days} "
+"من الأيام حتى {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "معاينة التفاصيل"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "إعادة إرسال إلتماس التحكيم"

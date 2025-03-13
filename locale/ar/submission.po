@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2025-03-13 14:48+0000\n"
+"PO-Revision-Date: 2025-03-13 14:51+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar/>\n"
@@ -2834,3 +2834,24 @@ msgstr "تحديث التحكيم {$reviewsCompletedCount}/{$reviewsTotalCount}"
 
 msgid "dashboard.applyFilters"
 msgstr "تطبيق المرشحات"
+
+msgid "dashboard.startNewSubmission"
+msgstr "البدء بطلب تقديم جديد"
+
+msgid "dashboard.assignReviewers"
+msgstr "تعيين المحكمين"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "التنقيحات طُلبت من المؤلف"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "التنقيحات التي طُلبت من المؤلف ستؤخذ إلى جولة تحكيم جديدة"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "جولة تحكيم جديدة من المزمع إنشاؤها"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "بصدد النشر ضمن العدد ${issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "ملفات التدقيق التي رُفعت: ${count}"

@@ -1018,7 +1018,7 @@ msgstr "No matching scheduled task found."
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Which command would you like to run?"
 
-msgid "admin.workflow.email.userGroup.allowed"
+msgid "admin.workflow.email.userGroup.limitAccess"
 msgstr "Limit Access to Specific User Groups"
 
 msgid "admin.workflow.email.userGroup.assign.unrestricted"

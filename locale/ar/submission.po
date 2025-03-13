@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2025-03-13 14:51+0000\n"
+"PO-Revision-Date: 2025-03-13 14:56+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar/>\n"
@@ -2855,3 +2855,24 @@ msgstr "بصدد النشر ضمن العدد ${issue}"
 
 msgid "dashboard.copyEditedFilesUploaded"
 msgstr "ملفات التدقيق التي رُفعت: ${count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "التحكيم تم إلتماسه"
+
+msgid "dashboard.submitRevisions"
+msgstr "تسليم التحكيم"
+
+msgid "workflow.uploadRevisions"
+msgstr "رفع التحكيمات"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "الاستجابة للطلب"
+
+msgid "dashboard.actions.finishReview"
+msgstr "إنهاء التحكيم"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "يرجى قبولكم لهذا الالتماس أو رفضه حتى {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "الإلتماس تم رفضه في {$date}"

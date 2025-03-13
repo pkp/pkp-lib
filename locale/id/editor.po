@@ -1,19 +1,20 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+# Maria Lamury <marialamury@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2021-07-14 11:03+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
+"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"editor/id_ID/>\n"
-"Language: id_ID\n"
+"editor/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Anda yakin ingin menghapus naskah ini secara permanen?"
@@ -49,40 +50,51 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Ubah keputusan"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Anda tidak memiliki ijin untuk mencatat keputusan pada pengiriman ini."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Editor tidak dikenal dan tidak memiliki ijin untuk mencatat keputusan pada "
+"pengiriman ini."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Anda tidak dapat mengirimkan email ke penerima berikut: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Putaran review tidak dapat ditemukan."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Putaran review tersedia tetapi keputusan tidak diambil selama tahap review."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Putaran review bukan merupakan bagian dari pengiriman ini."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Pengiriman tidak ada dalam tahapan yang benar dari alur kerja untuk "
+"mengambil keputusan."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Anda harus ditugaskan pada pengiriman ini untuk mencatat keputusan editorial."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr ""
+msgstr "ID Putaran review harus disediakan untuk mengambil keputusan ini."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Rekomendasi tidak dapat dibuat kecuali jika editor ditugaskan pada tahapan "
+"ini untuk mengambil keputusan final."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Keputusan tidak dapat diambil pada pengiriman ini. ID pengiriman hilang dan "
+"tidak cocok dengan pengiriman yang diminta."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Keputusan tidak dapat ditemukan. Harap sediakan tipe keputusan yang dikenal."
 
 msgid "editor.review.notInitiated"
 msgstr "Proses review belum dimulai."
@@ -155,7 +167,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Kembalikan Peninjau"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Mengirimkan kembali Permintaan Review"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tipe Review"
@@ -209,10 +221,10 @@ msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Revisi akan dimasukkan ke putaran baru ulasan sejawat."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "Revisi tidak menjadi subyek untuk putaran baru dari peer review."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "Revisi harus menjadi subyek untuk putaran baru dari review."
 
 msgid "editor.review.dateAccepted"
 msgstr "Tanggal Penerimaan Review"
@@ -596,3 +608,6 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Pilih Reviewer dari Pilihan Reviewer"

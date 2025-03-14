@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-03-02 18:27+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/uk/>\n"
@@ -263,3 +263,42 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Різні налаштування"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Змінна конфігурації з назвою \"app_key\" не визначена в розділі \"general\". "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Змінна конфігурації з назвою \"app_key\" уже визначена в розділі \"general\""
+". "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Неможливо проаналізувати файл конфігурації."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Неможливо записати змінну ключа програми у файл конфігурації."
+
+msgid "installer.appKey.write.error"
+msgstr "Неможливо записати ключ програми у файл конфігурації."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Установіть значення \"app_key\" у розділі \"general\" у файлі \"config.inc."
+"php\" як {$key}."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Будь ласка, додайте змінну конфігурації з назвою \"app_key\" у розділ "
+"\"general\" вручну або запустіть команду \"php lib/pkp/tools/appKey.php "
+"configure\", щоб установити її з CLI."
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Неможливо прочитати файл конфігурації або файл не існує за очікуваним "
+"шляхом. "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Непідтримуваний шифр або неправильна довжина ключа. Підтримувані шифри: "
+"{$ciphers}."

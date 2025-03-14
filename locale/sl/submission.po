@@ -1,11 +1,11 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Matevž Rudolf <matevz.rudolf@uni-lj.si>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2024-11-05 22:30+0000\n"
+"PO-Revision-Date: 2025-03-10 13:16+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -32,7 +32,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nove recenzije so končane in so v pregledu pri uredniku."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Eden ali več recenzentov zamuja z recenzijo. Uredništvo je bilo obveščeno o "
@@ -1313,13 +1312,11 @@ msgstr "Zahtevani so popravki."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Popravki so bili oddani, potrebno je sprejeti uredniško odločitev."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Prispevek mora biti ponovno poslan v nov recenzijski krog."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Prispevek je bil poslan v nov recenzijski krog."
+msgstr "Popravki so bili oddani. Potrebno je narediti nov recenzijski krog."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Pošlji v zunanjo recenzijo."
@@ -1339,9 +1336,8 @@ msgstr "Čaka na odzive recenzentov."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nove recenzije so bile oddane."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Vsi recnezenti so končali, potrebno je sprejeti uredniško odločitev."
+msgstr "Vsi recenzenti so končali, potrebno je sprejeti uredniško odločitev."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Recenzija zamuja."
@@ -2701,3 +2697,466 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Prosimo opišite vsa morebitna navzkrižja interesov avtorja/ev v zvezi s "
 "predmetom raziskave."
+
+msgid "author.authorNotFound"
+msgstr "Avtorja za to ustanovo ni bilo mogoče najti."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Prosimo navedite ROR ustanovo ali vsaj eno ime ustanove."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Prosimo navedite ime ustanove v primarnem jeziku prispevka."
+
+msgid "ror.nameRequired"
+msgstr "ROR ime je zahtevano."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR prikazni jezik je zahtevan."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Prekini oddajo"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Recenzentski predlog"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Vi ste oddali priporočilo."
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Spremeni jezik prispevka za"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktivni prispevki"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Potrebuje urednika"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Vsi v recenziji"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Čakajoče recenzije"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Recenzije oddane"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Recenzije zamujajo"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Vsi v lektoriranju"
+
+msgid "submission.dashboard.view.production"
+msgstr "Vsi v produkciji"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Pripravljeno za objavo"
+
+msgid "submission.dashboard.view.published"
+msgstr "Objavljeno"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Zavrnjeno"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Popravki oddani"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Vse zadolžitve"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Vse zadolžitve"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Avtorjevi predlagani recenzenti"
+
+msgid "submission.review.status.viewed"
+msgstr "Urednik je pregledal recenzijo."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Trenutni jezik prispevka:"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Oddaja je bila prekinjena"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Spremeni"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Oddaja je bila prekinjena in vsi pripadajoči podatki odstranjeni."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"To je primarni jezik prispevka. Sprememba le tega, bo vplivala na prispevek "
+"in vse vnešene metapodatke"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Za recenzentski predlog"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Pred spremembo jezika prispevka zagotovite, da ste vpisali vsa "
+"spodnja polja za metapodatke, da zagotovite integriteto sistema. Opozorilo: "
+"podatki o sodelavcih in imena datotek, bodo skopirana iz predhodno vnešenih "
+"podatko.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Tukaj vnesite naslov prispevka v jeziku {$language}. Če je potrebno, lahko "
+"naslov oblikujete"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Priporočljivo je vnesti izvleček v jeziku {$language} . To pomaga "
+"zagotoviti, da je vsebina dostopna"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Poglej povzetek oddaje"
+
+msgid "submission.list.completeSubmission"
+msgstr "Zaključi oddajo"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Ali ste prepričani, da želite preklicati to oddajo prispevka? To bo "
+"avtomatično odstranilo prispevek in vse pripadajoče podatke. Tega dejanja ni "
+"mogoče preklicati."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Za ta prispevek ni bilo predlaganih nobenih recenzentov."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Ime ustanove manjka v jeziku {$language} za eno ali več ustanov ali za enega "
+"ali več sodelavcev."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Dodeljeno meni"
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "Vsi v uredniškem pregledu"
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "Potrebni so recenzenti"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Zahtevni popravki"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Nedokončana oddaja"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "V čakanju"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Kočnano/zavrnjeno"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Ukrepi zahtevani od mene"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arhivirano"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Zavrnjeno"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Zaključeno"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Objavljeno"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recenzija (Krog {$round})"
+
+msgid "submission.stage.published"
+msgstr "Objavljeno"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potrdite brisanje JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Odstani JATS datoteko"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Ta JATS datoteka je bila generirana avtomatično iz metapodtkov prispevka"
+
+msgid "publication.jats.lastModified"
+msgstr "Zadnji spremenil {$username} dne {$modificationDate}"
+
+msgid "submission.files.content.error"
+msgstr "Vsebine datoteke '{$fileName}' ni bilo mogoče prebrati."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Dodeljeni recenzenti"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Stanje recenzij {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Uporabi filtre"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Oddaj nov prispevek"
+
+msgid "dashboard.assignReviewers"
+msgstr "Določi recenzente"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Zahtevani avtorjevi popravki"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Zahtevani avtorjevi popravki za naslednji recenzijski krog"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Ustvarjen bo nov recenzijski krog"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Objavljeno bo v številki ${issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Naložene recenzentske datoteke: ${count}"
+
+msgid "dashboard.submitRevisions"
+msgstr "Oddaj popravke"
+
+msgid "workflow.uploadRevisions"
+msgstr "Naloži popravke"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Odgovori na prošnjo"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Končaj recenzijo"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Prošnja zavrnjena dne {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenzija oddana dne {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Prosimo zaključite to recenzijo do {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Rok za dokončanje te recenzije je potekel. Prosimo, da recenzijo zaključite "
+"v najkrajšem možnem času."
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "Odstranili boste JATS XML datoteko iz te publikacije. Ste prepričani?"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Razlogi za predlaganje recenzenta"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Rok za odgovor na prošnjo je potekel. Prosimo, da prošnjo čim prej sprejmete "
+"ali zavrnete."
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Načrtovano za objavo"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Prišlo je do napake pri kreiranju privzete JATS vsebine. Prosimo zagotovite, "
+"da je JatsTemplate vtičnik nameščen."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Prosimo zapišite zakaj predlagate tega recenzenta in omenite, če je obstaja "
+"potencialen konflikt interesov."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Jezik prispevka ({$language}) ni eden od podprtih jezikov. Še vedno lahko "
+"urejate podrobnosti prispevka, ampak novi prispevka v tem jeziku se trenutno "
+"ne sprejemajo."
+
+msgid "dashboard.revisionRequested"
+msgstr "Zahtevan popravek"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Prosimo sprejmite ali zavrnite to prošnjo do {$date}"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Čakanje na odziv recenzenta"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Prošnja za recenzijo je bila poslana recenzentu. Pričakovan odziv v "
+"<b>{$days} dneh na dan {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Prošnja za recenzijo zavrnjena dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Recenzent je zavrnil prošnjo za recenzijo dne <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Odziv na prošnjo za recenzijo zamuja {$days} dni"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Recenzent se še ni odzval na prošnjo za recenzijo. Rok za odziv je bil do "
+"<b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Recenzija zamuja {$days} dni"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Recenzija končana dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Urednik je potrdil recenzijo"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Urednik je sprejel recenzijo dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recenzent je zavrnil prošnjo za recenzijo"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recenzent je zvrnil prošnjo za recenzijo dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Čaka na odziv recenzenta"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Prošnja za recenzijo je bila ponovno poslana. Rok za odziv je še {$days} dni "
+"do {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Poglej podrobnosti"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Ponovno pošlji prošnjo za recenzijo"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Prekliči recenzenta"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Uredi datum za rok"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Poglej priporočilo"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Poglej neprebrano priporočilo"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Pošlji recenzijo na ORCID"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Zavrnjeno v fazi {$stageName}."
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Recenzija poteka - recenzija je bila sprejeta"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Recenzent je sprejel prošnjo za opravljanje recenzije. Za dokončanje "
+"recenzije je še <b>{$days} dni, rok je {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Ta recenzent ni dokončal recenzije. Rok za dokončanje je bil <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Recenzija je bila končana {$date} za naslednjim priporočilom: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Umakni dodelitev"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Naj se ta recenzija pošlje na ORCID recenzenta?"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr "Uredniki morajo oddati priporočila glede nadaljevanje tega prispevka"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Vsa uredniška priporočila so na voljo, potrebna je uredniška odločitev."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Omogočeno vam je le oddajanje priporočila"
+
+msgid "workflow.stageNotStarted"
+msgstr "Faza {$stage} se še ni pričela."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Prispevek je trenutno v fazi {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Prispevek, ki je šel naprej v naslednji krog recenzije, je bil sprejet in je "
+"trenutno v fazi {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Prispevek je šel naprej v naslednji krog recenzije"
+
+msgid "workflow.reviewRoundN"
+msgstr "Recenzijski krog {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Datoteke naložene ob oddaji prispevka"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Popravki naloženi"
+
+msgid "fileManager.filesForReview"
+msgstr "Datoteke za recenzijo"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Te datoteke bodo poslane recenzentom za recenzijo"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Lektorirane datoteke"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Ste prepričani, da želite izbrisati izbrane elemente? Tega dejanja ni mogoče "
+"preklicati. Za nadaljevanje potrdite."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Briši nedokonačne prispevke"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Te datoteke se bodo prenesle v fazo produkcije"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Te datoteke so iz faze recensije in bodo lektorirane"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Te datoteke bodo poslane v fazo produkcije"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Potrdite brisanje nedokončanega prispevka"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status recenzenta"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Izberite nedokončane prispevke za brisanje."
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Uredniško priporočilo je na voljo"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Do prispevka ne morete dostopati kot Upravljalec Revije, ker ste avtor. Za "
+"ogled pojdite na \"Moji prispevki\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Do prispevka ne morete dostopati kot Upravljalec Revije, ker ste recenzent. "
+"Za ogled pojdite na \"Moje Recenzije\""
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Te datoteke je avtor naložil po tistej, ko so bili zahtevani popravki"

@@ -1,11 +1,11 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024, 2025.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2024-09-05 15:30+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_BR/>\n"
@@ -374,3 +374,72 @@ msgstr "O destaque solicitado não foi encontrado."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Um DOI não pode ser atribuído a este item."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Não foi possível processar a solicitação da API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Não é possível receber nenhuma resposta esperada."
+
+msgid "api.400.routeNotDefined"
+msgstr "Nenhuma rota de API foi fornecida."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Parâmetro amigável ao autor inválido."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Você não pode alterar o idioma desta submissão porque ela já possui mais de "
+"uma versão publicada ou uma publicação ativa."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "O avaliador atribuído não pôde ser encontrado"
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "A submissão para esta tarefa de avaliação não pôde ser encontrada."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Somente 'aceitar' e 'recusar' são valores válidos"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "A seção fornecida não existe."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Você não pode executar esta operação com a funcionalidade ORCID desabilitada."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Você forneceu um \"eventType\" inválido,{$eventType}, para e-mails do autor."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Este endpoint não está disponível no namespace de todo o site e deve ser "
+"solicitado para um determinado contexto."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "O autor solicitado não foi encontrado"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Você não pode fazer alterações em autores em submissões aos quais não foram "
+"atribuídas."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"A solicitação não possui o parâmetro de consulta obrigatório `ids`. Forneça "
+"os `ids` das submissões que deseja excluir."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID inválido: \"{$id}\" fornecido."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"O formulário de identificadores de publicação está indisponível porque não "
+"há Identificadores habilitados."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "O ROR solicitado não foi encontrado."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Não é possível concluir a ação pretendida no recurso."

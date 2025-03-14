@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2024-08-27 05:40+0000\n"
+"PO-Revision-Date: 2025-03-06 15:24+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "sl/>\n"
@@ -363,3 +363,68 @@ msgstr "Zahtevanega poudrka ni bilo mogoče najti."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Tej postavki ni mogoče dodeliti DOI."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "API zahtevka ni bilo mogoče izvesti."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Pričakovanega odgovora ni bilo mogoče prejeti."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Napačen avtorju prijazen parameter."
+
+msgid "api.400.routeNotDefined"
+msgstr "Ni bilo podane poti do APIja."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "Podali ste neveljaven \"eventType\",{$eventType}, za avtorjeve emaile."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "Te operacije ne morete izvesti, če je ORCID funkcionalnost onemogočena."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Ne morete spremeniti jezika tega prispevka, ker ima že več kot eno "
+"objavljeno verzija ali objavljeno publikacijo."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Recenzenta za to recenzentsko zadolžitev ni bilo mogoče najti"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Zahteva nima obvezenta parametra `ids`. Prosimo podajte `ids` prispevka, ki "
+"ga želite odstraniti."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Avtorjeve zahteve ni bilo mogoče najti"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "Ne morete spremeniti avtorjev na prispevku na katerega niste dodani."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Ta končna točka ni na voljo na celotnem spletišču in mora biti zahtevana za "
+"vsak kontektst posebej."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Prispevka za to recenzentsko zadolžitev ni bilo mogoče najti."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Veljavni vrednosti sta le \"sprejmi\" ali \"zavrni\""
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Podana rubrika ne obstaja."
+
+msgid "api.submission.400.invalidId"
+msgstr "Podan je napačen ID: \"{$id}\"."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Obrazec za identifikatorje publikacije ni na voljo, ker ni omogočenih "
+"nobenih identifikatorjev."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Vaša ror zahteva ni bila najdena."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Zahtevane akcije ni bilo mogoče končati na viru."

@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2024-03-22 22:39+0000\n"
-"Last-Translator: Lívia Carolina Gouvêa de Faria <livia@mail.mayfirst.org>\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -687,10 +687,10 @@ msgid "common.pagination.goToPage"
 msgstr "Ir para {$page}"
 
 msgid "common.pagination.next"
-msgstr "Próxima página"
+msgstr "Próxima"
 
 msgid "common.pagination.previous"
-msgstr "Página anterior"
+msgstr "Anterior"
 
 msgid "common.pageNumber"
 msgstr "Página {$pageNumber}"
@@ -777,7 +777,9 @@ msgid "common.replaceFile"
 msgstr "Substituir documento"
 
 msgid "common.requiredField"
-msgstr "* Indica campo obrigatório"
+msgstr ""
+"Os campos obrigatórios são marcados com um asterisco: <abbr class=\"required"
+"\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Obrigatório"
@@ -2351,3 +2353,86 @@ msgstr "Destaques"
 
 msgid "common.sandbox"
 msgstr "Aplicação em execução no modo sandbox."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ver <a href=\"{$url}\">Histórico Editorial</a>"
+
+msgid "common.moreActions"
+msgstr "Mais Ações"
+
+msgid "common.editorialMasthead"
+msgstr "Equipe Editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Avaliadores por pares no ano anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Avaliadores por pares em anos anteriores"
+
+msgid "common.editorialHistory"
+msgstr "Histórico Editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Página de histórico editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta seção lista os contribuidores anteriores."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ver perfil ORCID de {$name}"
+
+msgid "common.showingXofX"
+msgstr "Exibindo <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Os editores expressam seu agradecimento aos avaliadores de {$year} listados "
+"abaixo."
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Carregado"
+
+msgid "common.filtersClear"
+msgstr "Limpar filtros"
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} erros detectados! Corrija os erros abaixo antes de prosseguir."
+
+msgid "navigation.mySubmissions"
+msgstr "Minhas Submissões"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Avaliação aceita em"
+
+msgid "common.numero"
+msgstr "Nº"
+
+msgid "common.refreshingData"
+msgstr "Atualizando dados"
+
+msgid "form.errorSummaryOne"
+msgstr "1 erro detectado! Corrija o erro abaixo antes de prosseguir."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Avaliação enviada em"
+
+msgid "validator.date.comparison"
+msgstr "Datas inválidas fornecidas para comparação."
+
+msgid "navigation.dashboards"
+msgstr "Painéis"
+
+msgid "validator.multilingual"
+msgstr "O requisito multilíngue não é atendido para este campo."
+
+msgid "navigation.reviewAssignments"
+msgstr "Avaliações Atribuídas"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.viewMoreDetails"
+msgstr "Ver mais detalhes"

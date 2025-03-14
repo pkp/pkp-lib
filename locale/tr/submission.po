@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-06-03 05:04+0000\n"
+"PO-Revision-Date: 2025-03-10 09:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
@@ -30,13 +30,11 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Yeni değerlendirmeler gönderilmiştir ve editör tarafından incelenmektedir."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Bir veya daha fazla hakem değerlendirme için verilen son tarihte dönüş "
-"sağlamadı. Editörler bilgilendirildi ve değerlendirmenin tamamlanması için "
-"gerekeni gerçekleştirecektir. Şu anda herhangi bir işlem yapmanız "
-"gerekmiyor. Değerlendirme tamamlandığında bilgilendirileceksiniz."
+"Bir veya daha fazla hakem değerlendirme tarihi içerisinde dönüş sağlamamış. "
+"Editörler değerlendirmenin tamamlanmasını sağlayacaktır. Şu anda herhangi "
+"bir işlem yapmanıza gerek yok. Bir karar verildiğinde size bildirilecektir."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "olarak Gönder"
@@ -2661,3 +2659,18 @@ msgstr "Değerlendirme aşamasına geri dönüldü."
 
 msgid "submission.author.list"
 msgstr "Yazar Listesi"
+
+msgid "author.authorNotFound"
+msgstr "Bu kurum için yazar bulunamadı."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Lütfen bir ROR kurumu veya en az bir kurum adı belirtin."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Lütfen başvuru birincil dilinde kurum adını belirtin."
+
+msgid "ror.nameRequired"
+msgstr "ROR kurum ismi zorunlu."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR görünen dil için gerekli."

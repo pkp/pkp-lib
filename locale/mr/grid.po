@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-11 19:11+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/mr/"
 ">\n"
@@ -390,7 +390,7 @@ msgid "grid.action.deleteCategory"
 msgstr "प्रवर्ग (Category) हटवा"
 
 msgid "grid.action.newVersion"
-msgstr "नवी आवृत्ती तयार करा"
+msgstr "नवी आवृत्ती (version) तयार करा"
 
 msgid "grid.reviewForm.title"
 msgstr "समीक्षणासाठी फॉर्म"

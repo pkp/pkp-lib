@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2025-03-04 17:01+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "uk/>\n"
@@ -987,3 +987,120 @@ msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Працівники вишукано звільняться після завершення виконання поточного "
 "завдання."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+"Оновити кеш набору даних реєстру ROR (Реєстру дослідницьких організацій - "
+"РДО)"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Надішліть завдання, щоб автоматично видалити прострочені запрошення"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Відобразити параметри використання AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Перевірте поточний app key (ключ програми), якщо його знайдено у файлі "
+"конфігурації"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Ви мали на увазі одне з наступного?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Згенерований app key (ключ програми): {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Змінна \"app_key\" eже існує в розділі \"general\" у файлі конфігурації. "
+"Виконайте команду \"php lib/pkp/tools/appKey.php generate\", щоб установити "
+"новий app key (ключ програми)."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "У файлі конфігурації не встановлено app key (ключа програми)."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Недійсний app key (ключ програми), непідтримуваний шифр або неправильна "
+"довжина ключа. Підтримувані шифри: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key (ключ програми) успішно встановлено у файлі конфігурації."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Не вдалося встановити змінну \"app_key\" у файлі конфігурації. Оновіть "
+"загальний розділ файлу конфігурації та додайте рядок \"app_key = \"."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Дійсний app key (ключ програми) установлено у файлі конфігурації"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Запустити планувальник."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Показати списком усі заплановані завдання."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Запустити робочий графік."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Відображати параметри використання планувальника."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Неможливо запустити заплановані завдання, оскільки ввімкнено режим "
+"обслуговування програми."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Ви мали на увазі одне з наступного?"
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Запланованих завдань не зареєстровано."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Не знайдено жодного відповідного запланованого завдання."
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Додайте конфігураційну змінну app_key у файл config.inc.php."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"У конфігураційному файлі вже встановлено дійсний ключ програми (app key). "
+"Для перезапису відмітьте прапорець --force (перезаписати) разом із командою."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Згенеруйте новий app key (ключ програми) і замініть його у файлі "
+"конфігурації. Відмітьте прапорцем --show (показати) лише для перегляду й --"
+"force (перезаписати) для перезапису наявного дійсного ключа програми."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Змінну app key (ключа програми) успішно встановлено у файлі конфігурації. "
+"Виконайте команду \"php lib/pkp/tools/appKey.php generate\", щоб установити "
+"новий ключ програми."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Немає ключової змінної з назвою \"app_key\", визначеної в розділі \"general\""
+" файлу конфігурації. Оновіть загальний розділ конфігураційного файлу q "
+"додайте рядок \"app_key =\" або запустіть команду \"php lib/pkp/tools/"
+"appKey.php configure\", щоб налаштувати його."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Запустіть окреме заплановане завдання зі списку або використовуйте --name "
+"(ім'я), щоб запустити конкретне. Установіть прапорець --no-scroll (без "
+"прокручування) для перегляду повного списку без прокручування."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Неможливо запустити заплановані завдання, оскільки ввімкнено режим "
+"ізольованого програмного середовища."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Виконання запланованих завдань щохвилини."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Яку команду ви хочете виконати?"

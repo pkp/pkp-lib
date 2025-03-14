@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-03-09 05:50+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -683,10 +683,10 @@ msgid "common.pagination.goToPage"
 msgstr "Գնալ {$page} էջ"
 
 msgid "common.pagination.next"
-msgstr "Հաջորդ էջ"
+msgstr "Հաջորդը"
 
 msgid "common.pagination.previous"
-msgstr "Նախորդ էջ"
+msgstr "Նախորդը"
 
 msgid "common.pageNumber"
 msgstr "Էջ համար {$pageNumber}"
@@ -2312,3 +2312,93 @@ msgstr "Ցույց տալ ավելի քիչ"
 
 msgid "common.sandbox"
 msgstr "Հավելվածը աշխատում է sandbox ռեժիմում:"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Դիտեք <a href=\"{$url}\">Խմբագրական պատմությունը</a>"
+
+msgid "common.editorialHistory"
+msgstr "Խմբագրական պատմություն"
+
+msgid "common.editorialHistory.page"
+msgstr "Խմբագրական պատմության էջ"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Դիտել {$name} ORCID պրոֆիլը"
+
+msgid "common.editorialMasthead"
+msgstr "Խմբագրական մաստհեդ"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Զույգով գրախոսներ նախորդ տարում"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Զույգով գրախոսներ նախորդ տարիներում"
+
+msgid "common.moreActions"
+msgstr "Ավելի շատ գործողություններ"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Խմբագիրներն իրենց երախտագիտությունն են հայտնում ստորև թվարկված գրախոսներին "
+"{$year} ընթացքում:"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Այս բաժնում թվարկված են անցյալում եղած աջակիցները։"
+
+msgid "common.assignments"
+msgstr "Նշանակումներ"
+
+msgid "common.filtersClear"
+msgstr "Մաքրել զտիչները"
+
+msgid "form.errorSummaryOne"
+msgstr "Հայտնաբերվել է 1 սխալ: Շարունակելուց առաջ շտկեք ստորև նշված սխալը:"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Հայտնաբերվել է {$count} սխալ: Շարունակելուց առաջ շտկեք ստորև ներկայացված "
+"սխալները:"
+
+msgid "navigation.dashboards"
+msgstr "Վահանակներ"
+
+msgid "navigation.reviewAssignments"
+msgstr "Վերանայման առաջադրանքներ"
+
+msgid "navigation.mySubmissions"
+msgstr "Իմ ներկայացումները"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Վերանայումն ուղարկված է"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Ոչ"
+
+msgid "common.refreshingData"
+msgstr "Տվյալներ թարմացում"
+
+msgid "common.showingXofX"
+msgstr ""
+"Ցուցադրվում է <strong>{$start}-ից մինչև {$finish}</strong> ընդամենը "
+"{$total}-ից"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Վերանայումն ընդունված է"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Բեռնված"
+
+msgid "validator.date.comparison"
+msgstr "Համեմատության համար անվավեր ամսաթվեր են տրամադրված:"
+
+msgid "validator.multilingual"
+msgstr "Բազմալեզվության պահանջը չի կատարվում այս ոլորտի համար:"
+
+msgid "common.viewMoreDetails"
+msgstr "Դիտեք ավելի շատ մանրամասներ"

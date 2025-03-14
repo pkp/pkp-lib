@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-01-04 15:39+0000\n"
+"PO-Revision-Date: 2025-03-09 05:50+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -29,12 +29,11 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Byly nahrány nové recenze a nyní je posuzuje redaktor."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Jeden nebo více recenzentů zmeškalo termín. Redakční tým byl upozorněn a "
-"přijme opatření, aby zajistil dokončení recenzí. V tuto chvíli nemusíte "
-"podnikat žádné kroky. Až bude učiněno rozhodnutí, budete upozorněni."
+"Jeden nebo více recenzentů zmeškalo termín. Redakce o tom ví a zajistí "
+"dokončení recenzí. V tuto chvíli není třeba podnikat žádné kroky. Jakmile "
+"bude rozhodnuto, budete informováni."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Zaslat příspěvek jako"
@@ -404,7 +403,7 @@ msgid "common.queue.long.submissionsUnassigned"
 msgstr "Nepřiřazeno"
 
 msgid "common.queue.long.myAssigned"
-msgstr "Přiřazeno mně"
+msgstr "Moje přiřazené"
 
 msgid "common.queue.long.submissionsArchived"
 msgstr "Archivované příspěvky"
@@ -1305,16 +1304,16 @@ msgstr "Byly vyžádány úpravy rukopisu."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Úpravy rukopisu byly odevzdány a je třeba udělat rozhodnutí."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Příspěvek musí být znovu podán do dalšího recenzního kola."
+msgstr ""
+"Úpravy vyžádané od autora, které budou postoupeny do nového kola recenzního "
+"řízení."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Příspěvek byl znovu nahrán pro další kolo recenzí."
+msgstr "Opravy byly nahrány. Je třeba vytvořit nové kolo recenzí."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Odesláno k externí recenzi."
+msgstr "Odesláno pro externí recenzi."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Příspěvek přijat."
@@ -1331,9 +1330,8 @@ msgstr "Čeká se na odpovědi recenzentů."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Byly odevzdány nové recenze."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Recenze byly ukončeny."
+msgstr "Všechny recenze jsou potvrzeny a je třeba přijmout rozhodnutí."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Vypršel termín pro recenzi."
@@ -2735,3 +2733,473 @@ msgstr "Střet zájmů"
 msgid "author.competingInterests.description"
 msgstr ""
 "Uveďte prosím veškeré střety zájmu, které může mít autor s předmětem výzkumu."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Uveďte prosím název afiliace v primární národní lokalizaci podání."
+
+msgid "ror.nameRequired"
+msgstr "Je požadováno ROR jméno."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Je vyžadována národní lokalizace zobrazení ROR."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Podání bylo zrušeno"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Zrušit podání"
+
+msgid "submission.dashboard.view.initialReview"
+msgstr "Vše na stole/počáteční kontrola"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Vše v rámci peer review"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Čeká na recenze"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Odevzdané recenze"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Recenze po termínu"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Vše ve fázi copyeditování"
+
+msgid "submission.dashboard.view.production"
+msgstr "Vše ve fázi produkce"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Plánované zveřejnění"
+
+msgid "submission.dashboard.view.published"
+msgstr "Zveřejněno"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Odmítnuto"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Požadované úpravy"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Uveďte příslušnost k ROR nebo alespoň jeden název příslušnosti."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Podání bylo zrušeno a všechny související údaje byly odstraněny."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Jedná se o primární jazyk podání. Jeho změna bude mít vliv na podání a "
+"zadaná metadata"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Před změnou jazyka podání se ujistěte, že jste vyplnili následující "
+"pole metadat, aby byla zachována integrita systému. Upozorňujeme také, že "
+"informace o přispěvateli a názvy souborů budou zkopírovány z dříve zadaných "
+"informací.</strong>"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Opravdu si přejete toto podání zrušit? Tím dojde ke smazání podání a všech "
+"souvisejících údajů. Tuto akci nelze vrátit zpět."
+
+msgid "submission.dashboard.view.needsReviewer"
+msgstr "Potřeby recenzentů"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Návrh na recenzenty"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Pro toto podání nebyli navrženi žádní recenzenti."
+
+msgid "author.authorNotFound"
+msgstr "Autora pro tuto afiliaci se nepodařilo najít."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Návrhy recenzenta"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Chybí název afiliace v {$language} pro jednu nebo více afiliací jednoho nebo "
+"více přispěvatelů."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Přiřazeno mně"
+
+msgid "submission.review.status.viewed"
+msgstr "Redaktor si recenzi prohlédl."
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktivní podání"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Aktuální jazyk podání:"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Potřebuje redaktora"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Doporučení bylo předloženo vámi."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Recenzenti navržení autorem"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Změnit"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Změnit jazyk podání pro"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Zde zadejte název příspěvku v {$language}. Název můžete formátovat podle "
+"potřeby"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Doporučuje se uvádět abstrakt v {$language}. Pomůže to zajistit, aby byl "
+"obsah přístupný"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Zobrazit shrnutí příspěvku"
+
+msgid "submission.list.completeSubmission"
+msgstr "Dokončit příspěvek"
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Lhůta pro dokončení této recenze uplynula. Prosíme, abyste recenzi dokončili "
+"co nejdříve."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Žádost o recenzi byla předána recenzentovi. Čeká se na odpověď během "
+"<b>{$days} dnů ke datu {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Očekává se odpověď od recenzenta"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Požadavek na recenzi byl odmítnut dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Recenzent žádost o přezkum zamítl dne <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Žádost o recenzi je opožděná o {$days} dní"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Tento recenzent na žádost o recenzi nereagoval. Odpověď měla být zaslána dne "
+"<b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Probíhající recenze – požadavek byl přijat"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Tento recenzent žádost o recenzi přijal. Jeho recenze má být hotova během "
+"<b>{$days} dnů k datu {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Recenze je zpožděna o {$days} dnů"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Očekává se odpověď od recenzenta"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Žádost o recenzi byla znovu sdílena s recenzentem. Čeká se na odpověď během "
+"{$days} dnů k datu {$date}"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Datum pro ukončení úprav"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Odmítnuto během fáze {$stageName}."
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Tento recenzent recenzi nedokončil. Odpověď měla být zaslána dne "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Recenze byla ukončena dne {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Recenze byla dokončena dne {$date} s následujícím doporučením: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Recenze byla potvrzena redaktorem"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Recenze byla přijata redakcí dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recenzent zrušil požadavek na recenzi"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recenzent zrušil žádost o recenzi dne <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Zobrazit podrobnosti"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Opětovné odeslání žádosti o recenzi"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Zrušit recenzenta"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Zrušení přiřazení"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Zobrazit doporučení"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Zobrazit nepřečtená doporučení"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Odeslad recenzi do ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Odeslat tuto recenzi do recenzentova ORCIDu?"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Doporučující redaktoři mají za úkol doporučit další kroky pro toto podání"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Bylo obdrženo redakční doporučení"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Všechna redakční doporučení byla přijata a je třeba rozhodnout."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Povoleno pouze doporučit redakční rozhodnutí"
+
+msgid "workflow.stageNotStarted"
+msgstr "Fáze {$stage} nebyla doposud zahájena."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "V současné době se podání nachází ve fázi {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Podání postoupilo do dalšího kola hodnocení, bylo přijato a v současné době "
+"se nachází ve fázi {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Předložené podání bylo postoupeno do dalšího recenzního kola"
+
+msgid "workflow.reviewRoundN"
+msgstr "Recenzní kolo č. {$number}"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revize příspěvku byly nahrány"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Nedokončené příspěvky"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Všechny úkoly"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Čeká se"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Dokončeno/ odmítnuto"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Všechny úkoly"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Akce, které jsou požadovány ode mne"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archivované"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Odmítnuté"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Hotové"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publikované"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recenze (kolo {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Naplánováno pro publikování"
+
+msgid "submission.stage.published"
+msgstr "Publikováno"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potvrdit smazání JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Chystáte se odstranit stávající soubor JATS XML z této publikace. Jste si "
+"jisti?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Smazat soubor JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Tento soubor JATS je automaticky generován metadaty podání"
+
+msgid "publication.jats.lastModified"
+msgstr "Poslední úpravu dne {$modificationDate} udělal/a {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Při pokusu o vytvoření výchozího obsahu JATS došlo k chybě. Ujistěte se, že "
+"je nainstalován zásuvný modul JatsTemplate."
+
+msgid "submission.files.content.error"
+msgstr "Obsah souboru \"{$fileName}\" se nepodařilo načíst."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Důvody pro navržení recenzenta"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Sdělte prosím, proč tohoto recenzenta doporučujete, a uveďte, zda existuje "
+"nějaký potenciální střet zájmů."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Jazyk podání ({$language}) není jedním z podporovaných jazyků podání. "
+"Podrobnosti o podání můžete stále upravovat, ale nová podání s tímto jazykem "
+"nejsou v současné době přijímána."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Přidělení recenzenti"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Aktualizace recenze {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Použít filtry"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Začít nové podání"
+
+msgid "dashboard.assignReviewers"
+msgstr "Přiřazení recenzentů"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Úpravy požadované po autorovi"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Úpravy vyžádané od autora, které budou postoupeny do nového kola recenzního "
+"řízení"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Bude vytvořeno nové recenzní kolo"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Bude zveřejněno v čísle ${issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Nahrané copyeditované soubory: ${count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Jsou vyžadovány úpravy"
+
+msgid "dashboard.submitRevisions"
+msgstr "Odeslání úprav"
+
+msgid "workflow.uploadRevisions"
+msgstr "Nahrát úpravy"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Odpovědět na požadavek"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Ukončit recenze"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Prosím, přijměte nebo odmítněte tuto žádost do {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Požadavek odmítnut dne {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenze odeslána dne {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Lhůta pro odpověď na tuto žádost již uplynula. Prosím, přijměte nebo "
+"odmítněte tuto žádost co nejdříve."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Tuto recenzi prosím dokončete do {$date}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Soubory nahrané v době podání"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Nahrané úpravy"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Tyto soubory byly předloženy autorem po vyžádání úprav"
+
+msgid "fileManager.filesForReview"
+msgstr "Soubory k recenzi"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Tyto soubory budou zaslány recenzentům k recenzi"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Soubory pro copyediting"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Jedná se o upravené soubory, které budou převzaty do fáze produkce"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Jedná se o soubory z recenzní fáze, které budou převzaty do fáze "
+"copyeditování"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Toto jsou soubory, které budou zaslány ke zveřejnění"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Status recenzenta"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Potvrzení odstranění neúplných podání"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Opravdu chcete vybrané položky odstranit? Tuto akci nelze vrátit zpět. Pro "
+"pokračování akci potvrďte."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Vyberte neúplná podání, která mají být odstraněna."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Smazat neúplná podání"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"K tomuto podání nemáte přístup jako správce časopisu, protože jste "
+"recenzentem. Chcete-li si jej prohlédnout, přejděte do sekce „Přiřazené "
+"recenze“"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"K tomuto podání nemáte přístup jako správce časopisu, protože jste jeho "
+"autorem. Chcete-li si jej prohlédnout, přejděte do sekce „Moje příspěvky“"

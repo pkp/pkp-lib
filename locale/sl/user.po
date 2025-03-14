@@ -1,12 +1,12 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024, 2025.
 # Mitja Podreka <mitja.podreka@ff.uni-lj.si>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-01-25 07:54+0000\n"
-"Last-Translator: Mitja Podreka <mitja.podreka@ff.uni-lj.si>\n"
+"PO-Revision-Date: 2025-03-10 13:16+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sl/>\n"
 "Language: sl\n"
@@ -98,7 +98,7 @@ msgid "user.editMyProfile"
 msgstr "Uredi moj račun"
 
 msgid "user.email"
-msgstr "E-naslov"
+msgstr "Email"
 
 msgid "user.givenName"
 msgstr "Ime"
@@ -745,3 +745,144 @@ msgstr "Zaznani so bili podvojeni ORCiD identifikatorji za avtorje."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Zaznani so bili neavtenticirani ORCiD identifikatorji za avtorje."
+
+msgid "user.affiliations.institution"
+msgstr "Ustanova"
+
+msgid "user.affiliations.translation"
+msgstr "Več informacij"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Odstrani ustanovo"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Kliknite za urejanje ali brisanje"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} od {$total} jezikov je zaključenih"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Vpišite ime ustanove v jeziku {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Ime ustanove v jeziku {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ste prepričani?"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Tip ustanove v jeziku {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Vaše iskalne fraze ni bilo mogoče najti"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Primarni jezik {$primaryLocale} je obvezen"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Prosimo dodajte ustanovo v jeziku prispevka."
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Uredi ime ustanove"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Zahtevali ste sprememo vašega emaila v \"{$pendingEmail}\". Poslali smo vam "
+"email z navodili, kako lahko potrdite vaš novi email."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Do takrat lahko pregledate in posodobite svoj profil. Če mislite, da je to "
+"napaka, se prosimo obrnite na administratorja."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Spodaj vpišite polno ime ustanove, brez okrajšav. Izberite ime v spustnem "
+"seznamu in kliknite \"Dodaj\", da dodate ustanovo v vaš profil. (npr. "
+"\"Univerza v Ljubljani\")"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Vsi prevodi so na voljo"
+
+msgid "orcid.unauthenticated"
+msgstr "(neavtoriziran)"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Ustanova <strong>{$affiliation}</strong> bo odstranjena."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Avtomatično boste preusmerjeni nazaj na {$contextName}."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Dodajanje, urejanje ali brisanje recenzentskega priporočila za končan "
+"prispevek je omejeno."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Omogoči ORCID funkcionalnost"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Željene začetnice avatarja"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Omogoči ORCID funkcionalnost na celotnem spletišču"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Vnesite dve črki, ki ju želite uporabljati kot vaš avatar. Te inicialke bodo "
+"prikazane kot vaše ime."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID funkcionalnost je lahko omogočena in nastavljena na nivoju celotnega "
+"spletišča za vse revije/založbe/strežnike. Če je to omogočeno, bo to "
+"preglasilo vse nastavitve na conteksntih nivojih in bodo povsod uporabljene "
+"spodnje nastavitve za vse revije/založbe/strežnike na tej namestitvi."
+
+msgid "user.role.ended"
+msgstr "Vloga se je končala"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID preverjanje je bilo zahtevano!"
+
+msgid "orcid.field.verification.request"
+msgstr "Zahtevajte preverjanje"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Ponovno pošljite email za preverjanje"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Zahtevajte ORCID preverjanje"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Želite poslati email temu avtorju z zahtevo za preverjanje njegovega ORCIDa?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Odstrani ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Ste prepričani, da želite odstraniti ta ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Ta ORCID ni bil potrjen. Prosimo odstranite ta nepotrjen ORCID in prosite za "
+"potrditev s strani uporabnika/avtorja direktno."
+
+msgid "user.removeRole.message"
+msgstr "Ste prepričani, da želite trajno odstraniti to vlogo?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Začetek vaše vloge je bil nastavljen na {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "Trenutne vloge : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Onemogoči uporabnika {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Omogoči uporabnika {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografija"

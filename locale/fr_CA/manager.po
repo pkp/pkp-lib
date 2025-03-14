@@ -1,7 +1,7 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
-# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2024-03-13 17:13+0000\n"
+"PO-Revision-Date: 2025-03-03 20:29+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -3825,3 +3825,123 @@ msgstr "Bloc générique"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Valider le XML avant l'exportation et l'enregistrement."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Langues du site web"
+
+#, fuzzy
+msgid "manager.language.submissionLanguages"
+msgstr "Langues des soumissions"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Ajouter/Retirer des langues"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Métadonnées"
+
+#, fuzzy
+msgid "manager.language.submission.form.description"
+msgstr "Sélectionner les langues des soumissions et des métadonnées."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Rapports Counter R5"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Les dates doivent être dans le format YYYY-MM-DD ou YYYY-MM. La date la plus "
+"ancienne possible est : {$earliestDate}."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Envoyer un courriel de rappel avant ou après pour la réponse à l'invitation "
+"à évaluer (si l'évaluateur-tice n'a pas encore répondu à l'invitation) ou "
+"pour le rapport d'évaluation (si l'évaluateur-trice ne l'a pas encore "
+"soumis)."
+
+#, fuzzy
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Les configurations de langues n'ont pu être enregistrées. Toutes les options "
+"doivent être activées."
+
+#, fuzzy
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Changer l'adresse courriel d'invitation"
+
+#, fuzzy
+msgid "manager.highlights.urlText"
+msgstr "Étiquette du bouton"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Consulter <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index"
+".html\" target=\"_new\">la documentation COUNTER 5.0.3</a> pour plus "
+"d'information sur chacun des rapports."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Identifiant de la soumission"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} jours avant la date d'échéance"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Vous devez <a href=\"#announcements/announcement-settings\">activer les "
+"annonces</a>."
+
+msgid "manager.image"
+msgstr "Image"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Version installée : {$version}"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Aucune statistique d'utilisation Counter R5 disponible."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Configurations du rapport"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Date de début"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Date de fin"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Le format de la date est invalide."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Année de publication"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "L'identifiant de la soumission n'existe pas."
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Exclure les détails mensuels"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Réponse à l'invitation à évaluer - Avant la date d'échéance"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Réponse à l'invitation à évaluer - Après la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Rapport d'évaluation - Avant la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Rapport d'évaluation - Après la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} jours après la date d'échéance"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Aucun"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Aucun rappel configuré"
+
+#, fuzzy
+msgid "settings.roles.permitSettings"
+msgstr "Autoriser la modification des configurations"

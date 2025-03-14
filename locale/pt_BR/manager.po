@@ -1,9 +1,9 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-06 14:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2025-03-13 11:04+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.distribution.access"
 msgstr "Acesso"
@@ -942,3 +942,8 @@ msgstr "Inclua um link seguro no convite por e-mail para os avaliadores."
 
 msgid "manager.setup.reviewOptions.automatedReminders"
 msgstr "Lembretes de e-mail automatizados"
+
+msgid "manager.setup.contextSummary.description"
+msgstr ""
+"Ofereça uma breve descrição do servidor para fornecer informações sobre seu "
+"conteúdo e propósito."

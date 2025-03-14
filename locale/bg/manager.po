@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-27 15:49+0000\n"
+"PO-Revision-Date: 2025-03-08 07:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "bg/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.importexport.common.export.preprints"
 msgstr "Препринти"
@@ -902,3 +902,8 @@ msgstr ""
 "са помолени да предоставят метаданни като ключови думи, информация за "
 "лицензиране и други подробности, за да помогнат при откриването и "
 "модерирането."
+
+msgid "manager.setup.contextSummary.description"
+msgstr ""
+"Предложете кратко описание на вашия препринт сървър, за да дадете представа "
+"за неговото съдържание и цел."

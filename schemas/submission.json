@@ -221,7 +221,7 @@
 		},
 		"reviewersNotAssigned": {
 			"type": "boolean",
-			"description": "Whether all needed reviewers are assigned to the submission. Related to the `numReviewersPerSubmission` context setting.",
+			"description": "Whether all needed reviewers are assigned to the submission. Related to the `numReviewsPerSubmission` context setting.",
 			"apiSummary": true,
 			"readOnly": true
 		},

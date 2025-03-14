@@ -1338,11 +1338,11 @@ msgstr ""
 "Present a link to <button type=\"button\">how to ensure all files are "
 "anonymized</button> during upload"
 
-msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
-msgstr "Recommended Reviewers Number"
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimum Confirmed Reviews Required"
 
-msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
-msgstr "Sufficient number of reviewers needed per submission to make recommendation before making a decision"
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimum number of confirmed reviews required for a submission"
 
 msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
 msgstr "Reviewer Suggestion at Submission"

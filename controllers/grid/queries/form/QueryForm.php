@@ -93,7 +93,7 @@ class QueryForm extends Form
             ]);
 
             Note::create([
-                'userId' =>  $request->getUser()->getId(),
+                'userId' => $request->getUser()->getId(),
                 'assocType' => Application::ASSOC_TYPE_QUERY,
                 'assocId' => $query->id,
             ]);
@@ -297,11 +297,16 @@ class QueryForm extends Form
             $mailable = $this->getStageMailable($context, $submission);
             $data = $mailable->getData();
             $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-            $templateKeySubjectPairs = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
+
+            if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $context->getId())) {
+                $templateKeySubjectPairs[$mailable::getEmailTemplateKey()] = $defaultTemplate->getLocalizedData('name');
+            }
+
             $alternateTemplates = Repo::emailTemplate()->getCollector($context->getId())
                 ->alternateTo([$mailable::getEmailTemplateKey()])
                 ->getMany();
-            foreach ($alternateTemplates as $alternateTemplate) {
+
+            foreach (Repo::emailTemplate()->filterTemplatesByUserAccess($alternateTemplates, $user, $context->getId()) as $alternateTemplate) {
                 $templateKeySubjectPairs[$alternateTemplate->getData('key')] = Mail::compileParams(
                     $alternateTemplate->getLocalizedData('name'),
                     $data

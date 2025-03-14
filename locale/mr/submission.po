@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-14 15:47+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -1762,7 +1762,7 @@ msgid "submission.list.reviewsCompleted"
 msgstr "नेमून दिलेली समीक्षण कार्ये पूर्ण झाली"
 
 msgid "submission.list.viewSubmissionSummary"
-msgstr "सादरीकरणाचा सारांश पहा"
+msgstr "सादरीकरणांचा गोषवारा (summary) पहा"
 
 msgid "submission.list.copyeditsSubmitted"
 msgstr "कॉपीएडिट केलेल्या फाईल्स सादर केल्या"
@@ -2110,7 +2110,7 @@ msgstr ""
 "स्मरणपत्र पाठवले आहे"
 
 msgid "submission.page.summary"
-msgstr "#{$id} सारांश"
+msgstr "#{$id} गोषवारा"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""

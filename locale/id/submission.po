@@ -1,18 +1,19 @@
+# Maria Lamury <marialamury@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2021-01-14 11:00+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
-"Language: id_ID\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "Penulis artikel ini tidak bisa diubah karena telah diterbitkan."
@@ -29,13 +30,12 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Hasil review baru telah masuk dan sedang dalam pertimbangan oleh penyunting."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Ada satu atau lebih reviwer yang melewati jadwal. Tim redaksi telah "
-"diberitahukan dan akan mengambil tindakan untuk memastikan proses review "
-"selesai dilakukan. Anda tidak perlu mengambil langkah apapun saat ini. Anda "
-"akan diberitahu bila sudah ada keputusan."
+"Terdapat satu reviewer atau lebih yang melewati batas waktu. Tim editor "
+"telah mengetahui hal ini dan akan memastikan proses review selesai "
+"dilakukan. Anda tidak perlu mengambil langkah apapun saat ini. Anda akan "
+"diberitahu jika sudah ada keputusan."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Kirim Sebagai"
@@ -45,18 +45,17 @@ msgstr "Pilih peran yang sesuai dengan kontribusi Anda bagi naskah ini."
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Pilih peran editorial jika anda ingin mengedit dan menerbitkan sendiri "
+"naskah ini."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Persyaratan Mengirim Naskah"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Anda harus membaca dan menyatakan bahwa Anda sudah melengkapi persyaratan "
-"berikut ini sebelum melanjutkan."
+msgstr "Semua naskah harus memenuhi persyaratan berikut."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Ya, naskah saya memenuhi semua syarat berikut."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Pengiriman Naskah Selesai"
@@ -538,7 +537,7 @@ msgid "submission.coverage"
 msgstr "Cakupan Informasi"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Detail Pengiriman Naskah"
 
 msgid "submission.done"
 msgstr "Selesai"
@@ -597,12 +596,15 @@ msgstr "Hapus entri log"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Email mengenai keputusan terhadap naskah telah dikirim ke {$recipientCount} "
+"reviewer dengan subyek {$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Pengiriman Naskah Awal Selesai."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) setuju terhadap istilah hak cipta untuk naskah."
 
 msgid "submission.event.fileRevised"
 msgstr "Revisi \"{$filename}\" sudah diunggah untuk file {$submissionFileId}."
@@ -654,6 +656,8 @@ msgstr "File revisi Reviewer revisions file di-update"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} mengirimkan pengingat untuk {$recipientName} mengenai "
+"penugasan review mereka"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
@@ -1064,11 +1068,8 @@ msgstr "Perbaikan Tambahan"
 msgid "submission.submit.submissionLocale"
 msgstr "Bahasa Naskah"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Menerima naskah dalama beberapa bahasa. Pilih bahasa utama naskah pada "
-"daftar di atas."
+msgstr "Pilih bahasa utama dari naskah."
 
 msgid "submission.submit.submissionFiles"
 msgstr "File Naskah"
@@ -1294,17 +1295,16 @@ msgstr "Belum ada file untuk Anda revisi saat ini."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Permintaan revisi telah diajukan."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Revisi telah dikirim."
+msgstr "Revisi telah dikirim dan perlu mengambil keputusan."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Naskah harus dikirim ulang untuk review tahap berikutnya."
+msgstr ""
+"Penulis diminta untuk memperbaiki naskah untuk masuk ke tahap review "
+"selanjutnya."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Naskah sudah dikirim ulang untuk review tahap berikutnya."
+msgstr "Revisi sudah dikirim, Tahap review selanjutnya perlu dibuat."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Kirim ke review eksternal."
@@ -1324,9 +1324,8 @@ msgstr "Menunggu tanggapan dari mitra bestari."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Review baru telah telah dikirim."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Semua mitra bestari telah menanggapi dan keputusan perlu diambil."
+msgstr "Semua review telah dikonfirmasi dan keputusan perlu diambil."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Batas waktu review habis."
@@ -1669,10 +1668,9 @@ msgstr ""
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Tugaskan seorang editor untuk mengaktifkan keputusan editoria pada tahap ini."
+"Tugaskan seorang editor untuk mengizinkan keputusan editorial pada tahap ini."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
@@ -2442,11 +2440,10 @@ msgstr ""
 msgid "doi.submission.notPublished"
 msgstr ""
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Naskah ini merupakan pratinjau dan belum diterbitkan. <a href="
-"\"{$url}\">Lihat Naskah</a>"
+"Berikut ini adalah pratinjau naskah dan belum diterbitkan. <a href=\"{$url}\""
+">Lihat naskah</a>"
 
 msgid "author.submit.noFiles"
 msgstr "Tidak ada file yang dilampirkan pada penyerahan ini."
@@ -2511,3 +2508,33 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "File Penyerahan Naskah"
 
+msgid "author.authorNotFound"
+msgstr "Penulis pada institusi ini tidak dapat ditemukan."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Mohon berikan nama institusi pada lokal utama naskah."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Mohon isi institusi yang terdaftar pada ROR atau setidaknya nama institusi."
+
+msgid "ror.nameRequired"
+msgstr "Nama ROR diwajibkan."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Display lokal ROR diwajibkan."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Pengiriman naskah telah dibatalkan, dan semua data telah dihapus."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Pembatalan pengiriman naskah"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Pengiriman naskah dibatalkan"
+
+msgid "submission.author.list"
+msgstr "Daftar Penulis Naskah"
+
+msgid "submission.authors.label"
+msgstr "Penulis"

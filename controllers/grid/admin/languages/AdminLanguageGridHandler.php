@@ -426,7 +426,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
 
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll();
-        while ($context = $contexts->next()) {
+        while ($context = $contexts->next()) { /** @var \PKP\context\Context $context */
             $params = [];
             $primaryLocale = $context->getPrimaryLocale();
             $params['supportedDefaultSubmissionLocale'] = $context->getData('supportedDefaultSubmissionLocale');

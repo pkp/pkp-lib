@@ -1197,7 +1197,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Vælg det foretrukne format til datoer og klokkeslæt. Et brugerdefineret "
 "format kan indtastes ved hjælp af de specielle <a href=\"https://www.php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-parameters"
+"manual/en/datetime.format.php#refsect1-datetime.format-parameters"
 "\">formatskrifttyper</a>."
 
 msgid "manager.setup.dateTime.longDate"

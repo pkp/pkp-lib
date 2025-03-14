@@ -397,6 +397,11 @@
 			"description": "A URL to view the published version of this submission. If it is not published, the URL will point to the location where it will be published in the future.",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"issue": {
+			"type": "object",
+			"$ref": "#/definitions/Publication",
+			"apiSummary": true
 		}
 	}
 }

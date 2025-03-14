@@ -186,7 +186,7 @@
 			"items": {
 				"type": "string",
 				"validation": [
-					"alpha_num"
+					"alpha_dash"
 				]
 			}
 		},

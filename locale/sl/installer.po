@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2024-02-19 11:08+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/sl/>\n"
@@ -250,3 +250,41 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Dodatne nastavitve"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Konfiguracijska spremenljivka `app_key` ni nastavljena v razdelku`general`. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Konfiguracijska spremenljivka `app_key` je že nastavljena v razdelku "
+"`general`. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Konfiguracijske datoteke ni bilo mogoče razčleniti."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Zapis 'app key' spremenljivke v konfiguracijsko datoteko ni bil mogoč."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Nepodprta šifra ali nepravilna dolžina ključa. Podprte šifre so: {$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "Zapis 'app key' v konfiguracijsko datoteko ni bil mogoč."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Prosimo dodajte ročno konfiguracijsko spremenljivko `app_key` pod razdelek "
+"`general` ali zaženite ukaz `php lib/pkp/tools/appKey.php configure` da jo "
+"nastavite iz ukazne vrstice."
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Konfiguracijske datoteke ni bilo možno prebrati ali pa je ni na pričakovani "
+"lokaciji. "
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Nastavi vrednost `app_key` v razdelku `general` v `config.inc.php` datoteki "
+"na {$key} ."

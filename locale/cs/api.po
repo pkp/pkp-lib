@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-09-03 08:12+0000\n"
+"PO-Revision-Date: 2025-03-01 15:14+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -377,3 +377,69 @@ msgstr "Požadované zvýraznění nebylo nalezeno."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "K této položce nelze přiřadit DOI."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Nelze zpracovat požadavek API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Nelze obdržet žádnou očekávanou odpověď."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "Zadali jste neplatný „typ události“,{$eventType} pro e-maily autora."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "Tuto operaci nelze provést s vypnutou funkcí ORCID."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Tento koncový bod není dostupný z oboru názvů celého webu a musí být vyžádán "
+"pro daný kontext."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Jazyk tohoto podání nelze měnit, protože již má více než jednu verzi "
+"publikace nebo publikovanou publikaci."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Zadání tohoto recenzního úkolu se nepodařilo nalézt."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Platné hodnoty jsou pouze \"přijmout\" a \"odmítnout\""
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"V požadavku chybí požadovaný parametr dotazu \"ids\". Zadejte prosím \"ids\" "
+"podání, která chcete smazat."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Neplatný parametr pro autora."
+
+msgid "api.400.routeNotDefined"
+msgstr "Nebyla poskytnuta žádná trasa pro API."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Požadovaný autor nebyl nalezen"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"U příspěvků, ke kterým nejste přiřazeni, nemůžete provádět změny autorů."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Recenzenta úkolu se nepodařilo najít"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Poskytnutá sekce neexistuje."
+
+msgid "api.submission.400.invalidId"
+msgstr "Neplatné ID: bylo poskytnuto \"{$id}\"."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Formulář Identifikátory publikace není k dispozici, protože nejsou povoleny "
+"žádné identifikátory."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Požadovaný ror nebyl nalezen."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Nelze dokončit zamýšlenou akci na prostředku."

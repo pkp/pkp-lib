@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-02-22 11:01+0000\n"
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/cs/>"
 "\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Nastavení - název"
+msgstr "Nastavení – název"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Nastavení - hodnota"
@@ -954,3 +954,116 @@ msgid "admin.job.archiveLogFile.error"
 msgstr ""
 "Soubor {$file} se nepodařilo přesunout z {$dispatchFilePath} do "
 "{$archivedFilePath}."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Spuštění úlohy pro automatické odstranění prošlých pozvánek"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Zobrazení parametrů použití klíče AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Ověření aktuálního klíče aplikace, pokud byl v konfiguračním souboru nalezen"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Aktualizace mezipaměti datové sady registru Ror"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Přidejte konfigurační proměnnou app_key do souboru config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Vygenerujte nový klíč aplikace a nahraďte jej v konfiguračním souboru. "
+"Předejte s příznakem --show pro pouhé zobrazení a --force pro přepsání "
+"existujícího platného klíče aplikace."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Měl jste na mysli jednu z následujících možností?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Vygenerovaný klíč aplikace: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Proměnná \"app_key\" již v sekci \"general\" v konfiguračním souboru "
+"existuje. Spusťte příkaz \"php lib/pkp/tools/appKey.php generate\" pro "
+"nastavení nového klíče aplikace."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "V konfiguračním souboru není nastaven žádný klíč aplikace."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Nesprávná sada klíčů aplikace, nepodporovaná šifra nebo nesprávná délka "
+"klíče. Podporované šifry jsou: {$ciphers}."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Nelze nastavit proměnnou \"app_key\" v konfiguračním souboru. Aktualizujte "
+"prosím obecnou část konfiguračního souboru a přidejte řádek \"app_key = \"."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Platný klíč aplikace byl nastaven v konfiguračním souboru"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Spusťte plánovač."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Seznam všech naplánovaných úloh."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Spusťte plánovač úloh."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Zobrazení parametrů použití plánovače."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Nelze spustit naplánované úlohy, protože je povolen režim údržby aplikace."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Měli jste na mysli jednu z následujících možností?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Nelze spustit naplánované úlohy, protože je povolen režim aplikačního "
+"pískoviště."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Spouštění naplánovaných úloh každou minutu."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Nebyly zaregistrovány žádné naplánované úlohy."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Který příkaz chcete spustit?"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"V části `general` konfiguračního souboru není definována žádná klíčová "
+"proměnná s názvem \"app_key\". Aktualizujte, prosím, sekci general "
+"konfiguračního souboru a přidejte řádek \"app_key = \" nebo spusťte příkaz "
+"\"php lib/pkp/tools/appKey.php configure\" pro jeho nastavení."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"V konfiguračním souboru je již nastaven platný klíč aplikace. Chcete-li jej "
+"přepsat, předejte k příkazu příznak --force."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Klíč aplikace v konfiguračním souboru úspěšně nastaven."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Proměnná klíče aplikace úspěšně nastavena v konfiguračním souboru. Spusťte "
+"příkaz \"php lib/pkp/tools/appKey.php generate\" pro nastavení nového klíče "
+"aplikace."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Spusťte konkrétní naplánovanou úlohu ze seznamu nebo použijte parametr --"
+"name pro spuštění konkrétní úlohy. Nastavením příznaku --no-scroll zobrazíte "
+"celý seznam bez scrolování."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Nebyla nalezena žádná odpovídající naplánovaná úloha."

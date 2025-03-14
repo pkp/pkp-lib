@@ -1,5 +1,5 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022, 2023.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2024-11-09 14:37+0000\n"
+"PO-Revision-Date: 2025-03-13 11:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -1397,7 +1397,7 @@ msgid "plugins.categories.metadata"
 msgstr "Plugins de metadados"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Plugins de metadados implementam padrões adicionais de metadados."
+msgstr "Os plugins de metadados implementam padrões adicionais de metadados."
 
 msgid "plugins.categories.auth"
 msgstr "Plugins de Autenticação"
@@ -3823,3 +3823,124 @@ msgstr "Valide o XML antes da exportação e registro."
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Versão instalada: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Idiomas do site"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Idiomas de submissão"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Adicionar/Remover idiomas"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadados"
+
+msgid "manager.language.submission.form.description"
+msgstr "Selecione os idiomas de submissão e metadados."
+
+msgid "manager.language.submission.from.error"
+msgstr "Pelo menos um idioma precisa ser selecionado."
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Resposta da solicitação de avaliação - antes da data de vencimento"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Resposta da solicitação de avaliação - Após a data de vencimento"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Envio da Avaliação - antes da data de vencimento"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Envio da Avaliação - após a data de vencimento"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dias antes da data de vencimento"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dias após a data de vencimento"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nenhum"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Nenhum lembrete definido"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Número de avaliadores recomendados"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Definir lembretes para avaliação"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Envie um lembrete por e-mail antes ou depois da resposta da solicitação de "
+"avaliação (se o avaliador ainda não respondeu à solicitação de avaliação) ou "
+"do envio da avaliação (se o avaliador ainda não enviou a avaliação)"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Número suficiente de avaliadores necessários por submissão para fazer "
+"recomendações antes de tomar uma decisão"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Sugestão do avaliador na submissão"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"O autor pode sugerir vários avaliadores em potencial antes de concluir a "
+"submissão, o que pode agilizar o processo de avaliação e fornecer "
+"informações valiosas para a equipe editorial."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Permitir que os autores sugiram possíveis avaliadores no processo de "
+"submissão"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"A configuração de idioma não pôde ser salva. Todas as opções precisam ser "
+"habilitadas."
+
+msgid "notification.submissionLocales"
+msgstr "Idiomas de submissões atualizadas."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"O autor {$authorName} não tem um nome de afiliação no idioma da submissão, "
+"{$localeName}. A submissão não pode ser importado sem essas informações."
+
+msgid "settings.roles.masthead"
+msgstr "Considere o papel na lista da equipe editorial"
+
+msgid "settings.roles.permitSettings"
+msgstr "Permitir alterações nas configurações"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Defina a ordem dos papéis da equipe editorial para exibição pública."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"O conteúdo a seguir é mostrado aos autores durante a etapa de sugestões do "
+"avaliador. Forneça uma breve explicação de quais informações o autor deve "
+"fornecer sobre si mesmo, coautores e quaisquer outros contribuidores."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Link para uma página que exibe todos os serviços ativos da equipe editorial."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Forneça o histórico editorial, incluindo o nome completo, afiliação e datas "
+"de início e término de cada editor."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Defina a ordem dos papéis do expediente para exibição pública."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Os avaliadores serão exibidos em um formato padronizado para manter a "
+"uniformidade e facilitar a sua identificação nesta seção."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Convite para alterar endereço de e-mail"

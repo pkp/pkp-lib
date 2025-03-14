@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2024-06-18 07:16+0000\n"
+"PO-Revision-Date: 2025-03-11 20:40+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_BR/>\n"
@@ -792,3 +792,147 @@ msgstr "ORCiDs duplicados para colaboradores detectados."
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Detectados ORCiDs não autenticados para contribuidores."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Adicione uma afiliação no idioma de submissão."
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Seu termo de pesquisa não pôde ser encontrada"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Digite as duas letras que você gostaria de usar como avatar. Essas iniciais "
+"serão exibidas para representar você."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Insira o nome completo da instituição abaixo, evitando quaisquer siglas. "
+"Selecione o nome no menu suspenso e clique em \"Adicionar\" para incluir a "
+"afiliação em seu perfil. (por exemplo, \"Simon Fraser University\")"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Adicionar, atualizar ou excluir sugestões do avaliador para submissões "
+"concluídas são restritas."
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} de {$total} idiomas concluídos"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Iniciais de Avatar Preferenciais"
+
+msgid "user.affiliations.institution"
+msgstr "Instituição"
+
+msgid "user.affiliations.translation"
+msgstr "Mais informações"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Editar nome da instituição"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Remover instituição"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Clique para editar ou excluir"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Todas as traduções disponíveis"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Digite o nome do instituto em {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nome do instituto em {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Você tem certeza?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "A afiliação <strong>{$affiliation}</strong> será excluída."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Digite o nome do instituto em {$language}"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "O idioma principal {$primaryLocale} é obrigatório"
+
+msgid "orcid.field.verification.request"
+msgstr "Solicitar verificação"
+
+msgid "orcid.field.verification.requested"
+msgstr "A verificação ORCID foi solicitada!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Reenviar e-mail de verificação"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Solicitar verificação ORCID"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Excluir ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Tem certeza de que deseja remover este ORCID?"
+
+msgid "user.removeRole.message"
+msgstr "Tem certeza de que deseja remover este papel permanentemente?"
+
+msgid "user.disabledModal.description"
+msgstr "Papeis atuais: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Desabilitar {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Habilitar {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Declaração Biográfica"
+
+msgid "orcid.unauthenticated"
+msgstr "(não autenticado)"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Gostaria de enviar um e-mail a este autor solicitando que ele verifique seu "
+"ORCID?"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Até lá, você pode revisar e atualizar seu perfil. Se você acredita que isso "
+"seja um erro, entre em contato com o administrador."
+
+msgid "orcid.verify.success.redirect"
+msgstr ""
+"Agora você será automaticamente direcionado de volta para {$contextName}."
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Este ORCID não foi verificado. Remova este ORCID não verificado e solicite a "
+"verificação diretamente do usuário/autor."
+
+msgid "user.futureRole.notification.message"
+msgstr "Seu papel está programada para iniciar em {$roleStartDate}"
+
+msgid "user.role.ended"
+msgstr "Papel encerrado"
+
+msgid "orcid.manager.context.enabled"
+msgstr "Habilitar funcionalidade ORCID"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Você solicitou uma alteração do seu e-mail para \"{$pendingEmail}\". Já "
+"enviamos um e-mail com instruções sobre como validar o e-mail alterado."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"A funcionalidade ORCID pode ser opcionalmente habilitada e configurada em um "
+"nível de site para todos os periódicos/editoras/servidores. Se habilitada, "
+"isso substituirá todas as credenciais de nível de contexto e aplicará as "
+"seguintes credenciais a todos os periódicos/editoras/servidores nesta "
+"instalação."
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Habilitar funcionalidade ORCID em todo o site"

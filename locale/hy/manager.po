@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-12 09:40+0000\n"
+"PO-Revision-Date: 2025-03-09 05:50+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -1394,7 +1394,7 @@ msgstr "Մետատվյալների պլագիններ"
 
 msgid "plugins.categories.metadata.description"
 msgstr ""
-"Մետատվյալների պլագինը իրականացնում է լրացուցիչ մետատվյալների ստանդարտներ:"
+"Մետատվյալների պլագիններն իրագործում են մետատվյալների լրացուցիչ ստանդարտներ:"
 
 msgid "plugins.categories.auth"
 msgstr "Լիազորության պլագիններ"
@@ -3809,3 +3809,127 @@ msgstr "Վավերացրեք XML-ը մինչև արտահանումը և գրա�
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Տեղադրված տարբերակ: {$version}"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Ներկայացման լեզուները"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Ավելացնել/հեռացնել լեզուները"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Մետատվյալներ"
+
+msgid "manager.language.submission.from.error"
+msgstr "Պետք է ընտրել առնվազն մեկ տեղային:"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Կայքի լեզուները"
+
+msgid "manager.language.submission.form.description"
+msgstr "Ընտրեք ներկայացման և մետատվյալների լեզուները:"
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Հեղինակը {$authorName} չունի պատկանելության անուն ներդիրի լեզվով` "
+"{$localeName}: Ներկայացումը չի կարող ներմուծվել առանց այս տեղեկատվության:"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Հղում դեպի էջի, որտեղ ցուցադրվում են խմբագրական մասշտեդների բոլոր ակտիվ "
+"ծառայությունները:"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Գրախոսման հարցման պատասխանը - Ժամկետից հետո"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Գրախոսման ներկայացում - Ժամկետից հետո"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "Վճարման ժամկետից {$value} օր առաջ"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ոչ մեկը"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Գրախոսների առաջարկվող թիվը"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Գրախոսի առաջարկը ներկայացման պահին"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Թույլ տվեք հեղինակներին առաջարկել պոտենցիալ գրախոսներ ներկայացման "
+"գործընթացում"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Ստորև նշվածը ցուցադրվում է հեղինակներին գրախոսի առաջարկների քայլի ընթացքում: "
+"Տրամադրեք համառոտ բացատրություն այն մասին, թե ինչ տեղեկատվություն պետք է "
+"տրամադրի հեղինակը իր, համահեղինակների և ցանկացած այլ ներդրողի մասին:"
+
+msgid "notification.submissionLocales"
+msgstr "Ներկայացման տեղայինները թարմացվել են:"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Խնդրում ենք տրամադրել խմբագրական պատմությունը՝ ներառյալ յուրաքանչյուր "
+"խմբագրի լրիվ անվանումը, պատկանելությունը և սկզբի ու ավարտի ամսաթվերը:"
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Էլ․ փոստի հասցեի փոփոխման հրավեր"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr ""
+"Որոշում կայացնելուց առաջ առաջարկություն տալու համար անհրաժեշտ է գրախոսների "
+"բավարար թիվ մեկ ներկայացման համար"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Հեղինակը կարող է առաջարկել մի քանի պոտենցիալ գրախոսներ նախքան ներկայացումն "
+"ավարտելը, ինչը կարող է պարզեցնել վերանայման գործընթացը և արժեքավոր ներդրում "
+"ապահովել խմբագրական թիմի համար:"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Լեզվի կարգավորումը չհաջողվեց պահել: Բոլոր ընտրանքները պետք է միացված լինեն:"
+
+msgid "settings.roles.masthead"
+msgstr "Դիտարկենք դերը մաստհեդների ցանկում"
+
+msgid "settings.roles.permitSettings"
+msgstr "Թույլատրեք փոփոխությունները Կարգավորումներում"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Սահմանեք հրապարակային ցուցադրման խմբագրական մասգլուխների դերերի "
+"հերթականությունը:"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Սահմանեք կայմագլուխների դերերի հերթականությունը հանրային ցուցադրման համար:"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Գրախոսները կցուցադրվեն ստանդարտացված ձևաչափով, որպեսզի պահպանեն "
+"միատեսակությունը և ապահովեն այս բաժնում հեշտ հայտնաբերելիությունը:"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Սահմանեք հիշեցումներ գրախոսման համար"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Ուղարկեք էլ․ փոստով հիշեցում նախքան կամ հետո՝ գրախոսման հարցման պատասխանի "
+"համար (եթե գրախոսը դեռ չի պատասխանել վերանայման հարցումին) կամ գրախոսման "
+"ներկայացման համար (եթե գրախոսողը դեռ չի ներկայացրել վերանայում)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Գրախոսման հարցման պատասխանը - Մինչև սահմանված ժամկետը"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Գրախոսման ներկայացում - Մինչև սահմանված ժամկետը"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "Վճարման ժամկետից {$value} օր հետո"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Հիշեցում չկա"

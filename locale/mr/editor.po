@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-05 18:43+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "mr/>\n"
@@ -295,7 +295,7 @@ msgid "editor.submission.createNewRound"
 msgstr "नवी समीक्षण फेरी निर्माण करा"
 
 msgid "editor.article.reviewForms"
-msgstr "समीक्षणासाठी फॉर्म"
+msgstr "समीक्षणासाठी फॉर्म्स"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "कोणत्याही फाईल्स निवडलेल्या नाहीत"
@@ -612,3 +612,6 @@ msgstr "हा निर्णय घेण्यासाठी खालील
 
 msgid "editor.decision.stepError"
 msgstr "{$stepName} या पायरीदरम्यान अडचण आली."
+
+msgid "editor.submission.viewSummary"
+msgstr "गोषवारा"

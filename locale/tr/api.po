@@ -1,7 +1,7 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-27 23:50+0000\n"
+"PO-Revision-Date: 2025-03-10 09:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -352,3 +352,15 @@ msgstr "Bu ögeye bir DOI atanamaz."
 
 msgid "api.highlights.400.orderHighlightNotFound"
 msgstr "Bir veya daha fazla vurgu bulunamadığı için vurgu sırası kaydedilemedi."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Beklenen yanıt alınamıyor."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Geçersiz yazar dostu parametre."
+
+msgid "api.400.routeNotDefined"
+msgstr "Herhangi bir API rotası sağlanmadı."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "API isteği işlenemiyor."

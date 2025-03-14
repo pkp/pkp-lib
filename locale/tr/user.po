@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-09-16 01:58+0000\n"
+"PO-Revision-Date: 2025-03-10 09:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
 ">\n"
@@ -769,3 +769,42 @@ msgstr "Geçersiz istemci kimliği"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Tamamlanmamış gönderim için iş akışı erişimi kısıtlanmıştır."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Aşağıya kurumunuzun tam adını girin, kısaltmalardan kaçının. Açılır menüden "
+"kurum adını seçin ve profilinize kurumunuzu eklemek için \"Ekle\"ye "
+"tıklayın. (örn. \"Hacettepe University\")"
+
+msgid "user.affiliations.translation"
+msgstr "Daha fazla bilgi"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Kurumu sil"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Düzenle veya sil"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Tüm çeviriler mevcut"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$total} dilin {$count} tanesi tamamlandı"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Emin misin?"
+
+msgid "user.affiliations.institution"
+msgstr "Kurum"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Kurum adını düzenle"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "{$language} dilinde enstitü adını yazın"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "{$language} dilinde enstitü adı"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Bağlı kuruluş <strong>{$affiliation}</strong> silinecek."

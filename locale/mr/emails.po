@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-20 19:37+0000\n"
+"PO-Revision-Date: 2025-03-12 15:24+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "mr/>\n"
@@ -425,7 +425,7 @@ msgid "emailTemplate.variable.unsubscribe"
 msgstr "या ई-मेलमधून सदस्यता रद्द करण्यासाठी लिंक."
 
 msgid "emails.versionCreated.subject"
-msgstr "{$submissionTitle} साठी एक नवी आवृत्ती तयार केली गेली आहे"
+msgstr "{$submissionTitle} साठी एक नवी आवृत्ती (version) तयार केली गेली आहे"
 
 msgid "emails.versionCreated.body"
 msgstr ""

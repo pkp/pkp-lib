@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-23 16:53+0000\n"
+"PO-Revision-Date: 2025-03-08 03:51+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/bg/>\n"
@@ -257,3 +257,45 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Други настройки"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Конфигурационната променлива с име „app_key“ не е дефинирана в раздела "
+"„general“. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Конфигурационната променлива с име „app_key“ вече е дефинирана в раздела "
+"„general“. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Не може да се анализира и включи конфигурационният файл."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"Не може да се запише променливата за ключ на приложението в конфигурационния "
+"файл."
+
+msgid "installer.appKey.write.error"
+msgstr "Не може да се запише ключът на приложението в конфигурационния файл."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Задайте стойността на `app_key` в секцията `general` във файла `config.inc."
+"php` към {$key}."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Моля, добавете конфигурационната променлива с име `app_key` в секцията "
+"`general` ръчно или изпълнете командата `php lib/pkp/tools/appKey.php "
+"configure`, за да я настроите от CLI."
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Не може да се прочете конфигурационният файл или файлът не съществува на "
+"очаквания път. "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Неподдържан шифър или неправилна дължина на ключа. Поддържаните шифри са: "
+"{$ciphers}."

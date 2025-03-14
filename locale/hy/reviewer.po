@@ -1,17 +1,17 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"PO-Revision-Date: 2025-03-04 12:41+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"reviewer/hy_AM/>\n"
-"Language: hy_AM\n"
+"reviewer/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Հայց"
@@ -134,3 +134,66 @@ msgstr "Ուղարկել գրախոսողներին"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Այս օգտատերը նշանակված չէ որպես հայցվող փաստաթղթի գրախոսող։"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Կարդացեք շրջափուլ {$round} -ի գրախոսությունը"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Շրջափուլ {$round} -ի գրախոսությունը ներկայացված է ձեզ համար"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Գրախոսի մեկնաբանություններ"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Խմբագիրների և հեղինակների համար"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Մեկնաբանություն {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Մերժման պատճառաբանությունն ուղարկված է էլ․ փոստով"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Մերժման ամսաթիվը"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Հոդվածի մետատվյալները"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Տեսակ"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Համառոտագրություն"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Բանալի բառեր"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Հավելվածներ"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Գրախոսման համար նիշքեր"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Այս նիշքերը ուղարկվել են ձեզ վերանայման համար"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Վերանայումը չի ավարտվել։"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Նախորդ գրախոսությունները"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Միայն խմբագիրների համար"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Շրջափուլ {$round} -ի գրախոսությունները ներկայացվել են {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Վերանայման հրավերը մերժելու պատճառ չի նշվում:"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Ընդհանուր տեղեկություններ"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Սրանք նիշքեր են, որոնք դուք կցել եք ձեր գրախոսման հետ միասին"

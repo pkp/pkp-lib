@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2025-01-29 21:28+0000\n"
+"PO-Revision-Date: 2025-03-03 20:29+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
@@ -1063,3 +1063,15 @@ msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Utiliser le site comme plateforme pour toutes les revues."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Mettre à jour la cache du jeu de données ROR"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Afficher les paramètres d'utilisation de la AppKey"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Ajouter la variable app_key dans le fichier config.inc.php."
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Générer l'App Key: {$appKey}"

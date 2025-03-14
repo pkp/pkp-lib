@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2024-11-21 16:41+0000\n"
+"PO-Revision-Date: 2025-03-03 19:43+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl/>\n"
@@ -681,10 +681,10 @@ msgid "common.pagination.goToPage"
 msgstr "Pojdi na {$page}"
 
 msgid "common.pagination.next"
-msgstr "Naslednja stran"
+msgstr "Naslednja"
 
 msgid "common.pagination.previous"
-msgstr "Predhodna stran"
+msgstr "Predhodna"
 
 msgid "common.pageNumber"
 msgstr "Stran {$pageNumber}"
@@ -2270,3 +2270,91 @@ msgstr "Prikaži vse"
 
 msgid "common.sandbox"
 msgstr "Aplikacija teče v načinu peskovnika."
+
+msgid "common.editorialMasthead"
+msgstr "Kolofon uredništva"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Recenzije v preteklih letih"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Uredništvo se zahvaljuje spodaj navedenim recenzentom za {$leto}."
+
+msgid "common.editorialHistory"
+msgstr "Zgodovina uredništva"
+
+msgid "common.editorialHistory.page"
+msgstr "Stran z zgodovino uredništva"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Poglej ORDIC profil za osebo {$name}"
+
+msgid "common.loaded"
+msgstr "Naloženo"
+
+msgid "navigation.dashboards"
+msgstr "Nadzorne plošče"
+
+msgid "navigation.reviewAssignments"
+msgstr "Recenzentske zadolžitve"
+
+msgid "navigation.mySubmissions"
+msgstr "Moji prispevki"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Recenzija oddana dne"
+
+msgid "common.numero"
+msgstr "Št"
+
+msgid "common.refreshingData"
+msgstr "Osveževanje podatkov"
+
+msgid "common.viewMoreDetails"
+msgstr "Poglejte več podrobnosti"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Poglej <a href=\"{$url}\">Zgodovino uredništva</a>"
+
+msgid "common.showingXofX"
+msgstr "Prikaži <strong>{$start} do {$finish}</strong> od skupno {$total}"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Recenzija sprejeta dne"
+
+msgid "common.moreActions"
+msgstr "Več akcij"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "validator.date.comparison"
+msgstr "Neveljavni datumi za primerjavo."
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzije v preteklem letu"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"Zaznana je bila 1 napaka! Pred nadaljevanjem prosimo popravite spodnjo "
+"napako."
+
+msgid "validator.multilingual"
+msgstr "Zahtevana večjezičnost za to polje ni bila izpolnjena."
+
+msgid "common.editorialHistory.page.description"
+msgstr "Ta razdelek vsebuje pretekle sodelavce."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Zaznano je bilo {$count} napak! Pred nadaljevanjem prosimo popravite spodnje "
+"napake."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.assignments"
+msgstr "Zadolžitve"
+
+msgid "common.filtersClear"
+msgstr "Ponastavi filtre"

@@ -21,6 +21,8 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -31,7 +33,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
-use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -505,7 +506,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $this->getPropertyParticipants($submission);
                     break;
                 case 'reviewersNotAssigned':
-                    $output[$prop] = $currentReviewRound && $this->reviewAssignments->count() >= intval($this->context->getData('numReviewersPerSubmission'));
+                    $output[$prop] = $currentReviewRound && $this->reviewAssignments->count() < $this->context->getNumReviewsPerSubmission();
                     break;
                 case 'reviewRounds':
                     $output[$prop] = $this->getPropertyReviewRounds($reviewRounds);
@@ -603,7 +604,7 @@ class Schema extends \PKP\core\maps\Schema
         $reviewerSuggestions = collect(
             array_values(
                 ReviewerSuggestionResource::collection($reviewerSuggestions)
-                    ->toArray(app()->get("request"))
+                    ->toArray(app()->get('request'))
             )
         )->map(
             fn (array $suggestion): array => array_intersect_key(
@@ -671,7 +672,7 @@ class Schema extends \PKP\core\maps\Schema
                 'dateResponseDue' => $dateResponseDue,
                 'dateConfirmed' => $dateConfirmed,
                 'dateCompleted' => $dateCompleted,
-                'dateConsidered' =>  $dateConsidered,
+                'dateConsidered' => $dateConsidered,
                 'dateAssigned' => $dateAssigned,
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),
@@ -740,8 +741,6 @@ class Schema extends \PKP\core\maps\Schema
      * Get a list of participants assigned to this submission
      * and build an array with canLoginAs
      *
-     * @param Submission $submission
-     * @return array
      */
     protected function getPropertyParticipants(Submission $submission): array
     {
@@ -926,7 +925,7 @@ class Schema extends \PKP\core\maps\Schema
                     !$reviewAssignment->getCancelled()
             );
             // when being assigned as reviewer to this submission, don't add global roles
-            if(!$hasCurrentUserReviewAssignment) {
+            if (!$hasCurrentUserReviewAssignment) {
                 $globalRoles = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->userRoles);
                 if (!empty($globalRoles)) {
                     foreach ($stageIds as $stageId) {

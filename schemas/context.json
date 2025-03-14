@@ -579,12 +579,12 @@
 				"min:0"
 			]
 		},
-		"numReviewersPerSubmission": {
+		"numReviewsPerSubmission": {
 			"type": "integer",
-			"default": 0,
+			"default": 1,
 			"validation": [
 				"nullable",
-				"min:0"
+				"min:1"
 			]
 		},
 		"openAccessPolicy": {

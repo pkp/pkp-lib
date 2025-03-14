@@ -308,14 +308,18 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         // limit results depending on a role
 
         if (!$this->canAccessAllSubmissions()) {
-            $collector->assignedTo([$currentUser->getId()], $queryParams['assignedWithRoles'] ?? null);
+            $assignedWithRoles = array_map(
+                intval(...),
+                paramToArray($queryParams['assignedWithRoles'] ?? [])
+            );
+
+            $collector->assignedTo([$currentUser->getId()], $assignedWithRoles);
         }
 
         foreach ($queryParams as $param => $val) {
             switch ($param) {
-                case 'needsReviewers':
-                    $numReviewersPerSubmission = $context->getData('numReviewersPerSubmission');
-                    $collector->filterByReviewersActive(range(0, (int) $numReviewersPerSubmission));
+                case 'needsReviews':
+                    $collector->filterByNumReviewsConfirmedLimit($context->getNumReviewsPerSubmission());
                     break;
                 case 'awaitingReviews':
                     $collector->filterByAwaitingReviews(true);

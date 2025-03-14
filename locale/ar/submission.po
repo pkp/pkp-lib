@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2025-03-13 16:19+0000\n"
+"PO-Revision-Date: 2025-03-14 15:47+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar/>\n"
@@ -2952,3 +2952,131 @@ msgstr "معاينة التفاصيل"
 
 msgid "dashboard.reviewAssignment.action.resendReviewRequest"
 msgstr "إعادة إرسال إلتماس التحكيم"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "إختر طلبات التقديم غير المكتملة لحذفها."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "حذف طلبات التقديم غير المكتملة"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "مسموح فقط بتوصية قرار التحرير"
+
+msgid "workflow.stageNotStarted"
+msgstr "لم يتم الشروع بمرحلة {$stage} بعد."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "طلب التقديم حاليًا في مرحلة {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "طلب التقديم قد تم إرساله إلى جولة التحكيم التالية"
+
+msgid "workflow.reviewRoundN"
+msgstr "جولة التحكيم {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "الملفات المرفوعة عند تقديم الطلب"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "هذه الملفات مقدمة من قبل المؤلف بعد طلب التنقيحات"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "التنقيحات قد رُفعت"
+
+msgid "fileManager.filesForReview"
+msgstr "الملفات المعدة للتحكيم"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "الملفات المدققة"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "هذه الملفات المحررة التي ستُرسل إلى مرحلة الإنتاج"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "هذه الملفات من مرحلة التحكيم التي ستُرسل إلى التدقيق"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "حالة المحكم"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "تأكيد حذف طلبات التقديم غير المكتملة"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"لا يمكنك الوصول إلى طلب التقديم هذا بمثابة رئيس تحرير المجلة نظرًا لكونك "
+"المؤلف. لمعاينته، إذهب إلى \"طلبات تقديمي\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"لا يمكنك الوصول إلى طلب التقديم هذا بمثابة رئيس تحرير المجلة نظرًا لكونك "
+"المحكم. لمعاينته، إذهب إلى \"مهام التحكيم\""
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"طلب التقديم المرسل إلى جولة التحكيم التالية قد تم قبوله، وهو حاليًا في مرحلة "
+"{$stage}."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"هل أنت متأكد من رغبتك في حذف العناصر المحددة؟ هذا الإجراء لا يمكن التراجع "
+"عنه. يرجى التأكيد للمتابعة."
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "هذه الملفات سيتم إرسالها إلى المحكمين"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "هذه الملفات التي ستُرسل إلى النشر"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"يرجى إضافة انتساب سجل المؤسسة البحثية، أو على الأقل اسم جهة انتساب واحدة."
+
+msgid "ror.nameRequired"
+msgstr "سجل المؤسسة البحثية مطلوب حتمًا."
+
+msgid "ror.displayLocaleRequired"
+msgstr "لغة عرض سجل المؤسسة البحثية مطلوب حتمًا."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "لم يتم اقتراح اي محكم لطلب التقديم هذا."
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"هذا المحكم قد قبل إلتماس التحكيم. ذلك التحكيم يستوجب في غضون <b>{$days} من "
+"الأيام في {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "التحكيم متأخر عن موعده {$days} من الأيام"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "إلغاء المحكم"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "إلغاء التعيين"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "تحرير يوم الاستيجاب"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "معاينة التوصية"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "معاينة التوصية غير المقروءة"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "إرسال التحكيم إلى ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "هل تريد إرسال التحكيم إلى حساب المحكم في ORCID؟"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "رُفِض خلال مرحلة {$stageName}."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr "المحكمون المتعهدون من مهمتهم بيان الخطوة القادمة لطلب التقديم هذا"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "توصية التحرير فد تم تلقيها"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "توصية التحرير فد تم تلقيها، والمطلوب اتخاذ القرار."

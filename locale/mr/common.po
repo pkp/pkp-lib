@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-14 15:47+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -2056,7 +2056,7 @@ msgid "notification.type.awaitingCopyedits"
 msgstr "कॉपीएडिट्सच्या प्रतीक्षेत आहे."
 
 msgid "notification.type.editorialReport"
-msgstr "सांख्यिकी अहवालाचा सारांश."
+msgstr "सांख्यिकी अहवालाचा गोषवारा (summary)."
 
 msgid "notification.type.editorialReminder"
 msgstr "शिल्लक कामांचा आढावा घेण्यासाठीचा साप्ताहिक ई-मेल"

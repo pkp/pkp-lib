@@ -1175,7 +1175,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Wybierz preferowany format dat i godzin. Niestandardowy format można "
 "wprowadzić za pomocą specjalnych <a href=\"https://www.php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters\">znaków "
+"datetime.format.php#refsect1-datetime.format-parameters\">znaków "
 "formatu</a>."
 
 msgid "manager.setup.dateTime.longDate"

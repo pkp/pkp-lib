@@ -1192,7 +1192,7 @@ msgid "manager.setup.dateTime.description"
 msgstr ""
 "Ընտրեք նախընտրելի ձևաչափը ամսաթվերի և ժամերի համար: Անհատականացված ձևաչափ "
 "կարելի է մուտքագրել՝ օգտագործելով հատուկ <a href=\"https://www.php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-parameters"
+"manual/en/datetime.format.php#refsect1-datetime.format-parameters"
 "\">ձևաչափի նիշեր</a>."
 
 msgid "manager.setup.dateTime.longDate"

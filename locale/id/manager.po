@@ -1,12 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
+# Maria Lamury <marialamury@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-08-22 09:26+0000\n"
-"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
 "Language: id\n"
@@ -154,31 +155,42 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Tipe pengumuman"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Deposit Seluruhnya"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Deposit DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Anda akan mengirimkan rekod metadata DOI untuk {$count} item kepada "
+"{$registrationAgency}. Apakah anda yakin untuk mendeposit rekod-rekod ini?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Tandai DOI Terdaftar"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Anda akan menandai rekod metadata DOI untuk {$count} item sebagai terdaftar. "
+"Apakah anda yakin untuk menandai rekod-rekod ini sebagai terdaftar?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Tandai DOI Tidak Terdaftar"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Anda akan menandai rekod metadata DOI untuk {$count} item sebagai tidak "
+"terdaftar. Apakah anda yakin ingin menandai rekod-rekod ini sebagai tidak "
+"terdaftar?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Tanda DOI Memerlukan Sinkronisasi"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Anda akan menandai rekod metadata DOI untuk {$count} item perlu untuk "
+"disinkronisasi. Status Perlu Disinkroniasasi akan diterapkan untuk DOI yang "
+"sudah dikirimkan sebelumnya. Apakah anda yakin untuk menandai rekod-rekod "
+"ini sebagai tidak dipakai?"
 
 msgid "manager.dois.actions.export.label"
 msgstr ""
@@ -3409,3 +3421,8 @@ msgstr "Tajuk"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validasi XML sebelum proses ekspor dan registrasi."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Anda harus <a href=\"#announcements/announcement-settings\">mengizinkan "
+"pengumuman</a>."

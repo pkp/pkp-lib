@@ -92,9 +92,11 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $userNode, 'givenname', $user->getGivenName(null));
         $this->createLocalizedNodes($doc, $userNode, 'familyname', $user->getFamilyName(null));
 
-        $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
-        $this->createLocalizedNodes($doc, $affiliationNode, 'name', $user->getAffiliation(null));
-        $userNode->appendChild($affiliationNode);
+        if ($user->getAffiliation(null)) {
+            $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
+            $this->createLocalizedNodes($doc, $affiliationNode, 'name', $user->getAffiliation(null));
+            $userNode->appendChild($affiliationNode);
+        }
 
         $this->createOptionalNode($doc, $userNode, 'country', $user->getCountry());
         $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'email', htmlspecialchars($user->getEmail(), ENT_COMPAT, 'UTF-8')));

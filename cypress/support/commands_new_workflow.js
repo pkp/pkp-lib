@@ -981,3 +981,25 @@ Cypress.Commands.add('createUserByInvitation', user => {
 	cy.logout();
 
 });
+
+
+Cypress.Commands.add('openEmailTemplate', (mailableName, templateName) => {
+	// Select the mailable
+	cy.contains('li.listPanel__item', mailableName)
+		.find('button')
+		.contains('Edit')
+		.click();
+
+	// Select the template
+	cy.contains('.listPanel', 'Templates')
+		.find('li.listPanel__item')
+		.contains(templateName)
+		.parents('li.listPanel__item')
+		.find('button')
+		.contains('Edit')
+		.click();
+});
+
+Cypress.Commands.add('setEmailTemplateUnrestrictedTo', (value) => {
+	cy.get(`input[name="isUnrestricted"][value="${value}"]`).check({force: true})
+});

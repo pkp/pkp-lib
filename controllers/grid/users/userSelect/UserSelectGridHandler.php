@@ -104,10 +104,7 @@ class UserSelectGridHandler extends GridHandler
                 null,
                 null,
                 $cellProvider,
-                [
-                    'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
-                    'width' => 30
-                ]
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 30]
             )
         );
         $this->addColumn(
@@ -117,10 +114,27 @@ class UserSelectGridHandler extends GridHandler
                 null,
                 null,
                 $cellProvider,
-                [
-                    'alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT,
-                    'width' => 30
-                ]
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 5]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'affiliation',
+                'user.affiliation',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 25]
+            )
+        );
+        $this->addColumn(
+            new GridColumn(
+                'interests',
+                'user.interests',
+                null,
+                null,
+                $cellProvider,
+                ['alignment' => GridColumn::COLUMN_ALIGNMENT_LEFT, 'width' => 35]
             )
         );
     }

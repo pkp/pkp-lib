@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_6_0/I10403_EmailTemplateUserGroupAccess.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I10403_EmailTemplateUserGroupAccess
@@ -12,7 +12,7 @@
  * @brief Adds the email_template_user_group_access table to allow email template access restriction
  */
 
-namespace PKP\migration\upgrade\V3_6_0;
+namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;

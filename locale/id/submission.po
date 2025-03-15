@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"PO-Revision-Date: 2025-03-15 22:18+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
@@ -661,6 +661,8 @@ msgstr ""
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Email pengingat otomatis telah dikirim ke {$recipientName} tentang penugasan "
+"review mereka"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Email telah dikirim:"
@@ -690,10 +692,10 @@ msgstr ""
 "lagi."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Pertama kali diterbitkan"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Untuk Editor"
 
 msgid "submission.galley"
 msgstr "Galley"
@@ -970,7 +972,7 @@ msgid "submission.review"
 msgstr "Tinjauan"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Review dan Kirim"
 
 msgid "submission.reviewed"
 msgstr "Direview"
@@ -1057,7 +1059,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Sertakan kontributor ini dalam daftar pencarian?"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Daftar Publikasi"
 
 msgid "submission.submit.newFile"
 msgstr "Tambah File Lain"
@@ -1177,7 +1179,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Masukkan referensi."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Silakan masukkan Pernyataan Ketersediaan Data."
 
 msgid "submission.form.name"
 msgstr "Beri nama file (misalnya, Naskah; Tabel 1)"
@@ -1340,10 +1342,10 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Semua rekomendasi sudah masuk dan membutuhkan pengambilan keputusan."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Tidak aktif lebih dari {$days} hari pada tahap {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Naskah baru menunggu untuk dikirim ke review atau ditolak."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Partisipan"
@@ -1406,29 +1408,37 @@ msgid "editor.submission.decision"
 msgstr "Keputusan"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Beritahu Penulis"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Beritahu Reviewer"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Kirimkan email ke reviewer untuk mengucapkan terima kasih atas review mereka "
+"dan memberitahukan kepada mereka bahwa telah diambil sebuah keputusan. "
+"Setiap reviewer akan dikirimkan email terpisah untuk melindungi "
+"anonimitasnya. Frasa {$recipientName} dapat digunakan dalam pesan untuk "
+"menyertakan nama reviewer dengan aman."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Kirimkan email ke reviewer yang bertugas untuk memberi tahukan bahwa "
+"penugasan review mereka dibatalkan."
 
 msgid "editor.submission.decision.accept"
 msgstr "Terima Naskah"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Naskah ini akan diterima untuk diterbitkan dan dikirimkan untuk dicopyedit."
 
 msgid "editor.submission.decision.accept.log"
-msgstr ""
+msgstr "{$editorName} menerima naskah ini dan mengirimkannya ke tahap copyedit."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Naskah Diterima"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
@@ -2538,3 +2548,18 @@ msgstr "Daftar Penulis Naskah"
 
 msgid "submission.authors.label"
 msgstr "Penulis"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Kembali ke review."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Untuk Saran Reviewer"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Saran Reviewer"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Rekomendasi telah dibuat oleh anda."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Reviewer Disarankan oleh Penulis"

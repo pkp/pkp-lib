@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-08-16 18:40+0000\n"
+"PO-Revision-Date: 2025-03-15 22:18+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ar/>"
 "\n"
@@ -742,3 +742,142 @@ msgstr "تم الكشف عن مُعرَّفات ORCiD غير مرخصة للمس
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "الوصول لمجريات العمل مقيد بالنسبة إلى طلبات التقديم غير المكتملة."
+
+msgid "user.affiliations.description"
+msgstr ""
+"أدخل الاسم الكامل للمؤسسة أدناه متجنبًا أي إختصارات. إختر الاسم من القائمة "
+"المنسدلة ثم انقر \"إضافة\" لتضمين الانتساب في ملفك التعريفي. (مثلاً \"جامعة "
+"المتنبي\")"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} من {$total} لغات مكتملة"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "الانتساب <strong>{$affiliation}</strong> سيتم حذفه."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr "إضافة، تحديث أو حذف إقتراحات المحكمين لطلبات التقديم المكتملة أمر مقيد."
+
+msgid "user.preferredAvatarInitials"
+msgstr "الحروف الأُول المفضلة للصورة الرمزية"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"أدخل الحرفين اللذين تريد استعمالهما بمثابة صورتك الرمزية. سيتم عرضهما لتمثلك."
+
+msgid "user.role.ended"
+msgstr "الدور إنتهى"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"بقد طلبت تغيير بريدك الالكتروني إلى \"{$pendingEmail}\". لقد سبق وأن أرسلنا "
+"إليك بريدًا الكترونيًا فيه توجيهات عن كيفية التحقق من تغيير العنوان البريدي."
+
+msgid "orcid.unauthenticated"
+msgstr "(غير مصرح له)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "ستتم إعادة توجيهك الآن إلى {$contextName}."
+
+msgid "orcid.manager.context.enabled"
+msgstr "تمكين وظيفة ORCID"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"وظيفة ORCID يمكن تمكينها إختياريًا وتهيئتها على مستوى الموقع لكل "
+"المجلات/المطابع/المخدمات. عند تمكينها، ذلك سيتخطى كل المعطيات المتعلقة "
+"بالسياقات الفرعية، مع تطبيق المعطيات الآتية لكل المجلات/المطابع/المخدمات في "
+"هذا التنصيب."
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"حساب ORCID هذا لم يتم التحقق منه. ترجى إزالته وإلتماس التحقق منه من خلال "
+"المستخدم/المؤلف مباشرة."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"حتى ذلك الحين، يمكنك مراجعة ملفك التعريفي وتحديثه. إذا كنت تعتقد أن هذا خطأ، "
+"يرجى التواصل مع المشرف."
+
+msgid "user.affiliations.institution"
+msgstr "المؤسسة"
+
+msgid "user.affiliations.translation"
+msgstr "المزيد من المعلومات"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "تحرير اسم المؤسسة"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "إزالة المؤسسة"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "أنقر للتحرير أو الحذف"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "كل الترجمات متاحة"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "إطبع اسم المؤسسة بـ {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "اسم المؤسسة بـ {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "هل أنت متأكد؟"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "إطبع اسم المؤسسة بـ {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "تعذر العثور على عبارة بحثك"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "اللغة الرئيسية {$primaryLocale} مطلوبة حتمًا"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "يرجى إضافة الانتساب بلغة طلب التقديم."
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "تمكين وظيفة ORCID في عموم الموقع"
+
+msgid "orcid.field.verification.request"
+msgstr "التحقق من الطلب"
+
+msgid "orcid.field.verification.requested"
+msgstr "تم طلب التحقق من ORCID!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "إعادة إرسال رسالة التحقق"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "أطلب التحقق من ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"هل ترغب بإرسال بريد الكتروني إلى هذا المؤلف تطلب فيه التحقق من حسابه في "
+"ORCID؟"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "حذف ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "هل أنت متأكد من رغبتك في إزالة ORCID هذا؟"
+
+msgid "user.removeRole.message"
+msgstr "هل أنت متأكد من رغبتك في إزالة هذا الدور بشكل دائم؟"
+
+msgid "user.futureRole.notification.message"
+msgstr "دورك مجدول ليبدأ في {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "الأدوار الحالية: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "تعطيل {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "تمكين {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "بيان السيرة الذاتية"

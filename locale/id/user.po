@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-13 11:39+0000\n"
+"PO-Revision-Date: 2025-03-15 22:18+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
@@ -756,3 +756,33 @@ msgstr "Institusi"
 
 msgid "user.affiliations.translation"
 msgstr "Informasi lebih lanjut"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Edit nama institusi"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Hapus institusi"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klik untuk mengedit atau menghapus"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Semua terjemahan tersedia"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} dari {$total} bahasa telah lengkap"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Ketik nama institusi dalam {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nama institusi dalam {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Apa anda yakin?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Institusi <strong>{$affiliation}</strong> akan dihapus."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Ketik nama institusi dalam {$language}"

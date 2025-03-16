@@ -175,27 +175,22 @@ class PKPNavigationMenuItemsForm extends Form
             $navigationMenuItem = $navigationMenuItemDao->newDataObject();
             $navigationMenuItem->setTitle($this->getData('title'), null);
         } else {
-            $localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
-
-            app()->get('navigationMenu')
-                ->setAllNMILocalizedTitles($navigationMenuItem);
-
-            $localizedTitles = $navigationMenuItem->getTitle(null);
+            $newTitles = [];
             $inputLocalizedTitles = $this->getData('title');
-            foreach ($localizedTitles as $locale => $title) {
-                if ($inputLocalizedTitles[$locale] != $title) {
-                    if (!isset($inputLocalizedTitles[$locale]) || trim($inputLocalizedTitles[$locale]) == '') {
-                        $navigationMenuItem->setTitle(null, $locale);
-                    } else {
-                        $navigationMenuItem->setTitle($inputLocalizedTitles[$locale], $locale);
-                    }
-                } else {
-                    if (!$localizedTitlesFromDB
-                        || !array_key_exists($locale, $localizedTitlesFromDB)) {
-                        $navigationMenuItem->setTitle(null, $locale);
-                    }
+
+            foreach ($inputLocalizedTitles as $locale => $inputTitle) {
+                $inputTitle = trim($inputTitle);
+
+                // If the title is empty, set it to null for the locale
+                if ($inputTitle === '') {
+                    $newTitles[$locale] = null;
+                    continue;
                 }
+
+                $newTitles[$locale] = $inputTitle;
             }
+
+            $navigationMenuItem->setData('title', $newTitles);
         }
 
         $navigationMenuItem->setPath($this->getData('path'));

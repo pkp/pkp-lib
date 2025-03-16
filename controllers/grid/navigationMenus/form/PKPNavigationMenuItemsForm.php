@@ -45,6 +45,7 @@ class PKPNavigationMenuItemsForm extends Form
 
         parent::__construct('controllers/grid/navigationMenus/form/navigationMenuItemsForm.tpl');
 
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'title', 'required', 'manager.navigationMenus.items.form.title.required', $this->defaultLocale));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }

@@ -1005,98 +1005,88 @@ class PKPTemplateManager extends Smarty
 
                 if ($request->getContext()) {
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
-                        if (Config::getVar('features', 'enable_new_submission_listing')) {
-                            if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
-                                $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
-                                $requestedPage = $router->getRequestedPage($request);
-                                $requestedOp = $router->getRequestedOp($request);
-                                $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
-                                $isNewSubmissionLinkPresent = false;
+                        if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
+                            $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
+                            $requestedPage = $router->getRequestedPage($request);
+                            $requestedOp = $router->getRequestedOp($request);
+                            $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
+                            $isNewSubmissionLinkPresent = false;
 
-                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
-                                    $data = $dashboardView->getData();
-                                    return [
-                                        'id' => $data['id'],
-                                        'name' => $data['name'],
-                                        'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'editorial' && $requestedViewId === $data['id'],
-                                        'url' => $router->url($request, null, 'dashboard', 'editorial', null, ['currentViewId' => $data['id']]),
-                                        'badge' => ['slot' => '-']
-                                    ];
-                                });
-
-                                if(!$request->getContext()->getData('disableSubmissions')) {
-                                    $viewsData['newSubmission'] = [
-                                        'name' => __('dashboard.startNewSubmission'),
-                                        'url' => $router->url($request, null, 'submission')
-                                    ];
-                                    $isNewSubmissionLinkPresent = true;
-                                }
-                                
-                                $menu['dashboards'] = [
-                                    'name' => __('navigation.dashboards'),
-                                    'icon' => 'Dashboard',
-                                    'submenu' => $viewsData
+                            $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
+                                $data = $dashboardView->getData();
+                                return [
+                                    'id' => $data['id'],
+                                    'name' => $data['name'],
+                                    'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'editorial' && $requestedViewId === $data['id'],
+                                    'url' => $router->url($request, null, 'dashboard', 'editorial', null, ['currentViewId' => $data['id']]),
+                                    'badge' => ['slot' => '-']
                                 ];
-                            }
-                            if (count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
-                                $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_REVIEWER]);
-                                $requestedPage = $router->getRequestedPage($request);
-                                $requestedOp = $router->getRequestedOp($request);
-                                $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
-                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
-                                    $data = $dashboardView->getData();
-                                    return [
-                                        'id' => $data['id'],
-                                        'name' => $data['name'],
-                                        'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'reviewAssignments' && $requestedViewId === $data['id'],
-                                        'url' => $router->url($request, null, 'dashboard', 'reviewAssignments', null, ['currentViewId' => $data['id']]),
-                                        'badge' => ['slot' => '-']
-                                    ];
-                                });
-                                $menu['reviewAssignments'] = [
-                                    'name' => __('navigation.reviewAssignments'),
-                                    'submenu' => $viewsData,
-                                    'icon' => 'ReviewAssignments',
+                            });
+
+                            if(!$request->getContext()->getData('disableSubmissions')) {
+                                $viewsData['newSubmission'] = [
+                                    'name' => __('dashboard.startNewSubmission'),
+                                    'url' => $router->url($request, null, 'submission')
                                 ];
+                                $isNewSubmissionLinkPresent = true;
                             }
-                            if (count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
-                                $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_AUTHOR]);
-                                $requestedPage = $router->getRequestedPage($request);
-                                $requestedOp = $router->getRequestedOp($request);
-                                $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
-                                $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
-                                    $data = $dashboardView->getData();
-                                    return [
-                                        'id' => $data['id'],
-                                        'name' => $data['name'],
-                                        'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'mySubmissions' && $requestedViewId === $data['id'],
-                                        'url' => $router->url($request, null, 'dashboard', 'mySubmissions', null, ['currentViewId' => $data['id']]),
-                                        'badge' => ['slot' => '-']
-                                    ];
-                                });
-
-                                if(!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
-                                    $viewsData['newSubmission'] = [
-                                        'name' => __('dashboard.startNewSubmission'),
-                                        'url' => $router->url($request, null, 'submission')
-                                    ];
-                                }
-
-
-                                $menu['mySubmissions'] = [
-                                    'name' => __('navigation.mySubmissions'),
-                                    'submenu' => $viewsData,
-                                    'icon' => 'MySubmissions',
-                                ];
-                            }
-                        } else {
-                            $menu['submissions'] = [
-                                'name' => __('navigation.submissions'),
-                                'url' => $router->url($request, null, 'submissions'),
-                                'isCurrent' => $router->getRequestedPage($request) === 'submissions',
-                                'icon' => 'MySubmissions'
+                            
+                            $menu['dashboards'] = [
+                                'name' => __('navigation.dashboards'),
+                                'icon' => 'Dashboard',
+                                'submenu' => $viewsData
                             ];
+                        }
+                        if (count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
+                            $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_REVIEWER]);
+                            $requestedPage = $router->getRequestedPage($request);
+                            $requestedOp = $router->getRequestedOp($request);
+                            $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
+                            $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
+                                $data = $dashboardView->getData();
+                                return [
+                                    'id' => $data['id'],
+                                    'name' => $data['name'],
+                                    'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'reviewAssignments' && $requestedViewId === $data['id'],
+                                    'url' => $router->url($request, null, 'dashboard', 'reviewAssignments', null, ['currentViewId' => $data['id']]),
+                                    'badge' => ['slot' => '-']
+                                ];
+                            });
+                            $menu['reviewAssignments'] = [
+                                'name' => __('navigation.reviewAssignments'),
+                                'submenu' => $viewsData,
+                                'icon' => 'ReviewAssignments',
+                            ];
+                        }
+                        if (count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
+                            $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_AUTHOR]);
+                            $requestedPage = $router->getRequestedPage($request);
+                            $requestedOp = $router->getRequestedOp($request);
+                            $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
+                            $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
+                                $data = $dashboardView->getData();
+                                return [
+                                    'id' => $data['id'],
+                                    'name' => $data['name'],
+                                    'isCurrent' => $requestedPage === 'dashboard' && $requestedOp === 'mySubmissions' && $requestedViewId === $data['id'],
+                                    'url' => $router->url($request, null, 'dashboard', 'mySubmissions', null, ['currentViewId' => $data['id']]),
+                                    'badge' => ['slot' => '-']
+                                ];
+                            });
 
+                            if(!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
+                                $viewsData['newSubmission'] = [
+                                    'name' => __('dashboard.startNewSubmission'),
+                                    'url' => $router->url($request, null, 'submission')
+                                ];
+                            }
+
+
+                            $menu['mySubmissions'] = [
+                                'name' => __('navigation.mySubmissions'),
+                                'submenu' => $viewsData,
+                                'icon' => 'MySubmissions',
+                            ];
                         }
                     } elseif (count($userRoles) === 1 && in_array(Role::ROLE_ID_READER, $userRoles)) {
                         $menu['submit'] = [

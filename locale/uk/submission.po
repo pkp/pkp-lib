@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2025-03-17 20:02+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -33,10 +33,9 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Нові рецензії були надіслані і розглядаються редактором."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Один або кілька рецензентів пропустили дедлайн. Редакційна колегія була "
+"Один або кілька рецензентів пропустили дедлайн. Редакційна команда була "
 "повідомлена і вживатиме заходів для забезпечення завершення рецензування. "
 "Вам не потрібно робити ніяких дій у цей час. Ви отримаєте сповіщення про "
 "прийняття рішення."
@@ -2772,3 +2771,30 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr "Конкуруючі інтереси"
+
+msgid "author.authorNotFound"
+msgstr "Не вдалося знайти автора із цією афілійованістю."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Будь ласка, укажіть афілійованість за РДО (Реєстром дослідницьких "
+"організацій) або принаймні одну афілійовану назву."
+
+msgid "ror.nameRequired"
+msgstr "Потрібно вказати назву за РДО."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Скасувати подання"
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Будь ласка, укажіть афілійовану назву в основній мовній локалізації подання."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Необхідна вказати локалізацію відображення РДО."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Подання скасовано"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Подання скасовано, а всі пов’язані дані видалено."

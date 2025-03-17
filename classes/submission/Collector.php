@@ -79,7 +79,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?array $assignedWithRoles = null;
 
     public array|int|null $isReviewedBy = null;
-    public ?array $reviewersNumber = null;
+    public ?int $numReviewsConfirmedLimit = null;
     public ?bool $awaitingReviews = null;
     public ?bool $reviewsSubmitted = null;
     public ?bool $reviewsOverdue = null;
@@ -218,13 +218,12 @@ abstract class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
-     * Limit results to the number of the assigned reviewers.
-     * Review assignment is considered active after the request is sent by the reviewer
-     * and it isn't cancelled, declined or overdue
+     * Limit results by the number of confirmed review assignments
+     * Returns submissions with the number of confirmed reviews less than this number in the active round
      */
-    public function filterByReviewersActive(?array $reviewersNumber): AppCollector
+    public function filterByNumReviewsConfirmedLimit(?int $numReviewsConfirmedLimit): AppCollector
     {
-        $this->reviewersNumber = $reviewersNumber;
+        $this->numReviewsConfirmedLimit = $numReviewsConfirmedLimit;
         return $this;
     }
 
@@ -760,7 +759,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     {
         $reviewFilters = collect([
             $this->isReviewedBy,
-            $this->reviewersNumber,
+            $this->numReviewsConfirmedLimit,
             $this->awaitingReviews,
             $this->reviewsSubmitted,
             $this->revisionsRequested,
@@ -814,62 +813,40 @@ abstract class Collector implements CollectorInterface, ViewsCount
             )
         );
 
-        $q->when($this->reviewersNumber !== null, function (Builder $q) use ($currentReviewRound) {
-            $reviewersNumber = $this->reviewersNumber;
-            $includeUnassigned = false;
-            if (in_array(0, $reviewersNumber)) {
-                $reviewersNumber = array_diff($reviewersNumber, [0]);
-                $includeUnassigned = true;
-            }
-
-            $q
-                ->when(
-                    $includeUnassigned,
+        $q->when(
+            $this->numReviewsConfirmedLimit !== null,
+            fn (Builder $q) => $q
+                ->whereIn(
+                    's.submission_id',
                     fn (Builder $q) => $q
-                        ->whereNotIn(
-                            's.submission_id',
-                            fn (Builder $q) => $q
+                        ->select('s.submission_id')
+                        ->from('submissions AS s')
+                        // To retrieve submissions, which require review, we first must calculate the number of confirmed reviews per submission
+                        ->leftJoinSub(
+                            DB::table('review_assignments AS ra')
                                 ->select('ra.submission_id')
-                                ->from('review_assignments AS ra')
+                                ->selectRaw('COUNT(ra.submission_id) as reviews_number')
+                                ->groupBy('ra.submission_id')
+                                // Retrieve only reviews with the current review round
                                 ->joinSub(
                                     $currentReviewRound,
                                     'agrr',
                                     fn (JoinClause $join) =>
                                     $join->on('ra.submission_id', '=', 'agrr.submission_id')
                                 )
-                                ->where('ra.declined', 0)
-                                ->where('ra.cancelled', 0)
                                 ->whereColumn('ra.round', '=', 'agrr.current_round')
-                                ->distinct()
+                                ->whereNotNull('ra.date_confirmed'),
+                            'rw',
+                            fn (JoinClause $join) => $join->on('s.submission_id', '=', 'rw.submission_id')
+                        )
+                        // Identify submissions with less than the required number of reviews and without assignments
+                        ->where(
+                            fn (Builder $q) => $q
+                                ->where('rw.reviews_number', '<', $this->numReviewsConfirmedLimit)
+                                ->orWhereNull('rw.reviews_number')
                         )
                 )
-                ->when(!empty($reviewersNumber), function (Builder $q) use ($reviewersNumber, $currentReviewRound) {
-                    $placeholders = array_fill(0, count($reviewersNumber), '?');
-
-                    // Aggregate review assignments count per submission
-                    $assignmentsPerSubmission = DB::table('review_assignments', 'ra')
-                        ->select('ra.submission_id')
-                        ->selectRaw('COUNT(ra.submission_id) as number')
-                        ->where('ra.declined', 0)
-                        ->where('ra.cancelled', 0)
-                        ->groupBy('ra.submission_id')
-                        // Can't replace a single placeholder with array bindings, issue looks similar to laravel/framework#39554
-                        ->havingRaw('number IN (' . implode(',', $placeholders) . ')', $reviewersNumber);
-                    $q->whereIn(
-                        's.submission_id',
-                        fn (Builder $q) => $q
-                        // review assignments exist, counting the number of active assignments
-                            ->select('agra.submission_id')
-                            ->fromSub($assignmentsPerSubmission, 'agra')
-                            ->joinSub(
-                                $currentReviewRound,
-                                'agrr',
-                                fn (JoinClause $join) =>
-                                $join->on('agra.submission_id', '=', 'agrr.submission_id')
-                            )
-                    );
-                });
-        });
+        );
 
         $q->when(
             $this->awaitingReviews !== null,

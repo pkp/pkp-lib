@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-17 20:02+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "mr/>\n"
@@ -615,3 +615,50 @@ msgstr "{$stepName} या पायरीदरम्यान अडचण आ
 
 msgid "editor.submission.viewSummary"
 msgstr "गोषवारा"
+
+msgid "editor.review.reviewViewed"
+msgstr "समीक्षणाचे अवलोकन केले"
+
+msgid "editor.submission.search"
+msgstr "सादरीकरण, ID, लेखक, शोध-शब्द (की-वर्ड) इत्यादि शोधा."
+
+msgid "editor.submission.days"
+msgstr "दिवस"
+
+msgid "editor.submission.daysInStage"
+msgstr "टप्प्यासाठी (Stage) लागलेले दिवस"
+
+msgid "editor.review.logResponse.for"
+msgstr "लॉग प्रतिसादासाठी"
+
+msgid "editor.review.logResponse"
+msgstr "लॉग प्रतिसाद"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "एका प्रतिसादाची निवड आवश्यक आहे"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "समीक्षकाने समीक्षणाचे आमंत्रण स्वीकारले आहे"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "समीक्षकाने समीक्षणाचे आमंत्रण नाकारले आहे"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "समीक्षकाच्या वतीने प्रतिसाद नोंदवा"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"समीक्षकाने ई-मेल किंवा इतर कोणत्याही माध्यमातून तुमच्याशी प्रतिसाद पाठवला असे"
+"ल तर तुम्ही त्यांच्यावतीने त्यांचा प्रतिसाद नोंदवू शकता"
+
+msgid "editor.review.download"
+msgstr "समीक्षणाचा फॉर्म डाउनलोड करा"
+
+msgid "editor.review.authorOnly"
+msgstr "केवळ लेखकांसाठी (Author-Only) विभाग प्रदर्शित केले आहेत"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "सुचवलेल्या समीक्षकांमधून एक समीक्षक निवडा"
+
+msgid "editor.review.allSections"
+msgstr "संपादकाचा फॉर्म सगळे समीक्षणासाठी आवश्यक विभाग दर्शवितो"

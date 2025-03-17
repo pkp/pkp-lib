@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-17 12:23+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "mr/>\n"
@@ -156,7 +156,7 @@ msgid "manager.institutions.form.ror"
 msgstr "ROR (संशोधन संस्था नोंदणी)"
 
 msgid "manager.institutions.form.ror.description"
-msgstr "या संस्थेसाठी संशोधन संस्था नोंदणी (Research Organization Registry) ID."
+msgstr "या संस्थेचा संशोधन संस्था नोंदणी (Research Organization Registry) ID."
 
 msgid "manager.institutions.form.ipRanges"
 msgstr "IP श्रेणी"

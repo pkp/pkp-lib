@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2025-03-03 19:43+0000\n"
+"PO-Revision-Date: 2025-03-17 20:02+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/uk/>\n"
@@ -183,3 +183,24 @@ msgstr "Прочитайте огляд раунду {$round}"
 
 msgid "reviewer.submission.reviewRound.emailLog"
 msgstr "Причину відхилення надіслано електронною поштою"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Ключові слова"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Загальна інформація"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Додатки"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Це файли, які ви вклали разом із своєю рецензією"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Файли для рецензування"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Ці файли надіслано вам на рецензування"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Рецензування не завершено."

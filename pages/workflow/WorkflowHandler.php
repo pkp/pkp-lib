@@ -17,8 +17,6 @@
 namespace APP\pages\workflow;
 
 use APP\core\Application;
-use APP\decision\types\Decline;
-use APP\decision\types\RevertDecline;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\publication\Publication;
@@ -29,7 +27,6 @@ use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\notification\Notification;
 use PKP\pages\workflow\PKPWorkflowHandler;
-use PKP\plugins\Hook;
 use PKP\security\Role;
 
 class WorkflowHandler extends PKPWorkflowHandler
@@ -49,8 +46,6 @@ class WorkflowHandler extends PKPWorkflowHandler
                 'externalReview', // review
                 'editorial',
                 'production',
-                'submissionHeader',
-                'submissionProgressBar',
             ]
         );
     }
@@ -164,55 +159,6 @@ class WorkflowHandler extends PKPWorkflowHandler
                 'publicationId' => '__publicationId__',
             ]
         );
-    }
-
-    protected function getStageDecisionTypes(int $stageId): array
-    {
-        if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new Exception('Only the production stage is supported in OPS.');
-        }
-
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-
-        $decisionTypes = [];
-        switch ($stageId) {
-            case WORKFLOW_STAGE_ID_PRODUCTION:
-                if ($submission->getData('status') === Submission::STATUS_DECLINED) {
-                    $decisionTypes[] = new RevertDecline();
-                } elseif ($submission->getData('status') === Submission::STATUS_QUEUED) {
-                    $decisionTypes[] = new Decline();
-                }
-                break;
-        }
-
-        Hook::call('Workflow::Decisions', [&$decisionTypes, $stageId]);
-
-        return $decisionTypes;
-    }
-
-    protected function getStageRecommendationTypes(int $stageId): array
-    {
-        if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new Exception('Only the production stage is supported in OPS.');
-        }
-
-        $decisionTypes = [];
-
-        Hook::call('Workflow::Recommendations', [$decisionTypes, $stageId]);
-
-        return $decisionTypes;
-    }
-
-    protected function getPrimaryDecisionTypes(): array
-    {
-        return [];
-    }
-
-    protected function getWarnableDecisionTypes(): array
-    {
-        return [
-            Decline::class,
-        ];
     }
 
     protected function getTitleAbstractForm(string $latestPublicationApiUrl, array $locales, Publication $latestPublication, Context $context): TitleAbstractForm

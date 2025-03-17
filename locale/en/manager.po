@@ -2602,6 +2602,10 @@ msgstr ""
 "This link will only be displayed if you have entered a privacy statement "
 "under Settings > Workflow > Submissions."
 
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "The menu item title is required."
+
 msgid "grid.category.add"
 msgstr "Add Category"
 

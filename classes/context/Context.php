@@ -49,6 +49,11 @@ abstract class Context extends \PKP\core\DataObject
     public const SUBMISSION_ACKNOWLEDGEMENT_OFF = null;
     public const SUBMISSION_ACKNOWLEDGEMENT_SUBMITTING_AUTHOR = 'submittingAuthor';
     public const SUBMISSION_ACKNOWLEDGEMENT_ALL_AUTHORS = 'allAuthors';
+    /*
+     * The minimum number of completed reviews per submission required to move the submission to the next stage
+     * can be adjusted by modification of the context setting `numReviewsPerSubmission`
+     */
+    public const REVIEWS_REQUIRED_COUNT = 1;
 
     /**
      * Whether DOIs are enabled for this context
@@ -594,5 +599,19 @@ abstract class Context extends \PKP\core\DataObject
             'subjects',
             'type',
         ])->filter(fn ($prop) => $this->getData($prop) === self::METADATA_REQUIRE)->toArray();
+    }
+
+    /**
+     * Get the minimal number of reviews required to move the submission to the next stage
+     */
+    public function getNumReviewsPerSubmission(): int
+    {
+        $numReviewsPerSubmission = intval($this->getData('numReviewsPerSubmission'));
+
+        if ($numReviewsPerSubmission < self::REVIEWS_REQUIRED_COUNT) {
+            return self::REVIEWS_REQUIRED_COUNT;
+        }
+
+        return $numReviewsPerSubmission;
     }
 }

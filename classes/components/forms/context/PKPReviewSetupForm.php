@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPReviewSetupForm.php
  *
@@ -17,12 +18,11 @@
 namespace PKP\components\forms\context;
 
 use PKP\components\forms\FieldHTML;
-use PKP\context\Context;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use PKP\services\PKPSchemaService;
+use PKP\context\Context;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class PKPReviewSetupForm extends FormComponent
@@ -108,10 +108,10 @@ class PKPReviewSetupForm extends FormComponent
                 'size' => 'small',
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]))
-            ->addField(new FieldText('numReviewersPerSubmission', [
-                'label' => __('manager.setup.reviewOptions.numReviewersPerSubmission'),
-                'description' => __('manager.setup.reviewOptions.numReviewersPerSubmission.description'),
-                'value' => $context->getData('numReviewersPerSubmission'),
+            ->addField(new FieldText('numReviewsPerSubmission', [
+                'label' => __('manager.setup.reviewOptions.numReviewsPerSubmission'),
+                'description' => __('manager.setup.reviewOptions.numReviewsPerSubmission.description'),
+                'value' => $context->getNumReviewsPerSubmission(),
                 'size' => 'small',
                 'groupId' => self::REVIEW_SETTINGS_GROUP,
             ]));
@@ -173,7 +173,7 @@ class PKPReviewSetupForm extends FormComponent
                 'valueLabelMin' => __('manager.setup.reviewOptions.reminders.disbale.label'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]));
-        
+
         return $this;
     }
 
@@ -184,7 +184,7 @@ class PKPReviewSetupForm extends FormComponent
     {
         $schema = app()->get('schema'); /** @var \PKP\services\PKPSchemaService $schema */
 
-        if (!collect($schema->get("context")->properties)->has("reviewerSuggestionEnabled")) {
+        if (!collect($schema->get('context')->properties)->has('reviewerSuggestionEnabled')) {
             return $this;
         }
 

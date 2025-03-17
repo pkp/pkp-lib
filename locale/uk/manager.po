@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2024-11-12 09:41+0000\n"
+"PO-Revision-Date: 2025-03-17 20:02+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -3839,3 +3839,123 @@ msgstr "Перевіряти XML перед експортом та реєстр
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Установлена версія: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Мови вебсайту"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Надіслати нагадування електронною поштою до або після відповіді на запит "
+"щодо рецензування (якщо рецензент ще не відповів на запит щодо рецензування) "
+"або щодо подання рецензії (якщо рецензент ще не надіслав рецензію)"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Потрібна мінімальна кількість підтверджених рецензій"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Автор може запропонувати кількох потенційних рецензентів до завершення "
+"подання, що може спростити процес рецензування та надати цінний внесок для "
+"редакційної команди."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Не вдалося зберегти налаштування мови. Усі параметри мають бути ввімкнені."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Автор {$authorName} не має афілійованої назви мовою подання, {$localeName}. "
+"Подання не можна імпортувати без цієї інформації."
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Додати / Вилучити мови"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Для подання потрібна мінімальна кількість підтверджених рецензій"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Наведене нижче відображається авторам під час кроку пропонування рецензента. "
+"Надайте коротке пояснення того, яку інформацію має надати автор про себе, "
+"співавторів та будь-яких інших учасників."
+
+msgid "settings.roles.masthead"
+msgstr "Розгляньте роль у верхньому списку"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Посилання на сторінку, на якій відображаються всі активні редакційні послуги "
+"у верхньому банері."
+
+msgid "settings.roles.permitSettings"
+msgstr "Дозволити зміни налаштувань"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Визначте порядок ролей у заголовку для публічного показу."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Визначте порядок редакційних ролей заголовка для загального показу."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензенти відображатимуться в стандартизованому форматі, щоб підтримувати "
+"однаковість і забезпечити легкість виявлення в цьому розділі."
+
+msgid "manager.language.submissionLanguages"
+msgstr "Мови подання"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метадані"
+
+msgid "manager.language.submission.form.description"
+msgstr "Вибрати мови подання та метаданих."
+
+msgid "manager.language.submission.from.error"
+msgstr "Потрібно вибрати щонайменше одну локалізацію."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Установити нагадування про рецензію"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Переглянути відповідь на запит – до настання терміну"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Переглянути відповідь на запит – після закінчення терміну"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Переглянути подання – після встановленого терміну"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Переглянути подання – до встановленого терміну"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} днів до терміну"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} днів після терміну"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Жодного"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Нагадування не встановлено"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Пропозиція рецензента для подання"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Дозвольте авторам пропонувати потенційних рецензентів під час процедури "
+"подання"
+
+msgid "notification.submissionLocales"
+msgstr "Оновлено локалізації подання."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Будь ласка, надайте історію редагування, включаючи повне ім’я, "
+"афілійованість, а також дати початку та закінчення діяльності кожного "
+"редактора."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Запрошення на зміну електронної адреси"

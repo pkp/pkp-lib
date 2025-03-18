@@ -29,6 +29,7 @@ use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 
 class PKPAuthorForm extends Form
 {
@@ -157,7 +158,7 @@ class PKPAuthorForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $context = $request->getContext();
-        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId());
+        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds($context->getId())->get();
         $publication = $this->getPublication();
         $countries = [];
         foreach (Locale::getCountries() as $country) {

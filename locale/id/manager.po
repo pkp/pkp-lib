@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
+"PO-Revision-Date: 2025-03-18 17:54+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -289,43 +289,45 @@ msgid "manager.dois.status.needsDoi.description"
 msgstr "Tidak terdapat DOI pada semua item."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Semua Item diberi DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Semua item dengan DOI yang telah diterbitkan tetapi belum dideposit dengan "
+"agensi registrasi."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Semua item telah dikirimkan kepada agensi registrasi."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Semua item yang ditemukan eror pada proses pendaftaran."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Pembaruan DOI Gagal"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Beberapa DOI tidak dapat diperbarui"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Item telah berhasil diekspor"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Item telah berhasil ditandai terdaftar"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Item telah berhasil ditandai tidak terdaftar"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Item telah berhasil ditandai membutuhkan sinkronisasi"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Item telah berhasil diberikan DOI terbaru"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr ""
@@ -355,19 +357,19 @@ msgid "manager.institutions.form.ror.description"
 msgstr ""
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "Rentang IP"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Hapus Institusi"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Apakah anda yakin untuk melanjutkan dan menghapus institusi ini?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Rentang IP tidak sah"
 
 msgid "manager.publication.submissionStage"
 msgstr "Naskah Masuk"
@@ -391,13 +393,15 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Rincian pemberutahuan review telah diperbaharui."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Pesan berikut dikembalikan oleh {$registrationAgency} dan berisi detail "
+"tentang registrasi:"
 
 msgid "manager.emails.addEmail"
 msgstr "Tambahkan Template"
@@ -750,47 +754,46 @@ msgid "manager.roles"
 msgstr "Peran"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Statistik"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Statistik Geografis"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Jangan mengumpulkan data geografis"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Mengumpulkan negara pengunjung"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Mengumpulkan negara dan wilayah pengunjung"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Mengumpulkan negara, wilayah dan kota pengunjung"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Statistik Institusi"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Mengizinkan statistik institusi"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "API Publik"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Membuat statistik COUNTER SUSHI tersedia secara bebas"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Pembuat Laporan"
+msgstr "Laporan"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -809,22 +812,22 @@ msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Pengaturan"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Pendaftaran"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Prefiks DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Deposit Otomatis"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Mengijinkan deposit otomatis"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
@@ -839,34 +842,34 @@ msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Pemberian DOI otomatis"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Kapan seharusnya naskah diberikan DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Saat penerbitan"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Tidak pernah"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "Prefiks DOI"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Konten Jurnal"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Prefiks DOI diwajibkan"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "Akhiran DOI"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Sufiks DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Pola Sufiks DOI Kustom"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
@@ -883,37 +886,37 @@ msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Pola Kustomisasi - (tidak direkomendasi)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Agensi Pendaftaran"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Tidak ada Agensi Registrasi yang Diaktifkan"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Tidak ada"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Versi DOI"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Anda tidak dapat menjalankan operasi ini tanpa mengaktifkan DOI."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Terdapat {$count} versi."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Lihat semua"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI untuk semua versi"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr ""
@@ -3435,3 +3438,65 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Anda harus <a href=\"#announcements/announcement-settings\">mengizinkan "
 "pengumuman</a>."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Bahasa Situs"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Bahasa Naskah"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Menambahkan/Menghilangkan Bahasa"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Pilih bahasa naskah dan metadata."
+
+msgid "manager.language.submission.from.error"
+msgstr "Setidaknya satu lokal harus dipilih."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Pengaturan Laporan"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Tanggal Mulai"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atribut Yang Ditampilkan"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Tahun Terbit"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP format tidak sah."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID Naskah"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID naskah tidak ada."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Termasuk Detail Parent"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Tidak Termasuk Detail Bulanan"
+
+msgid "manager.image"
+msgstr "Gambar"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Laporan Counter R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Belum ada statistik penggunaan COUNTER R5 yang tersedia."
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Tanggal harus dalam format YYYY-MM-DD atau YYYY-MM. Tanggal paling awal yang "
+"memungkinkan adalah {$earliestDate}."

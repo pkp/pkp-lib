@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-15 22:18+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
@@ -786,3 +786,37 @@ msgstr "Institusi <strong>{$affiliation}</strong> akan dihapus."
 
 msgid "user.affiliations.searchPhraseLabel"
 msgstr "Ketik nama institusi dalam {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Frasa pencarian anda tidak dapat ditemukan"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Bahasa utama {$primaryLocale} diperlukan"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Akses alur kerja untuk naskah yang tidak lengkap dibatasi."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Menambahkan, memperbarui atau menghapus saran reviewer untuk naskah yang "
+"sudah lengkap dibatasi."
+
+msgid "orcid.manager.settings.saved"
+msgstr "Pengaturan disimpan"
+
+msgid "user.usernameOrEmail"
+msgstr "Username atau Email"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Memilih Inisial Avatar"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Masukkan dua huruf yang akan anda gunakan sebagai avatar anda. Inisial ini "
+"akan ditampilkan untuk mewakili anda."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Mohon tambahkan afiliasi pada bahasa naskah."
+
+msgid "user.role.ended"
+msgstr "Peran berakhir"

@@ -2965,10 +2965,10 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "Կստեղծվի վերանայման նոր փուլ"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "Հրապարակվելու է ${issue} համարում"
+msgstr "Հրապարակվելու է {$issue} համարում"
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "Սրբագրման նիշքերը վերբեռնվել են՝ ${count}"
+msgstr "Սրբագրման նիշքերը վերբեռնվել են՝ {$count}"
 
 msgid "dashboard.revisionRequested"
 msgstr "Խնդրվում է վերանայում"

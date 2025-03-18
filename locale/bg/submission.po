@@ -3105,10 +3105,10 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "Предстои създаване на нов кръг за рецензиране"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "Ще бъде публикуван в брой ${issue}"
+msgstr "Ще бъде публикуван в брой {$issue}"
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "Качени оформителски файлове: ${count}"
+msgstr "Качени оформителски файлове: {$count}"
 
 msgid "dashboard.revisionRequested"
 msgstr "Поискана е ревизия"

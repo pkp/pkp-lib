@@ -1991,7 +1991,7 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "नव्या समीक्षणासाठी फेरी निर्माण केली जाईल"
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "कॉपीएडिट केलेल्या ${count} फाईल्स संक्रमित (अपलोड) केल्या"
+msgstr "कॉपीएडिट केलेल्या {$count} फाईल्स संक्रमित (अपलोड) केल्या"
 
 msgid "dashboard.submitRevisions"
 msgstr "सुधारीत आवृत्ती (revision) सादर करा"
@@ -2866,7 +2866,7 @@ msgstr ""
 "जातील"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "${issue} या अंकात प्रकाशित होणारे"
+msgstr "{$issue} या अंकात प्रकाशित होणारे"
 
 msgid "dashboard.revisionRequested"
 msgstr "सुधारीत आवृत्तीसाठी (revision) विनंती केली आहे"

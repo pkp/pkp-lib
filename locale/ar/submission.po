@@ -2851,10 +2851,10 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "جولة تحكيم جديدة من المزمع إنشاؤها"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "بصدد النشر ضمن العدد ${issue}"
+msgstr "بصدد النشر ضمن العدد {$issue}"
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "ملفات التدقيق التي رُفعت: ${count}"
+msgstr "ملفات التدقيق التي رُفعت: {$count}"
 
 msgid "dashboard.revisionRequested"
 msgstr "التحكيم تم إلتماسه"

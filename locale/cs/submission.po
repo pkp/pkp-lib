@@ -3110,10 +3110,10 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "Bude vytvořeno nové recenzní kolo"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "Bude zveřejněno v čísle ${issue}"
+msgstr "Bude zveřejněno v čísle {$issue}"
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "Nahrané copyeditované soubory: ${count}"
+msgstr "Nahrané copyeditované soubory: {$count}"
 
 msgid "dashboard.revisionRequested"
 msgstr "Jsou vyžadovány úpravy"

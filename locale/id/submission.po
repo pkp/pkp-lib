@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-15 22:18+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
@@ -293,7 +293,7 @@ msgid "metadata.property.validationMessage.doi"
 msgstr "Masukkan DOI yang valid."
 
 msgid "metadata.property.displayName.publisher-id"
-msgstr "Custom Publication ID"
+msgstr "ID Penerbitan Custom"
 
 msgid "metadata.property.validationMessage.publisher-id"
 msgstr "Masukkan custom publication ID valid."
@@ -317,7 +317,7 @@ msgid "metadata.property.validationMessage.pmid"
 msgstr "Masukkan PMID yang valid."
 
 msgid "metadata.property.displayName.uri"
-msgstr "tautan  ke penerbitan"
+msgstr "Tautan ke Penerbitan"
 
 msgid "metadata.property.validationMessage.uri"
 msgstr "Masukkan tautan alternatif yang valid ke penerbitan."
@@ -349,17 +349,16 @@ msgstr "Tipe Judul"
 
 msgid "metadata.property.validationMessage.title-type"
 msgstr ""
-"Pastikan Anda mengatur tipe judul yang valid.\n"
-"Pastikan Anda mengatur tipe judul yang valid. Nilai dukungan adalah "
-"\"disingkat\", \"diterjemahkan\", \"alternatif\" dan \"seragam\"."
+"Pastikan anda mengatur tipe judul yang sah. Nilai dukungan adalah \"disingkat"
+"\", \"diterjemahkan\", \"alternatif\" dan \"seragam\"."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Bagian judul diabaikan saat menyortir"
 
 msgid "metadata.property.validationMessage.nonSort"
 msgstr ""
-"Masukkan hanya karakter awal  judul yang seharusnya diabaikan saat menyortir "
-"file."
+"Mohon hanya memasukkan karakter awal judul yang seharusnya diabaikan saat "
+"menyortir file."
 
 msgid "metadata.property.displayName.title"
 msgstr "Judul"
@@ -528,7 +527,7 @@ msgid "submission.copyedited"
 msgstr "Copyedit"
 
 msgid "submission.copyediting"
-msgstr "Copyediting"
+msgstr "Copyedit"
 
 msgid "submission.queryNoteFiles"
 msgstr "File Diskusi"
@@ -558,7 +557,7 @@ msgid "submission.editMetadata"
 msgstr "Edit Metadata"
 
 msgid "submission.editorial"
-msgstr "Copyediting"
+msgstr "Copyedit"
 
 msgid "submission.email.backToEmailLog"
 msgstr "Kembali ke log email"
@@ -799,7 +798,7 @@ msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Hapus stylesheet ini."
 
 msgid "submission.layout.editGalley"
-msgstr "Edit  Galley Layout"
+msgstr "Edit Tata Letak Galley"
 
 msgid "submission.layout.galleyFormat"
 msgstr "Format Galley"
@@ -1056,7 +1055,9 @@ msgid "submission.submit.fileAdded"
 msgstr "File Ditambahkan"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Sertakan kontributor ini dalam daftar pencarian?"
+msgstr ""
+"Sertakan kontributor ini saat mengidentifikasi penulis pada daftar "
+"penerbitan."
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Daftar Publikasi"
@@ -1442,96 +1443,130 @@ msgstr "Naskah Diterima"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Naskah, {$title}, telah diterima untuk diterbitkan dan dikirim ke tahap "
+"copyedit. Semua notifikasi telah dikirim, kecuali jika anda memilih untuk "
+"melewatinya."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Mengirimkan email ke penulis untuk memberitahukan kepada mereka bahwa naskah "
+"mereka telah diterima untuk diterbitkan. Email tidak akan dikirimkan hingga "
+"keputusan telah dicatat."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Mengirimkan email ke penulis untuk memberitahukan mereka bahwa tahapan "
+"review telah ditutup. Email ini tidak akan dikirim hingga keputusan telah "
+"dicatat."
 
 msgid "editor.submission.decision.decline"
 msgstr "Tolak Naskah"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Naskah ini akan ditolak untuk diterbitkan. Tahapan peer review akan ditutup "
+"dan naskah akan diarsipkan."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} menolak naskah ini."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Naskah Ditolak"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Naskah, {$title}, telah ditolak dan dikirim untuk diarsipkan. Semua "
+"notifikasi telah dikirimkan, kecuali jika anda memilih untuk melewatinya."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Mengirimkan email kepada penulis untuk memberitahukan kepada mereka bahwa "
+"naskah telah ditolak. Email tidak akan dikirim hingga keputusan telah "
+"dicatat."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Naskah ini akan ditolak untuk diterbitkan. Tidak ada review lebih lanjut "
+"yang akan diadakan dan naskah akan diarsipkan."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Putaran Review Baru"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Buka putaran review baru untuk naskah ini."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr ""
+msgstr "{$editorName} telah membuat putaran review yang baru untuk naskah ini."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Putaran Review telah Dibuat"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Putaran review yang baru telah dibuat untuk naskah, {$title}. Penulis telah "
+"diberitahu, kecuali jika anda memilih untuk melewati email tersebut."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Mengirimkan email kepada penulis untuk memberitahukan kepada mereka bahwa "
+"naskah mereka telah dikirim untuk putaran review yang baru. Email ini tidak "
+"akan dikirim hingga keputusan telah dicatat."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Memilih file yang harus dikirimkan ke tahap copyedit."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Memilih file yang harus dikirimkan untuk review."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Memilih file yang harus dikirimkan ke tahap produksi."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Ajukan Revisi"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Penulis harus memberikan revisi sebelum naskah ini diterima untuk "
+"diterbitkan."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} meminta revisi untuk naskah ini."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Revisi Diminta"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Revisi untuk naskah, {$title}, telah diminta. Semua notifikasi telah "
+"dikirim, kecuali jika anda memilih untuk melewatinya."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Mengirimkan email ke penulis untuk memberitahukan kepada mereka bahwa revisi "
+"akan diminta sebelum naskah ini diterima untuk diterbitkan. Termasuk semua "
+"detail yang dibutuhkan penulis untuk merevisi naskah mereka. Jika sesuai, "
+"ingat untuk menganonimkan semua komentar reviewer. Email ini tidak akan "
+"dikirimkan hingga keputusan dicatat."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Membatalkan Putaran Review"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} membatalkan putaran review."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Membatalkan putaran terbaru dari review."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Hanya dapat membatalkan tahap review jika tidak ada reviewer yang telah "
+"melengkapi atau mengirimkan review tersedia."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Kirim ulang untuk direview"
@@ -1541,9 +1576,11 @@ msgstr ""
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} meminta revisi dari naskah ini yang harus dikirimkan untuk "
+"tahapan review yang baru."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Revisi Diminta"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
@@ -1552,16 +1589,16 @@ msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Dikirimkan untuk Review"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Naskah ini telah siap untuk dikirimkan untuk tahap review."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} mengirimkan naskah ini ke tahap review."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Dikirimkan untuk Review"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
@@ -1573,13 +1610,13 @@ msgid "editor.submission.decision.sendToProduction"
 msgstr "Kirim Ke Bagian Produksi"
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr ""
+msgstr "Mengirimkan naskah ini ke tahap produksi untuk persiapan penerbitan."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} mengirimkan naskah ini ke tahap produksi."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Dikirimkan ke Produksi"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
@@ -1588,16 +1625,16 @@ msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Membatalkan Copyedit"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Mengirimkan naskah kembali dari tahap copyedit."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr ""
+msgstr "{$editorName} telah mengirimkan naskah ini kembali ke tahap copyedit."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Dikirim Kembali dari Copyedit"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
@@ -1606,16 +1643,16 @@ msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Kembali Ke Copyedit"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Mengirimkan naskah ini kembali ke tahap copyedit."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} mengirimkan naskah ini kembali ke tahap copyedit."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Dikirim Kembali ke Copyedit"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
@@ -1631,9 +1668,11 @@ msgstr ""
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} melewati tahap review dan mengirimkan naskah ini ke tahap "
+"copyedit."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Review yang Terlewat"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
@@ -1664,13 +1703,13 @@ msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} membatalkan keputusan untuk menolak naskah ini."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Naskah Diaktifkan Kembali"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "Naskah, {$title}, sekarang adalah naskah aktif pada tahap review."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -1686,46 +1725,56 @@ msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Rekomendasi Diterima"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Rekomendasi bahwa naskah ini diterima untuk diterbitkan dan dikirim untuk "
+"dicopyedit."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} merekomendasi bahwa naskah ini telah diterima dan dikirimkan "
+"untuk dicopyedit."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Rekomendasi Dikirimkan"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Rekomendasi anda telah dicatat dan editor yang membuat keputusan telah "
+"dinotifikasi."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Rekomendasi Revisi"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Rekomendasi bahwa revisi diminta dari penulis sebelum naskah ini diterima "
+"untuk diterbitkan."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} merekomendasikan bahwa revisi diminta."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Rekomendasi Pengiriman Kembali untuk Review"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Rekomendasi bahwa penulis diminta untuk mengirimkan revisi untuk putaran "
+"review yang lain."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Rekomendasi Penolakan"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Rekomendasi bahwa naskah ditolak untuk diterbitkan."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} merekomendasikan bahwa naskah ini ditolak."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Buat Rekomendasi"
@@ -1914,6 +1963,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Mengirimkan kembali permintaan pada tahap {$round} kepada {$reviewerName} "
+"untuk naskah {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2013,7 +2064,7 @@ msgid "submission.copyright"
 msgstr "Hak Cipta"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Ya, saya setuju dengan pernyataan hak cipta."
 
 msgid "submission.copyrightHolder"
 msgstr "Pemegang Hak Cipta"
@@ -2031,7 +2082,7 @@ msgid "submission.copyrightStatement"
 msgstr "Hak Cipta (c) {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
-msgstr "Tambahkan URL luar yang valid  (cantumkn http://)."
+msgstr "Tambahkan URL luar yang valid (termasuk http://)."
 
 msgid "submission.licenseURL"
 msgstr "URL Lisensi"
@@ -2088,11 +2139,11 @@ msgstr ""
 
 msgid "submission.license.cc.by4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by/4.0/88x31.png\" /></a><p>Artikel ini berlisensi  <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons "
-"Attribution 4.0 International License</a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Artikel ini berlisensi <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 "
+"International License</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
 msgstr ""
@@ -2398,7 +2449,7 @@ msgid "publication.createVersion"
 msgstr "Buat Versi Baru"
 
 msgid "publication.datePublished.errorFormat"
-msgstr "Taggal harus dalam format  YYYY-MM-DD, contoh 2019-01-01."
+msgstr "Tanggal harus dalam format YYYY-MM-DD, misalnya 2019-01-01."
 
 msgid "publication.event.versionCreated"
 msgstr "Versi baru telah dibuat."
@@ -2563,3 +2614,25 @@ msgstr "Rekomendasi telah dibuat oleh anda."
 
 msgid "editor.submission.reviewerSuggestions"
 msgstr "Reviewer Disarankan oleh Penulis"
+
+msgid "submission.review.status.viewed"
+msgstr "Editor telah melihat review."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Anda dapat memperbarui diskusi ini untuk {$allowedEditTimeNoticeLimit} menit."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Bahasa Naskah Terkini:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Perubahan"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Perubahan Bahasa Naskah Untuk"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Menghapus Naskah yang Tidak Lengkap"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Memilih naskah yang tidak lengkap untuk dihapus."

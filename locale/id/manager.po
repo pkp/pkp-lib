@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -193,91 +193,100 @@ msgstr ""
 "ini sebagai tidak dipakai?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Ekspor DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Anda akan mengekspor rekod metadata DOI sejunlah {$count} untuk "
+"{$registrationAgency}. Apakah anda yakin untuk mengekspor rekod ini?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Menentukan DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Anda akan menentukan DOI baru sejumlah {$count} untuk item yang memenuhi "
+"syarat yang belum memiliki DOI. Apakah anda yakin untuk menentukan DOI untuk "
+"item-item ini?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Deposit semua DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Anda akan menjadwalkan semua rekod metadata DOI yang belum selesai untuk "
+"dideposit dengan {$registrationAgency}. Hanya item yang sudah terbit dengan "
+"DOI yang akan dideposit. Setiap status item akan diperbarui ketika tanggapan "
+"diterima. Apa anda yakin ingin menjadwalkan deposit untuk semua item ini?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Mengambil langkah untuk {$count} item yang dipilih."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Tindakan Massal"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Status Deposit"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Status Penerbitan"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Metadata untuk item ini telah dikirimkan ke {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Item ini telah didaftarkan secara manual dengan agensi pendaftaran."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Metadata untuk item ini belum dikirim ke {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Item ini tidak dapat dideposit sampai diterbitkan."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Lihat Error"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Pesan Error Pendaftaran"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Lihat Rekod"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Pesan Pendaftaran Sukses"
 
 msgid "manager.dois.update.success"
-msgstr ""
+msgstr "DOI telah berhasil diperbarui"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Deposit DOI"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Membutuhkan DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Tidak terdaftar"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Dikirimkan"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Didaftarkan"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Eror"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Terdapat Eror"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Membutuhkan Sinkronisasi"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI Ditetapkan"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Tidak terdapat DOI pada semua item."
 
 msgid "manager.dois.filters.doiAssigned.description"
 msgstr ""

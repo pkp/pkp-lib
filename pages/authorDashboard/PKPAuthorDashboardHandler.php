@@ -92,18 +92,9 @@ abstract class PKPAuthorDashboardHandler extends Handler
      */
     public function submission($args, $request)
     {
-        if (Config::getVar('features', 'enable_new_submission_listing')) {
-            $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-            $router = $request->getRouter();
-            return $request->redirectUrl($router->url($request, null, 'dashboard', 'mySubmissions', null, ['workflowSubmissionId' => $submission->getId()]));
-        }
-
-
-        // Pass the authorized submission on to the template.
-        $this->setupTemplate($request);
-
-        $templateMgr = TemplateManager::getManager($request);
-        return $templateMgr->display('authorDashboard/authorDashboard.tpl');
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $router = $request->getRouter();
+        return $request->redirectUrl($router->url($request, null, 'dashboard', 'mySubmissions', null, ['workflowSubmissionId' => $submission->getId()]));
     }
 
 

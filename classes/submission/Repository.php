@@ -766,20 +766,6 @@ abstract class Repository
      */
     public function getUrlAuthorWorkflow(Context $context, int $submissionId): string
     {
-        if (Config::getVar('features', 'enable_new_submission_listing')) {
-            return Application::get()->getDispatcher()->url(
-                Application::get()->getRequest(),
-                Application::ROUTE_PAGE,
-                $context->getData('urlPath'),
-                'dashboard',
-                'mySubmissions',
-                null,
-                ['workflowSubmissionId' => $submissionId]
-            );
-
-        }
-
-
         return Application::get()->getDispatcher()->url(
             Application::get()->getRequest(),
             Application::ROUTE_PAGE,

@@ -73,20 +73,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         Route::get('', $this->getMany(...))
             ->name('_submission.getMany')
             ->middleware([
-                self::roleAuthorizer(
-                    Config::getVar('features', 'enable_new_submission_listing')
-                        ? [
-                            Role::ROLE_ID_SITE_ADMIN,
-                            Role::ROLE_ID_MANAGER,
-                        ] : [
-                            Role::ROLE_ID_SITE_ADMIN,
-                            Role::ROLE_ID_MANAGER,
-                            Role::ROLE_ID_SUB_EDITOR,
-                            Role::ROLE_ID_AUTHOR,
-                            Role::ROLE_ID_REVIEWER,
-                            Role::ROLE_ID_ASSISTANT,
-                        ]
-                ),
+                self::roleAuthorizer([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]),
             ]);
 
         Route::delete('', $this->bulkDeleteIncompleteSubmissions(...))
@@ -110,50 +97,47 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             ])
             ->whereNumber('submissionId');
 
-        if (Config::getVar('features', 'enable_new_submission_listing')) {
+        Route::get('assigned', $this->assigned(...))
+            ->name('_submission.assigned')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_ASSISTANT,
+                    Role::ROLE_ID_AUTHOR,
+                ]),
+            ]);
 
-            Route::get('assigned', $this->assigned(...))
-                ->name('_submission.assigned')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
-                    ]),
-                ]);
+        Route::get('reviews', $this->reviews(...))
+            ->name('_submission.reviews')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_ASSISTANT,
+                    Role::ROLE_ID_AUTHOR,
+                ])
+            ]);
 
-            Route::get('reviews', $this->reviews(...))
-                ->name('_submission.reviews')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
-                    ])
-                ]);
+        Route::get('viewsCount', $this->getViewsCount(...))
+            ->name('_submission.getViewsCount')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                    Role::ROLE_ID_ASSISTANT,
+                    Role::ROLE_ID_AUTHOR,
+                    Role::ROLE_ID_REVIEWER,
+                ])
+            ]);
 
-            Route::get('viewsCount', $this->getViewsCount(...))
-                ->name('_submission.getViewsCount')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
-                        Role::ROLE_ID_REVIEWER,
-                    ])
-                ]);
-
-            Route::get('reviewerAssignments', $this->getReviewAssignments(...))
-                ->name('_submission.getReviewAssignments')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_REVIEWER,
-                    ])
-                ]);
-        }
+        Route::get('reviewerAssignments', $this->getReviewAssignments(...))
+            ->name('_submission.getReviewAssignments')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_REVIEWER,
+                ])
+            ]);
     }
 
     /**
@@ -205,26 +189,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-
-        /**
-         * FIXME: Clean up before release pkp/pkp-lib#7495.
-         * In new submission lists this endpoint is dedicated to retrieve all submissions only by admins and managers
-         */
-        if (!Config::getVar('features', 'enable_new_submission_listing')) {
-
-            // Anyone not a manager or site admin can only access their assigned submissions
-            $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-            Hook::run('API::_submissions::params', [$collector, $illuminateRequest]);
-            if (!$canAccessUnassignedSubmission) {
-                if (!is_array($collector->assignedTo)) {
-                    $collector->assignedTo([$currentUser->getId()]);
-                } elseif ($collector->assignedTo != [$currentUser->getId()]) {
-                    return response()->json([
-                        'error' => __('api.submissions.403.requestedOthersUnpublishedSubmissions'),
-                    ], Response::HTTP_FORBIDDEN);
-                }
-            }
-        }
 
         $submissions = $collector->getMany();
 

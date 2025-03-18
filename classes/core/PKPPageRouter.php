@@ -421,20 +421,18 @@ class PKPPageRouter extends PKPRouter
             return $request->url(null, 'index');
         }
 
-        if (Config::getVar('features', 'enable_new_submission_listing')) {
-            $roleIdsArray = $userGroups->pluck('role_id')->all();
+        $roleIdsArray = $userGroups->pluck('role_id')->all();
 
-            if (array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray)) {
-                return $request->url(null, 'dashboard', 'editorial');
-            }
+        if (array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray)) {
+            return $request->url(null, 'dashboard', 'editorial');
+        }
 
-            if (in_array(Role::ROLE_ID_REVIEWER, $roleIdsArray)) {
-                return $request->url(null, 'dashboard', 'reviewAssignments');
-            }
+        if (in_array(Role::ROLE_ID_REVIEWER, $roleIdsArray)) {
+            return $request->url(null, 'dashboard', 'reviewAssignments');
+        }
 
-            if (in_array(Role::ROLE_ID_AUTHOR, $roleIdsArray)) {
-                return $request->url(null, 'dashboard', 'mySubmissions');
-            }
+        if (in_array(Role::ROLE_ID_AUTHOR, $roleIdsArray)) {
+            return $request->url(null, 'dashboard', 'mySubmissions');
         }
 
         return $request->url(null, 'submissions');

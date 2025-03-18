@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file pages/dashboard/DashboardHandlerNext.php
+ * @file pages/dashboard/DashboardHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DashboardHandlerNext
+ * @class DashboardHandler
  *
  * @ingroup pages_dashboard
  *
@@ -52,7 +52,7 @@ enum DashboardPage: string
 }
 
 
-abstract class PKPDashboardHandlerNext extends Handler
+abstract class PKPDashboardHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;

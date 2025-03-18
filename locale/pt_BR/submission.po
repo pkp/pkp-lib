@@ -3312,7 +3312,7 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "Nova rodada de avaliação a ser criada"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "A ser publicada na edição ${issue}"
+msgstr "A ser publicada na edição {$issue}"
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "Avaliação atrasada por {$days} dias"
@@ -3412,7 +3412,7 @@ msgid "submission.review.status.viewed"
 msgstr "O editor visualizou a avaliação."
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "Arquivos editados enviados: ${count}"
+msgstr "Arquivos editados enviados: {$count}"
 
 msgid "dashboard.revisionRequested"
 msgstr "Revisão solicitada"

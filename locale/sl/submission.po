@@ -2916,10 +2916,10 @@ msgid "dashboard.newReviewRoundToBeCreated"
 msgstr "Ustvarjen bo nov recenzijski krog"
 
 msgid "dashboard.toBePublishedInIssue"
-msgstr "Objavljeno bo v številki ${issue}"
+msgstr "Objavljeno bo v številki {$issue}"
 
 msgid "dashboard.copyEditedFilesUploaded"
-msgstr "Naložene recenzentske datoteke: ${count}"
+msgstr "Naložene recenzentske datoteke: {$count}"
 
 msgid "dashboard.submitRevisions"
 msgstr "Oddaj popravke"

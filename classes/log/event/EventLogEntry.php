@@ -33,7 +33,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Get user ID of user that initiated the event.
      */
-    public function getUserId(): int
+    public function getUserId(): ?int
     {
         return $this->getData('userId');
     }
@@ -41,7 +41,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set user ID of user that initiated the event.
      */
-    public function setUserId(int $userId): void
+    public function setUserId(?int $userId): void
     {
         $this->setData('userId', $userId);
     }

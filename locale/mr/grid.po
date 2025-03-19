@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-19 12:32+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/mr/"
 ">\n"
@@ -121,7 +121,7 @@ msgid "grid.user.enroll"
 msgstr "वापरकर्त्याची नोंद करा"
 
 msgid "grid.user.enable"
-msgstr "कार्यान्वित करा (Enable)"
+msgstr "वापरकर्ता खाते कार्यान्वित करा (Enable)"
 
 msgid "grid.user.mustChangePassword"
 msgstr "पासवर्ड बदला"
@@ -450,7 +450,7 @@ msgid "grid.user.email"
 msgstr "ई-मेल"
 
 msgid "grid.user.disable"
-msgstr "अकार्यान्वित करा (Disable)"
+msgstr "वापरकर्ता खाते अकार्यान्वित करा (Disable)"
 
 msgid "grid.user.enableReason"
 msgstr "वापरकर्ता कार्यान्वित (Enable) करण्याचे कारण"
@@ -727,3 +727,32 @@ msgstr ""
 
 msgid "grid.action.editContributor"
 msgstr "सहभाग्याचे नाव संपादित करा"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "समीक्षकाचा प्रस्ताव (Suggestion) काढून टाका"
+
+msgid "grid.user.logInAs"
+msgstr "या भूमिकेतून लॉग-इन करा (Login As)"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"कृपया लक्षात ठेवा की एकदा वापरकर्ता अकार्यान्वित झाल्यानंतर (disabled), तो "
+"पुन्हा कार्यान्वित होईपर्यंत (enable) तुम्ही त्याला कोणतीही भूमिका देऊ शकणार "
+"नाही."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "समीक्षकाच्या प्रस्तावाचा (Suggestion) समावेश करा"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"तुम्हाला खात्रीने हा प्रस्ताव काढून टाकायचा आहे? ही कृती रद्द करता येणार "
+"नाही."
+
+msgid "grid.user.remove"
+msgstr "वापरकर्ता हटवा"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"वापरकर्ता कार्यान्वित झाल्यानंतर (enabled), त्याला संकेतस्थळावर केव्हाही "
+"प्रवेश मिळतो आणि तुम्ही त्याला आवश्यकतेनुसार वेगळ्या भूमिकांमध्ये आमंत्रित "
+"करू शकाल."

@@ -1921,7 +1921,7 @@ msgstr "Điều hướng"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
-"<p> Bạn có thể truy cập trang này tại: <blockquote> {$ pagesPath} </"
+"<p> Bạn có thể truy cập trang này tại: <blockquote> {$pagesPath} </"
 "blockquote> ... trong đó%PATH% là đường dẫn đã nhập ở trên. <strong> Lưu ý: "
 "</strong> Không có hai trang nào có thể có cùng một đường dẫn. Việc sử dụng "
 "các đường dẫn được tích hợp sẵn trong hệ thống có thể khiến bạn mất quyền "

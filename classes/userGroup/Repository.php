@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/userGroup/Repository.php
  *
@@ -13,28 +14,27 @@
 
 namespace PKP\userGroup;
 
-use stdClass;
-use DateInterval;
-use Carbon\Carbon;
-use PKP\core\Core;
-use APP\facades\Repo;
-use PKP\plugins\Hook;
-use PKP\site\SiteDAO;
-use PKP\security\Role;
-use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use APP\core\Application;
-use PKP\xml\PKPXMLParser;
+use APP\facades\Repo;
+use Carbon\Carbon;
+use DateInterval;
 use Illuminate\Support\Collection;
-use PKP\services\PKPSchemaService;
-use PKP\validation\ValidatorFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
-use Illuminate\Database\Query\JoinClause;
-use PKP\userGroup\relationships\UserUserGroup;
-use PKP\userGroup\relationships\UserGroupStage;
-use PKP\userGroup\relationships\enums\UserUserGroupStatus;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\plugins\Hook;
+use PKP\security\Role;
+use PKP\services\PKPSchemaService;
+use PKP\site\SiteDAO;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\UserUserGroup;
+use PKP\validation\ValidatorFactory;
+use PKP\xml\PKPXMLParser;
+use stdClass;
 
 class Repository
 {
@@ -251,6 +251,27 @@ class Repository
         }
 
         return $query->exists();
+    }
+
+    /**
+     * Update UserUserGroup masthead status for a UserGroup the user is currently active in
+     *
+     */
+    public function updateUserUserGroupMastheadStatus(int $userId, int $userGroupId, UserUserGroupMastheadStatus $mastheadStatus): void
+    {
+        $masthead = match ($mastheadStatus) {
+            UserUserGroupMastheadStatus::STATUS_ON => 1,
+            UserUserGroupMastheadStatus::STATUS_OFF => 0,
+            default => null
+        };
+        UserUserGroup::query()
+            ->withUserId($userId)
+            ->withUserGroupIds([$userGroupId])
+            ->withActive()
+            ->update(['masthead' => $masthead]);
+
+        $userGroup = UserGroup::find($userGroupId);
+        self::forgetEditorialCache($userGroup->contextId);
     }
 
     /**
@@ -582,7 +603,7 @@ class Repository
                 ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
                 ->orderBy(
                     $usersCollector::ORDERBY_FAMILYNAME,
-                    $usersCollector::ORDER_DIR_ASC, 
+                    $usersCollector::ORDER_DIR_ASC,
                     [
                         Locale::getLocale(),
                         Application::get()->getRequest()->getSite()->getPrimaryLocale()

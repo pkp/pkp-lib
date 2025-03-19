@@ -580,6 +580,9 @@ msgstr "User Details"
 msgid "grid.user.userRoles"
 msgstr "User Roles"
 
+msgid "grid.user.userRoles.masthead"
+msgstr "Appear on Masthead"
+
 msgid "grid.user.userNoRoles"
 msgstr "This user does not have any roles."
 

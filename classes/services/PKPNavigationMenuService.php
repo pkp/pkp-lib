@@ -518,7 +518,7 @@ class PKPNavigationMenuService
      */
     public function transformNavMenuItemTitle($templateMgr, &$navigationMenuItem)
     {
-        $this->setNMITitleLocalized($navigationMenuItem);
+        $this->setAllNMILocalizedTitles($navigationMenuItem);
 
         $title = $navigationMenuItem->getLocalizedTitle();
         $prefix = '{$';

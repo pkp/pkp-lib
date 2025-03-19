@@ -22,7 +22,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\API\v1\reviewers\suggestions\resources\ReviewerSuggestionResource;
-use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
@@ -152,6 +151,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
         $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $this->addAppSpecificData(collect([$item]));
 
         return $this->mapByProperties($this->getProps(), $item, $anonymizeReviews);
     }
@@ -184,6 +184,8 @@ class Schema extends \PKP\core\maps\Schema
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]));
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
         $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $this->addAppSpecificData(collect([$item]));
+
         return $this->mapByProperties($this->getSummaryProps(), $item, $anonymizeReviews);
     }
 
@@ -214,6 +216,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
         $this->decisions = Repo::decision()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
         $this->submissionStageFiles = $this->getStageFilesBySubmissions($collection, [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $this->addAppSpecificData($collection);
 
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId'));
@@ -268,7 +271,7 @@ class Schema extends \PKP\core\maps\Schema
         $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
         $this->submissionStageFiles = $this->getStageFilesBySubmissions($collection, [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
-
+        $this->addAppSpecificData($collection);
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(
             fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId')
@@ -331,6 +334,8 @@ class Schema extends \PKP\core\maps\Schema
         $this->decisions = $decisions ?? Repo::decision()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->reviewerSuggestions = $reviewerSuggestions ?? ReviewerSuggestion::withSubmissionIds($item->getId())->get();
         $this->submissionStageFiles = $stageFiles ?? $this->getStageFilesBySubmissions(collect([$item]), [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $this->addAppSpecificData(collect([$item]));
+
         return $this->mapByProperties($this->getSubmissionsListProps(), $item, $anonymizeReviews);
     }
 
@@ -362,6 +367,8 @@ class Schema extends \PKP\core\maps\Schema
         $this->stageAssignments = $this->getStageAssignmentsBySubmissions($collection);
         $this->decisions = Repo::decision()->getCollector()->filterBySubmissionIds($submissionIds)->getMany()->remember();
         $this->submissionStageFiles = $this->getStageFilesBySubmissions($collection, [SubmissionFile::SUBMISSION_FILE_COPYEDIT]);
+        $this->addAppSpecificData($collection);
+
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(
             fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId')
@@ -1190,5 +1197,13 @@ class Schema extends \PKP\core\maps\Schema
             ->filterBySubmissionIds($submissionIds)
             ->filterByFileStages($stageIds)
             ->getMany();
+    }
+
+    /**
+     * Implement by a child class to populate app specific data.
+     */
+    protected function addAppSpecificData(Enumerable $submissions): void
+    {
+
     }
 }

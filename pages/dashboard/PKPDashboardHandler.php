@@ -163,6 +163,7 @@ abstract class PKPDashboardHandler extends Handler
                 'countPerPage' => $this->perPage,
                 'filtersForm' => $filtersForm->getConfig(),
                 'views' => $this->getViews(),
+                'contextMinReviewsPerSubmission' => $context->getData('numReviewsPerSubmission') ?: 0,
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,

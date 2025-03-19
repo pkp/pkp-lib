@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-19 12:32+0000\n"
+"PO-Revision-Date: 2025-03-19 16:29+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -359,13 +359,13 @@ msgstr ""
 "naskah terkait dengan komponen yang berbeda."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Edit Institusi"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "ID Research Organization Registry untuk institusi ini."
 
 msgid "manager.institutions.form.ipRanges"
 msgstr "Rentang IP"
@@ -1023,16 +1023,20 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Kirim salinan ke alamat surel ini"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Memberitahukan Semua Penulis"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Siapa yang harus menerima email pemberitahuan ketika keputusan editorial "
+"telah dibuat?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Mengirimkan email pemberitahuan kepada semua penulis dari naskah."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Hanya mengirimkan email pada penulis yang ditugaskan pada alur kerja "
+"pengiriman. Biasanya, ini merupakan penulis yang mengirimkan naskah."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Pemberitahuan"
@@ -2787,13 +2791,13 @@ msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Nama dari keputusan yang telah diambil"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Deskripsi dari keputusan yang telah diambil"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Tahap pada alur kerja editorial dimana keputusan ini diambil"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
@@ -2802,22 +2806,22 @@ msgid "emailTemplate.variable.discussion.subject"
 msgstr ""
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Konten dari diskusi atau balasan baru"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Daftar naskah dengan penugasan yang belum selesai"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Jumlah naskah yang ditugaskan untuk editor ini"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Nama lengkap dari penerima atau semua penerima"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Username dari penerima atau semua penerima"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Tanggal ketika review harus selesai"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
@@ -2832,10 +2836,10 @@ msgid "emailTemplate.variable.review.assignedDate"
 msgstr ""
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Tipe review, seperti anonim, dobel anonim atau terbuka"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Rekomendasi review, seperti Menerima atau Menolak Naskah"
 
 msgid "emailTemplate.variable.review.round"
 msgstr ""
@@ -3581,3 +3585,41 @@ msgstr "Judul item menu diperlukan."
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Tautan untuk memvalidasi akun email"
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID Pelanggan"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Format tanggal tidak benar."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Tanggal harus dalam format YYYY-MM-DD atau YYYY-MM. Tanggal terakhir pada "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tipe Metrik"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Membuat Pengingat untuk Review"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Pengiriman Review - Setelah Batas Waktu"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Pengiriman Review - Sebelum Batas Waktu"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Respon terhadap Permintaan Review - Sebelum Batas Waktu"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Respon terhadap Permintaan Review - Sesudah Batas Waktu"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Label, seperti Baca Lebih Lanjut, untuk tombol pada highlight."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "Email sedang dalam antrian untuk dikirimkan secepatnya."
+
+msgid "settings.roles.permitSettings"
+msgstr "Mengijinkan perubahan pada Pengaturan"

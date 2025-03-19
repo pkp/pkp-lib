@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
+"PO-Revision-Date: 2025-03-19 16:29+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
@@ -1766,6 +1766,8 @@ msgstr ""
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} merekomendasikan untuk mengirimkan revisi dan revisi ini akan "
+"dikirimkan untuk putaran review berikutnya."
 
 msgid "editor.submission.recommend.decline"
 msgstr "Rekomendasi Penolakan"
@@ -1790,6 +1792,8 @@ msgstr "Rekomendasi: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Anda tidak dapat membuat rekomendasi hingga seorang editor ditugaskan dengan "
+"ijin mencatat sebuah keputusan."
 
 msgid "editor.submission.recommendation"
 msgstr "Rekomendasi"
@@ -2342,18 +2346,20 @@ msgstr "Tugaskan Edit"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Naskah sudah dikirimkan. Silakan kunjungi <a href=\"{$url}\">dasbor "
+"pengiriman anda</a> untuk melihatnya."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Sebelum anda mulai"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Hanya pilih kategori yang cocok untuk naskah anda."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Mengubah Pengaturan Pengiriman Naskah"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Melengkapi langkah untuk mengirimkan naskah"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
@@ -2368,16 +2374,16 @@ msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Mohon konfirmasi hal berikut sebelum anda mengirimkan naskah."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Melakukan Pengiriman"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Melakukan Pengiriman: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Tidak ada kontributor yang telah ditambahkan pada naskah ini."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
@@ -2396,15 +2402,17 @@ msgstr ""
 
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr ""
+"Kami telah mengirimkan email salinan dari tautan ini kepada anda pada "
+"{$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Bagian Ditutup"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Mulai Proses Pengiriman"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Memulai pengiriman naskah baru"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
@@ -2425,7 +2433,7 @@ msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Tanggal terbit (baru ke lama)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Kategori"
 
 msgid "category.coverImage"
 msgstr "Gambar Sampul"
@@ -2513,13 +2521,15 @@ msgid "author.submit.confirmation"
 msgstr "Konfirmasi"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Mengirimkan dalam <strong>{$language}</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Mengirimkan kepada bagian <strong>{$section}</strong> ."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Mengirimkan kepada bagian <strong>{$section}</strong> dalam "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2548,7 +2558,7 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Narahubung utama untuk korespondensi editorial."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Pernyataan Ketersediaan Data"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
@@ -2636,3 +2646,125 @@ msgstr "Menghapus Naskah yang Tidak Lengkap"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
 msgstr "Memilih naskah yang tidak lengkap untuk dihapus."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Ini adalah bahasa utama pengiriman naskah. Mengubah ini akan mempengaruhi "
+"pengiriman naskah dan metadata yang dimasukkan"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Masukkan judul naskah di sini dalam {$language}. Anda dapat memformat judul "
+"anda sesuai yang diinginkan"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Mohon jelaskan mengapa anda merekomendasikan reviewer ini dan menyebutkan "
+"apakah terdapat konflik kepentingan yang mungkin terjadi."
+
+msgid "dashboard.applyFilters"
+msgstr "Menerapkan Filter"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Reviewer tidak menyelesaikan review mereka. Batas waktu respon telah "
+"berakhir pada <b>$date}.</b>"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Menolak pada saat tahap {$stageName}."
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Semua rekomendasi editorial telah diterima, dan dibutuhkan sebuah keputusan."
+
+msgid "submission.files.content.error"
+msgstr "Konten dari file naskah '{$fileName}' tidak dapat diambil kembali."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Batas Waktu untuk menyelesaikan review ini telah berakhir. Mohon selesaikan "
+"review ini segera."
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Melihat rekomendasi yang belum dibaca"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Editor yang merekomendasikan ditugaskan untuk menyarankan langkah berikutnya "
+"untuk naskah ini"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "File JATS ini dihasilkan secara otomatis oleh metadata naskah"
+
+msgid "publication.jats.lastModified"
+msgstr "Modifikasi terakhir pada {$modificationDate} oleh {$username}"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Mohon informasikan setiap konflik kepentingan yang mungkin dimiliki oleh "
+"penulis ini terhadap subyek penelitian."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Alasan untuk menyarankan reviewer"
+
+msgid "author.competingInterests"
+msgstr "Konflik Kepentingan"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Reviewer yang ditugaskan"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Pembaruan review {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Mulai Proses Pengiriman Naskah"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Menunggu Respon dari reviewer"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Mohon selesaikan review ini pada {$date}."
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Membatalkan Reviewer"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Batalkan penugasan"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Mengedit Batas Waktu"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Melihat rekomendasi"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Mengirimkan Review Ke ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Mengirimkan review ini ke reviewer ORCID?"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Rekomendasi editor telah diterima"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Review selesai pada {$date}"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Mengirimkan Kembali Permintaan Review"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Lihat detail"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Permintaan review telah dikirimkan kembali pada reviewer. Menunggu respon "
+"dalam {$days} hari pada {$date}"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisi Diunggah"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "File ini telah dikirimkan oleh penulis setelah revisi diminta"
+
+msgid "fileManager.filesForReview"
+msgstr "File untuk Review"

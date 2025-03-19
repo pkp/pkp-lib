@@ -83,18 +83,5 @@ class ContextGridRow extends GridRow
                 'wrench'
             )
         );
-        $this->addAction(
-            new LinkAction(
-                'users',
-                new AjaxModal(
-                    $router->url($request, $element->getPath(), null, 'users', null),
-                    __('manager.users'),
-                    null,
-                    true
-                ),
-                __('manager.users'),
-                'users'
-            )
-        );
     }
 }

@@ -1239,9 +1239,22 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        // Prevent users from editing publications if they do not have permission. Except for admins.
+        // Prevent authors from editing if publication is already published
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (
+            $publication->getData('status') === PKPSubmission::STATUS_PUBLISHED &&
+            in_array(Role::ROLE_ID_AUTHOR, $userRoles) &&
+            !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)
+        ) {
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        if (
+            !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) &&
+            !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+        ) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);

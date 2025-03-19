@@ -61,7 +61,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('', $this->getMany(...))
+        Route::get('', $this->get(...))
             ->name('stats.editorial.getEditorialStat');
 
         Route::get('averages', $this->getAverages(...))

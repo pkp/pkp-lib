@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/Repository.php
  *
@@ -13,8 +14,15 @@
 
 namespace PKP\category;
 
+use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Validation\Validator;
+use PKP\context\Context;
+use PKP\context\SubEditorsDAO;
+use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -113,15 +121,16 @@ class Repository
      * Perform validation checks on data used to add or edit a category.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      *
      * @hook Category::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
-    public function validate(?Category $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?Category $object, array $props, Context $context): array
     {
+        $primaryLocale = $context->getData('primaryLocale');
+        $allowedLocales = $context->getData('supportedFormLocales');
+
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
@@ -142,6 +151,57 @@ class Repository
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
 
         $errors = [];
+
+        if (isset($props['contextId'])) {
+            $validator->after(function ($validator) use ($props, $context) {
+                if (!app()->get('context')->exists($props['contextId'])) {
+                    $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
+                }
+                if ($context->getId() !== $props['contextId']) {
+                    $validator->errors()->add('contextId', 'Wrong context ID for category!');
+                }
+            });
+        }
+
+        if (isset($props['path'])) {
+            $validator->after(function ($validator) use ($props, $context, $object) {
+                // Check if path matches the allowed pattern
+                if (!preg_match(\Category::$PATH_REGEX, $props['path'] ?: '')) {
+                    $validator->errors()->add('path', __('grid.category.pathAlphaNumeric'));
+                }
+
+                $existingCategoryWithPath = Repo::category()->getCollector()
+                    ->filterByContextIds([$props['contextId']])
+                    ->filterByPaths([$props['path']])
+                    ->getMany()
+                    ->first();
+
+
+                $id = key_exists($props['categoryId'], $props) ? $props['categoryId'] : $object?->getId() ?? null;
+                // If ID of the existing Category with path is same as ID of object or prop then assume an s existing category is being updated
+                $isUpdating = $id && Repo::category()->get($id, $context->getId())->getPath() === $existingCategoryWithPath->getPath();
+                if (!$isUpdating && $existingCategoryWithPath) {
+                    $validator->errors()->add('path', __('grid.category.pathExists'));
+                }
+            });
+        }
+
+        if (isset($props['image']) && $props['image']['temporaryFileId']) {
+            $validator->after(function (Validator $validator) use ($props, $context) {
+                $temporaryFileId = $props['image']['temporaryFileId'];
+                $temporaryFileManager = new TemporaryFileManager();
+                $user = Application::get()->getRequest()->getUser();
+                $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
+
+                if (!$temporaryFile ||
+                    !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
+                    !($_sizeArray = getimagesize($temporaryFile->getFilePath())) ||
+                    $_sizeArray[0] <= 0 || $_sizeArray[1] <= 0
+                ) {
+                    $validator->errors()->add('image', __('form.invalidImage'));
+                }
+            });
+        }
 
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
@@ -188,6 +248,34 @@ class Repository
         foreach ($collector->getMany() as $category) {
             /** @var Category $category */
             $this->delete($category);
+        }
+    }
+
+    /***
+     * @param int $categoryId
+     * @param array $subEditors - Editor IDs grouped by Group ID. E.g: [3=>[6,8]]
+     * @param int $contextId
+     * @return void
+     */
+    public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
+    {
+        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+        $subEditorsDao->deleteBySubmissionGroupId($categoryId, Application::ASSOC_TYPE_CATEGORY, $contextId);
+
+        if (!empty($subEditors)) {
+            $allowedEditors = Repo::user()
+                ->getCollector()
+                ->filterByRoleIds($assignableRoles)
+                ->filterByContextIds([$contextId])
+                ->getIds();
+            foreach ($subEditors as $userGroupId => $userIds) {
+                foreach ($userIds as $userId) {
+                    if (!$allowedEditors->contains($userId)) {
+                        continue;
+                    }
+                    $subEditorsDao->insertEditor($contextId, $categoryId, $userId, Application::ASSOC_TYPE_CATEGORY, (int)$userGroupId);
+                }
+            }
         }
     }
 }

@@ -97,11 +97,10 @@ trait NotifyAuthors
                 if (!$author->getEmail() || in_array($author->getEmail(), $assignedAuthorEmails)) {
                     continue;
                 }
-                $mailable->to($author->getEmail(), $author->getFullName());
-	    }
-            if ( sizeof($mailable->to) > 0 ) {
-		    Mail::send($mailable);
-	    }
+                $mailable->recipients([$author]);
+                Mail::send($mailable);
+            }
+
         }
     }
 

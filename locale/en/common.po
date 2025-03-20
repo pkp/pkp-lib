@@ -1602,7 +1602,7 @@ msgstr "Editor Dashboard"
 
 
 msgid "navigation.reviewAssignments"
-msgstr "Review Assignments as Reviewer"
+msgstr "My Assignments as Reviewer"
 
 msgid "navigation.mySubmissions"
 msgstr "My Submissions as Author"

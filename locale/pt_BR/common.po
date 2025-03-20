@@ -2401,6 +2401,7 @@ msgstr "Limpar filtros"
 msgid "form.errorSummaryMany"
 msgstr "{$count} erros detectados! Corrija os erros abaixo antes de prosseguir."
 
+#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Minhas Submissões"
 
@@ -2422,12 +2423,14 @@ msgstr "Avaliação enviada em"
 msgid "validator.date.comparison"
 msgstr "Datas inválidas fornecidas para comparação."
 
+#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Painéis"
 
 msgid "validator.multilingual"
 msgstr "O requisito multilíngue não é atendido para este campo."
 
+#, fuzzy
 msgid "navigation.reviewAssignments"
 msgstr "Avaliações Atribuídas"
 

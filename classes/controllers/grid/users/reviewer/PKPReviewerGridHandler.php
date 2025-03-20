@@ -1257,7 +1257,7 @@ class PKPReviewerGridHandler extends GridHandler
     /**
      * Get the proper reviewer from instance
      */
-    protected function getReviewerFrom(int $selectionType, Request $request = null): ReviewerForm
+    protected function getReviewerFrom(int $selectionType, ?Request $request = null): ReviewerForm
     {
         $request ??= Application::get()->getRequest();
         $formClassName = $this->_getReviewerFormClassName($selectionType);

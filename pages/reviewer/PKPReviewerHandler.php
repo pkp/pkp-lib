@@ -62,6 +62,7 @@ class PKPReviewerHandler extends Handler
             throw new Exception('Invalid step!');
         }
 
+        /** @var \PKP\submission\reviewRound\ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
         $submissionId = $reviewSubmission->getId();
         $lastRoundId = $reviewRoundDao->getLastReviewRoundBySubmissionId($submissionId)->getId();

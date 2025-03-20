@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-19 16:29+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/id/>\n"
@@ -2387,15 +2387,17 @@ msgstr "Tidak ada kontributor yang telah ditambahkan pada naskah ini."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
+"Nama yang diberikan hilang dalam {$language) pada satu kontributor atau "
+"lebih."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Tidak Diijinkan"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Pernyataan Privasi"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Disimpan untuk Kemudian"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
@@ -2570,7 +2572,7 @@ msgid "submission.files.required.genres"
 msgstr ""
 
 msgid "publication.version"
-msgstr ""
+msgstr "Versi {$version}"
 
 #~ msgid "submission.uploadSuccessfulContinue"
 #~ msgstr ""
@@ -2768,3 +2770,111 @@ msgstr "File ini telah dikirimkan oleh penulis setelah revisi diminta"
 
 msgid "fileManager.filesForReview"
 msgstr "File untuk Review"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Semua pada tahap pengiriman naskah"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revisi diminta"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Kegiatan yang Diminta oleh saya"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Tidak ada reviewer yang disarankan untuk naskah ini."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Nama institusi hilang pada {$language} pada satu institusi tau lebih untuk "
+"satu kontributor atau lebih."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Ditugaskan kepada saya"
+
+msgid "submission.dashboard.view.active"
+msgstr "Pengiriman aktif"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Membutuhkan editor"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Semua pada peer review"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Menunggu review"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Review dikirimkan"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Review melewati batas waktu"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Semua pada tahap copyedit"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Revisi yang diminta dari penulis akan dibawa ke putaran review yang baru"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Membutuhkan review"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Semua pada tahap review"
+
+msgid "submission.dashboard.view.production"
+msgstr "Semua pada tahap produksi"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Dijadwalkan untuk penerbitan"
+
+msgid "submission.dashboard.view.published"
+msgstr "Diterbitkan"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Ditolak"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revisi penulis dikirimkan"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Pengiriman yang tidak lengkap"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Semua tugas"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Tertunda"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Selesai / Ditolak"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Semua tugas"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Diarsipkan"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Ditolak"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Terbit"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Lengkap"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Review (Putaran{$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Dijadwalkan Untuk Terbit"
+
+msgid "submission.stage.published"
+msgstr "Terbit"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Konfirmasi menghapus JATS XML"

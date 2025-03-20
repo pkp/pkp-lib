@@ -342,7 +342,7 @@ class QueryForm extends Form
             // if current user is an anonymous reviewer, exclude authors
             foreach ($reviewAssignments as $reviewAssignment) {
                 if ($reviewAssignment->getReviewerId() == $user->getId()) {
-                    if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
+                    if ($reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) {
                         $excludeUsers = StageAssignment::withSubmissionIds([$query->assocId])
                             ->withRoleIds([Role::ROLE_ID_AUTHOR])
                             ->get()

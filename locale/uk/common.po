@@ -2378,12 +2378,15 @@ msgstr ""
 "Виявлено {$count} помилок! Перш ніж продовжити, виправте, будь ласка, "
 "наведені нижче помилки."
 
+#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Приладові панелі"
 
+#, fuzzy
 msgid "navigation.reviewAssignments"
 msgstr "Переглянути призначення"
 
+#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Мої подання"
 

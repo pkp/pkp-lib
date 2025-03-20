@@ -2359,12 +2359,15 @@ msgstr ""
 "Հայտնաբերվել է {$count} սխալ: Շարունակելուց առաջ շտկեք ստորև ներկայացված "
 "սխալները:"
 
+#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Վահանակներ"
 
+#, fuzzy
 msgid "navigation.reviewAssignments"
 msgstr "Վերանայման առաջադրանքներ"
 
+#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Իմ ներկայացումները"
 

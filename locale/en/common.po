@@ -1598,13 +1598,14 @@ msgid "navigation.submissions"
 msgstr "Submissions"
 
 msgid "navigation.dashboards"
-msgstr "Dashboards"
+msgstr "Editor Dashboard"
+
 
 msgid "navigation.reviewAssignments"
-msgstr "Review Assignments"
+msgstr "Review Assignments as Reviewer"
 
 msgid "navigation.mySubmissions"
-msgstr "My Submissions"
+msgstr "My Submissions as Author"
 
 msgid "navigation.system"
 msgstr "System"

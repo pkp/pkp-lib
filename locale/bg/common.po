@@ -2312,12 +2312,15 @@ msgstr "({$text})"
 msgid "common.loaded"
 msgstr "Зареден"
 
+#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Табла за управление"
 
+#, fuzzy
 msgid "navigation.reviewAssignments"
 msgstr "Преглед на заданията"
 
+#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Мои изпратени материали"
 

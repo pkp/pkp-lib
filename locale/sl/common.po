@@ -2292,12 +2292,15 @@ msgstr "Poglej ORDIC profil za osebo {$name}"
 msgid "common.loaded"
 msgstr "Naloženo"
 
+#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Nadzorne plošče"
 
+#, fuzzy
 msgid "navigation.reviewAssignments"
 msgstr "Recenzentske zadolžitve"
 
+#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Moji prispevki"
 

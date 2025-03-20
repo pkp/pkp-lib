@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
@@ -100,7 +100,7 @@ msgid "user.editMyProfile"
 msgstr "Edit Profil Saya"
 
 msgid "user.email"
-msgstr "Surel"
+msgstr "Email"
 
 msgid "user.givenName"
 msgstr "Nama Depan"
@@ -571,7 +571,7 @@ msgid "orcid.manager.settings.orcidProfileAPIPath.member"
 msgstr "Anggota"
 
 msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
-msgstr "Public Sandbox"
+msgstr "Sandbox Umum"
 
 msgid "orcid.manager.settings.orcidProfileAPIPath.public"
 msgstr "Publik"
@@ -820,3 +820,106 @@ msgstr "Mohon tambahkan afiliasi pada bahasa naskah."
 
 msgid "user.role.ended"
 msgstr "Peran berakhir"
+
+msgid "orcid.field.verification.requested"
+msgstr "Verfikasi ORCID telah diminta!"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Anda telah meminta perubahan pada email anda ke \"{$pendingEmail}\". Kami "
+"telah mengirimkan email kepada anda dengan cara bagaimana memvalidasi "
+"perubahan email."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Mengirimkan Kembali Email Verifikasi"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "ID klien sah"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Apakah anda ingin mengirimkan email kepada penulis ini untuk memverifikasi "
+"ORCID mereka?"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "ID klien tidak sah, mohon periksa input anda"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Hingga saat tersebut, anda dapat mereview dan memperbarui profil anda. Jika "
+"anda sangsi bahwa ini adalah error, mohon kontak administrator."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"Fungsi ORCID dapat diaktifkan dan dikonfigurasikan pada level situs untuk "
+"seluruh jurnal/penerbitan/server. Jika diaktifkan, ini akan mengesampingkan "
+"semua kredensial level konteks dan menerapkan kredensial berikut pada "
+"seluruh jurnal/penerbitan/server pada instalasi ini."
+
+msgid "orcid.manager.settings.city"
+msgstr "Kota"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Anda akan secara otomatis diarahkan kembali ke {$contextName}."
+
+msgid "orcid.unauthenticated"
+msgstr "(tidak diautentikasi)"
+
+msgid "orcid.invalidClient"
+msgstr "Kredensial klien tidak sah"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Meminta verifikasi ORCID"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Menghapus ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Apakah anda yakin untuk menghapus ORCID ini?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"ORCID ini belum diverifikasi. Mohon hapus ORCID yang belum diverifikasi dan "
+"minta verifikasi dari pengguna/penulis secara langsung."
+
+msgid "user.removeRole.message"
+msgstr "Apakah anda yakin untuk menghapus peran ini selamanya?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Peran anda dijadwalkan untuk mulai pada {$roleStartDate}"
+
+msgid "user.disabledModal.description"
+msgstr "Peran sekarang : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "{$fullName} dinonaktifkan"
+
+msgid "user.enabledModal.title"
+msgstr "Mengaktifkan {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Pernyataan Biodata"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Duplikat ORCID untuk kontributor terdeteksi."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "ORCID yang tidak terautentikasi untuk kontributor terdeteksi."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Mengaktifkan fungsi ORCID"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Mengaktifkan fungsi ORCID di seluruh situs"
+
+msgid "orcid.field.verification.request"
+msgstr "Meminta verfikasi"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Dikonfigurasi berdasarkan jurnal"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Client Secret sah"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Client Secret tidak sah, mohon cek kredensial anda"

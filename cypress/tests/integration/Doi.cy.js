@@ -304,7 +304,7 @@ describe('DOI tests', function() {
 		cy.get('#doisSetup [role="status"]').contains('Saved');
 
 		//Go to publication and rollback to first publication being unpublished, then republish first publication
-		cy.get('nav').contains('Dashboards').click();
+		cy.get('nav').contains('Editor Dashboard').click();
 		cy.get('nav').contains('Published').click();
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()
@@ -352,7 +352,7 @@ describe('DOI tests', function() {
 		cy.log("Check DOI versioning off copies previous DOI for subsequent versions");
 
 		// Publish Version 2
-		cy.get('nav').contains('Dashboards').click();
+		cy.get('nav').contains('Editor Dashboard').click();
 		cy.get('nav').contains('Published').click();
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()
@@ -492,7 +492,7 @@ describe('DOI tests', function() {
 
 		// Check creates new version
 		// Go to publication and publish Version 2
-		cy.get('nav').contains('Dashboards').click();
+		cy.get('nav').contains('Editor Dashboard').click();
 		cy.get('nav').contains('Published').click();
 		cy.contains('table tr', articleTitle).within(() => {
 			cy.get('button').contains('View').click()

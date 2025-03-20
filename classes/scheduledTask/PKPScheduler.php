@@ -82,7 +82,7 @@ abstract class PKPScheduler
         $this
             ->schedule
             ->call(fn () => (new UpdateIPGeoDB())->execute())
-            ->cron('0 0 1,10,20 * *')
+            ->monthlyOn(10)
             ->name(UpdateIPGeoDB::class)
             ->withoutOverlapping();
 

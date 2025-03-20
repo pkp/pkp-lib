@@ -49,7 +49,7 @@ class Repository
 
         $defaultRecommendationsExists = ReviewerRecommendation::query()
             ->withContextId($context->getId())
-            ->withRecommendations(array_keys($defaultRecommendations))
+            ->withDefaultRecommendationsOnly()
             ->exists();
         
         if ($defaultRecommendationsExists) {
@@ -63,10 +63,10 @@ class Repository
 
         collect($defaultRecommendations)
             ->each (
-                fn (string $translatableKey, int $recommendationValue) => ReviewerRecommendation::create([
+                fn (string $translatableKey) => ReviewerRecommendation::create([
                     'contextId' => $context->getId(),
-                    'value' => $recommendationValue,
                     'status' => 1,
+                    'defaultTranslationKey' => $translatableKey,
                     'title' => collect($locales)
                         ->mapWithKeys(
                             fn (string $locale): array => [
@@ -93,7 +93,7 @@ class Repository
         $defaultRecommendations = $this->getDefaultRecommendations();
         $suggestions = ReviewerRecommendation::query()
             ->withContextId($context->getId())
-            ->withRecommendations(array_keys($defaultRecommendations))
+            ->withDefaultRecommendationsOnly()
             ->get();
 
         foreach ($suggestions as $suggestion) {
@@ -109,7 +109,7 @@ class Repository
             }
 
             $localeToCompareTranslation = $suggestion->title[$localeToCompare];
-            $localeKey = $defaultRecommendations[$suggestion->value];
+            $localeKey = $suggestion->{ReviewerRecommendation::DEFAULT_RECOMMENDATION_TRANSLATION_KEY};
 
             // if the locale to compare stored as title locale is not same as retrived translation from system's default local
             // it has been changed from the default translation 
@@ -118,7 +118,7 @@ class Repository
                 continue;
             }
 
-            $localeToAddTranslation = Locale::get($defaultRecommendations[$suggestion->value], [], $localeToAdd);
+            $localeToAddTranslation = Locale::get($localeKey, [], $localeToAdd);
 
             $title = $suggestion->title;
             $title[$localeToAdd] = $localeToAddTranslation;
@@ -127,12 +127,12 @@ class Repository
     }
 
     /**
-     * Get an associative array matching reviewer recommendation code/value mapped to localized title.
+     * Get an associative array matching reviewer recommendation id mapped to localized title.
      * (Includes default '' => "Choose One" string.)
      *
      * @return array recommendation => localizedTitle
      */
-    public static function getOptions(
+    public function getOptions(
         Context $context,
         RecommendationOption $active = RecommendationOption::ACTIVE,
         ?ReviewAssignment $reviewAssignment = null
@@ -154,17 +154,17 @@ class Repository
             ->withContextId($context->getId())
             ->withActive($active)
             ->when(
-                $reviewAssignment, 
+                $reviewAssignment && $reviewAssignment->getData('recommendationId'),
                 fn ($query) => $query->orWhere(
                     fn ($query) => $query->withRecommendations(
-                        [$reviewAssignment->getData("recommendation")]
+                        [$reviewAssignment->getData('recommendationId')]
                     )
                 )
             )
             ->get()
             ->mapWithKeys(
                 fn (ReviewerRecommendation $recommendation): array => [
-                    $recommendation->value => $recommendation->getLocalizedData('title')
+                    $recommendation->id => $recommendation->getLocalizedData('title')
                 ]
             )
             ->prepend(__('common.chooseOne'), '')

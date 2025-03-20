@@ -684,7 +684,7 @@ class Schema extends \PKP\core\maps\Schema
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
-                'recommendation' => $reviewAssignment->getRecommendation(),
+                'recommendationId' => $reviewAssignment->getRecommendationId(),
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),

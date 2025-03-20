@@ -230,23 +230,21 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get reviewer recommendation.
+     * Get reviewer recommendation id
      *
      * @return string
      */
-    public function getRecommendation()
+    public function getRecommendationId(): ?int
     {
-        return $this->getData('recommendation');
+        return $this->getData('recommendationId');
     }
 
     /**
-     * Set reviewer recommendation.
-     *
-     * @param string $recommendation
+     * Set reviewer recommendation id
      */
-    public function setRecommendation($recommendation)
+    public function setRecommendationId(int $recommendationId)
     {
-        $this->setData('recommendation', $recommendation);
+        $this->setData('recommendationId', $recommendationId);
     }
 
     /**
@@ -837,7 +835,7 @@ class ReviewAssignment extends \PKP\core\DataObject
             )
         );
 
-        return $options[$this->getRecommendation()] ?? '';
+        return $options[$this->getRecommendationId()] ?? '';
     }
 
     /**

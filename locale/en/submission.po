@@ -2705,6 +2705,9 @@ msgstr "Minimum required number of reviews have been confirmed. A decision is ne
 msgid "dashboard.minimumConfirmedReviewsRequired"
 msgstr "Minimum number of confirmed reviews required: {$number}."
 
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Proceed Without Minimum Confirmed Reviews?"
+
 msgid "dashboard.minimumConfirmedReviewsNotMet"
 msgstr "The minimum number of confirmed reviews has not been met. Do you still want to proceed with this editorial decision?"
 

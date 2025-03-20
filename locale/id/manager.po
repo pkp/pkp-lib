@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-19 16:29+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -2782,13 +2782,13 @@ msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr ""
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL ke halaman dimana pengguna dapat memulihkan password yang hilang"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL untuk melihata semua naskah yang ditugaskan pengguna"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "URL untuk pengguna yang ingin melihat dan mengedit profil mereka"
 
 msgid "emailTemplate.variable.decision.name"
 msgstr "Nama dari keputusan yang telah diambil"
@@ -2801,9 +2801,11 @@ msgstr "Tahap pada alur kerja editorial dimana keputusan ini diambil"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Putaran review untuk keputusan ini diambil, jika keputusan tersebut "
+"berhubungan dengan tahap review"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Subyek diskusi"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr "Konten dari diskusi atau balasan baru"
@@ -2824,16 +2826,16 @@ msgid "emailTemplate.variable.recipient.reviewDueDate"
 msgstr "Tanggal ketika review harus selesai"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Tanggal ketika reviewer harus menerima atau menolak penugasan"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "URL untuk penugasan review"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Rekomendasi keputusan, seperti Menerima Naskah"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Tanggal pada saat review ditugaskan"
 
 msgid "emailTemplate.variable.review.method"
 msgstr "Tipe review, seperti anonim, dobel anonim atau terbuka"
@@ -2842,13 +2844,13 @@ msgid "emailTemplate.variable.review.recommendation"
 msgstr "Rekomendasi review, seperti Menerima atau Menolak Naskah"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Putaran review, seperti Putaran 1 atau Putaran 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "File yang diunggah oleh reviewer"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Nama reviewer"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -2863,16 +2865,16 @@ msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Nama lengkap pengirim"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Alamat email pengirim"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Tanda tangan email pengirim"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Nama lengkap kontak utama situs web"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "Email dari kontak utama pada situs"
@@ -2912,6 +2914,8 @@ msgstr "URL untuk naskah pada wizard pengiriman"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Nama penulis yang ditugaskan pada alur kerja pengiriman naskah. Ini biasanya "
+"adalah penulis yang mengirimkan naskah"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
@@ -2978,6 +2982,8 @@ msgstr ""
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Email ini dikirim oleh editor kepada reviewer yang telah menolak permintaan "
+"review, ketika editor ingin mengirimkan kembali permintaan tersebut."
 
 msgid "mailable.reviewerUnassign.name"
 msgstr "Reviewer Tidak ditugaskan"
@@ -3091,39 +3097,51 @@ msgstr ""
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan kepada penulis tentang keputusan \"revisi dan "
+"pengiriman kembali\" terkait naskah mereka."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Peninjauan Kembali Naskah yang Ditolak"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan kepada penulis bahwa keputusan sebelumnya untuk "
+"menolak naskah mereka setelah review sedang ditinjau kembali."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Peninjauan Kembali Naskah yang Ditolak Tanpa Review"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan penulis bahwa keputusan sebelumnya untuk menolak "
+"pengiriman naskah mereka tanpa review sedang ditinjau kembali."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Dikirimkan ke Review"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan penulis bahwa naskah mereka sedang dikirimkan ke "
+"tahap review."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Dikirimkan ke Produksi"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan penulis bahwa naskah mereka sedang dikirimkan ke "
+"tahap produksi."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Naskah Diterima (Tanpa Review)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan penulis bahwa naskah mereka dikirim ke tahap "
+"copyedit dan tidak akan direview."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Rekomendasi Telah Dibuat"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3151,42 +3169,39 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr ""
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Email ini dikirimkan otomatis saat tenggat waktu review terlewati (lihat "
-"Opsi Review di menu Pengaturan > Alur Kerja > Review) and one-click reviewer "
-"access is disabled. Scheduled tasks must be enabled and configured (see the "
-"site configuration file)."
+"Email ini dikirimkan otomatis ketika seorang reviewer tidak menyelesaikan "
+"review mereka pada waktunya."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Apresiasi Terhadap Review"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Email ini dikirimkan oleh editor kepada reviewer untuk mengkonfirmasi bahwa "
+"review mereka telah diterima dan untuk berterima kasih atas kontribusi "
+"mereka."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Respon Review Telah Melewati Batas Waktu (Otomatis)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Email ini dikirim otomatis saat tenggat konfirmasi terlewati (lihat Opsi "
-"Review di menu Pengaturan > Alur Kerja > Review) dan akses one-click "
-"reviewer dinonaktifkan. Scheduled tasks must be enabled and configured (see "
-"the site configuration file)."
+"Email ini dikirim otomatis saat batas waktu reviewer untuk merespon "
+"permintaan review sudah lewat."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Permintaan Review"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Email ini dikirimkan kepada Reviewer oleh Editor Bagian untuk meminta "
-"reviewer apakah menerima atau menolak permohonan review. "
+"Email ini dikirimkan kepada Reviewer oleh Editor Bagian untuk menanyakan "
+"apakah reviewer menerima atau menolak permohonan review terhadap sebuah "
+"naskah. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Permintaan Review Berikutnya"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3202,13 +3217,15 @@ msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Pengingat Editorial"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Email otomatis dikirimkan ke editor yang masih memiliki tugas yang belum "
+"selesai"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Konfirmasi Pengaturan Ulang Password"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3216,13 +3233,13 @@ msgstr ""
 "dapat login. Email ini memberikan URL untuk melakukan reset sandi."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Pengguna Dibuat"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Email ini dikirimkan ke pengguna baru untuk menyambut dan memberikan "
-"informasi nama pengguna dan sandi."
+"Email ini dikirimkan ke pengguna baru ketika manajer editorial telah membuat "
+"akun pengguna melalui pengaturan pengguna. Email ini menyambut dan "
+"memberikan informasi nama pengguna dan password."
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Mendaftarkan Reviewer"
@@ -3250,7 +3267,7 @@ msgstr ""
 "melalui proses editorial dan ucapan terima kasih atas naskah yang dikirimkan."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Konfirmasi Pengiriman Naskah (Penulis yang Lain)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
@@ -3258,7 +3275,7 @@ msgstr ""
 "naskah yang bukan pengirim naskah."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Diskusi (Pengiriman Naskah)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
@@ -3623,3 +3640,20 @@ msgstr "Email sedang dalam antrian untuk dikirimkan secepatnya."
 
 msgid "settings.roles.permitSettings"
 msgstr "Mengijinkan perubahan pada Pengaturan"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Versi yang diinstal: {$version}"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Tautan ke halaman yang menampilkan semua layanan masthead editorial yang "
+"aktif."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Pengaturan bahasa tidak dapat disimpan. Semua pilihan harus diaktifkan."
+
+msgid "notification.submissionLocales"
+msgstr "Pengiriman naskah lokal diaktifkan."
+
+msgid "settings.roles.masthead"
+msgstr "Pertimbangkan peran pada daftar masthead"

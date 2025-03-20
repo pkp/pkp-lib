@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-09 05:50+0000\n"
+"PO-Revision-Date: 2025-03-20 20:06+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -3216,3 +3216,19 @@ msgstr "Vše v recenzní fázi"
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Zpět k příspěvku"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Minimální počet potvrzených recenzí nebyl splněn. Chcete stále ještě "
+"pokračovat v tomto redakčním rozhodnutí?"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Minimální požadovaný počet recenzí byl potvrzen. Je třeba přijmout "
+"rozhodnutí."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Požadovaný minimální počet potvrzených recenzí: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Pokračovat bez minimálního počtu potvrzených recenzí?"

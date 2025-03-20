@@ -835,7 +835,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                     $join->on('ra.submission_id', '=', 'agrr.submission_id')
                                 )
                                 ->whereColumn('ra.round', '=', 'agrr.current_round')
-                                ->whereNotNull('ra.date_confirmed'),
+                                ->whereNotNull('ra.date_considered'),
                             'rw',
                             fn (JoinClause $join) => $join->on('s.submission_id', '=', 'rw.submission_id')
                         )

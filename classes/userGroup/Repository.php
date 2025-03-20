@@ -171,7 +171,7 @@ class Repository
      *
      * @return LazyCollection<int, UserGroup>
      */
-    public function getByRoleIds(array $roleIds, ?int $contextId, ?bool $default = null): LazyCollection
+    public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
     {
         $query = UserGroup::withRoleIds($roleIds)
             ->withContextIds([$contextId]);

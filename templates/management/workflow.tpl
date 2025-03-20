@@ -74,10 +74,10 @@
 					</tab>
 					{if $hasCustomizableRecommendation}
 						<tab id="reviewerRecommendations" label="{translate key="manager.reviewerRecommendations"}">
-							<reviewer-recommendations-list-panel
+							<reviewer-recommendation-manager
 								v-bind="components.reviewerRecommendations"
 								@set="set"
-							></reviewer-recommendations-list-panel>
+							></reviewer-recommendation-manager>
 						</tab>
 					{/if}
 					{call_hook name="Template::Settings::workflow::review"}

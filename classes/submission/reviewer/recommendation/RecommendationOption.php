@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/classes/submission/reviewer/recommendation/RecommendationOption.php
+ * @file classes/submission/reviewer/recommendation/RecommendationOption.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -18,14 +18,14 @@ enum RecommendationOption
 {
     case ALL;
     case ACTIVE;
-    case DEACTIVE;
+    case INACTIVE;
 
     public function criteria(): ?bool
     {
         return match ($this) {
             static::ALL => null,
             static::ACTIVE => true,
-            static::DEACTIVE => false
+            static::INACTIVE => false
         };
     }
 }

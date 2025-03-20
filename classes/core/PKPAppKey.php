@@ -110,7 +110,7 @@ class PKPAppKey
     /**
      * Validate given or config defined app key
      */
-    public static function validate(string $key = null, string $cipher = null): bool
+    public static function validate(?string $key = null, ?string $cipher = null): bool
     {
         $config = app('config')->get('app');
 
@@ -123,7 +123,7 @@ class PKPAppKey
     /**
      * Generate a new app key
      */
-    public static function generate(string $cipher = null): string
+    public static function generate(?string $cipher = null): string
     {
         $config = app('config')->get('app');
 

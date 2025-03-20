@@ -75,7 +75,7 @@ class ReviewAssignmentEmailVariable extends Variable
             self::REVIEW_ASSIGNMENT_URL => $this->getReviewUrl($context),
             self::REVIEW_DUE_DATE => $this->formatDate((string) $this->reviewAssignment->getDateDue(), $locale, $context) ?? '{$' . self::REVIEW_DUE_DATE . '}',
             self::REVIEW_METHOD => $this->getReviewMethod($locale),
-            self::REVIEW_RECOMMENDATION => $this->getRecommendation($locale),
+            self::REVIEW_RECOMMENDATION => htmlspecialchars($this->getRecommendation($locale)),
             self::REVIEW_ROUND => __('common.reviewRoundNumber', ['round' => $this->reviewAssignment->getRound()], $locale),
             self::REVIEWER_NAME => $this->reviewAssignment->getReviewerFullName(),
         ];
@@ -96,11 +96,13 @@ class ReviewAssignmentEmailVariable extends Variable
 
     protected function getRecommendation(string $locale): string
     {
-        $recommendationOptions = Repo::reviewerRecommendation()->getOptions($this->getContext());
-
-        return isset($recommendationOptions[$this->reviewAssignment->getRecommendation()])
-            ? __($recommendationOptions[$this->reviewAssignment->getRecommendation()], [], $locale)
-            : __('common.none', [], $locale);
+        $recommendationOptions = Repo::reviewerRecommendation()->getRecommendationOptions(
+            context: $this->getContext(),
+            reviewAssignment: $this->reviewAssignment,
+            locale: $locale
+        );
+        
+        return $recommendationOptions[$this->reviewAssignment?->getReviewerRecommendationId()] ?? __('common.none', [], $locale);
     }
 
     protected function getReviewMethod(string $locale): string

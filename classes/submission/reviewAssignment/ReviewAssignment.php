@@ -230,23 +230,19 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get reviewer recommendation.
-     *
-     * @return string
+     * Get reviewer recommendation id
      */
-    public function getRecommendation()
+    public function getReviewerRecommendationId(): ?int
     {
-        return $this->getData('recommendation');
+        return $this->getData('reviewerRecommendationId');
     }
 
     /**
-     * Set reviewer recommendation.
-     *
-     * @param string $recommendation
+     * Set reviewer recommendation id
      */
-    public function setRecommendation($recommendation)
+    public function setReviewerRecommendationId(int $reviewerRecommendationId)
     {
-        $this->setData('recommendation', $recommendation);
+        $this->setData('reviewerRecommendationId', $reviewerRecommendationId);
     }
 
     /**
@@ -831,13 +827,13 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function getLocalizedRecommendation(?Context $context = null): string
     {
-        $options = Repo::reviewerRecommendation()->getOptions(
+        $options = Repo::reviewerRecommendation()->getRecommendationOptions(
             context: $context ?? Application::getContextDAO()->getById(
                 Repo::submission()->get($this->getData('submissionId'))->getData('contextId')
             )
         );
 
-        return $options[$this->getRecommendation()] ?? '';
+        return $options[$this->getReviewerRecommendationId()] ?? '';
     }
 
     /**

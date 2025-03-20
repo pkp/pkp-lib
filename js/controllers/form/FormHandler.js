@@ -64,6 +64,8 @@
 		$form.find('.datepicker').each(function() {
 			var $this = $(this);
 			$this.datepicker({
+				changeMonth: true,
+				changeYear: true,
 				altField: '#' + $this.prop('id') + '-altField',
 				altFormat: 'yy-mm-dd',
 				dateFormat: $('#' + $this.prop('id') + '-altField')

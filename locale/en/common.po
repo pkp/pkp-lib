@@ -319,6 +319,9 @@ msgstr "Contents"
 msgid "common.continue"
 msgstr "Continue"
 
+msgid "common.yesContinue"
+msgstr "Yes, Continue"
+
 msgid "common.copy"
 msgstr "Copy"
 

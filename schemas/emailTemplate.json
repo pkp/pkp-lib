@@ -68,6 +68,19 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"isUnrestricted": {
+			"type": "boolean",
+			"description": "Boolean indicating if an email template is available to all user groups.",
+			"apiSummary": true
+		},
+		"assignedUserGroupIds": {
+			"type": "array",
+			"description": "IDs of the user groups that can access to this email template. When editing a template, passing an empty array to this field will remove all currently assigned user groups.",
+			"apiSummary": true,
+			"items": {
+				"type": "integer"
+			}
 		}
 	}
 }

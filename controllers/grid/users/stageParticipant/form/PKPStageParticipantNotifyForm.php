@@ -103,15 +103,22 @@ class PKPStageParticipantNotifyForm extends Form
             $mailable = $this->getStageMailable($context, $submission);
             $data = $mailable->getData();
             $defaultTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-            $templates = [$mailable::getEmailTemplateKey() => $defaultTemplate->getLocalizedData('name')];
+
+            $templates = [];
+            if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $defaultTemplate, $context->getId())) {
+                $templates[$mailable::getEmailTemplateKey()] = $defaultTemplate->getLocalizedData('name');
+            }
             $alternateTemplates = Repo::emailTemplate()->getCollector($context->getId())
                 ->alternateTo([$mailable::getEmailTemplateKey()])
                 ->getMany();
+
             foreach ($alternateTemplates as $alternateTemplate) {
-                $templates[$alternateTemplate->getData('key')] = Mail::compileParams(
-                    $alternateTemplate->getLocalizedData('name'),
-                    $data
-                );
+                if (Repo::emailTemplate()->isTemplateAccessibleToUser($user, $alternateTemplate, $context->getId())) {
+                    $templates[$alternateTemplate->getData('key')] = Mail::compileParams(
+                        $alternateTemplate->getLocalizedData('name'),
+                        $data
+                    );
+                }
             }
         }
 

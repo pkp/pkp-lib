@@ -579,7 +579,7 @@ abstract class Plugin
         }
         // Localized data is needed by the email installation
         $this->addLocaleData();
-        $status = Repo::emailTemplate()->dao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $locales, null, true);
+        $status = Repo::emailTemplate()->dao->installEmailTemplates($this->getInstallEmailTemplatesFile(), $locales, null, true, true);
 
         if ($status === false) {
             // The template file seems to be invalid.

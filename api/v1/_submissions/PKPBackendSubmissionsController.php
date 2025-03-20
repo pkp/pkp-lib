@@ -26,7 +26,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\API\v1\submissions\AnonymizeData;
-use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -283,7 +283,11 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'needsReviews':
-                    $collector->filterByNumReviewsConfirmedLimit($context->getNumReviewsPerSubmission());
+                    $collector->filterByNumReviewsConfirmedLimit(
+                        $context->getNumReviewsPerSubmission() == Context::REVIEWS_DEFAULT_COUNT ?
+                            Context::REVIEWS_REQUIRED_COUNT :
+                            $context->getNumReviewsPerSubmission()
+                    );
                     break;
                 case 'awaitingReviews':
                     $collector->filterByAwaitingReviews(true);

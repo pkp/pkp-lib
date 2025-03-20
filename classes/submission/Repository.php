@@ -26,7 +26,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -925,7 +924,11 @@ abstract class Repository
 
                     $collector = Repo::submission()->getCollector()
                         ->filterByContextIds([$context->getId()])
-                        ->filterByNumReviewsConfirmedLimit($context->getNumReviewsPerSubmission())
+                        ->filterByNumReviewsConfirmedLimit(
+                            $context->getNumReviewsPerSubmission() == Context::REVIEWS_DEFAULT_COUNT ?
+                                Context::REVIEWS_REQUIRED_COUNT :
+                                $context->getNumReviewsPerSubmission()
+                        )
                         ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,

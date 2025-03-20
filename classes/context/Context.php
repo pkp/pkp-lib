@@ -55,6 +55,12 @@ abstract class Context extends \PKP\core\DataObject
      */
     public const REVIEWS_REQUIRED_COUNT = 1;
 
+    /*
+     * The default number of completed reviews per submission, to be used in the workflow to determine whether the
+     * setting `numReviewsPerSubmission` should be taken into account
+     */
+    public const REVIEWS_DEFAULT_COUNT = 0;
+
     /**
      * Whether DOIs are enabled for this context
      *
@@ -608,8 +614,8 @@ abstract class Context extends \PKP\core\DataObject
     {
         $numReviewsPerSubmission = intval($this->getData('numReviewsPerSubmission'));
 
-        if ($numReviewsPerSubmission < self::REVIEWS_REQUIRED_COUNT) {
-            return self::REVIEWS_REQUIRED_COUNT;
+        if ($numReviewsPerSubmission < self::REVIEWS_DEFAULT_COUNT) {
+            return self::REVIEWS_DEFAULT_COUNT;
         }
 
         return $numReviewsPerSubmission;

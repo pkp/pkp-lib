@@ -28,27 +28,27 @@ class DashboardView
     public const TYPE_ACTIVE = 'active';
     public const TYPE_NEEDS_EDITOR = 'needs-editor';
     public const TYPE_SUBMISSION = 'initial-review';
-    public const TYPE_REVIEW_EXTERNAL = 'external-review';
     public const TYPE_NEEDS_REVIEWS = 'needs-reviews';
     public const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
     public const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';
     public const TYPE_REVIEWS_OVERDUE = 'reviews-overdue';
-    public const TYPE_REVIEW_ALL = 'review-all'; // OMP only
     public const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
     public const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
+    public const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
+    public const TYPE_REVIEW_EXTERNAL = 'external-review';
+    public const TYPE_REVIEW_ALL = 'review-all'; // OMP only
     public const TYPE_COPYEDITING = 'copyediting';
     public const TYPE_PRODUCTION = 'production';
     public const TYPE_SCHEDULED = 'scheduled';
     public const TYPE_PUBLISHED = 'published';
     public const TYPE_DECLINED = 'declined';
 
-    public const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
     public const TYPE_REVIEWER_ACTION_REQUIRED = 'reviewer-action-required';
     public const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
     public const TYPE_REVIEWER_ASSIGNMENTS_COMPLETED = 'reviewer-assignments-completed';
+    public const TYPE_REVIEWER_ASSIGNMENTS_DECLINED = 'reviewer-assignments-declined';
     public const TYPE_REVIEWER_ASSIGNMENTS_PUBLISHED = 'reviewer-assignments-published';
     public const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
-    public const TYPE_REVIEWER_ASSIGNMENTS_DECLINED = 'reviewer-assignments-declined';
 
     // The number of submissions in the view
     protected int $count = 0;

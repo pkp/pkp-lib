@@ -2361,6 +2361,7 @@ msgstr ""
 "Zjištěno {$count} chyb! Než budete pokračovat, opravte prosím níže uvedené "
 "chyby."
 
+#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Mé podání"
 
@@ -2389,9 +2390,11 @@ msgid "form.errorSummaryOne"
 msgstr ""
 "Zjištěna 1 chyba! Než budete pokračovat, opravte prosím níže uvedenou chybu."
 
+#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Ovládací panely"
 
+#, fuzzy
 msgid "navigation.reviewAssignments"
 msgstr "Přehled úkolů"
 

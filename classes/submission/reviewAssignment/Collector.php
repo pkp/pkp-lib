@@ -51,7 +51,7 @@ class Collector implements CollectorInterface, ViewsCount
     public ?array $reviewMethods = null;
     public ?int $stageId = null;
     public ?array $reviewFormIds = null;
-    public ?array $recommendations = null;
+    public ?array $recommendationIds = null;
     public bool $orderByContextId = false;
     public ?string $orderByContextIdDirection = null;
     public bool $orderBySubmissionId = false;
@@ -231,9 +231,9 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by recommendations
      */
-    public function filterByRecommenddations(?array $recommendations): static
+    public function filterByRecommenddationIds(?array $recommendationIds): static
     {
-        $this->recommendations = $recommendations;
+        $this->recommendationIds = $recommendationIds;
         return $this;
     }
 
@@ -468,9 +468,9 @@ class Collector implements CollectorInterface, ViewsCount
         );
 
         $q->when(
-            $this->recommendations !== null,
+            $this->recommendationIds !== null,
             fn (Builder $q) =>
-            $q->whereIn('ra.recommendation', $this->recommendations)
+            $q->whereIn('ra.recommendation_id', $this->recommendationIds)
         );
 
         $q->when(

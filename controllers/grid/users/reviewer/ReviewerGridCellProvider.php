@@ -214,7 +214,7 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function _getStatusWithRecommendation($statusKey, $reviewAssignment)
     {
-        if (!$reviewAssignment->getRecommendation()) {
+        if (!$reviewAssignment->getRecommendationId()) {
             return __($statusKey);
         }
 

@@ -166,7 +166,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
             'dateCompleted' => Core::getCurrentDate(), // Mark the review assignment as completed.
-            'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
+            'recommendationId' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
         ]);
 
         // Retrieve stage assignments for managers and sub-editors
@@ -274,7 +274,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
-            'recommendation' => (int) $this->getData('recommendation'), // save the recommendation to the review assignment
+            'recommendationId' => (int) $this->getData('recommendation'), // save the recommendation to the review assignment
         ]);
 
         return true;

@@ -15,10 +15,9 @@
 namespace PKP\submission\reviewer\recommendation;
 
 use APP\facades\Repo;
-use PKP\submission\reviewer\recommendation\RecommendationOption;
-
 use APP\core\Application;
 use PKP\core\traits\ModelWithSettings;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -26,6 +25,8 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class ReviewerRecommendation extends Model
 {
     use ModelWithSettings;
+
+    public const DEFAULT_RECOMMENDATION_TRANSLATION_KEY = 'defaultTranslationKey';
 
     /**
      * @copydoc \Illuminate\Database\Eloquent\Model::$table
@@ -43,7 +44,6 @@ class ReviewerRecommendation extends Model
     protected $guarded = [
         'recommendation_id',
         'recommendationId',
-        'value',
     ];
 
     /**
@@ -52,20 +52,9 @@ class ReviewerRecommendation extends Model
     protected function casts(): array
     {
         return [
-            'value'         => 'integer',
-            'context_id'    => 'integer',
-            'status'        => 'integer', // cast the boolean to corresponding int e.g. true/false to 1/0
+            'context_id' => 'integer',
+            'status' => 'integer', // cast the boolean to corresponding int e.g. true/false to 1/0
         ];
-    }
-
-    /**
-     * The "booted" method of the model.
-     */
-    protected static function booted(): void
-    {
-        static::creating(
-            fn (self $recommendation) => $recommendation->value = $recommendation->value
-        );
     }
 
     /**
@@ -91,6 +80,7 @@ class ReviewerRecommendation extends Model
     {
         return [
             'title',
+            static::DEFAULT_RECOMMENDATION_TRANSLATION_KEY,
         ];
     }
 
@@ -103,36 +93,6 @@ class ReviewerRecommendation extends Model
             'title',
         ];
     }
-
-    /**
-     * Set the recommendation value attribute
-     */
-    protected function value(): Attribute
-    {
-        return Attribute::make(
-            set: function () {
-                if ($this->getRawOriginal('value')) {
-                    return $this->getRawOriginal('value');
-                }
-
-                $lastRecommendationValue = static::query()
-                    ->withContextId($this->contextId)
-                    ->when(
-                        $this->id,
-                        fn ($query) => $query->where($this->getKeyName(), '!=', $this->id)
-                    )
-                    ->orderBy($this->getKeyName(), 'desc')
-                    ->first()?->value ?? 0;
-                
-                $lastDefaultRecommendationValue = last(array_keys(Repo::reviewerRecommendation()->getDefaultRecommendations()));
-
-                return ($lastRecommendationValue >= $lastDefaultRecommendationValue 
-                    ? $lastRecommendationValue 
-                    : $lastDefaultRecommendationValue
-                ) + 1;
-            }
-        );
-    }
     
     /**
      * Get attribute value removable for this recommendation
@@ -143,7 +103,7 @@ class ReviewerRecommendation extends Model
             get: fn () => !Repo::reviewAssignment()
                 ->getCollector()
                 ->filterByContextIds([$this->contextId])
-                ->filterByRecommenddations([$this->value])
+                ->filterByRecommenddationIds([$this->id])
                 ->getQueryBuilder()
                 ->exists()
         )->shouldCache();
@@ -168,7 +128,7 @@ class ReviewerRecommendation extends Model
             get: fn () => Repo::reviewAssignment()
                 ->getCollector()
                 ->filterByContextIds([$this->contextId])
-                ->filterByRecommenddations([$this->value])
+                ->filterByRecommenddationIds([$this->id])
                 ->getMany()
         )->shouldCache();
     }
@@ -192,8 +152,30 @@ class ReviewerRecommendation extends Model
     /**
      * Scope a query to filter by recommendation value
      */
-    public function scopeWithRecommendations(Builder $query, array $recommendations): Builder
+    public function scopeWithRecommendations(Builder $query, array $recommendationIds): Builder
     {
-        return $query->whereIn('value', $recommendations);
+        return $query->whereIn('recommendation_id', $recommendationIds);
+    }
+
+    /**
+     * Scope a query to filter by default recommendations
+     */
+    public function scopeWithDefaultRecommendationsOnly(Builder $query): Builder
+    {
+        return $query->whereIn(
+            static::DEFAULT_RECOMMENDATION_TRANSLATION_KEY,
+            Repo::reviewerRecommendation()->getDefaultRecommendations()
+        );
+    }
+
+    /**
+     * Scope a query to filter by custom recommendations
+     */
+    public function scopeWithCustomRecommendationsOnly(Builder $query): Builder
+    {
+        return $query->whereNotIn(
+            static::DEFAULT_RECOMMENDATION_TRANSLATION_KEY,
+            Repo::reviewerRecommendation()->getDefaultRecommendations()
+        );
     }
 }

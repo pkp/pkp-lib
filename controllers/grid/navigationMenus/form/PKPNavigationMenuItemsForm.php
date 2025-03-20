@@ -205,13 +205,14 @@ class PKPNavigationMenuItemsForm extends Form
                     continue;
                 }
 
+                // Check if there is a display title for the NMI. If not for this locale, explicitely define one
                 if (!isset($originalDisplayTitles[$locale])) {
                     $newTitles[$locale] = $trimmedTitle;
                     continue;
                 }
 
                 // Update title if explicitly defined or changed from default
-                if (isset($localizedTitlesFromDB[$locale]) || (isset($originalDisplayTitles[$locale]) && $originalDisplayTitles[$locale] !== $trimmedTitle)) {
+                if (isset($localizedTitlesFromDB[$locale]) || $originalDisplayTitles[$locale] !== $trimmedTitle) {
                     $newTitles[$locale] = $trimmedTitle;
                 }
             }

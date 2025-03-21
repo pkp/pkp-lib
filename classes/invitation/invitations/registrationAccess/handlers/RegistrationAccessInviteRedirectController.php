@@ -69,6 +69,8 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
             );
         }
 
+        $this->getInvitation()->finalize();
+
         $request->redirectUrl($url);
     }
 
@@ -104,15 +106,13 @@ class RegistrationAccessInviteRedirectController extends InvitationActionRedirec
             );
         }
 
+        $this->getInvitation()->decline();
+
         $request->redirectUrl($url);
     }
 
     public function preRedirectActions(InvitationAction $action): void
     {
-        if ($action == InvitationAction::ACCEPT) {
-            $this->getInvitation()->finalize();
-        } elseif ($action == InvitationAction::DECLINE) {
-            $this->getInvitation()->decline();
-        }
+        return;
     }
 }

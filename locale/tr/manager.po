@@ -1,11 +1,12 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
+# "Dr. Uğur Koçak" <ugurkocak@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-01-27 23:50+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2025-03-16 20:28+0000\n"
+"Last-Translator: \"Dr. Uğur Koçak\" <ugurkocak@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "tr/>\n"
 "Language: tr\n"
@@ -3325,6 +3326,8 @@ msgstr ""
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p>Sistem tarafından gönderilen tüm epostaları <a href=\"{$url}\">düzenleyin "
+"yahut yenilerini ekleyin</a>.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""

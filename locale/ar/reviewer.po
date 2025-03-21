@@ -1,19 +1,20 @@
+# "M. Ali" <vorteem@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2021-03-15 05:21+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2025-03-16 20:28+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
-"ar_IQ/>\n"
-"Language: ar_IQ\n"
+"ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. الإلتماس"
@@ -129,3 +130,66 @@ msgstr "إرسال إلى المحكمين"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "المستخدم الحالي ليس معيناً بمثابة محكم للوثيقة المطلوبة."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "التحكيمات السابقة"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "الجولة {$round} التحكيم مُسَلَّم في {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "قراءة تحكيم الجولة {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "الجولة {$round} التحكيم مُسَلَّم من قبلك نيابة عن"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "تعليقات المحكم"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "للمحررين والمؤلفين"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "للمحررين فقط"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "التعليق: {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "رفض السبب المرسل عبر البريد الالكتروني"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "لا سبب معطى لرفض دعوة التحكيم."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "تاريخ الرفض"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "النوع"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "الملخص"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "الكلمات المفتاحية"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "المعلومات العامة"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "المرفقات"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "الملفات لتحكيمها"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "تلك هي الملفات المرسلة إليك لتحكيمها"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "التحكيم لم يتم إكماله."
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "البيانات الوصفية للمقالة"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "تلك هي الملفات التي أرفقتها جنبًا إلى جنب مع تحكيمك"

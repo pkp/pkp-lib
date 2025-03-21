@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-28 15:51+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/mr/>\n"
@@ -136,3 +136,66 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "वर्तमान वापरकर्त्यास विनंती केलेल्या सादरीकरणासाठी समीक्षक म्हणून नियुक्त "
 "केलेले नाही."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "पूर्वीची समीक्षणे"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "{$round} या फेरीतील समीक्षण {$submittedOn} रोजी सादर केले"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "{$round} या फेरीतील तुम्ही सादर केलेले समीक्षण याकरता"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "ई-मेलद्वारे पाठवलेले नकाराचे कारण"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "समीक्षणाची विनंती नाकारण्याचे कोणतेही कारण दिलेले नाही."
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "या फाईल्स तुम्ही तुमच्या समीक्षणासोबत जोडल्या आहेत"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "{$round} या फेरीतील समीक्षण वाचा"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "समीक्षकांच्या टिप्पण्या"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "संपादक आणि लेखकांसाठी"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "फक्त संपादकांसाठी"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "टिप्पणी {$index}: "
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "नकाराची तारीख"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "लेखाचा मेटाडेटा"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "प्रकार"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "सारांश"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "प्रमुख शब्द (Keywords)"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "सामान्य माहिती"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "जोडण्या (Attachments)"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "समीक्षणासाठी फाईल्स"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "या फाईल्स तुम्हाला समीक्षणासाठी पाठवल्या गेल्या आहेत"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "समीक्षण प्रक्रिया पूर्ण झाली नाही."

@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-16 20:28+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "mr/>\n"
@@ -938,3 +938,117 @@ msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
 "देखभालीत मग्न (मोड) असतानाही worker ला काम करण्यास भाग पाडा[default : "
 "{$default}]"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr ""
+"संशोधन संस्था नोंदणी (Research Organization Registry) डेटासेट कॅश अपडेट करा"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"कालबाह्य झालेली आमंत्रणे आपोआप काढून टाकण्याचे कार्य निश्चित करा (Dispatch a "
+"job)"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "AppKey च्या वापराबाबतची पॅरामीटर्स प्रदर्शित करा"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "config फाईलमध्ये सध्याची AppKey आढळल्यास ती विधीग्राह्य (Validate) करा"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "config.inc.php फाईलमध्ये app_key config variable चा समावेश करा."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"एक नवी AppKey तयार करून config फाईलमधील बदला. --show फक्त पाहण्यासाठी आणि --"
+"force अस्तित्वात असलेली वैध app key बदलण्यासाठी फ्लॅगसह पास करा."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "तुम्हाला खालीलपैकी एक म्हणायचे आहे का?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "निर्माण केलेली App Key: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"config फाईलच्या \"सामान्य\" विभागात \"app_key\" नावाचा कोणताही key variable "
+"परिभाषित केलेला नाही. कृपया config फाईलचा सामान्य विभाग अपडेट करून \"app_key "
+"= \" या ओळीचा समावेश करा किंवा ती स्थापित (set) करण्यासाठी \"php lib/pkp/"
+"tools/appKey.php configure\" ही आज्ञा द्या."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"config फाईलमधील \"सामान्य\" विभागाखाली \"app_key\" variable आधीच अस्तित्वात "
+"आहे. नवी app key स्थापित (set) करण्यासाठी \"php lib/pkp/tools/appKey.php "
+"generate\" ही आज्ञा द्या."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "config फाईलमध्ये app key स्थापित (set) केलेली नाही."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"अग्राह्य app key set, विनाधार cipher किंवा key ची चुकीची लांबी. हे पुरस्कृत "
+"(Supported) ciphers आहेत : {$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "config फाईलमध्ये App key यशस्वीरित्या स्थापित (set) झाली."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"config फाईलमध्ये \"app_key\" variable स्थापित (set) करता आला नाही. कृपया "
+"config फाईलचा सामान्य विभाग अपडेट करा आणि \"app_key = \" ओळीचा समावेश करा."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "config फाईलमध्ये एक वैध app_key स्थापित (set) झाली"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "scheduler run करा."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "अनुसूचीत केलेल्या सगळ्या कामांची यादी करा."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "schedule worker सुरू करा."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"यादीतले अनुसूचीत केलेले विशिष्ट काम run करा किंवा विशिष्ट काम run करण्यासाठी "
+"--name वापरा. scroll न करता संपूर्ण यादी पाहण्यासाठी --no-scroll flag स्थापि"
+"त (set) करा."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Scheduler usage parameters दाखवा."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "तुम्हाला खालीलपैकी एक म्हणायचे होते का?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"application sandbox mode कार्यान्वित (enabled) असल्यामुळे अनुसूचीत केलेली "
+"कामं run करणे अशक्य आहे."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "कोणतेही नियोजित कामे नोंदवलेली नाहीत."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "जुळणारे नियोजित काम सापडले नाही."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "तुम्हाला कोणती command run करायची आहे?"
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"config फाईलमध्ये आधीच स्थापित (set) केलेली वैध APP Key आहे. ती बदलण्यासाठी, "
+"--force फ्लॅगसह पास करा."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"application maintenance mode कार्यान्वित (enabled) असल्यामुळे अनुसूचीत केलेली"
+" कामं run करणे अशक्य आहे."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"config फाईलमध्ये App key variable यशस्वीरित्या स्थापित (set) झाले. नवीन अ‍ॅप "
+"की सेट करण्यासाठी \"php lib/pkp/tools/appKey.php generate\" कमांड चालवा."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "दर मिनिटागणिक नियोजित कामे run करणे."

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2025-03-03 10:31+0000\n"
+"PO-Revision-Date: 2025-03-20 20:06+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/common/cs/"
 ">\n"
@@ -2361,9 +2361,8 @@ msgstr ""
 "Zjištěno {$count} chyb! Než budete pokračovat, opravte prosím níže uvedené "
 "chyby."
 
-#, fuzzy
 msgid "navigation.mySubmissions"
-msgstr "Mé podání"
+msgstr "Má podání v roli autora"
 
 msgid "reviewer.submission.submittedOn"
 msgstr "Recenze předložena na"
@@ -2390,16 +2389,17 @@ msgid "form.errorSummaryOne"
 msgstr ""
 "Zjištěna 1 chyba! Než budete pokračovat, opravte prosím níže uvedenou chybu."
 
-#, fuzzy
 msgid "navigation.dashboards"
-msgstr "Ovládací panely"
+msgstr "Ovládací panel redaktora"
 
-#, fuzzy
 msgid "navigation.reviewAssignments"
-msgstr "Přehled úkolů"
+msgstr "Přehled mých úkolů jako recenzenta"
 
 msgid "reviewer.submission.acceptedOn"
 msgstr "Přijata recenze na"
 
 msgid "validator.date.comparison"
 msgstr "Neplatná data uvedená pro srovnání."
+
+msgid "common.yesContinue"
+msgstr "Ano, pokračovat"

@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2024-03-26 13:38+0000\n"
+"PO-Revision-Date: 2025-03-15 03:59+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar/>\n"
@@ -683,10 +683,10 @@ msgid "common.pagination.goToPage"
 msgstr "إذهب إلى {$page}"
 
 msgid "common.pagination.next"
-msgstr "الصفحة التالية"
+msgstr "التالي"
 
 msgid "common.pagination.previous"
-msgstr "الصفحة السابقة"
+msgstr "السابق"
 
 msgid "common.pageNumber"
 msgstr "الصفحة {$pageNumber}"
@@ -2271,3 +2271,87 @@ msgstr "التمييزات"
 
 msgid "common.sandbox"
 msgstr "البرنامج يشتغل بوضعية صندوق الاختبارات."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "معاينة <a href=\"{$url}\">ماضي التحرير</a>"
+
+msgid "common.moreActions"
+msgstr "المزيد من الإجراءات"
+
+msgid "common.editorialMasthead"
+msgstr "دفة التحرير"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "المحكمون المناظرون في العام السابق"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "المحكمون المناظرون في الأعوام الماضية"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "المحررون يعربون عن شكرهم للمحكمين لـ {$year} المدرجة أدناه."
+
+msgid "common.editorialHistory"
+msgstr "ماضي التحرير"
+
+msgid "common.editorialHistory.page"
+msgstr "صفحة ماضي التحرير"
+
+msgid "common.editorialHistory.page.description"
+msgstr "هذا المقطع يدرج المساهمين السابقين."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "معاينة الملف الشخصي في ORCID لـ {$name}"
+
+msgid "common.filtersClear"
+msgstr "إزالة المرشحات"
+
+msgid "common.showingXofX"
+msgstr "إظهار <strong>{$start} إلى {$finish}</strong> من {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "محمَّل"
+
+msgid "form.errorSummaryOne"
+msgstr "تم الكشف عن خطأ واحد! يرجى تصحيح الخطأ أدناه قبل المتابعة."
+
+msgid "form.errorSummaryMany"
+msgstr "تم الكشف عن {$count} من الأخطاء! يرجى تصحيح الأخطاء أدناه قبل المتابعة."
+
+msgid "navigation.dashboards"
+msgstr "دفات القيادة"
+
+msgid "navigation.mySubmissions"
+msgstr "طلبات تقديمي"
+
+msgid "navigation.reviewAssignments"
+msgstr "مهام التحكيم"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "التحكيم تم قبوله في"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "التحكيم تم تسليمه في"
+
+msgid "validator.date.comparison"
+msgstr "التواريخ المقدمة للمقارنة غير صائبة."
+
+msgid "validator.multilingual"
+msgstr "متطلبات تعدد اللغات غير ملباة في هذا الحقل."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "لا"
+
+msgid "common.refreshingData"
+msgstr "إعادة تنشيط البيانات"
+
+msgid "common.viewMoreDetails"
+msgstr "معاينة المزيد من التفاصيل"
+
+msgid "common.assignments"
+msgstr "التعيينات"

@@ -1134,10 +1134,12 @@ msgstr "Sjálfgefin dagsetning á lokafresti svars"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Sjálfgefin lokadagsetning"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Fjöldi vikna til að samþykkja eða hafna beiðni um ritrýni."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Vikur gefnar til að klára ritrýni"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

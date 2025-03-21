@@ -1226,10 +1226,12 @@ msgstr "Կանխադրված պատասխանի վերջնաժամկետ"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Կանխադրված ավարտի վերջնաժամկետ"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Շաբաթների քանակը՝ գրախոսելու հարցումն ընդունելու կամ մերժելու համար:"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Հատկացված շաբաթները, որոնք տրված են գրախոսության իրականացմանը"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

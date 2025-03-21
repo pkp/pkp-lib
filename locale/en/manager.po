@@ -1286,11 +1286,13 @@ msgstr "Default Response Deadline"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Default Completion Deadline"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Number of weeks to accept or decline a review request."
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
+msgstr "Number of days to accept or decline a review request."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Weeks allowed for review completion"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
+msgstr "Days allowed for review completion"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Never Remind"

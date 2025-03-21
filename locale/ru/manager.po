@@ -1240,10 +1240,12 @@ msgstr "Срок согласия на рецензию по умолчанию"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Срок выполнения рецензии по умолчанию"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Недель на согласие или отказ в ответ на запрос выполнения рецензии."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Недель на выполнение рецензии"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

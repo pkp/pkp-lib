@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\security\Role;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 
@@ -190,11 +189,7 @@ class UserForm extends Form
                 )
                 ->each(
                     function ($userGroupId) use ($mastheadUserGroupIds) {
-                        $masthead = match (in_array($userGroupId, $mastheadUserGroupIds)) {
-                            true => UserUserGroupMastheadStatus::STATUS_ON,
-                            false => UserUserGroupMastheadStatus::STATUS_OFF
-                        };
-                        Repo::userGroup()->updateUserUserGroupMastheadStatus($this->userId, $userGroupId, $masthead);
+                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, in_array($userGroupId, $mastheadUserGroupIds));
                     }
                 );
         }

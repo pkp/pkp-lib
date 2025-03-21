@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/userGroup/Repository.php
  *
@@ -13,28 +14,27 @@
 
 namespace PKP\userGroup;
 
-use stdClass;
-use DateInterval;
-use Carbon\Carbon;
-use PKP\core\Core;
-use APP\facades\Repo;
-use PKP\plugins\Hook;
-use PKP\site\SiteDAO;
-use PKP\security\Role;
-use PKP\db\DAORegistry;
-use PKP\facades\Locale;
 use APP\core\Application;
-use PKP\xml\PKPXMLParser;
+use APP\facades\Repo;
+use Carbon\Carbon;
+use DateInterval;
 use Illuminate\Support\Collection;
-use PKP\services\PKPSchemaService;
-use PKP\validation\ValidatorFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
-use Illuminate\Database\Query\JoinClause;
-use PKP\userGroup\relationships\UserUserGroup;
-use PKP\userGroup\relationships\UserGroupStage;
+use PKP\core\Core;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\plugins\Hook;
+use PKP\security\Role;
+use PKP\services\PKPSchemaService;
+use PKP\site\SiteDAO;
+use PKP\user\enums\UserMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\relationships\UserUserGroup;
+use PKP\validation\ValidatorFactory;
+use PKP\xml\PKPXMLParser;
+use stdClass;
 
 class Repository
 {
@@ -254,23 +254,21 @@ class Repository
     }
 
     /**
-     * Get UserUserGroup masthead status for a UserGroup the user is currently active in
+     * Update UserUserGroup masthead status for a UserGroup the user is currently active in
      *
      */
-    public function getUserUserGroupMastheadStatus(int $userId, int $userGroupId): UserUserGroupMastheadStatus
+    public function updateUserUserGroupMasthead(int $userId, int $userGroupId, bool $masthead): void
     {
-        $masthead = UserUserGroup::query()
+        UserUserGroup::query()
             ->withUserId($userId)
             ->withUserGroupIds([$userGroupId])
             ->withActive()
-            ->pluck('masthead')
-            ->first();
+            ->update(['masthead' => $masthead]);
 
-        return match ($masthead) {
-            true => UserUserGroupMastheadStatus::STATUS_ON,
-            false => UserUserGroupMastheadStatus::STATUS_OFF,
-            default => UserUserGroupMastheadStatus::STATUS_NULL,
-        };
+        $userGroup = UserGroup::find($userGroupId);
+        if ($userGroup?->masthead) {
+            self::forgetEditorialCache($userGroup->contextId);
+        }
     }
 
     /**
@@ -296,7 +294,7 @@ class Repository
         int $userGroupId,
         ?string $startDate = null,
         ?string $endDate = null,
-        ?UserUserGroupMastheadStatus $mastheadStatus = null
+        ?bool $masthead = null
     ): ?UserUserGroup {
         if ($endDate && !Carbon::parse($endDate)->isFuture()) {
             return null;
@@ -309,15 +307,8 @@ class Repository
             return null;
         }
 
-        // Determine masthead status
-        $masthead = match ($mastheadStatus) {
-            UserUserGroupMastheadStatus::STATUS_ON => true,
-            UserUserGroupMastheadStatus::STATUS_OFF => false,
-            default => null,
-        };
-
         // Clear editorial masthead cache if a new user is assigned to a masthead role
-        if ($userGroup->masthead) {
+        if ($userGroup->masthead && $masthead) {
             self::forgetEditorialCache($userGroup->contextId);
         }
 
@@ -579,10 +570,10 @@ class Repository
                 ->filterByContextIds([$contextId])
                 ->filterByUserGroupIds($mastheadRoleIds)
                 ->filterByUserUserGroupStatus($userUserGroupStatus)
-                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->filterByUserMastheadStatus(UserMastheadStatus::STATUS_ON)
                 ->orderBy(
                     $usersCollector::ORDERBY_FAMILYNAME,
-                    $usersCollector::ORDER_DIR_ASC, 
+                    $usersCollector::ORDER_DIR_ASC,
                     [
                         Locale::getLocale(),
                         Application::get()->getRequest()->getSite()->getPrimaryLocale()

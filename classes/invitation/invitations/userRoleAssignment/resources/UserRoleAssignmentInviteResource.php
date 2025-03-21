@@ -14,7 +14,10 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\resources;
 
+use APP\facades\Repo;
 use Illuminate\Http\Request;
+use PKP\context\Context;
+use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
 use PKP\user\User;
 
 class UserRoleAssignmentInviteResource extends BaseUserRoleAssignmentInviteResource
@@ -64,5 +67,52 @@ class UserRoleAssignmentInviteResource extends BaseUserRoleAssignmentInviteResou
             'existingUser' => $this->transformUser($this->getExistingUser()),
             'newUser' => $this->transformUser($newUser),
         ]);
+    }
+
+    /**
+     * Transform invitation payload and user data
+     * @param int|null $userId
+     * @param array $payload
+     * @param Context $context
+     * @return array
+     */
+    public function transformInvitationPayload(?int $userId, array $payload, Context $context): array
+    {
+        $invitationPayload = UserRoleAssignmentInvitePayload::fromArray($payload)->toArray();
+        $user = null;
+        if($userId){
+            $user = Repo::user()->get($userId,true);
+            $invitationPayload = UserRoleAssignmentInvitePayload::fromArray($user->getAllData())->toArray();
+        }
+        $invitationPayload['userId'] = $user ? $user->getId() : $userId;
+        $invitationPayload['inviteeEmail'] = $user ? $user->getEmail() : $invitationPayload['sendEmailAddress'];
+        $invitationPayload['country'] = $user ? $user->getCountryLocalized() : $invitationPayload['userCountry'];
+        $invitationPayload['biography'] = $user?->getBiography(null);
+        $invitationPayload['phone'] = $user?->getPhone();
+        $invitationPayload['mailingAddress'] = $user?->getMailingAddress();
+        $invitationPayload['signature'] = $user?->getSignature(null);
+        $invitationPayload['locales'] = $user? $this->transformWorkingLanguages($context,$user->getLocales()) : null;
+        $invitationPayload['reviewInterests'] = $user?->getInterestString();
+        $invitationPayload['homePageUrl'] = $user?->getUrl();
+        $invitationPayload['disabled'] = $user?->getData('disabled');
+        $invitationPayload['userGroupsToAdd'] = !$payload['userGroupsToAdd'] ? [] : $invitationPayload['userGroupsToAdd'];
+        $invitationPayload['currentUserGroups'] = !$userId ? [] : $this->transformCurrentUserGroups($userId,$context);
+        $invitationPayload['userGroupsToRemove'] = [];
+        $invitationPayload['emailComposer'] = [
+            'emailBody' => $invitationPayload['emailBody'],
+            'emailSubject' => $invitationPayload['emailSubject'],
+        ];
+
+        // removing security related data
+        unset($invitationPayload["username"]);
+        unset($invitationPayload["password"]);
+        unset($invitationPayload["orcidAccessToken"]);
+        unset($invitationPayload["orcidRefreshToken"]);
+        unset($invitationPayload["passwordHashed"]);
+
+        return [
+            'invitationPayload' => $invitationPayload,
+            'user' => $user
+        ];
     }
 }

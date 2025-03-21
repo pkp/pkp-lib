@@ -1,12 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2024-11-12 09:40+0000\n"
+"PO-Revision-Date: 2025-03-21 09:13+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ar/>"
 "\n"
@@ -346,3 +346,67 @@ msgstr "ترتيب التمييز تعذر حفظه لتعذر العثور عل
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "لا يمكن تعيين معرف المكون الرقمي لهذا العنصر."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "تتعذر معالجة طلب واجهة برمجة التطبيق."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "المعامل المتعلق بالمؤلف خاطئ."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"لقد أعطيت  \"نوع حدث\"خاطئ، {$eventType}، لعناوين البريد الالكتروني للمؤلفين."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "لا يمكنك التعديل في طلبات تقديم المؤلفين التي لم يتم تعيينك لها."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"لا يمكنك تغيير لغة طلب التقديم هذا لأن لديه مسبقًا أكثر من نسخة نشر أو هو "
+"ضمن منشور صادر."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "تعذر العثور على طلب التقديم الخاص بمهمة التحكيم هذه."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "تعذر العثور على المحكم المعني بهذا التحكيم"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"الطلب ينقصه معامل الاستعلام المطلوب `ids`. يرجى تزويد `ids` الخاص بطلبات "
+"التقديم التي ترغب بحذفها."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "يتعذر تلقي أي استجابة متوقعة."
+
+msgid "api.400.routeNotDefined"
+msgstr "لم يتم إعطاء مسار واجهة برمجة التطبيق."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "لا يمكنك تنفيذ هذه العملية عندما تكون وظيفة ORCID معطلة."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "المؤلف المطلوب غير موجود"
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"النقطة الطرفية غير متاحة من جهة الاسم المجال العمودي للموقع، وينبغي طلبها "
+"لسياق معين."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "القيم المقبولة فقط هي 'قبول' و 'رفض'"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "المقطع المعطى غير موجود."
+
+msgid "api.submission.400.invalidId"
+msgstr "المعرَّف المعطى: \"{$id}\" خاطئ."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr "نموذج معرفات النشر غير متاح نظرًا لعدم وجود معَرَّفات مُمَكَّنة."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "تسجيل المؤسسة البحثية الذي طلبته غير موجود."
+
+msgid "api.409.resourceActionConflict"
+msgstr "تعذر إكمال الإجراء المزمع تنفيذه في المورد."

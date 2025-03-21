@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-28 15:51+0000\n"
+"PO-Revision-Date: 2025-03-21 13:57+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/user/mr/"
 ">\n"
@@ -273,7 +273,7 @@ msgid "user.register.form.passwordLengthRestriction"
 msgstr "पासवर्ड किमान {$length} वर्णांचा असणे आवश्यक आहे."
 
 msgid "user.register.registerAs"
-msgstr "...म्हणून {$contextName} मध्ये नोंदणी करा"
+msgstr "...म्हणून {$contextName} मध्ये नोंदणी करा."
 
 msgid "user.register"
 msgstr "नोंदणी करा"
@@ -536,3 +536,338 @@ msgstr ""
 
 msgid "user.login.passwordResetProcessInstructions"
 msgstr "लॉग इन पासवर्ड बदलण्यासाठी नवीन पासवर्डची नोंद करा."
+
+msgid "user.affiliations.institution"
+msgstr "संस्था"
+
+msgid "user.affiliations.translation"
+msgstr "अधिक माहितीसाठी"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "संस्था काढून टाका"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$total} भाषांपैकी {$count} पूर्ण झाले"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "{$language} भाषेमध्ये संस्थेचे नाव"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "संपादित करण्यासाठी किंवा हटविण्यासाठी क्लिक करा"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "{$language} भाषेमध्ये संस्थेचे नाव टाइप करा"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "प्राथमिक भाषा {$primaryLocale} आवश्यक आहे"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "सर्व भाषांतरे उपलब्ध"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "{$language} भाषेमध्ये संस्थेचे नाव टाइप करा"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"वापरकर्ता आणि लेखकाबाबतची माहिती ORCID प्रोफाइलमधून परस्पर ओढण्यासाठी आणि "
+"त्यात नवी प्रकाशने नोंदवत ती माहिती अद्ययावत करण्यासाठी कृपया ORCID API मध्ये"
+" प्रवेश कॉन्फिगर करा (फक्त ORCID सदस्यांसाठी)."
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "तुम्हाला खात्री आहे का?"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "सार्वजनिक"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "संलग्नता <strong>{$affiliation}</strong> हटवली जाईल."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "सार्वजनिक सँडबॉक्स"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "तुम्ही शोधत असलेला शोधशब्द सापडला नाही"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"लेख स्वीकारून कॉपी एडिटिंगसाठी पाठवल्यावर लेखकांकडून ORCID अधिकृततेची "
+"(authorization) विनंती करण्यासाठी ई-मेल पाठवा"
+
+msgid "user.affiliations.description"
+msgstr ""
+"संस्थेच्या पूर्ण नावाची नोंद करा, मात्र संक्षिप्त रूप टाळा. घसरण (dropdown) "
+"यादीतून नाव निवडा आणि तुमच्या प्रोफाइलमध्ये संलग्नतेचा समावेश करण्यासाठी \"सम"
+"ावेश करा/जोडा (Add)\" वर क्लिक करा. (उदा. \"मुंबई विद्यापीठ\")"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"पूर्ण झालेल्या सादरीकरणासाठी समीक्षकाच्या सूचना जोडणे, अपडेट करणे किंवा हटवणे"
+" सीमित केले आहे."
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "संस्थेचे नाव संपादित करा"
+
+msgid "user.preferredAvatarInitials"
+msgstr "पसंतीची अवतार आद्याक्षरे (Avatar Initials)"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"तुम्हाला तुमचा अवतार म्हणून वापरण्यासाठी दोन अक्षरे नोंद करा. ही आद्याक्षरे "
+"तुमचे प्रतिनिधित्व करण्यासाठी प्रदर्शित केली जातील."
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"ORCID iD प्रमाणित नाही! कृपया योगदानकर्त्याकडून प्रमाणीकरणाची विनंती करा."
+
+msgid "user.role.ended"
+msgstr "भूमिका समाप्त"
+
+msgid "orcid.authorise"
+msgstr ""
+"तुमचा ORCID iD नोंदीत प्रवेश मिळवण्यासाठी अधिकृत (Authorize) करा आणि जोडा "
+"(Connect)"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"तुम्ही तुमचा ई-मेल पत्ता \"{$pendingEmail}\" मध्ये बदलण्याची विनंती केली आहे"
+". बदललेला ई-मेल कसा वैध करायचा यासंबंधी आम्ही तुम्हाला आत्ताच ई-मेलने कळवले "
+"आहे."
+
+msgid "orcid.about.display.title"
+msgstr "ORCID iD कुठे प्रदर्शित केले जातात?"
+
+msgid "orcid.description"
+msgstr "ORCID वरून वापरकर्ता प्रोफाइलची माहिती दाखल करुन घेण्याची परवानगी देते."
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "क्लायंट गुपित (Secret) अवैध"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "क्लायंट ID अवैध आहे, कृपया तुमचा इनपुट तपासा"
+
+msgid "orcid.instructions"
+msgstr ""
+"तुम्ही ORCID प्रोफाइलमधील माहितीचा वापर करून या फॉर्ममध्ये ती दाखल करू शकता. "
+"ORCID प्रोफाइलवर नोंदवलेला ई-मेल पत्ता किंवा ORCID iD ची नोंद करून \"सादर करा"
+" (Submit)\" वर क्लिक करा."
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr ""
+"क्लायंटचे गुपित (Secret) अवैध आहे, कृपया तुमचे अधिकार (credentials) तपासा"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr ""
+"संकेतस्थळावरुन कुठूनही (site-wide) ORCID कार्यक्षमता कार्यान्वित करा (Enable "
+"ORCID functionality)"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID कार्यक्षमता (functionality) पर्यायीरित्या सर्व "
+"नियतकालिके/प्रेस/सर्व्हरसाठी संकेतस्थळ स्तरावर कार्यान्वित (Enable) आणि "
+"कॉन्फिगर केली जाऊ शकते. कार्यान्वित (Enable) असल्यास, हे सर्व संदर्भ-स्तरीय "
+"अधिकार (credentials) रद्द (override) करेल आणि या इंस्टॉलेशनवरील सर्व "
+"नियतकालिके/प्रेस/सर्व्हरवर खालील अधिकार (credentials) लागू करेल."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "तुम्हाला खात्रीने हा ORCID काढून टाकू इच्छिता ना?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"हे ORCID पडताळलेले नाही. कृपया हे पडताळणी न केलेले ORCID काढून टाका आणि "
+"वापरकर्ता/लेखकाकडून थेट पडताळणीची विनंती करा."
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"तोपर्यंत, तुम्ही तुमचे प्रोफाइल पाहून अपडेट करू शकता. जर तुम्हाला वाटत असेल "
+"की ही एक त्रुटी आहे, तर कृपया प्रशासकाशी संपर्क साधा."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "सदस्य"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "सदस्यांसाठी सँडबॉक्स"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "क्लायंट ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "क्लायंट गुपित (Secret)"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "प्रोफाइलमधील प्रवेशाबाबत व्याप्ति"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "ई-मेल सेटिंग्ज"
+
+msgid "orcid.manager.settings.saved"
+msgstr "सेटिंग्ज सेव्ह केले"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID वर केल्या गेलेल्या विनंतींची नोंद (request log)"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "त्रुटी (अनेक)"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "सर्व"
+
+msgid "orcid.manager.settings.city"
+msgstr "शहर"
+
+msgid "orcid.author.accessDenied"
+msgstr "या टप्प्यावर ORCID मध्ये प्रवेश नाकारण्यात आला"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"ORCID नोंदीत प्रवेश {$orcidAccessScope} या मर्यादेसह मंजूर करण्यात आला, "
+"ज्याचा वैधता कालावधी"
+
+msgid "orcid.author.requestAuthorization"
+msgstr ""
+"योगदानकर्त्याकडून ORCID त्याच्या नोंदीत प्रवेश मिळवण्यासाठी (authorization) "
+"ई-मेल पाठवा"
+
+msgid "orcid.author.deleteORCID"
+msgstr "ORCID iD आणि प्रवेश ओळखचिन्ह (token) हटवा!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "प्रमाणित ORCID iD ची विनंती करण्यासाठी खाली पहा"
+
+msgid "orcid.unauthenticated"
+msgstr "(अप्रमाणित)"
+
+msgid "orcid.verify.title"
+msgstr "ORCID नोंदीत अधिकृत प्रवेश"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "सादरीकरणाचा समावेश तुमच्या ORCID नोंदीमध्ये करण्यात आला आहे."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "सादरीकरणाचा समावेश तुमच्या ORCID नोंदीमध्ये होऊ शकला नाही."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr ""
+"सादरीकरणाच्या प्रकाशनादरम्यान त्याची नोंद तुमच्या ORCID प्रोफाइलमध्ये करण्या"
+"त येईल."
+
+msgid "orcid.verify.success"
+msgstr ""
+"तुमचा ORCID iD सत्यापित करण्यात आला आहे आणि यशस्वीरित्या सादरीकरणाशी जोडण्या"
+"त आला आहे."
+
+msgid "orcid.verify.success.redirect"
+msgstr "आता तुम्ही आपोआप {$contextName} वर परत जाल."
+
+msgid "orcid.verify.failure"
+msgstr "तुमचा ORCID iD पडताळता आलेला नाही. दुवा (लिंक) आता वैध नाही."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "या सादरीकरणासाठी ORCID iD पूर्वीच संग्रहित करण्यात आला होता."
+
+msgid "orcid.verify.denied"
+msgstr "तुम्ही तुमच्या ORCID नोंदीमध्ये प्रवेश नाकारला आहे."
+
+msgid "orcid.authFailure"
+msgstr ""
+"ORCID नोंदीत प्रवेश मिळवण्यासाठीचा (authorization) दुवा (लिंक) आधीच वापरला "
+"गेला आहे किंवा तो अवैध आहे."
+
+msgid "orcid.invalidClient"
+msgstr "अवैध क्लायंट अधिकार (credentials)"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"कृपया तुमचे नाव, ORCID iD आणि तुमच्या सादरीकरणाच्या तपशीलांसह नियतकालिकाच्या "
+"व्यवस्थापकाशी संपर्क साधा."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "तुमचा ORCID iD तयार करा किंवा जोडा (Connect)"
+
+msgid "orcid.about.title"
+msgstr "ORCID म्हणजे काय?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "आपण ORCID iD कसे आणि का गोळा करतो?"
+
+msgid "user.disabledModal.description"
+msgstr "सध्याच्या भूमिका: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "{$fullName} अकार्यान्वित करा"
+
+msgid "user.enabledModal.title"
+msgstr "{$fullName} कार्यान्वित करा"
+
+msgid "user.bioStatement"
+msgstr "स्व-परिचय (Bio Statement)"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "कृपया संलग्न संस्थेचे नाव सादरीकरणाच्या भाषेत नोंदवा."
+
+msgid "orcid.displayName"
+msgstr "ORCID"
+
+msgid "orcid.noData"
+msgstr "ORCID मध्ये डेटा सापडला नाही."
+
+msgid "orcid.emailOrOrcid"
+msgstr "ई-मेल पत्ता किंवा ORCID iD:"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API सेटिंग्ज"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "लपवलेले"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "क्लायंट ID अवैध"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "नियतकालिकानुसार कॉन्फिगर केलेले"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "क्लायंट ID वैध आहे"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "क्लायंटचे गुपित (Secret) वैध आहे"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "योगदानकर्त्यांसाठी ORCiD च्या दोन नोंदी (Duplicate) आढळल्या."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "योगदानकर्त्यांसाठी अप्रमाणित (Unauthenticated) ORCiDs आढळले."
+
+msgid "orcid.manager.context.enabled"
+msgstr "ORCID कार्यक्षमता कार्यान्वित करा (Enable ORCID functionality)"
+
+msgid "orcid.field.verification.request"
+msgstr "पडताळणीची विनंती करा"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID पडताळणीची विनंती केली आहे!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "पडताळणीसाठी पुन्हा ई-मेल पाठवा"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "ORCID पडताळणीची विनंती करा"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"तुम्हाला या लेखकाला त्याचा ORCID पडताळण्याची विनंती करणारा ई-मेल पाठवायचा आहे"
+" का?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "ORCID हटवा"
+
+msgid "user.removeRole.message"
+msgstr "तुम्हाला ही भूमिका कायमची काढून टाकायची आहे का?"
+
+msgid "user.futureRole.notification.message"
+msgstr "तुमची भूमिका {$roleStartDate} रोजी सुरू होईल"

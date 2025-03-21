@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/user/Collector.php
  *
@@ -30,7 +31,7 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\user\enums\UserMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
 /**
@@ -80,7 +81,7 @@ class Collector implements CollectorInterface
     public ?int $count = null;
     public ?int $offset = null;
     public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
-    public UserUserGroupMastheadStatus $userUserGroupMastheadStatus = UserUserGroupMastheadStatus::STATUS_ALL;
+    public UserMastheadStatus $userMastheadStatus = UserMastheadStatus::STATUS_ALL;
 
     /**
      * Constructor
@@ -281,9 +282,9 @@ class Collector implements CollectorInterface
     /**
      * Filter by user's masthead status for the given role
      */
-    public function filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus $userUserGroupMastheadStatus): self
+    public function filterByUserMastheadStatus(UserMastheadStatus $userMastheadStatus): self
     {
-        $this->userUserGroupMastheadStatus = $userUserGroupMastheadStatus;
+        $this->userMastheadStatus = $userMastheadStatus;
         return $this;
     }
 
@@ -481,7 +482,7 @@ class Collector implements CollectorInterface
             $this->roleIds === null &&
             $this->contextIds === null &&
             $this->workflowStageIds === null &&
-            $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ALL) {
+            $this->userMastheadStatus === UserMastheadStatus::STATUS_ALL) {
 
             return $this;
         }
@@ -524,21 +525,21 @@ class Collector implements CollectorInterface
                     ->where('uug.date_end', '<=', $currentDateTime)
             )
             ->when(
-                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_NULL,
+                $this->userMastheadStatus === UserMastheadStatus::STATUS_NULL,
                 fn (Builder $subQuery) =>
                     $subQuery->whereNull('uug.masthead')
             )
             ->when(
-                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ON,
+                $this->userMastheadStatus === UserMastheadStatus::STATUS_ON,
                 fn (Builder $subQuery) =>
                     $subQuery->where('ug.masthead', 1)
                         ->where('uug.masthead', 1)
             )
             ->when(
-                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_OFF,
+                $this->userMastheadStatus === UserMastheadStatus::STATUS_OFF,
                 fn (Builder $subQuery) =>
                     $subQuery->where('ug.masthead', 0)
-                        ->orWhere('uug.masthead', 0)
+                        ->orWhere('uug.masthead', 1)
                         ->orWhereNull('uug.masthead')
             );
 
@@ -610,19 +611,19 @@ class Collector implements CollectorInterface
                         ->where('uug.date_end', '<=', $currentDateTime)
                 )
                 ->when(
-                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_NULL,
+                    $this->userMastheadStatus === UserMastheadStatus::STATUS_NULL,
                     fn (Builder $query) =>
                         $query->whereNull('uug.masthead')
                 )
                 ->when(
-                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ON,
+                    $this->userMastheadStatus === UserMastheadStatus::STATUS_ON,
                     fn (Builder $query) =>
                         $query->where('uug.masthead', 1)
                 )
                 ->when(
-                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_OFF,
+                    $this->userMastheadStatus === UserMastheadStatus::STATUS_OFF,
                     fn (Builder $query) =>
-                        $query->where('uug.masthead', 0)
+                        $query->where('uug.masthead', 1)
                 )
         );
         return $this;

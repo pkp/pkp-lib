@@ -31,7 +31,6 @@ use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\security\authorization\AnonymousUserPolicy;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
-use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKPRequest;
 use Validation;
 
@@ -139,9 +138,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
                 $userGroupHelper->userGroupId,
                 $effectiveDateStart,
                 $userGroupHelper->dateEnd,
-                isset($userGroupHelper->masthead) && $userGroupHelper->masthead
-                    ? UserUserGroupMastheadStatus::STATUS_ON
-                    : UserUserGroupMastheadStatus::STATUS_OFF
+                (isset($userGroupHelper->masthead) && $userGroupHelper->masthead)
             );
         }
 

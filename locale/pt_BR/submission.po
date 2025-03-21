@@ -3,13 +3,14 @@
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 # Téssio Fechine <tessiof@gmail.com>, 2024.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2025-03-13 11:39+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2025-03-21 14:35+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2182,22 +2183,22 @@ msgid "submission.licenseURL"
 msgstr "URL da licença"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr "CC Atribuição-NãoComercial-SemDerivações 4.0"
 
 msgid "submission.license.cc.by-nc4"
-msgstr "CC Attribution-NonCommercial 4.0"
+msgstr "CC Atribuição-NãoComercial 4.0"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+msgstr "CC Atribuição-NãoComercial-CompartilhaIgual 4.0"
 
 msgid "submission.license.cc.by-nd4"
-msgstr "CC Attribution-NoDerivatives 4.0"
+msgstr "CC Atribuição-SemDerivações 4.0"
 
 msgid "submission.license.cc.by4"
 msgstr "CC Attribution 4.0"
 
 msgid "submission.license.cc.by-sa4"
-msgstr "CC Attribution-ShareAlike 4.0"
+msgstr "CC Atribuição-CompartilhaIgual 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""
@@ -3601,3 +3602,28 @@ msgid "dashboard.submissions.incomplete.bulkDelete.body"
 msgstr ""
 "Tem certeza de que deseja excluir os itens selecionados? Esta ação não pode "
 "ser desfeita. Por favor, confirme para prosseguir."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Número mínimo de avaliações confirmadas: {$number}."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Número mínimo de avaliações confirmadas exigidas foi atingido. A decisão "
+"está pendente."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Seguir sem o número mínimo de avaliações confirmadas?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"O número mínimo de avaliações confirmadas exigidas não foi cumprido. "
+"Gostaria de seguir com essa decisão editorial?"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Avaliações pendentes"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Tudo no estágio de submissão"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Tudo no estágio de avaliação"

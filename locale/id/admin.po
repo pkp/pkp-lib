@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-13 11:39+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/id/>\n"
@@ -871,6 +871,8 @@ msgstr "Nama pekerjaan [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Jumlah detik untuk menunggu sebelum mencoba kembali pekerjaan yang menemukan "
+"pengecualian yang tidak tertangkap[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
 msgstr "Memori terbatas pada megabit [default : '{$default}']"
@@ -880,27 +882,33 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Jumlah detik untuk nonaktif ketika tidak ada pekerjaan yang tersedia[default "
+": '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Jumlah waktu untuk mencoba pekerjaan sebelum masuk[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Memaksa pekerja untuk menjalankan dalam mode perbaikan[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Berhenti ketika antrian kosong[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Jumlah pekerjaan yang diproses sebelum berhenti[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Jumlah maksimal detik pekerja yang harus dijalankan[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Jumlah detik untuk jeda antara pekerjaan[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Jalankan worker deamon untuk antrian pengujian"
 
 #~ msgid "admin.saveSystemConfig"
 #~ msgstr "Simpan Konfigurasi"
@@ -953,3 +961,72 @@ msgstr ""
 
 msgid "admin.job.processLogFile.fileNotFound"
 msgstr "File {$file} tidak ada."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Apakah yang anda maksud terdapat pada salah satu dari pilihan berikut?"
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"APP Key yang sah telah diatur pada config file. Jika kita timpa, berikan "
+"bendera----force with the command."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Pengaturan App key sukses pada config fiile."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Tidak ada pekerjaan terjadwal yang ditemukan."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Tidak dapat menjalankan tugas terjadwal karena aplikasi sandbox diaktifkan."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Tampilkan parameter penggunaan Scheduler."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Kirim pekerjaan untuk menghapus undangan yang kedaluwarsa secara otomatis"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Menggunakan situs ini sebagai platform untuk seluruh jurnal."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Menampilkan parameter penggunaan AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr "Memvalidasi app key terkini jika ditemukan pada config file"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Tambahkan variabel app_key config pada config.inc.php file."
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Menghasilkan App Key: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Tidak ada app key yang diatur pada config file."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Perintah apa yang ingin anda jalankan?"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Tidak dapat menjalankan tugas terjadwal karena pemeliharaan aplikasi "
+"diaktifkan."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Apa yang anda maksudkan ada pada salah satu dari pilihan berikut?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Menjalankan tugas terjadwal setiap menit."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Tidak ada tugas terjadwal yang terdaftar."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "App key yang sah diatur pada config file"
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Daftarkan seluruh tugas terjadwal."
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Jalankan scheduler."

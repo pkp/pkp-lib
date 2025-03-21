@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-12 15:24+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "mr/>\n"
@@ -156,7 +156,7 @@ msgid "manager.institutions.form.ror"
 msgstr "ROR (संशोधन संस्था नोंदणी)"
 
 msgid "manager.institutions.form.ror.description"
-msgstr "या संस्थेसाठी संशोधन संस्था नोंदणी (Research Organization Registry) ID."
+msgstr "या संस्थेचा संशोधन संस्था नोंदणी (Research Organization Registry) ID."
 
 msgid "manager.institutions.form.ipRanges"
 msgstr "IP श्रेणी"
@@ -1271,7 +1271,7 @@ msgid "manager.plugins.pluginGallery.homepage"
 msgstr "मुख्यपृष्ठ"
 
 msgid "manager.plugins.pluginGallery.summary"
-msgstr "सारांश"
+msgstr "गोषवारा (Summary)"
 
 msgid "manager.plugins.pluginGallery.status"
 msgstr "स्थिती (Status)"
@@ -3826,3 +3826,133 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "सादरीकरण करणाऱ्या लेखकांनी त्यांच्या सादरीकरणासह हितसंबंध संघर्षाचे ("
 "Competing Interest - CI) विधान दाखल करणे आवश्यक आहे."
+
+msgid "manager.language.submission.form.description"
+msgstr "सादरीकरण प्रक्रिया आणि मेटाडेटासाठी भाषा निवडा."
+
+msgid "manager.language.submission.from.error"
+msgstr "किमान एक लोकॅल निवडणे आवश्यक आहे."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "समीक्षणासाठी स्मरणपत्रे निर्माण करा"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"अपेक्षित तारखेपूर्वी किंवा नंतर समीक्षणाच्या विनंतीला समीक्षकाने प्रतिसाद "
+"दिला नसेल तर, किंवा समीक्षण प्रक्रिया पूर्ण केली गेली नसेल तर ई-मेलने "
+"स्मरणपत्र पाठवा"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} दिवस अपेक्षित तारखेनंतर"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"सादरीकरण प्रक्रिया पूर्ण करण्यापूर्वी लेखक अनेक संभाव्य समीक्षकांची नावे "
+"सुचवू शकतो ज्यामुळे समीक्षण प्रक्रिया सुलभ होऊ शकते आणि संपादकीय टीमसाठी याबा"
+"बत उपयुक्त माहिती मिळू शकते."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"समीक्षण टप्प्यादरम्यान लेखकांबाबतची खालील माहिती दाखवली जाते. लेखकाने "
+"स्वतःबद्दल, सह-लेखकांबद्दल आणि इतर कोणत्याही योगदानकर्त्यांबद्दल कोणती माहिती"
+" द्यावी याचे थोडक्यात स्पष्टीकरण."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"भाषेचे योजन (सेटिंग्स) सेव्ह करता आलेले नाही. सगळे पर्याय कार्यान्वित करणे "
+"आवश्यक आहे."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"सार्वजनिक प्रदर्शनासाठी संपादकीय सेवांसाठी (editorial masthead) व्यक्तींच्या "
+"भूमिकांचा क्रम परिभाषित करा."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"सादरीकरणाच्या {$localeName} या भाषेत {$authorName} या लेखकाच्या संलग्न "
+"संस्थेचे नाव नाही. या माहितीशिवाय सादरीकरण दाखल करुन (Import) घेता येणार "
+"नाही."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"सर्व सक्रिय संपादकीय सेवा (editorial masthead services) प्रदर्शित करणाऱ्या "
+"पृष्ठाची लिंक."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "मेनू आयटम शीर्षक हवे."
+
+msgid "manager.setup.masthead"
+msgstr "मास्टहेड (Masthead)"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"सार्वजनिक प्रदर्शनासाठी संपादकीय भूमिकांचा (masthead roles) क्रम परिभाषित "
+"करा."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"या विभागात एकसंधपणा राखण्यासाठी आणि शोधादरम्यान सोपेपणा आणण्यासाठी "
+"समीक्षकांची नावे प्रमाणित स्वरूपात प्रदर्शित केली जातील."
+
+msgid "manager.language.websiteLanguages"
+msgstr "संकेतस्थळाच्या भाषा"
+
+msgid "manager.language.submissionLanguages"
+msgstr "सादरीकरणासाठी वापर करता येणार्‍या भाषा"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "भाषांचा समावेश करा / भाषा वगळा"
+
+msgid "manager.language.submissionMetadata"
+msgstr "मेटाडेटा"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "समीक्षणाच्या विनंतीला प्रतिसाद - अपेक्षित तारखेपूर्वी"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "समीक्षण प्रक्रिया - अपेक्षित तारखेपूर्वी"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "समीक्षण प्रक्रिया - अपेक्षित तारखेनंतर"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} दिवस अपेक्षित तारखेपूर्वी"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "स्मरणपत्रे नाहीत"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "समीक्षणाच्या विनंतीला प्रतिसाद - अपेक्षित तारखेनंतर"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "कोणतेही स्मरणपत्र तयार केलेले नाही"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "समीक्षण सादर करताना समीक्षकाच्या सूचना"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "सादरीकरण प्रक्रियेदरम्यान लेखकांना संभाव्य समीक्षकांची नावे सुचवू द्या"
+
+msgid "notification.submissionLocales"
+msgstr "सादरीकरणासाठी लोकॅल्स अपडेट केले."
+
+msgid "settings.roles.masthead"
+msgstr "संपादकीय सेवांतील (editorial masthead) यादीत भूमिका विचारात घ्या"
+
+msgid "settings.roles.permitSettings"
+msgstr "सेटिंग्जमध्ये बदल करण्याची परवानगी द्या"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "दुजोरा देणारी किमान समीक्षणे आवश्यक"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "सादरीकरणावर दुजोरा देणार्‍या समीक्षणांची किमान आवश्यक संख्या"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"कृपया प्रत्येक संपादकाचे पूर्ण नाव, संलग्नता आणि भूमिकेसाठी सुरुवातीच्या आणि "
+"शेवटाच्या तारखांसह संपादकीय इतिहास प्रदान करा."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "ई-मेल पत्ता बदलण्यासाठी सूचना"

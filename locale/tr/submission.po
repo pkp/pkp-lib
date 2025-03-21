@@ -1,11 +1,12 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
+# "Dr. Uğur Koçak" <ugurkocak@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-10 09:38+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2025-03-18 18:51+0000\n"
+"Last-Translator: \"Dr. Uğur Koçak\" <ugurkocak@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
 "Language: tr\n"
@@ -1993,8 +1994,8 @@ msgstr "Revize Edilmiş Dosyayı Yükle"
 
 msgid "log.review.reviewerAssigned"
 msgstr ""
-"{$reviewerName} {$submissionId} numaralı gönderiyi değerlendirmeyi {$round}. "
-"kez kabul etti."
+"{$reviewerName}, {$submissionId} numaralı gönderiyi {$round}. inceleme turu "
+"için değerlendirmek üzere atandı."
 
 msgid "log.review.reviewCleared"
 msgstr ""

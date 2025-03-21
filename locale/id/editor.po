@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-13 11:39+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/id/>\n"
@@ -302,7 +302,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Peninjau Sudah Diucapkan Terima Kasih"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Permintaan Dikirim Kembali"
 
 msgid "editor.review.reviewerComments"
 msgstr "Tanggapan Peninjau"
@@ -332,6 +332,8 @@ msgstr "Terjadi kesalahan saat mengembalikan peninjau.  Mohon coba lagi."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Terdapat error pada permintaan ke reviewer untuk mempertimbangkan kembali "
+"permintaan review. Silakan dicoba kembali."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Daftarkan pengguna ke dalam grup peninjau ini"
@@ -525,7 +527,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Review aktif yang sedang ditugaskan"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Reviewer ini telah melengkapi review pada putaran terakhir."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Review rampung"
@@ -558,17 +560,16 @@ msgid "reviewer.list.reassign"
 msgstr "Tugaskan ulang"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Penugasan kembali {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Mitra bestari ini telah ditugaskan mereview naskah ini."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Mitra bestari ini dikunci karena telah diberi peran yang memungkinkannya "
+"Reviewer ini tidak aktif karena telah diberi peran yang memungkinkannya "
 "untuk melihat identitas penulis. Blind peer review tidak terjamin. Apakah "
-"Anda ingin membuka akses mitra bestari ini?"
+"Anda ingin membuka akses reviewer ini?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Buka"
@@ -583,31 +584,81 @@ msgid "reviewer.list.empty"
 msgstr "Tidak ada mitra bestari"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Ditugaskah pada Putaran Awal"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Membatalkan Keputusan"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Apakah anda yakin untuk membatalkan keputusan ini?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Melengkapi langkah-langkah berikut untuk mengambil keputusan"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Jangan lewati email ini"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Langkah ini telah dilewati dan tidak ada email yang akan dikirim."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Catat Keputusan"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Lewati email ini"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Terdapat masalah pada langkah {$stepName}."
 
 msgid "editor.submission.findAndSelectReviewerFromSuggestions"
 msgstr "Pilih Reviewer dari Pilihan Reviewer"
+
+msgid "editor.review.reviewViewed"
+msgstr "Review Dilihat"
+
+msgid "editor.submission.search"
+msgstr "Mencari naskah, ID, penulis, kata kunci, dll."
+
+msgid "editor.submission.days"
+msgstr "Hari"
+
+msgid "editor.submission.daysInStage"
+msgstr "Hari dalam Tahapan"
+
+msgid "editor.submission.viewSummary"
+msgstr "Kesimpulan"
+
+msgid "editor.review.logResponse.for"
+msgstr "Respon Log untuk"
+
+msgid "editor.review.logResponse"
+msgstr "Respon Log"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Respon harus dipilih"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Reviewer telah menerima permintaan untuk melakukan review"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Reviewer telah menolak permintaan untuk melakukan review"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Mencatat respon atas nama reviewer"
+
+msgid "editor.review.download"
+msgstr "Mengunduh Formulir Reviewer"
+
+msgid "editor.review.authorOnly"
+msgstr "Bagian Khusus Penulis Ditampilkan"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Jika reviewer menghubungi anda melalui email atau yang lain, anda dapat "
+"mencatat respon untuk mereka"
+
+msgid "editor.review.allSections"
+msgstr "Formuliar Editor Menunjukkan Semua Bagian Review"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Institusi yang sama dengan penulis"

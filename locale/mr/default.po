@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-02-05 18:43+0000\n"
+"PO-Revision-Date: 2025-03-17 12:23+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "mr/>\n"
@@ -194,3 +194,21 @@ msgstr ""
 " जेवढी माहिती दिली आहे ती सेव्ह करून, उरलेली नव्या बैठकीत देऊ शकता. दिलेली "
 "माहिती सादर करण्यापूर्वी तुम्ही तिचे पुनरावलोकन आणि त्यात फेरफारही करू "
 "शकाल.<p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "संपादकीय मंडळ सदस्य"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "संपादकीय मंडळ सदस्य (Members)"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>सादरीकरण प्रक्रिया करताना, तुमच्याकडे अनेक संभाव्य समीक्षकांची नावे "
+"सुचवण्याचा पर्याय आहे. ही समीक्षणप्रक्रिया सुलभ करण्यासाठी आणि संपादकीय "
+"मंडळासाठी मौल्यवान माहिती ठरू शकते. तुमच्या क्षेत्रातील तज्ञ पण तुमच्या कामा"
+"त त्यांचा हितसंबंध दडलेला (conflict of interest) नाही असे समीक्षक निवडा. या "
+"वैशिष्ट्याचा उद्देश समीक्षणप्रक्रिया सुधारणे तसेच लेखकांना आणि संपादकीय "
+"मंडळाला, दोघांनाही, अधिक कार्यक्षम अनुभवाचे प्रत्यंतर देण्याचा आहे.</p>"

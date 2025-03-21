@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"PO-Revision-Date: 2025-03-17 12:23+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -2308,3 +2308,91 @@ msgstr ""
 "फिल्टर ({$displayName}) इनपुट {$inputTypeName} ला समर्थन देते - "
 "{$typeofInput} दिले आहे, Filter ({$displayName}) supports input "
 "{$inputTypeName} - {$typeofInput} given"
+
+msgid "form.errorSummaryOne"
+msgstr "एक त्रुटी आढळली! कृपया पुढे जाण्यापूर्वी खालील त्रुटी दुरुस्त करा."
+
+msgid "navigation.dashboards"
+msgstr "डॅशबोर्ड"
+
+msgid "navigation.reviewAssignments"
+msgstr "समीक्षणाची कामं"
+
+msgid "navigation.mySubmissions"
+msgstr "माझी सादरीकरणे"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "समीक्षणाचे काम स्वीकारण्याची तारीख"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "समीक्षण सादर करण्याची तारीख"
+
+msgid "validator.multilingual"
+msgstr "या फील्डसाठी बहुभाषिक गरज पूर्ण होत नाही."
+
+msgid "common.viewMoreDetails"
+msgstr "अधिक तपशील पहा"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "मागील काही वर्षांतील तज्ज्ञ समीक्षक"
+
+msgid "common.editorialHistory"
+msgstr "संपादकीय पूर्वेतिहास"
+
+msgid "common.editorialHistory.page"
+msgstr "संपादकीय पूर्वेतिहासाचे पृष्ठ"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "{$name} ORCID प्रोफाईल पहा"
+
+msgid "common.filtersClear"
+msgstr "फिल्टर मोकळे करा"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "लोड केले"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "<a href=\"{$url}\">संपादकीय पूर्वेतिहास</a> पहा"
+
+msgid "common.moreActions"
+msgstr "आणखी कार्ये"
+
+msgid "common.editorialMasthead"
+msgstr "संपादकीय पृष्ठावरील मथळा"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "गेल्या वर्षातील तज्ज्ञ समीक्षक"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"संपादक {$year} या वर्षात योगदान देणार्‍या खालील तज्ज्ञ समीक्षकांबद्दल "
+"कृतज्ञता व्यक्त करतात."
+
+msgid "common.editorialHistory.page.description"
+msgstr "या विभागात भूतपूर्व योगदानकर्त्यांची (contributors) यादी दिली आहे."
+
+msgid "common.assignments"
+msgstr "नेमून दिलेल्या कामगिऱ्या"
+
+msgid "common.showingXofX"
+msgstr ""
+"एकूण {$total} पैकी <strong>{$start} ते {$finish}</strong> दाखवले जात आहे"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} त्रुटी आढळल्या! पुढे जाण्यापूर्वी कृपया खालील त्रुटी दुरुस्त करा."
+
+msgid "validator.date.comparison"
+msgstr "तुलनेसाठी अग्राह्य तारखा पुरवल्या आहेत."
+
+msgid "common.fromUntil"
+msgstr "{$from} – {$until}"
+
+msgid "common.numero"
+msgstr "नाही"
+
+msgid "common.refreshingData"
+msgstr "डेटा अद्ययावत (रिफ्रेश) करत आहे"

@@ -1,20 +1,20 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-02-02 14:59+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
-"da_DK/>\n"
-"Language: da_DK\n"
+"da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Websted-admin"
@@ -198,3 +198,21 @@ msgstr ""
 "færdiggjort, vil den blive tildelt til et medlem af redaktionen. Vær venlig "
 "at sikre dig, at de informationer, du har angivet her, er så præcise som "
 "muligt.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Redaktionsmedlem"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Redaktionsmedlemmer"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "RM"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Når du indsender, har du mulighed for at foreslå potentielle bedømmere. "
+"Dette kan hjælpe med at strømline bedømmelsesprocessen og give værdifuldt "
+"input til redaktionen. Vælg venligst bedømmere, som er eksperter indenfor "
+"dit forskningsfelt, og som ikke har interessekonflikter med dit arbejde. "
+"Denne funktion har til formål at forbedre bedømmelsesprocessen og "
+"understøtte en mere effektiv oplevelse for både forfattere og redaktion.</p>"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-09 05:50+0000\n"
+"PO-Revision-Date: 2025-03-20 20:06+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -609,7 +609,8 @@ msgstr "Úvodní odeslání zakončeno."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$filename} ({$username}) souhlasil/a s podmínkami autorských práv pro příspěvek."
+"{$filename} ({$username}) souhlasil/a s podmínkami autorských práv pro "
+"příspěvek."
 
 msgid "submission.event.fileRevised"
 msgstr "Úprava \"{$filename}\" pro soubor {$submissionFileId}) byla nahrána."
@@ -1882,8 +1883,8 @@ msgstr "Metadata souboru \"{$filename}\" editoval {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Soubor \"{$filename}\" byl nahrán pro příspěvek {$submissionId} "
-"uživatelem {$username}."
+"Soubor \"{$filename}\" byl nahrán pro příspěvek {$submissionId} uživatelem "
+"{$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
@@ -1892,13 +1893,13 @@ msgstr ""
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Úprava souboru \"{$filename}\" byla nahrána k příspěvku "
-"{$submissionId} uživatelem {$username}."
+"Úprava souboru \"{$filename}\" byla nahrána k příspěvku {$submissionId} "
+"uživatelem {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Úprava souboru \"{$filename}\" v rámci příspěvku {$submissionId} "
-"byla smazána uživatelem {$username}."
+"Úprava souboru \"{$filename}\" v rámci příspěvku {$submissionId} byla "
+"smazána uživatelem {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
@@ -1907,25 +1908,28 @@ msgstr ""
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"Uživatel \"{$userFullName}\" ({$username}) byl přidán jako posuzovatel pro soubor "
-"\"{$filename}.\""
+"Uživatel \"{$userFullName}\" ({$username}) byl přidán jako posuzovatel pro "
+"soubor \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"Uživateli \"{$userFullName}\" ({$username}) byla odebrána role posuzovatele pro "
-"soubor \"{$filename}.\""
+"Uživateli \"{$userFullName}\" ({$username}) byla odebrána role posuzovatele "
+"pro soubor \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"Uživatel \"{$userFullName}\" ({$username}) ukončil a nahrál posouzení souboru "
-"\"{$filename}.\""
+"Uživatel \"{$userFullName}\" ({$username}) ukončil a nahrál posouzení "
+"souboru \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "Uživatel \"{$userFullName}\" ({$username}) se odhlásil od souboru \"{$filename}.\""
+msgstr ""
+"Uživatel \"{$userFullName}\" ({$username}) se odhlásil od souboru "
+"\"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"Uživatel \"{$userFullName}\" ({$username}) schválil korektury pro \"{$publicationFormatName}.\""
+"Uživatel \"{$userFullName}\" ({$username}) schválil korektury pro "
+"\"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Přehled příspěvku"
@@ -2646,71 +2650,6 @@ msgstr "Musíte nahrát alespoň jeden z následujících typů souborů: {$genr
 msgid "publication.version"
 msgstr "Verze {$version}"
 
-#~ msgid "submission.confirm.message"
-#~ msgstr ""
-#~ "Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit "
-#~ "zpět a upravit libovolnou informaci, kterou jste zadali v předchozích "
-#~ "krocích. Po ukončení úprav klikněnte na \"Odeslat příspěvek\"."
-
-#~ msgid "submission.list.itemOrdererUp"
-#~ msgstr "Posunout položku {$itemTitle} nahoru"
-
-#~ msgid "submission.list.itemOrdererDown"
-#~ msgstr "Posunout položku {$itemTitle} dolů"
-
-#~ msgid "submission.submit.form.agenciesRequired"
-#~ msgstr "Vložte, prosím, podporující agenturu."
-
-#~ msgid "submission.submit.userGroupDescriptionManagers"
-#~ msgstr ""
-#~ "Odešlete v libovolné z následujících rolí, pokud bude chtít editovat a "
-#~ "publikovat příspěvek sami: {$managerGroups}"
-
-#~ msgid "publication.titleAbstract.success"
-#~ msgstr "Název a abstrakt byly aktualizovány."
-
-#~ msgid "publication.publish.success"
-#~ msgstr "Stav publikace byl úspěšně změněn."
-
-#~ msgid "publication.publicationLicense.success"
-#~ msgstr "Informace o autorských právech a licencích byly aktualizovány."
-
-#~ msgid "publication.publicationIdentifiers.success"
-#~ msgstr "Identifikátory byly aktualizovány."
-
-#~ msgid "publication.metadata.success"
-#~ msgstr "Metadata byla aktualizována."
-
-#~ msgid "publication.citations.success"
-#~ msgstr "Reference byly aktualizovány."
-
-#~ msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
-#~ msgstr ""
-#~ "{$editorName} zrušil rozhodnutí o přijetí tohoto příspěvku a vrátil jej "
-#~ "zpět do fáze předkládání."
-
-#~ msgid ""
-#~ "editor.submission.decision.backToSubmissionFromCopyediting.description"
-#~ msgstr ""
-#~ "Vrátit rozhodnutí o přijetí tohoto příspěvku a vrátit jej zpět do fáze "
-#~ "podání."
-
-#~ msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
-#~ msgstr ""
-#~ "Pošlat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
-#~ "vrácen zpět do fáze předkládání. Vysvětlete, proč bylo toto rozhodnutí "
-#~ "učiněno, a informujte autora o tom, jaké další práce budou provedeny "
-#~ "předtím, než se podání posune dál."
-
-#~ msgid "editor.submission.decision.backToSubmission.completed.description"
-#~ msgstr "Příspěvek {$title} byl odeslán zpět do fáze podání příspěvku."
-
-#~ msgid "editor.submission.decision.backToSubmission.completed"
-#~ msgstr "Poslat zpět do fáze podávání příspěvku"
-
-#~ msgid "editor.submission.decision.backToSubmission"
-#~ msgstr "Zpět k příspěvku"
-
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Tuto diskusi můžete aktualizovat po dobu {$allowedEditTimeNoticeLimit} minut."
@@ -2922,8 +2861,8 @@ msgstr "Odmítnuto během fáze {$stageName}."
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
-"Tento recenzent recenzi nedokončil. Odpověď měla být zaslána dne "
-"<b>{$date}.</b>"
+"Tento recenzent recenzi nedokončil. Odpověď měla být zaslána dne <b>{$date}."
+"</b>"
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Recenze byla ukončena dne {$date}"
@@ -3000,7 +2939,7 @@ msgid "workflow.reviewRoundN"
 msgstr "Recenzní kolo č. {$number}"
 
 msgid "submission.dashboard.view.revisionsSubmitted"
-msgstr "Revize příspěvku byly nahrány"
+msgstr "Autorovy revize příspěvku byly nahrány"
 
 msgid "submission.dashboard.view.incompleteSubmissions"
 msgstr "Nedokončené příspěvky"
@@ -3203,3 +3142,93 @@ msgid "dashboard.noAccessBeingAuthor"
 msgstr ""
 "K tomuto podání nemáte přístup jako správce časopisu, protože jste jeho "
 "autorem. Chcete-li si jej prohlédnout, přejděte do sekce „Moje příspěvky“"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Potřebuje recenze"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Vše ve fázi předkládání"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Vše v recenzní fázi"
+
+#~ msgid "submission.confirm.message"
+#~ msgstr ""
+#~ "Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit "
+#~ "zpět a upravit libovolnou informaci, kterou jste zadali v předchozích "
+#~ "krocích. Po ukončení úprav klikněnte na \"Odeslat příspěvek\"."
+
+#~ msgid "submission.list.itemOrdererUp"
+#~ msgstr "Posunout položku {$itemTitle} nahoru"
+
+#~ msgid "submission.list.itemOrdererDown"
+#~ msgstr "Posunout položku {$itemTitle} dolů"
+
+#~ msgid "submission.submit.form.agenciesRequired"
+#~ msgstr "Vložte, prosím, podporující agenturu."
+
+#~ msgid "submission.submit.userGroupDescriptionManagers"
+#~ msgstr ""
+#~ "Odešlete v libovolné z následujících rolí, pokud bude chtít editovat a "
+#~ "publikovat příspěvek sami: {$managerGroups}"
+
+#~ msgid "publication.titleAbstract.success"
+#~ msgstr "Název a abstrakt byly aktualizovány."
+
+#~ msgid "publication.publish.success"
+#~ msgstr "Stav publikace byl úspěšně změněn."
+
+#~ msgid "publication.publicationLicense.success"
+#~ msgstr "Informace o autorských právech a licencích byly aktualizovány."
+
+#~ msgid "publication.publicationIdentifiers.success"
+#~ msgstr "Identifikátory byly aktualizovány."
+
+#~ msgid "publication.metadata.success"
+#~ msgstr "Metadata byla aktualizována."
+
+#~ msgid "publication.citations.success"
+#~ msgstr "Reference byly aktualizovány."
+
+#~ msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+#~ msgstr ""
+#~ "{$editorName} zrušil rozhodnutí o přijetí tohoto příspěvku a vrátil jej "
+#~ "zpět do fáze předkládání."
+
+#~ msgid ""
+#~ "editor.submission.decision.backToSubmissionFromCopyediting.description"
+#~ msgstr ""
+#~ "Vrátit rozhodnutí o přijetí tohoto příspěvku a vrátit jej zpět do fáze "
+#~ "podání."
+
+#~ msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+#~ msgstr ""
+#~ "Pošlat autorům e-mail, ve kterém jim oznámíte, že jejich příspěvek byl "
+#~ "vrácen zpět do fáze předkládání. Vysvětlete, proč bylo toto rozhodnutí "
+#~ "učiněno, a informujte autora o tom, jaké další práce budou provedeny "
+#~ "předtím, než se podání posune dál."
+
+#~ msgid "editor.submission.decision.backToSubmission.completed.description"
+#~ msgstr "Příspěvek {$title} byl odeslán zpět do fáze podání příspěvku."
+
+#~ msgid "editor.submission.decision.backToSubmission.completed"
+#~ msgstr "Poslat zpět do fáze podávání příspěvku"
+
+#~ msgid "editor.submission.decision.backToSubmission"
+#~ msgstr "Zpět k příspěvku"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Minimální počet potvrzených recenzí nebyl splněn. Chcete stále ještě "
+"pokračovat v tomto redakčním rozhodnutí?"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Minimální požadovaný počet recenzí byl potvrzen. Je třeba přijmout "
+"rozhodnutí."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Požadovaný minimální počet potvrzených recenzí: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Pokračovat bez minimálního počtu potvrzených recenzí?"

@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"PO-Revision-Date: 2025-03-20 15:23+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -3190,3 +3190,12 @@ msgid "dashboard.submissions.incomplete.bulkDelete.body"
 msgstr ""
 "तुम्ही खात्रीने निवडलेले आयटम हटवू इच्छिता ना? ही हटवलेली माहिती पूर्ववत करता"
 " येणार नाही. पुढे जाण्यासाठी कृपया दुजोरा द्या."
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "सर्व सादरीकरणाच्या टप्प्यात"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "सर्व समीक्षणाच्या टप्प्यात"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "समीक्षणे आवश्यक आहेत"

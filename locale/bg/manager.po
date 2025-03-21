@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-03-18 14:49+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -4013,3 +4013,13 @@ msgstr "Определете реда на ролите на редакторс�
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Промяна на покана за имейл адрес"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Минимално количество потвърдени рецензии за подадения материал"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Изисква се минимално количество потвърдени рецензии"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Изисква се заглавие на менюто."

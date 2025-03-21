@@ -17,7 +17,6 @@ namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Core;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

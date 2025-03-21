@@ -75,8 +75,8 @@ abstract class PKPStatisticsHelper
     public const STATISTICS_SETTING_REGION = 'country+region';
     public const STATISTICS_SETTING_CITY = 'country+region+city';
 
-    public array $geoDataCache;
-    public array $institutionDataCache;
+    public array $geoDataCache = [];
+    public array $institutionDataCache = [];
 
     /**
      * Get the usage stats directory path.
@@ -203,7 +203,7 @@ abstract class PKPStatisticsHelper
             $this->geoDataCache = [];
         }
 
-        $cachedGeoData =& $this->geoDataCache;
+        $cachedGeoData = & $this->geoDataCache;
         if (array_key_exists($hashedIp, $cachedGeoData)) {
             return $cachedGeoData[$hashedIp];
         }

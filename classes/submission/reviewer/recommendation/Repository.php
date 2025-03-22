@@ -18,6 +18,7 @@ use APP\services\ContextService;
 use Illuminate\Support\Arr;
 use Exception;
 use PKP\context\Context;
+use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewer\recommendation\RecommendationOption;
@@ -45,8 +46,6 @@ class Repository
      */
     public function addDefaultRecommendations(Context $context): void
     {
-        $defaultRecommendations = $this->getDefaultRecommendations();
-
         $defaultRecommendationsExists = ReviewerRecommendation::query()
             ->withContextId($context->getId())
             ->withDefaultRecommendationsOnly()
@@ -55,6 +54,8 @@ class Repository
         if ($defaultRecommendationsExists) {
             throw new Exception('Some or all default recommendations already added for context');
         }
+
+        $defaultRecommendations = $this->getDefaultRecommendations();
 
         $locales = array_merge(
             Arr::wrap($context->getData('primaryLocale')),
@@ -90,7 +91,7 @@ class Repository
         }
 
         $localeToCompare ??= $context->getPrimaryLocale();
-        $defaultRecommendations = $this->getDefaultRecommendations();
+
         $suggestions = ReviewerRecommendation::query()
             ->withContextId($context->getId())
             ->withDefaultRecommendationsOnly()
@@ -164,7 +165,7 @@ class Repository
             ->get()
             ->mapWithKeys(
                 fn (ReviewerRecommendation $recommendation): array => [
-                    $recommendation->id => $recommendation->getLocalizedData('title')
+                    $recommendation->id => PKPString::stripUnsafeHtml($recommendation->getLocalizedData('title'))
                 ]
             )
             ->prepend(__('common.chooseOne'), '')

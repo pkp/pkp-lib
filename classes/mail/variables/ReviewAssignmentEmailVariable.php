@@ -16,6 +16,7 @@
 
 namespace PKP\mail\variables;
 
+use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
@@ -95,10 +96,10 @@ class ReviewAssignmentEmailVariable extends Variable
 
     protected function getRecommendation(string $locale): string
     {
-        $recommendationOptions = ReviewAssignment::getReviewerRecommendationOptions();
+        $recommendationOptions = Repo::reviewerRecommendation()->getOptions($this->getContext());
 
-        return isset($recommendationOptions[$this->reviewAssignment->getRecommendation()])
-            ? __($recommendationOptions[$this->reviewAssignment->getRecommendation()], [], $locale)
+        return isset($recommendationOptions[$this->reviewAssignment->getRecommendationId()])
+            ? __($recommendationOptions[$this->reviewAssignment->getRecommendationId()], [], $locale)
             : __('common.none', [], $locale);
     }
 

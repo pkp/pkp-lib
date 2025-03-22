@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-09 05:50+0000\n"
+"PO-Revision-Date: 2025-03-22 09:22+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -2359,17 +2359,14 @@ msgstr ""
 "Հայտնաբերվել է {$count} սխալ: Շարունակելուց առաջ շտկեք ստորև ներկայացված "
 "սխալները:"
 
-#, fuzzy
 msgid "navigation.dashboards"
-msgstr "Վահանակներ"
+msgstr "Խմբագրի Վահանակ"
 
-#, fuzzy
 msgid "navigation.reviewAssignments"
-msgstr "Վերանայման առաջադրանքներ"
+msgstr "Իմ առաջադրանքները որպես գրախոս"
 
-#, fuzzy
 msgid "navigation.mySubmissions"
-msgstr "Իմ ներկայացումները"
+msgstr "Իմ ներկայացումները որպես հեղինակ"
 
 msgid "reviewer.submission.submittedOn"
 msgstr "Վերանայումն ուղարկված է"
@@ -2405,3 +2402,6 @@ msgstr "Բազմալեզվության պահանջը չի կատարվում ա
 
 msgid "common.viewMoreDetails"
 msgstr "Դիտեք ավելի շատ մանրամասներ"
+
+msgid "common.yesContinue"
+msgstr "Այո, շարունակեք"

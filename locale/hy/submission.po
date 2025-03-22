@@ -3,7 +3,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-09 05:50+0000\n"
+"PO-Revision-Date: 2025-03-22 09:22+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -3191,3 +3191,27 @@ msgstr "Այս նիշքերը ներկայացվել են հեղինակի կո�
 
 msgid "fileManager.draftFilesDescription"
 msgstr "Սրանք վերանայման փուլի նիշքեր են, որոնք պետք է սրբագրվեն"
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Շարունակե՞լ առանց նվազագույն հաստատված գրախոսությունների:"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Բոլորը ներկայացման փուլում են"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Բոլորը գրախոսման փուլում են"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Հաստատվել է գրախոսությունների նվազագույն պահանջվող քանակը: Որոշում է պետք."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Պահանջվում է հաստատված կարծիքների նվազագույն քանակը՝ {$number}:"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Հաստատված գրախոսությունների նվազագույն թիվը չի պահպանվել: Դուք դեռ ցանկանու՞"
+"մ եք շարունակել այս խմբագրական որոշումը:"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Վերանայման կարիք ունի"

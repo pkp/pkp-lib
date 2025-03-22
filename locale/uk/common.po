@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-03 19:43+0000\n"
+"PO-Revision-Date: 2025-03-22 20:08+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -2378,17 +2378,14 @@ msgstr ""
 "Виявлено {$count} помилок! Перш ніж продовжити, виправте, будь ласка, "
 "наведені нижче помилки."
 
-#, fuzzy
 msgid "navigation.dashboards"
-msgstr "Приладові панелі"
+msgstr "Панель інструментів редактора"
 
-#, fuzzy
 msgid "navigation.reviewAssignments"
-msgstr "Переглянути призначення"
+msgstr "Мої призначення як рецензенту"
 
-#, fuzzy
 msgid "navigation.mySubmissions"
-msgstr "Мої подання"
+msgstr "Мої подання як автора"
 
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
@@ -2413,3 +2410,6 @@ msgstr "Оновлення даних"
 
 msgid "common.viewMoreDetails"
 msgstr "Переглянути більше деталей"
+
+msgid "common.yesContinue"
+msgstr "Так, продовжити"

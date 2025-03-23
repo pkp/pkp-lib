@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-20 15:23+0000\n"
+"PO-Revision-Date: 2025-03-23 22:30+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "mr/>\n"
@@ -119,13 +119,14 @@ msgstr "DOI ची सद्यस्थिती"
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
-"तुम्हाला दिलेला DOI उपसर्ग (prefix) प्रदान केल्याशिवाय DOI नियुक्त केले जाऊ "
-"शकत नाहीत. <a href=\"{$doiSettingsUrl}\">DOI उपसर्ग (prefix) जोडा</a>."
+"तुम्हाला दिलेला DOI चा सुरुवातीचा भाग (prefix) प्रदान केल्याशिवाय DOI नियुक्"
+"त केले जाऊ शकत नाहीत. <a href=\"{$doiSettingsUrl}\">DOI चा सुरुवातीचा "
+"भाग/उपसर्ग (prefix) जोडा</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
 "DOI तयार करण्याचा प्रयत्न केला, परंतु संदर्भसंगती (context) लावण्यासाठी DOI "
-"उपसर्ग (prefix) आवश्यक आहे."
+"चा सुरुवातीचा भाग (prefix) आवश्यक आहे."
 
 msgid "manager.highlights.add"
 msgstr "हायलाइटचा समावेश करा"
@@ -1028,7 +1029,7 @@ msgid "manager.setup.notifications.copySubmissionAckAddress"
 msgstr "कोणालाही सूचित करा"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "यापैकी एक किंवा अधिक ई-मेल पत्ते ग्राह्य नाहीत."
+msgstr "यापैकी एक/अनेक ई-मेल पत्ते ग्राह्य नाहीत."
 
 msgid "manager.setup.notifyUsers"
 msgstr "सूचित करा"

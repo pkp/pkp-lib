@@ -96,11 +96,13 @@ class ReviewAssignmentEmailVariable extends Variable
 
     protected function getRecommendation(string $locale): string
     {
-        $recommendationOptions = Repo::reviewerRecommendation()->getOptions($this->getContext());
-
-        return isset($recommendationOptions[$this->reviewAssignment->getRecommendationId()])
-            ? __($recommendationOptions[$this->reviewAssignment->getRecommendationId()], [], $locale)
-            : __('common.none', [], $locale);
+        $recommendationOptions = Repo::reviewerRecommendation()->getOptions(
+            context: $this->getContext(),
+            reviewAssignment: $this->reviewAssignment,
+            locale: $locale
+        );
+        
+        return $recommendationOptions[$this->reviewAssignment?->getRecommendationId()] ?? __('common.none', [], $locale);
     }
 
     protected function getReviewMethod(string $locale): string

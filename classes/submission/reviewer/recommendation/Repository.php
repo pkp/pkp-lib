@@ -136,7 +136,8 @@ class Repository
     public function getOptions(
         Context $context,
         RecommendationOption $active = RecommendationOption::ACTIVE,
-        ?ReviewAssignment $reviewAssignment = null
+        ?ReviewAssignment $reviewAssignment = null,
+        ?string $locale = null
     ): array
     {
         static $reviewerRecommendationOptions = [];
@@ -165,7 +166,7 @@ class Repository
             ->get()
             ->mapWithKeys(
                 fn (ReviewerRecommendation $recommendation): array => [
-                    $recommendation->id => PKPString::stripUnsafeHtml($recommendation->getLocalizedData('title'))
+                    $recommendation->id => PKPString::stripUnsafeHtml($recommendation->getLocalizedData('title', $locale))
                 ]
             )
             ->prepend(__('common.chooseOne'), '')

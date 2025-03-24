@@ -362,12 +362,10 @@ class PKPPublication extends \PKP\core\DataObject
 
     /**
      * Is the license for copyright on this publication a Creative Commons license?
-     *
-     * @return bool
      */
-    public function isCCLicense()
+    public function isCCLicense(): bool
     {
-        return preg_match('/creativecommons\.org/i', $this->getData('licenseUrl'));
+        return $this->getData('licenseUrl') ? preg_match('/creativecommons\.org/i', $this->getData('licenseUrl')) : false;
     }
 
     /**

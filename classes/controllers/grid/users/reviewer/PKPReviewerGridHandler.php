@@ -28,10 +28,14 @@ use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\users\reviewer\form\AdvancedSearchReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\CreateReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
 use PKP\controllers\grid\users\reviewer\form\EmailReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\EnrollExistingReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ResendRequestReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\ReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ReviewerGossipForm;
 use PKP\controllers\grid\users\reviewer\form\ReviewReminderForm;
 use PKP\controllers\grid\users\reviewer\form\ThankReviewerForm;
@@ -70,10 +74,6 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
-use PKP\controllers\grid\users\reviewer\form\ReviewerForm;
-use PKP\controllers\grid\users\reviewer\form\EnrollExistingReviewerForm;
-use PKP\controllers\grid\users\reviewer\form\CreateReviewerForm;
-use PKP\controllers\grid\users\reviewer\form\AdvancedSearchReviewerForm;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPReviewerGridHandler extends GridHandler
@@ -415,7 +415,6 @@ class PKPReviewerGridHandler extends GridHandler
 
         $reviewerForm = $this->getReviewerFrom($selectionType, $request);
         $reviewerForm->readInputData();
-        
 
         if ($reviewerForm->validate()) {
             $reviewAssignment = $reviewerForm->execute();
@@ -753,7 +752,7 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         // if the review assignment had been unconsidered, update the flag.
-        $newReviewData['considered'] = $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
+        $newReviewData['considered'] = $reviewAssignment->getConsidered() === (ReviewAssignment::REVIEW_ASSIGNMENT_NEW || ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED)
             ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
             : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
 
@@ -1260,9 +1259,9 @@ class PKPReviewerGridHandler extends GridHandler
         $formClassName = $this->_getReviewerFormClassName($selectionType);
 
         if ($request->getUserVar('reviewerSuggestionId')) {
-            
+
             $reviewerSuggestion = ReviewerSuggestion::find($request->getUserVar('reviewerSuggestionId'));
-            
+
             if (!$reviewerSuggestion) {
                 throw new Exception('Given reviewer suggestion ID is invalid');
             }

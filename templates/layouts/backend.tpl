@@ -76,6 +76,12 @@
 			{if $currentUser}
 				<div class="app__headerActions">
 					{call_hook name="Template::Layout::Backend::HeaderActions"}
+					<div class="app__headerAction app__help">
+						<a href="#" class="flex items-center h-full">
+							<icon icon="Help" class="h-7 w-7" :inline="true"></icon>
+							<span class="-screenReader">{translate key="common.help"}</span>
+						</a>
+					</div>
 					<div class="app__headerAction app__tasks">
 						<button ref="tasksButton" @click="openTasks">
 							<icon icon="Notifications" class="h-7 w-7"></icon>

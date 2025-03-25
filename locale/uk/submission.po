@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2025-03-17 20:02+0000\n"
+"PO-Revision-Date: 2025-03-25 14:30+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -1324,13 +1324,11 @@ msgstr "Запит на нові версії зроблений."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Подано правки, і потрібне рішення."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Подання має бути повторно подано на рецензування."
+msgstr "Редакції, надіслані від автора для нового раунду рецензування."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Подання було повторно подано на рецензування."
+msgstr "Надіслані зміни. Необхідно створити новий раунд рецензування."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Надіслано на зовнішнє рецензування."
@@ -1350,9 +1348,8 @@ msgstr "Очікування відповіді від рецензентів."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Нові рецензії були подані."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Усі рецензії наявні, і потрібне рішення."
+msgstr "Усі відгуки підтверджені, і потрібне рішення."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Рецензія прострочена."
@@ -2798,3 +2795,69 @@ msgstr "Подання скасовано"
 
 msgid "submission.wizard.submissionCancelled.description"
 msgstr "Подання скасовано, а всі пов’язані дані видалено."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Поточна мова подання:"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Змінити мову подання на"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Ви впевнені, що бажаєте скасувати це подання? Це призведе до видалення "
+"подання та всіх пов’язаних даних. Цю дію не можна скасувати."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Це основна мова подання. Зміна цього вплине на подані дані та введені "
+"метадані"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Перш ніж змінювати мову подання, переконайтеся, що ви заповнили "
+"наступні поля метаданих, щоб зберегти цілісність системи. Також зауважте, що "
+"інформацію про співавтора та імена файлів буде скопійовано з попередньо "
+"введеної інформації.</strong>"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Для пропозиції рецензента"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Пропозиції рецензента"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Рекомендацію надали ви."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Рецензенти, запропоновані автором"
+
+msgid "submission.review.status.viewed"
+msgstr "Редактор переглянув рецензію."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Змінити"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Введіть тут назву подання мовою {$language}. Ви можете відформатувати "
+"заголовок за потреби"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Рекомендовано включити анотацію мовою {$language}. Це допомагає забезпечити "
+"доступність вмісту"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Переглянути резюме подання"
+
+msgid "submission.list.completeSubmission"
+msgstr "Завершити подачу матеріалів"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Рецензентів для цього подання не запропоновано."
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Всі призначення"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "В очікуванні"

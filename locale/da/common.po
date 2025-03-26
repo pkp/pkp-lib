@@ -1,12 +1,12 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2024-12-13 09:59+0000\n"
+"PO-Revision-Date: 2025-03-26 07:48+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da/>\n"
@@ -2310,3 +2310,90 @@ msgstr "Vis alle"
 
 msgid "common.sandbox"
 msgstr "Programmet kører i sandkassetilstand."
+
+msgid "navigation.reviewAssignments"
+msgstr "Mine opgaver som bedømmer"
+
+msgid "common.yesContinue"
+msgstr "Ja, fortsæt"
+
+msgid "common.showingXofX"
+msgstr "Viser <strong>{$start} til {$finish}</strong> af {$total}"
+
+msgid "common.loaded"
+msgstr "Indlæst"
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} fejl opdaget! Ret venligst fejlene nedenfor før du fortsætter."
+
+msgid "navigation.mySubmissions"
+msgstr "Mine opgaver som forfatter"
+
+msgid "common.refreshingData"
+msgstr "Genindlæser data"
+
+msgid "common.viewMoreDetails"
+msgstr "Se flere detaljer"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Fagfællebedømmere i de seneste år"
+
+msgid "common.editorialHistory"
+msgstr "Redaktionshistorik"
+
+msgid "common.editorialHistory.page"
+msgstr "Redaktionshistoriksside"
+
+msgid "validator.multilingual"
+msgstr "Flersproget krav er ikke opfyldt for dette felt."
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Fagfællebedømmere i det foregående år"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Redaktørerne værdsætter bedømmerne i {$year} oplistet nedenfor."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Se ORCID profil for {$name}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryOne"
+msgstr "1 fejl opdaget! Ret venligst fejlen nedenfor før du fortsætter."
+
+msgid "navigation.dashboards"
+msgstr "Redaktørbetjeningspanel"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Bedømmelse accepteret d."
+
+msgid "validator.date.comparison"
+msgstr "Ugyldige datoer angivet til sammenligning."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Se <a href=\"{$url}\">Redaktionshistorik</a>"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Denne sektion oplister tidligere bidragydere."
+
+msgid "common.assignments"
+msgstr "Opgaver"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Bedømmelse indsendt d."
+
+msgid "common.numero"
+msgstr "Nr."
+
+msgid "common.moreActions"
+msgstr "Flere handlinger"
+
+msgid "common.filtersClear"
+msgstr "Ryd filtre"
+
+msgid "common.editorialMasthead"
+msgstr "Redaktionel kolofon"

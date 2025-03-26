@@ -268,3 +268,8 @@ msgid "installer.appKey.keyVariable.alreadyExist.notice"
 msgstr ""
 "Config variablen med navnet `app_key` er allerede defineret i `general` "
 "sektionen. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Ude af stand til at læse config filen eller filen findes ikke på den "
+"forventede sti. "

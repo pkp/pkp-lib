@@ -1,10 +1,10 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2024-02-19 11:08+0000\n"
+"PO-Revision-Date: 2025-03-26 07:54+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/da/>\n"
@@ -252,3 +252,9 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Diverse indstillinger"
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Tilføj venligst config variablen med navnet `app_key` under `general` "
+"sektionen manuelt eller kør kommandoen `php lib/pkp/tools/appKey.php "
+"configure` for at indstille den fra CLI."

@@ -9,9 +9,6 @@
  *
  *}
 
-{* Help link *}
-{help file="editorial-workflow" section="participants" class="pkp_help_modal"}
-
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.

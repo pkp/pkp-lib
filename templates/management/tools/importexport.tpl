@@ -8,8 +8,6 @@
  * List available import/export plugins.
  *}
 <div class="pkp_page_content pkp_page_importexport_plugins">
-	{help file="tools" class="pkp_help_tab"}
-
 	<ul>
 		{foreach from=$plugins item=plugin}
 		<li><a href="{url op="importexport" path="plugin"|to_array:$plugin->getName()}">{$plugin->getDisplayName()|escape}</a>:&nbsp;{$plugin->getDescription()|escape}</li>

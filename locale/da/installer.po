@@ -258,3 +258,8 @@ msgstr ""
 "Tilføj venligst config variablen med navnet `app_key` under `general` "
 "sektionen manuelt eller kør kommandoen `php lib/pkp/tools/appKey.php "
 "configure` for at indstille den fra CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Config variablen med navnet `app_key` er ikke defineret i `general` "
+"sektionen. "

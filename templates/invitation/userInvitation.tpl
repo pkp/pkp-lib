@@ -21,5 +21,6 @@
         :invitation-type="invitationType"
         :invitation-mode="invitationMode"
         :steps="steps"
+        :invitation-user-data="invitationUserData"
     />
 {/block}

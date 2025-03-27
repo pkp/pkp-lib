@@ -28,6 +28,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
+use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 use PKP\invitation\models\InvitationModel;
 use PKP\pages\invitation\InvitationHandler;
 use PKP\security\Validation;
@@ -500,5 +501,15 @@ abstract class Invitation
         }
 
         return false;
+    }
+
+    /**
+     * Defines the controller that is responsible for the handle of the create/edit
+     * invitation views
+     * @return InvitationUIActionRedirectController|null
+     */
+    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
+    {
+       return new UserRoleAssignmentInviteUIController($this);
     }
 }

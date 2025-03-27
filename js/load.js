@@ -293,6 +293,17 @@ function pkpCreateVueApp(createAppArgs) {
 	return vueApp;
 }
 
+// Need to add this before the export of sciflow editor com
+async function loadSciflowEditor() {
+	if (!window.sciflowEditorLoaded) {
+		const sciflowBase = '/lib/ui-library/node_modules/@sciflow/component-demo';
+		await import(/* @vite-ignore */ `${sciflowBase}/polyfills.js`);
+		await import(/* @vite-ignore */ `${sciflowBase}/main.js`);
+		window.sciflowEditorLoaded = true;
+	}
+	return window.sciflowEditorLoaded;
+}
+
 export default {
 	Vue: pkpCreateVueApp({}),
 	// making vue functions available via pkp.modules.vue for plugins
@@ -321,4 +332,5 @@ export default {
 	vueMixins: {
 		dialog,
 	},
+	loadSciflowEditor,
 };

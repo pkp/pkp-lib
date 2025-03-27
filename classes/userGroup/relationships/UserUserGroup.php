@@ -14,13 +14,13 @@
 
 namespace PKP\userGroup\relationships;
 
-use PKP\core\Core;
 use APP\facades\Repo;
-use PKP\userGroup\UserGroup;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PKP\core\Core;
+use PKP\userGroup\UserGroup;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 {
@@ -98,6 +98,11 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public function scopeWithMasthead(Builder $query): Builder
     {
         return $query->where('user_user_groups.masthead', 1);
+    }
+
+    public function scopeWithMastheadOff(Builder $query): Builder
+    {
+        return $query->where('user_user_groups.masthead', 0);
     }
 
     public function scopeSortBy(Builder $query, string $column, ?string $direction = 'asc')

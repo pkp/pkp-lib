@@ -76,6 +76,12 @@
 			{if $currentUser}
 				<div class="app__headerActions">
 					{call_hook name="Template::Layout::Backend::HeaderActions"}
+					<div class="app__headerAction app__help">
+						<a href="#" target="_blank" class="flex items-center h-full">
+							<icon icon="HelpTopNav" class="h-7 w-7"></icon>
+							<span class="-screenReader">{translate key="common.help"}</span>
+						</a>
+					</div>
 					<div class="app__headerAction app__tasks">
 						<button ref="tasksButton" @click="openTasks">
 							<icon icon="Notifications" class="h-7 w-7"></icon>
@@ -83,7 +89,7 @@
 							<span v-if="unreadTasksCount" class="app__tasksCount">{{ unreadTasksCount }}</span>
 						</button>
 					</div>
-					<dropdown class="app__headerAction app__userNav">
+					<dropdown class="app__headerAction app__userNav me-2">
 						<template #button>
 							{if $isUserLoggedInAs}
 								{assign var="activeUser" value=$loggedInAsUser}
@@ -101,7 +107,7 @@
 							{if $isUserLoggedInAs}
 								<initials-avatar
 									initials="{$currentUser->getDisplayInitials()|escape}"
-									class="absolute right-2 top-0 rounded-full h-5 w-5"
+									class="absolute ltr:right-0 rtl:left-0 top-0 rounded-full h-5 w-5 shadow"
 									:is-warnable="true"
 									:shrink="true"
 								></initials-avatar>

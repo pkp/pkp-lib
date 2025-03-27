@@ -22,7 +22,6 @@
 			{include file="management/accessUsers.tpl"}
 		</tab>
 		<tab id="roles" label="{translate key="manager.roles"}">
-			{help file="users-and-roles" section="roles" class="pkp_help_tab"}
 			{capture assign=rolesUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.roles.UserGroupGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="roleGridContainer" url=$rolesUrl}
 		</tab>
@@ -44,7 +43,6 @@
 		</tab>
 		{/if}
 		<tab id="access" label="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
-		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form
 				v-bind="components.{PKP\components\forms\context\PKPUserAccessForm::FORM_USER_ACCESS}"
 				@set="set"

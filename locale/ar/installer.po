@@ -1,11 +1,11 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
-# "M. Ali" <vorteem@gmail.com>, 2024.
+# "M. Ali" <vorteem@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2024-03-26 13:38+0000\n"
+"PO-Revision-Date: 2025-03-22 09:22+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/ar/>\n"
@@ -241,3 +241,37 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "إعدادات متنوعة"
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"إجعل قيمة `app_key` ضمن المقطع العام `general` في ملف التهيئة `config.inc."
+"php` تساوي {$key} ."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"يرجى إضافة متغير التهيئة المسمى `app_key` ضمن المقطع العام `general` يدويًا "
+"أو قم بتنفيذ الأمر `php lib/pkp/tools/appKey.php configure` لضبطه من خلال "
+"واجهة سطر الأوامر."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "متغير التهيئة المسمى `app_key` غير مُعرَّف ضمن المقطع العام `general`. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"متغير التهيئة المسمى `app_key` مُعرَّف مسبقًا ضمن المقطع العام `general`. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr "تتعذر قراءة ملف التهيئة أو هو غير موجود في مساره المتوقع. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "تعذر تحليل ملف التهيئة."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"تشفير غير مدعوم أو طول المفتاح غير صحيح. التشفيرات المدعومة هي: {$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "تعذرت كتابة مفتاح التطبيق في ملف التهيئة."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "تعذرت كتابة متغير مفتاح التطبيق في ملف التهيئة."

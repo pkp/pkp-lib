@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-10 13:16+0000\n"
+"PO-Revision-Date: 2025-03-25 14:30+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -3160,3 +3160,27 @@ msgstr ""
 
 msgid "fileManager.revisionsUploadedDescription"
 msgstr "Te datoteke je avtor naložil po tistej, ko so bili zahtevani popravki"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Najmanjše zahtevano število opravljenih recenzij: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Nadaljevanje brez opravljenega minimalnega števila recenzij?"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Najmanjše zahtevano število recenzij je opravljeno. Potrebna je odločitev."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Najmanje zahtevano število recenzij ni bilo opravljenih. Ste prepričani, da "
+"želite vseeno sprejeti to uredniško odločitev?"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Potrebujejo recenzijo"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Vsi v fazi oddajanja"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Vsi v fazi recenzije"

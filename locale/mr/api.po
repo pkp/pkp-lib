@@ -1,0 +1,446 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-03-23 22:30+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/api/mr/>"
+"\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "api.400.errorUploadingImage"
+msgstr "ही प्रतिमा अपलोड करताना एक त्रुटी आली."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "API विनंती प्रक्रिया (process) करण्यात असमर्थ."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "अग्राह्य लेखकानुकूल पॅरामीटर."
+
+msgid "api.400.routeNotDefined"
+msgstr "कुठलाही API मार्ग (route) देण्यात आलेला नाही."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param} पॅरामीटरला आधार (support) नाही."
+
+msgid "api.400.propReadOnly"
+msgstr "{$prop} गुणधर्म बदलता येत नाही."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API token विधीग्राह्य (validate) करता आले नाही. या API token मध्ये त्रुटी "
+"असल्याचे किंवा ते आता वैध नसल्याचे सूचित करते."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "खालील त्रुटीमुळे apiToken decode करता आले नाही: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "तुम्ही ई-मेलसाठी विषय आणि मुख्य भागातील मजकूर पुरवणे आवश्यक आहे."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "DOI निर्मितीसाठी DOI चा सुरुवातीचा भाग (prefix) आवश्यक आहे."
+
+msgid "api.403.unauthorized"
+msgstr "अपेक्षित संसाधनामध्ये (resource) तुम्हाला प्रवेश निशिध्द आहे."
+
+msgid "api.404.resourceNotFound"
+msgstr "मागितलेले संसाधन (resource) मिळाले नाही."
+
+msgid "api.404.endpointNotFound"
+msgstr "सुचवलेला URL अमान्य आहे (not recognized)."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "तुम्ही शोधत असलेले जाहीर निवेदन (announcement) सापडले नाही."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "तुम्ही शोधत असलेली संस्था सापडली नाही."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "खालील लोकॅल्सना आधार नाही (not supported): {$locales}."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "या आयटमला DOI देता येत नाही."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "प्रकाशनाचा प्रकार अनोळखी (not recognized) आहे."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "तुम्ही शोधत असलेला DOI सापडला नाही."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "तुम्ही शोधत असलेला लेख (publication object) सापडला नाही."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "तुम्ही शोधत असलेले सादरीकरण सापडले नाही."
+
+msgid "api.dois.400.creationFailed"
+msgstr "त्रुटी आल्यामुळे DOI object तयार करता आला नाही."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"XML निकष त्रुटी (validation error) आली असल्याने XML चे स्थानांतर (export) "
+"करता आलेले नाही."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"एक त्रुटी आली आणि सादर केलेले काही लेख (items) नोंदणीकृत म्हणून चिन्हांकित ("
+"not marked registered) केले गेले नाहीत."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+"या मागणीदरम्यान कोणत्याही वैध प्रकाशनांचा (publication objects) समावेश केलेला"
+" नाही."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr "सध्या कॉन्फिगर केलेले प्लगइन नोंदणी एजन्सी प्लगइन असणे आवश्यक आहे."
+
+msgid "api.emails.400.missingBody"
+msgstr "ई-मेल पाठवण्यापूर्वी तुम्हाला त्यात मजकूराचा समावेश करावा लागेल."
+
+msgid "api.emails.400.missingSubject"
+msgstr "ई-मेल पाठवण्यापूर्वी तुम्हाला त्याचा विषय (subject) लिहावा लागेल."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"तुम्ही निवडलेल्या एक/अनेक भूमिकांमधील वापरकर्त्यांना ई-मेल पाठविण्याची "
+"परवानगी नाही."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "ही वैध संदर्भ संगती (context) नाही."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "तुम्ही शोधत असलेला ई-मेलचा तयार मजकूर (टेम्पलेट) आढळला नाही."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "तुम्ही लेखकाच्या ई-मेलसाठी अवैध \"eventType\", {$eventType} दिला आहे."
+
+msgid "api.files.400.noUpload"
+msgstr "मागणीनुसार एकही फाईल संक्रमित (अपलोड) करण्यासाठी सापडली नाही."
+
+msgid "api.files.400.uploadFailed"
+msgstr "एक/अनेक फाईल्स संक्रमित (अपलोड) करता आलेल्या नाहीत."
+
+msgid "api.files.400.fileSize"
+msgstr ""
+"{$maxSize} पेक्षा मोठ्या आकारमानाच्या फाईल्स संक्रमित (अपलोड) करता आलेल्या "
+"नाहीत."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "तुम्ही शोधत असलेले ठळक वृत्त (Highlight) सापडले नाही."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"ORCID कार्यक्षमता अकार्यान्वित (functionality disable) करून तुम्ही ही "
+"प्रक्रिया करू शकत नाही."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "शोधत असलेला लेखक सापडला नाही"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"तुम्हाला नियुक्त न केलेल्या सादरीकरणांसाठी तुम्ही लेखकांमध्ये बदल करू शकत "
+"नाही."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"हा अंतिम-बिंदू (endpoint) ORCID संकेतस्थळव्यापक (site-wide) नेमस्पेसमधून "
+"उपलब्ध नाही तो ठराविक संदर्भासाठी (given context) मागितला जायला हवा."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "तुम्ही प्रकाशित करू इच्छित असलेले प्रकाशन पूर्वीच प्रकाशित झाले आहे."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "तुम्हाला अप्रकाशित करू इच्छित असलेले प्रकाशन प्रकाशित झालेलेच नाही."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"तुम्ही API द्वारे थेट स्थिती बदलू शकत नाही. त्याऐवजी /publish आणि /unpublish "
+"या अंतिम-बिंदूंचा (endpoint) वापर करा."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "हे प्रकाशन हटवण्यापूर्वी तुम्ही ते अप्रकाशित करणे आवश्यक आहे."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"तुम्ही फक्त खालील प्रकारच्या फाईल्स संक्रमित (अपलोड) करू शकता : {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "तुम्ही संक्रमित (अपलोड) केलेली प्रतिमा वैध नाही."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "तुम्हाला फाईल्स संक्रमित (अपलोड) करण्याची परवानगी नाही."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"तुमच्या वापरकर्ता directory त पुरेशी जागा नाही. तुम्ही संक्रमित (अपलोड) करीत "
+"असलेली फाईल {$fileUploadSize}kb आहे आणि तुमच्याकडे {$dirSizeLeft}kb शिल्लक "
+"आहेत."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "तारीख YYYY-MM-DD स्वरूपातच असणे आवश्यक आहे."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "सुरूवातीची तारीख अखेरच्या तारखेनंतरची असू शकत नाही."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "सुरूवातीची तारीख २००१-०१-०१ यापेक्षा मागची असू शकत नाही."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "अखेरची तारीख कालच्या तारखेनंतरची असू शकत नाही."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"तुमची प्रश्न वैध नव्हता. दोन तारखांमधील कालावधीत (timelineInterval) 'दिवस' "
+"किंवा 'महिना' असणे आवश्यक आहे."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "या फाईल टप्प्यावरील फाईल तुम्ही समीक्षणाच्या कामाशी जोडू शकत नाही."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"या फाईल टप्प्यावरील फाईल तुम्ही दुसऱ्या सादरीकरणाच्या फाईलशी जोडू शकत नाही."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"तुमचा प्रश्न वैध नव्हता. दोन तारखांमधील कालावधीत (timelineInterval) 'दिवस' "
+"किंवा 'महिना' असणे आवश्यक आहे."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"समीक्षणाच्या टप्प्यात फाईल्सची मागणी करताना तुम्ही समीक्षणाची फेरी निर्दिष्ट "
+"करणे आवश्यक आहे."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "तुम्ही प्रदान केलेला फाईलचा टप्पा वैध नाही."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "ही फाईल संपादित करण्याच्या मागणीमध्ये कोणतेही बदल आढळले नाहीत."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "तुम्ही दिलेली समीक्षण फेरी या सादरीकरणाचा भाग नाही."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "तुम्हाला या फाईल्स पहाण्याची (access) परवानगी नाही."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "या समीक्षण फेरीमधील फाईल्स पहाण्याची (access) तुम्हाला परवानगी नाही."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "मागणी केलेला खंड, अंक किंवा वर्ष वैध नाही."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "तुम्हाला या वापरकर्ता भूमिकेत सादरीकरण करायची परवानगी नाही."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"ज्यासाठी तुम्हाला नियुक्त केले गेले आहे असे फक्त अप्रकाशित सादरीकरण तुम्ही "
+"पाहू शकता ."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "हे प्रकाशन संपादित करण्याची अनुमती तुम्हाला नाही."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"हा अंतिम-बिंदू (endpoint) ठराविक संदर्भासाठी (given context) उपलब्ध नाही तो "
+"संकेतस्थळव्यापक (site-wide) नेमस्पेसमधून मागितला जायला हवा."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "{$locale} हा लोकॅल पुरस्कृत नाही."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "तुम्ही शोधत असलेला ई-मेल सापडला नाही."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "कोणतेही असफल झालेले काम यादीत आढळले नाही."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "असफल झालेले काम पुन्हा पाठवण्यात अपयश."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "या समीक्षणाच्या कामासाठी सादरीकरण सापडले नाही."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "दिलेला विभाग अस्तित्वात नाही."
+
+msgid "api.submission.400.invalidId"
+msgstr "अवैध ID: \"{$id}\" दिला आहे."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Publication identifiers form उपलब्ध नाही कारण कोणतेही identifiers कार्यन्वित "
+"केलेले नाहीत."
+
+msgid "api.rors.404.rorNotFound"
+msgstr ""
+"तुम्ही शोधत असलेली संस्था संशोधन संस्था नोंदणीत (Research Organization "
+"Registry) सापडली नाही."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"कदाचित तुमचे लॉगइन कालबाह्य झाल्यामुळे तुमची विनंती नाकारण्यात आली. पुन्हा "
+"पृष्ठ पुनर्स्थापित (reload) करून प्रयत्न करा."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "हे सादरीकरण हटवण्याची अनुमती तुम्हाला नाही."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "या प्रसंगी नियुक्त न केलेले सादरीकरण तुम्ही हटवू शकत नाही."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"ही सक्रिय मांडणी शैली (Active Theme), {$themePluginPath}, कार्यान्वित केलेली "
+"नाही आणि कदाचित स्थापित (install) केलेली नसेल."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "असफल झालेले काम असफल कामांच्या यादीत नाही."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr "पेलोड बेपत्ता असल्याने असफल झालेले काम पुन्हा पाठवणे शक्य नाही."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "असफल झालेले काम यशस्वीरित्या पुन्हा पाठवण्यात आले."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "अपेक्षित प्रतिसाद मिळण्यात असमर्थ."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"असफल झालेली सर्व पुन्हा पाठवण्यायोग्य कामं वैध पेलोडसह यशस्वीरित्या प्रतीक्षा"
+" यादीत पुन्हा आणली (requeued) गेली आहेत."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "असफल झालेली कामं त्यांच्या यादीतून हटवता आली नाहीत."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "असफल झालेली कामं त्यांच्या यादीतून यशस्वीरित्या हटवली गेली."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "यांच्या निर्मितीच्या वेळेत बदल करणे अशक्य आहे."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "या कामासाठी समीक्षक सापडला नाही"
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"संकेतस्थळाच्या प्रशासकाने secret key configure केलेली नसल्यामुळे या "
+"संकेतस्थळावर प्रवेश करण्यासाठी API token वापरता येत नाही."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "फक्त 'स्वीकारा' किंवा 'नाकारा' हेच वैध पर्याय आहेत"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"शोधासाठी आवश्यक असलेला चौकशीचा (query) पॅरामीटर 'ids' अनुपस्थित आहे. कृपया "
+"तुम्ही हटवू इच्छित असलेल्या सादरीकरणाचा 'ids' द्या."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "या संदर्भात नसलेल्या आयटमचा DOI तुम्ही संपादित करू शकत नाही."
+
+msgid "api.409.resourceActionConflict"
+msgstr "संसाधनावरील इच्छित कृती पूर्ण करण्यात अपयश आले."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"हा अंतिम-बिंदू (endpoint) संकेतस्थळव्यापक (site-wide) नेमस्पेसमधून उपलब्ध "
+"नाही तो ठराविक संदर्भासाठी (given context) मागितला जायला हवा."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"अप्रकाशित लेखांचे (items) स्थानांतर/साठवण (export/deposit) करता येत नाही. "
+"कृपया अप्रकाशित लेखांची निवड रद्द करून पुन्हा प्रयत्न करा."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"काही लेख (items) यशस्वीरित्या जमा झाले (deposited) नाहीत. कृपया प्रत्येक लेख "
+"(item) त्याच्यातील विशिष्ट त्रुटीसाठी तपासा."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"या मागणीदरम्यान एक/अनेक अवैध प्रकाशनांचा (publication objects) समावेश केलेला "
+"होता."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"तुम्ही या पूर्वीच प्रकाशित झालेल्या सादरीकरणासाठी निर्णयाची नोंद किंवा शिफा"
+"रस करू शकत नाही."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"ई-मेल कोणत्या भूमिकेतल्या वापरकर्त्यांसाठी आहे ते तुम्ही सूचित करणे आवश्यक "
+"आहे."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+"माहीत असलेल्या ई-मेल (known email) साठी हा सर्वसाधारण ई-मेल मजकूर (default "
+"email template) नाही."
+
+msgid "api.files.400.config"
+msgstr ""
+"सर्व्हर कॉन्फिगरेशन त्रुटीमुळे फाईल संक्रमित (अपलोड) करता आली नाही. कृपया "
+"प्रणालीच्या प्रशासकाशी संपर्क साधा."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"अनुक्रमाची (ordering) माहिती आढळली नसल्याने ठळक वृत्तांचा क्रम (Highlight "
+"order) सेव्ह करता आला नाही."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"एक/अनेक वृत्तवैशिष्ट्य (highlights) सापडले नाहीत म्हणून ठळक वृत्तांचा क्रम ("
+"Highlight order) सेव्ह करता आला नाही."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "हे प्रकाशन आधीच प्रकाशित झाले असल्याने तुम्ही ते संपादित करू शकत नाही."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"तुम्ही संक्रमित (अपलोड) केलेली फाईल अपेक्षित फाईल एक्सटेंशनशी जुळत नाही. "
+"जेव्हा एखाद्या फाईलचे नाव विसंगत प्रकारात बदलले जाते, उदाहरणार्थ photo.png "
+"प्रकार photo.jpg मध्ये, तेव्हा असे होऊ शकते."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"सार्वजनिक फाईल्स directory सापडली नाही किंवा त्यामध्ये फाईल्स सेव्ह केल्या जा"
+"ऊ शकत नाहीत. ही समस्या सोडवण्यासाठी कृपया तुमच्या प्रशासकाशी संपर्क साधा."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"तुमची मागणी वैध नव्हती. 'desc (उतरता)' किंवा 'asc (चढता)' क्रम "
+"(orderDirection) असणे आवश्यक आहे."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"या फाईल टप्प्यावरील फाईल तुम्ही चर्चेच्या टिप्पणाशी (discussion note) जोडू "
+"शकत नाही."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "या फाईल टप्प्यावरील फाईल समीक्षणाच्या फेरीशी तुम्ही जोडू शकत नाही."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"assocType आणि assocId दिल्याशिवाय तुम्ही फाईलच्या संलग्नतेमध्ये बदल करू शकत "
+"नाही."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "तुम्ही फाईलचा टप्पा प्रदान करणे आवश्यक आहे."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"या फाईल टप्प्यावर फाईल हलवताना तुम्ही समीक्षण फेरी id प्रदान करणे आवश्यक आहे."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "या फाईल्सचा समावेश (add) आणि संपादित करण्याची तुम्हाला परवानगी नाही."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"तुमची मागणी फलद्रूप होऊ शकली नाही कारण त्यासाठी आवश्यक ती माहिती पुरवलेली "
+"नाही."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"या सादरीकरणाची भाषा तुम्ही बदलू शकत नाही कारण त्याचे आधीच एकाहून अधिक स्वरूपा"
+"त प्रकाशित झाले आहे."

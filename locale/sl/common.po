@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2025-03-03 19:43+0000\n"
+"PO-Revision-Date: 2025-03-25 14:30+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl/>\n"
@@ -2292,15 +2292,12 @@ msgstr "Poglej ORDIC profil za osebo {$name}"
 msgid "common.loaded"
 msgstr "Naloženo"
 
-#, fuzzy
 msgid "navigation.dashboards"
 msgstr "Nadzorne plošče"
 
-#, fuzzy
 msgid "navigation.reviewAssignments"
-msgstr "Recenzentske zadolžitve"
+msgstr "Moje recenzentske zadolžitve"
 
-#, fuzzy
 msgid "navigation.mySubmissions"
 msgstr "Moji prispevki"
 
@@ -2361,3 +2358,6 @@ msgstr "Zadolžitve"
 
 msgid "common.filtersClear"
 msgstr "Ponastavi filtre"
+
+msgid "common.yesContinue"
+msgstr "Da, nadaljuj"

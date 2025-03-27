@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-09 05:50+0000\n"
+"PO-Revision-Date: 2025-03-22 09:22+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -3933,3 +3933,14 @@ msgstr "Վճարման ժամկետից {$value} օր հետո"
 
 msgid "manager.setup.reviewOptions.reminders.disbale.label"
 msgstr "Հիշեցում չկա"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Ցանկի տարրի վերնագիրը պարտադիր է:"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Պահանջվում է նվազագույն քանակի հաստատված գրախոսություններ"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Ներկայացման համար անհրաժեշտ հաստատված գրախոսությունների նվազագույն քանակը"

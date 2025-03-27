@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2025-03-06 13:04+0000\n"
+"PO-Revision-Date: 2025-03-25 14:30+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
@@ -3911,3 +3911,13 @@ msgstr ""
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Povabilo za spremembo email-a"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Naslov postavke menija je obvezen."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalno število opravljenih recenzij za prispevek"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Zahtevano minimalno število opravljenih recenzij"

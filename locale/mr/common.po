@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-17 12:23+0000\n"
+"PO-Revision-Date: 2025-03-23 22:30+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -408,7 +408,7 @@ msgid "common.pluginDisabled"
 msgstr "\"{$pluginName}\" हे प्लगइन अकार्यान्वित (disable) केले आहे."
 
 msgid "common.prefix"
-msgstr "उपसर्ग (Prefix)"
+msgstr "सुरुवातीचा भाग/उपसर्ग (prefix)"
 
 msgid "common.preview"
 msgstr "पूर्वावलोकन"
@@ -2396,3 +2396,6 @@ msgstr "नाही"
 
 msgid "common.refreshingData"
 msgstr "डेटा अद्ययावत (रिफ्रेश) करत आहे"
+
+msgid "common.yesContinue"
+msgstr "हो, चालू ठेवा"

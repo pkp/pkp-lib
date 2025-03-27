@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-03-24 11:32+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg/>\n"
@@ -3232,3 +3232,26 @@ msgstr "Получена е редакционна препоръка"
 
 msgid "dashboard.recommendOnly.recommendationsCompleted"
 msgstr "Всички редакционни препоръки са получени и е необходимо решение."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Минималният брой рецензии е потвърден. Необходимо е решение."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Необходим минимален брой потвърдени рецензии: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Гелаете ли да продължите без минимален брой потвърдени рецензии?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Минималният брой потвърдени рецензии не е спазен. Все още ли искате да "
+"продължите с това редакционно решение?"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Всичко от етап изпращане на материали"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "За рецензиране"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Всичко от етап рецензиране"

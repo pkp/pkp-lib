@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-11-17 15:38+0000\n"
+"PO-Revision-Date: 2025-03-26 08:36+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/da/>"
 "\n"
@@ -516,10 +516,10 @@ msgid "grid.user.email"
 msgstr "E-mail"
 
 msgid "grid.user.enable"
-msgstr "Aktivér"
+msgstr "Aktivér bruger"
 
 msgid "grid.user.disable"
-msgstr "Deaktivér"
+msgstr "Deaktivér bruger"
 
 msgid "grid.user.disableReason"
 msgstr "Grund til deaktivering af bruger"
@@ -732,3 +732,30 @@ msgstr "Redigér bidragyder"
 
 #~ msgid "grid.user.authSource"
 #~ msgstr "Godkendelseskilde"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Når brugeren er aktiveret, vil de få adgang til siden, og du kan invitere "
+"dem til de rette roller."
+
+msgid "grid.user.remove"
+msgstr "Fjern bruger"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Tilføj bedømmerforslag"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Slet bedømmerforslag"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Er du sikker på at du vil slette dette forslag? Denne handling kan ikke "
+"omgøres."
+
+msgid "grid.user.logInAs"
+msgstr "Log ind som"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Bemærk venligst, at når er bruger er deaktiveret, kan du ikke tilføje dem "
+"til nogle roller indtil de er aktiverede igen."

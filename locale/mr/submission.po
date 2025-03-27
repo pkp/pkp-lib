@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-20 15:23+0000\n"
+"PO-Revision-Date: 2025-03-23 22:30+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -3199,3 +3199,17 @@ msgstr "सर्व समीक्षणाच्या टप्प्या�
 
 msgid "submission.dashboard.view.needsReviews"
 msgstr "समीक्षणे आवश्यक आहेत"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "किमान आवश्यक समीक्षणांची संख्या पूर्ण झाली आहे. निर्णय अपेक्षित आहे."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "किमान आवश्यक समीक्षणांची संख्या : {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "किमान आवश्यक समीक्षणांशिवाय पुढे जायचे का?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"किमान आवश्यक समीक्षणांची संख्या पूर्ण झालेली नाही. तरीही तुम्हाला याकरता "
+"संपादकीय निर्णय घेऊन पुढे जायचे आहे का?"

@@ -14,7 +14,7 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\payload;
 
-use DAORegistry;
+use PKP\db\DAORegistry;
 use Illuminate\Validation\Rule;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\InvitePayload;

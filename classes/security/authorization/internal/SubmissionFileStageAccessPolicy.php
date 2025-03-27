@@ -106,16 +106,30 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {
+                    $externalReviewDecisions = [
+                        Decision::ACCEPT,
+                        Decision::PENDING_REVISIONS,
+                        Decision::NEW_EXTERNAL_ROUND,
+                        Decision::RESUBMIT,
+                    ];
+
+                    $internalReviewDecisions = [
+                        Decision::ACCEPT_INTERNAL,
+                        Decision::PENDING_REVISIONS_INTERNAL,
+                        Decision::NEW_INTERNAL_ROUND,
+                        Decision::RESUBMIT_INTERNAL,
+                    ];
+
+                    // Select decision types based on review stage
+                    $decisionTypes = $reviewStage === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
+                        ? $externalReviewDecisions
+                        : $internalReviewDecisions;
+
                     $countDecisions = Repo::decision()->getCollector()
                         ->filterBySubmissionIds([$submission->getId()])
                         ->filterByStageIds([$reviewRound->getStageId()])
                         ->filterByReviewRoundIds([$reviewRound->getId()])
-                        ->filterByDecisionTypes([
-                            Decision::ACCEPT,
-                            Decision::PENDING_REVISIONS,
-                            Decision::NEW_EXTERNAL_ROUND,
-                            Decision::RESUBMIT
-                        ])
+                        ->filterByDecisionTypes($decisionTypes)
                         ->getCount();
 
                     if ($countDecisions) {

@@ -67,7 +67,7 @@
 					</div>
 				{/fbvFormSection}
 
-				{if $reviewAssignment->getRecommendation()}
+				{if $reviewAssignment->getRecommendationId()}
 					{fbvFormSection}
 						<div class="pkp_controllers_informationCenter_itemLastEvent">
 							{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}

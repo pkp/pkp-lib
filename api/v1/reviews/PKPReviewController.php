@@ -722,7 +722,7 @@ class PKPReviewController extends PKPBaseController
     /**
      * Download exported review file from temporary file ID
      */
-    public function getExportedFile(Request $illuminateRequest): JsonResponse
+    public function getExportedFile(Request $illuminateRequest): Response
     {
         $fileId = (int) $illuminateRequest->route('fileId');
         $currentUser = Application::get()->getRequest()->getUser();
@@ -734,7 +734,7 @@ class PKPReviewController extends PKPBaseController
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
         }
-        return response()->json([], Response::HTTP_OK);
+        return response()->noContent(Response::HTTP_OK);//json([], Response::HTTP_OK);
     }
 
     /**

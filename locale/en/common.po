@@ -2371,3 +2371,18 @@ msgstr "Refreshing data"
 
 msgid "common.viewMoreDetails"
 msgstr "View more details"
+
+msgid "common.colorPicker.color1"
+msgstr "Color 1"
+
+msgid "common.colorPicker.color2"
+msgstr "Color 2"
+
+msgid "common.colorPicker.contrastRatio"
+msgstr "Contrast Ratio"
+
+msgid "common.colorPicker.contrastGuideText"
+msgstr "Learn more about contrast ratios and accessibility"
+
+msgid "common.colorPicker.keyboardInstructions"
+msgstr "Use Tab to navigate between controls and arrow keys to adjust colors"

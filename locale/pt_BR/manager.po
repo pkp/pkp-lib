@@ -3951,3 +3951,7 @@ msgstr "Número mínimo de avaliações confirmadas exigidas"
 
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr "Número mínimo de avaliações confirmadas exigidas para uma submissão"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "O título do item do menu é obrigatório."

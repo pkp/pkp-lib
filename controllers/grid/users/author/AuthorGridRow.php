@@ -101,24 +101,6 @@ class AuthorGridRow extends GridRow
                         'delete'
                     )
                 );
-
-                $author = Repo::author()->get((int) $rowId, $this->getPublication()->getId());
-
-                if ($author && !Repo::user()->getByEmail($author->getEmail(), true)) {
-                    $this->addAction(
-                        new LinkAction(
-                            'addUser',
-                            new AjaxModal(
-                                $router->url($request, null, null, 'addUser', null, $actionArgs),
-                                __('grid.user.add'),
-                                null,
-                                true
-                            ),
-                            __('grid.user.add'),
-                            'add_user'
-                        )
-                    );
-                }
             }
         }
     }

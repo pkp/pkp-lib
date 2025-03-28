@@ -970,3 +970,6 @@ msgstr "Opdater ROR-registrets datasætcache"
 
 msgid "admin.scheduledTask.removeExpiredInvitations"
 msgstr "Udsend et job for automatisk at fjerne udløbne invitationer"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Vis AppKey brugsparametrene"

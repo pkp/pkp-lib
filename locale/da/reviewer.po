@@ -140,3 +140,6 @@ msgstr ""
 
 msgid "reviewer.submission.reviewRound.info"
 msgstr "Tidligere bedømmelser"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Runde {$round} bedømmelse indsendt d. {$submittedOn}"

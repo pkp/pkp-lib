@@ -1366,6 +1366,7 @@ class PKPTemplateManager extends Smarty
             'app' => Application::get()->getName(),
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
+            'supportedLocales' => $this->getTemplateVars('supportedLocales'),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(
@@ -1422,10 +1423,25 @@ class PKPTemplateManager extends Smarty
                 foreach ($userGroups as $userGroup) {
                     $userRoles[] = (int) $userGroup->roleId;
                 }
+                $loggedInAsUserId = Validation::loggedInAs();
+                $loggedInAsUserData = null;
+                if ($loggedInAsUserId) {
+                    $loggedInAsUser = Repo::user()->get($loggedInAsUserId);
+                    $loggedInAsUserData = [
+                        'username' => $loggedInAsUser->getData('userName'),
+                        'initials' => $loggedInAsUser->getDisplayInitials(),
+                    ];
+                }
+
                 $currentUser = [
                     'csrfToken' => $this->_request->getSession()->token(),
                     'id' => (int) $user->getId(),
                     'roles' => array_values(array_unique($userRoles)),
+                    'unreadTasksCount' => $this->getTemplateVars('unreadNotificationCount'),
+                    'username' => $user->getData('userName'),
+                    'initials' => $user->getDisplayInitials(),
+                    'isUserLoggedInAs' => (bool) $loggedInAsUserId,
+                    'loggedInAsUser' => $loggedInAsUserData,
                 ];
                 $output .= 'pkp.currentUser = ' . json_encode($currentUser) . ';';
             }

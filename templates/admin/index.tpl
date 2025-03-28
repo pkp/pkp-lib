@@ -64,7 +64,7 @@
 		<template #actions>
 			<form type="post" action="{url op="expireSessions"}">
 				{csrf}
-				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
+				<button class="pkpButton pkp_button_offset" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
 			</form>
 		</template>
 	</action-panel>
@@ -76,11 +76,11 @@
 		<template #actions>
 			<form type="post" action="{url op="clearDataCache"}">
 				{csrf}
-				<button class="pkpButton pkpButton--isWarnable">{translate key="admin.clearDataCache"}</button>
+				<button class="pkpButton pkp_button_offset">{translate key="admin.clearDataCache"}</button>
 			</form>
 			<form type="post" action="{url op="clearTemplateCache"}">
 				{csrf}
-				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
+				<button class="pkpButton pkp_button_offset" onclick="return confirm({translate|json_encode|escape key="admin.confirmClearTemplateCache"})">{translate key="admin.clearTemplateCache"}</button>
 			</form>
 		</template>
 	</action-panel>
@@ -92,7 +92,7 @@
 		<template #actions>
 			<form type="post" action="{url op="clearScheduledTaskLogFiles"}">
 				{csrf}
-				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs.delete"}</button>
+				<button class="pkpButton pkp_button_offset" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs.delete"}</button>
 			</form>
 		</template>
 	</action-panel>

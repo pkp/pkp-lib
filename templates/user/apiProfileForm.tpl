@@ -32,7 +32,7 @@
 				type="submit"
 				{if $apiKeyAction === \PKP\user\form\APIProfileForm::API_KEY_DELETE}
 					onClick="return confirm({translate|json_encode|escape key='user.apiKey.remove.confirmation.message'})"
-					class="pkpButton pkpButton--isWarnable"
+					class="pkpButton pkp_button_offset"
 				{else}
 					class="pkp_button pkp_button_primary"
 				{/if}

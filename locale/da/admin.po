@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-02-22 11:01+0000\n"
+"PO-Revision-Date: 2025-03-28 13:27+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
 ">\n"
@@ -964,3 +964,6 @@ msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr ""
 "Genstart kø-arbejds-daemoner ('queue worker daemons') efter deres nuværende "
 "opgave."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Opdater ROR-registrets datasætcache"

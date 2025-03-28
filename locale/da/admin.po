@@ -976,3 +976,6 @@ msgstr "Vis AppKey brugsparametrene"
 
 msgid "admin.cli.tool.appKey.options.validate.description"
 msgstr "Validér den nuværende app key, hvis der findes en i config filen"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Tilføj app_key config variablen i config.inc.php filen."

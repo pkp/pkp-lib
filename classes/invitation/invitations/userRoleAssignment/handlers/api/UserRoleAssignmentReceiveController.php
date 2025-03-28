@@ -17,6 +17,7 @@ namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Core;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -28,6 +29,7 @@ use PKP\invitation\invitations\userRoleAssignment\helpers\UserGroupHelper;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\security\authorization\AnonymousUserPolicy;
+use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKPRequest;
@@ -46,13 +48,24 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     {
         $this->invitation->changeInvitationUserIdUsingUserEmail();
 
+        $loggedInUser = $request->getUser();
+
         $user = $this->invitation->getExistingUser();
         if (!isset($user)) {
             $controller->addPolicy(new AnonymousUserPolicy($request));
         } else {
-            // Register the user object in the session
-            $reason = null;
-            Validation::registerUserSession($user, $reason);
+            // if there is noone logged-in, the user that the invitation is for, can login automatically
+            if (!isset($loggedInUser)) {
+                // Register the user object in the session
+                $reason = null;
+                Validation::registerUserSession($user, $reason);
+            }
+
+            // if there is a logged-in user and the user is not the invitation's user, then the user should not be allowed 
+            // to perform the action
+            if (isset($loggedInUser) && ($loggedInUser->getId() != $user->getId())) {
+                $controller->addPolicy(new AuthorizationPolicy());
+            }
 
             $controller->addPolicy(new UserRequiredPolicy($request));
         }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/maps/Schema.php
  *
@@ -13,6 +14,8 @@
 
 namespace PKP\category\maps;
 
+use APP\core\Application;
+use App\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\category\Category;
 use PKP\services\PKPSchemaService;
@@ -73,15 +76,49 @@ class Schema extends \PKP\core\maps\Schema
     protected function mapByProperties(array $props, Category $category): array
     {
         $output = [];
-
+        $context = Application::get()->getRequest()->getContext();
         foreach ($props as $prop) {
             switch ($prop) {
+                case 'subCategories':
+                    $children = Repo::category()->getCollector()
+                        ->filterByParentIds([$category->getId()])
+                        ->filterByContextIds([$context->getId()])
+                        ->getMany();
+
+                    if ($children->isNotEmpty()) {
+                        $output['subCategories'] = $children->map(function ($child) use ($props) {
+                            return $this->mapByProperties($props, $child);
+                        })->values();
+                    }
+
+                    break;
+                case 'image':
+                    $output['image'] = $category->getImage();
+                    break;
+                case 'assignedEditors':
+                    $users = Repo::user()
+                        ->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByRoleIds(Category::$ASSIGNABLE_ROLES)
+                        ->assignedToCategoryIds([$category->getId()])
+                        ->getMany();
+
+                    $output['assignedEditors'] = [];
+
+                    foreach ($users as $user) {
+                        $output['assignedEditors'][] = [
+                            'id' => $user->getId(),
+                            'name' => $user->getFullName(),
+                            'editorDisplayInitials' => $user->getDisplayInitials(),
+                        ];
+                    }
+                    break;
                 default:
                     $output[$prop] = $category->getData($prop);
                     break;
             }
         }
 
-        return $output;
+        return $this->schemaService->addMissingMultilingualValues($this->schema, $output, $context->getSupportedFormLocales());
     }
 }

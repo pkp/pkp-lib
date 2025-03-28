@@ -29,7 +29,7 @@ describe('API tests', function() {
 
 	it("Configures a manager's API key", function() {
 		cy.login('dbarnes', null, 'publicknowledge');
-		cy.get('.app__userNav button').click();
+		cy.get('[data-cy="app-user-nav"] button').click();
 		cy.get('a:contains("Edit Profile")').click();
 		cy.get('a[name="apiSettings"]').click();
 		cy.get("body").then($body => {
@@ -58,7 +58,7 @@ describe('API tests', function() {
 
 	it("Deletes a manager's API key", function() {
 		cy.login('dbarnes', null, 'publicknowledge');
-		cy.get('.app__userNav button').click();
+		cy.get('[data-cy="app-user-nav"] button').click();
 		cy.get('a:contains("Edit Profile")').click();
 		cy.get('a[name="apiSettings"]').click();
 		cy.get('form[id="apiProfileForm"] button:contains("Delete")').click();

@@ -257,7 +257,7 @@ class PKPTemplateManager extends Smarty
                 if (count($contexts)) {
                     $this->addJavaScript(
                         'recaptcha',
-                        'https://www.google.com/recaptcha/api.js?hl=' . substr(Locale::getLocale(), 0, 2),
+                        'https://www.recaptcha.net/recaptcha/api.js?hl=' . substr(Locale::getLocale(), 0, 2),
                         [
                             'contexts' => $contexts,
                         ]

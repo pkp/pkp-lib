@@ -249,7 +249,7 @@ class PKPTemplateManager extends Smarty
                     // It seems Google has already mapping for locales missing in that list, so that we can provide locale es it is.
                     $this->addJavaScript(
                         'recaptcha',
-                        'https://www.google.com/recaptcha/api.js?hl=' . Locale::getLocale(),
+                        'https://www.recaptcha.net/recaptcha/api.js?hl=' . Locale::getLocale(),
                         [
                             'contexts' => $contexts,
                         ]

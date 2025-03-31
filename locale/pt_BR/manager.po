@@ -1,10 +1,11 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2025.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2025-03-31 18:55+0000\n"
-"Last-Translator: cicilia conceiçao de maria <ccmaria@uem.br>\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -379,7 +380,7 @@ msgid "manager.statistics.statistics.registeredReaders"
 msgstr "Leitores registrados"
 
 msgid "manager.statistics.reports.defaultReport.preprintDownloads"
-msgstr "Relatórios de estatísticasde arquivos de preprints para Downloads."
+msgstr "Relatórios de estatísticas de arquivos de preprints para download"
 
 msgid "manager.statistics.reports.defaultReport.preprintAbstract"
 msgstr "Páginas visualizadas de resumos de preprints"

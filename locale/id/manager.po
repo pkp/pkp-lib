@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-31 13:14+0000\n"
+"PO-Revision-Date: 2025-03-31 16:58+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -1239,7 +1239,7 @@ msgid "manager.setup.theme"
 msgstr "Tema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Lembaga"
 
 msgid "manager.setup.theme.description"
 msgstr "Tema baru dapat diintal melalui tab Plugin di bagian atas halaman ini."
@@ -1292,12 +1292,16 @@ msgstr ""
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Memilih pengguna editorial yang ditugaskan secara otomatis untuk semua "
+"naskah pada bagian ini."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Menugaskan {$name} sebagai {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Memilih pengguna editorial yang ditugaskan secara otomatis untuk semua "
+"naskah pada kategori ini."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Pilihan Akses Situs"
@@ -2781,7 +2785,7 @@ msgstr ""
 "review anonim"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Nama dan afiliasi dari penulis yang mengirimkan naskah."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL ke halaman dimana pengguna dapat memulihkan password yang hilang"
@@ -3373,13 +3377,13 @@ msgid "manager.mailables.addTemplates"
 msgstr ""
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Template"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Mengedit Template"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Menghapus Template"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
@@ -3430,10 +3434,10 @@ msgid "manager.forEditors"
 msgstr "Untuk Editor"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Mengkonfigurasi notifikasi email untuk dikirimkan kepada editor."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Statistik Editorial"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
@@ -3446,6 +3450,8 @@ msgstr "Jangan mengirimkan email ke editor."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Haruskah penulis yang mengirimkan naskah diminta untuk memilih kategori "
+"ketika mereka ingin mengirimkan naskah?"
 
 msgid "manager.submitWithCategories.yes"
 msgstr "Ya, tambahkan field kategori ke wizard pengiriman naskah."
@@ -3684,3 +3690,26 @@ msgstr "Pengiriman naskah lokal diaktifkan."
 
 msgid "settings.roles.masthead"
 msgstr "Pertimbangkan peran pada daftar masthead"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Mengizinkan penulis untuk menyarankan reviewer yang potensial pada proses "
+"pengiriman naskah"
+
+msgid "manager.highlights.url.description"
+msgstr "URL lengkap, termasuk https://, untuk tombol pada highlight."
+
+msgid "manager.highlights.urlText"
+msgstr "Label Tombol"
+
+msgid "manager.highlights.delete"
+msgstr "Menghapus Highlight"
+
+msgid "manager.highlights.edit"
+msgstr "Mengedit Highlight"
+
+msgid "manager.highlights.image"
+msgstr "Gambar"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Menentukan urutan peranan masthead pada tampilan publik."

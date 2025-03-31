@@ -87,12 +87,19 @@ class I9197_MigrateAccessKeys extends Migration
             if ($accessKey->context == 'RegisterContext') { // Registered User validation Invitation
                 $invitation = new RegistrationAccessInvite();
                 $invitation->initialize($accessKey->user_id, null, null, null);
-            } elseif (isset($accessKey->context)) { // Reviewer Invitation
+            } elseif (isset($accessKey->context) && is_numeric($accessKey->context)) { // Reviewer Invitation
                 $invitation = new ReviewerAccessInvite();
                 $invitation->initialize($accessKey->user_id, $accessKey->context, null, null);
 
                 $invitation->reviewAssignmentId = $accessKey->assoc_id;
                 $invitation->updatePayload();
+            } else {
+                error_log('WARNING: PKP INSTALLATION UPGRADE - Unsupported access key in access_keys table - Not migrated: ' . json_encode([
+                    'id' => $accessKey->access_key_id,
+                    'context' => $accessKey->context,
+                    'assoc_id' => $accessKey->assoc_id,
+                    'expiry_date' => $accessKey->expiry_date
+                ]));
             }
 
             if (isset($invitation)) {

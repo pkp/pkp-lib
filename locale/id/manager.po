@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-20 15:23+0000\n"
+"PO-Revision-Date: 2025-03-31 13:14+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -1794,9 +1794,11 @@ msgstr ""
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Ya, mewajibkan penulis untuk mengunggah salah satu dari file-file ini atau "
+"lebih."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Tidak, ijinkan pengiriman naskah baru tanpa file-file ini."
 
 msgid "manager.settings.wizard"
 msgstr "Pintasan Pengaturan"
@@ -3056,6 +3058,8 @@ msgstr "Naskah dikirim kembali dari Copyedit"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan penulis bahwa naskah mereka telah dikirim kembali "
+"oleh tahap copyedit."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Putaran Review Dibatalkan"
@@ -3093,7 +3097,7 @@ msgstr ""
 "selama review berlangsung."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Dikirimkan Kembali untuk Review"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
@@ -3147,7 +3151,7 @@ msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Mengkonfirmasi Review"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3155,19 +3159,21 @@ msgstr ""
 "review"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Menolak Review"
 
 msgid "mailable.reviewDecline.description"
 msgstr "Email ini dikirim oleh Reviewer ketika permohonan review ditolak"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Pengingat Review"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Email ini dikirim oleh Editor untuk mengingatkan reviewer bahwa review "
+"mereka telah melewati batas waktu."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Pengingat Review (Otomatis)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
@@ -3211,7 +3217,7 @@ msgstr ""
 "tenggat review, dan cara mengakses naskah."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Naskah pada publikasi saat ini sedang tidak ada"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
@@ -3279,27 +3285,32 @@ msgstr "Diskusi (Pengiriman Naskah)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada tahap pengiriman "
+"naskah."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Diskusi (Review)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada saat tahap review."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskusi (Copyedit)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada tahap copyedit."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskusi (Produksi)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada tahap produksi."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Notifikasi Versi Revisi"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3307,46 +3318,56 @@ msgstr ""
 "mengunggah naskah versi revisi."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Pengumuman Baru"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Surel ini dikirim ketika terdapat pengumuman baru."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Notifikasi Laporan Statistik"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Mengedit Notifikasi Review"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Email ini secara otomatis memberikan notifikasi kepada reviewer ketika "
+"detail dari penugasan review mereka telah diubah."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Reviewer Memberikan Komentar untuk Memberikan Notifikasi Pada Editor"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Email ini secara otomatis dikirimkan ke editor yang ditunjuk ketika reviewer "
+"membuat rekomendasi review"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Sumber autentikasi"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Naskah Dikirimkan Kembali untuk Direview"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Email ini memberikan notifikasi kepada penulis bahwa naskah mereka telah "
+"dikirimkan kembali ke tahap review."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Naskah Dikirimkan Kembali ke Tahap Pengiriman"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Email ini memberikan notifikasi kepada penulis bahwa naskah mereka telah "
+"dikirim kembali ke tahap pengiriman."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Mengelola Email"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Tambah atau edit template</a>untuk semua email yang "
+"dikirim oleh sistem</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
@@ -3362,45 +3383,51 @@ msgstr ""
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Apakah anda yakin ingin menghapus template <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Mengatur Ulang Template"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Apakah anda yakin ingin mengatur ulang subyek dan isi email ke pengaturan "
+"awal untuk template<strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Mencari melalui nama atau deskripsi"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Masukkan nama singkat untuk membantu anda menemukan template ini."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Naskah Baru"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Mengkonfigurasi notifikasi email untuk mengirimkan ketika naskah baru dibuat."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Siapa yang harus menerima email ketika naskah baru telah lengkap."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Jangan kirimkan email."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Kirimkan email hanya kepada penulis yang mengirimkan naskah."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Mengirimkan email ke semua penulis."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Keputusan Editorial"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Mengkonfigurasi notifikasi email untuk mengirimkan kepada penulis ketika "
+"keputusan editorial telah dibuat."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Untuk Editor"
 
 msgid "manager.forEditors.description"
 msgstr ""

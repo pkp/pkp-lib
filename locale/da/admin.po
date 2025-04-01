@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2025-03-28 13:42+0000\n"
+"PO-Revision-Date: 2025-04-01 15:36+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
 ">\n"
@@ -1011,3 +1011,67 @@ msgstr ""
 "Variablen `app_key` eksisterer allerede under `general` sektionen af config "
 "filen. Kør kommandoen `php lib/pkp/tools/appKey.php generate` for at "
 "indstille en ny app key."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Der er allerede indstillet en gyldig APP Key i config filen. Brug "
+"markeringen --force sammen med kommandoen for at overskrive den."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Kunne ikke indstille `app_key` variablen i config filen. Opdater venligst "
+"config filens 'general' sektion og tilføj linjen `app_key = `."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "En gyldig app key indstillet i config filen"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Kør skemaplanlæggeren."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Oplist alle planlagte opgaver."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Start planlægningsarbejderen."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Vis skemaplanlæggerens brugsparametrene."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Kan ikke køre planlagte opgaver fordi applikationens "
+"vedligeholdelsestilstand er aktiveret."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Mente du én af følgende?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Kan ikke køre planlagte opgaver fordi applikationens sandkassetilstand er "
+"aktiveret."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Kører planlagte opgaver hvert minut."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Der er ikke registreret nogle planlagte opgaver."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Ingen matchende planlagte opgaver blev fundet."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Hvilken kommando vil du gerne køre?"
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App key blev indstillet korrekt i config filen."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Kør en bestemt planlagt opgave fra listen eller brug --name for at køre en "
+"specifik én. Anvend markeringen --no-scroll for at se den fulde liste uden "
+"at scrolle."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"App key variablen blev indstillet korrekt i config filen. Kør kommandoen `"
+"php lib/pkp/tools/appKey.php generate` for at indstille en ny app key."

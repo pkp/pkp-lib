@@ -2,7 +2,7 @@
 # Maria Lamury <marialamury@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-19 16:29+0000\n"
+"PO-Revision-Date: 2025-04-01 15:36+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "id/>\n"
@@ -396,3 +396,43 @@ msgstr "ID yang diberikan tidak valid: \"{$id}\"."
 
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "Bagian yang disediakan tidak ada."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Pesanan highlight tidak dapat disimpan karena tidak ada informasi pesanan "
+"ditemukan."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Pesanan highlight tidak dapat disimpan karena satu highlight atau lebih "
+"tidak dapat itemukan."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Parameter penulis-friendly tidakk valid."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Anda menyediakan   \"eventType\",{$eventType}, yang tidak valid, untuk email "
+"Penulis."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Highlight yang anda minta tidak dapat ditemukan."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Endpoint ini tidak tersedia dari namespace site-wide, dan harus diminta "
+"untuk konteks yang diberikan."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Naskah dari penugasan review ini tidak dapat ditemukan."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Reviewer untuk penugasan ini tidak dapat ditemukan"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Hanya 'terima' dan 'tolak' yang merupakan nilai yang valid"
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Permintaan ini tidak dapat menemukan parameter kueri `ids` yang diminta. "
+"Mohon sediakan `ids`dari naskah yang anda ingin hapus."

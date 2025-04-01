@@ -242,33 +242,80 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_unique');
         });
 
-        // queries posted on submission workflow
-        Schema::create('queries', function (Blueprint $table) {
-            $table->comment('Discussions, usually related to a submission, created by editors, authors and other editorial staff.');
-            $table->bigInteger('query_id')->autoIncrement();
+        // Tasks and discussions on submission workflow
+        Schema::create('edit_tasks', function (Blueprint $table) {
+            ;
+            $table->comment('Editorial tasks and discussions, usually related to a submission, created by editors, authors and other editorial staff.');
+            $table->bigInteger('edit_task_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
             $table->smallInteger('stage_id');
             $table->float('seq')->default(0);
-            $table->datetime('date_posted')->nullable();
-            $table->datetime('date_modified')->nullable();
+            $table->datetime('created_at')->nullable();
+            $table->datetime('updated_at')->nullable();
             $table->smallInteger('closed')->default(0);
-            $table->index(['assoc_type', 'assoc_id'], 'queries_assoc_id');
+            $table->dateTime('date_due')->nullable();
+            $table->bigInteger('created_by')->nullable()->default(null);
+            $table->foreign('created_by')->references('user_id')->on('users');
+            $table->unsignedSmallInteger('type'); // 1 - task, 2 - discussion
+            $table->unsignedSmallInteger('status')->default(1); // record about the last activity, default EditorialTask:STATUS_NEW
+            $table->index(['assoc_type', 'assoc_id'], 'edit_tasks_assoc_id');
         });
 
-        // queries posted on submission workflow
-        Schema::create('query_participants', function (Blueprint $table) {
-            $table->comment('The users assigned to a discussion.');
-            $table->bigIncrements('query_participant_id');
-            $table->bigInteger('query_id');
-            $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
-            $table->index(['query_id'], 'query_participants_query_id');
+        Schema::create('edit_task_participants', function (Blueprint $table) {
+            $table->comment('The users assigned to a task or discussion.');
+            $table->bigIncrements('edit_task_participant_id');
+            $table->bigInteger('edit_task_id');
+            $table->foreign('edit_task_id')->references('edit_task_id')->on('edit_tasks')->cascadeOnDelete();
+            $table->index(['edit_task_id'], 'edit_task_participants_edit_task_id');
 
             $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->index(['user_id'], 'query_participants_user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->cascadeOnDelete();
+            $table->boolean('is_responsible')->default(false);
+            $table->index(['user_id'], 'edit_task_participants_user_id');
+            $table->unique(['edit_task_id', 'user_id'], 'edit_task_participants_unique');
+        });
 
-            $table->unique(['query_id', 'user_id'], 'query_participants_unique');
+        Schema::create('edit_task_settings', function (Blueprint $table) {
+            $table->comment('More data about editorial tasks, including localized properties such as the name.');
+            $table->unsignedBigInteger('edit_task_setting_id')->autoIncrement()->primary();
+            $table->bigInteger('edit_task_id');
+            $table->foreign('edit_task_id')
+                ->references('edit_task_id')
+                ->on('edit_tasks')
+                ->cascadeOnDelete();
+            $table->string('locale', 28)->default('');
+            $table->string('setting_name', 255);
+            $table->mediumText('setting_value')->nullable();
+            $table->unique(['edit_task_id', 'locale', 'setting_name'], 'edit_task_settings_unique');
+            $table->index(['edit_task_id'], 'edit_task_settings_edit_task_id');
+        });
+
+        Schema::create('edit_task_templates', function (Blueprint $table) {
+            $table->comment('Represents templates for the editorial tasks.');
+            $table->unsignedBigInteger('edit_task_template_id')->autoIncrement()->primary();
+            $table->unsignedSmallInteger('stage_id');
+            $table->boolean('include')->default(false);
+            $table->bigInteger('email_template_id')->nullable();
+            $table->foreign('email_template_id')
+                ->references('email_id')
+                ->on('email_templates');
+            $table->timestamps();
+        });
+
+        Schema::create('edit_task_template_settings', function (Blueprint $table) {
+            $table->comment('includes additional and multilingual data about the editorial task templates.');
+            $table->id('edit_task_template_setting_id');
+            $table->unsignedBigInteger('edit_task_template_id');
+            $table->foreign('edit_task_template_id')
+                ->references('edit_task_template_id')
+                ->on('edit_task_templates')
+                ->cascadeOnDelete();
+            $table->string('locale', 28)->default('');
+            $table->string('setting_name', 255);
+            $table->mediumText('setting_value')->nullable();
+            $table->unique(['edit_task_template_id', 'locale', 'setting_name'], 'edit_task__template_settings_unique');
+            $table->index(['edit_task_template_id'], 'edit_task_template_settings_edit_task_id');
         });
     }
 
@@ -277,8 +324,11 @@ class SubmissionsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        Schema::drop('query_participants');
-        Schema::drop('queries');
+        Schema::drop('edit_task_template_settings');
+        Schema::drop('edit_task_templates');
+        Schema::drop('edit_task_participants');
+        Schema::drop('edit_task_settings');
+        Schema::drop('edit_tasks');
         Schema::drop('subeditor_submission_group');
         Schema::drop('submission_comments');
         Schema::drop('edit_decisions');

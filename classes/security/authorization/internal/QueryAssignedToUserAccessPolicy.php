@@ -19,8 +19,8 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use PKP\core\PKPRequest;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\user\User;
@@ -51,7 +51,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
     {
         // A query should already be in the context.
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
-        if (!$query instanceof Query) {
+        if (!$query instanceof EditorialTask) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -62,7 +62,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
         }
 
         // Determine if the query is assigned to the user.
-        $participantIds = QueryParticipant::withQueryId($query->id)
+        $participantIds = Participant::withTaskId($query->id)
             ->pluck('user_id')
             ->all();
         if (in_array($user->getId(), $participantIds)) {

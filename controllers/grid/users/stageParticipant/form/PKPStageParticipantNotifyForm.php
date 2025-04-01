@@ -27,6 +27,8 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorCSRF;
@@ -35,8 +37,6 @@ use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
 use PKP\notification\Notification;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
 use PKP\security\Role;
 use PKP\security\Validation;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -185,23 +185,26 @@ class PKPStageParticipantNotifyForm extends Form
         }
 
         // Create a query
-        $query = Query::create([
+        $query = EditorialTask::create([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
             'stageId' => $this->_stageId,
-            'seq' => REALLY_BIG_NUMBER
+            'seq' => REALLY_BIG_NUMBER,
+            'createdBy' => $user->getId(),
+            'type' => EditorialTask::TYPE_DISCUSSION,
+            'status' => EditorialTask::STATUS_NEW,
         ]);
 
         Repo::query()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         // Add the current user and message recipient as participants.
-        QueryParticipant::create([
-            'queryId' => $query->id,
+        Participant::create([
+            'editTaskId' => $query->id,
             'userId' => $user->getId()
         ]);
         if ($user->getId() != $request->getUser()->getId()) {
-            QueryParticipant::create([
-                'queryId' => $query->id,
+            Participant::create([
+                'editTaskId' => $query->id,
                 'userId' => $request->getUser()->getId()
             ]);
         }

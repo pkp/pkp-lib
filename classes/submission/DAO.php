@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/DAO.php
  *
@@ -24,10 +25,10 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\notification\Notification;
-use PKP\query\Query;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -279,7 +280,7 @@ class DAO extends EntityDAO
         $reviewRoundDao->deleteBySubmissionId($id);
 
         // Delete the queries associated with a submission
-        Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)
+        EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)
             ->delete();
 
         // Delete the stage assignments.

@@ -32,6 +32,8 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\Participant;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
@@ -39,8 +41,7 @@ use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\query\Query;
-use PKP\query\QueryParticipant;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -93,7 +94,7 @@ class QueriesGridHandler extends GridHandler
     /**
      * Get the authorized query.
      *
-     * @return Query
+     * @return EditorialTask
      */
     public function getQuery()
     {
@@ -161,7 +162,8 @@ class QueriesGridHandler extends GridHandler
         if ($request->getUserVar('queryId')) {
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
         } else {
-            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->_stageId));
+            $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
+            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, $this->_stageId));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -273,7 +275,7 @@ class QueriesGridHandler extends GridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $query = Query::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
+        $query = EditorialTask::where('id', $rowId)->withAssoc($this->getAssocType(), $this->getAssocId())->first();
         $query->seq = $newSequence;
         $query->save();
     }
@@ -325,9 +327,9 @@ class QueriesGridHandler extends GridHandler
     {
         $user = $this->getAccessHelper()->getCanListAll($this->getStageId()) ? null : $request->getUser()->getId();
 
-        return Query::withAssoc($this->getAssocType(), $this->getAssocId())
+        return EditorialTask::withAssoc($this->getAssocType(), $this->getAssocId())
             ->withStageId($this->getStageId())
-            ->when($user, fn ($q) => $q->withUserId($user))
+            ->when($user, fn ($q) => $q->withParticipantIds([$user]))
             ->lazy();
     }
 
@@ -589,7 +591,7 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
-        $oldParticipantIds = QueryParticipant::withQueryId($query->id)
+        $oldParticipantIds = Participant::withTaskId($query->id)
             ->pluck('user_id')
             ->all();
 
@@ -719,7 +721,7 @@ class QueriesGridHandler extends GridHandler
         $queryId = $args['queryId'];
         $user = $request->getUser();
         if ($user && $this->_getCurrentUserCanLeave($queryId)) {
-            QueryParticipant::withQueryId($queryId)
+            Participant::withTaskId($queryId)
                 ->withUserId($user->getId())
                 ->delete();
             $json = new JSONMessage();
@@ -743,7 +745,7 @@ class QueriesGridHandler extends GridHandler
         if (!count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, ], $userRoles))) {
             return false;
         }
-        $participantIds = QueryParticipant::withQueryId($queryId)
+        $participantIds = Participant::withTaskId($queryId)
             ->pluck('user_id')
             ->all();
         if (count($participantIds) < 3) {

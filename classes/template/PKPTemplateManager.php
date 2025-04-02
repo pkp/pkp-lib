@@ -1430,6 +1430,7 @@ class PKPTemplateManager extends Smarty
                     'id' => (int) $user->getId(),
                     'roles' => array_values(array_unique($userRoles)),
                     'unreadTasksCount' => $this->getTemplateVars('unreadNotificationCount'),
+                    'fullName' => $user->getFullName(),
                     'username' => $user->getData('userName'),
                     'initials' => $user->getDisplayInitials(),
                     'isUserLoggedInAs' => (bool) $loggedInAsUserId,

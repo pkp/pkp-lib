@@ -367,3 +367,6 @@ msgstr "Unable to complete the intended action on resource."
 
 msgid "api.emailTemplates.404.userGroupIds"
 msgstr "One or more of the provided user groups does not exist."
+
+msgid "api.400.categories.cannotReorder"
+msgstr "You may only reorder the main categories."

@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-21 21:11+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/mk/>\n"
@@ -625,3 +625,53 @@ msgstr "Имаше проблем со чекорот {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Иста институција како автор"
+
+msgid "editor.submission.days"
+msgstr "Денови"
+
+msgid "editor.submission.daysInStage"
+msgstr "Денови на сцена"
+
+msgid "editor.submission.viewSummary"
+msgstr "Собирок"
+
+msgid "editor.review.logResponse"
+msgstr "Одговор на дневник"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензентот ја прифати поканата за преглед"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензентот ја одби поканата за преглед"
+
+msgid "editor.review.download"
+msgstr "Преземете го формуларот за преглед"
+
+msgid "editor.review.authorOnly"
+msgstr "Прикажани се делови само за автори"
+
+msgid "editor.review.allSections"
+msgstr "Формуларот за уредник ги прикажува сите делови за преглед"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Изберете рецензент од Предлози за рецензенти"
+
+msgid "editor.review.logResponse.for"
+msgstr "Одговор за евиденција за"
+
+msgid "editor.review.reviewViewed"
+msgstr "Рецензијата е погледната"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Мора да се избере одговор"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Запишете го одговорот во име на рецензентот"
+
+msgid "editor.submission.search"
+msgstr "Пребарајте поднесоци, ID, автори, клучни зборови итн."
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ако рецензентот ве контактира преку е-пошта или на кој било друг начин, "
+"можете да го снимите нивниот одговор за него"

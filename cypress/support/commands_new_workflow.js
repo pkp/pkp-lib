@@ -215,7 +215,7 @@ Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, 
 	cy.login(username, password, context);
 	cy.get('nav').contains(viewName).click();
 	cy.contains('table tr', familyName)
-		.contains('button', 'View')
+		.contains('button', /^\s*View\s*$/)
 		.scrollIntoView()
 		.should('be.visible')
 		.click({force: true});

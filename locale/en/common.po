@@ -2371,3 +2371,9 @@ msgstr "Refreshing data"
 
 msgid "common.viewMoreDetails"
 msgstr "View more details"
+
+msgid "common.saveOrdering"
+msgstr "Save Order"
+
+msgid "common.order"
+msgstr "Order"

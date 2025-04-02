@@ -1648,41 +1648,6 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Smarty usage: {help file="someFile" section="someSection" textKey="some.text.key"}
-     *
-     * Custom Smarty function for displaying a context-sensitive help link.
-     *
-     * @param Smarty $smarty
-     *
-     * @return string the HTML for the generated link action
-     */
-    public function smartyHelp($params, $smarty)
-    {
-        assert(isset($params['file']));
-
-        $params = array_merge(
-            [
-                'file' => null, // The name of the Markdown file
-                'section' => null, // The (optional) anchor within the Markdown file
-                'textKey' => 'help.help', // An (optional) locale key for the link
-                'text' => null, // An (optional) literal text for the link
-                'class' => null, // An (optional) CSS class string for the link
-            ],
-            $params
-        );
-
-        $this->assign([
-            'helpFile' => $params['file'],
-            'helpSection' => $params['section'],
-            'helpTextKey' => $params['textKey'],
-            'helpText' => $params['text'],
-            'helpClass' => $params['class'],
-        ]);
-
-        return $this->fetch('common/helpLink.tpl');
-    }
-
-    /**
      * Smarty usage: {html_options_translate ...}
      * For parameter usage, see http://smarty.php.net/manual/en/language.function.html.options.php
      *

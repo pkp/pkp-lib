@@ -46,7 +46,7 @@ class I10362_EventLogEditorNames extends Migration
 
         if ($idsToUpdate) {
             foreach ($idsToUpdate as $eventLogId => $userId) {
-                $editorName = Repo::user()->get($userId)->getFullName();
+                $editorName = Repo::user()->get($userId)?->getFullName();
 
                 if ($editorName) {
                     $inserts[] = [

@@ -1,9 +1,9 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-26 20:32+0000\n"
+"PO-Revision-Date: 2025-04-02 14:06+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "mk/>\n"
@@ -905,3 +905,8 @@ msgstr "Поштенската адреса на серверот"
 
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "Линк до страницата за статистика за трудот"
+
+msgid "manager.setup.contextSummary.description"
+msgstr ""
+"Понуди краток опис на вашиот сервер за да овозможиш увид во содржина и "
+"намера."

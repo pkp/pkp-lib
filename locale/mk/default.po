@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:39+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Администратор на сајтот"
@@ -193,3 +194,22 @@ msgstr ""
 "ќе го завршите вашето поднесување, член на нашиот уреднички тим ќе биде "
 "доделен да го прегледа. Погрижете се податоците што ги внесовте овде да "
 "бидат што е можно попрецизни.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Член на Уредувачки одбор"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "ЧУО"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Кога поднесувате, имате опција да предложите неколку потенцијални "
+"рецензенти. Ова може да помогне да се насочи процесот на прегледување и да "
+"се обезбеди вреден придонес за уредничкиот тим. Ве молиме изберете "
+"рецензенти кои се експерти во вашата област и немаат конфликт на интереси со "
+"вашата работа. Оваа функција има за цел да го подобри процесот на "
+"прегледување и да поддржи поефикасно искуство и за авторите и за уредничкиот "
+"тим.</p>"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Членови на Уредувачки одбор"

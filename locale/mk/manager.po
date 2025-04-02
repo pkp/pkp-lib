@@ -1,8 +1,8 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024, 2025.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -3798,3 +3798,129 @@ msgstr "Исклучи месечни детали"
 
 msgid "manager.statistics.counterR5Report.settings.endDate"
 msgstr "Датум на комплетирање"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Јазици за поднесување"
+
+msgid "manager.language.submission.form.description"
+msgstr "Изберете јазици за поднесување и метаподатоци."
+
+msgid "manager.language.submission.from.error"
+msgstr "Треба да се избере најмалку една локација."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Поставете потсетници за рецензија"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Испратете потсетник по е-пошта пред или потоа за одговор на барањето за "
+"рецензија (ако рецензентот сè уште не одговорил на барањето за рецензија) "
+"или поднесување за рецензија (ако рецензентот сè уште не поднел рецензија)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Одговор на барање рецензија - пред датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Одговор на барањето рецензија - по датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Поднесување рецензија - пред датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Поднесување рецензија - по датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} дена пред датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} дена по датумот на доспевање"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ниедно"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Нема поставено потсетник"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Предлог на рецензент при поднесување"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Дозволете им на авторите да предложат потенцијални рецензенти при процесот "
+"на поднесување"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Поставката за јазикот не може да се зачува. Сите опции треба да бидат "
+"овозможени."
+
+msgid "notification.submissionLocales"
+msgstr "Локалните места за поднесување се ажурирани."
+
+msgid "settings.roles.masthead"
+msgstr "Размислете за улогата во листата на мастглави"
+
+msgid "settings.roles.permitSettings"
+msgstr "Дозволете промени во Поставки"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Авторот може да предложи неколку потенцијални рецензенти пред да го заврши "
+"поднесувањето, што може да го рационализира процесот на рецензирање и да "
+"обезбеди вреден придонес за уредничкиот тим."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Следното им се прикажува на авторите за време на чекорот за предлози на "
+"рецензентот. Обезбедете кратко објаснување за тоа кои информации авторот "
+"треба да ги даде за себе, коавторите и сите други соработници."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Авторот {$authorName} нема име на припадност на јазикот на поднесокот, "
+"{$localeName}. Поднесокот не може да се увезе без оваа информација."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Јазици на веб-страниците"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Насловот на ставката од менито е задолжителен."
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Додај/отстрани јазици"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Дефинирајте го редоследот на улогите на јарболот за јавно прикажување."
+
+msgid "manager.language.submissionMetadata"
+msgstr "Метаподатоци"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Рецензентите ќе бидат прикажани во стандардизиран формат за да се одржи "
+"униформноста и да се обезбеди лесно откривање во овој дел."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Дефинирајте го редоследот на улогите на уредувачките глави за јавно "
+"прикажување."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Врска до страница на која се прикажуваат сите активни уредувачки услуги за "
+"мастглави."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Ве молиме наведете ја уредувачката историја, вклучувајќи го целосното име, "
+"припадноста и датумите на почеток и крај на секој уредник."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Променете ја поканата за е-пошта"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Потребни се минимум потврдени рецензии"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Минимален број на потврдени рецензии потребен за поднесување"

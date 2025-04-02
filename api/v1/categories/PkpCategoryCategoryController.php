@@ -94,7 +94,7 @@ class PkpCategoryCategoryController extends PKPBaseController
         foreach ($categoriesFound as $category) {
             if ($category->getData('parentId') !== null) {
                 return response()->json([
-                    'error' => 'You are only allowed to change the order of the main categories'
+                    'error' => __('api.400.categories.cannotReorder')
                 ], Response::HTTP_BAD_REQUEST);
             }
         }
@@ -118,9 +118,7 @@ class PkpCategoryCategoryController extends PKPBaseController
 
     public function edit(Request $illuminateRequest): JsonResponse
     {
-        $context = $this->getRequest()->getContext();
         return $this->saveCategory($illuminateRequest);
-
     }
 
     private function saveCategory(Request $illuminateRequest): JsonResponse

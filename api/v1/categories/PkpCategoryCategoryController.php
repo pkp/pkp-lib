@@ -58,13 +58,57 @@ class PkpCategoryCategoryController extends PKPBaseController
             ]),
         ])->group(function () {
             Route::get('', $this->getMany(...));
+            Route::get('categoryFormComponent', $this->getCategoryFormComponent(...));
             Route::post('', $this->add(...));
+            Route::put('saveOrder', $this->saveOrder(...));
             Route::put('{categoryId}', $this->edit(...))
                 ->whereNumber('categoryId');
             Route::delete('{categoryId}', $this->delete(...))
                 ->whereNumber('categoryId');
-            Route::get('categoryFormComponent', $this->getCategoryFormComponent(...));
         });
+    }
+
+    public function saveOrder(Request $illuminateRequest, Context $context): JsonResponse
+    {
+        $context = $this->getRequest()->getContext();
+        $sortedCategories = collect($illuminateRequest->input('sortedCategories'));
+        $categoryIds = array_map(function ($category) {return $category['id'];}, $sortedCategories->all());
+
+        $categoriesFound = Repo::category()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByIds($categoryIds)
+            ->getMany();
+
+        $categoriesFoundIds = $categoriesFound->map(function ($category) {
+            return $category->getId();
+        })->all();
+
+
+        if (array_diff($categoryIds, $categoriesFoundIds)) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Only allow top-level categories to be ordered
+        foreach ($categoriesFound as $category) {
+            if ($category->getData('parentId') !== null) {
+                return response()->json([
+                    'error' => 'You are only allowed to change the order of the main categories'
+                ], Response::HTTP_BAD_REQUEST);
+            }
+        }
+
+        $sortedCategories = $sortedCategories->keyBy('id');
+
+        // update the seq value
+        foreach ($categoriesFound as $category) {
+            $newCategoryData = $sortedCategories->get($category->getId());
+            $category->setSequence($newCategoryData['seq']);
+            Repo::category()->edit($category, ['seq']);
+        }
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     public function add(Request $illuminateRequest): JsonResponse

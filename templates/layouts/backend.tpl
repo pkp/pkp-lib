@@ -35,7 +35,7 @@
 				{rdelim});
 		{rdelim});
 	</script>
-	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
+	<div id="app" class="app" v-cloak>
 		<pkp-spinner-full-screen></pkp-spinner-full-screen>
 		<vue-announcer class="sr-only"></vue-announcer>
 		<pkp-announcer class="sr-only"></pkp-announcer>

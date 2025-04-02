@@ -131,7 +131,6 @@ class Schema extends \PKP\core\maps\Schema
                 case 'canLoginAs':
                     $output[$prop] = $this->getPropertyCanLoginAs($user);
                     break;
-        
                 case 'canMergeUsers':
                     $output[$prop] = $this->getPropertyCanMergeUsers($user);
                     break;
@@ -175,22 +174,22 @@ class Schema extends \PKP\core\maps\Schema
 
                         $output[$prop] = [];
                         foreach ($userGroups as $userGroup) {
-                            $output[$prop][] = [
-                                'id' => (int) $userGroup->id,
-                                'name' => $userGroup->getLocalizedData('name'),
-                                'abbrev' => $userGroup->getLocalizedData('abbrev'),
-                                'roleId' => (int) $userGroup->roleId,
-                                'showTitle' => (bool) $userGroup->showTitle,
-                                'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
-                                'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
-                                'recommendOnly' => (bool) $userGroup->recommendOnly,
-                                'dateStart' => UserUserGroup::withUserId($user->getId())
-                                    ->withUserGroupIds([$userGroup->id])
-                                    ->pluck('date_start')->first(),
-                                'dateEnd' => UserUserGroup::withUserId($user->getId())
-                                    ->withUserGroupIds([$userGroup->id])
-                                    ->pluck('date_end')->first(),
-                            ];
+                            $userUserGroup = UserUserGroup::withUserId($user->getId())
+                                ->withUserGroupIds([$userGroup->id])->get()->toArray();
+                            foreach ($userUserGroup as $userUserGroupItem) {
+                                $output[$prop][] = [
+                                    'id' => (int) $userGroup->id,
+                                    'name' => $userGroup->getLocalizedData('name'),
+                                    'abbrev' => $userGroup->getLocalizedData('abbrev'),
+                                    'roleId' => (int) $userGroup->roleId,
+                                    'showTitle' => (bool) $userGroup->showTitle,
+                                    'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
+                                    'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
+                                    'recommendOnly' => (bool) $userGroup->recommendOnly,
+                                    'dateStart' => $userUserGroupItem['dateStart'],
+                                    'dateEnd' => $userUserGroupItem['dateEnd'],
+                                ];
+                            }
                         }
                     }
                     break;

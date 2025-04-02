@@ -1,9 +1,9 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023, 2024, 2025.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -2366,3 +2366,93 @@ msgstr "Потенцирања"
 
 msgid "common.sandbox"
 msgstr "Апликацијата работи во режим на песок."
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Откриени се {$count} грешки! Поправете ги грешките подолу пред да продолжите."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Рецензијата е прифатена на"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Рецензијата е испратена на"
+
+msgid "validator.multilingual"
+msgstr "Условот за повеќејазичност не е исполнет за ова поле."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Не"
+
+msgid "common.refreshingData"
+msgstr "Податоците се освежуваат"
+
+msgid "common.viewMoreDetails"
+msgstr "Погледнете повеќе детали"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Прикажи <a href=\"{$url}\">Уредничка историја</a>"
+
+msgid "common.moreActions"
+msgstr "Повеќе акции"
+
+msgid "common.editorialMasthead"
+msgstr "Редакциски мастхед"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Врсни рецензенти во изминатите години"
+
+msgid "common.editorialHistory"
+msgstr "Уредничка историја"
+
+msgid "common.editorialHistory.page"
+msgstr "Страна со историја на уредување"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Овој дел ги наведува претходните соработници."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Прикажи го профилот на {$name} ORCID"
+
+msgid "common.assignments"
+msgstr "Задачи"
+
+msgid "common.filtersClear"
+msgstr "Исчистете ги филтрите"
+
+msgid "common.showingXofX"
+msgstr "Се прикажува <strong>{$start} до {$finish}</strong> од {$total}"
+
+msgid "common.loaded"
+msgstr "Вчитано"
+
+msgid "navigation.reviewAssignments"
+msgstr "Мои задачи како рецензент"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Рецензенти во претходната година"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Уредниците ја изразуваат својата благодарност за рецензентите за {$year} "
+"наведени подолу."
+
+msgid "common.yesContinue"
+msgstr "Да, продолжи"
+
+msgid "form.errorSummaryOne"
+msgstr "Откриена е 1 грешка! Поправете ја грешката подолу пред да продолжите."
+
+msgid "navigation.dashboards"
+msgstr "Контролна табла за уредување"
+
+msgid "navigation.mySubmissions"
+msgstr "Мои поднесоци како автор"
+
+msgid "validator.date.comparison"
+msgstr "Неважечки датуми се предвидени за споредба."

@@ -60,8 +60,9 @@ class I10362_EventLogEditorNames extends Migration
         }
 
         if ($inserts) {
-            DB::table('event_log_settings')
-                ->insert($inserts);
+            foreach (array_chunk($inserts, 1000) as $chunk) {
+                DB::table('event_log_settings')->insert($chunk);
+            }
         }
     }
 

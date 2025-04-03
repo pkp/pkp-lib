@@ -72,31 +72,26 @@ class Repository
     }
 
     /**
-     * Get the breadcrumb of a category
-     *
-     * @return string For example: Social Sciences > Anthropology
-     */
-    public function getBreadcrumb(Category $category, ?Category $parent = null): string
-    {
-        return !$parent
-            ? $category->getLocalizedTitle()
-            : __('common.categorySeparator', [
-                'parent' => $parent->getLocalizedTitle(),
-                'child' => $category->getLocalizedTitle()
-            ]);
-    }
-
-    /**
      * Get the breadcrumbs for a Collection of categories
      */
     public function getBreadcrumbs(LazyCollection $categories): LazyCollection
     {
         return $categories->map(function (Category $category) use ($categories) {
-            /** @var ?Category $parent */
-            $parent = $categories->first(
-                fn (Category $c) => $c->getId() === $category->getParentId()
-            );
-            return $this->getBreadcrumb($category, $parent);
+            $currentCategory = $category;
+            $result = $currentCategory->getLocalizedTitle();
+
+            // Traverse up category tree until we reach a top-level category
+            while ($currentCategory->getParentId() && $parent = $categories->get($currentCategory->getParentId())) {
+                // Format this level, but with the accumulated result as the child instead of just the current category title
+                $result = __('common.categorySeparator', [
+                    'parent' => $parent->getLocalizedTitle(),
+                    'child' => $result
+                ]);
+
+                $currentCategory = $parent;
+            }
+
+            return $result;
         });
     }
 
@@ -176,11 +171,10 @@ class Repository
                     ->getMany()
                     ->first();
 
-
                 $id = key_exists($props['categoryId'], $props) ? $props['categoryId'] : $object?->getId() ?? null;
-                // If ID of the existing Category with path is same as ID of object or prop then assume an s existing category is being updated
-                $isUpdating = $id && Repo::category()->get($id, $context->getId())->getPath() === $existingCategoryWithPath->getPath();
-                if (!$isUpdating && $existingCategoryWithPath) {
+                $existingCategoryWithId = $id ? Repo::category()->get($id, $context->getId()) : null;
+
+                if ($existingCategoryWithPath && $existingCategoryWithPath->getPath() !== $existingCategoryWithId?->getPath()) {
                     $validator->errors()->add('path', __('grid.category.pathExists'));
                 }
             });

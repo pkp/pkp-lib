@@ -22,7 +22,6 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 
 class InvitationHandler extends Handler
 {
@@ -68,20 +67,6 @@ class InvitationHandler extends Handler
         return $invitation;
     }
 
-    /**
-     * Get invitation by invitation id
-     */
-    private function getInvitationById(Request $request, int $id): Invitation
-    {
-        $invitation = Repo::invitation()
-            ->getById($id);
-
-        if (is_null($invitation)) {
-            throw new \Symfony\Component\HttpKernel\Exception\GoneHttpException();
-        }
-        return $invitation;
-    }
-
     public static function getActionUrl(InvitationAction $action, Invitation $invitation): ?string
     {
         $invitationId = $invitation->getId();
@@ -107,32 +92,5 @@ class InvitationHandler extends Handler
                     'key' => $invitationKey,
                 ]
             );
-    }
-
-    /**
-     * Create an invitation for a user to accept new roles
-     * @throws \Exception
-     */
-    public function userInvite(array $args, Request $request): void
-    {
-        // Validate arguments
-        if (empty($args) || count($args) < 2) {
-            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
-        }
-        $this->setupTemplate($request);
-        $invitationType = $args[0]; // invitation type
-        $invitationId = (int)$args[1]; // invitation id for edit invitation
-        if (!empty($invitationId)) {
-            $invitation = $this->getInvitationById($request, $invitationId);
-            if (!$invitation) {
-                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
-            }
-            $invitationHandler = $invitation->getInvitationUIActionRedirectController();
-            $invitationHandler->editHandle($request);
-        } else {
-            $invitation = app(Invitation::class)->createNew($invitationType);
-            $invitationHandler = $invitation->getInvitationUIActionRedirectController();
-            $invitationHandler->createHandle($request);
-        }
     }
 }

@@ -25,6 +25,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\changeProfileEmail\handlers\ChangeProfileEmailInviteRedirectController;
@@ -136,6 +137,11 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new ChangeProfileEmailInviteRedirectController($this);
+    }
+
+    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
+    {
+        return null;
     }
 
     /**

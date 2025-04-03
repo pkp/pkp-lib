@@ -23,12 +23,14 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\userRoleAssignment\handlers\api\UserRoleAssignmentCreateController;
 use PKP\invitation\invitations\userRoleAssignment\handlers\api\UserRoleAssignmentReceiveController;
 use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteRedirectController;
+use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
 use PKP\invitation\invitations\userRoleAssignment\rules\EmailMustNotExistRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
@@ -136,6 +138,11 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new UserRoleAssignmentInviteRedirectController($this);
+    }
+
+    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
+    {
+        return new UserRoleAssignmentInviteUIController($this);
     }
 
     /**

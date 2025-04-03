@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\security\Role;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 
@@ -49,7 +50,7 @@ class UserForm extends Form
      */
     public function initData()
     {
-        $userGroupIds = $masthead = [];
+        $userGroupIds = $notOnMastheadUserGroupIds = [];
 
         if (!is_null($this->userId)) {
             // fetch user groups where the user is assigned
@@ -62,12 +63,24 @@ class UserForm extends Form
 
             foreach ($userGroups as $userGroup) {
                 $userGroupIds[] = $userGroup->id;
-                $masthead[$userGroup->id] = Repo::userGroup()->userOnMasthead($this->userId, $userGroup->id);
             }
+
+            // Get user group IDs for user groups this user should not be displayed on the masthead for
+            // The others will be selected per default
+            $notOnMastheadUserGroupIds = UserUserGroup::query()
+                ->withUserId($this->userId)
+                ->withActive()
+                ->withMastheadOff()
+                ->get()
+                ->map(
+                    fn (UserUserGroup $userUserGroup) => $userUserGroup->userGroupId
+                )
+                ->all();
+
         }
 
         $this->setData('userGroupIds', $userGroupIds);
-        $this->setData('masthead', $masthead);
+        $this->setData('notOnMastheadUserGroupIds', $notOnMastheadUserGroupIds);
 
         parent::initData();
     }
@@ -77,7 +90,7 @@ class UserForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['userGroupIds']);
+        $this->readUserVars(['userGroupIds', 'mastheadUserGroupIds']);
         parent::readInputData();
     }
 
@@ -92,17 +105,21 @@ class UserForm extends Form
         $contextId = $request->getContext()?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         $templateMgr = TemplateManager::getManager($request);
 
-        $allUserGroups = [];
+        $allUserGroups = $defaultMastheadUserGroups = [];
 
         $userGroups = UserGroup::withContextIds([$contextId])->get();
 
         foreach ($userGroups as $userGroup) {
             $allUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
+            if ($userGroup->roleId != Role::ROLE_ID_REVIEWER) {
+                $defaultMastheadUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
+            }
         }
 
         $templateMgr->assign([
             'allUserGroups' => $allUserGroups,
             'assignedUserGroups' => array_map(intval(...), $this->getData('userGroupIds')),
+            'defaultMastheadUserGroups' => $defaultMastheadUserGroups,
         ]);
 
         return $this->fetch($request);
@@ -127,6 +144,15 @@ class UserForm extends Form
 
         if ($this->getData('userGroupIds')) {
             $contextId = $request->getContext()->getId();
+            $allUserGroupIds = UserGroup::withContextIds([$contextId])
+                ->get()
+                ->map(
+                    fn (UserGroup $userGroup) => $userGroup->userGroupId
+                )
+                ->all();
+            // secure that user-specified user group IDs are from the right context
+            $userGroupIds = array_intersect($this->getData('userGroupIds'), $allUserGroupIds);
+            $mastheadUserGroupIds = array_intersect($this->getData('mastheadUserGroupIds'), $allUserGroupIds);
 
             // get current user group IDs for this context
             $oldUserGroupIds = UserGroup::query()
@@ -138,26 +164,33 @@ class UserForm extends Form
                 ->pluck('user_group_id')
                 ->all();
 
-            $userGroupsToEnd = array_diff($oldUserGroupIds, $this->getData('userGroupIds'));
+            $userGroupsToEnd = array_diff($oldUserGroupIds, $userGroupIds);
             collect($userGroupsToEnd)
                 ->each(
-                    fn ($userGroupId) =>
-                    UserUserGroup::query()
-                        ->withUserId($this->userId)
-                        ->withUserGroupIds([$userGroupId])
-                        ->withActive()
-                        ->update(['date_end' => now()])
+                    function ($userGroupId) use ($contextId) {
+                        Repo::userGroup()->endAssignments($contextId, $this->userId, $userGroupId);
+                    }
                 );
 
-            $userGroupsToAdd = array_diff($this->getData('userGroupIds'), $oldUserGroupIds);
+            $userGroupsToAdd = array_diff($userGroupIds, $oldUserGroupIds);
             collect($userGroupsToAdd)
                 ->each(
-                    fn ($userGroupId) =>
-                    UserUserGroup::create([
-                        'userId' => $this->userId,
-                        'userGroupId' => $userGroupId,
-                        'dateStart' => now(),
-                    ])
+                    fn ($userGroupId) => Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId)
+                );
+
+            // update masthead
+            // ignore reviewer role
+            $reviewerUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_REVIEWER, $contextId);
+            collect($userGroupIds)
+                ->filter(
+                    function ($userGroupId) use ($reviewerUserGroupIds) {
+                        return !in_array($userGroupId, $reviewerUserGroupIds);
+                    }
+                )
+                ->each(
+                    function ($userGroupId) use ($mastheadUserGroupIds) {
+                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, in_array($userGroupId, $mastheadUserGroupIds));
+                    }
                 );
         }
     }

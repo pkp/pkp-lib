@@ -71,6 +71,13 @@
 					{/foreach}
 				{/fbvFormSection}
 			{/fbvFormSection}
+			{fbvFormSection}
+				{fbvFormSection list=true title="grid.user.userRoles.masthead"}
+					{foreach from=$defaultMastheadUserGroups item="mastheadUserGroup" key="id"}
+						{fbvElement type="checkbox" id="mastheadUserGroupIds[]" value=$id checked=!in_array($id, $notOnMastheadUserGroupIds) label=$mastheadUserGroup|escape translate=false}
+					{/foreach}
+				{/fbvFormSection}
+			{/fbvFormSection}
 		{/if}
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		{fbvFormButtons}

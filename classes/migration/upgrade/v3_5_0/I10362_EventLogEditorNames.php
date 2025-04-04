@@ -46,7 +46,7 @@ class I10362_EventLogEditorNames extends Migration
 
         if ($idsToUpdate) {
             foreach ($idsToUpdate as $eventLogId => $userId) {
-                $editorName = Repo::user()->get($userId)->getFullName();
+                $editorName = Repo::user()->get($userId)?->getFullName();
 
                 if ($editorName) {
                     $inserts[] = [
@@ -60,8 +60,9 @@ class I10362_EventLogEditorNames extends Migration
         }
 
         if ($inserts) {
-            DB::table('event_log_settings')
-                ->insert($inserts);
+            foreach (array_chunk($inserts, 1000) as $chunk) {
+                DB::table('event_log_settings')->insert($chunk);
+            }
         }
     }
 

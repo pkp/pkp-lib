@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/publication/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -360,10 +361,10 @@ abstract class Repository
             }
         }
 
-        if (!empty($newPublication->getData('citationsRaw'))) {
-            $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var \PKP\citation\CitationDAO $citationDao */
-            $citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
-        }
+        Repo::citation()->importCitations(
+            $newPublication->getId(),
+            $newPublication->getData('rawCitations')
+        );
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());

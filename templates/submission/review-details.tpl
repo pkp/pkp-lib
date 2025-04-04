@@ -39,9 +39,9 @@
             {if in_array($currentContext->getData('citations'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {if $localeKey === $submission->getData('locale')}
                     <div class="submissionWizard__reviewPanel__item">
-                        <template v-if="errors.citationsRaw">
+                        <template v-if="errors.rawCitations">
                             <notification
-                                v-for="(error, i) in errors.citationsRaw"
+                                v-for="(error, i) in errors.rawCitations"
                                 :key="i"
                                 type="warning"
                             >
@@ -53,12 +53,12 @@
                             {translate key="submission.citations"}
                         </h4>
                         <div class="submissionWizard__reviewPanel__item__value">
-                            <template v-if="!publication.citationsRaw">
+                            <template v-if="!publication.rawCitations">
                                 {translate key="common.noneProvided"}
                             </template>
                             <div
                                 v-else
-                                v-for="(citation, index) in publication.citationsRaw.trim().split(/(?:\r\n|\r|\n)/g).filter(c => c)"
+                                v-for="(citation, index) in publication.rawCitations.trim().split(/(?:\r\n|\r|\n)/g).filter(c => c)"
                                 :key="index"
                                 class="submissionWizard__reviewPanel__citation"
                             >

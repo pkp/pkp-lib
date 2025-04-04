@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -513,7 +513,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     {
         return [
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
-            'CitationDAO' => 'PKP\citation\CitationDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'FilterDAO' => 'PKP\filter\FilterDAO',

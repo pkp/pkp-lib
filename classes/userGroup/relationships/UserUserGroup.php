@@ -117,4 +117,21 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
             ->where('user_user_groups.date_start', '>', $currentDateTime)
             ->orderBy('user_user_groups.date_start', 'asc');
     }
+
+    public function scopeWithActiveAndActiveInFuture(Builder $query): Builder
+    {
+        $currentDateTime = Core::getCurrentDate();
+        return $query->whereNotNull('user_user_groups.date_start')
+            ->where(function ($q) use ($currentDateTime) {
+                $q->where(function ($q) use ($currentDateTime) {
+                    $q->where('user_user_groups.date_start', '<=', $currentDateTime) // Active ones
+                    ->where(function ($q) use ($currentDateTime) {
+                        $q->whereNull('user_user_groups.date_end') // No end date means still active
+                        ->orWhere('user_user_groups.date_end', '>=', $currentDateTime); // End date in the future
+                    });
+                })
+                    ->orWhere('user_user_groups.date_start', '>', $currentDateTime); // Future ones
+            })
+            ->orderBy('user_user_groups.date_start', 'asc');
+    }
 }

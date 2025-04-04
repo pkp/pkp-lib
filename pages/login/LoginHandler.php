@@ -214,6 +214,11 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
+        $isCaptchaEnabled = Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_lost_password');
+        if ($isCaptchaEnabled) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+        }
+
         $this->_generateAltchaComponent('altcha_on_lost_password', $templateMgr);
         $templateMgr->display('frontend/pages/userLostPassword.tpl');
     }
@@ -225,6 +230,17 @@ class LoginHandler extends Handler
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
+
+        $isCaptchaEnabled = Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_lost_password');
+        $recaptchaError = null;
+        if ($isCaptchaEnabled) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+            try {
+                FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
+            } catch (Exception $exception) {
+                $recaptchaError = 'common.captcha.error.missing-input-response';
+            }
+        }
 
         $altchaHasError = $this->_validateAltchasResponse($request, 'altcha_on_lost_password');
 

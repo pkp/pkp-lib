@@ -244,6 +244,9 @@ class PKPTemplateManager extends Smarty
                 if (Config::getVar('captcha', 'captcha_on_login')) {
                     array_push($contexts, 'frontend-login-index', 'frontend-login-signIn');
                 }
+                if (Config::getVar('captcha', 'captcha_on_lost_password')) {
+                    array_push($contexts, 'frontend-login-lostPassword', 'frontend-login-requestResetPassword');
+                }
                 if (count($contexts)) {
                     // These are the supported locales: https://developers.google.com/recaptcha/docs/language
                     // It seems Google has already mapping for locales missing in that list, so that we can provide locale es it is.
@@ -1030,7 +1033,7 @@ class PKPTemplateManager extends Smarty
                                 ];
                                 $isNewSubmissionLinkPresent = true;
                             }
-                            
+
                             $menu['dashboards'] = [
                                 'name' => __('navigation.dashboards'),
                                 'icon' => 'Dashboard',
@@ -1380,7 +1383,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         if($context) {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                 'dateFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatLong()),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort()),
@@ -1388,7 +1391,7 @@ class PKPTemplateManager extends Smarty
                 'timeFormat' => PKPString::convertStrftimeFormat($context->getLocalizedTimeFormat()),
             ]);
         } else {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
                 'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),

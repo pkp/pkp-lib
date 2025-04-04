@@ -905,16 +905,16 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     ->whereColumn('ra.round', '=', 'agrr.current_round')
                     ->where('ra.declined', 0)
                     ->where('ra.cancelled', 0)
-                    ->where(
-                        fn (Builder $q) =>
-                        $q->where('ra.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                            ->whereNull('ra.date_completed')
-                    )
-                    ->orWhere(
-                        fn (Builder $q) =>
-                        $q->where('ra.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                            ->whereNull('ra.date_confirmed')
-                    )
+                    ->where(function (Builder $q) {
+                        $q->where(function (Builder $q) {
+                            $q->where('ra.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('ra.date_completed');
+                        })
+                        ->orWhere(function (Builder $q) {
+                            $q->where('ra.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('ra.date_confirmed');
+                        });
+                    })            
             )
         );
 

@@ -3,7 +3,7 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2025-04-04 13:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -2368,7 +2368,7 @@ msgid "common.sandbox"
 msgstr "Апликацијата работи во режим на песок."
 
 msgid "common.inParenthesis"
-msgstr "({$text})"
+msgstr "({$текст})"
 
 msgid "form.errorSummaryMany"
 msgstr ""
@@ -2384,7 +2384,7 @@ msgid "validator.multilingual"
 msgstr "Условот за повеќејазичност не е исполнет за ова поле."
 
 msgid "common.fromUntil"
-msgstr "{$from} &ndash; {$until}"
+msgstr "{$од} &ndash; {$до}"
 
 msgid "common.numero"
 msgstr "Не"

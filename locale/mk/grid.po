@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2025-04-04 13:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "mk/>\n"
@@ -356,7 +356,7 @@ msgid "grid.columns.institution"
 msgstr "Институција"
 
 msgid "grid.columns.url"
-msgstr "URL"
+msgstr "УРЛ"
 
 msgid "grid.columns.auditor"
 msgstr "Ревизор"
@@ -749,3 +749,6 @@ msgid "grid.user.enableReasonDescription"
 msgstr ""
 "Откако корисникот ќе биде овозможен, тој ќе го врати пристапот до страницата "
 "и ќе можете да го поканите на улоги по потреба."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Појавете се на Мастхед"

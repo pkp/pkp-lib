@@ -212,6 +212,12 @@ class LoginHandler extends Handler
 
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
+
+        $isCaptchaEnabled = Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_lost_password');
+        if ($isCaptchaEnabled) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+        }
+
         $templateMgr->display('frontend/pages/userLostPassword.tpl');
     }
 
@@ -222,6 +228,23 @@ class LoginHandler extends Handler
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
+
+        $error = null;
+        $isCaptchaEnabled = Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_lost_password');
+        if ($isCaptchaEnabled) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+            try {
+                FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
+            } catch (Exception $exception) {
+                $error = 'common.captcha.error.missing-input-response';
+                $templateMgr->assign([
+                    'error' => $error,
+                    'email' => $request->getUserVar('email')
+                ]);
+                $templateMgr->display('frontend/pages/userLostPassword.tpl');
+                return;
+            }
+        }
 
         $email = (string) $request->getUserVar('email');
         $user = $email ? Repo::user()->getByEmail($email, true) : null;

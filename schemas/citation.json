@@ -1,0 +1,46 @@
+{
+	"title": "Citation",
+	"description": "Citation is a reference in a publication to another publication.",
+	"required": [
+		"publicationId",
+		"seq"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique id of citation in the database.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"publicationId": {
+			"type": "integer",
+			"description": "The publication to which this citation is associated with.",
+			"writeDisabledInApi": true,
+			"apiSummary": true
+		},
+		"seq": {
+			"type": "integer",
+			"description": "The sequence number of citation.",
+			"default": 0,
+			"validation": [
+				"nullable"
+			]
+		},
+		"rawCitation": {
+			"type": "string",
+			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
+			"multilingual": false,
+			"validation": [
+				"nullable"
+			]
+		},
+		"lastModified": {
+			"type": "string",
+			"description": "The last time a modification was made to this record.",
+			"apiSummary": true,
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		}
+	}
+}

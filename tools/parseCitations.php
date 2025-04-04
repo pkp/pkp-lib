@@ -3,8 +3,8 @@
 /**
  * @file tools/parseCitations.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CitationsParsingTool
@@ -16,13 +16,13 @@
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
 {
-    public $parameters;
+    public array $parameters;
+
     /**
      * Constructor.
      *
@@ -43,7 +43,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
     /**
      * Print command usage information.
      */
-    public function usage()
+    public function usage(): void
     {
         echo "Parse and save submission(s) citations.\n"
             . "Usage:\n"
@@ -55,9 +55,8 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
     /**
      * Parse citations
      */
-    public function execute()
+    public function execute(): void
     {
-        $citationDao = DAORegistry::getDAO('CitationDAO');
         $contextDao = Application::getContextDAO();
 
         switch (array_shift($this->parameters)) {
@@ -66,7 +65,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                 while ($context = $contexts->next()) {
                     $submissions = Repo::submission()->getCollector()->filterByContextIds([$context->getId()])->getMany();
                     foreach ($submissions as $submission) {
-                        $this->_parseSubmission($submission);
+                        $this->parseSubmission($submission);
                     }
                 }
                 break;
@@ -79,7 +78,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                     }
                     $submissions = Repo::submission()->getCollector()->filterByContextIds([$context->getId()])->getMany();
                     foreach ($submissions as $submission) {
-                        $this->_parseSubmission($submission);
+                        $this->parseSubmission($submission);
                     }
                 }
                 break;
@@ -90,7 +89,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                         printf("Error: Skipping {$submissionId}. Unknown submission.\n");
                         continue;
                     }
-                    $this->_parseSubmission($submission);
+                    $this->parseSubmission($submission);
                 }
                 break;
             default:
@@ -100,17 +99,16 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
     }
 
     /**
-     * Parse the citations of one submission
-     *
-     * @param Submission $submission
+     * Parse the citations of one submission.
      */
-    private function _parseSubmission($submission)
+    private function parseSubmission(Submission $submission): void
     {
-        /** @var CitationDAO */
-        $citationDao = DAORegistry::getDAO('CitationDAO');
         foreach ($submission->getData('publications') as $publication) {
-            if (!empty($publication->getData('citationsRaw'))) {
-                $citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
+            if (!empty($publication->getData('rawCitations'))) {
+                Repo::citation()->importCitations(
+                    $publication->getId(),
+                    $publication->getData('rawCitations')
+                );
             }
         }
     }

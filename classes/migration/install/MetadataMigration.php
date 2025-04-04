@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/install/MetadataMigration.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataMigration
@@ -29,14 +29,11 @@ class MetadataMigration extends \PKP\migration\Migration
         Schema::create('citations', function (Blueprint $table) {
             $table->comment('A citation made by an associated publication.');
             $table->bigInteger('citation_id')->autoIncrement();
-
             $table->bigInteger('publication_id');
-            $table->foreign('publication_id', 'citations_publication')->references('publication_id')->on('publications')->onDelete('cascade');
-            $table->index(['publication_id'], 'citations_publication');
-
-            $table->text('raw_citation');
             $table->bigInteger('seq')->default(0);
 
+            $table->foreign('publication_id', 'citations_publication')
+                ->references('publication_id')->on('publications')->onDelete('cascade');
             $table->unique(['publication_id', 'seq'], 'citations_publication_seq');
         });
 
@@ -45,14 +42,12 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->comment('Additional data about citations, including localized content.');
             $table->bigIncrements('citation_setting_id');
             $table->bigInteger('citation_id');
-            $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
-            $table->index(['citation_id'], 'citation_settings_citation_id');
-
             $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6);
 
+            $table->foreign('citation_id', 'citation_settings_citation_id')
+                ->references('citation_id')->on('citations')->onDelete('cascade');
             $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_unique');
         });
 

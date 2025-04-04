@@ -415,9 +415,9 @@ abstract class Repository
         // Required metadata
         $publicationSchema = $this->schemaService->get(PKPSchemaService::SCHEMA_PUBLICATION);
         foreach ($context->getRequiredMetadata() as $metadata) {
-            // The `citations` metadata is received and validated at `citationsRaw`
+            // The `citations` metadata is received and validated at `rawCitations`
             if ($metadata === 'citations') {
-                $metadata = 'citationsRaw';
+                $metadata = 'rawCitations';
             }
             // The `supportingAgencies` metadata is called `agencies` on the context
             if ($metadata === 'agencies') {

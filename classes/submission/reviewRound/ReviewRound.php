@@ -250,6 +250,7 @@ class ReviewRound extends \PKP\core\DataObject
                     break;
 
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND:
                 case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
                     $anyIncompletedReview = true;
                     break;

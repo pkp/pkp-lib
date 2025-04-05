@@ -59,13 +59,13 @@ class ReviewsMigration extends \PKP\migration\Migration
 
             $table->text('competing_interests')->nullable();
 
-            $table->bigInteger('recommendation_id')->nullable();
+            $table->bigInteger('reviewer_recommendation_id')->nullable();
             $table
-                ->foreign('recommendation_id')
-                ->references('recommendation_id')
+                ->foreign('reviewer_recommendation_id')
+                ->references('reviewer_recommendation_id')
                 ->on('reviewer_recommendations')
                 ->onDelete('set null');
-            $table->index(['recommendation_id'], 'review_assignments_recommendation_id');
+            $table->index(['reviewer_recommendation_id'], 'review_assignments_recommendation_id');
 
             $table->datetime('date_assigned')->nullable();
             $table->datetime('date_notified')->nullable();

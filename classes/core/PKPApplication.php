@@ -94,6 +94,11 @@ interface iPKPApplicationInfoProvider
      * Get the review workflow stages used by this application.
      */
     public function getReviewStages(): array;
+
+    /**
+     * Define if the application has customizable reviewer recommendation functionality
+     */
+    public function hasCustomizableReviewerRecommendation(): bool;
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider

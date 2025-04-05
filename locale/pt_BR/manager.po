@@ -1,9 +1,11 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
+# cicilia conceiçao de maria <ccmaria@uem.br>, 2025.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-13 11:04+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2025-04-01 19:50+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -124,7 +126,7 @@ msgstr ""
 
 msgid "manager.payment.options.enablePayments"
 msgstr ""
-"Os pagamentos serão habilitados para este servidor.  Observe que os usuários "
+"Os pagamentos serão habilitados para este servidor. Observe que os usuários "
 "serão obrigados a fazer login para fazer pagamentos."
 
 msgid "manager.setup"
@@ -198,10 +200,9 @@ msgstr ""
 
 msgid "doi.manager.settings.doiObjectsRequired"
 msgstr ""
-"Por favor, escolha os objetos aos quais os DOIs devem ser atribuídos.\n"
 "Selecione os tipos de trabalhos publicados neste servidor aos quais devem "
 "ser atribuídos DOIs. A maioria dos servidores de preprint atribui DOIs a "
-"prprints, mas você também pode querer atribuir DOIs a composições de "
+"preprints, mas você também pode querer atribuir DOIs a composições de "
 "preprint."
 
 msgid "manager.setup.enableUserRegistration"
@@ -285,22 +286,22 @@ msgstr ""
 
 msgid "manager.setup.restrictPreprintAccess"
 msgstr ""
-"Os usuários devem estar registrados e iniciar a sessão para visualizar o "
+"Os usuários devem possuir um cadastro e estarem logados para visualizar o "
 "conteúdo em acesso aberto."
 
 msgid "manager.setup.restrictSiteAccess"
 msgstr ""
-"Os usuários devem estar registrados e iniciar a sessão para visualizar o "
-"conteúdo em acesso aberto."
+"Os usuários devem possuir um cadastro e estarem logados para visualizar o "
+"site do servidor."
 
 msgid "manager.setup.searchEngineIndexing"
 msgstr "Indexação de busca"
 
 msgid "manager.setup.searchEngineIndexing.description"
 msgstr ""
-"Ajude motores de busca  como o Google a descobrir e mostrar seu site. "
-"Recomendamos que você submeta sua <a href=\"{$sitemapUrl}\" target=\"_blank"
-"\">mapa do site</a>."
+"Ajude motores de busca como o Google a descobrir e mostrar seu site. "
+"Recomendamos que você submeta sua <a href=\"{$sitemapUrl}\" target=\"_blank\""
+">mapa do site</a>."
 
 msgid "manager.setup.searchDescription.description"
 msgstr ""
@@ -378,10 +379,12 @@ msgid "manager.statistics.statistics.registeredReaders"
 msgstr "Leitores registrados"
 
 msgid "manager.statistics.reports.defaultReport.preprintDownloads"
-msgstr "Downloads de arquivos de preprints"
+msgstr "Relatórios de estatísticas de arquivos de preprints para download"
 
 msgid "manager.statistics.reports.defaultReport.preprintAbstract"
-msgstr "Páginas visualizadas de resumos de preprints"
+msgstr ""
+"Relatórios de estatísticas de visualização dos resumos dos preprints para "
+"downloads"
 
 msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
 msgstr "Número de visualizações da página principal do servidor"
@@ -393,7 +396,7 @@ msgid "manager.publication.library"
 msgstr "Biblioteca do servidor de Preprint"
 
 msgid "manager.setup.resetPermissions"
-msgstr "Redefinir Permissões do Preprint"
+msgstr "Restaurar as permissões do preprint"
 
 msgid "manager.setup.resetPermissions.confirm"
 msgstr ""
@@ -655,11 +658,11 @@ msgstr "O prefixo DOI é obrigatório e deve ter o formato 10.xxxx."
 
 msgid "doi.manager.settings.doiSuffixPattern"
 msgstr ""
-"Insira um padrão de sufixo personalizado para cada tipo de publicação.  O "
+"Insira um padrão de sufixo personalizado para cada tipo de publicação. O "
 "padrão de sufixo personalizado pode usar os seguintes símbolos para gerar um "
-"sufixo:<br><br> <code>%j.%a</code> Preprints<br> <code>%j.%a.g%g</code>  "
+"sufixo:<br><br> <code>%j.%a</code> Preprints<br> <code>%j.%a.g%g</code> "
 "Composições<br><br> Esteja ciente de que os padrões de sufixo personalizados "
-"geralmente levam a problemas na geração e depósito de DOIs.  Ao usar um "
+"geralmente levam a problemas na geração e depósito de DOIs. Ao usar um "
 "padrão de sufixo personalizado, teste cuidadosamente se os editores podem "
 "gerar DOIs e depositá-los em uma agência de registro como o Crossref. "
 
@@ -722,7 +725,7 @@ msgid "doi.editor.doi"
 msgstr "DOI"
 
 msgid "doi.editor.doi.description"
-msgstr "O DOI deve começar com  {$prefix}."
+msgstr "O DOI deve começar com {$prefix}."
 
 msgid "doi.editor.doi.assignDoi"
 msgstr "Atribuir"
@@ -776,8 +779,8 @@ msgstr ""
 
 msgid "doi.editor.assignDoi.assigned"
 msgstr ""
-"O DOI {$pubId} foi atribuído.  Para editar o DOI, visite a <a href="
-"\"{$doiManagementLink}\">página de gerenciamento de DOI</a>."
+"O DOI {$pubId} foi atribuído. Para editar o DOI, visite a <a href=\""
+"{$doiManagementLink}\">página de gerenciamento de DOI</a>."
 
 msgid "doi.editor.assignDoi.toBeAssigned"
 msgstr "O DOI {$pubId} será atribuído na publicação."
@@ -798,7 +801,7 @@ msgid "doi.editor.preview.objects"
 msgstr "Item"
 
 msgid "api.galley.403.publicationDidNotMatch"
-msgstr "A composição  solicitada não faz parte desta publicação."
+msgstr "A composição solicitada não faz parte desta publicação."
 
 msgid "api.galley.403.canEditPublishedDoi"
 msgstr ""

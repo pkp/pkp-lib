@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * @file api/v1/categories/PkpCategoryCategoryController.php
+ *
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PkpCategoryCategoryController
+ *
+ * @ingroup api_v1_category
+ *
+ * @brief Handle API requests for category operations.
+ *
+ */
+
 namespace PKP\API\v1\categories;
 
 use APP\core\Application;
@@ -68,6 +83,9 @@ class PkpCategoryCategoryController extends PKPBaseController
         });
     }
 
+    /**
+     * Saves the ordering of categories.
+     */
     public function saveOrder(Request $illuminateRequest, Context $context): JsonResponse
     {
         $context = $this->getRequest()->getContext();
@@ -111,16 +129,25 @@ class PkpCategoryCategoryController extends PKPBaseController
         return response()->json([], Response::HTTP_OK);
     }
 
+    /**
+     * Create a new category.
+     */
     public function add(Request $illuminateRequest): JsonResponse
     {
         return $this->saveCategory($illuminateRequest);
     }
 
+    /**
+     * Edit an existing category.
+     */
     public function edit(Request $illuminateRequest): JsonResponse
     {
         return $this->saveCategory($illuminateRequest);
     }
 
+    /**
+     * Internal method that creates/edit a category
+     */
     private function saveCategory(Request $illuminateRequest): JsonResponse
     {
         $context = Application::get()->getRequest()->getContext();
@@ -131,12 +158,18 @@ class PkpCategoryCategoryController extends PKPBaseController
         $categoryId = $illuminateRequest->route('categoryId') ? (int)$illuminateRequest->route('categoryId') : null;
         $temporaryFileId = $illuminateRequest->input('image') ? $illuminateRequest->input('image')['temporaryFileId'] : null;
 
+        if ($parentId) {
+            if (!Repo::category()->exists($categoryId, $context->getId())) {
+                return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
+            }
+        }
+
         // Get a category object to edit or create
         if ($categoryId == null) {
             $category = Repo::category()->dao->newDataObject();
             $category->setContextId($context->getId());
         } else {
-            $category = Repo::category()->get($categoryId);
+            $category = Repo::category()->get($categoryId, $context->getId());
             $parentId = $category->getParentId();
         }
 
@@ -173,47 +206,62 @@ class PkpCategoryCategoryController extends PKPBaseController
         Repo::category()->updateEditors($categoryId, $subEditors, Category::$ASSIGNABLE_ROLES, $context->getId());
 
         $contextFileManager = new ContextFileManager($context->getId());
-        $basePath = $contextFileManager->getBasePath() . '/categories/'; // Location on disk
+        $basePath = $contextFileManager->getBasePath() . '/categories/';
 
         // Delete the old image if a new one was submitted or if the existing one was removed
         if ($temporaryFileId || !$illuminateRequest->input('image')) {
             $oldSetting = $category->getImage();
             if ($oldSetting) {
-                $contextFileManager->deleteByPath($basePath . $oldSetting['thumbnailName']);
-                $contextFileManager->deleteByPath($basePath . $oldSetting['name']);
-
-                // Delete files uploaded by new image upload component
                 $publicFileManager = new PublicFileManager();
                 $publicFileManager->removeContextFile($category->getContextId(), $oldSetting['uploadName']);
+                $publicFileManager->removeContextFile($category->getContextId(), $oldSetting['thumbnailName']);
                 $category->setImage(null);
             }
         }
 
+        $imageData = [];
         if ($temporaryFile) {
-            $thumbnail = $this->generateThumbnail($temporaryFile, $context, $categoryId, $basePath);
+            $thumbnail = $this->generateThumbnail($temporaryFile, $context, $categoryId);
             $filenameBase = $categoryId . '-category';
             // Moves the temporary file to the public directory
             $fileName = app()->get('context')->moveTemporaryFile($context, $temporaryFile, $filenameBase, $user->getId());
 
-            $_sizeArray = getimagesize($temporaryFile->getFilePath());
-            $category->setImage([
+            $imageData = [
                 'name' => $fileName,
-                'width' => $_sizeArray[0],
-                'height' => $_sizeArray[1],
                 'thumbnailName' => $thumbnail['thumbnailName'],
                 'thumbnailWidth' => $thumbnail['thumbnailWidth'],
                 'thumbnailHeight' => $thumbnail['thumbnailHeight'],
                 'uploadName' => $fileName,
+                'altText' => $illuminateRequest->input('image')['altText'] ?? '',
                 'dateUploaded' => Core::getCurrentDate(),
-            ]);
+            ];
+        } elseif ($illuminateRequest->input('image') && array_key_exists('altText', $illuminateRequest->input('image'))) {
+            // If submitting altText then update existing image info
+            $existingImageData = $category->getImage();
+            $imageData = [
+                'name' => $existingImageData['name'],
+                'thumbnailName' => $existingImageData['thumbnailName'],
+                'thumbnailWidth' => $existingImageData['thumbnailWidth'],
+                'thumbnailHeight' => $existingImageData['thumbnailHeight'],
+                'uploadName' => $existingImageData['uploadName'],
+                'altText' => $illuminateRequest->input('image')['altText'],
+                'dateUploaded' => Core::getCurrentDate(),
+            ];
         }
 
         // Update category object to store image information.
+        if (!empty($imageData)) {
+            $category->setImage($imageData);
+        }
+
         Repo::category()->edit($category, []);
-        $category = Repo::category()->get($categoryId);
+        $category = Repo::category()->get($categoryId, $context->getId());
         return response()->json(Repo::category()->getSchemaMap()->summarize($category), Response::HTTP_OK);
     }
 
+    /**
+     * Get a list of categories
+     */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
@@ -222,28 +270,33 @@ class PkpCategoryCategoryController extends PKPBaseController
             ->getCollector()
             ->filterByContextIds([$context->getId()])
             ->filterByParentIds([null])
-            ->getMany()->map(function ($category) {
-                return Repo::category()->getSchemaMap()->map($category);
-            })->values();
+            ->getMany();
 
-        return response()->json($categories, Response::HTTP_OK);
+        $data = Repo::category()->getSchemaMap()->mapMany($categories)->values();
+
+        return response()->json($data, Response::HTTP_OK);
     }
 
-
+    /**
+     * Get the category form component.
+     * Pass `categoryId` as a query parameter to load the form for editing an existing category.
+     */
     public function getCategoryFormComponent(Request $illuminateRequest): JsonResponse
     {
         $categoryId = $illuminateRequest->input('categoryId');
         $category = null;
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
 
         if ($categoryId) {
-            $category = Repo::category()->get($categoryId);
+            $category = Repo::category()->get($categoryId, $context->getId());
+
             if (!$category) {
                 return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
             }
         }
 
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
+
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
         $publicFileManager = new PublicFileManager();
@@ -261,6 +314,9 @@ class PkpCategoryCategoryController extends PKPBaseController
         return response()->json($form->getConfig(), Response::HTTP_OK);
     }
 
+    /**
+     * Delete a category.
+     */
     public function delete(Request $illuminateRequest): JsonResponse
     {
         $categoryId = $illuminateRequest->route('categoryId');
@@ -276,17 +332,28 @@ class PkpCategoryCategoryController extends PKPBaseController
         Repo::category()->delete($category);
 
         if ($image) {
-            $imageName = $image['uploadName'];
-            $thumbnailName = $image['thumbnailName'];
             $publicFileManager = new PublicFileManager();
-            $publicFileManager->removeContextFile($category->getContextId(), $imageName);
-            $publicFileManager->removeContextFile($category->getContextId(), $thumbnailName);
+            $publicFileManager->removeContextFile($category->getContextId(), $image['uploadName']);
+            $publicFileManager->removeContextFile($category->getContextId(), $image['thumbnailName']);
         }
 
         return response()->json([], Response::HTTP_OK);
     }
 
-    private function generateThumbnail(TemporaryFile $temporaryFile, Context $context, $categoryId, $basePath): array
+    /**
+     * Generate the thumbnail image when creating a category.
+     *
+     * @return array - assoc array with thumbnail details
+     * Example:
+     * ```
+     * [
+     *  'thumbnailName' => (string),
+     *  'thumbnailWidth' => (int),
+     *  'thumbnailHeight' => (int),
+     * ]
+     * ```
+     */
+    private function generateThumbnail(TemporaryFile $temporaryFile, Context $context, $categoryId): array
     {
         $temporaryFileManager = new TemporaryFileManager();
         $_imageExtension = $temporaryFileManager->getImageExtension($temporaryFile->getFileType());

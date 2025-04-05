@@ -28,7 +28,6 @@ class CategoryPage
     public const PAGE_CATEGORY = 'Category';
     public $id = self::PAGE_CATEGORY;
 
-    private array $categories = [];
 
     public function __construct(
         private Context $context,
@@ -38,16 +37,13 @@ class CategoryPage
 
     public function getConfig(): array
     {
-
-        $config = [
+        return [
             'apiUrl' => $this->getCategoriesApiUrl(),
             'categories' => $this->getCategories(),
             'primaryLocale' => Locale::getLocale(),
             'columns' => $this->getComponentTableColumns(),
             'categoryForm' => $this->getCategoryForm()->getConfig(),
         ];
-
-        return $config;
     }
 
     protected function getCategoriesApiUrl(): string
@@ -62,26 +58,28 @@ class CategoryPage
 
     protected function getCategories()
     {
-        return collect(Repo::category()
-            ->getCollector()
-            ->filterByContextIds([$this->context->getId()])
-            ->filterByParentIds([null])
-            ->getMany()->all())->map(function ($category) {
-                return Repo::category()->getSchemaMap()->map($category);
-            })->values();
+        return Repo::category()->getSchemaMap()
+            ->mapMany(
+                Repo::category()
+                    ->getCollector()
+                    ->filterByContextIds([$this->context->getId()])
+                    ->filterByParentIds([null])
+                    ->getMany()
+            )
+            ->values();
     }
 
     private function getComponentTableColumns(): array
     {
         return [
             [
-                'name' => 'Category Name',
-                'label' => 'Category Name',
+                'name' => 'category Name',
+                'label' => __('manager.categories.categoryName'),
             ],
             [
-                'name' => 'Assigned To',
+                'name' => __('manager.categories.assignedTo'),
                 'label' => 'Assigned To',
-            ]
+            ],
         ];
     }
 
@@ -91,7 +89,6 @@ class CategoryPage
         $locales = $this->context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
         $publicFileManager = new PublicFileManager();
-
 
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($this->context->getId());
         $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $this->context->getPath(), 'temporaryFiles');

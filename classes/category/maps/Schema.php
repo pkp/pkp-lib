@@ -86,9 +86,7 @@ class Schema extends \PKP\core\maps\Schema
                         ->getMany();
 
                     if ($children->isNotEmpty()) {
-                        $output['subCategories'] = $children->map(function ($child) use ($props) {
-                            return $this->mapByProperties($props, $child);
-                        })->values();
+                        $output['subCategories'] = $this->mapMany($children)->values();
                     }
 
                     break;

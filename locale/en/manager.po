@@ -1445,6 +1445,12 @@ msgstr "Category saved"
 msgid "manager.categories.addCategory"
 msgstr "Add Category"
 
+msgid "manager.categories.categoryName"
+msgstr "Category Name"
+
+msgid "manager.categories.assignedTo"
+msgstr "Assigned To"
+
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
 

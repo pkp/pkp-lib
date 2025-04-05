@@ -10,17 +10,20 @@
 		"contextId": {
 			"type": "integer",
 			"description": "The journal, press or preprint server ID.",
-			"apiSummary": true
+			"apiSummary": true,
+			"writeDisabledInApi": true
 		},
 		"sequence": {
 			"type": "number",
 			"description": "The sequence number for this category (for ordering)",
-			"apiSummary": true
+			"apiSummary": true,
+			"writeDisabledInApi": true
 		},
 		"parentId": {
 			"type": "integer",
 			"description": "The optional ID of the parent category.",
 			"apiSummary": true,
+			"writeDisabledInApi": true,
 			"validation": [
 				"nullable"
 			]
@@ -28,10 +31,7 @@
 		"sortOption": {
 			"type": "string",
 			"description": "The sorting order for contents of this category.",
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"apiSummary": true
 		},
 		"title": {
 			"type": "string",
@@ -54,14 +54,12 @@
 		"path": {
 			"type": "string",
 			"description": "A URL slug for this category.",
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"apiSummary": true
 		},
 		"id": {
 			"type": "integer",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"image": {
 			"type": "object",
@@ -72,12 +70,6 @@
 				},
 				"name": {
 					"type": "string"
-				},
-				"width": {
-					"type": "integer"
-				},
-				"height": {
-					"type": "integer"
 				},
 				"uploadName": {
 					"type": "string"
@@ -105,12 +97,15 @@
 		"subCategories": {
 			"description": "List of sub categories that belongs to this category",
 			"apiSummary": false,
+			"readOnly": true,
 			"type": "array",
 			"items": {
 				"$ref": "#/definitions/Category"
 			}
 		},
 		"assignedEditors": {
+			"description": "List of editors automatically assigned to this category.",
+			"readOnly": true,
 			"type": "array",
 			"items": {
 				"types": "object",
@@ -129,6 +124,11 @@
 					}
 				}
 			}
+		},
+		"subEditors": {
+			"description": "ID's of sub editors to assign to category when creating or editing it.",
+			"writeOnly": true,
+			"apiSummary": false
 		}
 	}
 }

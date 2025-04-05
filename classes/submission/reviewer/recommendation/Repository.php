@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/classes/submission/reviewer/recommendation/Repository.php
+ * @file classes/submission/reviewer/recommendation/Repository.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,11 +14,10 @@
 
 namespace PKP\submission\reviewer\recommendation;
 
-use APP\services\ContextService;
+use APP\core\Application;
 use Illuminate\Support\Arr;
 use Exception;
 use PKP\context\Context;
-use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 use PKP\submission\reviewer\recommendation\RecommendationOption;
@@ -32,12 +31,12 @@ class Repository
     public function getDefaultRecommendations(): array
     {
         return [
-            1 => 'reviewer.article.decision.accept', // SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT
-            2 => 'reviewer.article.decision.pendingRevisions', // SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS
-            3 => 'reviewer.article.decision.resubmitHere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE
-            4 => 'reviewer.article.decision.resubmitElsewhere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE
-            5 => 'reviewer.article.decision.decline', // SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE
-            6 => 'reviewer.article.decision.seeComments', // SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS
+            'reviewer.article.decision.accept', // SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT
+            'reviewer.article.decision.pendingRevisions', // SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS
+            'reviewer.article.decision.resubmitHere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE
+            'reviewer.article.decision.resubmitElsewhere', // SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE
+            'reviewer.article.decision.decline', // SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE
+            'reviewer.article.decision.seeComments', // SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS
         ];
     }
 
@@ -84,9 +83,7 @@ class Repository
      */
     public function setLocalizedDataOnNewLocaleAdd(Context $context, string $localeToAdd, ?string $localeToCompare = null): void
     {
-        $contextService = app()->get('context'); /** @var ContextService $contextService */
-        
-        if (!$contextService->hasCustomizableReviewerRecommendation()) {
+        if (!Application::get()->hasCustomizableReviewerRecommendation()) {
             return;
         }
 
@@ -133,7 +130,7 @@ class Repository
      *
      * @return array recommendation => localizedTitle
      */
-    public function getOptions(
+    public function getRecommendationOptions(
         Context $context,
         RecommendationOption $active = RecommendationOption::ACTIVE,
         ?ReviewAssignment $reviewAssignment = null,
@@ -141,10 +138,8 @@ class Repository
     ): array
     {
         static $reviewerRecommendationOptions = [];
-
-        $contextService = app()->get('context'); /** @var ContextService $contextService */
         
-        if (!$contextService->hasCustomizableReviewerRecommendation()) {
+        if (!Application::get()->hasCustomizableReviewerRecommendation()) {
             return [];
         }
         
@@ -156,20 +151,19 @@ class Repository
             ->withContextId($context->getId())
             ->withActive($active)
             ->when(
-                $reviewAssignment && $reviewAssignment->getData('recommendationId'),
+                $reviewAssignment && $reviewAssignment->getData('reviewerRecommendationId'),
                 fn ($query) => $query->orWhere(
                     fn ($query) => $query->withRecommendations(
-                        [$reviewAssignment->getData('recommendationId')]
+                        [$reviewAssignment->getData('reviewerRecommendationId')]
                     )
                 )
             )
             ->get()
             ->mapWithKeys(
                 fn (ReviewerRecommendation $recommendation): array => [
-                    $recommendation->id => PKPString::stripUnsafeHtml($recommendation->getLocalizedData('title', $locale))
+                    $recommendation->id => $recommendation->getLocalizedData('title', $locale)
                 ]
             )
-            ->prepend(__('common.chooseOne'), '')
             ->toArray();
     }
 }

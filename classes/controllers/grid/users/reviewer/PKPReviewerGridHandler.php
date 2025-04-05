@@ -739,8 +739,8 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        // Retrieve review assignment.
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Rate the reviewer's performance on this assignment
         $quality = $request->getUserVar('quality');
@@ -848,7 +848,7 @@ class PKPReviewerGridHandler extends GridHandler
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR),
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR),
             ],
-            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getOptions(
+            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
                 context: $context,
                 reviewAssignment: $reviewAssignment
             ),

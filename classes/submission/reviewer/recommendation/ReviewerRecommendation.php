@@ -36,14 +36,14 @@ class ReviewerRecommendation extends Model
     /**
      * @copydoc \Illuminate\Database\Eloquent\Model::$primaryKey
      */
-    protected $primaryKey = 'recommendation_id';
+    protected $primaryKey = 'reviewer_recommendation_id';
 
     /**
      * @copydoc \Illuminate\Database\Eloquent\Concerns\GuardsAttributes::$guarded
      */
     protected $guarded = [
-        'recommendation_id',
-        'recommendationId',
+        'reviewer_recommendation_id',
+        'reviewerRecommendationId',
     ];
 
     /**
@@ -103,7 +103,7 @@ class ReviewerRecommendation extends Model
             get: fn () => !Repo::reviewAssignment()
                 ->getCollector()
                 ->filterByContextIds([$this->contextId])
-                ->filterByRecommenddationIds([$this->id])
+                ->filterByReviewerRecommendationIds([$this->id])
                 ->getQueryBuilder()
                 ->exists()
         )->shouldCache();
@@ -128,7 +128,7 @@ class ReviewerRecommendation extends Model
             get: fn () => Repo::reviewAssignment()
                 ->getCollector()
                 ->filterByContextIds([$this->contextId])
-                ->filterByRecommenddationIds([$this->id])
+                ->filterByReviewerRecommendationIds([$this->id])
                 ->getMany()
         )->shouldCache();
     }
@@ -142,7 +142,7 @@ class ReviewerRecommendation extends Model
     }
 
     /**
-     * Scope a query to filter by recommendation active status.
+     * Scope a query to filter by recommendation active/inactive status.
      */
     public function scopeWithActive(Builder $query, RecommendationOption $active = RecommendationOption::ACTIVE): Builder
     {
@@ -152,9 +152,9 @@ class ReviewerRecommendation extends Model
     /**
      * Scope a query to filter by recommendation value
      */
-    public function scopeWithRecommendations(Builder $query, array $recommendationIds): Builder
+    public function scopeWithRecommendations(Builder $query, array $reviewerRecommendationIds): Builder
     {
-        return $query->whereIn('recommendation_id', $recommendationIds);
+        return $query->whereIn('reviewer_recommendation_id', $reviewerRecommendationIds);
     }
 
     /**

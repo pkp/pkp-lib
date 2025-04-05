@@ -35,7 +35,7 @@
 				{rdelim});
 		{rdelim});
 	</script>
-	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
+	<div id="app" class="app" v-cloak>
 		<pkp-spinner-full-screen></pkp-spinner-full-screen>
 		<vue-announcer class="sr-only"></vue-announcer>
 		<pkp-announcer class="sr-only"></pkp-announcer>
@@ -74,89 +74,8 @@
 				</div>
 			{/if}
 			{if $currentUser}
-				<div class="app__headerActions">
-					{call_hook name="Template::Layout::Backend::HeaderActions"}
-					<div class="app__headerAction app__tasks">
-						<button ref="tasksButton" @click="openTasks">
-							<icon icon="Notifications" class="h-7 w-7"></icon>
-							<span class="-screenReader">{translate key="common.tasks"}</span>
-							<span v-if="unreadTasksCount" class="app__tasksCount">{{ unreadTasksCount }}</span>
-						</button>
-					</div>
-					<dropdown class="app__headerAction app__userNav">
-						<template #button>
-							{if $isUserLoggedInAs}
-								{assign var="activeUser" value=$loggedInAsUser}
-							{else}
-								{assign var="activeUser" value=$currentUser}
-							{/if}
-							<initials-avatar
-								initials="{$activeUser->getDisplayInitials()|escape}"
-								:is-secondary="true"
-								{if $isUserLoggedInAs}
-								:is-disabled="true"
-								{/if}
-							></initials-avatar>
-							<span class="-screenReader">"{$activeUser->getData('userName')|escape}"</span>
-							{if $isUserLoggedInAs}
-								<initials-avatar
-									initials="{$currentUser->getDisplayInitials()|escape}"
-									class="absolute right-2 top-0 rounded-full h-5 w-5"
-									:is-warnable="true"
-									:shrink="true"
-								></initials-avatar>
-								<span class="-screenReader">{$currentUser->getData('userName')|escape}</span>
-							{/if}
-						</template>
-						<nav aria-label="{translate key="common.navigation.user"}">
-							{if $supportedLocales|@count > 1}
-								<div class="pkpDropdown__section">
-									<div class="app__userNav__changeLocale">Change Language</div>
-									<ul>
-										{foreach from=$supportedLocales item="locale" key="localeKey"}
-											<li>
-												<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
-													{if $localeKey == $currentLocale}
-														<icon icon="Complete" class="h-5 w-5" :inline="true"></icon>
-													{/if}
-													{$locale|escape}
-												</a>
-											</li>
-										{/foreach}
-									</ul>
-								</div>
-							{/if}
-							{if $isUserLoggedInAs}
-								<div class="pkpDropdown__section">
-									<div class="app__userNav__loggedInAs">
-										{translate key="manager.people.signedInAs" username=$currentUser->getData('userName')}
-										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('userName')}</a>.
-									</div>
-								</div>
-							{/if}
-							<div class="pkpDropdown__section">
-								<ul>
-									<li>
-										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
-											{translate key="user.profile.editProfile"}
-										</a>
-									</li>
-									<li>
-										{if $isUserLoggedInAs}
-											<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
-												{translate key="user.logOutAs" username=$currentUser->getData('userName')}
-											</a>
-										{else}
-											<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
-												{translate key="user.logOut"}
-											</a>
-										{/if}
-									</li>
-								</ul>
-							</div>
-						</nav>
-					</dropdown>
-				</div>
+				{call_hook name="Template::Layout::Backend::HeaderActions"}
+				<top-nav-actions></top-nav-actions>
 			{/if}
 		</header>
 

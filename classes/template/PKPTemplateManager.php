@@ -406,21 +406,13 @@ class PKPTemplateManager extends Smarty
          * database is executed (e.g., when loading installer pages).
          */
         if (!PKPSessionGuard::isSessionDisable()) {
-            $loggedInAsUserId = Validation::loggedInAs();
-
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
-                'isUserLoggedInAs' => (bool) $loggedInAsUserId,
+                'isUserLoggedInAs' => (bool) Validation::loggedInAs(),
                 'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
                 'numPageLinks' => Config::getVar('interface', 'page_links'),
                 'siteTitle' => $request->getSite()->getLocalizedData('title'),
             ]);
-
-            if ($loggedInAsUserId) {
-                $this->assign([
-                    'loggedInAsUser' => Repo::user()->get($loggedInAsUserId)
-                ]);
-            }
 
             $user = $request->getUser();
             if ($user) {
@@ -1366,6 +1358,7 @@ class PKPTemplateManager extends Smarty
             'app' => Application::get()->getName(),
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
+            'supportedLocales' => $this->getTemplateVars('supportedLocales'),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(
@@ -1376,6 +1369,7 @@ class PKPTemplateManager extends Smarty
                 'action',
                 null,
             ),
+            'helpUrl' => Application::get()->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone')
         ];
 
@@ -1422,10 +1416,26 @@ class PKPTemplateManager extends Smarty
                 foreach ($userGroups as $userGroup) {
                     $userRoles[] = (int) $userGroup->roleId;
                 }
+                $loggedInAsUserId = Validation::loggedInAs();
+                $loggedInAsUserData = null;
+                if ($loggedInAsUserId) {
+                    $loggedInAsUser = Repo::user()->get($loggedInAsUserId);
+                    $loggedInAsUserData = [
+                        'username' => $loggedInAsUser->getData('userName'),
+                        'initials' => $loggedInAsUser->getDisplayInitials(),
+                    ];
+                }
+
                 $currentUser = [
                     'csrfToken' => $this->_request->getSession()->token(),
                     'id' => (int) $user->getId(),
                     'roles' => array_values(array_unique($userRoles)),
+                    'unreadTasksCount' => $this->getTemplateVars('unreadNotificationCount'),
+                    'fullName' => $user->getFullName(),
+                    'username' => $user->getData('userName'),
+                    'initials' => $user->getDisplayInitials(),
+                    'isUserLoggedInAs' => (bool) $loggedInAsUserId,
+                    'loggedInAsUser' => $loggedInAsUserData,
                 ];
                 $output .= 'pkp.currentUser = ' . json_encode($currentUser) . ';';
             }
@@ -1637,41 +1647,6 @@ class PKPTemplateManager extends Smarty
         $variables = $params + $variables;
         // Decides between the simple/pluralized version
         return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
-    }
-
-    /**
-     * Smarty usage: {help file="someFile" section="someSection" textKey="some.text.key"}
-     *
-     * Custom Smarty function for displaying a context-sensitive help link.
-     *
-     * @param Smarty $smarty
-     *
-     * @return string the HTML for the generated link action
-     */
-    public function smartyHelp($params, $smarty)
-    {
-        assert(isset($params['file']));
-
-        $params = array_merge(
-            [
-                'file' => null, // The name of the Markdown file
-                'section' => null, // The (optional) anchor within the Markdown file
-                'textKey' => 'help.help', // An (optional) locale key for the link
-                'text' => null, // An (optional) literal text for the link
-                'class' => null, // An (optional) CSS class string for the link
-            ],
-            $params
-        );
-
-        $this->assign([
-            'helpFile' => $params['file'],
-            'helpSection' => $params['section'],
-            'helpTextKey' => $params['textKey'],
-            'helpText' => $params['text'],
-            'helpClass' => $params['class'],
-        ]);
-
-        return $this->fetch('common/helpLink.tpl');
     }
 
     /**

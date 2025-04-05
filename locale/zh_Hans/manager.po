@@ -1087,10 +1087,12 @@ msgstr "默认回复期限"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "默认完成期限"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "接受或拒绝审核请求的周数。"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "审核完成所允许的周数"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

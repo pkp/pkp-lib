@@ -1886,10 +1886,12 @@ msgstr "กำหนดเวลาตอบกลับมาตรฐาน"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "กำหนดเวลาสำหรับการทบทวนให้เสร็จสมบูรณ์"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "จำนวนสัปดาห์ในการยอมรับหรือปฏิเสธคำขอทบทวน"
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "จำนวนสัปดาห์ที่อนุญาตให้ทำการทบทวนให้เสร็จสมบูรณ์"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

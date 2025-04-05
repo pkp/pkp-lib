@@ -1260,11 +1260,13 @@ msgstr "Délai de réponse par défaut"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Délai par défaut pour compléter l'évaluation"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Délai de réponse alloué pour accepter ou décliner l'invitation (semaines)."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Délai alloué pour compléter l'évaluation (semaines)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -1,5 +1,5 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2024-11-08 15:32+0000\n"
+"PO-Revision-Date: 2025-04-01 15:36+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
@@ -3822,3 +3822,126 @@ msgstr "Godkend XML før eksport og registrering."
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Installeret version: {$version}"
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link til siden der viser alle aktive redaktionel kolofon services."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Angiv venligst redaktionens historik, inklusive fulde navne, tilknytning og "
+"start- og slutdatoer for hver redaktør."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Ændr e-mail-adresseinvitation"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Hjemmesidesprog"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Indsendelsessprog"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Indsendelse af bedømmelse - Efter deadline"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Sprogindstillingen kunne ikke gemmes. Alle muligheder skal aktiveres."
+
+msgid "notification.submissionLocales"
+msgstr "Indsendelsessprog er opdateret."
+
+msgid "settings.roles.masthead"
+msgstr "Overvej rolle i kolofonoversigten"
+
+msgid "settings.roles.permitSettings"
+msgstr "Tillad ændringer i indstillinger"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr ""
+"Definer rækkefølgen af roller i redaktionel kolofon til offentlig "
+"fremvisning."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Forfatteren {$authorName} har ikke angivet navnet på tilknytning på "
+"indsendelsens sprog, {$localeName}. Indsendelsen kan ikke importeres uden "
+"disse oplysninger."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Menupunktets titel er påkrævet."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Definer rækkefølgen af roller i kolofon til offentlig fremvisning."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Bedømmere bliver fremvist i et standardiseret format for at bevare "
+"ensartethed og sikre nem opdagelse i denne sektion."
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Tilføj/fjern sprog"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Vælg indsendelses- og metadatasprog."
+
+msgid "manager.language.submission.from.error"
+msgstr "Du skal vælge mindst ét sprog."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Indstil påmindelser om bedømmelse"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Send en e-mail påmindelse før eller efter for at få svar på anmodningen om "
+"bedømmelse (hvis bedømmeren ikke har svaret på anmodningen endnu) eller "
+"indsendelse af bedømmelse (hvis bedømmeren ikke har indsendt bedømmelse "
+"endnu)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Svar på anmodning om bedømmelse - Før deadline"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Svar på anmodning om bedømmelse - Efter deadline"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Indsendelse af bedømmelse - Før deadline"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dage før deadline"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dage efter deadline"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ingen"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Ingen påmindelse indstillet"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Foreslå bedømmere ved indsendelse"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Forfatteren kan foreslå flere potentielle bedømmere før færdiggørelsen af "
+"indsendelsen, hvilket kan strømline bedømmelsesprocessen og give værdifuldt "
+"input til redaktionen."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Tillad forfattere at foreslå potentielle bedømmere i indsendelsesprocessen"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Følgende vises til forfattere, når de skal foreslå bedømmere. Giv en kort "
+"forklaring på, hvilke oplysninger forfatteren skal give om sig selv, "
+"medforfattere og eventuelle andre bidragydere."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimum bekræftede bedømmelser påkrævet"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimum antal af bekræftede bedømmelser påkrævet for en indsendelse"

@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/mk/>\n"
@@ -248,3 +248,45 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Мешани подесувања"
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Додајте ја променливата за конфигурација со име „app_key“ во делот „општо“ "
+"рачно или извршете ја командата „php lib/pkp/tools/appKey.php configure“ за "
+"да ја поставите од CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Променливата за конфигурација со име „app_key“ не е дефинирана во делот "
+"„општо“. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Не може да се прочита конфигурациската датотека или датотеката не постои на "
+"очекуваната патека. "
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Неподдржана шифра или неточна должина на клучот. Поддржани шифри се: "
+"{$ciphers}."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Поставете ја вредноста на „app_key“ во делот „општо“ во датотеката „config."
+"inc.php“ на {$key}."
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"Променливата за конфигурација со име „app_key“ веќе е дефинирана во делот "
+"„општо“. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Не може да се анализира конфигурациската датотека."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"Не може да се напише променливата на клучот за апликација во "
+"конфигурациската датотека."
+
+msgid "installer.appKey.write.error"
+msgstr "Не може да се напише клучот за апликација во конфигурациската датотека."

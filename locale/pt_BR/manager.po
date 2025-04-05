@@ -4,13 +4,14 @@
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
+# Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-13 11:39+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2025-03-28 16:22+0000\n"
+"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2660,13 +2661,12 @@ msgstr "Até {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"A porcentagem para o período selecionado é calculada para envios que foram "
-"submetidos durante esse período e receberam uma decisão final. <br> <br>Por "
-"exemplo, considere o caso em que dez submissões foram feitas durante esse "
-"período. Quatro foram aceitas, quatro foram rejeitadas e dois ainda aguardam "
-"uma decisão final. <br> <br> A taxa de aceitação será de 50% (4 de 8 "
-"submissões) porque as duas submissões que não chegaram a uma decisão final "
-"não são contadas."
+"A porcentagem para o período selecionado é calculada para submissões feitas "
+"durante esse período que receberam uma decisão final. <br> <br>Por exemplo, "
+"num caso em que dez submissões foram feitas durante esse período. Quatro "
+"foram aceitas, quatro foram rejeitadas e duas estão aguardando uma decisão "
+"final. <br><br>A taxa de aceitação será de 50% (4 de 8 submissões) porque as "
+"duas submissões que não têm uma decisão final não são contadas."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
@@ -3944,3 +3944,13 @@ msgstr ""
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Convite para alterar endereço de e-mail"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Número mínimo de avaliações confirmadas exigidas"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Número mínimo de avaliações confirmadas exigidas para uma submissão"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "O título do item do menu é obrigatório."

@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk/>\n"
@@ -388,3 +388,72 @@ msgstr "Потенцирањето што го барате не е најден
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Не може да се додели DOI на оваа ставка."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Не може да се процесира АПИ барањето."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Не може да прими било каков очекуван одговор."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "Дадовте неважечки „eventType“,{$eventType}, за е-пошта на авторот."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Не можете да ја извршите оваа операција со оневозможена функционалност на "
+"ORCID."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Оваа крајна точка не е достапна од именскиот простор на целата локација и "
+"мора да се бара за даден контекст."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Не можете да го промените јазикот на овој поднесок бидејќи веќе има повеќе "
+"од една верзија на публикација или објавена публикација."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"На барањето му недостасува потребниот параметар за барање `ids`. Ве молиме "
+"наведете ги `идовите` на поднесоците што сакате да ги избришете."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Поднесокот за оваа задача за преглед не може да се најде."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Рецензентот за задачата не може да се најде"
+
+msgid "api.409.resourceActionConflict"
+msgstr "Не може да се заврши планираното дејство на ресурсот."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Нетеочен авторско-пријателски параметар."
+
+msgid "api.400.routeNotDefined"
+msgstr "Не беше обезбедена маршрута на API."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Бараниот автор не беше пронајден"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Не можете да правите промени на авторите на поднесоците на кои не сте "
+"доделени."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Само „прифати“ и „одбиј“ се валидни вредности"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Обезбедениот дел не постои."
+
+msgid "api.submission.400.invalidId"
+msgstr "Неважечки ID: „{$id}“ е обезбеден."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Формуларот за идентификатори за публикација е недостапен бидејќи нема "
+"овозможени идентификатори."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Не е пронајден роторот што го побаравте."

@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 13:48+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Барање"
@@ -132,3 +133,66 @@ msgstr "Испрати до рецензентите"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Овој корисник не е назначен како рецензент на бараниот документ."
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Рецензија од кругот {$round} е поднесена на {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Коментар {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Не е наведена причина за одбивањето на поканата за рецензија."
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Ова се датотеки што ги прикачивте заедно со вашата рецензија"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Претходни рецензии"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Прочитајте ја рецензијата од кругот {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Кружната {$round} рецензија поднесен од вас за"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Рецензентски коментари"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "За уредници и автори"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Само за автори"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Одбијте ја причината испратена по е-пошта"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Дата на откажување"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Метаподатоци за труд"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Тип"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Извадок"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Клучни зборови"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Општи информации"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Додатоци"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Фајлови за рецензија"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Овие датотеки ви беа испратени на преглед"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Рецензијата не беше завршена."

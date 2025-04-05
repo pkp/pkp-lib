@@ -8,7 +8,4 @@
  * @brief The users grid
  *}
 
-{* Help Link *}
-{help file="users-and-roles" class="pkp_help_tab"}
-
 <user-access-manager></user-access-manager>

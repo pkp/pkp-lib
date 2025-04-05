@@ -470,6 +470,11 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     abstract public function getVersionDescriptorUrl(): string;
 
     /**
+     * Get the help URL for this application.
+     */
+    abstract public function getHelpUrl(): string;
+
+    /**
      * This function retrieves all enabled product versions once
      * from the database and caches the result for further
      * access.

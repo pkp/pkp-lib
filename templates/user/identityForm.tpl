@@ -33,9 +33,6 @@
 </script>
 
 <form class="pkp_form" id="identityForm" method="post" action="{url op="saveIdentity"}" enctype="multipart/form-data">
-	{* Help Link *}
-	{help file="user-profile" class="pkp_help_tab"}
-
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="identityFormNotification"}

@@ -565,7 +565,7 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 		cy.setTinyMceContent(node.attr('id'), comments);
 	});
 	if (recommendation) {
-		cy.get('select#recommendation').select(recommendation);
+		cy.get('select#reviewerRecommendationId').select(recommendation);
 	}
 	cy.get('button:contains("Submit Review")').click();
 	cy.get('button:contains("OK")').click();

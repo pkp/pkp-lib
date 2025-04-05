@@ -866,12 +866,4 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         return false;
     }
-    
-    /**
-     * Define if the context has customizable reviewer recommendation functionality
-     */
-    public function hasCustomizableReviewerRecommendation(): bool
-    {
-        return false;
-    }
 }

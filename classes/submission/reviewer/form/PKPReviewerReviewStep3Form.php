@@ -98,9 +98,12 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
      */
     public function readInputData()
     {
-        $this->readUserVars(
-            ['reviewFormResponses', 'comments', 'recommendation', 'commentsPrivate']
-        );
+        $this->readUserVars([
+            'reviewFormResponses',
+            'comments',
+            'reviewerRecommendationId',
+            'commentsPrivate'
+        ]);
     }
 
     /**
@@ -118,7 +121,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $templateMgr->assign([
             'reviewAssignment' => $reviewAssignment,
             'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getOptions($context),
+            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
+                context: $context,
+                reviewAssignment: $reviewAssignment
+            ),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
@@ -166,7 +172,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
             'dateCompleted' => Core::getCurrentDate(), // Mark the review assignment as completed.
-            'recommendationId' => $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
+            'reviewerRecommendationId' => $this->getData('reviewerRecommendationId'), // assign the recommendation to the review assignment, if there was one.
         ]);
 
         $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId());
@@ -276,7 +282,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
-            'recommendationId' => (int) $this->getData('recommendation'), // save the recommendation to the review assignment
+            'reviewerRecommendationId' => (int) $this->getData('reviewerRecommendationId'), // save the recommendation to the review assignment
         ]);
 
         return true;

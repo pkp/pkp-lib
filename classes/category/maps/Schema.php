@@ -19,6 +19,7 @@ use App\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\category\Category;
 use PKP\services\PKPSchemaService;
+use PKP\user\User;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -80,38 +81,29 @@ class Schema extends \PKP\core\maps\Schema
         foreach ($props as $prop) {
             switch ($prop) {
                 case 'subCategories':
-                    $children = Repo::category()->getCollector()
+                    $subCategories = Repo::category()->getCollector()
                         ->filterByParentIds([$category->getId()])
                         ->filterByContextIds([$context->getId()])
                         ->getMany();
 
-                    if ($children->isNotEmpty()) {
-                        $output['subCategories'] = $children->map(function ($child) use ($props) {
-                            return $this->mapByProperties($props, $child);
-                        })->values();
+                    if ($subCategories->isNotEmpty()) {
+                        $output['subCategories'] = $this->mapMany($subCategories)->values();
                     }
-
-                    break;
-                case 'image':
-                    $output['image'] = $category->getImage();
                     break;
                 case 'assignedEditors':
-                    $users = Repo::user()
+                    $output['assignedEditors'] = Repo::user()
                         ->getCollector()
                         ->filterByContextIds([$context->getId()])
                         ->filterByRoleIds(Category::$ASSIGNABLE_ROLES)
                         ->assignedToCategoryIds([$category->getId()])
-                        ->getMany();
-
-                    $output['assignedEditors'] = [];
-
-                    foreach ($users as $user) {
-                        $output['assignedEditors'][] = [
-                            'id' => $user->getId(),
-                            'name' => $user->getFullName(),
-                            'editorDisplayInitials' => $user->getDisplayInitials(),
-                        ];
-                    }
+                        ->getMany()
+                        ->map(function (User $user) {
+                            return [
+                                'id' => $user->getId(),
+                                'name' => $user->getFullName(),
+                                'editorDisplayInitials' => $user->getDisplayInitials(),
+                            ];
+                        })->values();
                     break;
                 default:
                     $output[$prop] = $category->getData($prop);

@@ -1,15 +1,28 @@
 <?php
 
+/**
+ * @file classes/migration/upgrade/v3_6_0/I10404_UpdateCategoryImageNameFields.php
+ *
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class I10404_UpdateCategoryImageNameFields
+ *
+ * @brief Migration to update Category image data properties for compatibility with FieldUploadImage component
+ */
+
 namespace PKP\migration\upgrade\v3_6_0;
 
 use APP\file\PublicFileManager;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use PKP\file\ContextFileManager;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
-class I10449_UpdateCategoryImageNameFields extends Migration
+class I10404_UpdateCategoryImageNameFields extends Migration
 {
     public const CHUNK_SIZE = 1000;
 
@@ -30,49 +43,44 @@ class I10449_UpdateCategoryImageNameFields extends Migration
                         if ($image) {
                             $imageDecoded = json_decode($image, true);
                             $fileNamesToMove[] = $imageDecoded['name'];
+                            $fileNamesToMove[] = $imageDecoded['thumbnailName'];
+                            // Swap 'name' and 'uploadName' fields
                             [$imageDecoded['name'], $imageDecoded['uploadName']] = [$imageDecoded['uploadName'], $imageDecoded['name']];
                             $imageRecordsToUpdate[$category->category_id] = json_encode($imageDecoded);
-                            $fileNamesToMove[] = $imageDecoded['thumbnailName'];
                         }
                     }
 
-                    $this->updateCategoriesImageNameFields($contextId, $imageRecordsToUpdate);
+                    $this->updateCategoriesImageNameFields($contextId, collect($imageRecordsToUpdate));
                 });
 
-
             // Move images
-            $this->moveContextCategoryImages($contextId, $fileNamesToMove);
+            $this->moveContextCategoryImagesToPublicFolder($contextId, $fileNamesToMove);
         }
-
-
     }
 
     /**
      *
-     * @param array $updates List Category image data to update. Keyed by category ID.
+     * @param Enumerable $updates List of Category image data to update. Keyed by category ID.
      */
-    private function updateCategoriesImageNameFields(int $contextId, array $updates): void
+    private function updateCategoriesImageNameFields(int $contextId, Enumerable $updates): void
     {
-        if (!empty($updates)) {
+        $updates->chunk(self::CHUNK_SIZE)->each(function ($chunk) use ($contextId) {
             $caseStatement = 'UPDATE categories SET image = CASE category_id ';
 
-            foreach ($updates as $categoryId => $json) {
+            foreach ($chunk as $categoryId => $json) {
                 $caseStatement .= "WHEN {$categoryId} THEN ? ";
             }
 
-            $caseStatement .= 'END WHERE category_id IN (' . implode(',', array_keys($updates)) . ') AND context_id = ?';
-            DB::update($caseStatement, array_merge(array_values($updates), [$contextId]));
-        }
+            $caseStatement .= 'END WHERE category_id IN (' . implode(',', $chunk->keys()->all()) . ') AND context_id = ?';
+            DB::update($caseStatement, array_merge($chunk->values()->all(), [$contextId]));
+        });
     }
 
 
     /**
      * Moves the Category images from file system to public dir of given context.
-     *
-     * This method accepts a list f file names and copy these files. We individually copy files instead of the complete directory to avoid the minor possibility that other files may
-     * have been manually placed in the categories folder, and we do not want to copy those if they do exist.
      */
-    private function moveContextCategoryImages(int $contextId, $fileNames): void
+    private function moveContextCategoryImagesToPublicFolder(int $contextId, $fileNames): void
     {
         $contextFileManager = new ContextFileManager($contextId);
         $basePath = $contextFileManager->getBasePath() . 'categories/';

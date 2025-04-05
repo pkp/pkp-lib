@@ -1369,6 +1369,7 @@ class PKPTemplateManager extends Smarty
                 'action',
                 null,
             ),
+            'helpUrl' => Application::get()->getHelpUrl(),
             'timeZone' => Config::getVar('general', 'time_zone')
         ];
 

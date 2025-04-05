@@ -1,15 +1,16 @@
+# "Luis M. Montilla" <lmontilla@crossref.org>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-12 16:48+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2025-04-06 03:14+0000\n"
+"Last-Translator: \"Luis M. Montilla\" <lmontilla@crossref.org>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ops/submissions/"
-"es_ES/>\n"
-"Language: es_ES\n"
+"es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "submission.submit.userGroup"
 msgstr "Envío en mi rol de ..."
@@ -49,9 +50,8 @@ msgstr ""
 "Estas especificaciones se basan en el conjunto de metadatos Dublin Core, un "
 "estándar internacional utilizado para describir contenido."
 
-#, fuzzy
 msgid "submission.sectionOptions"
-msgstr "Opciones de serie"
+msgstr "Opciones de sección"
 
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} elementos"
@@ -94,29 +94,30 @@ msgstr "Enviado para publicación"
 
 msgid "publication.relation.description"
 msgstr ""
+"Por favor indicar si este preprint ha sido publicado o envado para "
+"publicación en otra plataforma."
 
-#, fuzzy
 msgid "publication.relation.none"
-msgstr "El preprint no ha sido enviado para publicación"
+msgstr "El preprint no ha sido enviado para publicación."
 
-#, fuzzy
 msgid "publication.relation.published"
-msgstr "El preprint ha sido publicado como artículo en una revista"
+msgstr "Este preprint ha sido publicado como es otra plataforma."
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI del artículo publicado"
 
 msgid "publication.publish.relationStatus"
-msgstr ""
+msgstr "Publicación relacioanda"
 
 msgid "publication.publish.relationStatus.none"
-msgstr ""
+msgstr "Este preprint no ha sido publicado en otra plataforma."
 
 msgid "publication.publish.relationStatus.submitted"
 msgstr ""
+"Este preprint ha sido enviado a una revista o a otra publicaión académica."
 
 msgid "publication.publish.relationStatus.published.noDoi"
-msgstr ""
+msgstr "Este preprint ha sido publicado, pero no tiene un DOI disponible aún."
 
 msgid "publication.publish.relationStatus.published"
 msgstr ""
@@ -129,63 +130,71 @@ msgstr ""
 
 msgid "author.submit.authorsCanNotPublish"
 msgstr ""
+"No puede publicar su propio preprint. Debe ser aprobado y publicado por un "
+"moderador."
 
 msgid "publication.status.published"
-msgstr ""
+msgstr "Publicado"
 
 msgid "submission.status.scheduled"
-msgstr ""
+msgstr "Programado"
 
 msgid "publication.status.unscheduled"
-msgstr ""
+msgstr "Retirado de publicación"
 
 msgid "submission.publication"
-msgstr ""
+msgstr "Preprint"
 
 msgid "submission.publications"
-msgstr ""
+msgstr "Preprints"
 
 msgid "publication.copyrightYearBasis.issueDescription"
 msgstr ""
+"El año del copyright se asignará automáticamente cuando esto se publique."
 
 msgid "publication.copyrightYearBasis.submissionDescription"
 msgstr ""
+"El año del copyright se asignará automáticamente basado en la fecha de "
+"publicación."
 
 msgid "publication.datePublished"
-msgstr ""
+msgstr "Fecha de publicación"
 
 msgid "publication.editDisabled"
-msgstr ""
+msgstr "Esta versión ha sido publicada y no puede ser editada."
 
 msgid "publication.event.published"
-msgstr ""
+msgstr "El envío ha sido publicado."
 
 msgid "publication.event.scheduled"
-msgstr ""
+msgstr "El envío ha sido programado para ser publicado."
 
 msgid "publication.event.unpublished"
-msgstr ""
+msgstr "El envío ha sido retirado de publicación."
 
 msgid "publication.event.versionPublished"
-msgstr ""
+msgstr "Una nueva versión se publicó."
 
 msgid "publication.event.versionScheduled"
-msgstr ""
+msgstr "Una nueva versión se programó para ser publicada."
 
 msgid "publication.event.versionUnpublished"
 msgstr ""
+"Esta versión fue retirada de publicación y ya no está disponible "
+"publicamente."
 
 msgid "publication.invalidSubmission"
-msgstr ""
+msgstr "El envío para este preprint no pudo encontrarse."
 
 msgid "publication.publish"
-msgstr ""
+msgstr "Publicación."
 
 msgid "publication.publish.requirements"
 msgstr ""
+"Los siguientes requisitos deben cumplirse antes de que esto pueda publicarse."
 
 msgid "publication.required.declined"
-msgstr ""
+msgstr "Un envío rechazado no puede publicarse."
 
 msgid "publication.required.reviewStage"
 msgstr ""

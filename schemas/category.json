@@ -10,17 +10,20 @@
 		"contextId": {
 			"type": "integer",
 			"description": "The journal, press or preprint server ID.",
-			"apiSummary": true
+			"apiSummary": true,
+			"writeDisabledInApi": true
 		},
 		"sequence": {
 			"type": "number",
 			"description": "The sequence number for this category (for ordering)",
-			"apiSummary": true
+			"apiSummary": true,
+			"writeDisabledInApi": true
 		},
 		"parentId": {
 			"type": "integer",
 			"description": "The optional ID of the parent category.",
 			"apiSummary": true,
+			"writeDisabledInApi": true,
 			"validation": [
 				"nullable"
 			]
@@ -28,10 +31,7 @@
 		"sortOption": {
 			"type": "string",
 			"description": "The sorting order for contents of this category.",
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"apiSummary": true
 		},
 		"title": {
 			"type": "string",
@@ -54,20 +54,81 @@
 		"path": {
 			"type": "string",
 			"description": "A URL slug for this category.",
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"apiSummary": true
 		},
 		"id": {
 			"type": "integer",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"image": {
+			"type": "object",
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"thumbnailName": {
+					"type": "string"
+				},
+				"thumbnailWidth": {
+					"type": "integer"
+				},
+				"thumbnailHeight": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string",
+					"validation": [
+						"nullable"
+					]
+				}
+			}
+		},
+		"subCategories": {
+			"description": "List of sub categories that belongs to this category",
+			"apiSummary": false,
+			"readOnly": true,
 			"type": "array",
 			"items": {
-				"type": "string"
+				"$ref": "#/definitions/Category"
 			}
+		},
+		"assignedEditors": {
+			"description": "List of editors automatically assigned to this category.",
+			"readOnly": true,
+			"type": "array",
+			"items": {
+				"types": "object",
+				"properties": {
+					"id": {
+						"type": "integer",
+						"apiSummary": true
+					},
+					"name": {
+						"type": "string",
+						"apiSummary": true
+					},
+					"editorDisplayInitials": {
+						"type": "string",
+						"apiSummary": true
+					}
+				}
+			}
+		},
+		"subEditors": {
+			"description": "ID's of sub editors to assign to category when creating or editing it.",
+			"writeOnly": true,
+			"apiSummary": false
 		}
 	}
 }

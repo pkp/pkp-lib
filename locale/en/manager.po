@@ -1439,6 +1439,18 @@ msgstr "Assign {$name} as {$role}"
 msgid "manager.categories.form.assignEditors.description"
 msgstr "Select the editorial users who should be assigned automatically to all new submissions to this category."
 
+msgid "manager.categories.saved"
+msgstr "Category saved"
+
+msgid "manager.categories.addCategory"
+msgstr "Add Category"
+
+msgid "manager.categories.categoryName"
+msgstr "Category Name"
+
+msgid "manager.categories.assignedTo"
+msgstr "Assigned To"
+
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Site Access Options"
 

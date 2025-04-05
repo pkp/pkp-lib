@@ -15,6 +15,8 @@
 namespace PKP\migration\upgrade\v3_5_0;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
@@ -25,8 +27,10 @@ class I10292_UpdateControlledVocabEntrySettingName extends Migration
      */
     public function up(): void
     {
-        DB::table('controlled_vocab_entry_settings')
-            ->update(['setting_name' => 'name']);
+        DB::table('controlled_vocab_entry_settings')->update(['setting_name' => 'name']);
+        Schema::table('controlled_vocab_entry_settings', function(Blueprint $table) {
+            $table->dropUnique('c_v_e_s_pkey');
+        });
     }
 
     /**

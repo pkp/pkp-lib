@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/components/CategoryPage.php
+ * @file classes/components/CategoryManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class CategoryPage
+ * @class CategoryManager
  *
  * @ingroup classes_components
  *
@@ -23,12 +23,10 @@ use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
 
-class CategoryPage
+class CategoryManager
 {
-    public const PAGE_CATEGORY = 'Category';
-    public $id = self::PAGE_CATEGORY;
-
-    private array $categories = [];
+    public const COMPONENT_CATEGORY = 'CategoryManager';
+    public $id = self::COMPONENT_CATEGORY;
 
     public function __construct(
         private Context $context,
@@ -38,16 +36,12 @@ class CategoryPage
 
     public function getConfig(): array
     {
-
-        $config = [
-            'apiUrl' => $this->getCategoriesApiUrl(),
+        return [
             'categories' => $this->getCategories(),
             'primaryLocale' => Locale::getLocale(),
             'columns' => $this->getComponentTableColumns(),
             'categoryForm' => $this->getCategoryForm()->getConfig(),
         ];
-
-        return $config;
     }
 
     protected function getCategoriesApiUrl(): string
@@ -62,26 +56,28 @@ class CategoryPage
 
     protected function getCategories()
     {
-        return collect(Repo::category()
-            ->getCollector()
-            ->filterByContextIds([$this->context->getId()])
-            ->filterByParentIds([null])
-            ->getMany()->all())->map(function ($category) {
-                return Repo::category()->getSchemaMap()->map($category);
-            })->values();
+        return Repo::category()->getSchemaMap()
+            ->mapMany(
+                Repo::category()
+                    ->getCollector()
+                    ->filterByContextIds([$this->context->getId()])
+                    ->filterByParentIds([null])
+                    ->getMany()
+            )
+            ->values();
     }
 
     private function getComponentTableColumns(): array
     {
         return [
             [
-                'name' => 'Category Name',
-                'label' => 'Category Name',
+                'name' => 'category Name',
+                'label' => __('grid.category.categoryName'),
             ],
             [
+                'label' => __('manager.category.assignedTo'),
                 'name' => 'Assigned To',
-                'label' => 'Assigned To',
-            ]
+            ],
         ];
     }
 
@@ -91,7 +87,6 @@ class CategoryPage
         $locales = $this->context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
         $publicFileManager = new PublicFileManager();
-
 
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($this->context->getId());
         $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $this->context->getPath(), 'temporaryFiles');

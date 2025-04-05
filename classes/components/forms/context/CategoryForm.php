@@ -3,15 +3,15 @@
 /**
  * @file classes/components/form/context/CategoryForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class EmailTemplateForm
+ * @class CategoryForm
  *
  * @ingroup classes_controllers_form
  *
- * @brief A preset form for adding and editing email templates.
+ * @brief A preset form for adding and editing categories.
  */
 
 namespace PKP\components\forms\context;
@@ -39,7 +39,7 @@ class CategoryForm extends FormComponent
     private array $assignableRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
 
     /**
-     * @param Category|null $category - Optional param. Pass Category object when you want a form to edit an existing category
+     * @param Category|null $category - Optional. Pass Category object when you want to configure a form to edit an existing category
      */
     public function __construct(string $action, array $locales, $baseUrl, $temporaryFileApiUrl, Category $category = null)
     {
@@ -49,16 +49,38 @@ class CategoryForm extends FormComponent
         $request = Application::get()->getRequest();
 
 
+        $assignableUserGroups = UserGroup::query()
+            ->withContextIds([$request->getContext()->getId()])
+            ->withRoleIds($this->assignableRoles)
+            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+            ->get()
+            ->map(function (UserGroup $userGroup) use ($request) {
+                return [
+                    'userGroup' => $userGroup,
+                    'users' => Repo::user()
+                        ->getCollector()
+                        ->filterByUserGroupIds([$userGroup->id])
+                        ->filterByContextIds([$request->getContext()->getId()])
+                        ->getMany()
+                        ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])
+                        ->toArray()
+                ];
+            });
+
+        // Conditionally add this group. This is done because assignable user groups would have access to WORKFLOW_STAGE_ID_SUBMISSION,
+        // but submission stage does not exist in OPS, so we don't display this group in OPS.
+        if (!empty($assignableUserGroups)) {
+            $this->addGroup([
+                'id' => 'categoryDetails'
+            ]);
+        }
+
         $sortOptions = collect(Repo::submission()->getSortSelectOptions())
             ->map(fn ($label, $value) => ['value' => $value, 'label' => $label])
             ->values();
 
         $this->addGroup([
-            'id' => 'categoryDetails'
-        ]);
-
-        $this->addGroup([
-            'label' => __('manager.sections.form.assignEditors'),
+            'label' => __('manager.category.form.assignEditors'),
             'description' => __('manager.categories.form.assignEditors.description'),
             'id' => 'subEditors',
         ]);
@@ -79,10 +101,10 @@ class CategoryForm extends FormComponent
                         'catalog',
                         'category',
                         ['path']
-                    ),]),
+                    )]),
                     'isRequired' => true,
                     'groupId' => 'categoryDetails',
-                    'value' => $category ? $category->getData('path') : ''
+                    'value' => $category ? $category?->getData('path') : ''
                 ])
             )
             ->addField(
@@ -112,76 +134,58 @@ class CategoryForm extends FormComponent
                         'acceptedFiles' => 'image/jpeg,image/png,image/gif,image/jpg',
                     ],
                     'groupId' => 'categoryDetails',
-                    'value' => $category ? $category->getData('image') : ''
+                    'value' => $category ? $category->getData('image') : null
                 ])
             );
 
+        // Conditionally add this field. This is done because assignable user groups would have access to WORKFLOW_STAGE_ID_SUBMISSION,
+        // but submission stage does not exist in OPS, so we don't display this field in OPS.
+        if (!empty($assignableUserGroups)) {
+            $assignedSubeditors = $category ? Repo::user()
+                ->getCollector()
+                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                ->filterByRoleIds($this->assignableRoles)
+                ->assignedToCategoryIds([$category->getId()])
+                ->getIds()
+                ->toArray() : [];
 
-        $assignableUserGroups = UserGroup::query()
-            ->withContextIds([$request->getContext()->getId()])
-            ->withRoleIds($this->assignableRoles)
-            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-            ->get()
-            ->map(function (UserGroup $userGroup) use ($request) {
-                return [
-                    'userGroup' => $userGroup,
-                    'users' => Repo::user()
-                        ->getCollector()
-                        ->filterByUserGroupIds([$userGroup->id])
-                        ->filterByContextIds([$request->getContext()->getId()])
-                        ->getMany()
-                        ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])
-                        ->toArray()
-                ];
-            });
+            $subeditorUserGroups = [];
+            if (!empty($assignedSubeditors)) {
+                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+                /** @var SubEditorsDAO $subEditorsDao */
 
-        $assignedSubeditors = $category ? Repo::user()
-            ->getCollector()
-            ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-            ->filterByRoleIds($this->assignableRoles)
-            ->assignedToCategoryIds([$category->getId()])
-            ->getIds()
-            ->toArray() : [];
-
-        $subeditorUserGroups = [];
-        if (!empty($assignedSubeditors)) {
-            $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-
-            //  A list of user group IDs for each assigned editor, keyed by user ID.
-            $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
-                Application::get()->getRequest()->getContext()->getId(),
-                Application::ASSOC_TYPE_CATEGORY,
-                $category->getId(),
-                $assignedSubeditors
-            )->toArray();
-        }
-
-        foreach ($assignableUserGroups as $assignableUserGroup) {
-            $assignableUserOptions = [];
-
-            $groupName = $assignableUserGroup['userGroup']->getLocalizedData('name');
-            foreach ($assignableUserGroup['users'] as $userId => $userName) {
-                $assignableUserOptions[] = [
-                    'value' => $userId, 'label' => __('manager.sections.form.assignEditorAs', ['name' => $userName, 'role' => $groupName])
-                ];
+                //  A list of user group IDs for each assigned editor, keyed by user ID.
+                $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
+                    Application::get()->getRequest()->getContext()->getId(),
+                    Application::ASSOC_TYPE_CATEGORY,
+                    $category->getId(),
+                    $assignedSubeditors
+                )->toArray();
             }
 
-            if (!empty($assignableUserOptions)) {
-                // Will create a field with name like `subEditors[3]` where the `3` represents the role(e.g Journal editor).
-                // We do this to allow the front end to indicate the role capacity of an assigned sub editor.
-                // There can be multiple users assigned to a single role via the form
-                $fieldName = 'subEditors' . '[' . $assignableUserGroup['userGroup']->id . ']';
-                $this->addField(new FieldOptions($fieldName, [
-                    'label' => $groupName,
-                    'options' => $assignableUserOptions,
-                    'groupId' => 'subEditors',
-                    'type' => 'checkbox',
-                    'value' => array_keys(array_filter($subeditorUserGroups, fn ($values) => in_array($assignableUserGroup['userGroup']->id, $values)))
+            foreach ($assignableUserGroups as $assignableUserGroup) {
+                $assignableUserOptions = [];
 
-                ]));
+                $groupName = $assignableUserGroup['userGroup']->getLocalizedData('name');
+                foreach ($assignableUserGroup['users'] as $userId => $userName) {
+                    $assignableUserOptions[] = [
+                        'value' => $userId, 'label' => __('manager.sections.form.assignEditorAs', ['name' => $userName, 'role' => $groupName])
+                    ];
+                }
+                if (!empty($assignableUserOptions)) {
+                    // Will create a field with name like `subEditors[3]` where the `3` represents the role(e.g Journal editor).
+                    // We do this to allow the front-end to indicate the role capacity of an assigned sub editor.
+                    // There can be multiple users assigned to a single role via the form
+                    $fieldName = 'subEditors' . '[' . $assignableUserGroup['userGroup']->id . ']';
+                    $this->addField(new FieldOptions($fieldName, [
+                        'label' => $groupName,
+                        'options' => $assignableUserOptions,
+                        'groupId' => 'subEditors',
+                        'type' => 'checkbox',
+                        'value' => array_keys(array_filter($subeditorUserGroups, fn ($values) => in_array($assignableUserGroup['userGroup']->id, $values)))
+                    ]));
+                }
             }
-
         }
-
     }
 }

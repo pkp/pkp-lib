@@ -28,7 +28,7 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
-use PKP\components\CategoryPage;
+use PKP\components\CategoryManager;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPAppearanceMastheadForm;
@@ -167,13 +167,13 @@ class ManagementHandler extends Handler
 
         $contactForm = new PKPContactForm($apiUrl, $locales, $context);
         $mastheadForm = new MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
-        $categoryPage = new CategoryPage($context);
+        $categoryManager = new CategoryManager($context);
 
         $templateMgr->setState([
             'components' => [
                 PKPContactForm::FORM_CONTACT => $contactForm->getConfig(),
                 MastheadForm::FORM_MASTHEAD => $mastheadForm->getConfig(),
-                CategoryPage::PAGE_CATEGORY => $categoryPage->getConfig(),
+                CategoryManager::COMPONENT_CATEGORY => $categoryManager->getConfig(),
             ],
         ]);
 
@@ -201,7 +201,7 @@ class ManagementHandler extends Handler
 
         $templateMgr->registerClass(PKPContactForm::class, PKPContactForm::class); // FORM_CONTACT
         $templateMgr->registerClass(PKPMastheadForm::class, PKPMastheadForm::class); // FORM_MASTHEAD
-        $templateMgr->registerClass(CategoryPage::class, CategoryPage::class); // PAGE_CATEGORY
+        $templateMgr->registerClass(CategoryManager::class, CategoryManager::class); // CATEGORY_MANAGER
 
         $templateMgr->display('management/context.tpl');
     }

@@ -148,18 +148,18 @@ class Repository
         $errors = [];
 
         if (isset($props['contextId'])) {
-            $validator->after(function ($validator) use ($props, $context) {
-                if (!app()->get('context')->exists($props['contextId'])) {
+            $validator->after(function (Validator $validator) use ($props, $context) {
+                if (!Application::getContextDAO()->exists($props['contextId'])) {
                     $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
                 }
                 if ($context->getId() !== $props['contextId']) {
-                    $validator->errors()->add('contextId', 'Wrong context ID for category!');
+                    $validator->errors()->add('contextId', __('api.categories.400.invalidContext'));
                 }
             });
         }
 
         if (isset($props['path'])) {
-            $validator->after(function ($validator) use ($props, $context, $object) {
+            $validator->after(function (Validator $validator) use ($props, $context, $object) {
                 // Check if path matches the allowed pattern
                 if (!preg_match(\Category::$PATH_REGEX, $props['path'] ?: '')) {
                     $validator->errors()->add('path', __('grid.category.pathAlphaNumeric'));
@@ -186,11 +186,13 @@ class Repository
                 $temporaryFileManager = new TemporaryFileManager();
                 $user = Application::get()->getRequest()->getUser();
                 $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
+                $imageExtension = $temporaryFile ? $temporaryFileManager->getImageExtension($temporaryFile->getFileType()) : [];
+                $isValidExtension = in_array($imageExtension, ['.jpg', '.png', '.gif']);
 
-                if (!$temporaryFile ||
+                if (!$isValidExtension || !$temporaryFile ||
                     !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
-                    !($_sizeArray = getimagesize($temporaryFile->getFilePath())) ||
-                    $_sizeArray[0] <= 0 || $_sizeArray[1] <= 0
+                    !($sizeArray = getimagesize($temporaryFile->getFilePath())) ||
+                    $sizeArray[0] <= 0 || $sizeArray[1] <= 0
                 ) {
                     $validator->errors()->add('image', __('form.invalidImage'));
                 }
@@ -246,10 +248,12 @@ class Repository
     }
 
     /***
-     * @param int $categoryId
-     * @param array $subEditors - Editor IDs grouped by Group ID. E.g: [3=>[6,8]]
-     * @param int $contextId
-     * @return void
+     * @param array $subEditors - Editor IDs grouped by Group ID. Example:
+     * ```
+     * [
+     *  3 => [6, 8]
+     * ]
+     * ```
      */
     public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
     {

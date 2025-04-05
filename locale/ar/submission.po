@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2025-03-14 15:47+0000\n"
+"PO-Revision-Date: 2025-03-30 02:50+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar/>\n"
@@ -3080,3 +3080,26 @@ msgstr "توصية التحرير فد تم تلقيها"
 
 msgid "dashboard.recommendOnly.recommendationsCompleted"
 msgstr "توصية التحرير فد تم تلقيها، والمطلوب اتخاذ القرار."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"لم يتم تلقي الحد الأدنى المطلوب من التحكيمات. هل ما زلت تريد المتابعة مع "
+"قرار التحكيم هذا؟"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "تم تأكيد الحد الأدنى المطلوب من التحكيمات. تحتاج إلى قرار."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "مطلوب الحد الأدنى من التحكيمات: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "أتريد المتابعة بدون الحد الأدنى المطلوب من التحكيمات؟"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "تحتاج تحكيم"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "الكل في مرحلة التقديم"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "الكل في مرحلة التحكيم"

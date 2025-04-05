@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-03-20 15:23+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
@@ -309,6 +309,9 @@ msgstr "Semua item yang ditemukan eror pada proses pendaftaran."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Semua item telah diterbitkan ulang sejak deposit terakhir dengan agensi "
+"pendaftaran. Mereka harus mengirimkan ulang kepada agensi pendaftaran untuk "
+"memperbaharui rekod metadata mereka."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Pembaruan DOI Gagal"
@@ -408,6 +411,8 @@ msgstr "DOI"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Eror berikut dikembalikan oleh {$registrationAgency} dan terdiri dari detail "
+"tentang penyebab eror:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
@@ -772,6 +777,10 @@ msgstr "Statistik Geografis"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Pilih jenis statistik penggunaan geografis yang akan dikumpulkan. Detail "
+"statistik geografis akan meningkatkan ukuran database, dan pada beberapa "
+"kasus yang jarang terjadi, mungkin akan merusak anonimitas dari pengunjung "
+"anda."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Jangan mengumpulkan data geografis"
@@ -790,6 +799,9 @@ msgstr "Statistik Institusi"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Mengizinkan statistik institusi jika anda ingin mengumpulkan statistik "
+"penggunaan institusi. Jika diizinkan, anda harus mengkonfigurasi rentang IP "
+"dari setiap institusi yang ingin anda lacak."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Mengizinkan statistik institusi"
@@ -799,6 +811,9 @@ msgstr "API Publik"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Membatasi atau tidak membatasi akses ke endpoint API untuk statistik COUNTER "
+"SUSHI. Jika tidak dicentang, API hanya dapat diakses oleh pengguna dengan "
+"peran admin atau manager."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Membuat statistik COUNTER SUSHI tersedia secara bebas"
@@ -842,6 +857,10 @@ msgstr "Mengijinkan deposit otomatis"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"Pendaftaran DOI dan metadata dapat secara otomatis dideposit dengan agensi "
+"pendaftaran terpilih dimana item dengan DOI diterbitkan. Deposit otomatis "
+"akan terjadi pada interval terjadwal dan setiap status pendaftaran DOI dapat "
+"dimonitor dari halaman pengelolaan DOI."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -850,7 +869,7 @@ msgstr ""
 "org\" target=\"new\">DataCite</a>. Contoh: dan dalam format 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "Prefiks DOI diwajibkan dan harus pada format berikut: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
 msgstr "Pemberian DOI otomatis"
@@ -884,6 +903,8 @@ msgstr "Pola Sufiks DOI Kustom"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Satu tipe DOI yang dipilih atau lebih tidak diizinkan untuk mengkonfigurasi "
+"agensi pendaftaran DOI."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -895,6 +916,9 @@ msgstr "Default - Membuat sufiks 8 karakter unik secara otomatis"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Tidak ada Sufix yang harus dimasukkan secara manual pada <a href=\""
+"{$doiManagementUrl}\">halaman pengelolaan DOI </a> dan tidak akan dibuat "
+"secara otomatis"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Pola Kustomisasi - (tidak direkomendasi)"
@@ -904,12 +928,17 @@ msgstr "Agensi Pendaftaran"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Silakan pilih agensi pendaftaran yang ingin anda gunakan ketika melakukan "
+"deposit DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
 msgstr "Tidak ada Agensi Registrasi yang Diaktifkan"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI dapat secara otomatis dicetak dan dideposit dengan agensi pendaftaran. "
+"Untuk menggunakan fitur ini, temukan dan instal plugin dari agensi "
+"pendaftaran yang sesuai."
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Tidak ada"
@@ -930,7 +959,7 @@ msgid "doi.manager.versions.modalTitle"
 msgstr "DOI untuk semua versi"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI terdiri dari karakter yang tidak valid."
 
 msgid "manager.setup.publishing"
 msgstr "Rincian Terbitan"
@@ -1239,7 +1268,7 @@ msgid "manager.setup.theme"
 msgstr "Tema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Lembaga"
 
 msgid "manager.setup.theme.description"
 msgstr "Tema baru dapat diintal melalui tab Plugin di bagian atas halaman ini."
@@ -1249,24 +1278,42 @@ msgstr "Tema yang dipilih belum terinstal atau tidak aktif."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Hal berikut ini ditampilkan pada penulis sebelum mereka memulai pengiriman "
+"naskah mereka. Sediakan penjelasan singkat mengenai proses pengiriman naskah "
+"sehingga penulis mengetahui apa yang diharapkan."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Hal berikut ditunjukkan kepada penulis selama proses penggunggahan file. "
+"Sediakan penjelasan singkat mengenai file apa yang diharapkan dari penulis "
+"untuk dibagikan dengan naskah mereka."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Hal berikut ditampilkan pada penulis pada tahap kontributor. Sediakan "
+"penjelasan singkat mengenai informasi apa yang harus disediakan penulis "
+"mengenai diri mereka sendiri, rekan penulis, dan kontributor lain."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Hal berikut ditampilkan kepada penulis pada saat tahap detail, ketika mereka "
+"diminta untuk menyediakan judul, abstrak, dan informasi kunci lain mengenai "
+"pengiriman naskah mereka."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Hal berikut ditunjukkan kepada penulis pada langkah Editor, ketika mereka "
+"diminta untuk menyediakan metadata seperti kata kunci, komentar pada editor, "
+"dan detail lain untuk membantu review editorial."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Hal berikut ditampilkan pada penulis pada tahap akhir dari pengiriman "
+"naskah, ketika mereka diminta untuk mereview semua informasi yang mereka "
+"sediakan sebelum mengirimkan naskah mereka."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Panduan Penulis"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Daftar Tilik Pra-Penyerahan Naskah"
@@ -1288,16 +1335,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Yakin ingin mengaktifkan bagian ini?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Tugas Editorial"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Memilih pengguna editorial yang ditugaskan secara otomatis untuk semua "
+"naskah pada bagian ini."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Menugaskan {$name} sebagai {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Memilih pengguna editorial yang ditugaskan secara otomatis untuk semua "
+"naskah pada kategori ini."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Pilihan Akses Situs"
@@ -1791,12 +1842,18 @@ msgstr "Diwajibkan bersamaan dengan Naskah"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Apakah setidaknya satu dari file ini diminta pada setiap pengiriman naskah "
+"yang baru? Jika anda memilih ya, penulis tidak akan diperbolehkan untuk "
+"mengirimkan naskah hingga mereka setidaknya mengunggah satu file dari tipe "
+"berikut."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Ya, mewajibkan penulis untuk mengunggah salah satu dari file-file ini atau "
+"lebih."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Tidak, ijinkan pengiriman naskah baru tanpa file-file ini."
 
 msgid "manager.settings.wizard"
 msgstr "Pintasan Pengaturan"
@@ -2168,6 +2225,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Pernyataan singkat untuk menjelaskan apakah penulis telah membuat data riset "
+"mereka tersedia atau tidak dan, jika iya, dimana pembaca dapat mengaksesnya."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr "Mengizinkan metadata pernyataan ketersediaan data"
@@ -2596,6 +2655,8 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Ini termasuk naskah yang tidak dihitung pada total perhitungan, seperti "
+"naskah yang masih dalam proses dan naskah yang sepertinya sudah diimpor."
 
 msgid "stats.descriptionForStat"
 msgstr "Deskripsi untuk {$stat}"
@@ -2779,7 +2840,7 @@ msgstr ""
 "review anonim"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Nama dan afiliasi dari penulis yang mengirimkan naskah."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL ke halaman dimana pengguna dapat memulihkan password yang hilang"
@@ -2857,12 +2918,22 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Jurnal mengadakan review anonim-ganda. Reviewer tidak akan melihat informasi "
+"mengenai anda atau rekan penulis anda. Demikian juga, anda tidak akan "
+"mengetahui siapa yang mereview naskah anda, dan anda tidak akan mendengarnya "
+"langsung dari para reviewer tersebut."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Jurnal ini melakukan peer review \"reviewer anonim\". Nama anda, dan nama "
+"penulis lain, akan terlihat oleh reviewer; namun, identitas reviewer akan "
+"tetap anonim."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Jurnal ini melakukan peer review terbuka. Reviewer akan melihat nama dan "
+"afiliasi anda, juga nama dan afiliasi dari penulis lain. Demikian juga, anda "
+"akan melihat nama dan afiliasi dari reviewer."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Nama lengkap pengirim"
@@ -2996,12 +3067,18 @@ msgstr "Memvalidasi Email (Situs)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Email ini secara otomatis dikirimkan kepada pengguna baru saat mereka "
+"mendaftar pada situs ketika pengaturannya memerlukan alamat email untuk "
+"divalidasi."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
 msgstr "Memberitahukan Penulis Lain"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Email ini dikirimkan untuk memberitahukan penulis dari naskah yang tidak "
+"ditunjuk sebagai peserta bahwa sebuah keputusan telah dibuat. Biasanya ini "
+"dikirimkan kepada semua penulis lain kecuali penulis yang mengirimkan naskah."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Salinan pesan email yang dikirimkan ke penulis yang mengirimkan naskah"
@@ -3011,9 +3088,13 @@ msgstr "Memberitahukan Reviewer mengenai Keputusan Naskah"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Email ini dikirimkan oleh Editor kepada Reviewer untuk memberitahukan mereka "
+"bahwa keputusan telah dibuat mengenai naskah yang mereka review."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Deskripsi singkat tentang keputusan ini yang dimaksudkan untuk dibagikan "
+"dalam notifikasi email yang dikirimkan kepada reviewer tentang keputusan ini"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Kami telah memilih untuk menerima naskah ini tanpa revisi."
@@ -3056,6 +3137,8 @@ msgstr "Naskah dikirim kembali dari Copyedit"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Email ini memberitahukan penulis bahwa naskah mereka telah dikirim kembali "
+"oleh tahap copyedit."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Putaran Review Dibatalkan"
@@ -3093,7 +3176,7 @@ msgstr ""
 "selama review berlangsung."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Dikirimkan Kembali untuk Review"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
@@ -3145,9 +3228,15 @@ msgstr "Rekomendasi Telah Dibuat"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Pesan ini memberitahukan Editor senior atau Section Editor bahwa rekomendasi "
+"editorial telah dibuat terkait salah satu naskah yang ditugaskan kepada "
+"mereka. Pesan ini digunakan ketika editor hanya diperbolehkan untuk "
+"merekomendasikan keputusan editorial dan membutuhkan editor yang "
+"terautorisasi untuk membuat keputusan editor. Hal ini dapat dipilih ketika "
+"menugaskan partisipan untuk sebuah naskah."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Mengkonfirmasi Review"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3155,19 +3244,21 @@ msgstr ""
 "review"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Menolak Review"
 
 msgid "mailable.reviewDecline.description"
 msgstr "Email ini dikirim oleh Reviewer ketika permohonan review ditolak"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Pengingat Review"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Email ini dikirim oleh Editor untuk mengingatkan reviewer bahwa review "
+"mereka telah melewati batas waktu."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Pengingat Review (Otomatis)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
@@ -3211,7 +3302,7 @@ msgstr ""
 "tenggat review, dan cara mengakses naskah."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Naskah pada publikasi saat ini sedang tidak ada"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
@@ -3279,27 +3370,32 @@ msgstr "Diskusi (Pengiriman Naskah)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada tahap pengiriman "
+"naskah."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Diskusi (Review)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada saat tahap review."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskusi (Copyedit)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada tahap copyedit."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskusi (Produksi)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Email ini dikirim ketika diskusi dibuat atau dibalas pada tahap produksi."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Notifikasi Versi Revisi"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3307,109 +3403,133 @@ msgstr ""
 "mengunggah naskah versi revisi."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Pengumuman Baru"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Surel ini dikirim ketika terdapat pengumuman baru."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Notifikasi Laporan Statistik"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Mengedit Notifikasi Review"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Email ini secara otomatis memberikan notifikasi kepada reviewer ketika "
+"detail dari penugasan review mereka telah diubah."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Reviewer Memberikan Komentar untuk Memberikan Notifikasi Pada Editor"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Email ini secara otomatis dikirimkan ke editor yang ditunjuk ketika reviewer "
+"membuat rekomendasi review"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Sumber autentikasi"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Naskah Dikirimkan Kembali untuk Direview"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Email ini memberikan notifikasi kepada penulis bahwa naskah mereka telah "
+"dikirimkan kembali ke tahap review."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Naskah Dikirimkan Kembali ke Tahap Pengiriman"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Email ini memberikan notifikasi kepada penulis bahwa naskah mereka telah "
+"dikirim kembali ke tahap pengiriman."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Mengelola Email"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Tambah atau edit template</a>untuk semua email yang "
+"dikirim oleh sistem</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Tambahkan dan edit template yang anda inginkan untuk tersedia bagia pengguna "
+"ketika mereka mengirimkan email ini. Default akan dimuat secara otomatis, "
+"dan pengguna akan dapat memuat template lain yang anda tambahkan di sini "
+"secara cepat."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Template"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Mengedit Template"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Menghapus Template"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Apakah anda yakin ingin menghapus template <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Mengatur Ulang Template"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Apakah anda yakin ingin mengatur ulang subyek dan isi email ke pengaturan "
+"awal untuk template<strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Mencari melalui nama atau deskripsi"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Masukkan nama singkat untuk membantu anda menemukan template ini."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Naskah Baru"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Mengkonfigurasi notifikasi email untuk mengirimkan ketika naskah baru dibuat."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Siapa yang harus menerima email ketika naskah baru telah lengkap."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Jangan kirimkan email."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Kirimkan email hanya kepada penulis yang mengirimkan naskah."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Mengirimkan email ke semua penulis."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Keputusan Editorial"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Mengkonfigurasi notifikasi email untuk mengirimkan kepada penulis ketika "
+"keputusan editorial telah dibuat."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Untuk Editor"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Mengkonfigurasi notifikasi email untuk dikirimkan kepada editor."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Statistik Editorial"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Mengirimkan atau tidak mengirimkan email bulanan kepada editor dengan "
+"statistik editorial dari jurnal, seperti rata-rata penerimaan atau penolakan "
+"naskah. Editor dapat memilih untuk tidak melanggan email ini dari profil "
+"pengguna mereka."
 
 msgid "manager.editorialStatistics.on"
 msgstr "Mengirimkan email bulanan ke editor."
@@ -3419,6 +3539,8 @@ msgstr "Jangan mengirimkan email ke editor."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Haruskah penulis yang mengirimkan naskah diminta untuk memilih kategori "
+"ketika mereka ingin mengirimkan naskah?"
 
 msgid "manager.submitWithCategories.yes"
 msgstr "Ya, tambahkan field kategori ke wizard pengiriman naskah."
@@ -3657,3 +3779,86 @@ msgstr "Pengiriman naskah lokal diaktifkan."
 
 msgid "settings.roles.masthead"
 msgstr "Pertimbangkan peran pada daftar masthead"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Mengizinkan penulis untuk menyarankan reviewer yang potensial pada proses "
+"pengiriman naskah"
+
+msgid "manager.highlights.url.description"
+msgstr "URL lengkap, termasuk https://, untuk tombol pada highlight."
+
+msgid "manager.highlights.urlText"
+msgstr "Label Tombol"
+
+msgid "manager.highlights.delete"
+msgstr "Menghapus Highlight"
+
+msgid "manager.highlights.edit"
+msgstr "Mengedit Highlight"
+
+msgid "manager.highlights.image"
+msgstr "Gambar"
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Menentukan urutan peranan masthead pada tampilan publik."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Tentukan urutan peran masthead editorial untuk tampilan publik."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revisi {$revision} dari file naskah {$id} dilewati karena file tidak "
+"ditemukan pada path \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Tampilan gambar pada penerbitan {$id} tidak dapat diekspor, file tidak "
+"ditemukan pada path \"{$path}\"."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Tanggal Berakhir"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Lihat <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">dokumentasi COUNTER 5.0.3</a> untuk informasi lebih "
+"lanjut mengenai setiap laporan."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Daftar atau rentang waktu tahun penerbitan untuk kembali pada format "
+"yyyy|yyyy|yyyy-yyyy."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Penulis {$authorName} tidak memiliki nama afiliasi pada bahasa pengiriman "
+"naskah, {$localeName}. Naskah tidak dapat diimpor tanpa informasi ini."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Mengirimkan email pengingat sebelum atau sesudah untuk respon atas "
+"permintaan review (jika reviewer belum memberikan respon atas permintaan "
+"review) atau pengiriman review (jika reviewer belum memberikan review)"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Penulis dapat menyarankan beberapa reviewer yang potensial sebelum "
+"menyelesaikan pengiriman naskah yang dapat mempersingkat proses review dan "
+"menyediakan masukan yang berharga untuk tim editorial."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Hal berikut ditampilkan pada penulis pada tahap pemberian saran reviewer. "
+"Sediakan penjelasan singkat mengenai informasi apa yang harus disediakan "
+"penulis mengenai diri mereka sendiri, rekan penulis, dan kontributor lain."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Mohon sediakan sejarah editorial, termasuk nama lengkap, afiliasi, dan "
+"tanggal mulai dan berakhir dari setiap editor."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Reviewer akan ditampilkan dalam format yang standar untuk mempertahankan "
+"keseragaman dan agar dapat mudah ditemukan pada bagian ini."

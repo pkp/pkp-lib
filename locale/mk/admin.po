@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
@@ -978,3 +978,121 @@ msgstr "Датотеката {$filename} беше преместена во па
 
 msgid "admin.job.processLogFile.fileNotFound"
 msgstr "Датотеката {$file} не постои."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Ажурирајте го кешот на податоци на регистарот Ror"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Прикажете ги параметрите за користење на AppKey"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr ""
+"Додадете ја променливата за конфигурација app_key во датотеката config.inc."
+"php."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Дали мислевте на едно од следниве?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Генериран клуч за апликација: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Променливата „app_key“ веќе постои во делот „општо“ во конфигурациската "
+"датотека. Извршете ја командата `php lib/pkp/tools/appKey.php generate` за "
+"да поставите нов клуч за апликација."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Нема поставено клуч за апликација во конфигурациската датотека."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Валиден клуч за APP веќе е поставен во конфигурациската датотека. За "
+"презапишување, поминете го знамето --force со командата."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Не може да се постави променливата „app_key“ во конфигурациската датотека. "
+"Ажурирајте го општиот дел на конфигурациската датотека и додадете ја "
+"линијата `app_key =`."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Валиден клуч за апликација поставен во конфигурациската датотека"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Стартувај го распоредувачот."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Наведете ги сите закажани задачи."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Започнете со распоред на работник."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Прикажете ги параметрите за користење на Распоредувачот."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Дали мислевте на едно од следниве?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Не може да се извршат закажаните задачи бидејќи е овозможен режимот за песок "
+"на апликацијата."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Извршување на закажани задачи секоја минута."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Не се регистрирани закажани задачи."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Која команда би сакале да ја извршите?"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Испратете работа за автоматско отстранување на истечените покани"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Потврдете го тековниот клуч за апликација доколку некој е пронајден во "
+"конфигурациската датотека"
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Генерирајте нов клуч за апликација и заменете го во конфигурациската "
+"датотека. Префрли со знаменце --прикажи само за преглед и --присили да се "
+"презапише постоечки важечки клуч за апликација."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Ниту една клучна променлива со име „app_key“ не е дефинирана во делот „општо“"
+" од конфигурациската датотека. Ажурирајте го општиот дел на конфигурациската "
+"датотека и додадете ја линијата `app_key = ` или извршете ја командата `php "
+"lib/pkp/tools/appKey.php configure` за да ја поставите."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Поставен е неважечки клуч за апликација, неподдржана шифра или неточна "
+"должина на клучот. Поддржани шифри се: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "Клучот за апликација е успешно поставен во конфигурациската датотека."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Променливата на клучот за апликација е успешно поставена во конфигурациската "
+"датотека. Извршете ја командата `php lib/pkp/tools/appKey.php generate` за "
+"да поставите нов клуч за апликација."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Извршете одредена закажана задача од списокот или користете го --име за да "
+"извршите одредена. Поставете го знамето --no-scroll за да ја видите целата "
+"листа без лизгање."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Не може да се извршат закажаните задачи бидејќи е овозможен режимот за "
+"одржување на апликацијата."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Не е пронајдена соодветна закажана задача."

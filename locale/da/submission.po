@@ -1,12 +1,12 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2024-01-05 22:40+0000\n"
+"PO-Revision-Date: 2025-04-02 14:03+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
@@ -33,13 +33,12 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nye bedømmelser er blevet indsendt og bliver behandlet af redaktøren."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "En eller flere bedømmere har overskredet deadline. Redaktionen er blevet "
-"underrettet og vil tage skridt til at sikre, at gennemgangen bliver "
-"afsluttet. Du behøver ikke at foretage dig noget på dette tidspunkt. Du får "
-"besked, når der er truffet en beslutning."
+"underrettet og vil sikre, at bedømmelsen bliver færdiggjort. Du behøver ikke "
+"at foretage dig noget på dette tidspunkt. Du får besked, når der er truffet "
+"en beslutning."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Indsend som"
@@ -1317,13 +1316,13 @@ msgstr "Der udbedes en revision."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Rettelserne er blevet indsendt, og en beslutning er nødvendig."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Indsendelsen skal fremsendes igen til en ny bedømmelsesrunde."
+msgstr ""
+"Forfatteren anmodes om at indsende en revision, som skal i en ny "
+"bedømmelsesrunde."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Indsendelsen er blevet fremsendt igen til en ny bedømmelsesrunde."
+msgstr "Revision indsendt. Der skal oprettes en ny bedømmelsesrunde."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Sendt til ekstern bedømmelse."
@@ -1343,9 +1342,8 @@ msgstr "Afventer svar fra bedømmere."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nye bedømmelser er indsendt."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Bedømmelserne afsluttet."
+msgstr "Alle bedømmelser er bekræftet, og en beslutning skal træffes."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "En bedømmelse er forfalden."
@@ -2742,3 +2740,59 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Angiv eventuelle konkurrerende interesser, som forfatteren har indenfor "
 "forskningsemnet."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR visningssprog er påkrævet."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Indsendelse annulleret"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuller indsendelse"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Til bedømmerforeslag"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Bedømmerforeslag"
+
+msgid "submission.review.status.viewed"
+msgstr "Redaktøren har set bedømmelsen."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Nuværende indsendelsessprog:"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Dette er det primære indsendelsessprog. Hvis du ændrer det, vil det have "
+"betydning for indsendelsen og de indtastede metadata"
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Angiv venligst tilhørsforhold på indsendelsens primærsprog."
+
+msgid "ror.nameRequired"
+msgstr "Et ROR navn er påkrævet."
+
+msgid "author.authorNotFound"
+msgstr "Forfatteren med dette tilhørsforhold kunne ikke findes."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Angiv venligst et ROR tilhørsforhold eller navnet på mindst et "
+"tilhørsforhold (institution)."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Indsendelsen blev annulleret, og alle tilhørende data er blevet slettet."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Du er kommet med en anbefaling."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Bedømmere anbefalet af forfatteren"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Skift"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Skift indsendelsessprog for"

@@ -97,7 +97,9 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());
         $submissionFileNode->setAttribute('id', $submissionFile->getId());
         $submissionFileNode->setAttribute('created_at', date('Y-m-d', strtotime($submissionFile->getData('createdAt'))));
-        $submissionFileNode->setAttribute('date_created', $submissionFile->getData('dateCreated'));
+        if (($dateCreated = $submissionFile->getData('dateCreated')) !== null) {
+	    $submissionFileNode->setAttribute('date_created', $dateCreated);
+	}
         $submissionFileNode->setAttribute('file_id', $submissionFile->getData('fileId'));
         $submissionFileNode->setAttribute('stage', $stageToName[$submissionFile->getFileStage()]);
         $submissionFileNode->setAttribute('updated_at', date('Y-m-d', strtotime($submissionFile->getData('updatedAt'))));

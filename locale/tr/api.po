@@ -1,7 +1,7 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-10 09:38+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -364,3 +364,23 @@ msgstr "Herhangi bir API rotası sağlanmadı."
 
 msgid "api.422.routeRequestUnableToProcess"
 msgstr "API isteği işlenemiyor."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr "Yazarlar için geçersiz bir etkinlik türü {$eventType}"
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "ORCID işlevi devre dışıyken bu işlemi gerçekleştiremezsiniz."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Bu uç nokta site genelindeki isim alanlarında kullanılamaz ve belirli bir "
+"bağlam için talep edilmesi gerekir."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "İstediğiniz vurgu bulunamadı."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Aranan yazar bulunamadı"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "Atanmadığınız aday makale yazarlarında değişiklik yapamazsınız."

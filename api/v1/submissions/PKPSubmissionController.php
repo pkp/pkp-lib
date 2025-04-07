@@ -56,6 +56,7 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\enums\VersionStage;
+use PKP\publication\helpers\VersionDataResource;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -243,8 +244,8 @@ class PKPSubmissionController extends PKPBaseController
                 ->name('submission.publication.changeLocale')
                 ->whereNumber(['submissionId', 'publicationId']);
 
-            Route::put('{submissionId}/publications/{publicationId}/changeVersionData', $this->changeVersionData(...))
-                ->name('submission.publication.changeVersionData')
+            Route::put('{submissionId}/publications/{publicationId}/versionData', $this->changeVersionData(...))
+                ->name('submission.publication.versionData')
                 ->whereNumber(['submissionId', 'publicationId']);
 
             Route::get('{submissionId}/getNextAvailableVersionData', $this->getNextAvailableVersionData(...))
@@ -1016,12 +1017,10 @@ class PKPSubmissionController extends PKPBaseController
         $potentialVersionStage = VersionStage::from($params['versionStage']);
         $potentialIsMinor = ($params['versionIsMinor'] === 'false') ? false : (bool) $params['versionIsMinor'];
 
-        $potentialVersionStage = $submission->getNextAvailableVersionData($potentialVersionStage, $potentialIsMinor);
-
-        $retValue = $potentialVersionStage->getVersionStageDisplay();
+        $potentialVersionStage = Repo::submission()->getNextAvailableVersionData($submission, $potentialVersionStage, $potentialIsMinor);
 
         return response()->json(
-            $retValue,
+            (new VersionDataResource($potentialVersionStage))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

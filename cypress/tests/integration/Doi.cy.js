@@ -320,7 +320,7 @@ describe('DOI tests', function() {
 		cy.get('button:contains("Post")').click();
 		cy.get('[data-cy="active-modal"] button:contains("Post")').click();
 
-		cy.get('div:contains("This version has been posted and can not be edited.")').should('exist');
+		cy.get('div:contains("Warning: This version has been published. Editing it may impact the published content.")').should('exist');
 
 		// Confirm DOI created for Version 1
 		// First publication assigns DOI as normal
@@ -365,7 +365,7 @@ describe('DOI tests', function() {
 
 		cy.get('button:contains("Post")').click();
 		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
-		cy.get('div:contains("This version has been posted and can not be edited.")').should('exist');
+		cy.get('div:contains("Warning: This version has been published. Editing it may impact the published content.")').should('exist');
 
 		// Confirm DOI carried over from Version 1 to Version 2
 		cy.visit('index.php/publicknowledge/dois');
@@ -506,7 +506,7 @@ describe('DOI tests', function() {
 
 		cy.get('button:contains("Post")').click();
 		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
-		cy.get('div:contains("This version has been posted and can not be edited.")').should('exist');
+		cy.get('div:contains("Warning: This version has been published. Editing it may impact the published content.")').should('exist');
 
 		// Confirm "current publication" DOI is new
 		cy.visit('index.php/publicknowledge/dois');

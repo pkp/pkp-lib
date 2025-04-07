@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-10 09:38+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
 ">\n"
@@ -808,3 +808,34 @@ msgstr "{$language} dilinde enstitü adı"
 
 msgid "user.affiliations.deleteModal.message"
 msgstr "Bağlı kuruluş <strong>{$affiliation}</strong> silinecek."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Kurum adını {$language} alanına yazın"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Birincil dil {$primaryLocale} gereklidir"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Gönderimi tamamlanmış aday makaleler için hakem önerisi ekleme, güncelleme "
+"veya silme kısıtlanmıştır."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Avatar için tercih ettiğiniz Harf(ler)"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Avatarınız olarak kullanmak istediğiniz iki harfi girin. Bu harfler sizi "
+"temsil etmek için gösterilecektir."
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Arama ifadeniz bulunamadı"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Kullanıcı anonim olmalıdır. Şu anda oturum açmış durumdasınız."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Lütfen aday makale dilinde bir kurum ekleyin."
+
+msgid "user.role.ended"
+msgstr "Rol sone erdi"

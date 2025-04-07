@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/tr/>\n"
@@ -249,3 +249,15 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Diğer Ayarlar"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "`app_key` yapılandırma değişkeni `general` bölümünde tanımlanmamış. "
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"`app_key` adlı yapılandırma değişkenini `general` bölümüne manuel olarak "
+"ekleyin ya da CLI üzerinden bunu ayarlamak için `php lib/pkp/tools/"
+"appKey.php configure` komutunu çalıştırın."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Yapılandırma dosyasına uygulama anahtarı değişkeni yazılamıyor."

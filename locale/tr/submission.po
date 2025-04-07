@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-03-18 18:51+0000\n"
-"Last-Translator: \"Dr. Uğur Koçak\" <ugurkocak@hotmail.com>\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
 "Language: tr\n"
@@ -2675,3 +2675,12 @@ msgstr "ROR kurum ismi zorunlu."
 
 msgid "ror.displayLocaleRequired"
 msgstr "ROR görünen dil için gerekli."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Gönderim iptal edildi ve ilgili tüm veriler silindi."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Başvuru iptal edildi"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Gönderimi iptal et"

@@ -1341,7 +1341,7 @@ class PKPSubmissionController extends PKPBaseController
 
         foreach ($stageAssignments as $stageAssignment) {
             $userGroup = $stageAssignment->userGroup;
-            if ($userGroup->getRoleId() === Role::ROLE_ID_AUTHOR) {
+            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR){
                 $stageAssignment->canChangeMetadata = 0;
                 $stageAssignment->save();
             }

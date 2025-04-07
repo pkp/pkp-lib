@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "tr/>\n"
@@ -608,3 +608,53 @@ msgstr "{$stepName} adımında bir sorun oluştu."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Yazarla aynı kurum"
+
+msgid "editor.review.reviewViewed"
+msgstr "Değerlendirme Görüldü"
+
+msgid "editor.submission.search"
+msgstr "Aday makaleleri ID, yazar, anahtar kelimeler, vb. ile ara"
+
+msgid "editor.submission.days"
+msgstr "Gün"
+
+msgid "editor.submission.daysInStage"
+msgstr "Aşamada Geçen Gün"
+
+msgid "editor.submission.viewSummary"
+msgstr "Özet"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Bir yanıt seçilmelidir"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Hakem değerlendirme davetini kabul etti"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Hakem adına davete yanıt verin"
+
+msgid "editor.review.download"
+msgstr "Hakem Değerlendirme Formunu İndir"
+
+msgid "editor.review.authorOnly"
+msgstr "Yalnızca Yazarlara Ait Bölümler Görüntülendi"
+
+msgid "editor.review.allSections"
+msgstr "Editör Formu Tüm Değerlendirme Bölümlerini Gösterir"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Önerilen Hakemlerden Bir Hakem Seç"
+
+msgid "editor.review.logResponse.for"
+msgstr "Cevap Kayıtları"
+
+msgid "editor.review.logResponse"
+msgstr "Cevap Kayıtları"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Hakem değerlendirme davetini reddetti"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Hakem sizinle e-posta veya başka bir yolla iletişim kurarsa, hakem "
+"değerlendirmelerini onlar adına kaydedebilirsiniz"

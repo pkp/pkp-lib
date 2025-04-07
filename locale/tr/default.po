@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:24+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "tr/>\n"
@@ -196,3 +196,22 @@ msgstr ""
 "tamamladığınızda, editörler otomatik olarak başvuru yapıldığına dair "
 "bilgilendirilecektir. Lütfen buraya girdiğiniz bilgilerin doğru olduğundan "
 "emin olun.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Editör Kurulu Üyesi"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Editör Kurulu Üyeleri"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Aday makale gönderirken, aday makaleniz için potansiyel hakemleri "
+"önermekte özgürsünüz. Bu, değerlendirme sürecini hızlandırmaya ve editoryal "
+"ekip için değerli geri bildirim sağlamaya yardımcı olabilir. Lütfen kendi "
+"alanınızda uzman olan ve çalışmanızla herhangi bir çıkar çatışması olmayan "
+"hakemleri önerin. Bu özellik, değerlendirme sürecini iyileştirmeyi ve hem "
+"yazarlar hem de editoryal ekip için daha verimli bir deneyim sunmayı "
+"amaçlamaktadır.</p>"

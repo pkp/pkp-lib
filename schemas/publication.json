@@ -394,24 +394,8 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
-		"version": {
-			"type": "integer",
-			"description": "The version number of this publication. Version numbers should increment by one so that the third publication of a submission will have the version number `3`. Version numbers should typically be set automatically and editorial staff should not be encouraged to modify them.",
-			"apiSummary": true,
-			"validation": [
-				"min:1"
-			]
-		},
 		"versionStage": {
 			"type": "string",
-			"description": "",
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
-		},
-		"versionIsMinor": {
-			"type": "boolean",
 			"description": "",
 			"apiSummary": true,
 			"validation": [

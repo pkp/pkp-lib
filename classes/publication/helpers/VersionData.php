@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/publication/VersionData.php
+ * @file classes/publication/helpers/VersionData.php
  *
  * Copyright (c) 2016-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -9,7 +9,7 @@
  *
  * @class VersionData
  *
- * @brief Base class for VersionData. Incorpoprates the underlying data for defining a publication version
+ * @brief The underlying data of a publication's version
  */
 
 namespace PKP\publication\helpers;
@@ -25,7 +25,7 @@ class VersionData extends \PKP\core\DataObject
     public int $majorNumbering;
     public int $minorNumbering;
 
-    public function getVersionStageDisplay(): string 
+    public function display(): string 
     {
         $versionStageLabel = $this->stage->label();
 
@@ -34,6 +34,16 @@ class VersionData extends \PKP\core\DataObject
             'majorNumbering' => $this->majorNumbering,
             'minorNumbering' => $this->minorNumbering,
         ]);
+    }
+
+    public static function createDefaultForStage(VersionStage $versionStage): VersionData
+    {
+        $defaultVersionStage = new VersionData();
+        $defaultVersionStage->stage = $versionStage;
+        $defaultVersionStage->majorNumbering = VersionData::DEFAULT_MAJOR_NUMBERING;
+        $defaultVersionStage->minorNumbering = VersionData::DEFAULT_MINOR_NUMBERING;
+
+        return $defaultVersionStage;
     }
 }
 

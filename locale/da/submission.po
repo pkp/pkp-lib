@@ -1,13 +1,14 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2025-04-07 11:32+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2025-04-07 20:25+0000\n"
+"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
 "Language: da\n"
@@ -3031,3 +3032,99 @@ msgstr "Afventer bedømmelser"
 
 msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Bedømmelser indsendt"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Afslået under {$stageName}."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Afventer svar fra bedømmeren"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Anmodning om anmeldelse er blevet sendt til bedømmeren. Afventer svar om "
+"<b>{$days} dage på den {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Anmodning om bedømmelse er blevet afvist den {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Bedømmeren afviste anmodning om bedømmelse den <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Anmodning om bedømmelse er overskredet med {$days} dage"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Denne bedømmer har ikke svaret på anmodning om bedømmelse. Bedømmelsen "
+"skulle være indsendt den <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Bedømmeren har accepteret anmodningen. Bedømmelsen skal være indsendt om "
+"<b>{$days} dage, den {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Bedømmelsen er forsinket med{$days} dage"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Bedømmelse er i gang. Anmodning er accepteret"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Denne bedømmer har ikke afsluttet bedømmelsen. Et svar skulle være indsendt "
+"den <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Bedømmelse afsluttet den {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"bedømmelsen blev afsluttet den {$date} med den følgende vurdering: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Bedømmelse blev bekræftet af redaktøren"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Bedømmelsen blev accepteret af redaktøren den <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Bedømmeren afslog anmodning om bedømmelse"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Bedømmeren afslog anmodning om bedømmelse den <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Afventer svar fra bedømmer"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Anmodning om bedømmelse er blevet delt med bedømmeren igen. Afventer svar om "
+"{$days} dage, den {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Se detaljer"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Gensendt anmodning om bedømmelse"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Slet bedømmer"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Fjern tildeling"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Rediger forfaldsdato"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Se anbefaling"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Se ulæst anbefaling"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Send bedømmelse til ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Send denne bedømmelse til bedømmerens ORCID?"

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2025-04-07 20:25+0000\n"
-"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
+"PO-Revision-Date: 2025-04-08 14:58+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
 "Language: da\n"
@@ -3034,14 +3034,14 @@ msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Bedømmelser indsendt"
 
 msgid "dashboard.declinedDuringStage"
-msgstr "Afslået under {$stageName}."
+msgstr "Afslået under {$stageName} trinnet."
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
 msgstr "Afventer svar fra bedømmeren"
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
 msgstr ""
-"Anmodning om anmeldelse er blevet sendt til bedømmeren. Afventer svar om "
+"Anmodning om bedømmelse er blevet sendt til bedømmeren. Afventer svar om "
 "<b>{$days} dage på den {$date}</b>"
 
 msgid "dashboard.reviewAssignment.statusDeclined.title"
@@ -3055,8 +3055,8 @@ msgstr "Anmodning om bedømmelse er overskredet med {$days} dage"
 
 msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
 msgstr ""
-"Denne bedømmer har ikke svaret på anmodning om bedømmelse. Bedømmelsen "
-"skulle være indsendt den <b>{$date}</b>"
+"Denne bedømmer har ikke svaret på anmodningen om bedømmelse. Der skulle have "
+"været svaret den <b>{$date}</b>"
 
 msgid "dashboard.reviewAssignment.statusAccepted.description"
 msgstr ""
@@ -3064,10 +3064,10 @@ msgstr ""
 "<b>{$days} dage, den {$date}.</b>"
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
-msgstr "Bedømmelsen er forsinket med{$days} dage"
+msgstr "Bedømmelsen er forsinket med {$days} dage"
 
 msgid "dashboard.reviewAssignment.statusAccepted.title"
-msgstr "Bedømmelse er i gang. Anmodning er accepteret"
+msgstr "Igangværende bedømmelse - anmodning accepteret"
 
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
@@ -3079,7 +3079,7 @@ msgstr "Bedømmelse afsluttet den {$date}"
 
 msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr ""
-"bedømmelsen blev afsluttet den {$date} med den følgende vurdering: "
+"Bedømmelsen blev afsluttet den {$date} med den følgende anbefaling: "
 "<b>{$recommendation}</b>"
 
 msgid "dashboard.reviewAssignment.statusComplete.title"
@@ -3106,7 +3106,7 @@ msgid "dashboard.reviewAssignment.action.viewDetails"
 msgstr "Se detaljer"
 
 msgid "dashboard.reviewAssignment.action.resendReviewRequest"
-msgstr "Gensendt anmodning om bedømmelse"
+msgstr "Gensend anmodning om bedømmelse"
 
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
 msgstr "Slet bedømmer"
@@ -3128,3 +3128,106 @@ msgstr "Send bedømmelse til ORCID"
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
 msgstr "Send denne bedømmelse til bedømmerens ORCID?"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Der er blevet bekræftet det antal bedømmelser, der som minimum er påkrævede. "
+"En beslutning er påkrævet."
+
+msgid "workflow.stageNotStarted"
+msgstr "Trinnet: {$stage} er endnu ikke påbegyndt."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Indsendelsen er gået videre til næste bedømmelsesrunde"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisioner uploadet"
+
+msgid "fileManager.filesForReview"
+msgstr "Filer til bedømmelse"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Disse filer vil blive sendt til bedømmerne til bedømmelse"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Bedømmerstatus"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Er du sikker på, du vil slette de valgte elementer? Denne handling kan ikke "
+"fortrydes. Bekræft venligst for at fortsætte."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Slet ufærdige indsendelser"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Det påkrævede minimale antal bekræftede bedømmelser: {$number}."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Det minimale antal bekræftede bedømmelser er ikke opfyldt. Ønsker du stadig "
+"at fortsætte med denne redaktionelle beslutning?"
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Indsendelsen er på {$stage} trinnet."
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Filer, der har været igennem manuskriptredigering"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Dette er filerne, der bliver sendt til produktion"
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Fortsæt uden det minimale antal bekræftede bedømmelser?"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Indsendelsen gik videre til næste bedømmelsesrunde, blev accepteret, og er "
+"nu på {$stage} trinnet."
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Dette er redigerede filer, der vil blive taget videre til produktionstrinnet"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Bekræft sletning af ufærdige indsendelser"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Filer uploadet på indsendelsestidspunktet"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Dette er filer fra bedømmelsestrinnet, som skal igennem manuskriptredigering"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Vælg ufærdige indsendelser, der skal slettes."
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Disse filer blev indsendt af forfatteren, efter der blev efterspurgt "
+"revisioner"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Du kan ikke tilgå denne indsendelse som Tidsskriftschef, da du er "
+"forfatteren af den. For at se den, skal du gå til \"Mine indsendelser\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Du kan ikke tilgå denne indsendelse som Tidsskriftschef, da du er bedømmer "
+"af den. For at se den, skal du gå til \"Bedømmelsesopgaver\""
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Kun godkendt til at anbefale en redaktionel beslutning"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Anbefalende redaktører har til opgave at anbefale de næste trin for denne "
+"indsendelse"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Der er modtaget en redaktionel anbefaling"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Alle redaktionelle anbefalinger er modtaget, og en beslutning er påkrævet."

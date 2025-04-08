@@ -25,6 +25,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteRedirectController;
 use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
@@ -146,6 +147,11 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new ReviewerAccessInviteRedirectController($this);
+    }
+
+    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
+    {
+        return null;
     }
 
     /**

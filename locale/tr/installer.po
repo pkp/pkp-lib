@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/tr/>\n"
@@ -261,3 +261,27 @@ msgstr ""
 
 msgid "installer.appKey.keyVariable.configFile.write.error"
 msgstr "Yapılandırma dosyasına uygulama anahtarı değişkeni yazılamıyor."
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"`app_key` adlı yapılandırma değişkeni `general` bölümünde zaten tanımlanmış. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Yapılandırma dosyası okunamıyor veya dosya beklenen yolda mevcut değil. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Yapılandırma dosyası okunamıyor."
+
+msgid "installer.appKey.write.error"
+msgstr "Uygulama anahtarı yapılandırma dosyasına yazılamıyor."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"`config.inc.php` dosyasındaki `general` bölümü altındaki `app_key` değerini "
+"{$key} olarak ayarlayın."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Desteklenmeyen şifre veya yanlış anahtar uzunluğu. Desteklenen şifreler "
+"şunlardır: {$ciphers}."

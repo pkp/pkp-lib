@@ -65,6 +65,7 @@
 		"citationsRaw": {
 			"type": "string",
 			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
+			"readOnly": true,
 			"validation": [
 				"nullable"
 			]

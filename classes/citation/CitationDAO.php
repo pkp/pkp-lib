@@ -98,7 +98,7 @@ class CitationDAO extends \PKP\db\DAO
 
         // Tokenize raw citations
         $citationTokenizer = new CitationListTokenizerFilter();
-        $citationStrings = $citationTokenizer->execute($rawCitationList);
+        $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
         // Instantiate and persist citations
         $importedCitations = [];

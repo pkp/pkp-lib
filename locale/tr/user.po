@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/tr/"
 ">\n"
@@ -839,3 +839,116 @@ msgstr "Lütfen aday makale dilinde bir kurum ekleyin."
 
 msgid "user.role.ended"
 msgstr "Rol sone erdi"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Otomatik olarak {$contextName} ögesine yönlendirileceksiniz."
+
+msgid "orcid.invalidClient"
+msgstr "Geçersiz istemci kimlik bilgileri"
+
+msgid "orcid.field.verification.request"
+msgstr "Doğrulama talep et"
+
+msgid "orcid.manager.context.enabled"
+msgstr "ORCID işlevlerini etkinleştirin"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "ORCID işlevselliğini site genelinde etkinleştirin"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Doğrulama E-postasını Yeniden Gönder"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "ORCID doğrulaması talep edin"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Bu yazarlara ORCID'lerini doğrulamalarını talep eden bir e-posta göndermek "
+"ister misiniz?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "ORCID'i Sil"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"O zamana kadar profilinizi gözden geçirebilir ve güncelleyebilirsiniz. Bunun "
+"bir hata olduğunu düşünüyorsanız, lütfen yöneticiyle iletişime geçin."
+
+msgid "user.disabledModal.description"
+msgstr "Mevcut Rolleriniz : {$roles}"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Bu rolü kalıcı olarak kaldırmak istediğinizden emin misiniz? Bu eylem, "
+"kullanıcının bu rolle ilişkili tüm bilgi ve izinlere erişimini iptal "
+"edecektir."
+
+msgid "user.futureRole.notification.message"
+msgstr "Rolünüzün {$roleStartDate} tarihinde başlaması planlandı"
+
+msgid "user.disabledModal.title"
+msgstr "{$fullName}'i devre dışı bırak"
+
+msgid "user.bioStatement"
+msgstr "Biyografi"
+
+msgid "user.enabledModal.title"
+msgstr "{$fullName}'i etkinleştir"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Ayarlar kaydedildi"
+
+msgid "orcid.manager.settings.city"
+msgstr "Şehir"
+
+msgid "orcid.unauthenticated"
+msgstr "(kimlik doğrulanamadı)"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Dergi bazında yapılandırılmış"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "İstemci Kimliği geçerli"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Müşteri Kimliği geçersiz, lütfen girilen kimliği kontrol edin"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Müşteri Gizli Kimliği geçerli"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Müşteri Gizli kimliği geçersiz, lütfen kimliği kontrol edin"
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Yazarlar için kimliği doğrulanmamış ORCiD'ler tespit edildi."
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID Doğrulaması talep edildi!"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Bu ORCID'i kaldırmak istediğinizden emin misiniz?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Bu ORCID doğrulanmamıştır. Lütfen bu doğrulanmamış ORCID'yi kaldırın ve "
+"doğrudan yazardan doğrulama talep edin."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Rolü kaldıramazsınız. Kullanıcıya en az bir rol atanmalıdır."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"E-postanızın “{$pendingEmail}” olarak değiştirilmesini talep ettiniz. Size, "
+"değiştirilen e-postayı nasıl doğrulayacağınıza ilişkin talimatları içeren "
+"bir e-posta gönderdik."
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Yazarlar arasında aynı ORCiD'e sahip kişiler tespit edildi."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID işlevi isteğe bağlı olarak tüm dergiler/erken görünümler/sunucular "
+"için site düzeyinde etkinleştirilebilir ve yapılandırılabilir. "
+"Etkinleştirilirse bu, tüm bağlam düzeyindeki kimlik bilgilerini geçersiz "
+"kılar ve bu kurulumdaki tüm dergilere/erken görünümler/sunuculara aşağıdaki "
+"kimlik bilgilerini uygular."

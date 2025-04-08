@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-04-08 14:58+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -907,3 +907,7 @@ msgstr "Активиране на {$fullName}"
 
 msgid "user.bioStatement"
 msgstr "Биографични данни"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr ""
+"Потребителят трябва да е анонимен. В момента сте влезли с потребителско име."

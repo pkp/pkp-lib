@@ -25,6 +25,7 @@ use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
+use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -174,6 +175,12 @@ class DAO extends EntityDAO
             ->where('s.submission_id', '=', $publication->getData('submissionId'))
             ->value('locale');
         $publication->setData('locale', $locale);
+
+        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+        $citations = $citationDao->getByPublicationId($publication->getId())->toArray();
+        $citationsRaw = $citationDao->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
+        $publication->setData('citations', $citations);
+        $publication->setData('citationsRaw', $citationsRaw);
 
         $this->setAuthors($publication);
         $this->setCategories($publication);

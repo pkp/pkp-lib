@@ -92,6 +92,8 @@ interface iPKPApplicationInfoProvider
 
     /**
      * Get the review workflow stages used by this application.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public function getReviewStages(): array;
 }
@@ -176,6 +178,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         Hook::addUnsupportedHooks('AcronPlugin::parseCronTab'); // pkp/pkp-lib#9678 Unavailable since stable-3_5_0;
         Hook::addUnsupportedHooks('Announcement::delete::before', 'Announcement::delete', 'Announcement::Collector'); // pkp/pkp-lib#10328 Unavailable since stable-3_5_0, use Eloquent Model events instead
         Hook::addUnsupportedHooks('UserGroup::delete::before', 'UserGroup::delete'); // unavailable since stable-3_6_0, use Eloquent Model events instead
+        Hook::addUnsupportedHooks('CitationDAO::afterImportCitations'); // pkp/pkp-lib#11238 Renamed since stable-3_5_0
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {
             foreach ([

@@ -57,7 +57,6 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
-        $citationDao = DAORegistry::getDAO('CitationDAO');
         $contextDao = Application::getContextDAO();
 
         switch (array_shift($this->parameters)) {

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
@@ -1300,13 +1300,11 @@ msgstr "Düzeltmeler talep edildi."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Düzeltmeler gönderildi ve karara ihtiyaç var."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Gönderi başka bir değerlendirme turu için tekrar gönderilmelidir."
+msgstr "Aday makale için majör revizyon talep edilmiştir."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Gönderi başka bir inceleme turu için tekrar gönderildi."
+msgstr "Aday makale için revizyonlar yüklenmiştir."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Harici değerlendirmeye gönderildi."
@@ -1326,9 +1324,8 @@ msgstr "Hakemlerden yanıtı bekliyor."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Yeni değerlendirmeler gönderildi."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Tüm değerlendirmeler bekliyor ve bir karar gerekli."
+msgstr "Hakem değerlendirmeleri tamamlanmıştır. Editör kararı gerekli."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Bir değerlendirme gecikti."
@@ -1586,11 +1583,8 @@ msgstr ""
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Düzeltme İstendi"
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
-msgstr ""
-"{$title} başlıklı aday makale için yeni bir değerlendirme turuna alınmak "
-"üzere düzeltme istendi. Yeni bir değerlendirme turu için karar kaydedildi."
+msgstr "{$title} başlıklı aday makale için majör revizyon istenildi."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
@@ -1611,7 +1605,6 @@ msgstr "{$editorName} tarafından değerlendirme aşamasında gönderildi."
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Değerlendirme için Gönder"
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr "{$title} başlıklı aday makale değerlendirme aşamasına gönderildi."
 
@@ -1630,11 +1623,9 @@ msgstr "{$editorName} makaleyi üretim aşamasına gönderdi."
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Üretim Aşamasına Gönder"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr "{$title} başlıklı makale üretim aşamasına gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "Makalenin üretim aşamasına gönderildiğini bildirmek için yazarlara e-posta "
@@ -1652,11 +1643,10 @@ msgstr "{$editorName}, makaleyi son kopya düzenleme aşamasından geri gönderd
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Son Kopya Düzenlemeden Geri Gönderildi"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"{$title} başlıklı aday makale , son kopya düzenleme aşamasından geri "
-"gönderildi."
+"{$title} başlıklı aday makale , son kopya düzenleme aşamasından "
+"değerlendirme aşamasına geri gönderildi."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1676,7 +1666,6 @@ msgstr ""
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Son Kopya Düzenlemeye Geri Gönderildi"
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale, son kopya düzenleme aşamasına geri gönderildi."
@@ -1704,13 +1693,11 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Değerlendirmeyi Atla"
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
 "{$title} başlıklı aday makale değerlendirme aşamasına alınmadan kabul edildi "
 "ve son kopya düzenleme aşamasına gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara, aday makalenin değerlendirmeye alınmadan yayına kabul edildiğini "
@@ -1736,10 +1723,9 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "Reddetmeyi Geri Al"
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
-"Aday makalenin red kararını geri alın ve değerlendirme aşamasına geri "
+"Aday makalenin red kararını iptal edin ve değerlendirme aşamasına geri "
 "gönderin."
 
 msgid "editor.submission.decision.revertDecline.log"
@@ -1759,13 +1745,14 @@ msgstr ""
 "posta gönderin. Kararın neden geri alındığını açıklayın ve aday makalenin "
 "daha fazla değerlendirmeye tabi olacağını onlara bildirin."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "{$title} başlıklı aday makale artık yeni başvuru aşamasında aktiftir."
+msgstr ""
+"{$title} başlıklı aday makale artık yeni başvuru aşamasında aktif durumdadır."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Bu aşamada editör kararlarını etkinleştirmek için bir editör atayın."
+msgstr ""
+"Bu aşama için editoryal kararların alınmasını sağlamak üzere bir editör "
+"atayın."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
@@ -2115,7 +2102,7 @@ msgid "submission.copyright"
 msgstr "Telif Hakkı"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Evet, telif hakkı bildirim koşullarını okudum ve kabul ediyorum."
 
 msgid "submission.copyrightHolder"
 msgstr "Telif Hakkı Sahibi"
@@ -2397,15 +2384,17 @@ msgstr "Editör Ata"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Aday makale başvurusu tamamlandı. Görüntülemek için <a href=“{$url}”>makale "
+"paneli</a>ni ziyaret edin."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Başlangıç"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Yalnızca başvurunuz için uygun olan kategorileri seçin."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Başvuru Ayarlarını Değiştirme"
 
 msgid "submission.wizard.completeSteps"
 msgstr ""
@@ -2684,3 +2673,60 @@ msgstr "Başvuru iptal edildi"
 
 msgid "submission.wizard.submissionCancel"
 msgstr "Gönderimi iptal et"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Önerilen Hakemler için"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Öneri sizin tarafınızdan yapılmıştır."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Yazar Tarafından Önerilen Hakemler"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Geçerli Başvuru Dili:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Değiştir"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Aday makale dilini değiştir"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Bu, birincil başvuru dilidir. Bunu değiştirmenin ilk aşamada girilen "
+"üstveriler üzerinde etkileri olacaktır."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Dili değiştirmeden önce, sistem bütünlüğünü korumak için aşağıdaki "
+"üstveri alanlarını doldurduğunuzdan emin olun. Ayrıca, yazar bilgilerinin ve "
+"dosya adlarının daha önce girilen bilgilerden kopyalanacağını "
+"unutmayın.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Aday makale başlığını {$language} olarak girin. Başlığınızı gerektiği gibi "
+"biçimlendirebilirsiniz."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Özün {$language} dilinde eklenmesi önerilir. Bu, içeriğin erişilebilir "
+"olmasını sağlamaya yardımcı olur"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Başvuru Özetini Görüntüle"
+
+msgid "submission.list.completeSubmission"
+msgstr "Başvuruyu tamamla"
+
+msgid "submission.review.status.viewed"
+msgstr "Editör değerlendirmeyi inceledi."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Bu tartışmayı {$allowedEditTimeNoticeLimit} dakika boyunca "
+"güncelleyebilirsiniz."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Hakem Önerileri"

@@ -143,7 +143,7 @@ class LoginHandler extends Handler {
 
 		$source = str_replace('@', '', $request->getUserVar('source'));
 		if (isset($source) && !empty($source)) {
-			$request->redirectUrl($request->getProtocol() . '://' . $request->getServerHost() . $source, false);
+			$request->redirectUrl($request->getProtocol() . '://' . $request->getServerHost() . '/' . $source, false);
 		} else {
 			$request->redirect(null, $request->getRequestedPage());
 		}

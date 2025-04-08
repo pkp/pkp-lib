@@ -26,6 +26,14 @@ class I10292_UpdateControlledVocabEntrySettingName extends Migration
     public function up(): void
     {
         DB::table('controlled_vocab_entry_settings')
+            ->whereIn('setting_name', [
+                'submissionAgency',
+                'submissionDiscipline',
+                'submissionKeyword',
+                'submissionLanguage',
+                'submissionSubject',
+                'interest',
+            ])
             ->update(['setting_name' => 'name']);
     }
 

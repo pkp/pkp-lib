@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-06 06:50+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -903,7 +903,10 @@ msgstr ""
 "հաստատել վեվերականությունը ուղղակիորեն օգտատիրոջից/հեղինակից:"
 
 msgid "user.removeRole.message"
-msgstr "Իսկապե՞ս ուզում եք ընդմիշտ հեռացնել այս դերը:"
+msgstr ""
+"Իսկապե՞ս ուզում եք ընդմիշտ հեռացնել այս դերը: Այս գործողությունը կչեղարկի "
+"օգտատիրոջ մուտքը այս դերի հետ կապված բոլոր տեղեկություններին և "
+"թույլտվություններին:"
 
 msgid "user.disabledModal.title"
 msgstr "Անջատել {$fullName}"
@@ -922,3 +925,6 @@ msgstr "Հայցվել է ORCID վավերականացում:"
 
 msgid "user.authorization.shouldBeAnonymous"
 msgstr "Օգտագործողը պետք է անանուն լինի: Դուք ներկայումս մուտք եք գործել:"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr "Դուք չեք կարող հեռացնել դերը: Օգտվողին պետք է հատկացվի առնվազն մեկ դեր:"

@@ -234,6 +234,7 @@
 		if ($(sourceElement).prop('name') == 'userGroupId') {
 			$checkbox.attr('disabled', 'disabled');
 			$checkbox.removeAttr('checked');
+			$checkbox.prop('checked', false);
 			$checkboxDiv.hide();
 		} else if ($(sourceElement).prop('name') == 'userIdSelected' &&
 				!$checkboxDiv.is(':visible')) {

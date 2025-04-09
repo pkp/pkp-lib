@@ -45,7 +45,7 @@ class NotificationManager extends PKPNotificationManager
                 $contextDao = Application::getContextDAO();
                 /** @var Server */
                 $context = $contextDao->getById($notification->contextId);
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->assocId);
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', [$notification->assocId]);
         }
         return parent::getNotificationUrl($request, $notification);
     }

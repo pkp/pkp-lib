@@ -467,8 +467,8 @@ msgstr "Îmbinare utilizator"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"Sigur doriți să îmbinați conturile {$ oldAccountCount} selectate în cont cu "
-"numele de utilizator „{$ newUsername}”? Conturile selectate {$ "
+"Sigur doriți să îmbinați conturile {$oldAccountCount} selectate în cont cu "
+"numele de utilizator „{$newUsername}”? Conturile selectate {$"
 "oldAccountCount} nu vor exista ulterior. Această acțiune nu este reversibilă."
 
 msgid "manager.people.mergeUsers"

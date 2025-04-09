@@ -170,9 +170,15 @@ class EditDecisionDAO extends DAO {
 		$reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
 		import('lib.pkp.classes.submission.SubmissionFile'); // Bring the file constants.
+		
+		// Choose appropriate file stage based on the stage ID
+		$fileStage = ($stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) ? 
+			SUBMISSION_FILE_INTERNAL_REVIEW_REVISION : 
+			SUBMISSION_FILE_REVIEW_REVISION;
+			
 		$submissionFilesIterator = Services::get('submissionFile')->getMany([
 			'reviewRoundIds' => [$reviewRound->getId()],
-			'fileStages' => [SUBMISSION_FILE_REVIEW_REVISION],
+			'fileStages' => [$fileStage],
 		]);
 
 		foreach ($submissionFilesIterator as $submissionFile) {

@@ -1351,13 +1351,11 @@ class PKPTemplateManager extends Smarty
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $supportedLocales = $context?->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY) ?? $request->getSite()->getSupportedLocaleNames();
 
         $pageContext = [
             'app' => Application::get()->getName(),
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
-            'supportedLocales' => $supportedLocales,
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(
@@ -1372,13 +1370,14 @@ class PKPTemplateManager extends Smarty
             'timeZone' => Config::getVar('general', 'time_zone')
         ];
 
-        if($context) {
+        if ($context) {
             $pageContext = array_merge($pageContext, [                
                 'dateFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                 'dateFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatLong()),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort()),
                 'datetimeFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatLong()),
                 'timeFormat' => PKPString::convertStrftimeFormat($context->getLocalizedTimeFormat()),
+                'supportedLocales' => $context?->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY),
             ]);
         } else {
             $pageContext = array_merge($pageContext, [                
@@ -1387,6 +1386,7 @@ class PKPTemplateManager extends Smarty
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
                 'datetimeFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_long')),
                 'timeFormat' => PKPString::convertStrftimeFormat(Config::getVar('general', 'time_format')),
+                'supportedLocales' => !PKPSessionGuard::isSessionDisable() ? $request->getSite()->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY) : [],
             ]);
         }
 

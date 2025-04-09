@@ -26,10 +26,25 @@ import emitter from 'tiny-emitter/instance';
 import dialog from '@/mixins/dialog.js';
 
 // Composables
-import * as useLocalize from '@/composables/useLocalize.js';
-import * as useModal from '@/composables/useModal.js';
+import * as useAnnouncer from '@/composables/useAnnouncer.js';
+import * as useApp from '@/composables/useApp.js';
+import * as useContainerStateManager from '@/composables/useContainerStateManager.js';
+import * as useCurrentUser from '@/composables/useCurrentUser.js';
+import * as useDataChanged from '@/composables/useDataChanged.js';
+import * as useDataChangedProvider from '@/composables/useDataChangedProvider.js';
+import * as useDate from '@/composables/useDate.js';
+import * as useExtender from '@/composables/useExtender.js';
 import * as useFetch from '@/composables/useFetch.js';
 import * as useFetchPaginated from '@/composables/useFetchPaginated.js';
+import * as useFiltersForm from '@/composables/useFiltersForm.js';
+import * as useForm from '@/composables/useForm.js';
+import * as useLegacyGridUrl from '@/composables/useLegacyGridUrl.js';
+import * as useLocalize from '@/composables/useLocalize.js';
+import * as useModal from '@/composables/useModal.js';
+import * as useQueryParams from '@/composables/useQueryParams.js';
+import * as useSideMenu from '@/composables/useSideMenu.js';
+import * as useSorting from '@/composables/useSorting.js';
+import * as useSubmission from '@/composables/useSubmission.js';
 import * as useUrl from '@/composables/useUrl.js';
 
 // Directives
@@ -300,10 +315,25 @@ export default {
 	modules: {
 		vue,
 		piniaInstance: pinia,
-		useLocalize,
-		useModal,
+		useAnnouncer,
+		useApp,
+		useContainerStateManager,
+		useCurrentUser,
+		useDataChanged,
+		useDataChangedProvider,
+		useDate,
+		useExtender,
 		useFetch,
 		useFetchPaginated,
+		useFiltersForm,
+		useForm,
+		useLegacyGridUrl,
+		useLocalize,
+		useModal,
+		useQueryParams,
+		useSideMenu,
+		useSorting,
+		useSubmission,
 		useUrl,
 	},
 	pkpCreateVueApp,

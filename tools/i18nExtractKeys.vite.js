@@ -3,7 +3,7 @@ import fs from 'fs';
 
 const uniqueKeys = new Set();
 
-function extractRegexPlugin({extraKeys}) {
+function extractRegexPlugin({extraKeys} = {}) {
 	const fileOutput = path.join('registry', 'uiLocaleKeysBackend.json');
 	/**
 	 * Supported variants:

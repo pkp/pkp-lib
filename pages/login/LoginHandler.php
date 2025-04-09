@@ -152,7 +152,7 @@ class LoginHandler extends Handler
                 Validation::logout();
                 $request->redirect(null, null, 'changePassword', [$user->getUsername()]);
             }
-            $source = str_replace('@', '', $request->getUserVar('source'));
+            $source = $request->getUserVar('source');
             if (preg_match('#^/\w#', (string) $source) === 1) {
                 $request->redirectUrl($source);
             }
@@ -194,7 +194,7 @@ class LoginHandler extends Handler
             Validation::logout();
         }
 
-        $source = str_replace('@', '', $request->getUserVar('source'));
+        $source = $request->getUserVar('source');
         if (isset($source) && !empty($source)) {
             $request->redirectUrl($request->getProtocol() . '://' . $request->getServerHost() . '/' . $source, false);
         } else {
@@ -214,6 +214,12 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
+        // Check if reCAPTCHA is enabled for lost password
+        $isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_lost_password') && Config::getVar('captcha', 'recaptcha');
+        if ($isCaptchaEnabled) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+        }
+
         $this->_generateAltchaComponent('altcha_on_lost_password', $templateMgr);
         $templateMgr->display('frontend/pages/userLostPassword.tpl');
     }
@@ -226,8 +232,25 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $altchaHasError = $this->_validateAltchasResponse($request, 'altcha_on_lost_password');
+        // Validate reCAPTCHA if enabled
+        $isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_lost_password') && Config::getVar('captcha', 'recaptcha');
+        if ($isCaptchaEnabled) {
+            $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+            try {
+                FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
+            } catch (Exception $exception) {
+                // Keep the reCAPTCHA public key in the template
+                $templateMgr->assign([
+                    'recaptchaPublicKey' => Config::getVar('captcha', 'recaptcha_public_key'),
+                    'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+                    'reason' => __('common.captcha.error.invalid-input-response')
+                ]);
+                $templateMgr->display('frontend/pages/userLostPassword.tpl');
+                return;
+            }
+        }
 
+        $altchaHasError = $this->_validateAltchasResponse($request, 'altcha_on_lost_password');
         if ($altchaHasError) {
             $this->_generateAltchaComponent('altcha_on_lost_password', $templateMgr);
 
@@ -491,8 +514,11 @@ class LoginHandler extends Handler
      */
     protected function sendHome($request)
     {
-        $pkpPageRouter = $request->getRouter(); /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
-        $pkpPageRouter->redirectHome($request);
+        if ($request->getContext()) {
+            $request->redirect(null, 'submissions');
+        } else {
+            $request->redirect(null, 'user');
+        }
     }
 
     /**
@@ -510,7 +536,6 @@ class LoginHandler extends Handler
                 return 'common.captcha.error.missing-input-response';
             }
         }
-        return null;
     }
 
     /**

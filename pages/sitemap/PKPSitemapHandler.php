@@ -112,7 +112,7 @@ class PKPSitemapHandler extends Handler
             $announcementIds = Announcement::withContextIds([$context->getId()])->pluck('announcementId')->toArray();
 
             foreach ($announcementIds as $announcementId) {
-                $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement', 'view', $announcementId)));
+                $root->appendChild($this->_createUrlTree($doc, $request->url($context->getPath(), 'announcement', 'view', [$announcementId])));
             }
         }
         // About: context

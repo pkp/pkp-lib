@@ -49,6 +49,7 @@ use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\i18n\LocaleConversion;
+use PKP\i18n\LocaleMetadata;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -1350,12 +1351,13 @@ class PKPTemplateManager extends Smarty
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
         $context = $request->getContext();
+        $supportedLocales = $context?->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY) ?? $request->getSite()->getSupportedLocaleNames();
 
         $pageContext = [
             'app' => Application::get()->getName(),
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
-            'supportedLocales' => $context->getSupportedLocaleNames(),
+            'supportedLocales' => $supportedLocales,
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(

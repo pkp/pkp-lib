@@ -416,10 +416,7 @@ class PKPTemplateManager extends Smarty
 
             $user = $request->getUser();
             if ($user) {
-                $unreadNotificationCount = Notification::withRead(false)
-                    ->withUserId($user->getId())
-                    ->withLevel(Notification::NOTIFICATION_LEVEL_TASK)
-                    ->count();
+                $unreadNotificationCount = Notification::getUnreadNotificationsCount($user->getId());
                 $this->assign([
                     'currentUser' => $user,
                     // Assign the user name to be used in the sitenav
@@ -1358,7 +1355,7 @@ class PKPTemplateManager extends Smarty
             'app' => Application::get()->getName(),
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
-            'supportedLocales' => $this->getTemplateVars('supportedLocales'),
+            'supportedLocales' => $context->getSupportedLocaleNames(),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
             'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(
@@ -1430,7 +1427,7 @@ class PKPTemplateManager extends Smarty
                     'csrfToken' => $this->_request->getSession()->token(),
                     'id' => (int) $user->getId(),
                     'roles' => array_values(array_unique($userRoles)),
-                    'unreadTasksCount' => $this->getTemplateVars('unreadNotificationCount'),
+                    'unreadTasksCount' => Notification::getUnreadNotificationsCount($user->getId()),
                     'fullName' => $user->getFullName(),
                     'username' => $user->getData('userName'),
                     'initials' => $user->getDisplayInitials(),

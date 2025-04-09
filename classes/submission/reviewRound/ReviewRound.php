@@ -159,7 +159,8 @@ class ReviewRound extends \PKP\core\DataObject
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
             // get editor decisions
-            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), Decision::PENDING_REVISIONS);
+            $decisionToCheck = $this->getStageId() === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::PENDING_REVISIONS : Decision::PENDING_REVISIONS_INTERNAL;
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), $decisionToCheck);
 
             if ($pendingRevisionDecision) {
                 if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {
@@ -173,7 +174,9 @@ class ReviewRound extends \PKP\core\DataObject
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW || $this->getStatus() == self::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED) {
             // get editor decisions
-            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), Decision::RESUBMIT);
+            $decisionToCheck = $this->getStageId() === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW ? Decision::RESUBMIT : Decision::RESUBMIT_INTERNAL;
+
+            $pendingRevisionDecision = Repo::decision()->getActivePendingRevisionsDecision($this->getSubmissionId(), $this->getStageId(), $decisionToCheck);
 
             if ($pendingRevisionDecision) {
                 if (Repo::decision()->revisionsUploadedSinceDecision($pendingRevisionDecision, $this->getSubmissionId())) {

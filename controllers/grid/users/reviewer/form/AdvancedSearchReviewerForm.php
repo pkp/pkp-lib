@@ -202,7 +202,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             $lastReviewRound = $reviewRoundDao->getReviewRound($this->getSubmissionId(), $this->getReviewRound()->getStageId(), $previousRound);
 
             if ($lastReviewRound) {
-                $lastReviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewerIds([$lastReviewRound->getId()])->getMany();
+                $lastReviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewRoundIds([$lastReviewRound->getId()])->getMany();
                 foreach ($lastReviewAssignments as $reviewAssignment) {
                     if (in_array($reviewAssignment->getStatus(), [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
                         $lastRoundReviewerIds[] = (int) $reviewAssignment->getReviewerId();

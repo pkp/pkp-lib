@@ -207,9 +207,9 @@ class Notification extends Model
         }
 
         // Count the number of unread notifications for the user
-        $notificationsCount = self::withRead(false)
+        $notificationsCount = static::withRead(false)
             ->withUserId($userId)
-            ->withLevel(self::NOTIFICATION_LEVEL_TASK)
+            ->withLevel(static::NOTIFICATION_LEVEL_TASK)
             ->count();
 
             return $notificationsCount;

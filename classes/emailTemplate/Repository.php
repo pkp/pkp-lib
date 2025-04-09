@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/emailTemplate/Repository.php
  *
@@ -137,9 +138,8 @@ class Repository
             $validator->after(function () use ($validator, $props, $context) {
                 $existingGroupIds = UserGroup::withContextIds([$context->getId()])
                     ->withUserGroupIds($props['assignedUserGroupIds'])
-                    ->get()
-                    ->pluck('userGroupId')
-                    ->toArray();
+                    ->pluck('user_group_id')
+                    ->all();
 
                 if (!empty(array_diff($existingGroupIds, $props['assignedUserGroupIds']))) {
                     $validator->errors()->add('assignedUserGroupIds', __('api.emailTemplates.404.userGroupIds'));
@@ -241,8 +241,7 @@ class Repository
         return EmailTemplateAccessGroup::withEmailKey([$templateKey])
             ->withContextId($contextId)
             ->whereNot('user_group_id', null)
-            ->get()
-            ->pluck('userGroupId')
+            ->pluck('user_group_id')
             ->all();
     }
 
@@ -291,7 +290,7 @@ class Repository
         $filteredTemplates = collect();
 
         foreach ($templates as $template) {
-            if($this->isTemplateAccessibleToUser($user, $template, $contextId)) {
+            if ($this->isTemplateAccessibleToUser($user, $template, $contextId)) {
                 $filteredTemplates->add($template);
             }
         }
@@ -332,11 +331,11 @@ class Repository
      */
     public function setEmailTemplateAccess(EmailTemplate $emailTemplate, int $contextId, ?array $userGroupIds, ?bool $isUnrestricted): void
     {
-        if($userGroupIds !== null) {
+        if ($userGroupIds !== null) {
             $this->updateTemplateAccessGroups($emailTemplate, $userGroupIds, $contextId);
         }
 
-        if($isUnrestricted !== null) {
+        if ($isUnrestricted !== null) {
             $this->markTemplateAsUnrestricted($emailTemplate->getData('key'), $isUnrestricted, $contextId);
         }
     }

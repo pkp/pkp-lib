@@ -199,4 +199,19 @@ class Notification extends Model
             fn ($q) => $q->whereNull('date_read')
         );
     }
+
+    public static function getUnreadNotificationsCount(?int $userId): int
+    {
+        if (!$userId) {
+            return 0;
+        }
+
+        // Count the number of unread notifications for the user
+        $notificationsCount = self::withRead(false)
+            ->withUserId($userId)
+            ->withLevel(self::NOTIFICATION_LEVEL_TASK)
+            ->count();
+
+            return $notificationsCount;
+    }
 }

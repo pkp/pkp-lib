@@ -299,7 +299,10 @@ abstract class Repository
     public function getActivePendingRevisionsDecision(int $submissionId, int $stageId, int $decision = Decision::PENDING_REVISIONS): ?Decision
     {
         $postReviewDecisions = [Decision::SEND_TO_PRODUCTION];
-        $revisionDecisions = [Decision::PENDING_REVISIONS, Decision::RESUBMIT];
+        $revisionDecisions = $stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW 
+            ? [Decision::PENDING_REVISIONS, Decision::RESUBMIT] 
+            : [Decision::PENDING_REVISIONS_INTERNAL, Decision::RESUBMIT_INTERNAL];
+
         if (!in_array($decision, $revisionDecisions)) {
             return null;
         }
@@ -348,10 +351,14 @@ abstract class Repository
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRound = $reviewRoundDao->getReviewRound($submissionId, $stageId, $round);
 
+        $fileStage = $stageId === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW
+            ? SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION
+            : SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION;
+
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByReviewRoundIds([$reviewRound->getId()])
-            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION])
+            ->filterByFileStages([$fileStage])
             ->getMany();
 
         foreach ($submissionFiles as $submissionFile) {

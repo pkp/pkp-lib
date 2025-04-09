@@ -472,7 +472,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Get the help URL for this application.
      */
-    abstract public function getHelpUrl(): string;
+    abstract public static function getHelpUrl(): string;
 
     /**
      * This function retrieves all enabled product versions once

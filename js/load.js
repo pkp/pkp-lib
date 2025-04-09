@@ -27,7 +27,6 @@ import dialog from '@/mixins/dialog.js';
 
 // Composables
 import * as useAnnouncer from '@/composables/useAnnouncer.js';
-import * as useApiUrl from '@/composables/useApiUrl.js';
 import * as useApp from '@/composables/useApp.js';
 import * as useContainerStateManager from '@/composables/useContainerStateManager.js';
 import * as useCurrentUser from '@/composables/useCurrentUser.js';
@@ -42,7 +41,6 @@ import * as useForm from '@/composables/useForm.js';
 import * as useLegacyGridUrl from '@/composables/useLegacyGridUrl.js';
 import * as useLocalize from '@/composables/useLocalize.js';
 import * as useModal from '@/composables/useModal.js';
-import * as useParticipant from '@/composables/useParticipant.js';
 import * as useQueryParams from '@/composables/useQueryParams.js';
 import * as useSideMenu from '@/composables/useSideMenu.js';
 import * as useSorting from '@/composables/useSorting.js';
@@ -318,7 +316,6 @@ export default {
 		vue,
 		piniaInstance: pinia,
 		useAnnouncer,
-		useApiUrl,
 		useApp,
 		useContainerStateManager,
 		useCurrentUser,
@@ -333,7 +330,6 @@ export default {
 		useLegacyGridUrl,
 		useLocalize,
 		useModal,
-		useParticipant,
 		useQueryParams,
 		useSideMenu,
 		useSorting,

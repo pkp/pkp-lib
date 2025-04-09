@@ -201,7 +201,7 @@ class Application extends PKPApplication
     /**
      * Get the help URL of this application
      */
-    public function getHelpUrl(): string
+    public static function getHelpUrl(): string
     {
         return 'https://docs.pkp.sfu.ca/learning-ops/en/';
     }

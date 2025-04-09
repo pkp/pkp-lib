@@ -147,6 +147,10 @@ export default {
 		
 	},
 
+	getPiniaInstance() {
+		this._piniaInstance;
+	},
+
 	storeAddFn(storeName, fnName, fn) {
 		this._piniaInstance.use((context) => {
 

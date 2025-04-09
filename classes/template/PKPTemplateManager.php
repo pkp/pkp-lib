@@ -1357,7 +1357,7 @@ class PKPTemplateManager extends Smarty
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
         }
 
-        // add apiBaselUrl for useApiUrl composable
+        // add apiBaselUrl for useUrl composable
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
         $context = $request->getContext();

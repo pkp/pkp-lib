@@ -1,7 +1,7 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/es/>"
 "\n"
@@ -376,3 +376,66 @@ msgstr "No se encontró el destacado solicitado."
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "No se puede asignar un DOI a este elemento."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"No puede cambiar el idioma de este envío porque ya tiene más de una versión "
+"de publicación o una publicación publicada."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"La solicitud no tiene el parámetro de consulta obligatorio `ids`. Por favor, "
+"proporcione el `ids` del envío que quiera eliminar."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "No se ha podido encontrar revisor/a para esta asignación"
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "No se ha podido procesar la petición API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "No se ha podido recibir la respuesta esperada."
+
+msgid "api.400.routeNotDefined"
+msgstr "No se ha proporcionado ninguna ruta API."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Ha proporcionado un \"eventType\", {$eventType}, no válido para los correos "
+"electrónicos de autor/a."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"No puede realizar esta operación con la funcionalidad ORCID desactivada."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Parámetro de autor/a no válido."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "No se ha encontrado el autor/a solicitado"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "No puede hacer cambios en autores/as de envíos que no tenga asignados."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "No se ha podido encontrar el envío para esta asignación de revisión."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Solo 'aceptar' y 'rechazar' son valores válidos"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "La sección proporcionada no existe."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID inválido: \"{$id}\" proporcionado."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"El formulario de identificadores de publicación no está disponible porque no "
+"hay identificadores habilitados."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "No se ha encontrado el ror solicitado."
+
+msgid "api.409.resourceActionConflict"
+msgstr "No se ha podido completar la acción prevista en el recurso."

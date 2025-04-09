@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-04-09 11:38+0000\n"
+"PO-Revision-Date: 2025-04-09 12:34+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es/>\n"
@@ -3915,3 +3915,72 @@ msgstr "Seleccionar envío e idiomas de los metadatos."
 
 msgid "manager.setup.reviewOptions.reminders"
 msgstr "Establecer recordatorios para la revisión"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"El ajuste de idioma no se pudo guardar. Es necesario habilitar todas las "
+"opciones."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"El autor/a puede sugerir diversos revisores/as potenciales antes de "
+"completar el envío, lo que puede optimizar el proceso de revisión y "
+"proporcionar información valiosa para el equipo editorial."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "El título del elemento del menú es obligatorio."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Cambiar la dirección de correo electrónico de invitación"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Número mínimo de revisiones confirmadas requeridas"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Número mínimo de revisiones confirmadas requeridas para un envío"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Enviar un recordatorio por correo electrónico antes o después para la "
+"respuesta a la solicitud de revisión (si el revisor/a no ha contestado aún a "
+"la solicitud de revisión) o para el envío de la revisión (si el revisor/a no "
+"ha enviado aún la revisión)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Respuesta a la solicitud de revisión - Antes de la fecha de entrega"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Respuesta a la solicitud de revisión - Después de la fecha de entrega"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Envío de la revisión - Antes de la fecha de entrega"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Envío de la revisión - Después de la fecha de entrega"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} días antes de la fecha de entrega"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} días después de la fecha de entrega"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ninguno"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Ningún recordatorio definido"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Sugerencia del revisor/a en el envío"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Permitir que los autores/as sugieran revisores/as potenciales durante el "
+"proceso de envío"
+
+msgid "notification.submissionLocales"
+msgstr "Configuraciones regionales de envío actualizadas."
+
+msgid "settings.roles.permitSettings"
+msgstr "Permitir cambios en los ajustes"

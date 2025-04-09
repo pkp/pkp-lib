@@ -16,7 +16,7 @@ assignees: ''
 
 
 ## What application are you using?
- OJS, OMP or OPS version X.X.X
+ OJS, OMP or OPS version X.X.X-X
 
 ## Stack used 
 - Device: xyz

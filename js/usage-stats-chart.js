@@ -89,6 +89,9 @@
 					color: 'rgba(0,0,0,0.05)',
 					drawTicks: false,
 				},
+				ticks: {
+					beginAtZero: true
+				},
 			},
 		},
 	};

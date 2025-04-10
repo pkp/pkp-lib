@@ -21,10 +21,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use PKP\citation\Citation;
 use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
+use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -174,6 +176,12 @@ class DAO extends EntityDAO
             ->where('s.submission_id', '=', $publication->getData('submissionId'))
             ->value('locale');
         $publication->setData('locale', $locale);
+
+        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+        $citations = $citationDao->getByPublicationId($publication->getId())->toArray();
+        $citationsRaw = implode(PHP_EOL, array_map(fn (Citation $citation) => $citation->getData('rawCitation'), $citations));
+        $publication->setData('citations', $citations);
+        $publication->setData('citationsRaw', $citationsRaw);
 
         $this->setAuthors($publication);
         $this->setCategories($publication);

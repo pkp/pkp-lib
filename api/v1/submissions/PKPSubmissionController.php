@@ -2168,7 +2168,11 @@ class PKPSubmissionController extends PKPBaseController
             ->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->getMany()
-            ->each(fn (SubmissionFile $file) => Repo::submissionFile()->edit($file, $editProps($file, $fileProps)));
+            ->each(function (SubmissionFile $file) use ($fileProps, $editProps, $newLocale) {
+                if (!($file->getData('name')[$newLocale] ?? null)) {
+                    Repo::submissionFile()->edit($file, $editProps($file, $fileProps));
+                }
+            });
 
         // Contributor
         $contributorProps = [
@@ -2185,7 +2189,9 @@ class PKPSubmissionController extends PKPBaseController
             ->getMany()
             ->each(function (Author $contributor) use ($contributorProps, $affiliationProps, $editProps, $newLocale) {
                 foreach ($contributor->getAffiliations() as $affiliation) {
-                    Repo::affiliation()->edit($affiliation, $editProps($affiliation, $affiliationProps));
+                    if (!($affiliation->getData('name')[$newLocale] ?? null)) {
+                        Repo::affiliation()->edit($affiliation, $editProps($affiliation, $affiliationProps));
+                    }
                 }
                 if (!($contributor->getData('givenName')[$newLocale] ?? null)) {
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));

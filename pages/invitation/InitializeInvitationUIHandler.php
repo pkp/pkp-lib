@@ -32,6 +32,7 @@ use PKP\security\Role;
 
 class InitializeInvitationUIHandler extends Handler
 {
+    public $_isBackendPage = true;
     public function __construct()
     {
         parent::__construct();

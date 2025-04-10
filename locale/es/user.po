@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-04-10 11:48+0000\n"
+"PO-Revision-Date: 2025-04-10 13:16+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/es/"
 ">\n"
@@ -924,3 +924,69 @@ msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
 msgstr ""
 "Añadir, actualizar o eliminar sugerencias de revisor/a para envíos "
 "finalizados está restringido."
+
+msgid "orcid.field.verification.request"
+msgstr "Solicitar verificación"
+
+msgid "orcid.field.verification.requested"
+msgstr "Se ha solicitado la verificación de ORCID."
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Reenviar el correo electrónico de verificación"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Eliminar ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "¿Seguro que desea eliminar este ORCID?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Su rol está programado para empezar el {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Hasta entonces puede revisar y actualizar su perfil. Si cree que esto es un "
+"error, contacte con el administrador/a."
+
+msgid "user.disabledModal.description"
+msgstr "Roles actuales: {$roles}"
+
+msgid "user.removeRole.message"
+msgstr ""
+"¿Seguro que desea eliminar permanentemente este rol? Esta acción revocará el "
+"acceso del usuario/a a toda la información y permisos asociados con este rol."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"No puede eliminar el rol. El usuario/a debe tener como mínimo un rol "
+"asignado."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"La funcionalidad ORCID puede activarse opcionalmente y configurarse a nivel "
+"de sitio para todas las revistas/publicaciones/servidores. Si se activa, "
+"esto anulará todas las credenciales de nivel de contexto y aplicará las "
+"siguientes credenciales a todas las revistas/publicaciones/servidores de "
+"esta instalación."
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Solicitar la verificación de ORCID"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Desea enviar un correo electrónico a este autor/a para solicitarle que "
+"verifique su ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Este ORCID no se ha verificado. Elimínelo y solicite la verificación "
+"directamente al usuario/a o al autor/a."
+
+msgid "user.disabledModal.title"
+msgstr "Deshabilitar {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Habilitar {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografía"

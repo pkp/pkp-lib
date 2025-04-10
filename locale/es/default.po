@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2025-04-10 11:48+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Administrador/a del sitio"
@@ -205,3 +205,22 @@ msgstr ""
 
 #~ msgid "default.groups.abbrev.externalReviewer"
 #~ msgstr "RE"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Miembro del consejo editorial"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Miembros del consejo editorial"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "MCE"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>En el momento de hacer un envío tiene la opción de sugerir diversos "
+"revisores/as potenciales. Esto puede ayudar a optimizar el proceso de "
+"revisión y proporcionar información valiosa para el equipo editorial. Elija "
+"revisores/as expertos en su campo y que no tengan conflictos de interés con "
+"su obra. El objetivo de esta función es mejorar el proceso de revisión y "
+"contribuir a una experiencia más eficiente tanto para los autores/as como "
+"para el equipo editorial</p>"

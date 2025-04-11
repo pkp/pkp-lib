@@ -345,7 +345,7 @@ abstract class Repository
         $newIsMinorVersion = $isMinorVersion;
 
         if (!isset($newVersionStage)) {
-            $currentVersionData = $newPublication->getCurrentVersionData();
+            $currentVersionData = $newPublication->getVersionData();
             if (isset($currentVersionData)) {
                 $newVersionStage = $currentVersionData->stage;
             }
@@ -521,7 +521,7 @@ abstract class Repository
         }
 
         // Update publication version data
-        $currentVersionData = $newPublication->getCurrentVersionData();
+        $currentVersionData = $newPublication->getVersionData();
         if (!isset($currentVersionData)) {
             $this->updateVersionData($newPublication, VersionStage::VERSION_OF_RECORD, false);
         }
@@ -724,7 +724,7 @@ abstract class Repository
      */
     public function getVersionDataDisplay(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string 
     {
-        $currentVersionStage = $publication->getCurrentVersionData();
+        $currentVersionStage = $publication->getVersionData();
 
         if (!isset($currentVersionStage)) {
             if (!isset($submissionContext)) {

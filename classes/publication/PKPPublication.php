@@ -468,9 +468,9 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
-     * Get the current version data
+     * Get the publication's current version data
      */
-    public function getCurrentVersionData(): ?VersionData 
+    public function getVersionData(): ?VersionData 
     {
         $versionStageStr = $this->getData('versionStage');
         if (!isset($versionStageStr)) {

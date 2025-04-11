@@ -72,6 +72,13 @@ abstract class Invitation
     abstract public function getInvitationActionRedirectController(): ?InvitationActionRedirectController;
 
     /**
+     * Defines the controller that is responsible for the handle of the create/edit
+     * invitation views
+     * @return InvitationUIActionRedirectController|null
+     */
+    abstract public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController;
+
+    /**
      * Get a specific payload instance for the child class.
      */
     abstract protected function getPayloadClass(): string;

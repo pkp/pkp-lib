@@ -25,6 +25,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteRedirectController;
 use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
@@ -148,10 +149,15 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         return new ReviewerAccessInviteRedirectController($this);
     }
 
+    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
+    {
+        return null;
+    }
+
     /**
      * @inheritDoc
      */
-    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array 
+    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         return [
             'reviewAssignmentId' => [
@@ -161,7 +167,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
                     $reviewAssignment = Repo::reviewAssignment()->get($value);
 
                     if (!$reviewAssignment) {
-                        $fail(__('invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting', 
+                        $fail(__('invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting',
                             [
                                 'reviewAssignmentId' => $value
                             ])

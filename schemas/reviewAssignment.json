@@ -171,9 +171,9 @@
 				"nullable"
 			]
 		},
-		"recommendation": {
+		"reviewerRecommendationId": {
 			"type": "integer",
-			"description": "Reviewer's recommendation",
+			"description": "Reviewer recommendation id",
 			"apiSummary": true,
 			"validation": [
 				"nullable"

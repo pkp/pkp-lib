@@ -15,6 +15,8 @@
 namespace PKP\invitation\invitations\userRoleAssignment\resources;
 
 use Illuminate\Http\Request;
+use PKP\context\Context;
+use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
 use PKP\user\User;
 
 class UserRoleAssignmentInviteResource extends BaseUserRoleAssignmentInviteResource
@@ -64,5 +66,56 @@ class UserRoleAssignmentInviteResource extends BaseUserRoleAssignmentInviteResou
             'existingUser' => $this->transformUser($this->getExistingUser()),
             'newUser' => $this->transformUser($newUser),
         ]);
+    }
+
+    /**
+     * Transform invitation payload
+     * @param int|null $userId
+     * @param array $payload
+     * @param Context $context
+     * @return UserRoleAssignmentInvitePayload
+     */
+    public function transformInvitationPayload(?int $userId, array $payload, Context $context): object
+    {
+        $invitationPayload = UserRoleAssignmentInvitePayload::fromArray($payload)->toArray();
+        $invitationPayload['userId'] = !$userId ? null : $userId;
+        $invitationPayload['inviteeEmail'] = !$userId ?$invitationPayload['sendEmailAddress']:$payload['email'];
+        $invitationPayload['userGroupsToAdd'] = !$invitationPayload['userGroupsToAdd'] ? [] :$invitationPayload['userGroupsToAdd'];
+        $invitationPayload['currentUserGroups'] = !$userId ? [] : $this->transformCurrentUserGroups($userId,$context);
+
+        return (object)$invitationPayload;
+    }
+
+    /**
+     * Transform user data for invitation view
+     * @param User $user
+     * @param $context
+     * @return array
+     */
+    public function transformInvitationUserData(User $user, $context): array
+    {
+        $userData = [];
+        $userData['country'] = $user->getCountryLocalized();
+        $userData['biography'] = $user->getBiography(null);
+        $userData['phone'] = $user->getPhone();
+        $userData['mailingAddress'] = $user->getMailingAddress();
+        $userData['signature'] = $user->getSignature(null);
+        $userData['locales'] = $this->transformUserWorkingLanguages($context, $user->getLocales());
+        $userData['reviewInterests'] = $user->getInterestString();
+        $userData['homePageUrl'] = $user->getUrl();
+        $userData['disabled'] = $user->getData('disabled');
+        return $userData;
+    }
+
+    /**
+     * get user working languages
+     * @param Context $context
+     * @param array $userLocales
+     * @return string
+     */
+    private function transformUserWorkingLanguages(Context $context, array $userLocales): string
+    {
+        $locales = $context->getSupportedLocaleNames();
+        return join(__('common.commaListSeparator'), array_map(fn($key) => $locales[$key], $userLocales));
     }
 }

@@ -55,6 +55,8 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 use PKP\mail\Mailable;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -133,6 +135,9 @@ class ManagementHandler extends Handler
                 break;
             case 'institutions':
                 $this->institutions($args, $request);
+                break;
+            case 'user':
+                $this->editUser($args, $request);
                 break;
             default:
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -577,6 +582,26 @@ class ManagementHandler extends Handler
         ]);
 
         $templateMgr->display('management/manageEmails.tpl');
+    }
+
+    /**
+     * Edit or view user using user access table action
+     * @param array $args
+     * @param $request
+     * @return void
+     * @throws \Exception
+     */
+    public function editUser(array $args, $request): void
+    {
+        $this->setupTemplate($request);
+        $userId = $args[0];
+        if(!empty($userId)) {
+            $invitation = app(Invitation::class)->createNew('userRoleAssignment');
+            $invitationHandler = $invitation->getInvitationUIActionRedirectController();
+            $invitationHandler->createHandle($request,$userId);
+        } else {
+            $request->getDispatcher()->handle404();
+        }
     }
 
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm

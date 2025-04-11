@@ -197,4 +197,12 @@ class Application extends PKPApplication
     {
         return ['context' => '/contexts/', 'submission' => '/submissions/'];
     }
+
+    /**
+     * Get the help URL of this application
+     */
+    public static function getHelpUrl(): string
+    {
+        return 'https://docs.pkp.sfu.ca/learning-ops/en/';
+    }
 }

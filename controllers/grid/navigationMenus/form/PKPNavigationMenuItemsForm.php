@@ -181,11 +181,11 @@ class PKPNavigationMenuItemsForm extends Form
             $navigationMenuItem->setTitle($this->getData('title'), null);
         } else {
             // The NMI will have localized title in the navigation_menu_item_settings table
-            // only if the user is defining one explicitely.
+            // only if the user is defining one explicitly.
             // This is not always the case for the default NMIs that, by default, get their titles
             // from the titleLocaleKey setting of the NMI.
 
-            // Get the title that have been explicitely set in the settings tatble
+            // Get the title that have been explicitly set in the settings tatble
             $localizedTitlesFromDB = $navigationMenuItem->getTitle(null) ?? [];
 
             // Get the set of all displayed titles, no matter the source. 
@@ -195,7 +195,7 @@ class PKPNavigationMenuItemsForm extends Form
 
             $newTitles = [];
 
-            // Get the explicitely provided user titles
+            // Get the explicitly provided user titles
             $inputLocalizedTitles = $this->getData('title');
 
             // Explicit define the localized title of the NMI.
@@ -208,14 +208,8 @@ class PKPNavigationMenuItemsForm extends Form
                     continue;
                 }
 
-                // Check if there is a display title for the NMI. If not for this locale, explicitely define one
-                if (!isset($originalDisplayTitles[$locale])) {
-                    $newTitles[$locale] = $trimmedTitle;
-                    continue;
-                }
-
                 // Update title if explicitly defined or changed from default
-                if (isset($localizedTitlesFromDB[$locale]) || $originalDisplayTitles[$locale] !== $trimmedTitle) {
+                if (isset($localizedTitlesFromDB[$locale]) || ($originalDisplayTitles[$locale] ?? null) !== $trimmedTitle) {
                     $newTitles[$locale] = $trimmedTitle;
                 }
             }

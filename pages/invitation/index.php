@@ -17,6 +17,7 @@ switch ($op) {
     case 'decline':
     case 'accept':
         return new PKP\pages\invitation\InvitationHandler();
-    case 'initializeUI':
+    case 'create':
+    case 'edit':
         return new PKP\pages\invitation\InitializeInvitationUIHandler();
 }

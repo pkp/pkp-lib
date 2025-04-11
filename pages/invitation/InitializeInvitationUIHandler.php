@@ -16,13 +16,10 @@
 
 namespace PKP\pages\invitation;
 
-use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -45,7 +42,8 @@ class InitializeInvitationUIHandler extends Handler
                 ROLE::ROLE_ID_ASSISTANT,
             ],
             [
-                'initializeUI',
+                'create',
+                'edit',
             ]
         );
     }
@@ -69,9 +67,10 @@ class InitializeInvitationUIHandler extends Handler
 
     /**
      * Create an invitation for a user to accept new roles
-     * @throws \Exception
+     * @param array $args
+     * @param Request $request
      */
-    public function initializeUI(array $args, Request $request): void
+    public function create(array $args, Request $request): void
     {
         if (empty($args) || count($args) < 1) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -79,7 +78,34 @@ class InitializeInvitationUIHandler extends Handler
 
         $this->setupTemplate($request);
 
-        $arg = $args[0];
+        $arg = $args[0]; // invitation type
+
+        if (is_numeric($arg)) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        } else {
+            // Handle new invitation by type
+            $invitationType = $arg;
+            $invitation = app(Invitation::class)->createNew($invitationType);
+            $invitationHandler = $invitation->getInvitationUIActionRedirectController();
+            $invitationHandler->createHandle($request);
+        }
+    }
+
+    /**
+     * Edit an invitation
+     * @param array $args
+     * @param Request $request
+     * @return void
+     */
+    public function edit(array $args, Request $request): void
+    {
+        if (empty($args) || count($args) < 1) {
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+        }
+
+        $this->setupTemplate($request);
+
+        $arg = $args[0]; // invitation id
 
         if (is_numeric($arg)) {
             // Handle existing invitation by ID
@@ -91,11 +117,7 @@ class InitializeInvitationUIHandler extends Handler
             $invitationHandler = $invitation->getInvitationUIActionRedirectController();
             $invitationHandler->editHandle($request);
         } else {
-            // Handle new invitation by type
-            $invitationType = $arg;
-            $invitation = app(Invitation::class)->createNew($invitationType);
-            $invitationHandler = $invitation->getInvitationUIActionRedirectController();
-            $invitationHandler->createHandle($request);
+            throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
     }
 }

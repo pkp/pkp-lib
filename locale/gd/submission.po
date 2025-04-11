@@ -1728,7 +1728,9 @@ msgid "notification.type.editorAssign"
 msgstr ""
 
 msgid "notification.type.copyeditorRequest"
-msgstr ""
+msgstr
+"Chaidh iarraidh ort lèirmheas a dhèanamh air a’ ghrinn-deasachadh a rinneadh "
+"air “{$title}”."
 
 msgid "notification.type.layouteditorRequest"
 msgstr ""

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_5_0/I4860_MigratePublicationVersion.php
+ * @file classes/migration/upgrade/v3_6_0/I4860_MigratePublicationVersion.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Add additional columns for publication versioning and migrate existing data
  */
 
-namespace PKP\migration\upgrade\v3_5_0;
+namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;

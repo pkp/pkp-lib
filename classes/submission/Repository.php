@@ -848,7 +848,7 @@ abstract class Repository
     public function getAllVersionDataByPublications(Submission $submission): Collection
     {
         return collect($submission->getData('publications')->map(function ($publication) {
-            return $publication->getCurrentVersionData();
+            return $publication->getVersionData();
         })->filter()); // Remove any null entries from the collection
     }
 

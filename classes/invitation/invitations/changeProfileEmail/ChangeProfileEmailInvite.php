@@ -25,6 +25,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\changeProfileEmail\handlers\ChangeProfileEmailInviteRedirectController;
@@ -138,10 +139,15 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         return new ChangeProfileEmailInviteRedirectController($this);
     }
 
+    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
+    {
+        return null;
+    }
+
     /**
      * @inheritDoc
      */
-    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array 
+    public function getValidationRules(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         return [
             'newEmail' => 'required|email',
@@ -151,7 +157,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     /**
      * @inheritDoc
      */
-    public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array 
+    public function getValidationMessages(ValidationContext $validationContext = ValidationContext::VALIDATION_CONTEXT_DEFAULT): array
     {
         return [];
     }

@@ -17,8 +17,11 @@ namespace PKP\invitation\invitations\userRoleAssignment\resources;
 use APP\facades\Repo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\context\Context;
+use PKP\facades\Locale;
 use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
 use PKP\user\User;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class BaseUserRoleAssignmentInviteResource extends JsonResource
 {
@@ -90,5 +93,25 @@ class BaseUserRoleAssignmentInviteResource extends JsonResource
         $newUser->setEmail($payload->sendEmailAddress);
 
         return $newUser;
+    }
+
+    protected function transformCurrentUserGroups(int $id , Context $context): array
+    {
+        $userGroups = [];
+        $userUserGroups = UserUserGroup::query()
+            ->withUserId($id)
+            ->withContextId($context->getId())
+            ->get()
+            ->toArray();
+        foreach ($userUserGroups as $key => $userUserGroup) {
+            $userGroup = Repo::userGroup()
+                ->get($userUserGroup['userGroupId'])
+                ->toArray();
+            $userGroups[$key] = $userUserGroup;
+            $userGroups[$key]['masthead'] = $userUserGroup['masthead'] === 1;
+            $userGroups[$key]['name'] = $userGroup['name'][Locale::getLocale()];
+            $userGroups[$key]['id'] = $userGroup['userGroupId'];
+        }
+        return $userGroups;
     }
 }

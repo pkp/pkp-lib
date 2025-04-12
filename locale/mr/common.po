@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-23 22:30+0000\n"
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "mr/>\n"
@@ -360,7 +360,7 @@ msgid "common.on"
 msgstr "चालू"
 
 msgid "common.ok"
-msgstr "समाधानकारक"
+msgstr "स्वीकारा (OK)"
 
 msgid "common.options"
 msgstr "पर्याय"
@@ -528,7 +528,7 @@ msgid "common.subject"
 msgstr "विषय"
 
 msgid "common.subjects"
-msgstr "विषय (अनेक)"
+msgstr "विषय"
 
 msgid "common.switchToNamedItem"
 msgstr "{$name} वर जा (Switch to)"
@@ -753,7 +753,7 @@ msgid "common.language"
 msgstr "भाषा"
 
 msgid "common.languages"
-msgstr "भाषा (अनेक)"
+msgstr "भाषा"
 
 msgid "common.lastActivity"
 msgstr "{$date} रोजी सक्रियता (activity) असल्याची शेवटची नोंद आहे."
@@ -1285,7 +1285,7 @@ msgid "navigation.previousStep"
 msgstr "मागील पायरी"
 
 msgid "notification.notifications"
-msgstr "सूचना (अनेक)"
+msgstr "सूचना"
 
 msgid "navigation.setup"
 msgstr "सेटअप"

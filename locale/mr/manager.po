@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-23 22:30+0000\n"
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "mr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.roles"
-msgstr "भूमिका (अनेक)"
+msgstr "भूमिका"
 
 msgid "manager.setup.statistics"
 msgstr "आकडेवारी"
@@ -1109,7 +1109,7 @@ msgid "manager.setup.theme"
 msgstr "विषय/ मांडणी शैली (themes)"
 
 msgid "manager.setup.institutions"
-msgstr "संस्था (अनेक)"
+msgstr "संस्था"
 
 msgid "manager.setup.theme.description"
 msgstr ""

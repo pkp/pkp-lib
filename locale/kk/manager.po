@@ -1178,10 +1178,12 @@ msgstr "Рецензия беруге келісім мерзімі"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Рецензия берудің аяқталу күні"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Рецензияны жазуға жауап ретінде келісу немесе бас тарту апталары."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Рецензияны аяқтау үшін қажетті апталар"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

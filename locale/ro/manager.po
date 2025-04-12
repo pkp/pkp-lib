@@ -1143,11 +1143,13 @@ msgstr "Termenul de răspuns implicit"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Termenul de completare implicit"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Număr de săptămâni pentru a accepta sau refuza o solicitare de revizuire."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Săptămânile au fost permise pentru finalizarea revizuirii"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

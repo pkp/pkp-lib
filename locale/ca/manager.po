@@ -1172,10 +1172,12 @@ msgstr "Data límit de resposta predeterminada"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Data límit de finalització predeterminada"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Nombre de setmanes per acceptar o rebutjar una sol·licitud de revisió."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Temps permès per completar les revisions (setmanes)"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

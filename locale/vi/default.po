@@ -1,39 +1,40 @@
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-26 06:45+0000\n"
-"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"PO-Revision-Date: 2025-04-14 03:12+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"default/vi_VN/>\n"
-"Language: vi_VN\n"
+"default/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Quản trị trang web"
+msgstr "Quản trị viên"
 
 msgid "default.groups.plural.siteAdmin"
-msgstr "Quản trị viên trang web"
+msgstr "Các quản trị viên"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Biên tập viên sản xuất"
+msgstr "Biên tập sản xuất"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Các biên tập viên sản xuất"
+msgstr "Các biên tập sản xuất"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "Prod-E"
+msgstr "BTS"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Biên tập viên bản thảo"
+msgstr "Biên tập viên"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Các Biên tập viên bản thảo"
+msgstr "Các biên tập viên"
 
 msgid "default.groups.abbrev.copyeditor"
-msgstr "CE"
+msgstr "BTV"
 
 msgid "default.groups.name.proofreader"
 msgstr "Người đọc soát lỗi"
@@ -42,7 +43,7 @@ msgid "default.groups.plural.proofreader"
 msgstr "Những người đọc soát lỗi"
 
 msgid "default.groups.abbrev.proofreader"
-msgstr "PR"
+msgstr "ĐSL"
 
 msgid "default.groups.name.designer"
 msgstr "Nhà thiết kế"
@@ -51,52 +52,52 @@ msgid "default.groups.plural.designer"
 msgstr "Các nhà thiết kế"
 
 msgid "default.groups.abbrev.designer"
-msgstr "Thiết kế"
+msgstr "TK"
 
 msgid "default.groups.name.internalReviewer"
-msgstr "Phản biện nội bộ"
+msgstr "Người đánh giá nội bộ"
 
 msgid "default.groups.plural.internalReviewer"
-msgstr "Các Phản biện nội bộ"
+msgstr "Những người đánh giá nội bộ"
 
 msgid "default.groups.abbrev.internalReviewer"
-msgstr "IR"
+msgstr "ĐGNB"
 
 msgid "default.groups.name.marketing"
 msgstr "Điều phối viên tiếp thị và bán hàng"
 
 msgid "default.groups.plural.marketing"
-msgstr "Các Điều phối viên tiếp thị và bán hàng"
+msgstr "Các điều phối viên tiếp thị và bán hàng"
 
 msgid "default.groups.abbrev.marketing"
-msgstr "MS"
+msgstr "TTBH"
 
 msgid "default.groups.name.funding"
 msgstr "Điều phối viên tài trợ"
 
 msgid "default.groups.plural.funding"
-msgstr "Các Điều phối viên tài trợ"
+msgstr "Các điều phối viên tài trợ"
 
 msgid "default.groups.abbrev.funding"
-msgstr "FC"
+msgstr "ĐPTT"
 
 msgid "default.groups.name.indexer"
 msgstr "Người lập chỉ mục"
 
 msgid "default.groups.plural.indexer"
-msgstr "Người lập chỉ mục"
+msgstr "Những người lập chỉ mục"
 
 msgid "default.groups.abbrev.indexer"
-msgstr "IND"
+msgstr "LCM"
 
 msgid "default.groups.name.layoutEditor"
-msgstr "Biên tập viên Trình bày"
+msgstr "Biên tập trình bày"
 
 msgid "default.groups.plural.layoutEditor"
-msgstr "Các Biên tập viên Trình bày"
+msgstr "Các biên tập trình bày"
 
 msgid "default.groups.abbrev.layoutEditor"
-msgstr "LE"
+msgstr "BTTB"
 
 msgid "default.groups.name.author"
 msgstr "Tác giả"
@@ -105,25 +106,25 @@ msgid "default.groups.plural.author"
 msgstr "Các tác giả"
 
 msgid "default.groups.abbrev.author"
-msgstr "AU"
+msgstr "TG"
 
 msgid "default.groups.name.translator"
-msgstr "Biên dịch viên"
+msgstr "Dịch giả"
 
 msgid "default.groups.plural.translator"
-msgstr "Các biên dịch viên"
+msgstr "Các dịch giả"
 
 msgid "default.groups.abbrev.translator"
-msgstr "Trans"
+msgstr "DG"
 
 msgid "default.groups.name.reader"
-msgstr "Bạn đọc"
+msgstr "Độc giả"
 
 msgid "default.groups.plural.reader"
-msgstr "Các bạn đọc"
+msgstr "Độc giả"
 
 msgid "default.groups.abbrev.reader"
-msgstr "Đọc"
+msgstr "ĐG"
 
 msgid "default.genres.other"
 msgstr "Khác"
@@ -135,25 +136,75 @@ msgid "default.genres.image"
 msgstr "Hình ảnh"
 
 msgid "default.genres.styleSheet"
-msgstr "Biểu định kiểu HTML"
+msgstr "Bảng định kiểu HTML"
 
 msgid "default.contextSettings.emailSignature"
 msgstr ""
+"<br><br>—<br><p>Đây là tin nhắn tự động từ <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
 
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""
+"<p>Cảm ơn bạn đã gửi bài cho {$contextName}. Bạn sẽ được yêu cầu tải lên các "
+"tệp, xác định đồng tác giả, và cung cấp thông tin như tiêu đề và tóm "
+"tắt.<p><p>Vui lòng đọc <a href=\"{$submissionGuidelinesUrl}\" target=\"_blank"
+"\">Hướng dẫn Gửi bài</a> nếu bạn chưa làm vậy. Khi điền vào các biểu mẫu, "
+"hãy cung cấp càng nhiều chi tiết càng tốt để giúp biên tập viên của chúng "
+"tôi đánh giá công trình của bạn.</p><p>Sau khi bắt đầu, bạn có thể lưu bản "
+"thảo của mình và quay lại sau. Bạn sẽ có thể xem lại và sửa chữa mọi thông "
+"tin trước khi gửi.</p>"
 
 msgid "default.submission.step.uploadFiles"
 msgstr ""
+"<p>Cung cấp bất kỳ tệp nào mà đội ngũ biên tập của chúng tôi có thể cần để "
+"đánh giá bài gửi của bạn. Ngoài tác phẩm chính, bạn có thể muốn gửi bộ dữ "
+"liệu, tuyên bố xung đột lợi ích, hoặc các tệp bổ sung khác nếu những điều "
+"này sẽ hữu ích cho biên tập viên của chúng tôi.</p>"
 
 msgid "default.submission.step.contributors"
 msgstr ""
+"<p>Thêm chi tiết cho tất cả những người đóng góp vào bài gửi này. Những "
+"người đóng góp được thêm vào đây sẽ nhận được email xác nhận về bài gửi, "
+"cũng như một bản sao của tất cả các quyết định biên tập được ghi nhận cho "
+"bài gửi này.</p><p>Nếu một người đóng góp không thể liên hệ qua email, vì họ "
+"phải ẩn danh hoặc không có tài khoản email, vui lòng không nhập địa chỉ "
+"email giả. Bạn có thể thêm thông tin về người đóng góp này trong tin nhắn "
+"gửi đến biên tập viên ở bước sau trong quá trình gửi bài.</p>"
 
 msgid "default.submission.step.details"
 msgstr ""
+"<p>Vui lòng cung cấp các chi tiết sau đây để giúp chúng tôi quản lý bài gửi "
+"của bạn trong hệ thống của chúng tôi.</p>"
 
 msgid "default.submission.step.forTheEditors"
 msgstr ""
+"<p>Vui lòng cung cấp các chi tiết sau đây để giúp đội ngũ biên tập của chúng "
+"tôi quản lý bài gửi của bạn.</p><p>Khi nhập siêu dữ liệu, hãy cung cấp thông "
+"tin mà bạn nghĩ sẽ hữu ích nhất cho người quản lý bài gửi của bạn. Thông tin "
+"này có thể được thay đổi trước khi xuất bản.</p>"
 
 msgid "default.submission.step.review"
 msgstr ""
+"<p>Xem lại thông tin bạn đã nhập trước khi hoàn tất bài gửi của mình. Bạn có "
+"thể thay đổi bất kỳ chi tiết nào hiển thị ở đây bằng cách nhấp vào nút chỉnh "
+"sửa ở đầu mỗi phần.</p><p>Khi bạn hoàn tất bài gửi của mình, một thành viên "
+"trong đội ngũ biên tập của chúng tôi sẽ được giao nhiệm vụ xem xét nó. Hãy "
+"đảm bảo rằng các chi tiết bạn đã nhập ở đây là chính xác nhất có thể.</p>"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Thành viên Ban biên tập"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Thành viên Ban biên tập"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "BBT"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Khi gửi, bạn có tùy chọn để đề xuất một số người đánh giá tiềm năng. Điều "
+"này có thể giúp hợp lý hóa quy trình xem xét và cung cấp đầu vào có giá trị "
+"cho nhóm biên tập. Vui lòng chọn người đánh giá là chuyên gia trong lĩnh vực "
+"của bạn và không có xung đột lợi ích với công việc của bạn. Tính năng này "
+"nhằm mục đích tăng cường quá trình xem xét và hỗ trợ trải nghiệm hiệu quả "
+"hơn cho cả tác giả và nhóm biên tập.</p>"

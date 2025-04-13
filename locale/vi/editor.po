@@ -1,15 +1,16 @@
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-23 18:48+0000\n"
-"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"PO-Revision-Date: 2025-04-13 10:34+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"editor/vi_VN/>\n"
-"Language: vi_VN\n"
+"editor/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn bài này?"
@@ -170,11 +171,9 @@ msgstr "Không gửi (bỏ qua) email thông báo"
 msgid "editor.submissionReview.open"
 msgstr "Mở"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
 msgstr "Kín"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Kín hai chiều"
 
@@ -551,7 +550,6 @@ msgstr ""
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Phản biện này đã được chỉ định để xem xét bài nộp này."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Người phản biện này bị khóa vì họ đã được chỉ định một vai trò cho phép xem "

@@ -27,8 +27,8 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
+use PKP\components\forms\citation\PKPCitationsForm;
 use PKP\components\forms\FormComponent;
-use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\CommentsForTheEditors;
 use PKP\components\forms\submission\ConfirmSubmission;
@@ -232,7 +232,7 @@ abstract class PKPSubmissionHandler extends Handler
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),

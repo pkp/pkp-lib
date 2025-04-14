@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/PKPPublicationNativeXmlFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicationNativeXmlFilter
@@ -21,9 +21,7 @@ use APP\facades\Repo;
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use APP\publication\Publication;
 use Exception;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
-use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\plugins\PluginRegistry;
@@ -341,10 +339,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      */
     private function createCitationsNode($doc, $deployment, $publication)
     {
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-
         $nodeCitations = $doc->createElementNS($deployment->getNamespace(), 'citations');
-        $submissionCitations = $citationDao->getByPublicationId($publication->getId())->toAssociativeArray();
+        $submissionCitations = Repo::citation()->getByPublicationId($publication->getId());
 
         foreach ($submissionCitations as $submissionCitation) {
             $rawCitation = $submissionCitation->getRawCitation();

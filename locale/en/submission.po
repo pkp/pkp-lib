@@ -471,6 +471,84 @@ msgstr "References"
 msgid "submission.citations.description"
 msgstr "Enter each reference on a new line so that they can be extracted and recorded separately."
 
+msgid "submission.citations.structured"
+msgstr "Structured References"
+
+msgid "submission.citations.structured.single"
+msgstr "Reference"
+
+msgid "submission.citations.structured.label.useStructuredReferences"
+msgstr "Use Structured References"
+
+msgid "submission.citations.structured.description"
+msgstr ""
+"Once you've entered your citations in the References field, click \"Save\" to process them into a structured format. "
+"The system will extract the DOIs and retrieve any additional metadata from external sources. "
+"This may take a little time, but you can continue working on your submission in the meantime and return to this page "
+"later to view the processed citations. \n"
+"Once the submission is published and assigned a DOI, the metadata will be submitted automatically - ensuring your "
+"references are properly formatted and ready for deposit. "
+
+msgid "submission.citations.structured.collapseAll"
+msgstr "Collapse All"
+
+msgid "submission.citations.structured.expandAll"
+msgstr "Expand All"
+
+msgid "submission.citations.structured.header.article"
+msgstr "Article Information"
+
+msgid "submission.citations.structured.header.authors"
+msgstr "Author Information"
+
+msgid "submission.citations.structured.header.journal"
+msgstr "Journal Information"
+
+msgid "submission.citations.structured.label.doi"
+msgstr "DOI"
+
+msgid "submission.citations.structured.label.title"
+msgstr "Article Name"
+
+msgid "submission.citations.structured.label.date"
+msgstr "Date"
+
+msgid "submission.citations.structured.label.type"
+msgstr "Type"
+
+msgid "submission.citations.structured.label.volume"
+msgstr "Volume"
+
+msgid "submission.citations.structured.label.issue"
+msgstr "Issue"
+
+msgid "submission.citations.structured.label.pages"
+msgstr "Pages"
+
+msgid "submission.citations.structured.label.sourceName"
+msgstr "Journal / Venue"
+
+msgid "submission.citations.structured.label.sourceHost"
+msgstr "Publisher or Host"
+
+msgid "submission.citations.structured.label.url"
+msgstr "URL"
+
+msgid "submission.citations.structured.label.urn"
+msgstr "URN"
+
+msgid "submission.citations.structured.label.arxiv"
+msgstr "Arxiv"
+
+msgid "submission.citations.structured.label.handle"
+msgstr "Handle"
+
+msgid "submission.citations.structured.label.openAlex"
+msgstr "OpenAlex"
+
+msgid "submission.citations.structured.label.wikidata"
+msgstr "Wikidata"
+
 msgid "submission.parsedCitations"
 msgstr "Extracted References"
 

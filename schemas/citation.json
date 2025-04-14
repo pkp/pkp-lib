@@ -1,0 +1,267 @@
+{
+	"title": "Citation",
+	"description": "Citation is a reference in a publication to another publication.",
+	"required": [
+		"publicationId",
+		"seq"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique id of citation in the database.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"publicationId": {
+			"type": "integer",
+			"description": "The publication to which this citation is associated with.",
+			"writeDisabledInApi": true,
+			"apiSummary": true
+		},
+		"seq": {
+			"type": "integer",
+			"description": "The sequence number of citation.",
+			"default": 0,
+			"validation": [
+				"nullable"
+			]
+		},
+		"authors": {
+			"type": "array",
+			"description": "A list of the authors for this work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"displayName": {
+						"type": "string"
+					},
+					"givenName": {
+						"type": "string"
+					},
+					"familyName": {
+						"type": "string"
+					},
+					"orcid": {
+						"type": "string"
+					},
+					"wikidata": {
+						"type": "string"
+					},
+					"openAlex": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"doi": {
+			"type": "string",
+			"description": "The DOI itself, such as `10.1234/5a6b-7c8d`.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"regex:/^\\d+(.\\d+)+\\//"
+			]
+		},
+		"rawCitation": {
+			"type": "string",
+			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
+			"multilingual": false,
+			"validation": [
+				"nullable"
+			]
+		},
+		"rawCitationWithLinks": {
+			"type": "string",
+			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
+			"multilingual": false,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"title": {
+			"type": "string",
+			"description": "Title of work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"date": {
+			"type": "string",
+			"description": "The publication date",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"date_format:Y-m-d"
+			]
+		},
+		"type": {
+			"type": "string",
+			"description": "The type or genre of the work, e.g. journal-article.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"in:book,book-chapter,book-part,book-section,book-series,book-set,book-track,component,database,dataset,dissertation,edited-book,grant,journal,journal-article,journal-issue,journal-volume,monograph,other,peer-review,posted-content,proceedings,proceedings-article,proceedings-series,reference-book,reference-entry,report,report-component,report-series,standard"
+			]
+		},
+		"volume": {
+			"type": "string",
+			"description": "The volume of the issue of the journal, e.g. 495.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"issue": {
+			"type": "string",
+			"description": "The issue of the journal, e.g. 7442.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"firstPage": {
+			"type": "string",
+			"description": "The first page of the work/article, e.g. 49.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"lastPage": {
+			"type": "string",
+			"description": "The last page of the work/article, e.g. 59.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"sourceName": {
+			"type": "string",
+			"description": "Name of the source, e.g. PeerJ",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"sourceIssn": {
+			"type": "string",
+			"description": "Issn_l of the source, e.g. 2167-8359",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"sourceHost": {
+			"type": "string",
+			"description": "Host of the source, e.g. Pensoft Publishers",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"sourceType": {
+			"type": "string",
+			"description": "Type of the source, e.g. journal, repository",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"in:journal,repository,conference,ebookplatform,bookseries,metadata,other"
+			]
+		},
+		"url": {
+			"type": "string",
+			"description": "URL for the work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"urn": {
+			"type": "string",
+			"description": "URN for the work.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"arxiv": {
+			"type": "string",
+			"description": "Arxiv id.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"handle": {
+			"type": "string",
+			"description": "Handle id.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"openAlex": {
+			"type": "string",
+			"description": "OpenAlex id.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"wikidata": {
+			"type": "string",
+			"description": "Wikidata qid.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable",
+				"url"
+			]
+		},
+		"isStructured": {
+			"type": "boolean",
+			"description": "Whether this citation is structured or not.",
+			"multilingual": false,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"lastModified": {
+			"type": "string",
+			"description": "The last time a modification was made to this record.",
+			"apiSummary": true,
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		}
+	}
+}

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-04-14 15:15+0000\n"
+"PO-Revision-Date: 2025-04-14 20:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/user/eu/>"
 "\n"
@@ -718,3 +718,76 @@ msgstr "{$primaryLocale} hizkuntza nagusia beharrezkoa da"
 
 msgid "orcid.fieldset"
 msgstr "ORCID"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "ORCID bikoiztuak detektatu dira kolaboratzaileetan."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Gaitu ORCID funtzioa"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Gaitu ORCID funtzioa webgune osoan"
+
+msgid "orcid.field.verification.request"
+msgstr "Eskatu egiaztapena"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Birbidali egiaztapen-mezu elektronikoa"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Eskatu ORCID egiaztapena"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Ezabatu ORCIDa"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Ziur zaude ORCID hau ezabatu nahi duzula?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Zure rola {$roleStartDate} egunean hasteko programatuta dago"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Ordura arte, zure profila berrikusi eta eguneratu dezakezu. Errore bat dela "
+"uste baduzu, jarri harremanetan administratzailearekin."
+
+msgid "user.disabledModal.description"
+msgstr "Egungo rolak: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Desgaitu {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Gaitu {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografia"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Ziur rol hau betiko ezabatu nahi duzula? Ekintza honek erabiltzaileari rol "
+"honekin lotutako informazio eta baimen guztietarako sarbidea kenduko dio."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Ezin duzu rola ezabatu. Erabiltzaileak gutxienez rol bat izan behar du "
+"esleituta."
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Client Secret baliogabea, egiaztatu zure kredentzialak"
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Autentifikatu gabeko ORCIDak detektatu dira kolaboratzaileetan."
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID egiaztapena eskatu da!"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Egile honi mezu elektroniko bat bidali nahi diozu bere ORCIDa egiaztatzeko "
+"eskatzeko?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"ORCID hau ez da egiaztatu. Ezabatu eta eskatu egiaztapena zuzenean "
+"erabiltzaileari/egileari."

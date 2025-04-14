@@ -27,6 +27,9 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
@@ -56,7 +59,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Validation checks for this form
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
         $requiredReviewFormElementIds = $reviewFormElementDao->getRequiredReviewFormElementIds($reviewAssignment->getReviewFormId());
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function ($reviewFormResponses) use ($requiredReviewFormElementIds) {
+        $this->addCheck(new FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function ($reviewFormResponses) use ($requiredReviewFormElementIds) {
             foreach ($requiredReviewFormElementIds as $requiredReviewFormElementId) {
                 if (!isset($reviewFormResponses[$requiredReviewFormElementId]) || $reviewFormResponses[$requiredReviewFormElementId] == '') {
                     return false;
@@ -65,8 +68,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             return true;
         }));
 
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**

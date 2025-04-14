@@ -231,8 +231,6 @@ class ReviewAssignment extends \PKP\core\DataObject
 
     /**
      * Get reviewer recommendation id
-     *
-     * @return string
      */
     public function getReviewerRecommendationId(): ?int
     {

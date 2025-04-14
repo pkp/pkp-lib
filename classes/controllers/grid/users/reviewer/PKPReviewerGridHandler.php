@@ -413,7 +413,7 @@ class PKPReviewerGridHandler extends GridHandler
     {
         $selectionType = $request->getUserVar('selectionType');
 
-        $reviewerForm = $this->getReviewerFrom($selectionType, $request);
+        $reviewerForm = $this->getReviewerForm($selectionType, $request);
         $reviewerForm->readInputData();
 
 
@@ -1113,7 +1113,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $reviewerForm = $this->getReviewerFrom($selectionType, $request);
+        $reviewerForm = $this->getReviewerForm($selectionType, $request);
         $reviewerForm->initData();
         $reviewerForm->setUserRoles($userRoles);
 
@@ -1255,9 +1255,9 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     /**
-     * Get the proper reviewer from instance
+     * Get the proper reviewer form instance
      */
-    protected function getReviewerFrom(int $selectionType, ?Request $request = null): ReviewerForm
+    protected function getReviewerForm(int $selectionType, ?Request $request = null): ReviewerForm
     {
         $request ??= Application::get()->getRequest();
         $formClassName = $this->_getReviewerFormClassName($selectionType);

@@ -126,7 +126,6 @@ class Repository
 
     /**
      * Get an associative array matching reviewer recommendation id mapped to localized title.
-     * (Includes default '' => "Choose One" string.)
      *
      * @return array recommendation => localizedTitle
      */

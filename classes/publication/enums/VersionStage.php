@@ -24,14 +24,19 @@ enum VersionStage: string
     case PROOF = 'PF';
     case VERSION_OF_RECORD = 'VoR';
 
-    public function label(): string
+    public function labelKey(): string
     {
         return match ($this) {
-            self::AUTHOR_ORIGINAL => __('publication.versionStage.authorOriginal'),
-            self::ACCEPTED_MANUSCRIPT => __('publication.versionStage.acceptedManuscript'),
-            self::SUBMITTED_MANUSCRIPT => __('publication.versionStage.submittedManuscript'),
-            self::PROOF => __('publication.versionStage.proof'),
-            self::VERSION_OF_RECORD => __('publication.versionStage.versionOfRecord'),
+            self::AUTHOR_ORIGINAL => 'publication.versionStage.authorOriginal',
+            self::ACCEPTED_MANUSCRIPT => 'publication.versionStage.acceptedManuscript',
+            self::SUBMITTED_MANUSCRIPT => 'publication.versionStage.submittedManuscript',
+            self::PROOF => 'publication.versionStage.proof',
+            self::VERSION_OF_RECORD => 'publication.versionStage.versionOfRecord',
         };
+    }
+
+    public function label(?string $locale = null): string
+    {
+        return __($this->labelKey(), locale: $locale);
     }
 }

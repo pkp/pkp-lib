@@ -56,7 +56,7 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\enums\VersionStage;
-use PKP\publication\helpers\VersionDataResource;
+use PKP\publication\helpers\PublicationVersionInfoResource;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -116,8 +116,8 @@ class PKPSubmissionController extends PKPBaseController
         'getPublicationLicenseForm',
         'getPublicationTitleAbstractForm',
         'getChangeLanguageMetadata',
-        'changeVersionData',
-        'getNextAvailableVersionData',
+        'changeVersion',
+        'getNextAvailableVersion',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -128,7 +128,7 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'changeLocale',
-        'changeVersionData'
+        'changeVersion'
     ];
 
     /** @var array Handlers that must be authorized to access a submission's production stage */
@@ -244,12 +244,12 @@ class PKPSubmissionController extends PKPBaseController
                 ->name('submission.publication.changeLocale')
                 ->whereNumber(['submissionId', 'publicationId']);
 
-            Route::put('{submissionId}/publications/{publicationId}/versionData', $this->changeVersionData(...))
-                ->name('submission.publication.versionData')
+            Route::put('{submissionId}/publications/{publicationId}/version', $this->changeVersion(...))
+                ->name('submission.publication.version')
                 ->whereNumber(['submissionId', 'publicationId']);
 
-            Route::get('{submissionId}/getNextAvailableVersionData', $this->getNextAvailableVersionData(...))
-                ->name('submission.getNextAvailableVersionData')
+            Route::get('{submissionId}/nextAvailableVersion', $this->getNextAvailableVersion(...))
+                ->name('submission.getNextAvailableVersion')
                 ->whereNumber(['submissionId']);
         });
 
@@ -969,7 +969,7 @@ class PKPSubmissionController extends PKPBaseController
     /**
      * Change version data for publication
      */
-    public function changeVersionData(Request $illuminateRequest): JsonResponse
+    public function changeVersion(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
@@ -999,9 +999,9 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $versionStage = $params['versionStage'];
-        $versionStageIsMinor = (bool) $params['versionIsMinor'];
+        $versionIsMinor = (bool) $params['versionIsMinor'];
 
-        Repo::publication()->updateVersionData($publication, VersionStage::from($versionStage), $versionStageIsMinor);
+        Repo::publication()->updateVersion($publication, VersionStage::from($versionStage), $versionIsMinor);
 
         return $this->edit($illuminateRequest);
     }
@@ -1009,7 +1009,7 @@ class PKPSubmissionController extends PKPBaseController
     /**
      * Get next potential version for submission
      */
-    public function getNextAvailableVersionData(Request $illuminateRequest): JsonResponse
+    public function getNextAvailableVersion(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
@@ -1017,10 +1017,10 @@ class PKPSubmissionController extends PKPBaseController
         $potentialVersionStage = VersionStage::from($params['versionStage']);
         $potentialIsMinor = ($params['versionIsMinor'] === 'false') ? false : (bool) $params['versionIsMinor'];
 
-        $potentialVersionStage = Repo::submission()->getNextAvailableVersionData($submission, $potentialVersionStage, $potentialIsMinor);
+        $potentialVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $potentialVersionStage, $potentialIsMinor);
 
         return response()->json(
-            (new VersionDataResource($potentialVersionStage))->toArray($illuminateRequest),
+            (new PublicationVersionInfoResource($potentialVersionInfo))->toArray($illuminateRequest),
             Response::HTTP_OK
         );
     }

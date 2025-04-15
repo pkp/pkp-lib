@@ -34,7 +34,7 @@ use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
 use PKP\publication\enums\VersionStage;
-use PKP\publication\helpers\VersionData;
+use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
@@ -841,48 +841,48 @@ abstract class Repository
     }
 
     /**
-     * Return a collection of all existing Version Data 
+     * Return a collection of all existing Versions 
      * for the submission's publications
      *
-     * @return Collection<VersionData>
+     * @return Collection<PublicationVersionInfo>
      */
-    public function getAllVersionDataByPublications(Submission $submission): Collection
+    public function getAllVersionsByPublication(Submission $submission): Collection
     {
         return collect($submission->getData('publications')->map(function ($publication) {
-            return $publication->getVersionData();
+            return $publication->getVersion();
         })->filter()); // Remove any null entries from the collection
     }
 
-    public function getNextAvailableVersionData(Submission $submission, VersionStage $versioningStage, bool $isMinorChange = true): VersionData
+    public function getNextAvailableVersion(Submission $submission, VersionStage $versionStage, bool $isMinorChange = true): PublicationVersionInfo
     {
-        $nextVersionStage = VersionData::createDefaultForStage($versioningStage);
+        $nextVersion = new PublicationVersionInfo($versionStage);
 
-        $submissionVersionStages = $this->getAllVersionDataByPublications($submission);
+        $submissionVersions = $this->getAllVersionsByPublication($submission);
 
-        // Filter to find the version stages that match the current versioningStage but with potentially updated versionMajor or versionMinor
-        $matchingVersionStages = $submissionVersionStages->filter(function ($existingVersionStage) use ($versioningStage) {
-            return $existingVersionStage->stage === $versioningStage;
+        // Filter to find the version stages that match the current version stage but with potentially updated versionMajor or versionMinor
+        $matchingVersions = $submissionVersions->filter(function ($existingVersion) use ($versionStage) {
+            return $existingVersion->stage === $versionStage;
         });
 
-        if (!$matchingVersionStages->isEmpty()) {
+        if (!$matchingVersions->isEmpty()) {
             // Sort the version stages by versionMajor and versionMinor (descending order)
-            $sortedVersionStages = $matchingVersionStages->sort(function ($a, $b) {
+            $sortedVersions = $matchingVersions->sort(function ($a, $b) {
                 return $b->majorNumbering <=> $a->majorNumbering ?: $b->minorNumbering <=> $a->minorNumbering;
             });
 
-            $nextVersionStage = $sortedVersionStages->first();
+            $nextVersion = $sortedVersions->first();
 
             if ($isMinorChange) {
                 // Increment the minor version
-                $nextVersionStage->minorNumbering += 1;
+                $nextVersion->minorNumbering += 1;
             } else {
                 // Increment the major version and reset the minor version
-                $nextVersionStage->majorNumbering += 1;
-                $nextVersionStage->minorNumbering = VersionData::DEFAULT_MINOR_NUMBERING;
+                $nextVersion->majorNumbering += 1;
+                $nextVersion->minorNumbering = PublicationVersionInfo::DEFAULT_MINOR_NUMBERING;
             }
         }
 
-        return $nextVersionStage;
+        return $nextVersion;
     }
 
     /**

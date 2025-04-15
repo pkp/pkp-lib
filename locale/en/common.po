@@ -2035,25 +2035,25 @@ msgid "notification.type.editorialReminder"
 msgstr "Weekly email of outstanding tasks"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Navigation menu item was succesfully updated"
+msgstr "Navigation menu item was successfully updated"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Navigation menu item was succesfully removed"
+msgstr "Navigation menu item was successfully removed"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Navigation menu item was succesfully added"
+msgstr "Navigation menu item was successfully added"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Navigation menu was succesfully added"
+msgstr "Navigation menu was successfully added"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Navigation menu was succesfully updated"
+msgstr "Navigation menu was successfully updated"
 
 msgid "notification.removedNavigationMenu"
-msgstr "Navigation menu was succesfully removed"
+msgstr "Navigation menu was successfully removed"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "You have been unsubscribed"

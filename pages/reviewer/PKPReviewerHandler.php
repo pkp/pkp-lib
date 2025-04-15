@@ -59,7 +59,7 @@ class PKPReviewerHandler extends Handler
             throw new Exception('Invalid step!');
         }
         $templateMgr->assign([
-            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewSubmission->getLocalizedTitle(),
+            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . ' ' . $reviewSubmission->getLocalizedTitle(),
             'reviewStep' => $reviewStep,
             'selected' => $step - 1,
             'submission' => $reviewSubmission,

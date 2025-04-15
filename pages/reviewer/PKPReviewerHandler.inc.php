@@ -42,7 +42,7 @@ class PKPReviewerHandler extends Handler {
 		if ($step > $reviewStep) $step = $reviewStep; // Reviewer can't go past incomplete steps
 		if ($step < 1 || $step > 4) throw new Exception('Invalid step!');
 		$templateMgr->assign([
-			'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewerSubmission->getLocalizedTitle(),
+			'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . ' ' . $reviewerSubmission->getLocalizedTitle(),
 			'reviewStep' => $reviewStep,
 			'selected' => $step - 1,
 			'submission' => $reviewerSubmission,
@@ -115,7 +115,7 @@ class PKPReviewerHandler extends Handler {
 			$notificationMgr = new NotificationManager();
 			$user = $request->getUser();
 			$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('common.changesSaved')));
-			return DAO::getDataChangedEvent();			
+			return DAO::getDataChangedEvent();
 		}
 		// Submit the form data and move forward
 		else {
@@ -225,5 +225,3 @@ class PKPReviewerHandler extends Handler {
 		return $reviewId;
 	}
 }
-
-

@@ -88,7 +88,7 @@ class PKPReviewerHandler extends Handler
         }
 
         $templateMgr->assign([
-            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewSubmission->getCurrentPublication()->getLocalizedTitle(),
+            'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . ' ' . $reviewSubmission->getCurrentPublication()->getLocalizedTitle(),
             'reviewStep' => $reviewStep,
             'selected' => $step - 1,
             'submission' => $reviewSubmission,

@@ -609,7 +609,7 @@ msgid "common.orderUp"
 msgstr "Zvýšit pozici o {$itemTitle}"
 
 msgid "common.orderDown"
-msgstr "Snížit pozici o {$ itemTitle}"
+msgstr "Snížit pozici o {$itemTitle}"
 
 msgid "common.originalFileName"
 msgstr "Původní jméno souboru"

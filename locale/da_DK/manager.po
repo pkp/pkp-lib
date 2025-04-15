@@ -813,14 +813,14 @@ msgid "manager.setup.notifyUsers.description"
 msgstr "Vælg de brugere, der skal modtage din e-mail-notifikation."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Send en kopi af denne e-mail til mig på {$ email}."
+msgstr "Send en kopi af denne e-mail til mig på {$email}."
 
 msgid "manager.setup.notifyUsers.send"
 msgstr "Send e-mail"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
-"Du er ved at sende en e-mail til {$ total} brugere. Er du sikker på, at du "
+"Du er ved at sende en e-mail til {$total} brugere. Er du sikker på, at du "
 "vil sende denne e-mail?"
 
 msgid "manager.setup.notifyUsers.sending"

@@ -1519,7 +1519,7 @@ msgstr ""
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Một tệp \"{$originalFileName}\" đã được tải lên cho bài {$ submitId} bởi {$ "
+"Một tệp \"{$originalFileName}\" đã được tải lên cho bài {$submitId} bởi {$"
 "username}."
 
 msgid "submission.event.fileDeleted"
@@ -1649,7 +1649,7 @@ msgstr ""
 
 msgid "log.review.reviewReinstated"
 msgstr ""
-"Vòng phản biện {$round} của {$reviewerName} cho bài {$ submitId} đã được bắt "
+"Vòng phản biện {$round} của {$reviewerName} cho bài {$submitId} đã được bắt "
 "đầu lại."
 
 msgid "log.review.reviewConfirmed"

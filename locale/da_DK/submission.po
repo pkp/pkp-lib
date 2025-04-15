@@ -1530,7 +1530,7 @@ msgstr "Der fremkom en fejl under forsøget på at tilføje auditøren. Prøv ig
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Metadataene til filen \"{$ originalFileName}\" blev redigeret af {$ "
+"Metadataene til filen \"{$originalFileName}\" blev redigeret af {$"
 "username}."
 
 msgid "submission.event.fileUploaded"

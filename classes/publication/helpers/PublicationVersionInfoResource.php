@@ -28,7 +28,7 @@ class PublicationVersionInfoResource extends JsonResource
             'versionStageLabelKey' => $this->stage->labelKey(),
             'majorNumbering' => $this->majorNumbering,
             'minorNumbering' => $this->minorNumbering,
-            'versionDisplay' => (string) $this,
+            'versionDisplay' => (string) $this->resource,
         ];
     }
 }

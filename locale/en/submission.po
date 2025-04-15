@@ -2798,7 +2798,7 @@ msgid "publication.versionStage.versionOfRecord"
 msgstr "Version of Record"
 
 msgid "publication.versionStage.unassignedVersion"
-msgstr "unassigned version ({$publicationCreatedDate})"
+msgstr "Unassigned version ({$publicationCreatedDate})"
 
 msgid "publication.versionStage.display"
 msgstr "{$stage} {$majorNumbering}.{$minorNumbering}"
@@ -2809,8 +2809,8 @@ msgstr ""
 "be published."
 
 msgid "publication.required.versionStage.assignment"
-msgstr "The stage version that will be assigned to the publication is '{$versionDataDisplay}'"
+msgstr "The stage version that will be assigned to the publication is \"{$versionString}\""
 
 msgid "publication.required.versionStage.alreadyAssignment"
-msgstr "The publication version is '{$versionDataDisplay}'"
+msgstr "The publication version is \"{$versionString}\""
 

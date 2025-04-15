@@ -396,7 +396,7 @@
 		},
 		"versionStage": {
 			"type": "string",
-			"description": "",
+			"description": "The version stage as given in VersionStage enumeration",
 			"apiSummary": true,
 			"validation": [
 				"nullable"
@@ -404,7 +404,7 @@
 		},
 		"versionMinor": {
 			"type": "integer",
-			"description": "",
+			"description": "The minor part of the version of a publication given the major.minor notation of the version",
 			"apiSummary": true,
 			"validation": [
 				"min:0"
@@ -412,17 +412,23 @@
 		},
 		"versionMajor": {
 			"type": "integer",
-			"description": "",
+			"description": "The major part of the version of a publication given the major.minor notation of the version",
 			"apiSummary": true,
 			"validation": [
 				"min:1"
 			]
 		},
-		"versionDataDisplay": {
+		"versionString": {
 			"type": "string",
-			"description": "",
+			"description": "The calculated display string of the version of this publication",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"createdAt": {
+			"type": "string",
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
 		}
 	}
 }

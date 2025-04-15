@@ -287,8 +287,8 @@
 		<attribute name="primary_contact_id" type="int" use="optional" />
 		<attribute name="url_path" type="string" use="optional" />
 		<attribute name="version_stage" type="string" use="optional" />
-		<attribute name="version_minor" type="string" use="optional" />
-		<attribute name="version_major" type="string" use="optional" />
+		<attribute name="version_minor" type="int" use="optional" />
+		<attribute name="version_major" type="int" use="optional" />
 	</complexType>
 
 	<!-- ************

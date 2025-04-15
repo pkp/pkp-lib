@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-04-15 09:54+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/bg/>\n"
@@ -674,3 +674,13 @@ msgstr "Показани са секции само за автори"
 
 msgid "editor.review.allSections"
 msgstr "Формулярът на редактора показва всички секции за рецензии"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Крайният срок за проверка трябва да е по-голям или равен на крайния срок за "
+"отговор."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Възникна грешка при добавянето на рецензента, тъй като крайният срок за "
+"преглед трябва да е равен или по-дълъг от крайния срок за отговор."

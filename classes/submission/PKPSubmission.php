@@ -29,12 +29,9 @@ namespace PKP\submission;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\DAO;
-use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
-use PKP\publication\enums\VersionStage;
-use PKP\publication\helpers\VersionData;
 
 /**
  * @extends \PKP\core\DataObject<DAO>

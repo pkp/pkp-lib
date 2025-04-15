@@ -998,10 +998,14 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $versionStage = $params['versionStage'];
-        $versionIsMinor = (bool) $params['versionIsMinor'];
+        $versionStage = VersionStage::from($illuminateRequest->input('versionStage'));
+        $versionIsMinor = filter_var(
+            $illuminateRequest->input('versionIsMinor', true),
+            FILTER_VALIDATE_BOOLEAN,
+            FILTER_NULL_ON_FAILURE
+        );
 
-        Repo::publication()->updateVersion($publication, VersionStage::from($versionStage), $versionIsMinor);
+        Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
 
         return $this->edit($illuminateRequest);
     }
@@ -1013,11 +1017,14 @@ class PKPSubmissionController extends PKPBaseController
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $params = $illuminateRequest->input();
-        $potentialVersionStage = VersionStage::from($params['versionStage']);
-        $potentialIsMinor = ($params['versionIsMinor'] === 'false') ? false : (bool) $params['versionIsMinor'];
+        $versionStage = VersionStage::from($illuminateRequest->input('versionStage'));
+        $versionIsMinor = filter_var(
+            $illuminateRequest->input('versionIsMinor', true),
+            FILTER_VALIDATE_BOOLEAN,
+            FILTER_NULL_ON_FAILURE
+        );
 
-        $potentialVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $potentialVersionStage, $potentialIsMinor);
+        $potentialVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $versionStage, $versionIsMinor);
 
         return response()->json(
             (new PublicationVersionInfoResource($potentialVersionInfo))->toArray($illuminateRequest),
@@ -1230,7 +1237,16 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $newId = Repo::publication()->version($publication);
+        $versionStageStr = $illuminateRequest->input('versionStage');
+        $versionStage = $versionStageStr ? VersionStage::tryFrom($versionStageStr) : null;
+
+        $versionIsMinor = filter_var(
+            $illuminateRequest->input('versionIsMinor', true),
+            FILTER_VALIDATE_BOOLEAN,
+            FILTER_NULL_ON_FAILURE
+        );
+
+        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();

@@ -146,7 +146,7 @@ class Repository
         $this->model->assocType = Application::ASSOC_TYPE_SUBMISSION;
         $this->model->subject = Mail::compileParams(
             $clonedMailable->subject,
-            $clonedMailable->getData(Locale::getLocale())
+            $clonedMailable->viewData
         );
 
         $this->model->save();

@@ -107,8 +107,9 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
             $localeColumns->each(function ($column) use ($tableName, $isPostgres) {
                 $default = match($isPostgres) {
                     // PostgreSQL describes defaults in terms like: 'en'::character varying
-                    // If there is a '-delimited string part, fetch and use it.
-                    true => empty($column['default']) ? null : strtok($column['default'], "'"),
+                    // If there is a '-delimited string part, fetch and use it. If it's just
+                    // "::character varying", it was an empty string.
+                    true => empty($column['default']) ? null : explode("'", $column['default'])[1],
                     false => $column['default'],
                 };
                 Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->default($default)->change());

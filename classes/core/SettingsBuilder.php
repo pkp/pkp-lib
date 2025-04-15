@@ -264,6 +264,20 @@ class SettingsBuilder extends Builder
     }
 
     /**
+     * Add a "where not in" clause to the query.
+     * Overrides Illuminate\Database\Query\Builder to support settings in select queries
+     *
+     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  mixed  $values
+     * @param  string  $boolean
+     * @return $this
+     */
+    public function whereNotIn($column, $values, $boolean = 'and')
+    {
+        return $this->whereIn($column, $values, $boolean, true);
+    }
+
+    /**
      * @see \PKP\core\traits\EntityUpdate::getSettingsTable()
      */
     public function getSettingsTable(): ?string

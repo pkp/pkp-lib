@@ -637,7 +637,7 @@ class Schema extends \PKP\core\maps\Schema
         $currentUser = $request->getUser();
 
         $reviews = [];
-        foreach ($reviewAssignments as $reviewAssignment) {
+        foreach ($reviewAssignments as $reviewAssignment) { /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
             // skip declined/cancelled assignments if the user lacks permission for this specific stage.
             if (
                 !$this->canSeeAllReviewAssignments($reviewAssignment, $stages)
@@ -684,7 +684,7 @@ class Schema extends \PKP\core\maps\Schema
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
-                'recommendation' => $reviewAssignment->getRecommendation(),
+                'reviewerRecommendationId' => $reviewAssignment->getReviewerRecommendationId(),
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),

@@ -2,8 +2,8 @@
 /**
  * @file classes/services/PKPContextService.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextService
@@ -52,7 +52,6 @@ use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\validation\ValidatorFactory;
 use PKP\userGroup\UserGroup;
 use PKP\userGroup\relationships\UserUserGroup;
-
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {

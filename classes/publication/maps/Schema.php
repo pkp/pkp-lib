@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/maps/Schema.php
  *
@@ -107,6 +108,8 @@ class Schema extends \PKP\core\maps\Schema
 
         $output = [];
 
+        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+        $rawCitationList = $citationDao->getRawCitationsByPublicationId($publication->getId());
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
@@ -135,13 +138,10 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $publication->getData('categoryIds');
                     break;
                 case 'citations':
-                    $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-                    $output[$prop] = array_map(
-                        function ($citation) {
-                            return $citation->getCitationWithLinks();
-                        },
-                        $citationDao->getByPublicationId($publication->getId())->toArray()
-                    );
+                    $output[$prop] = $rawCitationList->toArray();
+                    break;
+                case 'citationsRaw':
+                    $output[$prop] = $rawCitationList->implode(PHP_EOL);
                     break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {

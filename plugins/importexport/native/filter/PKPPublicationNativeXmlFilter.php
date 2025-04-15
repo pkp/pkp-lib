@@ -21,9 +21,7 @@ use APP\facades\Repo;
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use APP\publication\Publication;
 use Exception;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
-use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\plugins\PluginRegistry;
@@ -341,10 +339,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      */
     private function createCitationsNode($doc, $deployment, $publication)
     {
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-
         $nodeCitations = $doc->createElementNS($deployment->getNamespace(), 'citations');
-        $submissionCitations = $citationDao->getByPublicationId($publication->getId())->toAssociativeArray();
+        $submissionCitations = $publication->getData('citations') ?? [];
 
         foreach ($submissionCitations as $submissionCitation) {
             $rawCitation = $submissionCitation->getRawCitation();

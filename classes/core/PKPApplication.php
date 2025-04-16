@@ -660,6 +660,7 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             'keywords',
             'agencies',
             'citations',
+            'dataCitations',
             'dataAvailability',
             'fundingStatement',
         ];

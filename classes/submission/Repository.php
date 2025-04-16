@@ -1095,7 +1095,7 @@ abstract class Repository
                         ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,
-                        in_array(Role::ROLE_ID_AUTHOR, $selectedRoleIds) ? __('submission.list.revisionsSubmitted')  : __('submission.dashboard.view.revisionsSubmitted'),
+                        in_array(Role::ROLE_ID_AUTHOR, $selectedRoleIds) ? __('submission.list.revisionsSubmitted') : __('submission.dashboard.view.revisionsSubmitted'),
                         [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                         $canAccessUnassignedSubmission
                             ? $collector
@@ -1123,7 +1123,8 @@ abstract class Repository
                         Repo::reviewAssignment()->getCollector()
                             ->filterByReviewerIds([$user->getId()])
                             ->filterByContextIds([$context->getId()])
-                            ->filterByActionRequiredByReviewer(true),
+                            ->filterByActionRequiredByReviewer(true)
+                            ->filterByLastReviewRound(true),
                         'reviewerAssignments',
                         ['actionRequired' => true]
                     );

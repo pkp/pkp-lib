@@ -1,3 +1,70 @@
 # Ivan <salarysalo@gmail.com>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-04-16 12:59+0000\n"
+"Last-Translator: Ivan <salarysalo@gmail.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ops/admin/uk/>"
+"\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "admin.settings.redirect"
+msgstr "Перенаправлення Серверу"
+
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Ви дійсно бажаєте вимкнути цю локаль? Це може призвести до наслідків на усіх "
+"серверах, які використовують цю локаль."
+
+msgid "admin.languages.localeInstalled"
+msgstr "\"{$locale}\" локаль інстальована."
+
+msgid "admin.systemConfiguration"
+msgstr "Конфігурація OPS"
+
+msgid "admin.contexts.create"
+msgstr "Створити Сервер"
+
+msgid "admin.contexts.form.pathAlphaNumeric"
+msgstr ""
+"Шлях можу бути тільки літерами, цифрами та символами _ та -. Він повинен "
+"починатись та закінчуватись літерою або цифрою."
+
+msgid "admin.contexts.form.pathExists"
+msgstr "Шлях, який Ви надали, вже використовується сервером."
+
+msgid "admin.contexts.form.primaryLocaleNotSupported"
+msgstr "Основна локаль повинна бути однією з підтримуваних сервером."
+
+msgid "admin.contexts.contextDescription"
+msgstr "Опис серверу"
+
+msgid "admin.contexts.enableContextInstructions"
+msgstr "Включити препринт сервер для публікації на сайті"
+
+msgid "admin.hostedContexts"
+msgstr "Хостинг Серверів"
+
+msgid "admin.settings.redirectInstructions"
+msgstr ""
+"Запити до головного сайту будуть перенаправлені на цей сервер. Це може стати "
+"в нагоді, якщо сайт хоститься на одному сервері."
+
+msgid "admin.locale.maybeIncomplete"
+msgstr "Відмічені локалі можуть бути не повними."
+
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Ви дійсно хочете деінсталювати цю локаль? Це може призвести до наслідків на "
+"усіх серверах, які використовують цю локаль."
+
+msgid "admin.languages.installNewLocalesInstructions"
+msgstr ""
+"Оберіть будь-які додаткові локалі щоб інсталювати на цій системі. Локалі "
+"повинні бути інстальовані перед використанням на серверах. Дивись "
+"документацію на OPS щоб додати нову мову."

@@ -27,6 +27,7 @@ use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\Details;
@@ -36,7 +37,10 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\pages\submission\PKPSubmissionHandler;
 use PKP\plugins\Hook;
+use PKP\security\Role;
 use PKP\submission\GenreDAO;
+use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class SubmissionHandler extends PKPSubmissionHandler
 {
@@ -294,5 +298,38 @@ class SubmissionHandler extends PKPSubmissionHandler
             return __('submission.wizard.confirmSubmit.canPublish', ['context' => $context->getLocalizedName()]);
         }
         return __('submission.wizard.confirmSubmit', ['context' => $context->getLocalizedName()]);
+    }
+
+    /**
+     * Get the user groups that a user can submit in
+     */
+    protected function getSubmitUserGroups(Context $context, User $user): Collection
+    {
+        $userGroups = UserGroup::query()
+            ->withContextIds([$context->getId()])
+            ->withUserIds([$user->getId()])
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
+            })
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
+            ->get();
+
+        // Users without a submitting role can submit as an
+        // author role that allows self registration
+        if ($userGroups->isEmpty()) {
+            Repo::userGroup()->assignUserToGroup(
+                $user->getId(),
+                Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->first()->id
+            );
+
+            $defaultUserGroup = UserGroup::withContextIds([$context->getId()])
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->permitSelfRegistration(true)
+                ->first();
+
+            $userGroups = collect($defaultUserGroup ? [$defaultUserGroup->id => $defaultUserGroup] : []);
+        }
+
+        return $userGroups;
     }
 }

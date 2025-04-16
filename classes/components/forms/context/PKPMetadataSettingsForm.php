@@ -228,6 +228,19 @@ class PKPMetadataSettingsForm extends FormComponent
                 ],
                 'value' => $context->getData('fundingStatement') ? $context->getData('fundingStatement') : Context::METADATA_DISABLE,
             ]))
+            ->addField(new FieldMetadataSetting('dataCitations', [
+                'label' => __('submission.dataCitations'),
+                'description' => __('manager.setup.metadata.dataCitations.description'),
+                'options' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataCitations.enable')]
+                ],
+                'submissionOptions' => [
+                    ['value' => Context::METADATA_ENABLE, 'label' => __('manager.setup.metadata.dataCitations.noRequest')],
+                    ['value' => Context::METADATA_REQUEST, 'label' => __('manager.setup.metadata.dataCitations.request')],
+                    ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.dataCitations.require')],
+                ],
+                'value' => $context->getData('dataCitations') ? $context->getData('dataCitations') : Context::METADATA_DISABLE,
+            ]))
             ->addField(new FieldOptions('submitWithCategories', [
                 'label' => __('category.category'),
                 'description' => __('manager.submitWithCategories.description'),

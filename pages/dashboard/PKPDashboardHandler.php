@@ -186,6 +186,7 @@ abstract class PKPDashboardHandler extends Handler
                 'contextCitationsMetadataLookup' => $context->getData('citationsMetadataLookup') ?: 0,
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
+                    'supportsDataCitations' => !!$context->getData('dataCitations'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
                 ],

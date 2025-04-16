@@ -39,6 +39,9 @@
             {if in_array($currentContext->getData('plainLanguageSummary'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="plainLanguageSummary" inLocale=$localeKey name="{translate key="submission.plainLanguageSummary"}" type="html"}
             {/if}
+
+{** DATACITATIONS TODO *}
+
             {if in_array($currentContext->getData('citations'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {if $localeKey === $submission->getData('locale')}
                     <div class="submissionWizard__reviewPanel__item">

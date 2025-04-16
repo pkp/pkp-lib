@@ -201,6 +201,12 @@ class DAO extends EntityDAO
             $publication,
             $publication->getData('citationsRaw')
         );
+        // DATACITATIONS TODO
+
+        // Parse the citations
+        if ($publication->getData('citationsRaw')) {
+            $this->saveCitations($publication);
+        }
 
         return $id;
     }
@@ -216,6 +222,8 @@ class DAO extends EntityDAO
 
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
+
+        // DATACITATIONS TODO
 
         if ($oldPublication) {
             Repo::citation()->importCitations(
@@ -470,6 +478,8 @@ class DAO extends EntityDAO
     {
         PublicationCategory::where('publication_id', $publicationId)->delete();
     }
+
+    // DATACITATIONS TODO
 
     /**
      * Set the DOI object

@@ -162,6 +162,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'citationsRaw':
                     $output[$prop] = Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
                     break;
+                case 'dataCitations':
+                        // DATACITATIONS TODO
+                        break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {
                         $retVal = Repo::doi()->getSchemaMap()->summarize($publication->getData('doiObject'));

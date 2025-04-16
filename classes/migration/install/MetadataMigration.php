@@ -55,6 +55,37 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_unique');
         });
 
+        // Data Citations
+        Schema::create('data_citations', function (Blueprint $table) {
+            $table->comment('A data citation pointing to a related data set.');
+            $table->bigInteger('data_citation_id')->autoIncrement();
+
+            $table->bigInteger('publication_id');
+            $table->foreign('publication_id', 'data_citations_publication')->references('publication_id')->on('publications')->onDelete('cascade');
+            $table->index(['publication_id'], 'data_citations_publication');
+
+            $table->text('raw_citation');
+            $table->bigInteger('seq')->default(0);
+
+            $table->unique(['publication_id', 'seq'], 'data_citations_publication_seq');
+        });
+
+        // Citation settings
+        Schema::create('data_citation_settings', function (Blueprint $table) {
+            $table->comment('Additional data about data citations, including localized content.');
+            $table->bigIncrements('data_citation_setting_id');
+            $table->bigInteger('data_citation_id');
+            $table->foreign('data_citation_id', 'data_citation_settings_data_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
+            $table->index(['data_citation_id'], 'data_citation_settings_data_citation_id');
+
+            $table->string('locale', 28)->default('');
+            $table->string('setting_name', 255);
+            $table->mediumText('setting_value')->nullable();
+            $table->string('setting_type', 6);
+
+            $table->unique(['data_citation_id', 'locale', 'setting_name'], 'data_citation_settings_unique');
+        });
+
         // Filter groups
         Schema::create('filter_groups', function (Blueprint $table) {
             $table->comment('Filter groups are used to organized filters into named sets, which can be retrieved by the application for invocation.');
@@ -119,5 +150,7 @@ class MetadataMigration extends \PKP\migration\Migration
         Schema::drop('filter_groups');
         Schema::drop('citation_settings');
         Schema::drop('citations');
+        Schema::drop('data_citation_settings');
+        Schema::drop('data_citations');        
     }
 }

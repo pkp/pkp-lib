@@ -402,6 +402,11 @@ abstract class Repository
             }
         }
 
+        Repo::citation()->importCitations(
+            $newPublication->getId(),
+            $newPublication->getData('citationsRaw')
+        );
+
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
         $genres = $genreDao->getEnabledByContextId($context->getId());
 

@@ -57,6 +57,8 @@ class ViewSubmissionMetadataHandler extends handler
         if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS) { /* ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS or _OPEN */
             $templateMgr->assign('authors', $publication->getAuthorString());
 
+// DATACITATIONS TODO
+
             if ($publication->getLocalizedData('dataAvailability')) {
                 $templateMgr->assign('dataAvailability', $publication->getLocalizedData('dataAvailability'));
             }

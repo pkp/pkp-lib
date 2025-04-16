@@ -605,6 +605,7 @@ abstract class Context extends \PKP\core\DataObject
         return collect([
             'agencies',
             'citations',
+            'dataCitations',
             'coverage',
             'dataAvailability',
             'disciplines',

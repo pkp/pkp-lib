@@ -58,6 +58,7 @@ trait NotifyReviewers
                 if ($reviewAssignment) {
                     Repo::reviewAssignment()->edit($reviewAssignment, [
                         'dateAcknowledged' => Core::getCurrentDate(),
+                        'dateConsidered' => Core::getCurrentDate()
                     ]);
                 }
             }

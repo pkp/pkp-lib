@@ -623,7 +623,7 @@ abstract class PKPSubmissionHandler extends Handler
             });
 
         $userGroups = $isAdmin
-            ? $query >withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
+            ? $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
             : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])->get(); // For non-admin users, query for the groups tht give them access to the submission stage
 
         // Users without a submitting role or access to submission stage can submit as an

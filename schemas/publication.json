@@ -143,6 +143,14 @@
 				"nullable"
 			]
 		},
+		"dataCitations": {
+			"type": "array",
+			"description": "Optional metadata that contains an array of citations for data cited in this submission.",
+			"readOnly": true,
+			"items": {
+				"type": "string"
+			}
+		},		
 		"datePublished": {
 			"type": "string",
 			"apiSummary": true,

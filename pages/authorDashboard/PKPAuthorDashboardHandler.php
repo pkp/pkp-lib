@@ -25,6 +25,8 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
+use PKP\components\forms\publication\PKPCitationsForm;
+use PKP\components\forms\publication\PKPDataCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
@@ -240,9 +242,13 @@ abstract class PKPAuthorDashboardHandler extends Handler
         );
 
         $titleAbstractForm = $this->getTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
+        $citationsForm = new PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
+        $dataCitationsForm = new PKPDataCitationsForm($latestPublicationApiUrl, $locales, $latestPublication);
 
         $templateMgr->setConstants([
             'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
+            'FORM_CITATIONS' => $citationsForm::FORM_CITATIONS,
+            'FORM_DATA_CITATIONS' => $dataCitationsForm::FORM_DATA_CITATIONS,
         ]);
 
         // Get the submission props without the full publication details. We'll
@@ -301,12 +307,14 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'components' => [
                 $titleAbstractForm::FORM_TITLE_ABSTRACT => $this->getLocalizedForm($titleAbstractForm, $submissionLocale, $locales),
                 $citationsForm::FORM_CITATIONS => $this->getLocalizedForm($citationsForm, $submissionLocale, $locales),
+                $dataCitationsForm::FORM_DATA_CITATIONS => $this->getLocalizedForm($dataCitationsForm, $submissionLocale, $locales),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,
             'publicationFormIds' => [
                 $titleAbstractForm::FORM_TITLE_ABSTRACT,
                 $citationsForm::FORM_CITATIONS,
+                $dataCitationsForm::FORM_DATA_CITATIONS,
             ],
             'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
             'submission' => $submissionProps,
@@ -316,6 +324,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
             'submissionLibraryUrl' => $submissionLibraryUrl,
             'supportsReferences' => !!$submissionContext->getData('citations'),
+            'supportsDataCitations' => !!$submissionContext->getData('dataCitations'),
             'statusLabel' => __('semicolon', ['label' => __('common.status')]),
             'uploadFileModalLabel' => __('editor.submissionReview.uploadFile'),
             'uploadFileUrl' => $uploadFileUrl,

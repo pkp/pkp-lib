@@ -432,6 +432,9 @@ abstract class Repository
             if ($metadata === 'citations') {
                 $metadata = 'citationsRaw';
             }
+
+            // DATACITATIONS TODO
+
             // The `supportingAgencies` metadata is called `agencies` on the context
             if ($metadata === 'agencies') {
                 $metadata = 'supportingAgencies';

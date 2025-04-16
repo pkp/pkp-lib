@@ -192,6 +192,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
                 case 'authors':
                     $this->parseAuthors($n, $publication);
                     break;
+// DATACITATIONS TODO
                 case 'citations':
                     $this->parseCitations($n, $publication);
                     break;
@@ -289,6 +290,8 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     {
         return $this->importWithXMLNode($n, 'native-xml=>author');
     }
+
+// DATACITATIONS TODO
 
     /**
      * Parse a publication citation and add it to the publication.

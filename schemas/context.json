@@ -189,6 +189,14 @@
 				"nullable"
 			]
 		},
+		"dataCitations": {
+			"type": "string",
+			"description": "Enable data citations metadata. `0` is disabled. `enable` will make it available in the workflow. `request` will allow an author to enter a value during submission. `require` will require that the author enter a value during submission.",
+			"validation": [
+				"nullable",
+				"in:0,enable,request,require"
+			]
+		},		
 		"dateFormatLong": {
 			"type": "string",
 			"multilingual": true,

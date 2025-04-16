@@ -134,6 +134,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         $this->addRepresentations($doc, $entityNode, $entity);
 
+// DATACITATIONS TODO
+
         $citationsListNode = $this->createCitationsNode($doc, $deployment, $entity);
         if ($citationsListNode->hasChildNodes() || $citationsListNode->hasAttributes()) {
             $entityNode->appendChild($citationsListNode);
@@ -351,6 +353,8 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     {
         assert(false); // To be overridden by subclasses
     }
+
+// DATACITATIONS TODO
 
     /**
      * Create and return a Citations node.

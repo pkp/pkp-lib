@@ -4,7 +4,8 @@
 	"required": [
         "sequence",
 		"title",
-		"url"
+		"url",
+		"urlText"
 	],
 	"properties": {
 		"_href": {

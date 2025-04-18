@@ -15,9 +15,11 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use APP\file\PublicFileManager;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use PKP\file\ContextFileManager;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -28,6 +30,10 @@ class I10404_UpdateCategoryImageNameFields extends Migration
 
     public function up(): void
     {
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('seq');
+        });
+
         $contextIds = app()->get('context')->getIds();
         $fileNamesToMove = [];
 
@@ -51,10 +57,9 @@ class I10404_UpdateCategoryImageNameFields extends Migration
                     }
 
                     $this->updateCategoriesImageNameFields($contextId, collect($imageRecordsToUpdate));
+                    // Move images
+                    $this->moveContextCategoryImagesToPublicFolder($contextId, $fileNamesToMove);
                 });
-
-            // Move images
-            $this->moveContextCategoryImagesToPublicFolder($contextId, $fileNamesToMove);
         }
     }
 
@@ -64,16 +69,14 @@ class I10404_UpdateCategoryImageNameFields extends Migration
      */
     private function updateCategoriesImageNameFields(int $contextId, Enumerable $updates): void
     {
-        $updates->chunk(self::CHUNK_SIZE)->each(function ($chunk) use ($contextId) {
-            $caseStatement = 'UPDATE categories SET image = CASE category_id ';
+        $caseStatement = 'UPDATE categories SET image = CASE category_id ';
 
-            foreach ($chunk as $categoryId => $json) {
-                $caseStatement .= "WHEN {$categoryId} THEN ? ";
-            }
+        foreach ($updates as $categoryId => $json) {
+            $caseStatement .= "WHEN {$categoryId} THEN ? ";
+        }
 
-            $caseStatement .= 'END WHERE category_id IN (' . implode(',', $chunk->keys()->all()) . ') AND context_id = ?';
-            DB::update($caseStatement, array_merge($chunk->values()->all(), [$contextId]));
-        });
+        $caseStatement .= 'END WHERE category_id IN (' . implode(',', $updates->keys()->all()) . ') AND context_id = ?';
+        DB::update($caseStatement, array_merge($updates->values()->all(), [$contextId]));
     }
 
 

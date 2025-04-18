@@ -139,9 +139,7 @@ class Collector implements CollectorInterface
             ->leftJoin('categories AS pc', 'c.parent_id', '=', 'pc.category_id')
             ->select(['c.*']);
 
-        $qb->when($this->categoryIds !== null, function ($query) {
-            $query->whereIn('c.category_id', $this->categoryIds);
-        });
+        $qb->when($this->categoryIds !== null, fn (Builder $query) => $query->whereIn('c.category_id', $this->categoryIds));
 
         $qb->when($this->contextIds !== null, function ($query) {
             $query->whereIn('c.context_id', $this->contextIds);
@@ -174,8 +172,6 @@ class Collector implements CollectorInterface
                 }
             }
         });
-
-        $qb->orderBy(DB::raw('(COALESCE((pc.seq * 8192) + pc.category_id, 0) * 8192) + CASE WHEN pc.category_id IS NULL THEN 8192 * ((c.seq * 8192) + c.category_id) ELSE c.seq END'));
 
         if (isset($this->count)) {
             $qb->limit($this->count);

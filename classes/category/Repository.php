@@ -187,7 +187,7 @@ class Repository
                 $user = Application::get()->getRequest()->getUser();
                 $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
                 $imageExtension = $temporaryFile ? $temporaryFileManager->getImageExtension($temporaryFile->getFileType()) : [];
-                $isValidExtension = in_array($imageExtension, ['.jpg', '.png', '.gif']);
+                $isValidExtension = in_array($imageExtension, Category::SUPPORTED_IMAGE_TYPES);
 
                 if (!$isValidExtension || !$temporaryFile ||
                     !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
@@ -254,6 +254,7 @@ class Repository
      *  3 => [6, 8]
      * ]
      * ```
+     * From the example above, `3` is the group ID and `6` and `8` are editor IDs.
      */
     public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
     {

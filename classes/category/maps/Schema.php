@@ -94,16 +94,14 @@ class Schema extends \PKP\core\maps\Schema
                     $output['assignedEditors'] = Repo::user()
                         ->getCollector()
                         ->filterByContextIds([$context->getId()])
-                        ->filterByRoleIds(Category::$ASSIGNABLE_ROLES)
+                        ->filterByRoleIds(Category::ASSIGNABLE_ROLES)
                         ->assignedToCategoryIds([$category->getId()])
                         ->getMany()
-                        ->map(function (User $user) {
-                            return [
-                                'id' => $user->getId(),
-                                'name' => $user->getFullName(),
-                                'editorDisplayInitials' => $user->getDisplayInitials(),
-                            ];
-                        })->values();
+                        ->map(fn (User $user) => [
+                            'id' => $user->getId(),
+                            'name' => $user->getFullName(),
+                            'editorDisplayInitials' => $user->getDisplayInitials(),
+                        ])->values();
                     break;
                 default:
                     $output[$prop] = $category->getData($prop);

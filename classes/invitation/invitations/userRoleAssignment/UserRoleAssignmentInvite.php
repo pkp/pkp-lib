@@ -23,14 +23,12 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\userRoleAssignment\handlers\api\UserRoleAssignmentCreateController;
 use PKP\invitation\invitations\userRoleAssignment\handlers\api\UserRoleAssignmentReceiveController;
 use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteRedirectController;
-use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
 use PKP\invitation\invitations\userRoleAssignment\rules\EmailMustNotExistRule;
 use PKP\invitation\invitations\userRoleAssignment\rules\NoUserGroupChangesRule;
@@ -118,7 +116,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return $this->mailable;
     }
 
-    public function getMailableReceiver(?string $locale = null): Identity
+    public function getMailableReceiver(?string $locale = null): Identity 
     {
         $locale = $this->getUsedLocale($locale);
 
@@ -140,23 +138,18 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return new UserRoleAssignmentInviteRedirectController($this);
     }
 
-    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
-    {
-        return new UserRoleAssignmentInviteUIController($this);
-    }
-
     /**
      * @inheritDoc
      */
-    public function getCreateInvitationController(Invitation $invitation): CreateInvitationController
+    public function getCreateInvitationController(Invitation $invitation): CreateInvitationController 
     {
         return new UserRoleAssignmentCreateController($invitation);
     }
-
+    
     /**
      * @inheritDoc
      */
-    public function getReceiveInvitationController(Invitation $invitation): ReceiveInvitationController
+    public function getReceiveInvitationController(Invitation $invitation): ReceiveInvitationController 
     {
         return new UserRoleAssignmentReceiveController($invitation);
     }
@@ -182,7 +175,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         }
 
         $validationRules = array_merge(
-            $invitationValidationRules,
+            $invitationValidationRules, 
             $this->getPayload()->getValidationRules($this, $validationContext)
         );
 
@@ -197,7 +190,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         $invitationValidationMessages = [];
 
         $invitationValidationMessages = array_merge(
-            $invitationValidationMessages,
+            $invitationValidationMessages, 
             $this->getPayload()->getValidationMessages($validationContext)
         );
 

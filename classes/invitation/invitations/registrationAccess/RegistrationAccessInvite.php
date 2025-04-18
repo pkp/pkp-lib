@@ -25,7 +25,6 @@ use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\core\InvitationUIActionRedirectController;
 use PKP\invitation\invitations\registrationAccess\handlers\RegistrationAccessInviteRedirectController;
 use PKP\user\User;
 
@@ -101,10 +100,5 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new RegistrationAccessInviteRedirectController($this);
-    }
-
-    public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController
-    {
-        return null;
     }
 }

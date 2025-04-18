@@ -546,6 +546,8 @@ class Installer
             $this->wroteConfig = false;
         }
 
+        Config::resetData();
+
         return true;
     }
 
@@ -949,8 +951,11 @@ class Installer
      */
     public function updateRorRegistryDataset(): bool
     {
+        PKPApplication::upgrade();
+
         $updateRorRegistryDataset = new UpdateRorRegistryDataset();
         $updateRorRegistryDataset->execute();
+        
         return true;
     }
 

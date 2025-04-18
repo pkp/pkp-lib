@@ -3,8 +3,8 @@
 /**
  * @file classes/components/CategoryManager.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryManager
@@ -18,6 +18,8 @@ namespace PKP\components;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
+use Illuminate\Support\Enumerable;
+use PKP\category\Category;
 use PKP\components\forms\context\CategoryForm;
 use PKP\context\Context;
 use PKP\facades\Locale;
@@ -28,12 +30,16 @@ class CategoryManager
     public const COMPONENT_CATEGORY = 'CategoryManager';
     public $id = self::COMPONENT_CATEGORY;
 
-    public function __construct(
-        private Context $context,
-    ) {
+    public function __construct(private Context $context)
+    {
 
     }
 
+    /**
+     * Get the configuration data to be used when initializing this component.
+     *
+     * @return array{categories:Category[], primaryLocale:string, columns:array, categoryForm:array}
+     */
     public function getConfig(): array
     {
         return [
@@ -44,6 +50,9 @@ class CategoryManager
         ];
     }
 
+    /**
+     * Get the API URL used to manage categories.
+     */
     protected function getCategoriesApiUrl(): string
     {
         return Application::get()->getRequest()->getDispatcher()->url(
@@ -54,7 +63,12 @@ class CategoryManager
         );
     }
 
-    protected function getCategories()
+    /**
+     * Get the categories to display.
+     *
+     * @return Enumerable <Category>
+     */
+    protected function getCategories(): Enumerable
     {
         return Repo::category()->getSchemaMap()
             ->mapMany(
@@ -67,12 +81,15 @@ class CategoryManager
             ->values();
     }
 
+    /**
+     * Get the columns to display in the category table.
+     */
     private function getComponentTableColumns(): array
     {
         return [
             [
-                'name' => 'category Name',
                 'label' => __('grid.category.categoryName'),
+                'name' => 'category Name',
             ],
             [
                 'label' => __('manager.category.assignedTo'),
@@ -81,6 +98,9 @@ class CategoryManager
         ];
     }
 
+    /**
+     * Get the form used to create a new category.
+     */
     private function getCategoryForm(): CategoryForm
     {
         $request = Application::get()->getRequest();

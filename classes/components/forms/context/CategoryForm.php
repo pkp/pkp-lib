@@ -3,8 +3,8 @@
 /**
  * @file classes/components/form/context/CategoryForm.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2000-2025 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryForm
@@ -28,15 +28,13 @@ use PKP\components\forms\FormComponent;
 use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\security\Role;
+use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
 class CategoryForm extends FormComponent
 {
     public const FORM_CATEGORY = 'editCategory';
     public $id = self::FORM_CATEGORY;
-
-    private array $assignableRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
 
     /**
      * @param Category|null $category - Optional. Pass Category object when you want to configure a form to edit an existing category
@@ -51,7 +49,7 @@ class CategoryForm extends FormComponent
 
         $assignableUserGroups = UserGroup::query()
             ->withContextIds([$request->getContext()->getId()])
-            ->withRoleIds($this->assignableRoles)
+            ->withRoleIds(Category::ASSIGNABLE_ROLES)
             ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
             ->get()
             ->map(function (UserGroup $userGroup) use ($request) {
@@ -62,7 +60,7 @@ class CategoryForm extends FormComponent
                         ->filterByUserGroupIds([$userGroup->id])
                         ->filterByContextIds([$request->getContext()->getId()])
                         ->getMany()
-                        ->mapWithKeys(fn ($user, $key) => [$user->getId() => $user->getFullName()])
+                        ->mapWithKeys(fn (User $user) => [$user->getId() => $user->getFullName()])
                         ->toArray()
                 ];
             });
@@ -89,7 +87,7 @@ class CategoryForm extends FormComponent
             'isMultilingual' => true,
             'isRequired' => true,
             'groupId' => 'categoryDetails',
-            'value' => $category ? $category->getData('title') : ''
+            'value' => $category?->getData('title') ?? ''
         ]))
             ->addField(
                 new FieldText('path', [
@@ -104,7 +102,7 @@ class CategoryForm extends FormComponent
                     )]),
                     'isRequired' => true,
                     'groupId' => 'categoryDetails',
-                    'value' => $category ? $category?->getData('path') : ''
+                    'value' => $category?->getData('path') ?? ''
                 ])
             )
             ->addField(
@@ -114,7 +112,7 @@ class CategoryForm extends FormComponent
                     'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                     'plugins' => ['link'],
                     'groupId' => 'categoryDetails',
-                    'value' => $category ? $category->getData('description') : ''
+                    'value' => $category?->getData('description') ?? ''
                 ])
             )
             ->addField(new FieldSelect('sortOption', [
@@ -123,7 +121,7 @@ class CategoryForm extends FormComponent
                 'description' => __('catalog.sortBy.categoryDescription'),
                 'options' => $sortOptions,
                 'groupId' => 'categoryDetails',
-                'value' => $category ? $category->getData('sortOption') : Repo::submission()->getDefaultSortOption()
+                'value' => $category?->getData('sortOption') ?? Repo::submission()->getDefaultSortOption()
             ]))
             ->addField(
                 new FieldUploadImage('image', [
@@ -134,7 +132,7 @@ class CategoryForm extends FormComponent
                         'acceptedFiles' => 'image/jpeg,image/png,image/gif,image/jpg',
                     ],
                     'groupId' => 'categoryDetails',
-                    'value' => $category ? $category->getData('image') : null
+                    'value' => $category?->getData('image') ?? null
                 ])
             );
 
@@ -144,12 +142,12 @@ class CategoryForm extends FormComponent
             $assignedSubeditors = $category ? Repo::user()
                 ->getCollector()
                 ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                ->filterByRoleIds($this->assignableRoles)
+                ->filterByRoleIds(Category::ASSIGNABLE_ROLES)
                 ->assignedToCategoryIds([$category->getId()])
                 ->getIds()
-                ->toArray() : [];
+                ->all() : [];
 
-            $subeditorUserGroups = [];
+            $subeditorUserGroups = collect();
             if (!empty($assignedSubeditors)) {
                 $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
                 /** @var SubEditorsDAO $subEditorsDao */
@@ -160,7 +158,7 @@ class CategoryForm extends FormComponent
                     Application::ASSOC_TYPE_CATEGORY,
                     $category->getId(),
                     $assignedSubeditors
-                )->toArray();
+                );
             }
 
             foreach ($assignableUserGroups as $assignableUserGroup) {
@@ -182,7 +180,9 @@ class CategoryForm extends FormComponent
                         'options' => $assignableUserOptions,
                         'groupId' => 'subEditors',
                         'type' => 'checkbox',
-                        'value' => array_keys(array_filter($subeditorUserGroups, fn ($values) => in_array($assignableUserGroup['userGroup']->id, $values)))
+                        'value' => $subeditorUserGroups
+                            ->filter(fn ($values) => $values->contains($assignableUserGroup['userGroup']->id))
+                            ->keys()
                     ]));
                 }
             }

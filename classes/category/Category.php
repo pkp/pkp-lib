@@ -18,7 +18,8 @@ use PKP\security\Role;
 
 class Category extends \PKP\core\DataObject
 {
-    public static array $ASSIGNABLE_ROLES = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
+    public const ASSIGNABLE_ROLES = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
+    public const SUPPORTED_IMAGE_TYPES = ['.jpg', '.png', '.gif'];
     public static string $PATH_REGEX = '/^[a-zA-Z0-9\/._-]+$/';
     /**
      * Get ID of context.

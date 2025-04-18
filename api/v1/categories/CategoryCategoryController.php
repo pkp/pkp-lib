@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/categories/PkpCategoryCategoryController.php
+ * @file api/v1/categories/CategoryCategoryController.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PkpCategoryCategoryController
+ * @class CategoryCategoryController
  *
  * @ingroup api_v1_category
  *
@@ -35,7 +35,7 @@ use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
-class PkpCategoryCategoryController extends PKPBaseController
+class CategoryCategoryController extends PKPBaseController
 {
     /**
      * @inheritDoc
@@ -81,55 +81,11 @@ class PkpCategoryCategoryController extends PKPBaseController
             Route::get('', $this->getMany(...));
             Route::get('categoryFormComponent', $this->getCategoryFormComponent(...));
             Route::post('', $this->add(...));
-            Route::put('saveOrder', $this->saveOrder(...));
             Route::put('{categoryId}', $this->edit(...))
                 ->whereNumber('categoryId');
             Route::delete('{categoryId}', $this->delete(...))
                 ->whereNumber('categoryId');
         });
-    }
-
-    /**
-     * Saves the ordering of categories.
-     */
-    public function saveOrder(Request $illuminateRequest, Context $context): JsonResponse
-    {
-        $context = $this->getRequest()->getContext();
-        $sortedCategories = $illuminateRequest->all();
-        $categoryIds = array_map(function ($category) {return $category['id'];}, $sortedCategories);
-
-        $categoriesFound = Repo::category()->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->filterByIds($categoryIds)
-            ->getMany();
-
-        $categoriesFoundIds = $categoriesFound->map(fn ($category) => $category->getId())->all();
-
-
-        if (array_diff($categoryIds, $categoriesFoundIds)) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound')
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Only allow top-level categories to be ordered
-        foreach ($categoriesFound as $category) {
-            if ($category->getData('parentId') !== null) {
-                return response()->json([
-                    'error' => __('api.categories.400.cannotReorder')
-                ], Response::HTTP_BAD_REQUEST);
-            }
-        }
-
-        $sortedCategories = collect($sortedCategories)->keyBy('id');
-        foreach ($categoriesFound as $category) {
-            $newCategoryData = $sortedCategories->get($category->getId());
-            // update the category sequence value
-            $category->setSequence($newCategoryData['seq']);
-            Repo::category()->edit($category, ['seq']);
-        }
-
-        return response()->json([], Response::HTTP_OK);
     }
 
     /**
@@ -198,9 +154,7 @@ class PkpCategoryCategoryController extends PKPBaseController
 
         // Update or insert the category object
         if ($categoryId == null) {
-            $category->setSequence(REALLY_BIG_NUMBER);
             $categoryId = Repo::category()->add($category);
-            Repo::category()->dao->resequenceCategories($context->getId());
         } else {
             Repo::category()->edit($category, []);
         }
@@ -212,21 +166,17 @@ class PkpCategoryCategoryController extends PKPBaseController
         // Subeditors are assigned to user group that has access to WORKFLOW_STAGE_ID_SUBMISSION stage, but OPS does not have that stage.
         // So $subEditors will be null in OPS.
         if ($subEditors !== null) {
-            Repo::category()->updateEditors($categoryId, $subEditors, Category::$ASSIGNABLE_ROLES, $context->getId());
+            Repo::category()->updateEditors($categoryId, $subEditors, Category::ASSIGNABLE_ROLES, $context->getId());
         }
 
         $submittedImageData = $illuminateRequest->input('image') ?: [];
-        $temporaryFileId = $submittedImageData ? $submittedImageData['temporaryFileId'] : null;
+        $temporaryFileId = $submittedImageData['temporaryFileId'] ?? null;
 
         // Delete the old image if a new one was submitted or if the existing one was removed
-        if ($temporaryFileId || !$submittedImageData) {
-            $oldImageData = $category->getImage();
-            if ($oldImageData) {
-                $publicFileManager = new PublicFileManager();
-                $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['uploadName']);
-                $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['thumbnailName']);
-                $category->setImage(null);
-            }
+        if ($temporaryFileId || !$submittedImageData && $oldImageData = $category->getImage()) {
+            $publicFileManager = new PublicFileManager();
+            $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['uploadName']);
+            $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['thumbnailName']);
         }
 
         $imageData = [];
@@ -351,59 +301,60 @@ class PkpCategoryCategoryController extends PKPBaseController
     /**
      * Generate the thumbnail image when creating a category.
      *
-     * @return array - assoc array with thumbnail details
-     * Example:
-     * ```
-     * [
-     *  'thumbnailName' => (string),
-     *  'thumbnailWidth' => (int),
-     *  'thumbnailHeight' => (int),
-     * ]
-     * ```
+     * @return array{'thumbnailName': string, 'thumbnailWidth':int, 'thumbnailHeight':int} - assoc array with thumbnail details
      */
     private function generateThumbnail(TemporaryFile $temporaryFile, Context $context, $categoryId): array
     {
-        $temporaryFileManager = new TemporaryFileManager();
-        $imageExtension = $temporaryFileManager->getImageExtension($temporaryFile->getFileType());
-        $sizeArray = getimagesize($temporaryFile->getFilePath());
-        $temporaryFilePath = $temporaryFile->getFilePath();
+        $image = null;
+        $thumbnail = null;
 
-        // Generate the surrogate images. Used later to create thumbnail
-        $image = match ($imageExtension) {
-            '.jpg' => imagecreatefromjpeg($temporaryFilePath),
-            '.png' => imagecreatefrompng($temporaryFilePath),
-            '.gif' => imagecreatefromgif($temporaryFilePath),
-        };
+        try {
+            $temporaryFileManager = new TemporaryFileManager();
+            $imageExtension = $temporaryFileManager->getImageExtension($temporaryFile->getFileType());
+            $sizeArray = getimagesize($temporaryFile->getFilePath());
+            $temporaryFilePath = $temporaryFile->getFilePath();
 
-        $coverThumbnailsMaxWidth = $context->getData('coverThumbnailsMaxWidth');
-        $coverThumbnailsMaxHeight = $context->getData('coverThumbnailsMaxHeight');
-        $thumbnailFilename = $categoryId . '-category-thumbnail' . $imageExtension;
-        $xRatio = min(1, ($coverThumbnailsMaxWidth ? $coverThumbnailsMaxWidth : 100) / $sizeArray[0]);
-        $yRatio = min(1, ($coverThumbnailsMaxHeight ? $coverThumbnailsMaxHeight : 100) / $sizeArray[1]);
-        $ratio = min($xRatio, $yRatio);
-        $thumbnailWidth = round($ratio * $sizeArray[0]);
-        $thumbnailHeight = round($ratio * $sizeArray[1]);
-        $thumbnail = imagecreatetruecolor($thumbnailWidth, $thumbnailHeight);
-        imagecopyresampled($thumbnail, $image, 0, 0, 0, 0, $thumbnailWidth, $thumbnailHeight, $sizeArray[0], $sizeArray[1]);
+            // Generate the surrogate images. Used later to create thumbnail
+            $image = match ($imageExtension) {
+                '.jpg' => imagecreatefromjpeg($temporaryFilePath),
+                '.png' => imagecreatefrompng($temporaryFilePath),
+                '.gif' => imagecreatefromgif($temporaryFilePath),
+            };
 
-        $publicFileManager = new PublicFileManager();
+            $coverThumbnailsMaxWidth = $context->getData('coverThumbnailsMaxWidth');
+            $coverThumbnailsMaxHeight = $context->getData('coverThumbnailsMaxHeight');
+            $thumbnailFilename = $categoryId . '-category-thumbnail' . $imageExtension;
+            $xRatio = min(1, ($coverThumbnailsMaxWidth ? $coverThumbnailsMaxWidth : 100) / $sizeArray[0]);
+            $yRatio = min(1, ($coverThumbnailsMaxHeight ? $coverThumbnailsMaxHeight : 100) / $sizeArray[1]);
+            $ratio = min($xRatio, $yRatio);
+            $thumbnailWidth = round($ratio * $sizeArray[0]);
+            $thumbnailHeight = round($ratio * $sizeArray[1]);
+            $thumbnail = imagecreatetruecolor($thumbnailWidth, $thumbnailHeight);
+            imagecopyresampled($thumbnail, $image, 0, 0, 0, 0, $thumbnailWidth, $thumbnailHeight, $sizeArray[0], $sizeArray[1]);
 
-        // store the thumbnail
-        $fullPath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $thumbnailFilename;
-        match ($imageExtension) {
-            '.jpg' => imagejpeg($thumbnail, $fullPath),
-            '.png' => imagepng($thumbnail, $fullPath),
-            '.gif' => imagegif($thumbnail, $fullPath),
-        };
+            $publicFileManager = new PublicFileManager();
 
-        imagedestroy($thumbnail);
-        imagedestroy($image);
+            // store the thumbnail
+            $fullPath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $thumbnailFilename;
+            match ($imageExtension) {
+                '.jpg' => imagejpeg($thumbnail, $fullPath),
+                '.png' => imagepng($thumbnail, $fullPath),
+                '.gif' => imagegif($thumbnail, $fullPath),
+            };
 
-        return [
-            'thumbnailName' => $thumbnailFilename,
-            'thumbnailWidth' => $thumbnailWidth,
-            'thumbnailHeight' => $thumbnailHeight,
-        ];
+            return [
+                'thumbnailName' => $thumbnailFilename,
+                'thumbnailWidth' => $thumbnailWidth,
+                'thumbnailHeight' => $thumbnailHeight,
+            ];
+        } finally {
+            // Cleanup created image resources
+            if ($thumbnail) {
+                imagedestroy($thumbnail);
+            }
+            if ($image) {
+                imagedestroy($image);
+            }
+        }
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/Repository.php
  *
@@ -13,8 +14,16 @@
 
 namespace PKP\category;
 
+use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Validation\Validator;
+use PKP\context\Context;
+use PKP\context\SubEditorsDAO;
+use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -64,31 +73,26 @@ class Repository
     }
 
     /**
-     * Get the breadcrumb of a category
-     *
-     * @return string For example: Social Sciences > Anthropology
-     */
-    public function getBreadcrumb(Category $category, ?Category $parent = null): string
-    {
-        return !$parent
-            ? $category->getLocalizedTitle()
-            : __('common.categorySeparator', [
-                'parent' => $parent->getLocalizedTitle(),
-                'child' => $category->getLocalizedTitle()
-            ]);
-    }
-
-    /**
      * Get the breadcrumbs for a Collection of categories
      */
     public function getBreadcrumbs(LazyCollection $categories): LazyCollection
     {
         return $categories->map(function (Category $category) use ($categories) {
-            /** @var ?Category $parent */
-            $parent = $categories->first(
-                fn (Category $c) => $c->getId() === $category->getParentId()
-            );
-            return $this->getBreadcrumb($category, $parent);
+            $currentCategory = $category;
+            $result = $currentCategory->getLocalizedTitle();
+
+            // Traverse up category tree until we reach a top-level category
+            while ($currentCategory->getParentId() && $parent = $categories->get($currentCategory->getParentId())) {
+                // Format this level, but with the accumulated result as the child instead of just the current category title
+                $result = __('common.categorySeparator', [
+                    'parent' => $parent->getLocalizedTitle(),
+                    'child' => $result
+                ]);
+
+                $currentCategory = $parent;
+            }
+
+            return $result;
         });
     }
 
@@ -113,15 +117,16 @@ class Repository
      * Perform validation checks on data used to add or edit a category.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      *
      * @hook Category::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
-    public function validate(?Category $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?Category $object, array $props, Context $context): array
     {
+        $primaryLocale = $context->getData('primaryLocale');
+        $allowedLocales = $context->getData('supportedFormLocales');
+
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales),
@@ -142,6 +147,58 @@ class Repository
         ValidatorFactory::allowedLocales($validator, $this->schemaService->getMultilingualProps($this->dao->schema), $allowedLocales);
 
         $errors = [];
+
+        if (isset($props['contextId'])) {
+            $validator->after(function (Validator $validator) use ($props, $context) {
+                if (!Application::getContextDAO()->exists($props['contextId'])) {
+                    $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
+                }
+                if ($context->getId() !== $props['contextId']) {
+                    $validator->errors()->add('contextId', __('api.categories.400.invalidContext'));
+                }
+            });
+        }
+
+        if (isset($props['path'])) {
+            $validator->after(function (Validator $validator) use ($props, $context, $object) {
+                // Check if path matches the allowed pattern
+                if (!preg_match(\Category::$PATH_REGEX, $props['path'] ?: '')) {
+                    $validator->errors()->add('path', __('grid.category.pathAlphaNumeric'));
+                }
+
+                $existingCategoryWithPath = Repo::category()->getCollector()
+                    ->filterByContextIds([$props['contextId']])
+                    ->filterByPaths([$props['path']])
+                    ->getMany()
+                    ->first();
+
+                $id = key_exists($props['categoryId'], $props) ? $props['categoryId'] : $object?->getId() ?? null;
+                $existingCategoryWithId = $id ? Repo::category()->get($id, $context->getId()) : null;
+
+                if ($existingCategoryWithPath && $existingCategoryWithPath->getPath() !== $existingCategoryWithId?->getPath()) {
+                    $validator->errors()->add('path', __('grid.category.pathExists'));
+                }
+            });
+        }
+
+        if (isset($props['image']) && $props['image']['temporaryFileId']) {
+            $validator->after(function (Validator $validator) use ($props, $context) {
+                $temporaryFileId = $props['image']['temporaryFileId'];
+                $temporaryFileManager = new TemporaryFileManager();
+                $user = Application::get()->getRequest()->getUser();
+                $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
+                $imageExtension = $temporaryFile ? $temporaryFileManager->getImageExtension($temporaryFile->getFileType()) : [];
+                $isValidExtension = in_array($imageExtension, Category::SUPPORTED_IMAGE_TYPES);
+
+                if (!$isValidExtension || !$temporaryFile ||
+                    !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
+                    !($sizeArray = getimagesize($temporaryFile->getFilePath())) ||
+                    $sizeArray[0] <= 0 || $sizeArray[1] <= 0
+                ) {
+                    $validator->errors()->add('image', __('form.invalidImage'));
+                }
+            });
+        }
 
         if ($validator->fails()) {
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
@@ -175,8 +232,24 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(Category $category)
     {
+        $subCategories = Repo::category()->getCollector()
+            ->filterByParentIds([$category->getId()])
+            ->getMany();
+
+        foreach ($subCategories as $subCategory) {
+            $this->delete($subCategory);
+        }
+
         Hook::call('Category::delete::before', [$category]);
+
         $this->dao->delete($category);
+        $image = $category->getImage();
+
+        if ($image) {
+            $publicFileManager = new PublicFileManager();
+            $publicFileManager->removeContextFile($category->getContextId(), $image['uploadName']);
+            $publicFileManager->removeContextFile($category->getContextId(), $image['thumbnailName']);
+        }
         Hook::call('Category::delete', [$category]);
     }
 
@@ -188,6 +261,37 @@ class Repository
         foreach ($collector->getMany() as $category) {
             /** @var Category $category */
             $this->delete($category);
+        }
+    }
+
+    /***
+     * @param array $subEditors - Editor IDs grouped by Group ID. Example:
+     * ```
+     * [
+     *  3 => [6, 8]
+     * ]
+     * ```
+     * From the example above, `3` is the group ID and `6` and `8` are editor IDs.
+     */
+    public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
+    {
+        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+        $subEditorsDao->deleteBySubmissionGroupId($categoryId, Application::ASSOC_TYPE_CATEGORY, $contextId);
+
+        if (!empty($subEditors)) {
+            $allowedEditors = Repo::user()
+                ->getCollector()
+                ->filterByRoleIds($assignableRoles)
+                ->filterByContextIds([$contextId])
+                ->getIds();
+            foreach ($subEditors as $userGroupId => $userIds) {
+                foreach ($userIds as $userId) {
+                    if (!$allowedEditors->contains($userId)) {
+                        continue;
+                    }
+                    $subEditorsDao->insertEditor($contextId, $categoryId, $userId, Application::ASSOC_TYPE_CATEGORY, (int)$userGroupId);
+                }
+            }
         }
     }
 }

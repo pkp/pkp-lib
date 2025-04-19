@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/Collector.php
  *
@@ -21,7 +22,6 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 use PKP\publication\PublicationCategory;
 
-
 /**
  * @template T of Category
  */
@@ -34,6 +34,7 @@ class Collector implements CollectorInterface
     public ?array $publicationIds = null;
     public ?int $count = null;
     public ?int $offset = null;
+    public ?array $categoryIds = null;
 
     public function __construct(DAO $dao)
     {
@@ -100,6 +101,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter categories by IDs
+     */
+    public function filterByIds(?array $categoryIds): self
+    {
+        $this->categoryIds = $categoryIds;
+        return $this;
+    }
+
+    /**
      * Limit the number of objects retrieved
      */
     public function limit(?int $count): self
@@ -129,6 +139,8 @@ class Collector implements CollectorInterface
             ->leftJoin('categories AS pc', 'c.parent_id', '=', 'pc.category_id')
             ->select(['c.*']);
 
+        $qb->when($this->categoryIds !== null, fn (Builder $query) => $query->whereIn('c.category_id', $this->categoryIds));
+
         $qb->when($this->contextIds !== null, function ($query) {
             $query->whereIn('c.context_id', $this->contextIds);
         });
@@ -138,9 +150,11 @@ class Collector implements CollectorInterface
         });
 
         $qb->when($this->publicationIds !== null, function ($query) {
-            $query->whereIn('c.category_id', PublicationCategory::select('category_id')
-                ->whereIn('publication_id', $this->publicationIds)
-                ->toBase()
+            $query->whereIn(
+                'c.category_id',
+                PublicationCategory::select('category_id')
+                    ->whereIn('publication_id', $this->publicationIds)
+                    ->toBase()
             );
         });
 
@@ -158,8 +172,6 @@ class Collector implements CollectorInterface
                 }
             }
         });
-
-        $qb->orderBy(DB::raw('(COALESCE((pc.seq * 8192) + pc.category_id, 0) * 8192) + CASE WHEN pc.category_id IS NULL THEN 8192 * ((c.seq * 8192) + c.category_id) ELSE c.seq END'));
 
         if (isset($this->count)) {
             $qb->limit($this->count);

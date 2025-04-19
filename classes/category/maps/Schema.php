@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/category/maps/Schema.php
  *
@@ -13,9 +14,12 @@
 
 namespace PKP\category\maps;
 
+use APP\core\Application;
+use App\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\category\Category;
 use PKP\services\PKPSchemaService;
+use PKP\user\User;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -73,15 +77,38 @@ class Schema extends \PKP\core\maps\Schema
     protected function mapByProperties(array $props, Category $category): array
     {
         $output = [];
-
+        $context = Application::get()->getRequest()->getContext();
         foreach ($props as $prop) {
             switch ($prop) {
+                case 'subCategories':
+                    $subCategories = Repo::category()->getCollector()
+                        ->filterByParentIds([$category->getId()])
+                        ->filterByContextIds([$context->getId()])
+                        ->getMany();
+
+                    if ($subCategories->isNotEmpty()) {
+                        $output['subCategories'] = $this->mapMany($subCategories)->values();
+                    }
+                    break;
+                case 'assignedEditors':
+                    $output['assignedEditors'] = Repo::user()
+                        ->getCollector()
+                        ->filterByContextIds([$context->getId()])
+                        ->filterByRoleIds(Category::ASSIGNABLE_ROLES)
+                        ->assignedToCategoryIds([$category->getId()])
+                        ->getMany()
+                        ->map(fn (User $user) => [
+                            'id' => $user->getId(),
+                            'name' => $user->getFullName(),
+                            'editorDisplayInitials' => $user->getDisplayInitials(),
+                        ])->values();
+                    break;
                 default:
                     $output[$prop] = $category->getData($prop);
                     break;
             }
         }
 
-        return $output;
+        return $this->schemaService->addMissingMultilingualValues($this->schema, $output, $context->getSupportedFormLocales());
     }
 }

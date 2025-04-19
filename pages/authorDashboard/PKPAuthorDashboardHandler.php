@@ -260,12 +260,12 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         // Get an array of publications
         $publications = $submission->getData('publications'); /** @var Enumerable $publications */
-        $publicationList = $publications->map(function ($publication) {
+        $publicationList = $publications->map(function ($publication, Context $submissionContext) {
             return [
                 'id' => $publication->getId(),
                 'datePublished' => $publication->getData('datePublished'),
                 'status' => $publication->getData('status'),
-                'version' => $publication->getData('version')
+                'version' => Repo::publication()->getVersionString($publication, null, $submissionContext),
             ];
         })->values();
 

@@ -2401,8 +2401,9 @@ msgstr "You must upload at least one {$genre} file."
 msgid "submission.files.required.genres"
 msgstr "You must upload at least one of each of the following file types: {$genres}."
 
+# fuzzy
 msgid "publication.version"
-msgstr "Version {$version}"
+msgstr "{$version}"
 
 msgid "submission.submissionFile"
 msgstr "Submission File"
@@ -2770,3 +2771,35 @@ msgstr "Select incomplete submissions to be deleted."
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Delete Incomplete Submissions"
+msgid "publication.versionStage.authorOriginal"
+msgstr "Author Original"
+
+msgid "publication.versionStage.acceptedManuscript"
+msgstr "Accepted Manuscript"
+
+msgid "publication.versionStage.submittedManuscript"
+msgstr "Submitted Manuscript"
+
+msgid "publication.versionStage.proof"
+msgstr "Proof"
+
+msgid "publication.versionStage.versionOfRecord"
+msgstr "Version of Record"
+
+msgid "publication.versionStage.unassignedVersion"
+msgstr "Unassigned version ({$publicationCreatedDate})"
+
+msgid "publication.versionStage.display"
+msgstr "{$stage} {$majorNumbering}.{$minorNumbering}"
+
+msgid "publication.required.versionStage"
+msgstr ""
+"The publication must have a version stage assigned before it can "
+"be published."
+
+msgid "publication.required.versionStage.assignment"
+msgstr "The stage version that will be assigned to the publication is \"{$versionString}\""
+
+msgid "publication.required.versionStage.alreadyAssignment"
+msgstr "The publication version is \"{$versionString}\""
+

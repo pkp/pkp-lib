@@ -17,6 +17,7 @@ namespace PKP\category;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
@@ -231,8 +232,24 @@ class Repository
     /** @copydoc DAO::delete() */
     public function delete(Category $category)
     {
+        $subCategories = Repo::category()->getCollector()
+            ->filterByParentIds([$category->getId()])
+            ->getMany();
+
+        foreach ($subCategories as $subCategory) {
+            $this->delete($subCategory);
+        }
+
         Hook::call('Category::delete::before', [$category]);
+
         $this->dao->delete($category);
+        $image = $category->getImage();
+
+        if ($image) {
+            $publicFileManager = new PublicFileManager();
+            $publicFileManager->removeContextFile($category->getContextId(), $image['uploadName']);
+            $publicFileManager->removeContextFile($category->getContextId(), $image['thumbnailName']);
+        }
         Hook::call('Category::delete', [$category]);
     }
 

@@ -286,17 +286,10 @@ class CategoryCategoryController extends PKPBaseController
             return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
         }
 
-        $image = $category->getImage();
         Repo::category()->delete($category);
-
-        if ($image) {
-            $publicFileManager = new PublicFileManager();
-            $publicFileManager->removeContextFile($category->getContextId(), $image['uploadName']);
-            $publicFileManager->removeContextFile($category->getContextId(), $image['thumbnailName']);
-        }
-
         return response()->json([], Response::HTTP_OK);
     }
+
 
     /**
      * Generate the thumbnail image when creating a category.

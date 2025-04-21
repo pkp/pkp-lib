@@ -1121,10 +1121,9 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.actionRequired'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
-                            ->filterByActionRequiredByReviewer(true)
-                            ->filterByLastReviewRound(true),
+                            ->filterByActionRequiredByReviewer(true),
                         'reviewerAssignments',
                         ['actionRequired' => true]
                     );
@@ -1134,7 +1133,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.all'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByActive(true),
                         'reviewerAssignments',
@@ -1146,7 +1145,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.completed'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByCompleted(true),
                         'reviewerAssignments',
@@ -1158,7 +1157,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.published'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByPublished(true),
                         'reviewerAssignments',
@@ -1170,7 +1169,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.archived'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByIsArchived(true),
                         'reviewerAssignments',
@@ -1182,7 +1181,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.declined'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByDeclined(true),
                         'reviewerAssignments',

@@ -33,6 +33,8 @@ use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
+use PKP\publication\enums\VersionStage;
+use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
@@ -583,7 +585,7 @@ abstract class Repository
         $submission = Repo::submission()->get($submissionId);
 
         $publication->setData('submissionId', $submission->getId());
-        $publication->setData('version', 1);
+
         if (!$publication->getData('status')) {
             $publication->setData('status', $submission->getData('status'));
         }
@@ -836,6 +838,51 @@ abstract class Repository
         }
 
         return $filteredViews;
+    }
+
+    /**
+     * Return a collection of all existing Versions 
+     * for the submission's publications
+     *
+     * @return Collection<PublicationVersionInfo>
+     */
+    public function getAllVersionsByPublication(Submission $submission): Collection
+    {
+        return collect($submission->getData('publications')->map(function ($publication) {
+            return $publication->getVersion();
+        })->filter()); // Remove any null entries from the collection
+    }
+
+    public function getNextAvailableVersion(Submission $submission, VersionStage $versionStage, bool $isMinorChange = true): PublicationVersionInfo
+    {
+        $nextVersion = new PublicationVersionInfo($versionStage);
+
+        $submissionVersions = $this->getAllVersionsByPublication($submission);
+
+        // Filter to find the version stages that match the current version stage but with potentially updated versionMajor or versionMinor
+        $matchingVersions = $submissionVersions->filter(function ($existingVersion) use ($versionStage) {
+            return $existingVersion->stage === $versionStage;
+        });
+
+        if (!$matchingVersions->isEmpty()) {
+            // Sort the version stages by versionMajor and versionMinor (descending order)
+            $sortedVersions = $matchingVersions->sort(function ($a, $b) {
+                return $b->majorNumbering <=> $a->majorNumbering ?: $b->minorNumbering <=> $a->minorNumbering;
+            });
+
+            $nextVersion = $sortedVersions->first();
+
+            if ($isMinorChange) {
+                // Increment the minor version
+                $nextVersion->minorNumbering += 1;
+            } else {
+                // Increment the major version and reset the minor version
+                $nextVersion->majorNumbering += 1;
+                $nextVersion->minorNumbering = PublicationVersionInfo::DEFAULT_MINOR_NUMBERING;
+            }
+        }
+
+        return $nextVersion;
     }
 
     /**

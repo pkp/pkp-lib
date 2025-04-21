@@ -23,6 +23,8 @@ use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
+use PKP\publication\enums\VersionStage;
+use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
@@ -285,6 +287,19 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
+     * Stamp the date of the last modification to the current time.
+     */
+    public function stampCreated()
+    {
+        $dateTime = Core::getCurrentDate();
+
+        $this->setData('createdAt', $dateTime);
+        $this->setData('lastModified', $dateTime);
+
+        return;
+    }
+
+    /**
      * Get the starting page of this publication
      *
      * Note the return type of string - this is not to be used for
@@ -463,6 +478,36 @@ class PKPPublication extends \PKP\core\DataObject
             ->unique()
             ->values()
             ->toArray();
+    }
+
+    /**
+     * Get the publication's current version data
+     */
+    public function getVersion(): ?PublicationVersionInfo 
+    {
+        $versionStageStr = $this->getData('versionStage');
+        if (!isset($versionStageStr)) {
+            return null;
+        }
+
+        $versionInfo = new PublicationVersionInfo(
+            VersionStage::from($versionStageStr),
+            $this->getData('versionMajor'),
+            $this->getData('versionMinor')
+        );
+
+        return $versionInfo;
+    }
+
+    /**
+     * Set the current version of the publication 
+     * given a PublicationVersionInfo object
+     */
+    public function setVersion(PublicationVersionInfo $versionInfo): void
+    {
+        $this->setData('versionStage', $versionInfo->stage->value);
+        $this->setData('versionMajor', $versionInfo->majorNumbering);
+        $this->setData('versionMinor', $versionInfo->minorNumbering);
     }
 }
 if (!PKP_STRICT_MODE) {

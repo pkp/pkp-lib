@@ -368,14 +368,13 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
         $currentUser = $request->getUser();
         $collector = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewerIds([$currentUser->getId()])
+            ->filterByReviewerIds([$currentUser->getId()], true)
             ->filterByContextIds([$context->getId()]);
 
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'actionRequired':
-                    $collector->filterByActionRequiredByReviewer(true)
-                        ->filterByLastReviewRound(true);
+                    $collector->filterByActionRequiredByReviewer(true);
                     break;
                 case 'active':
                     $collector->filterByActive(true);
@@ -391,6 +390,9 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
                 case 'published':
                     $collector->filterByPublished(true);
+                    break;
+                case 'allReviewRounds':
+                    $collector->filterByReviewerIds([$currentUser->getId()]);
                     break;
             }
         }

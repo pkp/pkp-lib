@@ -45,6 +45,7 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $isDeclined = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
+    public ?bool $isLastReviewRoundByReviewer = false;
     public bool $isLastReviewRound = false;
     public ?int $count = null;
     public ?int $offset = null;
@@ -191,9 +192,18 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
-    public function filterByReviewerIds(?array $reviewerIds): static
+    /**
+     * Filter results by reviewer IDs
+     *
+     * @param array|null $reviewerIds user IDs of reviewers
+     * @param bool $lastReviewRound if true, only the last review round for each reviewer will be returned
+     *
+     * @return $this
+     */
+    public function filterByReviewerIds(?array $reviewerIds, bool $lastReviewRound = false): static
     {
         $this->reviewerIds = $reviewerIds;
+        $this->isLastReviewRoundByReviewer = $lastReviewRound;
         return $this;
     }
 
@@ -435,8 +445,24 @@ class Collector implements CollectorInterface, ViewsCount
 
         $q->when(
             $this->reviewerIds !== null,
-            fn (Builder $q) =>
-            $q->whereIn('ra.reviewer_id', $this->reviewerIds)
+            fn (Builder $q) => $q
+                ->whereIn('ra.reviewer_id', $this->reviewerIds)
+                ->when(
+                    $this->isLastReviewRoundByReviewer,
+                    fn (Builder $q) => $q
+                        // Aggregate the latest review round number for the given assignment and reviewer
+                        ->leftJoinSub(
+                            DB::table('review_assignments as ramax')
+                                ->leftJoin('review_rounds as rrmax', 'ramax.review_round_id', '=', 'rrmax.review_round_id')
+                                ->select(['ramax.submission_id', 'ramax.reviewer_id'])
+                                ->selectRaw('MAX(rrmax.round) as latest_round')
+                                ->groupBy(['ramax.submission_id', 'ramax.reviewer_id']),
+                            'agrmax',
+                            fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'agrmax.submission_id')
+                        )
+                        ->whereIn('agrmax.reviewer_id', $this->reviewerIds)
+                        ->whereColumn('ra.round', 'agrmax.latest_round') // assignments from the last review round per reviewer only
+                )
         );
 
         $q->when(

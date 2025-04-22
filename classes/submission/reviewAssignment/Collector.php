@@ -453,14 +453,13 @@ class Collector implements CollectorInterface, ViewsCount
                         // Aggregate the latest review round number for the given assignment and reviewer
                         ->leftJoinSub(
                             DB::table('review_assignments as ramax')
-                                ->leftJoin('review_rounds as rrmax', 'ramax.review_round_id', '=', 'rrmax.review_round_id')
-                                ->select(['ramax.submission_id', 'ramax.reviewer_id'])
-                                ->selectRaw('MAX(rrmax.round) as latest_round')
-                                ->groupBy(['ramax.submission_id', 'ramax.reviewer_id']),
+                                ->select(['ramax.submission_id', 'ramax.reviewer_id', 'ramax.stage_id'])
+                                ->selectRaw('MAX(ramax.round) as latest_round')
+                                ->whereIn('ramax.reviewer_id', $this->reviewerIds)
+                                ->groupBy(['ramax.submission_id', 'ramax.reviewer_id', 'ramax.stage_id']),
                             'agrmax',
                             fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'agrmax.submission_id')
                         )
-                        ->whereIn('agrmax.reviewer_id', $this->reviewerIds)
                         ->whereColumn('ra.round', 'agrmax.latest_round') // assignments from the last review round per reviewer only
                 )
         );

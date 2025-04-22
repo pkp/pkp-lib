@@ -1,19 +1,20 @@
 # Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
+# Fülöp Tiffany <tiffany.fulop@ek.szte.hu>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2022-03-29 20:57+0000\n"
-"Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
+"PO-Revision-Date: 2025-04-22 14:31+0000\n"
+"Last-Translator: Fülöp Tiffany <tiffany.fulop@ek.szte.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/hu_HU/>\n"
-"Language: hu_HU\n"
+"submission/hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -59,7 +60,7 @@ msgstr ""
 "folytatná."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Igen, a kéziratom megfelel az összes felsorolt követelménynek."
 
 msgid "submission.submit.submissionComplete"
 msgstr "A kéziratot sikeresen benyújtotta"
@@ -547,7 +548,7 @@ msgid "submission.coverage"
 msgstr "Lefedettségi információk"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Beküldés adatai"
 
 msgid "submission.done"
 msgstr "Kész"
@@ -2359,7 +2360,7 @@ msgid "submission.wizard.alreadySubmitted"
 msgstr ""
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Mielőtt elkezdi"
 
 msgid "submission.wizard.categories.description"
 msgstr ""
@@ -2381,12 +2382,14 @@ msgstr ""
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Adjon hozzá minden olyan információt, amelyről úgy gondolja, hogy "
+"szerkesztőségünknek tudnia kell a beküldés elbírálásakor."
 
 msgid "submission.wizard.confirm"
 msgstr ""
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Kézirat beküldés elkészítése"
 
 msgid "submission.wizard.titleWithStep"
 msgstr ""
@@ -2401,16 +2404,19 @@ msgid "submission.wizard.notAllowed"
 msgstr ""
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Adatvédelmi hozzájárulás"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Mentve későbbre"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"A beküldés adatait elmentettük a rendszerünkbe, de még nem küldtük be "
+"mérlegelésre. Az alábbi linkre kattintva bármikor visszatérhet, hogy "
+"befejezze a beküldést."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "A linket elküldtük Önnek a/z {$email} e-mail címre."
 
 msgid "submission.wizard.sectionClosed"
 msgstr ""
@@ -2972,4 +2978,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Beküldési fájl"
-

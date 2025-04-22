@@ -103,6 +103,9 @@ class Schema extends \PKP\core\maps\Schema
                             'editorDisplayInitials' => $user->getDisplayInitials(),
                         ])->values();
                     break;
+                case 'localizedTitle':
+                    $output['localizedTitle'] = $category->getLocalizedTitle();
+                    break;
                 default:
                     $output[$prop] = $category->getData($prop);
                     break;

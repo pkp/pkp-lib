@@ -13,12 +13,6 @@
 			"apiSummary": true,
 			"writeDisabledInApi": true
 		},
-		"sequence": {
-			"type": "number",
-			"description": "The sequence number for this category (for ordering)",
-			"apiSummary": true,
-			"writeDisabledInApi": true
-		},
 		"parentId": {
 			"type": "integer",
 			"description": "The optional ID of the parent category.",
@@ -131,6 +125,13 @@
 			"type": "object",
 			"writeOnly": true,
 			"apiSummary": false
+		},
+		"localizedTitle": {
+			"type": "string",
+			"description": "The localized title of the category.",
+			"apiSummary": true,
+			"readOnly": true,
+			"writeDisabledInApi": true
 		}
 	}
 }

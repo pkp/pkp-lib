@@ -22,7 +22,6 @@ use Illuminate\Support\Enumerable;
 use PKP\category\Category;
 use PKP\components\forms\context\CategoryForm;
 use PKP\context\Context;
-use PKP\facades\Locale;
 use PKP\facades\Repo;
 
 class CategoryManager
@@ -44,7 +43,6 @@ class CategoryManager
     {
         return [
             'categories' => $this->getCategories(),
-            'primaryLocale' => Locale::getLocale(),
             'columns' => $this->getComponentTableColumns(),
             'categoryForm' => $this->getCategoryForm()->getConfig(),
         ];

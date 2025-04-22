@@ -121,6 +121,9 @@ class Mailable extends IlluminateMailable
     /** @var string embedded footer of the email */
     protected string $footer;
 
+    /** @var bool define if email data has been set */
+    protected bool $isDataSet = false;
+
     public function __construct(array $variables = [])
     {
         if (!empty($variables)) {
@@ -236,6 +239,16 @@ class Mailable extends IlluminateMailable
         }
 
         $this->addFooter($locale); // set the locale for the email footer
+
+        $this->isDataSet = true;
+    }
+
+    /**
+     * return if the data for this email has been set
+     */
+    public function hasDataSet(): bool
+    {
+        return $this->isDataSet;
     }
 
     /**
@@ -492,6 +505,7 @@ class Mailable extends IlluminateMailable
         }
         $isUnion = $type instanceof ReflectionUnionType;
         if ($isUnion || $type instanceof ReflectionIntersectionType) {
+            /** @var ReflectionIntersectionType $type */
             $flattenTypes = collect($type->getTypes())
                 ->map(fn ($type) => static::getTypeNames($type))
                 ->flatten();

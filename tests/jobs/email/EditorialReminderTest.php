@@ -131,11 +131,20 @@ class EditorialReminderTest extends PKPTestCase
             }
         );
 
+        $userMock = Mockery::mock(\PKP\user\User::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getId' => 0,
+                'getFullName' => 'Test User',
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
         $userRepoMock = Mockery::mock(app(UserRepository::class))
             ->makePartial()
             ->shouldReceive('get')
             ->withAnyArgs()
-            ->andReturn(new \PKP\user\User)
+            ->andReturn($userMock)
             ->getMock();
         
         app()->instance(UserRepository::class, $userRepoMock);

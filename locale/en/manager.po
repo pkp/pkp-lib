@@ -1442,6 +1442,41 @@ msgstr "Select the editorial users who should be assigned automatically to all n
 msgid "manager.category.saved"
 msgstr "Category saved"
 
+msgid "manager.category.deleteCategory"
+msgstr "Delete Category"
+
+msgid "manager.category.confirmDelete"
+msgstr "I understand the consequences, delete this category"
+
+msgid "manager.category.delete.confirmationTitle"
+msgstr "Are you absolutely sure you want to delete \"{$title}\" category?"
+
+msgid "manager.category.delete.message.cannotBeUndone"
+msgstr ""
+"<div class=\"font-semibold\">"
+    "Warning: Deleting this category will remove all {$subCategoryCount} sub-categories within it."
+"</div>"
+"<div class=\"text-secondary\">"
+    "<p class=\"mt-6\">This action cannot be undone. Deleting the category will:</p>"
+    "<ul role=\"list\" class=\"list-disc ml-8\">"
+        "<li>Permanently remove all nested sub-categories</li>"
+        "<li>Unassign this category from any submissions currently using it</li>"
+    "</ul>"
+    "<p class=\"mt-4\">This will not delete the submissions themselves — they will simply be left without a category.</p>"
+"</div>"
+"<p class=\"mt-4 text-primary text-lg-bold\">To confirm, please type the name of the category \"{$title}\" below to proceed</p>"
+
+msgid "manager.category.deleted"
+msgstr "Category Deleted"
+
+msgid "manager.category.deleted.description"
+msgstr ""
+"<p>\"{$title}\" and its {$subCategoryCount} sub-categories have been successfully deleted.</p>"
+"<p class=\"mt-4 text-secondary\">All submissions previously tagged under these categories are now unassigned. You can reassign them from the submission details page.</p>"
+
+msgid "manager.category.backToCategories"
+msgstr "Back to Categories"
+
 msgid "grid.category.categoryName"
 msgstr "Category Name"
 

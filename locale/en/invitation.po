@@ -376,4 +376,6 @@ msgstr "The user is currently disabled."
 msgid "userInvitation.user.disableMessage"
 msgstr "The user was disabled. You cannot assign them a role while they are disabled. Please enable the user first to invite them to a role."
 
+msgid "acceptInvitation.privacyConsent"
+msgstr "Privacy Consent"
 

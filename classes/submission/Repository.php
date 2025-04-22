@@ -514,6 +514,25 @@ abstract class Repository
      */
     public function canEditPublication(int $submissionId, int $userId): bool
     {
+        // block authors can never edit a published publication even if an editor granted them canChangeMetadata
+        $submission = $this->get($submissionId);
+        if ($submission) {
+            $currentPub = $submission->getCurrentPublication();
+            if (
+                $currentPub
+                && $currentPub->getData('status') === Submission::STATUS_PUBLISHED
+            ) {
+                // fetch this user’s stage assignments
+                $assignments = StageAssignment::withSubmissionIds([$submissionId])->withUserId($userId)->get();
+
+                // if all of their assignments are to an author group then block them
+                $hasNonAuthor = $assignments->contains(fn($sa) => $sa->userGroup && $sa->userGroup->roleId !== Role::ROLE_ID_AUTHOR);
+                if (!$hasNonAuthor) {
+                    return false;
+                }
+            }
+        }
+        
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
         $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)

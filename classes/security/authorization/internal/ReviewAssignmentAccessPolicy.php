@@ -69,8 +69,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
 
         $reviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewerIds([$user->getId()])
-            ->filterByLastReviewRound(true)
+            ->filterByReviewerIds([$user->getId()], true)
             ->getMany()
             ->first();
 

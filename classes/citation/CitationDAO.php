@@ -85,7 +85,7 @@ class CitationDAO extends \PKP\db\DAO
      * @param int $publicationId
      * @param string $rawCitationList
      *
-     * @hook Citation::importCitations::after [$publicationId, $existingCitations, $importedCitations]
+     * @hook Citation::importCitations::after [[$publicationId, $existingCitations, $importedCitations]]
      */
     public function importCitations($publicationId, $rawCitationList)
     {
@@ -119,7 +119,7 @@ class CitationDAO extends \PKP\db\DAO
             }
         }
 
-        Hook::run('Citation::importCitations::after', [$publicationId, $existingCitations, $importedCitations]);
+        Hook::run('Citation::importCitations::after', [[$publicationId, $existingCitations, $importedCitations]]);
     }
 
     /**

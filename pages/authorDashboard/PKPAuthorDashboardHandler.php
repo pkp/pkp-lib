@@ -191,10 +191,15 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
                 if (!$editorDecisions->isEmpty()) {
                     $lastDecision = $editorDecisions->last();
-                    $revisionDecisions = [
-                        Decision::PENDING_REVISIONS,
-                        Decision::RESUBMIT
-                    ];
+                    $revisionDecisions = $submission->getData('stageId') === WORKFLOW_STAGE_ID_EXTERNAL_REVIEW  
+                        ? [
+                            Decision::PENDING_REVISIONS,
+                            Decision::RESUBMIT
+                        ] : [
+                            Decision::PENDING_REVISIONS_INTERNAL,
+                            Decision::RESUBMIT_INTERNAL
+                        ];
+
                     if (in_array($lastDecision->getData('decision'), $revisionDecisions)) {
                         $actionArgs['submissionId'] = $submission->getId();
                         $actionArgs['stageId'] = $submission->getData('stageId');

@@ -452,14 +452,29 @@ class Collector implements CollectorInterface, ViewsCount
                     fn (Builder $q) => $q
                         // Aggregate the latest review round number for the given assignment and reviewer
                         ->leftJoinSub(
-                            DB::table('review_assignments as ramax')
-                                ->select(['ramax.submission_id', 'ramax.reviewer_id'])
-                                ->selectRaw('MAX(ramax.round) as latest_round')
-                                ->selectRaw('MAX(ramax.stage_id) as latest_stage')
-                                ->whereIn('ramax.reviewer_id', $this->reviewerIds)
-                                ->groupBy(['ramax.submission_id', 'ramax.reviewer_id']),
+                            DB::table(    
+                                DB::table('review_assignments')
+                                    ->select([
+                                        'ramax_stage_inner.reviewer_id',
+                                        'ramax_stage_inner.submission_id',
+                                        DB::raw('MAX(ramax_stage_inner.stage_id) as latest_stage')
+                                    ])
+                                    ->from('review_assignments as ramax_stage_inner')
+                                    ->whereIn('ramax_stage_inner.reviewer_id', $this->reviewerIds)
+                                    ->groupBy('ramax_stage_inner.submission_id', 'ramax_stage_inner.reviewer_id'),
+                                'ramax_stage'
+                            )
+                            ->select(['ramax_stage.submission_id', 'ramax_stage.reviewer_id', 'ramax_stage.latest_stage'])
+                            ->selectRaw('MAX(ramax_round.round) as latest_round')
+                            ->join('review_assignments as ramax_round', function ($join) {
+                                $join->on('ramax_stage.submission_id', '=', 'ramax_round.submission_id')
+                                    ->on('ramax_stage.reviewer_id', '=', 'ramax_round.reviewer_id')
+                                    ->on('ramax_stage.latest_stage', '=', 'ramax_round.stage_id');
+                            })
+                            ->groupBy(['ramax_stage.submission_id', 'ramax_stage.latest_stage', 'ramax_stage.reviewer_id']),
                             'agrmax',
                             fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'agrmax.submission_id')
+                                                          ->on('ra.reviewer_id', '=', 'agrmax.reviewer_id')
                         )
                         ->whereColumn('ra.round', 'agrmax.latest_round') // assignments from the last review round per reviewer only
                         ->whereColumn('ra.stage_id', 'agrmax.latest_stage') // assignments for the current review stage only (for OMP)

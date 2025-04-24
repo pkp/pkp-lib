@@ -457,8 +457,8 @@ class Collector implements CollectorInterface, ViewsCount
                                     ->select([
                                         'ramax_stage_inner.reviewer_id',
                                         'ramax_stage_inner.submission_id',
-                                        DB::raw('MAX(ramax_stage_inner.stage_id) as latest_stage')
                                     ])
+                                    ->selectRaw('MAX(ramax_stage_inner.stage_id) as latest_stage')
                                     ->from('review_assignments as ramax_stage_inner')
                                     ->whereIn('ramax_stage_inner.reviewer_id', $this->reviewerIds)
                                     ->groupBy('ramax_stage_inner.submission_id', 'ramax_stage_inner.reviewer_id'),

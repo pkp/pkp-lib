@@ -229,7 +229,11 @@ class Repository
         $this->dao->update($newCategory);
     }
 
-    /** @copydoc DAO::delete() */
+    /**
+     * Delete a category and all its subcategories.
+     *
+     * @hook Category::delete::before [[$category]]
+     */
     public function delete(Category $category)
     {
         $subCategories = Repo::category()->getCollector()
@@ -271,7 +275,7 @@ class Repository
      *  3 => [6, 8]
      * ]
      * ```
-     * From the example above, `3` is the group ID and `6` and `8` are editor IDs.
+     * In the example above, `3` represents the group ID, while `6` and `8` are the editor IDs to assign to that group.
      */
     public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
     {

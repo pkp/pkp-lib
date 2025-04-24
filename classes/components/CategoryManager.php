@@ -37,7 +37,7 @@ class CategoryManager
     /**
      * Get the configuration data to be used when initializing this component.
      *
-     * @return array{categories:Category[], primaryLocale:string, columns:array, categoryForm:array}
+     * @return array{categories:Category[], columns:array, categoryForm:array} - The component's config
      */
     public function getConfig(): array
     {
@@ -64,7 +64,7 @@ class CategoryManager
     /**
      * Get the categories to display.
      *
-     * @return Enumerable <Category>
+     * @return Enumerable <Category> - Lit of categories.
      */
     protected function getCategories(): Enumerable
     {
@@ -81,6 +81,8 @@ class CategoryManager
 
     /**
      * Get the columns to display in the category table.
+     *
+     * @return array<array{label:string, name:string}>
      */
     private function getComponentTableColumns(): array
     {

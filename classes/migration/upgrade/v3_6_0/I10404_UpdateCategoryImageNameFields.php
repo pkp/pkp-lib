@@ -58,7 +58,7 @@ class I10404_UpdateCategoryImageNameFields extends Migration
 
                     $this->updateCategoriesImageNameFields($contextId, collect($imageRecordsToUpdate));
                     // Move images
-                    $this->moveContextCategoryImagesToPublicFolder($contextId, $fileNamesToMove);
+                    $this->moveContextCategoryImagesToPublicFolder($contextId, collect($fileNamesToMove));
                 });
         }
     }
@@ -69,6 +69,10 @@ class I10404_UpdateCategoryImageNameFields extends Migration
      */
     private function updateCategoriesImageNameFields(int $contextId, Enumerable $updates): void
     {
+        if ($updates->isEmpty()) {
+            return;
+        }
+
         $caseStatement = 'UPDATE categories SET image = CASE category_id ';
 
         foreach ($updates as $categoryId => $json) {
@@ -82,9 +86,15 @@ class I10404_UpdateCategoryImageNameFields extends Migration
 
     /**
      * Moves the Category images from file system to public dir of given context.
+     *
+     * @param Enumerable $fileNames - List of file names to move
      */
-    private function moveContextCategoryImagesToPublicFolder(int $contextId, $fileNames): void
+    private function moveContextCategoryImagesToPublicFolder(int $contextId, Enumerable $fileNames): void
     {
+        if ($fileNames->isEmpty()) {
+            return;
+        }
+
         $contextFileManager = new ContextFileManager($contextId);
         $basePath = $contextFileManager->getBasePath() . 'categories/';
         $publicFileManager = new PublicFileManager();

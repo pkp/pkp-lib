@@ -212,7 +212,7 @@ VueRegistry.registerComponent('PkpTableColumn', TableColumn);
 VueRegistry.registerComponent('PkpTableHeader', TableHeader);
 VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
-VueRegistry.registerComponent('PkpCategoryManager', CategoryManager);
+VueRegistry.registerComponent('CategoryManager', CategoryManager);
 
 // Register Form components
 VueRegistry.registerComponent('PkpForm', Form);

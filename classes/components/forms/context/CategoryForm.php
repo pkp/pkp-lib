@@ -37,7 +37,7 @@ class CategoryForm extends FormComponent
     public $id = self::FORM_CATEGORY;
 
     /**
-     * @param Category|null $category - Optional. Pass Category object when you want to configure a form to edit an existing category
+     * @param Category|null $category - Optional. Pass Category object when you want to configure a form to edit an existing category.
      */
     public function __construct(string $action, array $locales, $baseUrl, $temporaryFileApiUrl, Category $category = null)
     {
@@ -45,7 +45,6 @@ class CategoryForm extends FormComponent
         $this->method = 'POST';
         $this->locales = $locales;
         $request = Application::get()->getRequest();
-
 
         $assignableUserGroups = UserGroup::query()
             ->withContextIds([$request->getContext()->getId()])
@@ -65,23 +64,24 @@ class CategoryForm extends FormComponent
                 ];
             });
 
-        // Conditionally add this group. This is done because assignable user groups would have access to WORKFLOW_STAGE_ID_SUBMISSION,
-        // but submission stage does not exist in OPS, so we don't display this group in OPS.
-        if (!empty($assignableUserGroups)) {
-            $this->addGroup([
-                'id' => 'categoryDetails'
-            ]);
-        }
+        $this->addGroup([
+            'id' => 'categoryDetails'
+        ]);
 
         $sortOptions = collect(Repo::submission()->getSortSelectOptions())
             ->map(fn ($label, $value) => ['value' => $value, 'label' => $label])
             ->values();
 
-        $this->addGroup([
-            'label' => __('manager.category.form.assignEditors'),
-            'description' => __('manager.categories.form.assignEditors.description'),
-            'id' => 'subEditors',
-        ]);
+        // Conditionally add this group. This is done because assignable user groups would have access to WORKFLOW_STAGE_ID_SUBMISSION,
+        // but submission stage does not exist in OPS, so we don't display this group in OPS.
+        if (!empty($assignableUserGroups)) {
+            $this->addGroup([
+                'label' => __('manager.category.form.assignEditors'),
+                'description' => __('manager.categories.form.assignEditors.description'),
+                'id' => 'subEditors',
+            ]);
+        }
+
         $this->addField(new FieldText('title', [
             'label' => __('grid.category.name'),
             'isMultilingual' => true,
@@ -149,8 +149,7 @@ class CategoryForm extends FormComponent
 
             $subeditorUserGroups = collect();
             if (!empty($assignedSubeditors)) {
-                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-                /** @var SubEditorsDAO $subEditorsDao */
+                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
 
                 //  A list of user group IDs for each assigned editor, keyed by user ID.
                 $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(

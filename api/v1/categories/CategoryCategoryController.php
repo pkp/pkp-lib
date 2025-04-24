@@ -114,11 +114,12 @@ class CategoryCategoryController extends PKPBaseController
     {
         $context = $this->getRequest()->getContext();
         $user = $this->getRequest()->getUser();
-        $parentId = $illuminateRequest->input('parentCategoryId') ? (int)$illuminateRequest->input('parentCategoryId') : null;
-        $categoryId = $illuminateRequest->route('categoryId') ? (int)$illuminateRequest->route('categoryId') : null;
+        $parentId = (int)$illuminateRequest->input('parentCategoryId') ?: null;
+        $categoryId = (int)$illuminateRequest->route('categoryId') ?: null;
 
         if ($parentId) {
-            if (!Repo::category()->exists($parentId, $context->getId())) {
+            $parent = Repo::category()->get($parentId, $context->getId());
+            if (!$parent) {
                 return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
             }
         }
@@ -151,6 +152,16 @@ class CategoryCategoryController extends PKPBaseController
         $category->setParentId($parentId);
         $category->setPath($illuminateRequest->input('path'));
         $category->setSortOption($illuminateRequest->input('sortOption'));
+
+        // Prevent categories from referencing themselves as their parent
+        if ($parentId && $categoryId && $$categoryId === $parentId) {
+            return response()->json(__('api.categories.400.invalidParentId'), Response::HTTP_BAD_REQUEST);
+        }
+
+        // Prevent category from being updated to have a circular parent reference
+        if ($parent && $category->getParentId() === $parent->getId() && $parent->getParentId() === $category->getId()) {
+            return response()->json(__('api.categories.400.circularParentReference'), Response::HTTP_BAD_REQUEST);
+        }
 
         // Update or insert the category object
         if ($categoryId == null) {
@@ -294,7 +305,7 @@ class CategoryCategoryController extends PKPBaseController
     /**
      * Generate the thumbnail image when creating a category.
      *
-     * @return array{'thumbnailName': string, 'thumbnailWidth':int, 'thumbnailHeight':int} - assoc array with thumbnail details
+     * @return array{'thumbnailName': string, 'thumbnailWidth':int, 'thumbnailHeight':int} - assoc array with thumbnail details.
      */
     private function generateThumbnail(TemporaryFile $temporaryFile, Context $context, $categoryId): array
     {

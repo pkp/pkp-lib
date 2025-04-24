@@ -175,6 +175,8 @@ class Collector implements CollectorInterface
             }
         });
 
+
+        // Order categories by title
         $locale = Locale::getLocale();
         $qb->leftJoin(
             'category_settings as category_settings',

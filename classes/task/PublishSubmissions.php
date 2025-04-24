@@ -52,9 +52,8 @@ class PublishSubmissions extends ScheduledTask
                 $datePublished = $submission->getCurrentPublication()->getData('datePublished');
                 if ($datePublished && strtotime($datePublished) <= strtotime(Core::getCurrentDate())) {
                     Repo::publication()->publish($submission->getCurrentPublication());
-                    
-                // dispatch the MetadataChanged event after publishing
-                event(new MetadataChanged($submission));
+                    // dispatch the MetadataChanged event after publishing
+                    event(new MetadataChanged($submission));
                 }
             }
         }

@@ -251,7 +251,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			}
 		}
 
-		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $submissionContext);
+		$values = Services::get('schema')->addMissingMultilingualValues(SCHEMA_SUBMISSION, $values, $submissionContext->getSupportedSubmissionLocales());
 
 		\HookRegistry::call('Submission::getProperties::values', array(&$values, $submission, $props, $args));
 

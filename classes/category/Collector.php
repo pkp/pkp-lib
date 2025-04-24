@@ -15,10 +15,12 @@
 namespace PKP\category;
 
 use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\publication\PublicationCategory;
 
@@ -172,6 +174,17 @@ class Collector implements CollectorInterface
                 }
             }
         });
+
+        $locale = Locale::getLocale();
+        $qb->leftJoin(
+            'category_settings as category_settings',
+            fn (JoinClause $join) => $join->on('category_settings.category_id', '=', 'c.category_id')
+                ->where('category_settings.setting_name', '=', 'title')
+                ->where('category_settings.setting_value', '!=', '')
+                ->where('category_settings.locale', '=', $locale)
+        );
+
+        $qb->orderByRaw('COALESCE(category_settings.setting_value) ASC');
 
         if (isset($this->count)) {
             $qb->limit($this->count);

@@ -176,7 +176,7 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		// Retrieve the submission's context for properties that require it
 		if (array_intersect(['_href', 'urlAuthorWorkflow', 'urlEditorialWorkflow'], $props)) {
-                        $submissionContext = $request->getContext();
+			$submissionContext = $request->getContext();
 			if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
 				$submissionContext = Services::get('context')->get($submission->getData('contextId'));
 			}

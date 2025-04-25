@@ -317,10 +317,10 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 			$request = \Application::get()->getRequest();
 			$currentUser = $request->getUser();
-                        $context = $request->getContext();
-                        if (!$context || $context->getId() != $submission->getData('contextId')) {
-                                $context = Services::get('context')->get($submission->getData('contextId'));
-                        }
+			$context = $request->getContext();
+			if (!$context || $context->getId() != $submission->getData('contextId')) {
+				$context = Services::get('context')->get($submission->getData('contextId'));
+			}
 			$dateFormatShort = $context->getLocalizedDateFormatShort();
 			$due = is_null($reviewAssignment->getDateDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateDue()));
 			$responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : strftime($dateFormatShort, strtotime($reviewAssignment->getDateResponseDue()));
@@ -400,9 +400,9 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 
 		$currentUser = \Application::get()->getRequest()->getUser();
 		$context = \Application::get()->getRequest()->getContext();
-                if (!$context || $context->getId() != $submission->getData('contextId')) {
-                        $context = Services::get('context')->get($submission->getData('contextId'));
-                }
+		if (!$context || $context->getId() != $submission->getData('contextId')) {
+			$context = Services::get('context')->get($submission->getData('contextId'));
+		}
 		$contextId = $context ? $context->getId() : CONTEXT_ID_NONE;
 
 		$stages = array();
@@ -799,25 +799,25 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 	 * @return boolean
 	 */
 	public function canEditPublication($submission, $userId) {
-                $contextId = $submission->getData('contextId');
+		$contextId = $submission->getData('contextId');
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 		$stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, null)->toArray();
-                $userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $userId)->toArray());
-                // If the submission is rejected and the user's only role is an author
-                if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor) {
-                        $userIsOnlyAuthorOrReader = true;
-                        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-                        $roles = $roleDao->getByUserId($userId, $contextId);
-                        foreach ($roles as $role) {
-                                if ($role->getRoleId() != ROLE_ID_AUTHOR && $role->getRoleId() != ROLE_ID_READER) {
-                                        $userIsOnlyAuthorOrReader = false;
+		$userIsAuthor = !empty($stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $userId)->toArray());
+		// If the submission is rejected and the user's only role is an author
+		if ($submission->getStatus() == STATUS_DECLINED && $userIsAuthor) {
+			$userIsOnlyAuthorOrReader = true;
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+			$roles = $roleDao->getByUserId($userId, $contextId);
+			foreach ($roles as $role) {
+				if ($role->getRoleId() != ROLE_ID_AUTHOR && $role->getRoleId() != ROLE_ID_READER) {
+					$userIsOnlyAuthorOrReader = false;
 					break;
-                                }
-                        }
-                        if ($userIsOnlyAuthorOrReader) {
+				}
+			}
+			if ($userIsOnlyAuthorOrReader) {
 				return false;
 			}
-                }
+		}
 		// Check for permission from stage assignments
 		foreach ($stageAssignments as $stageAssignment) {
 			if ($stageAssignment->getCanChangeMetadata()) {

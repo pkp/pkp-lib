@@ -16,7 +16,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Facades\DB;
 
-class I11125_UpdateEmailTemplateVariables extends \PKP\migration\Migration
+abstract class I11125_UpdateEmailTemplateVariables extends \PKP\migration\Migration
 {
     public function up(): void
     {
@@ -76,17 +76,9 @@ class I11125_UpdateEmailTemplateVariables extends \PKP\migration\Migration
     }
 
     /**
+     * Implement at app level to return app specific email template variable mappings.
+     *
      * @return array [email_key => [old_variable => new_variable]]
      */
-    protected function oldToNewVariablesMap(): array
-    {
-        return [
-            'COPYEDIT_REQUEST' => [
-                'contextAcronym' => 'contextAcronym',
-            ],
-            'LAYOUT_REQUEST' => [
-                'contextAcronym' => 'contextAcronym',
-            ],
-        ];
-    }
+    abstract public function oldToNewVariablesMap(): array;
 }

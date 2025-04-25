@@ -2386,3 +2386,51 @@ msgstr "Learn more about contrast ratios and accessibility"
 
 msgid "common.colorPicker.keyboardInstructions"
 msgstr "Use Tab to navigate between controls and arrow keys to adjust colors"
+
+msgid "common.colorPicker.hex"
+msgstr "Hexadecimal"
+
+msgid "common.colorPicker.rgb"
+msgstr "RGB"
+
+msgid "common.colorPicker.rgba"
+msgstr "RGBA"
+
+msgid "common.colorPicker.hsl"
+msgstr "HSL"
+
+msgid "common.colorPicker.hsv"
+msgstr "HSV"
+
+msgid "common.colorPicker.preview"
+msgstr "Color preview"
+
+msgid "common.colorPicker.format"
+msgstr "Color format"
+
+msgid "common.colorPicker.saturationValue"
+msgstr "Saturation-Value selector"
+
+msgid "common.colorPicker.hueSlider"
+msgstr "Hue slider"
+
+msgid "common.colorPicker.AALargeText"
+msgstr "AA Large Text (3:1)"
+
+msgid "common.colorPicker.AANormalText"
+msgstr "AA Normal Text (4.5:1)"
+
+msgid "common.colorPicker.AAANormalText"
+msgstr "AAA Normal Text (7:1)"
+
+msgid "common.colorPicker.colorFormatChanged"
+msgstr "{$colorName} changed to {$formatName} {$colorValue}"
+
+msgid "common.colorPicker.contrastRatioAnnouncement"
+msgstr "Contrast ratio {$ratio}."
+
+msgid "common.colorPicker.levelAccessible"
+msgstr "accessible"
+
+msgid "common.colorPicker.levelNotAccessible"
+msgstr "not accessible"

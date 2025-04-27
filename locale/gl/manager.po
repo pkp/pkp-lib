@@ -1147,11 +1147,13 @@ msgstr "Prazo de resposta por defecto"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Prazo de finalización por defecto"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Número de semanas para aceptar ou rexeitar unha solicitude de revisión."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Semanas permitidas para completar a revisión"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

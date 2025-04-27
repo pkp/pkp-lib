@@ -1231,10 +1231,12 @@ msgstr "Standard svarfrist"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Standardfrist for afsluttet færdiggørelse"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Antal uger inden en accept eller et afslag skal foreligge."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Antal uger afsat til at færdiggøre bedømmelsen"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

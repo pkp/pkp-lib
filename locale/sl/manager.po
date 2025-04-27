@@ -1202,11 +1202,13 @@ msgstr "Privzeti rok za odziv"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Privzeti rok za končanje"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr ""
 "Število dovoljenih tednov do sprejetja ali zavrnitve opravljanja recenzije."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Število dovoljenih tednov za dokončanje recenzije"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

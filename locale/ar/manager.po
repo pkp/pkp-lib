@@ -1191,10 +1191,12 @@ msgstr "المدة الافتراضية للإجابة"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "المدة الافتراضية للإكمال"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "عدد الأسابيع المسموح بها كمهلة لقبول أو رفض طلب التحكيم."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "الأسابيع المسموح بها لإكمال مهمة التحكيم"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

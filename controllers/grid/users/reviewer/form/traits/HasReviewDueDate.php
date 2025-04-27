@@ -19,21 +19,21 @@ use PKP\context\Context;
 
 trait HasReviewDueDate
 {
-    public const REVIEW_SUBMIT_DEFAULT_DUE_WEEKS = 4;
-    public const REVIEW_RESPONSE_DEFAULT_DUE_WEEKS = 3;
+    public const REVIEW_SUBMIT_DEFAULT_DUE_DAYS = 30;
+    public const REVIEW_RESPONSE_DEFAULT_DUE_DAYS = 30;
 
     /**
      * Get the review submit due dates
      */
     public function getReviewSubmitDueDate(Context $context): Carbon
     {
-        $numWeeks = (int) $context->getData('numWeeksPerReview');
+        $numDays = (int) $context->getData('numDaysPerReview');
         
-        if ($numWeeks <= 0) {
-            $numWeeks = static::REVIEW_SUBMIT_DEFAULT_DUE_WEEKS;
+        if ($numDays <= 0) {
+            $numDays = static::REVIEW_SUBMIT_DEFAULT_DUE_DAYS;
         }
 
-        return Carbon::today()->endOfDay()->addWeeks($numWeeks);
+        return Carbon::today()->endOfDay()->addDays($numDays);
     }
 
     /**
@@ -41,13 +41,13 @@ trait HasReviewDueDate
      */
     public function getReviewResponseDueDate(Context $context): Carbon
     {
-        $numWeeks = (int) $context->getData('numWeeksPerResponse');
+        $numDays = (int) $context->getData('numDaysPerResponse');
         
-        if ($numWeeks <= 0) {
-            $numWeeks = static::REVIEW_RESPONSE_DEFAULT_DUE_WEEKS;
+        if ($numDays <= 0) {
+            $numDays = static::REVIEW_RESPONSE_DEFAULT_DUE_DAYS;
         }
 
-        return Carbon::today()->endOfDay()->addWeeks($numWeeks);
+        return Carbon::today()->endOfDay()->addDays($numDays);
     }
     
     /**

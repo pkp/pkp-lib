@@ -1144,10 +1144,12 @@ msgstr "Tarikh Akhir Balas Lalai"
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Tarikh Akhir Penyiapan Lalai"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Bilangan minggu untuk menerima atau menolak permintaan ulasan."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Minggu dibenarkan untuk penyiapan ulasan"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

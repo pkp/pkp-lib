@@ -1228,10 +1228,12 @@ msgstr "Дедлайн для відповіді за замовчуванням
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Дедлайн для завершення за замовчуванням"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerResponse"
 msgstr "Тижнів на згоду або відмову на запит про рецензування."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
+#, fuzzy
+msgid "manager.setup.reviewOptions.numDaysPerReview"
 msgstr "Тижнів на рецензування"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"

@@ -23,6 +23,7 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
+use PKP\components\forms\publication\VersionForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -155,6 +156,7 @@ abstract class PKPDashboardHandler extends Handler
         }
 
         $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
+        $versionForm = new VersionForm($context->getSupportedFormLocales(), $context);
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -172,6 +174,7 @@ abstract class PKPDashboardHandler extends Handler
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
+                    'versionForm' => $versionForm->getConfig()
                 ]
             ]
         ]);

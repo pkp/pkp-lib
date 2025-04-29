@@ -833,7 +833,7 @@ abstract class Repository
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         $roles = $roleDao->getByUserId($user->getId(), $context->getId());
         $roleIds = [];
-        foreach ($roles as $role) {
+        foreach ($roles as $role) { /** @var Role $role */
             $roleIds[] = $role->getRoleId();
         }
         if ($selectedRoleIds) {
@@ -1277,7 +1277,7 @@ abstract class Repository
         $roles = $roleDao->getByUserId($userId, $contextId);
 
         $allowedRoles = Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES;
-        foreach ($roles as $role) {
+        foreach ($roles as $role) { /** @var Role $role */
             if (in_array($role->getRoleId(), $allowedRoles)) {
                 return true;
             }
@@ -1370,7 +1370,7 @@ abstract class Repository
         /** @var RoleDAO */
         $roleDao = DAORegistry::getDAO('RoleDAO');
         $roles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
-        foreach ($roles as $role) {
+        foreach ($roles as $role) { /** @var Role $role */
             if (in_array($role->getRoleId(), $subscriptionAssumedRoles)) {
                 return true;
             }

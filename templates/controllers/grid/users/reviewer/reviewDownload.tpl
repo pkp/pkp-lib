@@ -44,7 +44,7 @@
 
 {if $recommendation}
 	<div class="section">
-		<h4 style="font-weight: bold;">{translate key="editor.submission.recommendation"}: {$recommendation}</h4>
+		<h4 style="font-weight: bold;">{translate key="editor.submission.recommendation"}: {$recommendation|escape}</h4>
 	</div>
 {/if}
 {if $reviewFormResponses}

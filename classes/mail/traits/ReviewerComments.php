@@ -79,7 +79,7 @@ trait ReviewerComments
                 '<p>'
                 . '<strong>' . $reviewerIdentity . '</strong>'
                 . '<br>'
-                . __('submission.recommendation', ['recommendation' => $recommendation])
+                . __('submission.recommendation', ['recommendation' => htmlspecialchars($recommendation)])
                 . '</p>'
                 . $commentsBody
                 . $this->getReviewFormComments($reviewAssignment);

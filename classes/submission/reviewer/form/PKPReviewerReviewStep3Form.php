@@ -27,6 +27,9 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
@@ -56,7 +59,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Validation checks for this form
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
         $requiredReviewFormElementIds = $reviewFormElementDao->getRequiredReviewFormElementIds($reviewAssignment->getReviewFormId());
-        $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function ($reviewFormResponses) use ($requiredReviewFormElementIds) {
+        $this->addCheck(new FormValidatorCustom($this, 'reviewFormResponses', 'required', 'reviewer.submission.reviewFormResponse.form.responseRequired', function ($reviewFormResponses) use ($requiredReviewFormElementIds) {
             foreach ($requiredReviewFormElementIds as $requiredReviewFormElementId) {
                 if (!isset($reviewFormResponses[$requiredReviewFormElementId]) || $reviewFormResponses[$requiredReviewFormElementId] == '') {
                     return false;
@@ -65,8 +68,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             return true;
         }));
 
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**
@@ -80,11 +83,11 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
 
         $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
-        $submissionComment = $submissionComments->next();
+        $submissionComment = $submissionComments->next(); /** @var \PKP\submission\SubmissionComment $submissionComment */
         $this->setData('comments', $submissionComment ? $submissionComment->getComments() : '');
 
         $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
-        $submissionCommentPrivate = $submissionCommentsPrivate->next();
+        $submissionCommentPrivate = $submissionCommentsPrivate->next(); /** @var \PKP\submission\SubmissionComment $submissionCommentPrivate */
         $this->setData('commentsPrivate', $submissionCommentPrivate ? $submissionCommentPrivate->getComments() : '');
 
         parent::initData();
@@ -98,9 +101,12 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
      */
     public function readInputData()
     {
-        $this->readUserVars(
-            ['reviewFormResponses', 'comments', 'recommendation', 'commentsPrivate']
-        );
+        $this->readUserVars([
+            'reviewFormResponses',
+            'comments',
+            'reviewerRecommendationId',
+            'commentsPrivate'
+        ]);
     }
 
     /**
@@ -118,7 +124,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $templateMgr->assign([
             'reviewAssignment' => $reviewAssignment,
             'reviewRoundId' => $reviewAssignment->getReviewRoundId(),
-            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
+                context: $context,
+                reviewAssignment: $reviewAssignment
+            ),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
@@ -166,8 +175,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
             'dateCompleted' => Core::getCurrentDate(), // Mark the review assignment as completed.
-            'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
+            'reviewerRecommendationId' => $this->getData('reviewerRecommendationId'), // assign the recommendation to the review assignment, if there was one.
         ]);
+
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId());
 
         // Retrieve stage assignments for managers and sub-editors
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
@@ -274,7 +285,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
-            'recommendation' => (int) $this->getData('recommendation'), // save the recommendation to the review assignment
+            'reviewerRecommendationId' => (int) $this->getData('reviewerRecommendationId'), // save the recommendation to the review assignment
         ]);
 
         return true;
@@ -331,7 +342,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 // Create a comment with the review.
                 $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
                 $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), true);
-                $comment = $submissionComments->next();
+                $comment = $submissionComments->next(); /** @var \PKP\submission\SubmissionComment $comment */
 
                 if (!isset($comment)) {
                     $comment = $submissionCommentDao->newDataObject();
@@ -360,7 +371,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 // Create a comment with the review.
                 $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
                 $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($reviewAssignment->getSubmissionId(), $reviewAssignment->getReviewerId(), $reviewAssignment->getId(), false);
-                $comment = $submissionCommentsPrivate->next();
+                $comment = $submissionCommentsPrivate->next(); /** @var \PKP\submission\SubmissionComment $comment */
 
                 if (!isset($comment)) {
                     $comment = $submissionCommentDao->newDataObject();

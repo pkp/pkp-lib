@@ -1,0 +1,902 @@
+# Ivan <salarysalo@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-04-16 19:47+0000\n"
+"Last-Translator: Ivan <salarysalo@gmail.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ops/manager/"
+"uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Використовуйте дату публікації препринту"
+
+msgid "manager.distribution.publishingMode"
+msgstr "Режим публікації"
+
+msgid "manager.distribution.publishingMode.none"
+msgstr "OPS не використовуватиметься для публікації вмісту сервера в Інтернеті."
+
+msgid "doi.manager.settings.doiSuffixLegacy"
+msgstr ""
+"Використовувати зразки за замовчуванням.<br />%j.%a для препринтів<br /"
+">%j.%a.g%g для версток."
+
+msgid "doi.manager.settings.doiCreationTime.copyedit"
+msgstr "При досягненні продуктивного стану"
+
+msgid "doi.manager.settings.doiVersioning.yes"
+msgstr "Так, призначити унікальний DOI кожній версії препринту."
+
+msgid "doi.manager.settings.doiVersioning.no"
+msgstr "Ні, усі версії препринтів повинні мати однаковий DOI."
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Подання"
+
+msgid "manager.language.forms"
+msgstr "Форми"
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr "Це замінить будь-які налаштування сервера для цієї мови"
+
+msgid "manager.people.allUsers"
+msgstr "Усі зареєстровані користувачі"
+
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Не вимагати тез"
+
+msgid "manager.sections.confirmDelete"
+msgstr "Ви впевнені, що хочете остаточно видалити цей розділ?"
+
+msgid "manager.sections.create"
+msgstr "Створити розділ"
+
+msgid "manager.sections.editorRestriction"
+msgstr "Заяви можуть надсилати лише менеджери та модератори."
+
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Для розділу обов’язкова скорочена назва"
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Для розділу потрібен URL-шлях"
+
+msgid "manager.sections.identifyType"
+msgstr "Визначте елементи, опубліковані в цьому розділі, як a(n)"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(Наприклад тощо)"
+
+msgid "manager.sections.policy"
+msgstr "Розділ політик"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Не буде включено в індексацію сервера"
+
+msgid "manager.sections.wordCount"
+msgstr "Кількість слів"
+
+msgid "manager.setup"
+msgstr "Налаштування Серверу"
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Стилі Серверу"
+
+msgid "manager.setup.announcements"
+msgstr "Повідомлення"
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Вступ"
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+"Введіть будь-яку інформацію, яку ви хочете відображати на своїй сторінці "
+"оголошень."
+
+msgid "manager.setup.disableUserRegistration"
+msgstr "Менеджер сервера зареєструє всі облікові записи користувачів."
+
+msgid "manager.setup.emailBounceAddress"
+msgstr "Адреса \"відбойника\""
+
+msgid "manager.setup.emailSignature"
+msgstr "Підпис"
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"Електронні листи, надіслані автоматично від імені сервера препринтів, "
+"матимуть такий підпис."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Увімкнути оголошення"
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Показувати на Домашній сторінці"
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Скільки оголошень відображати на головній сторінці. Залиште це поле пустим, "
+"щоб нічого не відображати."
+
+msgid "manager.setup.enableDois.description"
+msgstr ""
+"Дозволити призначати цифрові ідентифікатори об’єктів (DOI) творам, "
+"опублікованим на цьому сервері."
+
+msgid "manager.setup.enableUserRegistration"
+msgstr ""
+"Відвідувачі можуть зареєструвати обліковий запис користувача на сервері."
+
+msgid "manager.setup.identity"
+msgstr "Сутність на сервері препринтів"
+
+msgid "manager.setup.information"
+msgstr "Інформація"
+
+msgid "manager.setup.information.forAuthors"
+msgstr "для авторів"
+
+msgid "manager.setup.information.forLibrarians"
+msgstr "для бібліотекарів"
+
+msgid "manager.setup.information.forReaders"
+msgstr "для читачів"
+
+msgid "manager.setup.itemsPerPage"
+msgstr "елементів на сторінці"
+
+msgid "manager.setup.serverAbbreviation"
+msgstr "Скорочення сервера"
+
+msgid "manager.setup.contextSummary"
+msgstr "Короткий опис сервера"
+
+msgid "manager.setup.contextSummary.description"
+msgstr ""
+"Запропонуйте короткий опис вашого сервера, щоб зрозуміти його зміст і "
+"призначення."
+
+msgid "manager.setup.contextAbout"
+msgstr "Про сервер"
+
+msgid "manager.setup.contextInitials"
+msgstr "Ініціали сервера"
+
+msgid "manager.setup.selectCountry"
+msgstr ""
+"Виберіть країну, де розташований цей сервер, або країну поштової адреси для "
+"сервера чи видавця."
+
+msgid "manager.setup.serverThumbnail"
+msgstr "Мініатюра сервера"
+
+msgid "manager.setup.serverThumbnail.description"
+msgstr ""
+"Невеликий логотип або зображення сервера, яке можна використовувати в "
+"списках серверів."
+
+msgid "manager.setup.contextTitle"
+msgstr "Назва сервера"
+
+msgid "manager.setup.lists"
+msgstr "Списки"
+
+msgid "manager.setup.numPageLinks"
+msgstr "Посилання на сторінки"
+
+msgid "manager.setup.numPageLinks.description"
+msgstr ""
+"Обмежте кількість посилань для відображення наступних сторінок у списку."
+
+msgid "manager.setup.restrictPreprintAccess"
+msgstr ""
+"Користувачі повинні бути зареєстровані та авторизуватися, щоб переглядати "
+"вміст відкритого доступу."
+
+msgid "manager.setup.searchEngineIndexing"
+msgstr "Індексація пошуку"
+
+msgid "manager.setup.siteAccess.view"
+msgstr "Адреса Сайту"
+
+msgid "manager.setup.siteAccess.viewContent"
+msgstr "Показувати вміст препринтів"
+
+msgid "manager.setup.sponsoringOrganization"
+msgstr "Організація-спонсор"
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+"Цей сервер наразі не приймає подання. Відвідайте налаштування робочого "
+"процесу, щоб дозволити надсилання."
+
+msgid "manager.setup.enableOai"
+msgstr "Активувати OAI"
+
+msgid "manager.setup.userRegistration"
+msgstr "Реєстрація користувача"
+
+msgid "manager.statistics.statistics"
+msgstr "Статистика Сервера"
+
+msgid "manager.statistics.statistics.preprintViews"
+msgstr "Кількість переглядів препринтів (лише для авторів)"
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr "Прийняти"
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr "Відхилити"
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr "Надіслати повторно"
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr "Днів до публікації препринту"
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr "Елементів опубліковано"
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr "Усього замовлень"
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr "Зареєстровані читачі"
+
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
+msgstr "Завантаження файлів препринтів"
+
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
+msgstr "Перегляди сторінки реферату препринтів"
+
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
+msgstr "Перегляд головної сторінки сервера"
+
+msgid "grid.category.path"
+msgstr "Шлях"
+
+msgid "manager.publication.library"
+msgstr "Серверна бібліотека препринтів"
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+"Ви впевнені, що бажаєте скинути дані дозволів для всіх препринтів? Цю дію не "
+"можна скасувати."
+
+msgid "manager.setup.resetPermissions"
+msgstr "Скинути дозволи препринтів"
+
+msgid "manager.setup.resetPermissions.success"
+msgstr "Дозволи препринту успішно скинуто."
+
+msgid "grid.genres.title.short"
+msgstr "Компоненти"
+
+msgid "grid.genres.title"
+msgstr "Компоненти Препринту"
+
+msgid "plugins.importexport.common.settings"
+msgstr "Налаштування"
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr "Налаштування плагіна DOI"
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr "Препринти"
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr "Вимоги до плагіна не виконано"
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr "Плагін налаштовано не повністю."
+
+msgid "plugins.importexport.common.status.any"
+msgstr "Будь-який статус"
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr "Не внесено"
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr "Відмічено зареєстрованим"
+
+msgid "plugins.importexport.common.status.registered"
+msgstr "Зареєстровано"
+
+msgid "plugins.importexport.common.action"
+msgstr "Дія"
+
+msgid "plugins.importexport.common.action.export"
+msgstr "Експорт"
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr "Відмітити зареєстрованим"
+
+msgid "plugins.importexport.common.action.register"
+msgstr "Реєструвати"
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr "Об'єкт не обрано."
+
+msgid "plugins.importexport.common.error.validation"
+msgstr "Не вдалося конвертувати обрані об'єкти."
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr "Не коректний XML:"
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+"Реєстрація не пройшла успішно! Сервер реєстрації DOI повернув помилку: "
+"'{$param}'."
+
+msgid "plugins.importexport.common.register.success"
+msgstr "Успішна реєстрація!"
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr "Зазначені об'єкти не знайдено."
+
+msgid "stats.contextStats"
+msgstr "Статистика сервера"
+
+msgid "stats.context.tooltip.text"
+msgstr "Кількість відвідувачів, які переглядають індексну сторінку сервера."
+
+msgid "stats.context.tooltip.label"
+msgstr "Про статистику сервера"
+
+msgid "stats.context.downloadReport.downloadContext.description"
+msgstr "Кількість переглядів індексної сторінки сервера."
+
+msgid "stats.context.downloadReport.downloadContext"
+msgstr "Завантажити сервер"
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr "Завантажити препринти"
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr ""
+"Кількість переглядів рефератів і завантажень файлів для кожного препринта."
+
+msgid "stats.publicationStats"
+msgstr "Статистика препринта"
+
+msgid "stats.publications.details"
+msgstr "Деталі препринта"
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr "Загальна кількість переглядів рефератів за датою"
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr "Усього переглядів файлу по даті"
+
+msgid "stats.publications.countOfTotal"
+msgstr "{$count} для {$total} препринтів"
+
+msgid "stats.publications.abstracts"
+msgstr "Тези"
+
+msgid ""
+"manager.setup.notifications.copySubmissionAckPrimaryContact.disabled."
+"description"
+msgstr ""
+"Для цього сервера препринтів не визначено основного контакта. Основний "
+"контакт можна ввести в <a href=\"{$url}\">налаштуваннях сервера "
+"препринтів</a>"
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr "Ім'я серверу"
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "URL домашньої сторінки сервера"
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr "Ім'я головного контакту серверу"
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "Адреса електронної пошти основного контакту сервера"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Поштова адреса сервера"
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "Найменування виду платежу"
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "Сума платежу"
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Назва веб-сайту, якщо розміщено більше ніж один сервер"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Посилання на сторінку статистики препринтів"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Цей електронний лист щомісяця автоматично надсилається модераторам і "
+"менеджерам серверів, щоб надати їм огляд стану системи."
+
+msgid "mailable.validateEmailContext.name"
+msgstr "Підтвердити електронну адресу (реєстрація сервера)"
+
+msgid "doi.displayName"
+msgstr "DOI"
+
+msgid "doi.description"
+msgstr ""
+"Цей плагін дозволяє призначати ідентифікатори цифрових об’єктів препринтам і "
+"версткам в OPS."
+
+msgid "doi.manager.submissionDois"
+msgstr "Препринт DOIs"
+
+msgid "doi.readerDisplayName"
+msgstr "Цифровий ID"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Виберіть об’єкти публікації, яким буде призначено цифрові ідентифікатори об’"
+"єктів (DOI):"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Препринти версток"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Автоматичне призначення"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr "Автоматично призначати DOI для таких об’єктів під час створення:"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Префікс DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Префікс DOI є обов’язковим і має бути у формі 10.xxxx."
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+"Наприклад, %j.%a може створити такий DOI, як 10.1234/ініціали_сервера.12345"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "для препринтів"
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "для версток"
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Будь ласка, введіть шаблон суфікса DOI для препринтів."
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Будь ласка, введіть шаблон суфікса DOI для версток."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "Переназначити DOI'и"
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "Ви впевнені, що бажаєте видалити всі існуючі DOI?"
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "Призначити нові DOI"
+
+msgid "doi.manager.displayName"
+msgstr "Цифрові ID (DOI)"
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Ви впевнені, що бажаєте призначити DOI всім опублікованим об’єктам, яким не "
+"було призначено DOI?"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Реєстраційне агентство"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Нема"
+
+msgid "doi.editor.doi"
+msgstr "Цифровий ID (DOI)"
+
+msgid "doi.editor.doi.description"
+msgstr "DOI має починатися з {$prefix}."
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "Призначити"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "препринт"
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "верстка"
+
+msgid "doi.editor.customSuffixMissing"
+msgstr "Неможливо призначити DOI, оскільки відсутній спеціальний суфікс."
+
+msgid "doi.editor.patternNotResolved"
+msgstr "Неможливо призначити DOI, оскільки він містить недійсний шаблон."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"Те, що ви бачите, є попереднім переглядом DOI. Установіть прапорець і "
+"збережіть форму для призначення DOI."
+
+msgid "doi.editor.assigned"
+msgstr "DOI призначається цьому {$pubObjectType}."
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Очистити"
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "Ви впевнені, що бажаєте видалити наявний DOI?"
+
+msgid "doi.editor.assignDoi"
+msgstr "Призначити DOI {$pubId} цьому {$pubObjectType}"
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr "Неможливо призначити DOI, оскільки відсутній спеціальний суфікс."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr ""
+"DOI {$pubId} було призначено. Щоб редагувати DOI, відвідайте <a href=\""
+"{$doiManagementLink}\">сторінку керування DOI</a>."
+
+msgid "doi.editor.missingPrefix"
+msgstr "DOI має починатися з {$doiPrefix}."
+
+msgid "doi.editor.preview.publication"
+msgstr "DOI для цієї публікації буде {$doi}."
+
+msgid "doi.editor.preview.publication.none"
+msgstr "Цій публікації не присвоєно DOI."
+
+msgid "doi.editor.preview.galleys"
+msgstr "Верстка: {$galleyLabel}"
+
+msgid "doi.editor.preview.objects"
+msgstr "Елемент"
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr "DOI можна редагувати лише після публікації верстки"
+
+msgid "api.issue.400.invalidDoi"
+msgstr "Наданий DOI недійсний"
+
+msgid "manager.institutions.noContext"
+msgstr "Не вдалося знайти пошту цієї установи."
+
+msgid "manager.manageEmails.description"
+msgstr ""
+"Редагувати повідомлення, надіслані в електронних листах із цього сервера "
+"препринтів."
+
+msgid "mailable.postedAck.name"
+msgstr "Опублікована подяка"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Призначений модератор (авто)"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Цей електронний лист надсилається модератору, коли він автоматично "
+"призначається для подання."
+
+msgid "manager.preprintPosted"
+msgstr "Опублікований препринт"
+
+msgid "manager.preprintPosted.description"
+msgstr ""
+"Налаштуйте сповіщення електронною поштою, які надсилатимуться, коли буде "
+"опубліковано новий препринт."
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr ""
+"Надсилати чи ні електронний лист авторам препринту, коли він буде "
+"опублікований."
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Створено нову версію"
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Цей електронний лист автоматично сповіщає призначених модераторів про "
+"створення нової версії препринта."
+
+msgid "mailable.submissionAck.name"
+msgstr "Підтвердження подання (очікує на модерацію)"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Цей електронний лист автоматично надсилається автору, коли він надсилає "
+"заявку, і модератор має її схвалити."
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr "Підтвердження подання (модерація не потрібна)"
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+"Цей електронний лист автоматично надсилається автору, коли він надсилає "
+"заявку, модерація не потрібна. Автор може негайно розмістити свій препринт."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Наведене нижче відображається авторам під час кроку «Для читачів», коли їх "
+"просять надати такі метадані, як ключові слова, інформацію про ліцензування "
+"та інші деталі, щоб допомогти у відкритті та модерації."
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr "Нова версія опублікована"
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr ""
+"Цей електронний лист надсилається автору, коли публікується нова версія його "
+"препринту."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Подання відхилено"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr ""
+"Цей електронний лист сповіщає автора про те, що його препринт відхилено та "
+"не буде опубліковано."
+
+msgid "manager.distribution.access"
+msgstr "Доступ"
+
+msgid "manager.distribution.copyrightYearBasis.description"
+msgstr ""
+"Виберіть спосіб вибору дати авторського права за умовчанням для препринтів. "
+"Це значення за замовчуванням можна змінити в кожному окремому випадку."
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Сервер надасть відкритий доступ до свого вмісту."
+
+msgid "doi.manager.settings.doiVersioning.description"
+msgstr ""
+"Призначити новий DOI кожній версії публікації? Більшість серверів препринтів "
+"захочуть використовувати параметр за замовчуванням (так), щоб переконатися, "
+"що версіям препринтів правильно призначено DOI."
+
+msgid "manager.people.confirmRemove"
+msgstr ""
+"Видалити цього користувача з цього сервера? Ця дія скасує реєстрацію "
+"користувача з усіх ролей на цьому сервері."
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+"Принаймні один розділ має бути активним. Перейдіть до налаштувань робочого "
+"процесу, щоб вимкнути всі надсилання на цей сервер."
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Обмежити кількість елементів (наприклад, матеріалів, користувачів або "
+"призначення редагування), які відображатимуться в списку, перш ніж "
+"показувати наступні елементи на іншій сторінці."
+
+msgid "manager.sections.alertDelete"
+msgstr ""
+"Перш ніж цей розділ можна буде видалити, ви повинні перемістити препринти, "
+"опубліковані в ньому, в інший розділ."
+
+msgid "manager.sections.wordCountInstructions"
+msgstr "Обмеження кількості слів для цього розділу (0 без обмежень)"
+
+msgid "manager.setup.contextAbout.description"
+msgstr ""
+"Додайте будь-яку інформацію про ваш сервер, яка може зацікавити читачів або "
+"авторів. Це може включати вашу політику відкритого доступу, фокус і сферу "
+"дії сервера, політику модерації та перевірки, повідомлення про авторські "
+"права, розкриття інформації про спонсорство, історію сервера та заяву про "
+"конфіденційність."
+
+msgid "manager.payment.options.enablePayments"
+msgstr ""
+"Для цього сервера будуть активовані платежі. Зауважте, що користувачі "
+"повинні будуть увійти в систему, щоб здійснювати платежі."
+
+msgid "manager.setup.restrictSiteAccess"
+msgstr ""
+"Користувачі повинні бути зареєстровані та авторизуватися для перегляду сайту "
+"сервера."
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+"Будь-які повідомлення електронної пошти, які неможливо доставити, призведуть "
+"до повідомлення про помилку на цю адресу."
+
+msgid "manager.setup.searchEngineIndexing.description"
+msgstr ""
+"Допоможіть пошуковим системам, таким як Google, знайти та відобразити ваш "
+"сайт. Радимо надіслати свою <a href=\"{$sitemapUrl}\" target=\"_blank\""
+">карту сайту</a>."
+
+msgid "manager.setup.searchDescription.description"
+msgstr ""
+"Надайте короткий опис (50-300 символів) сервера, який пошукові системи "
+"можуть відобразити, коли сервер відображається в результатах пошуку."
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"Щоб надсилати повідомлення електронної пошти, які неможливо доставити, на "
+"адресу відхилення, адміністратор сайту має ввімкнути параметр "
+"<code>allow_envelope_sender</code> у файлі конфігурації сайту. Може "
+"знадобитися налаштування сервера, як зазначено в документації OPS."
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+"Заборонити користувачам надсилати нові препринти на сервер. Надсилання можна "
+"вимкнути для окремих розділів сервера на сторінці налаштувань <a href=\""
+"{$url}\">розділів сервера</a>."
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+"Оголошення можуть публікуватися, щоб інформувати читачів про новини та події "
+"сервера. Опубліковані оголошення відображатимуться на сторінці Оголошення."
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+"Надайте метадані стороннім службам індексування через <a href=\"https://www."
+"openarchives.org/\">Ініціативу відкритих архівів</a>."
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+"Примітка. Відсоток рецензованих заявок може не складати 100%, оскільки "
+"елементи, подані повторно, прийняті, відхилені або все ще знаходяться в "
+"процесі."
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr ""
+"Перевірити елементи, які будуть доступні для читачів у розділі Про сервер."
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr ""
+"Виберіть типи робіт, опублікованих на цьому сервері, яким слід призначити "
+"DOI. Більшість серверів препринтів призначають DOI препринтам, але ви також "
+"можете призначити DOI для препринтів."
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+"Видалити заяву про авторські права та інформацію про ліцензію для кожного "
+"опублікованого препринту, повернувши їх до поточних налаштувань сервера за "
+"замовчуванням. Це назавжди видалить всю попередню інформацію про авторські "
+"права та ліцензії, додану до препринтів. У деяких випадках вам може бути "
+"заборонено юридично повторно ліцензувати роботу, опубліковану під іншою "
+"ліцензією. Будьте обережні, користуючись цим інструментом, і зверніться до "
+"юридичних експертів, якщо ви не впевнені, які права ви маєте на препринти, "
+"розміщені на вашому сервері."
+
+msgid "manager.setup.information.description"
+msgstr ""
+"Короткі описи сервера для бібліотекарів і майбутніх авторів і читачів. Вони "
+"стають доступними на бічній панелі сайту після додавання інформаційного "
+"блоку."
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+"Щоб використовувати цей плагін, будь ласка, перейдіть до категорії плагіна «"
+"Відкритий ідентифікатор», увімкніть і налаштуйте плагін DOI та вкажіть там "
+"дійсний префікс DOI."
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Пароль"
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+"Зверніть увагу, що пароль буде збережено як звичайний текст, тобто не "
+"зашифрований (це небезпечно!)."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Перевірити XML перед експортом і реєстрацією."
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr "Не вистачило прав запису на вихідний файл {$param}."
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr "Для сервера зі шляхом {$path} відсутній префікс DOI."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+"Надішліть копію електронного листа з підтвердженням подання основному "
+"контакту цього сервера препринтів."
+
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr "Підпис електронної пошти сервера для автоматизованих електронних листів"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Будь ласка, налаштуйте плагін DOI, щоб мати можливість керувати та "
+"використовувати DOI в OPS:"
+
+msgid "stats.context.downloadReport.description"
+msgstr ""
+"Завантажте електронну таблицю CSV/Excel зі статистикою використання для "
+"цього сервера, яка відповідає наступним параметрам."
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "Підпис електронної пошти сервера для автоматизованих електронних листів"
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr "Переддруковані верстки, наприклад опублікований PDF-файл"
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Введіть спеціальний шаблон суфікса для кожного типу публікації. Спеціальний "
+"шаблон суфікса може використовувати наступні символи для створення суфікса:"
+"<br><br> <code>%j.%a</code> Препринти<br> <code>%j.%a.g%g</code> "
+"Верстки<br><br> Пам’ятайте, що шаблони спеціального суфікса часто призводять "
+"до проблем зі створенням і розміщенням DOI. Використовуючи спеціальний "
+"шаблон суфікса, ретельно перевірте, чи можуть редактори генерувати DOI, і "
+"передайте їх до реєстраційного агентства, наприклад Crossref. "
+
+msgid "stats.publications.downloadReport.description"
+msgstr ""
+"Завантажити електронну таблицю CSV/Excel зі статистикою використання "
+"препринтів, які відповідають наведеним нижче параметрам."
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "Валюта суми платежу, як-от долар США"
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+"Якщо ви зміните конфігурацію DOI, це не вплине на вже призначені DOI. Після "
+"збереження конфігурації DOI скористайтеся цією кнопкою, щоб очистити всі "
+"наявні DOI, щоб нові параметри вступили в силу з існуючими об’єктами."
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Призначити DOI всім опублікованим об’єктам сервера, яким не було призначено "
+"DOI. Цю дію не можна використовувати з індивідуальною конфігурацією суфікса. "
+"Якщо ви змінили конфігурацію DOI вище, будь ласка, збережіть ваші зміни "
+"перед початком цієї дії. Призначення DOI може зайняти багато часу, залежно "
+"від кількості опублікованих об’єктів на сервері."
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Будь ласка, виберіть реєстраційне агентство, яке ви б хотіли використати під "
+"час внесення DOI."
+
+msgid "stats.publications.none"
+msgstr ""
+"Заданим параметрам статистики використання не відповідає жоден з препринтів."
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Цей електронний лист сповіщає автора про те, що його препринт прийнято для "
+"публікації."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"Ви не можете створити DOI, оскільки в одній або кількох частинах шаблону DOI "
+"відсутні дані."
+
+msgid "mailable.validateEmailContext.description"
+msgstr ""
+"Цей електронний лист автоматично надсилається новому користувачеві, коли він "
+"реєструється на сервері, якщо налаштування вимагають перевірки електронної "
+"адреси."
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Наведений суфікс DOI вже використовується для іншого опублікованого "
+"елемента. Введіть унікальний суфікс DOI для кожного елемента."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+"DOI {$pubId} не можна призначити, оскільки він містить некоректний шаблон."
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr "DOI {$pubId} буде призначено під час публікації."
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr "Верстка, яку Ви запитали, не є частиною цієї публікації."
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr "Після публікації можна редагувати лише DOI"
+
+msgid "mailable.postedAck.description"
+msgstr ""
+"Цей електронний лист автоматично надсилається автору, коли препринт "
+"публікується на сервері онлайн."

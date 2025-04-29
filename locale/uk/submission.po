@@ -1,0 +1,284 @@
+# Ivan <salarysalo@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-04-16 19:47+0000\n"
+"Last-Translator: Ivan <salarysalo@gmail.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ops/"
+"submissions/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "submission.upload.selectComponent"
+msgstr "Обрати компонент препринту"
+
+msgid "submission.title"
+msgstr "Назва препринту"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Анотація має містити {$wordCount} слів або менше."
+
+msgid "submission.submit.noContext"
+msgstr "Не вдалося знайти сервер цього подання."
+
+msgid "submission.galleyFiles"
+msgstr "Файли верстки"
+
+msgid "submission.complete"
+msgstr "Погоджено"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Чекліст подань"
+
+msgid "submission.submit.contributorRole"
+msgstr "Роль вкладника"
+
+msgid "submission.sectionOptions"
+msgstr "Секція Опцій"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} елементів"
+
+msgid "catalog.category.heading"
+msgstr "Усі елементи"
+
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Верстки цієї версії не можна редагувати, оскільки вона вже була опублікована."
+
+msgid "publication.invalidSection"
+msgstr "Розділ для цієї версії не знайдено."
+
+msgid "publication.inactiveSection"
+msgstr "{$section} (неактивна)"
+
+msgid "preprint.entry"
+msgstr "Запис до друку"
+
+msgid "publication.issue.success"
+msgstr "Деталі препринтів оновлено."
+
+msgid "publication.relation.label"
+msgstr "Статус відношення"
+
+msgid "publication.relation"
+msgstr "Відношення"
+
+msgid "publication.relation.description"
+msgstr ""
+"Будь ласка, вкажіть, чи був цей препринт опублікований або поданий для "
+"публікації в іншому місці."
+
+msgid "publication.relation.none"
+msgstr "Цей препринт ніде не публікувався."
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI опублікованого препринту"
+
+msgid "publication.publish.relationStatus"
+msgstr "Пов'язана публікація"
+
+msgid "publication.publish.relationStatus.none"
+msgstr "Цей препринт ніде не публікувався."
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr "Цей препринт опубліковано, але ще немає DOI."
+
+msgid "publication.publish.relationStatus.published"
+msgstr "Цей препринт <a href='{$vorDoi}' target='_blank'>опубліковано</a>."
+
+msgid "publication.publish.confirmation"
+msgstr "Всі вимоги виконано. Ви впевнені, що хочете це опублікувати?"
+
+msgid "publication.status.unscheduled"
+msgstr "Неопубліковано"
+
+msgid "submission.publication"
+msgstr "Препринт"
+
+msgid "submission.publications"
+msgstr "Препринти"
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Рік авторських прав буде встановлено автоматично, коли це буде опубліковано."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Рік авторських прав буде встановлено автоматично на основі опублікованої "
+"дати."
+
+msgid "publication.event.published"
+msgstr "Подання було опубліковано."
+
+msgid "publication.event.scheduled"
+msgstr "Подання було заплановано до публікації."
+
+msgid "publication.event.unpublished"
+msgstr "Подання не було опубліковано."
+
+msgid "publication.event.versionPublished"
+msgstr "Опубліковано нову версію."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Ця версія не була опублікована і більше не є загальнодоступною."
+
+msgid "publication.invalidSubmission"
+msgstr "Подання для цього препринту не знайдено."
+
+msgid "publication.publish"
+msgstr "Опублікувати"
+
+msgid "publication.required.declined"
+msgstr "Відхилений матеріал не може бути опублікований."
+
+msgid "submission.license.description"
+msgstr ""
+"Ліцензію буде автоматично встановлено на <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a>, коли це буде опубліковано."
+
+msgid "submission.copyrightOther.description"
+msgstr "Призначити авторські права на опубліковані матеріали наступній стороні."
+
+msgid "publication.unpublish"
+msgstr "Прибрати з опублікованого"
+
+msgid "publication.version.details"
+msgstr "Деталі версії {$version}"
+
+msgid "submission.queries.production"
+msgstr "Обговорення"
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+"Не вдалося створити DOI для такого подання: {$pubObjectTitle}. Він не існує "
+"в поточному контексті сервера."
+
+msgid "submission.layout.viewGalley"
+msgstr "Дивитись верстку"
+
+msgid "galley.cantEditPublished"
+msgstr "Цю верстку не можна редагувати, оскільки її вже опубліковано."
+
+msgid "submission.licenseSection.description"
+msgstr ""
+"Будь ласка, виберіть ліцензію для застосування до вашого препринта, коли він "
+"буде опублікований."
+
+msgid "submission.licenseUrl.missing"
+msgstr "Ліцензія не вибрана."
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+"Дякуємо за надісланий препринт. Тепер ви можете <a href=\"{$workflowUrl}\""
+">публікувати свій препринт</a> для всіх."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Ви впевнені, що хочете подати <strong>{$title}</strong> до "
+"<strong>{$context}</strong>? Після того, як ви подасте, модератор перегляне "
+"препринт, перш ніж опублікувати його в мережі."
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+"Ви впевнені, що хочете подати <strong>{$title}</strong> до "
+"<strong>{$context}</strong>? Після того, як ви подасте, ви зможете "
+"переглянути своє подання та опублікувати його в Інтернеті."
+
+msgid "submission.forTheEditors"
+msgstr "Для читачів"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Додайте будь-яку інформацію, яку, на вашу думку, мають знати наші "
+"модератори, перш ніж публікувати препринт."
+
+msgid "submission.copyright.description"
+msgstr ""
+"Будь ласка, прочитайте та зрозумійте умови авторського права для подання на "
+"цей сервер препринтів."
+
+msgid "submission.submit.userGroup"
+msgstr "Надіслати в моїй ролі як..."
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Нове подання"
+
+msgid "submission.upload.fileContents"
+msgstr "Компонент препринту"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Ви не можете розмістити власний препринт. Його має схвалити та опублікувати "
+"модератор."
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Ці специфікації базуються на наборі метаданих Dublin Core, міжнародному "
+"стандарті, який використовується для опису вмісту."
+
+msgid "publication.status.published"
+msgstr "Опубліковано"
+
+msgid "galley.publicationNotFound"
+msgstr "Не вдалося знайти версію для цієї верстки."
+
+msgid "submission.status.scheduled"
+msgstr "За розкладом"
+
+msgid "publication.datePublished.description"
+msgstr ""
+"Дата публікації буде встановлена автоматично під час публікації препринту. "
+"Не вводьте дату розміщення, якщо вам не потрібно зробити її минулою датою."
+
+msgid "publication.datePublished"
+msgstr "Дата розміщення"
+
+msgid "publication.relation.published"
+msgstr "Цей препринт був опублікований в іншому місці."
+
+msgid "publication.editDisabled"
+msgstr "Ця версія була опублікована і не може бути відредагована."
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr "Цей препринт надіслано до журналу чи іншого наукового видання."
+
+msgid "publication.event.versionScheduled"
+msgstr "Було заплановано опублікувати нову версію."
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Перш ніж це можна буде опублікувати, необхідно виконати наступні вимоги."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Подання має бути на стадії виробництва, перш ніж його можна буде "
+"опублікувати."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Авторські права буде автоматично призначено {$copyright}, коли це буде "
+"опубліковано."
+
+msgid "publication.unpublish.confirm"
+msgstr "Ви впевнені, що не хочете, щоб це було опубліковано?"
+
+msgid "publication.unschedule.confirm"
+msgstr "Ви впевнені, що не хочете, щоб це було заплановано для публікації?"
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+"Дякуємо за надісланий препринт. Сервер був повідомлений про ваше подання, і "
+"вам надіслано електронною поштою підтвердження для ваших записів. Щойно "
+"модератор перегляне ваше подання, він опублікує ваш препринт або зв’яжеться "
+"з вами."
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+"{$contextName} не приймає подання до розділу {$section}. Якщо вам потрібна "
+"допомога у відновленні надісланої інформації, зв’яжіться з <a href=\"mailto"
+":{$email}\">{$name}</a>."

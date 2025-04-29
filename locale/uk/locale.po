@@ -1,8 +1,555 @@
 # Sasz <skolomon@yahoo.com>, 2023.
+# Ivan <salarysalo@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-04-16 12:59+0000\n"
+"Last-Translator: Ivan <salarysalo@gmail.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ops/locale/uk/"
+">\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.profile.form.showOtherContexts"
+msgstr "Реєструватись на інших серверах"
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr "Сховати інши сервери"
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr "Призначені модератори"
+
+msgid "context.current"
+msgstr "Поточний сервер:"
+
+msgid "context.select"
+msgstr "Переключитись на інший сервер:"
+
+msgid "common.software"
+msgstr "Системи Open Preprint"
+
+msgid "navigation.browseByAuthor"
+msgstr "Від автора"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Не призачено"
+
+msgid "common.queue.long.active"
+msgstr "Активно"
+
+msgid "doi.manager.settings.publications"
+msgstr "Препринти"
+
+msgid "section.section"
+msgstr "Секція"
+
+msgid "section.title"
+msgstr "Назва секції"
+
+msgid "section.abbreviation"
+msgstr "Абревіатура"
+
+msgid "section.description"
+msgstr "Опис Секції архіву"
+
+msgid "section.pathDescription"
+msgstr "Секція URL шляху. Використовуйте символи (-) замість пробілів."
+
+msgid "section.emptySection"
+msgstr "Поки що нічого не було розміщено в цій секції."
+
+msgid "category.categories"
+msgstr "Категорії"
+
+msgid "common.publications"
+msgstr "Препринти"
+
+msgid "preprint.details"
+msgstr "Деталі"
+
+msgid "preprint.abstract"
+msgstr "Абстрактно"
+
+msgid "preprint.pageTitle"
+msgstr "Вигляд {$title}"
+
+msgid "submission.search"
+msgstr "Пошук Препринту"
+
+msgid "submission.numberOfVersions"
+msgstr "Версії: {$numberOfVersions}"
+
+msgid "publication.galley.downloads"
+msgstr "Завантаження: {$downloads}"
+
+msgid "context.contexts"
+msgstr "Сервери"
+
+msgid "context.context"
+msgstr "Сервер"
+
+msgid "user.authorization.representationNotFound"
+msgstr "Запитана верстка не знайдена."
+
+msgid "user.register.contextsPrompt"
+msgstr "Які сервери на цьому сайті Ви хочете зареєструвати?"
+
+msgid "user.register.otherContextRoles"
+msgstr "Запитати наступні ролі."
+
+msgid "user.role.manager"
+msgstr "Менеджер"
+
+msgid "user.role.subEditor"
+msgstr "Модератор"
+
+msgid "user.role.subEditors"
+msgstr "Модератори"
+
+msgid "search.results.orderBy"
+msgstr "Замовити результати"
+
+msgid "search.results.orderBy.preprint"
+msgstr "Заголовок Препринта"
+
+msgid "search.results.orderBy.author"
+msgstr "Автор"
+
+msgid "search.results.orderBy.date"
+msgstr "Дата публікації"
+
+msgid "search.results.orderBy.popularityAll"
+msgstr "Популярність (за весь час)"
+
+msgid "search.results.orderBy.relevance"
+msgstr "Релевантність"
+
+msgid "search.results.orderDir.asc"
+msgstr "По зростанню"
+
+msgid "search.results.orderDir.desc"
+msgstr "По убуванню"
+
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr "Ця верстка стане доступною на окремому вебсайті."
+
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL віддалено розміщеного контенту"
+
+msgid "user.register.registrationDisabled"
+msgstr "Сервер зараз не приймає реєстрації користувачів."
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+"Ви маєте погодитись з Угодою про конфіденційність для будь-якого сервера, на "
+"якому реєструєтесь."
+
+msgid "user.register.form.missingSiteConsent"
+msgstr "Ви маєте погодитись з цією Угодою про конфіденційність."
+
+msgid "index.latestPreprints"
+msgstr "Останні Препринти"
+
+msgid "search.searchFor"
+msgstr "Пошук Препринтів за"
+
+msgid "search.authorIndex"
+msgstr "Перегляд за Автором"
+
+msgid "search.authorDetails"
+msgstr "Деталі про Автора"
+
+msgid "about.submissions"
+msgstr "Надходження"
+
+msgid "about.onlineSubmissions.register"
+msgstr "Реєстрація"
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr "Завантажити новий контент"
+
+msgid "site.serverView"
+msgstr "Показати Сервер"
+
+msgid "site.noServers"
+msgstr "Нема доступних серверів."
+
+msgid "archive.archives"
+msgstr "Архіви"
+
+msgid "archive.archivesPageNumber"
+msgstr "Архіви - Сторінка {$pageNumber}"
+
+msgid "about.contact"
+msgstr "Контакт"
+
+msgid "about.aboutContext"
+msgstr "Про Сервер"
+
+msgid "about.onlineSubmissions.login"
+msgstr "Логін"
+
+msgid "about.privacyStatement"
+msgstr "Угодна про конфіденційність"
+
+msgid "installer.appInstallation"
+msgstr "OPS Інсталяція"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<h4>Кроки з підготовки до інсталювання</h4><p>1. Поточні файли та директорії "
+"(та їхній вміст) повинні бути з правами на запис:</p><ul>\t<li><tt>config.inc"
+".php</tt> is writable (optional): {$writable_config}</li>\t<li><tt>public/</"
+"tt> is writable: {$writable_public}</li>\t<li><tt>cache/</tt> is writable: "
+"{$writable_cache}</li>\t<li><tt>cache/t_cache/</tt> is writable: "
+"{$writable_templates_cache}</li>\t<li><tt>cache/t_compile/</tt> is writable: "
+"{$writable_templates_compile}</li>\t<li><tt>cache/_db</tt> is writable: "
+"{$writable_db_cache}</li></ul><p>2. Директорія для зберігання завантажених "
+"файлів повинна бути створена та забезпечена правами на запис (дивись "
+"\"Налаштування Файлів\" нижче).</p>"
+
+msgid "installer.allowFileUploads"
+msgstr ""
+"Ваш сервер зараз дозволяє завантаження: <strong>{$allowFileUploads}</strong>"
+
+msgid "notification.type.reviewing"
+msgstr "Перегляд Подій"
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr "Ця індексація пошуку не дає можливості посерверної реіндексації."
+
+msgid "catalog.sortBy"
+msgstr "Упорядкувати препринти"
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr "Обрати як упорядкувати препринти у цій категорії."
+
+msgid "preprint.subject"
+msgstr "Ключові слова"
+
+msgid "navigation.skip.about"
+msgstr "Пропустити Про сервер"
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Додати користувачів без ролей на цьому сервері."
+
+msgid "section.sections"
+msgstr "Секції"
+
+msgid "user.register.noContextReviewerInterests"
+msgstr "Якщо Ви забажали стати Оглядачем, будь ласка введіть Ваші компетенції."
+
+msgid "manager.people.noAdministrativeRights"
+msgstr ""
+"Вибачте, Ви не маєте адміністративних прав з цим користувачем. Це може бути "
+"бо:\t\t<ul>\t\t\t<li>Користувач - адміністратор сайту</li>\t\t\t"
+"<li>Користувач активний на серверах, які Вими Ви не керуєте</li>\t\t</ul>\tЦе"
+" завдання повинно виконуватись адміністратором."
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr "Публічна ідентифікація вже існує."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Препринт готовий"
+
+msgid "user.register.form.privacyConsentThisContext"
+msgstr ""
+"Так, Я згоден (згодна) зі збиранням та зберіганням моїх даних згідно з <a "
+"href=\"{$privacyUrl}\" target=\"_blank\">Угодою про конфіденційність</a> "
+"цього сервера."
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr "{$login} або {$register} для надання контенту."
+
+msgid "about.submissionPreparationChecklist"
+msgstr "Чекліст для піготовки надходження"
+
+msgid "common.publication"
+msgstr "Препринт"
+
+msgid "search.results.orderBy.server"
+msgstr "Назва Серверу"
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr "{$newSubmission} або {$viewSubmissions}."
+
+msgid "submissions.published"
+msgstr "Опубліковано"
+
+msgid "search.results.orderBy.popularityMonth"
+msgstr "Популярність (остаанній місяць)"
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+"Частиною процесу підготовки надходжень, від авторів вимагається перевірка "
+"коректності їхніх матеріалів на предмет наступного. Також, матеріали, що не "
+"відповідають настановам иожуть бути повернуті авторам."
+
+msgid "about.copyrightNotice"
+msgstr "Повідомлення копірайта"
+
+msgid "submission.dates"
+msgstr "Завантажено {$submitted} - Опубліковано {$published}"
+
+msgid "about.aboutThisPublishingSystem"
+msgstr "Більше інформації про систему, Платформу та Воркфлоу від OPS/PKP."
+
+msgid "about.aboutOPSSite"
+msgstr ""
+"Цей сайт використовує Open Preprint версії {$opsVersion}, яка є сервером "
+"менеджменту препринтів з відкритим вихідним кодом, розробленою, "
+"підтримуваною та розповсюджуваною як Public Knowledge Project під ліцензією "
+"GNU General Public License. Відвідайте сайт <a href=\"https://pkp.sfu.ca\"> "
+"щоб дізнатись більше про це програмне забезпечення</a>. Звертайтесь до "
+"контакту безпосередньо з запитаннями про сервер та для завантаження "
+"препринтів."
+
+msgid "about.aboutOPSServer"
+msgstr ""
+"Цей сервер використовує Open Preprint версії {$opsVersion}, яка є сервером з "
+"відкритим вихідним кодом, розробленою, підтримуваною та розповсюджуваною як "
+"Public Knowledge Project під ліцензією GNU General Public License. "
+"Відвідайте сайт <a href=\"https://pkp.sfu.ca\"> щоб дізнатись більше про це "
+"програмне забезпечення</a>. Звертайтесь до контакту <a href=\"{$contactUrl}\""
+">contact the server</a> безпосередньо з запитаннями про сервер та "
+"завантаження препринтів."
+
+msgid "help.goToEditPage"
+msgstr "Редагувати {$sectionTitle}"
+
+msgid "installer.updatingInstructions"
+msgstr ""
+"Якщо Ви оновлюєте поточну версію OPS, <a href=\"{$upgradeUrl}\">клікніть "
+"сюди</a> для продовження."
+
+msgid "installer.installationInstructions"
+msgstr ""
+"<h4>Врсія OPS {$version}</h4>\n"
+"<p>Дякуємо за завантаження проекту Public Knowledge Project <strong>Open "
+"Preprint Systems</strong>. Перед продовженням, будь ласка ознайомтесь з <a "
+"href=\"{$baseUrl}/README.md\">README</a> файлом, що включений до цього "
+"програмного забезпечення. Для додаткової інформації про Public Knowledge "
+"Project та програмне забезпечення, звертайтесь до <a href=\"https://pkp.sfu."
+"ca/\" target=\"_blank\">сайту PKP</a>. Якщо знаєте про баг або потребуєте "
+"технічної підтримки щодо системи Open Preprint, дивіться <a href=\"https"
+"://forum.pkp.sfu.ca\" target=\"_blank\">форум підтримки</a> або відвідайте "
+"<a href=\"https://github.com/pkp/pkp-lib#issues\" target=\"_blank\">систему "
+"онлайнового повідомлення про недоліки </a> PKP. Хоча, форум підтримки - "
+"пріоритетний спосіб комунікації, Ви також можете написати команді "
+"електронного листа на адресу <a href=\"mailto:pkp.contact@gmail.com\">pkp."
+"contact@gmail.com</a>.</p>\n"
+"\n"
+"<h4>Оновлення</h4>\n"
+"<p>Якщо Ви оновлюєте поточну інсталяцію OPS, <a href=\"{$upgradeUrl}\""
+">клікніть сюди</a> для продовження.</p>\n"
+"\n"
+"<h4>Рекомендовані системні вимоги</h4>\n"
+"<ul>\n"
+"\t<li><a href=\"https://www.php.net\" target=\"_blank\">PHP</a> >= "
+"{$phpRequiredVersion}; зараз використовується PHP "
+"{$phpVersion}{$wrongPhpText}</li>\n"
+"\t<li><a href=\"https://www.mysql.com\" target=\"_blank\">MySQL</a> >= 4.1 "
+"або <a href=\"https://www.postgresql.org\" target=\"_blank\">PostgreSQL</a> "
+">= 9.1.5</li>\n"
+"\t<li><a href=\"https://httpd.apache.org\" target=\"_blank\">Apache</a> >= "
+"1.3.2x or >= 2.0.4x або Microsoft IIS 6</li>\n"
+"\t<li>Операційна система: будь-яка операційна система, яка підтримує "
+"перераховане вище програмне забезпечення, включаючи <a href=\"https://www."
+"linux.org/\" target=\"_blank\">Linux</a>, <a href=\"https://www.bsd.org\" "
+"target=\"_blank\">BSD</a>, <a href=\"https://www.oracle.com/solaris/\" "
+"target=\"_blank\">Solaris</a>, <a href=\"https://www.apple.com\" target="
+"\"_blank\">Mac OS X</a>, <a href=\"https://www.microsoft.com\""
+">Windows</a></li>\n"
+"</ul>\n"
+"\n"
+"<p>Оскільки PKP не має ресурсів для тестування кожної можливої комбінації "
+"версій та платформ, гарантії коректного функціонування та підтримки не "
+"надаються.</p>\n"
+"\n"
+"<p>Зміни цих налаштувань можуть бути зроблені після налаштування шляхом "
+"корекції файлу <tt>config.inc.php</tt> у базовій директорії OPS, або "
+"використанням адміністративного веб-інтерфейсу.</p>\n"
+"\n"
+"<h4>Підтримувані системи баз даних</h4>\n"
+"<p>OPS зараз протестований для роботи на MySQL та PostgreSQL, однак інші "
+"СКБД що підтримують <a href=\"https://adodb.org\" target=\"_blank\">ADOdb</"
+"a> можуть працювати (повністю або частково). Звіти по сумісності та/або "
+"патчі коду для альтернативних СКБД можна надсилати команді OPS.</p>"
+
+msgid "installer.localeSettingsInstructions"
+msgstr ""
+"Для повної підтримки Unicode (UTF-8), оберіть UTF-8 для усіх наборів "
+"символів. Будь ласка майте на увазі, що повна підтримка Unicode потребує "
+"компіляції PHP з підтримкою бібліотеки <a href=\"https://www.php.net/"
+"mbstring\" target=\"_blank\">mbstring</a> (включена за замовчанням у "
+"більшості останніх дистрибутивів PHP). Ви також можете стикнутись з "
+"проблемами використання розширених наборів символів, якщо Ваш сервер не "
+"відповідає вимогам.<br /><br />Ваш сервер зараз підтримує mbstring: "
+"<strong>{$supportsMBString}</strong>"
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+"Введіть повний шлях до існуючої директорії зі збереженими файлами. Ця "
+"директорія не повинна бути безпосередньо веб-доступна. <strong>Будь ласка, "
+"перед інсталюванням впевніться, що директорія існує та має права на запис.</"
+"strong> Назви папок Windows повинні супроводжуватись символами слешів, "
+"наприклад \"C:/myserver/files\"."
+
+msgid "installer.upgradeComplete"
+msgstr ""
+"<p>Оновлення OPS до версії {$version} завершено успішно.</p><p>Не забудьте "
+"встановити налаштування \"installed\" у Вашому конфігураційному файлі "
+"config.inc.php назад у значення <em>On</em>.</p><p>Відвідайте наш <a href="
+"\"https://forum.pkp.sfu.ca\" target=\"_new\">форум ком'юніті</a> або "
+"підпишіться на нашу <a href=\"https://pkp.sfu.ca/developer-newsletter\" "
+"target=\"_new\">розсилку розробників</a> для отримання нотифікацій про "
+"безпеку, оновлень, повідомлень про нові релізи, нові плагіни та заплановані "
+"нові можливості.</p>"
+
+msgid "installer.installationComplete"
+msgstr ""
+"<p>Інсталяція OPS завершилась успішно.</p>\n"
+"<p>Для початку користування системою, <a href=\"{$loginUrl}\">авторизуйтесь</"
+"a> у системі з логіном користувача та паролем, введеними на попередній "
+"сторінці.</p>\n"
+"<p>Завітайте на наш <a href=\"https://forum.pkp.sfu.ca\" target=\"_new\""
+">форум ком'юніті</a> або підпишіться для отримання <a href=\"https://pkp.sfu."
+"ca/developer-newsletter\" target=\"_new\">розсилку розробників</a> щодо "
+"оновлень, нотифікацій з безпеки, нагадувань про нові версії, нові плагіни та "
+"фічі.</p>"
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+"Доступна нова версія OPS! Ви зараз використовуєте OPS {$currentVersion}. "
+"Найновіша версія OPS - це {$latestVersion}. Будь ласка, зв'яжыться з Вашим "
+"адмыныстратором сайту ({$siteAdminName} через пошту <a href=\"mailto"
+":{$siteAdminEmail}\">{$siteAdminEmail}</a>) для того, щоб повідомити про "
+"нову версію. Більше інформації можна знайти <a href=\"https://pkp.sfu.ca/ops/"
+"ops_download/\" target=\"_new\">тут</a>."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Нове повідомлення створено."
+
+msgid "notification.type.submissions"
+msgstr "Події Завантажень"
+
+msgid "notification.type.public"
+msgstr "Публічні Повідомлення"
+
+msgid "notification.type.approveSubmission"
+msgstr "Це завантаження очікує погодження."
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr "Індексування серверу \"{$serverName}\""
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr "Очікує погодження."
+
+msgid "about.onlineSubmissions.submitToSection"
+msgstr "Надати контент для секції <a href=\"{$url}\">{$name}</a>."
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr "показати поточні надходження, що очікують"
+
+msgid "about.authorGuidelines"
+msgstr "Настанови Автора"
+
+msgid "about.aboutSoftware"
+msgstr "Про системи Open Preprint"
+
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr "Перегляд OPS процесу виконання та публікації"
+
+msgid "notification.type.editorAssignmentTask"
+msgstr "Новий препринт завантажено і йому потребується призначити модератора."
+
+msgid "notification.type.awaitingRepresentations"
+msgstr "Очікування версток."
+
+msgid "user.authorization.noContext"
+msgstr "Нема серверу в контексті!"
+
+msgid "installer.upgradeInstructions"
+msgstr ""
+"<h4>Версії OPS {$version}</h4>\n"
+"<p>Дякуємо за скачування Public Knowledge Project <strong>Open Preprint "
+"Systems</strong>. Перед продовженням, будь ласка, прочитайте <a href=\""
+"{$baseUrl}/README.md\">README</a> та <a href=\"https://docs.pkp.sfu.ca/dev/"
+"upgrade-guide)\">Керівництво з оновлення</a>. Для додаткової інформації про "
+"Public Knowledge Project та його програмні продукти, будь ласка звертайтесь "
+"на <a href=\"https://pkp.sfu.ca\" target=\"_blank\">веб-сайт PKP</a>. Якщо у "
+"Вас є баг репорти або треба технічна підтримка Open Preprint System, "
+"дивіться <a href=\"https://forum.pkp.sfu.ca\" target=\"_blank\">форум "
+"підтримки</a> або PKP's онлайнову <a href=\"https://github.com/pkp/pkp-lib/"
+"issues\" target=\"_blank\">систему обробки багрепортів</a>. Хоча, форум "
+"підтримки є пріоритетним методом комунікації, Ви також можете написати "
+"команді електронного листа на адресу <a href=\"mailto:pkp.contact@gmail.com\""
+">pkp.contact@gmail.com</a>.</p>\n"
+"<p><strong>Дуже рекомендується</strong> перед продовженням зробити резервні "
+"копії бази даних, файлів та директорій, а також директорії з інсталяцією "
+"OPS.</p>\n"
+"<p>Будь ласка впевніться, що параметр max_execution_time у Вашому "
+"конфігураційному файлі php.ini встановлена у значення high limit. Якщо це не "
+"так, або там інший ліміт (наприклад у веб-сервера Apache це директива "
+"\"Timeout\") і він буде досягнутий та процес оновлення буде перервано, "
+"потребуватиметься ручне втручання для відновлення.</p>"
+
+msgid "installer.maxFileUploadSize"
+msgstr ""
+"Ваш сервер зараз дозволяє максимальний розмір завантажень: "
+"<strong>{$maxFileUploadSize}</strong>"
+
+msgid "installer.localeInstructions"
+msgstr ""
+"Основна мова системи. Будь ласка поцікавтесь документацією OPS, якщо "
+"зацікавлені у підтримці мови, яка тут не перелічена."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Оберіть будь-яку додаткову мову системи. Ці мови будуть доступними для "
+"використання серверів, які розміщуватимуться на сайті. Додаткові мови можна "
+"також інсталювати у будь-який час через адміністративний інтерфейс."
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+"OPS потребує досутпу до бази даних SQL для зберігання даних. Ознайомтесь з "
+"системними вимогами, наведеними вище, щодо підтримуваних типів баз даних. У "
+"полях нижче наведено налаштування, які треба використати для під'єднання до "
+"бази даних."
+
+msgid "installer.installApplication"
+msgstr "Встановлення системи Open Preprint"
+
+msgid "installer.upgradeApplication"
+msgstr "Оновлення системи Open Preprint"
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+"<h4>ВАЖЛИВО!</h4><p>Інсталятор не зміг автоматично перезаписати "
+"конфігураційний файл. Перед спробою використання системи, будь ласка "
+"відкрийте <tt>config.inc.php</tt> у зручному Вам текстовому редакторі та "
+"замініть його вміст вмістом з текстового поля нижче.</p>"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Доступна нова версія OPS! Ви зараз використовуєте OPS {$currentVersion}. "
+"Найновіша версія OPS - це {$latestVersion}. Будь ласка, відвідайте <a href="
+"\"https://pkp.sfu.ca/ops/ops_download/\" target=\"_new\">цю сторінку</a> для "
+"завантаження останньої версії та для отримання інструкцій з оновлення."
+
+msgid "log.editor.decision"
+msgstr ""
+"Рішення модератора ({$decision})по препринту {$submissionId} було записане "
+"{$editorName}."
+
+msgid "log.editor.recommendation"
+msgstr ""
+"Модератор рекомендував ({$decision}) для препринту {$submissionId} і це "
+"записано {$editorName}."
+
+msgid "notification.type.submissionSubmitted"
+msgstr "Новий препринт, \"{$title}\", надано."

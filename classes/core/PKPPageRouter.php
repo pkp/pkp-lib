@@ -522,20 +522,56 @@ class PKPPageRouter extends PKPRouter
             $request->setCookieVar('currentLocale', $newLocale);
         }
 
+        $protocol = $request->getProtocol();
         // Do not permit basic auth strings (user:password@url) in source parameter for redirects
-        if (preg_match('#^/\w#', $source = str_replace('@', '', $request->getUserVar('source') ?? ''))) {
-            $request->redirectUrl($source);
+        $source = str_replace('@', '', $request->getUserVar('source') ?? '');
+
+        if (isset($setLocale)) {
+            $targetUrl = '';
+            // The source parameter is coming either from the languageToggle block plugin
+            // and contains $smarty.server.SERVER_NAME|cat:$smarty.server.REQUEST_URI
+            // i.e. the whole URL except the protocol,
+            // or from TopNavActions and contain the whole URL with protocol
+            if (!empty($source) && $this->isAllowedHost($protocol, $source)) {
+                $targetUrl = str_starts_with($source, $protocol) ? $source : $protocol . '://' . $source;
+            } elseif (isset($_SERVER['HTTP_REFERER']) && $this->isAllowedHost($protocol, $_SERVER['HTTP_REFERER'])) {
+                $targetUrl = $_SERVER['HTTP_REFERER'];
+            }
+        } else {
+            if (preg_match('#^/\w#', $source)) {
+                $request->redirectUrl($source);
+            }
+            $targetUrl = $request->getCompleteUrl();
         }
 
         $newUrlLocale = $multiLingual ? "/{$newLocale}" : '';
         $indexUrl = $this->getIndexUrl($request);
-        $pathInfo = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
+        $pathInfo = preg_replace('/^' . preg_quote($indexUrl, '/') . '/', '', $targetUrl, 1);
         $newPathInfo = preg_replace('/^' . preg_quote("/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : ''), '/') . '(?=[\\/?#]|$)/', "/{$contextPath}{$newUrlLocale}", $pathInfo, 1, $replaceCount);
         // Failed to setup the new URL, fallback to the default initial URL
         if (!$replaceCount) {
             $newPathInfo = "/index{$newUrlLocale}";
         }
         $request->redirectUrl($indexUrl . $newPathInfo);
+    }
+
+    /**
+     * Does the given redirect URL contains an allowed host
+     */
+    private function isAllowedHost(string $protocol, string $redirectUrl): bool
+    {
+        if (str_starts_with($redirectUrl, $protocol)) {
+            $redirectUrl = preg_replace('/^' . preg_quote($protocol . '://', '/') . '/', '', $redirectUrl);
+            ;
+        }
+        $allowedHosts = Config::getVar('general', 'allowed_hosts');
+        $allowedHosts = array_map(strtolower(...), json_decode($allowedHosts));
+        foreach ($allowedHosts as $allowedHost) {
+            if (str_starts_with(strtolower($redirectUrl), $allowedHost)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

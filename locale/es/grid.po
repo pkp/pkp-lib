@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-05-03 22:34+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/es/"
 ">\n"
@@ -641,7 +641,7 @@ msgid "grid.action.fileUnconsider"
 msgstr "Correcciones de prueba realizadas. Puede reconsiderar esta tarea"
 
 msgid "grid.artworkFile.caption"
-msgstr "Título"
+msgstr "Leyenda"
 
 msgid "grid.artworkFile.credit"
 msgstr "Crédito"
@@ -728,3 +728,32 @@ msgstr "En listas de navegación"
 
 msgid "grid.action.editContributor"
 msgstr "Editar colaborador/a"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Aparecer en la cabecera"
+
+msgid "grid.user.remove"
+msgstr "Eliminar usuario/a"
+
+msgid "grid.user.logInAs"
+msgstr "Iniciar sesión como"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Una vez que el usuario/a esté habilitado, este recuperará el acceso al sitio "
+"y usted podrá invitarlo a los roles que necesite."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Añadir la sugerencia del revisor/a"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Eliminar la sugerencia del revisor/a"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"¿Seguro que desea eliminar esta sugerencia? Esta acción no podrá deshacerse."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Tenga en cuenta que cuando se deshabilita un usuario/a ya no podrá añadirlo "
+"a ninguno de los roles hasta que se vuelva a habilitar."

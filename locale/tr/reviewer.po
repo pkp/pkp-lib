@@ -1,19 +1,20 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-04-22 08:57+0000\n"
-"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"reviewer/tr_TR/>\n"
-"Language: tr_TR\n"
+"reviewer/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. İstek"
@@ -139,3 +140,67 @@ msgstr "Hakemlere Gönder"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Mevcut kullanıcı istenen doküman için hakem olarak atanmadı."
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "{$round}. tur Değerlendirmelerini Görüntüle"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "{$round}.tur hakemlik sürecindeki değerlendirmeniz"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Hakem Yorumları"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Editörler için özel görüşleriniz"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Yazar ve editörler için görüşleriniz"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Yorumlar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "E-posta ile gönderilen reddetme nedeni"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Ret Tarihi"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Makale Üstverileri"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tür"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Öz"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Anahtar kelimeler"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Genel Bilgiler"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Ekler"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Bu dosyalar, değerlendirme ile birlikte yüklediğiniz dosyalardır"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Hakemler için Değerlendirme Dosyaları"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Önceki Değerlendirmeler"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "{$round}. tur değerlendirmeleri {$submittedOn} tarihinde gönderildi"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr ""
+"Hakemlik davetinin reddedilmesi hakkında herhangi bir neden belirtilmemiştir."
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Bu dosyalar değerlendirilme üzere size gönderilmiştir"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Değerlendirme süreci tamamlanmadı."

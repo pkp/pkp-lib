@@ -1,12 +1,13 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 # Informatikaria <informatikaria@ueu.eus>, 2024.
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2024-11-29 16:41+0000\n"
-"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
+"PO-Revision-Date: 2025-04-27 07:50+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
 "Language: eu\n"
@@ -401,7 +402,7 @@ msgid "common.queue.long.myAssigned"
 msgstr "Niri esleituak"
 
 msgid "common.queue.long.submissionsArchived"
-msgstr ""
+msgstr "Artxibatutako bidalketak"
 
 msgid "submission.authors"
 msgstr "Egileak"
@@ -509,7 +510,7 @@ msgid "submission.comments.review"
 msgstr "Berrikuspena"
 
 msgid "submission.comments.sendDecisionToReviewers"
-msgstr "Bidali editorearen erabakia Ebaluatzaileei "
+msgstr "Bidali editorearen erabakia ebaluatzaileei"
 
 msgid "submission.comments.subject"
 msgstr "Gaia"
@@ -1813,10 +1814,10 @@ msgid "notification.type.revertDecline"
 msgstr ""
 
 msgid "grid.reviewAttachments.title"
-msgstr ""
+msgstr "Berrikuslearen fitxategi erantsiak"
 
 msgid "grid.reviewAttachments.send.title"
-msgstr ""
+msgstr "Hautatu berrikuspen-fitxategiak egilearekin edo egileekin partekatzeko"
 
 msgid "submission.productionReady"
 msgstr ""
@@ -1895,7 +1896,7 @@ msgid "submission.supplementary.sponsor"
 msgstr ""
 
 msgid "grid.action.itemWorkflow"
-msgstr ""
+msgstr "Joan bidalketa honen lan-fluxura"
 
 msgid "notification.type.editorDecisionSendToProduction"
 msgstr ""
@@ -1913,10 +1914,10 @@ msgid "submission.reviewFormResponse"
 msgstr "Ebaluazio-inprimakiaren erantzuna"
 
 msgid "grid.action.createReviewFormElement"
-msgstr ""
+msgstr "Sortu berrikuspenerako inprimaki berria"
 
 msgid "grid.action.editMetadata"
-msgstr ""
+msgstr "Editatu metadatuak"
 
 msgid "submission.permissions"
 msgstr "Baimenak"
@@ -2045,7 +2046,7 @@ msgid "submission.query.leaveQuery.confirm"
 msgstr ""
 
 msgid "grid.action.openNoteForm"
-msgstr ""
+msgstr "Gehitu erantzun berria eztabaidari"
 
 msgid "submission.query.activity"
 msgstr ""
@@ -2208,7 +2209,7 @@ msgid "submission.wizard.unableToSave"
 msgstr ""
 
 msgid "grid.category.categories"
-msgstr ""
+msgstr "Kategoriak"
 
 msgid "catalog.sortBy.titleAsc"
 msgstr ""

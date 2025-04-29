@@ -1,0 +1,758 @@
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-04-27 07:51+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/eu/>"
+"\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "grid.settings"
+msgstr "Ezarpenak"
+
+msgid "grid.noAuditors"
+msgstr "Auditorerik ez dago"
+
+msgid "grid.action.uninstall"
+msgstr "Desinstalatu"
+
+msgid "grid.action.manageAccess"
+msgstr "Kudeatu sarbidea"
+
+msgid "grid.action.sort"
+msgstr "Ordena"
+
+msgid "grid.action.addItem"
+msgstr "Gehitu elementua"
+
+msgid "grid.action.addNote"
+msgstr "Gehitu oharra"
+
+msgid "grid.action.readQuery"
+msgstr "Irakurri eztabaida"
+
+msgid "grid.action.deleteQuery"
+msgstr "Ezabatu eztabaida"
+
+msgid "grid.action.updateQuery"
+msgstr "Eguneratu eztabaida"
+
+msgid "grid.action.addUser"
+msgstr "Gehitu erabiltzailea"
+
+msgid "grid.action.delete"
+msgstr "Ezabatu"
+
+msgid "grid.action.deleteFile"
+msgstr "Ezabatu fitxategia"
+
+msgid "grid.action.deleteMedia"
+msgstr "Ezabatu multimedia"
+
+msgid "grid.action.editMedia"
+msgstr "Editatu multimedia"
+
+msgid "grid.action.export"
+msgstr "Esportatu"
+
+msgid "grid.action.deleteSection"
+msgstr "Ezabatu atala"
+
+msgid "grid.action.editorialHistory"
+msgstr "Edizioaren historia"
+
+msgid "grid.action.remove"
+msgstr "Ezabatu"
+
+msgid "grid.action.edit"
+msgstr "Editatu"
+
+msgid "grid.action.approve"
+msgstr "Onartu"
+
+msgid "grid.action.disapprove"
+msgstr "Baztertu"
+
+msgid "grid.action.setApproval"
+msgstr "Ezarri onarpena"
+
+msgid "grid.action.moreInformation"
+msgstr "Informazio gehiago"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Ziur zaude ezarpen lehenetsiak berrezarri nahi dituzula?"
+
+msgid "grid.action.addAuthor"
+msgstr "Gehitu egilea"
+
+msgid "grid.action.editAuthor"
+msgstr "Editatu egilea"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Ezabatu egilea"
+
+msgid "grid.action.addAuditor"
+msgstr "Gehitu auditorea"
+
+msgid "grid.action.order"
+msgstr "Ordenatu"
+
+msgid "grid.action.saveOrdering"
+msgstr "Gorde eskaera"
+
+msgid "grid.action.extendAll"
+msgstr "Zabaldu dena"
+
+msgid "grid.action.collapse"
+msgstr "Bildu"
+
+msgid "grid.action.collapseAll"
+msgstr "Bildu dena"
+
+msgid "grid.action.wizard"
+msgstr "Ezarpenen laguntzailea"
+
+msgid "grid.action.moveItem"
+msgstr "Mugitu elementua"
+
+msgid "grid.action.readReview"
+msgstr "Irakurri berrikusketa"
+
+msgid "grid.action.email"
+msgstr "Bidali mezu elektronikoa"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Elementu hau urrunetik ostatatuta dago."
+
+#, fuzzy
+msgid "grid.action.unassignReviewer"
+msgstr "Kendu esleipena ikuskatzaile honi"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Onartu zuzenketa-fitxategi hau hurrengo fasera bidaltzeko"
+
+msgid "grid.action.reload"
+msgstr "Berriz kargatu"
+
+msgid "grid.action.addReviewer"
+msgstr "Gehitu ikuskatzailea"
+
+msgid "grid.action.addFile"
+msgstr "Gehitu fitxategia"
+
+msgid "grid.action.expand"
+msgstr "Zabaldu"
+
+msgid "grid.action.notify"
+msgstr "Jakinarazi erabiltzaile honi"
+
+msgid "grid.action.addUserGroup"
+msgstr "Gehitu erabiltzaile-talde berri bat"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Ezabatu erabiltzaile-taldea"
+
+msgid "grid.action.disable"
+msgstr "Desaktibatu"
+
+msgid "grid.action.details"
+msgstr "Ikusi elementua"
+
+msgid "grid.action.enable"
+msgstr "Aktibatu"
+
+msgid "grid.action.bookInfo"
+msgstr "Bidalketaren informazioa"
+
+msgid "grid.action.logInAs"
+msgstr "Hasi saioa honela"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Esportatu erabiltzaile guztiak"
+
+msgid "grid.action.editFile"
+msgstr "Editatu fitxategia"
+
+msgid "grid.action.requestRevisions"
+msgstr "Eskatu berrikuspena bidalketa honentzat"
+
+msgid "grid.action.accept"
+msgstr "Onartu bidalketa hau"
+
+msgid "grid.action.decline"
+msgstr "Baztertu bidalketa hau"
+
+msgid "grid.action.externalReview"
+msgstr "Bidali bidalketa hau kanpo-berrikuspen batera"
+
+msgid "grid.action.sendToProduction"
+msgstr "Bidali bidalketa hau ekoizpenera"
+
+msgid "grid.action.settings"
+msgstr "Ezarpenak"
+
+msgid "grid.action.importexport"
+msgstr "Inportatu edo esportatu edukia edo gunearen datuak"
+
+msgid "grid.action.orderItems"
+msgstr "Gaitu ordenatzeko modua"
+
+msgid "grid.action.resetAll"
+msgstr "Berrezarri elementu guztiak balio lehenetsietara"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Editatu mezu elektronikoaren txantiloi hau"
+
+msgid "grid.action.disableEmail"
+msgstr "Desgaitu mezu elektronikoaren txantiloi hau"
+
+msgid "grid.action.expandAll"
+msgstr "Zabaldu guztia"
+
+msgid "grid.action.enrolExisting"
+msgstr "Erregistratu erabiltzailea berrikusle gisa"
+
+msgid "grid.action.selectCreate"
+msgstr "Sortu berrikusle berri bat"
+
+msgid "grid.action.search"
+msgstr "Bilatu"
+
+msgid "grid.action.advancedSearch"
+msgstr "Bilaketa aurreratua"
+
+msgid "grid.action.viewLibrary"
+msgstr "Ikusi dokumentuen liburutegia"
+
+msgid "grid.action.viewMetadata"
+msgstr "Ikusi bidalketaren metadatuak"
+
+msgid "grid.action.newRound"
+msgstr "Sortu erronda berria"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Ikusi berrikuspen-jarraibideak"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Ikusi interes kontrajarrien gidalerroak"
+
+msgid "grid.action.thankReviewer"
+msgstr "Bidali esker mezua berrikusle honi"
+
+msgid "grid.action.uploadFile"
+msgstr "Kargatu fitxategia"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Gehitu iragarki-mota"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Gehitu iragarkia"
+
+msgid "grid.action.addInstitution"
+msgstr "Gehitu erakundea"
+
+msgid "grid.action.unassignUser"
+msgstr "Kendu erabiltzailearen esleipena"
+
+msgid "grid.action.history"
+msgstr "Ikusi historia"
+
+msgid "grid.action.newVersion"
+msgstr "Sortu bertsio berri bat"
+
+msgid "grid.reviewForm.title"
+msgstr "Berrikusketa inprimakiak"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Erantzun-aukerak"
+
+msgid "grid.noFiles"
+msgstr "Ez dago fitxategirik"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Fitxategiak"
+
+msgid "grid.action.moreItems"
+msgstr "Kargatu gehiago"
+
+msgid "grid.columns.actions"
+msgstr "Ekintzak"
+
+msgid "grid.columns.institution"
+msgstr "Instituzioa"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.action.editSponsor"
+msgstr "Editatu babeslea"
+
+msgid "grid.action.addSeries"
+msgstr "Gehitu bildumak"
+
+msgid "grid.action.editSeries"
+msgstr "Editatu bildumak"
+
+msgid "grid.action.deleteSeries"
+msgstr "Ezabatu bildumak"
+
+msgid "grid.action.addCategory"
+msgstr "Gehitu kategoria"
+
+msgid "grid.action.deleteCategory"
+msgstr "Ezabatu kategoria"
+
+msgid "grid.contributor.title"
+msgstr "Laguntza iturriak"
+
+msgid "grid.action.addContributor"
+msgstr "Gehitu kolaboratzailea"
+
+msgid "grid.action.deleteContributor"
+msgstr "Ezabatu kolaboratzailea"
+
+msgid "grid.columns.auditor"
+msgstr "Auditorea"
+
+msgid "grid.columns.locale.code"
+msgstr "Kodea"
+
+msgid "grid.sponsor.title"
+msgstr "Babesleak"
+
+msgid "grid.action.addSponsor"
+msgstr "Gehitu babeslea"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Ziur zaude erabiltzaile guztiak esportatu nahi dituzula?"
+
+msgid "grid.action.activate"
+msgstr "Aktibatu"
+
+msgid "grid.action.deactivate"
+msgstr "Desaktibatu"
+
+msgid "grid.action.copy"
+msgstr "Kopiatu"
+
+msgid "grid.action.preview"
+msgstr "Aurreikusi"
+
+msgid "grid.action.users"
+msgstr "Ikusi/Hautatu erabiltzaileak"
+
+msgid "grid.task.status.new"
+msgstr "Markatu egokitzat jotzen denean"
+
+msgid "grid.task.status.unfinished"
+msgstr "Zeregin osatu gabea"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Berrikuspena prest dago. Egin klik ezkerreko oharraren ikonoan, irakurtzeko."
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Ziur zaude {$name} kolaboratzaile gisa ezabatu nahi duzula? Ekintza hau ezin "
+"da desegin."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Gehitu ikuskatzailearen gomendioa"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Ezabatu ikuskatzailearen gomendioa"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Argitalpenen liburutegia"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Berrikuspenen liburutegia"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Ekoizpen-liburutegia"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Ekoizpen-txantiloien liburutegia"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Bidalketaren kontrol-zerrenda"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Kontrol-zerrendako elementua"
+
+#, fuzzy
+msgid "grid.columns.locale"
+msgstr "Localea"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Ezarri kontaktu nagusia"
+
+msgid "contributor.listPanel.preview"
+msgstr "Aurreikusi"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formatua"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Erakutsi"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Laburdura"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Argitalpen-zerrendak"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Beteta"
+
+msgid "grid.roles.currentRoles"
+msgstr "Egungo rolak"
+
+msgid "grid.roles.add"
+msgstr "Sortu rol berria"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Fasearen esleipena"
+
+msgid "grid.user.currentUsers"
+msgstr "Egungo erabiltzaileak"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Egungo erregistroak"
+
+msgid "grid.user.allRoles"
+msgstr "Rol guztiak"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Baimen-maila guztiak"
+
+msgid "grid.user.add"
+msgstr "Gehitu erabiltzailea"
+
+msgid "grid.user.enroll"
+msgstr "Erregistratu erabiltzailea"
+
+msgid "grid.user.edit"
+msgstr "Editatu erabiltzailea"
+
+msgid "grid.user.enable"
+msgstr "Gaitu erabiltzailea"
+
+msgid "grid.user.disable"
+msgstr "Desgaitu erabiltzailea"
+
+msgid "grid.user.disableReason"
+msgstr "Erabiltzailea desgaitzeko arrazoia"
+
+msgid "grid.user.enableReason"
+msgstr "Erabiltzailea gaitzeko arrazoia"
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Ez duzu behar adina baimen erabiltzaile hau kudeatzeko. Horretarako, "
+"gunearen administratzailea izan behar duzu edo erabiltzaile hau "
+"erregistratuta dagoen testuinguru guztiak kudeatu behar dituzu."
+
+msgid "grid.user.mustProvideName"
+msgstr "Mesedez, eman gutxienez erabiltzailearen abizena."
+
+msgid "grid.user.generatePassword"
+msgstr "Sortu pasahitza"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Sortu ausazko pasahitza erabiltzaile honentzat."
+
+msgid "grid.user.notifyUser"
+msgstr "Jakinarazi erabiltzailea"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Bidali ongietorri mezu elektronikoa erabiltzaileari."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Aldatu pasahitza"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"Eskatu erabiltzaileari pasahitza aldatzeko hurrengo aldian saioa hasten "
+"duenean."
+
+msgid "grid.user.moreDetails"
+msgstr "Erabiltzailearen xehetasun gehiago"
+
+msgid "grid.user.lessDetails"
+msgstr "Erabiltzailearen xehetasun gutxiago"
+
+msgid "grid.user.userDetails"
+msgstr "Erabiltzailearen xehetasunak"
+
+msgid "grid.user.userRoles"
+msgstr "Erabiltzailearen rolak"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Goiburuan agertu"
+
+msgid "grid.user.userNoRoles"
+msgstr "Erabiltzaile honek ez du rolik."
+
+msgid "grid.user.step2"
+msgstr "#2 urratsa: Gehitu erabiltzailearen rolak honi: {$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "Gehitu rolak"
+
+msgid "grid.user.addRole"
+msgstr "Gehitu rola"
+
+msgid "grid.user.selectUser"
+msgstr "Hautatu erabiltzailea"
+
+msgid "grid.plugin.disable"
+msgstr "Ziur zaude plugin hau desgaitu nahi duzula?"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Gehitu menua"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Gehitu elementua"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Erabiltzaile honekin saioa hasi? Burutzen dituzun ekintza guztiak berari "
+"egotziko zaizkio."
+
+msgid "grid.user.mergeUsers"
+msgstr "Bateratu erabiltzaileak"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Bateratu erabiltzailea"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Erregistratutako erabiltzaile guztiak"
+
+msgid "grid.preparedEmails.title"
+msgstr "Prestatutako posta elektroniko txantiloiak"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Egungo zerrenda"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Proba zuzenketak eginda. Zeregin hau berriro azter dezakezu"
+
+msgid "grid.artworkFile.caption"
+msgstr "Legenda"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kreditua"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Copyright-aren jabea"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Harremanetarako informazioa (egilerik/argitaratzailerik ez badago)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Baimen-baldintzak"
+
+msgid "grid.artworkFile.placement"
+msgstr "Kokapena bidalketan"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Esleitu fasea"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Fase-esleipena bertan behera utzi"
+
+msgid "grid.userGroup.allStages"
+msgstr "Lan-fluxuaren fase guztiak"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Esleitutako rolen zerrenda"
+
+#, fuzzy
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Baimen maila hemen ezarrita:"
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName}-ren rola ezabatuta."
+
+msgid "grid.submission.itemTitle"
+msgstr "Egilea; izenburua"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Nabigazio menuko elementurik ez"
+
+#, fuzzy
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Hautatu mota bat..."
+
+msgid "grid.action.view"
+msgstr "Ikusi"
+
+msgid "author.users.contributor.name"
+msgstr "Izena"
+
+msgid "author.users.contributor.email"
+msgstr "Posta elektronikoa"
+
+msgid "author.users.contributor.role"
+msgstr "Rola"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Nabigazio zerrendetan"
+
+msgid "grid.action.editContributor"
+msgstr "Editatu kolaboratzailea"
+
+msgid "grid.user.remove"
+msgstr "Ezabatu erabiltzailea"
+
+msgid "grid.user.logInAs"
+msgstr "Hasi saioa honela"
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Ezin da {$userGroupName} rola kendu. Une honetan {$usersCount} erabiltzailek "
+"dute esleituta rol hori."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} rola {$stageName} faseari esleitu zaio."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} rola {$stageName} fasetik kendu da."
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Behin erabiltzailea gaituta dagoenean, webgunerako sarbidea berreskuratuko "
+"du eta behar dituen roletara gonbidatu ahal izango duzu."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Kontuan izan, erabiltzaile bat desgaituta dagoenean, ezingo dizkiozula beste "
+"rol batzuk esleitu erabiltzailea berriro gaitu arte."
+
+msgid "grid.action.upgrade"
+msgstr "Eguneratu"
+
+msgid "grid.noItems"
+msgstr "Elementurik ez dago"
+
+msgid "grid.action.addQuery"
+msgstr "Gehitu eztabaida"
+
+msgid "grid.action.editSection"
+msgstr "Editatu atala"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Berrezarri balio lehenetsiak"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Eskaera bertan behera utzi"
+
+msgid "grid.action.downloadAll"
+msgstr "Deskargatu fitxategi guztiak fitxategi bakarrean"
+
+msgid "grid.action.install"
+msgstr "Instalatu"
+
+msgid "grid.action.editUserGroup"
+msgstr "Editatu erabiltzaile-taldea"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Bidalketen liburutegia"
+
+msgid "grid.plugin.allCategories"
+msgstr "Kategoria guztiak"
+
+msgid "grid.action.editCategory"
+msgstr "Editatu kategoria"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Ezabatu babeslea"
+
+msgid "grid.task.status.completed"
+msgstr "Zeregina osatuta"
+
+msgid "grid.task.status.uploaded"
+msgstr "Zutabearen izenburuak fitxategia nork igo duen adierazten du"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Argitalpen honetako kolaboratzaileak formatu hauen bidez identifikatuko dira."
+
+msgid "grid.user.email"
+msgstr "Posta elektronikoa"
+
+msgid "grid.user.error"
+msgstr ""
+"Errore bat gertatu da erabiltzaile hau kudeatzean. Mesedez, saiatu berriro."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Errore bat gertatu da mezu elektroniko hau bidaltzean. Ziurtatu posta "
+"elektronikoko zerbitzariaren ezarpenak funtzionatzen duela eta/edo jarri "
+"harremanetan sistema-administratzailearekin."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Erabiltzaileak pasahitza aldatu beharko du hurrengo saioa hastean."
+
+msgid "grid.user.step1"
+msgstr "#1 urratsa: Osatu erabiltzailearen xehetasunak"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Mesedez, hautatu erabiltzaile bat"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Bateratu erabiltzaile honetan"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Ziur zaude \"{$oldUsername}\" erabiltzaile-kontua \"{$newUsername}\" "
+"erabiltzaile-kontuarekin bateratu nahi duzula? \"{$oldUsername}\" "
+"erabiltzailearen kontua ez da gehiago existituko. Ekintza hau ezin da "
+"desegin."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Nabigazio-menurik ez"
+
+msgid "grid.action.requestAccount"
+msgstr "Gehitu partaide bat"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Ziur zaude gomendio hau ezabatu nahi duzula? Ekintza hau ezin da desegin."
+
+msgid "author.users.contributor.principalContact"
+msgstr "Kontaktu nagusia"
+
+msgid "grid.action.selectFiles"
+msgstr "Hautatu kudeatzeko fitxategiak"
+
+msgid "grid.action.internalReview"
+msgstr "Bidali bidalketa barne-berrikuspen batera"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Gehitu mezu elektroniko txantiloi berria"
+
+msgid "grid.action.resetEmail"
+msgstr "Berrezarri mezu elektronikoaren txantiloi hau lehenetsitako bertsiora"
+
+msgid "grid.action.sendReminder"
+msgstr "Bidali gogorarazpena erabiltzaile honi"
+
+msgid "grid.action.mergeUser"
+msgstr "Bateratu erabiltzailea"
+
+#, fuzzy
+msgid "grid.action.unconsiderReview"
+msgstr "Berrikuspen hau amaitu da, baina kontuan hartu gabe utzi dezakezu"
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName} rola lehenetsia da eta ezin da ezabatu."
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Sartu egile batek bidali ez dituen bidalketa osatugabeak."

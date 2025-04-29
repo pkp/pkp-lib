@@ -1,11 +1,12 @@
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2025-03-25 07:05+0000\n"
+"PO-Revision-Date: 2025-04-10 07:01+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "da/>\n"
@@ -676,3 +677,12 @@ msgid "editor.review.logResponse.form.subDetail"
 msgstr ""
 "Hvis bedømmeren kontakter dig gennem e-mail eller på anden vis, kan du "
 "registrere deres svar for dem"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Bedømmelsens forfaldsdato skal være lig med eller senere end svardatoen."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Der opstod en fejl under tilføjelse af bedømmeren, da fristen for bedømmelse "
+"skal være lig med eller senere end svardatoen."

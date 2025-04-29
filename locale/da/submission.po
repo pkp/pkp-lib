@@ -1,12 +1,13 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da/>\n"
@@ -1465,8 +1466,8 @@ msgstr "Indsendelse accepteret"
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Indsendelsen, {$title}, er blevet accepteret til offentliggørelse og sendt "
-"til kopiredigeringsstadiet. Alle meddelelser er blevet sendt, undtagen nogen "
-"du har valgt at springe over."
+"til manuskriptredigeringstrinnet. Alle meddelelser er blevet sendt, undtagen "
+"nogen du har valgt at springe over."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
@@ -2796,3 +2797,440 @@ msgstr "Skift"
 
 msgid "submission.list.changeSubmissionLanguage.title"
 msgstr "Skift indsendelsessprog for"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Før du skifter indsendelsessproget, skal du sikre dig, at du har "
+"udfyldt de følgende metadatafelter for at opretholde systemets integritet. "
+"Bemærk også, at oplysninger om bidragsydere og filnavne vil blive kopieret "
+"fra tidligere indtastede oplysninger.</strong>"
+
+msgid "submission.list.completeSubmission"
+msgstr "Færdiggør indsendelse"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Er du sikker på, at du ønsker at annullere denne indsendelse? Dette vil "
+"slette indsendelsen og alle tilhørende data. Denne handling kan ikke omgøres."
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Færdiggjort"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Du er ved at fjerne den eksisterende JATS XML fil fra denne publikation. Er "
+"du sikker?"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Der er ikke blevet foreslået nogle bedømmere til denne indsendelse."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Navnet på tilhørsforhold/institution mangler i {$language} for et eller "
+"flere tilhørsforhold for en eller flere af bidragsyderne."
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Der opstod en fejl i processen med at oprette standard JATS indhold. Sørg "
+"venligst for at JatsTemplate-pluginet er installeret."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Fortæl venligst, hvorfor du anbefaler denne anmelder, og nævn, om der er "
+"nogen potentielle interessekonflikter."
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Forfatter anmodet om revisioner, som skal i en ny bedømmelsesrunde"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Skal publiceres i nummer {$issue}"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Vær venlig at acceptere eller afvise denne anmodning senest d. {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Deadlinen for at færdiggøre denne bedømmelse er overskredet. Vær venlig at "
+"færdiggøre bedømmelsen hurtigst muligt."
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Manuskriptredigerede filer uploadet: {$count}"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Mangler bedømmelser"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Alle på indsendelsestrinnet"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Alle på bedømmelsestrinnet"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Bedømmelser forsinket"
+
+msgid "submission.dashboard.view.production"
+msgstr "Alle på produktionstrinnet"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Planlagt til publicering"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publiceret"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Afvist"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Anmodet om revisioner"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Forfatters revisioner indsendt"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Ufuldstændige indsendelser"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Alle tildelinger"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Afventer"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Færdige / Afviste"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Alle tildelinger"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Handlinger påkrævet af mig"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arkiveret"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Afvist"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publiceret"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Bedømmelse (Runde {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Planlagt til publicering"
+
+msgid "submission.stage.published"
+msgstr "Udgivet"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Bekræft sletning af JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Slet JATS fil"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Denne JATS fil er automatisk genereret ud fra indsendelsens metadata"
+
+msgid "publication.jats.lastModified"
+msgstr "Sidst ændret d. {$modificationDate} af {$username}"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Alle på manuskriptredigeringstrinnet"
+
+msgid "submission.files.content.error"
+msgstr "Indholdet af indsendelsesfilen '{$fileName}' kunne ikke hentes."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Begrundelse for at foreslå bedømmer"
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Sproget på indsendelsen ({$language}) er ikke et af de understøttede "
+"indsendelsessprog. Du kan stadig redigere detaljer om indsendelsen, men nye "
+"indsendelser på dette sprog accepteres ikke på nuværende tidspunkt."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Bedømmelse opdateret {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Anvend filtre"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Påbegynd en ny indsendelse"
+
+msgid "dashboard.assignReviewers"
+msgstr "Tildel bedømmere"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Forfatter anmodet om revisioner"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Ny bedømmelsesrunde skal oprettes"
+
+msgid "dashboard.revisionRequested"
+msgstr "Anmodet om revision"
+
+msgid "dashboard.submitRevisions"
+msgstr "Indsend revisioner"
+
+msgid "workflow.uploadRevisions"
+msgstr "Upload revisioner"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Svar på anmodning"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Færdiggør bedømmelse"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Anmodning afvist d. {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Bedømmelse indsendt d. {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Deadlinen for at svare på denne anmodning er overskredet. Vær venlig at "
+"acceptere eller afvise denne anmodning hurtigst muligt."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Færdiggør venligst denne bedømmelse senest d. {$date}."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Bedømmere tildelt"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Indtast indsendelsens titel her på {$language}. Du kan formatere titlen som "
+"ønsket"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Det anbefales at inkludere resuméet på {$language}. Dette hjælper med at "
+"gøre indholdet tilgængeligt"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Se indsendelsessammendrag"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Tildelt mig"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktive indsendelser"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Mangler redaktør"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Alle i fagfællebedømmelse"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Afventer bedømmelser"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Bedømmelser indsendt"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Afslået under {$stageName} trinnet."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Afventer svar fra bedømmeren"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Anmodning om bedømmelse er blevet sendt til bedømmeren. Afventer svar om "
+"<b>{$days} dage på den {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Anmodning om bedømmelse er blevet afvist den {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Bedømmeren afviste anmodning om bedømmelse den <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Anmodning om bedømmelse er overskredet med {$days} dage"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Denne bedømmer har ikke svaret på anmodningen om bedømmelse. Der skulle have "
+"været svaret den <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Bedømmeren har accepteret anmodningen. Bedømmelsen skal være indsendt om "
+"<b>{$days} dage, den {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Bedømmelsen er forsinket med {$days} dage"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Igangværende bedømmelse - anmodning accepteret"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Denne bedømmer har ikke afsluttet bedømmelsen. Et svar skulle være indsendt "
+"den <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Bedømmelse afsluttet den {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Bedømmelsen blev afsluttet den {$date} med den følgende anbefaling: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Bedømmelse blev bekræftet af redaktøren"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Bedømmelsen blev accepteret af redaktøren den <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Bedømmeren afslog anmodning om bedømmelse"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Bedømmeren afslog anmodning om bedømmelse den <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Afventer svar fra bedømmer"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Anmodning om bedømmelse er blevet delt med bedømmeren igen. Afventer svar om "
+"{$days} dage, den {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Se detaljer"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Gensend anmodning om bedømmelse"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Slet bedømmer"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Fjern tildeling"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Rediger forfaldsdato"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Se anbefaling"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Se ulæst anbefaling"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Send bedømmelse til ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Send denne bedømmelse til bedømmerens ORCID?"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Der er blevet bekræftet det antal bedømmelser, der som minimum er påkrævede. "
+"En beslutning er påkrævet."
+
+msgid "workflow.stageNotStarted"
+msgstr "Trinnet: {$stage} er endnu ikke påbegyndt."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Indsendelsen er gået videre til næste bedømmelsesrunde"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisioner uploadet"
+
+msgid "fileManager.filesForReview"
+msgstr "Filer til bedømmelse"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Disse filer vil blive sendt til bedømmerne til bedømmelse"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Bedømmerstatus"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Er du sikker på, du vil slette de valgte elementer? Denne handling kan ikke "
+"fortrydes. Bekræft venligst for at fortsætte."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Slet ufærdige indsendelser"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Det påkrævede minimale antal bekræftede bedømmelser: {$number}."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Det minimale antal bekræftede bedømmelser er ikke opfyldt. Ønsker du stadig "
+"at fortsætte med denne redaktionelle beslutning?"
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Indsendelsen er på {$stage} trinnet."
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Filer, der har været igennem manuskriptredigering"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Dette er filerne, der bliver sendt til produktion"
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Fortsæt uden det minimale antal bekræftede bedømmelser?"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Indsendelsen gik videre til næste bedømmelsesrunde, blev accepteret, og er "
+"nu på {$stage} trinnet."
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Dette er redigerede filer, der vil blive taget videre til produktionstrinnet"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Bekræft sletning af ufærdige indsendelser"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Filer uploadet på indsendelsestidspunktet"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Dette er filer fra bedømmelsestrinnet, som skal igennem manuskriptredigering"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Vælg ufærdige indsendelser, der skal slettes."
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Disse filer blev indsendt af forfatteren, efter der blev efterspurgt "
+"revisioner"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Du kan ikke tilgå denne indsendelse som Tidsskriftschef, da du er "
+"forfatteren af den. For at se den, skal du gå til \"Mine indsendelser\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Du kan ikke tilgå denne indsendelse som Tidsskriftschef, da du er bedømmer "
+"af den. For at se den, skal du gå til \"Bedømmelsesopgaver\""
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Kun godkendt til at anbefale en redaktionel beslutning"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Anbefalende redaktører har til opgave at anbefale de næste trin for denne "
+"indsendelse"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Der er modtaget en redaktionel anbefaling"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Alle redaktionelle anbefalinger er modtaget, og en beslutning er påkrævet."
+
+msgid "workflow.reviewRoundN"
+msgstr "Bedømmelsesrunde {$number}"

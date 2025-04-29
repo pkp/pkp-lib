@@ -523,7 +523,11 @@ abstract class Repository
         // Update publication version data
         $currentVersionInfo = $newPublication->getVersion();
         if (!isset($currentVersionInfo)) {
-            $this->updateVersion($newPublication, VersionStage::VERSION_OF_RECORD, false);
+            $nextAvailableVersion = Repo::submission()->getNextAvailableVersion($submission, VersionStage::VERSION_OF_RECORD, false);
+
+            $newPublication->setData('versionIsMinor', false);
+            $newPublication->setVersion($nextAvailableVersion);
+            // $this->updateVersion($newPublication, VersionStage::VERSION_OF_RECORD, false);
         }
 
         Hook::call('Publication::publish::before', [&$newPublication, $publication]);
@@ -698,24 +702,15 @@ abstract class Repository
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $nextAvailableVersion = Repo::submission()->getNextAvailableVersion($submission, $versionStage, $isMinor);
 
-        $newPublication = clone $publication;
-        $newPublication->setData('versionIsMinor', $isMinor);
-        $newPublication->setVersion($nextAvailableVersion);
+        $publication->setData('versionIsMinor', $isMinor);
+        $publication->setVersion($nextAvailableVersion);
+        $publication->stampModified();
 
-        $newPublication->stampModified();
-        Hook::run(
-            'Publication::updateVersion::before',
-            [
-                &$newPublication,
-                $publication
-            ]
-        );
+        Hook::run('Publication::updateVersion::before', [&$publication, $publication]);
 
-        $this->dao->update($newPublication);
+        $this->dao->update($publication);
 
-        $newPublication = Repo::publication()->get($newPublication->getId());
-
-        return $newPublication;
+        return $publication;
     }
 
     /**

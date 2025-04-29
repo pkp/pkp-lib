@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-23 22:30+0000\n"
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mr/>\n"
@@ -63,7 +63,7 @@ msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "सर्वसाधारण (डीफॉल्ट) वापर नसावा (संपादकासाठी तो अजूनही उपलब्ध असेल)"
 
 msgid "metadata.property.displayName.author"
-msgstr "लेखक (अनेक)"
+msgstr "लेखक"
 
 msgid "metadata.property.validationMessage.author"
 msgstr ""
@@ -71,7 +71,7 @@ msgstr ""
 "डॉ."
 
 msgid "metadata.property.displayName.editor"
-msgstr "संपादक (अनेक)"
+msgstr "संपादक"
 
 msgid "metadata.property.displayName.article-title"
 msgstr "लेखाचे शीर्षक"
@@ -235,7 +235,7 @@ msgid "common.queue.long.myAssigned"
 msgstr "मला नेमून दिलेली"
 
 msgid "submission.authors"
-msgstr "लेखक (अनेक)"
+msgstr "लेखक"
 
 msgid "submission.authorBiographies"
 msgstr "लेखकाची जीवनवृत्ते (Biographies)"
@@ -278,7 +278,7 @@ msgid "submission.changeFile"
 msgstr "फाईलमध्ये फेरबदल करा"
 
 msgid "submission.citations"
-msgstr "संदर्भ (अनेक)"
+msgstr "संदर्भ"
 
 msgid "submission.parsedCitations"
 msgstr "उतरवलेले संदर्भ (Extracted References)"
@@ -373,7 +373,7 @@ msgid "author.publicationNotFound"
 msgstr "या लेखकाचे प्रकाशन आढळले नाही."
 
 msgid "submission.authors.label"
-msgstr "लेखक (अनेक)"
+msgstr "लेखक"
 
 msgid "metadata.property.validationMessage.isbn"
 msgstr "कृपया ग्राह्य ISBN (९ किंवा १३ अंक) नोंदवा."
@@ -1703,7 +1703,7 @@ msgid "submission.query.subject"
 msgstr "विषय"
 
 msgid "submission.query.messages"
-msgstr "संदेश (अनेक)"
+msgstr "संदेश"
 
 msgid "submission.queries.submission"
 msgstr "समीक्षणपूर्व चर्चा"

@@ -1,12 +1,13 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 # Informatikaria <informatikaria@ueu.eus>, 2023.
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2024-06-12 14:03+0000\n"
-"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"PO-Revision-Date: 2025-04-27 07:50+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/user/eu/>"
 "\n"
 "Language: eu\n"
@@ -50,7 +51,7 @@ msgstr ""
 "Sarbidea ukatu zaizu. Une honetan, orri honetarako sarbidea murriztuta dago."
 
 msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Une honetako eginkizunak ez du eragiketa hori egiteko baimenik."
+msgstr "Une honetako rolak ez du eragiketa hori egiteko baimenik."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr ""
@@ -64,8 +65,8 @@ msgstr ""
 
 msgid "user.authorization.managerRequired"
 msgstr ""
-"Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) "
-"duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik."
+"Mailari Prentsa Arduradun rola (adib., Prentsa edo Produkzio Editorea) duen "
+"erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik."
 
 msgid "user.authorization.accessibleWorkflowStage"
 msgstr "Une honetan ez duzu lan-fluxuaren etapa horretarako sarbiderik."
@@ -104,7 +105,7 @@ msgid "user.email"
 msgstr "E-posta helbidea"
 
 msgid "user.givenName"
-msgstr "Ponte-izena"
+msgstr "Izena"
 
 msgid "user.interests"
 msgstr "Ebaluatzeko interesak"
@@ -183,25 +184,25 @@ msgid "user.login.registeredEmail"
 msgstr "Erabiltzaile erregistratuaren helbide elektronikoa"
 
 msgid "user.login.registrationComplete"
-msgstr ""
+msgstr "Izen-ematea osatuta"
 
 msgid "user.login.registrationComplete.instructions"
-msgstr ""
+msgstr "Eskerrik asko izena emateagatik! Zer egin nahiko zenuke?"
 
 msgid "user.login.registrationComplete.manageSubmissions"
-msgstr ""
+msgstr "Ikusi bidalketak"
 
 msgid "user.login.registrationComplete.newSubmission"
-msgstr ""
+msgstr "Egin bidalketa berria"
 
 msgid "user.login.registrationComplete.continueBrowsing"
-msgstr ""
+msgstr "Jarraitu nabigatzen"
 
 msgid "user.login.registrationPendingValidation"
-msgstr ""
+msgstr "Erregistroa egiaztatzeko dago"
 
 msgid "user.login.rememberUsernameAndPassword"
-msgstr ""
+msgstr "Mantendu saioa hasita"
 
 msgid "user.login.resetPassword"
 msgstr "Berrezarri pasahitza"
@@ -210,10 +211,10 @@ msgid "user.logOut"
 msgstr "Amaitu saioa"
 
 msgid "user.logOutAs"
-msgstr ""
+msgstr "Itxi saioa {$username} bezala"
 
 msgid "user.hello"
-msgstr "Kaixo,"
+msgstr "Kaixo, "
 
 msgid "user.mailingAddress"
 msgstr "Posta-helbidea"
@@ -234,7 +235,7 @@ msgid "user.phone"
 msgstr "Telefonoa"
 
 msgid "user.preferredPublicName"
-msgstr ""
+msgstr "Izen Publiko hobetsia"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
@@ -254,10 +255,12 @@ msgid "user.profile.form.emailRequired"
 msgstr "Baliozko helbide elektroniko bat eman behar da."
 
 msgid "user.profile.form.givenNameRequired"
-msgstr ""
+msgstr "Izen bat beharrezkoa da."
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
+"Abizen bat gehitu duzu izena falta den hizkuntza baterako. Mesedez, gehitu "
+"izen bat hizkuntza horretan."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Beharrezkoa da helbide elektroniko bat."
@@ -295,7 +298,7 @@ msgid "user.profile.form.usernameRequired"
 msgstr "Erabiltzaile-izena eman behar da."
 
 msgid "user.profile.form.privacyConsentRequired"
-msgstr ""
+msgstr "Pribatutasun-adierazpenaren baldintzak onartu behar dituzu."
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "Oraingo pasahitza mantentzeko, utzi hutsik pasahitzaren eremuak."
@@ -316,16 +319,20 @@ msgid "user.profile.repeatNewPassword"
 msgstr "Errepikatu pasahitz berria"
 
 msgid "user.login.registerNewAccount"
-msgstr ""
+msgstr "Erregistratu"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
+"Sartu zure kontuaren helbide elektronikoa azpian, eta mezu elektroniko bat "
+"bidaliko da zure pasahitza berrezartzeko argibideekin."
 
 msgid "user.register.form.privacyConsent"
 msgstr ""
+"Bai, onartzen dut nire datuak <a href=\"{$privacyUrl}\" target=\"_blank\""
+">pribatutasun-adierazpenaren</a> arabera biltzea eta gordetzea."
 
 msgid "user.register.form.emailConsent"
-msgstr ""
+msgstr "Bai, argitalpen eta ohar berrien berri jaso nahiko nuke."
 
 msgid "user.register.form.emailExists"
 msgstr "Hautatutako helbide elektronikoa beste erabiltzaile batena da."
@@ -340,13 +347,13 @@ msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
 
 msgid "user.register.form.userGroupRequired"
-msgstr ""
+msgstr "Gutxienez rol bat hautatu behar duzu."
 
 msgid "user.register.form.usernameExists"
 msgstr "Hautatutako erabiltzaile-izena beste erabiltzaile batena da."
 
 msgid "user.register.form.passwordLengthRestriction"
-msgstr ""
+msgstr "Pasahitzak {$length} karaktere izan behar ditu gutxienez."
 
 msgid "user.register.registerAs"
 msgstr "Erregistratu honela:"
@@ -361,9 +368,11 @@ msgstr ""
 
 msgid "user.register.registrationCompleted"
 msgstr ""
+"Behar bezala erregistratu zara. <a href=\"{$profileUrl}\">Egin klik hemen</"
+"a> zure erabiltzaile-profila osatzeko."
 
 msgid "user.role.assistant"
-msgstr ""
+msgstr "Produkzio-laguntzailea"
 
 msgid "user.role.author"
 msgstr "Egilea"
@@ -375,10 +384,10 @@ msgid "user.role.authors"
 msgstr "Egileak"
 
 msgid "user.role.editor"
-msgstr ""
+msgstr "Editorea"
 
 msgid "user.role.editors"
-msgstr ""
+msgstr "Editoreak"
 
 msgid "user.role.reader"
 msgstr "Irakurlea"
@@ -399,22 +408,22 @@ msgid "user.role.siteAdmins"
 msgstr "Gune-administratzaileak"
 
 msgid "user.role.copyeditor"
-msgstr ""
+msgstr "Estilo-zuzentzailea"
 
 msgid "user.role.copyeditors"
-msgstr ""
+msgstr "Estilo-zuzentzaileak"
 
 msgid "user.role.proofreader"
-msgstr ""
+msgstr "Proba-zuzentzailea"
 
 msgid "user.role.proofreaders"
-msgstr ""
+msgstr "Proba-zuzentzaileak"
 
 msgid "user.role.layoutEditor"
-msgstr ""
+msgstr "Maketatzailea"
 
 msgid "user.role.layoutEditors"
-msgstr ""
+msgstr "Maketatzaileak"
 
 msgid "user.roles"
 msgstr "Funtzioak"
@@ -446,40 +455,43 @@ msgid "user.workingLanguages"
 msgstr "Laneko hizkuntzak"
 
 msgid "user.orcid"
-msgstr ""
+msgstr "ORCID ID"
 
 msgid "user.orcid.orcidInvalid"
 msgstr ""
+"Zehaztu duzun ORCIDa ez da baliozkoa. Sartu URL osoa (adib.: \"https://orcid."
+"org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
-msgstr ""
+msgstr "Identitatea"
 
 msgid "user.profile.contact"
 msgstr "Kontaktua"
 
 msgid "user.profile.public"
-msgstr ""
+msgstr "Publikoa"
 
 msgid "user.apiKey"
-msgstr ""
+msgstr "API Key-a"
 
 msgid "user.apiKeyEnabled"
-msgstr ""
+msgstr "Baimendu API gakoa duten kanpoko aplikazioei kontu honetara atzitzea"
 
 msgid "user.apiKey.generate"
-msgstr ""
+msgstr "Sortu API Key berria"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Ezabatu"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
+"API gako berri bat sortzeak erabiltzaile honen gakoak baliogabetuko ditu."
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Ziur zaude API gako hau ezabatu nahi duzula?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -491,13 +503,14 @@ msgid "user.login.lostPassword.invalidUser"
 msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "Ezin izan da pasahitza berrezarri arrazoi honengatik: {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Sartu pasahitz berria zure saioa eguneratzeko."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Pasahitza behar bezala eguneratu da. Hasi saioa zure pasahitz berriarekin."
 
 #~ msgid "user.biography.description"
 #~ msgstr "(Adib., saila eta kargua)"
@@ -507,3 +520,274 @@ msgstr ""
 
 #~ msgid "user.register.passwordLengthRestriction"
 #~ msgstr "Pasahitzak {$length} karaktere izan behar ditu gutxienez."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Hobetsitako avatar inizialak"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Gehitu afiliazio bat bidalketaren hizkuntzan."
+
+msgid "user.role.ended"
+msgstr "Rola amaituta"
+
+msgid "orcid.description"
+msgstr "Erabiltzaile-profila ORCIDetik inportatzeko aukera ematen du."
+
+msgid "orcid.noData"
+msgstr "Ez da aurkitu ORCID daturik."
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID APIaren konfigurazioa"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "ezkutatua"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Publikoa"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Sandbox publikoa"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Kidea"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Sandbox kidea"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Bezeroaren IDa"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Bezeroaren gakoa"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Helbide elektronikoaren ezarpenak"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Gordetako konfigurazioa"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Akatsak"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Guztia"
+
+msgid "orcid.manager.settings.city"
+msgstr "Hiria"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID sarbidea ukatu egin da"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Ezabatu ORCID IDa eta saioa hasteko kredentzialak!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Ikus behean ORCID iD autentifikatu bat eskatzeko"
+
+msgid "orcid.unauthenticated"
+msgstr "(autentifikatu gabea)"
+
+msgid "orcid.verify.title"
+msgstr "ORCID Baimena"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Bidalketa zure ORCID erregistroan gehitu da."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Bidalketa zure ORCID erregistroan sartuko da argitaratzean."
+
+msgid "orcid.verify.success"
+msgstr "Zure ORCID IDa egiaztatu da eta bidalketarekin behar bezala lotu da."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Orain automatikoki birbideratuko zaituzte hona: {$contextName}."
+
+msgid "orcid.verify.failure"
+msgstr "Ezin izan da egiaztatu zure ORCID IDa. Estekak jada ez du balio."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Bidalketa honetarako ORCID ID bat gorde da dagoeneko."
+
+msgid "orcid.verify.denied"
+msgstr "Zure ORCID erregistrorako sarbidea ukatu duzu."
+
+msgid "orcid.authFailure"
+msgstr "ORCID baimen-esteka dagoeneko erabili da edo baliogabea da."
+
+msgid "orcid.invalidClient"
+msgstr "Bezeroaren kredentzial baliogabeak"
+
+msgid "orcid.connect"
+msgstr "Sortu edo konektatu zure ORCID IDa"
+
+msgid "orcid.about.title"
+msgstr "Zer da ORCID?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Nola eta zergatik biltzen ditugu ORCID IDak?"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Bezeroaren pasahitz baliogabea"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Bezeroaren IDa baliozkoa da"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Client Secret baliozkoa da"
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Erabiltzaileak anonimoa izan behar du. Oraintxe saioa hasita duzu."
+
+msgid "orcid.displayName"
+msgstr "ORCID profila"
+
+msgid "user.usernameOrEmail"
+msgstr "Erabiltzaile-izena edo helbide elektronikoa"
+
+msgid "orcid.emailOrOrcid"
+msgstr "Helbide elektronikoa edo ORCID IDa:"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID APIa"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID eskaeren erregistroa"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Bidali mezu elektronikoa kolaboratzaileari ORCID baimena eskatzeko"
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Bidalketa ezin izan da zure ORCID erregistroan gehitu."
+
+msgid "orcid.authorise"
+msgstr "Baimendu eta konektatu zure ORCID IDa"
+
+msgid "orcid.about.display.title"
+msgstr "Non bistaratzen dira ORCID IDak?"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Bezeroaren ID baliogabea"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Aldizkariaren arabera konfiguratuta"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Bezeroaren IDa baliogabea da, egiaztatu sartutako datuak"
+
+msgid "user.affiliations.institution"
+msgstr "Erakundea"
+
+msgid "user.affiliations.translation"
+msgstr "Informazio gehiago"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Editatu erakundearen izena"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Ezabatu erakundea"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klikatu editatzeko edo ezabatzeko"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Itzulpen guztiak eskuragarri"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$total}-etik {$count} hizkuntza osatuta"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Idatzi erakundearen izena {$language} hizkuntzan"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Erakundearen izena {$language} hizkuntzan"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ziur zaude?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "<strong>{$affiliation}</strong> kidetza ezabatuko da."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Idatzi erakundearen izena {$language} hizkuntzan"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Zure bilaketa-esaldia ez da aurkitu"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "{$primaryLocale} hizkuntza nagusia beharrezkoa da"
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "ORCID bikoiztuak detektatu dira kolaboratzaileetan."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Gaitu ORCID funtzioa"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Gaitu ORCID funtzioa webgune osoan"
+
+msgid "orcid.field.verification.request"
+msgstr "Eskatu egiaztapena"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Birbidali egiaztapen-mezu elektronikoa"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Eskatu ORCID egiaztapena"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Ezabatu ORCIDa"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Ziur zaude ORCID hau ezabatu nahi duzula?"
+
+msgid "user.futureRole.notification.message"
+msgstr "Zure rola {$roleStartDate} egunean hasteko programatuta dago"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Ordura arte, zure profila berrikusi eta eguneratu dezakezu. Errore bat dela "
+"uste baduzu, jarri harremanetan administratzailearekin."
+
+msgid "user.disabledModal.description"
+msgstr "Egungo rolak: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Desgaitu {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Gaitu {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografia"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Ziur rol hau betiko ezabatu nahi duzula? Ekintza honek erabiltzaileari rol "
+"honekin lotutako informazio eta baimen guztietarako sarbidea kenduko dio."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Ezin duzu rola ezabatu. Erabiltzaileak gutxienez rol bat izan behar du "
+"esleituta."
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Client Secret baliogabea, egiaztatu zure kredentzialak"
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Autentifikatu gabeko ORCIDak detektatu dira kolaboratzaileetan."
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID egiaztapena eskatu da!"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Egile honi mezu elektroniko bat bidali nahi diozu bere ORCIDa egiaztatzeko "
+"eskatzeko?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"ORCID hau ez da egiaztatu. Ezabatu eta eskatu egiaztapena zuzenean "
+"erabiltzaileari/egileari."

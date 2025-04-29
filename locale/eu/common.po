@@ -1,12 +1,13 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 # Informatikaria <informatikaria@ueu.eus>, 2024.
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2024-06-13 12:10+0000\n"
-"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"PO-Revision-Date: 2025-04-27 07:50+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
 "Language: eu\n"
@@ -80,7 +81,7 @@ msgid "announcement.view"
 msgstr "Ikusi anuntzioa"
 
 msgid "common.allDownloads"
-msgstr ""
+msgstr "Deskarga guztiak"
 
 msgid "common.navigation.sidebar"
 msgstr ""
@@ -1389,7 +1390,7 @@ msgid "locale.supported"
 msgstr "Onartutako localeak"
 
 msgid "navigation.access"
-msgstr "Erabiltzaileak eta eginkizunak"
+msgstr "Erabiltzaileak eta rolak"
 
 msgid "navigation.about"
 msgstr "Guri buruz"
@@ -1398,7 +1399,7 @@ msgid "navigation.admin"
 msgstr "Administrazioa"
 
 msgid "navigation.archives"
-msgstr ""
+msgstr "Artxibatuak"
 
 msgid "navigation.breadcrumbLabel"
 msgstr ""

@@ -4,16 +4,17 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
+# Klaus Rummler <klaus@oapublishing.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-02-17 17:40+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-04-17 19:22+0000\n"
+"Last-Translator: Klaus Rummler <klaus@oapublishing.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/fr_FR/>\n"
-"Language: fr_FR\n"
+"submission/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1582,7 +1583,7 @@ msgstr ""
 "acceptée pour publication."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr "[$editorName} a demandé des révisions pour cette soumission."
+msgstr "{$editorName} a demandé des révisions pour cette soumission."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Révisions demandées"

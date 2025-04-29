@@ -3,13 +3,14 @@
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Klaus Rummler <klaus@oapublishing.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-01-25 07:54+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-04-17 19:22+0000\n"
+"Last-Translator: Klaus Rummler <klaus@oapublishing.ch>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -1588,7 +1589,7 @@ msgstr ""
 "acceptée pour publication."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr "[$editorName} a demandé des révisions pour cette soumission."
+msgstr "{$editorName} a demandé des révisions pour cette soumission."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Révisions demandées"

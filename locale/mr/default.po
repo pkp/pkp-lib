@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-17 12:23+0000\n"
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "mr/>\n"
@@ -64,31 +64,31 @@ msgid "default.groups.abbrev.indexer"
 msgstr "IND (सूचीकार)"
 
 msgid "default.groups.plural.layoutEditor"
-msgstr "लेआउट संपादक (अनेक)"
+msgstr "लेआउट संपादक"
 
 msgid "default.groups.abbrev.layoutEditor"
 msgstr "LE (लेआउट एडिटर)"
 
 msgid "default.groups.name.author"
-msgstr "लेखक (एक)"
+msgstr "लेखक"
 
 msgid "default.groups.plural.author"
-msgstr "लेखक (अनेक)"
+msgstr "लेखक"
 
 msgid "default.groups.abbrev.author"
 msgstr "AU (लेखक)"
 
 msgid "default.groups.plural.translator"
-msgstr "अनुवादक (अनेक)"
+msgstr "अनुवादक"
 
 msgid "default.groups.abbrev.translator"
 msgstr "Trans (अनुवादक)"
 
 msgid "default.groups.name.reader"
-msgstr "वाचक (एक)"
+msgstr "वाचक"
 
 msgid "default.groups.plural.reader"
-msgstr "वाचक (अनेक)"
+msgstr "वाचक"
 
 msgid "default.groups.abbrev.reader"
 msgstr "Read (वाचक)"
@@ -116,7 +116,7 @@ msgid "default.groups.name.designer"
 msgstr "रचनाकार (डिझायनर)"
 
 msgid "default.groups.name.translator"
-msgstr "अनुवादक (एक)"
+msgstr "अनुवादक"
 
 msgid "default.groups.plural.internalReviewer"
 msgstr "अंतर्गत समीक्षकांचा गट (Reviewers)"
@@ -208,7 +208,7 @@ msgid "default.submission.step.reviewerSuggestions"
 msgstr ""
 "<p>सादरीकरण प्रक्रिया करताना, तुमच्याकडे अनेक संभाव्य समीक्षकांची नावे "
 "सुचवण्याचा पर्याय आहे. ही समीक्षणप्रक्रिया सुलभ करण्यासाठी आणि संपादकीय "
-"मंडळासाठी मौल्यवान माहिती ठरू शकते. तुमच्या क्षेत्रातील तज्ञ पण तुमच्या कामा"
+"मंडळासाठी मौल्यवान माहिती ठरू शकते. तुमच्या क्षेत्रातील तज्ञ पण तुमच्या कामा"
 "त त्यांचा हितसंबंध दडलेला (conflict of interest) नाही असे समीक्षक निवडा. या "
 "वैशिष्ट्याचा उद्देश समीक्षणप्रक्रिया सुधारणे तसेच लेखकांना आणि संपादकीय "
 "मंडळाला, दोघांनाही, अधिक कार्यक्षम अनुभवाचे प्रत्यंतर देण्याचा आहे.</p>"

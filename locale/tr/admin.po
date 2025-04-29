@@ -1,11 +1,11 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024, 2025.
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:24+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -857,3 +857,6 @@ msgstr ""
 
 msgid "admin.fileLoader.fileDispatched"
 msgstr "{$filename} başlıklı dosya gönderim klasörüne taşındı."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "ROR kayıt defteri veri kümesi önbelleğini güncelle"

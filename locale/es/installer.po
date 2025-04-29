@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-04-22 13:49+0000\n"
+"PO-Revision-Date: 2025-04-10 11:48+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/es/>\n"
@@ -260,3 +260,45 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Ajustes misceláneos"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"La variable de configuración `app_key` no está definida en la sección "
+"`general`. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"La variable de configuración `app_key` ya está definida en la sección "
+"`general`. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "No se ha podido analizar el archivo de configuración."
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"No se ha podido leer el archivo de configuración o dicho archivo no existe "
+"en la ruta esperada. "
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"No se ha podido escribir la variable 'app key' en el archivo de "
+"configuración."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Código no compatible o longitud de clave incorrecta. Los códigos compatibles "
+"son: {$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "No se ha podido escribir la 'app key' en el archivo de configuración."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Añada manualmente la variable de configuración llamada `app_key` en la "
+"sección `general` o ejecute el comando `php lib/pkp/tools/appKey.php "
+"configure` para ajustarlo desde CLI."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Ajuste el valor de la `app_key`en la sección `general` en el archivo `config."
+"inc.php` a {$key} ."

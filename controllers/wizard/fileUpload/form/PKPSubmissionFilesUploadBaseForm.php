@@ -211,6 +211,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
 
                     $this->_submissionFiles = Repo::submissionFile()
                         ->getCollector()
+                        ->filterByFileStages([(int) $this->getData('fileStage')])
                         ->filterByReviewRoundIds([(int) $reviewRound->getId()])
                         ->filterBySubmissionIds([$submissionId])
                         ->getMany()
@@ -262,8 +263,15 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                 ->withUserId($user->getId())
                 ->exists();
 
+            $allowedFileStages = [
+                SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+            ];
+
+            // #11341 Might not be necessary, as the fileType is now filtered also for review stage in getSubmissionFiles
             if (
-                ($submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_FILE) &&
+                in_array($submissionFile->getFileStage(), $allowedFileStages) &&
                 $hasAnyAssignments
             ) {
                 // Authors are not permitted to revise reviewer documents.

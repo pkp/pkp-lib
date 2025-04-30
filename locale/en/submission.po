@@ -64,9 +64,6 @@ msgstr "All Items"
 msgid "galley.editPublishedDisabled"
 msgstr "The galleys of this version can not be edited because it has already been posted."
 
-msgid "publication.editorEditWarning"
-msgstr "Warning: This version has been published. Editing it may impact the published content."
-
 msgid "galley.publicationNotFound"
 msgstr "The version for this galley could not be found."
 

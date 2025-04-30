@@ -116,6 +116,10 @@
 					},
 					"editorDisplayInitials": {
 						"type": "string"
+					},
+					"userGroupIds": {
+						"description": "The IDs of the user groups for which the editor is assigned.",
+						"type": "array"
 					}
 				}
 			}

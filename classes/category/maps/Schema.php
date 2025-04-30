@@ -18,6 +18,8 @@ use APP\core\Application;
 use App\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\category\Category;
+use PKP\context\SubEditorsDAO;
+use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 use PKP\user\User;
 
@@ -91,17 +93,31 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     break;
                 case 'assignedEditors':
-                    $output['assignedEditors'] = Repo::user()
+                    $assignedSubeditors = Repo::user()
                         ->getCollector()
                         ->filterByContextIds([$context->getId()])
                         ->filterByRoleIds(Category::ASSIGNABLE_ROLES)
                         ->assignedToCategoryIds([$category->getId()])
-                        ->getMany()
-                        ->map(fn (User $user) => [
+                        ->getMany();
+
+                    $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+                    /** @var SubEditorsDAO $subEditorsDao */
+                    //  A list of user group IDs for each assigned editor, keyed by user ID.
+                    $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
+                        Application::get()->getRequest()->getContext()->getId(),
+                        Application::ASSOC_TYPE_CATEGORY,
+                        $category->getId(),
+                        $assignedSubeditors->map(fn (User $subEditor) => $subEditor->getId())->all()
+                    );
+
+                    $output['assignedEditors'] = $assignedSubeditors->map(function (User $user) use ($subeditorUserGroups) {
+                        return [
                             'id' => $user->getId(),
                             'name' => $user->getFullName(),
                             'editorDisplayInitials' => $user->getDisplayInitials(),
-                        ])->values();
+                            'userGroupIds' => $subeditorUserGroups->get($user->getId()) ?: []
+                        ];
+                    })->values();
                     break;
                 case 'localizedTitle':
                     $output['localizedTitle'] = $category->getLocalizedTitle();

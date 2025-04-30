@@ -28,8 +28,8 @@ use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
-use PKP\components\CategoryManager;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
+use PKP\components\forms\context\CategoryForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPAppearanceMastheadForm;
 use PKP\components\forms\context\PKPContactForm;
@@ -57,7 +57,6 @@ use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteUIController;
 use PKP\mail\Mailable;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -167,13 +166,27 @@ class ManagementHandler extends Handler
 
         $contactForm = new PKPContactForm($apiUrl, $locales, $context);
         $mastheadForm = new MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
-        $categoryManager = new CategoryManager($context);
+
+        $publicFileManager = new PublicFileManager();
+        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
+        $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getPath(), 'temporaryFiles');
+
+        $categoriesApiUrl = Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_API,
+            $context->getPath(),
+            'categories'
+        );
+        $categoryForm = new CategoryForm($categoriesApiUrl, $locales, $baseUrl, $temporaryFileApiUrl);
+
 
         $templateMgr->setState([
             'components' => [
                 PKPContactForm::FORM_CONTACT => $contactForm->getConfig(),
                 MastheadForm::FORM_MASTHEAD => $mastheadForm->getConfig(),
-                CategoryManager::COMPONENT_CATEGORY => $categoryManager->getConfig(),
+            ],
+            'pageInitConfig' => [
+                'categoryForm' => $categoryForm->getConfig(),
             ],
         ]);
 
@@ -201,7 +214,6 @@ class ManagementHandler extends Handler
 
         $templateMgr->registerClass(PKPContactForm::class, PKPContactForm::class); // FORM_CONTACT
         $templateMgr->registerClass(PKPMastheadForm::class, PKPMastheadForm::class); // FORM_MASTHEAD
-        $templateMgr->registerClass(CategoryManager::class, CategoryManager::class); // CATEGORY_MANAGER
 
         $templateMgr->display('management/context.tpl');
     }
@@ -592,19 +604,17 @@ class ManagementHandler extends Handler
 
     /**
      * Edit or view user using user access table action
-     * @param array $args
-     * @param $request
-     * @return void
+     *
      * @throws \Exception
      */
     public function editUser(array $args, $request): void
     {
         $this->setupTemplate($request);
         $userId = $args[0];
-        if(!empty($userId)) {
+        if (!empty($userId)) {
             $invitation = app(Invitation::class)->createNew('userRoleAssignment');
             $invitationHandler = $invitation->getInvitationUIActionRedirectController();
-            $invitationHandler->createHandle($request,$userId);
+            $invitationHandler->createHandle($request, $userId);
         } else {
             $request->getDispatcher()->handle404();
         }

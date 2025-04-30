@@ -16,7 +16,6 @@
 
 namespace PKP\API\v1\categories;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use Illuminate\Http\JsonResponse;
@@ -24,7 +23,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\category\Category;
-use PKP\components\forms\context\CategoryForm;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPBaseController;
@@ -247,41 +245,6 @@ class CategoryCategoryController extends PKPBaseController
         $data = Repo::category()->getSchemaMap()->mapMany($categories)->values();
 
         return response()->json($data, Response::HTTP_OK);
-    }
-
-    /**
-     * Get the category form component.
-     * Pass `categoryId` as a query parameter to load the form for editing an existing category.
-     */
-    public function getCategoryFormComponent(Request $illuminateRequest): JsonResponse
-    {
-        $categoryId = $illuminateRequest->input('categoryId');
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
-
-        if ($categoryId) {
-            $category = Repo::category()->get($categoryId, $context->getId());
-
-            if (!$category) {
-                return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
-            }
-        }
-
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
-        $publicFileManager = new PublicFileManager();
-        $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
-        $temporaryFileApiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getPath(), 'temporaryFiles');
-
-        $categoriesApiUrl = $request->getDispatcher()->url(
-            Application::get()->getRequest(),
-            Application::ROUTE_API,
-            $context->getPath(),
-            'categories'
-        );
-
-        $form = new CategoryForm($categoriesApiUrl, $locales, $baseUrl, $temporaryFileApiUrl, $category ?: null);
-        return response()->json($form->getConfig(), Response::HTTP_OK);
     }
 
     /**

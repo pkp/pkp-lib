@@ -25,9 +25,7 @@ use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
-use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -37,9 +35,14 @@ class CategoryForm extends FormComponent
     public $id = self::FORM_CATEGORY;
 
     /**
-     * @param Category|null $category - Optional. Pass Category object when you want to configure a form to edit an existing category.
+     * Constructor
+     *
+     * @param string $action URL to submit the form to.
+     * @param array $locales Supported locales.
+     * @param string $baseUrl Site's base URL. Used for image previews.
+     * @param string $temporaryFileApiUrl URL to upload files to.
      */
-    public function __construct(string $action, array $locales, $baseUrl, $temporaryFileApiUrl, Category $category = null)
+    public function __construct(string $action, array $locales, $baseUrl, $temporaryFileApiUrl)
     {
         $this->action = $action;
         $this->method = 'POST';
@@ -87,7 +90,7 @@ class CategoryForm extends FormComponent
             'isMultilingual' => true,
             'isRequired' => true,
             'groupId' => 'categoryDetails',
-            'value' => $category?->getData('title') ?? ''
+            'value' => ''
         ]))
             ->addField(
                 new FieldText('path', [
@@ -102,7 +105,7 @@ class CategoryForm extends FormComponent
                     )]),
                     'isRequired' => true,
                     'groupId' => 'categoryDetails',
-                    'value' => $category?->getData('path') ?? ''
+                    'value' => ''
                 ])
             )
             ->addField(
@@ -112,7 +115,7 @@ class CategoryForm extends FormComponent
                     'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                     'plugins' => ['link'],
                     'groupId' => 'categoryDetails',
-                    'value' => $category?->getData('description') ?? ''
+                    'value' => ''
                 ])
             )
             ->addField(new FieldSelect('sortOption', [
@@ -121,7 +124,7 @@ class CategoryForm extends FormComponent
                 'description' => __('catalog.sortBy.categoryDescription'),
                 'options' => $sortOptions,
                 'groupId' => 'categoryDetails',
-                'value' => $category?->getData('sortOption') ?? Repo::submission()->getDefaultSortOption()
+                'value' => Repo::submission()->getDefaultSortOption()
             ]))
             ->addField(
                 new FieldUploadImage('image', [
@@ -132,37 +135,15 @@ class CategoryForm extends FormComponent
                         'acceptedFiles' => 'image/jpeg,image/png,image/gif,image/jpg',
                     ],
                     'groupId' => 'categoryDetails',
-                    'value' => $category?->getData('image') ?? null
+                    'value' => null
                 ])
             );
 
         // Conditionally add this field. This is done because assignable user groups would have access to WORKFLOW_STAGE_ID_SUBMISSION,
         // but submission stage does not exist in OPS, so we don't display this field in OPS.
         if (!empty($assignableUserGroups)) {
-            $assignedSubeditors = $category ? Repo::user()
-                ->getCollector()
-                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                ->filterByRoleIds(Category::ASSIGNABLE_ROLES)
-                ->assignedToCategoryIds([$category->getId()])
-                ->getIds()
-                ->all() : [];
-
-            $subeditorUserGroups = collect();
-            if (!empty($assignedSubeditors)) {
-                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-
-                //  A list of user group IDs for each assigned editor, keyed by user ID.
-                $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
-                    Application::get()->getRequest()->getContext()->getId(),
-                    Application::ASSOC_TYPE_CATEGORY,
-                    $category->getId(),
-                    $assignedSubeditors
-                );
-            }
-
             foreach ($assignableUserGroups as $assignableUserGroup) {
                 $assignableUserOptions = [];
-
                 $groupName = $assignableUserGroup['userGroup']->getLocalizedData('name');
                 foreach ($assignableUserGroup['users'] as $userId => $userName) {
                     $assignableUserOptions[] = [
@@ -179,9 +160,7 @@ class CategoryForm extends FormComponent
                         'options' => $assignableUserOptions,
                         'groupId' => 'subEditors',
                         'type' => 'checkbox',
-                        'value' => $subeditorUserGroups
-                            ->filter(fn ($values) => $values->contains($assignableUserGroup['userGroup']->id))
-                            ->keys()
+                        'value' => []
                     ]));
                 }
             }

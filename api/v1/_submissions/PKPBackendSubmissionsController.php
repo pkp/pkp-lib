@@ -391,9 +391,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 case 'published':
                     $collector->filterByPublished(true);
                     break;
-                case 'allReviewRounds':
-                    $collector->filterByReviewerIds([$currentUser->getId()]);
-                    break;
             }
         }
 

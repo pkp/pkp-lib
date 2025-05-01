@@ -1,86 +1,76 @@
+# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-17 17:48+0000\n"
-"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
-"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"vi_VN/>\n"
+"PO-Revision-Date: 2025-05-01 16:19+0000\n"
+"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"user/vi_VN/>\n"
 "Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Thông tin tài khoản"
 
 msgid "user.affiliation"
-msgstr "Liên kết"
+msgstr "Đơn vị liên kết"
 
 msgid "user.affiliation.description"
-msgstr ""
-"(là viện, trường mỗi tác giả trực thuộc hoặc hợp tác, ví dụ \"Đại học Quốc "
-"Gia Hà Nội hay Viện Vật lý\")"
+msgstr "(Tổ chức của bạn, ví dụ: \"Đại học Simon Fraser\")"
 
 msgid "user.affiliations"
-msgstr "Các liên kết (viện, trường ...)"
+msgstr "Đơn vị liên kết"
 
 msgid "user.authorization.accessDenied"
-msgstr "Quyền truy cập bị từ chối."
+msgstr "Truy cập bị từ chối."
 
 msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Mã thông báo xác thực quy trình bị thiếu hoặc không hợp lệ."
+msgstr "Mã xác thực quy trình bị thiếu hoặc không hợp lệ."
 
 msgid "user.authorization.contextRequired"
-msgstr ""
-"Bạn không thể gọi thao tác này nếu không có ngữ cảnh (báo chí, tạp chí, hội "
-"nghị, v.v.)."
+msgstr "Bạn không thể gọi thao tác này nếu không có ngữ cảnh (nhà xuất bản, tạp chí, hội nghị, v.v.)."
 
 msgid "user.authorization.loginRequired"
-msgstr "Yêu cầu đăng nhập."
+msgstr "Cần đăng nhập."
 
 msgid "user.authorization.privateOperation"
-msgstr "Thao tác bạn đã cố gắng truy cập là riêng tư hoặc không tồn tại."
+msgstr "Thao tác bạn cố gắng truy cập là riêng tư hoặc không tồn tại."
 
 msgid "user.authorization.restrictedSiteAccess"
-msgstr ""
-"Bạn đã bị từ chối truy cập. Truy cập vào trang web này hiện đang bị hạn chế."
+msgstr "Bạn đã bị từ chối truy cập. Truy cập vào trang web này hiện đang bị hạn chế."
 
 msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Vai trò hiện tại không có quyền truy cập vào hoạt động này."
+msgstr "Vai trò hiện tại không có quyền truy cập vào thao tác này."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr ""
-"Bạn chưa được chỉ định cho bài nộp này với vai trò được phép truy cập vào "
-"hoạt động này."
+msgstr "Bạn chưa được chỉ định cho bài nộp này với một vai trò được phép truy cập thao tác này."
 
 msgid "user.authorization.userGroupRequired"
-msgstr ""
-"Bạn phải thiết lập một nhóm người dùng hợp lệ để truy cập hoạt động này."
+msgstr "Bạn phải thiết lập một nhóm người dùng hợp lệ để truy cập thao tác này."
 
 msgid "user.authorization.managerRequired"
-msgstr ""
-"Người dùng có vai trò Người quản lý (tức là Biên tập viên sản xuất) phải "
-"được chỉ định vào giai đoạn trước khi bạn có thể tiếp tục."
+msgstr "Người dùng có vai trò Quản lý (ví dụ: Biên tập viên sản xuất) phải được chỉ định cho giai đoạn trước khi bạn có thể tiếp tục."
 
 msgid "user.authorization.accessibleWorkflowStage"
-msgstr ""
-"Bạn hiện không có quyền truy cập vào giai đoạn đó của quy trình làm việc."
+msgstr "Bạn hiện không có quyền truy cập vào giai đoạn đó của quy trình làm việc."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "Một giai đoạn quy trình làm việc không được chỉ định."
+msgstr "Chưa chỉ định giai đoạn quy trình làm việc."
 
 msgid "user.authorization.pluginRequired"
-msgstr "Một plugin không được chỉ định và là bắt buộc."
+msgstr "Chưa chỉ định plugin và là bắt buộc."
 
 msgid "user.authorization.invalidReviewAssignment"
-msgstr "Bạn không có quyền truy cập để phân công phản biện này."
+msgstr "Bạn không có quyền truy cập chỉ định đánh giá này."
 
 msgid "user.authorization.submissionQuery"
-msgstr "Bạn không có quyền truy cập vào cuộc thảo luận này."
+msgstr "Bạn không có quyền truy cập thảo luận này."
 
 msgid "user.biography"
-msgstr "Báo cáo tiểu sử (ví dụ: phòng ban và cấp bậc)"
+msgstr "Tuyên bố về tiểu sử (ví dụ: khoa và cấp bậc)"
 
 msgid "user.changeMyPassword"
 msgstr "Thay đổi mật khẩu của tôi"
@@ -89,31 +79,28 @@ msgid "user.changePassword"
 msgstr "Thay đổi mật khẩu"
 
 msgid "user.dateLastLogin"
-msgstr "Đăng nhập lần cuối"
+msgstr "Đăng nhập cuối"
 
 msgid "user.dateRegistered"
 msgstr "Ngày đăng ký"
 
 msgid "user.editMyProfile"
-msgstr "Chỉnh sửa Hồ sơ của tôi"
+msgstr "Chỉnh sửa hồ sơ của tôi"
 
 msgid "user.email"
-msgstr "E-mail"
+msgstr "Email"
 
 msgid "user.givenName"
 msgstr "Tên"
 
 msgid "user.interests"
-msgstr "Lĩnh vực phản biện"
+msgstr "Sở thích đánh giá"
 
 msgid "user.gossip"
-msgstr "Ghi chú Biên tập"
+msgstr "Ghi chú biên tập"
 
 msgid "user.gossip.description"
-msgstr ""
-"Ghi lại các ghi chú về người phản biện này mà bạn muốn hiển thị cho các quản "
-"trị viên, người quản lý và tất cả các biên tập viên khác. Ghi chú sẽ hiển "
-"thị trong phân công phản biện trong tương lai."
+msgstr "Ghi lại ghi chú về người đánh giá này mà bạn muốn hiển thị cho các quản trị viên, người quản lý khác và tất cả biên tập viên. Ghi chú sẽ hiển thị cho các chỉ định đánh giá sau này."
 
 msgid "user.group"
 msgstr "Nhóm người dùng"
@@ -122,80 +109,58 @@ msgid "user.familyName"
 msgstr "Họ"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr ""
-"Định dạng hình ảnh hồ sơ không hợp lệ hoặc hình ảnh quá lớn. Các định dạng "
-"được chấp nhận là .gif, .jpg hoặc .png và hình ảnh không được vượt quá "
-"150x150 pixel."
+msgstr "Định dạng ảnh hồ sơ không hợp lệ hoặc ảnh quá lớn. Các định dạng được chấp nhận là .gif, .jpg, hoặc .png, và ảnh không được vượt quá 150x150 pixel."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Tài khoản của bạn đã bị vô hiệu hóa vì lý do sau: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr ""
-"Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ với quản trị viên để "
-"biết thêm thông tin."
+msgstr "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ với quản trị viên để biết thêm thông tin."
 
 msgid "user.login.accountNotValidated"
-msgstr ""
-"Chúng tôi đã gửi một email xác nhận cho bạn theo địa chỉ {$email}. Vui lòng "
-"làm theo hướng dẫn trong email đó để kích hoạt tài khoản mới của bạn. Nếu "
-"bạn không thấy email, vui lòng kiểm tra xem nó có bị đưa vào thư mục spam "
-"của bạn hay không."
+msgstr "Chúng tôi đã gửi email xác nhận cho bạn theo địa chỉ {$email}. Vui lòng làm theo hướng dẫn trong email đó để kích hoạt tài khoản mới của bạn. Nếu bạn không thấy email, vui lòng kiểm tra thư mục spam của bạn."
 
 msgid "user.login.activate"
 msgstr "Kích hoạt tài khoản"
 
 msgid "user.login.activated"
-msgstr ""
-"Cảm ơn bạn đã kích hoạt tài khoản của mình. Bây giờ bạn có thể đăng nhập "
-"bằng thông tin đăng nhập bạn đã cung cấp khi tạo tài khoản của mình."
+msgstr "Cảm ơn bạn đã kích hoạt tài khoản của mình. Bây giờ bạn có thể đăng nhập bằng thông tin đăng nhập mà bạn đã cung cấp khi tạo tài khoản của mình."
 
 msgid "user.login.changePasswordInstructions"
-msgstr ""
-"Bạn phải chọn một mật khẩu mới trước khi có thể đăng nhập vào trang web này. "
-"<br /> <br /> Vui lòng nhập tên người dùng và mật khẩu hiện tại và mật khẩu "
-"mới của bạn vào bên dưới để thay đổi mật khẩu cho tài khoản của bạn."
+msgstr "Bạn phải chọn mật khẩu mới trước khi có thể đăng nhập vào trang web này.<br /><br />Vui lòng nhập tên người dùng và mật khẩu hiện tại và mới của bạn bên dưới để thay đổi mật khẩu cho tài khoản của bạn."
 
 msgid "user.login.forgotPassword"
 msgstr "Quên mật khẩu?"
 
 msgid "user.login.loginError"
-msgstr ""
-"Sai username (tên tài khoản) hoặc password (mật khẩu). Vui lòng thử lại."
+msgstr "Tên người dùng/email hoặc mật khẩu không hợp lệ. Vui lòng thử lại."
 
 msgid "user.login"
 msgstr "Đăng nhập"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr ""
-"Một xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng làm theo hướng "
-"dẫn trong email để đặt lại mật khẩu của bạn."
+msgstr "Một xác nhận đã được gửi đến địa chỉ email của bạn nếu tìm thấy tài khoản phù hợp. Vui lòng làm theo hướng dẫn trong email để đặt lại mật khẩu của bạn."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr ""
-"Xin lỗi, liên kết bạn nhấp vào đã hết hạn hoặc không hợp lệ. Vui lòng thử "
-"đặt lại mật khẩu của bạn một lần nữa."
+msgstr "Xin lỗi, liên kết bạn đã nhấp đã hết hạn hoặc không hợp lệ. Vui lòng thử đặt lại mật khẩu của bạn lần nữa."
 
 msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"Một mật khẩu mới đã được gửi đến địa chỉ email của bạn. Bây giờ bạn có thể "
-"đăng nhập vào trang web bằng mật khẩu mới của mình."
+msgstr "Mật khẩu mới đã được gửi đến địa chỉ email của bạn. Bây giờ bạn có thể đăng nhập vào trang web bằng mật khẩu mới của mình."
 
 msgid "user.login.registeredEmail"
 msgstr "Email của người dùng đã đăng ký"
 
 msgid "user.login.registrationComplete"
-msgstr "Hoàn thành đăng ký"
+msgstr "Đăng ký hoàn tất"
 
 msgid "user.login.registrationComplete.instructions"
-msgstr "Cảm ơn đã đăng ký! Bạn sẽ làm gì tiêp theo?"
+msgstr "Cảm ơn đã đăng ký! Bạn muốn làm gì tiếp theo?"
 
 msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Xem các bài gửi"
+msgstr "Xem bài nộp"
 
 msgid "user.login.registrationComplete.newSubmission"
-msgstr "Gửi một bài mới"
+msgstr "Tạo bài nộp mới"
 
 msgid "user.login.registrationComplete.continueBrowsing"
 msgstr "Tiếp tục duyệt"
@@ -204,7 +169,7 @@ msgid "user.login.registrationPendingValidation"
 msgstr "Đăng ký đang chờ xác minh"
 
 msgid "user.login.rememberUsernameAndPassword"
-msgstr "Giữ tôi luôn đăng nhập"
+msgstr "Giữ tôi đăng nhập"
 
 msgid "user.login.resetPassword"
 msgstr "Đặt lại mật khẩu"
@@ -213,10 +178,10 @@ msgid "user.logOut"
 msgstr "Đăng xuất"
 
 msgid "user.logOutAs"
-msgstr "Đăng xuất với người dùng"
+msgstr "Đăng xuất với tư cách {$username}"
 
 msgid "user.hello"
-msgstr "Xin chào, "
+msgstr "Chào,"
 
 msgid "user.mailingAddress"
 msgstr "Địa chỉ gửi thư"
@@ -228,26 +193,22 @@ msgid "user.name"
 msgstr "Tên"
 
 msgid "user.password"
-msgstr "Mật khấu (password)"
+msgstr "Mật khẩu"
 
 msgid "user.repeatPassword"
-msgstr "Lặp lại mật khẩu (password)"
+msgstr "Nhập lại mật khẩu"
 
 msgid "user.phone"
 msgstr "Điện thoại"
 
 msgid "user.preferredPublicName"
-msgstr "Tên công khai ưa thích"
+msgstr "Tên công khai ưu tiên"
 
 msgid "user.preferredPublicName.description"
-msgstr ""
-"Bạn muốn như thế nào về tên công khai của bạn? Lời chào, tên đệm và hậu tố "
-"có thể được thêm vào đây nếu bạn muốn."
+msgstr "Vui lòng cung cấp tên đầy đủ như tác giả nên được nhận dạng trên tác phẩm đã xuất bản. Ví dụ: TS. Alan P. Mwandenga"
 
 msgid "user.profile.changePasswordInstructions"
-msgstr ""
-"Nhập Mật khẩu hiện tại và Mật khẩu mới của bạn bên dưới để thay đổi mật khẩu "
-"cho tài khoản của bạn."
+msgstr "Nhập mật khẩu hiện tại và mới của bạn bên dưới để thay đổi mật khẩu cho tài khoản của bạn."
 
 msgid "user.profile.editProfile"
 msgstr "Chỉnh sửa hồ sơ"
@@ -256,18 +217,16 @@ msgid "user.profile.form.countryRequired"
 msgstr "Quốc gia là bắt buộc."
 
 msgid "user.profile.form.emailRequired"
-msgstr "Một địa chỉ email hợp lệ là bặt buộc."
+msgstr "Địa chỉ email hợp lệ là bắt buộc."
 
 msgid "user.profile.form.givenNameRequired"
-msgstr "Một tên cụ thể là bắt buộc."
+msgstr "Tên riêng là bắt buộc."
 
 msgid "user.profile.form.givenNameRequired.locale"
-msgstr ""
-"Bạn đã thêm Họ nhưng chưa thêm Tên (của một ngôn ngữ). Vui lòng thêm Tên với "
-"ngôn ngữ này."
+msgstr "Bạn đã thêm họ cho ngôn ngữ thiếu tên riêng. Vui lòng thêm tên riêng cho ngôn ngữ này."
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "Một địa chỉ gửi thư là bắt buộc."
+msgstr "Địa chỉ gửi thư là bắt buộc."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Bạn phải nhập mật khẩu mới của mình."
@@ -276,7 +235,7 @@ msgid "user.profile.form.oldPasswordInvalid"
 msgstr "Mật khẩu hiện tại bạn đã nhập không chính xác."
 
 msgid "user.profile.form.openAccessNotifications"
-msgstr "Thông báo qua email về  số xuất bản truy cập mở"
+msgstr "Thông báo email truy cập mở số"
 
 msgid "user.profile.form.passwordRequired"
 msgstr "Mật khẩu là bắt buộc."
@@ -285,24 +244,22 @@ msgid "user.profile.form.passwordSameAsOld"
 msgstr "Mật khẩu mới của bạn giống với mật khẩu cũ của bạn."
 
 msgid "user.profile.form.profileImage"
-msgstr "Ảnh hồ sơ cá nhân"
+msgstr "Ảnh đại diện"
 
 msgid "user.profile.form.publishedNotifications"
-msgstr "Thông báo xuất bản số mới qua email"
+msgstr "Thông báo email xuất bản số mới"
 
 msgid "user.profile.form.urlInvalid"
-msgstr ""
-"URL được chỉ định không hợp lệ. Vui lòng kiểm tra lại URL và thử lại. (Gợi "
-"ý: Hãy thử thêm http:// vào đầu URL.)"
+msgstr "URL đã chỉ định không hợp lệ. Vui lòng kiểm tra lại URL và thử lại. (Gợi ý: Thử thêm http:// vào đầu URL.)"
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "Một nhóm người dùng là bắt buộc."
+msgstr "Nhóm người dùng là bắt buộc."
 
 msgid "user.profile.form.usernameRequired"
-msgstr "Yêu cầu tên đăng nhập (username) của người dùng."
+msgstr "Tên người dùng là bắt buộc."
 
 msgid "user.profile.form.privacyConsentRequired"
-msgstr "Bạn phải đồng ý với các điều khoản của tuyên bố bảo mật."
+msgstr "Bạn phải đồng ý với các điều khoản của tuyên bố về quyền riêng tư."
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "Để trống các trường mật khẩu để giữ mật khẩu hiện tại."
@@ -320,62 +277,52 @@ msgid "user.profile.publicProfile"
 msgstr "Hồ sơ người dùng"
 
 msgid "user.profile.repeatNewPassword"
-msgstr "Lặp lại mật khẩu mới"
+msgstr "Nhập lại mật khẩu mới"
 
 msgid "user.login.registerNewAccount"
 msgstr "Đăng ký"
 
 msgid "user.login.resetPasswordInstructions"
-msgstr ""
-"Nhập địa chỉ email tài khoản của bạn vào bên dưới và một email sẽ được gửi "
-"kèm theo hướng dẫn về cách đặt lại mật khẩu của bạn."
+msgstr "Nhập địa chỉ email tài khoản của bạn bên dưới và một email sẽ được gửi kèm hướng dẫn cách đặt lại mật khẩu của bạn."
 
 msgid "user.register.form.privacyConsent"
-msgstr ""
-"Có, tôi đồng ý thu thập và lưu trữ dữ liệu của mình theo <a href="
-"\"{$privacyUrl}\" target=\"_blank\"> tuyên bố về quyền riêng tư </a>."
+msgstr "Có, tôi đồng ý cho dữ liệu của tôi được thu thập và lưu trữ theo <a href=\"{$privacyUrl}\" target=\"_blank\">tuyên bố về quyền riêng tư</a>."
 
 msgid "user.register.form.emailConsent"
-msgstr "Có, tôi muốn được thông báo về các ấn phẩm và thông báo mới."
+msgstr "Có, tôi muốn nhận thông báo về các ấn phẩm và thông báo mới."
 
 msgid "user.register.form.emailExists"
-msgstr "Địa chỉ email được chọn đã được người dùng khác sử dụng."
+msgstr "Địa chỉ email đã chọn đã được sử dụng bởi người dùng khác."
 
 msgid "user.register.form.passwordsDoNotMatch"
-msgstr "Mật khẩu không trùng khớp."
+msgstr "Mật khẩu không khớp."
 
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Các trường địa chỉ email không khớp."
 
 msgid "user.register.form.usernameAlphaNumeric"
-msgstr ""
-"Tên người dùng chỉ được chứa các ký tự chữ và số viết thường, dấu gạch dưới "
-"và dấu gạch nối, đồng thời phải bắt đầu và kết thúc bằng ký tự chữ và số."
+msgstr "Tên người dùng chỉ có thể chứa các ký tự chữ và số viết thường, dấu gạch dưới và dấu gạch ngang, và phải bắt đầu và kết thúc bằng ký tự chữ và số."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "Phải chọn ít nhất một vai trò."
 
 msgid "user.register.form.usernameExists"
-msgstr "Tên người dùng được chọn đã được người dùng khác sử dụng."
+msgstr "Tên người dùng đã chọn đã được sử dụng bởi người dùng khác."
 
 msgid "user.register.form.passwordLengthRestriction"
 msgstr "Mật khẩu phải có ít nhất {$length} ký tự."
 
 msgid "user.register.registerAs"
-msgstr "Đăng ký trong {$contextName} với ..."
+msgstr "Đăng ký trong {$contextName} với vai trò..."
 
 msgid "user.register"
 msgstr "Đăng ký"
 
 msgid "user.register.usernameRestriction"
-msgstr ""
-"Tên người dùng chỉ được chứa các chữ cái thường, số và dấu gạch ngang/gạch "
-"dưới."
+msgstr "Tên người dùng chỉ được chứa các chữ cái viết thường, số và dấu gạch nối/dấu gạch dưới."
 
 msgid "user.register.registrationCompleted"
-msgstr ""
-"Bạn đã đăng ký thành công. <a href=\"{$profileUrl}\"> Nhấp vào đây </a> để "
-"hoàn thành hồ sơ người dùng của bạn."
+msgstr "Bạn đã đăng ký thành công. <a href=\"{$profileUrl}\">Nhấp vào đây</a> để hoàn thành hồ sơ người dùng của bạn."
 
 msgid "user.role.assistant"
 msgstr "Trợ lý"
@@ -384,94 +331,94 @@ msgid "user.role.author"
 msgstr "Tác giả"
 
 msgid "user.role.author_s"
-msgstr "(Các) Tác giả"
+msgstr "Tác giả(s)"
 
 msgid "user.role.authors"
-msgstr "Các tác giả"
+msgstr "Tác giả"
 
 msgid "user.role.editor"
 msgstr "Biên tập viên"
 
 msgid "user.role.editors"
-msgstr "Các biên tập viên"
+msgstr "Biên tập viên"
 
 msgid "user.role.reader"
-msgstr "Bạn đọc"
+msgstr "Người đọc"
 
 msgid "user.role.readers"
-msgstr "Cho bạn đọc"
+msgstr "Người đọc"
 
 msgid "user.role.reviewer"
-msgstr "Người phản biện"
+msgstr "Người đánh giá"
 
 msgid "user.role.reviewers"
-msgstr "Những người phản biện"
+msgstr "Người đánh giá"
 
 msgid "user.role.siteAdmin"
-msgstr "Quản trị trang web"
+msgstr "Quản trị viên trang web"
 
 msgid "user.role.siteAdmins"
-msgstr "Quản trị trang web"
+msgstr "Quản trị viên trang web"
 
 msgid "user.role.copyeditor"
-msgstr "Biên tập viên bản thảo"
+msgstr "Người chỉnh sửa"
 
 msgid "user.role.copyeditors"
-msgstr "Các Biên tập viên bản thảo"
+msgstr "Người chỉnh sửa"
 
 msgid "user.role.proofreader"
-msgstr "Người hiệu đính"
+msgstr "Người đọc bản in thử"
 
 msgid "user.role.proofreaders"
-msgstr "Những người hiệu đính"
+msgstr "Người đọc bản in thử"
 
 msgid "user.role.layoutEditor"
-msgstr "Biên tập viên Trình bày"
+msgstr "Biên tập viên bố cục"
 
 msgid "user.role.layoutEditors"
-msgstr "Các Biên tập viên Trình bày"
+msgstr "Biên tập viên bố cục"
 
 msgid "user.roles"
-msgstr "Các Vai trò"
+msgstr "Vai trò"
 
 msgid "user.sendPassword"
 msgstr "Xác nhận"
 
 msgid "user.sendPassword.description"
-msgstr ""
-"Gửi cho tôi một email xác nhận bao gồm tên người dùng và mật khẩu của tôi"
+msgstr "Gửi cho tôi một email xác nhận bao gồm tên người dùng và mật khẩu của tôi"
 
 msgid "user.signature"
 msgstr "Chữ ký"
 
 msgid "user.title"
-msgstr "Tiêu đề"
+msgstr "Chức danh"
 
 msgid "user.url"
-msgstr "URL Trang chủ"
+msgstr "URL trang chủ"
 
 msgid "user.userHome"
-msgstr "Trang chủ Người dùng"
+msgstr "Trang chủ người dùng"
 
 msgid "user.username"
-msgstr "Tên người dùng (username)"
+msgstr "Tên người dùng"
+
+msgid "user.usernameOrEmail"
+msgstr "Tên người dùng hoặc Email"
 
 msgid "user.workingLanguages"
 msgstr "Ngôn ngữ làm việc"
 
 msgid "user.orcid"
-msgstr "iD ORCID"
+msgstr "ORCID iD"
 
 msgid "user.orcid.orcidInvalid"
-msgstr ""
-"iD ORCIDbạn đã chỉ định không hợp lệ. Vui lòng bao gồm URI đầy đủ (ví dụ: "
-"\"https://orcid.org/0000-0002-1825-0097\")."
+msgstr "ORCID iD bạn đã chỉ định không hợp lệ. Vui lòng bao gồm URI đầy đủ (ví dụ: \"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Danh tính"
 
 msgid "user.profile.contact"
-msgstr "Liên lạc"
+msgstr "Liên hệ"
 
 msgid "user.profile.public"
 msgstr "Công khai"
@@ -480,252 +427,34 @@ msgid "user.apiKey"
 msgstr "Khóa API"
 
 msgid "user.apiKeyEnabled"
-msgstr "Bật các ứng dụng bên ngoài bằng khóa API để truy cập tài khoản này"
+msgstr "Cho phép các ứng dụng bên ngoài có khóa API truy cập vào tài khoản này"
 
 msgid "user.apiKey.generate"
-msgstr "Tạo khóa API mới"
+msgstr "Tạo khóa API"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Xóa"
 
 msgid "user.apiKey.generateWarning"
-msgstr ""
-"Việc tạo khóa API mới sẽ làm mất hiệu lực của mọi khóa hiện có cho người "
-"dùng này."
+msgstr "Tạo khóa API mới sẽ làm vô hiệu hóa bất kỳ khóa nào hiện có cho người dùng này."
 
 msgid "user.apiKey.removeWarning"
-msgstr ""
+msgstr "Xóa khóa sẽ thu hồi quyền truy cập đối với bất kỳ ứng dụng nào sử dụng nó."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn xóa khóa API này không?"
 
 msgid "user.apiKey.secretRequired"
-msgstr ""
-"Trước khi tạo khóa API, quản trị viên trang web của bạn phải đặt bí mật "
-"trong tệp cấu hình (\"api_key_secret\")."
+msgstr "Trước khi tạo khóa API, quản trị viên trang web của bạn phải thiết lập một khóa bí mật trong tệp cấu hình (\"api_key_secret\")."
 
 msgid "user.privacyLink"
-msgstr ""
-"Dữ liệu của bạn được lưu trữ theo <a href=\"{$privacyUrl}\" target=\"_blank"
-"\"> tuyên bố về quyền riêng tư </a> của chúng tôi."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Dữ liệu của bạn được lưu trữ theo <a href=\"{$privacyUrl}\" target=\"_blank\">tuyên bố về quyền riêng tư</a> của chúng tôi."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "Không thể hoàn thành yêu cầu đặt lại mật khẩu vì {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Nhập mật khẩu mới để cập nhật mật khẩu đăng nhập."
 
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr ""
-
-msgid "orcid.about.display"
-msgstr ""
-"Để xác nhận rằng bạn đã sử dụng iD của mình và nó đã được xác thực, chúng "
-"tôi hiển thị biểu tượng ORCID iD <img src=\"https://orcid.org/sites/default/"
-"files/images/orcid_16x16(1).gif\" alt=\"iD icon\" width=\"16\" height=\"16\" "
-"border=\"0\"> cùng với tên của bạn trên trang bài viết của bạn và trên hồ sơ "
-"người dùng công khai của bạn.<br>\n"
-"\t\tTìm hiểu thêm trong <a href=\"https://orcid.org/blog/2013/02/22/how-"
-"should-orcid-id-be-displayed\">Làm thế nào một ORCID iD sẽ được hiển thị.</a>"
-
-msgid "orcid.about.display.title"
-msgstr "Các ORCID iD được hiển thị ở đâu?"
-
-msgid "orcid.about.howAndWhyPublicAPI"
-msgstr ""
-"Tạp chí này đang thu thập iD ORCID của bạn để chúng tôi và cộng đồng rộng "
-"lớn hơn có thể tin tưởng rằng bạn được xác định chính xác và được kết nối "
-"với (các) ấn phẩm của bạn. Điều này sẽ đảm bảo kết nối của bạn với toàn bộ "
-"công việc của bạn luôn ở bên bạn trong suốt sự nghiệp của bạn.<br>\n"
-"\n"
-"\tKhi bạn nhấp vào nút “Authorize” trong ORCID popup, chúng tôi sẽ yêu cầu "
-"bạn chia sẻ iD của bạn sử dụng một quá trình chứng thực: hoặc bằng cách <a "
-"href=\"https://support.orcid.org/hc/en-us/articles/360006897454\">đăng ký "
-"ORCID iD</a> hoặc, nếu bạn đã có một, <a href=\"https://support.orcid.org/hc/"
-"en-us/categories/360000661673\">để đăng nhập vào tài khoản ORCID của bạn</a>"
-", sau đó cấp cho chúng tôi quyền để nhận ORCID iD của bạn. Chúng tôi làm "
-"điều này để đảm bảo rằng bạn được xác định chính xác và kết nối an toàn "
-"ORCID iD của bạn.<br>\n"
-"\n"
-"\tTìm hiểu thêm trong <a href=\"https://orcid.org/blog/2017/02/20/whats-so-"
-"special-about-signing\">Điều gì đặc biệt về việc đăng nhập.</a>"
-
-msgid "orcid.about.howAndWhy.title"
-msgstr "Làm thế nào và tại sao chúng tôi thu thập ORCID iDs?"
-
-msgid "orcid.about.orcidExplanation"
-msgstr ""
-"ORCID là một tổ chức phi lợi nhuận độc lập cung cấp số nhận dạng liên tục - "
-"ORCID iD - giúp phân biệt bạn với các nhà nghiên cứu khác và cơ chế liên kết "
-"các kết quả và hoạt động nghiên cứu của bạn với iD. ORCID được tích hợp vào "
-"nhiều hệ thống được sử dụng bởi các nhà xuất bản, nhà tài trợ, tổ chức và "
-"các dịch vụ liên quan đến nghiên cứu khác. Tìm hiểu thêm tại <a href=\""
-"https://orcid.org\">orcid.org</a>."
-
-msgid "orcid.about.title"
-msgstr "ORCID là gì?"
-
-msgid "orcid.authorise"
-msgstr "Cho phép và kết nối ORCID iD của bạn"
-
-msgid "orcid.connect"
-msgstr "Tạo hoặc kết nối ORCID iD của bạn"
-
-msgid "orcid.fieldset"
-msgstr "ORCID"
-
-msgid "orcid.failure.contact"
-msgstr ""
-"Vui lòng liên hệ với người quản lý tạp chí với tên của bạn, ORCID iD và "
-"thông tin chi tiết về bài đăng của bạn."
-
-msgid "orcid.authFailure"
-msgstr "Liên kết ủy quyền ORCID đã được sử dụng hoặc không hợp lệ."
-
-msgid "orcid.verify.denied"
-msgstr "Bạn đã từ chối quyền truy cập vào hồ sơ ORCID của bạn."
-
-msgid "orcid.verify.duplicateOrcid"
-msgstr "Một ORCID iD đã được lưu trữ cho bài nộp này."
-
-msgid "orcid.verify.failure"
-msgstr "ORCID iD của bạn không thể được xác minh. Liên kết không còn hiệu lực."
-
-msgid "orcid.verify.success"
-msgstr "ORCID iD của bạn đã được xác minh và liên kết thành công với bài gửi."
-
-msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
-msgstr "Bài gửi sẽ được thêm vào hồ sơ ORCID của bạn trong khi xuất bản."
-
-msgid "orcid.verify.sendSubmissionToOrcid.failure"
-msgstr "Bài gửi không thể được thêm vào hồ sơ ORCID của bạn."
-
-msgid "orcid.verify.sendSubmissionToOrcid.success"
-msgstr "Bài gửi đã được thêm vào hồ sơ ORCID của bạn."
-
-msgid "orcid.verify.title"
-msgstr "Ủy quyền ORCID"
-
-msgid "orcid.author.unauthenticated"
-msgstr ""
-"ORCID iD không được xác thực! Vui lòng yêu cầu xác thực từ người đóng góp."
-
-msgid "orcid.author.orcidEmptyNotice"
-msgstr "Xem bên dưới để yêu cầu ORCID iD xác thực"
-
-msgid "orcid.author.deleteORCID"
-msgstr "Xóa ORCID iD và mã thông báo truy cập!"
-
-msgid "orcid.author.requestAuthorization"
-msgstr "Gửi e-mail để yêu cầu ủy quyền ORCID từ cộng tác viên"
-
-msgid "orcid.author.accessTokenStored"
-msgstr ""
-"Quyền truy cập bản ghi ORCID được cấp với phạm vi {$orcidAccessScope}, hợp "
-"lệ cho đến khi"
-
-msgid "orcid.author.accessDenied"
-msgstr "Truy cập ORCID đã bị từ chối tại"
-
-msgid "orcid.manager.settings.logLevel.all"
-msgstr "Tất cả"
-
-msgid "orcid.manager.settings.logLevel.error"
-msgstr "Lỗi"
-
-msgid "orcid.manager.settings.logLevel.help"
-msgstr "Chọn số lượng đầu ra đăng nhập được viết bởi plugin"
-
-msgid "orcid.manager.settings.logSectionTitle"
-msgstr "Nhật ký yêu cầu ORCID"
-
-msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
-msgstr ""
-"Gửi e-mail để yêu cầu ủy quyền ORCID từ các tác giả khi một bài viết được "
-"chấp nhận, tức là gửi để chỉnh sửa sao chép"
-
-msgid "orcid.manager.settings.mailSectionTitle"
-msgstr "Cài đặt thư điện tử"
-
-msgid "orcid.manager.settings.orcidScope"
-msgstr "Phạm vi truy cập hồ sơ"
-
-msgid "orcid.manager.settings.orcidClientSecret"
-msgstr "Bí mật khách hàng"
-
-msgid "orcid.manager.settings.orcidClientId"
-msgstr "ID khách hàng"
-
-msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
-msgstr "Sandbox thành viên"
-
-msgid "orcid.manager.settings.orcidProfileAPIPath.member"
-msgstr "Thành viên"
-
-msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
-msgstr "Sandbox công khai"
-
-msgid "orcid.manager.settings.orcidProfileAPIPath.public"
-msgstr "Công khai"
-
-msgid "orcid.manager.settings.orcidProfileAPIPath"
-msgstr "API ORCID"
-
-msgid "orcid.manager.settings.description.globallyconfigured"
-msgstr ""
-"API ORCID được cấu hình trên toàn cầu bởi máy chủ lưu trữ. Các thông tin sau "
-"đây đã được lưu."
-
-msgid "orcid.manager.settings.description"
-msgstr ""
-"Vui lòng định cấu hình quyền truy cập API ORCID để sử dụng trong việc kéo "
-"thông tin hồ sơ ORCID vào hồ sơ người dùng và tác giả và cập nhật các bản "
-"ghi ORCID được kết nối với các ấn phẩm mới (chỉ dành cho Thành viên ORCID)."
-
-msgid "orcid.manager.settings.hidden"
-msgstr "ẩn"
-
-msgid "orcid.manager.settings.title"
-msgstr "Cài đặt API ORCID"
-
-msgid "orcid.emailOrOrcid"
-msgstr "Địa chỉ email hoặc ORCID iD:"
-
-msgid "orcid.noData"
-msgstr "Không thể tìm thấy bất kỳ dữ liệu nào từ ORCID."
-
-msgid "orcid.instructions"
-msgstr ""
-"Bạn có thể điền trước biểu mẫu này với thông tin từ hồ sơ ORCID. Nhập địa "
-"chỉ email hoặc ORCID iD được liên kết với hồ sơ ORCID, sau đó nhấp vào \""
-"Gửi\"."
-
-msgid "orcid.description"
-msgstr "Cho phép nhập thông tin hồ sơ người dùng từ ORCID."
-
-msgid "orcid.displayName"
-msgstr "Plugin hồ sơ ORCID"
-
-msgid "orcid.about.howAndWhyMemberAPI"
-msgstr ""
-"Tạp chí này đang thu thập iD ORCID của bạn để chúng tôi và cộng đồng rộng "
-"lớn hơn có thể tin tưởng rằng bạn được xác định chính xác và được kết nối "
-"với (các) ấn phẩm của bạn. Điều này sẽ đảm bảo kết nối của bạn với toàn bộ "
-"công việc luôn ở bên bạn trong suốt sự nghiệp của bạn. <br>\n"
-"Khi bạn nhấp vào nút “Ủy quyền” trong cửa sổ bật lên ORCID, chúng tôi sẽ yêu "
-"cầu bạn chia sẻ iD của mình bằng quy trình đã xác thực — bằng cách đăng ký "
-"iD ORCID hoặc, nếu bạn đã có, bằng cách đăng nhập vào tài khoản ORCID của "
-"bạn, sau đó cấp cho phép chúng tôi lấy ORCID iD của bạn. Chúng tôi làm điều "
-"này để đảm bảo bạn được xác định chính xác và kết nối an toàn với iD ORCID "
-"của bạn. <br>\n"
-"Tìm hiểu thêm trong <a href=\"https://orcid.org/blog/2017/02/20/whats-so-"
-"special-about-signs\"> Đăng nhập có gì đặc biệt. </a> <br>\n"
-"Tạp chí này sẽ thu thập và hiển thị iD của các tác giả và đồng tác giả đã "
-"được xác thực trên trang tiểu sử và bài báo của OJS. Ngoài ra, siêu dữ liệu "
-"bài viết sẽ tự động được đưa vào bản ghi ORCID của bạn, cho phép chúng tôi "
-"giúp bạn cập nhật hồ sơ của mình với thông tin đáng tin cậy. Tìm hiểu thêm "
-"trong <a href=\"https://orcid.org/blog/2017/08/10/six-ways-make-your-orcid-"
-"id-work-you\"> Sáu cách làm cho ORCID iD của bạn hoạt động bạn! </a>\n"
+msgstr "Mật khẩu đã được cập nhật thành công. Vui lòng đăng nhập bằng mật khẩu đã cập nhật."

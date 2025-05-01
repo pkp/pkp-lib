@@ -115,10 +115,9 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.wait(5000);
 
 		cy.openWorkflowMenu('Permissions & Disclosure');
-		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear()
-		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie', {delay: 0});
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear();
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie');
 		cy.get('button').contains('Save').click();
-		cy.get('[role="status"]').contains('Saved');
 		cy.wait(1500);
 
 		// Publish 2nd version

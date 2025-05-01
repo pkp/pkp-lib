@@ -2434,3 +2434,6 @@ msgstr "accessible"
 
 msgid "common.colorPicker.levelNotAccessible"
 msgstr "not accessible"
+
+msgid "common.colorPicker.opensInNewWindowText"
+msgstr "(opens in new window)"

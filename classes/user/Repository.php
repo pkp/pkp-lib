@@ -212,7 +212,7 @@ class Repository
             if (array_key_exists($contextId, $userRoles)) {
                 $contextRoles = $userRoles[$contextId];
 
-                foreach ($contextRoles as $contextRole) { /** @var Role $contextRole */
+                foreach ($contextRoles as $contextRole) {
                     $userRoleIds[] = $contextRole->getRoleId();
                 }
             }

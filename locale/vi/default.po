@@ -1,7 +1,8 @@
+# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-26 06:45+0000\n"
-"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"PO-Revision-Date: 2025-05-01 16:19+0000\n"
+"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/vi_VN/>\n"
 "Language: vi_VN\n"
@@ -9,10 +10,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Quản trị trang web"
+msgstr "Quản trị viên trang web"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Quản trị viên trang web"
@@ -21,25 +22,25 @@ msgid "default.groups.name.productionEditor"
 msgstr "Biên tập viên sản xuất"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Các biên tập viên sản xuất"
+msgstr "Biên tập viên sản xuất"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "Prod-E"
+msgstr "ProdE"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Biên tập viên bản thảo"
+msgstr "Người chỉnh sửa"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Các Biên tập viên bản thảo"
+msgstr "Người chỉnh sửa"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "CE"
 
 msgid "default.groups.name.proofreader"
-msgstr "Người đọc soát lỗi"
+msgstr "Người đọc bản in thử"
 
 msgid "default.groups.plural.proofreader"
-msgstr "Những người đọc soát lỗi"
+msgstr "Người đọc bản in thử"
 
 msgid "default.groups.abbrev.proofreader"
 msgstr "PR"
@@ -48,25 +49,25 @@ msgid "default.groups.name.designer"
 msgstr "Nhà thiết kế"
 
 msgid "default.groups.plural.designer"
-msgstr "Các nhà thiết kế"
+msgstr "Nhà thiết kế"
 
 msgid "default.groups.abbrev.designer"
 msgstr "Thiết kế"
 
 msgid "default.groups.name.internalReviewer"
-msgstr "Phản biện nội bộ"
+msgstr "Người đánh giá nội bộ"
 
 msgid "default.groups.plural.internalReviewer"
-msgstr "Các Phản biện nội bộ"
+msgstr "Người đánh giá nội bộ"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "IR"
 
 msgid "default.groups.name.marketing"
-msgstr "Điều phối viên tiếp thị và bán hàng"
+msgstr "Điều phối viên marketing và bán hàng"
 
 msgid "default.groups.plural.marketing"
-msgstr "Các Điều phối viên tiếp thị và bán hàng"
+msgstr "Điều phối viên marketing và bán hàng"
 
 msgid "default.groups.abbrev.marketing"
 msgstr "MS"
@@ -75,7 +76,7 @@ msgid "default.groups.name.funding"
 msgstr "Điều phối viên tài trợ"
 
 msgid "default.groups.plural.funding"
-msgstr "Các Điều phối viên tài trợ"
+msgstr "Điều phối viên tài trợ"
 
 msgid "default.groups.abbrev.funding"
 msgstr "FC"
@@ -90,10 +91,10 @@ msgid "default.groups.abbrev.indexer"
 msgstr "IND"
 
 msgid "default.groups.name.layoutEditor"
-msgstr "Biên tập viên Trình bày"
+msgstr "Biên tập viên bố cục"
 
 msgid "default.groups.plural.layoutEditor"
-msgstr "Các Biên tập viên Trình bày"
+msgstr "Biên tập viên bố cục"
 
 msgid "default.groups.abbrev.layoutEditor"
 msgstr "LE"
@@ -102,25 +103,25 @@ msgid "default.groups.name.author"
 msgstr "Tác giả"
 
 msgid "default.groups.plural.author"
-msgstr "Các tác giả"
+msgstr "Tác giả"
 
 msgid "default.groups.abbrev.author"
 msgstr "AU"
 
 msgid "default.groups.name.translator"
-msgstr "Biên dịch viên"
+msgstr "Người dịch"
 
 msgid "default.groups.plural.translator"
-msgstr "Các biên dịch viên"
+msgstr "Người dịch"
 
 msgid "default.groups.abbrev.translator"
-msgstr "Trans"
+msgstr "Dịch"
 
 msgid "default.groups.name.reader"
-msgstr "Bạn đọc"
+msgstr "Người đọc"
 
 msgid "default.groups.plural.reader"
-msgstr "Các bạn đọc"
+msgstr "Người đọc"
 
 msgid "default.groups.abbrev.reader"
 msgstr "Đọc"
@@ -132,28 +133,28 @@ msgid "default.genres.multimedia"
 msgstr "Đa phương tiện"
 
 msgid "default.genres.image"
-msgstr "Hình ảnh"
+msgstr "Ảnh"
 
 msgid "default.genres.styleSheet"
 msgstr "Biểu định kiểu HTML"
 
 msgid "default.contextSettings.emailSignature"
-msgstr ""
+msgstr "<br><br>—<br><p>Đây là tin nhắn tự động từ <a href=\"{$contextUrl}\">{$contextName}</a>.</p>"
 
 msgid "default.submission.step.beforeYouBegin"
-msgstr ""
+msgstr "<p>Cảm ơn bạn đã nộp bài cho {$contextName}. Bạn sẽ được yêu cầu tải lên tệp, xác định đồng tác giả và cung cấp thông tin như tiêu đề và tóm tắt.<p><p>Vui lòng đọc <a href=\"{$submissionGuidelinesUrl}\" target=\"_blank\">Hướng dẫn nộp bài</a> của chúng tôi nếu bạn chưa làm. Khi điền vào các biểu mẫu, vui lòng cung cấp càng nhiều chi tiết càng tốt để giúp biên tập viên của chúng tôi đánh giá công việc của bạn.</p><p>Khi bắt đầu, bạn có thể lưu bài nộp của mình và quay lại sau. Bạn sẽ có thể xem lại và sửa bất kỳ thông tin nào trước khi nộp.</p>"
 
 msgid "default.submission.step.uploadFiles"
-msgstr ""
+msgstr "<p>Cung cấp bất kỳ tệp nào mà đội ngũ biên tập của chúng tôi có thể cần để đánh giá bài nộp của bạn. Ngoài tác phẩm chính, bạn có thể muốn nộp tập dữ liệu, tuyên bố xung đột lợi ích hoặc các tệp bổ sung khác nếu chúng hữu ích cho biên tập viên của chúng tôi.</p>"
 
 msgid "default.submission.step.contributors"
-msgstr ""
+msgstr "<p>Thêm chi tiết cho tất cả những người đóng góp cho bài nộp này. Những người đóng góp được thêm vào đây sẽ nhận được email xác nhận bài nộp, cũng như bản sao của tất cả các quyết định biên tập đã ghi lại đối với bài nộp này.</p><p>Nếu không thể liên hệ với người đóng góp qua email, vì họ phải giữ ẩn danh hoặc không có tài khoản email, vui lòng không nhập địa chỉ email giả mạo. Bạn có thể thêm thông tin về người đóng góp này trong tin nhắn gửi cho biên tập viên ở bước sau trong quy trình nộp bài.</p>"
 
 msgid "default.submission.step.details"
-msgstr ""
+msgstr "<p>Vui lòng cung cấp các chi tiết sau để giúp chúng tôi quản lý bài nộp của bạn trong hệ thống của chúng tôi.</p>"
 
 msgid "default.submission.step.forTheEditors"
-msgstr ""
+msgstr "<p>Vui lòng cung cấp các chi tiết sau để giúp đội ngũ biên tập của chúng tôi quản lý bài nộp của bạn.</p><p>Khi nhập metadata, vui lòng cung cấp các mục mà bạn nghĩ sẽ hữu ích nhất cho người quản lý bài nộp của bạn. Thông tin này có thể được thay đổi trước khi xuất bản.</p>"
 
 msgid "default.submission.step.review"
-msgstr ""
+msgstr "<p>Xem lại thông tin bạn đã nhập trước khi hoàn thành bài nộp của bạn. Bạn có thể thay đổi bất kỳ chi tiết nào được hiển thị ở đây bằng cách nhấp vào nút chỉnh sửa ở đầu mỗi phần.</p><p>Sau khi hoàn thành bài nộp của bạn, một thành viên của đội ngũ biên tập của chúng tôi sẽ được chỉ định xem xét nó. Vui lòng đảm bảo các chi tiết bạn đã nhập ở đây chính xác nhất có thể.</p>"

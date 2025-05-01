@@ -1,7 +1,8 @@
+# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-23 18:48+0000\n"
-"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"PO-Revision-Date: 2025-05-01 16:19+0000\n"
+"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/vi_VN/>\n"
 "Language: vi_VN\n"
@@ -9,10 +10,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Đặt tên"
+msgstr "Tên cài đặt"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Giá trị cài đặt"
@@ -21,40 +22,31 @@ msgid "admin.adminFunctions"
 msgstr "Các chức năng quản trị"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Xóa bộ nhớ đệm"
 
 msgid "admin.deleteCache.description"
-msgstr ""
+msgstr "Xóa các tệp bộ nhớ đệm khỏi hệ thống. Điều này chỉ nên thực hiện trong môi trường phát triển."
 
 msgid "admin.clearDataCache"
-msgstr "Xóa bộ nhớ cache dữ liệu"
+msgstr "Xóa bộ nhớ đệm dữ liệu"
 
 msgid "admin.clearTemplateCache"
 msgstr "Xóa bộ nhớ đệm mẫu"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr ""
-"Tệp cấu hình của bạn đã được cập nhật thành công. Xin lưu ý rằng nếu trang "
-"web của bạn không còn hoạt động bình thường, bạn có thể cần phải sửa cấu "
-"hình của mình theo cách thủ công bằng cách chỉnh sửa trực tiếp <tt> config."
-"inc.php </tt>."
+msgstr "Tệp cấu hình của bạn đã được cập nhật thành công. Lưu ý rằng nếu trang web của bạn không còn hoạt động đúng cách, bạn có thể cần sửa cấu hình thủ công bằng cách chỉnh sửa trực tiếp <tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "Bạn có chắc chắn muốn xóa bộ nhớ cache của các mẫu đã biên dịch không?"
+msgstr "Bạn có chắc chắn muốn xóa bộ nhớ đệm các mẫu đã biên dịch không?"
 
 msgid "admin.confirmExpireSessions"
-msgstr ""
-"Bạn có chắc chắn muốn hết hạn tất cả các phiên người dùng không? Tất cả "
-"người dùng hiện đang đăng nhập vào hệ thống sẽ buộc phải đăng nhập lại (bao "
-"gồm cả bạn)."
+msgstr "Bạn có chắc chắn muốn hết hạn tất cả các phiên người dùng không? Tất cả người dùng hiện đang đăng nhập vào hệ thống sẽ buộc phải đăng nhập lại (bao gồm cả bạn)."
 
 msgid "admin.contentsOfConfigFile"
-msgstr "Nội dung của tệp cấu hình"
+msgstr "Nội dung tệp cấu hình"
 
 msgid "admin.contexts.confirmDelete"
-msgstr ""
-"Bạn có chắc chắn muốn xóa vĩnh viễn {$contextName} và tất cả nội dung của nó "
-"không?"
+msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn {$contextName} và tất cả nội dung của nó không?"
 
 msgid "admin.currentVersion"
 msgstr "Phiên bản hiện tại"
@@ -63,11 +55,7 @@ msgid "admin.dateInstalled"
 msgstr "Ngày cài đặt"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr ""
-"Nội dung của cấu hình cập nhật của bạn được hiển thị bên dưới. Để áp dụng "
-"các thay đổi cấu hình, bạn phải mở <tt> config.inc.php </tt> trong một trình "
-"soạn thảo văn bản phù hợp và thay thế nội dung của nó bằng nội dung của "
-"trường văn bản bên dưới."
+msgstr "Nội dung cấu hình đã cập nhật của bạn được hiển thị bên dưới. Để áp dụng các thay đổi cấu hình, bạn phải mở <tt>config.inc.php</tt> trong một trình soạn thảo văn bản phù hợp và thay thế nội dung của nó bằng nội dung của trường văn bản bên dưới."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Hiển thị cấu hình mới"
@@ -76,53 +64,46 @@ msgid "admin.expireSessions"
 msgstr "Hết hạn phiên người dùng"
 
 msgid "admin.expireSessions.description"
-msgstr ""
+msgstr "Tất cả người dùng sẽ bị đăng xuất khỏi ứng dụng ngay lập tức, bao gồm cả bạn, và sẽ cần đăng nhập lại."
 
 msgid "admin.languages.cantDisable"
-msgstr ""
-"Ngôn ngữ này là ngôn ngữ chính của trang web. Bạn không thể tắt nó cho đến "
-"khi bạn chọn một ngôn ngữ chính khác."
+msgstr "Ngôn ngữ bản địa này là ngôn ngữ chính của trang web. Bạn không thể vô hiệu hóa nó cho đến khi bạn chọn một ngôn ngữ chính khác."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Bạn có chắc chắn muốn thay đổi ngôn ngữ chính của trang web không? Tên của "
-"người dùng, được yêu cầu trong ngôn ngữ chính của trang web, sẽ được sao "
-"chép từ ngôn ngữ chính hiện có nơi họ bị thiếu."
+msgstr "Bạn có chắc chắn muốn thay đổi ngôn ngữ chính của trang web không? Tên người dùng, bắt buộc phải có bằng ngôn ngữ chính của trang web, sẽ được sao chép từ ngôn ngữ chính hiện tại nếu bị thiếu."
 
 msgid "admin.languages.confirmReload"
-msgstr ""
-"Bạn có chắc chắn muốn tải lại ngôn ngữ này không? Thao tác này sẽ xóa mọi dữ "
-"liệu hiện có theo ngôn ngữ cụ thể, chẳng hạn như các mẫu email tùy chỉnh."
+msgstr "Bạn có chắc chắn muốn tải lại ngôn ngữ bản địa này không? Điều này sẽ xóa mọi dữ liệu cụ thể cho ngôn ngữ bản địa hiện có, chẳng hạn như các mẫu email tùy chỉnh."
 
 msgid "admin.languages.installedLocales"
-msgstr "Ngôn ngữ đã cài đặt"
+msgstr "Ngôn ngữ bản địa đã cài đặt"
 
 msgid "admin.languages.installLanguages"
-msgstr "Quản lý ngôn ngữ"
+msgstr "Quản lý ngôn ngữ bản địa"
 
 msgid "admin.languages.availableLocales"
-msgstr "Các ngôn ngữ có sẵn"
+msgstr "Ngôn ngữ bản địa khả dụng"
 
 msgid "admin.languages.installLocale"
-msgstr "Cài đặt ngôn ngữ"
+msgstr "Cài đặt ngôn ngữ bản địa"
 
 msgid "admin.languages.installLocales"
 msgstr "Cài đặt"
 
 msgid "admin.languages.installNewLocales"
-msgstr "Cài đặt ngôn ngữ mới"
+msgstr "Cài đặt ngôn ngữ bản địa mới"
 
 msgid "admin.languages.languageSettings"
 msgstr "Cài đặt ngôn ngữ"
 
 msgid "admin.languages.noLocalesAvailable"
-msgstr "Không có ngôn ngữ bổ sung nào có sẵn để cài đặt."
+msgstr "Không có ngôn ngữ bản địa bổ sung nào khả dụng để cài đặt."
 
 msgid "admin.languages.reload"
-msgstr "Tải lại Ngôn ngữ"
+msgstr "Tải lại ngôn ngữ bản địa"
 
 msgid "admin.languages.uninstall"
-msgstr "Gỡ cài đặt Ngôn ngữ"
+msgstr "Gỡ cài đặt ngôn ngữ bản địa"
 
 msgid "admin.phpInfo"
 msgstr "Thông tin PHP mở rộng"
@@ -131,124 +112,121 @@ msgid "admin.scheduledTask"
 msgstr "Công việc đã lên lịch"
 
 msgid "admin.scheduledTask.startTime"
-msgstr "Quá trình tác vụ bắt đầu."
+msgstr "Đã bắt đầu xử lý công việc."
 
 msgid "admin.scheduledTask.stopTime"
-msgstr "Quá trình tác vụ đã dừng."
+msgstr "Đã dừng xử lý công việc."
 
 msgid "admin.scheduledTask.noLog"
-msgstr "Tác vụ không có nhật ký."
+msgstr "Công việc không tạo ra nhật ký."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Ký gửi DOI với cơ quan đăng ký đã cấu hình"
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"Quá trình cài đặt {$softwareName} của bạn đã tự động thực thi và hoàn thành "
-"tác vụ này và bạn có thể tải xuống tệp nhật ký tại đây: {$url}"
+msgstr "Cài đặt {$softwareName} của bạn đã tự động thực hiện và hoàn thành công việc này và bạn có thể tải xuống tệp nhật ký tại đây: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
+msgstr "Gửi email cho mỗi biên tập viên nhắc nhở họ về các công việc còn tồn đọng"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Đang xác định các biên tập viên cần nhắc nhở trong ngữ cảnh {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
-msgstr ""
+msgstr "Đã gửi {$count} công việc để gửi email nhắc nhở biên tập đến người dùng {$userIds} trong ngữ cảnh {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr ""
-"Bạn có chắc chắn muốn xóa tất cả nhật ký thực thi tác vụ đã lên lịch không?"
+msgstr "Bạn có chắc chắn muốn xóa tất cả các nhật ký thực thi công việc đã lên lịch không?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Xóa nhật ký thực thi tác vụ đã lên lịch"
+msgstr "Xóa nhật ký công việc đã lên lịch"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Xóa tất cả nhật ký của các quy trình công việc đã lên lịch đã chạy."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Xóa nhật ký công việc"
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Xuất bản các bài gửi đã được lên lịch xuất bản"
+msgstr "Xuất bản các bài nộp đã lên lịch xuất bản"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr "Nhắc nhở phản biện"
+msgstr "Nhắc nhở đánh giá"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Thông báo báo cáo biên tập"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Nhắc nhở hết hạn thuê bao"
+msgstr "Nhắc nhở hết hạn đăng ký"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Xóa người dùng hết hạn chưa được xác thực"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Xóa các công việc thất bại đã cũ khỏi danh sách công việc thất bại."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Xử lý các công việc trong hàng đợi đang chờ xử lý"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Cập nhật cơ sở dữ liệu DB-IP thành phố lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
-msgstr ""
+msgstr "Đổi tên tệp cơ sở dữ liệu DB-IP thành phố lite {$sourceFilename} thành {$targetFilename} thất bại."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Tác vụ trình tải tệp thống kê sử dụng"
+msgstr "Công việc tải tệp thống kê sử dụng"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
-msgstr ""
+msgstr "Thư mục {$directory} không trống. Điều này có thể cho thấy một quy trình xử lý trước đó đã thất bại hoặc một quy trình xử lý đồng thời đang chạy. Tệp này sẽ được xử lý lại tự động."
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr "Tệp {$file} không thể mở và đã bị từ chối."
+msgstr "Không thể mở tệp {$file} và đã bị từ chối."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
-msgstr ""
+msgstr "Tệp {$file} ở định dạng tệp nhật ký cũ không thể xử lý và do đó sẽ được chuyển trở lại thư mục giai đoạn."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
-msgstr ""
+msgstr "Đã bỏ qua tệp nhật ký {$file} vì thống kê của tháng đó đã được tính toán. Để tính toán lại thống kê cho tháng trước, bạn phải khôi phục tất cả các tệp nhật ký của tháng đó và sử dụng công cụ CLI để xử lý lại thống kê."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
-msgstr ""
+msgstr "Dòng {$lineNumber} trong tệp nhật ký {$file} có định dạng sai và do đó sẽ bị bỏ qua."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
-msgstr ""
+msgstr "Mục nhật ký không hợp lệ ở dòng {$lineNumber} trong tệp nhật ký {$file}: {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Thời gian không phải là ngày hợp lệ."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "ID ngữ cảnh không phải là số nguyên."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "ID bài nộp không phải là số nguyên."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "ID biểu diễn không phải là số nguyên."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Loại kết hợp không được hỗ trợ."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Loại tệp không được hỗ trợ."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "Quốc gia không phải là chuỗi hai ký tự chữ cái."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "Khu vực không phải là chuỗi tối đa ba ký tự chữ và số."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "ID tổ chức không phải là mảng."
 
 msgid "admin.job.processLogFile.insertError"
-msgstr ""
+msgstr "Đã xảy ra lỗi khi xử lý tệp nhật ký {$file} ở dòng {$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
-msgstr ""
+msgstr "Đã gửi các công việc nền sẽ xử lý các tệp nhật ký và lưu trữ dữ liệu thống kê."
 
 msgid "admin.server.apacheVersion"
 msgstr "Phiên bản Apache"
@@ -260,7 +238,7 @@ msgid "admin.server.dbVersion"
 msgstr "Phiên bản máy chủ cơ sở dữ liệu"
 
 msgid "admin.serverInformation"
-msgstr "Thông tin Máy chủ"
+msgstr "Thông tin máy chủ"
 
 msgid "admin.server.phpVersion"
 msgstr "Phiên bản PHP"
@@ -272,16 +250,16 @@ msgid "admin.settings"
 msgstr "Cài đặt"
 
 msgid "admin.settings.about"
-msgstr "Giới thiệu Trang web"
+msgstr "Giới thiệu về trang web"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Email hàng loạt"
 
 msgid "admin.settings.contactEmail"
-msgstr "Email của Liên lạc chính"
+msgstr "Email liên hệ chính"
 
 msgid "admin.settings.contactName"
-msgstr "Tên của Liên lạc chính"
+msgstr "Tên liên hệ chính"
 
 msgid "admin.settings.introduction"
 msgstr "Giới thiệu"
@@ -289,22 +267,29 @@ msgstr "Giới thiệu"
 msgid "admin.settings.minPasswordLength"
 msgstr "Độ dài mật khẩu tối thiểu (ký tự)"
 
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Thống kê người đánh giá"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "Trong cài đặt đa ngữ cảnh, thống kê người đánh giá, chẳng hạn như số lượng đánh giá đã nộp, có thể hiển thị riêng lẻ cho mỗi ngữ cảnh hoặc tổng hợp lại."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Vô hiệu hóa thống kê người đánh giá tổng hợp"
+
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Hạn chế email hàng loạt"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Vô hiệu hóa vai trò"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Chỉ quản trị viên mới được phép sửa đổi cài đặt này."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Ngôn ngữ trang web"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr ""
-"Định dạng Biểu định kiểu trang web không hợp lệ. Định dạng được chấp nhận "
-"là .css."
+msgstr "Định dạng biểu định kiểu trang web không hợp lệ. Định dạng được chấp nhận là .css."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Biểu định kiểu trang web"
@@ -316,7 +301,7 @@ msgid "admin.settings.siteTitle"
 msgstr "Tên trang web"
 
 msgid "admin.settings.siteTheme"
-msgstr "Chủ đề trang web"
+msgstr "Giao diện trang web"
 
 msgid "admin.siteAdmin"
 msgstr "Quản trị trang web"
@@ -325,36 +310,34 @@ msgid "admin.siteManagement"
 msgstr "Quản lý trang web"
 
 msgid "admin.siteSettings"
-msgstr "Cài đặt Trang web"
+msgstr "Cài đặt trang web"
 
 msgid "admin.siteSetup"
 msgstr "Thiết lập trang web"
 
 msgid "admin.systemConfigFileReadError"
-msgstr ""
-"Tệp cấu hình <tt> config.inc.php </tt> không tồn tại, không thể đọc được "
-"hoặc không hợp lệ."
+msgstr "Tệp cấu hình <tt>config.inc.php</tt> không tồn tại, không thể đọc được hoặc không hợp lệ."
 
 msgid "admin.systemInformation"
 msgstr "Thông tin hệ thống"
 
 msgid "admin.systemInformation.description"
-msgstr ""
+msgstr "Xem thông tin về phiên bản và cài đặt cấu hình của ứng dụng và máy chủ."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Xem thông tin hệ thống"
 
 msgid "admin.versionBuild"
-msgstr "Xây dựng"
+msgstr "Bản build"
 
 msgid "admin.version.checkForUpdates"
 msgstr "Kiểm tra cập nhật"
 
 msgid "admin.version.downloadPackage"
-msgstr "Tải xuống"
+msgstr "Tải xuống gói"
 
 msgid "admin.version.downloadPatch"
-msgstr "Tải xuống bản vá lỗi"
+msgstr "Tải xuống bản vá"
 
 msgid "admin.versionHistory"
 msgstr "Lịch sử phiên bản"
@@ -366,431 +349,436 @@ msgid "admin.versionMajor"
 msgstr "Chính"
 
 msgid "admin.versionMinor"
-msgstr "Phụ"
+msgstr "Thứ yếu"
 
 msgid "admin.version.moreInfo"
-msgstr "Thêm thông tin"
+msgstr "Thông tin thêm"
 
 msgid "admin.versionRevision"
 msgstr "Bản sửa đổi"
 
 msgid "admin.version.updateAvailable"
-msgstr "Đã có phiên bản cập nhật"
+msgstr "Có phiên bản cập nhật"
 
 msgid "admin.version.upToDate"
-msgstr "Hệ thống của bạn được cập nhật"
+msgstr "Hệ thống của bạn đã cập nhật"
 
 msgid "admin.version"
 msgstr "Phiên bản"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Đường dẫn cơ sở {$path} phải nằm trong thư mục tệp công khai."
+msgstr "Đường dẫn cơ sở {$path} phải nằm trong thư mục tệp công cộng."
 
 msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Thư mục {$path} không phải là một thư mục hoặc không thể đọc được."
+msgstr "Thư mục {$path} không phải là thư mục hoặc không thể đọc được."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr ""
-"Không thể di chuyển tệp {$filename} từ {$currentFilePath} sang "
-"{$destinationPath}"
+msgstr "Không thể di chuyển tệp {$filename} từ {$currentFilePath} đến {$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Tệp {$filename} đã được xử lý và lưu trữ."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Tệp {$filename} đã được chuyển đến thư mục gửi."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "Trình tải tệp"
 
 msgid "admin.error.gzDecompressFile.gzopen"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể mở tệp gz nguồn {$filePath} bằng gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể mở tệp đích {$filePath} bằng fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể đọc tệp gz nguồn {$file} bằng gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể ghi tệp đích {$filePath} bằng fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể đóng tệp đích đã mở {$filePath} bằng fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể đóng tệp gz nguồn đã mở {$filePath} bằng gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
-msgstr ""
+msgstr "Không thể giải nén tệp. Không thể xóa tệp gz nguồn đã giải nén {$filePath} bằng unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể mở tệp gz đích {$filePath} bằng gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể mở tệp nguồn {$filePath} bằng fopen."
 
 msgid "admin.error.gzCompressFile.fread"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể đọc tệp nguồn {$filePath} bằng fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể ghi tệp gz đích {$filePath} bằng gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể đóng tệp nguồn đã mở {$filePath} bằng fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể đóng tệp gz đích đã mở {$filePath} bằng gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
-msgstr ""
+msgstr "Không thể nén tệp. Không thể xóa tệp nguồn đã nén {$filePath} bằng unlink."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr "Không có ngôn ngữ nào có sẵn để tải xuống."
+msgstr "Không có ngôn ngữ bản địa nào khả dụng để tải xuống."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Cách sử dụng:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "lệnh [đối số]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Các lệnh khả dụng cho không gian tên `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
-msgstr ""
+msgstr "Không thể chạy công việc trong hàng đợi vì chế độ bảo trì ứng dụng đã bật."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr "Không thể chạy công việc trong hàng đợi vì chế độ sandbox ứng dụng đã bật."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr ""
+msgstr "Liệt kê tất cả các công việc trong hàng đợi. Nếu bạn muốn phân trang kết quả, sử dụng các tham số --page= và --perPage=. Truyền cờ --failed để liệt kê các công việc thất bại."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
-msgstr ""
+msgstr "Xóa một công việc cụ thể trong hàng đợi dựa trên ID của nó. Nếu bạn muốn xóa tất cả, truyền tham số --all. Nếu bạn muốn xóa tất cả từ một hàng đợi cụ thể, truyền tham số --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr ""
+msgstr "Thêm một công việc thử nghiệm vào hàng đợi thử nghiệm. sử dụng các tham số tùy chọn --only= và truyền 'failed' hoặc 'success' để gửi công việc thất bại hoặc thành công."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
-msgstr ""
+msgstr "Chạy một quy trình worker daemon vô hạn sẽ tiếp tục xử lý công việc. Sử dụng cờ --help để xem các tùy chọn khả dụng liên quan đến lệnh này."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
-msgstr ""
+msgstr "Liệt kê tất cả các công việc thất bại. Thiết lập tham số --queue=QUEUE_NAME và --connection=CONNECTION_NAME để lọc danh sách. Đồng thời truyền tham số/cờ --redispatch và --clear để gửi lại vào hàng đợi hoặc xóa tất cả/các công việc thất bại cụ thể."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Khởi động lại các daemon worker hàng đợi sau khi công việc hiện tại của chúng hoàn thành."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "Worker sẽ thoát một cách nhẹ nhàng sau khi hoàn thành việc thực thi công việc hiện tại."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
-msgstr ""
+msgstr "Gửi các công việc khả dụng vào hàng đợi. Để gửi một công việc vào một hàng đợi cụ thể, truyền tham số --queue=QUEUE_NAME. Sử dụng --test để chạy công việc thử nghiệm và --once để dừng sau một công việc duy nhất."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Hoàn thành chạy {$jobCount} công việc trong hàng đợi có tên {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Không có công việc nào khả dụng để chạy trong hàng đợi có tên {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr ""
+msgstr "Hiển thị tổng số công việc trong hàng đợi. Truyền cờ --failed để xem tổng số công việc thất bại."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Hiển thị cách sử dụng lệnh Công việc"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Hiển thị tham số sử dụng Công việc"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Tùy chọn không thể trống! Kiểm tra phương thức sử dụng."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Công việc trong hàng đợi thất bại"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Công việc trong hàng đợi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Hàng đợi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Kết nối"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Tên hiển thị công việc"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Số lần thử"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Đã được đặt vào lúc"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Khả dụng vào lúc"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Đã tạo vào lúc"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Đã thất bại vào lúc"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Thông báo ngoại lệ"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Phân trang"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Hiện tại"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Trước"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Tiếp"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
-msgstr ""
+msgstr "Bạn nên truyền ít nhất một ID công việc, '--all' hoặc '--queue=' để sử dụng lệnh này"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
-msgstr ""
+msgstr "Đã gửi công việc thử nghiệm bị ràng buộc phải thất bại trong hàng đợi có tên {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
+msgstr "Đã gửi công việc thử nghiệm bị ràng buộc phải thành công trong hàng đợi có tên {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
-msgstr ""
+msgstr "Tùy chọn công việc thử nghiệm không hợp lệ. Nó chỉ có thể nhận 'failed' hoặc 'success' cho tùy chọn '--only='."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "ID công việc không hợp lệ"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Công việc đã bị xóa!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Không tìm thấy công việc nào để xóa."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Không thể xóa tất cả các công việc."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Đã xóa tất cả các công việc!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
+msgstr "Đã xóa thành công {$jobsCount} công việc thất bại khỏi danh sách thất bại."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "Đã gửi lại thành công {$jobsCount} công việc vào hàng đợi."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Chúng tôi có tổng cộng {$total} công việc thất bại"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Chúng tôi có tổng cộng {$total} công việc trong hàng đợi"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Tùy chọn {$option} không tồn tại."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Bạn có ý gì một trong những điều sau?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Có tổng cộng <strong>{$total}</strong> công việc trong hàng đợi"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Có tổng cộng <strong>{$total}</strong> công việc thất bại."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Xem các công việc trong hàng đợi"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Công việc"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Công việc thất bại"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Chi tiết công việc thất bại"
 
 msgid "navigation.tools.jobs.description"
-msgstr ""
+msgstr "Xem tất cả các công việc trong hàng đợi trong hệ thống và theo dõi các lần thử thất bại."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Xem công việc"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Xem công việc thất bại"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Xem chi tiết công việc thất bại: {$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Thuộc tính"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Giá trị thuộc tính"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Công việc"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Hàng đợi"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Kết nối"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Số lần thử"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Đã tạo vào lúc"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Đã thất bại vào lúc"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Tải trọng"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Ngoại lệ"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Hành động"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Đã tạo vào lúc {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Đã tạo vào lúc {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Thử lại"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Gửi lại tất cả các công việc thất bại"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
-msgstr ""
+msgstr "Công việc tải dữ liệu thống kê sử dụng từ tệp {$file} đã thất bại và không thể di chuyển tệp từ {$archivedFilePath} đến {$stagingPath}."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr "Không thể di chuyển tệp {$file} từ {$dispatchFilePath} đến {$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Tệp {$file} không tồn tại."
 
 msgid "admin.job.compileMetrics.error"
-msgstr ""
+msgstr "Công việc tải dữ liệu thống kê sử dụng từ tệp {$file} đã thất bại. Tệp đã được chuyển đến thư mục giai đoạn."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Thu thập dữ liệu"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Cấu hình loại thống kê sử dụng nên được thu thập."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Lưu trữ dữ liệu"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Cấu hình loại thống kê sử dụng nên được lưu trữ trên máy chủ."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Giao thức Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
-msgstr ""
+msgstr "Cấu hình <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</a> protocol, định dạng được công nhận trong ngành để phân phối thống kê sử dụng."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Thống kê hàng tháng hoặc hàng ngày"
 
 msgid "admin.settings.statistics.keepDaily.description"
-msgstr ""
+msgstr "Có theo dõi thống kê sử dụng hàng ngày hoặc hàng tháng hay không. Theo dõi thống kê hàng ngày có thể làm tăng kích thước cơ sở dữ liệu của bạn đáng kể."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Theo dõi thống kê hàng ngày và hàng tháng"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Chỉ theo dõi thống kê hàng tháng"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Nén nhật ký"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr ""
+msgstr "Thống kê được tạo từ các tệp nhật ký truy cập được chuyển đến <code>{$path}</code> sau khi đã được xử lý. Các tệp nhật ký có nên được nén thành tệp <code>.gz</code> sau khi đã được xử lý không? Nén tệp nhật ký có thể tiết kiệm dung lượng đĩa trên máy chủ."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Để nguyên các tệp nhật ký"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Nén các tệp nhật ký"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
-msgstr ""
+msgstr "Hạn chế quyền truy cập API thống kê COUNTER SUSHI cho người quản lý và quản trị viên"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Nền tảng"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
+msgstr "Theo giao thức COUNTER SUSHI, mỗi báo cáo thống kê phải xác định \"nền tảng\" cung cấp thống kê. Theo mặc định, tạp chí sẽ được chỉ định làm nền tảng cho tất cả thống kê. Tuy nhiên, nếu tất cả các tạp chí trên trang web này được xuất bản, sở hữu hoặc vận hành bởi cùng một nhà cung cấp, bạn có thể muốn chỉ định trang web làm nền tảng."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID nền tảng"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
+msgstr "Cách xác định nền tảng này trong báo cáo COUNTER SUSHI. ID nền tảng phải có 17 ký tự hoặc ít hơn và có thể chứa chữ cái (a–z, A–Z), chữ số (0–9), dấu gạch dưới (_), dấu chấm (.) và dấu gạch chéo (/). ID nền tảng được sử dụng trong một số cột và nên càng ngắn càng tốt trong khi vẫn dễ nhận biết. ID nền tảng thường dựa trên tên nhà xuất bản hoặc nền tảng, tên miền hoặc từ viết tắt duy nhất, nổi tiếng."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr ""
+msgstr "Cần có ID nền tảng khi trang web sẽ được xác định là nền tảng SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "Tùy chọn lệnh work"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "cách sử dụng : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Tùy chọn khả dụng cho lệnh work"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Tên kết nối hàng đợi để làm việc[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Tên hàng đợi để làm việc[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Tên của worker[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
-msgstr ""
+msgstr "Số giây chờ trước khi thử lại công việc gặp phải ngoại lệ chưa được bắt[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Giới hạn bộ nhớ tính bằng megabyte[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Số giây quy trình con có thể chạy[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
-msgstr ""
+msgstr "Số giây chờ khi không có công việc nào khả dụng[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
-msgstr ""
+msgstr "Số lần thử một công việc trước khi ghi nhật ký thất bại[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
-msgstr ""
+msgstr "Buộc worker chạy ngay cả ở chế độ bảo trì[mặc định : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Dừng khi hàng đợi trống[mặc định : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Số lượng công việc sẽ xử lý trước khi dừng[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
-msgstr ""
+msgstr "Thời gian tối đa (giây) worker nên chạy[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Số giây nghỉ giữa các công việc[mặc định : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Chạy worker deamon cho hàng đợi thử nghiệm"
 
-#~ msgid "admin.languages.download.cannotModifyRegistry"
-#~ msgstr ""
-#~ "Không thể thêm ngôn ngữ mới vào tệp đăng ký ngôn ngữ, thường là "
-#~ "\"registry/locales.xml\"."
-
-#~ msgid "admin.languages.download.cannotOpen"
-#~ msgstr "Không thể mở bộ mô tả ngôn ngữ từ trang web PKP."
-
-#~ msgid "admin.languages.downloadLocales"
-#~ msgstr "Tải xuống Các ngôn ngữ"
-
-#~ msgid "admin.languages.download"
-#~ msgstr "Tải xuống Ngôn ngữ"
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Sử dụng trang web làm nền tảng cho tất cả các tạp chí."

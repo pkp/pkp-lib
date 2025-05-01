@@ -514,18 +514,32 @@ abstract class Repository
      */
     public function canEditPublication(int $submissionId, int $userId): bool
     {
-        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
+        // block authors can never edit a published publication even if an editor granted them canChangeMetadata
+        $assignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->get();
 
-        // Check for permission from stage assignments
-        if ($stageAssignments->contains(fn ($stageAssignment) => $stageAssignment->canChangeMetadata)) {
+        $submission = $this->get($submissionId);
+        // any published or scheduled then probe
+        $hasLockedPublication = $submission
+            && $submission->getData('publications')
+                ->contains(fn($p) =>
+                    in_array(
+                        $p->getData('status'),
+                        [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED]
+                    )
+                );
+
+        if ($hasLockedPublication && !$assignments->contains(fn($sa) => $sa->userGroup && $sa->userGroup->roleId !== Role::ROLE_ID_AUTHOR)) {
+            return false;
+        }
+
+        if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
             return true;
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
         $context = Application::get()->getRequest()->getContext();
-        if ($stageAssignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+        if ($assignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
             return true;
         }
         // Else deny access

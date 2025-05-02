@@ -175,7 +175,7 @@ abstract class PKPDashboardHandler extends Handler
                     'contributorForm' => $contributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
                     'versionForm' => $versionForm->getConfig()
-                ]
+                ],
             ]
         ]);
 
@@ -218,13 +218,6 @@ abstract class PKPDashboardHandler extends Handler
             'SUBMISSION_REVIEW_METHOD_ANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
             'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
             'SUBMISSION_REVIEW_METHOD_OPEN' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
-
-            'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT,
-            'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS,
-            'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE,
-            'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE,
-            'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE,
-            'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS,
 
             'DECISION_ACCEPT' => Decision::ACCEPT,
             'DECISION_DECLINE' => Decision::DECLINE,

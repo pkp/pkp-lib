@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-08 03:51+0000\n"
+"PO-Revision-Date: 2025-04-11 17:19+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hy/>\n"
@@ -669,3 +669,12 @@ msgstr "Ցուցադրվում են միայն հեղինակների բաժին
 
 msgid "editor.review.allSections"
 msgstr "Խմբագրի ձևը ցույց է տալիս բոլոր գրախոսման բաժինները"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Գրախոսման վերջնաժամկետը պետք է ավելի մեծ կամ հավասար լինի պատասխանի ժամկետին:"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Գրախոսին ավելացնելիս սխալ տեղի ունեցավ, քանի որ վերանայման վերջնաժամկետը "
+"պետք է հավասար կամ ավելի մեծ լինի, քան պատասխանի վերջնաժամկետը:"

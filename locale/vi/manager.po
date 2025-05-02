@@ -1,8 +1,9 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2025-04-14 03:12+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/vi/>\n"
 "Language: vi\n"
@@ -10,27 +11,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Thông tin"
 
 msgid "manager.website.appearance"
-msgstr "Xuất hiện"
+msgstr "Giao diện"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
-"Một tệp hình ảnh là bắt buộc. Hãy đảm bảo rằng bạn đã chọn và tải lên một "
-"tệp."
+"Cần có một tập tin hình ảnh. Vui lòng đảm bảo rằng bạn đã chọn và tải lên "
+"một tập tin."
 
 msgid "manager.announcements"
 msgstr "Thông báo"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn thông báo này không?"
+msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn thông báo {$title} không?"
 
 msgid "manager.announcements.create"
-msgstr "Tạo thông báo mới"
+msgstr "Tạo Thông báo Mới"
 
 msgid "manager.announcements.createTitle"
 msgstr "Tạo"
@@ -39,19 +40,19 @@ msgid "manager.announcements.dateExpire"
 msgstr "Hết hạn"
 
 msgid "manager.announcements.datePublish"
-msgstr "Được phát hành"
+msgstr "Đã xuất bản"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr ""
+msgstr "Xóa Thông báo"
 
 msgid "manager.announcements.edit"
-msgstr "Chỉnh sửa thông báo"
+msgstr "Sửa Thông báo"
 
 msgid "manager.announcements.editTitle"
 msgstr "Sửa"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Vui lòng chọn một năm hoặc tháng cho ngày hết hạn."
+msgstr "Vui lòng chọn năm và/hoặc tháng cùng với ngày hết hạn."
 
 msgid "manager.announcements.form.dateExpire"
 msgstr "Ngày hết hạn"
@@ -59,359 +60,400 @@ msgstr "Ngày hết hạn"
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
 "Thông báo sẽ được hiển thị cho độc giả cho đến ngày này. Để trống nếu thông "
-"báo sẽ được hiển thị vô thời hạn."
+"báo cần được hiển thị vô thời hạn."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr "Vui lòng chọn một năm hoặc ngày cho tháng hết hạn."
+msgstr "Vui lòng chọn năm và/hoặc ngày cùng với tháng hết hạn."
 
 msgid "manager.announcements.form.dateExpireValid"
 msgstr "Vui lòng chọn ngày hết hạn thông báo hợp lệ."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Vui lòng chọn một tháng hoặc ngày cho năm hết hạn."
+msgstr "Vui lòng chọn tháng và/hoặc ngày cùng với năm hết hạn."
 
 msgid "manager.announcements.form.description"
-msgstr "Mô tả"
+msgstr "Nội dung Thông báo"
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Toàn văn thông báo."
+msgstr "Toàn bộ văn bản của thông báo."
 
 msgid "manager.announcements.form.descriptionRequired"
-msgstr "Mô tả thông báo là bắt buộc."
+msgstr "Cần có mô tả thông báo."
 
 msgid "manager.announcements.form.descriptionShortInstructions"
 msgstr "Mô tả ngắn gọn xuất hiện cùng với tiêu đề thông báo."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Mô tả thông báo ngắn gọn là bắt buộc."
+msgstr "Cần có mô tả thông báo ngắn gọn."
 
 msgid "manager.announcements.form.descriptionShort"
 msgstr "Mô tả ngắn gọn"
 
 msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Lưu và tạo một cái khác"
+msgstr "Lưu và Tạo cái khác"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr "Tiêu đề thông báo là bắt buộc."
+msgstr "Cần có tiêu đề thông báo."
 
 msgid "manager.announcements.form.title"
 msgstr "Tiêu đề"
 
 msgid "manager.announcements.form.typeId"
-msgstr "Kiểu"
+msgstr "Loại"
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr "Vui lòng chọn kiểu thông báo hợp lệ."
+msgstr "Vui lòng chọn loại thông báo hợp lệ."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Không có thông báo nào được tạo."
+msgstr "Chưa có thông báo nào được tạo."
 
 msgid "manager.announcements.title"
-msgstr "TIêu đề"
+msgstr "Tiêu đề"
 
 msgid "manager.announcements.type"
-msgstr "Kiểu"
+msgstr "Loại"
 
 msgid "manager.announcementTypes"
-msgstr "Các kiểu thông báo"
+msgstr "Các loại Thông báo"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
-"Cảnh báo! Tất cả các thông báo có kiểu thông báo này cũng sẽ bị xóa. Bạn có "
-"chắc chắn muốn tiếp tục và xóa kiểu thông báo này không?"
+"Cảnh báo! Tất cả các thông báo thuộc loại này cũng sẽ bị xóa. Bạn có chắc "
+"chắn muốn tiếp tục và xóa loại thông báo này không?"
 
 msgid "manager.announcementTypes.create"
-msgstr "Tạo kiểu thông báo"
+msgstr "Tạo Loại Thông báo"
 
 msgid "manager.announcementTypes.createTitle"
 msgstr "Tạo"
 
 msgid "manager.announcementTypes.edit"
-msgstr "Chỉnh sửa kiểu thông báo"
+msgstr "Sửa Loại Thông báo"
 
 msgid "manager.announcementTypes.editTitle"
-msgstr "Chỉnh sửa"
+msgstr "Sửa"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Lưu và tạo một cái khác"
+msgstr "Lưu và Tạo cái khác"
 
 msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Một kiểu thông báo với tên này đã tồn tại."
+msgstr "Một loại thông báo với tên này đã tồn tại."
 
 msgid "manager.announcementTypes.form.typeName"
 msgstr "Tên"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Tên kiểu thông báo là bắt buộc."
+msgstr "Cần có tên loại thông báo."
 
 msgid "manager.announcementTypes.noneCreated"
-msgstr "Không có thông báo nào được tạo."
+msgstr "Chưa có loại thông báo nào được tạo."
 
 msgid "manager.announcementTypes.typeName"
-msgstr "Các kiểu thông báo"
+msgstr "Loại Thông báo"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Ký gửi Tất cả"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Ký gửi DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Bạn sắp gửi bản ghi siêu dữ liệu DOI cho {$count} mục đến "
+"{$registrationAgency}. Bạn có chắc chắn muốn ký gửi những bản ghi này không?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Đánh dấu DOI Đã đăng ký"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Bạn sắp đánh dấu bản ghi siêu dữ liệu DOI cho {$count} mục là đã đăng ký. "
+"Bạn có chắc chắn muốn đánh dấu những bản ghi này là đã đăng ký không?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Đánh dấu DOI Chưa đăng ký"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Bạn sắp đánh dấu bản ghi siêu dữ liệu DOI cho {$count} mục là chưa đăng ký. "
+"Bạn có chắc chắn muốn đánh dấu những bản ghi này là chưa đăng ký không?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Đánh dấu DOI Cần Đồng bộ"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Bạn sắp đánh dấu bản ghi siêu dữ liệu DOI cho {$count} mục là cần được đồng "
+"bộ hóa. Trạng thái Cần Đồng bộ chỉ có thể áp dụng cho các DOI đã được gửi "
+"trước đó. Bạn có chắc chắn muốn đánh dấu những bản ghi này là cũ không?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Xuất DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Bạn sắp xuất bản ghi siêu dữ liệu DOI cho {$count} mục cho "
+"{$registrationAgency}. Bạn có chắc chắn muốn xuất những bản ghi này không?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Gán DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Bạn sắp gán DOI mới cho {$count} mục cho bất kỳ mục đủ điều kiện nào chưa có "
+"DOI được gán. Bạn có chắc chắn muốn gán DOI cho những mục này không?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Ký gửi tất cả DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Bạn sắp xếp lịch gửi tất cả các bản ghi siêu dữ liệu DOI còn tồn đọng đến "
+"{$registrationAgency}. Chỉ những mục đã xuất bản có DOI mới được ký gửi. "
+"Trạng thái của mỗi mục sẽ được cập nhật khi nhận được phản hồi. Bạn có chắc "
+"chắn muốn lên lịch ký gửi cho tất cả các mục này không?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Thực hiện hành động trên {$count} mục đã chọn."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Hành động Hàng loạt"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Trạng thái Ký gửi"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Trạng thái Xuất bản"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Siêu dữ liệu cho mục này đã được gửi đến {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Mục này đã được đăng ký thủ công với một cơ quan đăng ký."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Siêu dữ liệu cho mục này chưa được gửi đến {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Mục này không thể được ký gửi cho đến khi nó được xuất bản."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Xem Lỗi"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Thông báo Lỗi Đăng ký"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Xem Bản ghi"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Thông báo Đăng ký Thành công"
 
 msgid "manager.dois.update.success"
-msgstr ""
+msgstr "DOI đã được cập nhật thành công"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Ký gửi DOI"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Cần DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Chưa đăng ký"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Đã gửi"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Đã đăng ký"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Lỗi"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Có Lỗi"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Cần Đồng bộ"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI đã gán"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Tất cả các mục thiếu DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Tất cả các mục đã được gán DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Tất cả các mục có DOI đã được xuất bản nhưng chưa được ký gửi với cơ quan "
+"đăng ký."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Tất cả các mục đã được gửi đến cơ quan đăng ký."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Tất cả các mục đã được đăng ký với cơ quan đăng ký hoặc được đánh dấu thủ "
+"công là đã đăng ký."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Tất cả các mục gặp lỗi trong quá trình đăng ký."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Tất cả các mục đã được xuất bản lại kể từ lần cuối cùng được ký gửi với cơ "
+"quan đăng ký. Chúng cần được gửi lại cho cơ quan đăng ký để cập nhật bản ghi "
+"siêu dữ liệu của chúng."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Cập nhật DOI Thất bại"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Một số DOI không thể được cập nhật"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Các mục đã được xuất thành công"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Các mục đã được đánh dấu đăng ký thành công"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Các mục đã được đánh dấu chưa đăng ký thành công"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Các mục đã được đánh dấu cần đồng bộ thành công"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Các mục đã được gán DOI mới thành công"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Các mục đã được gửi để ký gửi thành công"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Trạng thái DOI"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Quản lý DOI đã được di chuyển. Vui lòng xem các trang <a href=\""
+"{$doiManagementUrl}\">Quản lý DOI</a> và <a href=\"{$doiSettingsUrl}\">Cài "
+"đặt DOI</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"Không thể gán DOI trừ khi bạn cung cấp tiền tố DOI được gán của mình. <a "
+"href=\"{$doiSettingsUrl}\">Thêm tiền tố DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Đã cố gắng tạo DOI, nhưng cần có tiền tố DOI cho ngữ cảnh để tạo một DOI."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Trước khi thành phần này có thể bị xóa, bạn phải liên kết tất cả các tập tin "
+"bài nộp liên quan với một thành phần khác."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Sửa Tổ chức"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
 msgstr ""
+"ID Sổ Đăng ký Tổ chức Nghiên cứu (Research Organization Registry ID) cho tổ "
+"chức này."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "Dải IP"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Các giá trị hợp lệ bao gồm địa chỉ IP (ví dụ: 142.58.103.1), dải IP (ví dụ: "
+"142.58.103.1 - 142.58.103.4), dải IP với ký tự đại diện '*' (ví dụ: 142."
+"58.*.*), và dải IP với CIDR (ví dụ: 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Xóa Tổ chức"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn tiếp tục và xóa tổ chức này không?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Dải IP không hợp lệ"
 
 msgid "manager.publication.submissionStage"
-msgstr "Bài gửi"
+msgstr "Nộp bài"
 
 msgid "manager.publication.reviewStage"
 msgstr "Phản biện"
 
 msgid "manager.publication.editorialStage"
-msgstr "Ban biên tập"
+msgstr "Biên tập"
 
 msgid "manager.publication.productionStage"
 msgstr "Sản xuất"
 
 msgid "manager.publication.emails"
-msgstr "E-mail"
+msgstr "Email"
 
 msgid "manager.publication.reviewerGuidance"
-msgstr "Hướng dẫn người phản biện"
+msgstr "Hướng dẫn Người phản biện"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Chi tiết nhắc nhở phản biện đã được cập nhật."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Lỗi sau đây được trả về bởi {$registrationAgency} và chứa chi tiết về nguyên "
+"nhân của lỗi:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Thông báo sau đây được trả về bởi {$registrationAgency} và chứa chi tiết về "
+"việc đăng ký:"
 
 msgid "manager.emails.addEmail"
-msgstr "Thêm mẫu"
+msgstr "Thêm Mẫu"
 
 msgid "manager.emails.createEmail"
 msgstr "Tạo Email"
 
 msgid "manager.emails.data"
-msgstr "Dữ liệu tin nhắn mẫu"
+msgstr "Dữ liệu Tin nhắn Mẫu"
 
 msgid "manager.emails.details"
-msgstr "Chi tiết về mẫu email"
+msgstr "Chi tiết Mẫu"
 
 msgid "manager.emails.disable"
 msgstr "Vô hiệu hóa"
 
 msgid "manager.emails.disable.message"
 msgstr ""
-"Bạn sắp tắt mẫu email này. Nếu có các quy trình hệ thống sử dụng mẫu này, "
-"chúng sẽ không sử dụng nó nữa. Bạn có muốn xác nhận thao tác này không?"
+"Bạn sắp vô hiệu hóa mẫu email này. Nếu có các quy trình hệ thống sử dụng mẫu "
+"này, chúng sẽ không sử dụng nó nữa. Bạn có muốn xác nhận thao tác này không?"
 
 msgid "manager.emails.editTestExample"
-msgstr "Chỉnh sửa ví dụ kiểm tra email"
+msgstr "Sửa Ví dụ Thử nghiệm Email"
 
 msgid "manager.emails.emailTemplate"
-msgstr "Mẫu email"
+msgstr "Mẫu Email"
 
 msgid "manager.emails.emailTemplates"
-msgstr "Mẫu email"
+msgstr "Mẫu Email"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Các Mẫu khác"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Bạn phải cung cấp ID ngữ cảnh khi thêm mẫu email."
 
 msgid "manager.emails.enabled"
-msgstr "Kích hoạt mẫu email"
+msgstr "Kích hoạt mẫu email này"
 
 msgid "manager.emails.enable"
 msgstr "Kích hoạt"
@@ -421,34 +463,33 @@ msgstr "Bạn sắp kích hoạt email này. Bạn có muốn xác nhận thao t
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
-"Khóa email duy nhất không chứa khoảng trắng hoặc ký tự đặc biệt là bắt buộc "
-"cho email."
+"Cần có khóa email duy nhất không chứa khoảng trắng hoặc ký tự đặc biệt cho "
+"email."
 
 msgid "manager.emails.form.bodyRequired"
-msgstr "Cần có phần nội dung cho email."
+msgstr "Cần có nội dung cho email."
 
 msgid "manager.emails.form.subjectRequired"
-msgstr "Một chủ đề là bắt buộc cho email."
+msgstr "Cần có tiêu đề cho email."
 
 msgid "manager.emails"
-msgstr "Email chuẩn bị trước"
+msgstr "Email soạn sẵn"
 
 msgid "manager.emails.resetAll"
-msgstr "Đặt lại tất cả"
+msgstr "Đặt lại Tất cả"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
-"Nếu bạn đặt lại tất cả các mẫu, tất cả các sửa đổi đối với các mẫu email sẽ "
-"bị mất. Bạn có muốn xác nhận thao tác này không?"
+"Nếu bạn đặt lại tất cả các mẫu, mọi sửa đổi đối với các mẫu email sẽ bị mất. "
+"Bạn có muốn xác nhận thao tác này không?"
 
 msgid "manager.emails.reset.message"
 msgstr ""
 "Nếu bạn đặt lại mẫu này, tất cả dữ liệu tin nhắn sẽ được đặt lại về giá trị "
-"mặc định, làm mất tất cả các sửa đổi. Bạn có muốn xác nhận thao tác này "
-"không?"
+"mặc định, mất tất cả các sửa đổi. Bạn có muốn xác nhận thao tác này không?"
 
 msgid "manager.emails.resetToDefault"
-msgstr "Đặt thành mặc định"
+msgstr "Đặt lại về Mặc định"
 
 msgid "manager.emails.sentFrom"
 msgstr "Gửi từ"
@@ -457,113 +498,112 @@ msgid "manager.emails.sentTo"
 msgstr "Gửi đến"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Xuất sang Excel/CSV"
 
 msgid "manager.export.usersToCsv.description"
-msgstr ""
+msgstr "Chọn người dùng cần xuất sang tệp Excel/CSV."
 
 msgid "manager.filesBrowser"
-msgstr "Duyệt tệp"
+msgstr "Trình duyệt Tệp"
 
 msgid "manager.files.confirmDelete"
 msgstr ""
-"Xóa tệp hoặc thư mục này? Lưu ý rằng một thư mục phải trống trước khi nó có "
-"thể bị xóa."
+"Xóa tệp hoặc thư mục này? Lưu ý rằng một thư mục phải trống trước khi có thể "
+"bị xóa."
 
 msgid "manager.files.createDir"
-msgstr "Tạo thư mục"
+msgstr "Tạo Thư mục"
 
 msgid "manager.files.emptyDir"
-msgstr "Không có tệp nào được tìm thấy trong thư mục này."
+msgstr "Không tìm thấy tệp nào trong thư mục này."
 
 msgid "manager.files.indexOfDir"
 msgstr "Chỉ mục của {$dir}"
 
 msgid "manager.files.parentDir"
-msgstr "Thư mục chính"
+msgstr "Thư mục Cha"
 
 msgid "manager.files.uploadedFiles"
-msgstr "Các tập tin đã tải lên"
+msgstr "Tệp đã Tải lên"
 
 msgid "manager.files.uploadFile"
-msgstr "Tải tập tin"
+msgstr "Tải lên Tệp"
 
 msgid "manager.groups.confirmDelete"
 msgstr "Bạn có chắc chắn muốn xóa nhóm này không?"
 
 msgid "manager.groups.createTitle"
-msgstr "Tạo tiêu đề"
+msgstr "Tạo Tiêu đề"
 
 msgid "manager.groups.editTitle"
-msgstr "Chỉnh sửa tiêu đề"
+msgstr "Sửa Tiêu đề"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr "Một tiêu đề nhóm là bắt buộc."
+msgstr "Cần có tiêu đề nhóm."
 
 msgid "manager.groups.membership.addMember"
-msgstr "Thêm thành viên"
+msgstr "Thêm Thành viên"
 
 msgid "manager.groups.membership.confirmDelete"
-msgstr "Bạn có chắc chắn muốn xóa tư cách thành viên nhóm này không?"
+msgstr "Bạn có chắc chắn muốn xóa thành viên nhóm này không?"
 
 msgid "manager.groups.membership"
 msgstr "Thành viên"
 
 msgid "manager.groups.membership.noneCreated"
-msgstr "Nhóm này không có thành viên."
+msgstr "Nhóm này không có thành viên nào."
 
 msgid "manager.groups.membership.noUsers"
-msgstr "Không có người dùng nào được tìm thấy."
+msgstr "Không tìm thấy người dùng nào."
 
 msgid "manager.groups.title"
 msgstr "Tiêu đề"
 
 msgid "manager.importExport"
-msgstr "Nhập/Xuất dữ liệu"
+msgstr "Nhập/Xuất Dữ liệu"
 
 msgid "manager.language.ui"
-msgstr "Giao diện người dùng"
+msgstr "Giao diện người dùng (UI)"
 
 msgid "manager.language.submissions"
-msgstr "Bài gửi"
+msgstr "Bài nộp"
 
 msgid "manager.language.forms"
-msgstr "Hình thức"
+msgstr "Biểu mẫu"
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Tải lại mặc định"
+msgstr "Tải lại cài đặt mặc định"
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
-"Hệ thống này tùy chọn cho phép một số thông tin quan trọng được nhập bằng "
-"một số ngôn ngữ bổ sung. Để sử dụng tính năng này, hãy chọn ngôn ngữ thay "
+"Hệ thống này tùy chọn cho phép nhập một số thông tin quan trọng bằng nhiều "
+"ngôn ngữ bổ sung. Để sử dụng tính năng này, hãy chọn các bản địa hóa thay "
 "thế và chọn từ các tùy chọn được liệt kê bên dưới."
 
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
-"Chọn tất cả các ngôn ngữ để hỗ trợ trên trang web thông qua menu chọn ngôn "
-"ngữ xuất hiện trên mỗi trang. Menu sẽ chỉ xuất hiện nếu nhiều ngôn ngữ được "
-"chọn."
+"Chọn tất cả các bản địa hóa để hỗ trợ trên trang web thông qua menu chọn "
+"ngôn ngữ xuất hiện trên mỗi trang. Menu sẽ chỉ xuất hiện nếu có nhiều hơn "
+"một bản địa hóa được chọn."
 
 msgid "manager.payment.timestamp"
 msgstr "Dấu thời gian"
 
 msgid "manager.people.existingUserRequired"
-msgstr "Một người dùng hiện tại phải được nhập."
+msgstr "Phải nhập một người dùng hiện có."
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Hủy đăng ký người dùng này?"
 
 msgid "manager.people.createUser"
-msgstr "Tạo Người dùng mới"
+msgstr "Tạo Người dùng Mới"
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr "Tạo một mật khẩu ngẫu nhiên."
+msgstr "Tạo mật khẩu ngẫu nhiên."
 
 msgid "manager.people.createUserSendNotify"
 msgstr ""
-"Gửi cho người dùng một email chào mừng có chứa tên người dùng và mật khẩu "
-"của họ."
+"Gửi cho người dùng email chào mừng chứa tên người dùng và mật khẩu của họ."
 
 msgid "manager.people.disable"
 msgstr "Vô hiệu hóa"
@@ -572,26 +612,26 @@ msgid "manager.people.doNotEnroll"
 msgstr "Không có vai trò"
 
 msgid "manager.people.editProfile"
-msgstr "Chỉnh sửa hồ sơ"
+msgstr "Sửa Hồ sơ"
 
 msgid "manager.people.editUser"
-msgstr "Chỉnh sửa Người dùng"
+msgstr "Sửa Người dùng"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Gửi email đến những người dùng đã chọn"
+msgstr "Gửi email cho người dùng đã chọn"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Gửi email cho người dùng đã đăng ký là"
+msgstr "Gửi email cho người dùng đã đăng ký với vai trò"
 
 msgid "manager.people.emailUsers"
-msgstr "Gửi email cho người dùng"
+msgstr "Gửi Email cho Người dùng"
 
 msgid "manager.people.emailUsers.selectLocale"
-msgstr "Chọn một ngôn ngữ"
+msgstr "Chọn một bản địa hóa"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Chọn những người dùng bạn muốn gửi email bằng cách chọn hộp bên cạnh tên của "
+"Chọn người dùng bạn muốn gửi email bằng cách đánh dấu vào ô bên cạnh tên của "
 "họ"
 
 msgid "manager.people.enable"
@@ -604,72 +644,71 @@ msgid "manager.people.enrollment"
 msgstr "Đăng ký"
 
 msgid "manager.people.enrollSelected"
-msgstr "Đăng ký những người dùng đã chọn"
+msgstr "Đăng ký Người dùng Đã chọn"
 
 msgid "manager.people.enrollSyncRole"
 msgstr "Đồng bộ hóa vai trò"
 
 msgid "manager.people.enrollSync"
-msgstr "Đồng bộ hoá đăng ký"
+msgstr "Đồng bộ hóa Đăng ký"
 
 msgid "manager.people.enrollUserAsDescription"
 msgstr ""
-"Người dùng có thể được chỉ định hoặc xóa bỏ một vai trò tại bất kỳ thời điểm "
-"nào."
+"Người dùng có thể được gán vào hoặc xóa khỏi một vai trò tại bất kỳ thời "
+"điểm nào."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Đăng ký người dùng với vai trò"
 
 msgid "manager.people.invalidUser"
-msgstr "Xin lỗi, người dùng được yêu cầu là không tồn tại."
+msgstr "Xin lỗi, người dùng được yêu cầu không tồn tại."
 
 msgid "manager.people.mergeUser"
-msgstr "Hợp nhất người dùng"
+msgstr "Hợp nhất Người dùng"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"Bạn có chắc chắn muốn hợp nhất (các) tài khoản {$oldAccountCount} đã chọn "
-"vào tài khoản có tên người dùng \"{$newUsername}\" không? Các tài khoản "
-"{$oldAccountCount} đã chọn sẽ không tồn tại sau đó. Hành động này là không "
-"thể đảo ngược."
+"Bạn có chắc chắn muốn hợp nhất {$oldAccountCount} tài khoản đã chọn vào tài "
+"khoản có tên người dùng \"{$newUsername}\" không? {$oldAccountCount} tài "
+"khoản đã chọn sẽ không còn tồn tại sau đó. Hành động này không thể hoàn tác."
 
 msgid "manager.people.mergeUsers"
-msgstr "Hợp nhất người dùng"
+msgstr "Hợp nhất Người dùng"
 
 msgid "manager.people.mustChooseRole"
 msgstr ""
-"Vui lòng chọn một vai trò ở đầu trang trước khi nhấp vào \"Đăng ký người dùng"
-"\"."
+"Vui lòng chọn một vai trò ở đầu trang trước khi nhấp vào \"Đăng ký Người "
+"dùng\"."
 
 msgid "manager.people.mustProvideName"
-msgstr "Đầu tiên, xin vui lòng cung cấp họ của người dùng."
+msgstr "Vui lòng cung cấp ít nhất họ cho người dùng trước."
 
 msgid "manager.people.noMatchingUsers"
-msgstr "Không có người dùng phù hợp."
+msgstr "Không có người dùng nào phù hợp."
 
 msgid "manager.people.noneEnrolled"
-msgstr "Không có người dùng đã đăng ký."
+msgstr "Không có người dùng nào được đăng ký."
 
 msgid "manager.people"
-msgstr "Mọi người"
+msgstr "Người dùng"
 
 msgid "manager.people.remove"
-msgstr "Loại bỏ"
+msgstr "Xóa"
 
 msgid "manager.people.saveAndCreateAnotherUser"
-msgstr "Lưu và tạo một người dùng khác"
+msgstr "Lưu và Tạo Người dùng Khác"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Bạn hiện đang đăng nhập với tư cách {$username}"
 
 msgid "manager.people.signInAs"
-msgstr "Đăng nhập với"
+msgstr "Đăng nhập Với tư cách"
 
 msgid "manager.people.signInAsUser"
-msgstr "Đăng nhập với Người dùng"
+msgstr "Đăng nhập với tư cách Người dùng"
 
 msgid "manager.people.syncUsers"
-msgstr "Đồng bộ hóa đăng ký người dùng"
+msgstr "Đồng bộ hóa Đăng ký Người dùng"
 
 msgid "manager.people.unenroll"
 msgstr "Hủy đăng ký"
@@ -678,181 +717,194 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Người dùng đã được tạo thành công."
 
 msgid "manager.people.userMustChangePassword"
-msgstr ""
-"Yêu cầu người dùng thay đổi mật khẩu của họ trong lần đăng nhập tiếp theo."
+msgstr "Yêu cầu người dùng thay đổi mật khẩu vào lần đăng nhập tiếp theo."
 
 msgid "manager.plugins.action"
-msgstr "Hoạt động:"
+msgstr "Hành động:"
 
 msgid "manager.plugins.disable"
-msgstr "Vô hiệu hoá"
+msgstr "Vô hiệu hóa"
 
 msgid "manager.plugins.enable"
 msgstr "Kích hoạt"
 
 msgid "manager.plugins.pluginManagement"
-msgstr "Trình cắm (plugin) Quản lý"
+msgstr "Quản lý Plugin"
 
 msgid "manager.plugins.sitePlugin"
 msgstr ""
-"Đây là một plugin trên toàn trang. Chỉ Quản trị viên trang web mới có thể "
+"Đây là một plugin toàn trang web. Chỉ Quản trị viên Trang web mới có thể "
 "quản lý plugin này."
 
 msgid "manager.plugins"
-msgstr "Các Trình cắm hệ thống"
+msgstr "Plugin Hệ thống"
 
 msgid "manager.readingTools"
-msgstr "Các công cụ đọc"
+msgstr "Công cụ Đọc"
 
 msgid "manager.userSearch.searchByName"
-msgstr "Tìm kiếm Người dùng Theo tên"
+msgstr "Tìm kiếm Người dùng theo Tên"
 
 msgid "manager.representative.inUse"
 msgstr ""
-"Bạn không thể xóa đại diện này vì họ được gán cho siêu dữ liệu thị trường "
-"cho một hoặc nhiều định dạng xuất bản cho lần gửi này."
+"Bạn không thể xóa người đại diện này vì họ được gán cho siêu dữ liệu thị "
+"trường cho một hoặc nhiều định dạng xuất bản cho bài nộp này."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Thay đổi"
 
 msgid "manager.reviewerSearch.searchByName"
-msgstr "Tìm kiếm Người phản biện Theo tên"
+msgstr "Tìm kiếm Người phản biện theo Tên"
 
 msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Tìm kiếm Theo tên"
+msgstr "Tìm theo Tên"
 
 msgid "manager.reviewerSearch.interests"
-msgstr "Lĩnh vực phản biện"
+msgstr "Lĩnh vực Quan tâm Phản biện"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
-"Sử dụng biểu mẫu bên dưới để đặt giá trị tối đa cho các cụm từ bạn muốn tìm "
-"kiếm. Biểu mẫu được điền trước với giá trị trung bình được tính toán của các "
-"trường đó."
+"Sử dụng biểu mẫu bên dưới để đặt giá trị tối đa cho các thuật ngữ bạn muốn "
+"tìm kiếm. Biểu mẫu được điền sẵn với các giá trị trung bình được tính toán "
+"của các trường đó."
 
 msgid "manager.roles"
-msgstr "Các Vai trò"
+msgstr "Vai trò"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Thống kê"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Thống kê Địa lý"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Chọn loại thống kê sử dụng địa lý để thu thập. Thống kê địa lý chi tiết hơn "
+"có thể làm tăng đáng kể kích thước cơ sở dữ liệu của bạn và trong một số "
+"trường hợp hiếm hoi, có thể làm giảm tính ẩn danh của khách truy cập."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Không thu thập bất kỳ dữ liệu địa lý nào"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Thu thập quốc gia của khách truy cập"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Thu thập quốc gia và khu vực của khách truy cập"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Thu thập quốc gia, khu vực và thành phố của khách truy cập"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Thống kê Tổ chức"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Kích hoạt thống kê tổ chức nếu bạn muốn thu thập thống kê sử dụng theo tổ "
+"chức. Nếu được kích hoạt, bạn sẽ cần cấu hình dải IP cho mỗi tổ chức bạn "
+"muốn theo dõi."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Kích hoạt thống kê tổ chức"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "API Công khai"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Có hạn chế quyền truy cập vào các điểm cuối API cho thống kê COUNTER SUSHI "
+"hay không. Nếu không được chọn, API sẽ chỉ có thể truy cập bởi người dùng có "
+"vai trò quản trị viên hoặc quản lý."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Cung cấp công khai thống kê COUNTER SUSHI"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Tạo Báo cáo"
+msgstr "Báo cáo"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
-"Hệ thống tạo báo cáo theo dõi các chi tiết liên quan đến việc sử dụng trang "
-"web và gửi trong một khoảng thời gian nhất định. Báo cáo được tạo ở định "
-"dạng CSV yêu cầu ứng dụng bảng tính để xem."
+"Hệ thống tạo ra các báo cáo theo dõi chi tiết liên quan đến việc sử dụng "
+"trang web và các bài nộp trong một khoảng thời gian nhất định. Báo cáo được "
+"tạo ở định dạng CSV, yêu cầu một ứng dụng bảng tính để xem."
 
 msgid "manager.statistics.reports.month.label"
-msgstr "Sử dụng định dạng (Năm-Tháng) NNNNTT."
+msgstr "Sử dụng định dạng YYYYMM."
 
 msgid "manager.statistics.reports.day.label"
-msgstr "Sử dụng định dạng (Năm-Tháng-ngày)  YYYYMMDD."
+msgstr "Sử dụng định dạng YYYYMMDD."
 
 msgid "manager.affiliationAndSupport"
 msgstr "Nhà tài trợ"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Thiết lập"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Đăng ký"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Tiền tố DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Ký gửi Tự động"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Kích hoạt ký gửi tự động"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"Đăng ký DOI và siêu dữ liệu có thể được tự động ký gửi với cơ quan đăng ký "
+"đã chọn bất cứ khi nào một mục có DOI được xuất bản. Ký gửi tự động sẽ diễn "
+"ra theo lịch trình và trạng thái đăng ký của mỗi DOI có thể được theo dõi từ "
+"trang quản lý DOI."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Tiền tố DOI được cấp bởi các cơ quan đăng ký (ví dụ: <a href=\"http://www."
-"crossref.org\" target=\"_new\">Crossref</a>) và có định dạng 10.xxxx (ví dụ: "
-"10.1234):"
+"Tiền tố DOI được gán bởi một cơ quan đăng ký, chẳng hạn như <a href=\"https"
+"://www.crossref.org\" target=\"_new\">Crossref</a> hoặc <a href=\"https"
+"://datacite.org/\" target=\"new\">DataCite</a>. Ví dụ: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "Tiền tố DOI là bắt buộc và phải ở định dạng sau: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Gán DOI Tự động"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Khi nào một bài nộp nên được gán DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Khi xuất bản"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Không bao giờ"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "Tiền tố DOI"
 
 msgid "doi.manager.settings.doiObjects"
-msgstr "Nội dung tạp chí"
+msgstr "Các mục có DOI"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Cần có tiền tố DOI"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "Hậu tố DOI"
+msgstr "Định dạng DOI"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Hậu tố DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Mẫu Hậu tố DOI Tùy chỉnh"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Một hoặc nhiều loại DOI đã chọn không được phép cho cơ quan đăng ký DOI đã "
+"cấu hình."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -860,60 +912,64 @@ msgstr ""
 "các đối tượng xuất bản có cùng tiền tố DOI được gán:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Sử dụng các mẫu mặc định."
+msgstr "Mặc định - Tự động tạo hậu tố gồm tám ký tự duy nhất"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Không - Hậu tố phải được nhập thủ công trên <a href=\"{$doiManagementUrl}\""
+">trang quản lý DOI</a> và sẽ không được tạo tự động"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Mẫu tùy chỉnh - (không khuyến nghị)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Cơ quan Đăng ký"
 
 msgid "doi.manager.settings.registrationAgency.description"
-msgstr ""
+msgstr "Vui lòng chọn cơ quan đăng ký bạn muốn sử dụng khi ký gửi DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Không có Cơ quan Đăng ký nào được kích hoạt"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI có thể được tự động tạo và ký gửi với một cơ quan đăng ký. Để sử dụng "
+"tính năng này, hãy tìm và cài đặt một plugin từ cơ quan đăng ký phù hợp."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Không có"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Phiên bản DOI"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Bạn không thể gọi thao tác này mà không kích hoạt DOI."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Có {$count} phiên bản."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Xem tất cả"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI cho tất cả các phiên bản"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI chứa các ký tự không hợp lệ."
 
 msgid "manager.setup.publishing"
-msgstr "Chi tiết xuất bản"
+msgstr "Chi tiết Xuất bản"
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
-"Các chi tiết này có thể được bao gồm trong siêu dữ liệu được cung cấp cho "
-"các cơ quan lưu trữ của bên thứ ba."
+"Những chi tiết này có thể được bao gồm trong siêu dữ liệu được cung cấp cho "
+"các cơ quan lưu trữ bên thứ ba."
 
 msgid "manager.setup.additionalContent"
-msgstr "Nội dung bổ sung"
+msgstr "Nội dung Bổ sung"
 
 msgid "manager.setup.additionalContent.description"
-msgstr "Mọi thứ được nhập vào đây sẽ xuất hiện trên trang chủ của bạn."
+msgstr "Bất cứ điều gì được nhập ở đây sẽ xuất hiện trên trang chủ của bạn."
 
 msgid "manager.setup.advanced"
 msgstr "Nâng cao"
@@ -927,7 +983,7 @@ msgstr ""
 "trình gửi."
 
 msgid "manager.setup.authorGuidelines"
-msgstr "Hướng dẫn tác giả"
+msgstr "Hướng dẫn Tác giả"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
@@ -936,35 +992,35 @@ msgstr ""
 "gửi."
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Vô hiệu hóa Nộp bài"
 
 msgid "manager.setup.checklist"
-msgstr "Danh mục kiểm tra"
+msgstr "Danh sách Kiểm tra"
 
 msgid "manager.setup.competingInterests"
-msgstr "Lợi ích cạnh tranh"
+msgstr "Xung đột Lợi ích"
 
 msgid "manager.setup.errorDeletingItem"
 msgstr "Đã xảy ra lỗi khi xóa mục này."
 
 msgid "manager.setup.favicon"
-msgstr "Biểu tượng"
+msgstr "Favicon"
 
 msgid "manager.setup.homepageImage"
 msgstr "Ảnh Trang chủ"
 
 msgid "manager.setup.homepageImage.description"
-msgstr "Tải lên hình ảnh để hiển thị nổi bật trên trang chủ."
+msgstr "Tải lên một hình ảnh để hiển thị nổi bật trên trang chủ."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr ""
-"Định dạng hình ảnh trang chủ không hợp lệ hoặc tải lên không thành công. Các "
-"định dạng được chấp nhận là .gif, .jpg hoặc .png."
+"Định dạng ảnh trang chủ không hợp lệ hoặc tải lên không thành công. Các định "
+"dạng được chấp nhận là .gif, .jpg hoặc .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
 msgstr ""
-"Định dạng hình ảnh tiêu đề tiêu đề trang chủ không hợp lệ hoặc tải lên không "
-"thành công. Các định dạng được chấp nhận là .gif, .jpg hoặc .png."
+"Định dạng ảnh tiêu đề đầu trang chủ không hợp lệ hoặc tải lên không thành "
+"công. Các định dạng được chấp nhận là .gif, .jpg hoặc .png."
 
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Mô tả"
@@ -974,77 +1030,83 @@ msgstr "Thanh bên"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
-"Không thể tìm thấy khối {$name}. Hãy đảm bảo rằng plugin đã được cài đặt và "
+"Khối {$name} không thể tìm thấy. Vui lòng đảm bảo plugin đã được cài đặt và "
 "kích hoạt."
 
 msgid "manager.setup.loggingAndAuditing"
-msgstr "Ghi nhật ký và Kiểm tra"
+msgstr "Ghi nhật ký và Kiểm toán"
 
 msgid "manager.setup.logo"
 msgstr "Logo"
 
 msgid "manager.setup.noTemporaryFile"
-msgstr ""
-"Không thể tìm thấy tệp đã tải lên. Xin vui lòng thử tải lại nó một lần nữa."
+msgstr "Không tìm thấy tệp bạn đã tải lên. Vui lòng thử tải lên lại."
 
 msgid "manager.setup.notifications"
-msgstr "Thông báo cho Tác giả"
+msgstr "Thông báo Nộp bài của Tác giả"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Gửi một bản sao đến địa chỉ email này"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Thông báo cho Tất cả Tác giả"
 
 msgid "manager.setup.notifyAllAuthors.description"
-msgstr ""
+msgstr "Ai sẽ nhận được email thông báo khi quyết định biên tập được ghi lại?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Gửi email thông báo cho tất cả các tác giả của bài nộp."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Chỉ gửi email cho các tác giả được gán vào quy trình làm việc của bài nộp. "
+"Thông thường, đây là tác giả nộp bài."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Thông báo"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Thông báo cho Liên hệ Chính"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Có, gửi một bản sao đến {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Không"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Thông báo cho Bất kỳ ai"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Một bản sao của email xác nhận nộp bài sẽ được gửi đến bất kỳ địa chỉ email "
+"nào được nhập tại đây. Phân tách nhiều địa chỉ email bằng dấu phẩy. Ví dụ: "
+"one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Một hoặc nhiều địa chỉ email này không hợp lệ."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
-"Các tác giả sẽ tự động được gửi một email xác nhận họ đã gửi. Bạn có thể có "
-"các bản sao của email này được gửi tới những địa chỉ sau:"
+"Tác giả sẽ tự động nhận được email xác nhận bài nộp của họ. Bạn có thể yêu "
+"cầu gửi bản sao của email này đến những địa chỉ sau:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Thông báo"
 
 msgid "manager.setup.notifyUsers.description"
-msgstr ""
+msgstr "Chọn người dùng sẽ nhận thông báo email của bạn."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Gửi một bản sao của email này cho tôi tại {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Gửi Email"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"Bạn sắp gửi email đến {$total} người dùng. Bạn có chắc chắn muốn gửi email "
+"này không?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1053,21 +1115,20 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Gửi email khác"
 
 msgid "manager.setup.openAccessPolicy"
-msgstr "Chính sách truy cập mở"
+msgstr "Chính sách Truy cập Mở"
 
 msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
-"Nếu cung cấp quyền truy cập miễn phí ngay lập tức vào tất cả nội dung đã "
-"xuất bản, bạn có thể nhập mô tả về Chính sách truy cập mở của mình."
+"Nếu cung cấp quyền truy cập miễn phí ngay lập tức cho tất cả nội dung đã "
+"xuất bản, bạn có thể nhập mô tả về Chính sách Truy cập Mở của mình."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
-"Định dạng hình ảnh biểu tượng thương hiệu (logo) tiêu đề trang không hợp lệ "
-"hoặc tải lên không thành công. Các định dạng được chấp nhận là .gif, .jpg "
-"hoặc .png."
+"Định dạng ảnh logo đầu trang không hợp lệ hoặc tải lên không thành công. Các "
+"định dạng được chấp nhận là .gif, .jpg hoặc .png."
 
 msgid "manager.setup.pageFooter"
 msgstr "Chân trang"
@@ -1079,76 +1140,81 @@ msgstr ""
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
-"Vạch ra chính sách và quy trình bình duyệt cho độc giả và tác giả. Mô tả này "
-"thường bao gồm số lượng người đánh giá thường được sử dụng để đánh giá một "
-"bài nộp, các tiêu chí mà người đánh giá được yêu cầu đánh giá các bài nộp, "
-"thời gian dự kiến cần thiết để tiến hành đánh giá và các nguyên tắc được sử "
-"dụng để chọn người đánh giá."
+"Mô tả chính sách và quy trình phản biện chuyên gia cho độc giả và tác giả. "
+"Mô tả này thường bao gồm số lượng người phản biện thường được sử dụng trong "
+"việc phản biện một bài nộp, các tiêu chí mà người phản biện được yêu cầu "
+"đánh giá bài nộp, thời gian dự kiến cần thiết để tiến hành phản biện và các "
+"nguyên tắc được sử dụng để chọn người phản biện."
 
 msgid "manager.setup.principalContact"
-msgstr "Liên lạc chính"
+msgstr "Liên hệ Chính"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Nhập chi tiết liên hệ, thường cho vị trí biên tập chính, quản lý biên tập "
-"hoặc vị trí nhân viên hành chính, có thể được hiển thị trên trang web có thể "
-"truy cập công khai của bạn."
+"Nhập chi tiết liên hệ, thường là cho vị trí tổng biên tập chính, biên tập "
+"viên quản lý hoặc nhân viên hành chính, có thể được hiển thị trên trang web "
+"công khai của bạn."
 
 msgid "manager.setup.privacyStatement"
-msgstr "Cam kết bảo mật"
+msgstr "Tuyên bố về Quyền riêng tư"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Ngày & Giờ"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Định dạng Ngày và Giờ"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Chọn định dạng ưa thích cho ngày và giờ. Có thể nhập định dạng tùy chỉnh "
+"bằng cách sử dụng các <a href=\"https://www.php.net/manual/en/function."
+"strftime.php#refsect1-function.strftime-parameters\">ký tự định dạng</a> đặc "
+"biệt."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr ""
+msgstr "Ngày"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr ""
+msgstr "Ngày (Ngắn)"
 
 msgid "manager.setup.dateTime.time"
-msgstr ""
+msgstr "Giờ"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr ""
+msgstr "Ngày & Giờ"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr ""
+msgstr "Ngày & Giờ (Ngắn)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr ""
+msgstr "Tùy chỉnh"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
-"Tuyên bố này sẽ xuất hiện trong quá trình đăng ký người dùng, gửi tác giả và "
-"trên trang Quyền riêng tư có sẵn công khai. Ở một số khu vực pháp lý, về mặt "
-"pháp lý, bạn được yêu cầu tiết lộ cách bạn xử lý dữ liệu người dùng trong "
-"chính sách bảo mật này."
+"Tuyên bố này sẽ xuất hiện trong quá trình đăng ký người dùng, nộp bài của "
+"tác giả và trên trang Quyền riêng tư công khai. Ở một số khu vực pháp lý, "
+"bạn bắt buộc phải tiết lộ cách bạn xử lý dữ liệu người dùng trong chính sách "
+"bảo mật này."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Thời hạn phản hồi mặc định"
+msgstr "Hạn chót Phản hồi Mặc định"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Thời hạn hoàn thành mặc định"
+msgstr "Hạn chót Hoàn thành Mặc định"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Số tuần để chấp nhận hoặc từ chối Yêu cầu phản biện."
+msgstr "Số tuần để chấp nhận hoặc từ chối yêu cầu phản biện."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Các tuần được phép để hoàn thành phản biện"
+msgstr "Số tuần được phép để hoàn thành phản biện"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Chưa bao giờ nhắc nhở"
+msgstr "Không bao giờ Nhắc nhở"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr ""
-"Các mặc định cho mỗi bài đánh giá có thể sửa đổi trong quá trình biên tập."
+"Các giá trị mặc định có thể được sửa đổi cho mỗi lần phản biện trong quá "
+"trình biên tập."
 
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Lời nhắc phản hồi"
@@ -1167,21 +1233,20 @@ msgstr ""
 "sau ngày hết hạn đánh giá."
 
 msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Chế độ phản biện mặc định"
+msgstr "Chế độ Phản biện Mặc định"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Trình bày một liên kết đến <button type = \"button\"> Đảm bảo Phản biện kín "
-"</button> trong quá trình tải lên"
+"Hiển thị liên kết đến <button type=\"button\">cách đảm bảo tất cả các tệp "
+"được ẩn danh</button> trong quá trình tải lên"
 
 msgid "manager.setup.sponsors.note"
-msgstr "Mô tả Mối quan hệ và Chính sách tài trợ"
+msgstr "Mối quan hệ Nhà tài trợ và Mô tả Chính sách"
 
 msgid "manager.setup.sponsors.description"
 msgstr ""
-"Ví dụ: hiệp hội học giả, khoa đại học, hợp tác xã, v.v. Các nhà tài trợ được "
-"hiển thị công khai."
+"Ví dụ: hiệp hội học thuật, khoa của trường đại học, hợp tác xã, v.v. Nhà tài "
+"trợ được hiển thị công khai."
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
@@ -1189,82 +1254,103 @@ msgstr ""
 "thêm giao diện của trang web."
 
 msgid "manager.setup.technicalSupportContact"
-msgstr "Liên hệ hỗ trợ kỹ thuật"
+msgstr "Liên hệ Hỗ trợ Kỹ thuật"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
-"Người hỗ trợ kỹ thuật - người có thể hỗ trợ biên tập viên, tác giả và người "
-"đánh giá về bất kỳ vấn đề nào mà họ gặp phải khi gửi, chỉnh sửa, đánh giá "
-"hoặc xuất bản tài liệu."
+"Một người liên hệ có thể hỗ trợ biên tập viên, tác giả và người phản biện "
+"với bất kỳ vấn đề nào họ gặp phải khi nộp, chỉnh sửa, phản biện hoặc xuất "
+"bản tài liệu."
 
 msgid "manager.setup.theme"
-msgstr "Chủ đề"
+msgstr "Giao diện"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Các tổ chức"
 
 msgid "manager.setup.theme.description"
-msgstr "Các chủ đề mới có thể được cài đặt từ tab Plugin ở đầu trang này."
+msgstr "Các giao diện mới có thể được cài đặt từ tab Plugin ở đầu trang này."
 
 msgid "manager.setup.theme.notFound"
-msgstr "Chủ đề bạn đã chọn chưa được cài đặt hoặc kích hoạt."
+msgstr "Giao diện bạn chọn chưa được cài đặt hoặc kích hoạt."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trước khi họ bắt đầu nộp bài. "
+"Cung cấp giải thích ngắn gọn về quy trình nộp bài để tác giả biết điều gì sẽ "
+"xảy ra."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trong bước tải lên tệp. Cung cấp "
+"giải thích ngắn gọn về những tệp mà tác giả dự kiến sẽ chia sẻ cùng với bài "
+"nộp của họ."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trong bước đóng góp. Cung cấp "
+"giải thích ngắn gọn về những thông tin mà tác giả nên cung cấp về bản thân, "
+"đồng tác giả và bất kỳ người đóng góp nào khác."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trong bước chi tiết, khi họ được "
+"yêu cầu cung cấp tiêu đề, tóm tắt và các thông tin quan trọng khác về bài "
+"nộp của họ."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trong bước Dành cho Biên tập "
+"viên, khi họ được yêu cầu cung cấp siêu dữ liệu như từ khóa, nhận xét cho "
+"biên tập viên và các chi tiết khác để hỗ trợ quá trình phản biện biên tập."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trong bước cuối cùng của trình "
+"hướng dẫn nộp bài, khi họ được yêu cầu xem lại tất cả thông tin họ đã cung "
+"cấp trước khi nộp tác phẩm của mình."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Hướng dẫn Tác giả"
 
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Checklist cho các bài chuẩn bị gửi"
+msgstr "Danh mục Chuẩn bị Nộp bài"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Khi gửi bài cho tạp chí, trước tiên các tác giả được yêu cầu hoàn thành từng "
-"mục trong checklist cho các bài chuẩn bị gửi. Checklist cũng xuất hiện trong "
-"Hướng dẫn tác giả, bên dưới Giới thiệu về Tạp chí. Danh sách có thể được "
-"chỉnh sửa dưới đây, nhưng tất cả các mục trong danh sách sẽ yêu cầu đánh dấu "
-"trước khi tác giả có thể tiến hành gửi."
+"Thông tin sau đây được hiển thị cho tác giả khi họ bắt đầu nộp bài. Tác giả "
+"được yêu cầu xác nhận rằng bài nộp của họ tuân thủ mọi yêu cầu được chỉ định "
+"ở đây trước khi bắt đầu nộp bài."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
+"Hủy kích hoạt chuyên mục này và không cho phép nộp bài mới vào chuyên mục "
+"này."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn hủy kích hoạt chuyên mục này không?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn kích hoạt chuyên mục này không?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Phân công Biên tập viên"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Chọn người dùng biên tập sẽ được tự động phân công cho tất cả các bài nộp "
+"mới vào chuyên mục này."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Gán {$name} làm {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Chọn người dùng biên tập sẽ được tự động phân công cho tất cả các bài nộp "
+"mới vào danh mục này."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Tùy chọn truy cập trang web"
+msgstr "Tùy chọn Truy cập Trang web"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
@@ -1276,87 +1362,85 @@ msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Người dùng đã đăng ký"
 
 msgid "manager.users"
-msgstr "Những người dùng"
+msgstr "Người dùng"
 
 msgid "plugins.categories.metadata"
-msgstr "Plugin siêu dữ liệu"
+msgstr "Plugin Siêu dữ liệu"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Plugin siêu dữ liệu triển khai các tiêu chuẩn siêu dữ liệu bổ sung."
+msgstr "Các Plugin Siêu dữ liệu triển khai các tiêu chuẩn siêu dữ liệu bổ sung."
 
 msgid "plugins.categories.auth"
-msgstr "Plugin ủy quyền"
+msgstr "Plugin Ủy quyền"
 
 msgid "plugins.categories.blocks"
-msgstr "Plugin khối tác vụ"
+msgstr "Plugin Khối"
 
 msgid "plugins.categories.blocks.description"
 msgstr ""
-"Plugin khối tác vụ là các thành phần giao diện người dùng có thể cắm được, "
-"chẳng hạn như các công cụ thanh bên khác nhau."
+"Plugin Khối là các thành phần giao diện người dùng có thể cắm được, chẳng "
+"hạn như các công cụ thanh bên khác nhau."
 
 msgid "plugins.categories.gateways.description"
-msgstr ""
-"Các plugin cổng giao tiếp (gateway) cung cấp dữ liệu trực tiếp cho các hệ "
-"thống bên ngoài."
+msgstr "Plugin Cổng cung cấp dữ liệu trực tiếp cho các hệ thống bên ngoài."
 
 msgid "plugins.categories.gateways"
-msgstr "Các trình cắm Cổng giao tiếp (Gateway)"
+msgstr "Plugin Cổng"
 
 msgid "plugins.categories.generic"
-msgstr "Các trình cắm chung"
+msgstr "Plugin Chung"
 
 msgid "plugins.categories.importexport.description"
 msgstr ""
-"Trình cắm Nhập/Xuất có thể được sử dụng để chuyển nội dung đến các hệ thống "
-"khác hoặc từ các hệ thống khác đến."
+"Plugin Nhập/Xuất có thể được sử dụng để chuyển nội dung đến và đi từ các hệ "
+"thống khác."
 
 msgid "plugins.categories.importexport"
-msgstr "Các trình cắm Nhập/Xuất dữ liệu"
+msgstr "Plugin Nhập/Xuất"
 
 msgid "plugins.categories.paymethod.description"
 msgstr ""
-"Các plugin Phương thức thanh toán triển khai hỗ trợ cho các cách xử lý thanh "
+"Plugin Phương thức Thanh toán triển khai hỗ trợ cho các cách xử lý thanh "
 "toán trực tuyến khác nhau."
 
 msgid "plugins.categories.paymethod"
-msgstr "Các trình cắm thanh toán"
+msgstr "Plugin Thanh toán"
 
 msgid "plugins.categories.reports.description"
 msgstr ""
-"Các Trình cắm Báo cáo được sử dụng để triển khai các loại báo cáo và trích "
-"xuất dữ liệu khác nhau."
+"Plugin Báo cáo được sử dụng để triển khai các loại báo cáo và trích xuất dữ "
+"liệu khác nhau."
 
 msgid "plugins.categories.reports"
-msgstr "Các trình cắm Báo cáo"
+msgstr "Plugin Báo cáo"
 
 msgid "plugins.categories.themes.description"
 msgstr ""
-"Các trình cắm Chủ đề có thể được sử dụng để thay đổi giao diện của hệ thống."
+"Plugin Giao diện có thể được sử dụng để thay đổi giao diện của hệ thống."
 
 msgid "plugins.categories.themes"
-msgstr "Các trình cắm Chủ đề"
+msgstr "Plugin Giao diện"
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "Trình cắm Định dạng siêu dữ liệu OAI"
+msgstr "Plugin Định dạng Siêu dữ liệu OAI"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Các trình cắm định dạng này thể hiện siêu dữ liệu trong giao tiếp OAI."
+msgstr "Các plugin định dạng này thể hiện siêu dữ liệu trong giao tiếp OAI."
 
 msgid "plugins.categories.pubIds"
-msgstr "Trình cắm mã định danh công khai"
+msgstr "Plugin Mã định danh Công khai"
 
 msgid "plugins.categories.pubIds.description"
-msgstr "Các trình cắm này triển khai hỗ trợ cho một số nhận dạng công khai."
+msgstr "Các plugin này triển khai hỗ trợ cho một mã định danh công khai."
 
 msgid "manager.plugins.copyError"
 msgstr ""
-"Trình cắm không được sao chép thành công. Đây có thể do vấn đề về quyền. Hãy "
-"đảm bảo rằng máy chủ web có thể ghi vào thư mục  trình cắm (plugin) (bao gồm "
-"cả thư mục con) nhưng đừng quên bảo mật lại sau khi cài đặt xong."
+"Plugin không được sao chép thành công. Đây có thể là vấn đề về quyền. Vui "
+"lòng đảm bảo rằng máy chủ web có thể ghi vào thư mục plugin (bao gồm cả các "
+"thư mục con) nhưng đừng quên bảo mật lại sau đó."
 
 msgid "manager.plugins.delete"
-msgstr "Xoá Trình cắm"
+msgstr "Xóa Plugin"
 
 msgid "manager.plugins.installConfirm"
 msgstr "Bạn có chắc chắn muốn cài đặt plugin này không?"
@@ -1376,18 +1460,18 @@ msgstr ""
 
 msgid "manager.plugins.deleteError"
 msgstr ""
-"Không thể xóa plugin \"{$pluginName}\" khỏi hệ thống tệp. Đây có thể là một "
-"vấn đề về quyền. Hãy đảm bảo rằng máy chủ web có thể ghi vào thư mục plugin "
-"(bao gồm cả thư mục con) nhưng đừng quên bảo mật lại."
+"Plugin \"{$pluginName}\" không thể bị xóa khỏi hệ thống tệp. Đây có thể là "
+"vấn đề về quyền. Vui lòng đảm bảo rằng máy chủ web có thể ghi vào thư mục "
+"plugin (bao gồm cả các thư mục con) nhưng đừng quên bảo mật lại sau đó."
 
 msgid "manager.plugins.deleteSuccess"
-msgstr "Đã xóa thành công plugin \"{$pluginName}\""
+msgstr "Plugin \"{$pluginName}\" đã được xóa thành công"
 
 msgid "manager.plugins.description"
 msgstr ""
-"Trang này cho phép Người quản lý xem xét và có khả năng định cấu hình các "
-"plugin hiện đã được cài đặt. Các plugin được chia thành các loại, theo chức "
-"năng của chúng. Các danh mục được liệt kê bên dưới và trong mỗi danh mục, "
+"Trang này cho phép Người quản lý xem xét và có thể cấu hình các plugin hiện "
+"đang được cài đặt. Các plugin được chia thành các danh mục, tùy theo chức "
+"năng của chúng. Các danh mục được liệt kê bên dưới và trong mỗi danh mục là "
 "tập hợp các plugin hiện tại của nó."
 
 msgid "manager.plugins.doesNotExist"
@@ -1397,24 +1481,24 @@ msgid "manager.plugins.fileSelectError"
 msgstr "Vui lòng chọn một tệp trước"
 
 msgid "manager.plugins.upload"
-msgstr "Tải lên một plugin mới"
+msgstr "Tải lên Plugin Mới"
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
-"Biểu mẫu này cho phép bạn tải lên và cài đặt một plugin mới. Hãy đảm bảo "
-"rằng plugin được nén dưới dạng tệp .tar.gz."
+"Biểu mẫu này cho phép bạn tải lên và cài đặt một plugin mới. Vui lòng đảm "
+"bảo plugin được nén dưới dạng tệp .tar.gz."
 
 msgid "manager.plugins.uploadFailed"
-msgstr "Hãy đảm bảo rằng một tệp đã được chọn để tải lên."
+msgstr "Vui lòng đảm bảo một tệp đã được chọn để tải lên."
 
 msgid "manager.plugins.installed"
-msgstr "Các trình cắm đã cài đặt"
+msgstr "Plugin Đã cài đặt"
 
 msgid "manager.plugins.pluginGallery"
-msgstr "Thư viện Trình cắm"
+msgstr "Thư viện Plugin"
 
 msgid "manager.plugins.pluginGallery.overview"
-msgstr "Tổng quát"
+msgstr "Tổng quan"
 
 msgid "manager.plugins.pluginGallery.installation"
 msgstr "Cài đặt"
@@ -1427,14 +1511,14 @@ msgstr "Chính thức"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
 msgstr ""
-"Plugin này được phát triển và duy trì bởi nhóm Dự án Tri thức Công cộng."
+"Plugin này được phát triển và duy trì bởi đội ngũ Public Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Đã đánh giá"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
 msgstr ""
-"Plugin này đã được xem xét và phê duyệt bởi nhóm Dự án Tri thức Công cộng."
+"Plugin này đã được đội ngũ Public Knowledge Project đánh giá và phê duyệt."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Đối tác"
@@ -1448,29 +1532,29 @@ msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Người bảo trì"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr "v{$version} được phát hành vào {$date}"
+msgstr "v{$version} phát hành vào {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
 msgstr "Trang chủ"
 
 msgid "manager.plugins.pluginGallery.summary"
-msgstr "Tóm lược"
+msgstr "Tóm tắt"
 
 msgid "manager.plugins.pluginGallery.status"
 msgstr "Trạng thái"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Plugin vẫn chưa được cài đặt."
+msgstr "Plugin chưa được cài đặt."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr "Hiện tại không có phiên bản tương thích của plugin này."
+msgstr "Hiện tại không có phiên bản tương thích nào của plugin này."
 
 msgid "manager.plugins.installedVersionNewer"
 msgstr "Plugin đã được cài đặt và mới hơn phiên bản có sẵn trong thư viện."
 
 msgid "manager.plugins.installedVersionOlder"
 msgstr ""
-"Plugin đã được cài đặt nhưng có thể được cập nhật lên phiên bản mới hơn."
+"Plugin đã được cài đặt, nhưng có thể được cập nhật lên phiên bản mới hơn."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Plugin đã được cài đặt và cập nhật."
@@ -1479,39 +1563,40 @@ msgid "manager.plugins.installedVersionNewer.short"
 msgstr "Mới hơn phiên bản có sẵn"
 
 msgid "manager.plugins.installedVersionOlder.short"
-msgstr "Có thể được nâng cấp"
+msgstr "Có thể nâng cấp"
 
 msgid "manager.plugins.installedVersionNewest.short"
-msgstr "Cập nhật"
+msgstr "Đã cập nhật"
 
 msgid "manager.plugins.noCompatibleVersion.short"
 msgstr "Không có sẵn"
 
 msgid "manager.plugins.installFailed"
-msgstr "Cài đặt bị lỗi. {$errorString}"
+msgstr "Cài đặt thất bại. {$errorString}"
 
 msgid "manager.plugins.installSuccessful"
 msgstr "Đã cài đặt thành công phiên bản {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
 msgstr ""
-"Kho lưu trữ plugin đã tải lên không chứa thư mục tương ứng với tên plugin."
+"Tệp lưu trữ plugin được tải lên không chứa thư mục tương ứng với tên plugin."
 
 msgid "manager.plugins.wrongCategory"
-msgstr "Plugin đã tải lên không phù hợp với danh mục của plugin đã nâng cấp."
+msgstr ""
+"Plugin được tải lên không phù hợp với danh mục của plugin được nâng cấp."
 
 msgid "manager.plugins.wrongName"
 msgstr ""
-"Phiên bản.xml trong plugin đã tải lên chứa tên plugin không khớp với tên của "
-"plugin đã nâng cấp."
+"Tệp version.xml trong plugin được tải lên chứa tên plugin không phù hợp với "
+"tên của plugin được nâng cấp."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin không tồn tại. Vui lòng cài đặt thay thế"
+msgstr "Plugin không tồn tại. Vui lòng Cài đặt thay thế"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
-"Plugin đã tồn tại nhưng mới hơn phiên bản đã cài đặt. Vui lòng nâng cấp thay "
-"thế"
+"Plugin đã tồn tại, nhưng mới hơn phiên bản đã cài đặt. Vui lòng nâng cấp "
+"thay thế"
 
 msgid "manager.plugins.settings"
 msgstr "Cài đặt"
@@ -1521,53 +1606,55 @@ msgstr "Nâng cấp Plugin"
 
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
-"Biểu mẫu này cho phép bạn nâng cấp một plugin. Hãy đảm bảo rằng plugin được "
+"Biểu mẫu này cho phép bạn nâng cấp một plugin. Vui lòng đảm bảo plugin được "
 "nén dưới dạng tệp .tar.gz."
 
 msgid "manager.plugins.upgradeFailed"
-msgstr "Nâng cấp không thành công. {$errorString}"
+msgstr "Nâng cấp thất bại. {$errorString}"
 
 msgid "manager.plugins.upgradeSuccessful"
 msgstr "Đã nâng cấp thành công lên phiên bản {$versionString}"
 
 msgid "manager.plugins.uploadError"
-msgstr "Lỗi khi tải tệp lên"
+msgstr "Lỗi tải lên tệp"
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr "Chọn tập tin plugin"
+msgstr "Chọn tệp plugin"
 
 msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml trong thư mục plugin chứa dữ liệu không hợp lệ."
+msgstr "Tệp version.xml trong thư mục plugin chứa dữ liệu không hợp lệ."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml không tìm thấy trong thư mục plugin"
+msgstr "Không tìm thấy tệp version.xml trong thư mục plugin"
 
 msgid "notification.localeEnabled"
-msgstr "Đã bật ngôn ngữ."
+msgstr "Bản địa hóa đã được kích hoạt."
 
 msgid "notification.localeDisabled"
-msgstr "Ngôn ngữ bị tắt."
+msgstr "Bản địa hóa đã bị vô hiệu hóa."
 
 msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} được xác định là ngôn ngữ chính."
+msgstr "{$locale} được định nghĩa là bản địa hóa chính."
 
 msgid "notification.localeInstalled"
-msgstr "Tất cả ngôn ngữ đã chọn đã được cài đặt và kích hoạt."
+msgstr "Tất cả các bản địa hóa đã chọn đã được cài đặt và kích hoạt."
 
 msgid "notification.localeUninstalled"
-msgstr "Đã gỡ cài đặt ngôn ngữ {$locale}."
+msgstr "Bản địa hóa {$locale} đã được gỡ cài đặt."
 
 msgid "notification.localeReloaded"
-msgstr "Đã tải lại ngôn ngữ {$locale} cho {$contextName}."
+msgstr "Bản địa hóa {$locale} đã được tải lại cho {$contextName}."
 
 msgid "notification.localeSettingsSaved"
-msgstr "Đã lưu cài đặt ngôn ngữ."
+msgstr "Cài đặt bản địa hóa đã được lưu."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Không thể lưu cài đặt ngôn ngữ. Ít nhất một ngôn ngữ phải được kích hoạt cho "
+"mỗi tùy chọn"
 
 msgid "notification.editedUser"
-msgstr "Đã chỉnh sửa người dùng."
+msgstr "Người dùng đã được chỉnh sửa."
 
 msgid "manager.distribution.license"
 msgstr "Giấy phép"
@@ -1576,79 +1663,80 @@ msgid "manager.distribution.license.other"
 msgstr "URL giấy phép khác"
 
 msgid "manager.distribution.licenseTerms"
-msgstr "Các điều khoản giấy phép"
+msgstr "Điều khoản Giấy phép"
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
-"Nhập các điều khoản cấp phép công khai mà bạn muốn hiển thị cùng với tác "
-"phẩm đã xuất bản."
+"Nhập các điều khoản cấp phép công khai bạn muốn hiển thị cùng với tác phẩm "
+"đã xuất bản."
 
 msgid "manager.distribution.customHeaders"
-msgstr "Các thẻ tùy chỉnh"
+msgstr "Thẻ Tùy chỉnh"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
 "Thêm các thẻ HTML tùy chỉnh, còn được gọi là thẻ meta, mà bạn muốn chèn vào "
-"đầu mỗi trang. Tham khảo ý kiến cố vấn kỹ thuật trước khi thêm thẻ tại đây."
+"phần đầu của mọi trang. Tham khảo ý kiến cố vấn kỹ thuật trước khi thêm thẻ "
+"vào đây."
 
 msgid "manager.paymentMethod"
 msgstr "Thanh toán"
 
 msgid "manager.paymentMethod.title"
-msgstr "Các phương thức thanh toán"
+msgstr "Phương thức Thanh toán"
 
 msgid "manager.paymentMethod.none"
 msgstr "Không có phương thức thanh toán nào được chọn"
 
 msgid "manager.paymentMethod.method"
-msgstr "Phương thức thanh toán"
+msgstr "Phương thức Thanh toán"
 
 msgid "manager.paymentMethod.currency"
 msgstr "Tiền tệ"
 
 msgid "settings.roles.roleOptions"
-msgstr "Các tùy chọn Vai trò"
+msgstr "Tùy chọn Vai trò"
 
 msgid "settings.roles.showTitles"
-msgstr "Hiển thị chức danh vai trò trong danh sách người tham gia"
+msgstr "Hiển thị chức danh vai trò trong danh sách người đóng góp"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Cho phép người dùng tự đăng ký"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
-"Vai trò này chỉ được phép đề xuất quyết định xem xét và sẽ yêu cầu một biên "
-"tập viên được ủy quyền ghi lại quyết định cuối cùng."
+"Vai trò này chỉ được phép đề xuất quyết định phản biện và sẽ yêu cầu một "
+"biên tập viên được ủy quyền ghi lại quyết định cuối cùng."
 
 msgid "settings.roles.roleName"
-msgstr "Tên vai trò"
+msgstr "Tên Vai trò"
 
 msgid "settings.roles.roleAbbrev"
 msgstr "Viết tắt"
 
 msgid "settings.roles.assignedStages"
-msgstr "Các giai đoạn được chỉ định"
+msgstr "Giai đoạn được Phân công"
 
 msgid "settings.roles.stages"
-msgstr "Các giải đoạn"
+msgstr "Giai đoạn"
 
 msgid "settings.roles.roleDetails"
-msgstr "Chi tiết về vai trò"
+msgstr "Chi tiết Vai trò"
 
 msgid "settings.roles.from"
-msgstr "Mức cho phép"
+msgstr "Cấp độ Quyền"
 
 msgid "settings.roles.removeText"
 msgstr ""
 "Bạn sắp xóa vai trò này khỏi ngữ cảnh này. Thao tác này cũng sẽ xóa các cài "
-"đặt liên quan và tất cả các nhiệm vụ của người dùng cho vai trò này. Bạn có "
-"muốn tiếp tục?"
+"đặt liên quan và tất cả các phân công người dùng cho vai trò này. Bạn có "
+"muốn tiếp tục không?"
 
 msgid "settings.roles.nameRequired"
-msgstr "Bạn cần xác định một tên vai trò."
+msgstr "Bạn cần xác định tên vai trò."
 
 msgid "settings.roles.abbrevRequired"
-msgstr "Bạn cần xác định một từ viết tắt vai trò."
+msgstr "Bạn cần xác định từ viết tắt cho vai trò."
 
 msgid "settings.roles.uniqueName"
 msgstr "Bạn cần xác định một tên vai trò duy nhất."
@@ -1657,23 +1745,23 @@ msgid "settings.roles.uniqueAbbrev"
 msgstr "Bạn cần xác định một từ viết tắt vai trò duy nhất."
 
 msgid "settings.roles.roleIdRequired"
-msgstr "Bạn cần xác định cấp độ quyền của vai trò."
+msgstr "Bạn cần xác định cấp độ quyền cho vai trò."
 
 msgid "settings.roles.stageIdRequired"
-msgstr "Bạn cần xác định một giai đoạn để chỉ định."
+msgstr "Bạn cần xác định một giai đoạn để gán vào."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr "Cho phép chỉnh sửa siêu dữ liệu bài gửi."
+msgstr "Cho phép chỉnh sửa siêu dữ liệu bài nộp."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
-"Tệp thư viện là bắt buộc. Hãy đảm bảo rằng bạn đã chọn và tải lên một tệp."
+"Cần có tệp thư viện. Vui lòng đảm bảo rằng bạn đã chọn và tải lên một tệp."
 
 msgid "settings.libraryFiles.nameRequired"
 msgstr "Cần có tên cho tệp thư viện này."
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr "Yêu cầu loại tệp cho tệp thư viện này."
+msgstr "Cần có loại tệp cho tệp thư viện này."
 
 msgid "settings.libraryFiles.category.contracts"
 msgstr "Hợp đồng"
@@ -1692,74 +1780,83 @@ msgstr "Khác"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
-"<p> Có thể truy cập tệp thư viện này để tải xuống, nếu \"Quyền truy cập công "
-"cộng\" được bật, tại: <blockquote>{$downloadUrl}</blockquote> </p>"
+"<p>Tệp thư viện này có thể truy cập để tải xuống, nếu \"Truy cập Công khai\" "
+"được bật, tại: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Chọn Tệp Thư viện để đính kèm"
 
 msgid "grid.action.addGenre"
-msgstr "Thêm một thành phần"
+msgstr "Thêm một Thành phần"
 
 msgid "grid.action.editGenre"
-msgstr "Chỉnh sửa thành phần này"
+msgstr "Sửa Thành phần này"
 
 msgid "grid.action.deleteGenre"
-msgstr "Xóa thành phần này"
+msgstr "Xóa Thành phần này"
 
 msgid "grid.action.restoreGenres"
 msgstr "Khôi phục các thành phần về cài đặt mặc định"
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Loại tệp"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
-"Đánh dấu các tệp thuộc loại này là tệp phụ thuộc (ví dụ: không được liệt kê "
-"với nội dung đã xuất bản)"
+"Đây là các tệp phụ thuộc, chẳng hạn như hình ảnh được hiển thị bởi tệp HTML, "
+"và sẽ không được hiển thị cùng với nội dung đã xuất bản."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
-"Đánh dấu các tệp thuộc loại này là tệp bổ sung (ví dụ: không phải nội dung "
-"của bài gửi chính)"
+"Đây là các tệp bổ sung, chẳng hạn như bộ dữ liệu và tài liệu nghiên cứu, và "
+"sẽ được hiển thị riêng biệt với các tệp xuất bản chính."
 
 msgid "manager.setup.genres.key"
 msgstr "Khóa"
 
 msgid "manager.setup.genres.key.description"
-msgstr "Một mã định danh tượng trưng ngắn tùy chọn cho thể loại này."
+msgstr "Một mã định danh ký hiệu ngắn tùy chọn cho thể loại này."
 
 msgid "manager.setup.genres.key.exists"
 msgstr "Khóa đã tồn tại."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
-"Khóa chỉ có thể chứa các ký tự chữ và số, dấu gạch dưới và dấu gạch nối, "
-"đồng thời phải bắt đầu và kết thúc bằng ký tự chữ và số."
+"Khóa chỉ có thể chứa các ký tự chữ và số, dấu gạch dưới và dấu gạch nối, và "
+"phải bắt đầu và kết thúc bằng một ký tự chữ hoặc số."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Siêu dữ liệu Tệp"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Chọn loại siêu dữ liệu mà các tệp này có thể nhận. Nên chọn Document (Tài "
+"liệu) cho các tệp xuất bản chính, chẳng hạn như PDF có thể tải xuống, để các "
+"tệp này kế thừa siêu dữ liệu của chúng từ bản xuất bản. Nếu không, hãy chọn "
+"Supplementary Content (Nội dung Bổ sung) cho hầu hết các loại tệp. Artwork ("
+"Tác phẩm Nghệ thuật) phù hợp cho các tệp yêu cầu thông tin ghi công, chú "
+"thích và cấp phép riêng biệt."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Yêu cầu khi Nộp bài"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Có nên yêu cầu ít nhất một trong các tệp này với mọi bài nộp mới không? Nếu "
+"bạn chọn có, tác giả sẽ không được phép nộp bài cho đến khi họ đã tải lên ít "
+"nhất một tệp loại này."
 
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
+msgstr "Có, yêu cầu tác giả nộp bài tải lên một hoặc nhiều tệp loại này."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Không, cho phép nộp bài mới mà không cần các tệp này."
 
 msgid "manager.settings.wizard"
-msgstr "Trình hướng dẫn cài đặt"
+msgstr "Trình hướng dẫn Cài đặt"
 
 msgid "manager.users.roleRequired"
-msgstr "Bạn cần chọn ít nhất một vai trò được liên kết với người dùng này."
+msgstr "Bạn cần chọn ít nhất một vai trò để liên kết với người dùng này."
 
 msgid "manager.website"
 msgstr "Trang web"
@@ -1771,85 +1868,84 @@ msgid "manager.workflow"
 msgstr "Quy trình làm việc"
 
 msgid "manager.workflow.title"
-msgstr "Cài đặt quy trình làm việc"
+msgstr "Cài đặt Quy trình làm việc"
 
 msgid "manager.distribution"
 msgstr "Phân phối"
 
 msgid "manager.distribution.title"
-msgstr "Cài đặt phân phối"
+msgstr "Cài đặt Phân phối"
 
 msgid "manager.reviewForms"
-msgstr "Các Biểu mẫu Phản biện"
+msgstr "Biểu mẫu Phản biện"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
-"Bạn có chắc chắn muốn kích hoạt biểu mẫu đánh giá (phản biện) này không? Sau "
-"khi nó được chỉ định cho một bài đánh giá, bạn sẽ không thể hủy kích hoạt nó "
-"nữa."
+"Bạn có chắc chắn muốn kích hoạt biểu mẫu phản biện này không? Sau khi nó "
+"được gán cho một phản biện, bạn sẽ không thể hủy kích hoạt nó nữa."
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
-"Bạn có chắc chắn muốn hủy kích hoạt biểu mẫu đánh giá này không? Nó sẽ không "
-"còn có sẵn cho việc đánh giá các bài mới."
+"Bạn có chắc chắn muốn hủy kích hoạt biểu mẫu phản biện này không? Nó sẽ "
+"không còn khả dụng cho các phân công phản biện mới."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr "Bạn có chắc chắn muốn tạo một bản sao của biểu mẫu đánh giá này không?"
+msgstr "Bạn có chắc chắn muốn tạo một bản sao của biểu mẫu phản biện này không?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Đã hoàn thành"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr "Bạn có chắc chắn muốn xóa mẫu đánh giá này không?"
+msgstr "Bạn có chắc chắn muốn xóa biểu mẫu phản biện này không?"
 
 msgid "manager.reviewForms.create"
-msgstr "Tạo Biểu mẫu đánh giá"
+msgstr "Tạo Biểu mẫu Phản biện"
 
 msgid "manager.reviewForms.description"
 msgstr "Mô tả và Hướng dẫn"
 
 msgid "manager.reviewForms.edit"
-msgstr "Biểu mẫu đánh giá"
+msgstr "Biểu mẫu Phản biện"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Cần có tiêu đề cho biểu mẫu đánh giá."
+msgstr "Cần có tiêu đề cho biểu mẫu phản biện."
 
 msgid "manager.reviewForms.inReview"
-msgstr "Đang phản biện"
+msgstr "Đang Phản biện"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
-"Biểu mẫu đánh giá ngang hàng được tạo ở đây sẽ được trình bày để người đánh "
-"giá hoàn thành, thay vì biểu mẫu mặc định bao gồm hai hộp văn bản mở, hộp "
-"văn bản đầu tiên \"dành cho tác giả và biên tập viên\" và hộp thứ hai \"dành "
-"cho biên tập viên\". Biểu mẫu đánh giá có thể được chỉ định cho một phần báo "
-"chí cụ thể và các biên tập viên sẽ có tùy chọn để chọn biểu mẫu nào sẽ sử "
-"dụng để chỉ định đánh giá. Trong mọi trường hợp, biên tập viên sẽ có tùy "
-"chọn bao gồm các đánh giá tương ứng với tác giả."
+"Các biểu mẫu phản biện chuyên gia được tạo ở đây sẽ được trình bày cho người "
+"phản biện để hoàn thành, thay vì biểu mẫu mặc định bao gồm hai hộp văn bản "
+"mở, hộp thứ nhất \"dành cho tác giả và biên tập viên\" và hộp thứ hai \"dành "
+"cho biên tập viên\". Biểu mẫu phản biện có thể được chỉ định cho một chuyên "
+"mục cụ thể của nhà xuất bản, và biên tập viên sẽ có tùy chọn chọn biểu mẫu "
+"nào để sử dụng khi phân công phản biện. Trong mọi trường hợp, biên tập viên "
+"sẽ có tùy chọn bao gồm các phản biện trong thư từ với tác giả."
 
 msgid "manager.reviewForms.noneChosen"
-msgstr "Không có / biểu mẫu đánh giá tự do"
+msgstr "Không có / Phản biện Tự do"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr "Không có biểu mẫu đánh giá nào được tạo."
+msgstr "Chưa có biểu mẫu phản biện nào được tạo."
 
 msgid "manager.reviewForms.noneUsed"
-msgstr "Không có biểu mẫu đánh giá nào được sử dụng."
+msgstr "Chưa có biểu mẫu phản biện nào được sử dụng."
 
 msgid "manager.reviewForms.preview"
-msgstr "Xem trước biểu mẫu"
+msgstr "Xem trước Biểu mẫu"
 
 msgid "manager.reviewForms.reviewFormData"
-msgstr "Dữ liệu Biểu mẫu Đánh giá"
+msgstr "Dữ liệu Biểu mẫu Phản biện"
 
 msgid "manager.reviewForms.title"
 msgstr "Tiêu đề"
 
 msgid "manager.reviewFormElement.changeType"
-msgstr "Thay đổi loại mục của biểu mẫu ..."
+msgstr "Đang thay đổi loại mục biểu mẫu..."
 
 msgid "manager.reviewFormElements"
-msgstr "Các mục của biểu mẫu"
+msgstr "Các mục Biểu mẫu"
 
 msgid "manager.reviewFormElements.addResponseItem"
 msgstr "Thêm lựa chọn"
@@ -1861,31 +1957,31 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Chọn loại mục"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Xác nhận xóa một mục biểu mẫu đã xuất bản ..."
+msgstr "Xác nhận xóa một mục biểu mẫu đã xuất bản..."
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr "Sao chép sang:"
+msgstr "Sao chép đến:"
 
 msgid "manager.reviewFormElements.create"
-msgstr "Tạo Mục mới"
+msgstr "Tạo Mục Mới"
 
 msgid "manager.reviewFormElements.dropdownbox"
-msgstr "Hộp trổ xuống"
+msgstr "Hộp thả xuống"
 
 msgid "manager.reviewFormElements.edit"
-msgstr "Chỉnh sửa mục biểu mẫu"
+msgstr "Sửa Mục Biểu mẫu"
 
 msgid "manager.reviewFormElements.elementType"
 msgstr "Loại mục"
 
 msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "Một loại mục là bắt buộc cho mục biểu mẫu."
+msgstr "Cần có loại mục cho mục biểu mẫu."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "Một câu hỏi được yêu cầu cho mục biểu mẫu."
+msgstr "Cần có câu hỏi cho mục biểu mẫu."
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr "Không có mục biểu mẫu nào được tạo."
+msgstr "Chưa có mục biểu mẫu nào được tạo."
 
 msgid "manager.reviewFormElements.possibleResponse"
 msgstr "Lựa chọn"
@@ -1897,16 +1993,16 @@ msgid "manager.reviewFormElements.description"
 msgstr "Mô tả"
 
 msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Các nút radio (bạn chỉ có thể chọn một)"
+msgstr "Nút radio (bạn chỉ có thể chọn một)"
 
 msgid "manager.reviewFormElements.required"
-msgstr "Người đánh giá bắt buộc phải hoàn thành mục"
+msgstr "Người phản biện bắt buộc phải hoàn thành mục"
 
 msgid "manager.reviewFormElements.included"
-msgstr "Bao gồm trong tin nhắn cho tác giả"
+msgstr "Được bao gồm trong tin nhắn gửi cho tác giả"
 
 msgid "manager.reviewFormElements.smalltextfield"
-msgstr "Hộp văn bản đơn"
+msgstr "Hộp văn bản một từ"
 
 msgid "manager.reviewFormElements.textarea"
 msgstr "Hộp văn bản mở rộng"
@@ -1915,219 +2011,227 @@ msgid "manager.reviewFormElements.textfield"
 msgstr "Hộp văn bản một dòng"
 
 msgid "manager.reviewFormElements.viewable"
-msgstr "Có thể xem được (dành cho tác giả)"
+msgstr "Có thể xem (dành cho tác giả)"
 
 msgid "grid.action.createReviewForm"
-msgstr "Tạo một Biểu mẫu đánh giá mới"
+msgstr "Tạo Biểu mẫu Phản biện mới"
 
 msgid "manager.setup.competingInterests.required"
 msgstr ""
-"Yêu cầu tuyên bố về Quyền lợi cạnh tranh trong quá trình đánh giá ngang hàng."
+"Yêu cầu một tuyên bố về Xung đột Lợi ích trong quá trình phản biện chuyên "
+"gia."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL đến trang web mô tả giấy phép, nếu có."
 
 msgid "manager.setup.metadata.submission"
-msgstr "Mẫu gửi bài"
+msgstr "Biểu mẫu Nộp bài"
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Phạm vi"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
-"Phạm vi bao phủ thường sẽ cho biết vị trí không gian của tác phẩm (tên địa "
-"điểm hoặc tọa độ địa lý), khoảng thời gian (nhãn khoảng thời gian, ngày hoặc "
-"phạm vi ngày) hoặc khu vực pháp lý (chẳng hạn như một thực thể hành chính "
-"được đặt tên)."
+"Phạm vi thường sẽ chỉ ra vị trí không gian của một tác phẩm (tên địa điểm "
+"hoặc tọa độ địa lý), khoảng thời gian (nhãn thời kỳ, ngày hoặc khoảng ngày) "
+"hoặc khu vực pháp lý (chẳng hạn như một đơn vị hành chính được đặt tên)."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr "Bật siêu dữ liệu về phạm vi"
+msgstr "Kích hoạt siêu dữ liệu phạm vi"
 
 msgid "manager.setup.metadata.coverage.noRequest"
-msgstr "Không yêu cầu siêu dữ liệu về phạm vi từ tác giả trong quá trình gửi."
+msgstr "Không yêu cầu siêu dữ liệu phạm vi từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Yêu cầu tác giả đề xuất siêu dữ liệu về mức độ phù hợp trong quá trình gửi."
+msgstr "Yêu cầu tác giả đề xuất siêu dữ liệu phạm vi trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Yêu cầu tác giả đề xuất siêu dữ liệu về mức độ phù hợp trước khi chấp nhận "
-"bài gửi của họ."
+"Yêu cầu tác giả đề xuất siêu dữ liệu phạm vi trước khi chấp nhận bài nộp của "
+"họ."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
-"Từ khóa thường là các cụm từ một đến ba từ được sử dụng để chỉ ra các chủ đề "
-"chính của một bài gửi."
+"Từ khóa thường là các cụm từ gồm một đến ba từ được sử dụng để chỉ ra các "
+"chủ đề chính của một bài nộp."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr "Bật siêu dữ liệu từ khóa"
+msgstr "Kích hoạt siêu dữ liệu từ khóa"
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Không yêu cầu từ khóa từ tác giả trong quá trình gửi bài."
+msgstr "Không yêu cầu từ khóa từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr "Yêu cầu tác giả đề xuất từ khóa trong quá trình gửi bài."
+msgstr "Yêu cầu tác giả đề xuất từ khóa trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.keywords.require"
-msgstr "Yêu cầu tác giả đề xuất các từ khóa trước khi chấp nhận bài của họ."
+msgstr "Yêu cầu tác giả đề xuất từ khóa trước khi chấp nhận bài nộp của họ."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
-"Bất kỳ quyền nào có được đối với bài gửi, có thể bao gồm Quyền sở hữu trí "
-"tuệ, Bản quyền và các Quyền sở hữu khác nhau."
+"Bất kỳ quyền nào được nắm giữ đối với bài nộp, có thể bao gồm Quyền Sở hữu "
+"Trí tuệ (IPR), Bản quyền và các Quyền Tài sản khác nhau."
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr "Bật siêu dữ liệu quyền"
+msgstr "Kích hoạt siêu dữ liệu quyền"
 
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Không yêu cầu tiết lộ quyền từ tác giả trong quá trình gửi bài."
+msgstr "Không yêu cầu tiết lộ quyền từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.rights.request"
-msgstr "Yêu cầu tác giả tiết lộ bất kỳ quyền truy cập trước khi gửi bài."
+msgstr ""
+"Yêu cầu tác giả tiết lộ bất kỳ quyền truy cập trước đó nào trong quá trình "
+"nộp bài."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
-"Yêu cầu tác giả tiết lộ bất kỳ quyền truy cập trước nào trước khi chấp nhận "
-"bài gửi của họ."
+"Yêu cầu tác giả tiết lộ bất kỳ quyền truy cập trước đó nào trước khi chấp "
+"nhận bài nộp của họ."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
 "Nguồn có thể là một ID, chẳng hạn như DOI, của một tác phẩm hoặc tài nguyên "
-"khác mà bài gửi được bắt nguồn từ đó."
+"khác mà bài nộp được lấy từ đó."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr "Bật siêu dữ liệu nguồn"
+msgstr "Kích hoạt siêu dữ liệu nguồn"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr "Không yêu cầu một URL nguồn từ tác giả trong quá trình gửi bài."
+msgstr "Không yêu cầu URL nguồn từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.source.request"
-msgstr "Yêu cầu tác giả cung cấp URL nguồn trong quá trình gửi bài."
+msgstr "Yêu cầu tác giả cung cấp URL nguồn trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Yêu cầu tác giả cung cấp URL nguồn trước khi chấp nhận nội dung bài gửi của "
-"họ."
+msgstr "Yêu cầu tác giả cung cấp URL nguồn trước khi chấp nhận bài nộp của họ."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
-"Chủ đề sẽ là các từ khóa, cụm từ khóa hoặc mã phân loại mô tả một chủ đề của "
-"bài gửi."
+"Chủ đề sẽ là các từ khóa, cụm từ khóa hoặc mã phân loại mô tả chủ đề của bài "
+"nộp."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "Bật siêu dữ liệu chủ đề"
+msgstr "Kích hoạt siêu dữ liệu chủ đề"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Không yêu cầu các chủ đề từ tác giả trong quá trình gửi."
+msgstr "Không yêu cầu chủ đề từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr "Yêu cầu tác giả cung cấp các chủ đề trong quá trình gửi."
+msgstr "Yêu cầu tác giả cung cấp chủ đề trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Yêu cầu tác giả cung cấp các chủ đề trước khi chấp nhận bài gửi của họ."
+msgstr "Yêu cầu tác giả cung cấp chủ đề trước khi chấp nhận bài nộp của họ."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
 "Bản chất hoặc thể loại của nội dung chính của bài nộp. Loại thường là \"Văn "
-"bản\", nhưng cũng có thể là \"Tập dữ liệu\", \"Hình ảnh\" hoặc bất kỳ <a "
-"target = \"_ blank\" href=\"http://dublincore.org/documents/dcmi-type-"
-"vocabulary/#section-7-dcmi-type-words\"> Các loại Dublin Core </a>."
+"bản\", nhưng cũng có thể là \"Bộ dữ liệu\", \"Hình ảnh\" hoặc bất kỳ loại "
+"nào trong <a target=\"_blank\" href=\"https://www.dublincore.org/"
+"specifications/dublin-core/dcmi-terms/\">các loại Dublin Core</a>."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr "Bật siêu dữ liệu loại"
+msgstr "Kích hoạt siêu dữ liệu loại"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr "Không yêu cầu loại từ tác giả trong quá trình gửi bài."
+msgstr "Không yêu cầu loại từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.type.request"
-msgstr "Yêu cầu tác giả cung cấp loại trong quá trình gửi bài."
+msgstr "Yêu cầu tác giả cung cấp loại trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.type.require"
-msgstr "Yêu cầu tác giả cung cấp loại trước khi chấp nhận bài gửi của họ."
+msgstr "Yêu cầu tác giả cung cấp loại trước khi chấp nhận bài nộp của họ."
 
 msgid "manager.setup.metadata.disciplines.description"
-msgstr "Chuyên ngành là các loại hình nghiên cứu hoặc các nhánh kiến thức."
+msgstr ""
+"Ngành học là các loại hình nghiên cứu hoặc các nhánh kiến thức được mô tả "
+"bởi các khoa đại học và các hội học thuật."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Bật siêu dữ liệu ngành"
+msgstr "Kích hoạt siêu dữ liệu ngành học"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Không yêu cầu ngành từ tác giả trong quá trình gửi."
+msgstr "Không yêu cầu ngành học từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr "Yêu cầu tác giả cung cấp các ngành trong quá trình gửi."
+msgstr "Yêu cầu tác giả cung cấp ngành học trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.disciplines.require"
-msgstr "Yêu cầu tác giả cung cấp các ngành trước khi chấp nhận bài gửi của họ."
+msgstr "Yêu cầu tác giả cung cấp ngành học trước khi chấp nhận bài nộp của họ."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
 "Các cơ quan hỗ trợ có thể chỉ ra nguồn tài trợ nghiên cứu hoặc hỗ trợ thể "
-"chế khác tạo điều kiện cho nghiên cứu."
+"chế khác đã tạo điều kiện cho nghiên cứu."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr "Bật siêu dữ liệu của các cơ quan tài trợ"
+msgstr "Kích hoạt siêu dữ liệu cơ quan hỗ trợ"
 
 msgid "manager.setup.metadata.agencies.noRequest"
-msgstr "Không yêu cầu các cơ quan tài trợ từ tác giả trong quá trình gửi bài."
+msgstr "Không yêu cầu cơ quan hỗ trợ từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
-"Yêu cầu tác giả tiết lộ bất kỳ cơ quan hỗ trợ nào trong quá trình gửi bài."
+"Yêu cầu tác giả tiết lộ bất kỳ cơ quan hỗ trợ nào trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
 "Yêu cầu tác giả tiết lộ bất kỳ cơ quan hỗ trợ nào trước khi chấp nhận bài "
-"gửi của họ."
+"nộp của họ."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
-"Thu thập tài liệu tham khảo của bài gửi trong một trường riêng biệt. Điều "
-"này có thể được yêu cầu để tuân thủ các dịch vụ theo dõi trích dẫn như "
+"Thu thập tài liệu tham khảo của một bài nộp trong một trường riêng biệt. "
+"Điều này có thể được yêu cầu để tuân thủ các dịch vụ theo dõi trích dẫn như "
 "Crossref."
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr "Bật siêu dữ liệu tài liệu tham khảo"
+msgstr "Kích hoạt siêu dữ liệu tài liệu tham khảo"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Không yêu cầu tài liệu tham khảo từ tác giả trong quá trình gửi bài."
+msgstr "Không yêu cầu tài liệu tham khảo từ tác giả trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.citations.request"
-msgstr "Yêu cầu tác giả cung cấp tài liệu tham khảo trong quá trình gửi bài."
+msgstr "Yêu cầu tác giả cung cấp tài liệu tham khảo trong quá trình nộp bài."
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
-"Yêu cầu tác giả cung cấp tài liệu tham khảo trước khi chấp nhận bài gửi của "
+"Yêu cầu tác giả cung cấp tài liệu tham khảo trước khi chấp nhận bài nộp của "
 "họ."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Một tuyên bố ngắn gọn mô tả liệu (các) tác giả có cung cấp dữ liệu nghiên "
+"cứu của họ hay không và, nếu có, nơi độc giả có thể truy cập nó."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Kích hoạt siêu dữ liệu tuyên bố về tính khả dụng của dữ liệu"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Không yêu cầu tuyên bố về tính khả dụng của dữ liệu từ tác giả trong quá "
+"trình nộp bài."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Yêu cầu tác giả cung cấp tuyên bố về tính khả dụng của dữ liệu trong quá "
+"trình nộp bài."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Yêu cầu tác giả cung cấp tuyên bố về tính khả dụng của dữ liệu trước khi "
+"chấp nhận bài nộp của họ."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Lỗi xác thực:"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Các cảnh báo đã gặp:"
+msgstr "Cảnh báo gặp phải:"
 
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Đã xảy ra lỗi:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Phần tử không xác định {$param}"
@@ -2139,24 +2243,27 @@ msgid "plugins.importexport.common.error.unknownEncoding"
 msgstr "Mã hóa không xác định {$param}"
 
 msgid "plugins.importexport.common.error.encodingError"
-msgstr "Nội dung không được mã hóa dưới dạng {$param}"
+msgstr "Nội dung không được mã hóa là {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Nhóm người dùng không xác định {$param}"
+msgstr ""
+"Tệp nhập bao gồm một tác giả '{$authorName}', với nhóm người dùng "
+"'{$userGroupName}'. Không có nhóm người dùng nào được xác định trong cài đặt "
+"đích với nhóm người dùng có tên này."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "Thiếu Nhóm Người dùng cho tên tác giả {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
-"Tác giả {$authorName} không có tên cụ thể trong ngôn ngữ của bài gửi, "
-"{$localeName}. Không thể nhập bài gửi nếu không có thông tin này."
+"Tác giả {$authorName} không có tên riêng bằng ngôn ngữ của bài nộp, "
+"{$localeName}. Bài nộp không thể được nhập mà không có thông tin này."
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Không xác định người tải lên {$param}"
+msgstr "Người tải lên không xác định {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "Không thể tạo tệp tạm thời {$dest} từ {$source}"
+msgstr "Tệp tạm thời {$dest} không thể được tạo từ {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
@@ -2165,17 +2272,19 @@ msgstr ""
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
-"Bản sửa đổi \"{$reviseId}\" cho tệp gửi \"{$fileId}\" sẽ tạo một bản ghi "
-"trùng lặp"
+"Bản sửa đổi \"{$revisionId}\" cho tệp bài nộp \"{$fileId}\" sẽ tạo ra một "
+"bản ghi trùng lặp"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "Không thể nhập tệp bài gửi"
+msgstr "Tệp bài nộp không thể được nhập"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"Tệp bài nộp {$id} đã bị bỏ qua vì nó được đính kèm vào một bản ghi sẽ không "
+"được nhập, chẳng hạn như phân công phản biện hoặc thảo luận."
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Lỗi Nhập/Xuất dữ liệu:"
+msgstr "Lỗi Nhập/Xuất:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
@@ -2184,21 +2293,22 @@ msgstr ""
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
-"Không thể nhập mật khẩu \"{$username}\" của người dùng đã nhập. Mật khẩu mới "
-"được gửi đến email người dùng. Người dùng đã được nhập."
+"Mật khẩu người dùng đã nhập \"{$username}\" không thể được nhập nguyên "
+"trạng. Một mật khẩu mới đã được gửi đến email người dùng. Người dùng đã được "
+"nhập."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
-"Người dùng đã nhập \"{$username}\" có mật khẩu thuần túy không hợp lệ. Người "
-"dùng chưa được nhập."
+"Người dùng đã nhập \"{$username}\" có mật khẩu dạng văn bản thuần không hợp "
+"lệ. Người dùng chưa được nhập."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
-"Tên người dùng \"{$username}\" và e-mail \"{$email}\" không khớp và cùng với "
+"Tên người dùng \"{$username}\" và e-mail \"{$email}\" không khớp với cùng "
 "một người dùng hiện có."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Kiểm tra"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Tiêu đề"
@@ -2211,19 +2321,19 @@ msgstr "Điều hướng"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
-"<p> Bạn có thể truy cập trang này tại: <blockquote> {$ pagesPath} </"
-"blockquote> ... trong đó%PATH% là đường dẫn đã nhập ở trên. <strong> Lưu ý: "
-"</strong> Không có hai trang nào có thể có cùng một đường dẫn. Việc sử dụng "
-"các đường dẫn được tích hợp sẵn trong hệ thống có thể khiến bạn mất quyền "
-"truy cập vào các chức năng quan trọng. </p>"
+"<p>Trang này sẽ có thể truy cập tại: <blockquote>{$pagesPath}</"
+"blockquote>... nơi %PATH% là đường dẫn được nhập ở trên. <strong>Lưu ý:</"
+"strong> Không có hai trang nào có thể có cùng một đường dẫn. Sử dụng các "
+"đường dẫn được tích hợp sẵn trong hệ thống có thể khiến bạn mất quyền truy "
+"cập vào các chức năng quan trọng.</p>"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "Nội dung"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
-"Trường đường dẫn phải chỉ chứa các ký tự chữ và số cộng với '.', '/', '-' và "
-"'_'."
+"Trường đường dẫn chỉ được chứa các ký tự chữ và số cộng với '.', '/', '-', "
+"và '_'."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr "Đường dẫn này đã tồn tại cho một mục menu điều hướng khác."
@@ -2232,25 +2342,25 @@ msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "Tiêu đề này đã tồn tại cho một menu điều hướng khác."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Bắt buộc phải có tiêu đề."
+msgstr "Tiêu đề là bắt buộc"
 
 msgid "manager.navigationMenuItems"
-msgstr "Mục trong menu điều hướng"
+msgstr "Các mục Menu Điều hướng"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "Các Mục Menu được Chỉ định"
+msgstr "Các mục Menu đã Gán"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Các Mục Menu không được Chỉ định"
+msgstr "Các mục Menu Chưa Gán"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Khu vực điều hướng chủ đề đang hoạt động"
+msgstr "Khu vực Điều hướng Giao diện Hiện hoạt"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "Chọn một khu vực điều hướng"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "Một menu điều hướng đã được chỉ định cho khu vực này."
+msgstr "Một menu điều hướng đã được gán cho khu vực này."
 
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
@@ -2259,7 +2369,7 @@ msgid "manager.navigationMenus.form.customUrlError"
 msgstr "Phải cung cấp một URL"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr "Tìm hiểu thêm về thời điểm hiển thị hoặc ẩn mục menu này."
+msgstr "Tìm hiểu thêm về thời điểm mục menu này sẽ được hiển thị hoặc ẩn."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
@@ -2271,45 +2381,43 @@ msgstr ""
 "trong menu con."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr "Loại menu Điều hướng"
+msgstr "Loại Menu Điều hướng"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "Chọn Loại menu điều hướng hoặc Menu điều hướng tùy chỉnh của riêng bạn"
+msgstr "Chọn một Loại Menu Điều hướng hoặc Tùy chỉnh để tự tạo"
 
 msgid "manager.navigationMenus.customPage"
-msgstr "Trang tùy chỉnh"
+msgstr "Trang Tùy chỉnh"
 
 msgid "manager.navigationMenus.customPage.description"
 msgstr ""
-"Tạo một trang tùy chỉnh trên trang web của bạn và liên kết đến trang đó từ "
-"menu điều hướng."
+"Tạo một trang tùy chỉnh trên trang web của bạn và liên kết đến nó từ menu "
+"điều hướng."
 
 msgid "manager.navigationMenus.remoteUrl"
-msgstr "URL từ xa"
+msgstr "URL Từ xa"
 
 msgid "manager.navigationMenus.remoteUrl.description"
 msgstr ""
-"Liên kết đến bất kỳ URL nào trên trang web khác, ví dụ như https://pkp.sfu."
-"ca."
+"Liên kết đến bất kỳ URL nào trên một trang web khác, như https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
-"Liên kết đến trang hiển thị nội dung Giới thiệu tạp chí trong Cài đặt > Tạp "
-"chí"
+"Liên kết đến một trang hiển thị nội dung Về Tạp chí trong Cài đặt > Tạp chí"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
-"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Giới thiệu Tạp "
-"chí trong Cài đặt > Tạp chí."
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Về Tạp chí trong "
+"Cài đặt > Tạp chí."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr "Liên kết đến trang hiển thị hướng dẫn gửi bài."
+msgstr "Liên kết đến trang hiển thị hướng dẫn nộp bài."
 
 msgid "manager.navigationMenus.current.description"
-msgstr "Liên kết đến Số hiện tại của bạn."
+msgstr "Liên kết đến số hiện tại của bạn."
 
 msgid "manager.navigationMenus.archives.description"
-msgstr "Liên kết đến kho lưu trữ các số xuất bản."
+msgstr "Liên kết đến kho lưu trữ số của bạn."
 
 msgid "manager.navigationMenus.announcements.description"
 msgstr "Liên kết đến trang hiển thị thông báo của bạn."
@@ -2320,7 +2428,7 @@ msgstr ""
 "Trang web."
 
 msgid "manager.navigationMenus.login.description"
-msgstr "Liên kết đến trang đăng nhập của người dùng."
+msgstr "Liên kết đến trang đăng nhập người dùng."
 
 msgid "manager.navigationMenus.register.description"
 msgstr "Liên kết đến trang đăng ký người dùng."
@@ -2332,7 +2440,7 @@ msgid "manager.navigationMenus.profile.description"
 msgstr "Liên kết đến trang hồ sơ người dùng."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr "Liên kết đến các công cụ quản trị trên toàn trang web."
+msgstr "Liên kết đến các công cụ quản trị toàn trang web."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
 msgstr "Liên kết này sẽ chỉ được hiển thị cho người dùng quản trị."
@@ -2351,7 +2459,7 @@ msgstr "Liên kết đến một trang hiển thị thông tin liên hệ của 
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
-"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền thông tin liên hệ trong "
+"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền thông tin Liên hệ trong "
 "Cài đặt > Liên hệ."
 
 msgid "manager.navigationMenus.form.typeMissing"
@@ -2365,7 +2473,7 @@ msgstr ""
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
 "Liên kết này sẽ chỉ được hiển thị nếu khách truy cập đã đăng nhập, thanh "
-"toán được bật trong Cài đặt > Phân phối > Thanh toán và đăng ký là bắt buộc "
+"toán được bật trong Cài đặt > Phân phối > Thanh toán và yêu cầu đăng ký "
 "trong Cài đặt > Phân phối > Truy cập."
 
 msgid "manager.navigationMenus.search.description"
@@ -2377,13 +2485,13 @@ msgstr "Liên kết đến trang hiển thị tuyên bố về quyền riêng t�
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "Liên kết này sẽ chỉ được hiển thị nếu bạn đã nhập tuyên bố về quyền riêng tư "
-"trong Cài đặt > Luồng công việc > Bài gửi."
+"trong Cài đặt > Quy trình làm việc > Nộp bài."
 
 msgid "grid.category.add"
-msgstr "Thêm thể loại"
+msgstr "Thêm Danh mục"
 
 msgid "grid.category.edit"
-msgstr "Chỉnh sửa thể loại"
+msgstr "Sửa Danh mục"
 
 msgid "grid.category.name"
 msgstr "Tên"
@@ -2392,10 +2500,10 @@ msgid "grid.category.path"
 msgstr "Đường dẫn"
 
 msgid "grid.category.urlWillBe"
-msgstr "Đường dẫn URL sẽ là: {$sampleUrl}"
+msgstr "URL của danh mục sẽ là: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr "Đường dẫn thể loại chỉ được bao gồm các chữ cái và số."
+msgstr "Đường dẫn danh mục chỉ được bao gồm chữ cái và số."
 
 msgid "grid.category.pathExists"
 msgstr "Đường dẫn danh mục đã tồn tại. Vui lòng nhập một đường dẫn duy nhất."
@@ -2404,43 +2512,43 @@ msgid "grid.category.description"
 msgstr "Mô tả"
 
 msgid "grid.category.parentCategory"
-msgstr "Thư mục chính"
+msgstr "Danh mục Cha"
 
 msgid "grid.category.removeText"
-msgstr "Bạn có chắc chắn muốn xóa thể loại này không?"
+msgstr "Bạn có chắc chắn muốn xóa danh mục này không?"
 
 msgid "grid.category.nameRequired"
-msgstr "Xin vui lòng nhập tên thể loại."
+msgstr "Vui lòng nhập tên danh mục."
 
 msgid "grid.category.categoryDetails"
-msgstr "Chi tiết về thể loại"
+msgstr "Chi tiết Danh mục"
 
 msgid "stats.allUsers"
-msgstr "Tất cả người dùng"
+msgstr "Tất cả Người dùng"
 
 msgid "stats.city"
 msgstr "Thành phố"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Lượt xem"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Lượt tải xuống"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Tổng lượt xem theo ngày"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Tổng lượt tải xuống theo ngày"
 
 msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/year)"
+msgstr "{$count} ({$average}/năm)"
 
 msgid "stats.daily"
-msgstr "Hằng ngày"
+msgstr "Hàng ngày"
 
 msgid "stats.dateRange"
-msgstr "Phạm vi ngày"
+msgstr "Phạm vi Ngày"
 
 msgid "stats.dateRange.allDates"
 msgstr "Tất cả các ngày"
@@ -2455,18 +2563,18 @@ msgid "stats.dateRange.customRange"
 msgstr "Phạm vi Tùy chỉnh"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Một trong những ngày đã nhập không tồn tại."
+msgstr "Một trong các ngày đã nhập không tồn tại."
 
 msgid "stats.dateRange.from"
 msgstr "Từ"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
-"Nhập từng ngày ở định dạng YYYY-MM-DD. Ví dụ: nếu bạn muốn ngày cho ngày 15 "
-"tháng 1 năm 2019, hãy nhập 2019-01-15."
+"Nhập mỗi ngày theo định dạng YYYY-MM-DD. Ví dụ, nếu bạn muốn ngày 15 tháng 1 "
+"năm 2019, nhập 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
-msgstr "Định dạng ngày không hợp lệ. Nhập từng ngày ở định dạng YYYY-MM-DD."
+msgstr "Định dạng ngày không hợp lệ. Nhập mỗi ngày theo định dạng YYYY-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
 msgstr "Ngày bắt đầu phải trước ngày kết thúc."
@@ -2496,34 +2604,36 @@ msgid "stats.dateRange.sinceDate"
 msgstr "Kể từ {$date}"
 
 msgid "stats.dateRange.thisYear"
-msgstr "Từ năm đến ngày"
+msgstr "Từ đầu năm đến nay"
 
 msgid "stats.dateRange.to"
 msgstr "Đến"
 
 msgid "stats.dateRange.untilDate"
-msgstr "Cho đến {$date}"
+msgstr "Đến {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Tỷ lệ phần trăm cho phạm vi ngày đã chọn được tính cho các nội dung đã được "
-"gửi trong phạm vi ngày này và đã nhận được quyết định cuối cùng. <br> <br> "
-"Ví dụ: hãy xem xét trường hợp có mười lần gửi được thực hiện trong phạm vi "
-"ngày này. Bốn người đã được chấp nhận, bốn người bị từ chối và hai người vẫn "
-"đang chờ quyết định cuối cùng. <br> <br> Tỷ lệ chấp nhận sẽ là 50% (4 trong "
-"số 8 lần gửi) vì hai bài nộp chưa đi đến quyết định cuối cùng sẽ không được "
-"tính."
+"Tỷ lệ phần trăm cho phạm vi ngày đã chọn được tính cho các bài nộp đã được "
+"gửi trong phạm vi ngày này và đã nhận được quyết định cuối cùng.<br><br>Ví "
+"dụ, xem xét trường hợp có mười bài nộp được thực hiện trong phạm vi ngày "
+"này. Bốn bài được chấp nhận, bốn bài bị từ chối và hai bài vẫn đang chờ "
+"quyết định cuối cùng.<br><br>Tỷ lệ chấp nhận sẽ là 50% (4 trong số 8 bài nộp)"
+" vì hai bài nộp chưa đạt được quyết định cuối cùng không được tính."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
-"Số ngày cần để hầu hết các bài gửi nhận được quyết định biên tập đầu tiên, "
-"chẳng hạn như từ chối bàn hoặc gửi để đánh giá (phản biện) tiếp. <br> <br> "
-"Những con số này cho thấy rằng 80% số bài gửi đi đến quyết định trong một số "
-"ngày nhất định. < br> <br> Thống kê này cố gắng mô tả thời điểm phần lớn các "
-"tác giả gửi đến tạp chí của bạn sẽ có thể nhận được một quyết định."
+"Số ngày cần thiết để hầu hết các bài nộp nhận được quyết định biên tập đầu "
+"tiên, chẳng hạn như từ chối tại bàn hoặc gửi đi phản biện.<br><br>Những con "
+"số này cho thấy 80% bài nộp đạt được quyết định trong số ngày nhất "
+"định.<br><br>Thống kê này cố gắng mô tả thời điểm phần lớn tác giả nộp bài "
+"cho tạp chí của bạn có thể mong đợi một quyết định."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Điều này bao gồm các bài nộp không được tính vào các tổng số khác, chẳng hạn "
+"như những bài vẫn đang trong quá trình xử lý và những bài dường như đã được "
+"nhập."
 
 msgid "stats.descriptionForStat"
 msgstr "Mô tả cho {$stat}"
@@ -2532,46 +2642,46 @@ msgid "stats.editorialActivity"
 msgstr "Hoạt động Biên tập"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Tệp Chính"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Tệp Bổ sung"
 
 msgid "stats.fileViews"
-msgstr "Lượt xem tệp"
+msgstr "Lượt xem Tệp"
 
 msgid "stats.html"
 msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr "Hằng tháng"
+msgstr "Hàng tháng"
 
 msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Định vị địa lý được cung cấp bởi <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Về Định vị Địa lý"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} đến {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Tất cả {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Tải xuống Tệp"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Số lượt tải xuống cho mỗi tệp."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Tải xuống Địa lý"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Số lượt xem và tải xuống cho mỗi thành phố, khu vực hoặc quốc gia."
 
 msgid "stats.region"
 msgstr "Khu vực"
@@ -2580,109 +2690,111 @@ msgid "stats.searchSubmissionDescription"
 msgstr "Tìm kiếm theo tiêu đề, tác giả và ID"
 
 msgid "stats.submissionsActive"
-msgstr "Các bài gửi đang xử lý"
+msgstr "Bài nộp Đang hoạt động"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Dòng thời gian"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Số lượng {$type} cho mỗi {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Tải xuống Dòng thời gian"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Khoảng thời gian Dòng thời gian"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Loại Dòng thời gian"
 
 msgid "stats.total"
-msgstr "Tổng số"
+msgstr "Tổng cộng"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Duy nhất"
 
 msgid "stats.totalWithinDateRange"
-msgstr "Tổng số trong Phạm vi ngày"
+msgstr "Tổng cộng trong Phạm vi Ngày"
 
 msgid "stats.trends"
 msgstr "Xu hướng"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "không xác định"
 
 msgid "stats.userStatistics"
-msgstr "Thống kê sử dụng"
+msgstr "Thống kê Người dùng"
 
 msgid "stats.name.submissionsReceived"
-msgstr "Đã nhận bài"
+msgstr "Bài nộp Đã nhận"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Các Bài nộp Khác"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Bài nộp Đang xử lý"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Bài nộp Đã nhập"
 
 msgid "stats.name.submissionsAccepted"
-msgstr "Bài gửi đã được chấp nhận"
+msgstr "Bài nộp Được chấp nhận"
 
 msgid "stats.name.submissionsDeclined"
-msgstr "Bài gửi bị từ chối"
+msgstr "Bài nộp Bị từ chối"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Đệ trình bị Từ chối (Bàn từ chối)"
+msgstr "Bài nộp Bị từ chối (Từ chối tại bàn)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Bài báo bị Từ chối (Sau khi nhận xét)"
+msgstr "Bài nộp Bị từ chối (Sau Phản biện)"
 
 msgid "stats.name.submissionsPublished"
-msgstr "Bài gửi bị từ chối"
+msgstr "Bài nộp Đã xuất bản"
 
 msgid "stats.name.daysToDecision"
-msgstr "Số ngày đến quyết định biên tập đầu tiên"
+msgstr "Số ngày đến Quyết định Biên tập Đầu tiên"
 
 msgid "stats.name.daysToAccept"
-msgstr "Ngày chấp nhận"
+msgstr "Số ngày để Chấp nhận"
 
 msgid "stats.name.daysToReject"
-msgstr "Ngày từ chối"
+msgstr "Số ngày để Từ chối"
 
 msgid "stats.name.acceptanceRate"
-msgstr "Tỷ lệ chấp nhận"
+msgstr "Tỷ lệ Chấp nhận"
 
 msgid "stats.name.declineRate"
-msgstr "Tỷ lệ từ chối"
+msgstr "Tỷ lệ Từ chối"
 
 msgid "stats.name.declinedDeskRate"
-msgstr "Nguồn tỷ lệ bàn từ chối"
+msgstr "Tỷ lệ Từ chối tại bàn"
 
 msgid "stats.name.declinedReviewRate"
-msgstr "Tỷ lệ Từ chối sau khi Phản biện"
+msgstr "Tỷ lệ Từ chối sau Phản biện"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Quá trình thất bại. Kiểm tra lỗi/cảnh báo bên dưới."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Kết quả Xuất Bài nộp"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Tải xuống Tệp đã Xuất"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Xuất đã hoàn thành thành công."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Tải xuống tệp đã xuất từ nút bên dưới."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Các mục Chung"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Cấu hình bộ lọc sai [{$filterName}]: {$filterCount} lần xuất hiện. Chỉ nên "
+"có một."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "LỖI:"
@@ -2691,674 +2803,766 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Đường dẫn tạp chí được chỉ định, \"{$contextPath}\", không tồn tại."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Quá trình phân tích cú pháp tác giả thất bại"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Quá trình phân tích cú pháp ấn phẩm thất bại"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Tất cả nhận xét từ các phản biện đã hoàn thành. Tên người phản biện được ẩn "
+"đối với các phản biện ẩn danh"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Tên và cơ quan công tác của các tác giả bài nộp."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL đến trang nơi người dùng có thể khôi phục mật khẩu đã mất"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL để xem tất cả các bài nộp được gán cho người dùng"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "URL để người dùng xem và chỉnh sửa hồ sơ của họ"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Tên của quyết định đã được đưa ra"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Mô tả về quyết định đã được đưa ra"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Giai đoạn của quy trình biên tập mà quyết định này được đưa ra"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Vòng phản biện mà quyết định này được đưa ra, nếu quyết định liên quan đến "
+"giai đoạn phản biện"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Chủ đề của cuộc thảo luận"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Nội dung của cuộc thảo luận hoặc phản hồi mới"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Danh sách các bài nộp có nhiệm vụ chưa hoàn thành"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Số lượng bài nộp được gán cho biên tập viên này"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Tên đầy đủ của người nhận hoặc tất cả người nhận"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Tên người dùng của người nhận hoặc tất cả người nhận"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Ngày phản biện nên được hoàn thành"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Ngày người phản biện nên chấp nhận hoặc từ chối phân công"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "URL đến phân công phản biện"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Quyết định được đề xuất, chẳng hạn như Chấp nhận Bài nộp"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Ngày phản biện này được phân công"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Loại phản biện, chẳng hạn như ẩn danh, ẩn danh kép hoặc mở"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
+"Đề xuất của người phản biện, chẳng hạn như Chấp nhận Bài nộp hoặc Từ chối"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Vòng phản biện, chẳng hạn như Vòng 1 hoặc Vòng 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Các tệp được tải lên bởi người phản biện"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Tên của người phản biện"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Tạp chí này thực hiện phản biện chuyên gia ẩn danh kép. Người phản biện sẽ "
+"không thấy bất kỳ thông tin nhận dạng nào về bạn hoặc đồng tác giả của bạn. "
+"Tương tự, bạn sẽ không biết ai đã phản biện bài nộp của mình và bạn sẽ không "
+"nghe trực tiếp từ người phản biện."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Tạp chí này thực hiện phản biện chuyên gia “ẩn danh người phản biện”. Tên "
+"của bạn và của các đồng tác giả sẽ hiển thị với người phản biện; tuy nhiên, "
+"danh tính của người phản biện sẽ được giữ ẩn danh."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Tạp chí này thực hiện phản biện chuyên gia mở. Người phản biện sẽ thấy tên "
+"và cơ quan công tác của bạn, cũng như tên và cơ quan công tác của các đồng "
+"tác giả của bạn. Tương tự, bạn sẽ thấy tên và cơ quan công tác của người "
+"phản biện."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Tên đầy đủ của người gửi"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Địa chỉ email của người gửi"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Chữ ký email của người gửi"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Tên đầy đủ của liên hệ chính của trang web"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Email của liên hệ chính của trang web"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Chữ ký email của trang web cho các email tự động"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Các biên tập viên được gán cho bài nộp này có thể đưa ra quyết định"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Tiêu đề của bài nộp"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Số ID duy nhất của bài nộp"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Tóm tắt của bài nộp"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Tên của các tác giả trong một chuỗi ngắn, như \"Barnes, và cộng sự\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Tên đầy đủ của các tác giả"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "URL của tác giả đến bài nộp"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "URL đến bài nộp trong phần quản trị biên tập"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL đến bài nộp đã xuất bản"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL đến bài nộp trong trình hướng dẫn nộp bài"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Tên của các tác giả được gán vào quy trình làm việc của bài nộp. Thường đây "
+"là tác giả nộp bài"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"URL được mã hóa được gửi cho người dùng để xác nhận việc đặt lại mật khẩu"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Mật khẩu người dùng ngẫu nhiên mới"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Phục hồi Người phản biện"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Gửi lại Yêu cầu Phản biện cho Người phản biện"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Tên đầy đủ của người dùng đã tải lên tệp bài nộp"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Tiêu đề của thông báo"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Mô tả ngắn gọn về thông báo"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URL đến thông báo"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Số lượng bài nộp nhận được trong tháng này"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Số lượng bài nộp bị từ chối"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Số lượng bài nộp được chấp nhận"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Số lượng bài nộp không được bao gồm trong các tổng số khác"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Tổng số bài nộp đã nhận"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Tháng của báo cáo"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Năm của báo cáo"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Thông tin nhận dạng số phát hành, bao gồm tập, số, năm và tiêu đề"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL đến số phát hành đã xuất bản"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Năm của báo cáo"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Liên kết đến trang hoạt động biên tập"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Email này được gửi khi một người phản biện đã bị hủy phân công được phục hồi "
+"bởi một biên tập viên."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Email này được gửi bởi một biên tập viên đến một người phản biện đã từ chối "
+"yêu cầu phản biện, khi biên tập viên muốn gửi lại yêu cầu."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Hủy phân công Người phản biện"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Email này được gửi khi một biên tập viên hủy phân công một người phản biện."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Xác thực Email (Trang web)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Email này được tự động gửi đến người dùng mới khi họ đăng ký với trang web "
+"khi cài đặt yêu cầu địa chỉ email phải được xác thực."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Thông báo cho Các Tác giả Khác"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Email này được gửi để thông báo cho các tác giả của một bài nộp không được "
+"gán làm người tham gia rằng một quyết định đã được đưa ra. Thông thường đây "
+"là tất cả những người khác ngoại trừ tác giả nộp bài."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Bản sao của tin nhắn email đã được gửi cho tác giả nộp bài"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Thông báo cho Người phản biện về Quyết định"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Email này được gửi bởi Biên tập viên đến Người phản biện để thông báo cho họ "
+"rằng một quyết định đã được đưa ra liên quan đến một bài nộp mà họ đã phản "
+"biện."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Mô tả ngắn gọn về quyết định này nhằm mục đích chia sẻ trong thông báo email "
+"gửi cho người phản biện về quyết định này"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Chúng tôi đã quyết định chấp nhận bài nộp này mà không cần sửa đổi."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Chúng tôi đã quyết định từ chối bài nộp này."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Chúng tôi đã mời các tác giả gửi bản sửa đổi."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Chúng tôi đã mời các tác giả gửi một phiên bản sửa đổi để phản biện thêm."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Người phản biện được mời vào bài nộp đã bị hủy phân công."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Được chấp nhận"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đã được chấp nhận để "
+"xuất bản."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Được gửi lại Giai đoạn Rà soát bản thảo"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại giai "
+"đoạn rà soát bản thảo."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Được gửi lại từ Giai đoạn Rà soát bản thảo"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại từ giai "
+"đoạn rà soát bản thảo."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Vòng Phản biện Bị hủy"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng một vòng phản biện cho bài nộp của họ "
+"đã bị hủy."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Bị từ chối"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đã bị từ chối sau khi "
+"phản biện chuyên gia."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Bị từ chối (Trước Phản biện)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Vòng Phản biện Mới Được bắt đầu"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng một vòng phản biện mới đang bắt đầu cho "
+"bài nộp của họ."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Yêu cầu Sửa đổi"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả về quyết định yêu cầu sửa đổi trong quá "
+"trình phản biện chuyên gia."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Nộp lại để Phản biện"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả về quyết định \"sửa đổi và nộp lại\" liên "
+"quan đến bài nộp của họ."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Phục hồi Bài nộp Bị từ chối"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng quyết định trước đó từ chối bài nộp của "
+"họ sau khi phản biện chuyên gia đang được hoàn tác."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Phục hồi Bài nộp Bị từ chối Không cần Phản biện"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng quyết định trước đó từ chối bài nộp của "
+"họ mà không cần phản biện đang được hoàn tác."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Đã gửi đi Phản biện"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đang được gửi đến giai "
+"đoạn phản biện."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Đã gửi đến Sản xuất"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đang được gửi đến giai "
+"đoạn sản xuất."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Được chấp nhận (Không cần Phản biện)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đang được gửi trực tiếp "
+"đến giai đoạn rà soát bản thảo và sẽ không được phản biện chuyên gia."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Đề xuất Đã được đưa ra"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Tin nhắn này thông báo cho Biên tập viên cấp cao hoặc Biên tập viên Chuyên "
+"mục rằng một đề xuất biên tập đã được đưa ra liên quan đến một trong những "
+"bài nộp được giao của họ. Tin nhắn này được sử dụng khi một biên tập viên "
+"chỉ được phép đề xuất một quyết định biên tập và yêu cầu một biên tập viên "
+"được ủy quyền ghi lại các quyết định biên tập. Tùy chọn này có thể được chọn "
+"khi gán người tham gia vào một bài nộp."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Xác nhận Phản biện"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Email này được gửi bởi một phản biện cho Biên tập viên chuyên mục để phản "
-"hồi với yêu cầu đánh giá cũng để thông báo cho Biên tập viên chuyên mục rằng "
-"yêu cầu xem xét lại đã được chấp nhận và sẽ được hoàn thành vào ngày cụ thể."
+"Email này được tự động gửi khi một người phản biện chấp nhận yêu cầu phản "
+"biện"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Từ chối Phản biện"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
-"Email này được gửi bởi Người phản biện đến Biên tập viên chuyên mục để phản "
-"hồi về yêu cầu đánh giá cũng để thông báo cho Biên tập viên chuyên mục biết "
-"rằng yêu cầu đánh giá đã bị từ chối."
+"Email này được gửi bởi một người phản biện khi từ chối yêu cầu phản biện"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Nhắc nhở Phản biện"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Email này được gửi bởi Biên tập viên để nhắc nhở người phản biện rằng phản "
+"biện của họ đã đến hạn."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Nhắc nhở Phản biện (Tự động)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Email này được gửi tự động khi người review không hoàn thành việc review "
-"trong hạn thời gian. Việc tự động hóa nhắc nhở được bật ở mục thiết đặt "
-"Review."
+"Email này được tự động gửi khi một người phản biện chưa hoàn thành phản biện "
+"của họ trước ngày đến hạn."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Xác nhận Phản biện"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Email này được gửi bởi một biên tập viên đến một người phản biện để xác nhận "
+"rằng phản biện của họ đã được nhận và cảm ơn người phản biện vì những đóng "
+"góp của họ."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Phản hồi Phản biện Quá hạn (Tự động)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Email này được gửi tự động khi hết hạn xác nhận của người phản biện (xem Tùy "
-"chọn đánh giá trong Cài đặt> Quy trình làm việc> phản biện) và quyền truy "
-"cập của người phản biện không cần đăng nhập bị vô hiệu hóa. Các tác vụ theo "
-"lịch trình phải được bật và định cấu hình (xem tập tin cấu hình trang)."
+"Email này được tự động gửi khi hết hạn cho người phản biện phản hồi yêu cầu "
+"phản biện."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Yêu cầu Phản biện"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Email này từ Biên tập viên chuyên mục tới Người phản biện yêu cầu họ chấp "
-"nhận hoặc từ chối nhiệm vụ đánh giá nội dung bài gửi. Nó cung cấp thông tin "
-"về bài gửi như tiêu đề và tóm tắt, ngày đến hạn gửi bài đánh giá và cách "
-"truy cập bài gửi. Thông báo này được sử dụng khi Quy trình phản biện tiêu "
-"chuẩn được chọn trong Quản lý> Cài đặt> Quy trình làm việc> Phản biện."
+"Email này từ Biên tập viên Chuyên mục đến Người phản biện yêu cầu người phản "
+"biện chấp nhận hoặc từ chối nhiệm vụ phản biện một bài nộp. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Yêu cầu Phản biện Tiếp theo"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Email này từ biên tập viên chuyên mục tới phản biện để một yêu cầu người "
-"phản biện chấp nhận hoặc từ chối nhiệm vụ đánh giá bài gửi một vòng thứ hai "
-"hoặc cao hơn. Nó cung cấp thông tin về bài gửi như tiêu đề và tóm tắt, ngày "
-"đến hạn nộp đán giá và cách truy cập bài gửi. Thông báo này được sử dụng khi "
-"Quy trình phản biện tiêu chuẩn được chọn trong Quản lý > Cài đặt > Quy trình "
-"làm việc > Phản biện."
+"Email này từ Biên tập viên đến Người phản biện yêu cầu người phản biện chấp "
+"nhận hoặc từ chối nhiệm vụ phản biện một bài nộp cho một vòng phản biện bổ "
+"sung. Nó cung cấp thông tin về bài nộp như tiêu đề và tóm tắt, ngày đến hạn "
+"phản biện và cách truy cập chính bài nộp."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Ấn phẩm hiện tại của bài nộp bị thiếu hoặc không có"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Mục con {$child} của bài nộp không thể xử lý được"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Nhắc nhở Biên tập"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Một email tự động được gửi đến các biên tập viên có nhiệm vụ chưa hoàn thành"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Xác nhận Đặt lại Mật khẩu"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
 "Email này được gửi đến người dùng đã đăng ký khi họ cho biết rằng họ đã quên "
 "mật khẩu hoặc không thể đăng nhập. Nó cung cấp một URL mà họ có thể theo dõi "
-"để đặt lại mật khẩu của họ."
+"để đặt lại mật khẩu của mình."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Người dùng Đã được Tạo"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Email này được gửi đến một người dùng mới đăng ký để chào đón họ vào hệ "
-"thống và cung cấp cho họ một username và mật khẩu của họ."
+"Email này được gửi đến người dùng mới được tạo khi người quản lý biên tập đã "
+"tạo người dùng thông qua cài đặt người dùng. Email nên chào mừng họ đến với "
+"hệ thống và cung cấp cho họ bản ghi về tên người dùng và mật khẩu của họ."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Đăng ký Người phản biện"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
-"Email này được gửi đến một người phản biện mới đăng ký để chào đón họ vào hệ "
-"thống và cung cấp cho họ một username và mật khẩu của họ."
+"Email này được gửi đến người phản biện mới đăng ký để chào mừng họ đến với "
+"hệ thống và cung cấp cho họ bản ghi về tên người dùng và mật khẩu của họ."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Bài nộp Đã Lưu để Hoàn thành Sau"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Một email tự động được gửi đến tác giả khi họ lưu bài nộp của mình để hoàn "
+"thành sau"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Xác nhận Nộp bài"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Email này, khi được bật, sẽ tự động được gửi cho tác giả khi người đó hoàn "
-"thành quá trình gửi bản thảo cho tạp chí. Nó cung cấp thông tin về việc theo "
-"dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
+"Email này được tự động gửi đến tác giả khi họ thực hiện một bài nộp. Nó cung "
+"cấp thông tin về việc theo dõi bài nộp qua quy trình biên tập và cảm ơn tác "
+"giả vì đã nộp bài."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Xác nhận Nộp bài (Các Tác giả Khác)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Email này, khi được bật, sẽ tự động được gửi đến các đồng tác giả khác không "
-"phải là người gửi bài."
+"Email này được tự động gửi đến các tác giả được nêu tên trên một bài nộp "
+"không phải là tác giả nộp bài."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Thảo luận (Nộp bài)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Email này được gửi khi một cuộc thảo luận được tạo hoặc trả lời trong giai "
+"đoạn nộp bài."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Thảo luận (Phản biện)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Email này được gửi khi một cuộc thảo luận được tạo hoặc trả lời trong giai "
+"đoạn phản biện."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Thảo luận (Rà soát bản thảo)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Email này được gửi khi một cuộc thảo luận được tạo hoặc trả lời trong giai "
+"đoạn rà soát bản thảo."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Thảo luận (Sản xuất)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Email này được gửi khi một cuộc thảo luận được tạo hoặc trả lời trong giai "
+"đoạn sản xuất."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Thông báo Phiên bản Sửa đổi"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
 "Email này được tự động gửi đến biên tập viên được phân công khi tác giả tải "
-"lên phiên bản sửa chữa của bài viết."
+"lên phiên bản sửa đổi của một bài báo."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Thông báo Mới"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Email này được gửi khi một thông báo mới được tạo."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Thông báo Báo cáo Thống kê"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Thông báo Chỉnh sửa Phản biện"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Email này tự động thông báo cho người phản biện khi chi tiết về phân công "
+"phản biện của họ đã được thay đổi."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Người phản biện Đã Nhận xét Thông báo cho Biên tập viên"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Email này được tự động gửi đến các biên tập viên được phân công khi người "
+"phản biện đưa ra đề xuất phản biện"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Nguồn xác thực"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Được gửi lại Giai đoạn Phản biện"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại giai "
+"đoạn phản biện."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Bài nộp Được gửi lại Giai đoạn Nộp bài"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Email này thông báo cho tác giả rằng bài nộp của họ đã được gửi lại giai "
+"đoạn nộp bài."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Quản lý Email"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Thêm và chỉnh sửa mẫu</a> cho tất cả các email được "
+"gửi bởi hệ thống.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Thêm và chỉnh sửa các mẫu mà bạn muốn cung cấp cho người dùng khi họ gửi "
+"email này. Mẫu mặc định sẽ được tải tự động và người dùng sẽ có thể nhanh "
+"chóng tải bất kỳ mẫu nào khác bạn thêm vào đây."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Mẫu"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Sửa Mẫu"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Xóa Mẫu"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn xóa mẫu <strong>{$template}</strong> không?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Đặt lại Mẫu"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Bạn có chắc chắn muốn đặt lại tiêu đề và nội dung về mặc định cho mẫu "
+"<strong>{$template}</strong> không?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Tìm kiếm theo tên hoặc mô tả"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Nhập tên ngắn gọn để giúp bạn tìm mẫu này."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Bài nộp Mới"
 
 msgid "manager.newSubmission.description"
-msgstr ""
+msgstr "Cấu hình thông báo email để gửi khi có bài nộp mới."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Ai sẽ nhận được email khi một bài nộp mới được hoàn thành."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Không gửi email."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Chỉ gửi email cho tác giả nộp bài."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Gửi email cho tất cả các tác giả."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Quyết định Biên tập"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Cấu hình thông báo email để gửi cho tác giả khi một quyết định biên tập được "
+"ghi lại."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Dành cho Biên tập viên"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Cấu hình thông báo email để gửi cho biên tập viên."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Thống kê biên tập"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Có gửi email hàng tháng cho các biên tập viên với số liệu thống kê biên tập "
+"của tạp chí hay không, chẳng hạn như tỷ lệ chấp nhận và từ chối. Biên tập "
+"viên có thể hủy đăng ký nhận email này từ hồ sơ người dùng của họ."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Gửi email hàng tháng cho biên tập viên."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Không gửi email cho biên tập viên."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Có nên yêu cầu tác giả nộp bài chọn một danh mục khi họ thực hiện một bài "
+"nộp mới không?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Có, thêm trường danh mục vào trình hướng dẫn nộp bài."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Không, không hiển thị trường này cho tác giả."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Yêu cầu Rà soát bản thảo"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Biên tập viên Được phân công"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Sẵn sàng cho Sản xuất"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Hệ thống"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Phiên bản Đã được Tạo"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Phản biện Đã Hoàn thành"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Phản biện Đã được Sửa đổi"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Xác nhận Nộp bài đến Các Tác giả Khác"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Biên tập viên Được phân công (Tự động)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Email này được gửi đến một biên tập viên khi họ được tự động phân công cho "
+"một bài nộp."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Phân công Biên tập viên"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Bài nộp Cần Biên tập viên"
 
 #~ msgid "manager.emails.editEmail.success"
 #~ msgstr "Mẫu email đã được sửa"
@@ -3410,10 +3614,138 @@ msgstr ""
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
-"Yêu cầu tác giả gửi một tuyên bố xung đột lợi ích (CI) với bài gửi của họ."
+"Yêu cầu Tác giả nộp bài nộp một tuyên bố về Xung đột Lợi ích (CI) cùng với "
+"bài nộp của họ."
 
 msgid "manager.setup.masthead"
 msgstr "Tiêu đề"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Xác thực XML trước khi xuất và đăng ký."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "Tệp bài nộp {$id} đã bị bỏ qua vì nó không có giai đoạn tệp hợp lệ."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Ảnh bìa của ấn phẩm {$id} không được xuất, không tìm thấy tệp của nó tại "
+"đường dẫn \"{$path}\"."
+
+msgid "manager.highlights.add"
+msgstr "Thêm Điểm nổi bật"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Bạn có chắc chắn muốn xóa {$title} không? Hành động này không thể hoàn tác."
+
+msgid "manager.highlights.delete"
+msgstr "Xóa Điểm nổi bật"
+
+msgid "manager.highlights.edit"
+msgstr "Sửa Điểm nổi bật"
+
+msgid "manager.highlights.image"
+msgstr "Hình ảnh"
+
+msgid "manager.highlights.url.description"
+msgstr "URL đầy đủ, bao gồm https://, cho nút trong điểm nổi bật."
+
+msgid "manager.highlights.urlText"
+msgstr "Nhãn nút"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Nhãn, chẳng hạn như Đọc thêm, cho nút trong điểm nổi bật."
+
+msgid "manager.image"
+msgstr "Hình ảnh"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Báo cáo Counter R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Xem <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">tài liệu COUNTER 5.0.3</a> để biết thêm thông tin về "
+"từng báo cáo."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Chưa có thống kê sử dụng COUNTER R5 nào."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Cài đặt Báo cáo"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Ngày bắt đầu"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Ngày phải ở định dạng YYYY-MM-DD hoặc YYYY-MM. Ngày sớm nhất có thể là "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Ngày kết thúc"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Ngày phải ở định dạng YYYY-MM-DD hoặc YYYY-MM. Ngày muộn nhất có thể là "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Định dạng ngày không hợp lệ."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID Khách hàng"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Loại Chỉ số"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Thuộc tính cần Hiển thị"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Năm xuất bản (YOP)"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Một danh sách hoặc phạm vi các năm xuất bản để trả về trong phản hồi theo "
+"định dạng yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Định dạng YOP không hợp lệ."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID Bài nộp"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID bài nộp không tồn tại."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Bao gồm Chi tiết Mục Cha"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Loại trừ Chi tiết Hàng tháng"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Email đã được xếp hàng thành công để gửi vào thời điểm thuận tiện sớm nhất."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Phiên bản đã cài đặt: {$version}"
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "Tệp bài nộp {$id} đã bị bỏ qua vì nó không có bản sửa đổi hợp lệ."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Bản sửa đổi {$revision} của tệp bài nộp {$id} đã bị bỏ qua vì không tìm thấy "
+"tệp tại đường dẫn \"{$path}\"."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Liên kết để xác thực tài khoản email"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Bạn phải <a href=\"#announcements/announcement-settings\">bật thông báo</a>."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"

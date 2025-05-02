@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/tr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Öge Yok"
@@ -719,3 +719,32 @@ msgstr "Gözatma Listelerinde"
 
 msgid "grid.action.editContributor"
 msgstr "Katkıda Bulunan Kişi Düzelt"
+
+msgid "grid.user.remove"
+msgstr "Kullanıcıyı Sil"
+
+msgid "grid.user.logInAs"
+msgstr "Adına giriş yap"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Kullanıcı etkinleştirildikten sonra siteye yeniden erişim kazanacak ve "
+"gerektiğinde onları başka rollere davet edebileceksiniz."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Hakem Öner"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Önerilen Hakemi Sil"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Bu öneriyi kaldırmak istediğinizden emin misiniz? Bu işlem geri alınamaz."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Masthead'te Görünsün"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Lütfen bir kullanıcı devre dışı bırakıldığında, kullanıcı tekrar "
+"etkinleştirilene kadar herhangi bir role ekleyemeyeceğinizi unutmayın."

@@ -1142,7 +1142,7 @@ abstract class Repository
                         ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
                     return new DashboardView(
                         $key,
-                        in_array(Role::ROLE_ID_AUTHOR, $selectedRoleIds) ? __('submission.list.revisionsSubmitted')  : __('submission.dashboard.view.revisionsSubmitted'),
+                        in_array(Role::ROLE_ID_AUTHOR, $selectedRoleIds) ? __('submission.list.revisionsSubmitted') : __('submission.dashboard.view.revisionsSubmitted'),
                         [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                         $canAccessUnassignedSubmission
                             ? $collector
@@ -1168,7 +1168,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.actionRequired'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByActionRequiredByReviewer(true),
                         'reviewerAssignments',
@@ -1180,7 +1180,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.all'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByActive(true),
                         'reviewerAssignments',
@@ -1192,7 +1192,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.completed'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByCompleted(true),
                         'reviewerAssignments',
@@ -1204,7 +1204,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.published'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByPublished(true),
                         'reviewerAssignments',
@@ -1216,7 +1216,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.archived'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByIsArchived(true),
                         'reviewerAssignments',
@@ -1228,7 +1228,7 @@ abstract class Repository
                         __('submission.dashboard.view.reviewAssignments.declined'),
                         [Role::ROLE_ID_REVIEWER],
                         Repo::reviewAssignment()->getCollector()
-                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByReviewerIds([$user->getId()], true)
                             ->filterByContextIds([$context->getId()])
                             ->filterByDeclined(true),
                         'reviewerAssignments',

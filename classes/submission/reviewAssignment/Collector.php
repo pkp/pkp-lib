@@ -45,12 +45,14 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $isDeclined = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
+    public ?bool $isLastReviewRoundByReviewer = false;
     public bool $isLastReviewRound = false;
     public ?int $count = null;
     public ?int $offset = null;
     public ?array $reviewMethods = null;
     public ?int $stageId = null;
     public ?array $reviewFormIds = null;
+    public ?array $reviewerRecommendationIds = null;
     public bool $orderByContextId = false;
     public ?string $orderByContextIdDirection = null;
     public bool $orderBySubmissionId = false;
@@ -191,9 +193,18 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
-    public function filterByReviewerIds(?array $reviewerIds): static
+    /**
+     * Filter results by reviewer IDs
+     *
+     * @param array|null $reviewerIds user IDs of reviewers
+     * @param bool $lastReviewRound if true, only the last review round for each reviewer will be returned
+     *
+     * @return $this
+     */
+    public function filterByReviewerIds(?array $reviewerIds, bool $lastReviewRound = false): static
     {
         $this->reviewerIds = $reviewerIds;
+        $this->isLastReviewRoundByReviewer = $lastReviewRound;
         return $this;
     }
 
@@ -224,6 +235,15 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByReviewFormIds(?array $reviewFormIds): static
     {
         $this->reviewFormIds = $reviewFormIds;
+        return $this;
+    }
+
+    /**
+     * Filter by recommendations
+     */
+    public function filterByReviewerRecommendationIds(?array $reviewerRecommendationIds): static
+    {
+        $this->reviewerRecommendationIds = $reviewerRecommendationIds;
         return $this;
     }
 
@@ -272,17 +292,24 @@ class Collector implements CollectorInterface, ViewsCount
     public function getQueryBuilder(): Builder
     {
         $q = DB::table($this->dao->table . ' as ra')
-            // Aggregate the latest review round number for the given assignment
+            // Aggregating data regarding latest review round and stage. For OMP the latest round isn't equal to the round with the highest number per submission
             ->leftJoinSub(
-                DB::table('review_rounds', 'rr')
-                    ->select('rr.submission_id')
-                    ->selectRaw('MAX(rr.round) as current_round')
-                    ->selectRaw('MAX(rr.stage_id) as current_stage')
-                    ->groupBy('rr.submission_id'),
-                'agrr',
-                fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'agrr.submission_id')
-            )
-            ->select(['ra.*']);
+                DB::table('review_assignments as rr')
+                    ->select(['rr.submission_id', 'rr.stage_id'])
+                    ->selectRaw('MAX(rr.round) as latest_round')
+                    ->groupBy('rr.submission_id', 'rr.stage_id')
+                    ->leftJoinSub(
+                        DB::table('review_assignments as rs')
+                            ->select('rs.submission_id')
+                            ->selectRaw('MAX(rs.stage_id) as latest_stage')
+                            ->groupBy('rs.submission_id'),
+                        'rsmax',
+                        fn (JoinClause $join) => $join->on('rr.submission_id', '=', 'rsmax.submission_id')
+                    )
+                    ->whereColumn('rr.stage_id', 'rsmax.latest_stage'), // Take the highest round only from the latest stage
+                'rrmax',
+                fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'rrmax.submission_id')
+            );
 
         $q->when(
             $this->contextIds !== null,
@@ -304,8 +331,8 @@ class Collector implements CollectorInterface, ViewsCount
 
         $q->when($this->isLastReviewRound || $this->isIncomplete, function (Builder $q) {
             $q
-                ->whereColumn('ra.round', '=', 'agrr.current_round') // assignments from the last review round only
-                ->whereColumn('ra.stage_id', '=', 'agrr.current_stage') // assignments for the current review stage only (for OMP)
+                ->whereColumn('ra.round', '=', 'rrmax.latest_round') // assignments from the last review round only
+                ->whereColumn('ra.stage_id', '=', 'rrmax.stage_id') // assignments for the current review stage only (for OMP)
                 ->when(
                     $this->isIncomplete,
                     fn (Builder $q) => $q
@@ -435,8 +462,39 @@ class Collector implements CollectorInterface, ViewsCount
 
         $q->when(
             $this->reviewerIds !== null,
-            fn (Builder $q) =>
-            $q->whereIn('ra.reviewer_id', $this->reviewerIds)
+            fn (Builder $q) => $q
+                ->whereIn('ra.reviewer_id', $this->reviewerIds)
+                ->when(
+                    $this->isLastReviewRoundByReviewer,
+                    fn (Builder $q) => $q
+                        ->leftJoinSub(
+                            // Determine the last review round the reviewer has assignments in
+                            DB::table('review_assignments as ramax')
+                                ->select(['ramax.submission_id', 'ramax.reviewer_id', 'ramax.stage_id'])
+                                ->selectRaw('MAX(ramax.round) as latest_round')
+                                ->groupBy(['ramax.submission_id', 'ramax.reviewer_id', 'ramax.stage_id'])
+                                /*
+                                 * Reviewers might have assignments in the Internal but not External review stage.
+                                 * Must aggregate data regarding the last review stage the reviewer has assignments in
+                                 */
+                                ->leftJoinSub(
+                                    DB::table('review_assignments as rsmax')
+                                        ->select(['rsmax.submission_id', 'rsmax.reviewer_id'])
+                                        ->selectRaw('MAX(rsmax.stage_id) as latest_stage')
+                                        ->groupBy(['rsmax.submission_id', 'rsmax.reviewer_id'])
+                                        ->where('rsmax.reviewer_id', $this->reviewerIds),
+                                    'rssmax',
+                                    fn (JoinClause $join) => $join->on('ramax.submission_id', '=', 'rssmax.submission_id')
+                                )
+                                ->whereColumn('ramax.reviewer_id', 'rssmax.reviewer_id') // Take only selected reviewers
+                                ->whereColumn('ramax.stage_id', 'rssmax.latest_stage'),  // Take only the current stage
+                        'raamax',
+                            fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'raamax.submission_id')
+                        )
+                        ->whereColumn('ra.reviewer_id', 'raamax.reviewer_id') // Finally fitler by reviewers
+                        ->whereColumn('ra.stage_id', 'raamax.stage_id') // Finally filter by the latest review stage
+                        ->whereColumn('ra.round', 'raamax.latest_round') // Finally filter by the latest review round
+                )
         );
 
         $q->when(
@@ -455,6 +513,12 @@ class Collector implements CollectorInterface, ViewsCount
             $this->reviewFormIds !== null,
             fn (Builder $q) =>
             $q->whereIn('ra.review_form_id', $this->reviewFormIds)
+        );
+
+        $q->when(
+            $this->reviewerRecommendationIds !== null,
+            fn (Builder $q) =>
+            $q->whereIn('ra.reviewer_recommendation_id', $this->reviewerRecommendationIds)
         );
 
         $q->when(

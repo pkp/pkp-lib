@@ -1,13 +1,14 @@
 # Aitor Renobales <aitor.renobales@ehu.eus>, 2022.
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023.
 # Informatikaria <informatikaria@ueu.eus>, 2023.
+# Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-12-12 14:59+0000\n"
-"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
+"PO-Revision-Date: 2025-04-27 07:50+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
 "Language: eu\n"
@@ -18,13 +19,15 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
-msgstr ""
+msgstr "Informazioa"
 
 msgid "manager.website.appearance"
-msgstr ""
+msgstr "Itxura"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
+"Irudi-fitxategi bat behar da. Ziurtatu fitxategi bat hautatu eta kargatu "
+"duzula."
 
 msgid "manager.announcements"
 msgstr "Anuntzioak"
@@ -45,7 +48,7 @@ msgid "manager.announcements.datePublish"
 msgstr "Argitaratua"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr ""
+msgstr "Ezabatu jakinarazpena"
 
 msgid "manager.announcements.edit"
 msgstr "Editatu anuntzioa"
@@ -154,163 +157,167 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Anuntzio mota"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Gordailatu dena"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Gordailatu DOIak"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Markatu DOIak erregistratu gisa"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Markatu DOIak erregistratu gabeko gisa"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Markatu sinkronizazioa behar duten DOIak"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Esportatu DOIak"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Esleitu DOIak"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Gordailatu DOI guztiak"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Ekintza burutu hautatutako {$count} elementuetan."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Ekintza masiboak"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Gordailuaren egoera"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Argitalpenaren egoera"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Elementu honen metadatuak bidali dira {$registrationAgency}-(e)ra."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Elementu hori eskuz erregistratu da erregistro-agentzian."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Elementu honen metadatuak ez dira bidali {$registrationAgency}-(e)ra."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Elementu hau ezin da gordailatu argitaratua izan arte."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Ikusi errorea"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Erregistro-errorearen mezua"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Ikus erregistroa"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Erregistro zuzenaren mezua"
 
 msgid "manager.dois.update.success"
-msgstr ""
+msgstr "DOI(ak) behar bezala eguneratu dira"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Gordailatu DOI(ak)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "DOIa behar du"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Erregistratu gabea"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Bidalita"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Erregistratuta"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Errorea"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Errore bat dauka"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Sinkronizazioa behar du"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOIa esleituta"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Elementu guztiei DOIa falta zaie."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Elementu guztiek DOIa esleituta dute."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Elementu guztiak DOIarekin argitaratuta, baina oraindik erregistro-agentzia "
+"batean ez dira gordailatu."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Elementu guztiak erregistro-agentzia batera bidalita."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Elementu guztiak erregistro-agentzia batean erregistratuta edo eskuz "
+"erregistratu gisa markatuta."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Elementu guztiek erroreren bat izan dute erregistratze-prozesuan."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "DOI eguneraketak huts egin du"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "DOI batzuk ezin izan dira eguneratu"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Elementuak arrakastaz esportatu dira"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Elementuak erregistratu gisa markatu dira"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Elementuak erregistratu gabeko gisa markatu dira"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Elementuak sinkronizazioa behar dute gisa markatu dira"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Elementuei DOI berriak esleitu zaizkie arrakastaz"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Elementuak gordailura bidali dira arrakastaz"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOIen egoerak"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
@@ -320,57 +327,59 @@ msgstr ""
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"DOI bat sortzeko saiakera egin da, baina testuinguru honetan DOI aurrizkia "
+"beharrezkoa da DOIa sortzeko."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Editatu instituzioa"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "Instituzio honen ROR IDa."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP barrutiak"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Ezabatu instituzioa"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Ziur zaude jarraitu nahi duzula eta instituzioa ezabatu nahi duzula?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "IP barruti baliogabea"
 
 msgid "manager.publication.submissionStage"
-msgstr ""
+msgstr "Bidalketa"
 
 msgid "manager.publication.reviewStage"
 msgstr "Berrikuspena"
 
 msgid "manager.publication.editorialStage"
-msgstr ""
+msgstr "Argitaletxea"
 
 msgid "manager.publication.productionStage"
 msgstr "Ekoizpena"
 
 msgid "manager.publication.emails"
-msgstr ""
+msgstr "Mezu elektronikoak"
 
 msgid "manager.publication.reviewerGuidance"
-msgstr ""
+msgstr "Ikuskatzaileentzako gida"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr ""
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOIak"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
@@ -379,7 +388,7 @@ msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
 
 msgid "manager.emails.addEmail"
-msgstr ""
+msgstr "Gehitu txantiloia"
 
 msgid "manager.emails.createEmail"
 msgstr "Sortu mezu elektronikoa"
@@ -406,10 +415,10 @@ msgid "manager.emails.emailTemplate"
 msgstr "Mezu elektronikoen txantiloia"
 
 msgid "manager.emails.emailTemplates"
-msgstr ""
+msgstr "Eposta txantiloiak"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Beste txantiloiak"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
@@ -438,7 +447,7 @@ msgid "manager.emails"
 msgstr "Prestatutako mezu elektronikoak"
 
 msgid "manager.emails.resetAll"
-msgstr ""
+msgstr "Leheneratu txantiloi guztiak"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
@@ -455,16 +464,17 @@ msgid "manager.emails.resetToDefault"
 msgstr "Berrezarri lehenetsia"
 
 msgid "manager.emails.sentFrom"
-msgstr ""
+msgstr "Hemendik bidalia"
 
 msgid "manager.emails.sentTo"
-msgstr ""
+msgstr "Hona bidalia"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Esportatu Excel/CSV-ra"
 
 msgid "manager.export.usersToCsv.description"
 msgstr ""
+"Hautatu Excel/CSV fitxategi batera esportatu nahi dituzun erabiltzaileak."
 
 msgid "manager.filesBrowser"
 msgstr "Fitxategi-arakatzailea"
@@ -526,13 +536,13 @@ msgid "manager.importExport"
 msgstr "Inportatu/Esportatu datuak"
 
 msgid "manager.language.ui"
-msgstr ""
+msgstr "UI"
 
 msgid "manager.language.submissions"
-msgstr ""
+msgstr "Bidalketak"
 
 msgid "manager.language.forms"
-msgstr ""
+msgstr "Inprimakiak"
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Berreskuratu balio lehenetsiak"
@@ -553,7 +563,7 @@ msgid "manager.payment.timestamp"
 msgstr "Data"
 
 msgid "manager.people.existingUserRequired"
-msgstr ""
+msgstr "Lehendik dagoen erabiltzaile bat sartu behar da."
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Erabiltzaile hau desinskribatu?"
@@ -659,7 +669,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Gorde eta sortu beste bat"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Une honetan {$username} gisa saioa hasita duzu"
 
 msgid "manager.people.signInAs"
 msgstr "Hasi erabiltzaile-saioa"
@@ -704,13 +714,13 @@ msgid "manager.readingTools"
 msgstr "Irakurtzeko tresnak"
 
 msgid "manager.userSearch.searchByName"
-msgstr ""
+msgstr "Bilatu erabiltzailea izenaren arabera"
 
 msgid "manager.representative.inUse"
 msgstr ""
 
 msgid "manager.reviewerSearch.change"
-msgstr ""
+msgstr "Aldatu"
 
 msgid "manager.reviewerSearch.searchByName"
 msgstr "Ebaluatzailea izenez bilatu"
@@ -730,43 +740,43 @@ msgid "manager.roles"
 msgstr "Funtzioak"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Estatistikak"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Estatistika geografikoak"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Ez bildu datu geografikorik"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Bildu bisitarien herrialdea"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Bildu bisitarien herrialdea eta eskualdea"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Bildu bisitarien herrialdea, eskualdea eta hiria"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Estatistika instituzionalak"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Gaitu estatistika instituzionalak"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "API publikoa"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "COUNTER SUSHI estatistikak publikoki eskura jarri"
 
 msgid "manager.statistics.reports"
 msgstr "Txostenak"
@@ -775,31 +785,31 @@ msgid "manager.statistics.reports.description"
 msgstr ""
 
 msgid "manager.statistics.reports.month.label"
-msgstr ""
+msgstr "Erabili data formatu hau YYYYHH."
 
 msgid "manager.statistics.reports.day.label"
-msgstr ""
+msgstr "Erabili data formatu hau UUUUHHEE."
 
 msgid "manager.affiliationAndSupport"
-msgstr ""
+msgstr "Babeslea"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOIak"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Konfigurazioa"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Erregistroa"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "DOIaren aurrizkia"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Gordailu automatikoa"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Gaitu gordailu automatikoa"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
@@ -808,37 +818,37 @@ msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI aurrizkia beharrezkoa da eta formatu hau izan behar du: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "DOI automatikoaren esleipena"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Noiz esleitu beharko litzaioke DOIa bidalketa bati?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Argitaratu ondoren"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Inoiz ez"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI aurrizkia"
 
 msgid "doi.manager.settings.doiObjects"
-msgstr ""
+msgstr "DOIa duten elementuak"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "DOI aurrizkia beharrezkoa da"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr ""
+msgstr "DOI formatua"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI atzizkia"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "DOI atzizki pertsonalizatuaren patroia"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
@@ -848,6 +858,7 @@ msgstr ""
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr ""
+"Lehenetsia - zortzi karaktere dituen atzizki bakarra sortuko da automatikoki"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1300,40 +1311,42 @@ msgid "manager.plugins.copyError"
 msgstr ""
 
 msgid "manager.plugins.delete"
-msgstr ""
+msgstr "Ezabatu plugina"
 
 msgid "manager.plugins.installConfirm"
 msgstr ""
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr ""
+msgstr "Ziur zaude plugin hau eguneratu nahi duzula?"
 
 msgid "grid.action.installPlugin"
-msgstr ""
+msgstr "Instalatu edo eguneratu plugin hau"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr ""
+msgstr "Ziur zaude plugin hau sistematik kendu nahi duzula?"
 
 msgid "manager.plugins.deleteDescription"
 msgstr ""
+"Ezabatu sakatzen baduzu, zerbitzariko fitxategi-sistematik plugina ezabatuko "
+"da."
 
 msgid "manager.plugins.deleteError"
 msgstr ""
 
 msgid "manager.plugins.deleteSuccess"
-msgstr ""
+msgstr "\"{$pluginName}\" plugina ongi ezabatu da"
 
 msgid "manager.plugins.description"
 msgstr ""
 
 msgid "manager.plugins.doesNotExist"
-msgstr ""
+msgstr "\"{$pluginName}\" plugina ez da existitzen"
 
 msgid "manager.plugins.fileSelectError"
-msgstr ""
+msgstr "Hautatu fitxategi bat lehenik"
 
 msgid "manager.plugins.upload"
-msgstr ""
+msgstr "Kargatu plugin berri bat"
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
@@ -1342,88 +1355,93 @@ msgid "manager.plugins.uploadFailed"
 msgstr ""
 
 msgid "manager.plugins.installed"
-msgstr ""
+msgstr "Instalatutako pluginak"
 
 msgid "manager.plugins.pluginGallery"
-msgstr ""
+msgstr "Plugin galeria"
 
 msgid "manager.plugins.pluginGallery.overview"
-msgstr ""
+msgstr "Ikuspegi orokorra"
 
 msgid "manager.plugins.pluginGallery.installation"
-msgstr ""
+msgstr "Instalazioa"
 
 msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr ""
+msgstr "Azken bertsio bateragarria"
 
 msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr ""
+msgstr "Ofiziala"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr ""
+msgstr "Plugin hau Public Knowledge Project taldeak garatu eta mantentzen du."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr ""
+msgstr "Berrikusia"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr ""
+msgstr "Plugin hau Public Knowledge Project taldeak berrikusi eta onartu du."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr ""
+msgstr "Bazkidea"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr ""
+msgstr "Plugin hau gure garapen-bazkideetako batek eskaintzen du."
 
 msgid "manager.plugins.pluginGallery.maintainer"
-msgstr ""
+msgstr "Mantentzailea"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr ""
+msgstr "v{$version} bertsioa. {$date}-n argitaratua"
 
 msgid "manager.plugins.pluginGallery.homepage"
-msgstr ""
+msgstr "Hasierako orria"
 
 msgid "manager.plugins.pluginGallery.summary"
-msgstr ""
+msgstr "Laburpena"
 
 msgid "manager.plugins.pluginGallery.status"
-msgstr ""
+msgstr "Egoera"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr ""
+msgstr "Plugina oraindik ez da instalatu."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr ""
+msgstr "Une honetan ez dago plugin honen bertsio bateragarririk eskuragarri."
 
 msgid "manager.plugins.installedVersionNewer"
 msgstr ""
+"Plugina dagoeneko instalatuta dago eta galerian eskuragarri dagoena baino "
+"bertsio berriagoa da."
 
 msgid "manager.plugins.installedVersionOlder"
 msgstr ""
+"Plugina instalatuta dago, baina bertsio berriago batera egunera dezakezu."
 
 msgid "manager.plugins.installedVersionNewest"
-msgstr ""
+msgstr "Plugina instalatuta eta eguneratuta."
 
 msgid "manager.plugins.installedVersionNewer.short"
-msgstr ""
+msgstr "Eskuragarri dagoen bertsioa baino berriagoa"
 
 msgid "manager.plugins.installedVersionOlder.short"
-msgstr ""
+msgstr "Eguneratu daiteke"
 
 msgid "manager.plugins.installedVersionNewest.short"
-msgstr ""
+msgstr "Eguneratuta"
 
 msgid "manager.plugins.noCompatibleVersion.short"
-msgstr ""
+msgstr "Ez dago eskuragarri"
 
 msgid "manager.plugins.installFailed"
-msgstr ""
+msgstr "Instalazio-errorea. {$errorString}"
 
 msgid "manager.plugins.installSuccessful"
-msgstr ""
+msgstr "{$versionNumber} bertsioa behar bezala instalatu da"
 
 msgid "manager.plugins.invalidPluginArchive"
 msgstr ""
+"Kargatu duzun pluginak ez dauka pluginaren izenarekin bat datorren "
+"karpetarik."
 
 msgid "manager.plugins.wrongCategory"
 msgstr ""
@@ -1438,10 +1456,10 @@ msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
 
 msgid "manager.plugins.settings"
-msgstr ""
+msgstr "Ezarpenak"
 
 msgid "manager.plugins.upgrade"
-msgstr ""
+msgstr "Eguneratu plugina"
 
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
@@ -1669,7 +1687,7 @@ msgid "manager.website"
 msgstr "Webgunea"
 
 msgid "manager.website.title"
-msgstr ""
+msgstr "Webgunearen ezarpenak"
 
 msgid "manager.workflow"
 msgstr "Lan-fluxua"
@@ -1678,7 +1696,7 @@ msgid "manager.workflow.title"
 msgstr "Bidalketa-fitxategiak"
 
 msgid "manager.distribution"
-msgstr ""
+msgstr "Banaketa"
 
 msgid "manager.distribution.title"
 msgstr ""
@@ -2339,7 +2357,7 @@ msgid "stats.descriptionForStat"
 msgstr ""
 
 msgid "stats.editorialActivity"
-msgstr ""
+msgstr "Argitalpen-jarduera"
 
 msgid "stats.file.type.primaryFile"
 msgstr ""
@@ -3198,3 +3216,103 @@ msgstr "Portada"
 
 msgid "plugins.importexport.common.validation"
 msgstr ""
+
+msgid "manager.statistics.counterR5"
+msgstr "R5 kontagailua"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "R5 kontagailuaren txostenak"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datak formatu honetan egon behar du UUU-HH-EE edo UUUU-HH. Datarik zaharrena "
+"hau da: {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Amaiera data"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Dataren formatua ez da baliozkoa."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tipo metrikoa"
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Bezeroaren IDa"
+
+msgid "manager.highlights.add"
+msgstr "Gehitu nabarmendua"
+
+msgid "manager.highlights.delete"
+msgstr "Ezabatu nabarmendua"
+
+msgid "manager.highlights.edit"
+msgstr "Editatu nabarmendua"
+
+msgid "manager.highlights.image"
+msgstr "Irudia"
+
+msgid "manager.highlights.url.description"
+msgstr "URL osoa, https:// barne, nabarmendutako botoirako."
+
+msgid "manager.highlights.urlText"
+msgstr "Botoiaren etiketa"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Ziur zaude {$title} ezabatu nahi duzula? Ekintza hau ezin da desegin."
+
+msgid "manager.image"
+msgstr "Irudia"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"<a href=\"#announcements/announcement-settings\">Jakinarazpenak gaitu</a> "
+"behar dituzu."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Txostenaren ezarpenak"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datak formatu honetan egon behar du UUU-HH-EE edo UUUU-HH. Datarik berriena "
+"hau izan liteke: {$lastDate}."
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Instalatutako bertsioa: {$version}"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Webgunearen hizkuntzak"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Bidalketaren hizkuntzak"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Gehitu/ezabatu hizkuntzak"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadatuak"
+
+msgid "manager.language.submission.form.description"
+msgstr "Hautatu bidalketaren eta metadatuen hizkuntzak."
+
+msgid "manager.language.submission.from.error"
+msgstr "Gutxienez eskualdeko ezarpen bat hautatu behar da."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Hasiera data"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP formatua ez da baliozkoa."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Bidalketaren IDa"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Bidalketaren IDa ez da existitzen."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Sartu gurasoen xehetasunak"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Baztertu hileko xehetasunak"

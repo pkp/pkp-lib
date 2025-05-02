@@ -1,7 +1,7 @@
 # Murari P Tapaswi <tapaswimurari@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-21 13:57+0000\n"
+"PO-Revision-Date: 2025-04-12 09:04+0000\n"
 "Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
 "Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/user/mr/"
 ">\n"
@@ -46,13 +46,13 @@ msgid "user.login.rememberUsernameAndPassword"
 msgstr "मला सतत लॉग-इन ठेवा"
 
 msgid "user.role.readers"
-msgstr "वाचक (अनेक)"
+msgstr "वाचक"
 
 msgid "user.mailingAddress"
 msgstr "पत्र व्यवहाराचा पत्ता"
 
 msgid "user.role.siteAdmins"
-msgstr "संकेतस्थळ संचालक (अनेक)"
+msgstr "संकेतस्थळ संचालक"
 
 msgid "user.preferredPublicName"
 msgstr "पसंतीचे टोपणनाव"
@@ -287,19 +287,19 @@ msgid "user.role.assistant"
 msgstr "सहाय्यक"
 
 msgid "user.role.author"
-msgstr "लेखक (एक)"
+msgstr "लेखक"
 
 msgid "user.role.author_s"
-msgstr "लेखक (एक/अनेक)"
+msgstr "लेखक"
 
 msgid "user.role.authors"
-msgstr "लेखक (अनेक)"
+msgstr "लेखक"
 
 msgid "user.role.editor"
 msgstr "संपादक"
 
 msgid "user.role.editors"
-msgstr "संपादक (अनेक)"
+msgstr "संपादक"
 
 msgid "user.role.reader"
 msgstr "वाचक"
@@ -308,7 +308,7 @@ msgid "user.role.reviewer"
 msgstr "समीक्षक"
 
 msgid "user.role.reviewers"
-msgstr "समीक्षक (अनेक)"
+msgstr "समीक्षक"
 
 msgid "user.role.siteAdmin"
 msgstr "संकेतस्थळ संचालक"
@@ -706,7 +706,7 @@ msgid "orcid.manager.settings.logSectionTitle"
 msgstr "ORCID वर केल्या गेलेल्या विनंतींची नोंद (request log)"
 
 msgid "orcid.manager.settings.logLevel.error"
-msgstr "त्रुटी (अनेक)"
+msgstr "त्रुटी"
 
 msgid "orcid.manager.settings.logLevel.all"
 msgstr "सर्व"

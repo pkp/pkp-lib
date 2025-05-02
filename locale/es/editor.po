@@ -1,11 +1,11 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2024-04-26 18:03+0000\n"
+"PO-Revision-Date: 2025-04-10 11:48+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "es/>\n"
@@ -631,3 +631,63 @@ msgstr "Hubo un problema con el paso {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "La misma institución que el autor/a"
+
+msgid "editor.submission.days"
+msgstr "Días"
+
+msgid "editor.submission.daysInStage"
+msgstr "Días en esta fase"
+
+msgid "editor.submission.viewSummary"
+msgstr "Sumario"
+
+msgid "editor.review.logResponse"
+msgstr "Respuesta del registro"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Debe seleccionar una respuesta"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "El revisor/a ha aceptado la invitación de revisión"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "El revisor/a ha rechazado la invitación de revisión"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrar la respuesta en nombre del revisor/a"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Si el revisor/a le contacta a través de correo electrónico o cualquier otro "
+"medio, puede registrar la respuesta en su nombre"
+
+msgid "editor.review.download"
+msgstr "Descargar el formulario de revisión"
+
+msgid "editor.review.authorOnly"
+msgstr "Solo se muestran las secciones para el autor/a"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Seleccione un revisor/a desde las sugerencias"
+
+msgid "editor.review.reviewViewed"
+msgstr "Revisión visualizada"
+
+msgid "editor.submission.search"
+msgstr "Buscar envíos, ID, autores/as, palabras clave, etc."
+
+msgid "editor.review.logResponse.for"
+msgstr "Respuesta del registro para"
+
+msgid "editor.review.allSections"
+msgstr "El formulario del editor/a muestra todas las secciones de revisión"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Hubo un error al añadir al revisor/a porque la fecha de entrega de la "
+"revisión debe ser igual o posterior que la fecha de respuesta."
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"La fecha de entrega de la revisión debe ser igual o posterior que la fecha "
+"de respuesta."

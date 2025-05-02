@@ -413,7 +413,7 @@ class PKPReviewerGridHandler extends GridHandler
     {
         $selectionType = $request->getUserVar('selectionType');
 
-        $reviewerForm = $this->getReviewerFrom($selectionType, $request);
+        $reviewerForm = $this->getReviewerForm($selectionType, $request);
         $reviewerForm->readInputData();
 
 
@@ -739,8 +739,8 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        // Retrieve review assignment.
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         // Rate the reviewer's performance on this assignment
         $quality = $request->getUserVar('quality');
@@ -833,6 +833,7 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function readReview($args, $request)
     {
+        $context = $request->getContext();
         $templateMgr = TemplateManager::getManager($request);
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         $starHtml = '<span class="fa fa-star"></span>';
@@ -847,12 +848,14 @@ class PKPReviewerGridHandler extends GridHandler
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR),
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR),
             ],
-            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions(
+                context: $context,
+                reviewAssignment: $reviewAssignment
+            ),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
             // Retrieve review form
-            $context = $request->getContext();
             $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
             $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
@@ -1110,7 +1113,7 @@ class PKPReviewerGridHandler extends GridHandler
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $reviewerForm = $this->getReviewerFrom($selectionType, $request);
+        $reviewerForm = $this->getReviewerForm($selectionType, $request);
         $reviewerForm->initData();
         $reviewerForm->setUserRoles($userRoles);
 
@@ -1252,9 +1255,9 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     /**
-     * Get the proper reviewer from instance
+     * Get the proper reviewer form instance
      */
-    protected function getReviewerFrom(int $selectionType, Request $request = null): ReviewerForm
+    protected function getReviewerForm(int $selectionType, ?Request $request = null): ReviewerForm
     {
         $request ??= Application::get()->getRequest();
         $formClassName = $this->_getReviewerFormClassName($selectionType);

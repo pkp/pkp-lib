@@ -2,13 +2,14 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Emma U <emmaupkp@gmail.com>, 2024.
+# Klaus Rummler <klaus@oapublishing.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2024-06-25 20:10+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-04-17 19:22+0000\n"
+"Last-Translator: Klaus Rummler <klaus@oapublishing.ch>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
 "Language: de\n"
@@ -1528,7 +1529,7 @@ msgstr ""
 "Phase wird beendet und die Einreichung wird archiviert."
 
 msgid "editor.submission.decision.decline.log"
-msgstr "[$editorName} hat die Einreichung abgelehnt."
+msgstr "{$editorName} hat die Einreichung abgelehnt."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Einreichung abgelehnt"

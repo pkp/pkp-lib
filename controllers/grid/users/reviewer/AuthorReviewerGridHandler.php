@@ -178,18 +178,18 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
      */
     public function readReview($args, $request)
     {
+        $context = $request->getContext();
         $templateMgr = TemplateManager::getManager($request);
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         $templateMgr->assign([
             'submission' => $this->getSubmission(),
             'reviewAssignment' => $reviewAssignment,
-            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
+            'reviewerRecommendationOptions' => Repo::reviewerRecommendation()->getRecommendationOptions($context),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
             // Retrieve review form
-            $context = $request->getContext();
             $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
             // Get review form elements visible for authors
             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId(), null, true);

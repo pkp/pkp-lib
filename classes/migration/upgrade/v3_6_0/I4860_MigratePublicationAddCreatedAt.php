@@ -57,18 +57,6 @@ class I4860_MigratePublicationAddCreatedAt extends Migration
                 }
             });
 
-        // DB::statement("
-        //     UPDATE publications p
-        //     SET created_at = f.date_submitted
-        //     FROM (
-        //         SELECT s.submission_id, s.date_submitted, MIN(p2.publication_id) AS first_pub_id
-        //         FROM submissions s
-        //         INNER JOIN publications p2 ON p2.submission_id = s.submission_id
-        //         GROUP BY s.submission_id, s.date_submitted
-        //     ) AS f
-        //     WHERE p.publication_id = f.first_pub_id
-        // ");
-
         // Make the column NOT NULL
         Schema::table('publications', function (Blueprint $table) {
             $table->datetime('created_at')
@@ -83,7 +71,7 @@ class I4860_MigratePublicationAddCreatedAt extends Migration
     public function down(): void
     {
         Schema::table('publications', function (Blueprint $table) {
-            $table->dropColumn('date_created');
+            $table->dropColumn('created_at');
         });
     }
 }

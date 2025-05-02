@@ -335,6 +335,7 @@ abstract class Repository
     {
         $newPublication = clone $publication;
         $newPublication->setData('id', null);
+        $newPublication->setData('sourcePublicationId', $publication->getId());
         $newPublication->setData('datePublished', null);
         $newPublication->setData('status', Submission::STATUS_QUEUED);
 
@@ -527,7 +528,6 @@ abstract class Repository
 
             $newPublication->setData('versionIsMinor', false);
             $newPublication->setVersion($nextAvailableVersion);
-            // $this->updateVersion($newPublication, VersionStage::VERSION_OF_RECORD, false);
         }
 
         Hook::call('Publication::publish::before', [&$newPublication, $publication]);

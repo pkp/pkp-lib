@@ -29,10 +29,12 @@ class Collector implements CollectorInterface
 {
     public DAO $dao;
     public ?array $contextIds = null;
+    public ?array $urlPaths = null;
     public ?array $titles = null;
     public ?array $abbrevs = null;
     public bool $editorOnly = false;
     public bool $excludeInactive = false;
+    public bool $excludeNotBrowsable = false;
     public bool $withPublished = false;
     public ?int $count = null;
     public ?int $offset = null;
@@ -75,6 +77,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter sections by one or more url paths
+     */
+    public function filterByUrlPaths(?array $urlPaths): self
+    {
+        $this->urlPaths = $urlPaths;
+        return $this;
+    }
+
+    /**
      * Filter sections by one or more titles
      */
     public function filterByTitles(?array $titles): self
@@ -107,6 +118,15 @@ class Collector implements CollectorInterface
     public function excludeInactive(bool $excludeInactive = true): self
     {
         $this->excludeInactive = $excludeInactive;
+        return $this;
+    }
+
+    /**
+     * Only include browsable sections
+     */
+    public function excludeNotBrowsable(bool $excludeNotBrowsable = true): self
+    {
+        $this->excludeNotBrowsable = $excludeNotBrowsable;
         return $this;
     }
 
@@ -144,6 +164,9 @@ class Collector implements CollectorInterface
             ->when(!is_null($this->contextIds), function (Builder $qb) {
                 $qb->whereIn('s.' . $this->dao->getParentColumn(), $this->contextIds);
             })
+            ->when($this->urlPaths !== null, function (Builder $qb) {
+                $qb->whereIn('s.url_path', $this->urlPaths);
+            })
             ->when(!is_null($this->titles) || !is_null($this->abbrevs), function (Builder $qb) {
                 $qb->join($this->dao->settingsTable . ' AS ss', 'ss.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn)
                     ->when(!is_null($this->titles), function (Builder $qb) {
@@ -161,6 +184,9 @@ class Collector implements CollectorInterface
             })
             ->when($this->excludeInactive, function (Builder $qb) {
                 $qb->where('s.is_inactive', 0);
+            })
+            ->when($this->excludeNotBrowsable, function (Builder $qb) {
+                $qb->where('s.not_browsable', 0);
             })
             ->when($this->withPublished, function (Builder $qb) {
                 $qb->whereExists(function (Builder $qb) {

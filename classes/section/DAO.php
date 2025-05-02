@@ -19,8 +19,10 @@
 namespace PKP\section;
 
 use APP\section\Section;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
@@ -102,4 +104,5 @@ abstract class DAO extends EntityDAO
     {
         parent::_delete($section);
     }
+
 }

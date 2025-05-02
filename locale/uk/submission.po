@@ -2557,10 +2557,10 @@ msgstr "Категорії"
 msgid "submission.currentCoverImage"
 msgstr "Поточне зображення"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "У цій категорії ще нічого не опубліковано."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Підкатегорії"
 
 msgid "publication.contributors"

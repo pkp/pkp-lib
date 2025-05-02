@@ -117,6 +117,14 @@ class Config
     }
 
     /**
+     * Reset the config data in registry
+     */
+    public static function resetData()
+    {
+        Registry::set('configData', static::reloadData());
+    }
+
+    /**
      * Set the path to the configuration file.
      *
      * @param string $configFile

@@ -426,9 +426,18 @@
 		},
 		"createdAt": {
 			"type": "string",
+			"description": "The timestamp when this publication was created.",
 			"validation": [
 				"date_format:Y-m-d H:i:s"
 			]
+		},
+		"sourcePublicationId": {
+			"type": "integer",
+			"description": "The ID of another publication that this one is derived from. Used to reference the source publication when creating versions.",
+			"validation": [
+				"nullable"
+			],
+			"apiSummary": true
 		}
 	}
 }

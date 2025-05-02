@@ -232,7 +232,7 @@ abstract class PKPSubmissionHandler extends Handler
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
@@ -614,22 +614,29 @@ abstract class PKPSubmissionHandler extends Handler
      */
     protected function getSubmitUserGroups(Context $context, User $user): Collection
     {
-        $userGroups = UserGroup::query()
-            ->withContextIds([$context->getId()])
-            ->withUserIds([$user->getId()])
-            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
-            ->get();
+        $request = Application::get()->getRequest();
+        $isAdmin = $request->getUser()->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
+        $query = UserGroup::query()->withContextIds([$context->getId()])->withUserIds([$user->getId()]);
 
-        // Users without a submitting role can submit as an
-        // author role that allows self registration
+        $userGroups = $isAdmin
+            ? $query >withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
+            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])->get(); // For non-admin users, query for the groups tht give them access to the submission stage
+
+        // Users without a submitting role or access to submission stage can submit as an
+        // author role that allows self registration.
+        // They are also assigned the author role
         if ($userGroups->isEmpty()) {
+            Repo::userGroup()->assignUserToGroup(
+                $user->getId(),
+                Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId())->first()->id
+            );
             $defaultUserGroup = UserGroup::withContextIds([$context->getId()])
-               ->withRoleIds([Role::ROLE_ID_AUTHOR])
-               ->permitSelfRegistration(true)
-               ->first();
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->permitSelfRegistration(true)
+                ->first();
 
             $userGroups = collect($defaultUserGroup ? [$defaultUserGroup->id => $defaultUserGroup] : []);
-         }
+        }
 
         return $userGroups;
     }

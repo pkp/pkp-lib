@@ -161,6 +161,18 @@ class GridColumn extends GridBodyElement
         // The default implementation returns an empty array
         return [];
     }
+
+    /**
+     * Method expected by ColumnBasedGridCellProvider
+     * to render a cell in this column.
+     * @param \PKP\controllers\grid\GridRow $row
+     *
+     * @copydoc ColumnBasedGridCellProvider::getTemplateVarsFromRowColumn()
+     */
+    public function getTemplateVarsFromRow($row)
+    {
+        return [];
+    }
 }
 
 if (!PKP_STRICT_MODE) {

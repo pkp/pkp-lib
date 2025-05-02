@@ -233,6 +233,15 @@ class GridRow extends GridBodyElement
         // Set the template.
         $this->setTemplate($template);
     }
+
+    /**
+     * Category rows only have one cell and one label.  This is it.
+     * return string
+     */
+    public function getCategoryLabel()
+    {
+        return '';
+    }
 }
 
 if (!PKP_STRICT_MODE) {

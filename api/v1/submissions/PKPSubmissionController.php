@@ -32,7 +32,9 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
@@ -998,12 +1000,8 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $versionStage = VersionStage::from($illuminateRequest->input('versionStage'));
-        $versionIsMinor = filter_var(
-            $illuminateRequest->input('versionIsMinor', true),
-            FILTER_VALIDATE_BOOLEAN,
-            FILTER_NULL_ON_FAILURE
-        );
+        $versionStage = $this->validateVersionStage($illuminateRequest);
+        $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
 
         Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
 
@@ -1017,12 +1015,8 @@ class PKPSubmissionController extends PKPBaseController
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $versionStage = VersionStage::from($illuminateRequest->input('versionStage'));
-        $versionIsMinor = filter_var(
-            $illuminateRequest->input('versionIsMinor', true),
-            FILTER_VALIDATE_BOOLEAN,
-            FILTER_NULL_ON_FAILURE
-        );
+        $versionStage = $this->validateVersionStage($illuminateRequest);
+        $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
 
         $potentialVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $versionStage, $versionIsMinor);
 
@@ -1240,11 +1234,7 @@ class PKPSubmissionController extends PKPBaseController
         $versionStageStr = $illuminateRequest->input('versionStage');
         $versionStage = $versionStageStr ? VersionStage::tryFrom($versionStageStr) : null;
 
-        $versionIsMinor = filter_var(
-            $illuminateRequest->input('versionIsMinor', true),
-            FILTER_VALIDATE_BOOLEAN,
-            FILTER_NULL_ON_FAILURE
-        );
+        $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
 
         $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
         $publication = Repo::publication()->get($newId);
@@ -2279,5 +2269,30 @@ class PKPSubmissionController extends PKPBaseController
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));
                 }
             });
+    }
+
+    private function validateVersionStage(Request $illuminateRequest): VersionStage
+    {
+        $validator = Validator::make($illuminateRequest->all(), [
+            'versionStage' => [
+                'required',
+                Rule::in(array_column(VersionStage::cases(), 'value')),
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            throw new \Illuminate\Validation\ValidationException($validator);
+        }
+
+        return VersionStage::from($validator->validated()['versionStage']);
+    }
+
+    private function validateVersionIsMinor(Request $illuminateRequest): ?bool
+    {
+        return filter_var(
+            $illuminateRequest->input('versionIsMinor') ?? true, 
+            FILTER_VALIDATE_BOOLEAN, 
+            FILTER_NULL_ON_FAILURE
+        );
     }
 }

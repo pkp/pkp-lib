@@ -695,18 +695,21 @@ abstract class Repository
      * Given a Version Stage and a flag of whether the Version isMinor, 
      * the publication's related data is being updated
      *
-     * @hook 'Publication::updateVersion::before' [[ &$newPublication, $publication ]]
+     * @hook 'Publication::updateVersion::before' [&$publication, $oldVersion]
      */
     public function updateVersion(Publication $publication, VersionStage $versionStage, bool $isMinor = true): Publication
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $nextAvailableVersion = Repo::submission()->getNextAvailableVersion($submission, $versionStage, $isMinor);
 
+        $oldVersion = $publication->getVersion();
+
         $publication->setData('versionIsMinor', $isMinor);
         $publication->setVersion($nextAvailableVersion);
-        $publication->stampModified();
 
-        Hook::run('Publication::updateVersion::before', [&$publication, $publication]);
+        Hook::run('Publication::updateVersion::before', [&$publication, $oldVersion]);
+
+        $publication->stampModified();
 
         $this->dao->update($publication);
 

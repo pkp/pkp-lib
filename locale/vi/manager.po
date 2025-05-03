@@ -2,7 +2,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-01 16:19+0000\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/vi/>\n"
@@ -2762,7 +2762,7 @@ msgid "plugins.importexport.native.export.download.results"
 msgstr "Tải xuống file đã xuất"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr "Quá trình xuất đã hoàn thành thành công."
+msgstr "Quá trình xuất đã hoàn thành."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
 msgstr "Tải xuống tệp đã xuất từ nút bên dưới."
@@ -3719,3 +3719,123 @@ msgstr ""
 
 msgid "manager.statistics.counterR5"
 msgstr "Counter R5"
+
+msgid "manager.language.submission.form.description"
+msgstr "Chọn ngôn ngữ nộp bài và siêu dữ liệu."
+
+msgid "manager.language.submission.from.error"
+msgstr "Cần chọn ít nhất một ngôn ngữ."
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Gửi email nhắc nhở trước hoặc sau hạn phản hồi yêu cầu phản biện (nếu người "
+"phản biện chưa phản hồi yêu cầu) hoặc hạn nộp bài phản biện (nếu người phản "
+"biện chưa nộp bài)"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Phản hồi Yêu cầu Phản biện - Sau Ngày đến hạn"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Nộp Bài phản biện - Trước Ngày đến hạn"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Nộp Bài phản biện - Sau Ngày đến hạn"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} ngày trước ngày đến hạn"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} ngày sau ngày đến hạn"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Số lượng Phản biện Xác nhận Tối thiểu Yêu cầu"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Số lượng tối thiểu các bài phản biện đã xác nhận cần có cho một bài nộp"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Cho phép tác giả đề xuất người phản biện tiềm năng trong quá trình nộp bài"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Thông tin sau đây được hiển thị cho tác giả trong bước đề xuất người phản "
+"biện. Cung cấp một lời giải thích ngắn gọn về thông tin mà tác giả nên cung "
+"cấp về bản thân, đồng tác giả và bất kỳ người đóng góp nào khác."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Vui lòng cung cấp lịch sử biên tập, bao gồm tên đầy đủ, liên kết, và ngày "
+"bắt đầu và kết thúc của mỗi biên tập viên."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Lời mời Thay đổi Địa chỉ Email"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Yêu cầu tiêu đề mục menu."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Xác định thứ tự các vai trò trong ban biên tập để hiển thị công khai."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Người phản biện sẽ được hiển thị theo định dạng chuẩn hóa để duy trì tính "
+"đồng nhất và đảm bảo dễ dàng khám phá trong phần này."
+
+msgid "manager.language.websiteLanguages"
+msgstr "Ngôn ngữ Trang web"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Ngôn ngữ Nộp bài"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Thêm/Xóa Ngôn ngữ"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Siêu dữ liệu"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Đặt Lời nhắc cho Phản biện"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Phản hồi Yêu cầu Phản biện - Trước Ngày đến hạn"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Không có"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Không đặt lời nhắc"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Đề xuất Người phản biện khi Nộp bài"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Tác giả có thể đề xuất một số người phản biện tiềm năng trước khi hoàn thành "
+"bài nộp, điều này có thể hợp lý hóa quy trình phản biện và cung cấp thông "
+"tin đầu vào có giá trị cho ban biên tập."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Không thể lưu cài đặt ngôn ngữ. Tất cả các tùy chọn cần được bật."
+
+msgid "notification.submissionLocales"
+msgstr "Đã cập nhật ngôn ngữ nộp bài."
+
+msgid "settings.roles.masthead"
+msgstr "Xem xét vai trò trong danh sách ban biên tập"
+
+msgid "settings.roles.permitSettings"
+msgstr "Cho phép thay đổi Cài đặt"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Xác định thứ tự các vai trò trong ban biên tập để hiển thị công khai."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Tác giả {$authorName} không có tên liên kết bằng ngôn ngữ của bài nộp, "
+"{$localeName}. Bài nộp không thể được nhập nếu không có thông tin này."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Liên kết đến trang hiển thị tất cả các dịch vụ ban biên tập đang hoạt động."

@@ -3,8 +3,7 @@ msgid ""
 msgstr ""
 "PO-Revision-Date: 2025-05-01 16:19+0000\n"
 "Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
-"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/vi/>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/submission/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -388,15 +387,13 @@ msgid "submission.authorBiographies"
 msgstr "Tiểu sử tác giả"
 
 msgid "submission.authorWithAffiliation"
-msgstr "{
-affiliation}"
+msgstr "{affiliation}"
 
 msgid "submission.shortAuthor"
 msgstr "{$author} và những người khác."
 
 msgid "submission.representationOfTitle"
-msgstr "{
-title}"
+msgstr "{title}"
 
 msgid "submission.mySubmissions"
 msgstr "Đã viết bởi tôi"
@@ -549,12 +546,10 @@ msgid "submission.emailLog"
 msgstr "Nhật ký Email"
 
 msgid "submission.event.participantAdded"
-msgstr "{
-username}) đã được chỉ định cho bài nộp này với vai trò {$userGroupName}."
+msgstr "{username}) đã được chỉ định cho bài nộp này với vai trò {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr ""{
-username}) đã bị xóa khỏi vai trò {$userGroupName}."
+msgstr ""{username}) đã bị xóa khỏi vai trò {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Quay lại Nhật ký Sự kiện"
@@ -569,19 +564,16 @@ msgid "submission.event.deleteLogEntry"
 msgstr "Xóa mục nhật ký"
 
 msgid "submission.event.decisionReviewerEmailSent"
-msgstr "Một email về quyết định đã được gửi đến {
-subject}."
+msgstr "Một email về quyết định đã được gửi đến {subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Hoàn thành nộp bài ban đầu."
 
 msgid "submission.event.copyrightAgreed"
-msgstr "{
-username}) đã đồng ý với các điều khoản bản quyền cho bài nộp."
+msgstr "{username}) đã đồng ý với các điều khoản bản quyền cho bài nộp."
 
 msgid "submission.event.fileRevised"
-msgstr "Bản sửa đổi "{
-submissionFileId}."
+msgstr "Bản sửa đổi "{submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata bài nộp đã cập nhật"
@@ -629,8 +621,7 @@ msgid "submission.event.reviewer.reviewRevision"
 msgstr "Tệp sửa đổi của người đánh giá đã cập nhật"
 
 msgid "submission.event.reviewer.reviewerReminded"
-msgstr "{
-recipientName} về chỉ định đánh giá của họ"
+msgstr "{recipientName} về chỉ định đánh giá của họ"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr "Email nhắc nhở tự động đã được gửi đến {$recipientName} về chỉ định đánh giá của họ"
@@ -702,19 +693,16 @@ msgid "submission.initiated"
 msgstr "Đã bắt đầu"
 
 msgid "submission.updatedOn"
-msgstr "{
-dateUpdated}"
+msgstr "{dateUpdated}"
 
 msgid "submission.versions"
 msgstr "Phiên bản"
 
 msgid "submission.versionIdentity"
-msgstr "{
-version})"
+msgstr "{version})"
 
 msgid "submission.outdatedVersion"
-msgstr "Đây là phiên bản cũ được xuất bản vào ngày {
-urlRecentVersion}">phiên bản mới nhất</a>."
+msgstr "Đây là phiên bản cũ được xuất bản vào ngày {urlRecentVersion}">phiên bản mới nhất</a>."
 
 msgid "submission.identifiers"
 msgstr "Định danh"
@@ -1203,8 +1191,7 @@ msgid "submission.upload.possibleRevision"
 msgstr "Đã phát hiện trùng lặp hoặc sửa đổi tiềm ẩn"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Tên của tệp đã tải lên giống với tên của tệp đã tải lên trước đó, "{
-revisedFileName}" không? Nếu vậy, chọn tệp bên dưới. Nếu không, chọn "Đây không phải là bản sửa đổi của tệp hiện có" trước khi tiếp tục."
+msgstr "Tên của tệp đã tải lên giống với tên của tệp đã tải lên trước đó, \"{revisedFileName}\" không? Nếu vậy, chọn tệp bên dưới. Nếu không, chọn \"Đây không phải là bản sửa đổi của tệp hiện có\" trước khi tiếp tục."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Vui lòng chọn tệp bạn muốn sửa đổi."
@@ -1297,8 +1284,7 @@ msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Đã gửi lại để đánh giá."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr "Không hoạt động hơn {
-stage}."
+msgstr "Không hoạt động hơn {stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr "Bài nộp mới đang chờ gửi đi đánh giá hoặc bị từ chối."
@@ -1703,48 +1689,37 @@ msgid "editor.submission.addAuditorError"
 msgstr "Đã xảy ra lỗi khi cố gắng chỉ định người kiểm tra. Vui lòng thử lại."
 
 msgid "submission.event.fileEdited"
-msgstr "Metadata cho tệp "{
-username}."
+msgstr "Metadata cho tệp {username}."
 
 msgid "submission.event.fileUploaded"
-msgstr "Một tệp "{
-submissionId} bởi {$username}."
+msgstr "Một tệp {submissionId} bởi {$username}."
 
 msgid "submission.event.fileDeleted"
-msgstr "Một tệp "{
-submissionId} bởi {$username}."
+msgstr "Một tệp {submissionId} bởi {$username}."
 
 msgid "submission.event.revisionUploaded"
-msgstr "Một bản sửa đổi tệp "{
-submissionId} bởi {$username}."
+msgstr "Một bản sửa đổi tệp {submissionId} bởi {$username}."
 
 msgid "submission.event.revisionDeleted"
-msgstr "Một bản sửa đổi tệp "{
-submissionId} bởi {$username}."
+msgstr "Một bản sửa đổi tệp {submissionId} bởi {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Tệp "{
-username}."
+msgstr "Tệp {username}."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr ""{
-username}) đã được thêm làm người kiểm tra cho tệp "{$filename}.""
+msgstr "{username} đã được thêm làm người kiểm tra cho tệp \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
-msgstr ""{
-username}) đã bị xóa làm người kiểm tra cho tệp "{$filename}.""
+msgstr "{username} đã bị xóa làm người kiểm tra cho tệp \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr ""{
-username}) đã hoàn thành việc kiểm tra và tải lên "{$filename}.""
+msgstr "{username} đã hoàn thành việc kiểm tra và tải lên \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr ""{
-username}) đã ký xác nhận cho việc ký xác nhận cho "{$filename}.""
+msgstr "{username} đã ký xác nhận cho việc ký xác nhận cho \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr ""{
-username}) đã phê duyệt bản in thử cho "{$publicationFormatName}.""
+msgstr "{username} đã phê duyệt bản in thử cho \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Tổng quan bài nộp"
@@ -1819,32 +1794,25 @@ msgid "submission.review.uploadRevisionToRound"
 msgstr "Tải lên tệp đã sửa đổi"
 
 msgid "log.review.reviewerAssigned"
-msgstr "{
-submissionId} cho vòng đánh giá {$round}."
+msgstr "{submissionId} cho vòng đánh giá {$round}."
 
 msgid "log.review.reviewCleared"
-msgstr "Việc đánh giá vòng {
-reviewerName} cho bài nộp {$submissionId} đã bị hủy."
+msgstr "Việc đánh giá vòng {reviewerName} cho bài nộp {$submissionId} đã bị hủy."
 
 msgid "log.review.reviewUnconsidered"
-msgstr "{
-round} cho bài nộp {$submissionId} là không được xem xét."
+msgstr "{round} cho bài nộp {$submissionId} là không được xem xét."
 
 msgid "log.review.reviewReinstated"
-msgstr "Việc đánh giá vòng {
-reviewerName} cho bài nộp {$submissionId} đã được bắt đầu lại."
+msgstr "Việc đánh giá vòng {reviewerName} cho bài nộp {$submissionId} đã được bắt đầu lại."
 
 msgid "log.review.reviewerResendRequest"
-msgstr "Đã gửi lại yêu cầu đánh giá ở vòng {
-reviewerName} cho bài nộp {$submissionid}."
+msgstr "Đã gửi lại yêu cầu đánh giá ở vòng {reviewerName} cho bài nộp {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
-msgstr "Biên tập viên {
-round} cho bài nộp {$submissionId}."
+msgstr "Biên tập viên {round} cho bài nộp {$submissionId}."
 
 msgid "log.review.reviewReady"
-msgstr "{
-round} cho bài nộp {$submissionId}."
+msgstr "{round} cho bài nộp {$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Đang chờ phản hồi từ người đánh giá."
@@ -1921,7 +1889,7 @@ msgstr "Quyền"
 msgid "submission.attachPermissions"
 msgstr "Đính kèm các quyền sau đây vào bài nộp:"
 
-msgid "submission.license"
+msgid "submission.License\"
 msgstr "Giấy phép"
 
 msgid "submission.copyright"
@@ -1943,8 +1911,7 @@ msgid "submission.copyrightYear"
 msgstr "Năm bản quyền"
 
 msgid "submission.copyrightStatement"
-msgstr "Bản quyền (c) {
-copyrightHolder}"
+msgstr "Bản quyền (c) {copyrightHolder}"
 
 msgid "submission.licenseURLValid"
 msgstr "Vui lòng cung cấp URL từ xa hợp lệ (bao gồm http://)."
@@ -1971,40 +1938,40 @@ msgid "submission.license.cc.by-sa4"
 msgstr "CC Ghi công-Chia sẻ tương tự 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 4.0 Quốc tế</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại 4.0 Quốc tế</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nd/4.0/\">Giấy phép Creative Commons Ghi công-Không phái sinh 4.0 Quốc tế</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Giấy phép Creative Commons Ghi công-Không phái sinh 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by/4.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/4.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by/4.0/\">Giấy phép Creative Commons Ghi công 4.0 Quốc tế</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by/4.0/\">Giấy phép Creative Commons Ghi công 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/\">Giấy phép Creative Commons Ghi công-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Giấy phép Creative Commons Ghi công-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nc/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại 3.0 Chưa được công bố</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-nd/3.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-nd/3.0/\">Giấy phép Creative Commons Ghi công-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Giấy phép Creative Commons Ghi công-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by/3.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by/3.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by/3.0/\">Giấy phép Creative Commons Ghi công 3.0 Chưa được công bố</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by/3.0/\">Giấy phép Creative Commons Ghi công 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/\"><img alt="Creative Commons License" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><p>Tác phẩm này được cấp phép theo <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/\">Giấy phép Creative Commons Ghi công-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
+msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Giấy phép Creative Commons Ghi công-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Thảo luận trước khi đánh giá"
@@ -2046,24 +2013,19 @@ msgid "grid.action.openNoteForm"
 msgstr "Thêm câu trả lời mới vào cuộc thảo luận"
 
 msgid "submission.query.activity"
-msgstr "{
-noteTitle}: {$noteContents}"
+msgstr "{noteTitle}: {$noteContents}"
 
 msgid "submission.query.new"
-msgstr "{
-noteTitle}: {$noteContents}"
+msgstr "{noteTitle}: {$noteContents}"
 
 msgid "submission.query.activity.contents"
-msgstr "Có hoạt động mới trong cuộc thảo luận có tiêu đề "{
-submissionTitle}"."
+msgstr "Có hoạt động mới trong cuộc thảo luận có tiêu đề \"{submissionTitle}\"."
 
 msgid "submission.query.new.contents"
-msgstr "Bạn đã được thêm vào cuộc thảo luận có tiêu đề "{
-submissionTitle}"."
+msgstr "Bạn đã được thêm vào cuộc thảo luận có tiêu đề \"{submissionTitle}\"."
 
 msgid "submission.query.participantTitle"
-msgstr "{
-userGroup}"
+msgstr "{userGroup}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr "Bạn phải chỉ định ít nhất một người tham gia cho bài nộp này trước khi bắt đầu một cuộc thảo luận."
@@ -2120,11 +2082,10 @@ msgid "submission.list.discussions"
 msgstr "Thảo luận đang mở"
 
 msgid "submission.list.dualWorkflowLinks"
-msgstr "Bạn đã được chỉ định nhiều vai trò cho bài nộp này. Bạn có muốn truy cập <a href="{
-urlEditorialWorkflow}">Quy trình làm việc biên tập</a>?"
+msgstr "Bạn đã được chỉ định nhiều vai trò cho bài nộp này. Bạn có muốn truy cập <a href=\"{urlEditorialWorkflow}\">Quy trình làm việc biên tập</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
-msgstr "Bạn đã được chỉ định vai trò biên tập cho bài nộp này. Bạn có muốn truy cập <a href="{$urlEditorialWorkflow}">Quy trình làm việc biên tập</a> không?"
+msgstr "Bạn đã được chỉ định vai trò biên tập cho bài nộp này. Bạn có muốn truy cập <a href=\"{$urlEditorialWorkflow}\">Quy trình làm việc biên tập</a> không?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Bài nộp này phải được hoàn thành trước khi biên tập viên xem xét nó."
@@ -2142,7 +2103,7 @@ msgid "submission.list.assignEditor"
 msgstr "Chỉ định biên tập viên"
 
 msgid "submission.wizard.alreadySubmitted"
-msgstr "Bài nộp này đã được gửi. Vui lòng truy cập <a href="{$url}">bảng điều khiển bài nộp</a> của bạn để xem nó."
+msgstr "Bài nộp này đã được gửi. Vui lòng truy cập <a href=\"{$url}">bảng điều khiển bài nộp</a> của bạn để xem nó."
 
 msgid "submission.wizard.beforeStart"
 msgstr "Trước khi bắt đầu"
@@ -2157,8 +2118,7 @@ msgid "submission.wizard.completeSteps"
 msgstr "Hoàn thành các bước để gửi bài"
 
 msgid "submission.wizard.confirmSubmit"
-msgstr "Bài nộp, <strong>{
-context}</strong> để xem xét biên tập. Bạn có chắc chắn muốn hoàn thành bài nộp này không?"
+msgstr "Bài nộp, <strong>{context}</strong> để xem xét biên tập. Bạn có chắc chắn muốn hoàn thành bài nộp này không?"
 
 msgid "submission.wizard.errors"
 msgstr "Có một hoặc nhiều vấn đề cần được khắc phục trước khi bạn có thể gửi bài. Vui lòng xem lại thông tin dưới đây và thực hiện các thay đổi được yêu cầu."
@@ -2256,7 +2216,7 @@ msgstr "Ngày phải ở định dạng YYYY-MM-DD, ví dụ: 2019-01-01."
 msgid "publication.event.versionCreated"
 msgstr "Đã tạo phiên bản mới."
 
-msgid "publication.publicationLicense"
+msgid "publication.publicationLicense\"
 msgstr "Quyền và công bố"
 
 msgid "publication.status.scheduled"
@@ -2290,12 +2250,10 @@ msgid "publication.version.confirm"
 msgstr "Bạn có chắc chắn muốn tạo phiên bản mới không?"
 
 msgid "publication.wordCountLong"
-msgstr "Tóm tắt quá dài. Nó nên có {
-count} từ."
+msgstr "Tóm tắt quá dài. Nó nên có {count} từ."
 
 msgid "publication.wordCount"
-msgstr "Số từ: {
-limit}"
+msgstr "Số từ: {limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr "Không thể đánh dấu DOI cần đồng bộ hóa cho {$pubObjectTitle}. DOI không thể được đánh dấu cần đồng bộ hóa vì chúng chưa được đăng ký hoặc nộp."
@@ -2304,7 +2262,7 @@ msgid "doi.submission.notPublished"
 msgstr "Không thể đánh dấu DOI đã đăng ký cho {$pubObjectTitle}. Bài nộp phải được xuất bản trước khi trạng thái có thể được cập nhật."
 
 msgid "submission.viewingPreview"
-msgstr "Đây là bản xem trước và chưa được xuất bản. <a href="{$url}">Xem bài nộp</a>"
+msgstr "Đây là bản xem trước và chưa được xuất bản. <a href=\"{$url}">Xem bài nộp</a>"
 
 msgid "author.submit.noFiles"
 msgstr "Chưa có tệp nào được tải lên cho bài nộp này."
@@ -2319,11 +2277,10 @@ msgid "submission.wizard.submittingToSection"
 msgstr "Đang nộp vào mục <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
-msgstr "Đang nộp vào mục <strong>{
-language}</strong>."
+msgstr "Đang nộp vào mục <strong>{language}</strong>."
 
 msgid "submission.type.tip"
-msgstr "Loại bài nộp thường là 'image', 'text' hoặc các loại đa phương tiện khác bao gồm 'software' hoặc 'interactive'. Vui lòng chọn loại phù hợp nhất với bài nộp của bạn. Ví dụ có thể tìm thấy tại <a target="_blank" href="https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+msgstr "Loại bài nộp thường là 'image', 'text' hoặc các loại đa phương tiện khác bao gồm 'software' hoặc 'interactive'. Vui lòng chọn loại phù hợp nhất với bài nộp của bạn. Ví dụ có thể tìm thấy tại <a target="_blank" href=\"https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
 
 msgid "submission.source.tip"
 msgstr "Bài nộp này có được lấy từ một tài nguyên khác không? Nếu có, bạn có thể nhập URL hoặc mô tả về tài nguyên đó."

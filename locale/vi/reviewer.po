@@ -1,7 +1,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-01 16:19+0000\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/vi/>\n"
@@ -133,3 +133,66 @@ msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Người dùng hiện tại không được chỉ định làm người đánh giá cho tài liệu được "
 "yêu cầu."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Các Phản biện Trước"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Phản biện Vòng {$round} Đã nộp vào {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Đọc Phản biện Vòng {$round}"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Phản biện Vòng {$round} do bạn nộp cho"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Nhận xét của Người phản biện"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Dành cho biên tập viên và tác giả"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Chỉ dành cho biên tập viên"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Nhận xét {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Lý do từ chối đã được gửi qua email"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Không có lý do nào được đưa ra cho việc từ chối lời mời phản biện."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Ngày Từ chối"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Siêu dữ liệu Bài báo"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Loại"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Tóm tắt"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Từ khóa"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Thông tin chung"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Tệp đính kèm"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Đây là những tệp bạn đã đính kèm cùng với bài phản biện của mình"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Tệp để Phản biện"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Những tệp này đã được gửi cho bạn để phản biện"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Bài phản biện chưa được hoàn thành."

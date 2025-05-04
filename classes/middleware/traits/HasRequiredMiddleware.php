@@ -54,7 +54,7 @@ trait HasRequiredMiddleware
         $routeMiddleware = collect($currentRoute?->middleware() ?? []);
 
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
-        $routerMiddleware = $router->getMiddleware();
+        $routerMiddleware = collect($router->getMiddleware());
 
         // need to replace the alias name with full class path
         $routeMiddleware = $routeMiddleware->map(function (string $middleware) use ($routerMiddleware): string {

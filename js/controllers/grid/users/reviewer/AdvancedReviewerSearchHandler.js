@@ -125,4 +125,4 @@
 	};
 
 
-}(window.jQuery));
+}(jQuery));

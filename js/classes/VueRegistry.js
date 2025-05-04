@@ -136,6 +136,17 @@ export default {
 		return getComponentStoreByName(storeName);
 	},
 
+	storeExtend(storeName, extenderFn) {
+		this._piniaInstance.use((context) => {
+
+			if (context.store.$id === storeName) {
+				extenderFn(context);
+			}
+
+		})
+
+	},
+
 	storeExtendFn(storeName, fnName, extenderFn) {
 		this._piniaInstance.use((context) => {
 

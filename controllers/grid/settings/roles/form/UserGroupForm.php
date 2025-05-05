@@ -250,7 +250,7 @@ class UserGroupForm extends Form
 
             // update localized fields
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-            $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->getRoleId() == Role::ROLE_ID_MANAGER;
+            $userGroup->permitSettings = $this->getData('permitSettings') && $userGroup->roleId == Role::ROLE_ID_MANAGER;
             $userGroup->showTitle = (bool) $this->getData('showTitle');
             $userGroup->permitSelfRegistration = $this->getData('permitSelfRegistration') && in_array($userGroup->roleId, $this->getPermitSelfRegistrationRoles());
 

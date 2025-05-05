@@ -1400,7 +1400,7 @@ abstract class Repository
             Role::ROLE_ID_SUBSCRIPTION_MANAGER
         ];
 
-        /** @var RoleDAO */
+        /** @var RoleDAO $roleDao */
         $roleDao = DAORegistry::getDAO('RoleDAO');
         $roles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
         foreach ($roles as $role) {

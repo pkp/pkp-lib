@@ -55,10 +55,9 @@ class RoleDAO extends DAO
     /**
      * Return an array of row objects corresponding to the roles a given user has
      *
-     *
-     * @return array of Roles
+     * @return Role[]
      */
-    public function getByUserId(int $userId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
+    public function getByUserId(int $userId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL): array
     {
         $result = DB::table('user_groups AS ug')
             ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
@@ -83,10 +82,10 @@ class RoleDAO extends DAO
      * Return an array of objects corresponding to the roles a given user has,
      * grouped by context id.
      *
+     * @return array{int: array<int, Role>}
      *
-     * @return array
      */
-    public function getByUserIdGroupedByContext(int $userId)
+    public function getByUserIdGroupedByContext(int $userId): array
     {
         $userGroups = UserGroup::query()
             ->with('userUserGroups')

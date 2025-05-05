@@ -13,7 +13,7 @@
  * @brief A form to create new publication version
  */
 
- namespace PKP\components\forms\publication;
+namespace PKP\components\forms\publication;
 
 use PKP\context\Context;
 use PKP\components\forms\FieldSelect;
@@ -47,7 +47,13 @@ class VersionForm extends FormComponent
             ['value' => 'true', 'label' => __('publication.revisionSignificance.minor')],
         ];
 
-        $this->addField(new FieldSelect('versionStage', [
+        $this->addField(new FieldSelect('versionSource', [
+            'label' => __('publication.versionSource.label'),
+            'options' => [],
+            'size' => 'large',
+            'groupId' => 'default',
+            'description' => __('publication.versionSource.description'),
+        ]))->addField(new FieldSelect('versionStage', [
             'label' => __('publication.versionStage.label'),
             'options' => $versionStages,
             'size' => 'large',

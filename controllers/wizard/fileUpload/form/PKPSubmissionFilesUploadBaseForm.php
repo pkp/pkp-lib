@@ -217,6 +217,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                         ->getCollector()
                         ->filterByReviewRoundIds([(int) $reviewRound->getId()])
                         ->filterBySubmissionIds([$submissionId])
+                        ->filterByFileStages([(int) $this->getData('fileStage')])
                         ->getMany()
                         ->toArray();
                 } else {
@@ -260,9 +261,16 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             if ($uploadedFile && $uploadedFile->getId() == $submissionFile->getId()) {
                 continue;
             }
+
+            $allowedFileStages = [
+                SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+                SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+                SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+            ];
+
             if (
-                ($submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_FILE) &&
-                $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [Role::ROLE_ID_AUTHOR], $this->getStageId(), $user->getId())
+                in_array($submissionFile->getFileStage(), $allowedFileStages) &&
+                $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [Role::ROLE_ID_AUTHOR], $this->getStageId(), $user->getId())->next()
             ) {
                 // Authors are not permitted to revise reviewer documents.
                 continue;

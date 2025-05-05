@@ -155,6 +155,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 				} elseif ($reviewRound) {
 					// Retrieve the submission files for the given review round.
 					$submissionFilesIterator = Services::get('submissionFile')->getMany([
+						'fileStages' => [(int) $this->getData('fileStage')],
 						'reviewRoundIds' => [(int) $reviewRound->getId()],
 						'submissionIds' => [(int) $this->getData('submissionId')],
 					]);
@@ -192,9 +193,17 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 		foreach ($allSubmissionFiles as $submissionFile) {
 			// The uploaded file must be excluded from the list of revisable files.
 			if ($uploadedFile && $uploadedFile->getId() == $submissionFile->getId()) continue;
+			
+			
+			$allowedFileStages = [
+                SUBMISSION_FILE_REVIEW_ATTACHMENT,
+                SUBMISSION_FILE_REVIEW_FILE,
+                SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
+            ];
+
 			if (
-				($submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SUBMISSION_FILE_REVIEW_FILE) &&
-				$stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())
+				in_array($submissionFile->getFileStage(), $allowedFileStages) &&
+				$stageAssignmentDao->getBySubmissionAndRoleId($submissionFile->getData('submissionId'), ROLE_ID_AUTHOR, $this->getStageId(), $user->getId())->next()
 			) {
 				// Authors are not permitted to revise reviewer documents.
 				continue;

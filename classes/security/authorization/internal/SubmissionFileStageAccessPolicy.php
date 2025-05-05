@@ -101,7 +101,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
                 ? WORKFLOW_STAGE_ID_INTERNAL_REVIEW
                 : WORKFLOW_STAGE_ID_EXTERNAL_REVIEW;
 
-            if (count($stageAssignments[$reviewStage]) === 1 && in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
+            if (in_array(Role::ROLE_ID_AUTHOR, $stageAssignments[$reviewStage])) {
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $reviewStage);
                 if ($reviewRound) {

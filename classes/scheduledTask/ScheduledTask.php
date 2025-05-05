@@ -65,7 +65,7 @@ abstract class ScheduledTask
             if (!$success) {
                 // files directory wrong configuration?
                 assert(false);
-                $this->executionLogFile = null;
+                $this->executionLogFile = '';
             }
         }
     }

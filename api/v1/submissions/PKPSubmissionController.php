@@ -623,7 +623,7 @@ class PKPSubmissionController extends PKPBaseController
         } elseif ($submitterUserGroups->count()) {
             $submitAsUserGroup = $submitterUserGroups
                 ->sort(function (UserGroup $a, UserGroup $b) {
-                    return $a->getRoleId() === Role::ROLE_ID_AUTHOR ? 1 : -1;
+                    return ((int)$a->roleId) === Role::ROLE_ID_AUTHOR ? 1 : -1;
                 })
                 ->first();
         } else {

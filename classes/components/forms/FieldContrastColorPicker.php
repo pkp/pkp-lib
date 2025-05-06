@@ -18,7 +18,7 @@ namespace PKP\components\forms;
 class FieldContrastColorPicker extends Field
 {
     /** @copydoc Field::$component */
-    public $component = 'field-contrast-color-picker';
+    public string $component = 'field-contrast-color-picker';
 
     /** @var string The selected contrast color */
     public $contrastColor = '';

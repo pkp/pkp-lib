@@ -30,6 +30,7 @@ use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
@@ -52,7 +53,7 @@ interface iPKPApplicationInfoProvider
      *
      * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
-    public static function getRepresentationDAO(): RepresentationDAOInterface;
+    public static function getRepresentationDAO(): DAO|RepresentationDAOInterface;
 
     /**
      * Get a SubmissionSearchIndex instance.

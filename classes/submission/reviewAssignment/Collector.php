@@ -284,12 +284,12 @@ class Collector implements CollectorInterface, ViewsCount
         $q = DB::table($this->dao->table . ' as ra')
             // Aggregating data regarding latest review round and stage. For OMP the latest round isn't equal to the round with the highest number per submission
             ->leftJoinSub(
-                DB::table('review_assignments as rr')
+                DB::table('review_rounds as rr')
                     ->select(['rr.submission_id', 'rr.stage_id'])
                     ->selectRaw('MAX(rr.round) as latest_round')
                     ->groupBy('rr.submission_id', 'rr.stage_id')
                     ->leftJoinSub(
-                        DB::table('review_assignments as rs')
+                        DB::table('review_rounds as rs')
                             ->select('rs.submission_id')
                             ->selectRaw('MAX(rs.stage_id) as latest_stage')
                             ->groupBy('rs.submission_id'),

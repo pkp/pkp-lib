@@ -26,7 +26,7 @@ class FieldContrastColorPicker extends Field
     /**
      * @copydoc Field::getConfig()
      */
-    public function getConfig()
+    public function getConfig(): array
     {
         $config = parent::getConfig();
         $config['contrastColor'] = $this->contrastColor;

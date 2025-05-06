@@ -232,7 +232,7 @@ abstract class PKPSubmissionHandler extends Handler
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        
+
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->setState([
             'categories' => Repo::category()->getBreadcrumbs($categories),
@@ -617,6 +617,9 @@ abstract class PKPSubmissionHandler extends Handler
         $userGroups = UserGroup::query()
             ->withContextIds([$context->getId()])
             ->withUserIds([$user->getId()])
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
+            })
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_AUTHOR])
             ->get();
 

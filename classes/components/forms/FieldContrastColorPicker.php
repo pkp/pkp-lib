@@ -36,11 +36,8 @@ class FieldContrastColorPicker extends Field
 
     /**
      * Set the contrast color
-     *
-     * @param string $contrastColor
-     * @return FieldContrastColorPicker
      */
-    public function setContrastColor($contrastColor)
+    public function setContrastColor(string $contrastColor): static
     {
         $this->contrastColor = $contrastColor;
         return $this;

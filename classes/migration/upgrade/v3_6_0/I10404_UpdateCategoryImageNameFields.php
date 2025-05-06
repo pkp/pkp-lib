@@ -14,18 +14,23 @@
 
 namespace PKP\migration\upgrade\v3_6_0;
 
-use APP\file\PublicFileManager;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\file\ContextFileManager;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Local\LocalFilesystemAdapter;
+use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
+use PKP\config\Config;
+use PKP\core\Core;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
 
-class I10404_UpdateCategoryImageNameFields extends Migration
+abstract class I10404_UpdateCategoryImageNameFields extends Migration
 {
+    private const FILE_MODE_MASK = 0666; // FileManager::FILE_MODE_MASK
+    private const DIRECTORY_MODE_MASK = 0777; // FileManager::DIRECTORY_MODE_MASK
     public const CHUNK_SIZE = 1000;
 
     public function up(): void
@@ -95,17 +100,57 @@ class I10404_UpdateCategoryImageNameFields extends Migration
             return;
         }
 
-        $contextFileManager = new ContextFileManager($contextId);
-        $basePath = $contextFileManager->getBasePath() . 'categories/';
-        $publicFileManager = new PublicFileManager();
+        $umask = Config::getVar('files', 'umask', 0022);
+        $adapter = new LocalFilesystemAdapter(
+            '/',
+            PortableVisibilityConverter::fromArray([
+                'file' => [
+                    'public' => self::FILE_MODE_MASK & ~$umask,
+                    'private' => self::FILE_MODE_MASK & ~$umask,
+                ],
+                'dir' => [
+                    'public' => self::DIRECTORY_MODE_MASK & ~$umask,
+                    'private' => self::DIRECTORY_MODE_MASK & ~$umask,
+                ]
+            ]),
+            LOCK_EX,
+            LocalFilesystemAdapter::DISALLOW_LINKS
+        );
+
+        $filesystem = new Filesystem($adapter);
+        $categoryFolderPath = $this->getContextCategoryFolderPath($contextId);
+        $publicFilesPath = $this->getPublicFilesPath($contextId);
 
         foreach ($fileNames as $fileName) {
-            $success = $publicFileManager->copyContextFile($contextId, $basePath . $fileName, $fileName);
-            if ($success) {
-                $contextFileManager->deleteByPath($basePath . $fileName);
+            $source = $categoryFolderPath . $fileName;
+
+            if ($filesystem->fileExists($source)) {
+                $filesystem->move($source, $publicFilesPath . $fileName);
             }
         }
     }
+
+
+    /**
+     * Get the path to a context's public files' directory.
+     */
+    public function getPublicFilesPath(int $contextId): string
+    {
+        return Core::getBaseDir() . '/' . Config::getVar('files', 'public_files_dir') . '/' . $this->getContextFolderName() . '/' . $contextId . '/';
+    }
+
+    /**
+     * Get the path to a context's category folder.
+     */
+    public function getContextCategoryFolderPath(int $contextId): string
+    {
+        return Config::getVar('files', 'files_dir') . '/' . $this->getContextFolderName() . '/' . $contextId . '/categories/';
+    }
+
+    /**
+     *Get the name of the context folder.
+     */
+    abstract public function getContextFolderName(): string;
 
     public function down(): void
     {

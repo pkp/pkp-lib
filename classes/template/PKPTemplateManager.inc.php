@@ -212,6 +212,10 @@ class PKPTemplateManager extends Smarty {
 					array_push($contexts, 'frontend-user-register', 'frontend-user-registerUser');
 				}
 
+				if (Config::getVar('captcha', 'captcha_on_login')) {
+                    array_push($contexts, 'frontend-login-index', 'frontend-login-signIn');
+                }
+
 				if (Config::getVar('captcha', 'captcha_on_password_reset')) {
 					array_push($contexts, 'frontend-login-lostPassword');
 				}

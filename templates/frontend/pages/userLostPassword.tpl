@@ -40,7 +40,7 @@
 				</label>
 			</div>
 
-			{if $captchaEnabled}
+			{if $reCaptchaHtml}
 			<div class="captcha">
 				<div class="pkp_form_locale_field">
 					{$reCaptchaHtml}

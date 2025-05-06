@@ -184,7 +184,7 @@ class LoginHandler extends Handler {
 		$captchaEnabled = Config::getVar('captcha', 'captcha_on_password_reset') && Config::getVar('captcha', 'recaptcha');
 		if ($captchaEnabled) {
 			import('lib.pkp.classes.form.Form');
-			$form = new Form('');
+			$form = new Form();
 			$form->setData('g-recaptcha-response', $request->getUserVar('g-recaptcha-response'));
 
 			import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
@@ -197,7 +197,6 @@ class LoginHandler extends Handler {
 
 			if (!$captchaValidator->isValid()) {
 				$templateMgr->assign([
-					'captchaEnabled' => true,
 					'reCaptchaHtml' => '<div class="g-recaptcha" data-sitekey="' . Config::getVar('captcha', 'recaptcha_public_key') . '"></div><label for="g-recaptcha-response" style="display:none;">Recaptcha response</label>',
 					'error' => $captchaValidator->getMessage(),
 					'email' => $request->getUserVar('email'),
@@ -210,38 +209,6 @@ class LoginHandler extends Handler {
 		$email = $request->getUserVar('email');
 		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$user = $userDao->getUserByEmail($email);
-
-		$rateLimitingEnabled = true;
-		if ($rateLimitingEnabled && $user !== null) {
-			$sessionManager = SessionManager::getManager();
-			$session = $sessionManager->getUserSession();
-
-			// Store reset requests with timestamps in the session
-			$resetRequests = $session->getSessionVar('passwordResetRequests') ?: [];
-			$currentTime = time();
-
-			// Remove entries older than 1 hour (3600 seconds)
-			foreach ($resetRequests as $resetEmail => $timestamp) {
-				if ($currentTime - $timestamp > 3600) {
-					unset($resetRequests[$resetEmail]);
-				}
-			}
-
-			// Check if this email has a recent request (within the last 10 minutes)
-			if (isset($resetRequests[$email]) && ($currentTime - $resetRequests[$email] < 600)) {
-				$templateMgr->assign([
-					'pageTitle' => 'user.login.resetPassword',
-					'message' => 'user.login.lostPassword.confirmationSent',
-					'backLink' => $request->url(null, $request->getRequestedPage(), null, null, $user ? ['username' => $user->getUsername()] : []),
-					'backLinkLabel' => 'user.login',
-				])->display('frontend/pages/message.tpl');
-				return;
-			}
-
-			// Store this request in the session
-			$resetRequests[$email] = $currentTime;
-			$session->setSessionVar('passwordResetRequests', $resetRequests);
-		}
 
 		if ($user !== null && ($hash = Validation::generatePasswordResetHash($user->getId())) !== false) {
 

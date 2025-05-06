@@ -20,8 +20,8 @@ class FieldContrastColorPicker extends Field
     /** @copydoc Field::$component */
     public string $component = 'field-contrast-color-picker';
 
-    /** @var string The selected contrast color */
-    public $contrastColor = '';
+    /** The selected contrast color */
+    public string $contrastColor = '';
 
     /**
      * @copydoc Field::getConfig()

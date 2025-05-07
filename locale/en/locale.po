@@ -491,6 +491,9 @@ msgstr "Awaiting approval."
 msgid "user.profile.form.showOtherContexts"
 msgstr "Register with other servers"
 
+msgid "article.pageTitle"
+msgstr "View of {$title}"
+
 msgid "user.profile.form.hideOtherContexts"
 msgstr "Hide other servers"
 

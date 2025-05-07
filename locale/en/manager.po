@@ -1445,6 +1445,12 @@ msgstr "Category saved"
 msgid "manager.category.toggleSubcategories"
 msgstr "Expand or collapse sub-categories"
 
+msgid "manager.category.expandSubcategories"
+msgstr "Expand sub-categories"
+
+msgid "manager.category.collapseSubcategories"
+msgstr "Collapse sub-categories"
+
 msgid "manager.category.deleteCategory"
 msgstr "Delete Category"
 

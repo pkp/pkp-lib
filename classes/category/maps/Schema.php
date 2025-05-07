@@ -80,6 +80,11 @@ class Schema extends \PKP\core\maps\Schema
     {
         $output = [];
         $context = Application::get()->getRequest()->getContext();
+
+        if (Repo::category()->hasCircularReference($category, $context->getId())) {
+            throw new \Exception(__('api.categories.409.circularReference'));
+        }
+
         foreach ($props as $prop) {
             switch ($prop) {
                 case 'subCategories':
@@ -100,8 +105,7 @@ class Schema extends \PKP\core\maps\Schema
                         ->assignedToCategoryIds([$category->getId()])
                         ->getMany();
 
-                    $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
-                    /** @var SubEditorsDAO $subEditorsDao */
+                    $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
                     //  A list of user group IDs for each assigned editor, keyed by user ID.
                     $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
                         Application::get()->getRequest()->getContext()->getId(),

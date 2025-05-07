@@ -2189,6 +2189,14 @@ msgstr "Before you begin"
 msgid "submission.wizard.categories.description"
 msgstr "Select only the categories that are appropriate for your submission."
 
+msgid "submission.wizard.categories.descriptionWithCircularReferenceWarning"
+msgstr ""
+"Select only the categories that are appropriate for your submission.<br>"
+"<sub class=\"text-negative\">Some categories are not displayed due to circular references. Please contact your Admin to resolve this.</sub>"
+
+msgid "submission.categories.circularReferenceWarning"
+msgstr "<sub class=\"text-negative\">Some categories are not displayed due to circular references. Please contact your Admin to resolve this.</sub>"
+
 msgid "submission.wizard.changeSubmission"
 msgstr "Change Submission Settings"
 

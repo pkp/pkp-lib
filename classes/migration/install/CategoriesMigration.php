@@ -35,7 +35,6 @@ class CategoriesMigration extends \PKP\migration\Migration
 
             $table->bigInteger('parent_id')->nullable(); // Self-referential foreign key set below
 
-            $table->bigInteger('seq')->nullable();
             $table->string('path', 255);
             $table->text('image')->nullable();
 

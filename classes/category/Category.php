@@ -54,22 +54,6 @@ class Category extends \PKP\core\DataObject
     }
 
     /**
-     * Get sequence of category.
-     */
-    public function getSequence(): float
-    {
-        return (float) $this->getData('sequence');
-    }
-
-    /**
-     * Set sequence of category.
-     */
-    public function setSequence(float $sequence)
-    {
-        return $this->setData('sequence', $sequence);
-    }
-
-    /**
      * Get category path.
      */
     public function getPath(): string

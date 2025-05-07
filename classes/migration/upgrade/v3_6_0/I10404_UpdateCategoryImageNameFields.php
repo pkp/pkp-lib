@@ -117,15 +117,15 @@ abstract class I10404_UpdateCategoryImageNameFields extends Migration
             LocalFilesystemAdapter::DISALLOW_LINKS
         );
 
-        $filesystem = new Filesystem($adapter);
+        $fileSystem = new Filesystem($adapter);
         $categoryFolderPath = $this->getContextCategoryFolderPath($contextId);
         $publicFilesPath = $this->getPublicFilesPath($contextId);
 
         foreach ($fileNames as $fileName) {
             $source = $categoryFolderPath . $fileName;
 
-            if ($filesystem->fileExists($source)) {
-                $filesystem->move($source, $publicFilesPath . $fileName);
+            if ($fileSystem->fileExists($source)) {
+                $fileSystem->move($source, $publicFilesPath . $fileName);
             }
         }
     }

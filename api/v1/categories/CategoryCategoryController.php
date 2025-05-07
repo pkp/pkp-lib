@@ -132,8 +132,6 @@ class CategoryCategoryController extends PKPBaseController
             if (!$category) {
                 return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
             }
-
-            $parentId = $category->getParentId();
         }
 
         $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_CATEGORY, $illuminateRequest->input());
@@ -151,13 +149,8 @@ class CategoryCategoryController extends PKPBaseController
         $category->setPath($illuminateRequest->input('path'));
         $category->setSortOption($illuminateRequest->input('sortOption'));
 
-        // Prevent categories from referencing themselves as their parent
-        if ($parentId && $categoryId && $$categoryId === $parentId) {
-            return response()->json(__('api.categories.400.invalidParentId'), Response::HTTP_BAD_REQUEST);
-        }
-
         // Prevent category from being updated to have a circular parent reference
-        if ($parent && $category->getParentId() === $parent->getId() && $parent->getParentId() === $category->getId()) {
+        if ($parentId && $categoryId && Repo::category()->wouldCreateCircularReference($categoryId, $parentId, $context->getId())) {
             return response()->json(__('api.categories.400.circularParentReference'), Response::HTTP_BAD_REQUEST);
         }
 

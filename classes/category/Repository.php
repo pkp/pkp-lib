@@ -73,27 +73,35 @@ class Repository
     }
 
     /**
-     * Get the breadcrumbs for a Collection of categories
+     * Get the breadcrumbs for a Collection of categories. Categories with circular references are excluded from the result.
      */
     public function getBreadcrumbs(LazyCollection $categories): LazyCollection
     {
-        return $categories->map(function (Category $category) use ($categories) {
+        return $categories->map(function (Category $category) use (&$u, $categories) {
+            $processedIds = [];
             $currentCategory = $category;
             $result = $currentCategory->getLocalizedTitle();
-
             // Traverse up category tree until we reach a top-level category
             while ($currentCategory->getParentId() && $parent = $categories->get($currentCategory->getParentId())) {
+                // A category should not be visited more than once.
+                if (in_array($parent->getId(), $processedIds)) {
+                    // If we encounter a circular reference, we stop processing and return an empty string.
+                    $result = '';
+                    break;
+                }
+
                 // Format this level, but with the accumulated result as the child instead of just the current category title
                 $result = __('common.categorySeparator', [
                     'parent' => $parent->getLocalizedTitle(),
                     'child' => $result
                 ]);
 
+                $processedIds[] = $currentCategory->getId();
                 $currentCategory = $parent;
             }
 
             return $result;
-        });
+        })->filter(fn ($breadcrumb) => $breadcrumb !== ''); // Filter out empty breadcrumbs due to circular references.
     }
 
     /** @copydoc DAO::getCollector() */
@@ -297,5 +305,51 @@ class Repository
                 }
             }
         }
+    }
+
+    /**
+     * Check if a circular reference would be created if a Category is assigned a given parent ID.
+     *
+     * @param int $categoryId - The ID of the category being edited/updated.
+     * @param int $newParentId - The ID of the proposed parent category to check against.
+     */
+    public function wouldCreateCircularReference(int $categoryId, int $newParentId, ?int $contextId): bool
+    {
+        $currentParentId = $newParentId;
+
+        // Traverse up the tree, starting from the proposed parent, and check if the categoryId already exists in the chain.
+        while ($currentParentId) {
+            if ($currentParentId === $categoryId) {
+                return true;
+            }
+
+            $parentCategory = Repo::category()->get($currentParentId, $contextId);
+            if (!$parentCategory) {
+                break;
+            }
+
+            $currentParentId = $parentCategory->getParentId();
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if a given category has a circular reference in its tree.
+     *
+     * @param Category $category The category to check for circular references.
+     */
+    public function hasCircularReference(Category $category, ?int $contextId): bool
+    {
+        for ($visited = []; $category?->getParentId() !== null;) {
+            if (isset($visited[$category->getId()])) {
+                return true;
+            }
+
+            $visited[$category->getId()] = true;
+            $category = Repo::category()->get($category->getParentId(), $contextId);
+        }
+
+        return false;
     }
 }

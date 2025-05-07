@@ -1442,7 +1442,7 @@ msgstr "Select the editorial users who should be assigned automatically to all n
 msgid "manager.category.saved"
 msgstr "Category saved"
 
-msgid "manager.category.expandSubCategories"
+msgid "manager.category.toggleSubcategories"
 msgstr "Expand or collapse sub-categories"
 
 msgid "manager.category.deleteCategory"

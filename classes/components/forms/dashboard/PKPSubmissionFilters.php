@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/dashboard/SubmissionFilters.php
  *
@@ -20,8 +21,8 @@ use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldOptions;
-use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FieldSelectUsers;
+use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\security\Role;
@@ -133,9 +134,12 @@ class PKPSubmissionFilters extends FormComponent
             ->values()
             ->all();
 
+        // Check if all categories have a breadcrumb; categories with circular references are filtered out
+        $hasAllBreadcrumbs = count($this->categories) === count($options);
         $props = [
             'groupId' => 'default',
             'label' => __('category.category'),
+            'description' => $hasAllBreadcrumbs ? '' : __('submission.categories.circularReferenceWarning'),
             'options' => $options,
             'value' => [],
         ];
@@ -155,10 +159,8 @@ class PKPSubmissionFilters extends FormComponent
             'label' => __('submission.list.daysSinceLastActivity'),
             'value' => 0,
             'groupId' => 'default',
-
         ];
 
         return $this->addField(new FieldSlider('daysInactive', $props));
-  
     }
 }

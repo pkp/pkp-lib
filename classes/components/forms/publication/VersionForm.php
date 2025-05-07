@@ -31,6 +31,7 @@ class VersionForm extends FormComponent
         public Context $context,
     ) {
         $this->locales = $locales;
+        $this->showErrorFooter = false;
 
         $versionStages = [];
         $allVersionStages = VersionStage::getVersions();
@@ -47,12 +48,18 @@ class VersionForm extends FormComponent
             ['value' => 'true', 'label' => __('publication.revisionSignificance.minor')],
         ];
 
-        $this->addField(new FieldSelect('versionSource', [
-            'label' => __('publication.versionSource.label'),
+        $this->addField(new FieldSelect('sendToVersion', [
+            'label' => __('publication.sendToTextEditor.label'),
             'options' => [],
             'size' => 'large',
             'groupId' => 'default',
-            'description' => __('publication.versionSource.description'),
+            'isRequired' => true,
+        ]))->addField(new FieldSelect('versionSource', [
+            'label' => __('publication.versionSource.create.label'),
+            'options' => [],
+            'size' => 'large',
+            'groupId' => 'default',
+            'description' => __('publication.versionSource.create.description'),
         ]))->addField(new FieldSelect('versionStage', [
             'label' => __('publication.versionStage.label'),
             'options' => $versionStages,

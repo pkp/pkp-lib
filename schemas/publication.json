@@ -394,13 +394,50 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
-		"version": {
+		"versionStage": {
+			"type": "string",
+			"description": "The version stage as given in VersionStage enumeration",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"versionMinor": {
 			"type": "integer",
-			"description": "The version number of this publication. Version numbers should increment by one so that the third publication of a submission will have the version number `3`. Version numbers should typically be set automatically and editorial staff should not be encouraged to modify them.",
+			"description": "The minor part of the version of a publication given the major.minor notation of the version",
+			"apiSummary": true,
+			"validation": [
+				"min:0"
+			]
+		},
+		"versionMajor": {
+			"type": "integer",
+			"description": "The major part of the version of a publication given the major.minor notation of the version",
 			"apiSummary": true,
 			"validation": [
 				"min:1"
 			]
+		},
+		"versionString": {
+			"type": "string",
+			"description": "The calculated display string of the version of this publication",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"createdAt": {
+			"type": "string",
+			"description": "The timestamp when this publication was created.",
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"sourcePublicationId": {
+			"type": "integer",
+			"description": "The ID of another publication that this one is derived from. Used to reference the source publication when creating versions.",
+			"validation": [
+				"nullable"
+			],
+			"apiSummary": true
 		}
 	}
 }

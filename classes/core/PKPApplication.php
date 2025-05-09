@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPApplication.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -173,6 +173,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         // Ensure that nobody registers for hooks that are no longer supported
+        Hook::addUnsupportedHooks('CitationDAO::afterImportCitations'); // pkp/pkp-lib#10692 Removed with introduction of structured citations
         Hook::addUnsupportedHooks('API::_submissions::params', 'Template::Workflow::Publication', 'Template::Workflow', 'Workflow::Recommendations'); // pkp/pkp-lib#10766 Removed with new submission lists for 3.5.0
         Hook::addUnsupportedHooks('APIHandler::endpoints'); // pkp/pkp-lib#9434 Unavailable since stable-3_4_0; remove for 3.6.0 development branch
         Hook::addUnsupportedHooks('Mail::send', 'EditorAction::modifyDecisionOptions', 'EditorAction::recordDecision', 'Announcement::getProperties', 'Author::getProperties::values', 'EmailTemplate::getProperties', 'Galley::getProperties::values', 'Issue::getProperties::fullProperties', 'Issue::getProperties::summaryProperties', 'Issue::getProperties::values', 'Publication::getProperties', 'Section::getProperties::fullProperties', 'Section::getProperties::summaryProperties', 'Section::getProperties::values', 'Submission::getProperties::values', 'SubmissionFile::getProperties', 'User::getProperties::fullProperties', 'User::getProperties::reviewerSummaryProperties', 'User::getProperties::summaryProperties', 'User::getProperties::values', 'Announcement::getMany::queryBuilder', 'Announcement::getMany::queryObject', 'Author::getMany::queryBuilder', 'Author::getMany::queryObject', 'EmailTemplate::getMany::queryBuilder', 'EmailTemplate::getMany::queryObject::custom', 'EmailTemplate::getMany::queryObject::default', 'Galley::getMany::queryBuilder', 'Issue::getMany::queryBuilder', 'Publication::getMany::queryBuilder', 'Publication::getMany::queryObject', 'Stats::getOrderedObjects::queryBuilder', 'Stats::getRecords::queryBuilder', 'Stats::queryBuilder', 'Stats::queryObject', 'Submission::getMany::queryBuilder', 'Submission::getMany::queryObject', 'SubmissionFile::getMany::queryBuilder', 'SubmissionFile::getMany::queryObject', 'User::getMany::queryBuilder', 'User::getMany::queryObject', 'User::getReviewers::queryBuilder', 'CategoryDAO::_fromRow', 'IssueDAO::_fromRow', 'IssueDAO::_returnIssueFromRow', 'SectionDAO::_fromRow', 'UserDAO::_returnUserFromRow', 'UserDAO::_returnUserFromRowWithData', 'UserDAO::_returnUserFromRowWithReviewerStats', 'UserGroupDAO::_returnFromRow', 'ReviewerSubmissionDAO::_fromRow', 'API::stats::publication::abstract::params', 'API::stats::publication::galley::params', 'API::stats::publications::abstract::params', 'API::stats::publications::galley::params', 'PKPLocale::installLocale', 'PKPLocale::registerLocaleFile', 'PKPLocale::registerLocaleFile::isValidLocaleFile', 'PKPLocale::translate', 'API::submissions::files::params', 'ArticleGalleyDAO::getLocalizedGalleysByArticle', 'PluginGridHandler::plugin', 'PluginGridHandler::plugin', 'SubmissionFile::assignedFileStages', 'SubmissionHandler::saveSubmit'); // From the 3.4.0 Release Notebook; remove for 3.6.0 development branch
@@ -522,7 +523,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     {
         return [
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
-            'CitationDAO' => 'PKP\citation\CitationDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'FilterDAO' => 'PKP\filter\FilterDAO',

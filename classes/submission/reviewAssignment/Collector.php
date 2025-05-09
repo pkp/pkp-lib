@@ -281,25 +281,7 @@ class Collector implements CollectorInterface, ViewsCount
      */
     public function getQueryBuilder(): Builder
     {
-        $q = DB::table($this->dao->table . ' as ra')
-            // Aggregating data regarding latest review round and stage. For OMP the latest round isn't equal to the round with the highest number per submission
-            ->leftJoinSub(
-                DB::table('review_assignments as rr')
-                    ->select(['rr.submission_id', 'rr.stage_id'])
-                    ->selectRaw('MAX(rr.round) as latest_round')
-                    ->groupBy('rr.submission_id', 'rr.stage_id')
-                    ->leftJoinSub(
-                        DB::table('review_assignments as rs')
-                            ->select('rs.submission_id')
-                            ->selectRaw('MAX(rs.stage_id) as latest_stage')
-                            ->groupBy('rs.submission_id'),
-                        'rsmax',
-                        fn (JoinClause $join) => $join->on('rr.submission_id', '=', 'rsmax.submission_id')
-                    )
-                    ->whereColumn('rr.stage_id', 'rsmax.latest_stage'), // Take the highest round only from the latest stage
-                'rrmax',
-                fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'rrmax.submission_id')
-            );
+        $q = DB::table($this->dao->table . ' as ra');
 
         $q->when(
             $this->contextIds !== null,
@@ -321,6 +303,24 @@ class Collector implements CollectorInterface, ViewsCount
 
         $q->when($this->isLastReviewRound || $this->isIncomplete, function (Builder $q) {
             $q
+                // Aggregating data regarding latest review round and stage. For OMP the latest round isn't equal to the round with the highest number per submission
+                ->leftJoinSub(
+                    DB::table('review_rounds as rr')
+                        ->select(['rr.submission_id', 'rr.stage_id'])
+                        ->selectRaw('MAX(rr.round) as latest_round')
+                        ->groupBy('rr.submission_id', 'rr.stage_id')
+                        ->leftJoinSub(
+                            DB::table('review_rounds as rs')
+                                ->select('rs.submission_id')
+                                ->selectRaw('MAX(rs.stage_id) as latest_stage')
+                                ->groupBy('rs.submission_id'),
+                            'rsmax',
+                            fn (JoinClause $join) => $join->on('rr.submission_id', '=', 'rsmax.submission_id')
+                        )
+                        ->whereColumn('rr.stage_id', 'rsmax.latest_stage'), // Take the highest round only from the latest stage
+                    'rrmax',
+                    fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'rrmax.submission_id')
+                )
                 ->whereColumn('ra.round', '=', 'rrmax.latest_round') // assignments from the last review round only
                 ->whereColumn('ra.stage_id', '=', 'rrmax.stage_id') // assignments for the current review stage only (for OMP)
                 ->when(

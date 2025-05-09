@@ -28,6 +28,10 @@ class Schema extends \PKP\core\maps\Schema
     public string $schema = PKPSchemaService::SCHEMA_CATEGORY;
 
     /**
+     * Cache of IDs of categories visited when building out the tree for a category - used for circular references check.
+     */
+    private array $visitedCategoryIds = [];
+    /**
      * Map a category
      *
      * Includes all properties in the category schema.
@@ -81,9 +85,11 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         $context = Application::get()->getRequest()->getContext();
 
-        if (Repo::category()->hasCircularReference($category, $context->getId())) {
+        if (in_array($category->getId(), $this->visitedCategoryIds)) {
             throw new \Exception(__('api.categories.409.circularReference'));
         }
+
+        $this->visitedCategoryIds[] = $category->getId();
 
         foreach ($props as $prop) {
             switch ($prop) {

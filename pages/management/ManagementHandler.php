@@ -179,7 +179,6 @@ class ManagementHandler extends Handler
         );
         $categoryForm = new CategoryForm($categoriesApiUrl, $locales, $baseUrl, $temporaryFileApiUrl);
 
-
         $templateMgr->setState([
             'components' => [
                 PKPContactForm::FORM_CONTACT => $contactForm->getConfig(),
@@ -611,13 +610,13 @@ class ManagementHandler extends Handler
     {
         $this->setupTemplate($request);
         $userId = $args[0];
-        if (!empty($userId)) {
-            $invitation = app(Invitation::class)->createNew('userRoleAssignment');
-            $invitationHandler = $invitation->getInvitationUIActionRedirectController();
-            $invitationHandler->createHandle($request, $userId);
-        } else {
+        if (empty($userId)) {
             $request->getDispatcher()->handle404();
         }
+
+        $invitation = app(Invitation::class)->createNew('userRoleAssignment');
+        $invitationHandler = $invitation->getInvitationUIActionRedirectController();
+        $invitationHandler->createHandle($request, $userId);
     }
 
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm
@@ -725,7 +724,7 @@ class ManagementHandler extends Handler
         $components = $templateMgr->getState('components');
         $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
         $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
-        
+
         $templateMgr->setState(['components' => $components]);
     }
 

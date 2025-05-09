@@ -16,7 +16,6 @@ namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use League\Flysystem\Filesystem;
@@ -32,73 +31,10 @@ abstract class I10404_UpdateCategoryImageNameFields extends Migration
     private const FILE_MODE_MASK = 0666; // FileManager::FILE_MODE_MASK
     private const DIRECTORY_MODE_MASK = 0777; // FileManager::DIRECTORY_MODE_MASK
     public const CHUNK_SIZE = 1000;
+    private Filesystem $fileSystem;
 
-    public function up(): void
+    public function __construct()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('seq');
-        });
-
-        $contextIds = app()->get('context')->getIds();
-        $fileNamesToMove = [];
-
-        foreach ($contextIds as $contextId) {
-            DB::table('categories')
-                ->where('context_id', '=', $contextId)
-                ->orderBy('category_id')
-                ->chunk(self::CHUNK_SIZE, function (Collection $categories) use ($contextId, &$fileNamesToMove) {
-                    $imageRecordsToUpdate = [];
-
-                    foreach ($categories as $category) {
-                        $image = $category->image;
-                        if ($image) {
-                            $imageDecoded = json_decode($image, true);
-                            $fileNamesToMove[] = $imageDecoded['name'];
-                            $fileNamesToMove[] = $imageDecoded['thumbnailName'];
-                            // Swap 'name' and 'uploadName' fields
-                            [$imageDecoded['name'], $imageDecoded['uploadName']] = [$imageDecoded['uploadName'], $imageDecoded['name']];
-                            $imageRecordsToUpdate[$category->category_id] = json_encode($imageDecoded);
-                        }
-                    }
-
-                    $this->updateCategoriesImageNameFields($contextId, collect($imageRecordsToUpdate));
-                    // Move images
-                    $this->moveContextCategoryImagesToPublicFolder($contextId, collect($fileNamesToMove));
-                });
-        }
-    }
-
-    /**
-     *
-     * @param Enumerable $updates List of Category image data to update. Keyed by category ID.
-     */
-    private function updateCategoriesImageNameFields(int $contextId, Enumerable $updates): void
-    {
-        if ($updates->isEmpty()) {
-            return;
-        }
-
-        $caseStatement = 'UPDATE categories SET image = CASE category_id ';
-
-        foreach ($updates as $categoryId => $json) {
-            $caseStatement .= "WHEN {$categoryId} THEN ? ";
-        }
-
-        $caseStatement .= 'END WHERE category_id IN (' . implode(',', $updates->keys()->all()) . ') AND context_id = ?';
-        DB::update($caseStatement, array_merge($updates->values()->all(), [$contextId]));
-    }
-
-
-    /**
-     * Moves the Category images from file system to public dir of given context.
-     *
-     * @param Enumerable $fileNames - List of file names to move
-     */
-    private function moveContextCategoryImagesToPublicFolder(int $contextId, Enumerable $fileNames): void
-    {
-        if ($fileNames->isEmpty()) {
-            return;
-        }
 
         $umask = Config::getVar('files', 'umask', 0022);
         $adapter = new LocalFilesystemAdapter(
@@ -117,15 +53,53 @@ abstract class I10404_UpdateCategoryImageNameFields extends Migration
             LocalFilesystemAdapter::DISALLOW_LINKS
         );
 
-        $fileSystem = new Filesystem($adapter);
-        $categoryFolderPath = $this->getContextCategoryFolderPath($contextId);
-        $publicFilesPath = $this->getPublicFilesPath($contextId);
+        $this->fileSystem = new Filesystem($adapter);
+    }
 
-        foreach ($fileNames as $fileName) {
-            $source = $categoryFolderPath . $fileName;
+    public function up(): void
+    {
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('seq');
+        });
 
-            if ($fileSystem->fileExists($source)) {
-                $fileSystem->move($source, $publicFilesPath . $fileName);
+        DB::table('categories')
+            ->whereNotNull('image')
+            ->orderBy('category_id')
+            ->chunk(self::CHUNK_SIZE, function (Collection $categories) {
+                $ids = $categories->pluck('category_id')->all();
+                DB::table('categories')
+                    ->whereIn('category_id', $ids)
+                    ->update([
+                        'image' => DB::raw(
+                            'REPLACE(
+                                REPLACE(REPLACE(image, \'"name":\', \'"temporaryNameField":\'), \'"uploadName":\', \'"name":\'),
+                                \'"temporaryNameField":\', \'"uploadName":\'
+                            )'
+                        ),
+                    ]);
+            });
+
+        $this->moveContextCategoryImagesToPublicFolder();
+    }
+
+    /**
+     * Moves the Category images from file system to public for each context.
+     */
+    private function moveContextCategoryImagesToPublicFolder(): void
+    {
+        $contextIds = DB::table($this->getContextTable())
+            ->pluck($this->getContextIdColumn());
+
+        foreach ($contextIds as $contextId) {
+            // Get the category images in the context specific folder
+            $categoryImages = $this->fileSystem->listContents($this->getContextCategoryFolderPath($contextId));
+            $publicFilesPath = $this->getPublicFilesPath($contextId);
+
+            foreach ($categoryImages as $categoryImage) {
+                $this->fileSystem->move(
+                    $categoryImage['path'],
+                    $publicFilesPath . basename($categoryImage['path'])
+                );
             }
         }
     }
@@ -151,6 +125,16 @@ abstract class I10404_UpdateCategoryImageNameFields extends Migration
      *Get the name of the context folder.
      */
     abstract public function getContextFolderName(): string;
+
+    /**
+     * Get the name of the context table.
+     */
+    abstract protected function getContextTable(): string;
+
+    /**
+     * Get the name of the context ID column.
+     */
+    abstract protected function getContextIdColumn(): string;
 
     public function down(): void
     {

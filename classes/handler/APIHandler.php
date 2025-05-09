@@ -18,6 +18,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Pipeline;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRoutingProvider;
+use PKP\middleware\HasRoles;
 use PKP\plugins\Hook;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
@@ -198,9 +199,15 @@ class APIHandler extends PKPHandler
             $route
                 ->name($routeParams['name'])
                 ->middleware($this->apiController->roleAuthorizer($routeParams['roles']));
-            
+
             foreach ($this->apiController->getRouteGroupMiddleware() as $middleware) {
                 
+                // As roles are already supplied for routes directly injecting in the router
+                // we do not want to add any other roles middleware form controller if defined
+                if (strstr($middleware, 'has.roles') !== false || strstr($middleware, HasRoles::class) !== false) {
+                    continue;
+                }
+
                 // We don't want to set any middleware to the route which is already set
                 if (in_array($middleware, $route->middleware())) {
                     continue;

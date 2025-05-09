@@ -69,7 +69,7 @@ class Collector implements CollectorInterface
     /**
      * Filter categories by one or more contexts
      */
-    public function filterByContextIds(?array $contextIds): self
+    public function filterByContextIds(?array $contextIds): static
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -78,7 +78,7 @@ class Collector implements CollectorInterface
     /**
      * Filter categories by one or more parent category IDs
      */
-    public function filterByParentIds(?array $parentIds): self
+    public function filterByParentIds(?array $parentIds): static
     {
         $this->parentIds = $parentIds;
         return $this;
@@ -87,7 +87,7 @@ class Collector implements CollectorInterface
     /**
      * Filter categories by one or more publication IDs
      */
-    public function filterByPublicationIds(?array $publicationIds): self
+    public function filterByPublicationIds(?array $publicationIds): static
     {
         $this->publicationIds = $publicationIds;
         return $this;
@@ -96,7 +96,7 @@ class Collector implements CollectorInterface
     /**
      * Filter categories by one or more paths
      */
-    public function filterByPaths(?array $paths): self
+    public function filterByPaths(?array $paths): static
     {
         $this->paths = $paths;
         return $this;
@@ -105,7 +105,7 @@ class Collector implements CollectorInterface
     /**
      * Filter categories by IDs
      */
-    public function filterByIds(?array $categoryIds): self
+    public function filterByIds(?array $categoryIds): static
     {
         $this->categoryIds = $categoryIds;
         return $this;
@@ -114,7 +114,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(?int $count): self
+    public function limit(?int $count): static
     {
         $this->count = $count;
         return $this;
@@ -124,7 +124,7 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(?int $offset): self
+    public function offset(?int $offset): static
     {
         $this->offset = $offset;
         return $this;

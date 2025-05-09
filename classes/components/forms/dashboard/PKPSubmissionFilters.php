@@ -135,7 +135,7 @@ class PKPSubmissionFilters extends FormComponent
             ->all();
 
         // Check if all categories have a breadcrumb; categories with circular references are filtered out
-        $hasAllBreadcrumbs = count($this->categories) === count($options);
+        $hasAllBreadcrumbs = $this->categories->count() === count($options);
         $props = [
             'groupId' => 'default',
             'label' => __('category.category'),

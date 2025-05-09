@@ -41,7 +41,7 @@ class Repository
 
     /** @var PKPSchemaService<Category> $schemaService */
     protected $schemaService;
-
+    private const CATEGORY_PATH_REGEX = '/^[a-zA-Z0-9\/._-]+$/';
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
     {
@@ -170,7 +170,7 @@ class Repository
         if (isset($props['path'])) {
             $validator->after(function (Validator $validator) use ($props, $context, $object) {
                 // Check if path matches the allowed pattern
-                if (!preg_match(\Category::$PATH_REGEX, $props['path'] ?: '')) {
+                if (!preg_match(self::CATEGORY_PATH_REGEX, $props['path'] ?: '')) {
                     $validator->errors()->add('path', __('grid.category.pathAlphaNumeric'));
                 }
 
@@ -287,7 +287,8 @@ class Repository
      */
     public function updateEditors(int $categoryId, array $subEditors, array $assignableRoles, int $contextId): void
     {
-        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+        $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO');
+        /** @var SubEditorsDAO $subEditorsDao */
         $subEditorsDao->deleteBySubmissionGroupId($categoryId, Application::ASSOC_TYPE_CATEGORY, $contextId);
 
         if (!empty($subEditors)) {
@@ -308,46 +309,30 @@ class Repository
     }
 
     /**
-     * Check if a circular reference would be created if a Category is assigned a given parent ID.
+     * Check for circular references in the category tree.
      *
-     * @param int $categoryId - The ID of the category being edited/updated.
-     * @param int $newParentId - The ID of the proposed parent category to check against.
+     * @param int $categoryId - The ID of the category to check.
+     * @param int|null $newParentId - If provided, this checks whether assigning it as the new parent would create a circular reference.
      */
-    public function wouldCreateCircularReference(int $categoryId, int $newParentId, ?int $contextId): bool
+    public function hasCircularReference(int $categoryId, ?int $newParentId, ?int $contextId): bool
     {
-        $currentParentId = $newParentId;
+        $visited = [];
 
-        // Traverse up the tree, starting from the proposed parent, and check if the categoryId already exists in the chain.
-        while ($currentParentId) {
-            if ($currentParentId === $categoryId) {
-                return true;
+        // When checking if a proposed new parent would result in a circular reference, start from the new parent.
+        // Otherwise, start from the category.
+        $currentId = $newParentId ?? $categoryId;
+
+        while ($currentId !== null) {
+            if (isset($visited[$currentId])) {
+                return true; // A category should not be visited twice.
             }
 
-            $parentCategory = Repo::category()->get($currentParentId, $contextId);
-            if (!$parentCategory) {
-                break;
+            if ($newParentId !== null && $currentId === $categoryId) {
+                return true; // The categoryId exist in the parent chain of the proposed new parent.
             }
 
-            $currentParentId = $parentCategory->getParentId();
-        }
-
-        return false;
-    }
-
-    /**
-     * Check if a given category has a circular reference in its tree.
-     *
-     * @param Category $category The category to check for circular references.
-     */
-    public function hasCircularReference(Category $category, ?int $contextId): bool
-    {
-        for ($visited = []; $category?->getParentId() !== null;) {
-            if (isset($visited[$category->getId()])) {
-                return true;
-            }
-
-            $visited[$category->getId()] = true;
-            $category = Repo::category()->get($category->getParentId(), $contextId);
+            $visited[$currentId] = true;
+            $currentId = Repo::category()->get($currentId, $contextId)?->getParentId();
         }
 
         return false;

@@ -132,6 +132,10 @@ class CategoryCategoryController extends PKPBaseController
             if (!$category) {
                 return response()->json(__('api.404.resourceNotFound'), Response::HTTP_NOT_FOUND);
             }
+
+            if (!$parentId) {
+                $parentId = $category->getParentId();
+            }
         }
 
         $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_CATEGORY, $illuminateRequest->input());
@@ -150,7 +154,7 @@ class CategoryCategoryController extends PKPBaseController
         $category->setSortOption($illuminateRequest->input('sortOption'));
 
         // Prevent category from being updated to have a circular parent reference
-        if ($parentId && $categoryId && Repo::category()->wouldCreateCircularReference($categoryId, $parentId, $context->getId())) {
+        if ($parentId && $categoryId && Repo::category()->hasCircularReference($categoryId, $parentId, $context->getId())) {
             return response()->json(__('api.categories.400.circularParentReference'), Response::HTTP_BAD_REQUEST);
         }
 
@@ -181,7 +185,7 @@ class CategoryCategoryController extends PKPBaseController
             $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['thumbnailName']);
         }
 
-        $imageData = [];
+        $imageData = null;
         // Fetch the temporary file storing the uploaded image
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->getFile((int)$temporaryFileId, $user->getId());
@@ -214,10 +218,7 @@ class CategoryCategoryController extends PKPBaseController
             ];
         }
 
-        if (!empty($imageData)) {
-            $category->setImage($imageData);
-        }
-
+        $category->setImage($imageData);
         Repo::category()->edit($category, []);
         $category = Repo::category()->get($categoryId, $context->getId());
         return response()->json(Repo::category()->getSchemaMap()->summarize($category), Response::HTTP_OK);

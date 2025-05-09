@@ -456,8 +456,7 @@ class Schema extends \PKP\core\maps\Schema
         if (in_array('publications', $props)) {
             $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
-                ->filterByReviewerIds([$this->request->getUser()->getId()])
-                ->filterByLastReviewRound(true)
+                ->filterByReviewerIds([$this->request->getUser()->getId()], true)
                 ->getMany()
                 ->first();
             $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;

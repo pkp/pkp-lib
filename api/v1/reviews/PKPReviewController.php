@@ -242,9 +242,8 @@ class PKPReviewController extends PKPBaseController
         $lastReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterByContextIds([$contextId])
             ->filterBySubmissionIds([$submissionId])
-            ->filterByReviewerIds([$reviewerId])
+            ->filterByReviewerIds([$reviewerId], true)
             ->filterByStageId($stageId)
-            ->filterByLastReviewRound(true)
             ->getMany()
             ->first();
 

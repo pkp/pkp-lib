@@ -2,6 +2,7 @@ name: "Bug Report"
 description: File a bug report in OJS, OMP, or OPS. Try our [Software Support] forum if you cannot provide reproducible steps and technical specifications.
 
 title: "[Main Feature] | Workflow Section - Page, Description of bug"
+type: "Bug"
 
 body:
   - type: markdown

@@ -14,8 +14,13 @@
 
 namespace PKP\category;
 
+use PKP\security\Role;
+
 class Category extends \PKP\core\DataObject
 {
+    public const ASSIGNABLE_ROLES = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
+    public const SUPPORTED_IMAGE_TYPES = ['.jpg', '.png', '.gif'];
+    public static string $PATH_REGEX = '/^[a-zA-Z0-9\/._-]+$/';
     /**
      * Get ID of context.
      */
@@ -46,22 +51,6 @@ class Category extends \PKP\core\DataObject
     public function setParentId(?int $parentId)
     {
         return $this->setData('parentId', $parentId);
-    }
-
-    /**
-     * Get sequence of category.
-     */
-    public function getSequence(): float
-    {
-        return (float) $this->getData('sequence');
-    }
-
-    /**
-     * Set sequence of category.
-     */
-    public function setSequence(float $sequence)
-    {
-        return $this->setData('sequence', $sequence);
     }
 
     /**

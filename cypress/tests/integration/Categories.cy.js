@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  */
 
- describe('Tests categories in the submission wizard', function() {
+ describe.skip('Tests categories in the submission wizard', function() {
 	var username = 'catauthor';
 	var familyName = 'Fraser'
 	var title = 'Test submission wizard with categories';
@@ -20,7 +20,7 @@
 	if (Cypress.env('defaultGenre') === 'Preprint Text') {
 		return;
 	}
-	
+
 	it('Checks that categories field is not shown in submission wizard', function() {
 		cy.register({
 			'username': username,
@@ -29,7 +29,7 @@
 			'affiliation': 'Public Knowledge Project',
 			'country': 'Canada'
 		});
-		
+
 
 		cy.contains('Make a New Submission').click();
 

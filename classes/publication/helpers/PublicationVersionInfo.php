@@ -43,4 +43,31 @@ class PublicationVersionInfo extends \PKP\core\DataObject
             'minorNumbering' => $this->minorNumbering,
         ]);
     }
+
+    /**
+     * Serialize the object to a plain array for JSON storage.
+     */
+    public function toArray(): array
+    {
+        return [
+            'stage' => $this->stage->value,
+            'major' => $this->majorNumbering,
+            'minor' => $this->minorNumbering,
+        ];
+    }
+
+    /**
+     * Create a PublicationVersionInfo object from an array. Used to be deserialised from JSON.
+     *
+     * @param array<string, mixed> $data
+     * @return self
+     */
+    public static function fromArray(array $data): self
+    {
+        return new self(
+            VersionStage::from($data['stage']),
+            (int) ($data['major'] ?? self::DEFAULT_MAJOR_NUMBERING),
+            (int) ($data['minor'] ?? self::DEFAULT_MINOR_NUMBERING)
+        );
+    }
 }

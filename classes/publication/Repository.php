@@ -526,7 +526,6 @@ abstract class Repository
         if (!isset($currentVersionInfo)) {
             $nextAvailableVersion = Repo::submission()->getNextAvailableVersion($submission, VersionStage::VERSION_OF_RECORD, false);
 
-            $newPublication->setData('versionIsMinor', false);
             $newPublication->setVersion($nextAvailableVersion);
         }
 
@@ -704,7 +703,11 @@ abstract class Repository
 
         $oldVersion = $publication->getVersion();
 
-        $publication->setData('versionIsMinor', $isMinor);
+        // If a previous version exists, append it to the history
+        if (isset($oldVersion)) {
+            $publication->addVersionHistory($oldVersion);
+        }
+
         $publication->setVersion($nextAvailableVersion);
 
         Hook::run('Publication::updateVersion::before', [&$publication, $oldVersion]);

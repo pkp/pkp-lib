@@ -1,11 +1,11 @@
-# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-01 16:19+0000\n"
-"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
-"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"grid/vi_VN/>\n"
-"Language: vi_VN\n"
+"PO-Revision-Date: 2025-04-14 03:12+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgid "grid.settings"
 msgstr "Cài đặt"
 
 msgid "grid.noAuditors"
-msgstr "Không có kiểm tra viên"
+msgstr "Không có kiểm toán viên"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Mục này được lưu trữ từ xa."
@@ -55,10 +55,10 @@ msgid "grid.action.addUser"
 msgstr "Thêm người dùng"
 
 msgid "grid.action.unassignReviewer"
-msgstr "Hủy chỉ định người đánh giá này"
+msgstr "Hủy phân công bình duyệt viên này"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Phê duyệt tệp đã chỉnh sửa này để gửi đến giai đoạn tiếp theo"
+msgstr "Phê duyệt tệp biên tập này để gửi sang giai đoạn tiếp theo"
 
 msgid "grid.action.reload"
 msgstr "Tải lại"
@@ -76,13 +76,13 @@ msgid "grid.action.editMedia"
 msgstr "Chỉnh sửa phương tiện"
 
 msgid "grid.action.editSection"
-msgstr "Chỉnh sửa phần"
+msgstr "Chỉnh sửa chuyên mục"
 
 msgid "grid.action.export"
-msgstr "Xuất"
+msgstr "Xuất dữ liệu"
 
 msgid "grid.action.deleteSection"
-msgstr "Xóa phần"
+msgstr "Xóa chuyên mục"
 
 msgid "grid.action.editorialHistory"
 msgstr "Lịch sử biên tập"
@@ -97,7 +97,7 @@ msgid "grid.action.approve"
 msgstr "Phê duyệt"
 
 msgid "grid.action.disapprove"
-msgstr "Từ chối phê duyệt"
+msgstr "Không phê duyệt"
 
 msgid "grid.action.setApproval"
 msgstr "Thiết lập phê duyệt"
@@ -109,7 +109,7 @@ msgid "grid.action.restoreDefaults"
 msgstr "Khôi phục mặc định"
 
 msgid "grid.action.restoreDefaults.confirm"
-msgstr "Bạn có chắc chắn muốn khôi phục mặc định không?"
+msgstr "Bạn có chắc chắn muốn khôi phục cài đặt mặc định không?"
 
 msgid "grid.action.addAuthor"
 msgstr "Thêm tác giả"
@@ -121,7 +121,7 @@ msgid "grid.action.deleteAuthor"
 msgstr "Xóa tác giả"
 
 msgid "grid.action.addAuditor"
-msgstr "Thêm người kiểm tra"
+msgstr "Thêm một kiểm toán viên"
 
 msgid "grid.action.upgrade"
 msgstr "Nâng cấp"
@@ -151,25 +151,25 @@ msgid "grid.action.moveItem"
 msgstr "Di chuyển mục"
 
 msgid "grid.action.downloadAll"
-msgstr "Tải xuống tất cả tệp dưới dạng tệp lưu trữ"
+msgstr "Tải tất cả các tệp dưới dạng tệp nén"
 
 msgid "grid.action.readReview"
-msgstr "Đọc đánh giá này"
+msgstr "Đọc bài bình duyệt này"
 
 msgid "grid.action.email"
 msgstr "Gửi email"
 
 msgid "grid.action.addReviewer"
-msgstr "Thêm người đánh giá"
+msgstr "Thêm một bình duyệt viên"
 
 msgid "grid.action.addFile"
-msgstr "Thêm tệp"
+msgstr "Thêm một tệp"
 
 msgid "grid.action.editFile"
-msgstr "Chỉnh sửa tệp"
+msgstr "Chỉnh sửa một tệp"
 
 msgid "grid.action.selectFiles"
-msgstr "Chọn tệp để quản lý"
+msgstr "Chọn các tệp để quản lý"
 
 msgid "grid.action.requestRevisions"
 msgstr "Yêu cầu sửa đổi cho bài nộp này"
@@ -181,13 +181,13 @@ msgid "grid.action.decline"
 msgstr "Từ chối bài nộp này"
 
 msgid "grid.action.internalReview"
-msgstr "Gửi bài nộp này đi đánh giá nội bộ"
+msgstr "Gửi bài nộp này đến bình duyệt nội bộ"
 
 msgid "grid.action.externalReview"
-msgstr "Gửi bài nộp này đi đánh giá bên ngoài"
+msgstr "Gửi bài nộp này đến bình duyệt bên ngoài"
 
 msgid "grid.action.sendToProduction"
-msgstr "Gửi bài nộp này đến sản xuất"
+msgstr "Gửi bài nộp này đến khâu sản xuất"
 
 msgid "grid.action.settings"
 msgstr "Cài đặt"
@@ -202,7 +202,7 @@ msgid "grid.action.resetAll"
 msgstr "Đặt lại tất cả các mục về giá trị mặc định"
 
 msgid "grid.action.addPreparedEmail"
-msgstr "Thêm mẫu email mới"
+msgstr "Thêm một mẫu email mới"
 
 msgid "grid.action.editPreparedEmail"
 msgstr "Chỉnh sửa mẫu email này"
@@ -226,7 +226,7 @@ msgid "grid.action.notify"
 msgstr "Thông báo cho người dùng này"
 
 msgid "grid.action.addUserGroup"
-msgstr "Thêm nhóm người dùng mới"
+msgstr "Thêm một nhóm người dùng mới"
 
 msgid "grid.action.editUserGroup"
 msgstr "Chỉnh sửa nhóm người dùng này"
@@ -241,10 +241,10 @@ msgid "grid.action.details"
 msgstr "Xem mục này"
 
 msgid "grid.action.enrolExisting"
-msgstr "Đăng ký người dùng hiện có làm người đánh giá"
+msgstr "Ghi danh một người dùng hiện có làm bình duyệt viên"
 
 msgid "grid.action.selectCreate"
-msgstr "Tạo người đánh giá mới"
+msgstr "Tạo một bình duyệt viên mới"
 
 msgid "grid.action.search"
 msgstr "Tìm kiếm"
@@ -253,28 +253,28 @@ msgid "grid.action.advancedSearch"
 msgstr "Tìm kiếm nâng cao"
 
 msgid "grid.action.viewLibrary"
-msgstr "Xem Thư viện Tài liệu"
+msgstr "Xem thư viện tài liệu"
 
 msgid "grid.action.viewMetadata"
-msgstr "Xem metadata cho bài nộp này"
+msgstr "Xem siêu dữ liệu cho bài nộp này"
 
 msgid "grid.action.sendReminder"
-msgstr "Gửi lời nhắc công việc cho người dùng này"
+msgstr "Gửi lời nhắc nhiệm vụ cho người dùng này"
 
 msgid "grid.action.newRound"
-msgstr "Tạo vòng mới"
+msgstr "Tạo một vòng mới"
 
 msgid "grid.action.viewReviewGuidelines"
-msgstr "Xem hướng dẫn đánh giá"
+msgstr "Xem hướng dẫn bình duyệt"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr "Xem chính sách hướng dẫn xung đột lợi ích"
+msgstr "Xem chính sách hướng dẫn về xung đột lợi ích"
 
 msgid "grid.action.thankReviewer"
-msgstr "Gửi lời cảm ơn đến người đánh giá này"
+msgstr "Gửi lời cảm ơn đến bình duyệt viên này"
 
 msgid "grid.action.uploadFile"
-msgstr "Tải lên tệp"
+msgstr "Tải lên một tệp"
 
 msgid "grid.action.addAnnouncementType"
 msgstr "Thêm loại thông báo"
@@ -286,16 +286,16 @@ msgid "grid.action.addInstitution"
 msgstr "Thêm tổ chức"
 
 msgid "grid.action.mergeUser"
-msgstr "Hợp nhất người dùng"
+msgstr "Gộp người dùng"
 
 msgid "grid.action.unassignUser"
-msgstr "Hủy chỉ định người dùng"
+msgstr "Hủy phân công người dùng"
 
 msgid "grid.action.history"
 msgstr "Xem lịch sử"
 
 msgid "grid.action.unconsiderReview"
-msgstr "Đánh giá này đã hoàn thành, nhưng bạn có thể không xem xét nó"
+msgstr "Bài bình duyệt này đã hoàn tất, nhưng bạn có thể xem xét lại"
 
 msgid "grid.action.enable"
 msgstr "Kích hoạt"
@@ -304,7 +304,7 @@ msgid "grid.action.bookInfo"
 msgstr "Thông tin bài nộp"
 
 msgid "grid.action.logInAs"
-msgstr "Đăng nhập với vai trò"
+msgstr "Đăng nhập với tư cách"
 
 msgid "grid.action.exportAllUsers"
 msgstr "Xuất tất cả người dùng"
@@ -316,7 +316,7 @@ msgid "grid.action.activate"
 msgstr "Kích hoạt"
 
 msgid "grid.action.deactivate"
-msgstr "Vô hiệu hóa"
+msgstr "Hủy kích hoạt"
 
 msgid "grid.action.copy"
 msgstr "Sao chép"
@@ -334,19 +334,20 @@ msgid "grid.action.users"
 msgstr "Xem/Chọn người dùng"
 
 msgid "grid.task.status.completed"
-msgstr "Công việc này đã hoàn thành"
+msgstr "Nhiệm vụ này đã hoàn thành"
 
 msgid "grid.task.status.new"
-msgstr "Đã kiểm tra khi được xem xét"
+msgstr "Được đánh dấu khi xem xét"
 
 msgid "grid.task.status.uploaded"
-msgstr "Tiêu đề cột chỉ ra ai đã tải lên tệp này"
+msgstr "Tiêu đề cột cho biết ai đã tải lên tệp này"
 
 msgid "grid.task.status.unfinished"
-msgstr "Công việc chưa hoàn thành"
+msgstr "Nhiệm vụ chưa hoàn thành"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Đánh giá này đã sẵn sàng. Nhấp vào biểu tượng ghi chú bên trái để đọc nó."
+msgstr ""
+"Bài bình duyệt này đã sẵn sàng. Nhấp vào biểu tượng ghi chú bên trái để đọc."
 
 msgid "grid.columns.actions"
 msgstr "Hành động"
@@ -358,10 +359,10 @@ msgid "grid.columns.url"
 msgstr "URL"
 
 msgid "grid.columns.auditor"
-msgstr "Kiểm tra viên"
+msgstr "Kiểm toán viên"
 
 msgid "grid.columns.locale"
-msgstr "Ngôn ngữ bản địa"
+msgstr "Ngôn ngữ địa phương"
 
 msgid "grid.columns.locale.code"
 msgstr "Mã"
@@ -379,13 +380,13 @@ msgid "grid.action.editSponsor"
 msgstr "Chỉnh sửa nhà tài trợ"
 
 msgid "grid.action.addSeries"
-msgstr "Thêm loạt bài"
+msgstr "Thêm bộ sách/tạp chí"
 
 msgid "grid.action.editSeries"
-msgstr "Chỉnh sửa loạt bài"
+msgstr "Chỉnh sửa bộ sách/tạp chí"
 
 msgid "grid.action.deleteSeries"
-msgstr "Xóa loạt bài"
+msgstr "Xóa bộ sách/tạp chí"
 
 msgid "grid.action.addCategory"
 msgstr "Thêm danh mục"
@@ -406,13 +407,15 @@ msgid "grid.action.deleteContributor"
 msgstr "Xóa người đóng góp"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr "Bạn có chắc chắn muốn xóa {$name} làm người đóng góp không? Hành động này không thể hoàn tác."
+msgstr ""
+"Bạn có chắc chắn muốn xóa {$name} khỏi danh sách người đóng góp không? Hành "
+"động này không thể hoàn tác."
 
 msgid "grid.action.newVersion"
-msgstr "Tạo phiên bản mới"
+msgstr "Tạo một phiên bản mới"
 
 msgid "grid.reviewForm.title"
-msgstr "Các biểu mẫu đánh giá"
+msgstr "Biểu mẫu bình duyệt"
 
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Tùy chọn phản hồi"
@@ -430,7 +433,7 @@ msgid "grid.libraryFiles.editorial.title"
 msgstr "Thư viện biên tập"
 
 msgid "grid.libraryFiles.review.title"
-msgstr "Thư viện đánh giá"
+msgstr "Thư viện bình duyệt"
 
 msgid "grid.libraryFiles.production.title"
 msgstr "Thư viện sản xuất"
@@ -439,10 +442,10 @@ msgid "grid.libraryFiles.productionTemplate.title"
 msgstr "Thư viện mẫu sản xuất"
 
 msgid "grid.submissionChecklist.title"
-msgstr "Danh sách kiểm tra nộp bài"
+msgstr "Danh sách kiểm tra bài nộp"
 
 msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Mục danh sách kiểm tra"
+msgstr "Mục trong danh sách kiểm tra"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Liên hệ chính"
@@ -454,7 +457,9 @@ msgid "contributor.listPanel.preview"
 msgstr "Xem trước"
 
 msgid "contributor.listPanel.preview.description"
-msgstr "Những người đóng góp cho ấn phẩm này sẽ được xác định theo các định dạng sau."
+msgstr ""
+"Những người đóng góp cho ấn phẩm này sẽ được xác định trong các định dạng "
+"sau."
 
 msgid "contributor.listPanel.preview.format"
 msgstr "Định dạng"
@@ -466,7 +471,7 @@ msgid "contributor.listPanel.preview.abbreviated"
 msgstr "Viết tắt"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Danh sách ấn phẩm"
+msgstr "Danh sách xuất bản"
 
 msgid "contributor.listPanel.preview.full"
 msgstr "Đầy đủ"
@@ -478,25 +483,25 @@ msgid "grid.roles.add"
 msgstr "Tạo vai trò mới"
 
 msgid "grid.roles.stageAssignment"
-msgstr "Chỉ định giai đoạn"
+msgstr "Phân công giai đoạn"
 
 msgid "grid.user.currentUsers"
 msgstr "Người dùng hiện tại"
 
 msgid "grid.user.currentEnrollment"
-msgstr "Đăng ký hiện tại"
+msgstr "Ghi danh hiện tại"
 
 msgid "grid.user.allRoles"
 msgstr "Tất cả vai trò"
 
 msgid "grid.user.allPermissionLevels"
-msgstr "Tất cả cấp độ quyền"
+msgstr "Tất cả các cấp quyền"
 
 msgid "grid.user.add"
 msgstr "Thêm người dùng"
 
 msgid "grid.user.enroll"
-msgstr "Đăng ký người dùng"
+msgstr "Ghi danh người dùng"
 
 msgid "grid.user.edit"
 msgstr "Chỉnh sửa người dùng"
@@ -517,13 +522,19 @@ msgid "grid.user.enableReason"
 msgstr "Lý do kích hoạt người dùng"
 
 msgid "grid.user.error"
-msgstr "Đã xảy ra lỗi khi quản lý người dùng này. Vui lòng thử lại."
+msgstr "Đã xảy ra lỗi khi quản trị người dùng này. Vui lòng thử lại."
 
 msgid "grid.user.errorEmail"
-msgstr "Đã xảy ra lỗi khi gửi email này. Vui lòng đảm bảo cấu hình máy chủ email của bạn đang hoạt động và/hoặc liên hệ với quản trị viên hệ thống của bạn."
+msgstr ""
+"Đã xảy ra lỗi khi gửi email này. Vui lòng đảm bảo rằng cấu hình máy chủ "
+"email của bạn đang hoạt động và/hoặc liên hệ với quản trị viên hệ thống của "
+"bạn."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Bạn không có đủ quyền để quản lý người dùng này. Để quản lý người dùng, bạn phải là quản trị viên trang web hoặc quản lý tất cả các ngữ cảnh mà người dùng này được đăng ký."
+msgstr ""
+"Bạn không có đủ quyền để quản trị người dùng này. Để quản trị một người "
+"dùng, bạn phải là quản trị viên trang web, hoặc quản trị tất cả các ngữ cảnh "
+"mà người dùng này được ghi danh."
 
 msgid "grid.user.mustProvideName"
 msgstr "Vui lòng cung cấp ít nhất họ cho người dùng trước."
@@ -541,16 +552,16 @@ msgid "grid.user.notifyUserDescription"
 msgstr "Gửi email chào mừng cho người dùng."
 
 msgid "grid.user.mustChangePassword"
-msgstr "Thay đổi mật khẩu"
+msgstr "Đổi mật khẩu"
 
 msgid "grid.user.mustChangePasswordDescription"
-msgstr "Người dùng phải thay đổi mật khẩu khi đăng nhập lần tiếp theo."
+msgstr "Người dùng phải đổi mật khẩu trong lần đăng nhập tiếp theo."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Yêu cầu người dùng thay đổi mật khẩu vào lần đăng nhập tiếp theo."
+msgstr "Yêu cầu người dùng đổi mật khẩu trong lần đăng nhập tiếp theo."
 
 msgid "grid.user.moreDetails"
-msgstr "Chi tiết người dùng thêm"
+msgstr "Chi tiết người dùng khác"
 
 msgid "grid.user.lessDetails"
 msgstr "Ít chi tiết người dùng hơn"
@@ -562,7 +573,7 @@ msgid "grid.user.userRoles"
 msgstr "Vai trò người dùng"
 
 msgid "grid.user.userNoRoles"
-msgstr "Người dùng này không có bất kỳ vai trò nào."
+msgstr "Người dùng này không có vai trò nào."
 
 msgid "grid.user.step1"
 msgstr "Bước #1: Điền thông tin chi tiết người dùng"
@@ -583,25 +594,31 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Vui lòng chọn một người dùng"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Đăng nhập với tư cách người dùng này? Tất cả các hành động bạn thực hiện sẽ được gán cho người dùng này."
+msgstr ""
+"Đăng nhập với tư cách người dùng này? Tất cả các hành động bạn thực hiện sẽ "
+"được ghi nhận cho người dùng này."
 
 msgid "grid.user.mergeUsers"
-msgstr "Hợp nhất người dùng"
+msgstr "Gộp người dùng"
 
 msgid "grid.user.mergeUsers.mergeUser"
-msgstr "Hợp nhất người dùng"
+msgstr "Gộp người dùng"
 
 msgid "grid.user.mergeUsers.mergeIntoUser"
-msgstr "Hợp nhất vào người dùng này"
+msgstr "Gộp vào người dùng này"
 
 msgid "grid.user.mergeUsers.allUsers"
-msgstr "Tất cả người dùng đã đăng ký"
+msgstr "Tất cả người dùng đã ghi danh"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Bạn có chắc chắn muốn hợp nhất tài khoản với tên người dùng \"{$oldUsername}\" vào tài khoản với tên người dùng \"{$newUsername}\" không? Tài khoản với tên người dùng \"{$oldUsername}\" sẽ không tồn tại sau đó. Hành động này không thể hoàn tác."
+msgstr ""
+"Bạn có chắc chắn muốn gộp tài khoản có tên người dùng \"{$oldUsername}\" vào "
+"tài khoản có tên người dùng \"{$newUsername}\"? Tài khoản có tên người dùng "
+"\"{$oldUsername}\" sẽ không còn tồn tại sau đó. Hành động này không thể đảo "
+"ngược."
 
 msgid "grid.preparedEmails.title"
-msgstr "Các mẫu email đã chuẩn bị"
+msgstr "Mẫu email soạn sẵn"
 
 msgid "grid.preparedEmails.currentList"
 msgstr "Danh sách hiện tại"
@@ -613,7 +630,7 @@ msgid "grid.plugin.disable"
 msgstr "Bạn có chắc chắn muốn vô hiệu hóa plugin này không?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Đã sửa lỗi bản in thử. Bạn có thể không xem xét lại công việc này"
+msgstr "Đã thực hiện sửa lỗi hiệu đính. Bạn có thể xem xét lại nhiệm vụ này"
 
 msgid "grid.artworkFile.caption"
 msgstr "Chú thích"
@@ -628,61 +645,64 @@ msgid "grid.artworkFile.copyrightContact"
 msgstr "Thông tin liên hệ (nếu không phải tác giả/nhà xuất bản)"
 
 msgid "grid.artworkFile.permissionTerms"
-msgstr "Điều khoản cho phép"
+msgstr "Điều khoản cấp phép"
 
 msgid "grid.artworkFile.placement"
 msgstr "Vị trí trong bài nộp"
 
 msgid "grid.userGroup.assignStage"
-msgstr "Chỉ định giai đoạn"
+msgstr "Phân công giai đoạn"
 
 msgid "grid.userGroup.unassignStage"
-msgstr "Hủy chỉ định giai đoạn"
+msgstr "Hủy phân công giai đoạn"
 
 msgid "grid.userGroup.allStages"
-msgstr "Tất cả các giai đoạn quy trình làm việc"
+msgstr "Tất cả các giai đoạn quy trình"
 
 msgid "grid.userGroup.filter.listRoles"
-msgstr "Liệt kê các vai trò được chỉ định cho"
+msgstr "Liệt kê các vai trò được gán cho"
 
 msgid "grid.userGroup.filter.permissionLevel"
-msgstr "Với cấp độ quyền được đặt là"
+msgstr "Với cấp quyền được đặt thành"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Vai trò {$userGroupName} là vai trò mặc định và không thể xóa."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Không thể xóa vai trò {$userGroupName}. Hiện tại có {$usersCount} người dùng đang được gán cho vai trò này."
+msgstr ""
+"Không thể xóa vai trò {$userGroupName}. Hiện tại có {$usersCount} người dùng "
+"được gán cho vai trò này."
 
 msgid "grid.userGroup.removed"
-msgstr "Vai trò {$userGroupName} đã bị xóa."
+msgstr "Đã xóa vai trò {$userGroupName}."
 
 msgid "grid.userGroup.assignedStage"
-msgstr "Vai trò {$userGroupName} được chỉ định cho giai đoạn {$stageName}."
+msgstr "Vai trò {$userGroupName} đã được gán cho giai đoạn {$stageName}."
 
 msgid "grid.userGroup.unassignedStage"
-msgstr "Vai trò {$userGroupName} đã bị hủy chỉ định khỏi giai đoạn {$stageName}."
+msgstr ""
+"Vai trò {$userGroupName} đã được hủy phân công khỏi giai đoạn {$stageName}."
 
 msgid "grid.submission.itemTitle"
 msgstr "Tác giả; Tiêu đề"
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr "Bao gồm các bài nộp chưa hoàn thành không được nộp bởi tác giả."
+msgstr "Bao gồm các bài nộp chưa hoàn chỉnh không được gửi bởi tác giả."
 
 msgid "grid.action.addNavigationMenu"
-msgstr "Thêm Menu"
+msgstr "Thêm trình đơn"
 
 msgid "grid.action.addNavigationMenuItem"
 msgstr "Thêm mục"
 
 msgid "grid.navigationMenus.navigationMenuItems.noneExist"
-msgstr "Không có mục menu điều hướng nào"
+msgstr "Không có mục trình đơn điều hướng"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
-msgstr "Không có menu điều hướng nào"
+msgstr "Không có trình đơn điều hướng"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
-msgstr "Chọn loại..."
+msgstr "Chọn một loại..."
 
 msgid "grid.action.view"
 msgstr "Xem"
@@ -691,7 +711,7 @@ msgid "author.users.contributor.name"
 msgstr "Tên"
 
 msgid "author.users.contributor.email"
-msgstr "Email"
+msgstr "E-mail"
 
 msgid "author.users.contributor.role"
 msgstr "Vai trò"
@@ -701,3 +721,33 @@ msgstr "Trong danh sách duyệt"
 
 msgid "grid.action.editContributor"
 msgstr "Chỉnh sửa người đóng góp"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Xuất hiện trên Masthead"
+
+msgid "grid.user.logInAs"
+msgstr "Đăng nhập như"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Khi người dùng được bật, họ sẽ lấy lại quyền truy cập vào trang web và bạn "
+"sẽ có thể mời họ đến các vai trò khi cần thiết."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Xin lưu ý rằng một khi người dùng bị vô hiệu hóa, bạn sẽ không thể thêm "
+"chúng vào bất kỳ vai trò nào cho đến khi người dùng được bật lại."
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Xóa đề xuất của người phản biện"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Thêm đề xuất của người phản biện"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Bạn có chắc là bạn muốn xóa đề xuất này? Hành động này không thể được hoàn "
+"tác."
+
+msgid "grid.user.remove"
+msgstr "Xóa người dùng"

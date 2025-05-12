@@ -496,7 +496,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get the localized value of an option
      */
-    public function getLocalizedOption(string $name, string $preferredLocale = null, string &$selectedLocale = null): mixed
+    public function getLocalizedOption(string $name, ?string $preferredLocale = null, ?string &$selectedLocale = null): mixed
     {
         return $this->getBestLocalizedData($this->getOption($name), $preferredLocale, $selectedLocale);
     }

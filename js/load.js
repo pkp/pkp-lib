@@ -41,6 +41,7 @@ import * as useForm from '@/composables/useForm.js';
 import * as useLegacyGridUrl from '@/composables/useLegacyGridUrl.js';
 import * as useLocalize from '@/composables/useLocalize.js';
 import * as useModal from '@/composables/useModal.js';
+import * as useNotify from '@/composables/useNotify.js';
 import * as useQueryParams from '@/composables/useQueryParams.js';
 import * as useSideMenu from '@/composables/useSideMenu.js';
 import * as useSorting from '@/composables/useSorting.js';
@@ -333,6 +334,7 @@ export default {
 		useLegacyGridUrl,
 		useLocalize,
 		useModal,
+		useNotify,
 		useQueryParams,
 		useSideMenu,
 		useSorting,

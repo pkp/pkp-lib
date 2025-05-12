@@ -28,6 +28,10 @@ class InstallEmailTemplates extends Migration
     {
         return [
             'CHANGE_EMAIL',
+            'SUBMISSION_SAVED_FOR_LATER',
+            'SUBMISSION_NEEDS_EDITOR',
+            'REVIEW_COMPLETE',
+            'REVIEW_EDIT',
         ];
     }
 

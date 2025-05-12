@@ -1,11 +1,11 @@
-# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-01 16:19+0000\n"
-"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/vi_VN/>\n"
-"Language: vi_VN\n"
+"common/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,7 +100,8 @@ msgid "common.grid"
 msgstr "Lưới"
 
 msgid "common.confirmDelete"
-msgstr "Bạn có chắc chắn muốn xóa mục này không? Hành động này không thể hoàn tác."
+msgstr ""
+"Bạn có chắc chắn muốn xóa mục này không? Hành động này không thể hoàn tác."
 
 msgid "common.abstract"
 msgstr "Tóm tắt"
@@ -154,7 +155,9 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
-msgstr "của a the and an or nor but is if then else when at from by on off for in out over to into with"
+msgstr ""
+"của a the and an or nor but is if then else when at from by on off for in "
+"out over to into with"
 
 msgid "common.alreadyAssigned"
 msgstr "Đã chỉ định"
@@ -163,7 +166,10 @@ msgid "common.altText"
 msgstr "Văn bản thay thế"
 
 msgid "common.altTextInstructions"
-msgstr "Mô tả hình ảnh này cho khách truy cập xem trang web chỉ có văn bản hoặc với thiết bị hỗ trợ. Ví dụ: \"Biên tập viên của chúng tôi phát biểu tại hội nghị PKP.\""
+msgstr ""
+"Mô tả hình ảnh này cho khách truy cập xem trang web chỉ có văn bản hoặc với "
+"thiết bị hỗ trợ. Ví dụ: \"Biên tập viên của chúng tôi phát biểu tại hội nghị "
+"PKP.\""
 
 msgid "common.and"
 msgstr "và"
@@ -205,13 +211,38 @@ msgid "common.notice"
 msgstr "Thông báo"
 
 msgid "common.captcha.error.missing-input-response"
-msgstr "Bạn phải hoàn thành kiểm tra xác thực được sử dụng để ngăn chặn gửi bài spam."
+msgstr ""
+"Bạn phải hoàn thành kiểm tra xác thực được sử dụng để ngăn chặn gửi bài spam."
 
 msgid "common.ccLicense"
-msgstr "\n\t\t<br /><br />\n\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n\t\t</a>\n\t\t<br />\n\t\tTác phẩm này được cấp phép theo <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Giấy phép Creative Commons Ghi công 3.0 Chưa được công bố</a>.\n\t"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tTác phẩm này được cấp phép theo <a rel=\"license\" target=\"_blank\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Giấy phép Creative "
+"Commons Ghi công 3.0 Chưa được công bố</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
-msgstr "\n\t<div class=\"rtBlock\">\n\t\t<br />\n\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n\t\t<br />\n\t\tTác phẩm này được cấp phép theo <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Giấy phép Creative Commons Ghi công 3.0</a>.\n\t</div>\n\t"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tTác phẩm này được cấp phép theo <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Giấy phép "
+"Creative Commons Ghi công 3.0</a>.\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Các thay đổi của bạn đã được lưu."
@@ -379,7 +410,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Đã xảy ra lỗi kết nối cơ sở dữ liệu không xác định."
 
 msgid "common.error.framesRequired"
-msgstr "Trang này yêu cầu frames. <a href=\"{$url}\">Nhấp vào đây</a> để xem phiên bản không có frames."
+msgstr ""
+"Trang này yêu cầu frames. <a href=\"{$url}\">Nhấp vào đây</a> để xem phiên "
+"bản không có frames."
 
 msgid "common.event"
 msgstr "Sự kiện"
@@ -418,7 +451,10 @@ msgid "common.fileType"
 msgstr "Loại tệp"
 
 msgid "common.fileUploaderError"
-msgstr "Trình tải tệp hệ thống đang tải. Nếu không xuất hiện, có khả năng trình duyệt này không hỗ trợ bất kỳ runtime nào của nó. Vui lòng liên hệ quản trị viên để được hỗ trợ."
+msgstr ""
+"Trình tải tệp hệ thống đang tải. Nếu không xuất hiện, có khả năng trình "
+"duyệt này không hỗ trợ bất kỳ runtime nào của nó. Vui lòng liên hệ quản trị "
+"viên để được hỗ trợ."
 
 msgid "common.filter"
 msgstr "Bộ lọc"
@@ -443,12 +479,6 @@ msgstr "Đi"
 
 msgid "common.height"
 msgstr "Chiều cao"
-
-msgid "common.highlight"
-msgstr "Điểm nổi bật"
-
-msgid "common.highlights"
-msgstr "Điểm nổi bật"
 
 msgid "common.homepageNavigationLabel"
 msgstr "Trang chủ"
@@ -586,7 +616,9 @@ msgid "common.notes"
 msgstr "Ghi chú"
 
 msgid "common.notes.tooltip"
-msgstr "Ghi chú (vàng: có ghi chú mới; xanh dương: đã xem ghi chú; xám: không có ghi chú)"
+msgstr ""
+"Ghi chú (vàng: có ghi chú mới; xanh dương: đã xem ghi chú; xám: không có ghi "
+"chú)"
 
 msgid "common.notified"
 msgstr "Đã thông báo"
@@ -736,7 +768,9 @@ msgid "common.replaceFile"
 msgstr "Thay thế tệp"
 
 msgid "common.requiredField"
-msgstr "Các trường bắt buộc được đánh dấu bằng dấu hoa thị: <abbr class="required" title="required">*</abbr>"
+msgstr ""
+"Các trường bắt buộc được đánh dấu bằng dấu hoa thị: <abbr class=\"required\" "
+"title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Bắt buộc"
@@ -871,7 +905,11 @@ msgid "common.unsavedChanges"
 msgstr "Thay đổi chưa lưu"
 
 msgid "common.unsavedChangesMessage"
-msgstr "Chúng tôi tìm thấy các thay đổi chưa lưu từ {$when}. Điều này có thể xảy ra nếu bạn mất kết nối với máy chủ trong khi làm việc. Khôi phục những thay đổi đó có thể ghi đè lên bất kỳ thay đổi nào bạn đã thực hiện kể từ đó. Bạn có muốn khôi phục những thay đổi đó ngay bây giờ không?"
+msgstr ""
+"Chúng tôi tìm thấy các thay đổi chưa lưu từ {$when}. Điều này có thể xảy ra "
+"nếu bạn mất kết nối với máy chủ trong khi làm việc. Khôi phục những thay đổi "
+"đó có thể ghi đè lên bất kỳ thay đổi nào bạn đã thực hiện kể từ đó. Bạn có "
+"muốn khôi phục những thay đổi đó ngay bây giờ không?"
 
 msgid "common.untitled"
 msgstr "Không có tiêu đề"
@@ -1000,7 +1038,9 @@ msgid "email.addAttachment.submissionFiles.submissionDescription"
 msgstr "Đính kèm tệp do tác giả tải lên trong giai đoạn nộp bài."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
-msgstr "Đính kèm tệp đã tải lên trong quy trình bài nộp, chẳng hạn như bản sửa đổi hoặc tệp cần đánh giá."
+msgstr ""
+"Đính kèm tệp đã tải lên trong quy trình bài nộp, chẳng hạn như bản sửa đổi "
+"hoặc tệp cần đánh giá."
 
 msgid "email.addAttachment.libraryFiles"
 msgstr "Tệp thư viện"
@@ -1045,7 +1085,10 @@ msgid "email.cc"
 msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
-msgstr "Bạn có chắc chắn muốn chuyển sang ngôn ngữ {$localeName} để soạn email này không? Mọi thay đổi bạn đã thực hiện đối với chủ đề và nội dung email sẽ bị mất."
+msgstr ""
+"Bạn có chắc chắn muốn chuyển sang ngôn ngữ {$localeName} để soạn email này "
+"không? Mọi thay đổi bạn đã thực hiện đối với chủ đề và nội dung email sẽ bị "
+"mất."
 
 msgid "email.compose"
 msgstr "Gửi email"
@@ -1054,10 +1097,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Tin nhắn bạn đang cố gắng gửi có quá nhiều người nhận."
 
 msgid "email.compose.tooSoon"
-msgstr "Bạn đang cố gắng gửi tin nhắn quá gần với lần gửi tin nhắn cuối cùng của bạn. Vui lòng đợi trước khi gửi tin nhắn khác."
+msgstr ""
+"Bạn đang cố gắng gửi tin nhắn quá gần với lần gửi tin nhắn cuối cùng của "
+"bạn. Vui lòng đợi trước khi gửi tin nhắn khác."
 
 msgid "email.compose.error"
-msgstr "Đã xảy ra vấn đề khi gửi email. Vui lòng thử lại sau hoặc liên hệ với quản trị viên hệ thống của bạn."
+msgstr ""
+"Đã xảy ra vấn đề khi gửi email. Vui lòng thử lại sau hoặc liên hệ với quản "
+"trị viên hệ thống của bạn."
 
 msgid "email.email"
 msgstr "Email"
@@ -1114,7 +1161,9 @@ msgid "form.confirmSubmit.title"
 msgstr "Xác nhận"
 
 msgid "form.dataHasChanged"
-msgstr "Dữ liệu trên biểu mẫu này đã thay đổi. Bạn có muốn tiếp tục mà không lưu không?"
+msgstr ""
+"Dữ liệu trên biểu mẫu này đã thay đổi. Bạn có muốn tiếp tục mà không lưu "
+"không?"
 
 msgid "form.disallowedLocales"
 msgstr "Chỉ các ngôn ngữ sau đây được phép: {$languages}."
@@ -1132,13 +1181,17 @@ msgid "form.dropzone.dictFallbackText"
 msgstr "Vui lòng sử dụng biểu mẫu dự phòng bên dưới để tải tệp của bạn lên."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr "Tệp quá lớn ({{filesize}}mb). Không thể tải lên các tệp lớn hơn {{maxFilesize}}mb."
+msgstr ""
+"Tệp quá lớn ({{filesize}}mb). Không thể tải lên các tệp lớn hơn "
+"{{maxFilesize}}mb."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Không thể tải lên các tệp thuộc loại này."
 
 msgid "form.dropzone.dictResponseError"
-msgstr "Máy chủ trả về mã {{statusCode}}. Vui lòng liên hệ quản trị viên hệ thống nếu vấn đề này vẫn tiếp diễn."
+msgstr ""
+"Máy chủ trả về mã {{statusCode}}. Vui lòng liên hệ quản trị viên hệ thống "
+"nếu vấn đề này vẫn tiếp diễn."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Hủy tải lên"
@@ -1168,13 +1221,17 @@ msgid "form.errorMany"
 msgstr "Vui lòng sửa {$count} lỗi."
 
 msgid "form.errors"
-msgstr "Không thể lưu biểu mẫu vì gặp phải {$count} lỗi. Vui lòng sửa các lỗi này và thử lại."
+msgstr ""
+"Không thể lưu biểu mẫu vì gặp phải {$count} lỗi. Vui lòng sửa các lỗi này và "
+"thử lại."
 
 msgid "form.errorsOccurred"
 msgstr "Đã xảy ra lỗi khi xử lý biểu mẫu này"
 
 msgid "form.formLanguage.description"
-msgstr "Để nhập thông tin dưới đây bằng các ngôn ngữ bổ sung, trước tiên hãy chọn ngôn ngữ."
+msgstr ""
+"Để nhập thông tin dưới đây bằng các ngôn ngữ bổ sung, trước tiên hãy chọn "
+"ngôn ngữ."
 
 msgid "form.formLanguage"
 msgstr "Ngôn ngữ biểu mẫu"
@@ -1192,7 +1249,9 @@ msgid "form.postRequired"
 msgstr "Biểu mẫu chưa được gửi đúng cách."
 
 msgid "form.csrfInvalid"
-msgstr "Không thể gửi biểu mẫu. Bạn có thể đã bị đăng xuất. Vui lòng tải lại trang và thử lại."
+msgstr ""
+"Không thể gửi biểu mẫu. Bạn có thể đã bị đăng xuất. Vui lòng tải lại trang "
+"và thử lại."
 
 msgid "form.fileRequired"
 msgstr "Tải tệp lên là bắt buộc."
@@ -1222,7 +1281,9 @@ msgid "form.submit"
 msgstr "Nộp"
 
 msgid "form.invalidImage"
-msgstr "Đã tải lên hình ảnh không hợp lệ. Các định dạng được chấp nhận là .png, .gif, hoặc .jpg."
+msgstr ""
+"Đã tải lên hình ảnh không hợp lệ. Các định dạng được chấp nhận là .png, ."
+"gif, hoặc .jpg."
 
 msgid "form.multilingualLabel"
 msgstr "{$label} bằng {$localeName}"
@@ -1327,25 +1388,35 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Bắt đầu thảo luận giữa bạn và {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Chọn một tin nhắn đã được định nghĩa trước để sử dụng, hoặc điền vào biểu mẫu bên dưới."
+msgstr ""
+"Chọn một tin nhắn đã được định nghĩa trước để sử dụng, hoặc điền vào biểu "
+"mẫu bên dưới."
 
 msgid "stageParticipants.notify.message"
 msgstr "Tin nhắn"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Vui lòng đảm bảo bạn đã điền vào trường tin nhắn và bao gồm người khác ngoài bạn trong cuộc thảo luận."
+msgstr ""
+"Vui lòng đảm bảo bạn đã điền vào trường tin nhắn và bao gồm người khác ngoài "
+"bạn trong cuộc thảo luận."
 
 msgid "stageParticipants.options"
 msgstr "Quyền chỉ định"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Người tham gia này chỉ được phép đề xuất quyết định biên tập và sẽ yêu cầu biên tập viên có thẩm quyền ghi lại các quyết định biên tập."
+msgstr ""
+"Người tham gia này chỉ được phép đề xuất quyết định biên tập và sẽ yêu cầu "
+"biên tập viên có thẩm quyền ghi lại các quyết định biên tập."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Quyền"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Cho phép người này thực hiện thay đổi đối với ấn phẩm, chẳng hạn như tiêu đề, tóm tắt, metadata và các chi tiết xuất bản khác. Bạn có thể muốn thu hồi quyền này nếu bài nộp đã nhận được kiểm tra cuối cùng và sẵn sàng để xuất bản."
+msgstr ""
+"Cho phép người này thực hiện thay đổi đối với ấn phẩm, chẳng hạn như tiêu "
+"đề, tóm tắt, metadata và các chi tiết xuất bản khác. Bạn có thể muốn thu hồi "
+"quyền này nếu bài nộp đã nhận được kiểm tra cuối cùng và sẵn sàng để xuất "
+"bản."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Người tham gia"
@@ -1561,10 +1632,16 @@ msgid "notification.settings"
 msgstr "Cài đặt thông báo"
 
 msgid "notification.settingsDescription"
-msgstr "Chọn các sự kiện hệ thống mà bạn muốn được thông báo. Bỏ chọn một mục sẽ ngăn thông báo về sự kiện đó hiển thị trong hệ thống và cũng ngăn không gửi email cho bạn. Các sự kiện được chọn sẽ hiển thị trong hệ thống và bạn có tùy chọn bổ sung để nhận hoặc không nhận cùng thông báo qua email."
+msgstr ""
+"Chọn các sự kiện hệ thống mà bạn muốn được thông báo. Bỏ chọn một mục sẽ "
+"ngăn thông báo về sự kiện đó hiển thị trong hệ thống và cũng ngăn không gửi "
+"email cho bạn. Các sự kiện được chọn sẽ hiển thị trong hệ thống và bạn có "
+"tùy chọn bổ sung để nhận hoặc không nhận cùng thông báo qua email."
 
 msgid "notification.reminderError"
-msgstr "Đã xảy ra lỗi khi gửi mật khẩu của bạn, vui lòng đảm bảo bạn đã nhập địa chỉ email chính xác."
+msgstr ""
+"Đã xảy ra lỗi khi gửi mật khẩu của bạn, vui lòng đảm bảo bạn đã nhập địa chỉ "
+"email chính xác."
 
 msgid "notification.reminderSent"
 msgstr "Mật khẩu mới của bạn đã được gửi đến địa chỉ email đã cung cấp."
@@ -1702,15 +1779,24 @@ msgid "review.anonymousPeerReview.title"
 msgstr "Cách đảm bảo tất cả các tệp được ẩn danh"
 
 msgid "review.anonymousPeerReview"
-msgstr "<p>Để đảm bảo tính toàn vẹn của bình duyệt ẩn danh, mọi nỗ lực nên được thực hiện để ngăn chặn việc tiết lộ danh tính của tác giả và người đánh giá cho nhau. Điều này liên quan đến việc tác giả, biên tập viên và người đánh giá (tải lên tài liệu như một phần của đánh giá) kiểm tra xem các bước sau đã được thực hiện hay chưa liên quan đến văn bản và thuộc tính tệp:</p>\n"
-"<ul><li>Các tác giả của tài liệu đã xóa tên của họ khỏi văn bản, với \"Tác giả\" và năm được sử dụng trong tài liệu tham khảo và chú thích cuối trang, thay vì tên tác giả, tiêu đề bài viết, v.v.</li>\n"
-"<li>Các tác giả của tài liệu đã xóa thông tin cá nhân khỏi thuộc tính tệp bằng cách thực hiện các bước sau:\n"
+msgstr ""
+"<p>Để đảm bảo tính toàn vẹn của bình duyệt ẩn danh, mọi nỗ lực nên được thực "
+"hiện để ngăn chặn việc tiết lộ danh tính của tác giả và người đánh giá cho "
+"nhau. Điều này liên quan đến việc tác giả, biên tập viên và người đánh giá ("
+"tải lên tài liệu như một phần của đánh giá) kiểm tra xem các bước sau đã "
+"được thực hiện hay chưa liên quan đến văn bản và thuộc tính tệp:</p>\n"
+"<ul><li>Các tác giả của tài liệu đã xóa tên của họ khỏi văn bản, với \"Tác "
+"giả\" và năm được sử dụng trong tài liệu tham khảo và chú thích cuối trang, "
+"thay vì tên tác giả, tiêu đề bài viết, v.v.</li>\n"
+"<li>Các tác giả của tài liệu đã xóa thông tin cá nhân khỏi thuộc tính tệp "
+"bằng cách thực hiện các bước sau:\n"
 "<ul><li>Microsoft Word cho Windows:\n"
 "<ul><li>Vào Tệp</li>\n"
 "<li>Chọn Thông tin</li>\n"
 "<li>Nhấp vào Kiểm tra vấn đề</li>\n"
 "<li>Nhấp vào Kiểm tra tài liệu</li>\n"
-"<li>Trong hộp thoại Trình kiểm tra tài liệu, chọn hộp kiểm để chọn loại nội dung ẩn bạn muốn kiểm tra.</li>\n"
+"<li>Trong hộp thoại Trình kiểm tra tài liệu, chọn hộp kiểm để chọn loại nội "
+"dung ẩn bạn muốn kiểm tra.</li>\n"
 "<li>Nhấp vào Xóa tất cả</li>\n"
 "<li>Nhấp vào Đóng</li>\n"
 "<li>Lưu tài liệu</li></ul>\n"
@@ -1745,10 +1831,14 @@ msgid "navigation.goBack"
 msgstr "Quay lại"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} đã được chỉ định đánh giá bài nộp này và đã gửi email thông báo."
+msgstr ""
+"{$reviewerName} đã được chỉ định đánh giá bài nộp này và đã gửi email thông "
+"báo."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} đã được chỉ định đánh giá bài nộp này và không gửi email thông báo."
+msgstr ""
+"{$reviewerName} đã được chỉ định đánh giá bài nộp này và không gửi email "
+"thông báo."
 
 msgid "notification.removedReviewer"
 msgstr "Đã xóa người đánh giá."
@@ -1784,7 +1874,8 @@ msgid "notification.type.allReviewsIn"
 msgstr "Tất cả người đánh giá đã phản hồi và cần có quyết định trong {$stage}."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Một tệp đã sửa đổi đã được tải lên để bạn xem xét biên tập trong {$stage}."
+msgstr ""
+"Một tệp đã sửa đổi đã được tải lên để bạn xem xét biên tập trong {$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Cần xem xét sửa đổi trong {$stage}."
@@ -1805,7 +1896,8 @@ msgid "user.email"
 msgstr "Địa chỉ email"
 
 msgid "user.authorization.submissionFile"
-msgstr "Người dùng hiện tại không được ủy quyền truy cập tệp nộp bài đã chỉ định."
+msgstr ""
+"Người dùng hiện tại không được ủy quyền truy cập tệp nộp bài đã chỉ định."
 
 msgid "user.authorization.invalidPublication"
 msgstr "Ấn phẩm không hợp lệ."
@@ -1829,10 +1921,15 @@ msgid "user.authorization.unauthorizedReviewAssignment"
 msgstr "Bạn không có quyền truy cập chỉ định đánh giá này."
 
 msgid "user.authorization.authorRoleMissing"
-msgstr "Bạn hiện không có đủ đặc quyền để xem bài nộp. Vui lòng chỉnh sửa hồ sơ của bạn để đảm bảo rằng bạn đã được cấp các vai trò thích hợp trong \"Đăng ký với tư cách\"."
+msgstr ""
+"Bạn hiện không có đủ đặc quyền để xem bài nộp. Vui lòng chỉnh sửa hồ sơ của "
+"bạn để đảm bảo rằng bạn đã được cấp các vai trò thích hợp trong \"Đăng ký "
+"với tư cách\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Người dùng hiện tại không phải là tác giả của bài nộp được yêu cầu. Vui lòng xác minh rằng bạn đã đăng nhập bằng tài khoản người dùng chính xác."
+msgstr ""
+"Người dùng hiện tại không phải là tác giả của bài nộp được yêu cầu. Vui lòng "
+"xác minh rằng bạn đã đăng nhập bằng tài khoản người dùng chính xác."
 
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Tùy chọn quyền riêng tư"
@@ -1844,7 +1941,9 @@ msgid "notification.type.queryAdded"
 msgstr "Đã thêm thảo luận."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Chỉ định người chỉnh sửa bằng liên kết Chỉ định trong danh sách Người tham gia."
+msgstr ""
+"Chỉ định người chỉnh sửa bằng liên kết Chỉ định trong danh sách Người tham "
+"gia."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Đang chờ bản chỉnh sửa."
@@ -1856,13 +1955,15 @@ msgid "notification.type.editorialReport"
 msgstr "Tóm tắt báo cáo thống kê."
 
 msgid "notification.type.editorialReport.contents"
-msgstr "Đây là lời nhắc nhở bạn nên kiểm tra tình trạng tạp chí của mình thông qua báo cáo biên tập."
+msgstr ""
+"Đây là lời nhắc nhở bạn nên kiểm tra tình trạng tạp chí của mình thông qua "
+"báo cáo biên tập."
 
 msgid "notification.type.editorialReminder"
 msgstr "Email nhắc nhở hàng tuần về công việc tồn đọng"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Mục menu điều hướng đã được cập nhật thành công"
@@ -1889,16 +1990,27 @@ msgid "notification.unsubscribeNotifications.error"
 msgstr "Chúng tôi không thể hủy đăng ký cho bạn"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr "Chọn các email mà bạn không còn muốn nhận tại {$email} từ {$contextName}."
+msgstr ""
+"Chọn các email mà bạn không còn muốn nhận tại {$email} từ {$contextName}."
 
 msgid "notification.unsubscribeNotifications.resubscribe"
-msgstr "Bạn có thể đăng ký lại nhận thông báo email bất cứ lúc nào từ <a href=\"{$profileNotificationUrl}\">hồ sơ người dùng</a> của bạn."
+msgstr ""
+"Bạn có thể đăng ký lại nhận thông báo email bất cứ lúc nào từ <a href=\""
+"{$profileNotificationUrl}\">hồ sơ người dùng</a> của bạn."
 
 msgid "notification.unsubscribeNotifications.successMessage"
-msgstr "Địa chỉ email {$email} đã được hủy đăng ký thành công. Chúng tôi sẽ không còn gửi cho bạn những email đó nữa. Bạn có thể đăng ký lại nhận thông báo email bất cứ lúc nào từ <a href=\"{$profileNotificationUrl}\">hồ sơ người dùng</a> của bạn."
+msgstr ""
+"Địa chỉ email {$email} đã được hủy đăng ký thành công. Chúng tôi sẽ không "
+"còn gửi cho bạn những email đó nữa. Bạn có thể đăng ký lại nhận thông báo "
+"email bất cứ lúc nào từ <a href=\"{$profileNotificationUrl}\">hồ sơ người "
+"dùng</a> của bạn."
 
 msgid "notification.unsubscribeNotifications.errorMessage"
-msgstr "Đã xảy ra lỗi không mong muốn và chúng tôi không thể hủy đăng ký địa chỉ email {$email}. Bạn có thể hủy đăng ký tất cả thông báo email trong <a href=\"{$profileNotificationUrl}\">hồ sơ người dùng</a> của bạn hoặc liên hệ trực tiếp với chúng tôi để được trợ giúp."
+msgstr ""
+"Đã xảy ra lỗi không mong muốn và chúng tôi không thể hủy đăng ký địa chỉ "
+"email {$email}. Bạn có thể hủy đăng ký tất cả thông báo email trong <a href="
+"\"{$profileNotificationUrl}\">hồ sơ người dùng</a> của bạn hoặc liên hệ trực "
+"tiếp với chúng tôi để được trợ giúp."
 
 msgid "notification.unsubscribeNotifications"
 msgstr "Hủy đăng ký"
@@ -1914,12 +2026,6 @@ msgstr "Mở rộng tất cả"
 
 msgid "list.collapseAll"
 msgstr "Thu gọn tất cả"
-
-msgid "showAll"
-msgstr "Hiển thị tất cả"
-
-msgid "showLess"
-msgstr "Hiển thị ít hơn"
 
 msgid "validation.invalidOption"
 msgstr "Đây không phải là tùy chọn hợp lệ."
@@ -1937,10 +2043,13 @@ msgid "validator.alpha"
 msgstr "Trường này chỉ có thể chứa các chữ cái."
 
 msgid "validator.alpha_dash"
-msgstr "Trường này chỉ có thể chứa các chữ cái, số, dấu gạch ngang và dấu gạch dưới."
+msgstr ""
+"Trường này chỉ có thể chứa các chữ cái, số, dấu gạch ngang và dấu gạch dưới."
 
 msgid "validator.alpha_dash_period"
-msgstr "Trường này chỉ có thể chứa các chữ cái, số, dấu gạch ngang, dấu gạch dưới và dấu chấm."
+msgstr ""
+"Trường này chỉ có thể chứa các chữ cái, số, dấu gạch ngang, dấu gạch dưới và "
+"dấu chấm."
 
 msgid "validator.alpha_num"
 msgstr "Trường này chỉ có thể chứa các chữ cái và số."
@@ -1973,7 +2082,10 @@ msgid "validator.country"
 msgstr "Đây không phải là quốc gia hợp lệ."
 
 msgid "validator.country.regex"
-msgstr "Đây không phải là quốc gia hợp lệ. Quốc gia phải là một trong các mã quốc tế 2 chữ cái. Xem tất cả các mã tại https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+msgstr ""
+"Đây không phải là quốc gia hợp lệ. Quốc gia phải là một trong các mã quốc tế "
+"2 chữ cái. Xem tất cả các mã tại https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Đây không phải là tiền tệ hợp lệ."
@@ -2024,10 +2136,14 @@ msgid "validator.locale"
 msgstr "Ngôn ngữ này không được chấp nhận."
 
 msgid "validator.localeExpected"
-msgstr "Trường này là đa ngôn ngữ. Phải cung cấp các giá trị riêng cho từng ngôn ngữ được hỗ trợ."
+msgstr ""
+"Trường này là đa ngôn ngữ. Phải cung cấp các giá trị riêng cho từng ngôn ngữ "
+"được hỗ trợ."
 
 msgid "validator.localeKey"
-msgstr "Các ngôn ngữ phải được chỉ định bằng mã ngôn ngữ bản địa. Ví dụ: en_US, fr_CA, sr_RS@cyrillic."
+msgstr ""
+"Các ngôn ngữ phải được chỉ định bằng mã ngôn ngữ bản địa. Ví dụ: en_US, "
+"fr_CA, sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "Giá trị này không được lớn hơn {$max}."
@@ -2126,10 +2242,14 @@ msgid "validator.allowable_title_html_tags"
 msgstr "Chỉ cho phép các thẻ html [{$tags}]."
 
 msgid "filter.input.error.notSupported"
-msgstr "Bộ lọc ({$displayName}) hỗ trợ đầu vào {$inputTypeName} - đã nhập {$typeofInput}"
+msgstr ""
+"Bộ lọc ({$displayName}) hỗ trợ đầu vào {$inputTypeName} - đã nhập "
+"{$typeofInput}"
 
 msgid "filter.error.missingRequirements"
-msgstr "Đang cố gắng chạy một phép biến đổi không được hỗ trợ trong môi trường cài đặt của bạn."
+msgstr ""
+"Đang cố gắng chạy một phép biến đổi không được hỗ trợ trong môi trường cài "
+"đặt của bạn."
 
 msgid "filter.import.error.couldNotImportNode"
 msgstr "Không thể nhập nút XML"
@@ -2149,5 +2269,145 @@ msgstr "Đã thêm tác giả."
 msgid "notification.editedAuthor"
 msgstr "Đã chỉnh sửa tác giả."
 
+#~ msgid "notification.editedAnnouncement"
+#~ msgstr "Đã chỉnh sửa thông báo."
+
+#~ msgid "notification.addedAnnouncement"
+#~ msgstr "Đã thêm thông báo."
+
+#~ msgid "form.missingRequired"
+#~ msgstr "Trường này là bắt buộc."
+
+#~ msgid "form.errorUnknown"
+#~ msgstr ""
+#~ "Đã xảy ra lỗi không mong muốn. Bạn có thể đã đăng xuất. Hãy tải lại trang "
+#~ "và thử lại."
+
+#~ msgid "search.noKeywordError"
+#~ msgstr "Bạn phải nhập ít nhất một từ khóa tìm kiếm."
+
+#~ msgid "common.captchaField"
+#~ msgstr "Kiểm tra"
+
+#~ msgid "common.captchaField.description"
+#~ msgstr "Vui lòng nhập các chữ cái như chúng xuất hiện trong hình trên."
+
+#~ msgid "common.captcha.error.invalid-input-response"
+#~ msgstr ""
+#~ "Bạn đã không vượt qua kiểm tra xác thực sử dụng trong ngăn chặn gửi thư "
+#~ "rác."
+
+#~ msgid "common.captcha.error.invalid-input-secret"
+#~ msgstr ""
+#~ "Xác thực captcha cho trang web này không được định cấu hình chính xác. "
+#~ "Khóa bí mật không hợp lệ."
+
+#~ msgid "common.captcha.error.missing-input-secret"
+#~ msgstr ""
+#~ "Xác thực captcha cho trang web này không được định cấu hình chính xác. "
+#~ "Khóa bí mật bị thiếu."
+
+msgid "common.highlight"
+msgstr "Điểm nổi bật"
+
+msgid "common.highlights"
+msgstr "Điểm nổi bật"
+
 msgid "common.sandbox"
 msgstr "Ứng dụng đang chạy ở chế độ sandbox."
+
+msgid "showAll"
+msgstr "Hiển thị tất cả"
+
+msgid "showLess"
+msgstr "Hiển thị ít hơn"
+
+msgid "common.yesContinue"
+msgstr "Vâng, Tiếp tục"
+
+msgid "common.filtersClear"
+msgstr "Xóa Bộ lọc"
+
+msgid "common.showingXofX"
+msgstr "Hiển thị <strong>{$start} đến {$finish}</strong> trong tổng số {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Đã tải"
+
+msgid "form.errorSummaryOne"
+msgstr "Phát hiện 1 lỗi! Vui lòng sửa lỗi bên dưới trước khi tiếp tục."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Phát hiện {$count} lỗi! Vui lòng sửa các lỗi bên dưới trước khi tiếp tục."
+
+msgid "navigation.dashboards"
+msgstr "Bảng điều khiển Biên tập viên"
+
+msgid "navigation.reviewAssignments"
+msgstr "Phân công của tôi với tư cách Người phản biện"
+
+msgid "navigation.mySubmissions"
+msgstr "Bài nộp của tôi với tư cách Tác giả"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Phản biện được Chấp nhận vào"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Phản biện được Nộp vào"
+
+msgid "validator.date.comparison"
+msgstr "Ngày cung cấp để so sánh không hợp lệ."
+
+msgid "validator.multilingual"
+msgstr "Yêu cầu đa ngôn ngữ không được đáp ứng cho trường này."
+
+msgid "common.numero"
+msgstr "Số"
+
+msgid "common.refreshingData"
+msgstr "Đang làm mới dữ liệu"
+
+msgid "common.viewMoreDetails"
+msgstr "Xem thêm chi tiết"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Xem <a href=\"{$url}\">Lịch sử Biên tập</a>"
+
+msgid "common.moreActions"
+msgstr "Thêm Hành động"
+
+msgid "common.editorialMasthead"
+msgstr "Ban Biên tập"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Người phản biện Đồng cấp Năm trước"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Người phản biện Đồng cấp Các năm Trước"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Ban biên tập bày tỏ lòng biết ơn đối với những người phản biện cho năm "
+"{$year} được liệt kê dưới đây."
+
+msgid "common.editorialHistory"
+msgstr "Lịch sử Biên tập"
+
+msgid "common.editorialHistory.page"
+msgstr "Trang Lịch sử Biên tập"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Phần này liệt kê những người đóng góp trong quá khứ."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Xem hồ sơ ORCID của {$name}"
+
+msgid "common.assignments"
+msgstr "Phân công"

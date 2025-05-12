@@ -1,19 +1,16 @@
-# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-01 16:19+0000\n"
-"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
-"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"api/vi_VN/>\n"
-"Language: vi_VN\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.18.2\n"
-
-msgid "api.400.errorUploadingImage"
-msgstr "Đã xảy ra lỗi khi tải lên hình ảnh này."
 
 msgid "api.400.paramNotSupported"
 msgstr "Tham số {$param} không được hỗ trợ."
@@ -22,7 +19,9 @@ msgid "api.400.propReadOnly"
 msgstr "Thuộc tính {$prop} không thể sửa đổi."
 
 msgid "api.400.invalidApiToken"
-msgstr "Không thể xác thực token API. Điều này có thể cho thấy lỗi trong token API hoặc token API không còn hiệu lực."
+msgstr ""
+"Không thể xác thực token API. Điều này có thể cho thấy lỗi trong token API "
+"hoặc token API không còn hiệu lực."
 
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "Không thể giải mã apiToken do lỗi sau: {$error}"
@@ -46,7 +45,9 @@ msgid "api.404.endpointNotFound"
 msgstr "URL được yêu cầu không được nhận dạng."
 
 msgid "api.500.apiSecretKeyMissing"
-msgstr "Token API không thể được sử dụng để truy cập trang web này vì quản trị viên trang web chưa cấu hình khóa bí mật."
+msgstr ""
+"Token API không thể được sử dụng để truy cập trang web này vì quản trị viên "
+"trang web chưa cấu hình khóa bí mật."
 
 msgid "api.announcements.404.announcementNotFound"
 msgstr "Không tìm thấy thông báo bạn yêu cầu."
@@ -64,7 +65,9 @@ msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "Loại ấn phẩm không được nhận dạng."
 
 msgid "api.dois.404.contextNotFound"
-msgstr "Điểm cuối này không khả dụng từ không gian tên toàn trang web và phải được yêu cầu cho một ngữ cảnh nhất định."
+msgstr ""
+"Điểm cuối này không khả dụng từ không gian tên toàn trang web và phải được "
+"yêu cầu cho một ngữ cảnh nhất định."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Không tìm thấy DOI bạn yêu cầu."
@@ -76,7 +79,9 @@ msgid "api.dois.404.submissionNotFound"
 msgstr "Không tìm thấy bài nộp bạn yêu cầu."
 
 msgid "api.dois.400.noUnpublishedItems"
-msgstr "Không thể xuất/ký gửi các mục chưa xuất bản. Vui lòng bỏ chọn các mục chưa xuất bản và thử lại."
+msgstr ""
+"Không thể xuất/ký gửi các mục chưa xuất bản. Vui lòng bỏ chọn các mục chưa "
+"xuất bản và thử lại."
 
 msgid "api.dois.400.creationFailed"
 msgstr "Đã xảy ra lỗi và không thể tạo đối tượng DOI."
@@ -88,19 +93,24 @@ msgid "api.dois.400.markRegisteredFailed"
 msgstr "Đã xảy ra lỗi và một số mục đã nộp không được đánh dấu là đã đăng ký."
 
 msgid "api.dois.400.depositFailed"
-msgstr "Một số mục không được ký gửi thành công. Vui lòng kiểm tra từng mục để biết thông báo lỗi cụ thể của chúng."
+msgstr ""
+"Một số mục không được ký gửi thành công. Vui lòng kiểm tra từng mục để biết "
+"thông báo lỗi cụ thể của chúng."
 
 msgid "api.dois.404.noPubObjectIncluded"
 msgstr "Không có đối tượng xuất bản hợp lệ nào được bao gồm trong yêu cầu."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
-msgstr "Một hoặc nhiều đối tượng xuất bản không hợp lệ đã được bao gồm trong yêu cầu."
+msgstr ""
+"Một hoặc nhiều đối tượng xuất bản không hợp lệ đã được bao gồm trong yêu cầu."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr "Plugin hiện tại phải là plugin của cơ quan đăng ký."
 
 msgid "api.decisions.403.alreadyPublished"
-msgstr "Bạn không thể ghi lại quyết định hoặc đề xuất quyết định cho bài nộp này vì nó đã được xuất bản."
+msgstr ""
+"Bạn không thể ghi lại quyết định hoặc đề xuất quyết định cho bài nộp này vì "
+"nó đã được xuất bản."
 
 msgid "api.emails.400.missingBody"
 msgstr "Bạn phải bao gồm email sẽ gửi."
@@ -112,7 +122,9 @@ msgid "api.emails.400.missingUserGroups"
 msgstr "Bạn phải chỉ định vai trò người dùng nên nhận email này."
 
 msgid "api.emails.403.notAllowedUserGroup"
-msgstr "Bạn không được phép gửi email cho người dùng trong một hoặc nhiều vai trò đã chọn."
+msgstr ""
+"Bạn không được phép gửi email cho người dùng trong một hoặc nhiều vai trò đã "
+"chọn."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr "Đây không phải là mẫu email mặc định cho một email đã biết."
@@ -133,16 +145,9 @@ msgid "api.files.400.fileSize"
 msgstr "Không thể tải lên các tệp lớn hơn {$maxSize}."
 
 msgid "api.files.400.config"
-msgstr "Không thể tải lên tệp do lỗi cấu hình máy chủ. Vui lòng liên hệ với quản trị viên hệ thống."
-
-msgid "api.highlights.400.noOrderData"
-msgstr "Không thể lưu thứ tự điểm nổi bật vì không tìm thấy thông tin sắp xếp nào."
-
-msgid "api.highlights.400.orderHighlightNotFound"
-msgstr "Không thể lưu thứ tự điểm nổi bật vì không tìm thấy một hoặc nhiều điểm nổi bật."
-
-msgid "api.highlights.404.highlightNotFound"
-msgstr "Không tìm thấy điểm nổi bật bạn yêu cầu."
+msgstr ""
+"Không thể tải lên tệp do lỗi cấu hình máy chủ. Vui lòng liên hệ với quản trị "
+"viên hệ thống."
 
 msgid "api.publication.403.alreadyPublished"
 msgstr "Ấn phẩm bạn muốn xuất bản đã được xuất bản."
@@ -154,7 +159,9 @@ msgid "api.publication.403.cantEditPublished"
 msgstr "Bạn không thể chỉnh sửa ấn phẩm này vì nó đã được xuất bản."
 
 msgid "api.publication.403.cantEditStatus"
-msgstr "Bạn không thể sửa đổi trạng thái trực tiếp thông qua API. Thay vào đó, sử dụng các điểm cuối /publish và /unpublish."
+msgstr ""
+"Bạn không thể sửa đổi trạng thái trực tiếp thông qua API. Thay vào đó, sử "
+"dụng các điểm cuối /publish và /unpublish."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "Bạn phải hủy xuất bản ấn phẩm này trước khi có thể xóa nó."
@@ -166,16 +173,23 @@ msgid "api.publicFiles.400.invalidImage"
 msgstr "Hình ảnh bạn đã tải lên không hợp lệ."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr "Tệp bạn đã tải lên không khớp với phần mở rộng tệp. Điều này có thể xảy ra khi tệp đã được đổi tên thành loại không tương thích, ví dụ như đổi tên photo.png thành photo.jpg."
+msgstr ""
+"Tệp bạn đã tải lên không khớp với phần mở rộng tệp. Điều này có thể xảy ra "
+"khi tệp đã được đổi tên thành loại không tương thích, ví dụ như đổi tên "
+"photo.png thành photo.jpg."
 
 msgid "api.publicFiles.403.unauthorized"
 msgstr "Bạn không được phép tải lên tệp."
 
 msgid "api.publicFiles.413.noDirSpace"
-msgstr "Bạn không có đủ dung lượng trong thư mục người dùng của mình. Tệp bạn đang tải lên có kích thước {$fileUploadSize}kb và bạn còn lại {$dirSizeLeft}kb."
+msgstr ""
+"Bạn không có đủ dung lượng trong thư mục người dùng của mình. Tệp bạn đang "
+"tải lên có kích thước {$fileUploadSize}kb và bạn còn lại {$dirSizeLeft}kb."
 
 msgid "api.publicFiles.500.badFilesDir"
-msgstr "Không tìm thấy thư mục tệp công cộng hoặc không thể lưu tệp vào đó. Vui lòng liên hệ với quản trị viên của bạn để giải quyết vấn đề này."
+msgstr ""
+"Không tìm thấy thư mục tệp công cộng hoặc không thể lưu tệp vào đó. Vui lòng "
+"liên hệ với quản trị viên của bạn để giải quyết vấn đề này."
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Ngày phải ở định dạng YYYY-MM-DD."
@@ -190,16 +204,19 @@ msgid "api.stats.400.lateDateRange"
 msgstr "Ngày kết thúc không được muộn hơn ngày hôm qua."
 
 msgid "api.stats.400.wrongTimelineInterval"
-msgstr "Yêu cầu của bạn không hợp lệ. timelineInterval phải là `day` hoặc `month`."
+msgstr ""
+"Yêu cầu của bạn không hợp lệ. timelineInterval phải là `day` hoặc `month`."
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr "Yêu cầu của bạn không hợp lệ. orderDirection phải là `desc` hoặc `asc`."
 
 msgid "api.stats.400.invalidTimelineInterval"
-msgstr "Yêu cầu của bạn không hợp lệ. timelineInterval phải là `day` hoặc `month`."
+msgstr ""
+"Yêu cầu của bạn không hợp lệ. timelineInterval phải là `day` hoặc `month`."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr "Bạn không thể sửa đổi liên kết tệp mà không truyền assocType và assocId."
+msgstr ""
+"Bạn không thể sửa đổi liên kết tệp mà không truyền assocType và assocId."
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr "Bạn không thể liên kết tệp từ giai đoạn tệp này với tệp bài nộp khác."
@@ -214,7 +231,8 @@ msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr "Bạn không thể liên kết tệp từ giai đoạn tệp này với vòng đánh giá."
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr "Bạn phải chỉ định vòng đánh giá khi yêu cầu tệp trong giai đoạn đánh giá."
+msgstr ""
+"Bạn phải chỉ định vòng đánh giá khi yêu cầu tệp trong giai đoạn đánh giá."
 
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Bạn phải cung cấp giai đoạn tệp."
@@ -226,7 +244,8 @@ msgid "api.submissionsFiles.400.noParams"
 msgstr "Không tìm thấy thay đổi nào trong yêu cầu chỉnh sửa tệp này."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
-msgstr "Bạn phải cung cấp ID vòng đánh giá khi di chuyển tệp đến giai đoạn tệp này."
+msgstr ""
+"Bạn phải cung cấp ID vòng đánh giá khi di chuyển tệp đến giai đoạn tệp này."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "Vòng đánh giá bạn đã cung cấp không thuộc bài nộp này."
@@ -250,7 +269,9 @@ msgid "api.submissions.400.invalidSubmitAs"
 msgstr "Bạn không được phép nộp bài với vai trò người dùng này."
 
 msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Yêu cầu của bạn đã bị từ chối. Điều này có thể là do đăng nhập của bạn đã hết hạn. Hãy thử tải lại trang và thử lại."
+msgstr ""
+"Yêu cầu của bạn đã bị từ chối. Điều này có thể là do đăng nhập của bạn đã "
+"hết hạn. Hãy thử tải lại trang và thử lại."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr "Bạn không thể xóa bài nộp không được chỉ định cho ngữ cảnh này."
@@ -265,10 +286,14 @@ msgid "api.submissions.403.userCantEdit"
 msgstr "Bạn không được phép chỉnh sửa ấn phẩm này."
 
 msgid "api.submissions.404.siteWideEndpoint"
-msgstr "Điểm cuối này không khả dụng từ ngữ cảnh. Nó phải được truy cập từ không gian tên toàn trang web."
+msgstr ""
+"Điểm cuối này không khả dụng từ ngữ cảnh. Nó phải được truy cập từ không "
+"gian tên toàn trang web."
 
 msgid "api.themes.404.themeUnavailable"
-msgstr "Giao diện đang hoạt động, {$themePluginPath}, không được bật và có thể chưa được cài đặt."
+msgstr ""
+"Giao diện đang hoạt động, {$themePluginPath}, không được bật và có thể chưa "
+"được cài đặt."
 
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "Ngôn ngữ {$locale} không được hỗ trợ."
@@ -292,10 +317,119 @@ msgid "api.jobs.200.failedJobRedispatchedSucceed"
 msgstr "Công việc thất bại được gửi lại thành công."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
-msgstr "Tất cả các công việc thất bại có thể gửi lại với tải trọng hợp lệ đã được đưa vào hàng đợi lại thành công."
+msgstr ""
+"Tất cả các công việc thất bại có thể gửi lại với tải trọng hợp lệ đã được "
+"đưa vào hàng đợi lại thành công."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr "Không thể xóa công việc thất bại khỏi danh sách thất bại."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr "Công việc thất bại đã xóa thành công khỏi danh sách thất bại."
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Thông số {$vocab}  không được hỗ trợ."
+
+#~ msgid "api.temporaryFiles.400.config"
+#~ msgstr ""
+#~ "Không thể tải tệp lên do lỗi cấu hình máy chủ. Hãy liên hệ với quản trị "
+#~ "hệ thống."
+
+#~ msgid "api.temporaryFiles.400.fileSize"
+#~ msgstr "Các tệp lớn hơn $maxSize} không thể được tải lên."
+
+#~ msgid "api.temporaryFiles.409.uploadFailed"
+#~ msgstr "Không thể tải lên một hoặc nhiều tệp."
+
+#~ msgid "api.temporaryFiles.400.noUpload"
+#~ msgstr "Không tìm thấy tệp được tải lên với yêu cầu."
+
+#~ msgid "api.submissions.unknownError"
+#~ msgstr "Một lỗi không mong muốn đã xảy ra. Hãy tải lại trang và thử lại."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Đã xảy ra lỗi khi tải lên hình ảnh này."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Không thể lưu thứ tự điểm nổi bật vì không tìm thấy thông tin sắp xếp nào."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Không thể lưu thứ tự điểm nổi bật vì không tìm thấy một hoặc nhiều điểm nổi "
+"bật."
+
+msgid "api.400.routeNotDefined"
+msgstr "Không có đường dẫn API nào được cung cấp."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Không tìm thấy tác giả được yêu cầu"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Bạn không thể thay đổi thông tin tác giả trên các bài nộp mà bạn không được "
+"phân công."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Điểm cuối này không khả dụng từ không gian tên toàn trang web và phải được "
+"yêu cầu cho một ngữ cảnh nhất định."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Không tìm thấy người phản biện cho phân công"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Chỉ 'accept' (chấp nhận) và 'decline' (từ chối) là các giá trị hợp lệ"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Chuyên mục được cung cấp không tồn tại."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Yêu cầu thiếu tham số truy vấn bắt buộc `ids`. Vui lòng cung cấp `ids` của "
+"các bài nộp bạn muốn xóa."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID không hợp lệ: \"{$id}\" đã được cung cấp."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Biểu mẫu định danh ấn phẩm không khả dụng vì không có Định danh nào được bật."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Không tìm thấy ror bạn yêu cầu."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Không thể hoàn thành hành động dự định trên tài nguyên."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Không tìm thấy bài nộp cho phân công phản biện này."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Không thể gán DOI cho mục này."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Bạn đã cung cấp một \"eventType\", {$eventType} không hợp lệ cho email Tác "
+"giả."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Bạn không thể thực hiện thao tác này khi chức năng ORCID bị vô hiệu hóa."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Không tìm thấy điểm nổi bật bạn yêu cầu."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Không thể xử lý yêu cầu API."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Không thể nhận được bất kỳ phản hồi mong đợi nào."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Tham số thân thiện với tác giả không hợp lệ."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Bạn không thể thay đổi ngôn ngữ của bài nộp này vì nó đã có nhiều hơn một "
+"phiên bản xuất bản hoặc một ấn phẩm đã xuất bản."

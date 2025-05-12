@@ -1080,6 +1080,9 @@ msgstr "The following appears on the <a href=\"{$url}\">submissions</a> page whe
 msgid "manager.setup.disableSubmissions"
 msgstr "Disable Submissions"
 
+msgid "manager.setup.continuousPublication"
+msgstr "Continuous Publication"
+
 msgid "manager.setup.checklist"
 msgstr "Checklist"
 

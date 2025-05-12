@@ -102,6 +102,11 @@ interface iPKPApplicationInfoProvider
      * Define if the application has customizable reviewer recommendation functionality
      */
     public function hasCustomizableReviewerRecommendation(): bool;
+
+    /**
+     * Define if the application has continuous publication functionality
+     */
+    public function hasContinuousPublication(): bool;
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider

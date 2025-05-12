@@ -1,9 +1,10 @@
-# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
+# Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-01 16:19+0000\n"
-"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
-"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/submission/vi/>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,34 +13,37 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
-msgstr "Không thể chỉnh sửa thông tin tác giả của ấn phẩm này vì ấn phẩm đã được xuất bản."
+msgstr ""
+"Không thể chỉnh sửa thông tin tác giả của ấn phẩm này vì ấn phẩm đã được "
+"xuất bản."
 
 msgid "author.publicationNotFound"
 msgstr "Không tìm thấy ấn phẩm của tác giả này."
 
 msgid "author.submit.submissionCitations"
-msgstr "Cung cấp danh sách tham khảo được định dạng cho các tác phẩm được trích dẫn trong bài nộp này. Vui lòng tách các tham khảo riêng lẻ bằng một dòng trống."
+msgstr ""
+"Cung cấp danh sách tham khảo được định dạng cho các tác phẩm được trích dẫn "
+"trong bài nộp này. Vui lòng tách các tham khảo riêng lẻ bằng một dòng trống."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Các đánh giá mới đã được nộp và đang được biên tập viên xem xét."
 
 msgid "author.submission.roundStatus.reviewOverdue"
-msgstr "Một hoặc nhiều người đánh giá đã bỏ lỡ thời hạn của họ. Đội ngũ biên tập đã được thông báo và sẽ thực hiện hành động để đảm bảo các đánh giá được hoàn thành. Bạn không cần thực hiện bất kỳ hành động nào vào thời điểm này. Bạn sẽ được thông báo khi có quyết định được đưa ra."
+msgstr ""
+"Một hoặc nhiều người đánh giá đã bỏ lỡ thời hạn của họ. Đội ngũ biên tập đã "
+"được thông báo và sẽ thực hiện hành động để đảm bảo các đánh giá được hoàn "
+"thành. Bạn không cần thực hiện bất kỳ hành động nào vào thời điểm này. Bạn "
+"sẽ được thông báo khi có quyết định được đưa ra."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Nộp với vai trò"
-
-msgid "submission.authors.label"
-msgstr "Tác giả"
-
-msgid "submission.author.list"
-msgstr "Danh sách tác giả bài nộp"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Chọn vai trò mô tả rõ nhất sự đóng góp của bạn cho bài nộp này."
 
 msgid "submission.submit.managerUserGroupsDescription"
-msgstr "Chọn vai trò biên tập nếu bạn muốn tự mình chỉnh sửa và xuất bản bài nộp này."
+msgstr ""
+"Chọn vai trò biên tập nếu bạn muốn tự mình chỉnh sửa và xuất bản bài nộp này."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Yêu cầu nộp bài"
@@ -81,13 +85,17 @@ msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "Email đăng ký Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Vui lòng nhập địa chỉ email đăng ký Crossref hợp lệ. Bạn có thể đăng ký email của mình miễn phí trên trang web Crossref."
+msgstr ""
+"Vui lòng nhập địa chỉ email đăng ký Crossref hợp lệ. Bạn có thể đăng ký "
+"email của mình miễn phí trên trang web Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Khóa API ISBNdb"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "Vui lòng nhập khóa API ISBNdb của bạn. Nếu bạn chưa có khóa, bạn có thể yêu cầu một khóa miễn phí từ dự án ISBNdb."
+msgstr ""
+"Vui lòng nhập khóa API ISBNdb của bạn. Nếu bạn chưa có khóa, bạn có thể yêu "
+"cầu một khóa miễn phí từ dự án ISBNdb."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "Email đăng ký PubMed"
@@ -111,19 +119,25 @@ msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "Không sử dụng theo mặc định (vẫn sẽ khả dụng cho biên tập viên)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "Lỗi nội bộ. Đã có một giá trị không hợp lệ được gửi cho cài đặt 'bộ lọc tùy chọn'. Vui lòng báo cáo lỗi này."
+msgstr ""
+"Lỗi nội bộ. Đã có một giá trị không hợp lệ được gửi cho cài đặt 'bộ lọc tùy "
+"chọn'. Vui lòng báo cáo lỗi này."
 
 msgid "metadata.property.displayName.author"
 msgstr "Tác giả"
 
 msgid "metadata.property.validationMessage.author"
-msgstr "Để có kết quả tốt nhất, tác giả nên được nhập theo định dạng sau: Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"Để có kết quả tốt nhất, tác giả nên được nhập theo định dạng sau: Coleman "
+"Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
 msgstr "Biên tập viên"
 
 msgid "metadata.property.validationMessage.editor"
-msgstr "Để có kết quả tốt nhất, biên tập viên nên được nhập theo định dạng sau: Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"Để có kết quả tốt nhất, biên tập viên nên được nhập theo định dạng sau: "
+"Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
 msgstr "Tiêu đề bài báo/tác phẩm"
@@ -321,19 +335,26 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Loại ấn phẩm"
 
 msgid "metadata.property.validationMessage.publication-type"
-msgstr "Vui lòng đảm bảo rằng bạn luôn đặt loại ấn phẩm. Các giá trị hiện được hỗ trợ là book (cho sách hoặc chương sách) và journal (cho bài báo tạp chí). Nếu không, định dạng đầu ra trích dẫn sẽ không hoạt động đúng cách."
+msgstr ""
+"Vui lòng đảm bảo rằng bạn luôn đặt loại ấn phẩm. Các giá trị hiện được hỗ "
+"trợ là book (cho sách hoặc chương sách) và journal (cho bài báo tạp chí). "
+"Nếu không, định dạng đầu ra trích dẫn sẽ không hoạt động đúng cách."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Loại tiêu đề"
 
 msgid "metadata.property.validationMessage.title-type"
-msgstr "Vui lòng đảm bảo rằng bạn đặt loại tiêu đề hợp lệ. Các giá trị được hỗ trợ là 'abbreviated', 'translated', 'alternative' và 'uniform'."
+msgstr ""
+"Vui lòng đảm bảo rằng bạn đặt loại tiêu đề hợp lệ. Các giá trị được hỗ trợ "
+"là 'abbreviated', 'translated', 'alternative' và 'uniform'."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Phần tiêu đề bị bỏ qua khi sắp xếp"
 
 msgid "metadata.property.validationMessage.nonSort"
-msgstr "Vui lòng chỉ nhập các ký tự đầu tiên của tiêu đề nên bị bỏ qua khi sắp xếp tiêu đề."
+msgstr ""
+"Vui lòng chỉ nhập các ký tự đầu tiên của tiêu đề nên bị bỏ qua khi sắp xếp "
+"tiêu đề."
 
 msgid "metadata.property.displayName.title"
 msgstr "Tiêu đề"
@@ -363,7 +384,9 @@ msgid "metadata.property.displayName.name-type"
 msgstr "Loại tên"
 
 msgid "metadata.property.validationMessage.name-type"
-msgstr "Vui lòng đảm bảo rằng bạn đặt loại tên hợp lệ. Các giá trị được hỗ trợ là 'personal', 'corporate' và 'conference'."
+msgstr ""
+"Vui lòng đảm bảo rằng bạn đặt loại tên hợp lệ. Các giá trị được hỗ trợ là "
+"'personal', 'corporate' và 'conference'."
 
 msgid "metadata.property.displayName.abstract"
 msgstr "Tóm tắt"
@@ -435,7 +458,9 @@ msgid "submission.citations"
 msgstr "Tài liệu tham khảo"
 
 msgid "submission.citations.description"
-msgstr "Nhập mỗi tài liệu tham khảo trên một dòng mới để chúng có thể được trích xuất và ghi lại riêng biệt."
+msgstr ""
+"Nhập mỗi tài liệu tham khảo trên một dòng mới để chúng có thể được trích "
+"xuất và ghi lại riêng biệt."
 
 msgid "submission.parsedCitations"
 msgstr "Tài liệu tham khảo đã trích xuất"
@@ -444,7 +469,9 @@ msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
-msgstr "Các tài liệu tham khảo sau đã được trích xuất và sẽ được liên kết với metadata bài nộp."
+msgstr ""
+"Các tài liệu tham khảo sau đã được trích xuất và sẽ được liên kết với "
+"metadata bài nộp."
 
 msgid "submission.parsedAndSaveCitations"
 msgstr "Trích xuất và lưu tài liệu tham khảo"
@@ -546,10 +573,11 @@ msgid "submission.emailLog"
 msgstr "Nhật ký Email"
 
 msgid "submission.event.participantAdded"
-msgstr "{username}) đã được chỉ định cho bài nộp này với vai trò {$userGroupName}."
+msgstr ""
+"{username}) đã được chỉ định cho bài nộp này với vai trò {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr ""{username}) đã bị xóa khỏi vai trò {$userGroupName}."
+msgstr "\"{username}) đã bị xóa khỏi vai trò {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Quay lại Nhật ký Sự kiện"
@@ -573,7 +601,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr "{username}) đã đồng ý với các điều khoản bản quyền cho bài nộp."
 
 msgid "submission.event.fileRevised"
-msgstr "Bản sửa đổi "{submissionFileId}."
+msgstr "Bản sửa đổi \"{submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata bài nộp đã cập nhật"
@@ -624,7 +652,9 @@ msgid "submission.event.reviewer.reviewerReminded"
 msgstr "{recipientName} về chỉ định đánh giá của họ"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
-msgstr "Email nhắc nhở tự động đã được gửi đến {$recipientName} về chỉ định đánh giá của họ"
+msgstr ""
+"Email nhắc nhở tự động đã được gửi đến {$recipientName} về chỉ định đánh giá "
+"của họ"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Một email đã được gửi:"
@@ -633,10 +663,13 @@ msgid "submission.event.viewEmail"
 msgstr "Xem Email"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr "Tác giả hiện được phép chỉnh sửa metadata khi bài nộp ở giai đoạn {stage}."
+msgstr ""
+"Tác giả hiện được phép chỉnh sửa metadata khi bài nộp ở giai đoạn {stage}."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr "Tác giả hiện không được phép chỉnh sửa metadata khi bài nộp ở giai đoạn {stage}."
+msgstr ""
+"Tác giả hiện không được phép chỉnh sửa metadata khi bài nộp ở giai đoạn "
+"{stage}."
 
 msgid "submission.files"
 msgstr "Tệp"
@@ -645,7 +678,9 @@ msgid "submission.files.downloadAll"
 msgstr "Tải xuống tất cả tệp"
 
 msgid "submission.file.notAllowedUploaderUserId"
-msgstr "Thông tin về người tải tệp lên được lưu lại khi tệp được tạo và không thể thay đổi."
+msgstr ""
+"Thông tin về người tải tệp lên được lưu lại khi tệp được tạo và không thể "
+"thay đổi."
 
 msgid "submission.firstPublished"
 msgstr "Xuất bản lần đầu"
@@ -702,7 +737,9 @@ msgid "submission.versionIdentity"
 msgstr "{version})"
 
 msgid "submission.outdatedVersion"
-msgstr "Đây là phiên bản cũ được xuất bản vào ngày {urlRecentVersion}">phiên bản mới nhất</a>."
+msgstr ""
+"Đây là phiên bản cũ được xuất bản vào ngày{$datePublished}. Đọc phiên bản "
+"mới nhất tại <a href=\"{$urlRecentVersion}\">đây</a>."
 
 msgid "submission.identifiers"
 msgstr "Định danh"
@@ -711,7 +748,10 @@ msgid "submission.publisherId"
 msgstr "ID nhà xuất bản"
 
 msgid "submission.publisherId.description"
-msgstr "ID nhà xuất bản có thể được sử dụng để ghi lại ID từ cơ sở dữ liệu bên ngoài. Ví dụ: các mục xuất để ký gửi lên PubMed có thể bao gồm ID nhà xuất bản. Không nên sử dụng ID này cho DOI."
+msgstr ""
+"ID nhà xuất bản có thể được sử dụng để ghi lại ID từ cơ sở dữ liệu bên "
+"ngoài. Ví dụ: các mục xuất để ký gửi lên PubMed có thể bao gồm ID nhà xuất "
+"bản. Không nên sử dụng ID này cho DOI."
 
 msgid "submission.publisherId.enable"
 msgstr "Bật cho {$objects}"
@@ -741,10 +781,13 @@ msgid "submission.layout.addGalley"
 msgstr "Thêm phiên bản xuất bản định dạng"
 
 msgid "submission.layout.confirmDeleteGalley"
-msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn phiên bản xuất bản định dạng này không?"
+msgstr ""
+"Bạn có chắc chắn muốn xóa vĩnh viễn phiên bản xuất bản định dạng này không?"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
-msgstr "Bạn có chắc chắn muốn xóa hình ảnh này khỏi phiên bản xuất bản định dạng không?"
+msgstr ""
+"Bạn có chắc chắn muốn xóa hình ảnh này khỏi phiên bản xuất bản định dạng "
+"không?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Xóa biểu định kiểu này."
@@ -765,7 +808,8 @@ msgid "submission.layout.galleyLabel"
 msgstr "Nhãn phiên bản xuất bản định dạng"
 
 msgid "submission.layout.galleyLabelInstructions"
-msgstr "Thường được sử dụng để xác định định dạng tệp (ví dụ: PDF, HTML, v.v.)."
+msgstr ""
+"Thường được sử dụng để xác định định dạng tệp (ví dụ: PDF, HTML, v.v.)."
 
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Cần có nhãn phiên bản xuất bản định dạng."
@@ -810,7 +854,9 @@ msgid "submission.layout.newGalley"
 msgstr "Tạo phiên bản xuất bản định dạng mới"
 
 msgid "submission.layout.noStyleFile"
-msgstr "Chưa có tệp biểu định kiểu nào được thêm vào phiên bản xuất bản định dạng này."
+msgstr ""
+"Chưa có tệp biểu định kiểu nào được thêm vào phiên bản xuất bản định dạng "
+"này."
 
 msgid "submission.layout.viewingGalley"
 msgstr "Đang xem phiên bản xuất bản định dạng của bài nộp"
@@ -1005,7 +1051,8 @@ msgid "submission.submit.fileAdded"
 msgstr "Tệp đã thêm"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Bao gồm người đóng góp này khi xác định tác giả trong danh sách ấn phẩm."
+msgstr ""
+"Bao gồm người đóng góp này khi xác định tác giả trong danh sách ấn phẩm."
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Danh sách ấn phẩm"
@@ -1032,7 +1079,9 @@ msgid "submission.manageDependentFiles"
 msgstr "Quản lý tệp phụ thuộc"
 
 msgid "submission.upload.instructions"
-msgstr "Tải lên bất kỳ tệp nào mà đội ngũ biên tập sẽ cần để đánh giá bài nộp của bạn."
+msgstr ""
+"Tải lên bất kỳ tệp nào mà đội ngũ biên tập sẽ cần để đánh giá bài nộp của "
+"bạn."
 
 msgid "submission.upload.percentComplete"
 msgstr "Đang tải lên {$percent}% hoàn thành"
@@ -1191,13 +1240,17 @@ msgid "submission.upload.possibleRevision"
 msgstr "Đã phát hiện trùng lặp hoặc sửa đổi tiềm ẩn"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Tên của tệp đã tải lên giống với tên của tệp đã tải lên trước đó, \"{revisedFileName}\" không? Nếu vậy, chọn tệp bên dưới. Nếu không, chọn \"Đây không phải là bản sửa đổi của tệp hiện có\" trước khi tiếp tục."
+msgstr ""
+"Tên của tệp đã tải lên giống với tên của tệp đã tải lên trước đó, \""
+"{revisedFileName}\" không? Nếu vậy, chọn tệp bên dưới. Nếu không, chọn \"Đây "
+"không phải là bản sửa đổi của tệp hiện có\" trước khi tiếp tục."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Vui lòng chọn tệp bạn muốn sửa đổi."
 
 msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "Nếu bạn đang tải lên bản sửa đổi của tệp hiện có, vui lòng cho biết tệp nào."
+msgstr ""
+"Nếu bạn đang tải lên bản sửa đổi của tệp hiện có, vui lòng cho biết tệp nào."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Đây không phải là bản sửa đổi của tệp hiện có"
@@ -1206,7 +1259,9 @@ msgid "submission.upload.userGroup"
 msgstr "Tải lên tệp này với vai trò của tôi là..."
 
 msgid "submission.upload.userGroupDescription"
-msgstr "Nếu bạn đang nộp một Tập đã chỉnh sửa, bạn nên tải lên từng chương riêng lẻ, với vai trò là biên tập viên tập."
+msgstr ""
+"Nếu bạn đang nộp một Tập đã chỉnh sửa, bạn nên tải lên từng chương riêng lẻ, "
+"với vai trò là biên tập viên tập."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Tải lên tệp thư viện"
@@ -1224,7 +1279,9 @@ msgid "submission.upload.uploadFiles"
 msgstr "Tải lên tệp"
 
 msgid "submission.upload.response.description"
-msgstr "Sau khi xem lại tệp đã được chỉ định, ghi lại bất kỳ nhận xét nào về tệp bên dưới, và/hoặc tải lên bản sao có chú thích của tệp (hoặc tệp khác)."
+msgstr ""
+"Sau khi xem lại tệp đã được chỉ định, ghi lại bất kỳ nhận xét nào về tệp bên "
+"dưới, và/hoặc tải lên bản sao có chú thích của tệp (hoặc tệp khác)."
 
 msgid "submission.upload.productionReady"
 msgstr "Tải lên tệp sẵn sàng cho sản xuất"
@@ -1280,9 +1337,6 @@ msgstr "Các đề xuất biên tập mới đã được nộp."
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Tất cả các đề xuất đã có và cần có quyết định."
 
-msgid "editor.submission.roundStatus.returnedToReview"
-msgstr "Đã gửi lại để đánh giá."
-
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr "Không hoạt động hơn {stage}."
 
@@ -1305,13 +1359,18 @@ msgid "editor.submission.editStageParticipant"
 msgstr "Chỉnh sửa chỉ định"
 
 msgid "editor.submission.addStageParticipant.userGroup"
-msgstr "Người dùng được chỉ định vào các giai đoạn của quy trình làm việc theo nhóm người dùng. Bất kỳ người dùng nào được chỉ định cho giai đoạn này sẽ tự động được chỉ định cho các giai đoạn khác mà nhóm người dùng của họ đã được chỉ định. Điều này thường dành cho biên tập viên, tác giả và người dịch."
+msgstr ""
+"Người dùng được chỉ định vào các giai đoạn của quy trình làm việc theo nhóm "
+"người dùng. Bất kỳ người dùng nào được chỉ định cho giai đoạn này sẽ tự động "
+"được chỉ định cho các giai đoạn khác mà nhóm người dùng của họ đã được chỉ "
+"định. Điều này thường dành cho biên tập viên, tác giả và người dịch."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Xóa người tham gia"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Bạn sắp xóa người tham gia này khỏi <strong>tất cả</strong> các giai đoạn."
+msgstr ""
+"Bạn sắp xóa người tham gia này khỏi <strong>tất cả</strong> các giai đoạn."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Bạn phải chọn một nhóm người dùng."
@@ -1320,7 +1379,11 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Bạn phải chọn một người dùng cho nhóm người dùng đã chỉ định."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "Người tham gia bạn đã chọn được chỉ định thực hiện đánh giá ẩn danh. Nếu bạn chỉ định họ làm người tham gia, họ sẽ có quyền truy cập danh tính của tác giả. Bạn được khuyến khích không chỉ định người tham gia này trừ khi bạn có thể đảm bảo tính toàn vẹn của quy trình bình duyệt độc lập."
+msgstr ""
+"Người tham gia bạn đã chọn được chỉ định thực hiện đánh giá ẩn danh. Nếu bạn "
+"chỉ định họ làm người tham gia, họ sẽ có quyền truy cập danh tính của tác "
+"giả. Bạn được khuyến khích không chỉ định người tham gia này trừ khi bạn có "
+"thể đảm bảo tính toàn vẹn của quy trình bình duyệt độc lập."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Không cho phép chỉnh sửa metadata"
@@ -1329,10 +1392,14 @@ msgid "editor.submission.addPermissionToEdit"
 msgstr "Cho phép chỉnh sửa metadata"
 
 msgid "editor.submission.removePermissionToEditDescription"
-msgstr "Bạn có chắc chắn muốn tác giả của bài nộp này không thể chỉnh sửa metadata của bài nộp ở giai đoạn đó không?"
+msgstr ""
+"Bạn có chắc chắn muốn tác giả của bài nộp này không thể chỉnh sửa metadata "
+"của bài nộp ở giai đoạn đó không?"
 
 msgid "editor.submission.addPermissionToEditDescription"
-msgstr "Bạn có chắc chắn muốn tác giả của bài nộp này có thể chỉnh sửa metadata của bài nộp ở giai đoạn đó không?"
+msgstr ""
+"Bạn có chắc chắn muốn tác giả của bài nộp này có thể chỉnh sửa metadata của "
+"bài nộp ở giai đoạn đó không?"
 
 msgid "editor.submission.decision"
 msgstr "Quyết định"
@@ -1344,10 +1411,17 @@ msgid "editor.submission.decision.notifyReviewers"
 msgstr "Thông báo cho người đánh giá"
 
 msgid "editor.submission.decision.notifyReviewers.description"
-msgstr "Gửi email cho người đánh giá để cảm ơn họ vì đã đánh giá và cho họ biết rằng đã có quyết định được đưa ra. Mỗi người đánh giá sẽ nhận được một email riêng để bảo vệ tính ẩn danh của họ. Cụm từ {$recipientName} có thể được sử dụng trong tin nhắn để bao gồm tên của từng người đánh giá một cách an toàn."
+msgstr ""
+"Gửi email cho người đánh giá để cảm ơn họ vì đã đánh giá và cho họ biết rằng "
+"đã có quyết định được đưa ra. Mỗi người đánh giá sẽ nhận được một email "
+"riêng để bảo vệ tính ẩn danh của họ. Cụm từ {$recipientName} có thể được sử "
+"dụng trong tin nhắn để bao gồm tên của từng người đánh giá một cách an toàn."
 
-msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
-msgstr "Gửi email cho người đánh giá được chỉ định để thông báo cho họ rằng chỉ định đánh giá của họ đã bị hủy."
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Gửi email cho người đánh giá được chỉ định để thông báo cho họ rằng chỉ định "
+"đánh giá của họ đã bị hủy."
 
 msgid "editor.submission.decision.accept"
 msgstr "Chấp nhận bài nộp"
@@ -1356,25 +1430,35 @@ msgid "editor.submission.decision.accept.description"
 msgstr "Bài nộp này sẽ được chấp nhận để xuất bản và gửi đi chỉnh sửa."
 
 msgid "editor.submission.decision.accept.log"
-msgstr "{$editorName} đã chấp nhận bài nộp này và gửi nó đến giai đoạn chỉnh sửa."
+msgstr ""
+"{$editorName} đã chấp nhận bài nộp này và gửi nó đến giai đoạn chỉnh sửa."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Bài nộp đã chấp nhận"
 
 msgid "editor.submission.decision.accept.completedDescription"
-msgstr "Bài nộp, {$title}, đã được chấp nhận để xuất bản và gửi đến giai đoạn chỉnh sửa. Tất cả các thông báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
+msgstr ""
+"Bài nộp, {$title}, đã được chấp nhận để xuất bản và gửi đến giai đoạn chỉnh "
+"sửa. Tất cả các thông báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ "
+"qua."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng bài nộp của họ đã được chấp nhận để xuất bản. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng bài nộp của họ đã được chấp nhận để "
+"xuất bản. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng vòng đánh giá đã được đóng. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng vòng đánh giá đã được đóng. Email "
+"này sẽ không được gửi cho đến khi quyết định được ghi lại."
 
 msgid "editor.submission.decision.decline"
 msgstr "Từ chối bài nộp"
 
 msgid "editor.submission.decision.decline.description"
-msgstr "Bài nộp này sẽ bị từ chối để xuất bản. Giai đoạn bình duyệt sẽ bị đóng và bài nộp sẽ được lưu trữ."
+msgstr ""
+"Bài nộp này sẽ bị từ chối để xuất bản. Giai đoạn bình duyệt sẽ bị đóng và "
+"bài nộp sẽ được lưu trữ."
 
 msgid "editor.submission.decision.decline.log"
 msgstr "{$editorName} đã từ chối bài nộp này."
@@ -1383,13 +1467,19 @@ msgid "editor.submission.decision.decline.completed"
 msgstr "Bài nộp đã từ chối"
 
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "Bài nộp, {$title}, đã bị từ chối và gửi vào kho lưu trữ. Tất cả các thông báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
+msgstr ""
+"Bài nộp, {$title}, đã bị từ chối và gửi vào kho lưu trữ. Tất cả các thông "
+"báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng bài nộp của họ đã bị từ chối. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng bài nộp của họ đã bị từ chối. Email "
+"này sẽ không được gửi cho đến khi quyết định được ghi lại."
 
 msgid "editor.submission.decision.initialDecline.description"
-msgstr "Bài nộp này sẽ bị từ chối để xuất bản. Không có thêm đánh giá nào sẽ được thực hiện và bài nộp sẽ được lưu trữ."
+msgstr ""
+"Bài nộp này sẽ bị từ chối để xuất bản. Không có thêm đánh giá nào sẽ được "
+"thực hiện và bài nộp sẽ được lưu trữ."
 
 msgid "editor.submission.decision.newReviewRound"
 msgstr "Vòng đánh giá mới"
@@ -1404,10 +1494,15 @@ msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Vòng đánh giá đã tạo"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "Một vòng đánh giá mới đã được tạo cho bài nộp, {$title}. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Một vòng đánh giá mới đã được tạo cho bài nộp, {$title}. Tác giả đã được "
+"thông báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng bài nộp của họ đã được gửi đi một vòng đánh giá mới. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng bài nộp của họ đã được gửi đi một "
+"vòng đánh giá mới. Email này sẽ không được gửi cho đến khi quyết định được "
+"ghi lại."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Chọn các tệp nên được gửi đến giai đoạn chỉnh sửa."
@@ -1422,7 +1517,9 @@ msgid "editor.submission.decision.requestRevisions"
 msgstr "Yêu cầu sửa đổi"
 
 msgid "editor.submission.decision.requestRevisions.description"
-msgstr "Tác giả phải cung cấp bản sửa đổi trước khi bài nộp này được chấp nhận để xuất bản."
+msgstr ""
+"Tác giả phải cung cấp bản sửa đổi trước khi bài nộp này được chấp nhận để "
+"xuất bản."
 
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} đã yêu cầu sửa đổi cho bài nộp này."
@@ -1431,16 +1528,24 @@ msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Đã yêu cầu sửa đổi"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Đã yêu cầu sửa đổi cho bài nộp, {$title}. Tất cả các thông báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
+msgstr ""
+"Đã yêu cầu sửa đổi cho bài nộp, {$title}. Tất cả các thông báo đã được gửi, "
+"ngoại trừ những thông báo bạn chọn bỏ qua."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng cần sửa đổi trước khi bài nộp này được chấp nhận để xuất bản. Bao gồm tất cả chi tiết mà tác giả sẽ cần để sửa đổi bài nộp của họ. Nếu phù hợp, hãy nhớ ẩn danh các nhận xét của người đánh giá. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng cần sửa đổi trước khi bài nộp này "
+"được chấp nhận để xuất bản. Bao gồm tất cả chi tiết mà tác giả sẽ cần để sửa "
+"đổi bài nộp của họ. Nếu phù hợp, hãy nhớ ẩn danh các nhận xét của người đánh "
+"giá. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Hủy vòng đánh giá"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
-msgstr "Hủy vòng đánh giá hiện tại và gửi bài nộp trở lại vòng đánh giá trước đó. Nếu đây là vòng đánh giá đầu tiên, nó sẽ được gửi trở lại giai đoạn nộp bài."
+msgstr ""
+"Hủy vòng đánh giá hiện tại và gửi bài nộp trở lại vòng đánh giá trước đó. "
+"Nếu đây là vòng đánh giá đầu tiên, nó sẽ được gửi trở lại giai đoạn nộp bài."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName} đã hủy vòng đánh giá."
@@ -1449,28 +1554,43 @@ msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Đã hủy vòng đánh giá mới nhất."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "Vòng đánh giá cho bài nộp, {$title}, đã bị hủy. Tất cả các thông báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
+msgstr ""
+"Vòng đánh giá cho bài nộp, {$title}, đã bị hủy. Tất cả các thông báo đã được "
+"gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
-msgstr "Chỉ có thể hủy vòng đánh giá nếu không có người đánh giá liên quan nào có đánh giá đã hoàn thành hoặc đã nộp."
+msgstr ""
+"Chỉ có thể hủy vòng đánh giá nếu không có người đánh giá liên quan nào có "
+"đánh giá đã hoàn thành hoặc đã nộp."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Nộp lại để đánh giá"
 
 msgid "editor.submission.decision.resubmit.description"
-msgstr "Tác giả phải cung cấp bản sửa đổi sẽ được gửi đi đánh giá thêm một vòng nữa trước khi bài nộp này được chấp nhận để xuất bản."
+msgstr ""
+"Tác giả phải cung cấp bản sửa đổi sẽ được gửi đi đánh giá thêm một vòng nữa "
+"trước khi bài nộp này được chấp nhận để xuất bản."
 
 msgid "editor.submission.decision.resubmit.log"
-msgstr "{$editorName} đã yêu cầu sửa đổi cho bài nộp này và bản sửa đổi nên được gửi đi đánh giá thêm một vòng nữa."
+msgstr ""
+"{$editorName} đã yêu cầu sửa đổi cho bài nộp này và bản sửa đổi nên được gửi "
+"đi đánh giá thêm một vòng nữa."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Đã yêu cầu sửa đổi"
 
 msgid "editor.submission.decision.resubmit.completed.description"
-msgstr "Đã yêu cầu sửa đổi cho bài nộp, {$title}. Quyết định gửi bản sửa đổi để đánh giá thêm một vòng nữa đã được ghi lại. Tất cả các thông báo đã được gửi, ngoại trừ những thông báo bạn chọn bỏ qua."
+msgstr ""
+"Đã yêu cầu sửa đổi cho bài nộp, {$title}. Quyết định gửi bản sửa đổi để đánh "
+"giá thêm một vòng nữa đã được ghi lại. Tất cả các thông báo đã được gửi, "
+"ngoại trừ những thông báo bạn chọn bỏ qua."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng cần hoàn thành bản sửa đổi và gửi đi đánh giá thêm một vòng nữa. Bao gồm tất cả chi tiết mà tác giả sẽ cần để sửa đổi bài nộp của họ. Nếu phù hợp, hãy nhớ ẩn danh các nhận xét của người đánh giá."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng cần hoàn thành bản sửa đổi và gửi đi "
+"đánh giá thêm một vòng nữa. Bao gồm tất cả chi tiết mà tác giả sẽ cần để sửa "
+"đổi bài nộp của họ. Nếu phù hợp, hãy nhớ ẩn danh các nhận xét của người đánh "
+"giá."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Gửi đi đánh giá"
@@ -1485,7 +1605,9 @@ msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Đã gửi đi đánh giá"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "Bài nộp, {$title}, đã được gửi đến giai đoạn đánh giá. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Bài nộp, {$title}, đã được gửi đến giai đoạn đánh giá. Tác giả đã được thông "
+"báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Vòng đánh giá mới"
@@ -1503,10 +1625,15 @@ msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Đã gửi đến sản xuất"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "Bài nộp, {$title}, đã được gửi đến giai đoạn sản xuất. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Bài nộp, {$title}, đã được gửi đến giai đoạn sản xuất. Tác giả đã được thông "
+"báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng bài nộp này đã được gửi đến giai đoạn sản xuất. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng bài nộp này đã được gửi đến giai "
+"đoạn sản xuất. Email này sẽ không được gửi cho đến khi quyết định được ghi "
+"lại."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Hủy chỉnh sửa"
@@ -1521,10 +1648,14 @@ msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Đã gửi lại từ chỉnh sửa"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "Bài nộp, {$title}, đã được gửi lại từ giai đoạn chỉnh sửa. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Bài nộp, {$title}, đã được gửi lại từ giai đoạn chỉnh sửa. Tác giả đã được "
+"thông báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng việc chỉnh sửa bị hủy bỏ và bài nộp của họ sẽ trải qua thêm quá trình xem xét biên tập."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng việc chỉnh sửa bị hủy bỏ và bài nộp "
+"của họ sẽ trải qua thêm quá trình xem xét biên tập."
 
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Quay lại chỉnh sửa"
@@ -1539,46 +1670,68 @@ msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Đã gửi lại để chỉnh sửa"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "Bài nộp, {$title}, đã được gửi lại giai đoạn chỉnh sửa. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Bài nộp, {$title}, đã được gửi lại giai đoạn chỉnh sửa. Tác giả đã được "
+"thông báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng bài nộp này đã được gửi lại giai đoạn chỉnh sửa. Giải thích lý do đưa ra quyết định này và thông báo cho tác giả về những chỉnh sửa tiếp theo sẽ cần thiết trước khi bài nộp này sẵn sàng cho sản xuất."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng bài nộp này đã được gửi lại giai "
+"đoạn chỉnh sửa. Giải thích lý do đưa ra quyết định này và thông báo cho tác "
+"giả về những chỉnh sửa tiếp theo sẽ cần thiết trước khi bài nộp này sẵn sàng "
+"cho sản xuất."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Chấp nhận và bỏ qua đánh giá"
 
 msgid "editor.submission.decision.skipReview.description"
-msgstr "Chấp nhận bài nộp này để xuất bản và bỏ qua giai đoạn đánh giá. Quyết định này sẽ gửi bài nộp đến giai đoạn chỉnh sửa."
+msgstr ""
+"Chấp nhận bài nộp này để xuất bản và bỏ qua giai đoạn đánh giá. Quyết định "
+"này sẽ gửi bài nộp đến giai đoạn chỉnh sửa."
 
 msgid "editor.submission.decision.skipReview.log"
-msgstr "{$editorName} đã bỏ qua giai đoạn đánh giá và gửi bài nộp này đến giai đoạn chỉnh sửa."
+msgstr ""
+"{$editorName} đã bỏ qua giai đoạn đánh giá và gửi bài nộp này đến giai đoạn "
+"chỉnh sửa."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Đã bỏ qua đánh giá"
 
 msgid "editor.submission.decision.skipReview.completed.description"
-msgstr "Bài nộp, {$title}, đã bỏ qua giai đoạn đánh giá và đã được gửi đến giai đoạn chỉnh sửa. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Bài nộp, {$title}, đã bỏ qua giai đoạn đánh giá và đã được gửi đến giai đoạn "
+"chỉnh sửa. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng bài nộp này đã được chấp nhận để xuất bản và gửi đến giai đoạn chỉnh sửa mà không cần đánh giá. Email này sẽ không được gửi cho đến khi quyết định được ghi lại."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng bài nộp này đã được chấp nhận để "
+"xuất bản và gửi đến giai đoạn chỉnh sửa mà không cần đánh giá. Email này sẽ "
+"không được gửi cho đến khi quyết định được ghi lại."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Gửi đi đánh giá nội bộ"
 
 msgid "editor.submission.decision.approveProofsDescription"
-msgstr "Tệp bản in thử phải được kiểm tra là đã được phê duyệt để được cung cấp. Bạn có muốn phê duyệt không?"
+msgstr ""
+"Tệp bản in thử phải được kiểm tra là đã được phê duyệt để được cung cấp. Bạn "
+"có muốn phê duyệt không?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Phê duyệt bản in thử"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "Bản in thử tệp này sẽ không còn được cung cấp công khai để tải xuống hoặc mua. Bạn có muốn từ chối phê duyệt không?"
+msgstr ""
+"Bản in thử tệp này sẽ không còn được cung cấp công khai để tải xuống hoặc "
+"mua. Bạn có muốn từ chối phê duyệt không?"
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Hủy từ chối"
 
 msgid "editor.submission.decision.revertDecline.description"
-msgstr "Hủy một quyết định trước đó từ chối bài nộp này và trả lại nó cho quy trình biên tập đang hoạt động. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Hủy một quyết định trước đó từ chối bài nộp này và trả lại nó cho quy trình "
+"biên tập đang hoạt động. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua "
+"email đó."
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} đã đảo ngược quyết định từ chối bài nộp này."
@@ -1587,40 +1740,56 @@ msgid "editor.submission.decision.revertDecline.completed"
 msgstr "Bài nộp đã kích hoạt lại"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr "Bài nộp, {$title}, hiện là bài nộp đang hoạt động trong giai đoạn đánh giá."
+msgstr ""
+"Bài nộp, {$title}, hiện là bài nộp đang hoạt động trong giai đoạn đánh giá."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
-msgstr "Gửi email cho tác giả để thông báo rằng quyết định trước đó từ chối bài nộp này đã bị hủy. Giải thích lý do quyết định bị hủy và cho họ biết liệu bài nộp có được mong đợi trải qua thêm đánh giá hay không."
+msgstr ""
+"Gửi email cho tác giả để thông báo rằng quyết định trước đó từ chối bài nộp "
+"này đã bị hủy. Giải thích lý do quyết định bị hủy và cho họ biết liệu bài "
+"nộp có được mong đợi trải qua thêm đánh giá hay không."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "Bài nộp, {$title}, hiện đang hoạt động trong giai đoạn nộp bài. Tác giả đã được thông báo, trừ khi bạn chọn bỏ qua email đó."
+msgstr ""
+"Bài nộp, {$title}, hiện đang hoạt động trong giai đoạn nộp bài. Tác giả đã "
+"được thông báo, trừ khi bạn chọn bỏ qua email đó."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Chỉ định biên tập viên để bật các quyết định biên tập cho giai đoạn này."
+msgstr ""
+"Chỉ định biên tập viên để bật các quyết định biên tập cho giai đoạn này."
 
 msgid "editor.submission.recommend.notifyEditors.description"
-msgstr "Gửi thông báo cho biên tập viên ra quyết định để thông báo về đề xuất. Giải thích lý do đưa ra đề xuất này dựa trên các đề xuất và nhận xét do người đánh giá gửi."
+msgstr ""
+"Gửi thông báo cho biên tập viên ra quyết định để thông báo về đề xuất. Giải "
+"thích lý do đưa ra đề xuất này dựa trên các đề xuất và nhận xét do người "
+"đánh giá gửi."
 
 msgid "editor.submission.recommend.accept"
 msgstr "Đề xuất chấp nhận"
 
 msgid "editor.submission.recommend.accept.description"
-msgstr "Đề xuất rằng bài nộp này được chấp nhận để xuất bản và gửi đi chỉnh sửa."
+msgstr ""
+"Đề xuất rằng bài nộp này được chấp nhận để xuất bản và gửi đi chỉnh sửa."
 
 msgid "editor.submission.recommend.accept.log"
-msgstr "{$editorName} đã đề xuất rằng bài nộp này được chấp nhận và gửi đi chỉnh sửa."
+msgstr ""
+"{$editorName} đã đề xuất rằng bài nộp này được chấp nhận và gửi đi chỉnh sửa."
 
 msgid "editor.submission.recommend.completed"
 msgstr "Đề xuất đã nộp"
 
 msgid "editor.submission.recommend.completed.description"
-msgstr "Đề xuất của bạn đã được ghi lại và biên tập viên ra quyết định đã được thông báo."
+msgstr ""
+"Đề xuất của bạn đã được ghi lại và biên tập viên ra quyết định đã được thông "
+"báo."
 
 msgid "editor.submission.recommend.revisions"
 msgstr "Đề xuất sửa đổi"
 
 msgid "editor.submission.recommend.revisions.description"
-msgstr "Đề xuất rằng cần yêu cầu sửa đổi từ tác giả trước khi bài nộp này được chấp nhận để xuất bản."
+msgstr ""
+"Đề xuất rằng cần yêu cầu sửa đổi từ tác giả trước khi bài nộp này được chấp "
+"nhận để xuất bản."
 
 msgid "editor.submission.recommend.revisions.log"
 msgstr "{$editorName} đã đề xuất rằng cần yêu cầu sửa đổi."
@@ -1629,10 +1798,14 @@ msgid "editor.submission.recommend.resubmit"
 msgstr "Đề xuất nộp lại để đánh giá"
 
 msgid "editor.submission.recommend.resubmit.description"
-msgstr "Đề xuất rằng tác giả được yêu cầu nộp bản sửa đổi để đánh giá thêm một vòng nữa."
+msgstr ""
+"Đề xuất rằng tác giả được yêu cầu nộp bản sửa đổi để đánh giá thêm một vòng "
+"nữa."
 
 msgid "editor.submission.recommend.resubmit.log"
-msgstr "{$editorName} đã đề xuất rằng cần yêu cầu sửa đổi và bản sửa đổi này nên được gửi đi đánh giá thêm một vòng nữa."
+msgstr ""
+"{$editorName} đã đề xuất rằng cần yêu cầu sửa đổi và bản sửa đổi này nên "
+"được gửi đi đánh giá thêm một vòng nữa."
 
 msgid "editor.submission.recommend.decline"
 msgstr "Đề xuất từ chối"
@@ -1656,7 +1829,9 @@ msgid "editor.submission.allRecommendations.display"
 msgstr "Đề xuất: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
-msgstr "Bạn không thể đưa ra đề xuất cho đến khi có biên tập viên được chỉ định có quyền ghi lại quyết định."
+msgstr ""
+"Bạn không thể đưa ra đề xuất cho đến khi có biên tập viên được chỉ định có "
+"quyền ghi lại quyết định."
 
 msgid "editor.submission.recommendation"
 msgstr "Đề xuất"
@@ -1734,16 +1909,16 @@ msgid "submission.documents"
 msgstr "Tài liệu nộp bài"
 
 msgid "notification.type.editorAssign"
-msgstr "Bạn đã được chỉ định làm biên tập viên cho bài nộp "{$title}"."
+msgstr "Bạn đã được chỉ định làm biên tập viên cho bài nộp \"{$title}\"."
 
 msgid "notification.type.copyeditorRequest"
-msgstr "Bạn đã được yêu cầu xem xét các chỉnh sửa cho "{$title}"."
+msgstr "Bạn đã được yêu cầu xem xét các chỉnh sửa cho \"{$title}\"."
 
 msgid "notification.type.layouteditorRequest"
-msgstr "Bạn đã được yêu cầu xem xét bố cục cho "{$title}"."
+msgstr "Bạn đã được yêu cầu xem xét bố cục cho \"{$title}\"."
 
 msgid "notification.type.indexRequest"
-msgstr "Bạn đã được yêu cầu tạo chỉ mục cho "{$title}"."
+msgstr "Bạn đã được yêu cầu tạo chỉ mục cho \"{$title}\"."
 
 msgid "notification.type.editorDecisionTitle"
 msgstr "Quyết định biên tập viên mới nhất."
@@ -1773,7 +1948,9 @@ msgid "notification.uploadedResponse"
 msgstr "Phản hồi đã tải lên."
 
 msgid "notification.type.editorAssignment"
-msgstr "Phải chỉ định biên tập viên trước khi bắt đầu đánh giá. Vui lòng thêm biên tập viên bằng danh sách Người tham gia."
+msgstr ""
+"Phải chỉ định biên tập viên trước khi bắt đầu đánh giá. Vui lòng thêm biên "
+"tập viên bằng danh sách Người tham gia."
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Đã tạo một phiên bản mới của bài nộp"
@@ -1797,16 +1974,21 @@ msgid "log.review.reviewerAssigned"
 msgstr "{submissionId} cho vòng đánh giá {$round}."
 
 msgid "log.review.reviewCleared"
-msgstr "Việc đánh giá vòng {reviewerName} cho bài nộp {$submissionId} đã bị hủy."
+msgstr ""
+"Việc đánh giá vòng {reviewerName} cho bài nộp {$submissionId} đã bị hủy."
 
 msgid "log.review.reviewUnconsidered"
 msgstr "{round} cho bài nộp {$submissionId} là không được xem xét."
 
 msgid "log.review.reviewReinstated"
-msgstr "Việc đánh giá vòng {reviewerName} cho bài nộp {$submissionId} đã được bắt đầu lại."
+msgstr ""
+"Việc đánh giá vòng {reviewerName} cho bài nộp {$submissionId} đã được bắt "
+"đầu lại."
 
 msgid "log.review.reviewerResendRequest"
-msgstr "Đã gửi lại yêu cầu đánh giá ở vòng {reviewerName} cho bài nộp {$submissionid}."
+msgstr ""
+"Đã gửi lại yêu cầu đánh giá ở vòng {reviewerName} cho bài nộp "
+"{$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr "Biên tập viên {round} cho bài nộp {$submissionId}."
@@ -1836,7 +2018,9 @@ msgid "submission.review.status.complete"
 msgstr "Đánh giá này đã hoàn thành."
 
 msgid "submission.review.status.thanked"
-msgstr "Đánh giá này đã hoàn thành và người đánh giá đã được cảm ơn vì sự đóng góp của họ."
+msgstr ""
+"Đánh giá này đã hoàn thành và người đánh giá đã được cảm ơn vì sự đóng góp "
+"của họ."
 
 msgid "submission.document"
 msgstr "Tài liệu"
@@ -1866,10 +2050,15 @@ msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Quy trình sản xuất đã bắt đầu."
 
 msgid "notification.type.editorAssignmentProduction"
-msgstr "Phải chỉ định biên tập viên sản xuất trước khi quy trình sản xuất có thể được bắt đầu. Vui lòng thêm biên tập viên sản xuất bằng danh sách Người tham gia."
+msgstr ""
+"Phải chỉ định biên tập viên sản xuất trước khi quy trình sản xuất có thể "
+"được bắt đầu. Vui lòng thêm biên tập viên sản xuất bằng danh sách Người tham "
+"gia."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "Phải chỉ định biên tập viên sản xuất trước khi quy trình biên tập được bắt đầu. Vui lòng thêm biên tập viên sản xuất bằng danh sách Người tham gia."
+msgstr ""
+"Phải chỉ định biên tập viên sản xuất trước khi quy trình biên tập được bắt "
+"đầu. Vui lòng thêm biên tập viên sản xuất bằng danh sách Người tham gia."
 
 msgid "submission.reviewForm"
 msgstr "Biểu mẫu đánh giá"
@@ -1889,7 +2078,7 @@ msgstr "Quyền"
 msgid "submission.attachPermissions"
 msgstr "Đính kèm các quyền sau đây vào bài nộp:"
 
-msgid "submission.License\"
+msgid "submission.license"
 msgstr "Giấy phép"
 
 msgid "submission.copyright"
@@ -1938,40 +2127,104 @@ msgid "submission.license.cc.by-sa4"
 msgstr "CC Ghi công-Chia sẻ tương tự 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 4.0 Quốc tế</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel="
+"\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Giấy "
+"phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 4.0 Quốc "
+"tế</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại 4.0 Quốc tế</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Giấy phép Creative "
+"Commons Ghi công-Phi thương mại 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel="
+"\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Giấy "
+"phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 4.0 Quốc "
+"tế</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Giấy phép Creative Commons Ghi công-Không phái sinh 4.0 Quốc tế</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Giấy phép Creative "
+"Commons Ghi công-Không phái sinh 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by/4.0/\">Giấy phép Creative Commons Ghi công 4.0 Quốc tế</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by/4.0/\">Giấy phép Creative "
+"Commons Ghi công 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Giấy phép Creative Commons Ghi công-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Giấy phép Creative "
+"Commons Ghi công-Chia sẻ tương tự 4.0 Quốc tế</a>.</p>"
 
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel="
+"\"License\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Giấy "
+"phép Creative Commons Ghi công-Phi thương mại-Không phái sinh 3.0 Chưa được "
+"công bố</a>.</p>"
 
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại 3.0 Chưa được công bố</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Giấy phép Creative "
+"Commons Ghi công-Phi thương mại 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Giấy phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel="
+"\"License\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Giấy "
+"phép Creative Commons Ghi công-Phi thương mại-Chia sẻ tương tự 3.0 Chưa được "
+"công bố</a>.</p>"
 
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Giấy phép Creative Commons Ghi công-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Giấy phép Creative "
+"Commons Ghi công-Không phái sinh 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by/3.0/\">Giấy phép Creative Commons Ghi công 3.0 Chưa được công bố</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Giấy phép Creative "
+"Commons Ghi công 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Giấy phép Creative Commons Ghi công-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
+msgstr ""
+"<a rel=\"License\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Tác phẩm này được cấp phép theo <a rel=\"License\" "
+"href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Giấy phép Creative "
+"Commons Ghi công-Chia sẻ tương tự 3.0 Chưa được công bố</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Thảo luận trước khi đánh giá"
@@ -2007,7 +2260,9 @@ msgid "submission.query.leaveQuery"
 msgstr "Rời khỏi thảo luận"
 
 msgid "submission.query.leaveQuery.confirm"
-msgstr "Nếu bạn rời khỏi cuộc thảo luận này, bạn sẽ không còn được thông báo về tin nhắn mới. Bạn có muốn rời khỏi cuộc thảo luận không?"
+msgstr ""
+"Nếu bạn rời khỏi cuộc thảo luận này, bạn sẽ không còn được thông báo về tin "
+"nhắn mới. Bạn có muốn rời khỏi cuộc thảo luận không?"
 
 msgid "grid.action.openNoteForm"
 msgstr "Thêm câu trả lời mới vào cuộc thảo luận"
@@ -2028,10 +2283,9 @@ msgid "submission.query.participantTitle"
 msgstr "{userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr "Bạn phải chỉ định ít nhất một người tham gia cho bài nộp này trước khi bắt đầu một cuộc thảo luận."
-
-msgid "submission.query.allowedEditTime"
-msgstr "Bạn có thể cập nhật cuộc thảo luận này trong {$allowedEditTimeNoticeLimit} phút."
+msgstr ""
+"Bạn phải chỉ định ít nhất một người tham gia cho bài nộp này trước khi bắt "
+"đầu một cuộc thảo luận."
 
 msgid "submission.list.infoCenter"
 msgstr "Nhật ký hoạt động & Ghi chú"
@@ -2082,10 +2336,15 @@ msgid "submission.list.discussions"
 msgstr "Thảo luận đang mở"
 
 msgid "submission.list.dualWorkflowLinks"
-msgstr "Bạn đã được chỉ định nhiều vai trò cho bài nộp này. Bạn có muốn truy cập <a href=\"{urlEditorialWorkflow}\">Quy trình làm việc biên tập</a>?"
+msgstr ""
+"Bạn đã được chỉ định nhiều vai trò cho bài nộp này. Bạn có muốn truy cập <a "
+"href=\"{$urlAuthorWorkflow}\">Quy trình làm việc của tác giả</a> hoặc <a "
+"href=\"{$urlEditorialWorkflow}\">Quy trình làm việc biên tập</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
-msgstr "Bạn đã được chỉ định vai trò biên tập cho bài nộp này. Bạn có muốn truy cập <a href=\"{$urlEditorialWorkflow}\">Quy trình làm việc biên tập</a> không?"
+msgstr ""
+"Bạn đã được chỉ định vai trò biên tập cho bài nộp này. Bạn có muốn truy cập "
+"<a href=\"{$urlEditorialWorkflow}\">Quy trình làm việc biên tập</a> không?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Bài nộp này phải được hoàn thành trước khi biên tập viên xem xét nó."
@@ -2103,7 +2362,9 @@ msgid "submission.list.assignEditor"
 msgstr "Chỉ định biên tập viên"
 
 msgid "submission.wizard.alreadySubmitted"
-msgstr "Bài nộp này đã được gửi. Vui lòng truy cập <a href=\"{$url}">bảng điều khiển bài nộp</a> của bạn để xem nó."
+msgstr ""
+"Bài nộp này đã được gửi. Vui lòng truy cập <a href=\"{$url}\">bảng điều "
+"khiển bài nộp</a> của bạn để xem nó."
 
 msgid "submission.wizard.beforeStart"
 msgstr "Trước khi bắt đầu"
@@ -2118,16 +2379,23 @@ msgid "submission.wizard.completeSteps"
 msgstr "Hoàn thành các bước để gửi bài"
 
 msgid "submission.wizard.confirmSubmit"
-msgstr "Bài nộp, <strong>{context}</strong> để xem xét biên tập. Bạn có chắc chắn muốn hoàn thành bài nộp này không?"
+msgstr ""
+"Bài nộp, <strong>{$title}</strong>, sẽ được gửi đến <strong>{$context}</"
+"strong> để xem xét biên tập. Bạn có chắc chắn muốn hoàn thành bài nộp này "
+"không?"
 
 msgid "submission.wizard.errors"
-msgstr "Có một hoặc nhiều vấn đề cần được khắc phục trước khi bạn có thể gửi bài. Vui lòng xem lại thông tin dưới đây và thực hiện các thay đổi được yêu cầu."
+msgstr ""
+"Có một hoặc nhiều vấn đề cần được khắc phục trước khi bạn có thể gửi bài. "
+"Vui lòng xem lại thông tin dưới đây và thực hiện các thay đổi được yêu cầu."
 
 msgid "submission.wizard.validating"
 msgstr "Đang kiểm tra bài nộp của bạn"
 
 msgid "submission.wizard.commentsForTheEditor.description"
-msgstr "Thêm bất kỳ thông tin nào bạn nghĩ rằng đội ngũ biên tập của chúng tôi nên biết khi đánh giá bài nộp của bạn."
+msgstr ""
+"Thêm bất kỳ thông tin nào bạn nghĩ rằng đội ngũ biên tập của chúng tôi nên "
+"biết khi đánh giá bài nộp của bạn."
 
 msgid "submission.wizard.confirm"
 msgstr "Vui lòng xác nhận những điều sau trước khi bạn gửi bài."
@@ -2142,7 +2410,9 @@ msgid "submission.wizard.noContributors"
 msgstr "Chưa có người đóng góp nào được thêm vào bài nộp này."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "Tên riêng bị thiếu bằng ngôn ngữ {$language} cho một hoặc nhiều người đóng góp."
+msgstr ""
+"Tên riêng bị thiếu bằng ngôn ngữ {$language} cho một hoặc nhiều người đóng "
+"góp."
 
 msgid "submission.wizard.notAllowed"
 msgstr "Không được phép"
@@ -2154,10 +2424,15 @@ msgid "submission.wizard.saved"
 msgstr "Đã lưu để hoàn thành sau"
 
 msgid "submission.wizard.saved.description"
-msgstr "Chi tiết bài nộp của bạn đã được lưu trong hệ thống của chúng tôi, nhưng nó chưa được gửi đi xem xét. Bạn có thể quay lại để hoàn thành bài nộp của mình bất kỳ lúc nào bằng cách theo liên kết dưới đây."
+msgstr ""
+"Chi tiết bài nộp của bạn đã được lưu trong hệ thống của chúng tôi, nhưng nó "
+"chưa được gửi đi xem xét. Bạn có thể quay lại để hoàn thành bài nộp của mình "
+"bất kỳ lúc nào bằng cách theo liên kết dưới đây."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr "Chúng tôi đã gửi một bản sao liên kết này đến bạn theo địa chỉ email {$email}."
+msgstr ""
+"Chúng tôi đã gửi một bản sao liên kết này đến bạn theo địa chỉ email "
+"{$email}."
 
 msgid "submission.wizard.sectionClosed"
 msgstr "Phần đã đóng"
@@ -2169,7 +2444,9 @@ msgid "submission.wizard.startingStatus"
 msgstr "Bắt đầu nộp bài mới"
 
 msgid "submission.wizard.unableToSave"
-msgstr "Đã xảy ra lỗi và chúng tôi không thể lưu bài nộp của bạn. Bạn có thể đã bị ngắt kết nối."
+msgstr ""
+"Đã xảy ra lỗi và chúng tôi không thể lưu bài nộp của bạn. Bạn có thể đã bị "
+"ngắt kết nối."
 
 msgid "grid.category.categories"
 msgstr "Danh mục"
@@ -2216,8 +2493,8 @@ msgstr "Ngày phải ở định dạng YYYY-MM-DD, ví dụ: 2019-01-01."
 msgid "publication.event.versionCreated"
 msgstr "Đã tạo phiên bản mới."
 
-msgid "publication.publicationLicense\"
-msgstr "Quyền và công bố"
+msgid "publication.publicationLicense"
+msgstr "Quyền & Tiết lộ"
 
 msgid "publication.status.scheduled"
 msgstr "Đã lên lịch"
@@ -2256,13 +2533,19 @@ msgid "publication.wordCount"
 msgstr "Số từ: {limit}"
 
 msgid "doi.incorrectStaleStatus"
-msgstr "Không thể đánh dấu DOI cần đồng bộ hóa cho {$pubObjectTitle}. DOI không thể được đánh dấu cần đồng bộ hóa vì chúng chưa được đăng ký hoặc nộp."
+msgstr ""
+"Không thể đánh dấu DOI cần đồng bộ hóa cho {$pubObjectTitle}. DOI không thể "
+"được đánh dấu cần đồng bộ hóa vì chúng chưa được đăng ký hoặc nộp."
 
 msgid "doi.submission.notPublished"
-msgstr "Không thể đánh dấu DOI đã đăng ký cho {$pubObjectTitle}. Bài nộp phải được xuất bản trước khi trạng thái có thể được cập nhật."
+msgstr ""
+"Không thể đánh dấu DOI đã đăng ký cho {$pubObjectTitle}. Bài nộp phải được "
+"xuất bản trước khi trạng thái có thể được cập nhật."
 
 msgid "submission.viewingPreview"
-msgstr "Đây là bản xem trước và chưa được xuất bản. <a href=\"{$url}">Xem bài nộp</a>"
+msgstr ""
+"Đây là bản xem trước và chưa được xuất bản. <a href=\"{$url}\">Xem bài "
+"nộp</a>"
 
 msgid "author.submit.noFiles"
 msgstr "Chưa có tệp nào được tải lên cho bài nộp này."
@@ -2277,19 +2560,32 @@ msgid "submission.wizard.submittingToSection"
 msgstr "Đang nộp vào mục <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
-msgstr "Đang nộp vào mục <strong>{language}</strong>."
+msgstr ""
+"Đang nộp vào mục <strong>{$section}</strong> với ngôn ngữ "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
-msgstr "Loại bài nộp thường là 'image', 'text' hoặc các loại đa phương tiện khác bao gồm 'software' hoặc 'interactive'. Vui lòng chọn loại phù hợp nhất với bài nộp của bạn. Ví dụ có thể tìm thấy tại <a target="_blank" href=\"https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/</a>"
+msgstr ""
+"Loại bài nộp thường là 'image', 'text' hoặc các loại đa phương tiện khác bao "
+"gồm 'software' hoặc 'interactive'. Vui lòng chọn loại phù hợp nhất với bài "
+"nộp của bạn. Ví dụ có thể tìm thấy tại <a target=\"_blank\" href=\"https"
+"://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/"
+"generic/\">https://www.dublincore.org/specifications/dublin-core/usageguide/"
+"2001-04-12/generic/</a>"
 
 msgid "submission.source.tip"
-msgstr "Bài nộp này có được lấy từ một tài nguyên khác không? Nếu có, bạn có thể nhập URL hoặc mô tả về tài nguyên đó."
+msgstr ""
+"Bài nộp này có được lấy từ một tài nguyên khác không? Nếu có, bạn có thể "
+"nhập URL hoặc mô tả về tài nguyên đó."
 
 msgid "submission.rights.tip"
-msgstr "Nếu muốn, bạn có thể nhập tuyên bố ngắn gọn về quyền truy cập được giữ đối với bài nộp này."
+msgstr ""
+"Nếu muốn, bạn có thể nhập tuyên bố ngắn gọn về quyền truy cập được giữ đối "
+"với bài nộp này."
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "Thêm thông tin bổ sung cho bài nộp của bạn. Nhấn 'enter' sau mỗi thuật ngữ."
+msgstr ""
+"Thêm thông tin bổ sung cho bài nộp của bạn. Nhấn 'enter' sau mỗi thuật ngữ."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Liên hệ chính cho trao đổi biên tập."
@@ -2298,7 +2594,9 @@ msgid "submission.dataAvailability"
 msgstr "Tuyên bố khả dụng dữ liệu"
 
 msgid "submission.dataAvailability.tip"
-msgstr "Nêu rõ liệu bạn có công khai bằng chứng hỗ trợ cho công việc này hay không, và nếu có, nơi và cách thức truy cập nó"
+msgstr ""
+"Nêu rõ liệu bạn có công khai bằng chứng hỗ trợ cho công việc này hay không, "
+"và nếu có, nơi và cách thức truy cập nó"
 
 msgid "submission.files.required.genre"
 msgstr "Bạn phải tải lên ít nhất một tệp {$genre}."
@@ -2309,6 +2607,39 @@ msgstr "Bạn phải tải lên ít nhất một tệp của mỗi loại tệp 
 msgid "publication.version"
 msgstr "Phiên bản {$version}"
 
+#~ msgid "submission.layout.supplementaryFiles"
+#~ msgstr "Xem Tập tin bổ sung"
+
+#~ msgid "submission.layout.newSupplementaryFile"
+#~ msgstr "Tải lên Tập tin bổ sung Mới"
+
+#~ msgid "submission.layout.confirmDeleteSupplementaryFile"
+#~ msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn tập tin phụ trợ này?"
+
+#~ msgid "submission.addSuppFile"
+#~ msgstr "Thêm một tập tin bổ sung"
+
+#~ msgid "publication.titleAbstract.success"
+#~ msgstr "Tiêu đề và tóm tắt đã được cập nhật."
+
+#~ msgid "publication.publish.success"
+#~ msgstr "Trạng thái xuất bản đã được thay đổi thành công."
+
+#~ msgid "publication.publicationLicense.success"
+#~ msgstr "Thông tin bản quyền và giấy phép đã được cập nhật."
+
+#~ msgid "publication.publicationIdentifiers.success"
+#~ msgstr "Định danh đã được cập nhật."
+
+#~ msgid "publication.metadata.success"
+#~ msgstr "Siêu dữ liệu đã được cập nhật."
+
+#~ msgid "submission.supplementaryFiles"
+#~ msgstr "Các tập tin phụ trợ"
+
+#~ msgid "publication.citations.success"
+#~ msgstr "Các tài liệu tham khảo đã được cập nhật."
+
 msgid "submission.submissionFile"
 msgstr "Tệp bài nộp"
 
@@ -2316,4 +2647,507 @@ msgid "author.competingInterests"
 msgstr "Xung đột lợi ích"
 
 msgid "author.competingInterests.description"
-msgstr "Vui lòng tiết lộ bất kỳ xung đột lợi ích nào mà tác giả này có thể có với chủ đề nghiên cứu."
+msgstr ""
+"Vui lòng tiết lộ bất kỳ xung đột lợi ích nào mà tác giả này có thể có với "
+"chủ đề nghiên cứu."
+
+msgid "submission.author.list"
+msgstr "Danh sách tác giả bài nộp"
+
+msgid "submission.authors.label"
+msgstr "Tác giả"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Đã gửi lại để đánh giá."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Bạn có thể cập nhật cuộc thảo luận này trong {$allowedEditTimeNoticeLimit} "
+"phút."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Số lượng bài phản biện tối thiểu cần thiết đã được xác nhận. Cần có một "
+"quyết định."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Số lượng bài phản biện được xác nhận tối thiểu yêu cầu: {$number}."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Cảnh báo: Phiên bản này đã được xuất bản. Việc chỉnh sửa có thể ảnh hưởng "
+"đến nội dung đã xuất bản."
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Cần hành động từ tôi"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Đã lưu trữ"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Đã từ chối"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Đã xuất bản"
+
+msgid "submission.stage.published"
+msgstr "Đã xuất bản"
+
+msgid "publication.jats.lastModified"
+msgstr "Sửa đổi lần cuối vào {$modificationDate} bởi {$username}"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Xóa các Bài nộp Chưa hoàn chỉnh"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Phản biện (Vòng {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Đã lên lịch xuất bản"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Xác nhận xóa JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "Bạn sắp xóa Tệp JATS XML hiện có khỏi ấn phẩm này. Bạn có chắc không?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Xóa tệp JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Tệp JATS này được tạo tự động từ siêu dữ liệu bài nộp"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Đã xảy ra lỗi khi cố gắng tạo nội dung JATS mặc định. Vui lòng đảm bảo rằng "
+"plugin JatsTemplate đã được cài đặt."
+
+msgid "submission.files.content.error"
+msgstr "Không thể truy xuất nội dung của tệp bài nộp '{$fileName}'."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Lý do đề xuất người phản biện"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Vui lòng chia sẻ lý do bạn đề xuất người phản biện này và đề cập nếu có bất "
+"kỳ xung đột lợi ích tiềm ẩn nào."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Ngôn ngữ của bài nộp ({$language}) không phải là một trong những ngôn ngữ "
+"nộp bài được hỗ trợ. Bạn vẫn có thể chỉnh sửa chi tiết bài nộp nhưng hiện "
+"tại không chấp nhận bài nộp mới bằng ngôn ngữ này."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Người phản biện đã được chỉ định"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Cập nhật phản biện {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Áp dụng Bộ lọc"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Bắt đầu Bài nộp Mới"
+
+msgid "dashboard.assignReviewers"
+msgstr "Chỉ định Người phản biện"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Yêu cầu sửa đổi từ tác giả"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Yêu cầu sửa đổi từ tác giả để chuyển sang vòng phản biện mới"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Vòng phản biện mới sẽ được tạo"
+
+msgid "dashboard.revisionRequested"
+msgstr "Đã yêu cầu sửa đổi"
+
+msgid "dashboard.submitRevisions"
+msgstr "Nộp bản sửa đổi"
+
+msgid "workflow.uploadRevisions"
+msgstr "Tải lên bản sửa đổi"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Phản hồi yêu cầu"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Hoàn thành phản biện"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Vui lòng chấp nhận hoặc từ chối yêu cầu này trước {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Yêu cầu bị từ chối vào {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Bài phản biện đã được nộp vào {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Hạn chót phản hồi yêu cầu này đã qua. Vui lòng chấp nhận hoặc từ chối yêu "
+"cầu này sớm nhất có thể."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Vui lòng hoàn thành bài phản biện này trước {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Hạn chót hoàn thành bài phản biện này đã qua. Vui lòng hoàn thành bài phản "
+"biện sớm nhất có thể."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Yêu cầu phản biện đã được chia sẻ với người phản biện. Đang chờ phản hồi "
+"trong <b>{$days} ngày vào {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Yêu cầu Phản biện quá hạn {$days} ngày"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Người phản biện này chưa phản hồi yêu cầu phản biện. Hạn chót phản hồi là "
+"vào <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Đang phản biện - yêu cầu đã được chấp nhận"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Người phản biện này đã chấp nhận yêu cầu phản biện. Bài phản biện của họ đến "
+"hạn trong <b>{$days} ngày vào {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Phản biện quá hạn {$days} ngày"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Người phản biện này chưa hoàn thành bài phản biện của họ. Hạn chót phản hồi "
+"là vào <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Phản biện hoàn thành vào {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Bài phản biện đã được hoàn thành vào {$date} với đề xuất sau: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Bài phản biện đã được biên tập viên xác nhận"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Bài phản biện đã được biên tập viên chấp nhận vào <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Người phản biện đã hủy yêu cầu phản biện"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Người phản biện đã hủy yêu cầu phản biện vào <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Đang chờ Phản hồi từ người phản biện"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Yêu cầu phản biện đã được chia sẻ lại với người phản biện. Đang chờ phản hồi "
+"trong {$days} ngày vào {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Xem chi tiết"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Gửi lại Yêu cầu Phản biện"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Hủy Người phản biện"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Hủy phân công"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Chỉnh sửa Ngày đến hạn"
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Tiếp tục mà không cần đủ số lượng Phản biện Xác nhận Tối thiểu?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Chưa đạt đủ số lượng bài phản biện được xác nhận tối thiểu. Bạn vẫn muốn "
+"tiếp tục với quyết định biên tập này chứ?"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Bản sửa đổi đã tải lên"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Các tệp này đã được tác giả nộp sau khi có yêu cầu sửa đổi"
+
+msgid "fileManager.filesForReview"
+msgstr "Tệp để Phản biện"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Các tệp này sẽ được gửi cho người phản biện để xem xét"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Tệp đã Biên tập Bản thảo"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Đây là các tệp đã chỉnh sửa sẽ được chuyển sang giai đoạn sản xuất"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Đây là các tệp từ giai đoạn phản biện cần được biên tập bản thảo"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Đây là các tệp sẽ được gửi đi xuất bản"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Trạng thái người phản biện"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Xác nhận Xóa các Bài nộp Chưa hoàn chỉnh"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Bạn có chắc chắn muốn xóa các mục đã chọn không? Hành động này không thể "
+"hoàn tác. Vui lòng xác nhận để tiếp tục."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Chọn các bài nộp chưa hoàn chỉnh để xóa."
+
+msgid "ror.nameRequired"
+msgstr "Yêu cầu tên ROR."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Yêu cầu ngôn ngữ hiển thị ROR."
+
+msgid "author.authorNotFound"
+msgstr "Không tìm thấy tác giả cho liên kết này."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Vui lòng cung cấp liên kết ROR hoặc ít nhất một tên liên kết."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Vui lòng cung cấp tên liên kết bằng ngôn ngữ chính của bài nộp."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Đã hủy bài nộp"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Hủy bài nộp"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Bài nộp đã bị hủy và tất cả dữ liệu liên quan đã bị xóa."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Dành cho Đề xuất Người phản biện"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Đề xuất Người phản biện"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Đề xuất đã được bạn thực hiện."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Người phản biện do Tác giả đề xuất"
+
+msgid "submission.review.status.viewed"
+msgstr "Biên tập viên đã xem bài phản biện."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Ngôn ngữ Bài nộp Hiện tại:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Thay đổi"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Thay đổi Ngôn ngữ Bài nộp Cho"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Đây là ngôn ngữ chính của bài nộp. Việc thay đổi ngôn ngữ này sẽ ảnh hưởng "
+"đến bài nộp và siêu dữ liệu đã nhập"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Trước khi thay đổi ngôn ngữ bài nộp, hãy đảm bảo bạn đã điền các "
+"trường siêu dữ liệu sau để duy trì tính toàn vẹn của hệ thống. Đồng thời, "
+"lưu ý rằng thông tin người đóng góp và tên tệp sẽ được sao chép từ thông tin "
+"đã nhập trước đó.</strong>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Nhập tiêu đề bài nộp tại đây bằng {$language}. Bạn có thể định dạng tiêu đề "
+"của mình nếu cần"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Nên bao gồm tóm tắt bằng {$language}. Điều này giúp đảm bảo nội dung có thể "
+"truy cập được"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Xem Tóm tắt Bài nộp"
+
+msgid "submission.list.completeSubmission"
+msgstr "Hoàn thành bài nộp"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Bạn có chắc chắn muốn hủy bài nộp này không? Thao tác này sẽ xóa bài nộp và "
+"tất cả dữ liệu liên quan. Hành động này không thể hoàn tác."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Chưa có người phản biện nào được đề xuất cho bài nộp này."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Tên liên kết bằng {$language} bị thiếu cho một hoặc nhiều liên kết của một "
+"hoặc nhiều người đóng góp."
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Tất cả đang trong quá trình phản biện đồng cấp"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Chờ phản biện"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Đã nộp bài phản biện"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Đã giao cho tôi"
+
+msgid "submission.dashboard.view.active"
+msgstr "Bài nộp đang hoạt động"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Cần biên tập viên"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Đang chờ Phản hồi từ người phản biện"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Biên tập viên Đề xuất có nhiệm vụ tư vấn các bước tiếp theo cho bài nộp này"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Đã nhận được một đề xuất biên tập"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr "Tất cả các đề xuất biên tập đã được nhận, và cần có một quyết định."
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Bạn không thể truy cập bài nộp này với tư cách là Quản lý Tạp chí vì bạn là "
+"tác giả. Để xem nó, hãy đi tới \"Bài nộp của tôi\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Bạn không thể truy cập bài nộp này với tư cách là Quản lý Tạp chí vì bạn là "
+"người phản biện. Để xem nó, hãy đi tới \"Phân công Phản biện\""
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Chỉ được phép đề xuất một quyết định biên tập"
+
+msgid "workflow.stageNotStarted"
+msgstr "Giai đoạn {$stage} chưa được bắt đầu."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Bài nộp hiện đang ở giai đoạn {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Bài nộp đã chuyển sang vòng phản biện tiếp theo, đã được chấp nhận, và hiện "
+"đang ở giai đoạn {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Bài nộp đã được chuyển sang vòng phản biện tiếp theo"
+
+msgid "workflow.reviewRoundN"
+msgstr "Vòng Phản biện {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Các tệp được tải lên tại thời điểm nộp bài"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Sẽ được xuất bản trong số {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Tệp đã Biên tập Bản thảo được Tải lên: {$count}"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Cần phản biện"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Tất cả trong giai đoạn nộp bài"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Tất cả trong giai đoạn phản biện"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Phản biện quá hạn"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Tất cả trong giai đoạn biên tập bản thảo"
+
+msgid "submission.dashboard.view.production"
+msgstr "Tất cả trong giai đoạn sản xuất"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Đã lên lịch xuất bản"
+
+msgid "submission.dashboard.view.published"
+msgstr "Đã xuất bản"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Đã từ chối"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Yêu cầu sửa đổi"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Tác giả đã nộp bản sửa đổi"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Bài nộp chưa hoàn chỉnh"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Tất cả phân công"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Đang chờ xử lý"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Đã hoàn thành / Đã từ chối"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Tất cả phân công"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Đã hoàn thành"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Yêu cầu Phản biện bị từ chối vào {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Người phản biện đã từ chối yêu cầu phản biện vào <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Xem đề xuất"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Xem đề xuất chưa đọc"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Gửi Phản biện đến ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Gửi bài phản biện này đến ORCID của người phản biện?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Đã bị từ chối trong giai đoạn {$stageName}."

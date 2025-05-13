@@ -73,6 +73,9 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
         if ($userId) {
             //send invitation using edit user action in user access table
             $user = Repo::user()->get($userId, true);
+            if (!$user) {
+                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+            }
             $invitationPayload = (
             new UserRoleAssignmentInviteResource($this->invitation))
                 ->transformInvitationPayload($userId, $user->getAllData(), $request->getContext()

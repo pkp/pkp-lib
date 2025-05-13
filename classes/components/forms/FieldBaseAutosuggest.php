@@ -33,6 +33,31 @@ abstract class FieldBaseAutosuggest extends Field
     public $selected = [];
 
     /**
+     * @var array List of controlled vocabularies available for selection.
+     * Each vocabulary should be structured as:
+     * [
+     *   'locale' => string  // The locale this vocabulary applies to (e.g., 'en')
+     *   'addButtonLabel' => string  // Label for the button to add from this vocabulary
+     *   'title' => string  // Title to display in the vocabulary selection modal
+     *   'modalComponent' => string  // (Optional) Custom modal component to use for this vocabulary. Defaults to VocabularyModal
+     *   'items' => [  // Hierarchical tree of vocabulary items
+     *     [
+     *       'identifier' => string  // Unique identifier for the vocabulary item
+     *       'name' => string  // Display name of the vocabulary item
+     *       'source' => string  // (Optional) Source of the vocabulary (e.g., 'Frascati')
+     *       'items' => [  // (Optional) Child items for hierarchical vocabularies
+     *         // Each child follows the same structure (identifier, name, source, items)
+     *       ]
+     *     ],
+     *     // Additional top-level vocabulary items...
+     *   ]
+     * ]
+     */
+    public $vocabularies = [];
+
+    
+
+    /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
@@ -43,6 +68,7 @@ abstract class FieldBaseAutosuggest extends Field
         $config['getParams'] = empty($this->getParams) ? new \stdClass() : $this->getParams;
         $config['selectedLabel'] = __('common.selectedPrefix');
         $config['selected'] = $this->selected;
+        $config['vocabularies'] = $this->vocabularies;
 
         return $config;
     }

@@ -1,7 +1,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-14 03:12+0000\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/vi/>\n"
@@ -16,77 +16,76 @@ msgid "editor.submissionArchive.confirmDelete"
 msgstr "Bạn có chắc chắn muốn xóa vĩnh viễn bài nộp này không?"
 
 msgid "editor.activityLog"
-msgstr "Nhật ký Hoạt động"
+msgstr "Nhật ký hoạt động"
 
 msgid "editor.submissionLibrary"
 msgstr "Thư viện"
 
 msgid "editor.submission.workflowDecision.submission"
-msgstr "Quyết định đã được ghi nhận"
+msgstr "Quyết định đã ghi lại"
 
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Bài nộp bị từ chối."
+msgstr "Bài nộp đã từ chối."
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Bài nộp được chấp nhận."
+msgstr "Bài nộp đã chấp nhận."
 
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Bài nộp đã được xuất bản."
+msgstr "Bài nộp đã xuất bản."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Đã gửi cho một vòng phản biện mới."
+msgstr "Đã gửi đi vòng đánh giá mới."
 
 msgid "editor.submission.workflowDecision.submission.production"
 msgstr "Đã gửi đến sản xuất."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Bài nộp được chấp nhận để phản biện."
+msgstr "Bài nộp đã được chấp nhận để đánh giá."
 
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Thay đổi quyết định"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr "Bạn không có quyền ghi nhận quyết định này cho bài nộp này."
+msgstr "Bạn không có quyền ghi lại quyết định này về bài nộp này."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"Biên tập viên không được nhận dạng và có thể không có quyền ghi nhận quyết "
-"định cho bài nộp này."
+"Biên tập viên không được nhận dạng và có thể không có quyền ghi lại quyết "
+"định về bài nộp này."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr "Bạn không thể gửi email đến những người nhận sau: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr "Không tìm thấy vòng phản biện này."
+msgstr "Không tìm thấy vòng đánh giá này."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
-"Đã cung cấp một vòng phản biện nhưng quyết định này không được đưa ra trong "
-"giai đoạn phản biện."
+"Đã cung cấp vòng đánh giá nhưng quyết định này không được đưa ra trong giai "
+"đoạn đánh giá."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr "Vòng phản biện này không phải là một phần của bài nộp này."
+msgstr "Vòng đánh giá này không phải là một phần của bài nộp này."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
-"Bài nộp không ở giai đoạn thích hợp của quy trình làm việc để đưa ra quyết "
+"Bài nộp không ở giai đoạn phù hợp của quy trình làm việc để đưa ra quyết "
 "định này."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
-msgstr ""
-"Bạn phải được phân công cho bài nộp này để ghi nhận quyết định biên tập."
+msgstr "Bạn phải được chỉ định cho bài nộp này để ghi lại quyết định biên tập."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr "Cần cung cấp ID vòng phản biện để đưa ra quyết định này."
+msgstr "Phải cung cấp ID vòng đánh giá để đưa ra quyết định này."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
-"Không thể đưa ra đề xuất trừ khi có một biên tập viên được phân công cho "
-"giai đoạn này có thể đưa ra quyết định cuối cùng."
+"Không thể đưa ra đề xuất trừ khi có biên tập viên được chỉ định cho giai "
+"đoạn này có thể đưa ra quyết định cuối cùng."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
-"Không thể đưa ra quyết định cho bài nộp này. ID bài nộp bị thiếu hoặc không "
+"Không thể đưa ra quyết định về bài nộp này. ID bài nộp bị thiếu hoặc không "
 "khớp với bài nộp được yêu cầu."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
@@ -95,87 +94,87 @@ msgstr ""
 "dạng."
 
 msgid "editor.review.notInitiated"
-msgstr "Quy trình phản biện chưa được bắt đầu."
+msgstr "Quy trình đánh giá chưa được bắt đầu."
 
 msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Tin nhắn cho người dùng"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Chọn các tệp dưới đây để gửi chúng đến giai đoạn phản biện."
+msgstr "Chọn tệp bên dưới để gửi chúng đến giai đoạn đánh giá."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "Bạn phải chọn ít nhất một tệp để phân công cho người dùng."
+msgstr "Bạn phải chọn ít nhất một tệp để chỉ định người dùng."
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Bạn phải bao gồm một tin nhắn cá nhân."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Không gửi email cho Kiểm toán viên"
+msgstr "Không gửi email cho người kiểm tra"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "Bạn phải chọn một người dùng để phân công."
+msgstr "Bạn phải chọn một người dùng để chỉ định."
 
 msgid "editor.submission.uploadSelectFiles"
-msgstr "Tải lên/Chọn Tệp"
+msgstr "Tải lên/Chọn tệp"
 
 msgid "editor.submission.selectFiles"
-msgstr "Chọn Tệp"
+msgstr "Chọn tệp"
 
 msgid "editor.submission.revisions"
-msgstr "Các bản sửa đổi"
+msgstr "Bản sửa đổi"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
-"Sử dụng <em>+Thêm Người phản biện</em> để mời độc giả phản biện các tệp bài "
-"nộp. Biểu tượng sổ tay cho biết một phản biện đã được gửi, sau đó được đánh "
-"dấu <em>Đã xác nhận</em> sau khi đã được xem xét. Khi phản biện quá hạn, "
-"biểu tượng phong bì màu đỏ xuất hiện để nhắc nhở người phản biện."
+"Sử dụng <em>+Thêm người đánh giá</em> để mời người đọc đánh giá tệp bài nộp. "
+"Biểu tượng sổ tay chỉ ra rằng đã có đánh giá được nộp, sau đó được đánh dấu "
+"<em>Đã xác nhận</em> sau khi đã được xem xét. Khi đánh giá quá hạn, biểu "
+"tượng phong bì màu đỏ xuất hiện để nhắc nhở người đánh giá."
 
 msgid "editor.submission.addReviewer"
-msgstr "Thêm Người phản biện"
+msgstr "Thêm người đánh giá"
 
 msgid "editor.submission.findAndSelectReviewer"
-msgstr "Tìm Người phản biện"
+msgstr "Tìm người đánh giá"
 
 msgid "editor.submission.findAndSelectUser"
-msgstr "Tìm Người dùng"
+msgstr "Tìm người dùng"
 
 msgid "editor.submission.fileList.includeAllStages"
 msgstr ""
-"Hiển thị các tệp từ tất cả các giai đoạn quy trình làm việc có thể truy cập."
+"Hiển thị tệp từ tất cả các giai đoạn quy trình làm việc có thể truy cập."
 
 msgid "editor.submission.review.currentFiles"
-msgstr "Các Tệp Phản biện Hiện tại cho Vòng {$round}"
+msgstr "Tệp đánh giá hiện tại cho vòng {$round}"
 
 msgid "editor.submission.backToSearch"
-msgstr "Quay lại Tìm kiếm"
+msgstr "Quay lại tìm kiếm"
 
 msgid "editor.review.createReviewer"
-msgstr "Tạo Người phản biện Mới"
+msgstr "Tạo người đánh giá mới"
 
 msgid "editor.review.enrollReviewer.short"
-msgstr "Đăng ký Người dùng Hiện có"
+msgstr "Đăng ký người dùng hiện có"
 
 msgid "editor.review.unassignReviewer"
-msgstr "Hủy phân công Người phản biện"
+msgstr "Hủy chỉ định người đánh giá"
 
 msgid "editor.review.cancelReviewer"
-msgstr "Hủy Người phản biện"
+msgstr "Hủy người đánh giá"
 
 msgid "editor.review.reinstateReviewer"
-msgstr "Phục hồi Người phản biện"
+msgstr "Khôi phục người đánh giá"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr "Gửi lại Yêu cầu Phản biện"
+msgstr "Gửi lại yêu cầu đánh giá"
 
 msgid "editor.submissionReview.reviewType"
-msgstr "Loại Phản biện"
+msgstr "Loại đánh giá"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr "Gửi email thông báo cho (các) tác giả: {$authorName}"
+msgstr "Gửi email thông báo cho tác giả: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Gửi email thông báo cho (các) biên tập viên: {$editorNames}"
+msgstr "Gửi email thông báo cho biên tập viên: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Không gửi email thông báo"
@@ -184,296 +183,293 @@ msgid "editor.submissionReview.open"
 msgstr "Mở"
 
 msgid "editor.submissionReview.anonymous"
-msgstr "Người phản biện Ẩn danh/Tác giả Công khai"
+msgstr "Người đánh giá ẩn danh/Tác giả được công bố"
 
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Người phản biện Ẩn danh/Tác giả Ẩn danh"
+msgstr "Người đánh giá ẩn danh/Tác giả ẩn danh"
 
 msgid "editor.submissionReview.restrictFiles"
-msgstr "Các Tệp cần Phản biện"
+msgstr "Tệp cần đánh giá"
 
 msgid "editor.submissionReview.restrictFiles.hide"
-msgstr "Đóng Lựa chọn Tệp"
+msgstr "Đóng chọn tệp"
 
 msgid "editor.submissionReview.editReview"
-msgstr "Sửa Phản biện"
+msgstr "Chỉnh sửa đánh giá"
 
 msgid "editor.review.anonymousReviewer"
-msgstr "Người phản biện Ẩn danh"
+msgstr "Người đánh giá ẩn danh"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr "Email sẽ được gửi cho người phản biện"
+msgstr "Email sẽ gửi cho người đánh giá"
 
 msgid "editor.review.importantDates"
-msgstr "Ngày Quan trọng"
+msgstr "Ngày quan trọng"
 
 msgid "editor.review.uploadRevision"
-msgstr "Tải lên Bản sửa đổi"
+msgstr "Tải lên bản sửa đổi"
 
 msgid "editor.review.newReviewRound"
-msgstr "Yêu cầu Vòng Phản biện Mới"
+msgstr "Yêu cầu vòng đánh giá mới"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr ""
-"Các bản sửa đổi sẽ không phải trải qua một vòng phản biện chuyên gia mới."
+msgstr "Các sửa đổi sẽ không phải chịu một vòng bình duyệt mới."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Các bản sửa đổi sẽ phải trải qua một vòng phản biện chuyên gia mới."
+msgstr "Các sửa đổi sẽ phải chịu một vòng bình duyệt mới."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
-"Các bản sửa đổi không nên phải trải qua một vòng phản biện chuyên gia mới."
+msgstr "Các sửa đổi không nên phải chịu một vòng bình duyệt mới."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr "Các bản sửa đổi nên phải trải qua một vòng phản biện chuyên gia mới."
+msgstr "Các sửa đổi nên phải chịu một vòng bình duyệt mới."
 
 msgid "editor.review.dateAccepted"
-msgstr "Ngày Chấp nhận Phản biện"
+msgstr "Ngày chấp nhận đánh giá"
 
 msgid "editor.review.reviewsAdded"
-msgstr "Các phản biện đã được thêm vào nội dung tin nhắn."
+msgstr "Đánh giá đã được thêm vào nội dung tin nhắn."
 
 msgid "editor.review.noReviews"
-msgstr "Không có phản biện chuyên gia nào để nhập"
+msgstr "Không có bình duyệt nào để nhập"
 
 msgid "editor.review.reminder"
-msgstr "Nhắc nhở Phản biện"
+msgstr "Nhắc nhở đánh giá"
 
 msgid "editor.review.thankReviewer"
-msgstr "Cảm ơn Người phản biện"
+msgstr "Cảm ơn người đánh giá"
 
 msgid "editor.review.reminderError"
-msgstr "Lỗi gửi nhắc nhở phản biện"
+msgstr "Lỗi khi gửi nhắc nhở đánh giá"
 
 msgid "editor.review.thankReviewerError"
-msgstr "Lỗi gửi lời cảm ơn đến người phản biện"
+msgstr "Lỗi khi gửi lời cảm ơn đến người đánh giá"
 
 msgid "editor.review.skipEmail"
-msgstr "Không gửi email cho Người phản biện."
+msgstr "Không gửi email cho người đánh giá."
 
 msgid "editor.review.sendReminder"
-msgstr "Gửi Nhắc nhở"
+msgstr "Gửi nhắc nhở"
 
 msgid "editor.review.readReview"
-msgstr "Đọc Phản biện"
+msgstr "Đọc đánh giá"
 
 msgid "editor.review.readNewReview"
-msgstr "Đọc Phản biện Mới"
+msgstr "Đọc đánh giá mới"
 
 msgid "editor.review.responseDue"
-msgstr "Hạn chót phản hồi: {$date}"
+msgstr "Hạn phản hồi: {$date}"
 
 msgid "editor.review.requestSent"
-msgstr "Yêu cầu Đã gửi"
+msgstr "Yêu cầu đã gửi"
 
 msgid "editor.review.requestAccepted"
-msgstr "Yêu cầu Được chấp nhận"
+msgstr "Yêu cầu đã chấp nhận"
 
 msgid "editor.review.requestDeclined"
-msgstr "Yêu cầu Bị từ chối"
+msgstr "Yêu cầu đã từ chối"
 
 msgid "editor.review.requestCancelled"
-msgstr "Yêu cầu Bị hủy"
+msgstr "Yêu cầu đã hủy"
 
 msgid "editor.review.requestDeclined.tooltip"
-msgstr "Người phản biện đã từ chối yêu cầu phản biện này."
+msgstr "Người đánh giá đã từ chối yêu cầu đánh giá này."
 
 msgid "editor.review.requestCancelled.tooltip"
-msgstr "Biên tập viên đã hủy yêu cầu phản biện này."
+msgstr "Biên tập viên đã hủy yêu cầu đánh giá này."
 
 msgid "editor.review.revertDecision"
-msgstr "Hoàn tác Quyết định"
+msgstr "Đảo ngược quyết định"
 
 msgid "editor.review.reviewDue"
-msgstr "Hạn chót phản biện: {$date}"
+msgstr "Hạn đánh giá: {$date}"
 
 msgid "editor.review.reviewDueDate"
-msgstr "Ngày Đến hạn Phản biện"
+msgstr "Ngày đáo hạn đánh giá"
 
 msgid "editor.review.reviewCompleted"
-msgstr "Phản biện Đã hoàn thành"
+msgstr "Đánh giá đã hoàn thành"
 
 msgid "editor.review.reviewConfirmed"
-msgstr "Phản biện Đã xác nhận"
+msgstr "Đánh giá đã xác nhận"
 
 msgid "editor.review.reviewSubmitted"
-msgstr "Phản biện Đã gửi"
+msgstr "Đánh giá đã nộp"
 
 msgid "editor.review.reviewerThanked"
-msgstr "Đã cảm ơn Người phản biện"
+msgstr "Đã cảm ơn người đánh giá"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr "Yêu cầu Đã gửi lại"
+msgstr "Yêu cầu đã gửi lại"
 
 msgid "editor.review.reviewerComments"
-msgstr "Nhận xét của Người phản biện"
+msgstr "Nhận xét của người đánh giá"
 
 msgid "editor.review.rateReviewer"
-msgstr "Đánh giá người phản biện"
+msgstr "Đánh giá người đánh giá"
 
 msgid "editor.review.rateReviewer.description"
 msgstr ""
-"Đánh giá chất lượng của phản biện được cung cấp. Đánh giá này không được "
-"chia sẻ với người phản biện."
+"Đánh giá chất lượng đánh giá đã cung cấp. Đánh giá này không chia sẻ với "
+"người đánh giá."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Không có đánh giá"
 
 msgid "editor.review.mustSelect"
-msgstr "Bạn phải chọn một người phản biện"
+msgstr "Bạn phải chọn một người đánh giá"
 
 msgid "editor.review.errorAddingReviewer"
-msgstr "Đã xảy ra lỗi khi thêm người phản biện. Vui lòng thử lại."
+msgstr "Đã xảy ra lỗi khi thêm người đánh giá. Vui lòng thử lại."
 
 msgid "editor.review.errorDeletingReviewer"
-msgstr "Đã xảy ra lỗi khi xóa người phản biện. Vui lòng thử lại."
+msgstr "Đã xảy ra lỗi khi xóa người đánh giá. Vui lòng thử lại."
 
 msgid "editor.review.errorReinstatingReviewer"
-msgstr "Đã xảy ra lỗi khi phục hồi người phản biện. Vui lòng thử lại."
+msgstr "Đã xảy ra lỗi khi khôi phục người đánh giá. Vui lòng thử lại."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
-"Đã xảy ra lỗi khi yêu cầu người phản biện xem xét lại lời mời phản biện. Vui "
+"Đã xảy ra lỗi khi yêu cầu người đánh giá xem xét lại lời mời đánh giá. Vui "
 "lòng thử lại."
 
 msgid "editor.review.userGroupSelect"
-msgstr "Đăng ký người dùng với nhóm người dùng phản biện này"
+msgstr "Đăng ký người dùng với nhóm người đánh giá này"
 
 msgid "editor.review.unconsiderReviewText"
 msgstr ""
-"Bạn có muốn đánh dấu phản biện này là chưa được xem xét không? Lịch sử phản "
-"biện sẽ được bảo tồn."
+"Bạn có muốn đánh dấu đánh giá này là không được xem xét không? Lịch sử đánh "
+"giá sẽ được giữ lại."
 
 msgid "editor.review.unconsiderReview"
-msgstr "Không xem xét Phản biện này"
+msgstr "Không xem xét đánh giá này"
 
 msgid "editor.review.readConfirmation"
 msgstr ""
-"Sau khi phản biện này đã được đọc, nhấn \"Xác nhận\" để chỉ ra rằng quy "
-"trình phản biện có thể tiếp tục. Nếu người phản biện đã gửi phản biện của họ "
-"ở nơi khác, bạn có thể tải lên tệp dưới đây và sau đó nhấn \"Xác nhận\" để "
-"tiếp tục."
+"Khi đánh giá này đã được đọc, nhấn \"Xác nhận\" để chỉ ra rằng quy trình "
+"đánh giá có thể tiếp tục. Nếu người đánh giá đã nộp đánh giá ở nơi khác, bạn "
+"có thể tải tệp lên bên dưới và sau đó nhấn \"Xác nhận\" để tiếp tục."
 
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
-"Không thể tạo cuộc thảo luận với những người tham gia đã chọn vì nó sẽ ảnh "
-"hưởng đến tính ẩn danh của quy trình phản biện."
+"Không thể tạo thảo luận với những người tham gia đã chọn vì điều đó sẽ ảnh "
+"hưởng đến tính ẩn danh của quy trình đánh giá."
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Một người tham gia được chọn không được phân công cho giai đoạn này."
+msgstr "Một người tham gia đã chọn không được chỉ định cho giai đoạn này."
 
 msgid "editor.submission.schedulePublication"
-msgstr "Lên lịch Xuất bản"
+msgstr "Lên lịch xuất bản"
 
 msgid "editor.submission.selectCopyedingFiles"
-msgstr "Tệp Rà soát bản thảo"
+msgstr "Tệp chỉnh sửa"
 
 msgid "editor.submission.selectReviewer"
-msgstr "Chọn Người phản biện"
+msgstr "Chọn người đánh giá"
 
 msgid "editor.submission.taskDueDate"
-msgstr "Ngày Đến hạn Nhiệm vụ"
+msgstr "Ngày đáo hạn công việc"
 
 msgid "editor.submission.taskSchedule"
-msgstr "Lịch trình Nhiệm vụ"
+msgstr "Lịch trình công việc"
 
 msgid "editor.review.enrollReviewer"
-msgstr "Đăng ký Người dùng Hiện có làm Người phản biện"
+msgstr "Đăng ký người dùng hiện có làm người đánh giá"
 
 msgid "editor.submission.noAuditRequested"
-msgstr "Không có yêu cầu kiểm toán cho tệp này"
+msgstr "Không yêu cầu kiểm tra cho tệp này"
 
 msgid "editor.submission.personalMessageToUser"
-msgstr "Email sẽ được gửi cho người dùng"
+msgstr "Email sẽ gửi cho người dùng"
 
 msgid "editor.submission.proof.reminder"
-msgstr "Nhắc nhở đọc bản bông"
+msgstr "Nhắc nhở đọc bản in thử"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr ""
-"Tệp đã rà soát bản thảo cần được phê duyệt trước khi có thể gửi đến giai "
-"đoạn Sản xuất. Bạn có muốn phê duyệt tệp này không?"
+"Tệp đã chỉnh sửa cần được phê duyệt trước khi có thể gửi đến giai đoạn Sản "
+"xuất. Bạn có muốn phê duyệt tệp này không?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr ""
-"Việc không phê duyệt tệp đã rà soát bản thảo này sẽ khiến nó không khả dụng "
-"để gửi đến giai đoạn sản xuất. Bạn có muốn không phê duyệt tệp này không?"
+"Từ chối phê duyệt tệp đã chỉnh sửa này sẽ làm cho nó không khả dụng để gửi "
+"đến giai đoạn sản xuất. Bạn có muốn từ chối phê duyệt tệp này không?"
 
 msgid "editor.submission.addAuditor"
-msgstr "Phân công Kiểm toán viên"
+msgstr "Chỉ định người kiểm tra"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
 "Bất kỳ tệp nào đã được tải lên bất kỳ giai đoạn nộp bài nào đều có thể được "
-"thêm vào danh sách Tệp Rà soát bản thảo bằng cách đánh dấu vào ô Bao gồm bên "
-"dưới và nhấp vào Tìm kiếm: tất cả các tệp có sẵn sẽ được liệt kê và có thể "
-"được chọn để bao gồm. Các tệp bổ sung chưa được tải lên một giai đoạn có thể "
-"được thêm vào danh sách bằng cách nhấp vào liên kết Tải lên Tệp."
+"thêm vào danh sách Tệp chỉnh sửa bằng cách đánh dấu vào hộp kiểm Bao gồm bên "
+"dưới và nhấp Tìm kiếm: tất cả các tệp khả dụng sẽ được liệt kê và có thể "
+"được chọn để đưa vào. Các tệp bổ sung chưa được tải lên một giai đoạn có thể "
+"được thêm vào danh sách bằng cách nhấp vào liên kết Tải lên tệp."
 
 msgid "editor.review"
-msgstr "Phản biện"
+msgstr "Đánh giá"
 
 msgid "editor.review.reviewDetails"
-msgstr "Chi tiết Phản biện"
+msgstr "Chi tiết đánh giá"
 
 msgid "editor.review.noReviewFilesUploaded"
-msgstr "Không có Tệp nào được Tải lên"
+msgstr "Chưa tải tệp nào lên"
 
 msgid "editor.review.noReviewFilesUploaded.details"
-msgstr "Bạn chưa tải lên bất kỳ tệp phản biện nào."
+msgstr "Bạn chưa tải lên bất kỳ tệp đánh giá nào."
 
 msgid "editor.review.emailReviewer"
-msgstr "Gửi Email cho Người phản biện"
+msgstr "Email người đánh giá"
 
 msgid "editor.submission.production.productionReadyFiles"
-msgstr "Tệp Sẵn sàng Sản xuất"
+msgstr "Tệp sẵn sàng cho sản xuất"
 
 msgid "editor.submission.newRound"
-msgstr "Vòng Phản biện Mới"
+msgstr "Vòng đánh giá mới"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Ghi nhận Quyết định Biên tập"
+msgstr "Ghi lại quyết định biên tập"
 
 msgid "editor.submissionReview.recordRecommendation"
-msgstr "Ghi nhận Đề xuất Biên tập"
+msgstr "Ghi lại đề xuất biên tập"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Thông báo cho Biên tập viên"
+msgstr "Thông báo cho biên tập viên"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
 msgstr "Không gửi email cho biên tập viên."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Tạo một cuộc thảo luận phản biện về đề xuất này."
+msgstr "Tạo một cuộc thảo luận đánh giá về đề xuất này."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Không tạo cuộc thảo luận phản biện."
+msgstr "Không tạo thảo luận đánh giá."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""
-"Bạn sắp tạo một vòng phản biện mới cho bài nộp này. Các tệp chưa được sử "
-"dụng trong các vòng phản biện khác được liệt kê bên dưới."
+"Bạn sắp tạo vòng đánh giá mới cho bài nộp này. Các tệp chưa được sử dụng "
+"trong các vòng đánh giá khác được liệt kê bên dưới."
 
 msgid "editor.submission.createNewRound"
-msgstr "Tạo Vòng Phản biện Mới"
+msgstr "Tạo vòng đánh giá mới"
 
 msgid "editor.article.reviewForms"
-msgstr "Biểu mẫu Phản biện"
+msgstr "Các biểu mẫu đánh giá"
 
 msgid "editor.article.selectReviewForm"
-msgstr "Chọn Biểu mẫu Phản biện"
+msgstr "Chọn biểu mẫu đánh giá"
 
 msgid "editor.article.confirmChangeReviewForm"
 msgstr ""
-"Cảnh báo: Thay đổi biểu mẫu phản biện sẽ ảnh hưởng đến bất kỳ câu trả lời "
-"nào mà người phản biện đã thực hiện bằng biểu mẫu này. Bạn có chắc chắn muốn "
-"tiếp tục không?"
+"Cảnh báo: Thay đổi biểu mẫu đánh giá sẽ ảnh hưởng đến bất kỳ câu trả lời nào "
+"mà người đánh giá đã đưa ra bằng cách sử dụng biểu mẫu này. Bạn có chắc chắn "
+"muốn tiếp tục không?"
 
 msgid "editor.submission.noReviewerFilesSelected"
-msgstr "Không có Tệp nào được Chọn"
+msgstr "Chưa chọn tệp"
 
 msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "Bạn chưa chọn bất kỳ tệp nào để người phản biện phản biện."
+msgstr "Bạn chưa chọn tệp nào để người đánh giá xem xét."
 
 msgid "submission.queries.subjectRequired"
 msgstr "Cần có chủ đề thảo luận."
@@ -485,40 +481,39 @@ msgid "submission.queries.attachedFiles"
 msgstr "Tệp đính kèm"
 
 msgid "grid.action.editQuery"
-msgstr "Sửa Thảo luận"
+msgstr "Chỉnh sửa thảo luận"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr ""
-"Các tệp có thể được đính kèm để đưa vào cuộc thảo luận này từ danh sách bên "
-"dưới."
+"Các tệp có thể được đính kèm để đưa vào thảo luận này từ danh sách bên dưới."
 
 msgid "editor.submission.selectedReviewer"
-msgstr "Người phản biện Đã chọn"
+msgstr "Người đánh giá đã chọn"
 
 msgid "editor.submission.proofreading.approveProof"
-msgstr "Phê duyệt Bản bông"
+msgstr "Phê duyệt bản in thử"
 
 msgid "editor.submission.proofreading.revokeProofApproval"
-msgstr "Thu hồi Phê duyệt Bản bông"
+msgstr "Thu hồi phê duyệt bản in thử"
 
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""
-"Phê duyệt bản bông này để chỉ ra rằng việc đọc bản bông đã hoàn tất và tệp "
-"đã sẵn sàng để xuất bản."
+"Phê duyệt bản in thử này để chỉ ra rằng việc đọc bản in thử đã hoàn thành và "
+"tệp đã sẵn sàng để xuất bản."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr ""
-"Thu hồi phê duyệt cho bản bông này để chỉ ra rằng việc đọc bản bông không "
-"còn hoàn tất và tệp chưa sẵn sàng để xuất bản."
+"Thu hồi phê duyệt cho bản in thử này để chỉ ra rằng việc đọc bản in thử "
+"không còn hoàn thành và tệp không sẵn sàng để xuất bản."
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr "Bạn có chắc chắn muốn đảo ngược quyết định từ chối bài nộp này không?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
-msgstr "Mã định danh công khai '{$publicIdentifier}' không được là một số."
+msgstr "Định danh công cộng '{$publicIdentifier}' không được là một số."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "Mẫu {$pattern} không được phép cho mã định danh công khai."
+msgstr "Mẫu {$pattern} không được phép cho định danh công cộng."
 
 msgid "reviewer.list.filterRating"
 msgstr "Được đánh giá ít nhất"
@@ -527,22 +522,22 @@ msgid "reviewer.list.activeReviews"
 msgstr "{$count} đang hoạt động"
 
 msgid "reviewer.list.activeReviewsDescription"
-msgstr "Các phản biện đang hoạt động hiện đang được phân công"
+msgstr "Các đánh giá đang hoạt động được chỉ định hiện tại"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr "Người phản biện này đã hoàn thành một phản biện trong vòng trước."
+msgstr "Người đánh giá này đã hoàn thành đánh giá ở vòng cuối cùng."
 
 msgid "reviewer.list.completedReviews"
-msgstr "Các phản biện đã hoàn thành"
+msgstr "Các đánh giá đã hoàn thành"
 
 msgid "reviewer.list.declinedReviews"
-msgstr "Yêu cầu phản biện bị từ chối"
+msgstr "Các yêu cầu đánh giá đã từ chối"
 
 msgid "reviewer.list.cancelledReviews"
-msgstr "Yêu cầu phản biện bị hủy"
+msgstr "Các yêu cầu đánh giá đã hủy"
 
 msgid "reviewer.list.reviewerRating"
-msgstr "Đánh giá người phản biện: {$rating}"
+msgstr "Đánh giá người đánh giá: {$rating}"
 
 msgid "reviewer.list.daysSinceLastAssignment"
 msgstr "{$days} ngày trước"
@@ -551,46 +546,46 @@ msgid "reviewer.list.daySinceLastAssignment"
 msgstr "Hôm qua"
 
 msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr "Số ngày kể từ lần phân công phản biện cuối cùng"
+msgstr "Số ngày kể từ lần chỉ định đánh giá cuối cùng"
 
 msgid "reviewer.list.averageCompletion"
-msgstr "Số ngày trung bình để hoàn thành phản biện"
+msgstr "Số ngày trung bình để hoàn thành đánh giá"
 
 msgid "reviewer.list.neverAssigned"
-msgstr "Chưa bao giờ được phân công"
+msgstr "Chưa bao giờ được chỉ định"
 
 msgid "reviewer.list.reassign"
-msgstr "Phân công lại"
+msgstr "Chỉ định lại"
 
 msgid "reviewer.list.reassign.withName"
-msgstr "Phân công lại {$name}"
+msgstr "Chỉ định lại {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Phản biện này đã được chỉ định để xem xét bài nộp này."
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Người phản biện này bị khóa vì họ đã được gán một vai trò cho phép họ xem "
-"danh tính của tác giả. Không thể đảm bảo phản biện chuyên gia ẩn danh. Bạn "
-"có muốn mở khóa người phản biện này không?"
+"Người đánh giá này bị khóa vì họ đã được chỉ định một vai trò cho phép họ "
+"xem danh tính của tác giả. Không thể đảm bảo bình duyệt ẩn danh. Bạn có muốn "
+"mở khóa người đánh giá này không?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Mở khóa"
 
 msgid "reviewer.list.reviewInterests"
-msgstr "Lĩnh vực Quan tâm Phản biện"
+msgstr "Sở thích đánh giá"
 
 msgid "reviewer.list.biography"
 msgstr "Tiểu sử"
 
 msgid "reviewer.list.empty"
-msgstr "Không tìm thấy người phản biện nào"
+msgstr "Không tìm thấy người đánh giá nào"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr "Được phân công vào Vòng Trước đó"
+msgstr "Được chỉ định cho vòng trước"
 
 msgid "editor.decision.cancelDecision"
-msgstr "Hủy Quyết định"
+msgstr "Hủy quyết định"
 
 msgid "editor.decision.cancelDecision.confirmation"
 msgstr "Bạn có chắc chắn muốn hủy quyết định này không?"
@@ -599,19 +594,19 @@ msgid "editor.decision.completeSteps"
 msgstr "Hoàn thành các bước sau để đưa ra quyết định này"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr "Đừng bỏ qua email này"
+msgstr "Không bỏ qua email này"
 
 msgid "editor.decision.emailSkipped"
-msgstr "Bước này đã bị bỏ qua và sẽ không có email nào được gửi."
+msgstr "Bước này đã bị bỏ qua và không có email nào sẽ được gửi."
 
 msgid "editor.decision.recordDecision"
-msgstr "Ghi nhận Quyết định"
+msgstr "Ghi lại quyết định"
 
 msgid "editor.decision.skipEmail"
 msgstr "Bỏ qua email này"
 
 msgid "editor.decision.stepError"
-msgstr "Đã xảy ra sự cố với bước {$stepName}."
+msgstr "Đã xảy ra vấn đề với bước {$stepName}."
 
 #~ msgid "reviewer.list.itemsOfTotal"
 #~ msgstr "{$count} của {$total} phản biện"
@@ -621,3 +616,61 @@ msgstr "Đã xảy ra sự cố với bước {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Cùng tổ chức với tác giả"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Chọn Người phản biện từ Đề xuất Người phản biện"
+
+msgid "editor.review.logResponse.for"
+msgstr "Ghi nhận Phản hồi cho"
+
+msgid "editor.review.logResponse"
+msgstr "Ghi nhận Phản hồi"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Phải chọn một phản hồi"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Người phản biện đã chấp nhận lời mời phản biện"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Người phản biện đã từ chối lời mời phản biện"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Ghi lại phản hồi thay mặt cho người phản biện"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Nếu người phản biện liên hệ với bạn qua email hoặc bất kỳ phương tiện nào "
+"khác, bạn có thể ghi lại phản hồi của họ thay cho họ"
+
+msgid "editor.review.download"
+msgstr "Tải xuống Biểu mẫu Phản biện"
+
+msgid "editor.review.authorOnly"
+msgstr "Các mục Chỉ dành cho Tác giả được Hiển thị"
+
+msgid "editor.review.allSections"
+msgstr "Biểu mẫu Biên tập viên Hiển thị Tất cả các Mục Phản biện"
+
+msgid "editor.review.importantDates.notice"
+msgstr "Ngày đến hạn phản biện phải lớn hơn hoặc bằng ngày đến hạn phản hồi."
+
+msgid "editor.review.reviewViewed"
+msgstr "Đã xem Phản biện"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Đã xảy ra lỗi khi thêm người phản biện vì ngày đến hạn phản biện phải bằng "
+"hoặc lớn hơn ngày đến hạn phản hồi."
+
+msgid "editor.submission.search"
+msgstr "Tìm kiếm bài nộp, ID, tác giả, từ khóa, v.v."
+
+msgid "editor.submission.days"
+msgstr "Ngày"
+
+msgid "editor.submission.daysInStage"
+msgstr "Số ngày trong Giai đoạn"
+
+msgid "editor.submission.viewSummary"
+msgstr "Tóm tắt"

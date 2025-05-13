@@ -306,6 +306,6 @@ class ContextGridHandler extends GridHandler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('oldUserId', (int) $request->getUserVar('oldUserId')); // for merging users.
         parent::setupTemplate($request);
-        return $templateMgr->fetchJson('management/accessUsers.tpl');
+        return $templateMgr->fetchJson('management/accessUsersLegacyView.tpl');
     }
 }

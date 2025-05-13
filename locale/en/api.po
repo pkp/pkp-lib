@@ -62,6 +62,9 @@ msgstr "The requested URL was not recognized."
 msgid "api.500.apiSecretKeyMissing"
 msgstr "The API token can not be used to access this site because the site administrator has not configured a secret key."
 
+msgid "api.406.notAcceptable"
+msgstr "The request can not be processed."
+
 msgid "api.announcements.404.announcementNotFound"
 msgstr "The announcement you requested was not found."
 
@@ -364,3 +367,12 @@ msgstr "Unable to complete the intended action on resource."
 
 msgid "api.emailTemplates.404.userGroupIds"
 msgstr "One or more of the provided user groups does not exist."
+
+msgid "api.categories.400.invalidContext"
+msgstr "Cannot create or update categories in the context provided."
+
+msgid "api.categories.400.circularParentReference"
+msgstr "A category cannot be its own parent or create a circular reference with another category."
+
+msgid "api.categories.409.circularReference"
+msgstr "A circular reference was detected while building the category tree."

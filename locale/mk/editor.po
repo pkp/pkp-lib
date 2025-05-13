@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:03+0000\n"
+"PO-Revision-Date: 2025-04-10 13:16+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/mk/>\n"
@@ -675,3 +675,13 @@ msgid "editor.review.logResponse.form.subDetail"
 msgstr ""
 "Ако рецензентот ве контактира преку е-пошта или на кој било друг начин, "
 "можете да го снимите нивниот одговор за него"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Терминот на доспевање на рецензијата мора да биде поголем или еднаков на "
+"рокот за одговор."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Настана грешка при додавањето на рецензентот бидејќи рокот за рецензија мора "
+"да биде еднаков или поголем од рокот на одговорот."

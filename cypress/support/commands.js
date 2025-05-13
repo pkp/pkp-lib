@@ -1,8 +1,8 @@
 /**
  * @file cypress/support/commands.js
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  */
@@ -10,6 +10,7 @@
 import Api from './api.js';
 import 'cypress-file-upload';
 import 'cypress-wait-until';
+import 'cypress-iframe'
 
 Cypress.Commands.add('setTinyMceContent', (tinyMceId, content) => {
 	cy.window().then((win) => {
@@ -176,11 +177,48 @@ Cypress.Commands.add('register', data => {
 	cy.get('button').contains('Register').click();
 });
 
-Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context) => {
+Cypress.Commands.add('openSubmission', (familyName) => {
+	cy.contains('table tr', familyName).within(() => {
+		cy.get('button').contains(/Complete submission|View/).click({force: true})
+	})
+});
+
+Cypress.Commands.add('openReviewAssignment', (familyName) => {
+	cy.contains('table tr', familyName).within(() => {
+		cy.get('button').click()
+	})
+});
+
+
+Cypress.Commands.add('openWorkflowMenu', (name, subitem = null) => {
+	if(subitem) {
+		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).contains(subitem).click()
+	} else {
+		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).click();
+
+	}
+	cy.get('[data-cy="active-modal"] h2').contains(name);
+});
+
+
+Cypress.Commands.add('openReviewAssignment', (familyName) => {
+	cy.contains('table tr', familyName).within(() => {
+		cy.get('button').click()
+	})
+});
+
+
+
+Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context = null, viewName = null) => {
 	context = context || 'publicknowledge';
+	viewName = viewName || 'Active submissions';
 	cy.login(username, password, context);
-	cy.get('button[id="active-button"]').click();
-	cy.contains('View ' + familyName).click({force: true});
+	cy.get('nav').contains(viewName).click();
+	cy.contains('table tr', familyName)
+		.contains('button', /^\s*View\s*$/)
+		.scrollIntoView()
+		.should('be.visible')
+		.click({force: true});
 });
 
 // Provides: @csrfToken
@@ -279,8 +317,8 @@ Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
 			}).then(xhr => {
 				data.additionalAuthors.forEach(author => {
 					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en === pAuthor.givenName.en && author.familyName.en === pAuthor.familyName.en);
-					if (typeof author.affiliation !== 'undefined') {
-						expect(publicationAuthor.affiliation.en).to.equal(author.affiliation.en);
+					if (typeof author.affiliations !== 'undefined') {
+						expect(publicationAuthor.affiliations[0].name.en).to.equal(author.affiliations[0].name.en);
 					}
 					expect(publicationAuthor.email).to.equal(author.email);
 					expect(publicationAuthor.country).to.equal(author.country);
@@ -415,18 +453,18 @@ Cypress.Commands.add('recordRecommendation', (decisionLabel, decidingEditors) =>
 
 Cypress.Commands.add('decisionsExist', (buttonLabels) => {
 	buttonLabels.forEach(buttonLabel => {
-		cy.get('#editorialActions:contains("' + buttonLabel + '")').should('exist');
+		cy.get('button:contains("' + buttonLabel + '")').should('exist');
 	});
 });
 
 Cypress.Commands.add('decisionsDoNotExist', (buttonLabels) => {
 	buttonLabels.forEach(buttonLabel => {
-		cy.get('#editorialActions:contains("' + buttonLabel + '")').should('not.exist');
+		cy.get('button:contains("' + buttonLabel + '")').should('not.exist');
 	});
 });
 
 Cypress.Commands.add('clickDecision', (buttonLabel) => {
-	cy.get('#editorialActions').contains(buttonLabel).click();
+	cy.get('button').contains(buttonLabel).click();
 	cy.waitJQuery();
 });
 
@@ -448,7 +486,7 @@ Cypress.Commands.add('submissionIsDeclined', () => {
 });
 
 Cypress.Commands.add('isActiveStageTab', (stageName) => {
-	cy.get('#stageTabs li.ui-state-active').contains(stageName);
+	cy.get('[data-cy="active-modal"] h2').contains(stageName);
 });
 
 /**
@@ -519,7 +557,7 @@ Cypress.Commands.add('checkComposerRecipients', (stepName, recipientNames) => {
 
 Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	var names = name.split(' ');
-	cy.get('a[id^="component-grid-users-stageparticipant-stageparticipantgrid-requestAccount-button-"]:visible').click();
+	cy.get('[data-cy="participant-manager"] button:contains("Assign")').click();
 	cy.waitJQuery();
 	cy.get('select[name=filterUserGroupId').select(role);
 	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1], {delay: 0});
@@ -533,13 +571,12 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 });
 
 Cypress.Commands.add('clickStageParticipantButton', (participantName, buttonLabel) => {
-	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '") .show_extras').click();
-	cy.get('[id^="component-grid-users-stageparticipant"] .has_extras:contains("' + participantName + '")').closest('tr').next().find('a:contains("' + buttonLabel + '")').click();
+	cy.get(`[aria-label="${participantName} More Actions"]`).scrollIntoView().should('be.visible').click();
+	cy.get('button').contains(buttonLabel).click();
 });
 
 Cypress.Commands.add('assignReviewer', (name, reviewMethod) => {
-	cy.wait(4000); // FIXME: Occasional problems opening the grid
-	cy.get('a:contains("Add Reviewer")').click();
+	cy.get('[data-cy="active-modal"] button:contains("Add Reviewer")').click();
 	cy.waitJQuery();
 	cy.get('.listPanel--selectReviewer .pkpSearch__input', {timeout: 20000}).type(name, {delay: 0});
 	cy.contains('Select ' + name).click();
@@ -547,7 +584,7 @@ Cypress.Commands.add('assignReviewer', (name, reviewMethod) => {
 	if (reviewMethod) {
 		cy.contains(reviewMethod).click();
 	}
-	cy.get('button:contains("Add Reviewer")').click();
+	cy.get('[data-cy="active-modal"] button:contains("Add Reviewer")').click();
 	cy.contains(name + ' was assigned to review');
 	cy.waitJQuery();
 });
@@ -556,7 +593,9 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 	context = context || 'publicknowledge';
 	comments = comments || 'Here are my review comments';
 	cy.login(username, password, context);
-	cy.get('a').contains('View ' + title).click({force: true});
+	cy.contains('table tr', title).within(() => {
+		cy.get('button').click()
+	})
 	cy.get('input[id="privacyConsent"]').click();
 	cy.get('button:contains("Accept Review, Continue to Step #2")').click();
 	cy.get('button:contains("Continue to Step #3")').click();
@@ -565,7 +604,7 @@ Cypress.Commands.add('performReview', (username, password, title, recommendation
 		cy.setTinyMceContent(node.attr('id'), comments);
 	});
 	if (recommendation) {
-		cy.get('select#recommendation').select(recommendation);
+		cy.get('select#reviewerRecommendationId').select(recommendation);
 	}
 	cy.get('button:contains("Submit Review")').click();
 	cy.get('button:contains("OK")').click();
@@ -876,4 +915,91 @@ Cypress.Commands.add('changeLanguage', (language, contextPath) => {
 	cy.get('[data-cy="app-user-nav"] > button').click();
 	cy.get('[data-cy="app-user-nav"] a:contains("français")').click();
 	cy.wait(2000);
+});
+
+Cypress.Commands.add('confirmEmail', user => {
+	// Current email server is sendra https://github.com/msztolcman/sendria
+	// Intentionally trying 127.0.0.1 instead of localhost as at least on mac localhost
+	// did not work - https://github.com/cypress-io/cypress/issues/26154#issuecomment-1755904773
+	let emailServer = 'http://127.0.0.1:1080/';
+
+	cy.visit(emailServer);
+	cy.get('#messages').contains(user.username + '@mailinator.com').first().click();
+	cy.frameLoaded('#message-body')
+	cy.iframe().find('.btn-accept').should('have.text', 'Accept Invitation').invoke('attr', 'href').then((url) => {
+		cy.visit(url);
+	});
+});
+
+Cypress.Commands.add('inviteUser', user => {
+
+	let currentDate = new Date().toISOString().split('T')[0];
+
+	cy.contains('div > a > span', 'Settings').click();
+	cy.contains('div > a > span', 'Users & Roles').click();
+	cy.waitJQuery();
+	cy.contains('button', 'Invite to a role').click();
+	cy.get('#-search-control').click();
+	cy.get('#-search-control').type(user.username + '@mailinator.com');
+	cy.get('.bg-primary').click();
+	cy.get('select[name="userGroupId"]').select(user.roles);
+	cy.get('#-dateStart-control').type(currentDate);
+	cy.get('#-masthead-control').select('Appear on the masthead');
+	cy.contains('.pkpButton', 'Save And Continue').click();
+	cy.wait(2000);
+	cy.contains('button', 'Invite user to the role').click();
+	cy.contains(".pkpButton", "View All Users").click();
+});
+
+
+Cypress.Commands.add('confirmationByUser', user => {
+	cy.get('#-username-control').type(user.username);
+	cy.get('#-password-control').type(user.username + user.username);
+	cy.get('.pkpFormField--options__input').click();
+	cy.contains('.pkpButton', 'Save and continue').click();
+	cy.get('#acceptUserDetails-givenName-control-en').type(user.givenName);
+	cy.get('#acceptUserDetails-familyName-control-en').type(user.familyName);
+	cy.get('#acceptUserDetails-affiliation-control-en').type(user.affiliation);
+	cy.get('#acceptUserDetails-userCountry-control').select(user.country);
+	cy.get('.pkpFormLocales__locale').contains('French').click();
+	cy.get('#acceptUserDetails-givenName-control-fr_CA').type(user.givenName);
+	cy.get('#acceptUserDetails-familyName-control-fr_CA').type(user.familyName);
+	cy.get('#acceptUserDetails-affiliation-control-fr_CA').type(user.country);
+	cy.get('.pkpButton').contains('Save and continue').click();
+	cy.get('.pkpButton').contains('Accept And Continue to').click();
+	cy.get('.pkpButton').contains('View All Submissions').click();
+});
+
+Cypress.Commands.add('createUserByInvitation', user => {
+	cy.login('admin','admin','publicknowledge')
+	cy.wait(1000)
+	cy.inviteUser(user);
+	cy.logout();
+	cy.confirmEmail(user);
+	cy.wait(1000)
+	cy.confirmationByUser(user);
+	cy.logout();
+
+});
+
+
+Cypress.Commands.add('openEmailTemplate', (mailableName, templateName) => {
+	// Select the mailable
+	cy.contains('li.listPanel__item', mailableName)
+		.find('button')
+		.contains('Edit')
+		.click();
+
+	// Select the template
+	cy.contains('.listPanel', 'Templates')
+		.find('li.listPanel__item')
+		.contains(templateName)
+		.parents('li.listPanel__item')
+		.find('button')
+		.contains('Edit')
+		.click();
+});
+
+Cypress.Commands.add('setEmailTemplateUnrestrictedTo', (value) => {
+	cy.get(`input[name="isUnrestricted"][value="${value}"]`).check({force: true})
 });

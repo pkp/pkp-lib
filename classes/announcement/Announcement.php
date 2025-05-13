@@ -53,7 +53,7 @@ class Announcement extends Model
     protected string $settingsTable = 'announcement_settings';
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that are not mass assignable.
      *
      * @var array
      */

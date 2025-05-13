@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2025-03-10 09:38+0000\n"
+"PO-Revision-Date: 2025-04-08 04:21+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr/>\n"
@@ -2311,3 +2311,93 @@ msgstr "Deneme alanı modunda çalışan uygulama."
 
 msgid "about.editorialMasthead.linkToEditorialHistory"
 msgstr "<a href=\"{$url}\">Editöryal Geçmişi</a> Görüntüle"
+
+msgid "navigation.reviewAssignments"
+msgstr "Hakemliklerim"
+
+msgid "common.filtersClear"
+msgstr "Filtreleri temizle"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} hata algılandı! Lütfen devam etmeden önce aşağıdaki hataları "
+"düzeltin."
+
+msgid "navigation.mySubmissions"
+msgstr "Yazarlıklarım"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Değerlendirme Yapıldı"
+
+msgid "common.numero"
+msgstr "No"
+
+msgid "common.refreshingData"
+msgstr "Veriyi güncelle"
+
+msgid "common.viewMoreDetails"
+msgstr "Daha fazla detay görüntüle"
+
+msgid "common.moreActions"
+msgstr "Diğer İşlemler"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Editörler, aşağıdaki listelenen hakemlere {$yıl} yılında yaptıkları "
+"hakemlikler için teşekkürlerini sunar."
+
+msgid "common.showingXofX"
+msgstr ""
+"<strong>{$start} ile {$finish} arasındaki</strong> toplamda {$total} "
+"gösteriliyor"
+
+msgid "common.editorialMasthead"
+msgstr "Editörler Kurulu"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Geçtiğimiz Yıl Değerlendirme Yapan Hakemler"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Geçmiş Yıllarda Değerlendirme Yapan Hakemler"
+
+msgid "common.editorialHistory"
+msgstr "Editöryal Geçmiş"
+
+msgid "common.editorialHistory.page"
+msgstr "Editöryal Geçmiş Sayfası"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Bu bölümde geçmişte katkıda bulunan yazarlar listelenmektedir."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "{$name}: ORCID profilini görüntüle"
+
+msgid "common.yesContinue"
+msgstr "Evet, devam"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Yüklendi"
+
+msgid "form.errorSummaryOne"
+msgstr "1 hata algılandı! Lütfen devam etmeden önce aşağıdaki hatayı düzeltin."
+
+msgid "navigation.dashboards"
+msgstr "Editör Paneli"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Değerlendirme Kabul Edildi"
+
+msgid "validator.date.comparison"
+msgstr "Karşılaştırma için geçersiz tarihler seçildi."
+
+msgid "validator.multilingual"
+msgstr "Bu alan için çok dil şartı aranmamaktadır."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.assignments"
+msgstr "Atamalar"

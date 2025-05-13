@@ -10,17 +10,14 @@
 		"contextId": {
 			"type": "integer",
 			"description": "The journal, press or preprint server ID.",
-			"apiSummary": true
-		},
-		"sequence": {
-			"type": "number",
-			"description": "The sequence number for this category (for ordering)",
-			"apiSummary": true
+			"apiSummary": true,
+			"writeDisabledInApi": true
 		},
 		"parentId": {
 			"type": "integer",
 			"description": "The optional ID of the parent category.",
 			"apiSummary": true,
+			"writeDisabledInApi": true,
 			"validation": [
 				"nullable"
 			]
@@ -54,20 +51,91 @@
 		"path": {
 			"type": "string",
 			"description": "A URL slug for this category.",
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
+			"apiSummary": true
 		},
 		"id": {
 			"type": "integer",
-			"apiSummary": true
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"image": {
+			"type": "object",
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"readOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"thumbnailName": {
+					"type": "string"
+				},
+				"thumbnailWidth": {
+					"type": "integer"
+				},
+				"thumbnailHeight": {
+					"type": "integer"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string",
+					"validation": [
+						"nullable"
+					]
+				}
+			}
+		},
+		"subCategories": {
+			"description": "List of sub categories that belongs to this category",
+			"apiSummary": false,
+			"readOnly": true,
 			"type": "array",
 			"items": {
-				"type": "string"
+				"$ref": "#/definitions/Category"
 			}
+		},
+		"assignedEditors": {
+			"description": "List of editors automatically assigned to this category.",
+			"readOnly": true,
+			"apiSummary": true,
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"editorDisplayInitials": {
+						"type": "string"
+					},
+					"userGroupIds": {
+						"description": "The IDs of the user groups for which the editor is assigned.",
+						"type": "array"
+					}
+				}
+			}
+		},
+		"subEditors": {
+			"description": "Key/value pair where each key is a group ID and the value is an array of user IDs to assign under that group. Example: subEditors[1] = [2, 4] assigns users 2 and 4 to group 1.",
+			"type": "object",
+			"writeOnly": true,
+			"apiSummary": false
+		},
+		"localizedTitle": {
+			"type": "string",
+			"description": "The localized title of the category.",
+			"apiSummary": true,
+			"readOnly": true,
+			"writeDisabledInApi": true
 		}
 	}
 }

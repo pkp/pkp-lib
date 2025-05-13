@@ -30,6 +30,7 @@ use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
@@ -52,7 +53,7 @@ interface iPKPApplicationInfoProvider
      *
      * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
-    public static function getRepresentationDAO(): RepresentationDAOInterface;
+    public static function getRepresentationDAO(): DAO|RepresentationDAOInterface;
 
     /**
      * Get a SubmissionSearchIndex instance.
@@ -92,8 +93,15 @@ interface iPKPApplicationInfoProvider
 
     /**
      * Get the review workflow stages used by this application.
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public function getReviewStages(): array;
+
+    /**
+     * Define if the application has customizable reviewer recommendation functionality
+     */
+    public function hasCustomizableReviewerRecommendation(): bool;
 }
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
@@ -176,6 +184,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         Hook::addUnsupportedHooks('AcronPlugin::parseCronTab'); // pkp/pkp-lib#9678 Unavailable since stable-3_5_0;
         Hook::addUnsupportedHooks('Announcement::delete::before', 'Announcement::delete', 'Announcement::Collector'); // pkp/pkp-lib#10328 Unavailable since stable-3_5_0, use Eloquent Model events instead
         Hook::addUnsupportedHooks('UserGroup::delete::before', 'UserGroup::delete'); // unavailable since stable-3_6_0, use Eloquent Model events instead
+        Hook::addUnsupportedHooks('CitationDAO::afterImportCitations'); // pkp/pkp-lib#11238 Renamed since stable-3_5_0
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {
             foreach ([
@@ -312,7 +321,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Get the current application object
      */
-    public static function get(): self
+    public static function get(): static
     {
         return Registry::get('application');
     }

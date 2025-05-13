@@ -214,10 +214,10 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function _getStatusWithRecommendation($statusKey, $reviewAssignment)
     {
-        if (!$reviewAssignment->getRecommendation()) {
+        if (!$reviewAssignment->getReviewerRecommendationId()) {
             return __($statusKey);
         }
 
-        return '<span class="state">' . __($statusKey) . '</span><span class="details">' . __('submission.recommendation', ['recommendation' => $reviewAssignment->getLocalizedRecommendation()]) . '</span>';
+        return '<span class="state">' . __($statusKey) . '</span><span class="details">' . __('submission.recommendation', ['recommendation' => htmlspecialchars($reviewAssignment->getLocalizedRecommendation())]) . '</span>';
     }
 }

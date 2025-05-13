@@ -56,6 +56,9 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
 
         $userGroups = UserGroup::withUserIds([$user->getId()])
             ->withContextIds($context ? [$context->getId(), Application::SITE_CONTEXT_ID] : [Application::SITE_CONTEXT_ID])
+            ->whereHas('userUserGroups', function ($query) use ($user) {
+                $query->withUserId($user->getId())->withActive();
+            })
             ->get()
             ->all();
 

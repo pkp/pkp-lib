@@ -18,6 +18,7 @@
 
 namespace PKP\citation;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
@@ -84,7 +85,7 @@ class CitationDAO extends \PKP\db\DAO
      * @param int $publicationId
      * @param string $rawCitationList
      *
-     * @hook CitationDAO::afterImportCitations [[$publicationId, $existingCitations, $importedCitations]]
+     * @hook Citation::importCitations::after [$publicationId, $existingCitations, $importedCitations]
      */
     public function importCitations($publicationId, $rawCitationList)
     {
@@ -98,7 +99,7 @@ class CitationDAO extends \PKP\db\DAO
 
         // Tokenize raw citations
         $citationTokenizer = new CitationListTokenizerFilter();
-        $citationStrings = $citationTokenizer->execute($rawCitationList);
+        $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
         // Instantiate and persist citations
         $importedCitations = [];
@@ -118,7 +119,7 @@ class CitationDAO extends \PKP\db\DAO
             }
         }
 
-        Hook::call('CitationDAO::afterImportCitations', [$publicationId, $existingCitations, $importedCitations]);
+        Hook::run('Citation::importCitations::after', [$publicationId, $existingCitations, $importedCitations]);
     }
 
     /**
@@ -140,6 +141,18 @@ class CitationDAO extends \PKP\db\DAO
             $rangeInfo
         );
         return new DAOResultFactory($result, $this, '_fromRow', ['id']);
+    }
+
+    /**
+     * Retrieve raw citations for the given publication.
+     */
+    public function getRawCitationsByPublicationId(int $publicationId): Collection
+    {
+        return DB::table('citations')
+            ->select(['raw_citation'])
+            ->where('publication_id', '=', $publicationId)
+            ->orderBy('seq')
+            ->pluck('raw_citation');
     }
 
     /**

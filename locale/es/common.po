@@ -1,4 +1,4 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
 # Jonas Raoni Soares da Silva <weblate@raoni.org>, 2024.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2024-05-02 14:38+0000\n"
+"PO-Revision-Date: 2025-04-09 11:38+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
@@ -2332,3 +2332,89 @@ msgstr "Destacados"
 
 msgid "common.sandbox"
 msgstr "Aplicación ejecutándose en modo sandbox."
+
+msgid "navigation.mySubmissions"
+msgstr "Mis envíos como autor/a"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mis asignaciones como revisor/a"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Cargado"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Revisión enviada el"
+
+msgid "validator.date.comparison"
+msgstr "Las fechas proporcionadas no son válidas para la comparación."
+
+msgid "validator.multilingual"
+msgstr "No se cumple el requisito de multilenguaje para este campo."
+
+msgid "common.numero"
+msgstr "Núm."
+
+msgid "common.refreshingData"
+msgstr "Actualizando datos"
+
+msgid "common.viewMoreDetails"
+msgstr "Ver más detalles"
+
+msgid "common.moreActions"
+msgstr "Más acciones"
+
+msgid "common.editorialMasthead"
+msgstr "Cabecera editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Evaluaciones por pares del año anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Evaluaciones por pares de los años pasados"
+
+msgid "common.editorialHistory"
+msgstr "Histórico editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Página del histórico editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta sección enumera los colaboradores/as anteriores."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ver el perfil ORCID de {$name}"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ver el <a href=\"{$url}\">histórico editorial</a>"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Los editores/as expresan su agradecimiento a los revisores/as de {$year} "
+"listados a continuación."
+
+msgid "common.filtersClear"
+msgstr "Eliminar filtros"
+
+msgid "common.yesContinue"
+msgstr "Sí, continuar"
+
+msgid "common.showingXofX"
+msgstr "Mostrando <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "form.errorSummaryOne"
+msgstr "Se ha detectado 1 error. Por favor, corríjalo antes de continuar."
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} errores detectados. Por favor, corríjalos antes de continuar."
+
+msgid "navigation.dashboards"
+msgstr "Panel de control del editor/a"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Revisión aceptada el"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"

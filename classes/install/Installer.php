@@ -36,6 +36,7 @@ use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
+use PKP\task\UpdateIPGeoDB;
 use PKP\task\UpdateRorRegistryDataset;
 use PKP\xml\PKPXMLParser;
 use PKP\xml\XMLNode;
@@ -546,6 +547,8 @@ class Installer
             $this->wroteConfig = false;
         }
 
+        Config::resetData();
+
         return true;
     }
 
@@ -949,8 +952,22 @@ class Installer
      */
     public function updateRorRegistryDataset(): bool
     {
+        PKPApplication::upgrade();
+
         $updateRorRegistryDataset = new UpdateRorRegistryDataset();
         $updateRorRegistryDataset->execute();
+
+        return true;
+    }
+
+    /**
+     * Download IPGeoDB
+     */
+    public function downloadIPGeoDB(): bool
+    {
+        PKPApplication::upgrade();
+        $updateIPGeoDB = new UpdateIPGeoDB();
+        $updateIPGeoDB->execute();
         return true;
     }
 

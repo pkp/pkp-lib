@@ -185,7 +185,7 @@ class PKPReviewController extends PKPBaseController
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
             $emailLogs = EmailLogEntry::withAssocId($submissionId)
-                ->withEventType(SubmissionEmailLogEventType::REVIEW_DECLINE)
+                ->withEventTypes([SubmissionEmailLogEventType::REVIEW_DECLINE])
                 ->withSenderId($reviewerId)
                 ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)
                 ->get();
@@ -242,9 +242,8 @@ class PKPReviewController extends PKPBaseController
         $lastReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterByContextIds([$contextId])
             ->filterBySubmissionIds([$submissionId])
-            ->filterByReviewerIds([$reviewerId])
+            ->filterByReviewerIds([$reviewerId], true)
             ->filterByStageId($stageId)
-            ->filterByLastReviewRound(true)
             ->getMany()
             ->first();
 

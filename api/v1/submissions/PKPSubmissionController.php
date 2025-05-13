@@ -620,7 +620,7 @@ class PKPSubmissionController extends PKPBaseController
         } elseif ($submitterUserGroups->count()) {
             $submitAsUserGroup = $submitterUserGroups
                 ->sort(function (UserGroup $a, UserGroup $b) {
-                    return $a->getRoleId() === Role::ROLE_ID_AUTHOR ? 1 : -1;
+                    return ((int)$a->roleId) === Role::ROLE_ID_AUTHOR ? 1 : -1;
                 })
                 ->first();
         } else {
@@ -1047,8 +1047,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
-            ->filterByReviewerIds([$request->getUser()->getId()])
-            ->filterByLastReviewRound(true)
+            ->filterByReviewerIds([$request->getUser()->getId()], true)
             ->getMany()
             ->first();
 

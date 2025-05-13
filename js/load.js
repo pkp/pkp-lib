@@ -41,6 +41,7 @@ import * as useForm from '@/composables/useForm.js';
 import * as useLegacyGridUrl from '@/composables/useLegacyGridUrl.js';
 import * as useLocalize from '@/composables/useLocalize.js';
 import * as useModal from '@/composables/useModal.js';
+import * as useNotify from '@/composables/useNotify.js';
 import * as useQueryParams from '@/composables/useQueryParams.js';
 import * as useSideMenu from '@/composables/useSideMenu.js';
 import * as useSorting from '@/composables/useSorting.js';
@@ -130,6 +131,7 @@ import FieldTextarea from '@/components/Form/fields/FieldTextarea.vue';
 import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
+import CategoryManager from '@/managers/CategoryManager/CategoryManager.vue';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
@@ -210,6 +212,7 @@ VueRegistry.registerComponent('PkpTableColumn', TableColumn);
 VueRegistry.registerComponent('PkpTableHeader', TableHeader);
 VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
+VueRegistry.registerComponent('CategoryManager', CategoryManager);
 
 // Register Form components
 VueRegistry.registerComponent('PkpForm', Form);
@@ -333,6 +336,7 @@ export default {
 		useLegacyGridUrl,
 		useLocalize,
 		useModal,
+		useNotify,
 		useQueryParams,
 		useSideMenu,
 		useSorting,

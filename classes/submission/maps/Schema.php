@@ -456,8 +456,7 @@ class Schema extends \PKP\core\maps\Schema
         if (in_array('publications', $props)) {
             $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
-                ->filterByReviewerIds([$this->request->getUser()->getId()])
-                ->filterByLastReviewRound(true)
+                ->filterByReviewerIds([$this->request->getUser()->getId()], true)
                 ->getMany()
                 ->first();
             $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
@@ -637,7 +636,7 @@ class Schema extends \PKP\core\maps\Schema
         $currentUser = $request->getUser();
 
         $reviews = [];
-        foreach ($reviewAssignments as $reviewAssignment) {
+        foreach ($reviewAssignments as $reviewAssignment) { /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
             // skip declined/cancelled assignments if the user lacks permission for this specific stage.
             if (
                 !$this->canSeeAllReviewAssignments($reviewAssignment, $stages)
@@ -684,7 +683,7 @@ class Schema extends \PKP\core\maps\Schema
                 'competingInterests' => $reviewAssignment->getCompetingInterests(),
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
-                'recommendation' => $reviewAssignment->getRecommendation(),
+                'reviewerRecommendationId' => $reviewAssignment->getReviewerRecommendationId(),
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),

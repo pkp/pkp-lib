@@ -183,8 +183,10 @@ class Repository
     {
         $workflowRoles = Application::get()->getWorkflowTypeRoles()[$workflowType];
 
-        if (array_key_exists($stageId, $userAccessibleStages)
-            && !empty(array_intersect($workflowRoles, $userAccessibleStages[$stageId]))) {
+        if (
+            array_key_exists($stageId, $userAccessibleStages)
+            && !empty(array_intersect($workflowRoles, $userAccessibleStages[$stageId]))
+        ) {
             return true;
         }
         if (empty($userAccessibleStages) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
@@ -210,13 +212,14 @@ class Repository
             if (array_key_exists($contextId, $userRoles)) {
                 $contextRoles = $userRoles[$contextId];
 
-                foreach ($contextRoles as $contextRole) { /** @var Role $userRole */
+                foreach ($contextRoles as $contextRole) {
                     $userRoleIds[] = $contextRole->getRoleId();
                 }
             }
 
             // Has admin role?
-            if ($contextId != PKPApplication::SITE_CONTEXT_ID &&
+            if (
+                $contextId != PKPApplication::SITE_CONTEXT_ID &&
                 array_key_exists(PKPApplication::SITE_CONTEXT_ID, $userRoles) &&
                 in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles[PKPApplication::SITE_CONTEXT_ID])
             ) {

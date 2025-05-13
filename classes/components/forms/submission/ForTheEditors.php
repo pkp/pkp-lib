@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/publication/ForTheEditors.php
  *
@@ -96,8 +97,6 @@ class ForTheEditors extends PKPMetadataForm
             return;
         }
 
-        $categoryOptions = [];
-
         $categoryOptions = Repo::category()
             ->getBreadcrumbs($categories)
             ->map(fn ($breadcrumb, $id) => [
@@ -108,18 +107,20 @@ class ForTheEditors extends PKPMetadataForm
             ->all();
 
         $categoryValues = (array) $this->publication->getData('categoryIds');
+        // Check if all categories have a breadcrumb; categories with circular references are filtered out
+        $hasAllBreadcrumbs = $categories->count() === count($categoryOptions);
 
         if (count($categoryOptions) > self::MAX_CATEGORY_LIST_SIZE) {
             $this->addField(new FieldAutosuggestPreset('categoryIds', [
                 'label' => __('submission.submit.placement.categories'),
-                'description' => __('submission.wizard.categories.description'),
+                'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
                 'value' => $categoryValues,
                 'options' => $categoryOptions
             ]));
         } else {
             $this->addField(new FieldOptions('categoryIds', [
                 'label' => __('submission.submit.placement.categories'),
-                'description' => __('submission.wizard.categories.description'),
+                'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
                 'value' => $categoryValues,
                 'options' => $categoryOptions,
             ]));

@@ -17,6 +17,7 @@
 namespace PKP\pages\catalog;
 
 use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\submission\Collector;
 use APP\submission\Submission;
@@ -24,7 +25,6 @@ use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
-use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
@@ -130,8 +130,8 @@ class PKPCatalogHandler extends Handler
                     throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
                 $imageInfo = $category->getImage();
-                $contextFileManager = new ContextFileManager($context->getId());
-                $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['name'], null, true);
+                $publicFileManager = new PublicFileManager();
+                $publicFileManager->downloadByPath($publicFileManager->getContextFilesPath($category->getContextId()) . '/' . $imageInfo['uploadName'], null, true);
                 break;
             default:
                 throw new \Exception('invalid type specified');
@@ -154,8 +154,8 @@ class PKPCatalogHandler extends Handler
                     throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 }
                 $imageInfo = $category->getImage();
-                $contextFileManager = new ContextFileManager($context->getId());
-                $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['thumbnailName'], null, true);
+                $publicFileManager = new PublicFileManager();
+                $publicFileManager->downloadByPath($publicFileManager->getContextFilesPath($category->getContextId()) . '/' . $imageInfo['thumbnailName'], null, true);
                 break;
             default:
                 throw new \Exception('invalid type specified');

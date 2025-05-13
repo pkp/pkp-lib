@@ -2374,3 +2374,9 @@ msgstr "View more details"
 
 msgid "workflow.userGroup.allowed"
 msgstr "Allowed User Groups"
+
+msgid "common.saveOrdering"
+msgstr "Save Order"
+
+msgid "common.order"
+msgstr "Order"

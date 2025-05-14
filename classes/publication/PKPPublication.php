@@ -24,7 +24,7 @@ use Illuminate\Support\Collection;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;

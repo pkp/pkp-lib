@@ -33,7 +33,7 @@ use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\security\Role;
 use PKP\security\RoleDAO;

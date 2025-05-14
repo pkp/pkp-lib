@@ -2791,6 +2791,12 @@ msgstr "Which version should metadata be copied from?"
 msgid "publication.versionSource.create.description"
 msgstr "The selected version's metadata will be used to pre-fill fields in the new version. You can make edits after importing."
 
+msgid "publication.scheduledForPublication.versionStage.label"
+msgstr "Assign a publication stage before publishing the submission"
+
+msgid "publication.scheduledForPublication.versionStage.description"
+msgstr "A submission cannot be published if it's still an \"Unassigned Version\". You need to assign an article stage before publishing"
+
 msgid "publication.versionStage.label"
 msgstr "Publication Stage"
 

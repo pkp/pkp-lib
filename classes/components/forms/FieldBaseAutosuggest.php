@@ -53,7 +53,7 @@ abstract class FieldBaseAutosuggest extends Field
      *   ]
      * ]
      */
-    public $vocabularies = [];
+    public array $vocabularies = [];
 
     
 

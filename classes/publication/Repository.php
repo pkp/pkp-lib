@@ -33,7 +33,7 @@ use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
@@ -524,7 +524,7 @@ abstract class Repository
         // Update publication version data
         $currentVersionInfo = $newPublication->getVersion();
         if (!isset($currentVersionInfo)) {
-            $nextAvailableVersion = Repo::submission()->getNextAvailableVersion($submission, VersionStage::VERSION_OF_RECORD, false);
+            $nextAvailableVersion = Repo::submission()->getNextAvailableVersion($submission, Publication::DEFAULT_VERSION_STAGE, false);
 
             $newPublication->setVersion($nextAvailableVersion);
         }

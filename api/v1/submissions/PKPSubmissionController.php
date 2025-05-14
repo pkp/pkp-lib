@@ -57,7 +57,7 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 use PKP\publication\helpers\PublicationVersionInfoResource;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;

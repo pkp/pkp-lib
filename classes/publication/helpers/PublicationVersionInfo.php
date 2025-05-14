@@ -14,7 +14,7 @@
 
 namespace PKP\publication\helpers;
 
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 use Stringable;
 
 class PublicationVersionInfo extends \PKP\core\DataObject

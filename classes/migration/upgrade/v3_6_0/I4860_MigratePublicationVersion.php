@@ -14,11 +14,12 @@
 
 namespace PKP\migration\upgrade\v3_6_0;
 
+use APP\publication\Publication;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 
 class I4860_MigratePublicationVersion extends Migration
 {
@@ -44,7 +45,7 @@ class I4860_MigratePublicationVersion extends Migration
         DB::table('publications')->update([
             'version_major' => DB::raw('version'), // Copy version to version_major
             'version_minor' => 0, // Set version_minor to 0
-            'version_stage' => VersionStage::VERSION_OF_RECORD, // Set version_stage to VERSION_OF_RECORD
+            'version_stage' => Publication::DEFAULT_VERSION_STAGE, // Set version_stage to application's DEFAULT_VERSION_STAGE
         ]);
 
         // remove the `version` column

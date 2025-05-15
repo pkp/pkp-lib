@@ -135,7 +135,7 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        $qb->orderBy('p.version', 'asc');
+        $qb->orderBy('p.publication_id', 'asc');
 
         // Add app-specific query statements
         Hook::call('Publication::Collector', [&$qb, $this]);

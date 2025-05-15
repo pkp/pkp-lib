@@ -59,6 +59,9 @@ class FormComponent
     /** @var array List of error messages */
     public $errors = [];
 
+    /** @var boolean If form should display the form errors at the footer */
+    public $showErrorFooter = true;
+
     /**
      * Initialize the form with config parameters
      *
@@ -313,6 +316,7 @@ class FormComponent
             'visibleLocales' => $visibleLocales,
             'supportedFormLocales' => array_values($this->locales), // See #5690
             'errors' => (object) [],
+            'showErrorFooter' => $this->showErrorFooter
         ];
 
         Hook::call('Form::config::after', [&$config, $this]);

@@ -18,7 +18,7 @@ namespace PKP\components\forms\publication;
 use PKP\context\Context;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
-use PKP\publication\enums\VersionStage;
+use APP\publication\enums\VersionStage;
 
 class VersionForm extends FormComponent
 {
@@ -34,7 +34,7 @@ class VersionForm extends FormComponent
         $this->showErrorFooter = false;
 
         $versionStages = [];
-        $allVersionStages = VersionStage::getVersions();
+        $allVersionStages = VersionStage::cases();
 
         foreach ($allVersionStages as $versionStage) {
             $versionStages[] = [

@@ -66,7 +66,7 @@
 			prototype.updateRecommendationRequired_ = function(submitButton, event) {
 
 		var $formElement = this.getHtmlElement(),
-				$recommendationElement = $formElement.find('[id^="recommendation"]');
+				$recommendationElement = $formElement.find('[id^="reviewerRecommendationId"]');
 		if ($recommendationElement.length) {
 			if (submitButton.id.includes('submitFormButton-')) {
 				$recommendationElement.attr('required', '1');

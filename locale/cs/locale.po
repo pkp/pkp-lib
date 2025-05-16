@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-01 07:13+0000\n"
+"PO-Revision-Date: 2025-05-16 16:32+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/locale/cs/>\n"
 "Language: cs\n"
@@ -550,3 +550,6 @@ msgid "log.editor.recommendation"
 msgstr ""
 "Doporučení moderátora ({$decision}) pro preprint {$submissionId} nahrál/a "
 "{$editorName}."
+
+msgid "article.pageTitle"
+msgstr "Zobrazit {$title}"

@@ -752,8 +752,9 @@ class PKPReviewerGridHandler extends GridHandler
             $newReviewData['quality'] = $newReviewData['dateRated'] = null;
         }
 
-        // if the review assignment had been unconsidered, update the flag.
-        $newReviewData['considered'] = $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
+        // if the review assignment had been unconsidered or only viewed but not considered, update the flag.
+        $newReviewData['considered'] = ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW || 
+                                       $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED)
             ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
             : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
 

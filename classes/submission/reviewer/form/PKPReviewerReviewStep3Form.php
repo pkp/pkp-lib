@@ -22,6 +22,7 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
+use PKP\plugins\Hook;
 use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -288,6 +289,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             'reviewerRecommendationId' => (int) $this->getData('reviewerRecommendationId'), // save the recommendation to the review assignment
         ]);
 
+        Hook::call(strtolower(get_class($this)) . '::saveForLater', [$this]);
         return true;
     }
 

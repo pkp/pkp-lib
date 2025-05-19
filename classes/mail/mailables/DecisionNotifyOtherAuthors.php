@@ -74,7 +74,7 @@ class DecisionNotifyOtherAuthors extends Mailable
         parent::setData($locale);
 
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
 
         $this->viewData[self::SUBMITTING_AUTHOR_NAME] = $this->getSubmittingAuthorName($locale);

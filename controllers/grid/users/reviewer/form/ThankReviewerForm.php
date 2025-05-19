@@ -125,7 +125,7 @@ class ThankReviewerForm extends Form
 
         Hook::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
         if (!$this->getData('skipEmail')) {
-            $mailable->setData(Locale::getLocale());
+            $mailable->setLocale(Locale::getLocale());
             try {
                 Mail::send($mailable);
                 $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */

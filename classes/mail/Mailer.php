@@ -115,9 +115,7 @@ class Mailer extends IlluminateMailer
     {
         if (is_a($view, Mailable::class)) {
             /** @var Mailable $view */
-            if (!$view->hasDataSet()) {
-                $view->setData();
-            }
+            $view->setData($view->getLocale());
         }
 
         // Application is set to sandbox mode and will sent any emails to log

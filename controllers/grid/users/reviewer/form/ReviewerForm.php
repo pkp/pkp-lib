@@ -460,7 +460,8 @@ class ReviewerForm extends Form
         ]);
 
         // Remove template variables that haven't been set yet during form initialization
-        $mailable->setData(Locale::getLocale());
+        $locale = Locale::getLocale();
+        $mailable->setLocale($locale)->setData($locale);
         unset($mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_DUE_DATE]);
         unset($mailable->viewData[ReviewAssignmentEmailVariable::RESPONSE_DUE_DATE]);
         unset($mailable->viewData[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL]);

@@ -91,6 +91,9 @@ class Mailable extends IlluminateMailable
     public const ATTACHMENT_SUBMISSION_FILE = 'submissionFileId';
     public const ATTACHMENT_LIBRARY_FILE = 'libraryFileId';
 
+    /** @var string|null The specific locale to send the mail of this Mailable */
+    protected ?string $mailableLocale = null;
+
     /** @var string|null Locale key for the name of this Mailable */
     protected static ?string $name = null;
 
@@ -120,9 +123,6 @@ class Mailable extends IlluminateMailable
 
     /** @var string embedded footer of the email */
     protected string $footer;
-
-    /** @var bool define if email data has been set */
-    protected bool $isDataSet = false;
 
     public function __construct(array $variables = [])
     {
@@ -229,7 +229,7 @@ class Mailable extends IlluminateMailable
     public function setData(?string $locale = null): void
     {
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
         foreach ($this->variables as $variable) {
             $this->viewData = array_merge(
@@ -239,16 +239,24 @@ class Mailable extends IlluminateMailable
         }
 
         $this->addFooter($locale); // set the locale for the email footer
-
-        $this->isDataSet = true;
     }
 
     /**
-     * return if the data for this email has been set
+     * Set the mailable locale
      */
-    public function hasDataSet(): bool
+    public function setLocale(string $locale): static
     {
-        return $this->isDataSet;
+        $this->mailableLocale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Get the mailable locale
+     */
+    public function getLocale(): ?string
+    {
+        return $this->mailableLocale;
     }
 
     /**

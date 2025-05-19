@@ -285,7 +285,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
         // Persist the updated review assignment.
         Repo::reviewAssignment()->edit($reviewAssignment, [
-            'reviewerRecommendationId' => (int) $this->getData('reviewerRecommendationId'), // save the recommendation to the review assignment
+            // save the recommendation to the review assignment
+            'reviewerRecommendationId' => (int)$this->getData('reviewerRecommendationId') === 0
+                ? null
+                : (int)$this->getData('reviewerRecommendationId'),
         ]);
 
         return true;

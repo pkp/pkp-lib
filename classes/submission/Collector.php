@@ -835,7 +835,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                     $join->on('ra.submission_id', '=', 'agrr.submission_id')
                                 )
                                 ->whereColumn('ra.round', '=', 'agrr.current_round')
-                                ->whereNotNull('ra.date_considered'),
+                                ->where(
+                                    fn (Builder $q) => $q
+                                        ->whereNotNull('ra.date_considered')
+                                        ->orWhereNotNull('ra.date_acknowledged') // Considered reviews can be null, see pkp/pkp-lib#11401
+                                ),
                             'rw',
                             fn (JoinClause $join) => $join->on('s.submission_id', '=', 'rw.submission_id')
                         )
@@ -905,15 +909,18 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     ->whereColumn('ra.round', '=', 'agrr.current_round')
                     ->where('ra.declined', 0)
                     ->where('ra.cancelled', 0)
-                    ->where(fn (Builder $q) =>
-                        $q->where(fn (Builder $q) =>
+                    ->where(
+                        fn (Builder $q) =>
+                        $q->where(
+                            fn (Builder $q) =>
                             $q->where('ra.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                            ->whereNull('ra.date_completed')
+                                ->whereNull('ra.date_completed')
                         )
-                        ->orWhere(fn (Builder $q) =>
-                            $q->where('ra.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                            ->whereNull('ra.date_confirmed')
-                        )
+                            ->orWhere(
+                                fn (Builder $q) =>
+                                $q->where('ra.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                                    ->whereNull('ra.date_confirmed')
+                            )
                     )
             )
         );

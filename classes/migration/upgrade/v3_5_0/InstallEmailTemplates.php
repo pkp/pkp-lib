@@ -37,6 +37,14 @@ class InstallEmailTemplates extends Migration
 
     public function up(): void
     {
+        // remove the carried-over notifications template rows
+        DB::table('email_templates_default_data')
+            ->where('email_key', 'NOTIFICATION')
+            ->delete();
+        DB::table('email_templates')
+            ->where('email_key', 'NOTIFICATION')
+            ->delete();
+
         $xmlDao = new XMLDAO();
 
         $data = $xmlDao->parseStruct('registry/emailTemplates.xml', ['email']);

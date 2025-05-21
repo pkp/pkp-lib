@@ -520,16 +520,16 @@ abstract class Repository
 
         $submission = $this->get($submissionId);
         // any published or scheduled then probe
-        $hasLockedPublication = $submission
-            && $submission->getData('publications')
-                ->contains(fn($p) =>
+        $hasLockedPublication = $submission?->getData('publications')
+            ->contains(
+                fn (Publication $p) =>
                     in_array(
                         $p->getData('status'),
                         [Submission::STATUS_PUBLISHED, Submission::STATUS_SCHEDULED]
                     )
-                );
+            );
 
-        if ($hasLockedPublication && !$assignments->contains(fn($sa) => $sa->userGroup && $sa->userGroup->roleId !== Role::ROLE_ID_AUTHOR)) {
+        if ($hasLockedPublication && !$assignments->contains(fn (StageAssignment $sa) => $sa->userGroup && $sa->userGroup->roleId != Role::ROLE_ID_AUTHOR)) {
             return false;
         }
 

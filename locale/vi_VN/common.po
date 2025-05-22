@@ -649,10 +649,10 @@ msgid "common.plugin"
 msgstr "Trình cắm"
 
 msgid "common.pluginEnabled"
-msgstr "Trình cắm \"{$ pluginName}\" đã được bật."
+msgstr "Trình cắm \"{$pluginName}\" đã được bật."
 
 msgid "common.pluginDisabled"
-msgstr "Trình cắm \"{$ pluginName}\" đã bị tắt."
+msgstr "Trình cắm \"{$pluginName}\" đã bị tắt."
 
 msgid "common.prefix"
 msgstr "Tiền tố"

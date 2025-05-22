@@ -129,7 +129,7 @@ msgstr "Δεν έχετε διακαιώματα μεταφόρτωσης αρχ
 msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
 "Δεν έχετε αρκετό χώρο στον κατάλογο αρχείων σας. Το αρχείο που ανεβάζετε "
-"είναι {$ fileUploadSize} kb, ενώ σας απομένουν {$ dirSizeLeft} kb."
+"είναι {$fileUploadSize} kb, ενώ σας απομένουν {$dirSizeLeft} kb."
 
 msgid "api.publicFiles.500.badFilesDir"
 msgstr ""

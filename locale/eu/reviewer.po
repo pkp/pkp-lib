@@ -2,7 +2,7 @@
 # Informatikaria <informatikaria@ueu.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-22 12:29+0000\n"
+"PO-Revision-Date: 2025-05-22 21:18+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -20,7 +20,7 @@ msgid "reviewer.reviewSteps.guidelines"
 msgstr "2. Jarraibideak"
 
 msgid "reviewer.reviewSteps.download"
-msgstr ""
+msgstr "3. Deskarga eta ebaluazioa"
 
 msgid "reviewer.reviewSteps.completion"
 msgstr ""

@@ -69,7 +69,7 @@ class ReviewReminder extends BaseJob
             ->from($context->getData('contactEmail'), $context->getData('contactName'))
             ->recipients([$reviewer]);
 
-        $mailable->setData($primaryLocale);
+        $mailable->setLocale($primaryLocale);
 
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
 

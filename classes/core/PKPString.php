@@ -333,23 +333,43 @@ class PKPString
 
     /**
      * Map the specific HTML tags in title/ sub title for JATS schema compability
+     *
      * @see https://jats.nlm.nih.gov/publishing/0.4/xsd/JATS-journalpublishing0.xsd
      *
      * @param  string $htmlTitle The submission title/sub title as in HTML
-     * @return string
      */
     public static function mapTitleHtmlTagsToXml(string $htmlTitle): string
     {
         $mappings = [
-            '<b>' 	=> '<bold>',
-            '</b>' 	=> '</bold>',
-            '<i>' 	=> '<italic>',
-            '</i>' 	=> '</italic>',
-            '<u>' 	=> '<underline>',
-            '</u>' 	=> '</underline>',
+            '<b>' => '<bold>',
+            '</b>' => '</bold>',
+            '<i>' => '<italic>',
+            '</i>' => '</italic>',
+            '<u>' => '<underline>',
+            '</u>' => '</underline>',
         ];
 
         return str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
+    }
+
+    /**
+     * Does a strict conversion of a string to a boolean value.
+     *
+     * @param string $value The value to convert.
+     *
+     * @return bool|null Returns true if the string is "true", false if it is "false", and null otherwise.
+     */
+    public static function strictConvertToBoolean(string $value): ?bool
+    {
+        $lower = strtolower($value);
+        if ($lower === 'true') {
+            return true;
+        }
+        if ($lower === 'false') {
+            return false;
+        }
+
+        return null;
     }
 }
 

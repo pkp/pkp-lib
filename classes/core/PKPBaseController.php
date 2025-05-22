@@ -21,6 +21,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Route;
 use PKP\security\authorization\AllowedHostsPolicy;
@@ -110,12 +112,12 @@ abstract class PKPBaseController extends Controller
         if (!$requestedRoute = static::getRequestedRoute($request)) {
             return null;
         }
-        
+
         $calledRouteController = (new ReflectionFunction($requestedRoute->action['uses']))->getClosureThis();
 
-        // When the routes are added to router as a closure/callable from other section like from a 
+        // When the routes are added to router as a closure/callable from other section like from a
         // plugin through the hook, the resolved called route class may not be an instance of
-        // `PKPBaseController` and we need to resolve the current controller instance from 
+        // `PKPBaseController` and we need to resolve the current controller instance from
         // `APIHandler::getApiController` method
         if ($calledRouteController instanceof self) {
             return $calledRouteController;
@@ -581,5 +583,23 @@ abstract class PKPBaseController extends Controller
         }
 
         return true;
+    }
+
+    /**
+     * Format and returns paginated response data.
+     *
+     * @param LengthAwarePaginator $pagination - The object with paginated data and metadata.
+     *
+     */
+    public function formatPaginatedResponseData(LengthAwarePaginator $pagination): array
+    {
+        return [
+            'data' => $pagination->values(),
+            'total' => $pagination->total(),
+            'pagination' => [
+                'lastPage' => $pagination->lastPage(),
+                'currentPage' => $pagination->currentPage(),
+            ]
+        ];
     }
 }

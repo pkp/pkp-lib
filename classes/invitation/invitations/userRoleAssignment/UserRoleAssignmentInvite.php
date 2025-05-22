@@ -94,7 +94,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         // Define the Mailable
         $mailable = new UserRoleAssignmentInvitationNotify($context, $this);
-        $mailable->setData($locale);
+        $mailable->setLocale($locale)->setData($locale);
 
         // Set the email send data
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());

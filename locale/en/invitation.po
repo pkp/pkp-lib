@@ -35,7 +35,7 @@ msgid "userInvitation.enterDetails.stepDescription"
 msgstr "You can invite them to take up a role in OPS"
 
 msgid "userInvitation.modal.message"
-msgstr "{$email} has been invited to new role in OPS. You can be updated about users on the User and Roles page, your OPS notification and/or your email"
+msgstr "{$email} has been invited to new role in OPS. You can be updated about users on the User & Roles page, your OPS notifications and/or your email"
 
 msgid "userInvitation.roleTable.journalMasthead"
 msgstr "Server Masthead"

@@ -100,7 +100,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         $mailable->subject($emailTemplate->getLocalizedData('subject', $locale))
             ->body($emailTemplate->getLocalizedData('body', $locale));
 
-        $mailable->setData($locale);
+        $mailable->setLocale($locale)->setData($locale);
 
         $this->setMailable($mailable);
 

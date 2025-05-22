@@ -91,7 +91,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
             $mailable = $this->createMailable($context, $recipient, $announcement, $template)
                 ->allowUnsubscribe($notification);
 
-            $mailable->setData($this->locale);
+            $mailable->setLocale($this->locale);
             Mail::send($mailable);
         }
     }

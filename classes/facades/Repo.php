@@ -44,10 +44,11 @@ use PKP\notification\Repository as NotificationRepository;
 use PKP\query\Repository as QueryRepository;
 use PKP\ror\Repository as RorRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
+use PKP\submission\reviewer\recommendation\Repository as ReviewerRecommendationRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\user\interest\Repository as UserInterestRepository;
+use PKP\userComment\Repository as UserCommentRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
-use PKP\submission\reviewer\recommendation\Repository as ReviewerRecommendationRepository;
 
 class Repo
 {
@@ -169,5 +170,10 @@ class Repo
     public static function reviewerRecommendation(): ReviewerRecommendationRepository
     {
         return app(ReviewerRecommendationRepository::class);
+    }
+
+    public static function userComment(): UserCommentRepository
+    {
+        return app(UserCommentRepository::class);
     }
 }

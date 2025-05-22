@@ -45,6 +45,9 @@ class RolesForm extends BaseProfileForm
 
         $userGroupIds = UserGroup::query()
             ->withUserIds([$request->getUser()->getId()])
+            ->whereHas('userUserGroups', function ($query) use ($request) {
+                $query->withUserId($request->getUser()->getId())->withActive();
+            })
             ->get()
             ->pluck('id')
             ->toArray();

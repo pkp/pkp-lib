@@ -1,13 +1,13 @@
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
-# Informatikaria <informatikaria@ueu.eus>, 2024.
+# Informatikaria <informatikaria@ueu.eus>, 2024, 2025.
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-04-27 07:50+0000\n"
-"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"PO-Revision-Date: 2025-05-22 12:29+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
 "Language: eu\n"
@@ -24,7 +24,7 @@ msgid "common.currentStyleSheet"
 msgstr ""
 
 msgid "about.description"
-msgstr ""
+msgstr "Deskribapena"
 
 msgid "about.guidelines"
 msgstr ""

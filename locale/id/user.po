@@ -1,12 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2023.
 # Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-04-04 19:46+0000\n"
-"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
 "Language: id\n"
@@ -100,7 +101,7 @@ msgid "user.editMyProfile"
 msgstr "Edit Profil Saya"
 
 msgid "user.email"
-msgstr "Email"
+msgstr "Surel"
 
 msgid "user.givenName"
 msgstr "Nama Depan"
@@ -412,7 +413,7 @@ msgid "user.role.siteAdmins"
 msgstr "Administrasi Situs"
 
 msgid "user.role.copyeditor"
-msgstr "Copyeditor"
+msgstr "Penyunting salinan"
 
 msgid "user.role.copyeditors"
 msgstr "Para Copyeditor"
@@ -883,7 +884,10 @@ msgstr ""
 "minta verifikasi dari pengguna/penulis secara langsung."
 
 msgid "user.removeRole.message"
-msgstr "Apakah anda yakin untuk menghapus peran ini selamanya?"
+msgstr ""
+"Apakah Anda yakin ingin menghapus peran ini secara permanen? Tindakan ini "
+"akan mencabut akses pengguna ke semua informasi dan izin yang terkait dengan "
+"peran ini."
 
 msgid "user.futureRole.notification.message"
 msgstr "Peran anda dijadwalkan untuk mulai pada {$roleStartDate}"
@@ -926,3 +930,8 @@ msgstr "Client Secret tidak sah, mohon cek kredensial anda"
 
 msgid "user.authorization.shouldBeAnonymous"
 msgstr "Pengguna harus anonim. Saat ini anda telah masuk ke dalam sistem."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Anda tidak dapat menghapus peran tersebut. Setidaknya satu peran harus "
+"ditetapkan kepada pengguna."

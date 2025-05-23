@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-22 09:22+0000\n"
+"PO-Revision-Date: 2025-05-01 11:23+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -1966,25 +1966,25 @@ msgid "notification.type.editorialReminder"
 msgstr "Չմարված առաջադրանքների շաբաթական էլ․ առաքում"
 
 msgid "semicolon"
-msgstr "{$label}-:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ թարմացվել են"
+msgstr "Նավարկման ընտրացանկի տարրերը հաջողությամբ թարմացվել են"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Նավիգացիոն մենյուի բաժինները հաջողությամբ ջնջվել են"
+msgstr "Նավարկման ընտրացանկի տարրը հաջողությամբ հեռացվել է"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr "Նավիգացիոն մենյուի բաժինը հաջողությամբ ավելացվել է"
+msgstr "Նավարկման ընտրացանկի տարրը հաջողությամբ ավելացվել է"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Նավիգացիոն մենյուն հաջողությամբ ավելացվել է"
+msgstr "Նավարկման ընտրացանկը հաջողությամբ ավելացվել է"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Նավիգացիոն մենյուն հաջողությամբ թարմացվել է"
+msgstr "Նավարկման ընտրացանկը հաջողությամբ թարմացվել է"
 
 msgid "notification.removedNavigationMenu"
-msgstr "Նավիգացիոն մենյուն հաջողությամբ հեռացվել է"
+msgstr "Նավարկման ընտրացանկը հաջողությամբ հեռացվել է"
 
 msgid "notification.unsubscribeNotifications.success"
 msgstr "Դուք ապաբաժանորդագրվել եք"

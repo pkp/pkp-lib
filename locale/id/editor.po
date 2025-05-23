@@ -1,12 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
 # Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-18 14:49+0000\n"
-"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/id/>\n"
 "Language: id\n"
@@ -411,7 +412,7 @@ msgstr ""
 "File."
 
 msgid "editor.review"
-msgstr "Review"
+msgstr "Tinjauan"
 
 msgid "editor.review.reviewDetails"
 msgstr "Rincian Review"
@@ -662,3 +663,13 @@ msgstr "Formuliar Editor Menunjukkan Semua Bagian Review"
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Institusi yang sama dengan penulis"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Tanggal jatuh tempo peninjauan harus lebih besar atau sama dengan tanggal "
+"jatuh tempo respons."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Terjadi galat saat menambahkan peninjau karena tanggal jatuh tempo "
+"peninjauan harus sama atau lebih besar dari tanggal jatuh tempo respons."

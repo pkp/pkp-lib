@@ -164,10 +164,16 @@ abstract class PKPDashboardHandler extends Handler
                 'filtersForm' => $filtersForm->getConfig(),
                 'views' => $this->getViews(),
                 'contextMinReviewsPerSubmission' => $context->getData('numReviewsPerSubmission') ?: 0,
+                'issueCount' => Repo::issue()
+                    ->getCollector()
+                    ->filterByContextIds([$context->getId()])
+                    ->getQueryBuilder()
+                    ->count(),
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,
                     'isReviewerSuggestionEnabled' => (bool)$context->getData('reviewerSuggestionEnabled'),
+                    'isContinuousPublicationEnabled' => (bool)$context->getData('continuousPublication'),
                 ],
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),

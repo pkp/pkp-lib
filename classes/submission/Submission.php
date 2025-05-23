@@ -25,7 +25,9 @@
 namespace APP\submission;
 
 use APP\publication\Publication;
+use APP\services\StatsPublicationService;
 use APP\statistics\StatisticsHelper;
+use PKP\galley\Galley;
 use PKP\submission\PKPSubmission;
 use PKP\userGroup\UserGroup;
 
@@ -123,32 +125,31 @@ class Submission extends PKPSubmission
      * Get total galley views for the preprint
      *
      * Used in templates/frontend/objects/preprint_summary.tpl
-     *
-     * @return int
      */
-    public function getTotalGalleyViews()
+    public function getTotalGalleyViews(): int
     {
-        $fileIds = [];
-        $publications = $this->getPublishedPublications();
-        foreach ($publications as $publication) {
-            foreach ($publication->getData('galleys') as $galley) {
-                $file = $galley->getFile();
-                if (!$galley->getData('urlRemote') && $file && !in_array($file->getId(), $fileIds)) {
-                    $fileIds[] = $file->getId();
-                }
-            }
+        $submissionFileIds = collect($this->getPublishedPublications())
+            ->flatMap(fn (Publication $publication) => $publication->getData('galleys')->all())
+            ->map(fn (Galley $galley) => (int) $galley->getData('submissionFileId'))
+            ->unique()
+            ->filter(fn (int $submissionFileId) => (bool) $submissionFileId)
+            ->all();
+        if (!count($submissionFileIds)) {
+            return 0;
         }
+
         $filters = [
             'dateStart' => StatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => date('Y-m-d', strtotime('yesterday')),
-            'contextIds' => [$this->getData('contextId')],
-            'fileIds' => $fileIds,
+            'contextIds' => [$this->getData('contextId')]
         ];
-        $metrics = app()->get('publicationStats')
+        /** @var StatsPublicationService $publicationStats */
+        $publicationStats = app()->get('publicationStats');
+        return (int) $publicationStats
             ->getQueryBuilder($filters)
-            ->getSum([])
+            ->filterBySubmissionFiles($submissionFileIds)
+            ->getSum()
             ->value('metric');
-        return $metrics ? $metrics : 0;
     }
 }
 

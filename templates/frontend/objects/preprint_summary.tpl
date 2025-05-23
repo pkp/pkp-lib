@@ -90,7 +90,7 @@
 		{/if}
 
 		<div class="details">
-				{translate key="publication.galley.downloads" downloads=$preprint->getTotalGalleyViews($primaryGenreIds)}
+				{translate key="publication.galley.downloads" downloads=$preprint->getTotalGalleyViews()}
 				{if $preprint->getCurrentPublication()->getData('datePublished')}
 					<span class="details_divider">-</span>
 					{translate key="submission.dates" submitted=$preprint->getData('dateSubmitted')|date_format:$dateFormatShort published=$preprint->getCurrentPublication()->getData('datePublished')|date_format:$dateFormatShort}

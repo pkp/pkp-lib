@@ -264,7 +264,8 @@ class FileInformationCenterHandler extends InformationCenterHandler
             $templateMgr->assign('lastEvent', $lastEvent);
 
             // Get the user who created the last event.
-            $user = Repo::user()->get($lastEvent->getUserId(), true);
+	    $userId = $lastEvent->getUserId();
+            $user = $userId ? Repo::user()->get($userId, true) : null;
             $templateMgr->assign('lastEventUser', $user);
         }
 

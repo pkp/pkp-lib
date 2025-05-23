@@ -3,8 +3,8 @@
 # Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-05 02:27+0000\n"
-"Last-Translator: Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>\n"
+"PO-Revision-Date: 2025-05-21 16:42+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -556,3 +556,6 @@ msgstr "Palavras-chave"
 
 msgid "submissionGroup.assignedSubEditors"
 msgstr "Moderadores atribuídos"
+
+msgid "article.pageTitle"
+msgstr "Ver de {$title}"

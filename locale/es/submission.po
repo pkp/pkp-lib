@@ -1,5 +1,5 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # pep sanso <pep.sanso@uab.cat>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
 msgid ""
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-11-20 00:09+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-05-22 21:18+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
 "Language: es\n"
@@ -36,13 +36,11 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "Se han enviado nuevas revisiones y están siendo consideradas por el editor/a."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Uno o más revisores/as han sobrepasado la fecha límite. El equipo editorial "
-"ha sido notificado y tomará las acciones oportunas para que se completen las "
-"revisiones. No necesita hacer nada más en este momento. Será notificado "
-"cuando se tome una decisión."
+"está informado y se asegurará de que las revisiones se completen. Ahora no "
+"es necesario que haga nada más. Se le notificará cuando se tome una decisión."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Enviar como"
@@ -1329,13 +1327,13 @@ msgstr "Revisiones solicitadas."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Se han enviado las revisiones y es necesario tomar una decisión."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "El artículo debe volverse a enviar para otra ronda de revisión."
+msgstr ""
+"Las revisiones solicitadas al autor/a se enviarán a una ronda de revisión "
+"nueva."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "El artículo se ha envíado a otra ronda de revisión."
+msgstr "Revisiones enviadas. Se debe crear una ronda de revisión nueva."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Enviado para revisión externa."
@@ -1355,9 +1353,8 @@ msgstr "Esperando las respuestas de los revisores/as."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Se han recibido nuevas revisiones."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Todos los revisores/as han contestado y hay que tomar una decisión."
+msgstr "Se han confirmado todas la revisiones y hay que tomar una decisión."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Una revisión ha vencido."
@@ -2770,3 +2767,64 @@ msgstr "Autores/as"
 
 msgid "submission.author.list"
 msgstr "Lista de autores/as del envío"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Atención: Esta versión ya ha sido publicada. Editarla podría tener impacto "
+"en el contenido publicado."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Para sugerencia del revisor/a"
+
+msgid "submission.review.status.viewed"
+msgstr "El editor/a ha visto la revisión."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Idioma de envío actual:"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Este es el idioma principal de envío. Cambiarlo afectará al envío y a los "
+"metadatados introducidos"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Envío cancelado"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancelar envío"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "Se ha cancelado el envío y todos los datos asociados se han eliminado."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Sugerencias del revisor/a"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Yo mismo he hecho la recomendación."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Revisores/as sugeridos por el autor/a"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Cambiar"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Cambiar el idioma de envío por"
+
+msgid "ror.displayLocaleRequired"
+msgstr "La configuración regional ROR es obligatoria."
+
+msgid "author.authorNotFound"
+msgstr "No se pudo encontrar el autor/a con esta afiliación."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"Proporcione una afiliación ROR o, por lo menos, un nombre de afiliación."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Proporcione el nombre de la afiliación en la configuración regional "
+"principal."
+
+msgid "ror.nameRequired"
+msgstr "Un nombre ROR es obligatorio."

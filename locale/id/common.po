@@ -1,13 +1,14 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2023.
 # Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
 # Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-04-01 15:36+0000\n"
-"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/id/>\n"
 "Language: id\n"
@@ -771,7 +772,9 @@ msgid "common.replaceFile"
 msgstr "Ganti file"
 
 msgid "common.requiredField"
-msgstr "* Harus Diisi"
+msgstr ""
+"Kolom yang wajib diisi ditandai dengan tanda bintang: <abbr class=\"required"
+"\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Dibutuhkan"
@@ -1959,22 +1962,22 @@ msgid "notification.type.editorialReminder"
 msgstr "Email mingguan berisi tugas-tugas yang belum selesai"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Menu navigasi berhasil diperbaharui"
+msgstr "Item menu navigasi berhasil diperbarui"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr "Menu navigasi berhasil dihapus"
+msgstr "Item menu navigasi berhasil dihapus"
 
 msgid "notification.addedNavigationMenuItem"
 msgstr "Item menu navigasi berhasil ditambahkan"
 
 msgid "notification.addedNavigationMenu"
-msgstr "Menu navigasi berhasil ditambah"
+msgstr "Menu navigasi berhasil ditambahkan"
 
 msgid "notification.editedNavigationMenu"
-msgstr "Menu navigasi berhasil diperbaharui"
+msgstr "Menu navigasi berhasil diperbarui"
 
 msgid "notification.removedNavigationMenu"
 msgstr "Menu navigasi berhasil dihapus"
@@ -2436,3 +2439,6 @@ msgstr "Halaman Sejarah Editorial"
 
 msgid "common.highlight"
 msgstr "Highlight"
+
+msgid "common.loaded"
+msgstr "Dimuat"

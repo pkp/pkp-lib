@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-03-24 11:32+0000\n"
+"PO-Revision-Date: 2025-05-20 05:41+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg/>\n"
@@ -1970,7 +1970,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Седмичен имейл с неизпълнени задачи"
 
 msgid "semicolon"
-msgstr "{$label} :"
+msgstr "{$label} : "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Елементът от менюто за навигация бе актуализиран успешно"

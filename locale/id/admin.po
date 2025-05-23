@@ -1,13 +1,14 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
 # Anas Fanani <anas@anasfanani.com>, 2024.
 # Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-20 15:23+0000\n"
-"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/id/>\n"
 "Language: id\n"
@@ -286,7 +287,7 @@ msgid "admin.server.apacheVersion"
 msgstr "Versi Apache"
 
 msgid "admin.server.dbDriver"
-msgstr "Database driver"
+msgstr "Driver basis data"
 
 msgid "admin.server.dbVersion"
 msgstr "Versi server database"
@@ -846,6 +847,12 @@ msgstr "ID Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Cara mengidentifikasi platform ini dalam laporan COUNTER SUSHI. ID platform "
+"harus terdiri dari 17 karakter atau kurang dan boleh berisi huruf (a–z, A–Z)"
+", angka (0–9), garis bawah (_), titik (.), dan garis miring (/). ID platform "
+"digunakan dalam beberapa kolom dan harus sesingkat mungkin namun tetap mudah "
+"dikenali. ID platform biasanya berdasarkan nama penerbit atau platform, nama "
+"domain, atau singkatan unik yang terkenal."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
@@ -879,6 +886,7 @@ msgstr "Memori terbatas pada megabit [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Jumlah detik yang dapat dijalankan oleh proses anak[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
@@ -1030,3 +1038,47 @@ msgstr "Daftarkan seluruh tugas terjadwal."
 
 msgid "admin.cli.tool.scheduler.options.run.description"
 msgstr "Jalankan scheduler."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Tidak ada variabel kunci bernama `app_key` yang ditetapkan di bagian "
+"`general` pada berkas konfigurasi. Harap perbarui bagian umum berkas "
+"konfigurasi dan tambahkan baris `app_key = ` atau jalankan perintah `php lib/"
+"pkp/tools/appKey.php configure` untuk menyetelnya."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Kumpulan kunci aplikasi tidak valid, sandi tidak didukung, atau panjang "
+"kunci salah. Sandi yang didukung adalah: {$ciphers}."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Tidak dapat menyetel variabel `app_key` dalam berkas konfigurasi. Harap "
+"perbarui bagian umum berkas konfigurasi dan tambahkan baris `app_key = `."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Mulai pekerja jadwal."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Buat kunci aplikasi baru dan ganti di berkas konfigurasi. Berikan dengan "
+"tanda --show untuk hanya melihat dan --force untuk menimpa kunci aplikasi "
+"yang valid."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Variabel `app_key` sudah ada di bagian `general` dalam berkas konfigurasi. "
+"Jalankan perintah `php lib/pkp/tools/appKey.php generate` untuk menetapkan "
+"kunci aplikasi baru."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Variabel kunci aplikasi berhasil ditetapkan dalam berkas konfigurasi. "
+"Jalankan perintah `php lib/pkp/tools/appKey.php generate` untuk menetapkan "
+"kunci aplikasi baru."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Jalankan tugas terjadwal tertentu dari daftar atau gunakan --name untuk "
+"menjalankan tugas tertentu. Atur tanda --no-scroll untuk melihat daftar "
+"lengkap tanpa menggulir."

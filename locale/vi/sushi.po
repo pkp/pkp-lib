@@ -1,0 +1,55 @@
+# Thuan Huynh <huynhnguyenthuan0910@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-05-01 16:19+0000\n"
+"Last-Translator: Thuan Huynh <huynhnguyenthuan0910@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"sushi/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "sushi.status.description"
+msgstr "Báo cáo sử dụng COUNTER cho {$contextName}."
+
+msgid "sushi.exception.1"
+msgstr "Ngày yêu cầu ({$beginDate} hoặc {$endDate}) nằm giữa tháng; tuy nhiên, chỉ xem xét toàn bộ các tháng."
+
+msgid "sushi.exception.2"
+msgstr "ID mục được yêu cầu ({$itemId}) không phải là một số. Tham số này yêu cầu ID bài nộp."
+
+msgid "sushi.exception.3"
+msgstr "Tham số item_id chứa nhiều hơn một giá trị, tuy nhiên chỉ chấp nhận một giá trị. Các giá trị sau không được xem xét: item_id={$itemIdValues}"
+
+msgid "sushi.exception.1030.missing"
+msgstr "Thiếu {$params}."
+
+msgid "sushi.exception.1030.invalid"
+msgstr "Không hợp lệ {$params}."
+
+msgid "sushi.exception.3020.dateFormat"
+msgstr "Định dạng không hợp lệ cho begin_date hoặc end_date."
+
+msgid "sushi.exception.3020.dateRange"
+msgstr "Phạm vi ngày không hợp lệ."
+
+msgid "sushi.exception.3030"
+msgstr "Không có dữ liệu sử dụng cho các ngày được yêu cầu. Yêu cầu từ {$beginDate} đến {$endDate}."
+
+msgid "sushi.exception.3031"
+msgstr "Yêu cầu từ {$beginDate} đến {$endDate}; tuy nhiên, dữ liệu sử dụng chỉ khả dụng đến {$lastDate}."
+
+msgid "sushi.exception.3032"
+msgstr "Yêu cầu từ {$beginDate} đến {$endDate}; tuy nhiên, dữ liệu sử dụng chỉ khả dụng từ {$earliestDate}."
+
+msgid "sushi.exception.3050"
+msgstr "Yêu cầu chứa các tham số ({$params}) không được nhận dạng trong ngữ cảnh của báo cáo đang được cung cấp."
+
+msgid "sushi.exception.3060"
+msgstr "Các giá trị bộ lọc sau không được hỗ trợ: {$filterValues}"
+
+msgid "sushi.exception.3062"
+msgstr "Các giá trị thuộc tính sau không được hỗ trợ: {$attributeValues}"

@@ -1,18 +1,19 @@
+# wenshao521！ <wainixueer3334@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:27-08:00\n"
-"PO-Revision-Date: 2020-07-28 15:47+0000\n"
-"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"PO-Revision-Date: 2025-05-15 23:59+0000\n"
+"Last-Translator: wenshao521！ <wainixueer3334@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/zh_Hans/>\n"
-"Language: zh_CN\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "额外的语言环境"
@@ -112,7 +113,7 @@ msgid "installer.form.usernameRequired"
 msgstr "管理员的用户名是必须的."
 
 msgid "installer.form.timeZoneRequired"
-msgstr ""
+msgstr "必须选择一个时区。"
 
 msgid "installer.installationWrongPhp"
 msgstr ""
@@ -135,7 +136,7 @@ msgid "installer.installParseDBFileError"
 msgstr "错误解析数据库安装文件模板 <tt>{$file}</tt>."
 
 msgid "installer.installMigrationError"
-msgstr ""
+msgstr "执行迁移类 <tt>{$class}</tt> 时抛出异常，异常信息为：{$message}。"
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "错误解析电子邮件模板文件<tt>{$file}</tt>."
@@ -143,15 +144,15 @@ msgstr "错误解析电子邮件模板文件<tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "错误解析过滤配置文件<tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
-msgstr "不支持升级。 有关详细信息，请参阅 docs/UPGRADE-UNSUPPORTED。"
+msgstr "不支持升级。详情请参见升级指南（https://docs.pkp.sfu.ca/dev/upgrade-guide）。"
 
 msgid "installer.timezoneInstructions"
-msgstr ""
+msgstr "系统使用的时区。"
 
 msgid "installer.additionalLocalesInstructions"
-msgstr ""
+msgstr "选择系统中支持的其他语言。您也可以随时通过站点管理界面安装其他语言。<br>* = "
+"表示该语言尚未完全翻译（已翻译术语少于90%）"
 
 msgid "installer.locale"
 msgstr "语言设置"
@@ -228,3 +229,35 @@ msgstr "该软件不支持您服务器的PHP版本。 请在 docs/README 中仔�
 
 #~ msgid "installer.form.encryptionRequired"
 #~ msgstr "用户密码加密算法必须选择."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"请在 general 部分手动添加名为 app_key 的配置变量，或运行命令 php lib/pkp/"
+"tools/appKey.php configure 通过命令行界面设置该变量。"
+
+msgid "installer.appKey.validate.error"
+msgstr "不支持的加密算法或密钥长度错误。支持的加密算法有：{$ciphers}。"
+
+msgid "installer.miscSettings"
+msgstr "杂项设置"
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "general 部分未定义名为 app_key 的配置变量。 "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr "general 部分已定义名为 app_key 的配置变量。 "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr "无法读取配置文件，或者配置文件在预期路径不存在。 "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "无法解析配置文件。"
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "无法在配置文件中写入 app_key 变量。"
+
+msgid "installer.appKey.write.error"
+msgstr "无法在配置文件中写入应用密钥（app key）。"
+
+msgid "installer.appKey.set.value"
+msgstr "请在 config.inc.php 文件的 general 部分将 app_key 的值设置为 {$key}。"

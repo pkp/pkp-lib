@@ -1,19 +1,20 @@
 # Yukari Chiba <Charles@nia.ac.cn>, 2023.
+# wenshao521！ <wainixueer3334@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:00-08:00\n"
-"PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Yukari Chiba <Charles@nia.ac.cn>\n"
+"PO-Revision-Date: 2025-05-13 17:50+0000\n"
+"Last-Translator: wenshao521！ <wainixueer3334@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/admin/zh_CN/>\n"
-"Language: zh_CN\n"
+"pkp-lib/admin/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "设置名称"
@@ -25,10 +26,10 @@ msgid "admin.adminFunctions"
 msgstr "管理职能"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "删除缓存"
 
 msgid "admin.deleteCache.description"
-msgstr ""
+msgstr "从系统中删除缓存文件。此操作仅应在开发环境中执行。"
 
 msgid "admin.clearDataCache"
 msgstr "清除数据缓存"
@@ -72,7 +73,7 @@ msgid "admin.expireSessions"
 msgstr "用户会话过期"
 
 msgid "admin.expireSessions.description"
-msgstr ""
+msgstr "所有用户将立即从应用程序中注销，包括您在内，并需要重新登录。"
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -134,7 +135,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "任务未生成日志。"
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "将 DOI 存储到配置的注册机构"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -142,13 +143,14 @@ msgstr ""
 "{$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
+msgstr "向每位编辑发送电子邮件，提醒他们尚未完成的任务"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "在上下文 {$contextId} 中识别需要提醒的编辑"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
-msgstr ""
+msgstr "已派发 {$count} 个任务，向上下文 {$contextId} 中的用户 {$userIds} "
+"发送编辑邮件提醒"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "您确定要删除所有计划的任务执行日志吗？"
@@ -157,10 +159,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "清除计划任务的执行日志"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "删除所有已执行的计划任务过程日志。"
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "删除任务日志"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "发布计划发布的提交"
@@ -169,76 +171,81 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "审稿提醒"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "编辑报告通知"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "订阅到期提醒"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "删除未验证的过期用户"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "从失败任务列表中删除更早期的失败任务。"
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "处理待处理队列任务"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "更新 DB-IP 城市精简版数据库"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
-msgstr ""
+msgstr "将 DB-IP 城市精简版数据库文件 {$sourceFilename} 重命名为 {$targetFilename} "
+"失败。"
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "使用统计文件加载任务"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
-msgstr ""
+msgstr "目录 {$directory} 不为空。这可能表示之前的过程失败，或当前有其他进程正在运行"
+"。该文件将被自动重新处理。"
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr ""
+msgstr "文件 {$file} 无法打开，已被拒绝。"
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
-msgstr ""
+msgstr "文件 {$file} 使用了旧的日志文件格式，无法处理，因此将被移回到暂存目录。"
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"跳过日志文件 {$file}，因为该月份的统计数据已经计算完毕。如需重新计算之前月份"
+"的统计数据，您必须恢复该月份的所有日志文件，并使用命令行工具重新处理统计数据"
+"。"
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
-msgstr ""
+msgstr "日志文件 {$file} 中的第 {$lineNumber} 行格式不正确，因此将被跳过。"
 
 msgid "admin.job.processLogFile.invalidLogEntry"
-msgstr ""
+msgstr "日志文件 {$file} 中第 {$lineNumber} 行的日志条目无效：{$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "时间不是有效的日期。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "上下文 ID 不是整数。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "提交 ID 不是整数。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "表示 ID 不是整数。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "不支持的关联类型。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "文件类型不受支持。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "国家不是一个由两个字母组成的字符串。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "区域不是一个最多由三个字母数字字符组成的字符串。"
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "机构 ID 不是一个数组。"
 
 msgid "admin.job.processLogFile.insertError"
-msgstr ""
+msgstr "处理日志文件 {$file} 时发生错误，位于第 {$lineNumber} 行：{$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -268,7 +275,7 @@ msgid "admin.settings.about"
 msgstr "关于网站描述"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "批量邮件"
 
 msgid "admin.settings.contactEmail"
 msgstr "主要联络的电子邮件"
@@ -283,13 +290,13 @@ msgid "admin.settings.minPasswordLength"
 msgstr "最小的密码长度"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "限制批量邮件"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "禁用角色"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "仅管理员允许修改此设置。"
 
 msgid "admin.settings.siteLanguage"
 msgstr "网站语言"
@@ -328,10 +335,10 @@ msgid "admin.systemInformation"
 msgstr "系统信息"
 
 msgid "admin.systemInformation.description"
-msgstr ""
+msgstr "查看应用程序和服务器的版本及配置设置相关信息。"
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "查看系统信息"
 
 msgid "admin.versionBuild"
 msgstr "版本号"
@@ -388,28 +395,28 @@ msgid "admin.fileLoader.emailSubject"
 msgstr "文件加载器"
 
 msgid "admin.error.gzDecompressFile.gzopen"
-msgstr ""
+msgstr "文件无法解压缩。源 gz 文件 {$filePath} 无法使用 gzopen 打开。"
 
 msgid "admin.error.gzDecompressFile.fopen"
-msgstr ""
+msgstr "文件无法解压缩。目标文件 {$filePath} 无法使用 fopen 打开。"
 
 msgid "admin.error.gzDecompressFile.gzread"
-msgstr ""
+msgstr "文件无法解压缩。源 gz 文件 {$file} 无法使用 gzread 读取。"
 
 msgid "admin.error.gzDecompressFile.fwrite"
-msgstr ""
+msgstr "文件无法解压缩。目标文件 {$filePath} 无法使用 fwrite 写入。"
 
 msgid "admin.error.gzDecompressFile.fclose"
-msgstr ""
+msgstr "文件无法解压缩。已打开的目标文件 {$filePath} 无法使用 fclose 关闭。"
 
 msgid "admin.error.gzDecompressFile.gzclose"
-msgstr ""
+msgstr "文件无法解压缩。已打开的源 gz 文件 {$filePath} 无法使用 gzclose 关闭。"
 
 msgid "admin.error.gzDecompressFile.unlink"
-msgstr ""
+msgstr "文件无法解压缩。解压后的源 gz 文件 {$filePath} 无法使用 unlink 删除。"
 
 msgid "admin.error.gzCompressFile.gzopen"
-msgstr ""
+msgstr "文件无法压缩。目标 gz 文件 {$filePath} 无法使用 gzopen 打开。"
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
@@ -789,3 +796,19 @@ msgstr ""
 
 #~ msgid "admin.languages.download"
 #~ msgstr "下载语言"
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "更新 Ror 注册数据集缓存"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "审稿人统计数据"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "禁用汇总审稿人统计数据"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "在多上下文安装中，审稿人统计数据（如提交的评审数量）可以分别显示在每个上下文"
+"中，也可以集体汇总显示。"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "文件 {$filename} 已移至调度文件夹。"

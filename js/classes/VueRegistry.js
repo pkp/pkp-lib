@@ -60,9 +60,9 @@ export default {
 
 		pkp.registry._instances[id] = pkp.pkpCreateVueApp(args);
 
-		pkp.registry._instances[id].mount(`#${id}`);
+		const rootComponent = pkp.registry._instances[id].mount(`#${id}`);
 
-		pkp.eventBus.$emit('root:mounted', id, pkp.registry._instances[id]);
+		pkp.eventBus.$emit('root:mounted', id, rootComponent);
 
 		// Register with a parent handler from the legacy JS framework, so that
 		// those componments can destroy a Vue instance when removing HTML code

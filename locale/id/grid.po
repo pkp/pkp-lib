@@ -1,12 +1,13 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2023.
 # Maria Lamury <marialamury@gmail.com>, 2025.
+# Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2025-03-19 16:29+0000\n"
-"Last-Translator: Maria Lamury <marialamury@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "id/>\n"
 "Language: id\n"
@@ -95,7 +96,7 @@ msgid "grid.action.remove"
 msgstr "Hapus"
 
 msgid "grid.action.edit"
-msgstr "Edit"
+msgstr "Sunting"
 
 msgid "grid.action.approve"
 msgstr "Setujui"
@@ -363,7 +364,7 @@ msgid "grid.columns.url"
 msgstr "URL"
 
 msgid "grid.columns.auditor"
-msgstr "Auditor"
+msgstr "Pemeriksa"
 
 msgid "grid.columns.locale"
 msgstr "Bahasa"
@@ -801,3 +802,6 @@ msgstr ""
 "Harap diperhatikan bahwa pada waktu seorang pengguna tidak di-nonaktifkan, "
 "anda tidak dapat menambahkan mereka pada peran manapun hingga pengguna "
 "diaktifkan kembali."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Tampil di Masthead"

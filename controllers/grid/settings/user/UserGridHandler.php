@@ -92,6 +92,23 @@ class UserGridHandler extends GridHandler
         // Basic grid configuration.
         $this->setTitle('grid.user.currentUsers');
 
+        // Grid actions.
+        $router = $request->getRouter();
+
+        $this->addAction(
+            new LinkAction(
+                'addUser',
+                new AjaxModal(
+                    $router->url($request, null, null, 'addUser', null, null),
+                    __('grid.user.add'),
+                    'modal_add_user',
+                    true
+                ),
+                __('grid.user.add'),
+                'add_user'
+            )
+        );
+
         //
         // Grid columns.
         //

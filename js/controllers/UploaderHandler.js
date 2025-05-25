@@ -189,7 +189,7 @@
 			file.storedData = jsonData.uploadedFile;
 		}
 
-		this.$fileName.html(filename);
+		this.$fileName.text(filename);
 		this.updateStatus('complete');
 		this.$progress.html('0');
 		this.$progressBar.css('width', 0);

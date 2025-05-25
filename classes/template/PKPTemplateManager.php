@@ -1378,6 +1378,7 @@ class PKPTemplateManager extends Smarty
                 'datetimeFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatLong()),
                 'timeFormat' => PKPString::convertStrftimeFormat($context->getLocalizedTimeFormat()),
                 'supportedLocales' => $context?->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY),
+                'supportedFormLocales' => $context?->getSupportedFormLocaleNames()
             ]);
         } else {
             $pageContext = array_merge($pageContext, [                

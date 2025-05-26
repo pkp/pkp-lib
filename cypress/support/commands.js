@@ -192,12 +192,11 @@ Cypress.Commands.add('openReviewAssignment', (familyName) => {
 
 Cypress.Commands.add('openWorkflowMenu', (name, subitem = null) => {
 	if(subitem) {
-		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).contains(subitem).click()
+		cy.get(`[data-cy="active-modal"] nav li:contains("${name}")`).contains(subitem).click({force: true})
 	} else {
 		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).click();
-
+		cy.get('[data-cy="active-modal"] h2').contains(name);
 	}
-	cy.get('[data-cy="active-modal"] h2').contains(name);
 });
 
 

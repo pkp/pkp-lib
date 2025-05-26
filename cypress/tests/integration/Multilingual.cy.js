@@ -21,7 +21,7 @@ describe('Multilingual configurations', function() {
 		cy.get('#masthead [role="status"]').contains('Saved');
 
 		cy.visit('index.php/publicknowledge/workflow/access/1');
-		cy.openWorkflowMenu('Title & Abstract')
+		cy.openWorkflowMenu('Author Original 1.1', 'Title & Abstract')
 		cy.get('button.pkpFormLocales__locale').eq(0).contains('French').click();
 		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire", {force: true});
 		cy.get('button').contains('Save').click();

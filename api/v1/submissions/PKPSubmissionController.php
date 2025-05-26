@@ -1551,11 +1551,13 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // validate that the supplied group is an AUTHOR group
-        $userGroup = Repo::userGroup()->get($params['userGroupId']);
-        if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
-            return response()->json([
-                'userGroupId' => [__('api.submission.400.invalidUserGroup', ['userGroupId' => $params['userGroupId']])]
-            ], Response::HTTP_BAD_REQUEST);
+        if (isset($params['userGroupId'])) {
+            $userGroup = Repo::userGroup()->get($params['userGroupId']);
+            if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
+                return response()->json([
+                    'userGroupId' => [__('submission.upload.invalidUserGroup')]
+                ], Response::HTTP_BAD_REQUEST);
+            }
         }
 
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
@@ -1696,7 +1698,7 @@ class PKPSubmissionController extends PKPBaseController
         $userGroup = Repo::userGroup()->get($params['userGroupId']);
         if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
             return response()->json([
-                'userGroupId' => [__('api.submission.400.invalidUserGroup', ['userGroupId' => $params['userGroupId']])]
+                'userGroupId' => [__('submission.upload.invalidUserGroup')]
             ], Response::HTTP_BAD_REQUEST);
         }
 

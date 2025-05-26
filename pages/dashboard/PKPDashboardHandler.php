@@ -20,6 +20,7 @@ use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use APP\publication\enums\VersionStage;
 use APP\template\TemplateManager;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
@@ -155,8 +156,17 @@ abstract class PKPDashboardHandler extends Handler
             }
         }
 
+        $versionStageOptions = [];
+        $allVersionStages = VersionStage::cases();
+
+        foreach ($allVersionStages as $versionStage) {
+            $versionStageOptions[] = [
+                'label' => $versionStage->label() . ' (' . $versionStage->value . ')',
+                'value' => $versionStage->value,
+            ];
+        }
+
         $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
-        $versionForm = new VersionForm($context->getSupportedFormLocales(), $context);
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -174,7 +184,7 @@ abstract class PKPDashboardHandler extends Handler
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
-                    'versionForm' => $versionForm->getConfig()
+                    'versionStageOptions' => $versionStageOptions,
                 ],
             ]
         ]);

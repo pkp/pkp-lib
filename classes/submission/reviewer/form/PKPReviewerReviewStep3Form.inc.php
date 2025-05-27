@@ -211,7 +211,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm {
 		// Persist the updated review assignment.
 		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /* @var $reviewAssignmentDao ReviewAssignmentDAO */
 		$reviewAssignmentDao->updateObject($reviewAssignment);
-		
+
+		HookRegistry::call(strtolower_codesafe(get_class($this)) . '::saveForLater', array($this));
 		return true;
 	}
 

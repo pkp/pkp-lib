@@ -33,6 +33,7 @@ use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
+use PKP\plugins\Hook;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
@@ -294,6 +295,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
+        Hook::call(strtolower_codesafe(get_class($this)) . '::saveForLater', array($this));
         return true;
     }
 

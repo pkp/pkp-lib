@@ -138,8 +138,6 @@ class Repository
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
-                } elseif ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-                    $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
                 }
             }
             // userGroupId must be an Author group within the current context

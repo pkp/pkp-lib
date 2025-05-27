@@ -2644,6 +2644,9 @@ msgstr "Review completed on {$date}"
 msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr "The review was completed on {$date} with the following recommendation: <b>{$recommendation}</b>"
 
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "The review was completed on {$date}"
+
 msgid "dashboard.reviewAssignment.statusComplete.title"
 msgstr "Review was confirmed by editor"
 

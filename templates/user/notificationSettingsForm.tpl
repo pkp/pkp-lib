@@ -21,7 +21,7 @@
 		{rdelim});
 	{rdelim});
 </script>
-
+<div class="legacyDefaults">
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
 	<p>{translate key="notification.settingsDescription"}</p>
 
@@ -63,3 +63,4 @@
 		{fbvFormButtons hideCancel=true submitText="common.save"}
 	{/fbvFormArea}
 </form>
+</div>

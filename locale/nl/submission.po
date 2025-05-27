@@ -1,13 +1,14 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-10-19 10:40+0000\n"
-"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"PO-Revision-Date: 2025-05-27 16:45+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
 "Language: nl\n"
@@ -2729,3 +2730,11 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr "Tegenstrijdige belangen"
+
+msgid "author.authorNotFound"
+msgstr "De auteur van deze affiliatie kan niet worden gevonden."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr ""
+"U wordt vriendelijk verzocht een ROR affiliatie of ten minste één naam van "
+"een affiliatie te vermelden."

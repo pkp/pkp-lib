@@ -77,6 +77,9 @@ use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
+use PKP\observers\events\MetadataChanged;
+use PKP\stageAssignment\StageAssignment;
+
 
 class PKPSubmissionController extends PKPBaseController
 {
@@ -1337,16 +1340,12 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        // Prevent users from editing publications if they do not have permission. Except for admins.
+        // only proceed if user is allowed to edit publications
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (
+            !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) &&
+            !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+        ) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);
@@ -1396,6 +1395,8 @@ class PKPSubmissionController extends PKPBaseController
 
         Repo::publication()->edit($publication, $params);
         $publication = Repo::publication()->get($publication->getId());
+        event(new MetadataChanged($submission));
+
 
         $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
 
@@ -1454,6 +1455,17 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         Repo::publication()->publish($publication);
+
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->get();
+
+        foreach ($stageAssignments as $stageAssignment) {
+            $userGroup = $stageAssignment->userGroup;
+            if ($userGroup && $userGroup->roleId === Role::ROLE_ID_AUTHOR){
+                $stageAssignment->canChangeMetadata = 0;
+                $stageAssignment->save();
+            }
+        }
 
         $publication = Repo::publication()->get($publication->getId());
 
@@ -1745,12 +1757,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
             return response()->json([
@@ -1804,13 +1810,6 @@ class PKPSubmissionController extends PKPBaseController
         if ($submission->getId() !== $publication->getData('submissionId')) {
             return response()->json([
                 'error' => __('api.publications.403.submissionsDidNotMatch'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
         }
 
@@ -1897,13 +1896,6 @@ class PKPSubmissionController extends PKPBaseController
         if ($submission->getId() !== $publication->getData('submissionId')) {
             return response()->json([
                 'error' => __('api.publications.403.submissionsDidNotMatch'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
         }
 

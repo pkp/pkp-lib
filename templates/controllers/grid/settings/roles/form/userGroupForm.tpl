@@ -32,7 +32,7 @@
 		<input type="hidden" id="userGroupId" name="userGroupId" value="{$userGroupId|escape}" />
 	{/if}
 	{fbvFormArea id="userGroupDetails"}
-		<h3>{translate key="settings.roles.roleDetails"}</h3>
+		<h3 class="mb-2 text-xl-bold">{translate key="settings.roles.roleDetails"}</h3>
 		{fbvFormSection title="settings.roles.from" for="roleId" required="true"}
 			{fbvElement type="select" name="roleId" from=$roleOptions id="roleId" selected=$roleId disabled=$disableRoleSelect required="true"}
 		{/fbvFormSection}

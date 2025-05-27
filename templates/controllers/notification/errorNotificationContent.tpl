@@ -8,7 +8,7 @@
  * Display error notification content.
  *}
 {foreach item=message from=$errors}
-	<ul>
+	<ul class="list-disc list-inside">
 		<li>{$message|escape}</li>
 	</ul>
 {/foreach}

@@ -11,6 +11,7 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
+<div class="legacyDefaults">
 	<h1 class="app__pageHeading">
 		{translate key="installer.appInstallation"}
 	</h1>
@@ -166,4 +167,5 @@
 			{fbvFormButtons id="installFormSubmit" submitText="common.save" hideCancel=true submitText="installer.installApplication"}
 		</form>
 	</div>
+</div>
 {/block}

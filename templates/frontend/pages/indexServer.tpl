@@ -27,7 +27,7 @@
 		{include file="frontend/components/highlights.tpl" highlights=$highlights}
 	{/if}
 
-	{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+	{if $activeTheme && !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 		<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
 	{/if}
 
@@ -47,7 +47,7 @@
 	</section>
 
 	{* Server Description *}
-	{if $activeTheme->getOption('showDescriptionInServerIndex')}
+	{if $activeTheme && $activeTheme->getOption('showDescriptionInServerIndex')}
 		<section class="homepage_about">
 			<a id="homepageAbout"></a>
 			<h2>{translate key="about.aboutContext"}</h2>

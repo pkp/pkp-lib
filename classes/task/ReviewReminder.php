@@ -68,7 +68,7 @@ class ReviewReminder extends ScheduledTask
             ->from($context->getData('contactEmail'), $context->getData('contactName'))
             ->recipients([$reviewer]);
 
-        $mailable->setData($primaryLocale);
+        $mailable->setLocale($primaryLocale);
 
         $application = Application::get();
         $request = $application->getRequest();

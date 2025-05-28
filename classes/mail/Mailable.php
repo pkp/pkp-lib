@@ -91,6 +91,9 @@ class Mailable extends IlluminateMailable
     public const ATTACHMENT_SUBMISSION_FILE = 'submissionFileId';
     public const ATTACHMENT_LIBRARY_FILE = 'libraryFileId';
 
+    /** @var string|null The specific locale to send the mail of this Mailable */
+    protected ?string $mailableLocale = null;
+
     /** @var string|null Locale key for the name of this Mailable */
     protected static ?string $name = null;
 
@@ -226,7 +229,7 @@ class Mailable extends IlluminateMailable
     public function setData(?string $locale = null): void
     {
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
         foreach ($this->variables as $variable) {
             $this->viewData = array_merge(
@@ -236,6 +239,24 @@ class Mailable extends IlluminateMailable
         }
 
         $this->addFooter($locale); // set the locale for the email footer
+    }
+
+    /**
+     * Set the mailable locale
+     */
+    public function setLocale(string $locale): static
+    {
+        $this->mailableLocale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Get the mailable locale
+     */
+    public function getLocale(): ?string
+    {
+        return $this->mailableLocale;
     }
 
     /**
@@ -492,6 +513,7 @@ class Mailable extends IlluminateMailable
         }
         $isUnion = $type instanceof ReflectionUnionType;
         if ($isUnion || $type instanceof ReflectionIntersectionType) {
+            /** @var ReflectionIntersectionType $type */
             $flattenTypes = collect($type->getTypes())
                 ->map(fn ($type) => static::getTypeNames($type))
                 ->flatten();

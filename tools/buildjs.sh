@@ -146,7 +146,7 @@ for JS_FILE in $LINT_FILES; do
 		# - We allow code without the 'use strict' pragma as we need the callee property
 		#   for our class framework implementation.
 		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus --continue \
-			--eqeq --sloppy --browser --predef pkp,jQuery,alert,tinyMCE,confirm,plupload \
+			--eqeq --sloppy --browser --predef pkp,jQuery,alert,tinyMCE,confirm,plupload,Promise \
 			--regexp "$JS_FILE" | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 

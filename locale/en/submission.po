@@ -2796,3 +2796,17 @@ msgstr "The stage version that will be assigned to the publication is \"{$versio
 msgid "publication.required.versionStage.alreadyAssignment"
 msgstr "The publication version is \"{$versionString}\""
 
+msgid "publication.versionStage.authorOriginal"
+msgstr "Author Original"
+
+msgid "publication.versionStage.acceptedManuscript"
+msgstr "Accepted Manuscript"
+
+msgid "publication.versionStage.submittedManuscript"
+msgstr "Submitted Manuscript"
+
+msgid "publication.versionStage.proof"
+msgstr "Proof"
+
+msgid "publication.versionStage.versionOfRecord"
+msgstr "Version of Record"

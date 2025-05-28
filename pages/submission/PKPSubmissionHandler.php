@@ -45,6 +45,7 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\UserGroup;
 
 abstract class PKPSubmissionHandler extends Handler
@@ -616,15 +617,13 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $request = Application::get()->getRequest();
         $isAdmin = $request->getUser()->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
-        $query = UserGroup::query()->withContextIds([$context->getId()])
-            ->withUserIds([$user->getId()])
-            ->whereHas('userUserGroups', function ($query) use ($user) {
-                $query->withUserId($user->getId())->withActive();
-            });
+        $query = UserGroup::query()->withContextIds([$context->getId()])->withUserIds([$user->getId()]);
 
         $userGroups = $isAdmin
             ? $query->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])->get()
-            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])->get(); // For non-admin users, query for the groups tht give them access to the submission stage
+            : $query->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
+                ->withUserUserGroupStatus(UserUserGroupStatus::STATUS_ACTIVE->value)
+                ->get(); // For non-admin users, query for the groups tht give them access to the submission stage
 
         // Users without a submitting role or access to submission stage can submit as an
         // author role that allows self registration.

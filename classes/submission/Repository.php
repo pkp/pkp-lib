@@ -847,20 +847,9 @@ abstract class Repository
      */
     public function getAllVersionsByPublication(Submission $submission): Collection
     {
-        return collect($submission->getData('publications'))
-            ->flatMap(function ($publication) {
-                $versions = collect();
-
-                // Add current version if it exists
-                $current = $publication->getVersion();
-                if ($current instanceof PublicationVersionInfo) {
-                    $versions->push($current);
-                }
-
-                // Add all historical versions
-                return $versions->merge($publication->getVersionHistory());
-            })
-            ->filter(); // Remove any nulls
+        return collect($submission->getData('publications')->map(function ($publication) {
+            return $publication->getVersion();
+        })->filter()); // Remove any null entries from the collection
     }
 
     public function getNextAvailableVersion(Submission $submission, VersionStage $versionStage, bool $isMinorChange = true): PublicationVersionInfo

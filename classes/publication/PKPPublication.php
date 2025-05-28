@@ -20,7 +20,6 @@ namespace PKP\publication;
 
 use APP\author\Author;
 use APP\facades\Repo;
-use Illuminate\Support\Collection;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
@@ -296,8 +295,6 @@ class PKPPublication extends \PKP\core\DataObject
 
         $this->setData('createdAt', $dateTime);
         $this->setData('lastModified', $dateTime);
-
-        return;
     }
 
     /**
@@ -479,47 +476,6 @@ class PKPPublication extends \PKP\core\DataObject
             ->unique()
             ->values()
             ->toArray();
-    }
-
-    /**
-     * Return version history as a collection of PublicationVersionInfo objects.
-     *
-     * @return Collection|PublicationVersionInfo[]
-     */
-    public function getVersionHistory(): Collection
-    {
-        $historyJson = $this->getData('versionHistory');
-
-        if (!is_string($historyJson)) {
-            return collect(); // Empty collection if nothing is stored yet
-        }
-
-        $historyArray = json_decode($historyJson, true);
-        if (!is_array($historyArray)) {
-            return collect();
-        }
-
-        return collect($historyArray)
-            ->filter(fn($entry) => is_array($entry))
-            ->map(fn(array $entry) => PublicationVersionInfo::fromArray($entry));
-    }
-
-    /**
-     * Add a version entry to the version history (stored as JSON string).
-     *
-     * @param PublicationVersionInfo $info
-     * @return void
-     */
-    public function addVersionHistory(PublicationVersionInfo $info): void
-    {
-        $current = $this->getVersionHistory();
-
-        $updated = $current
-            ->map(fn(PublicationVersionInfo $entry) => $entry->toArray())
-            ->push($info->toArray())
-            ->all();
-
-        $this->setData('versionHistory', json_encode($updated));
     }
 
     /**

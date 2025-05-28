@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/helpers/PublicationVersionInfoResource.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023-2025 Simon Fraser University
+ * Copyright (c) 2023-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationVersionInfoResource

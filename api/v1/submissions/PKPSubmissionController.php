@@ -984,7 +984,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        if ($submission->getId() !== $publication->getData('submissionId')) {
+        if ($submission->getId() != $publication->getData('submissionId')) {
             return response()->json([
                 'error' => __('api.publications.403.submissionsDidNotMatch'),
             ], Response::HTTP_FORBIDDEN);

@@ -703,11 +703,6 @@ abstract class Repository
 
         $oldVersion = $publication->getVersion();
 
-        // If a previous version exists, append it to the history
-        if (isset($oldVersion)) {
-            $publication->addVersionHistory($oldVersion);
-        }
-
         $publication->setVersion($nextAvailableVersion);
 
         Hook::run('Publication::updateVersion::before', [&$publication, $oldVersion]);

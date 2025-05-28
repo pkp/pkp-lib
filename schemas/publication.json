@@ -438,14 +438,6 @@
 				"nullable"
 			],
 			"apiSummary": true
-		},
-		"versionHistory": {
-			"type": "string",
-			"description": "A reference log of previous versions of this publication in JSON format.",
-			"validation": [
-				"nullable"
-			],
-			"apiSummary": true
 		}
 	}
 }

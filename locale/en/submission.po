@@ -2409,10 +2409,6 @@ msgstr "You must upload at least one {$genre} file."
 msgid "submission.files.required.genres"
 msgstr "You must upload at least one of each of the following file types: {$genres}."
 
-# fuzzy
-msgid "publication.version"
-msgstr "{$version}"
-
 msgid "submission.submissionFile"
 msgstr "Submission File"
 

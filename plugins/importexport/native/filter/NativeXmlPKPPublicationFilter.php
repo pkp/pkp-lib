@@ -77,12 +77,21 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
         $publication->setData('submissionId', $submission->getId());
 
-        $publication->stampModified();
+        $publication->stampCreated();
         $publication = $this->populateObject($publication, $node);
 
         $publication->setData('versionStage', $node->getAttribute('version_stage'));
         $publication->setData('versionMinor', $node->getAttribute('version_minor'));
         $publication->setData('versionMajor', $node->getAttribute('version_major'));
+
+        $sourcePublicationId = $node->getAttribute('source_publication_id');
+        if ($sourcePublicationId) {
+            $newSourceId = $deployment->getPublicationDBId($sourcePublicationId);
+            if ($newSourceId) {
+                $publication->setData('sourcePublicationId', $newSourceId);
+            }
+        }
+
         $publication->setData('seq', $node->getAttribute('seq'));
         $publication->setData('accessStatus', $node->getAttribute('access_status'));
         $publication->setData('status', $node->getAttribute('status'));
@@ -93,6 +102,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         // Non-persisted temporary ID, will be updated and stored once the authors get parsed
         $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
         $deployment->setPublication($publication);
+
+        $importPublicationId = $node->getAttribute('id');
+        $deployment->setPublicationDBId($importPublicationId, $publicationId);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {

@@ -80,12 +80,19 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $publication->stampCreated();
         $publication = $this->populateObject($publication, $node);
 
-        $publication->setData('versionStage', $node->getAttribute('version_stage'));
-        $publication->setData('versionMinor', $node->getAttribute('version_minor'));
-        $publication->setData('versionMajor', $node->getAttribute('version_major'));
+        if ($versionStage = $node->getAttribute('version_stage')) {
+            $publication->setData('versionStage', $versionStage);
+        }
 
-        $sourcePublicationId = $node->getAttribute('source_publication_id');
-        if ($sourcePublicationId) {
+        if ($versionMinor = $node->getAttribute('version_minor')) {
+            $publication->setData('versionMinor', $versionMinor);
+        }
+
+        if ($versionMajor = $node->getAttribute('version_major')) {
+            $publication->setData('versionMajor', $versionMajor);
+        }
+
+        if ($sourcePublicationId = $node->getAttribute('source_publication_id')) {
             $newSourceId = $deployment->getPublicationDBId($sourcePublicationId);
             if ($newSourceId) {
                 $publication->setData('sourcePublicationId', $newSourceId);

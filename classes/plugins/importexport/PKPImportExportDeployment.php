@@ -73,6 +73,9 @@ class PKPImportExportDeployment
     /** @var array Connection between the author id from the XML import file and the DB file IDs */
     private $_authorDBIds;
 
+    /** @var array Connection between the publication id from the XML import file and the DB publication IDs */
+    private $_publicationDBIds;
+
     /** @var string Base path for the import source */
     private $_baseImportPath = '';
 
@@ -478,6 +481,53 @@ class PKPImportExportDeployment
     public function setAuthorDBId($authorId, $DBId)
     {
         return $this->_authorDBIds[$authorId] = $DBId;
+    }
+
+    /**
+     * Set the array of the inserted publication DB Ids.
+     *
+     * @param array $publicationDBIds
+     */
+    public function setPublicationDBIds($publicationDBIds)
+    {
+        return $this->_publicationDBIds = $publicationDBIds;
+    }
+
+    /**
+     * Get the array of the inserted publication DB Ids.
+     *
+     * @return array
+     */
+    public function getPublicationDBIds()
+    {
+        return $this->_publicationDBIds;
+    }
+
+    /**
+     * Get the publication DB Id.
+     *
+     * @param int $publicationId
+     *
+     * @return ?int
+     */
+    public function getPublicationDBId($publicationId)
+    {
+        if (array_key_exists($publicationId, $this->_publicationDBIds)) {
+            return $this->_publicationDBIds[$publicationId];
+        }
+
+        return null;
+    }
+
+    /**
+     * Set the publication DB Id.
+     *
+     * @param int $publicationId
+     * @param int $DBId
+     */
+    public function setPublicationDBId($publicationId, $DBId)
+    {
+        return $this->_publicationDBIds[$publicationId] = $DBId;
     }
 
     /**

@@ -25,6 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\publication\helpers\PublicationVersionInfo;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
 {
@@ -77,10 +78,26 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
         $publication->setData('submissionId', $submission->getId());
 
-        $publication->stampModified();
+        $publication->stampCreated();
         $publication = $this->populateObject($publication, $node);
 
-        $publication->setData('version', $node->getAttribute('version'));
+        if ($node->getAttribute('version_stage')) {
+            $versionStageInfo = PublicationVersionInfo::fromArray([
+                'stage' => $node->getAttribute('version_stage'),
+                'minor' => $node->getAttribute('version_minor'),
+                'major' => $node->getAttribute('version_major')
+            ]);
+
+            $publication->setVersion($versionStageInfo);
+        }
+
+        if ($sourcePublicationId = $node->getAttribute('source_publication_id')) {
+            $newSourceId = $deployment->getPublicationDBId($sourcePublicationId);
+            if ($newSourceId) {
+                $publication->setData('sourcePublicationId', $newSourceId);
+            }
+        }
+
         $publication->setData('seq', $node->getAttribute('seq'));
         $publication->setData('accessStatus', $node->getAttribute('access_status'));
         $publication->setData('status', $node->getAttribute('status'));
@@ -88,9 +105,16 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
 
         $publicationId = Repo::publication()->dao->insert($publication);
         $publication = Repo::publication()->get($publicationId);
+
         // Non-persisted temporary ID, will be updated and stored once the authors get parsed
-        $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
+        if ($primaryContact = $node->getAttribute('primary_contact_id')) {
+            $publication->setData('primaryContactId', $primaryContact);
+        }
+
         $deployment->setPublication($publication);
+
+        $importPublicationId = $node->getAttribute('id');
+        $deployment->setPublicationDBId($importPublicationId, $publicationId);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {

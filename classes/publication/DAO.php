@@ -182,6 +182,9 @@ class DAO extends EntityDAO
         $publication->setData('citations', $citations);
         $publication->setData('citationsRaw', $citationsRaw);
 
+        $publicationVersionString = Repo::publication()->getVersionString($publication);
+        $publication->setData('versionString', $publicationVersionString);
+
         $this->setAuthors($publication);
         $this->setCategories($publication);
         $this->setControlledVocab($publication);

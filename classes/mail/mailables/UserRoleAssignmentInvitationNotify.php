@@ -14,7 +14,6 @@
 
 namespace PKP\mail\mailables;
 
-use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\facades\Locale;
@@ -116,13 +115,16 @@ class UserRoleAssignmentInvitationNotify extends Mailable
     {
         $sectionEndingDate = '';
         if (isset($userUserGroup->dateEnd)) {
-            $sectionEndingDate = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate',
-            [
-                'dateEnd' => $userUserGroup->dateEnd
-            ]);
+            $sectionEndingDate = __(
+                'emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate',
+                [
+                    'dateEnd' => $userUserGroup->dateEnd
+                ]
+            );
         }
 
-        $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear',
+        $sectionMastheadAppear = __(
+            'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear',
             [
                 'contextName' => $context->getName($locale),
                 'sectionName' => $userGroup->getLocalizedData('name', $locale)
@@ -130,7 +132,8 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         );
 
         if (isset($userUserGroup->masthead) && $userUserGroup->masthead) {
-            $sectionMastheadAppear = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear',
+            $sectionMastheadAppear = __(
+                'emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear',
                 [
                     'contextName' => $context->getName($locale),
                     'sectionName' => $userGroup->getLocalizedData('name', $locale)
@@ -138,14 +141,16 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             );
         }
 
-        $userGroupSection = __('emails.userRoleAssignmentInvitationNotify.userGroupSection',
+        $userGroupSection = __(
+            'emails.userRoleAssignmentInvitationNotify.userGroupSection',
             [
                 'sectionNumber' => $count,
                 'sectionName' => $userGroup->getLocalizedData('name', $locale),
                 'dateStart' => $userUserGroup->dateStart,
                 'sectionEndingDate' => $sectionEndingDate,
                 'sectionMastheadAppear' => $sectionMastheadAppear
-            ]);
+            ]
+        );
 
         return $userGroupSection;
     }
@@ -192,7 +197,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                     ->withActive()
                     ->get();
 
-                $existingUserGroups = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $existingUserGroupsTitle);
+                $existingUserGroups .= $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $existingUserGroupsTitle);
             }
         }
 

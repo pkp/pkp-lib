@@ -90,9 +90,9 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 
     public function scopeWithContextId(Builder $query, ?int $contextId): Builder
     {
-        return $query
-            ->join('user_groups as ug', 'user_user_groups.user_group_id', '=', 'ug.user_group_id')
-            ->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]);
+        return $query->whereHas('userGroup', function (Builder $subQuery) use ($contextId) {
+            $subQuery->withContextIds([$contextId]);
+        });
     }
 
     public function scopeWithMasthead(Builder $query): Builder
@@ -125,10 +125,10 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
             ->where(function ($q) use ($currentDateTime) {
                 $q->where(function ($q) use ($currentDateTime) {
                     $q->where('user_user_groups.date_start', '<=', $currentDateTime) // Active ones
-                    ->where(function ($q) use ($currentDateTime) {
-                        $q->whereNull('user_user_groups.date_end') // No end date means still active
-                        ->orWhere('user_user_groups.date_end', '>=', $currentDateTime); // End date in the future
-                    });
+                        ->where(function ($q) use ($currentDateTime) {
+                            $q->whereNull('user_user_groups.date_end') // No end date means still active
+                                ->orWhere('user_user_groups.date_end', '>=', $currentDateTime); // End date in the future
+                        });
                 })
                     ->orWhere('user_user_groups.date_start', '>', $currentDateTime); // Future ones
             })

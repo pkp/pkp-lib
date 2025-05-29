@@ -206,6 +206,16 @@ Cypress.Commands.add('openReviewAssignment', (familyName) => {
 	})
 });
 
+Cypress.Commands.add('assignPublicationStage', (stage, versionIsMinor = 'true', sideModal) => {
+	cy.get('select[id="version-versionStage-control"]').select(stage);
+	cy.get('select[id="version-versionIsMinor-control"]').select(versionIsMinor);
+	if (sideModal) {
+		cy.contains('[data-cy="active-modal"] button', 'Confirm').click();
+	} else {
+		cy.contains('[data-cy="dialog"] button', 'Confirm').click();
+	}
+	cy.waitJQuery();
+});
 
 
 Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context = null, viewName = null) => {

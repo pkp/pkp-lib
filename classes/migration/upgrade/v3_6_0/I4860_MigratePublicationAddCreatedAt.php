@@ -28,7 +28,9 @@ class I4860_MigratePublicationAddCreatedAt extends Migration
     {
         // Add created_at column
         Schema::table('publications', function (Blueprint $table) {
-            $table->datetime('created_at')->nullable();
+            $table->datetime('created_at')
+            ->nullable()
+            ->useCurrent();
         });
 
         // Default: last_modified

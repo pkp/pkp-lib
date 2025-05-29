@@ -27,7 +27,7 @@ class I4860_MigratePublicationVersionSourcePublicationId extends Migration
     public function up(): void
     {
         Schema::table('publications', function (Blueprint $table) {
-            $table->bigInteger('source_publication_id')->nullable()->after('publication_id');
+            $table->bigInteger('source_publication_id')->nullable();
 
             $table->foreign('source_publication_id', 'publications_source_publication_id')
                   ->references('publication_id')->on('publications')

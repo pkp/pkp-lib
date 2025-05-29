@@ -60,7 +60,6 @@ class PublicationVersionInfo extends \PKP\core\DataObject
      * Create a PublicationVersionInfo object from an array. Used to be deserialised from JSON.
      *
      * @param array<string, mixed> $data
-     * @return self
      */
     public static function fromArray(array $data): self
     {

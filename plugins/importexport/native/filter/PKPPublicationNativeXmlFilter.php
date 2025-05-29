@@ -88,16 +88,12 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
 
         $this->addIdentifiers($doc, $entityNode, $entity);
 
-        if ($versionStage = $entity->getData('versionStage')) {
-            $entityNode->setAttribute('version_stage', $versionStage);
-        }
+        $publicationVersionInfo = $entity->getVersion();
 
-        if ($versionMinor = $entity->getData('versionMinor')) {
-            $entityNode->setAttribute('version_minor', $versionMinor);
-        }
-
-        if ($versionMajor = $entity->getData('versionMajor')) {
-            $entityNode->setAttribute('version_major', $versionMajor);
+        if (isset($publicationVersionInfo)) {
+            $entityNode->setAttribute('version_stage', $publicationVersionInfo->stage->value);
+            $entityNode->setAttribute('version_minor', $publicationVersionInfo->minorNumbering);
+            $entityNode->setAttribute('version_major', $publicationVersionInfo->majorNumbering);
         }
 
         if ($sourcePublicationId = $entity->getData('sourcePublicationId')) {

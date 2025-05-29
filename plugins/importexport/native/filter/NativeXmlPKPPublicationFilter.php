@@ -25,6 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\publication\helpers\PublicationVersionInfo;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
 {
@@ -80,16 +81,14 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $publication->stampCreated();
         $publication = $this->populateObject($publication, $node);
 
-        if ($versionStage = $node->getAttribute('version_stage')) {
-            $publication->setData('versionStage', $versionStage);
-        }
+        if ($node->getAttribute('version_stage')) {
+            $versionStageInfo = PublicationVersionInfo::fromArray([
+                'stage' => $node->getAttribute('version_stage'),
+                'minor' => $node->getAttribute('version_minor'),
+                'major' => $node->getAttribute('version_major')
+            ]);
 
-        if ($versionMinor = $node->getAttribute('version_minor')) {
-            $publication->setData('versionMinor', $versionMinor);
-        }
-
-        if ($versionMajor = $node->getAttribute('version_major')) {
-            $publication->setData('versionMajor', $versionMajor);
+            $publication->setVersion($versionStageInfo);
         }
 
         if ($sourcePublicationId = $node->getAttribute('source_publication_id')) {

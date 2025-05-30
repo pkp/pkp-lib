@@ -124,6 +124,10 @@ class Mailable extends IlluminateMailable
     /** @var string embedded footer of the email */
     protected string $footer;
 
+    /** @var boolean has already an online attachment */
+    protected bool $hasAlreadyAttachment = false;
+
+
     public function __construct(array $variables = [])
     {
         if (!empty($variables)) {
@@ -632,5 +636,28 @@ class Mailable extends IlluminateMailable
     public function removeFooter(): void
     {
         $this->footer = '';
+    }
+
+    /**
+     * Conditional Disable attachment
+     *
+     * @param  string|\Illuminate\Contracts\Mail\Attachable|\Illuminate\Mail\Attachment  $file
+     * @param  array  $options
+     * @return $this
+     */
+    public function attach($file, array $options = [])
+    {
+        $caller = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 2)[1]['function'];
+        if ( $caller === "attachTemporaryFile") {
+            return parent::attach($file, $options);
+        }
+        if ( ! $this->hasAlreadyAttachment ) {
+            $view = $this->view;
+            $view = $view . '<br /><br /><hr /> See other attached files online / Autres fichiers joints disponibles en ligne';
+            $this->view = $view;
+            $this->hasAlreadyAttachment = true;
+        }
+
+        return $this;
     }
 }

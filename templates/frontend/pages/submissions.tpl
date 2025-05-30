@@ -63,7 +63,7 @@
 	{/if}
 
 	{foreach from=$sections item="section"}
-		{if $section->getLocalizedPolicy()}
+		{if !$section->getIsInactive() && $section->getLocalizedPolicy()}
 			<div class="section_policy">
 				<h2>{$section->getLocalizedTitle()|escape}</h2>
 				{$section->getLocalizedPolicy()}

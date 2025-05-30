@@ -376,3 +376,30 @@ msgstr "A category cannot be its own parent or create a circular reference with 
 
 msgid "api.categories.409.circularReference"
 msgstr "A circular reference was detected while building the category tree."
+
+msgid "api.userComments.400.cannotCommentOnPublicationVersion"
+msgstr "You are only allowed to comment on the most recently published publication."
+
+msgid "api.userComments.400.missingPublicationParam"
+msgstr "The request is missing the required `publicationIds` query parameter."
+
+msgid "api.userComments.400.invalidPublicationId"
+msgstr "An invalid publication ID was provided: `{$publicationId}`."
+
+msgid "api.userComments.400.invalidUserId"
+msgstr "An invalid user ID was provided: `{$userId}`."
+
+msgid "api.userComments.form.400.required.commentText"
+msgstr "The `commentText` field is required."
+
+msgid "api.userComments.form.400.required.publicationId"
+msgstr "The `publicationId` field is required."
+
+msgid "api.userComments.form.400.required.note"
+msgstr "The `note` field is required."
+
+msgid "api.userComments.400.invalidIsApproved"
+msgstr "An invalid value was provided for `isApproved`: `{$isApproved}`."
+
+msgid "api.userComments.400.invalidIsReported"
+msgstr "An invalid value was provided for `isReported`: `{$isReported}`."

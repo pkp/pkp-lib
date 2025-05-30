@@ -1351,6 +1351,11 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
+        // If no issue is selected, it will be considered as continuous publication
+        if (!isset($params['issueId'])) {
+            $params['continuousPublication'] = true;
+        }
+
         Repo::publication()->edit($publication, $params);
         $publication = Repo::publication()->get($publication->getId());
 

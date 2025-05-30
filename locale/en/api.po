@@ -361,3 +361,6 @@ msgstr "The ror you requested was not found."
 
 msgid "api.409.resourceActionConflict"
 msgstr "Unable to complete the intended action on resource."
+
+msgid "api.citations.404.citationNotFound"
+msgstr "The citation you requested was not found."

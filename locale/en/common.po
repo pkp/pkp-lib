@@ -2105,6 +2105,12 @@ msgstr "Expand all"
 msgid "list.collapseAll"
 msgstr "Collapse all"
 
+msgid "list.expand"
+msgstr "Expand"
+
+msgid "list.collapse"
+msgstr "Collapse"
+
 msgid "showAll"
 msgstr "Show All"
 

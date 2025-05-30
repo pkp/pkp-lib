@@ -18,7 +18,7 @@ describe('DataAvailabilityStatements', function () {
 
 	it('Adds a statement to a submission', function () {
 		cy.findSubmissionAsEditor('dbarnes', null, config.submission.authorFamilyName);
-		cy.openWorkflowMenu('Metadata')
+		cy.openWorkflowMenu('Unassigned version', 'Metadata')
 		cy.setTinyMceContent('metadata-dataAvailability-control-en', statement);
 		cy.get('button').contains('Save').click();
 		cy.get('[role="status"]').contains('Saved');

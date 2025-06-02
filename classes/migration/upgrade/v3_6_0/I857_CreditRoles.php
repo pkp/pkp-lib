@@ -36,10 +36,10 @@ class I857_CreditRoles extends Migration
             $table->unique(['credit_role_id'], 'credit_role_id_unique');
         });
 
-        // Load en json
+        // Load en json, and fill table with values
         $creditRoles = json_decode(file_get_contents(dirname(__FILE__, 3) . '/lib/creditRoles/en.json') ?: "", true) ?: [];
         $i = 0;
-        $creditRolesData = array_values(array_map(fn (string $role): array => ['credit_role_id' => $i++, 'credit_role' => $role], array_keys($creditRoles)));
+        $creditRolesData = array_values(array_map(fn (string $role): array => ['credit_role_id' => $i++, 'credit_role_identifier' => $role], array_keys($creditRoles)));
 
         DB::table('credit_roles')
             ->insert($creditRolesData);

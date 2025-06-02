@@ -37,7 +37,6 @@ class FieldCreditRoles extends Field
 
     /**
      * Get roles to the contributor form
-     * @param array $values, list of roles
      */
     protected function mapCreditRoles(): array
     {

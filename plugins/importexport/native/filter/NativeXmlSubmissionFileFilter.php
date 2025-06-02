@@ -25,7 +25,7 @@ use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submissionFile\SubmissionFile;
 
 class NativeXmlSubmissionFileFilter extends NativeImportFilter
@@ -88,11 +88,12 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         // Build a cached list of genres by context ID by name
         if ($genreName) {
             if (!isset($genresByContextId[$context->getId()])) {
-                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-                $genres = $genreDao->getByContextId($context->getId());
-                while ($genre = $genres->next()) {
-                    foreach ($genre->getName(null) as $locale => $name) {
-                        $genresByContextId[$context->getId()][$name] = $genre;
+                $genres = Genre::where('context_id', $context->getId())->get();
+                foreach ($genres as $genre) {
+                    // TODO: handle localized names when settings table is finalized
+                    // adjust the following once localization is implemented:
+                   foreach ($genre->getName(null) as $locale => $name) {
+                       $genresByContextId[$context->getId()][$name] = $genre;
                     }
                 }
             }
@@ -100,6 +101,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
                 $errorOccurred = true;
             } else {
+                // TODO: update this section once localization handling is finalized
                 $genre = $genresByContextId[$context->getId()][$genreName];
                 $genreId = $genre->getId();
             }

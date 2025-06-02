@@ -455,7 +455,6 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
             'FilterDAO' => 'PKP\filter\FilterDAO',
             'FilterGroupDAO' => 'PKP\filter\FilterGroupDAO',
-            'GenreDAO' => 'PKP\submission\GenreDAO',
             'LibraryFileDAO' => 'PKP\context\LibraryFileDAO',
             'NavigationMenuDAO' => 'PKP\navigationMenu\NavigationMenuDAO',
             'NavigationMenuItemDAO' => 'PKP\navigationMenu\NavigationMenuItemDAO',

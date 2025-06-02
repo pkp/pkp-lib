@@ -22,7 +22,7 @@ use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\maps\Schema as BaseSchema;
 use PKP\services\PKPSchemaService;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
@@ -148,29 +148,27 @@ class Schema extends BaseSchema
 
             if ($prop === 'genreId') {
                 $genre = $this->getGenre($submissionFile);
-                $output[$prop] = $genre ? $genre->getId() : null;
-
+                $output[$prop] = $genre ? $genre->getKey() : null;
                 continue;
             }
 
             if ($prop === 'genreName') {
                 $genre = $this->getGenre($submissionFile);
-                $output[$prop] = $genre ? $genre->getName(null) : null;
-
+                $output[$prop] = $genre
+                    ? $genre->getLocalizedData('name', null, Genre::LOCALE_MATCH_STRICT)
+                    : null;
                 continue;
             }
 
             if ($prop === 'genreIsDependent') {
                 $genre = $this->getGenre($submissionFile);
-                $output[$prop] = $genre ? (bool) $genre->getDependent() : null;
-
+                $output[$prop] = $genre ? (bool) $genre->dependent : null;
                 continue;
             }
 
             if ($prop === 'genreIsSupplementary') {
                 $genre = $this->getGenre($submissionFile);
-                $output[$prop] = $genre ? (bool) $genre->getSupplementary() : null;
-
+                $output[$prop] = $genre ? (bool) $genre->supplementary : null;
                 continue;
             }
 
@@ -254,6 +252,7 @@ class Schema extends BaseSchema
 
     protected function getGenre(SubmissionFile $submissionFile): ?Genre
     {
+<<<<<<< HEAD
         return $this->genres[$submissionFile->getData('genreId')] ?? null;
     }
 
@@ -265,5 +264,13 @@ class Schema extends BaseSchema
         $userIds = $collection->map(fn (SubmissionFile $submissionFile) => $submissionFile->getUploaderUserId())
             ->unique()->filter()->toArray();
         return $userIds ? Repo::user()->getCollector()->filterByUserIds($userIds)->getUsernames()->all() : [];
+=======
+        foreach ($this->genres as $genre) {
+            if ($genre->getKey() === $submissionFile->getData('genreId')) {
+                return $genre;
+            }
+        }
+        return null;
+>>>>>>> 3b3b0a1e4a... pkp/pkp-lib#10133 Port Genre and GenreDAO to Eloquent with settings table support
     }
 }

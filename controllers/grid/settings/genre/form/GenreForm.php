@@ -85,8 +85,7 @@ class GenreForm extends Form
         $context = $request->getContext();
 
         if ($this->getGenreId()) {
-            $genre = Genre::where('id', $this->getGenreId())->where('context_id', $context->getId())->first();
-
+            $genre = Genre::findById((int) $this->getGenreId(),$context->getId());
         }
 
         if (isset($genre)) {
@@ -152,7 +151,7 @@ class GenreForm extends Form
             $genre = new Genre();
             $genre->context_id = $context->getId();
         } else {
-            $genre = Genre::where('id', $this->getGenreId())->where('context_id', $context->getId())->first();
+            $genre = Genre::findById((int) $this->getGenreId(),$context->getId());
         }
 
         // TODO: implement localization for genre names once settings handling is completed.

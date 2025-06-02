@@ -133,7 +133,7 @@ class PKPBackendDoiController extends PKPBaseController
         $contextId = $submission->getData('contextId');
 
 
-        $genres = Genre::where('context_id', $submission->getData('contextId'))->get()->toArray();
+        $genres = Repo::genre()->getByContextId($submission->getData('contextId'))->all();
 
 
         return response()->json(

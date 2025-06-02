@@ -40,7 +40,7 @@ use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\traits\HasWordCountValidation;
 use PKP\validation\ValidatorFactory;
@@ -403,7 +403,7 @@ abstract class Repository
 
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), null, $genres->toArray());
+            ->getJatsFile($publication->getId(), null, $genres->all());
 
         if (!$jatsFile->isDefaultContent) {
             Repo::submissionFile()

@@ -160,9 +160,10 @@ class SubmissionFilesMetadataForm extends Form
     {
         $templateMgr = TemplateManager::getManager($request);
         $reviewRound = $this->getReviewRound();
-        $genre = Genre::where('id', $this->getSubmissionFile()->getData('genreId'))
-                      ->where('context_id', $request->getContext()->getId())
-                      ->first();
+        $genre = Genre::findById(
+            (int) $this->getSubmissionFile()->getData('genreId'),
+            $request->getContext()->getId()
+        );
 
         $templateMgr->assign([
             'submissionFile' => $this->getSubmissionFile(),

@@ -53,6 +53,8 @@ class PKPSchemaService
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
     public const SCHEMA_EMAIL_LOG = 'emailLog';
+    public const SCHEMA_GENRE = 'genre';
+    
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
@@ -704,6 +706,7 @@ if (!PKP_STRICT_MODE) {
         'SCHEMA_SUBMISSION_FILE',
         'SCHEMA_USER',
         'SCHEMA_USER_GROUP',
+        'SCHEMA_GENRE',
     ] as $constantName) {
         if (!defined($constantName)) {
             define($constantName, constant('PKPSchemaService::' . $constantName));

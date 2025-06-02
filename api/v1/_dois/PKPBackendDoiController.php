@@ -31,13 +31,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-<<<<<<< HEAD
-use PKP\submission\GenreDAO;
 use PKP\userGroup\UserGroup;
-
-=======
-use PKP\submission\genre\Genre;
->>>>>>> 9de162ec3b... pkp/pkp-lib#10133 Port Genre and GenreDAO to Use Eloquent Model
 
 class PKPBackendDoiController extends PKPBaseController
 {
@@ -139,7 +133,7 @@ class PKPBackendDoiController extends PKPBaseController
         $userGroups = UserGroup::withContextIds($contextId)->get();
 
 
-        $genres = Genre::where('context_id', $submission->getData('contextId'))->get()->toArray();
+        $genres = Repo::genre()->getByContextId($submission->getData('contextId'))->all();
 
 
         return response()->json(

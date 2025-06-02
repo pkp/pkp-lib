@@ -143,7 +143,8 @@ class Repository
 
 
         // Check if a JATS file already exists
-        $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
+        $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->all());
+
 
         $fileManager = new FileManager();
         $extension = $fileManager->parseFileExtension($fileName);
@@ -209,7 +210,7 @@ class Repository
         $this->clearPublicJatsCache($publicationId);
 
         // Return fresh JatsFile
-        return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+        return $this->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
     }
 
     /**

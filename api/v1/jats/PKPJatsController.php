@@ -159,7 +159,7 @@ class PKPJatsController extends PKPBaseController
         $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);
@@ -201,7 +201,7 @@ class PKPJatsController extends PKPBaseController
         $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);
@@ -222,8 +222,8 @@ class PKPJatsController extends PKPBaseController
 
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
-
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
+        
         if (!$jatsFile->submissionFile) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
@@ -233,7 +233,7 @@ class PKPJatsController extends PKPBaseController
         Repo::jats()->delete($publication->getId(), $submission->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile, $submission);

@@ -149,7 +149,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
                 'submission.upload.noGenre',
                 function ($genreId) use ($context) {
-                    return Genre::where('id', $genreId)->where('context_id', $context->getId())->exists();
+                    return (bool) Genre::findById($genreId, $context->getId());
                 }
             ));
         }

@@ -16,7 +16,7 @@ namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 
 class GenresMigration extends \PKP\migration\Migration
 {

@@ -47,7 +47,6 @@ use PKP\security\RoleDAO;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
-use PKP\submission\GenreDAO;
 use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\validation\ValidatorFactory;
 use PKP\userGroup\UserGroup;
@@ -547,10 +546,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
         $context = $this->edit($context, $params, $request);
 
-        // TODO: transition to using Genre repository once installDefaults is implemented
-        // this usage is temporary and pending finalization of settings management.
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
+        Repo::genre()->installDefaults($context->getId(),$context->getData('supportedLocales'));
 
         $userGroupRepository = app(UserGroupRepository::class);
         $userGroupRepository->installSettings($context->getId(), 'registry/userGroups.xml');
@@ -650,8 +646,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         UserGroup::withContextIds($context->getId())->delete();
 
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genreDao->deleteByContextId($context->getId());
+        Repo::genre()->deleteByContextId($context->getId());
+        
 
         // TODO is it OK to delete without listening Model's delete-associated events (not loading each Model)?
         Announcement::withContextIds([$context->getId()])->delete();

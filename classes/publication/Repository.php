@@ -36,7 +36,7 @@ use PKP\plugins\Hook;
 use APP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
@@ -391,7 +391,7 @@ abstract class Repository
 
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), null, $genres->toArray());
+            ->getJatsFile($publication->getId(), null, $genres->all());
 
         if (!$jatsFile->isDefaultContent) {
             Repo::submissionFile()

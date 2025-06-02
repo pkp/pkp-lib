@@ -459,7 +459,7 @@ class FileUploadWizardHandler extends Handler
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
 
-        $fileGenres = Genre::where('context_id', $context->getId())->get()->toArray();
+        $fileGenres = Repo::genre()->getByContextId($context->getId())->toArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()
@@ -496,7 +496,7 @@ class FileUploadWizardHandler extends Handler
         }
 
         $contextId = $request->getContext()->getId();
-        $fileGenres = Genre::where('context_id', $contextId)->get()->toArray();
+        $fileGenres = Repo::genre()->getByContextId($contextId)->toArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()

@@ -32,10 +32,6 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
 use PKP\submission\genre\Genre;
-//temporarily using GenreDAO for installDefaults related to settings handling.
-use PKP\submission\genre\GenreDAO;
-
-
 
 class GenreGridHandler extends SetupGridHandler
 {
@@ -164,9 +160,8 @@ class GenreGridHandler extends SetupGridHandler
     {
         $context = $request->getContext();
 
-        $genre = Genre::where('genre_id', $rowId)
-                    ->where('context_id', $context->getId())
-                    ->first();
+        $genre = Genre::findById($rowId, $context->getId());
+
         if ($genre) {
             // updating the sequence
             $genre->seq = $newSequence;
@@ -247,8 +242,7 @@ class GenreGridHandler extends SetupGridHandler
         $genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
         $context = $request->getContext();
 
-        $genre = Genre::where('id', $genreId)->where('context_id', $context->getId())->first();
-
+        $genre = Genre::findById($genreId, $context->getId());
 
         if (!$request->checkCSRF()) {
             return new JSONMessage(false, __('form.csrfInvalid'));
@@ -288,11 +282,9 @@ class GenreGridHandler extends SetupGridHandler
         }
 
         // Restore all the genres in this context form the registry XML file
-        // TODO: transition to using Genre repository once installDefaults is implemented
         // this usage is temporary and pending finalization of settings management.
         $context = $request->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genreDao->installDefaults($context->getId(), $context->getSupportedFormLocales());
+        Repo::genre()->installDefaults($context->getId(),$context->getSupportedFormLocales());
         return DAO::getDataChangedEvent();
     }
 }

@@ -34,7 +34,6 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\submission\genre\Genre;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
@@ -578,7 +577,7 @@ class PKPSubmissionFileController extends PKPBaseController
     protected function getFileGenres(): array
     {
         $contextId = $this->getRequest()->getContext()->getId();
-        return Genre::where('context_id', $contextId)->get()->toArray();
+        return Repo::genre()->getByContextId($contextId)->all();
     }
 
     /**

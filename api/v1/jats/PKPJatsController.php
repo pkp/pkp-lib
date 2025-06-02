@@ -132,7 +132,7 @@ class PKPJatsController extends PKPBaseController
         $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile);
@@ -173,7 +173,7 @@ class PKPJatsController extends PKPBaseController
         $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile);
@@ -195,7 +195,7 @@ class PKPJatsController extends PKPBaseController
 
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
         
         if (!$jatsFile->submissionFile) {
             return response()->json([
@@ -207,7 +207,7 @@ class PKPJatsController extends PKPBaseController
             ->delete($jatsFile->submissionFile);
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile);

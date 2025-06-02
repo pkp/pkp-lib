@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-05 18:49+0000\n"
+"PO-Revision-Date: 2025-06-02 20:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk/>\n"
@@ -3194,3 +3194,6 @@ msgid "publication.editorEditWarning"
 msgstr ""
 "Предупредување: Оваа верзија е објавена. Неговото уредување може да влијае "
 "на објавената содржина."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Рецензијата беше завршена на {$date}"

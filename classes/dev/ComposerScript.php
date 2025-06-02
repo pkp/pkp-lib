@@ -36,6 +36,41 @@ class ComposerScript
 
     /**
      * A post-install-cmd custom composer script that
+     * creates folder creditRoles and downloads Credit Role translations to json files.
+     */
+    public static function creditRolesFilesDownload(): void
+    {
+        // List from https://github.com/contributorshipcollaboration/credit-translation/tree/main/translations
+        $translationLangs = ['am', 'ca', 'cn', 'cz', 'de', 'dk', 'en', 'es', 'fa', 'fr', 'gr', 'hr', 'ja', 'ko', 'ml', 'nl', 'no_bk', 'no_nn', 'pl', 'pt', 'ro', 'tu', 'tc'];
+        $dirPath = dirname(__FILE__, 3) . '/lib/creditRoles/';
+        $streamContext = stream_context_create(['http' => ['method' => 'HEAD']]);
+
+        if (!is_dir($dirPath)) {
+            mkdir($dirPath);
+        }
+
+        foreach ($translationLangs as $lang) {
+            try {
+                $langFilePath = "{$dirPath}/{$lang}.json";
+                $url = "https://raw.githubusercontent.com/contributorshipcollaboration/credit-translation/refs/heads/main/translations/{$lang}.json";
+
+                $json = !preg_match('/200 OK/', get_headers($url, false, $streamContext)[0] ?? '') ?: file_get_contents($url);
+    
+                if (!is_string($json) || !json_validate($json)) {
+                    throw new \Exception(__METHOD__ . " : The Credit Roles file '{$langFilePath}' cannot be downloaded !");
+                }
+    
+                if (!$json || !file_put_contents($langFilePath, $json)) {
+                    throw new \Exception(__METHOD__ . " : Json file empty, or save unsuccessful: {$langFilePath} !");
+                }
+            } catch (\Exception $e) {
+                error_log($e->getMessage());
+            }
+        }
+    }
+
+    /**
+     * A post-install-cmd custom composer script that
      * creates languages.json from downloaded Weblate languages.csv.
      */
     public static function weblateFilesDownload(): void

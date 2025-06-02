@@ -59,10 +59,10 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\VersionDAO;
 use PKP\submission\DashboardView;
-use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
+use PKP\submission\genre\Genre;
 use Smarty;
 use Smarty_Internal_Template;
 

@@ -45,7 +45,7 @@ class LibraryFileGridCellProvider extends GridCellProvider
                 // handled by our link action.
                 return ['label' => ''];
             case 'url':
-                return ['label' => $request->getDispatcher()->url(Application::get()->getRequest(), Application::ROUTE_PAGE, null, 'libraryFiles', 'downloadPublic', [$element->getId()])];
+                return $element->getPublicAccess() ? ['label' => $request->getDispatcher()->url(Application::get()->getRequest(), Application::ROUTE_PAGE, null, 'libraryFiles', 'downloadPublic', [$element->getId()])] : ['label' => ''];
         }
     }
 

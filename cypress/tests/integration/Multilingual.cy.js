@@ -22,12 +22,7 @@ describe('Multilingual configurations', function() {
 
 		cy.visit('index.php/publicknowledge/workflow/access/1');
 		// latest publication is opened by default on a submission, click its Title & Abstract link
-		cy.get('[data-cy="active-modal"] nav')
-		  .find('a')
-		  .contains('Title & Abstract')
-		  .scrollIntoView()
-		  .should('be.visible')
-		  .click();
+		cy.get('[data-cy="active-modal"] nav a:contains("Title & Abstract")').last().click();
 		cy.get('button.pkpFormLocales__locale').eq(0).contains('French').click();
 		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire", {force: true});
 		cy.get('button').contains('Save').click();

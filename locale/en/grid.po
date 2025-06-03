@@ -92,6 +92,12 @@ msgstr "Remove"
 msgid "grid.action.edit"
 msgstr "Edit"
 
+msgid "grid.action.updateFile"
+msgstr "Update File Details"
+
+msgid "grid.action.sendToTextEditor"
+msgstr "Send to Text Editor"
+
 msgid "grid.action.approve"
 msgstr "Approve"
 

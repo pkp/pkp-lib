@@ -994,13 +994,13 @@ class PKPTemplateManager extends Smarty
                 $menu = [];
 
                 if ($request->getContext()) {
+                    $isNewSubmissionLinkPresent = false;
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
                         if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
                             $dashboardViews = Repo::submission()->getDashboardViews($request->getContext(), $request->getUser(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]);
                             $requestedPage = $router->getRequestedPage($request);
                             $requestedOp = $router->getRequestedOp($request);
                             $requestedViewId = $request->getUserVar('currentViewId') ?? $dashboardViews->keys()->first();
-                            $isNewSubmissionLinkPresent = false;
 
                             $viewsData = $dashboardViews->map(function (DashboardView $dashboardView) use ($router, $request, $requestedOp, $requestedPage, $requestedViewId) {
                                 $data = $dashboardView->getData();

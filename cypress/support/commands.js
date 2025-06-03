@@ -192,12 +192,11 @@ Cypress.Commands.add('openReviewAssignment', (familyName) => {
 
 Cypress.Commands.add('openWorkflowMenu', (name, subitem = null) => {
 	if(subitem) {
-		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).contains(subitem).click()
+		cy.get(`[data-cy="active-modal"] nav li:contains("${name}")`).contains(subitem).click({force: true})
 	} else {
 		cy.get(`[data-cy="active-modal"] nav a:contains("${name}")`).click();
-
+		cy.get('[data-cy="active-modal"] h2').contains(name);
 	}
-	cy.get('[data-cy="active-modal"] h2').contains(name);
 });
 
 
@@ -207,6 +206,16 @@ Cypress.Commands.add('openReviewAssignment', (familyName) => {
 	})
 });
 
+Cypress.Commands.add('assignPublicationStage', (stage, versionIsMinor = 'true', sideModal) => {
+	cy.get('select[id="version-versionStage-control"]').select(stage);
+	cy.get('select[id="version-versionIsMinor-control"]').select(versionIsMinor);
+	if (sideModal) {
+		cy.contains('[data-cy="active-modal"] button', 'Confirm').click();
+	} else {
+		cy.contains('[data-cy="dialog"] button', 'Confirm').click();
+	}
+	cy.waitJQuery();
+});
 
 
 Cypress.Commands.add('findSubmissionAsEditor', (username, password, familyName, context = null, viewName = null) => {

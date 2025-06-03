@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_6_0;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
@@ -37,10 +38,8 @@ class I857_CreditRoles extends Migration
         });
 
         // Load en json, and fill table with values
-        $creditRoles = json_decode(file_get_contents(dirname(__FILE__, 3) . '/lib/creditRoles/en.json') ?: "", true) ?: [];
-        $i = 0;
-        $creditRolesData = array_values(array_map(fn (string $role): array => ['credit_role_id' => $i++, 'credit_role_identifier' => $role], array_keys($creditRoles)));
-
+        $creditRoles = json_decode(file_get_contents(dirname(__FILE__, 4) . '/lib/creditRoles/en.json') ?: "", true) ?: [];
+        $creditRolesData = Arr::map(array_keys($creditRoles['translations']), fn (string $role, int $i): array => ['credit_role_id' => $i, 'credit_role_identifier' => $role]);
         DB::table('credit_roles')
             ->insert($creditRolesData);
 
@@ -62,6 +61,13 @@ class I857_CreditRoles extends Migration
                 'SUPPORTING',
             ]);
         });
+
+        // Add contstraint to only allow either credit or contributor role per row
+        DB::statement('
+            ALTER TABLE credit_contributor_roles
+            ADD CONSTRAINT check_xor_credit_contributor_role
+            CHECK (`credit_role_id` IS NOT NULL AND `contributor_role_id` IS NULL OR `contributor_role_id` IS NOT NULL AND `credit_role_id` IS NULL)
+        ');
     }
 
     /**

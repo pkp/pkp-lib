@@ -93,7 +93,7 @@ class Repository
     {
         return CreditContributorRoles::query()
             ->withContributorId($contributorId)
-            ->whereNotNull('credit_role_id')
+            ->whereNotNull('credit_contributor_roles.credit_role_id')
             ->leftJoin('credit_roles as cr', fn (JoinClause $join) => $join
                 ->on('credit_contributor_roles.credit_role_id', '=', 'cr.credit_role_id'))
             ->select(['credit_role_identifier as role', 'credit_degree as degree'])

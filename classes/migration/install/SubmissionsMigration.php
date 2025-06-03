@@ -139,7 +139,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Load en json, and fill table with values
         $creditRoles = json_decode(file_get_contents(dirname(__FILE__, 4) . '/lib/creditRoles/en.json') ?: "", true) ?: [];
-        $creditRolesData = Arr::map(array_keys($creditRoles['translations']), fn (string $role, int $i): array => ['credit_role_id' => $i, 'credit_role_identifier' => $role]);
+        $creditRolesData = Arr::map(array_keys($creditRoles['translations'] ?? []), fn (string $role, int $i): array => ['credit_role_id' => $i, 'credit_role_identifier' => $role]);
         DB::table('credit_roles')
             ->insert($creditRolesData);
 

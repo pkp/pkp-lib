@@ -2,7 +2,7 @@
 # Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-04 18:37+0000\n"
+"PO-Revision-Date: 2025-06-05 22:51+0000\n"
 "Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
 "Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/an/>\n"
@@ -116,7 +116,7 @@ msgid "reviewer.submission.reviewRound.info.submittedOn"
 msgstr "Ronda {$round} Revisión ninviada a {$submittedOn}"
 
 msgid "reviewer.submission.reviewRound.info.read"
-msgstr "Revisión de lectura ronda {$round}"
+msgstr "Revisión de lectura tongada {$round}"
 
 msgid "reviewer.submission.reviewRound.info.modal.title"
 msgstr "Ronda {$round} Revisión ninviada per tu pa"

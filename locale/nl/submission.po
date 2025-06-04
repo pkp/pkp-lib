@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-05-27 16:45+0000\n"
+"PO-Revision-Date: 2025-06-04 18:37+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -2738,3 +2738,29 @@ msgid "author.affiliationRorAndNameEmpty"
 msgstr ""
 "U wordt vriendelijk verzocht een ROR affiliatie of ten minste één naam van "
 "een affiliatie te vermelden."
+
+msgid "ror.nameRequired"
+msgstr "Vermelding van een ROR naam is vereist."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"U wordt vriendelijk verzocht uw affiliatie te vermelden in het hiervoor "
+"bestemde inzendingsveld."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Een ROR display locale is een vereiste."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"De inzending is geannuleerd en alle hiermee gelieerde data zijn vernietigd."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Attentie: Deze versie is gepubliceerd. Indien u het bewerkt, kan dit "
+"gevolgen hebben voor de gepubliceerde content."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Inzending geannuleerd"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuleer de inzending"

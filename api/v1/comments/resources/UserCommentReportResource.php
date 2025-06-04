@@ -30,7 +30,7 @@ class UserCommentReportResource extends JsonResource
         return [
             'id' => $this->id,
             'userCommentId' => $this->userCommentId,
-            'userId' => $this->userId,
+            'userId' => $user->getId(),
             'userName' => $user->getFullName(),
             'userOrcidDisplayValue' => $user->getOrcidDisplayValue(),
             'note' => $this->note,

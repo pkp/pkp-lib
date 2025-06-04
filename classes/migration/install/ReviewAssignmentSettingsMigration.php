@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/migration/install/ReviewAssignmentSettings.php
+ * @file classes/migration/install/ReviewAssignmentSettingsMigration.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewAssignmentSettings
+ * @class ReviewAssignmentSettingsMigration
  *
  * @brief Add review_assignment_settings table
  */
@@ -18,7 +18,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 
-class ReviewAssignmentSettings extends Migration
+class ReviewAssignmentSettingsMigration extends Migration
 {
     /**
      * Run the migrations.

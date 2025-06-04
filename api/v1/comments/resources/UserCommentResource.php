@@ -36,7 +36,7 @@ class UserCommentResource extends JsonResource
             'isApproved' => $this->isApproved,
             'isReported' => $this->reports->isNotEmpty(),
             'publicationId' => $this->publicationId,
-            'userId' => $this->userId,
+            'userId' => $user->getId(),
             'userName' => $user->getFullName(),
             'userOrcidDisplayValue' => $user->getOrcidDisplayValue(),
         ];

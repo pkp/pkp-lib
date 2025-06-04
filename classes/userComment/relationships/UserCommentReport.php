@@ -24,6 +24,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use PKP\userComment\UserComment;
 
+/**
+ * @method static EloquentBuilder withCommentIds(array $commentIds) Filter reports by comment IDs.
+ * @method static EloquentBuilder withReportIds(array $reportIds) Filter reports by report IDs.
+ */
 class UserCommentReport extends Model
 {
     use HasCamelCasing;
@@ -33,7 +37,7 @@ class UserCommentReport extends Model
     public $timestamps = true;
 
     protected $guarded = [
-        'user_comment_report_id',
+        'userCommentReportId',
     ];
 
     /**

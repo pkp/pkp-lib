@@ -24,6 +24,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use PKP\core\traits\ModelWithSettings;
 use PKP\userComment\relationships\UserCommentReport;
 
+/**
+ * @method static EloquentBuilder withIsApproved(bool $isApproved) Filter comments by approval status.
+ * @method static EloquentBuilder withContextIds(array $contextIds) Filter comments by context IDs. PKPApplication::SITE_CONTEXT_ID should not be used here as comments are associated with individual contexts.
+ * @method static EloquentBuilder withIsReported(bool $isReported) Filter comments by whether they have reports or not.
+ * @method static EloquentBuilder withPublicationIds(array $publicationIds) Filter comments by publication IDs.
+ * @method static EloquentBuilder withUserIds(array $userIds) Filter comments by user IDs.
+ * @method static EloquentBuilder withUserCommentIds(array $userCommentIds) Filter comments by their IDs.
+ */
 class UserComment extends Model
 {
     use ModelWithSettings;
@@ -32,7 +40,7 @@ class UserComment extends Model
     protected $primaryKey = 'user_comment_id';
     protected string $settingsTable = 'user_comment_settings';
     public $timestamps = true;
-    protected $guarded = ['id', 'UserCommentId'];
+    protected $guarded = ['id', 'userCommentId'];
 
     /** @inheritdoc  */
     public function casts(): array
@@ -53,7 +61,7 @@ class UserComment extends Model
      */
     public static function getSchemaName(): ?string
     {
-        return '';
+        return null;
     }
 
     /**
@@ -135,5 +143,13 @@ class UserComment extends Model
     protected function scopeWithIsApproved(EloquentBuilder $builder, bool $isApproved): EloquentBuilder
     {
         return $builder->where('is_approved', $isApproved);
+    }
+
+    /**
+     * Scope a query to only include comments with specific context IDs.
+     */
+    protected function scopeWithContextIds(EloquentBuilder $builder, array $contextIds): EloquentBuilder
+    {
+        return $builder->whereIn('context_id', $contextIds);
     }
 }

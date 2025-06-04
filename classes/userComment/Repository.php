@@ -16,12 +16,16 @@
 
 namespace PKP\userComment;
 
+use APP\core\Application;
 use APP\core\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use PKP\API\v1\comments\resources\UserCommentReportResource;
 use PKP\API\v1\comments\resources\UserCommentResource;
+use PKP\context\Context;
+use PKP\core\PKPApplication;
 use PKP\core\SettingsBuilder;
+use PKP\security\Role;
 use PKP\user\User;
 use PKP\userComment\relationships\UserCommentReport;
 
@@ -90,5 +94,14 @@ class Repository
     {
         LengthAwarePaginator::currentPageResolver(fn () => $page);
         return $this;
+    }
+
+    /**
+     * Check if a user is a moderator (admin/manager).
+     */
+    public function isModerator(User $user, ?Context $context = null): bool
+    {
+        $context = $context ?: Application::get()->getRequest()->getContext();
+        return $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
     }
 }

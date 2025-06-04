@@ -21,13 +21,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\comments\formRequests\AddComment;
+use PKP\API\v1\comments\formRequests\AddReport;
 use PKP\API\v1\comments\resources\UserCommentReportResource;
 use PKP\API\v1\comments\resources\UserCommentResource;
-use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPString;
 use PKP\security\Role;
-use PKP\user\User;
 use PKP\userComment\relationships\UserCommentReport;
 use PKP\userComment\UserComment;
 
@@ -134,7 +134,9 @@ class UserCommentController extends PKPBaseController
             $publicationIds[] = (int)$id;
         }
 
-        $query = UserComment::withPublicationIds($publicationIds)->withIsApproved(true);
+        $query = UserComment::withPublicationIds($publicationIds)
+            ->withContextIds([$this->getRequest()->getContext()->getId()])
+            ->withIsApproved(true);
 
         $paginatedInfo = Repo::userComment()
             ->setPage($illuminateRequest->query('page') ?? 1)
@@ -153,7 +155,7 @@ class UserCommentController extends PKPBaseController
      * isApproved(boolean) - Include this to filter comments by approval status.
      * page(integer) - The pagination page to retrieve records from.
      * ```
-     * Use the 'includeReports' query parameter to include associated reports.
+     * Use the 'includeReports' query parameter to include associated reports. Used in UserCommentResource::toArray method.
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
@@ -175,7 +177,9 @@ class UserCommentController extends PKPBaseController
             $publicationIds[] = (int)$id;
         }
 
-        $query = UserComment::withPublicationIds($publicationIds);
+        $query = UserComment::withPublicationIds($publicationIds)
+            ->withContextIds([$this->getRequest()->getContext()->getId()]);
+
         foreach ($queryParams as $param => $value) {
             switch ($param) {
                 case 'userIds':
@@ -224,7 +228,7 @@ class UserCommentController extends PKPBaseController
 
     /**
      * Get a single comment by ID
-     * Use the 'includeReports' query parameter to include associated reports.
+     * Use the 'includeReports' query parameter to include associated reports. Used in UserCommentResource::toArray method.
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
@@ -239,43 +243,15 @@ class UserCommentController extends PKPBaseController
     }
 
     /** Add a new comment */
-    public function submit(Request $illuminateRequest): JsonResponse
+    public function submit(AddComment $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
         $currentUser = $request->getUser();
-        $requestBody = $illuminateRequest->input();
+        $requestBody = $illuminateRequest->validated();
 
         $publicationId = (int)$requestBody['publicationId'];
         $commentText = $requestBody['commentText'];
-
-        if (!$publicationId) {
-            return response()->json(['error' => __('api.userComments.form.400.required.publicationId')], Response::HTTP_BAD_REQUEST);
-        }
-
-        if (empty($commentText)) {
-            return response()->json(['error' => __('api.userComments.form.400.required.commentText')], Response::HTTP_BAD_REQUEST);
-        }
-
-        $commentText = PKPString::stripUnsafeHtml($commentText);
-        $publication = Repo::publication()->get($publicationId);
-
-        if (!$publication) {
-            return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
-        }
-
-        $submissionId = $publication->getData('submissionId');
-        $submission = Repo::submission()->get((int)$submissionId);
-
-        if (!$submission) {
-            return response()->json(['error' => __('api.404.resourceNotFound')], Response::HTTP_NOT_FOUND);
-        }
-
-        if ($submission->getCurrentPublication()->getId() !== $publicationId) {
-            return response()->json([
-                'error' => __('api.userComments.400.cannotCommentOnPublicationVersion'),
-            ], Response::HTTP_BAD_REQUEST);
-        }
 
         $createdComment = UserComment::query()->create(
             [
@@ -306,7 +282,7 @@ class UserCommentController extends PKPBaseController
 
         $isCommentOwner = $comment->userId === $user->getId();
 
-        if (!$this->isModerator($user) && !$isCommentOwner) {
+        if (!Repo::userComment()->isModerator($user) && !$isCommentOwner) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
@@ -346,47 +322,16 @@ class UserCommentController extends PKPBaseController
     }
 
     /** Report a comment */
-    public function submitReport(Request $illuminateRequest): JsonResponse
+    public function submitReport(AddReport $illuminateRequest): JsonResponse
     {
-        $requestBody = $illuminateRequest->input();
+        $requestBody = $illuminateRequest->validated();
         $note = $requestBody['note'];
-
-        if (!$note) {
-            return response()->json(
-                [
-                    'error' => __('api.userComments.form.400.required.note')
-                ],
-                Response::HTTP_BAD_REQUEST
-            );
-        }
-
         $commentId = (int)$illuminateRequest->route('commentId');
+
         $comment = UserComment::query()->find($commentId);
-        if (!$comment) {
-            return response()->json(
-                [
-                    'error' => __('api.404.resourceNotFound')
-                ],
-                Response::HTTP_NOT_FOUND
-            );
-        }
-
-        $request = $this->getRequest();
-        $user = $request->getUser();
-
-        // Non-moderator users can only report comments that are approved, thus visible to them.
-        if (!$this->isModerator($user) && !$comment->isApproved) {
-            return response()->json(
-                [
-                    'error' => __('api.403.unauthorized')
-                ],
-                Response::HTTP_FORBIDDEN
-            );
-        }
-
-        $note = PKPString::stripUnsafeHtml($note);
         $reportId = Repo::userComment()->addReport($comment, $this->getRequest()->getUser(), $note);
         $report = UserCommentReport::query()->find($reportId);
+
         return response()->json(new UserCommentReportResource($report), Response::HTTP_OK);
     }
 
@@ -417,7 +362,7 @@ class UserCommentController extends PKPBaseController
     public function deleteReports(Request $illuminateRequest): JsonResponse
     {
         $commentId = (int)$illuminateRequest->route('commentId');
-        $comment = UserComment::query()->with(['reports'])->find($commentId);
+        $comment = UserComment::query()->find($commentId);
 
         if (!$comment) {
             return response()->json([
@@ -425,11 +370,7 @@ class UserCommentController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $reportIds = $comment->reports->pluck('userCommentReportId')->all();
-
-        UserCommentReport::query()
-            ->whereIn('user_comment_report_id', $reportIds)
-            ->delete();
+        UserCommentReport::withCommentIds([$commentId])->delete();
 
         return response()->json([], Response::HTTP_OK);
     }
@@ -478,14 +419,5 @@ class UserCommentController extends PKPBaseController
             ->getPaginatedData($query);
 
         return response()->json($this->formatPaginatedResponseData($paginatedInfo), Response::HTTP_OK);
-    }
-
-    /**
-     * Check if a user is a moderator (admin/manager).
-     */
-    private function isModerator(User $user): bool
-    {
-        $context = $this->getRequest()->getContext();
-        return $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
     }
 }

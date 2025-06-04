@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file I11326_UserComments.php
+ * @file UserCommentsMigration.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class I11325_UserComments
+ * @class UserCommentsMigration
  *
  * @brief Migration to add table structures for user comments.
  */
 
-namespace PKP\migration\upgrade\v3_6_0;
+namespace PKP\migration\install;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class I11326_UserComments extends Migration
+class UserCommentsMigration extends Migration
 {
     /**
      * Run the migration.

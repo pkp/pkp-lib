@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-04 18:37+0000\n"
+"PO-Revision-Date: 2025-06-05 22:51+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -34,7 +34,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Er zijn nieuwe reviews ingediend die door de redacteur worden bekeken."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Een of meer recensenten hebben hun deadline gemist. De redactie is hiervan "
@@ -736,7 +735,7 @@ msgid "submission.howToCite"
 msgstr "Citeerhulp"
 
 msgid "submission.howToCite.citationFormats"
-msgstr "Meer citatieformaten"
+msgstr "Meer citeerformats"
 
 msgid "submission.howToCite.downloadCitation"
 msgstr "Download citatie"
@@ -2764,3 +2763,52 @@ msgstr "Inzending geannuleerd"
 
 msgid "submission.wizard.submissionCancel"
 msgstr "Annuleer de inzending"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Dit zijn bestanden van na het recensieproces en zijn nu bestemd voor redactie"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Dit zijn bewerkte bestanden voor het drukproces"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Bevestig de vernietiging van onvolledige inzendingen"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Vernietig onvolledige inzendingen"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Voor suggesties van de recensent"
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "De inzending is bevorderd tot de volgende recensieronde"
+
+msgid "workflow.reviewRoundN"
+msgstr "Recensieronde"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Bestanden zijn geüpload tegelijk met de inzending"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Geüploade revisies"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Deze bestanden zijn door de auteur ingezonden nadat er om revisies is "
+"verzocht"
+
+msgid "fileManager.filesForReview"
+msgstr "Recensiebestanden"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Geredigeerde bestanden"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Recensiestatus"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr ""
+"Deze bestanden zullen voor recensie worden verzonden naar de recensenten"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Dit zijn bestanden die worden verzonden voor publicatie"

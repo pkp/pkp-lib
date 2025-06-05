@@ -32,7 +32,6 @@ use APP\submission\DAO;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 
 /**
  * @extends \PKP\core\DataObject<DAO>

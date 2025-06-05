@@ -155,6 +155,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'fullTitle':
                     $output[$prop] = $publication->getFullTitles('html');
                     break;
+                case 'versionString':
+                    $output[$prop] = Repo::publication()->getVersionString($publication);
+                    break;
                 default:
                     $output[$prop] = $publication->getData($prop);
                     break;

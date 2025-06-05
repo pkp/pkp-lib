@@ -283,10 +283,14 @@
 		</sequence>
 		<attribute name="date_submitted" type="date" use="optional" />
 		<attribute name="date_published" type="date" use="optional" />
-		<attribute name="version" type="int" use="optional" />
 		<attribute name="status" type="int" use="optional" />
 		<attribute name="primary_contact_id" type="int" use="optional" />
 		<attribute name="url_path" type="string" use="optional" />
+		<attribute name="version_stage" type="string" use="optional" />
+		<attribute name="version_minor" type="int" use="optional" />
+		<attribute name="version_major" type="int" use="optional" />
+		<attribute name="source_publication_id" type="int" use="optional" />
+		<attribute name="id" type="int" use="required" />
 	</complexType>
 
 	<!-- ************

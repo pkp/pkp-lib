@@ -14,7 +14,7 @@
 	<h1 class="app__pageHeading">
 		{translate key="manager.statistics.reports"}
 	</h1>
-    <div class="app__contentPanel">
+    <div class="app__contentPanel legacyDefaults">
         <p>{translate key="manager.statistics.reports.description"}</p>
 
         <ul>

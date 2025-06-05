@@ -16,8 +16,8 @@
 
     <div class="app__contentPanel">
         <p>{translate key="submission.submit.whatNext.description"}</p>
-        <p>{translate key="submission.submit.whatNext.forNow"}</p>
-        <ul>
+        <p class="pt-2">{translate key="submission.submit.whatNext.forNow"}</p>
+        <ul role="list">
             <li><a href={$workflowUrl}>{translate key="submission.submit.whatNext.review"}</a></li>
             <li><a href={url page="submission"}>{translate key="submission.submit.whatNext.create"}</a></li>
             <li><a href={url page="submissions"}>{translate key="submission.submit.whatNext.return"}</a></li>

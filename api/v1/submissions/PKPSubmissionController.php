@@ -32,7 +32,9 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
@@ -55,6 +57,8 @@ use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use APP\publication\enums\VersionStage;
+use PKP\publication\helpers\PublicationVersionInfoResource;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -113,7 +117,9 @@ class PKPSubmissionController extends PKPBaseController
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
         'getPublicationTitleAbstractForm',
-        'getChangeLanguageMetadata'
+        'getChangeLanguageMetadata',
+        'changeVersion',
+        'getNextAvailableVersion',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -124,6 +130,7 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'changeLocale',
+        'changeVersion'
     ];
 
     /** @var array Handlers that must be authorized to access a submission's production stage */
@@ -238,6 +245,14 @@ class PKPSubmissionController extends PKPBaseController
             Route::put('{submissionId}/publications/{publicationId}/changeLocale', $this->changeLocale(...))
                 ->name('submission.publication.changeLocale')
                 ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::put('{submissionId}/publications/{publicationId}/version', $this->changeVersion(...))
+                ->name('submission.publication.version')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::get('{submissionId}/nextAvailableVersion', $this->getNextAvailableVersion(...))
+                ->name('submission.getNextAvailableVersion')
+                ->whereNumber(['submissionId']);
         });
 
         Route::middleware([
@@ -620,7 +635,7 @@ class PKPSubmissionController extends PKPBaseController
         } elseif ($submitterUserGroups->count()) {
             $submitAsUserGroup = $submitterUserGroups
                 ->sort(function (UserGroup $a, UserGroup $b) {
-                    return ((int)$a->roleId) === Role::ROLE_ID_AUTHOR ? 1 : -1;
+                    return ((int)$a->roleId) === Role::ROLE_ID_AUTHOR ? -1 : 1;
                 })
                 ->first();
         } else {
@@ -954,6 +969,64 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
+     * Change version data for publication
+     */
+    public function changeVersion(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if ($submission->getId() != $publication->getData('submissionId')) {
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
+
+        $submissionContext = $request->getContext();
+
+        $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        $versionStage = $this->validateVersionStage($illuminateRequest);
+        $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
+
+        Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
+
+        return $this->edit($illuminateRequest);
+    }
+
+    /**
+     * Get next potential version for submission
+     */
+    public function getNextAvailableVersion(Request $illuminateRequest): JsonResponse
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $versionStage = $this->validateVersionStage($illuminateRequest);
+        $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
+
+        $potentialVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $versionStage, $versionIsMinor);
+
+        return response()->json(
+            (new PublicationVersionInfoResource($potentialVersionInfo))->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
      * Get the decisions recorded on a submission
      */
     public function getDecisions(Request $illuminateRequest): JsonResponse
@@ -1157,7 +1230,12 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $newId = Repo::publication()->version($publication);
+        $versionStageStr = $illuminateRequest->input('versionStage');
+        $versionStage = $versionStageStr ? VersionStage::tryFrom($versionStageStr) : null;
+
+        $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
+
+        $newId = Repo::publication()->version($publication, $versionStage, $versionIsMinor);
         $publication = Repo::publication()->get($newId);
 
         $notificationManager = new NotificationManager();
@@ -2196,5 +2274,30 @@ class PKPSubmissionController extends PKPBaseController
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));
                 }
             });
+    }
+
+    private function validateVersionStage(Request $illuminateRequest): VersionStage
+    {
+        $validator = Validator::make($illuminateRequest->all(), [
+            'versionStage' => [
+                'required',
+                Rule::in(array_column(VersionStage::cases(), 'value')),
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            throw new \Illuminate\Validation\ValidationException($validator);
+        }
+
+        return VersionStage::from($validator->validated()['versionStage']);
+    }
+
+    private function validateVersionIsMinor(Request $illuminateRequest): ?bool
+    {
+        return filter_var(
+            $illuminateRequest->input('versionIsMinor') ?? true, 
+            FILTER_VALIDATE_BOOLEAN, 
+            FILTER_NULL_ON_FAILURE
+        );
     }
 }

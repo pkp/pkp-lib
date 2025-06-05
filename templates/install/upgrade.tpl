@@ -10,6 +10,7 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
+<div class="legacyDefaults">
 	<h1 class="app__pageHeading">
 		{translate key="installer.upgradeApplication"}
 	</h1>
@@ -35,4 +36,5 @@
 
 		</form>
 	</div>
+</div>
 {/block}

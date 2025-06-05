@@ -28,6 +28,7 @@ use \PKP\Services\interfaces\EntityPropertyInterface;
 use \PKP\Services\interfaces\EntityReadInterface;
 use \PKP\Services\interfaces\EntityWriteInterface;
 use \APP\Services\QueryBuilders\SubmissionQueryBuilder;
+use \QueriesAccessHelper;
 
 define('STAGE_STATUS_SUBMISSION_UNASSIGNED', 1);
 
@@ -413,13 +414,25 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 			// Discussions in this stage
 			$stage['queries'] = array();
 			$request = Application::get()->getRequest();
+			$user = $request->getUser();
+			import('lib.pkp.controllers.grid.queries.QueriesAccessHelper');
+			$router = $request->getRouter();
+			$handler = $router->getHandler();
+			$handler->getAuthorizedContext()[ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES] = Services::get('user')->getAccessibleWorkflowStages(
+				$user->getId(),
+				$contextId,
+				$submission,
+				$handler->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+			);
+
+			$accessHelper = new QueriesAccessHelper($handler->getAuthorizedContext(), $request->getUser());
 			import('lib.pkp.classes.query.QueryDAO');
 			$queryDao = DAORegistry::getDAO('QueryDAO'); /* @var $queryDao QueryDAO */
 			$queries = $queryDao->getByAssoc(
 				ASSOC_TYPE_SUBMISSION,
 				$submission->getId(),
 				$stageId,
-				$request->getUser()->getId() // Current user restriction should prevent unauthorized access
+				$accessHelper->getCanListAll($stageId) ? null : $user->getId() // Current user restriction should prevent unauthorized access
 			);
 
 			while ($query = $queries->next()) {

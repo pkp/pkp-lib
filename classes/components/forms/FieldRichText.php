@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldRichText.php
  *
@@ -29,10 +30,10 @@ class FieldRichText extends Field
     public $size = 'oneline';
 
     /** @var string Optional. A preset toolbar configuration. */
-    public $toolbar = 'formatgroup';
+    public $toolbar = 'formatgroup emoticons';
 
     /** @var array Optional. A list of required plugins. */
-    public $plugins = [];
+    public $plugins = ['emoticons'];
 
     /** @var string Optional. A list of comma separated elements. */
     public $invalidElements;

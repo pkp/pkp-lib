@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldRichTextarea.php
  *
@@ -24,13 +25,13 @@ class FieldRichTextarea extends Field
     public $init;
 
     /** @var array Optional. A list of required plugins. */
-    public $plugins = ['link'];
+    public $plugins = ['link', 'emoticons'];
 
     /** @var string Optional. A preset size option. */
     public $size;
 
     /** @var string Optional. A preset toolbar configuration. */
-    public $toolbar = 'bold italic superscript subscript | link';
+    public $toolbar = 'bold italic superscript subscript | link | emoticons';
 
     /** @var string Optional. The API endpoint to upload images to. Only include if image uploads are supported here. */
     public $uploadUrl;

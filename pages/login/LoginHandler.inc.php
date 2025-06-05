@@ -64,11 +64,11 @@ class LoginHandler extends Handler {
 		}
 		$templateMgr->assign('loginUrl', $loginUrl);
 
-        if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login')) {
+		if (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login')) {
 			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
 			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div><label for="g-recaptcha-response" style="display:none;">Recaptcha response</label>';
-            $templateMgr->assign(['recaptchaHtml' => $reCaptchaHtml]);
-        }
+			$templateMgr->assign(['recaptchaHtml' => $reCaptchaHtml]);
+		}
 
 		$templateMgr->display('frontend/pages/userLogin.tpl');
 	}
@@ -538,5 +538,4 @@ class LoginHandler extends Handler {
 		parent::setupTemplate($request);
 	}
 }
-
 

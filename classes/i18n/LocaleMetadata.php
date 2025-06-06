@@ -208,15 +208,15 @@ class LocaleMetadata
      */
     public function getIsoAlpha2(): ?string
     {
-        return $this->_getLanguage()->getAlpha2();
+        return $this->_getLanguage()?->getAlpha2();
     }
 
     /**
      * Retrieves the ISO639-3 representation
      */
-    public function getIsoAlpha3(): string
+    public function getIsoAlpha3(): ?string
     {
-        return $this->_getLanguage()->getAlpha3();
+        return $this->_getLanguage()?->getAlpha3();
     }
 
     /**

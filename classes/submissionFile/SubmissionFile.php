@@ -43,7 +43,6 @@ class SubmissionFile extends \PKP\core\DataObject
     public const SUBMISSION_FILE_JATS = 21;
     public const SUBMISSION_FILE_BODY_TEXT = 22;
 
-
     public const INTERNAL_REVIEW_STAGES = [
         SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE,
         SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION,

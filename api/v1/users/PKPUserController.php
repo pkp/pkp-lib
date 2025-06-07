@@ -321,7 +321,7 @@ class PKPUserController extends PKPBaseController
         Repo::userGroup()->endAssignments($context->getId(), $userId, $userGroupId);
 
         // Send email notification
-        $mailable = new UserRoleEndNotify($context, $userGroup);
+        $mailable = new UserRoleEndNotify($context, Repo::userGroup()->get($userGroupId));
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
         $mailable->sender($request->user())

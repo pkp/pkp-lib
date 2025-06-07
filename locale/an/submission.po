@@ -1,3 +1,2749 @@
 # Emma U <emmaupkp@gmail.com>, 2025.
+# Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-06-07 11:51+0000\n"
+"Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
+"Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/an/>\n"
+"Language: an\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"No se pueden editar los autors/as d'esta publicación perque ya ha estau "
+"publicada."
+
+msgid "author.publicationNotFound"
+msgstr "No s'ha puesto trobar la publicación d'este autor/a."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Tríe un rol editorial si deseya editar y publicar este ninvio vusté mesmo/"
+"amesmo."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Requisitos d'o ninvio"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Toz los ninvios han de cumplir los siguients requisitos."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "Clau API de WorldCat"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Pa obtener los millors resultaus, los autors/as han d'estar introducius en o "
+"siguient formato: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Numero"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Per favor, escribe un nombre de conferencia valido."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Per favor, asegura-te que siempre introduces un tipo de publicación. "
+"Actualment, los tipos suportaus son libro (pa libros u capítols de libros) y "
+"revista (pa articlos de revista). En caso contrario, lo formato de salida de "
+"las citas no funcionará correctament."
+
+msgid "submission.addFile"
+msgstr "Cargar fichero"
+
+msgid "submission.ask"
+msgstr "Preguntar"
+
+msgid "submission.done"
+msgstr "Feito"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr ""
+"Seguro que quiers borrar esta dentrada de rechistro de correu electronico?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Borrar dentrada de rechistro"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Plazo de revisión modificau"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"S'alza un rechistro d'o cargador de fichers cuan se crea lo fichero y no se "
+"puede cambiar."
+
+msgid "submission.firstPublished"
+msgstr "Primera publicación"
+
+msgid "submission.galley"
+msgstr "Galerada"
+
+msgid "submission.history.clearLog"
+msgstr "Limpiar rechistro"
+
+msgid "submission.history"
+msgstr "Historial"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Rechistro d'evento"
+
+msgid "submission.history.submissionNotes"
+msgstr "Notas de ninvio"
+
+msgid "submission.history.viewLog"
+msgstr "Veyer rechistro"
+
+msgid "submission.lastModified"
+msgstr "Zaguera modificación"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Eliminar esta fuella d'estilo."
+
+msgid "submission.layout"
+msgstr "Maquetación"
+
+msgid "submission.page.summary"
+msgstr "#{$iz} Resumen"
+
+msgid "submission.page.citations"
+msgstr "#{$iz} Citas"
+
+msgid "submission.peerReview"
+msgstr "Revisión per pars"
+
+msgid "submission.currentAgencies"
+msgstr "Achencias"
+
+msgid "submission.nameRequired"
+msgstr "Se requiere un nombre pa este elemento."
+
+msgid "submission.date.mmdd"
+msgstr "DD-MM"
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduzca la fuent."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduzca los dreitos."
+
+msgid "submission.form.replaceExisting"
+msgstr "Reemplazar lo fichero existent?"
+
+msgid "submission.status.editorial"
+msgstr "En corrección"
+
+msgid "submission.status.published"
+msgstr "Publicau"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Cargar ninvio"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Cargar fichero de ninvio"
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Inactivo entre mas de {$days} días en a fase de {$stage}."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Deshabilitar la edición de metadatos"
+
+msgid "editor.submission.decision"
+msgstr "Decisión"
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Ninvio acceptau"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} ha refusau este ninvio."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Ninvio refusau"
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Triar los fichers que habrían de ninviar-se a la fase d'edición."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} remitió este ninvio a la fase de producción."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Acceptar y omitir la revisión"
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Revisión omitida"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Ninviar pa revisión interna"
+
+msgid "submission.overview"
+msgstr "Resumen d'o ninvio"
+
+msgid "submission.description"
+msgstr "Descripción"
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Se le ha pediu que revise las correccions pa \"{$title}\"."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Ninvio refusau."
+
+msgid "notification.uploadedResponse"
+msgstr "S'ha cargau la respuesta."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Ha d'asignar-se a un editor/a pa que pueda prencipiar la revisión. Anyada a "
+"un editor/a utilizando lo vinclo Participants que figura alto."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Fichers adjuntos d'o revisor/a"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Tríe los fichers de revisión pa compartir con l'autor/a"
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"La ronda de revisión {$round} de {$reviewerName} pa lo ninvio {$submissionId}"
+" ha estau retirada."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Asperando la respuesta d'o revisor/a."
+
+msgid "submission.review.status.declined"
+msgstr "Lo revisor/a ha refusau la petición de revisión."
+
+msgid "submission.review.status.complete"
+msgstr "La revisión ha estau completada."
+
+msgid "submission.document"
+msgstr "Documento"
+
+msgid "submission.art"
+msgstr "Fichero d'ilustración"
+
+msgid "submission.supplementary.creator"
+msgstr "Creyador (u propietario) d'o fichero"
+
+msgid "submission.supplementary.publisher"
+msgstr "Editorial"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Ir a lo circuito de publicación d'este ninvio"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Prencipió lo proceso de producción."
+
+msgid "grid.action.editMetadata"
+msgstr "Edita los metadatos"
+
+msgid "submission.copyrightOther"
+msgstr "Declaración de dreitos d'autor"
+
+msgid "submission.copyrightYear"
+msgstr "Anyo d'os dreitos d'autor"
+
+msgid "submission.copyrightStatement"
+msgstr "Dreitos d'autor {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Reconoixencia-SinObrasDerivadas 4.0"
+
+msgid "submission.queries.submission"
+msgstr "Discusions previas a la revisión"
+
+msgid "submission.queries.review"
+msgstr "Discusions de revisión"
+
+msgid "submission.query.from"
+msgstr "De"
+
+msgid "submission.query.lastReply"
+msgstr "Zaguera respuesta"
+
+msgid "submission.query.closed"
+msgstr "Zarrau"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Idioma de ninvio actual:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Cambiar"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Cambiar l'idioma de ninvio per"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Lo ninvio ha de completar-se antes que un editor/a lo revise."
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Títol (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Títol (Z-A)"
+
+msgid "publication.version.all"
+msgstr "Totas las versions"
+
+msgid "author.authorNotFound"
+msgstr "No se podió trobar l'autor/a con esta afiliación."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Proporcionar una lista de referencias formateada pa treballos citaus en esta "
+"propuesta. Per favor, desepara referencias individuals con una linia en "
+"blanco."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr ""
+"S'han ninviau nuevas revisions y son estando consideradas per lo/a editor/a."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Un u mas revisors/as han sobreixiu la data limite. L'equipo editorial ye "
+"informau y s'asegurará que las revisions se completen. Agora no ye necesario "
+"que faiga cosa mas. Se le notificará cuan se prenga una decisión."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Proporcione una afiliación ROR u, a lo menos, un nombre d'afiliación."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Proporcione lo nombre de l'afiliación en a configuración rechional prencipal."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Atención: Esta versión ya ha estau publicada. Editar-la podría tener impacto "
+"en o conteniu publicau."
+
+msgid "ror.nameRequired"
+msgstr "Un nombre ROR ye obligatorio."
+
+msgid "ror.displayLocaleRequired"
+msgstr "La configuración rechional ROR ye obligatoria."
+
+msgid "submission.author.list"
+msgstr "Lista d'autors/as d'o ninvio"
+
+msgid "submission.authors.label"
+msgstr "Autors/as"
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Ninviar como"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Tríe lo rol que describa millor la suya contribución a este ninvio."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Sí, lo mío ninvio cumple toz estes requisitos."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Ninvio completo"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Ninvio cancelau"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Cancelar ninvio"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr "S'ha cancelau lo ninvio y toz los datos asociaus s'han eliminau."
+
+msgid "submission.submit.genre.label"
+msgstr "Qué tipo de fichero ye?"
+
+msgid "submission.submit.genre.description"
+msgstr "Tríe la opción que millor describa a este fichero."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Seguro que deseya eliminar este fichero?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Per agora, vusté puede:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Revisar este ninvio"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Crear un nuevo ninvio"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Tornar a lo escritorio"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Metadatos enamplaus"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Correu electronico de rechistro de Crossref"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Per favor, escribe un correu electronico de rechistro de Crossref valido. "
+"Puez rechistrar lo tuyo correu electronico de traza gratuita en o puesto web "
+"de Crossref."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "Clau API de ISBNdb"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Per favor, escribe la tuya clau API de ISBNdb. Si encara no tiens esta clau, "
+"puez solicitar-la de traza gratuita en o prochecto ISBNdb."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Correu electronico de rechistro de PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Per favor, escribe un correu electronico de rechistro de PubMed valido si "
+"disposas d'un."
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Per favor, escribe una clau API de WorldCat valida si disposa d'una."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Modulo de referencias"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Tríe un d'os modulos de referencias siguients."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "No usar per defecto (encara serán disponibles pa lo editor)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Error interna. S'ha introduciu una valor no valida pa l'achuste 'filtro "
+"opcional'. Per favor, notifica este fallo."
+
+msgid "metadata.property.displayName.author"
+msgstr "Autors"
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editors"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Pa obtener los millors resultaus, los editors/as han d'estar introducius en "
+"o siguient formato: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Títol de l'articlo"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Per favor, escribe un títol valido pa l'articlo/treballo."
+
+msgid "metadata.property.displayName.source"
+msgstr "Títol d'a publicación"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Per favor, escribe un títol valido pa la publicación."
+
+msgid "metadata.property.displayName.date"
+msgstr "Data de publicación"
+
+msgid "metadata.property.validationMessage.date"
+msgstr ""
+"Per favor, escribe una data valida de publicación (formato: AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Data d'acceso"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Per favor, escribe una data valida d'acceso (formato: AAAA-MM-DD)."
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Per favor, escribe un numero valido."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Volumen"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Per favor, escribe un volumen valido."
+
+msgid "metadata.property.displayName.season"
+msgstr "Epoca"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Per favor, escribe un identificador d'epoca valido."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Títol d'o capítol"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Per favor, escribe un títol de capítol valido."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Edición"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Per favor, escribe un edición valida."
+
+msgid "metadata.property.displayName.series"
+msgstr "Colección"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Per favor, escribe una colección valida."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Suplemento"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Per favor, escribe un suplemento valido."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Data d'a conferencia"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Per favor, escribe una data de conferencia valida (formato AAAA-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Ubicación d'a conferencia"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Introduzca una localización valida pa la conferencia."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Nombre d'a conferencia"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Patrocinador d'a conferencia"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Per favor, escriba un patrocinador de conferencia valido."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Institución"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Per favor, escribe una institución valida."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Primera pachina"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+"Per favor, escribe una primera pachina valida (ha d'estar una valor "
+"numerica)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Zaguera pachina"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+"Per favor, escribe una zaguera pachina valida (ha d'estar una valor "
+"numerica)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Numero de pachinas"
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Per favor, escribe un numero de pachinas total valido (ha d'estar una valor "
+"numerica)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Ubicación d'o editor"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Per favor, escribe una localización d'o editor/a valida."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Nombre d'o editor"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Per favor, escribe un nombre de editor/a valido."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Introduzca un ISBN valido (9 u 13 dichitos)."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Per favor, escribe un ISSN electronico valido."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Imprentar ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Per favor, escribe un ISSN de versión impresaválido."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Per favor, escribe un DOI valido."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Per favor, escribe un CODEN valido."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Per favor, escribe un SICI valido."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Per favor, escribe un PMID valido."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Vinclo a la publicación"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Per favor, escribe un vinclo alternativo a la publicación valido."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Comentario"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Per favor, escribe un comentario valido."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anotación"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Per favor, escribe una anotación valida."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Tipo de publicación"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Tipo de títol"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"s'Asegure d'especificar un tipo de títol valido. Las valors admitidas son "
+"\"abreviau\", \"traduciu\", \"alternativo\" y \"uniforme\"."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Parte d'o títol omitiu en clasificar"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Introduzca nomás los carácters inicials d'o títol que habrían d'omitir-se en "
+"clasificar-lo ."
+
+msgid "metadata.property.displayName.title"
+msgstr "Títol"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Introduzca un títol valido."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Subtítulo"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Introduzca un subtítulo valido."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Numero d'elemento"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Introduzca un numero d'elemento valido."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Nombre d'elemento"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Introduzca un nombre d'elemento valido."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Tipo de nombre"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"s'Asegure d'especificar un tipo de nombre valido. Las valors admitidas son "
+"\"personal\", \"corporativo\" y \"conferencia\"."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resumen"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Ninvios sin asignar"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Los míos ninvios asignaus"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Ninvios archivados"
+
+msgid "submission.authors"
+msgstr "Autors/as"
+
+msgid "submission.authorBiography"
+msgstr "Biografía de l'autor/a"
+
+msgid "submission.authorBiographies"
+msgstr "Biografía de l'autor/a"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"
+
+msgid "submission.mySubmissions"
+msgstr "Los míos ninvios de autoría"
+
+msgid "submission.additionalFiles"
+msgstr "Fichers adicionals"
+
+msgid "submission.agencies"
+msgstr "Achencias"
+
+msgid "submission.abstractViews"
+msgstr "Consultas d'o resumen"
+
+msgid "submission.accepted"
+msgstr "Acceptau"
+
+msgid "submission.acknowledge"
+msgstr "Recibiu"
+
+msgid "submission.attachedFile"
+msgstr "Fichero adchunto"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Tornar a la edición d'o ninvio"
+
+msgid "submission.changeComments"
+msgstr "Cambiar a"
+
+msgid "submission.changeFile"
+msgstr "Cambiar lo fichero"
+
+msgid "submission.citations"
+msgstr "Referencias"
+
+msgid "submission.citations.description"
+msgstr ""
+"Introduzca cada referencia en una linia nueva, asinas podrán estar extraitas "
+"y rechistradas per separau."
+
+msgid "submission.parsedCitations"
+msgstr "Referencias extraitas"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Las referencias siguients han estau extraitas y s'enlazarán con os metadatos "
+"d'o ninvio."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extrayer y alzar referencias"
+
+msgid "submission.comments.addComment"
+msgstr "Anyadir comentario"
+
+msgid "submission.comments.comments"
+msgstr "Comentarios"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Seguro que quiers borrar este comentario?"
+
+msgid "submission.comments.corrections"
+msgstr "Correccions"
+
+msgid "submission.comments.editComment"
+msgstr "Editar comentario"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importar revisions per pars"
+
+msgid "submission.comments.addReviews"
+msgstr "Anyade las revisions a lo correu electronico"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Revisor/a {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "No i hai comentarios"
+
+msgid "submission.comments.noReviews"
+msgstr "No i hai revisions"
+
+msgid "submission.comments.review"
+msgstr "Revisión"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Ninviar decisión de revisors/as y editorial"
+
+msgid "submission.comments.subject"
+msgstr "Afer"
+
+msgid "submission.complete"
+msgstr "Completau"
+
+msgid "submission.contributors"
+msgstr "Autoría y colaboradors/as"
+
+msgid "submission.copyedited"
+msgstr "Orichinal correchiu"
+
+msgid "submission.copyediting"
+msgstr "Edición"
+
+msgid "submission.queryNoteFiles"
+msgstr "Fichers de discusión"
+
+msgid "submission.coverage"
+msgstr "Información de cobertura"
+
+msgid "submission.details"
+msgstr "Detalles d'o ninvio"
+
+msgid "submission.downloads"
+msgstr "Descargas"
+
+msgid "submission.dueDate"
+msgstr "Data limite"
+
+msgid "submission.due"
+msgstr "Pendient"
+
+msgid "submission.editing"
+msgstr "Editar"
+
+msgid "submission.editMetadata"
+msgstr "Editar metadatos"
+
+msgid "submission.editorial"
+msgstr "Edición"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Tornar a lo rechistro de correu electronico"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"Seguro que quiers limpiar lo rechistro de correu electronico pa este ninvio?"
+
+msgid "submission.emailLog"
+msgstr "Rechistro de correu electronico"
+
+msgid "submission.event.participantAdded"
+msgstr "S'anyadió a \"{$userFullName}\" ({$username}) como {$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$userFullName}\" ({$username}) s'ha eliminau de {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Tornar a rechistro d'eventos"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Seguro que quiers limpiar lo rechistro d'eventos d'este ninvio?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Seguro que quiers borrar esta dentrada d'o rechistro d'eventos?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Borrar dentrada de rechistro"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Se ninvió un correu electronico sobre la decisión a {$recipientCount} "
+"revisors/as con l'afer {$subject}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Ninvio inicial completau."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$filename} ({$username}) ha acceptau los termins de dreitos de autoría pa "
+"lo ninvio."
+
+msgid "submission.event.fileRevised"
+msgstr "Se cargó la revisión \"{$filename}\" d'o fichero {$submissionFileId}."
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Asignación de revisión acceptada per poders"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Asignación de revisión acceptada"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Asignación de revisión refusada"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "S'ha asignau un revisor/a a la propuesta"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Valoración de revisión ninviada"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "S'ha desasignado un revisor/a a la propuesta"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Fichero de revisión actualizau"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Asignación de revisión iniciada"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Fichero de recomendacions de revisión"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Asignación de revisión reiniciada"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Revisión reninviada"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Fichero de revisions actualizau"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} ninvió un recordatorio a {$recipientName} en relación con a "
+"suya asignación de revisión"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"S'ha ninviau un correu electronico automatico de recordatorio a "
+"{$recipientName} en relación con a suya asignación de revisión"
+
+msgid "submission.event.subjectPrefix"
+msgstr "S'ha ninviau un correu electronico:"
+
+msgid "submission.event.viewEmail"
+msgstr "Veyer correu electronico"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Los autors/as ya pueden editar los metadatos cuan lo ninvio ye en a fase de "
+"{stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Los autors/as ya no pueden editar los metadatos cuan lo ninvio ye en a fase "
+"de {stage}."
+
+msgid "submission.files"
+msgstr "Fichers"
+
+msgid "submission.files.downloadAll"
+msgstr "Descargar toz los fichers"
+
+msgid "submission.forTheEditors"
+msgstr "Pa los editors/as"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Pa sucherencia d'o revisor/a"
+
+msgid "submission.history.noLogEntries"
+msgstr "No i hai dentradas de rechistro."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Dentradas recients"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Rechistro de correu electronico"
+
+msgid "submission.howToCite"
+msgstr "Cómo citar"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Mas formatos de cita"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Descargar cita"
+
+msgid "submission.initiated"
+msgstr "Iniciau"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Actualizau lo {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Versions"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Esta ye un versión antiga publicada lo {$datePublished}. Consulte la <a href="
+"\"{$urlRecentVersion}\">versión mas recient</a>."
+
+msgid "submission.identifiers"
+msgstr "Identificadors"
+
+msgid "submission.publisherId"
+msgstr "ID d'a editorial"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"La ID d'a editorial puede utilizar-se pa rechistrar la ID dende una base de "
+"datos externa. Per eixemplo, los elementos que s'exportan pa depositar-los "
+"en PubMed puede incluyir la ID d'a editorial. Manimenos, esto no habría d"
+"'utilizar-se pa los DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Habilitar pa {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Información d'o ninvio"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadatos"
+
+msgid "submission.informationCenter.notes"
+msgstr "Notas"
+
+msgid "submission.informationCenter.history"
+msgstr "Historial"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Amostrar eventos de versions anteriors"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Notificar"
+
+msgid "submission.layout.addGalley"
+msgstr "Anyadir una galerada de maquetación"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Seguro que quiers eliminar esta galerada de forma permanent?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Seguro que quiers eliminar esta imachen d'a galerada?"
+
+msgid "submission.layout.editGalley"
+msgstr "Editar una galerada de maquetación"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Formato de galerada"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Fichers de galerada HTML"
+
+msgid "submission.layout.galleyImages"
+msgstr "Imáchens"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Etiqueta"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"La etiqueta de galerada s'usa pa identificar lo tipo de fichero (p. eix., "
+"HTML, PDF, etc.)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Se requiere una etiqueta de galerada."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Se requiere un idioma de galerada."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Se requiere una localización de galerada."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "URL remota"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Proporcione una URL remota valida (incluyindo http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "No i hai imáchens"
+
+msgid "submission.layout.galleys"
+msgstr "Galeradas"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Fichero de fuella d'estilo"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Estilo"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Creyación de galerada inicial"
+
+msgid "submission.layout.layoutFile"
+msgstr "Fichero de maquetación"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Versión maquetada"
+
+msgid "submission.layout.newGalley"
+msgstr "Crear nueva galerada"
+
+msgid "submission.layout.noStyleFile"
+msgstr "No s'ha anyadiu garra fichero de fuella d'estilo a esta galerada."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Veyer galerada de ninvio"
+
+msgid "submission.layout.viewProof"
+msgstr "Veyer preba"
+
+msgid "submission.metadata"
+msgstr "Metadatos de ninvio"
+
+msgid "submission.noReviewAssignments"
+msgstr "Sin asignacions de revisión"
+
+msgid "submission.notes.addNewNote"
+msgstr "Anyadir nota"
+
+msgid "submission.notes.attachedFile"
+msgstr "Adchuntar fichero"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Tornar a notas de ninvio"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Notas"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Borrar totas las notas"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Zarrar notas"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Borrar totas las notas de ninvio?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Borrar esta nota de ninvio?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Crear nota"
+
+msgid "submission.notes.deleteNote"
+msgstr "Eliminar nota"
+
+msgid "submission.notes.editNote"
+msgstr "Editar nota"
+
+msgid "submission.notes.expandNotes"
+msgstr "Expandir notas"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "No i hai notas de ninvio"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Eliminar fichero puyau"
+
+msgid "submission.notes"
+msgstr "Notas de ninvio"
+
+msgid "submission.notes.updateNote"
+msgstr "Actualizar nota"
+
+msgid "submission.notes.viewNotes"
+msgstr "Veyer notas"
+
+msgid "submission.originalFile"
+msgstr "Fichero orichinal"
+
+msgid "submission.page.editing"
+msgstr "#{$iz} Editar"
+
+msgid "submission.page.history"
+msgstr "#{$iz} Historial"
+
+msgid "submission.page.review"
+msgstr "#{$iz} Revisión"
+
+msgid "submission.production"
+msgstr "Producción"
+
+msgid "submission.recommendation"
+msgstr "Recomendación: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Refusau"
+
+msgid "submission.request"
+msgstr "Solicitut"
+
+msgid "submission.response"
+msgstr "Responder"
+
+msgid "submission.restrictions"
+msgstr "Restriccions"
+
+msgid "submission.reviewMetadata"
+msgstr "Metadatos de revisión"
+
+msgid "submission.review"
+msgstr "Revisión"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Revisar y ninviar"
+
+msgid "submission.reviewed"
+msgstr "Revisau(s)"
+
+msgid "submission.reviewVersion"
+msgstr "Versión de revisión"
+
+msgid "submission.rights"
+msgstr "Dreitos"
+
+msgid "submissions.active"
+msgstr "Activo"
+
+msgid "submissions.archived"
+msgstr "Archivado"
+
+msgid "submission.saveMetadata"
+msgstr "Alzar metadatos"
+
+msgid "submissions.completed"
+msgstr "Completau"
+
+msgid "submissions.declined"
+msgstr "Refusau"
+
+msgid "submissions.incomplete"
+msgstr "Incompleto"
+
+msgid "submissions.noSubmissions"
+msgstr "No i hai ninvios"
+
+msgid "submissions.queuedEditing"
+msgstr "En coda pa edición"
+
+msgid "submissions.queued"
+msgstr "En coda"
+
+msgid "submissions.queuedUnassigned"
+msgstr "No i hai garra editor/a asignau a este ninvio."
+
+msgid "submissions.ruling"
+msgstr "Normativa"
+
+msgid "submission.source"
+msgstr "Fuent"
+
+msgid "submissions.submit"
+msgstr "Ninviar"
+
+msgid "submissions.submitted"
+msgstr "Ninviau"
+
+msgid "submission.submission"
+msgstr "Ninvio"
+
+msgid "submission.submissionTitle"
+msgstr "Títol d'o ninvio:"
+
+msgid "submission.start"
+msgstr "Prencipiar"
+
+msgid "submission.submissionHistory"
+msgstr "Historial de ninvio"
+
+msgid "submission.submissionManuscript"
+msgstr "Texto completo de ninvio"
+
+msgid "submission.submissionReview"
+msgstr "Revisión de ninvio"
+
+msgid "submission.submitter"
+msgstr "Remitente"
+
+msgid "submission.submit.selectFile"
+msgstr "Triar fichero"
+
+msgid "submission.submit.fileInformation"
+msgstr "Información d'o fichero"
+
+msgid "submission.submit.fileAdded"
+msgstr "Fichero anyadiu"
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+"Incluyir a este colaborador/a en as listas de publicacions cuan se "
+"identifique a los autors/as."
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Listas de publicacions"
+
+msgid "submission.submit.newFile"
+msgstr "Ninviar unatro fichero"
+
+msgid "submission.submit.metadataForm"
+msgstr "Milloras adicionals"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Idioma d'o ninvio"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Tríe l'idioma prencipal d'o ninvio."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Fichers de ninvio"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Fichers dependients"
+
+msgid "submission.manageDependentFiles"
+msgstr "Chestionar los fichers dependients"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Cargue toz los fichers que l'equipo editorial amenesterá pa avaluar lo suyo "
+"ninvio."
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% de carga completau"
+
+msgid "submission.upload.dependent"
+msgstr "Cargar un fichero dependient"
+
+msgid "submission.upload.query"
+msgstr "Puya un fichero de discusión"
+
+msgid "submission.summary"
+msgstr "Resumen"
+
+msgid "submission.supportingAgencies"
+msgstr "Achencias d'emparo"
+
+msgid "submission.indexingInformation"
+msgstr "Información de indexado"
+
+msgid "submission.titleAndAbstract"
+msgstr "Títol y resumen"
+
+msgid "submission.underway"
+msgstr "En curso"
+
+msgid "submission.uploadFileTo"
+msgstr "Cargar fichero a"
+
+msgid "submission.createRemote"
+msgstr "Crear remoto"
+
+msgid "submission.viewMetadata"
+msgstr "Veyer metadatos"
+
+msgid "submission.views"
+msgstr "Consultas"
+
+msgid "submission.uploadSuccessful"
+msgstr "Lo tuyo fichero ha estau puyau."
+
+msgid "submission.loadMessage"
+msgstr "Per favor, aspera mientres s'almagacena lo tuyo fichero en o servidor."
+
+msgid "submission.artworkFileDetails"
+msgstr "Detalles d'o fichero de artwork"
+
+msgid "submission.fileDetails"
+msgstr "Detalles d'o fichero"
+
+msgid "submission.date.yyyymmdd"
+msgstr "AAAA-MM-DD"
+
+msgid "submission.submit.contributorRole"
+msgstr "Rol d'o colaborador/a"
+
+msgid "submission.submit.addAuthor"
+msgstr "Anyadir colaborador/a"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduzca un idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduzca un tema."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduzca una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduzca una parola clau."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduzca la información de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduzca la tipolochía."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduzca las referencias."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Introduzca la declaración de disponibilidat de datos."
+
+msgid "submission.form.name"
+msgstr "Dar un nombre a lo fichero (p. eix., Ninvio Pérez, Tabla 1 Pérez)"
+
+msgid "workflow.review.internalReview"
+msgstr "Revisión interna"
+
+msgid "workflow.stage.any"
+msgstr "Cualsequier fase"
+
+msgid "workflow.stage"
+msgstr "Fase"
+
+msgid "submission.status.production"
+msgstr "En corrección de prebas"
+
+msgid "submission.status.review"
+msgstr "En revisión"
+
+msgid "submission.status.submission"
+msgstr "A l'aspera d'a decisión d'o editor/a"
+
+msgid "submission.status.unassigned"
+msgstr "Sin asignar"
+
+msgid "submission.status.declined"
+msgstr "Refusau"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Metadatos"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Finalizar"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Ha d'introducir un nombre pa este fichero"
+
+msgid "submission.upload.noGenre"
+msgstr "Falta lo component u este no ye valido."
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Falta lo grupo d'usuarios/as u este no ye valido."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Se detectó una posible revisión u duplicación"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Lo nombre d'o fichero cargau se pareixe a lo nombre d'un fichero cargau "
+"anteriorment: \"{$revisedFileName}\". Pretende reemplazar \""
+"{$revisedFileName}\"? Si ye asinas, tríe lo fichero que amaneixe debaixo. En "
+"caso contrario, tríe \"Este no ye una revisión d'un fichero existent\" antes "
+"de continar."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Tríe lo fichero que quiere revisar."
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Si ye puyando una revisión d'un fichero existent, indique de qué fichero se "
+"trata."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Esto no ye una revisión d'un fichero existent"
+
+msgid "submission.upload.userGroup"
+msgstr "Cargar este fichero con o mío rol de..."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Si ye ninviando un volumen editau, habría de cargar toz los capítols d'o "
+"volumen un per un con o rol de editor/a de volumen."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Cargar un fichero de biblioteca"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Categoría de documento d'o ninvio"
+
+msgid "submission.upload.finalDraft"
+msgstr "Cargar fichero"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Cargar lo fichero correchiu"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Cargar fichers"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Dimpués de revisar lo fichero asignau, rechistre los comentarios en o "
+"fichero de abaixo u puye una copia d'o fichero (u unatro fichero) con "
+"comentarios."
+
+msgid "submission.upload.productionReady"
+msgstr "Cargar un fichero listo pa la producción"
+
+msgid "submission.upload.proof"
+msgstr "Cargar un fichero listo pa la publicación"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "No tiene fichers pa revisar en este momento."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Sucherencias d'o revisor/a"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Revisions solicitadas."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "S'han ninviau las revisions y ye necesario prener una decisión."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"Las revisions solicitadas a l'autor/a se ninviarán a una ronda de revisión "
+"nueva."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Revisions ninviadas. S'ha de crear una ronda de revisión nueva."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Ninviau pa revisión externa."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Ninvio acceptau."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Ninvio refusau."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Asperando l'asignación de revisors/as."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Asperando las respuestas d'os revisors/as."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "S'han recibiu nuevas revisions."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "S'han confirmau totas la revisions y cal prener una decisión."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Una revisión ha venciu."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Yo mesmo he feito la recomendación."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Asperando recomendacions d'os editors/as."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "S'han ninviau nuevas recomendacions editorials."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "S'han recibiu totas las recomendacions y cal prener una decisión."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Retornau a revisión."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Un ninvio nuevo ye a l'aspera de revisión u d'estar refusau."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Participants"
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Revisors/as sucherius per l'autor/a"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Garra asignau"
+
+msgid "editor.submission.participant"
+msgstr "Participant"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Anyadir participant"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Editar asignación"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Los usuarios/as son asignaus a las diferents fases d'o proceso de treballo "
+"seguntes lo suyo grupo. Cualsequier usuario/a asignau a esta fase será "
+"automaticament asignau a las atras fases en que lo suyo grupo usuario haiga "
+"estau asignau. Esto normalment ye reservau a los editors/as, autors/as y "
+"traductors/as."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Eliminar participant"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Ye a punto d'eliminar a este participant de <strong>totas</strong> las "
+"fases. Si l'usuario/a tamién tiene fayenas de auditor/a pendients, tamién "
+"s'eliminarán."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Ha de triar un grupo d'usuarios/as."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Ha de triar un usuario/a d'o grupo especificau."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Lo colaborador/a que ha triau ha estau asignau pa levar a cabo una revisión "
+"anonima. Si l'asigna como participant tendrá acceso a la identidat de l'"
+"autor/a. Le consellamos no triar este colaborador/a a menos que pueda "
+"guarenciar la integridat d'o proceso de revisión per pars."
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Habilitar la edición de metadatos"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Seguro que deseya que los autors/as d'este ninvio no puedan editar los "
+"metadatos d'o ninvio en esta fase?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Seguro que deseya que los autors/as d'este ninvio puedan editar los "
+"metadatos d'o ninvio en esta fase?"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Notificar a los autors/as"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Notificar a los revisors/as"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Ninviar un correu electronico a los revisors/as pa agradeixer-les la "
+"revisión y informar-les que s'ha preso una decisión. A cada revisor/a se le "
+"ninviará un correu electronico per separau pa protecher lo suyo anonimato. "
+"La frase {$recipientName} se puede utilizar en o mensache pa incluyir lo "
+"nombre de cada revisor/a de forma segura."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Ninviar un correu electronico a los revisors/as asignaus pa informar-les que "
+"la suya asignación de revisión s'ha cancelau."
+
+msgid "editor.submission.decision.accept"
+msgstr "Acceptar ninvio"
+
+msgid "editor.submission.decision.accept.description"
+msgstr "Este ninvio s'acceptará pa la suya publicación y se ninviará a edición."
+
+msgid "editor.submission.decision.accept.log"
+msgstr "{$editorName} acceptó este ninvio y lo ninvió a la fase d'edición."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Lo ninvio, {$title}, ha estau acceptau pa la suya publicación y ninviau a la "
+"fase d'edición. S'han ninviau totas las notificacions, fueras d'as cualas "
+"haiga decidiu omitir."
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que lo suyo "
+"ninvio ha estau acceptau pa la suya publicación. Este correu electronico no "
+"se ninviará dica que s'haiga rechistrau la decisión."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que s'ha "
+"zarrau la ronda de revisión. Este correu electronico no se ninviará dica que "
+"s'haiga rechistrau la decisión."
+
+msgid "editor.submission.decision.decline"
+msgstr "No publicable"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Este ninvio será refusau pa la suya publicación. La fase de revisión per "
+"pars se zarrará y lo ninvio se archivará."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, ha estau refusau y archivado. S'han ninviau totas las "
+"notificacions, fueras d'as cualas haiga decidiu omitir."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que la suya "
+"propuesta ha estau refusada. Este correu electronico no se ninviará dica que "
+"s'haiga rechistrau la decisión."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Este ninvio será refusau pa la suya publicación. No se realizarán mas "
+"revisions y lo ninvio se archivará."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Nueva ronda de revisión"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Ubrir unatra ronda de revisión pa este ninvio."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} creó una nueva ronda de revisión pa este ninvio."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Se creó una ronda de revisión"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"S'ha creau una nueva ronda de revisión pa lo ninvio, {$title}. L'autor/a ha "
+"estau notificau, de no estar que haiga triau omitir lo correu electronico."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que lo suyo "
+"articlo ha estau ninviau a una nueva ronda de revisión. Este correu "
+"electronico no se ninviará dica que s'haiga rechistrau la decisión."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Triar los fichers que habrían de ninviar-se a revisión."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Triar los fichers que habrían de ninviar-se a la fase de producción."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Solicitar revisions"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"L'autor/a ha de proporcionar revisions antes que este ninvio s'accepte pa la "
+"suya publicación."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} solicitó revisions pa este ninvio."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Revisions solicitadas"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"S'han solicitau revisions pa lo ninvio {$title}. S'han ninviau totas las "
+"notificacions, fueras d'as cualas haiga decidiu omitir."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que será "
+"necesario realizar revisions antes d'acceptar lo ninvio pa la suya "
+"publicación. Incluiga toz los detalles que l'autor/a amenesterá pa revisar "
+"lo suyo ninvio. Cuan proceda, recuerde anonimizar los comentarios d'os "
+"revisors/as. Este correu electronico no se ninviará dica que s'haiga "
+"rechistrau la decisión."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Cancelar ronda de revisión"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Cancelar la ronda de revisión actual y tornar lo ninvio a la zaguera ronda "
+"de revisión. Si se trata d'a primera ronda de revisión, se tornará a la fase "
+"de ninvio."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} ha cancelau la ronda de revisión."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "S'ha cancelau la zaguera ronda de revisión."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"La ronda de revisión d'o ninvio {$title} ha estau cancelada. S'han ninviau "
+"totas las notificacions, fueras d'as cualas haiga decidiu omitir."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Nomás se puede cancelar una ronda de revisión si garra revisor/a asociau a "
+"ella tiene disponible bella revisión completada u ninviada."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Reevaluable"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"L'autor/a ha de proporcionar las revisions que se ninviarán a unatra ronda "
+"de revisión antes que este ninvio sía acceptau pa la suya publicación."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} ha solicitau revisions pa este ninvio que deberían remitirse a "
+"unatra ronda de revisión."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Revisions solicitadas"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"S'han solicitau revisions pa lo ninvio {$title}. S'ha rechistrau la decisión "
+"de ninviar las revisions a unatra ronda de revisión. S'han ninviau totas las "
+"notificacions, fueras d'as cualas haiga decidiu omitir."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que será "
+"necesario completar las revisions y ninviar-las a unatra ronda de revisión. "
+"Incluiga toz los detalles que l'autor/a amenesterá pa revisar lo suyo "
+"ninvio. Cuan proceda, recuerde anonimizar los comentarios d'os revisors/as."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Ninviar a revisión"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Este ninvio ye listo pa ninviar-se a revisión per pars."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} ninvió este ninvio a la fase de revisión."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Ninviau a revisión"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, ha estau ninviau a la fase de revisión. S'ha notificau "
+"a l'autor/a, de no estar que haiga triau omitir lo correu electronico."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nueva ronda de revisión"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Ninviar a producción"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Pasar este ninvio a la fase de producción pa preparar-lo pa la suya "
+"publicación."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Ninviau a producción"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, ha pasau a la fase de producción. Se notificó a l'autor/"
+"a, de no estar que haiga triau omitir lo correu electronico."
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que lo ninvio "
+"ha pasau a la fase de producción. Este correu electronico no se ninviará "
+"dica que se rechistre la decisión."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Cancelar la corrección"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Retornar este ninvio dende la fase d'edición."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr "{$editorName} ha retornau este ninvio dende la fase d'edición."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Retornau dende la fase d'edición"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, ha estau retornau dende la fase d'edición. S'ha "
+"notificau a l'autor/a, de no estar que haiga decidiu omitir lo correu "
+"electronico."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que s'ha "
+"cancelau la corrección y que la suya ninvio se sozmeterá a unatra revisión "
+"editorial."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Retornar a edición"
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Retornar este ninvio a la fase d'edición."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr "{$editorName} ha retornau este ninvio a la fase d'edición."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Retornau a edición"
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, s'ha retornau a la fase d'edición. L'autor/a ha estau "
+"notificau, de no estar que haiga decidiu omitir lo correu electronico."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que la "
+"propuesta ha estau retornada a la fase d'edición. Explique per qué s'ha "
+"preso esta decisión y informe a l'autor/a de qué será necesario correchir "
+"antes que lo ninvio sía listo pa la producción."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Acceptar este ninvio pa la suya publicación y omitir la fase de revisión. "
+"Esta decisión remitirá lo ninvio a la fase d'edición."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} ha omitiu la fase de revisión y ha remitido este ninvio a la "
+"fase d'edición."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, ha omitiu la fase de revisión y s'ha ninviau a la fase "
+"d'edición. S'ha notificau a l'autor/a, de no estar que haiga decidiu omitir "
+"lo correu electronico."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que lo ninvio "
+"ha estau acceptau pa la suya publicación y s'ha ninviau a la fase de edición "
+"sin revisión. Este correu electronico no se ninviará dica que se rechistre "
+"la decisión."
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Lo fichero de compaginadas ha de marcar-se como \"aprebau\" pa que sía "
+"disponible. Quiere aprebar-lo?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Aprebar prebas"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Esta compaginada ya no será disponible publicament pa la suya descarga u "
+"compra. Quiere refusar-lo?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Revertir lo refuso"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Revertir la decisión anterior de refusar este ninvio y tornar-lo a lo "
+"proceso editorial activo. S'ha notificau a l'autor/a, de no estar que haiga "
+"decidiu omitir lo correu electronico."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} revocó la decisión de refusar este ninvio."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Ninvio reactivau"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Lo ninvio, {$title}, agora ye activo en a fase de revisión."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Ninviar un correu electronico a los autors/as pa informar-les que s'ha "
+"revocado la decisión anterior de refusar la suya ninvio. Explique per qué "
+"s'ha revocado la decisión y indique si s'aspera que lo ninvio se sozmeta a "
+"unatra revisión."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"Lo ninvio, {$title}, agora ye activo en a fase de ninvio. S'ha notificau a l'"
+"autor/a, de no estar que haiga decidiu omitir lo correu electronico."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "Asignar un editor/a pa habilitar las decisions editorials en esta fase."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Ninviar un mensache a los editors/as responsables pa informar-los d'a "
+"recomendación. Explique per qué s'ha feito esta recomendación en relación "
+"con as recomendacions y comentarios ninviaus per los revisors/as."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Recomendar l'acceptación"
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Recomendar que s'accepte este ninvio pa la suya publicación y que se ninvie "
+"a edición."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} recomendó l'acceptación d'o ninvio y que se ninvie a edición."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Recomendación ninviada"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"S'ha rechistrau la suya recomendación y s'ha notificau a los editors/as "
+"responsables."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Recomendar revisions"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Recomendar que se soliciten revisions a l'autor/a antes d'acceptar este "
+"ninvio pa la suya publicación."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} recomendó que se soliciten revisions."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Recomendar lo reninvio a revisión"
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Recomendar que se solicite a l'autor/a que ninvie revisions pa unatra ronda "
+"de revisión."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} recomendó que se soliciten revisions y que estas se ninvien a "
+"unatra ronda de revisión."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Recomendar lo refuso"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Recomendar que lo ninvio se refuse pa la suya publicación."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} recomendó que se refuse este ninvio."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Fer una recomendación"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Modificar la recomendación"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Recomendación: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Recomendaciónes: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"No puede fer una recomendación dica que s'asigne un editor/a con permiso pa "
+"rechistrar una decisión."
+
+msgid "editor.submission.recommendation"
+msgstr "Recomendación"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Recomiende una decisión editorial pa este ninvio."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Recomendacions rechistradas"
+
+msgid "submission.currentStage"
+msgstr "Fase actual"
+
+msgid "submission.noActionRequired"
+msgstr "No ye necesaria garra acción"
+
+msgid "submission.actionNeeded"
+msgstr "Se requiere una acción"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Fichers pa revisar"
+
+msgid "submission.submit.currentFile"
+msgstr "Fichero actual"
+
+msgid "submission.finalDraft"
+msgstr "Borradors finals"
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Se produció una error en intentar asignar a lo auditor/a. lo Intente de "
+"nuevo."
+
+msgid "submission.event.fileEdited"
+msgstr "{$username} ha editau los metadatados d'o fichero \"{$filename}\"."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"{$username} puyó lo fichero \"{$filename}\" pa lo ninvio {$submissionId}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"{$username} eliminó lo fichero \"{$filename}\" pa lo ninvio {$submissionId}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"{$username} puyó lo fichero de revisión \"{$filename}\" pa lo ninvio "
+"{$submissionId}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"{$username} eliminó lo fichero de revisión \"{$filename}\" pa lo ninvio "
+"{$submissionId}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "{$username} eliminó la zaguera revisión d'o fichero \"{$filename}\"."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"S'anyadió a \"{$userFullName}\" ({$username}) como auditor/a d'o fichero \""
+"{$filename}\"."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$userFullName}\" ({$username}) estió eliminau como auditor/a d'o fichero "
+"\"{$filename}\"."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) completó una auditoría y cargó \""
+"{$filename}\"."
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$userFullName}\" ({$username}) zarró la sesión de \"{$filename}\"."
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$userFullName}\" ({$username}) acceptó las prebas de \""
+"{$publicationFormatName}\"."
+
+msgid "submission.stageNotInitiated"
+msgstr "Fase no iniciada."
+
+msgid "submission.documents"
+msgstr "Documentos d'o ninvio"
+
+msgid "notification.type.editorAssign"
+msgstr "Ha estau asignau como editor d'o ninvio \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Se le ha pediu que revise las galeradas de \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Se le ha pediu que cree un índiz pa \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Zaguera decisión d'o editor/a."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Ninvio acceptau."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Prencipió lo proceso de revisión externa."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "S'ameneste revisión."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Reninviar pa revisión."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "S'ha iniciau una nueva ronda de revisions."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "S'ha reactivau lo ninvio refusau."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Se creó una nueva versión d'un ninvio"
+
+msgid "notification.type.revertDecline"
+msgstr "S'ha revertiu la decisión de refusar este ninvio."
+
+msgid "submission.productionReady"
+msgstr "Libro disponible"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Cargar lo fichero revisau"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"S'asignó a {$reviewerName} pa la revisión d'o ninvio {$submissionId} d'a "
+"ronda de revisión {$round}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} marcó la ronda de revisión {$round} pa lo ninvio "
+"{$submissionId} como sin consideración."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"La ronda de revisión {$round} de {$reviewerName} pa lo ninvio {$submissionId}"
+" ha estau reiniciada."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Reninviar la solicitut de revisión en a ronda {$round} a {$reviewerName} pa "
+"lo ninvio {$submissionid}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Lo/a editor/a {$editorName} ha confirmau una revisión pa la ronda de "
+"revisión {$round} d'o ninvio {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ha completau la revisión pa la ronda {$round} de revisión "
+"d'o ninvio {$submissionId}."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Lo revisor/a ha superau la data limite de respuesta."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Lo revisor/a ha superau la data limite de revisión."
+
+msgid "submission.review.status.accepted"
+msgstr "La revisión ha estau acceptada."
+
+msgid "submission.review.status.received"
+msgstr "Lo revisor/a ha ninviau la revisión."
+
+msgid "submission.review.status.viewed"
+msgstr "Lo/a editor/a ha visto la revisión."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"S'ha completau la revisión y se le ha dau las gracias a lo revisor/a per la "
+"suya contribución."
+
+msgid "submission.supplementary"
+msgstr "Conteniu complementario"
+
+msgid "submission.supplementary.subject"
+msgstr "Afer"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Colaborador u achencia de esponsorización"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Ha d'asignar-se un chefe/a de producción pa que pueda prencipiar lo proceso "
+"de producción. Anyada un chefe/a de producción a traviés d'o vinclo "
+"Participants que amaneixe alto."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Ha d'asignar-se un editor/a pa que pueda prencipiar lo proceso editorial. "
+"Anyada a un chefe/a de producción a traviés d'o vinclo Participants que "
+"amaneixe alto."
+
+msgid "submission.reviewForm"
+msgstr "Formulario de revisión"
+
+msgid "submission.reviewFormResponse"
+msgstr "Formulario de respuesta de revisión"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Crea un nuevo formulario de revisión"
+
+msgid "submission.permissions"
+msgstr "Permisos"
+
+msgid "submission.attachPermissions"
+msgstr "Adchunta los siguients permisos a lo ninvio:"
+
+msgid "submission.license"
+msgstr "Licencia"
+
+msgid "submission.copyright"
+msgstr "Dreitos d'autor"
+
+msgid "submission.copyright.agree"
+msgstr "Sí, accepto la declaración de dreitos de autoría."
+
+msgid "submission.copyrightHolder"
+msgstr "Titular d'os dreitos d'autor"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declaración de dreitos d'autor personalizada"
+
+msgid "submission.licenseURLValid"
+msgstr "Proporcione una URL remota valida (incluiga http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licencia URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Reconoixencia-NoComercial-SinObrasDerivadas 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Reconoixencia-NoComercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Reconoixencia-NoComercial-CompartirIgual 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Reconoixencia-SinObrasDerivadas 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Reconoixencia 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/4.0/\">Creative Commons Atribución-NoComercial-SinDerivadas 4."
+"0</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia internacional <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+">Creative Commons Atribución-NoComercial 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/4.0/\">Creative Commons Atribución-NoComercial-CompartirIgual 4."
+"0</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia internacional <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+">Creative Commons Atribución-SinDerivadas 4.0</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Esta obra ye baixo una licencia internacional <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative "
+"Commons Atribución 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia internacional <a "
+"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+">Creative Commons Atribución-CompartirIgual 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Reconoixencia-NoComercial 3.0 Unported</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/3.0/\">Creative Commons Reconoixencia-NoComercial-CompartirIgual 3."
+"0</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Reconoixencia-SinObraDerivada 3.0 Unported</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Esta obra ye baixo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Reconoixencia 3.0 Unported</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Reconoixencia-CompartirIgual 3.0 Unported</a>.</p>"
+
+msgid "submission.queries.editorial"
+msgstr "Discusions de corrección"
+
+msgid "submission.query.subject"
+msgstr "Tema"
+
+msgid "submission.query.messages"
+msgstr "Mensaches"
+
+msgid "submission.query.replies"
+msgstr "Respuestas"
+
+msgid "submission.query.addNote"
+msgstr "Anyade mensache"
+
+msgid "submission.query.leaveQuery"
+msgstr "Abandonar la discusión"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Si abandona la discusión ya no se le notificarán los mensaches nuevos. "
+"Confirma que quiere abandonar la discusión?"
+
+msgid "grid.action.openNoteForm"
+msgstr "Anyade una respuesta nueva a la discusión"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} respondió a {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} inició una discusión: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"I hai actividat nueva en a conversación titulada \"{$queryTitle}\" que fa "
+"referencia a lo ninvio \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Ha estau anyadiu a la conversación titulada \"{$queryTitle}\" que fa "
+"referencia a lo ninvio \"{$submissionTitle}\"."
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Ha d'asignar como minimo un participant a este ninvio antes d'iniciar una "
+"discusión."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Puede actualizar esta discusión entre {$allowedEditTimeNoticeLimit} menutos."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Este ye l'idioma prencipal de ninvio. Cambiar-lo afectará a lo ninvio y a "
+"los metadatados introducius"
+
+msgid "submission.list.infoCenter"
+msgstr "Rechistro d'actividat y notas"
+
+msgid "submission.list.empty"
+msgstr "No se troboron ninvios."
+
+msgid "submission.list.responseDue"
+msgstr "Plazo de respuesta: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Asignación de revisión"
+
+msgid "submission.list.reviewDue"
+msgstr "Plazo de revisión: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Revisión ninviada"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Revisión cancelada"
+
+msgid "submission.list.confirmDelete"
+msgstr "Eliminar ninvio?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Veyer toz los ninvios"
+
+msgid "submission.list.viewSubmission"
+msgstr "Veyer Ninvio"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Revisions asignadas completadas"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revisions ninviadas"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Fichers correchius ninviaus"
+
+msgid "submission.list.galleysCreated"
+msgstr "Galeradas de producción creadas"
+
+msgid "submission.list.filesPrepared"
+msgstr "Fichers preparaus"
+
+msgid "submission.list.discussions"
+msgstr "Discusions ubiertas"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Se le han asignau multiples rols pa este ninvio. Quiere acceder a lo <a href="
+"\"{$urlAuthorWorkflow}\">fluxo de treballo de l'autor/a</a> u a lo <a href=\""
+"{$urlEditorialWorkflow}\">fluxo de treballo editorial</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Se le ha asignau un rol editorial pa este ninvio. Quiere acceder a lo <a "
+"href=\"{$urlEditorialWorkflow}\">fluxo de treballo editorial</a>?"
+
+msgid "submission.list.currentStage"
+msgstr "Actualment en a fase de {$stage}."
+
+msgid "submission.list.activity"
+msgstr "Actividat"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Días dende la zaguera actividat"
+
+msgid "submission.list.assignEditor"
+msgstr "Asignar Editor"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Esta solicitut ya ha estau ninviada. Visite lo <a href=\"{$url}\">panel de "
+"ninvios</a> pa veyer-lo."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Antes d'empecipiar"
+
+msgid "submission.wizard.categories.description"
+msgstr "Tríe nomás las categorías apropiadas pa la suya ninvio."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Cambiar los achustes d'o ninvio"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Complete los pasos pa fer un ninvio"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Lo ninvio <strong>{$title}</strong> se remitirá a <strong>{$context}</"
+"strong> pa la revisión editorial. Seguro que quiere completar este ninvio?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"I hai un u mas problemas que deben solucionarse antes que pueda ninviar la "
+"solicitut. Revise la siguient información y faiga los cambios solicitaus."
+
+msgid "submission.wizard.validating"
+msgstr "Comprebando lo ninvio"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Anyada la información que considere que lo nuestro personal editorial habría "
+"de conoixer en o momento d'avaluar lo suyo ninvio."
+
+msgid "submission.wizard.confirm"
+msgstr "Confirme lo siguient antes de fer lo ninvio."
+
+msgid "submission.wizard.title"
+msgstr "Fer un ninvio"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Fer un ninvio: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "No s'han anyadiu colaboradors/as pa este ninvio."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "Falta lo nombre en {$language} pa un u mas d'os colaboradors/as."
+
+msgid "submission.wizard.notAllowed"
+msgstr "No permitiu"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Consentimiento de privacidat"
+
+msgid "submission.wizard.saved"
+msgstr "Alzau pa mas abance"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Los detalles d'o suyo ninvio s'han alzau en o nuestro sistema, pero encara "
+"no se han ninviau pa prener-los en consideración. Puede retornar pa "
+"completar lo suyo ninvio en cualsequier momento a traviés d'o siguient "
+"vinclo."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+"Le hemos ninviau una copia d'o vinclo per correu electronico a {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Sección zarrada"
+
+msgid "submission.wizard.start"
+msgstr "Iniciar un ninvio"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Iniciando un nuevo ninvio"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"No hemos puesto alzar lo suyo ninvio perque s'ha produciu una error. Ye "
+"posible que s'haiga desconnectau."
+
+msgid "grid.category.categories"
+msgstr "Categorías"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data de publicación (mas antigos primer)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data de publicación (mas nuevos primer)"
+
+msgid "category.category"
+msgstr "Categorías"
+
+msgid "category.coverImage"
+msgstr "Imachen de cubierta"
+
+msgid "submission.submit.placement.categories"
+msgstr "Categorías"
+
+msgid "submission.currentCoverImage"
+msgstr "Imachen actual"
+
+msgid "catalog.category.noItems"
+msgstr "Encara no s'ha publicau cosa en esta categoría."
+
+msgid "catalog.category.subcategories"
+msgstr "Subcategorías"
+
+msgid "publication.contributors"
+msgstr "Colaboradors/as"
+
+msgid "publication.createVersion"
+msgstr "Crear una versión nueva"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La data ha d'estar en formato AAAA-MM-DD, per eixemplo 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Se creó una versión nueva."
+
+msgid "publication.publicationLicense"
+msgstr "Permisos y divulgación"
+
+msgid "publication.status.scheduled"
+msgstr "Programado"
+
+msgid "publication.status.unpublished"
+msgstr "Retirau de publicación"
+
+msgid "publication.titleAbstract"
+msgstr "Títol y resumen"
+
+msgid "publication.unschedule"
+msgstr "Desprogramar"
+
+msgid "publication.urlPath"
+msgstr "Rota URL"
+
+msgid "publication.urlPath.description"
+msgstr "Una rota opcional pa utilizar en a URL en cuenta d'a ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "La rota URL ya ha estau utilizada y no puede tornar a usar-se."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "La rota URL no puede estar un numero."
+
+msgid "publication.version.confirm"
+msgstr "Seguro que quiere crear una versión nueva?"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Lo resumen ye masiau largo. Habría de tener {$limit} parolas u menos. "
+"Actualment tiene {$count} parolas."
+
+msgid "publication.wordCount"
+msgstr "Contador de parolas: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Error en marcar que lo DOI ameneste sincronización pa {$pubObjectTitle}. Lo "
+"DOI no se puede marcar como que ameneste sincronización perque encara no se "
+"ha rechistrau u ninviau."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"No s'ha puesto marcar lo DOI como rechistrau pa {$pubObjectTitle}. Lo ninvio "
+"ha de publicar-se antes de poder actualizar lo estau."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Esto ye una previsualización que encara no s'ha publicau. <a href=\"{$url}\""
+">Veyer ninvio</a>"
+
+msgid "author.submit.noFiles"
+msgstr "No s'han adchuntau fichers a este ninvio."
+
+msgid "author.submit.confirmation"
+msgstr "Confirmación"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Ninviando en <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Ninviando a la sección <strong>{$section}</strong>."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Ninviando a la sección <strong>{$section}</strong> en "
+"<strong>{$language}</strong>."
+
+msgid "submission.type.tip"
+msgstr ""
+"Lo tipo de ninvio gosa estar de \"imachen\", \"texto\" u atros fichers "
+"multimedia entre los cuals s'incluyen \"software\" y \"interactivo\". Tríe "
+"lo que sía mas pertinent pa lo suyo ninvio. Pueden trobar-se eixemplos en <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/"
+"usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Se deriva este ninvio d'unatro recurso? Si ye asinas, puede introducir una "
+"URL u una descripción d'o recurso."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Si lo deseya, puede escribir una breu declaración sobre los dreitos de "
+"acceso que tiene respective a este ninvio."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Anyada mas información a lo ninvio. Prete \"Intro\" dimpués de cada termin."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Contacto prencipal pa la correspondencia editorial."
+
+msgid "submission.dataAvailability"
+msgstr "Declaración de disponibilidat de datos"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Indicar si ha presentau datos que refirmen este treballo y, en caso "
+"afirmativo, án y cómo se puede acceder a éls"
+
+msgid "submission.files.required.genre"
+msgstr "Ha de cargar a lo menos un fichero {$genre}."
+
+msgid "submission.files.required.genres"
+msgstr "Ha de cargar a lo menos un d'os siguients tipos de fichero: {$genres}."
+
+msgid "publication.version"
+msgstr "Versión {$version}"
+
+msgid "submission.submissionFile"
+msgstr "Fichero de ninvio"
+
+msgid "author.competingInterests"
+msgstr "Conflictos d'interés"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Indique cualsequier conflicto d'interés que l'autor/a pueda tener relacionau "
+"con o tema d'investigación."
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Esta obra ye baixo una licencia "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/3.0/\">Creative Commons Reconoixencia-NoComercial-SinObraDerivada 3."
+"0</a>.</p>"

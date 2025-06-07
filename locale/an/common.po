@@ -1,7 +1,7 @@
 # Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-05 22:51+0000\n"
+"PO-Revision-Date: 2025-06-08 18:51+0000\n"
 "Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
 "Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/an/>\n"
@@ -1933,7 +1933,7 @@ msgstr ""
 "<li>PDF:\n"
 "<ul><li>Ir a \"Fichero\"</li>\n"
 "<li>Triar \"Propiedaz\"</li>\n"
-"<li>Eliminar cualsequier nombre d'o campo \"autor/la2\"</li>\n"
+"<li>Eliminar cualsequier nombre d'o campo \"autor/a\"</li>\n"
 "<li>Fer clic en OK</li>\n"
 "<li>Alzar lo documento</li></ul></li></ul>\n"
 

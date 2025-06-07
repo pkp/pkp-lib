@@ -21,13 +21,13 @@ use Illuminate\Support\Enumerable;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
-use PKP\security\Validation;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -188,6 +188,7 @@ class Schema extends \PKP\core\maps\Schema
                                     'recommendOnly' => (bool) $userGroup->recommendOnly,
                                     'dateStart' => $userUserGroupItem['dateStart'],
                                     'dateEnd' => $userUserGroupItem['dateEnd'],
+                                    'masthead' => $userUserGroupItem['masthead']
                                 ];
                             }
                         }

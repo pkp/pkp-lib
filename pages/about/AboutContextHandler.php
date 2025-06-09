@@ -28,6 +28,7 @@ use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
+use PKP\user\enums\UserMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
@@ -69,16 +70,16 @@ class AboutContextHandler extends Handler
             ->masthead(true)
             ->excludeRoles([Role::ROLE_ID_REVIEWER])
             ->get();
-    
+
         $savedOrder = (array) $context->getData('mastheadUserGroupIds');
-    
+
         $sortedUserGroups = $mastheadUserGroups->sortBy(function ($userGroup) use ($savedOrder) {
             return array_search($userGroup->id, $savedOrder);
         });
-    
+
         return $sortedUserGroups;
     }
-    
+
 
     /**
      * Display editorial masthead page.
@@ -91,16 +92,16 @@ class AboutContextHandler extends Handler
     public function editorialMasthead($args, $request)
     {
         $context = $request->getContext();
-    
+
         // Get sorted masthead roles using the extracted method
         $mastheadRoles = $this->getSortedMastheadUserGroups($context);
-    
+
         // Get all user IDs grouped by user group ID for the masthead roles
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
             $mastheadRoles->all(),
             $context->getId()
         );
-    
+
         $mastheadUsers = [];
         foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
             foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
@@ -122,9 +123,19 @@ class AboutContextHandler extends Handler
 
         $previousYear = date('Y') - 1;
         $reviewerIds = Repo::reviewAssignment()->getExternalReviewerIdsByCompletedYear($context->getId(), $previousYear);
+        $reviewerUserGroupIds = UserGroup::withContextIds([$context->getId()])
+            ->withRoleIds([Role::ROLE_ID_REVIEWER])
+            ->get()
+            ->map(
+                fn (UserGroup $userGroup) => $userGroup->userGroupId
+            )
+            ->all();
+
         $usersCollector = Repo::user()->getCollector();
         $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())
+            ->filterByUserGroupIds($reviewerUserGroupIds)
+            ->filterByUserMastheadStatus(UserMastheadStatus::STATUS_ON)
             ->orderBy(
                 $usersCollector::ORDERBY_FAMILYNAME,
                 $usersCollector::ORDER_DIR_ASC,
@@ -160,7 +171,7 @@ class AboutContextHandler extends Handler
 
         // get sorted masthead roles using the extracted method
         $mastheadRoles = $this->getSortedMastheadUserGroups($context);
-    
+
         // get all user IDs grouped by user group ID for the masthead roles with ended status
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
             $mastheadRoles->all(),

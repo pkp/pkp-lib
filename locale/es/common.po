@@ -1311,7 +1311,7 @@ msgid "help.help"
 msgstr "Ayuda"
 
 msgid "help.toc"
-msgstr "Tabla de contenidos"
+msgstr "Tabla de contenido"
 
 msgid "help.previous"
 msgstr "Anterior"

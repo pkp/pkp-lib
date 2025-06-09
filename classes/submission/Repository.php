@@ -884,6 +884,34 @@ abstract class Repository
         return $nextVersion;
     }
 
+    public function getPublicationsSortedByVersion(Submission $submission): Collection
+    {
+        return collect($submission->getData('publications'))
+        ->sortBy(function ($publication) {
+            // Determine null priority
+            $nullPriority = is_null($publication->getData('versionStage')) ? 0 : 1;
+
+            // If version_stage is not null, get VersionStage order
+            $stageOrder = is_null($publication->getData('versionStage'))
+                ? 0
+                : VersionStage::from($publication->getData('versionStage'))->order();
+
+            // For null versionStage, order by datePublished ASC (oldest first)
+            $datePublishedTimestamp = $publication->getData('createdAt')
+                ? strtotime($publication->getData('createdAt'))
+                : 0;
+
+            return [
+                $nullPriority,
+                $nullPriority === 0 ? $datePublishedTimestamp : 0, // ASC for NULL version_stage group
+                $stageOrder,
+                $publication->getData('versionMajor') ?? 0,
+                $publication->getData('versionMinor') ?? 0,
+            ];
+        })
+        ->values();
+    }
+
     /**
      * Returns a Collection of mapped dashboard views
      */

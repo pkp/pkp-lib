@@ -499,8 +499,9 @@ class Schema extends \PKP\core\maps\Schema
                         ->toArray();
                     break;
                 case 'publications':
+                    $sortedPublications = Repo::submission()->getPublicationsSortedByVersion($submission);
                     $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
-                        ->summarizeMany($submission->getData('publications'), $anonymize)->values();
+                        ->summarizeMany($sortedPublications, $anonymize)->values();
                     break;
                 case 'recommendationsIn':
                     $output[$prop] = $currentReviewRound ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;

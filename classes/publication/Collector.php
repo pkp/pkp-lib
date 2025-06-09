@@ -150,7 +150,8 @@ class Collector implements CollectorInterface
             }
             $orderCase .= "ELSE 999 END";
 
-            $qb->orderByRaw("p.version_stage IS NULL ASC");
+            $qb->orderByRaw("p.version_stage IS NOT NULL ASC");
+            $qb->orderByRaw("CASE WHEN p.version_stage IS NULL THEN p.date_published ELSE NULL END ASC");
             $qb->orderByRaw($orderCase);
             $qb->orderBy('p.version_major', 'asc');
             $qb->orderBy('p.version_minor', 'asc');

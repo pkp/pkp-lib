@@ -86,7 +86,7 @@
                     </h4>
                     <div
                         v-if="submission.commentsForTheEditors"
-                        class="submissionWizard__reviewPanel__item__value"
+                        class="submissionWizard__reviewPanel__item__value semantic-defaults"
                         v-strip-unsafe-html="submission.commentsForTheEditors"
                     ></div>
                     <div v-else class="submissionWizard__reviewPanel__item__value">

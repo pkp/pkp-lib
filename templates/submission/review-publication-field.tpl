@@ -34,7 +34,7 @@
         {$name}
     </h4>
     <div
-        class="submissionWizard__reviewPanel__item__value"
+        class="submissionWizard__reviewPanel__item__value semantic-defaults"
         {if $type === 'html'}
             v-strip-unsafe-html="publication.{$localizedProp|escape}
                 ? publication.{$localizedProp|escape}

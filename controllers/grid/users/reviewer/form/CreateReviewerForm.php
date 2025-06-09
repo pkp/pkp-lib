@@ -22,16 +22,16 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\form\validation\FormValidator;
-use PKP\form\validation\FormValidatorEmail;
-use PKP\form\validation\FormValidatorUsername;
-use PKP\form\validation\FormValidatorCustom;
-use PKP\form\validation\FormValidatorLocale;
-use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\core\Core;
+use PKP\form\validation\FormValidator;
+use PKP\form\validation\FormValidatorCustom;
+use PKP\form\validation\FormValidatorEmail;
+use PKP\form\validation\FormValidatorLocale;
+use PKP\form\validation\FormValidatorUsername;
 use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\Notification;
 use PKP\security\Validation;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
 use PKP\submission\reviewRound\ReviewRound;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -43,7 +43,7 @@ class CreateReviewerForm extends ReviewerForm
     public function __construct(Submission $submission, ReviewRound $reviewRound, ?ReviewerSuggestion $reviewerSuggestion = null)
     {
         parent::__construct($submission, $reviewRound, $reviewerSuggestion);
-        
+
         $this->setTemplate('controllers/grid/users/reviewer/form/createReviewerForm.tpl');
 
         // the users register for the site, thus
@@ -164,7 +164,7 @@ class CreateReviewerForm extends ReviewerForm
 
         // Assign the selected user group ID to the user
         $userGroupId = (int) $this->getData('userGroupId');
-        Repo::userGroup()->assignUserToGroup($reviewerId, $userGroupId);
+        Repo::userGroup()->assignUserToGroup($reviewerId, $userGroupId, null, null, true);
 
         if (!$this->getData('skipEmail')) {
             // Send welcome email to user

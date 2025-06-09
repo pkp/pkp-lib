@@ -143,8 +143,15 @@ class PKPAuthorForm extends Form
                 'includeInBrowse' => $author->getIncludeInBrowse(),
             ];
         } else {
+            // Get context to set default country for new contributors
+            $publication = $this->getPublication();
+            $submission = Repo::submission()->get($publication->getData('submissionId'));
+            $context = Services::get('context')->get($submission->getData('contextId'));
             // assume authors should be listed unless otherwise specified.
-            $this->_data = ['includeInBrowse' => true];
+            $this->_data = [
+                'includeInBrowse' => true,
+                'country' => $context->getData('country'),
+            ];
         }
         // in order to be able to use the hook
         return parent::initData();

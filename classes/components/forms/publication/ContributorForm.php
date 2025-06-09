@@ -90,6 +90,7 @@ class ContributorForm extends FormComponent
                 'label' => __('common.country'),
                 'options' => $countries,
                 'isRequired' => true,
+                'value' => $context->getData('country'),
             ]))
             ->addField(new FieldText('url', [
                 'label' => __('user.url'),

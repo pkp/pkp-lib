@@ -67,6 +67,10 @@
 		{fbvElement type="text" multilingual="true" name="affiliation" id="affiliation" value=$affiliation size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
+	{fbvFormSection title="manager.setup.masthead" list=true}
+		{fbvElement type="checkbox" name="masthead" id="masthead" checked=true label="invitation.masthead.show" translate="true"}
+	{/fbvFormSection}
+
 	{if $reviewerSuggestionId}
 		{fbvElement type="hidden" id="reviewerSuggestionId" name="reviewerSuggestionId" value=$reviewerSuggestionId}
 	{/if}

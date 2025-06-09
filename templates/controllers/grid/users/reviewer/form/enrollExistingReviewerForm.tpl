@@ -35,7 +35,7 @@
 	{fbvFormSection}
 		{fbvElement type="select" name="userGroupId" id="userGroupId" from=$userGroups translate=false label="editor.review.userGroupSelect" required="true"}
 	{/fbvFormSection}
-	
+
 	{fbvFormSection}
 		{capture assign=autocompleteUrl}{url op="getUsersNotAssignedAsReviewers" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{fbvElement
@@ -48,6 +48,10 @@
 			autocompleteValue="{$userId|default:''}"
 			label="manager.reviewerSearch.searchByName.short"
 		}
+	{/fbvFormSection}
+
+	{fbvFormSection title="manager.setup.masthead" list=true}
+		{fbvElement type="checkbox" name="masthead" id="masthead" checked=true label="invitation.masthead.show" translate="true"}
 	{/fbvFormSection}
 
 	{if $reviewerSuggestionId}

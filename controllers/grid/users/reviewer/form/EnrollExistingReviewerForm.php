@@ -18,14 +18,14 @@ namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use Illuminate\Support\Facades\Mail;
-use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
-use PKP\submission\reviewRound\ReviewRound;
 use APP\submission\Submission;
-use PKP\form\validation\FormValidator;
+use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
+use PKP\form\validation\FormValidator;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
+use PKP\submission\reviewer\suggestion\ReviewerSuggestion;
+use PKP\submission\reviewRound\ReviewRound;
 
 class EnrollExistingReviewerForm extends ReviewerForm
 {
@@ -58,7 +58,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
             $existingUser = $this->reviewerSuggestion->existingUser; /** @var \PKP\user\User $existingUser */
             $this->setData('reviewerSuggestionId', $this->reviewerSuggestion->id);
             $this->setData('userId', $existingUser->getId());
-            $this->setData('selectedUser', $existingUser->getFullName().' (' . $existingUser->getData('email') . ')');
+            $this->setData('selectedUser', $existingUser->getFullName() . ' (' . $existingUser->getData('email') . ')');
         }
     }
 
@@ -84,7 +84,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
     {
         parent::readInputData();
 
-        $inputData = ['userId', 'userGroupId'];
+        $inputData = ['userId', 'userGroupId', 'masthead'];
 
         if ($this->reviewerSuggestion) {
             array_push($inputData, 'reviewerSuggestionId');
@@ -107,7 +107,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
             throw new \Exception('invalid user or userGroup ID');
         }
 
-        Repo::userGroup()->assignUserToGroup($userId, $userGroupId);
+        Repo::userGroup()->assignUserToGroup($userId, $userGroupId, null, null, (bool) $this->getData('masthead'));
 
         // Set the reviewerId in the Form for the parent class to use
         $this->setData('reviewerId', $userId);

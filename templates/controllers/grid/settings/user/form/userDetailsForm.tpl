@@ -74,7 +74,7 @@
 			{fbvFormSection}
 				{fbvFormSection list=true title="grid.user.userRoles.masthead"}
 					{foreach from=$defaultMastheadUserGroups item="mastheadUserGroup" key="id"}
-						{fbvElement type="checkbox" id="mastheadUserGroupIds[]" value=$id checked=!in_array($id, $notOnMastheadUserGroupIds) label=$mastheadUserGroup|escape translate=false}
+						{fbvElement type="checkbox" id="mastheadUserGroupIds[]" value=$id checked=!in_array($id, $notOnMastheadUserGroupIds) label=$mastheadUserGroup|escape translate=false disabled=in_array($id, $reviewerUserGroupIds)}
 					{/foreach}
 				{/fbvFormSection}
 			{/fbvFormSection}

@@ -111,15 +111,14 @@ class UserForm extends Form
 
         foreach ($userGroups as $userGroup) {
             $allUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
-            if ($userGroup->roleId != Role::ROLE_ID_REVIEWER) {
-                $defaultMastheadUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
-            }
+            $defaultMastheadUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
         }
 
         $templateMgr->assign([
             'allUserGroups' => $allUserGroups,
             'assignedUserGroups' => array_map(intval(...), $this->getData('userGroupIds')),
             'defaultMastheadUserGroups' => $defaultMastheadUserGroups,
+            'reviewerUserGroupIds' => Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_REVIEWER, $contextId)
         ]);
 
         return $this->fetch($request);
@@ -179,17 +178,12 @@ class UserForm extends Form
                 );
 
             // update masthead
-            // ignore reviewer role
             $reviewerUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_REVIEWER, $contextId);
             collect($userGroupIds)
-                ->filter(
-                    function ($userGroupId) use ($reviewerUserGroupIds) {
-                        return !in_array($userGroupId, $reviewerUserGroupIds);
-                    }
-                )
                 ->each(
-                    function ($userGroupId) use ($mastheadUserGroupIds) {
-                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, in_array($userGroupId, $mastheadUserGroupIds));
+                    function ($userGroupId) use ($mastheadUserGroupIds, $reviewerUserGroupIds) {
+                        $masthead = in_array($userGroupId, $mastheadUserGroupIds) || in_array($userGroupId, $reviewerUserGroupIds);
+                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, $masthead);
                     }
                 );
         }

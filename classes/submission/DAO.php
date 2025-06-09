@@ -211,6 +211,7 @@ class DAO extends EntityDAO
             'publications',
             Repo::publication()->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
+                ->orderByVersion()
                 ->getMany()
                 ->remember()
         );

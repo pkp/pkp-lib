@@ -10,7 +10,7 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-<div class="legacyDefaults">
+<div class="semantic-defaults">
 	<h1 class="app__pageHeading">
 		{translate key="installer.upgradeApplication"}
 	</h1>

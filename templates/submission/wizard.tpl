@@ -66,7 +66,7 @@
                     <panel-section v-for="section in step.sections" :key="section.id">
                         <template #header>
                             <h2>{{ section.name }}</h2>
-                            <div v-strip-unsafe-html="section.description" />
+                            <div class="semantic-defaults" v-strip-unsafe-html="section.description" />
                         </template>
                         <pkp-form
                             v-if="section.type === 'form'"

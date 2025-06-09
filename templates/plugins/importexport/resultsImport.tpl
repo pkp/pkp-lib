@@ -7,7 +7,7 @@
  *
  * Result of operations this plugin performed
  *}
-<div class="legacyDefaults">
+<div class="semantic-defaults">
 
 {if $errorsFound}
 	{translate key="plugins.importexport.native.processFailed"}

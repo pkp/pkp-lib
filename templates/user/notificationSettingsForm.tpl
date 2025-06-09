@@ -21,7 +21,7 @@
 		{rdelim});
 	{rdelim});
 </script>
-<div class="legacyDefaults">
+<div class="semantic-defaults">
 <form class="pkp_form" id="notificationSettingsForm" method="post" action="{url op="saveNotificationSettings"}" enctype="multipart/form-data">
 	<p>{translate key="notification.settingsDescription"}</p>
 

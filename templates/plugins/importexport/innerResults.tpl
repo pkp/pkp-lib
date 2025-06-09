@@ -7,7 +7,7 @@
  *
  * Result of operations this plugin performed
  *}
-<div class="legacyDefaults">
+<div class="semantic-defaults">
 {if $key == 'warnings'}
 	{assign var=translateTitleKey value="plugins.importexport.common.warningsEncountered"}
 {elseif $key == 'errors'}

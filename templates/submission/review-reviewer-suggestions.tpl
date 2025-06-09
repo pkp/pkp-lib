@@ -60,7 +60,7 @@
                 </div>
                 
                 <div
-                    class="submissionWizard__reviewPanel__item__value" 
+                    class="submissionWizard__reviewPanel__item__value semantic-defaults" 
                     v-strip-unsafe-html="localize(reviewerSuggestion.suggestionReason)"
                 ></div>
             </li>

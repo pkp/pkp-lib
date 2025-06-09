@@ -121,6 +121,9 @@ class PKPTemplateManager extends Smarty
     /** @var bool Track whether its backend page */
     private bool $isBackendPage = false;
 
+    /** @var bool Track whether its backend page */
+    private bool $isVueRuntimeIncluded = false;
+
     /**
      * Constructor.
      * Initialize template engine and assign basic template variables.
@@ -797,6 +800,23 @@ class PKPTemplateManager extends Smarty
                 'inline' => true,
             ]
         );
+    }
+
+    public function requiresVueRuntime() {
+        if(!$this->isVueRuntimeIncluded) {
+            $this->isVueRuntimeIncluded = true;
+            $baseUrl = $this->_request->getBaseUrl();
+
+            $this->addJavaScript(
+                'pkpAppFrontend',
+                $baseUrl . '/js/build_frontend.js',
+                [
+                    'priority' => self::STYLE_SEQUENCE_CORE,
+                    'contexts' => ['frontend']
+                ]
+            );
+    
+        }
     }
 
     /**

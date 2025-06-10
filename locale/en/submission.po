@@ -2764,6 +2764,9 @@ msgstr "These are files from the review stage which are to be copyedited"
 msgid "fileManager.productionReadyFilesDescription"
 msgstr "These are the files that will be sent for publication"
 
+msgid "fileManager.sendFileToTextEditor"
+msgstr "Send File to Text Editor"
+
 msgid "reviewerManager.reviewerStatus"
 msgstr "Reviewer status"
 
@@ -2778,6 +2781,27 @@ msgstr "Select incomplete submissions to be deleted."
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Delete Incomplete Submissions"
+
+msgid "publication.sendToTextEditor.label"
+msgstr "To which version would you like to send this file?"
+
+msgid "publication.versionSource.create.label"
+msgstr "Which version should metadata be copied from?"
+
+msgid "publication.versionSource.create.description"
+msgstr "The selected version's metadata will be used to pre-fill fields in the new version. You can make edits after importing."
+
+msgid "publication.scheduledForPublication.versionStage.label"
+msgstr "Assign a publication stage before publishing the submission"
+
+msgid "publication.scheduledForPublication.versionStage.description"
+msgstr "A submission cannot be published if it's still an \"Unassigned Version\". You need to assign an article stage before publishing"
+
+msgid "publication.versionStage.label"
+msgstr "Publication Stage"
+
+msgid "publication.versionStage.description"
+msgstr "Would you like to assign a stage to this document, such as author's original or version of record? Based on your selection, the document information will be automatically updated."
 
 msgid "publication.versionStage.unassignedVersion"
 msgstr "Unassigned version ({$publicationCreatedDate})"
@@ -2810,3 +2834,15 @@ msgstr "Proof"
 
 msgid "publication.versionStage.versionOfRecord"
 msgstr "Version of Record"
+
+msgid "publication.revisionSignificance.label"
+msgstr "Revision Significance"
+
+msgid "publication.revisionSignificance.description"
+msgstr "Would you like to assign a revision significance to this document, such as minor or major? Based on your selection, the document information will be automatically updated."
+
+msgid "publication.revisionSignificance.major"
+msgstr "Major Revision"
+
+msgid "publication.revisionSignificance.minor"
+msgstr "Minor Revision"

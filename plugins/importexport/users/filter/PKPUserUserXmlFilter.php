@@ -21,7 +21,9 @@ use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
+use PKP\security\Role;
 use PKP\user\User;
+use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
@@ -92,7 +94,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $userNode, 'givenname', $user->getGivenName(null));
         $this->createLocalizedNodes($doc, $userNode, 'familyname', $user->getFamilyName(null));
 
-        if ($user->getAffiliation(null)) {
+        if ($user->getAffiliation(null) && count(array_filter($user->getAffiliation(null))) > 0) {
             $affiliationNode = $doc->createElementNS($deployment->getNamespace(), 'affiliation');
             $this->createLocalizedNodes($doc, $affiliationNode, 'name', $user->getAffiliation(null));
             $userNode->appendChild($affiliationNode);
@@ -141,7 +143,25 @@ class PKPUserUserXmlFilter extends NativeExportFilter
             ->get();
 
         foreach ($userGroups as $userGroup) {
-            $userNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->name[$context->getPrimaryLocale()], ENT_COMPAT, 'UTF-8')));
+            $userUserGroups = UserUserGroup::withUserGroupIds([$userGroup->id])
+                ->withUserId($user->getId())
+                ->get();
+            foreach ($userUserGroups as $userUserGroup) {
+                $userUserGroupNode = $doc->createElementNS($deployment->getNamespace(), 'user_user_group');
+                $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'user_group_ref', htmlspecialchars($userGroup->name[$context->getPrimaryLocale()], ENT_COMPAT, 'UTF-8')));
+                if ($userUserGroup->dateStart) {
+                    $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'date_start', $userUserGroup->dateStart));
+                }
+                if ($userUserGroup->dateEnd) {
+                    $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'date_end', $userUserGroup->dateEnd));
+                }
+                $masthead = $userUserGroup->masthead;
+                if ($userGroup->roleId = Role::ROLE_ID_REVIEWER) {
+                    $masthead = true;
+                }
+                $userUserGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'masthead', $masthead ? 'true' : 'false'));
+                $userNode->appendChild($userUserGroupNode);
+            }
         }
 
         // Add Reviewing Interests, if any.

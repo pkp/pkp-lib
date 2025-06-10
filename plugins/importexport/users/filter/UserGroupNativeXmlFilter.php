@@ -94,6 +94,7 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
         $assignedStages = $userGroup->getAssignedStageIds()->toArray();
 
         $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'stage_assignments', htmlspecialchars(join(':', $assignedStages), ENT_COMPAT, 'UTF-8')));
+        $userGroupNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'masthead', $userGroup->masthead ? 'true' : 'false'));
         return $userGroupNode;
     }
 }

@@ -165,6 +165,7 @@
 			<element name="name" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="abbrev" type="pkp:localizedNode" minOccurs="0" maxOccurs="unbounded" />
 			<element name="stage_assignments" type="string" minOccurs="1" maxOccurs="1" />
+			<element name="masthead" type="boolean" minOccurs="1" maxOccurs="1" />
 		</sequence>
 	</complexType>
 

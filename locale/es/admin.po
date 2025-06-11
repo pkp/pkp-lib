@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2025-06-07 11:51+0000\n"
+"PO-Revision-Date: 2025-06-11 15:34+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -980,3 +980,18 @@ msgstr ""
 
 msgid "admin.cli.tool.appKey.options.usage.description"
 msgstr "Mostrar los parámetros de uso de AppKey"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Validar la clave de la aplicación actual si se encuentra alguna en el "
+"archivo de configuración"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "¿Se refería a uno de los siguientes?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Clave de aplicación generada: {$appKey}"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr ""
+"Añadir la variable de configuración app_key en el archivo config.inc.php."

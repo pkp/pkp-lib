@@ -177,7 +177,8 @@ class SendInvitationStep extends InvitationStepTypes
             $allUserGroups[] = [
                 'value' => (int) $userGroup->id,
                 'label' => $userGroup->getLocalizedData('name'),
-                'disabled' => false
+                'disabled' => false,
+                'roleId' => $userGroup->roleId
             ];
         }
         return $allUserGroups;

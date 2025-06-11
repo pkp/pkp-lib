@@ -1,3 +1,215 @@
 # Emma U <emmaupkp@gmail.com>, 2025.
+# Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-06-03 19:22+0000\n"
+"Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
+"Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/an/>\n"
+"Language: an\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "default.groups.name.author"
+msgstr "Autor/a"
+
+msgid "default.groups.plural.author"
+msgstr "Autors/as"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trad"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrador/a d'o puesto"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Administradors/as d'o puesto"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Coordinador/a de producción"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Coordinadors/as de producción"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "CoProd"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Corrector/a d'estilo"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Correctors/as d'estilo"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Corrector/a de prebas"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Correctors/as de prebas"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "CP"
+
+msgid "default.groups.name.designer"
+msgstr "Disenyador/a"
+
+msgid "default.groups.plural.designer"
+msgstr "Disenyadors/as"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Disenyo"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Revisor/a interno"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Revisors/as internos"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "RI"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MV"
+
+msgid "default.groups.name.funding"
+msgstr "Coordinador/a de financiamiento"
+
+msgid "default.groups.plural.funding"
+msgstr "Coordinadors/as de financiamiento"
+
+msgid "default.groups.abbrev.funding"
+msgstr "CF"
+
+msgid "default.groups.name.indexer"
+msgstr "Documentalista"
+
+msgid "default.groups.plural.indexer"
+msgstr "Documentalistas"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "DOC"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maquetador/a"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "MAQ"
+
+msgid "default.groups.name.translator"
+msgstr "Traductor/a"
+
+msgid "default.groups.plural.translator"
+msgstr "Traductors/as"
+
+msgid "default.groups.name.reader"
+msgstr "Lector/a"
+
+msgid "default.groups.plural.reader"
+msgstr "Lectors/as"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Lect"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Miembro d'o consello editorial"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Miembros d'o consello editorial"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "MCE"
+
+msgid "default.genres.other"
+msgstr "Unatro"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Imachen"
+
+msgid "default.genres.styleSheet"
+msgstr "Fuella d'estilo HTML"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>Esto ye un mensache automatico dende <a href=\"{$contextUrl}"
+"\">{$contextName}</a>.</p>"
+
+msgid "default.groups.plural.marketing"
+msgstr "Coordinadors/as de Márketing y ventas"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Maquetadors/as"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>Gracias per lo suyp ninvio a {$contextName}. Se le pedirá que cargue "
+"fichers, identifique coautors y proporcione información como lo títol y lo "
+"resumen.<p><p>Leiga nuestras <a href=\"{$submissionGuidelinesUrl}\" target="
+"\"_blank\">directrices de ninvio</a> si encara no l'ha feito. Cuan replene "
+"los formularios, proporcione toz los detalles posibles pa aduyar a los "
+"nuestros editors/as a avaluar lo suyo treballo.</p><p>Una vegada iniciau, "
+"podrá alzar lo ninvio y recuperar-lo mas tarde, asinas como revisar y "
+"correchir cualsequier información antes de remitir-lo.</p>"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>Proporcione toz los fichers que nuestro equipo editorial necesita pa "
+"avaluar lo suyo ninvio. Amás d'a obra principal puede ninviar-nos conchuntos "
+"de datos, declaracions de conflictos d'interés u atros fichers adicionals si "
+"considera que serán d'aduya pa los nuestros editors/as.</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Anyada los detalles de toz los colaboradors/as d'este ninvio. Los "
+"colaboradors/as que anyada aquí recibirán un correu electronico de "
+"confirmación d'o ninvio, asinas como una copia de totas las decisions "
+"editorials rechistradas relacionadas con este ninvio.</p><p>Si un "
+"colaborador/a no quiere estar contactau per correu electronico, ya sía "
+"perque quiere seguir estando anonimo u perque no tiene una cuenta de correu, "
+"no introduzca una adreza de correu electronico falsa. Puede anyadir "
+"información sobre este colaborador/a en un mensache pa l'editor/a en o "
+"zaguer paso d'o proceso de ninvio.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Proporcione los detalles siguients pa aduyar-nos a chestionar lo suyo "
+"ninvio en o nuestro sistema.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>Proporcione los detalles siguients pa aduyar a nuestro equipo editorial a "
+"chestionar lo suyo ninvio.</p><p>Cuan introduzca los metadatos, facilite las "
+"dentradas que considere mas útils pa la persona que chestione lo suyo "
+"ninvio. Esta información puede modificar-se antes d'a publicación.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Revise la información que ha introduciu antes de rematar lo ninvio. Puede "
+"modificar cualsequier detalle que s'amuestre aquí a traviés d'o botón de "
+"edición situau en a parte superior de cada sección.</p><p>Una vegada rematau "
+"lo ninvio, este s'asignará a una persona de nuestro equipo editorial pa que "
+"lo revise. S'asegure de que la información que ha introduciu sía lo mas "
+"precisa posible.</p>"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>En o momento de fer un ninvio tiene la opción de sucherir diversos "
+"revisors/as potencials. Esto puede aduyar a optimizar lo proceso de revisión "
+"y proporcionar información preciosa pa l'equipo editorial. Tríe revisors/as "
+"expertos en o suyo campo y que no tiengan conflictos d'interés con la suya "
+"obra. L'obchectivo d'esta función ye amillorar lo proceso de revisión y "
+"contribuyir a una experiencia mas eficient tanto pa los autors/as como pa "
+"l'equipo editorial</p>"
+
+msgid "default.groups.name.marketing"
+msgstr "Coordinador/a de márketing y ventas"

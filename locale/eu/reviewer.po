@@ -2,7 +2,7 @@
 # Informatikaria <informatikaria@ueu.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-22 21:18+0000\n"
+"PO-Revision-Date: 2025-06-02 20:51+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -23,37 +23,39 @@ msgid "reviewer.reviewSteps.download"
 msgstr "3. Deskarga eta ebaluazioa"
 
 msgid "reviewer.reviewSteps.completion"
-msgstr ""
+msgstr "4. Bukaera"
 
 msgid "reviewer.step1.request"
-msgstr ""
+msgstr "Ebaluazio eskaera"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
 
 msgid "reviewer.step1.viewAllDetails"
-msgstr ""
+msgstr "Ikusi bidalketa-xehetasun guztiak"
 
 msgid "reviewer.submission.reviewerFiles"
-msgstr ""
+msgstr "Ebaluatzailearen fitxategiak"
 
 msgid "reviewer.submission.declineReview"
-msgstr ""
+msgstr "Ebaluazio eskaerari uko egin"
 
 msgid "reviewer.submission.declineReviewMessage"
 msgstr ""
+"Beheko eremuan ebaluazio honi uko egiteko dituzun arrazoiak azaldu "
+"diezazkiokezu editoreari."
 
 msgid "reviewer.submission.acceptReview"
-msgstr ""
+msgstr "Onartu ebaluazioa, #2 urratsera joan"
 
 msgid "reviewer.submission.continueToStepThree"
-msgstr ""
+msgstr "Jarraitu #3 urratsera"
 
 msgid "reviewer.submission.submitReview"
-msgstr ""
+msgstr "Ebaluazioa bidali"
 
 msgid "reviewer.submission.saveReviewForLater"
-msgstr ""
+msgstr "Gorde gerorako"
 
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr ""
@@ -89,28 +91,32 @@ msgid "reviewer.submission.uploadDescription"
 msgstr ""
 
 msgid "reviewer.complete"
-msgstr "Aurkeztutako berrikuspena"
+msgstr "Aurkeztutako ebaluazioa"
 
 msgid "reviewer.confirmSubmit"
-msgstr ""
+msgstr "Ziur zaude ebaluazioa aurkeztu nahi duzula?"
 
 msgid "reviewer.complete.whatNext"
 msgstr ""
+"Eskerrik asko bidalketa honen ebaluazioa osatzeagatik. Zure ebaluazioa behar "
+"bezala bidali da. Argitaratzen dugun lanaren kalitateari egiten diozun "
+"ekarpena eskertzen dizugu; editorea zurekin harremanetan jar daiteke berriro "
+"informazio gehiago lortzeko, beharrezkoa izanez gero."
 
 msgid "reviewer.aboutDueDates"
-msgstr ""
+msgstr "Erantzunaren Epemugei buruz"
 
 msgid "reviewer.aboutDueDates.text"
 msgstr ""
-"Editoreak eskatzen dizu ebaluazioa onartzeko edo ukatzeko Erantzuaren "
+"Editoreak eskatzen dizu ebaluazioa onartzeko edo ukatzeko Erantzunaren "
 "Epemuga baino lehen eta ebaluazioa bukatzeko Ebaluazioaren Epemuga baino "
 "lehen."
 
 msgid "submission.comments.canShareWithAuthor"
-msgstr ""
+msgstr "Egile eta editorearentzat"
 
 msgid "submission.comments.cannotShareWithAuthor"
-msgstr ""
+msgstr "Editorearentzat bakarrik"
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr ""
@@ -123,3 +129,8 @@ msgstr "Ebaluatzaileei bidali"
 
 msgid "user.authorization.submissionReviewer"
 msgstr ""
+"Uneko erabiltzailea ez dago eskatutako dokumentuaren ebaluatzaile gisa "
+"esleituta."
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Ez da ebaluazioa amaitu."

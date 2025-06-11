@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-05-13 17:50+0000\n"
+"PO-Revision-Date: 2025-05-27 16:45+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "nl/>\n"
@@ -137,10 +137,64 @@ msgstr ""
 "document."
 
 msgid "reviewer.submission.reviewRound.info"
-msgstr "Eerdere Reviews"
+msgstr "Eerdere reviews"
 
 msgid "reviewer.submission.reviewRound.comments.editorOnly"
-msgstr "Alleen voor de (hoofd)redacteur"
+msgstr "Alleen voor de redacteur"
 
 msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
 msgstr "Voor de redacteur en auteur"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Samenvatting"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Deze bestanden zijn aan u verzonden voor review"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Opmerking [$index}: "
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Opmerkingen van de Reviewer"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Lees de review ronde"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Reviewronde ingediend op {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "De reden voor de afwijzing van de reviewuitnodiging ontbreekt."
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Wijs de reden af die per E-mail is verzonden"
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Datum van afwijzing"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Review {$round} ronde door u ingediend voor"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikel Metadata"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Trefwoorden"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Algemene informatie"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Bijlagen"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Dit zijn de bestanden die u bij uw review voegde"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Reviewbestanden"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "De review is niet volledig."

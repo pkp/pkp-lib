@@ -1,4 +1,4 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # Juan Francisco Vinueza Cobos <tallergrafico@ucuenca.edu.ec>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2024-04-30 17:39+0000\n"
+"PO-Revision-Date: 2025-06-07 11:51+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -970,3 +970,13 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr "Reiniciar 'daemons' de trabajos en cola tras la tarea actual."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Actualizar la memoria cache del conjunto de datos del registro ROR"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Enviar una tarea para eliminar automáticamente las invitaciones caducadas"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Mostrar los parámetros de uso de AppKey"

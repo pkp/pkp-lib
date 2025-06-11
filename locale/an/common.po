@@ -1,0 +1,2385 @@
+# Juan Pablo Martínez <juanpabl@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-06-08 18:51+0000\n"
+"Last-Translator: Juan Pablo Martínez <juanpabl@gmail.com>\n"
+"Language-Team: Aragonese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/an/>\n"
+"Language: an\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Fuella d'estilos actual"
+
+msgid "about.description"
+msgstr "Descripción"
+
+msgid "about.guidelines"
+msgstr "Directrices"
+
+msgid "about.aboutSite"
+msgstr "Sobre lo puesto"
+
+msgid "about.contact"
+msgstr "Contacto"
+
+msgid "about.contact.email"
+msgstr "Correu electronico"
+
+msgid "about.contact.phone"
+msgstr "Telefono"
+
+msgid "about.contact.principalContact"
+msgstr "Contacto principal"
+
+msgid "about.contact.supportContact"
+msgstr "Contacto de suporte"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Veyer l'historico <a href=\"{$url}\"> editorial</a>"
+
+msgid "common.navigation.sidebar"
+msgstr "Barra lateral"
+
+msgid "common.altText"
+msgstr "Texto alternativo"
+
+msgid "common.and"
+msgstr "y"
+
+msgid "common.applyAction"
+msgstr "Continar"
+
+msgid "common.assign"
+msgstr "Asignar"
+
+msgid "common.content"
+msgstr "Conteniu"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width} x {$height} píxels"
+
+msgid "common.discardChanges"
+msgstr "No, descartar los cambios no alzaus"
+
+msgid "common.disconnected"
+msgstr "Desconnectau"
+
+msgid "common.done"
+msgstr "Feito"
+
+msgid "common.fileName"
+msgstr "Nombre d'o fichero"
+
+msgid "common.go"
+msgstr "Ir"
+
+msgid "common.id"
+msgstr "Id."
+
+msgid "common.minute"
+msgstr "Menuto(s)"
+
+msgid "common.modify"
+msgstr "Modificar"
+
+msgid "common.month"
+msgstr "Mes"
+
+msgid "common.more"
+msgstr "Mas"
+
+msgid "common.moreThan"
+msgstr "{$value} u mas"
+
+msgid "common.notAvailable"
+msgstr "No disponible"
+
+msgid "common.note"
+msgstr "Nota"
+
+msgid "common.notes"
+msgstr "Notas"
+
+msgid "common.pagination.label"
+msgstr "Veyer las pachinas adicionals"
+
+msgid "common.pagination.next"
+msgstr "Pachina siguient"
+
+msgid "common.removeItem"
+msgstr "Eliminar {$item}"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Adchuntar los fichers cargaus per los revisors/as"
+
+msgid "email.addBccRecipient"
+msgstr "Anyadir CCO"
+
+msgid "email.addCcRecipient"
+msgstr "Anyadir CC"
+
+msgid "email.addToRecipient"
+msgstr "Anyadir destinataria/u"
+
+msgid "email.bcc"
+msgstr "CCO"
+
+msgid "email.compose"
+msgstr "Ninviar correu electronico"
+
+msgid "notification.addedQuery"
+msgstr "Debat anyadiu"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Revisar los marcaus como confirmaus. Correu electronico no ninviau."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Revise los fichers actualizaus."
+
+msgid "search.author"
+msgstr "Autors/as"
+
+msgid "user.email"
+msgstr "Correu electronico"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"L'usuario/a actual no tiene autorización pa acceder a lo fichero de ninvio "
+"especificau."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publicación no valida."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Ninvio no valido."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Representación invalida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ronda de revisión no valida."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discusión no valida."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "No tiene acceso a este mensache d'a discusión."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "No tiene acceso a esta asignación d'a revisión."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Actualment no poseye los permisos suficients pa veyer lo ninvio. Edite lo "
+"suyo perfil pa asegurar-se que le han concediu lo rol apropiau en a opción "
+"\"Rechistrar-se como\"."
+
+msgid "notification.type.queryActivity"
+msgstr "Actividat d'a conversación."
+
+msgid "validator.alpha_dash"
+msgstr "Esto nomás puede contener letras, numeros, rayas y guións baixos."
+
+msgid "validator.alpha_dash_period"
+msgstr "Nomás puede contener letras, numeros, guións, guións baixos y puntos."
+
+msgid "validator.present"
+msgstr "Lo campo {$attribute} ha d'estar present."
+
+msgid "about.other"
+msgstr "Unatro"
+
+msgid "about.people"
+msgstr "Personas"
+
+msgid "about.policies"
+msgstr "Politicas"
+
+msgid "about.siteMap"
+msgstr "Mapa d'o puesto"
+
+msgid "announcement.announcements"
+msgstr "Avisos"
+
+msgid "announcement.announcementsHome"
+msgstr "Avisos"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Mas avisos..."
+
+msgid "announcement.noneExist"
+msgstr "No s'ha publicau garra aviso."
+
+msgid "announcement.posted"
+msgstr "Ninviau"
+
+msgid "announcement.postedOn"
+msgstr "Publicau lo {$postDate}"
+
+msgid "announcement.view"
+msgstr "Veyer aviso"
+
+msgid "common.allDownloads"
+msgstr "Totas las descargas"
+
+msgid "common.navigation.site"
+msgstr "Navegación d'o puesto"
+
+msgid "common.navigation.siteContext"
+msgstr "Navegación contextual d'o puesto"
+
+msgid "common.navigation.user"
+msgstr "Navegación de l'usuario"
+
+msgid "common.tasks"
+msgstr "Fayenas"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Cuadricula"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Ye seguro que deseya eliminar este elemento? Esta acción ye irreversible."
+
+msgid "common.abstract"
+msgstr "Resumen"
+
+msgid "common.accepted"
+msgstr "aceptau"
+
+msgid "common.acknowledged"
+msgstr "Confirmau(s)"
+
+msgid "common.action"
+msgstr "Acción"
+
+msgid "common.moreActions"
+msgstr "Mas accions"
+
+msgid "common.activate"
+msgstr "Activar"
+
+msgid "common.active"
+msgstr "Activo"
+
+msgid "common.inactive"
+msgstr "Inactivo"
+
+msgid "common.add"
+msgstr "Anyadir"
+
+msgid "common.addCCBCC"
+msgstr "Anyadir CC/CCO"
+
+msgid "common.addFiles"
+msgstr "Anyadir fichers"
+
+msgid "common.addSelf"
+msgstr "Anyadir-se"
+
+msgid "common.attachedFiles"
+msgstr "Fichers adjuntos"
+
+msgid "common.attachFiles"
+msgstr "Adchuntar fichers"
+
+msgid "common.attachSelected"
+msgstr "Adchuntar lo triau"
+
+msgid "common.editorialMasthead"
+msgstr "Capitero editorial"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Avaluacions per pars de l'anyo anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Avaluacions per pars d'os anyos pasaus"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Los editors/as expresan lo suyo agradeiximiento a los revisors/as de {$year} "
+"listaus contino."
+
+msgid "common.editorialHistory"
+msgstr "Historico editorial"
+
+msgid "common.editorialHistory.page"
+msgstr "Pachina de l'historico editorial"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Esta sección enumera los colaboradors/as anteriors."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Veyer lo perfil ORCID de {$name}"
+
+msgid "common.name"
+msgstr "Nombre"
+
+msgid "common.all"
+msgstr "Toz"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N U P Q R S T U V W X Y Z"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"de un una uns unas lo la los las y u ni pero ye si dimpués amás cuan en "
+"dende pa per enta ta sobre a dica con contra"
+
+msgid "common.alreadyAssigned"
+msgstr "Asignau"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Describa esta imachen pa visitantes d'o puesto con un navegador de solo "
+"texto u con dispositivos d'asistencia. Per eixemplo: \"Lo nuestro editor "
+"dando una charra en a conferencia PKP\""
+
+msgid "common.assigned"
+msgstr "Asignau"
+
+msgid "common.assigned.date"
+msgstr "Asignau: {$dateAssigned}"
+
+msgid "common.assignments"
+msgstr "Asignacions"
+
+msgid "common.available"
+msgstr "Disponible"
+
+msgid "common.back"
+msgstr "Dezaga"
+
+msgid "common.between"
+msgstr "dentre"
+
+msgid "common.cancel"
+msgstr "Cancelar"
+
+msgid "common.cancelled"
+msgstr "Cancelau"
+
+msgid "common.warning"
+msgstr "Aviso"
+
+msgid "common.error"
+msgstr "Error"
+
+msgid "common.notice"
+msgstr "Notificación"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Ha de completar la comprebación de validación utilizada pa privar ninvios de "
+"spam."
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tEsta obra ye baixo una licencia <a rel=\"license\" target=\"_blank\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Reconoixencia 3.0</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tEste treballo se distribuye baixo una <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licencia de "
+"reconoixencia 3.0 de Creative Commons</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Los suyos cambios s'han alzau."
+
+msgid "common.chooseOne"
+msgstr "Tríe un"
+
+msgid "common.close"
+msgstr "Zarrar"
+
+msgid "common.closePanel"
+msgstr "Zarrar panel"
+
+msgid "common.closeWindow"
+msgstr "Zarrar finestra"
+
+msgid "common.complete"
+msgstr "Finalizada"
+
+msgid "common.completed"
+msgstr "Completau"
+
+msgid "common.completed.date"
+msgstr "Completau: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Confirmar"
+
+msgid "common.confirmed.date"
+msgstr "Confirmau: {$dateConfirmed}"
+
+msgid "common.contents"
+msgstr "Contenius"
+
+msgid "common.continue"
+msgstr "Continar"
+
+msgid "common.yesContinue"
+msgstr "Sí, continar"
+
+msgid "common.copy"
+msgstr "Copiar"
+
+msgid "common.country"
+msgstr "País"
+
+msgid "common.create"
+msgstr "Crear"
+
+msgid "common.dateCompleted"
+msgstr "Calendata finalización"
+
+msgid "common.dateDecided"
+msgstr "Calendata decidida"
+
+msgid "common.date"
+msgstr "Calendata"
+
+msgid "common.dateModified"
+msgstr "Calendata de modificación"
+
+msgid "common.dateRequested"
+msgstr "Calendata solicitut"
+
+msgid "common.dateSubmitted"
+msgstr "Calendata de ninvio"
+
+msgid "common.dateUploaded"
+msgstr "Calendata de ninvio d'o fichero"
+
+msgid "common.dateHijri"
+msgstr "Calandario musulmán"
+
+msgid "common.day"
+msgstr "Día"
+
+msgid "common.deactivate"
+msgstr "Desactivar"
+
+msgid "common.default"
+msgstr "Per defecto"
+
+msgid "common.declined"
+msgstr "Refusau"
+
+msgid "common.delete"
+msgstr "Eliminar"
+
+msgid "common.deleting"
+msgstr "Eliminando"
+
+msgid "common.deleteSelection"
+msgstr "Eliminar selección"
+
+msgid "common.deselect"
+msgstr "Deseleccionar"
+
+msgid "common.designation"
+msgstr "Designación"
+
+msgid "common.description"
+msgstr "Descripción"
+
+msgid "common.details"
+msgstr "Detalles"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}\" x {$height}\" @ {$dpi} DPI/PPI"
+
+msgid "common.disable"
+msgstr "Desactivar"
+
+msgid "common.disabled"
+msgstr "Desactivau"
+
+msgid "common.discipline"
+msgstr "Disciplina"
+
+msgid "common.download"
+msgstr "Descargar"
+
+msgid "common.downloadPdf"
+msgstr "Descargar PDF"
+
+msgid "common.downloadReport"
+msgstr "Descargar informe"
+
+msgid "common.dragAndDropHere"
+msgstr "Arrocegar y soltar los fichers aquí."
+
+msgid "common.orUploadFile"
+msgstr "U cargar un fichero"
+
+msgid "common.edit"
+msgstr "Editar"
+
+msgid "common.editItem"
+msgstr "Editar {$name}"
+
+msgid "common.emailTemplates"
+msgstr "Plantillas de correu electronico"
+
+msgid "common.enable"
+msgstr "Activar"
+
+msgid "common.enabled"
+msgstr "Activo"
+
+msgid "common.error.databaseError"
+msgstr "S'ha produciu una error en a base de datos: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Error desconoixida en a connexión a la base de datos."
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Esta pachina ameneste recuadros. <a href=\"{$url}\">Faiga clic aquí</a> pa "
+"la versión sin recuadros."
+
+msgid "common.event"
+msgstr "Evento"
+
+msgid "common.export"
+msgstr "Exportar"
+
+msgid "common.finish"
+msgstr "Finalizar"
+
+msgid "common.fullscreen"
+msgstr "Pantalla completa"
+
+msgid "common.fullscreenOff"
+msgstr "Salir de pantalla completa"
+
+msgid "common.false"
+msgstr "Falso"
+
+msgid "common.file"
+msgstr "Fichero"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileSize"
+msgstr "Grandaria d'o fichero"
+
+msgid "common.fileType"
+msgstr "Tipo de fichero"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Lo cargador de fichers d'o sistema ye cargando. Si no amaneixe, ye probable "
+"que garra d'os tiempos d'execución sía compatible con este navegador. "
+"Contacte con l'administración pa obtener aduya."
+
+msgid "common.filter"
+msgstr "Filtros"
+
+msgid "common.filterAdd"
+msgstr "Anyadir filtro: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Limpiar filtros: {$filterTitle}"
+
+msgid "common.filtersClear"
+msgstr "Eliminar filtros"
+
+msgid "common.findTemplate"
+msgstr "Trobar plantilla"
+
+msgid "common.formatting"
+msgstr "Formato"
+
+msgid "common.geographic"
+msgstr "Cheografico"
+
+msgid "common.height"
+msgstr "Altura"
+
+msgid "common.highlight"
+msgstr "Destacar"
+
+msgid "common.highlights"
+msgstr "Destacaus"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Inicio"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Logo d'o títol (pachina d'inicio)"
+
+msgid "common.hour"
+msgstr "Hora"
+
+msgid "common.import"
+msgstr "Importar"
+
+msgid "common.initiate"
+msgstr "Iniciar"
+
+msgid "common.inProgress"
+msgstr "En progreso"
+
+msgid "common.insert"
+msgstr "Ficar"
+
+msgid "common.insertContent"
+msgstr "Ficar conteniu"
+
+msgid "common.insertContentSearch"
+msgstr "Trobar conteniu pa ficar"
+
+msgid "common.itemsPerPage"
+msgstr "Elementos per pachina"
+
+msgid "common.keywords"
+msgstr "Parolas clau"
+
+msgid "common.label"
+msgstr "Etiqueta"
+
+msgid "common.language"
+msgstr "Idioma"
+
+msgid "common.languages"
+msgstr "Idiomas"
+
+msgid "common.lastSaved"
+msgstr "Zaguer alzau {$when}"
+
+msgid "common.lastActivity"
+msgstr "Zaguera actividat rechistrada lo {$date}."
+
+msgid "common.less"
+msgstr "Menos"
+
+msgid "common.lessThan"
+msgstr "{$value} u menos"
+
+msgid "common.lessThanOnly"
+msgstr "Menos que"
+
+msgid "common.keepWorking"
+msgstr "Contine treballando"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Administrar"
+
+msgid "common.mailingAddress"
+msgstr "Adreza postal"
+
+msgid "common.billingAddress"
+msgstr "Adreza de facturación (si ye diferent)"
+
+msgid "common.moreThanOnly"
+msgstr "Mas que"
+
+msgid "common.noneAssigned"
+msgstr "Garra asignau"
+
+msgid "common.none"
+msgstr "Garra"
+
+msgid "common.noneSelected"
+msgstr "Garra triau"
+
+msgid "common.noneProvided"
+msgstr "Garra proporcionau"
+
+msgid "common.no"
+msgstr "No"
+
+msgid "common.noItemsFound"
+msgstr "Garra elemento trobau."
+
+msgid "common.noComments"
+msgstr "No i hai comentarios"
+
+msgid "common.notApplicable"
+msgstr "No aplica"
+
+msgid "common.notApplicableShort"
+msgstr "N/D"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Lo fichero que ha cargau no se podió trobar. Intente cargar-lo de nuevo."
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Notas (amariello: tiene notas nuevas; azul: tiene notas vistas; griso: no i "
+"hai notas)"
+
+msgid "common.notified"
+msgstr "Informau/a"
+
+msgid "common.notified.date"
+msgstr "Notificau: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Sin coincidencias"
+
+msgid "common.numberedMore"
+msgstr "{$number} mas"
+
+msgid "common.off"
+msgstr "Desactivau"
+
+msgid "common.on"
+msgstr "Activau"
+
+msgid "common.ok"
+msgstr "aceptar"
+
+msgid "common.options"
+msgstr "Opcions"
+
+msgid "common.order"
+msgstr "Orden"
+
+msgid "common.orderUp"
+msgstr "Puyar la posición de {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "Baixar la posición de {$itemTitle}"
+
+msgid "common.originalFileName"
+msgstr "Nombre d'o fichero orichinal"
+
+msgid "common.or"
+msgstr "u"
+
+msgid "common.other"
+msgstr "Unatro"
+
+msgid "common.overdue"
+msgstr "Venciu"
+
+msgid "common.override"
+msgstr "Anular"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} de {$total}"
+
+msgid "common.pagination.goToPage"
+msgstr "Ir a {$page}"
+
+msgid "common.pagination.previous"
+msgstr "Pachina anterior"
+
+msgid "common.pageNumber"
+msgstr "Pachina {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Modulo"
+
+msgid "common.pluginEnabled"
+msgstr "Lo modulo \"{$pluginName}\" s'ha activau."
+
+msgid "common.pluginDisabled"
+msgstr "Lo modulo \"{$pluginName}\" s'ha desactivau."
+
+msgid "common.prefix"
+msgstr "Prefixo"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Eixemplos: un/una, lo/a"
+
+msgid "common.preview"
+msgstr "Previsualizar"
+
+msgid "common.publisher"
+msgstr "Editor"
+
+msgid "common.quality"
+msgstr "Calidat"
+
+msgid "common.queue.long.active"
+msgstr "Tot activo"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Leyer mas"
+
+msgid "common.readMoreWithTitle"
+msgstr "Leyer mas sobre {$title}"
+
+msgid "common.reconnecting"
+msgstr "Reconnectando"
+
+msgid "common.record"
+msgstr "Rechistro"
+
+msgid "common.refresh"
+msgstr "Recargar"
+
+msgid "common.related"
+msgstr "Relacionau"
+
+msgid "common.reminder"
+msgstr "Recordatorio"
+
+msgid "common.reminded.date"
+msgstr "Recordau: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Remoto"
+
+msgid "common.remoteURL"
+msgstr "URL remota"
+
+msgid "common.remove"
+msgstr "Eliminar"
+
+msgid "common.removeSelection"
+msgstr "Eliminar selección"
+
+msgid "common.replaced"
+msgstr "Substituyiu"
+
+msgid "common.replaceFile"
+msgstr "Reemplazar fichero"
+
+msgid "common.requiredField"
+msgstr ""
+"Los campos obligatorios son marcaus con un asterisco: <abbr class=\"required"
+"\" title=\"required\"></abbr>"
+
+msgid "common.required"
+msgstr "Obligatorio"
+
+msgid "common.reset"
+msgstr "Restaurar"
+
+msgid "common.reviewRoundNumber"
+msgstr "Ronda {$round}"
+
+msgid "common.role"
+msgstr "Rol"
+
+msgid "common.saveAndContinue"
+msgstr "Alzar y continar"
+
+msgid "common.saveAndEmail"
+msgstr "Alzar y ninviar"
+
+msgid "common.save"
+msgstr "Alzar"
+
+msgid "common.saving"
+msgstr "Alzando"
+
+msgid "common.search"
+msgstr "Buscar"
+
+msgid "common.searchPhrase"
+msgstr "Buscar frase"
+
+msgid "common.searching"
+msgstr "Buscando"
+
+msgid "common.searchQuery"
+msgstr "Busqueda"
+
+msgid "common.clearSearch"
+msgstr "Limpiar frase de busqueda"
+
+msgid "common.second"
+msgstr "Segundo(s)"
+
+msgid "common.selectAll"
+msgstr "Triar tot"
+
+msgid "common.selectedPrefix"
+msgstr "Triau:"
+
+msgid "common.selectNone"
+msgstr "Deseleccionar tot"
+
+msgid "common.select"
+msgstr "Triar"
+
+msgid "common.selectWithName"
+msgstr "Triar {$name}"
+
+msgid "common.sendEmail"
+msgstr "Ninviar correu electronico"
+
+msgid "common.showAllSteps"
+msgstr "Amostrar toz los pasos"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} pasos"
+
+msgid "common.showingXofX"
+msgstr "Amostrando <strong>{$start} a {$finish}</strong> de {$total}"
+
+msgid "common.size"
+msgstr "Grandaria"
+
+msgid "common.source"
+msgstr "Fuent"
+
+msgid "common.status"
+msgstr "Estau"
+
+msgid "common.subject"
+msgstr "Afer"
+
+msgid "common.subjects"
+msgstr "Afers"
+
+msgid "common.submenu"
+msgstr "Submenú"
+
+msgid "common.subtitle"
+msgstr "Subtítulo"
+
+msgid "common.suggest"
+msgstr "Sucherir"
+
+msgid "common.switchTo"
+msgstr "Cambiar a"
+
+msgid "common.switchToNamedItem"
+msgstr "Cambiar a {$name}"
+
+msgid "common.title"
+msgstr "Títol"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "Principio"
+
+msgid "common.true"
+msgstr "Verdadero"
+
+msgid "common.type"
+msgstr "Tipo"
+
+msgid "common.uploadedBy"
+msgstr "Cargau per {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Cargau per {$name} lo {$date}"
+
+msgid "common.component"
+msgstr "Component"
+
+msgid "common.uninitiated"
+msgstr "Sin iniciar"
+
+msgid "common.unknownError"
+msgstr ""
+"Una error inasperada ha ocurriu. Per favor recargue la pachina y intente "
+"nuevament."
+
+msgid "common.unread"
+msgstr "No leyiu"
+
+msgid "common.unsavedChanges"
+msgstr "Cambios sin alzar"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Hemos trobau cambios sin alzar dende lo {$when}. Esto puede ocurrir si "
+"pierde la connexión con o servidor mientres treballa. Restaurar estes "
+"cambios podría sobrescribir cualsequier modificación que haiga feito dende "
+"alavez. Quiere restaurar ditos cambios agora?"
+
+msgid "common.untitled"
+msgstr "Sin títol"
+
+msgid "common.updated"
+msgstr "Actualizau"
+
+msgid "common.uploadedDate"
+msgstr "Calendata de puyada"
+
+msgid "common.upload"
+msgstr "Cargar"
+
+msgid "common.uploadFailed"
+msgstr "Lo fichero no s'ha puesto cargar ni revisar."
+
+msgid "common.up"
+msgstr "Alto"
+
+msgid "common.addFile"
+msgstr "Anyadir fichero"
+
+msgid "common.upload.addFile"
+msgstr "Cargar fichero"
+
+msgid "common.upload.addFile.description"
+msgstr "Cargar un fichero dende lo suyo ordinador."
+
+msgid "common.upload.restore"
+msgstr "Restaurar l'orichinal"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Previsualización d'a imachen triada actualment."
+
+msgid "common.upload.changeFile"
+msgstr "Cambiar fichero"
+
+msgid "common.upload.dragFile"
+msgstr "Arrociegue y suelte aquí lo fichero pa empecipiar la carga"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Usuario/a"
+
+msgid "common.user.nonexistent"
+msgstr "[Usuario/a inexistente]"
+
+msgid "common.view"
+msgstr "Veyer"
+
+msgid "common.viewError"
+msgstr "Veyer la error"
+
+msgid "common.viewWithName"
+msgstr "Veyer {$name}"
+
+msgid "common.viewProfile"
+msgstr "Veyer perfil"
+
+msgid "common.weeks"
+msgstr "semanas"
+
+msgid "common.width"
+msgstr "Amplaria"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "Anyo"
+
+msgid "common.yes"
+msgstr "Él"
+
+msgid "common.loading"
+msgstr "Cargando"
+
+msgid "common.loaded"
+msgstr "Cargau"
+
+msgid "common.plugins"
+msgstr "Modulos"
+
+msgid "common.count"
+msgstr "Total"
+
+msgid "common.publicAccess"
+msgstr "Acceso publico"
+
+msgid "debug.databaseQueries"
+msgstr "Numero de consultas a la base de datos"
+
+msgid "debug.executionTime"
+msgstr "Pachina chenerada en"
+
+msgid "debug.memoryUsage"
+msgstr "Uso de memoria"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Lista de configuracions rechionals \"{$localeList}\" cargada dende XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Fichero de configuracions rechionals \"{$localeFile}\" cargau dende XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Falta la clau de configuracions rechionals \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Notas:"
+
+msgid "defaultMetric.title"
+msgstr "Metrica predeterminada"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Cargar fichero de revisión"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Cargar fichero"
+
+msgid "email.addAttachment"
+msgstr "Anyadir adchunto"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Adchuntar los fichers de ninvio"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Adchuntar los fichers cargaus per l'autor en a fase de ninvio."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Adchuntar los fichers cargaus entre lo fluxo de treballo d'o ninvio, como "
+"las revisions u los fichers pendients de revisión."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Fichers de biblioteca"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Adchuntar los fichers de biblioteca"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Adchuntar los fichers dende la biblioteca editorial y de ninvio."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Adchuntar los fichers de revisión"
+
+msgid "email.attachments"
+msgstr "Adjuntos"
+
+msgid "email.attachmentNotFound"
+msgstr "No se podió adchuntar lo fichero {$fileName}."
+
+msgid "email.bccSender"
+msgstr "Ninviar una copia d'o mensache a la mía adreza ({$address})"
+
+msgid "email.body"
+msgstr "Texto"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Seguro que quiere cambiar a {$localeName} pa redactar este correu "
+"electronico? Los cambios que haiga feito en l'afer y en o cuerpo d'o correu "
+"se perderán."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Este mensache tiene masiaus destinatarios."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Ye intentando ninviar un mensache sin tasament diferencia de tiempo con "
+"respective a lo zaguer mensache que ninvió. Aspere antes de ninviar unatro "
+"mensache."
+
+msgid "email.compose.error"
+msgstr ""
+"I habió un problema en ninviar lo mensache de correu electronico. l'intente "
+"mas tarde u contacte con o suyo administrador/a de sistemas."
+
+msgid "email.email"
+msgstr "Correu electronico"
+
+msgid "email.from"
+msgstr "Dende"
+
+msgid "email.invalid"
+msgstr "L'adreza de correu electronico {$email} no ye valida."
+
+msgid "email.multipart"
+msgstr "Este ye un mensache de multiples partes en formato MIME."
+
+msgid "email.recipient"
+msgstr "Destinatario/a"
+
+msgid "email.recipients"
+msgstr "Destinatarios/as"
+
+msgid "email.sender"
+msgstr "Remitent"
+
+msgid "email.senderName"
+msgstr "Nombre d'o remitente"
+
+msgid "email.senderEmail"
+msgstr "Correu electronico d'o remitente"
+
+msgid "email.send"
+msgstr "Ninviar"
+
+msgid "email.skip"
+msgstr "Omitir correu electronico"
+
+msgid "email.subject"
+msgstr "Afer"
+
+msgid "email.subjectRequired"
+msgstr "Proporcione l'afer d'o correu electronico."
+
+msgid "email.bodyRequired"
+msgstr "Proporcione lo cuerpo d'o correu electronico."
+
+msgid "email.to"
+msgstr "Ta"
+
+msgid "form.url.invalid"
+msgstr "La URL especificada no ye valida. la Revise y torne a intentar-lo."
+
+msgid "form.confirmSubmit"
+msgstr "Ye seguro/a que deseya ninviar este formulario?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Confirmar"
+
+msgid "form.dataHasChanged"
+msgstr "Los datos d'o formulario han cambiau. Deseya continar sin alzar?"
+
+msgid "form.disallowedLocales"
+msgstr "Nomás son permitius los siguients idiomas: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Esta propiedat no ye permitida."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Suelte los fichers aquí pa cargar-los"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Lo suyo navegador no ye compatible con as cargas de fichero \"arrocegar y "
+"soltar\"."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Utilice lo formulario alternativo situau debaixo pa cargar los suyos fichers."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Lo fichero ye masiau gran ({{filesize}}mb). Los fichers superiors a "
+"{{maxFilesize}}mb no pueden cargar-se."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Los fichers d'este tipo no pueden cargar-se."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Lo servidor respondió con o codigo {{statusCode}}. Contacte con o "
+"administrador/a de sistemas si lo problema persiste."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Cancelar carga"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Carga cancelada"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Seguro que deseya cancelar esta carga?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Eliminar fichero"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "No puede cargar mas fichers."
+
+msgid "form.errorA11y"
+msgstr "Ir a {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Pasar a la siguient error"
+
+msgid "form.errorOne"
+msgstr "Corricha una error."
+
+msgid "form.errorMany"
+msgstr "Corricha {$count} errors."
+
+msgid "form.errorSummaryOne"
+msgstr "S'ha detectau 1 error. Per favor, lo corricha antes de continar."
+
+msgid "form.errorSummaryMany"
+msgstr "{$count} errors detectadas. Per favor, los corricha antes de continar."
+
+msgid "form.errors"
+msgstr ""
+"Lo formulario no s'alzó perque se troboron {$count} errors. Corricha estas "
+"errors y torne a intentar-lo."
+
+msgid "form.errorsOccurred"
+msgstr "Han ocurriu errors en procesar este formulario"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Pa introducir la información siguient en atros idiomas adicionals, tríe "
+"primero l'idioma."
+
+msgid "form.formLanguage"
+msgstr "Idioma d'o formulario"
+
+msgid "form.contains"
+msgstr "contiene"
+
+msgid "form.is"
+msgstr "ye"
+
+msgid "form.startsWith"
+msgstr "prencipia con"
+
+msgid "form.postRequired"
+msgstr "Lo formulario no s'ha ninviau con exito."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"No se puedo ninviar lo formulario. Puede que haiga estau desconnectau. "
+"Recargue la pachina y torne a intentar-lo."
+
+msgid "form.fileRequired"
+msgstr "Ye necesario cargar un fichero."
+
+msgid "form.required"
+msgstr "(* Obligatorio)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Ha de replenar este campo en {$language}."
+
+msgid "form.resubmit"
+msgstr "Reninviar"
+
+msgid "form.saved"
+msgstr "Alzau"
+
+msgid "form.saveToUpload"
+msgstr "Use 'Alzar' pa cargar lo fichero."
+
+msgid "form.send"
+msgstr "Ninviar"
+
+msgid "form.submit"
+msgstr "Ninviar"
+
+msgid "form.invalidImage"
+msgstr ""
+"Se puyó una imachen no valida. Los formatos aceptaus son .png, .gif y .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} en {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} idiomas completaus"
+
+msgid "help.help"
+msgstr "Aduya"
+
+msgid "help.toc"
+msgstr "Tabla de contenius"
+
+msgid "help.previous"
+msgstr "Anterior"
+
+msgid "help.next"
+msgstr "Siguient"
+
+msgid "help.upALevel"
+msgstr "Puyar un libel"
+
+msgid "icon.checked.alt"
+msgstr "Marcau"
+
+msgid "icon.comment.alt"
+msgstr "Comentario"
+
+msgid "icon.delete.alt"
+msgstr "Eliminar"
+
+msgid "icon.edit.alt"
+msgstr "Editar"
+
+msgid "icon.folder.alt"
+msgstr "Directorio"
+
+msgid "icon.font_large.alt"
+msgstr "Gran"
+
+msgid "icon.font_medium.alt"
+msgstr "Mediana"
+
+msgid "icon.font_small.alt"
+msgstr "Chicota"
+
+msgid "icon.info.alt"
+msgstr "Información"
+
+msgid "icon.letter.alt"
+msgstr "Letra"
+
+msgid "icon.mail.alt"
+msgstr "Correu"
+
+msgid "icon.unchecked.alt"
+msgstr "Sin marcar"
+
+msgid "icon.view.alt"
+msgstr "Veyer"
+
+msgid "informationCenter.informationCenter"
+msgstr "Centro d'información"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Historial de publicacions"
+
+msgid "informationCenter.addNote"
+msgstr "Anyadir nota"
+
+msgid "informationCenter.noNotes"
+msgstr "No i hai garra nota pa amostrar."
+
+msgid "informationCenter.pastNotes"
+msgstr "Notas anteriors"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Ye seguro que deseya eliminar la nota?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Revisión actual"
+
+msgid "informationCenter.pastHistory"
+msgstr "Revisions anteriors"
+
+msgid "informationCenter.history.noItems"
+msgstr "No i hai eventos rechistraus."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Se publicó una nueva nota."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Notificación ninviada a los usuarios/as."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Notificación ninviada a los usuarios/as."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Empecipiar una discusión"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Empecipiar una discusión con {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Tríe un mensache predefinido u replene lo formulario siguient."
+
+msgid "stageParticipants.notify.message"
+msgstr "Mensache"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"s'Asegure que ha replenau lo campo d'o mensache y tríe a lo menos un "
+"destinatario/a."
+
+msgid "stageParticipants.options"
+msgstr "Asignación de privilechios"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Este participant nomás puede recomendar una decisión editorial, per tanto "
+"amenesterá que un editor/a autorizau rechistre las decisions editorials."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permisos"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Permitir a esta persona fer cambios en a publicación, como lo títol, lo "
+"resumen, los metadatos u atros detalles. Puede que deseye revocar este "
+"privilechio si lo ninvio recibe una comprebación final y ye listo pa la suya "
+"publicación."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participant"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "No pueden fer-se cambios a este participant"
+
+msgid "locale.primary"
+msgstr "Idioma primario"
+
+msgid "locale.supported"
+msgstr "Idiomas suportaus"
+
+msgid "navigation.access"
+msgstr "Usuarios/as y rols"
+
+msgid "navigation.about"
+msgstr "Sobre"
+
+msgid "navigation.admin"
+msgstr "Administración"
+
+msgid "navigation.archives"
+msgstr "Fichers"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Vusté ye aquí:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Ferramientas"
+
+msgid "navigation.tools.importExport"
+msgstr "Importar/exportar"
+
+msgid "navigation.tools.statistics"
+msgstr "Estatisticas"
+
+msgid "navigation.browse"
+msgstr "Navegar"
+
+msgid "navigation.backTo"
+msgstr "⟵ Tornar a {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "Per autor/a"
+
+msgid "navigation.browseByTitle"
+msgstr "Per títol"
+
+msgid "navigation.dashboard"
+msgstr "Panel de control"
+
+msgid "navigation.data"
+msgstr "Datos"
+
+msgid "navigation.home"
+msgstr "Inicio"
+
+msgid "navigation.infoForReaders"
+msgstr "Pa lectors/as"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Información pa lectors/as"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} de {$total} elementos"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} de {$total} elementos"
+
+msgid "navigation.login"
+msgstr "Dentrar"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Siguient paso"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Paso anterior"
+
+msgid "navigation.publicMenu"
+msgstr "Menú publico"
+
+msgid "navigation.register"
+msgstr "Rechistrar-se"
+
+msgid "navigation.search"
+msgstr "Buscar"
+
+msgid "navigation.settings"
+msgstr "Achustes"
+
+msgid "navigation.setup"
+msgstr "Configuración"
+
+msgid "navigation.sitemap"
+msgstr "Mapa d'o puesto"
+
+msgid "navigation.skip.description"
+msgstr "Blinca a los vinclos de conteniu"
+
+msgid "navigation.skip.announcements"
+msgstr "Blincar a avisos"
+
+msgid "navigation.skip.main"
+msgstr "Ir a lo conteniu prencipal"
+
+msgid "navigation.skip.nav"
+msgstr "Ir a lo menú de navegación prencipal"
+
+msgid "navigation.skip.footer"
+msgstr "Ir a lo piet de pachina d'o puesto"
+
+msgid "navigation.stepNumber"
+msgstr "Paso {$step}"
+
+msgid "navigation.submissions"
+msgstr "Ninvios"
+
+msgid "navigation.dashboards"
+msgstr "Panel de control d'o editor/a"
+
+msgid "navigation.reviewAssignments"
+msgstr "Las mías asignacions como revisor/a"
+
+msgid "navigation.mySubmissions"
+msgstr "Los míos ninvios como autor/a"
+
+msgid "navigation.system"
+msgstr "Sistema"
+
+msgid "navigation.userHome"
+msgstr "Inicio"
+
+msgid "navigation.user"
+msgstr "Usuario/a"
+
+msgid "navigation.userManagement"
+msgstr "Chestión de l'usuario/a"
+
+msgid "navigation.viewFrontend"
+msgstr "Veyer lo puesto"
+
+msgid "institution.institutions"
+msgstr "Institucions"
+
+msgid "notification.addedAuditor"
+msgstr "Auditor/a anyadiu."
+
+msgid "notification.removedAuditor"
+msgstr "Auditor/a eliminau."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Lo correu electronico d'agradeiximiento s'ha ninviau a lo revisor/a."
+
+msgid "notification.allow"
+msgstr "Habilitar este tipo de notificacions."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Tipo d'aviso anyadiu."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Tipo d'aviso editau."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Tipo d'aviso eliminau."
+
+msgid "notification.removedAnnouncement"
+msgstr "Aviso eliminau."
+
+msgid "notification.confirmError"
+msgstr "S'ha produciu una error en confirmar la suya conduta."
+
+msgid "notification.confirmSuccess"
+msgstr "Ha estau correctament suscrito."
+
+msgid "notification.email"
+msgstr "No ninviar-me un correu electronico pa ixe tipo de notificacions."
+
+msgid "notification.noneExist"
+msgstr "No tiene notificacions en este momento."
+
+msgid "notification.addedNote"
+msgstr "Nota publicada."
+
+msgid "notification.removedNote"
+msgstr "Nota eliminada."
+
+msgid "notification.removedFile"
+msgstr "Fichero eliminau."
+
+msgid "notification.removedSubmission"
+msgstr "Ninvio eliminau."
+
+msgid "notification.notification"
+msgstr "Notificación"
+
+msgid "notification.notifications"
+msgstr "Notificacions"
+
+msgid "notification.sentNotification"
+msgstr "Notificación ninviada."
+
+msgid "notification.settings"
+msgstr "Configuración de notificacions"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Tríe los eventos d'o sistema pa los cuals deseya recibir notificacions. A lo "
+"desmarcar un elemento, las notificacions de l'evento no amaneixerán en o "
+"sistema ni se le ninviarán per correu electronico. Los eventos marcaus "
+"amaneixerán en o sistema y, amás, puede triar si deseya recibir u no la "
+"mesma notificación per correu electronico."
+
+msgid "notification.reminderError"
+msgstr ""
+"S'ha produciu una error en ninviar la suya clau. Per favor, comprebe que ha "
+"introduciu correctament la suya adreza de correu electronico."
+
+msgid "notification.reminderSent"
+msgstr ""
+"La tuya nueva clau ha estau ninviada a l'adreza de correu electronico "
+"proporcionada."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadatos de ninvios alzaus."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+"Ninviar un correu electronico d'información a toz los usuarios/as "
+"rechistraus."
+
+msgid "search.abstract"
+msgstr "Resumen"
+
+msgid "search.advancedFilters"
+msgstr "Filtros abanzaus"
+
+msgid "search.advancedSearchMore"
+msgstr "Opcions de busqueda adicionals (faiga clic pa amostrar)"
+
+msgid "search.advancedSearchLess"
+msgstr "Opcions de busqueda adicionals (faiga clic pa amagar)"
+
+msgid "search.searchAgain"
+msgstr "Buscar de nuevo"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Restablir índiz"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "feito"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "error"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} articlos indexados"
+
+msgid "search.coverage"
+msgstr "Cobertura"
+
+msgid "search.date"
+msgstr "Calendata de publicación"
+
+msgid "search.dateFrom"
+msgstr "Dende"
+
+msgid "search.dateTo"
+msgstr "Dica"
+
+msgid "search.deleteFilter"
+msgstr "Eliminar"
+
+msgid "search.discipline"
+msgstr "Disciplina(s)"
+
+msgid "search.fullText"
+msgstr "Texto completo"
+
+msgid "search.indexTerms"
+msgstr "Termins d'indexación"
+
+msgid "search.indexTermsLong"
+msgstr "Toz los campos de termins d'a indexación"
+
+msgid "search.matchAll"
+msgstr "Coincidencia en totas las categorías"
+
+msgid "search.noResults"
+msgstr "No i hai resultaus"
+
+msgid "search.operator.and"
+msgstr "y"
+
+msgid "search.operator.not"
+msgstr "no"
+
+msgid "search.operator.or"
+msgstr "u"
+
+msgid "search.SearchFor"
+msgstr "Buscar"
+
+msgid "search.searchResults"
+msgstr "Resultaus d'a busqueda"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Un elemento trobau."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} elementos trobaus."
+
+msgid "search.subject"
+msgstr "Parola(s) clau(s)"
+
+msgid "search.titleIndex"
+msgstr "Consultar índex de títols"
+
+msgid "search.title"
+msgstr "Títol"
+
+msgid "search.typeMethodApproach"
+msgstr "Tipo (metodo/enfoque)"
+
+msgid "grid.action.downloadFile"
+msgstr "Descargar este fichero"
+
+msgid "context.path"
+msgstr "Rota"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Cómo asegurar-se que toz los fichers s'han anonimizau"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Leyer la politica de revisión actual"
+
+msgid "grid.action.deleteNotification"
+msgstr "Eliminar fayena"
+
+msgid "grid.action.markNew"
+msgstr "Marcar nuevo"
+
+msgid "grid.action.markRead"
+msgstr "Marcar leyiu"
+
+msgid "dashboard.tasks"
+msgstr "Fayenas"
+
+msgid "dashboard.myQueue"
+msgstr "La mía lista"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Cómo asegurar-se que toz los fichers s'han anonimizado"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Pa asegurar la integridat de l'avaluación per pars anonima s'ha de fer "
+"tot lo posible pa primar que los autors/as conoixcan la identidat d'os "
+"revisors/as, y viceversa. Pa ixo, los autors/as, editors/as y revisors/as "
+"que puyen documentos como parte d'a revisión han de comprebar que s'han "
+"seguiu los pasos siguients relacionaus con o texto y con as propiedaz d'o "
+"fichero:</p>\n"
+"<ul><li>Los autors/as d'o documento han eliminau los suyos nombres d'o texto "
+"y han emplegau \"Autor/a\" y l'anyo de publicación en as referencias y notas "
+"a piet de pachina en cuenta d'o nombre de l'autor/a, lo títol de l'articlo, "
+"etc.</li>\n"
+"<li>Los autors/as d'o documento han eliminau la información personal de las "
+"propiedaz d'o fichero seguindo estes pasos:\n"
+"<ul><li>Microsoft Word pa Windows:\n"
+"<ul><li>Ir a \"Fichero\"</li>\n"
+"<li>Triar \"Información\"</li>\n"
+"<li>Fer clic en \"Comprebar si i hai problemas\"</li>\n"
+"<li>Fer clic en \"Inspeccionar documento\"</li>\n"
+"<li>En o cuadro de dialogo de \"Inspeccionar documento\", triar las caixetas "
+"pa triar lo tipo de conteniu amagau que deseye inspeccionar.</li>\n"
+"<li>Fer clic en \"Eliminar-lo tot\"</li>\n"
+"<li>Fer clic en \"Zarrar\"</li>\n"
+"<li>Alzar lo documento</li></ul>\n"
+"<li>Microsoft Word pa MacOS:\n"
+"<ul><li>Ir a \"Ferramientas\"</li>\n"
+"<li>Fer clic en \"Protecher documento\"</li>\n"
+"<li>Triar \"Eliminar información personal d'o fichero en alzar\"</li>\n"
+"<li>Fer clic en OK y alzar lo fichero</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Ir a \"Fichero\"</li>\n"
+"<li>Triar \"Propiedaz\"</li>\n"
+"<li>Eliminar cualsequier nombre d'o campo \"autor/a\"</li>\n"
+"<li>Fer clic en OK</li>\n"
+"<li>Alzar lo documento</li></ul></li></ul>\n"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Planificación de revisión"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Petición d'o editor/a"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Calendata limite d'a contestación"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Calendata limite d'a revisión"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Revisión aceptada lo"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Revisión ninviada lo"
+
+msgid "submission.task.responseDueDate"
+msgstr "Calendata limite d'a contestación"
+
+msgid "navigation.goBack"
+msgstr "Tornar"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"S'ha asignau a {$reviewerName} pa revisar este ninvio y se le ha ninviau un "
+"correu electronico de notificación."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"S'ha asignau a {$reviewerName} pa revisar este ninvio y no se le ha ninviau "
+"un correu electronico de notificación."
+
+msgid "notification.removedReviewer"
+msgstr "Revisor/a eliminau."
+
+msgid "notification.cancelledReviewer"
+msgstr "Revisor/a cancelau."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Revisor/a restabliu."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Solicitut pa reconsiderar l'asignación de revisión ninviada."
+
+msgid "notification.addedStageParticipant"
+msgstr "Usuario/a anyadiu como participant d'a fase."
+
+msgid "notification.editStageParticipant"
+msgstr "L'asignación de fase ha cambiau."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nuevo aviso."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Tiene una revisión pendient."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Asignación de revisión actualizada."
+
+msgid "notification.type.auditorRequest"
+msgstr "Le pidioron una auditoría \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Totas las revisions son y s'ameneste una decisión en {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"S'ha puyau un fichero revisau a fin de considerar-se pa la suya publicación "
+"en {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Tiene revisions que requieren la suya atención en {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revisions ninviadas a {$stage}."
+
+msgid "notification.type.reviewerComment"
+msgstr "Un revisor ha feito comentarios sobre \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Fichero examinau."
+
+msgid "timeZone"
+msgstr "Zona horaria"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"L'usuario/a actual no ye l'autor/a d'o ninvio solicitau. Comprebe que se ha "
+"identificau con a cuenta d'usuario/a correcta."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opcions de privacidat"
+
+msgid "notification.type.queryAdded"
+msgstr "Conversación anyadida."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Asigne la persona encargada d'a corrección per medio d'a opción \"Asignar\" "
+"d'o panel de participants."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Asperando correccions."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Estau d'a ronda {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "Resumen de l'informe d'estatisticas."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Le recordamos amablement que comprebe la salut d'a suya revista a traviés "
+"d'o informe editorial."
+
+msgid "notification.type.editorialReminder"
+msgstr "Correu electronico semanal d'as fayenas pendients"
+
+msgid "semicolon"
+msgstr "{$label}: "
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "L'elemento d'o menú de navegación ha estau actualizau con exito"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "L'elemento d'o menú de navegación ha estau eliminau con exito"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "L'elemento d'o menú de navegación ha estau anyadiu con exito"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Lo menú de navegación ha estau anyadiu con exito"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Lo menú de navegación ha estau actualizau con exito"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Lo menú de navegación ha estau eliminau con exito"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Se le ha dau de baixa"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "No podemos dar-le de baixa"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Tríe los correus electronicos de {$contextName} que ya no quiere recibir mas "
+"en {$email}."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Puede suscribirse de nuevo a las notificacions per correu electronico en "
+"cualsequier momento dende lo suyo <a href=\"{$profileNotificationUrl}\""
+">perfil de usuario/a</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"S'ha dau de baixa correctament l'adreza de correu electronico {$email}. No "
+"le tornaremos a ninviar estes correus. Puede tornar a suscribirse a las "
+"notificacions per correu electronico en cualsequier momento dende lo suyo <a "
+"href=\"{$profileNotificationUrl}\">perfil d'usuario/a</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"S'ha produciu una error inasperada y no podemos dar de baixa l'adreza de "
+"correu electronico {$email}. Puede cancelar totas las notificacions per "
+"correu electronico dende lo suyo <a href=\"{$profileNotificationUrl}\""
+">perfil de usuario/a</a> u contactar-nos dreitament si ameneste aduya."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Dar de baixa"
+
+msgid "showAll"
+msgstr "Amostrar tot"
+
+msgid "showLess"
+msgstr "Amostrar menos"
+
+msgid "list.viewMore"
+msgstr "Amostrar mas detalles sobre {$name}"
+
+msgid "list.viewLess"
+msgstr "Amagar los detalles sobre {$name}"
+
+msgid "list.expandAll"
+msgstr "Expandir tot"
+
+msgid "list.collapseAll"
+msgstr "Contrayer tot"
+
+msgid "validation.invalidOption"
+msgstr "Esto no ye una opción valida."
+
+msgid "validator.accepted"
+msgstr "Accepte este elemento."
+
+msgid "validator.active_url"
+msgstr "Esta URL no ye valida."
+
+msgid "validator.after"
+msgstr "Esta calendata ha d'estar posterior a {$date}."
+
+msgid "validator.alpha"
+msgstr "Esto nomás puede contener letras."
+
+msgid "validator.alpha_num"
+msgstr "Esto nomás puede contener letras y numeros."
+
+msgid "validator.array"
+msgstr "Esto no ye una matriz valida."
+
+msgid "validator.before"
+msgstr "La calendata ha d'estar anterior a {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Ha d'estar entre {$min} y {$max}."
+
+msgid "validator.between.file"
+msgstr "Ha d'estar entre {$min} y {$max} kilobytes."
+
+msgid "validator.between.string"
+msgstr "Ha d'estar entre {$min} y {$max} carácters."
+
+msgid "validator.between.array"
+msgstr "Ha de tener entre {$min} y {$max} elementos."
+
+msgid "validator.boolean"
+msgstr "Este campo ha d'estar verdadero u falso."
+
+msgid "validator.confirmed"
+msgstr "La confirmación pa este campo no coincide."
+
+msgid "validator.country"
+msgstr "Este país no ye valido."
+
+msgid "validator.country.regex"
+msgstr ""
+"Esto no ye un país valido. Lo país ha de seguir lo codigo internacional de 2 "
+"letras. Puede veyer toz los codigos en https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "validator.currency"
+msgstr "Esta no ye una moneda valida."
+
+msgid "validator.date"
+msgstr "Esta no ye una calendata valida."
+
+msgid "validator.date.comparison"
+msgstr "Las calendatas proporcionadas no son validas pa la comparanza."
+
+msgid "validator.date_format"
+msgstr "Esto no corresponde a lo formato {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} y {$other} han d'estar diferents."
+
+msgid "validator.digits"
+msgstr "Esto ha de tener {$digits} dichitos."
+
+msgid "validator.digits_between"
+msgstr "Esto ha de tener entre {$min} y {$max} dichitos."
+
+msgid "validator.email"
+msgstr "Esta adreza de correu electronico no ye valida."
+
+msgid "validator.exists"
+msgstr "Lo {$attribute} triau no ye valido."
+
+msgid "validator.filled"
+msgstr "Este campo ye obligatorio."
+
+msgid "validator.image"
+msgstr "Esto ha d'estar una imachen."
+
+msgid "validator.in"
+msgstr "Lo {$attribute} triau no ye valido."
+
+msgid "validator.integer"
+msgstr "Este no ye un numero entero valido."
+
+msgid "validator.ip"
+msgstr "Esta adreza IP no ye valida."
+
+msgid "validator.issn"
+msgstr "Este ISSN no ye valido."
+
+msgid "validator.json"
+msgstr "Esta cadena JSON no ye valida."
+
+msgid "validator.locale"
+msgstr "Este idioma no ye aceptau."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Este campo ye multilingüe. Han de proporcionar-se valors independients pa "
+"cada idioma compatible."
+
+msgid "validator.localeKey"
+msgstr ""
+"Los idiomas han d'especificar-se a traviés d'a configuración rechional. Per "
+"eixemplo: en2_US, fr_CA, sr_rs@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Esto no puede estar mayor que {$max}."
+
+msgid "validator.max.file"
+msgstr "Esto no puede estar mayor de {$max} kilobytes."
+
+msgid "validator.max.string"
+msgstr "Esto no puede tener mas de {$max} carácters."
+
+msgid "validator.max.array"
+msgstr "Esto no ha de tener mas de {$max} elementos."
+
+msgid "validator.mimes"
+msgstr "Este fichero ha d'estar d'o tipo {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Esto ha de tener a lo menos {$min}."
+
+msgid "validator.min.file"
+msgstr "Esto ha de tener a lo menos {$min} kilobytes."
+
+msgid "validator.min.string"
+msgstr "Esto ha de tener a lo menos {$min} carácters."
+
+msgid "validator.min.array"
+msgstr "Esto ha de tener a lo menos {$min} elementos."
+
+msgid "validator.not_in"
+msgstr "Lo {$attribute} triau no ye valido."
+
+msgid "validator.numeric"
+msgstr "Este numero no ye valido."
+
+msgid "validator.orcid"
+msgstr "Este ORCID no ye valido."
+
+msgid "validator.regex"
+msgstr "Esto no ye formateado correctament."
+
+msgid "validator.required"
+msgstr "Este campo ye obligatorio."
+
+msgid "validator.required_if"
+msgstr "Este campo ye obligatorio cuan {$other} ye {$value}."
+
+msgid "validator.required_unless"
+msgstr "Este campo ye obligatorio de no estar que {$other} sía en {$values}."
+
+msgid "validator.required_with"
+msgstr "Este campo ye obligatorio cuan {$values} sía present."
+
+msgid "validator.required_with_all"
+msgstr "Este campo ye obligatorio cuan {$values} sía present."
+
+msgid "validator.required_without"
+msgstr "Este campo ye obligatorio cuan {$values} no sía present."
+
+msgid "validator.required_without_all"
+msgstr "Este campo ye obligatorio cuan garra de {$values} sían presents."
+
+msgid "validator.same"
+msgstr "{$attribute} y {$other} han de coincidir."
+
+msgid "validator.size.numeric"
+msgstr "Esto ha d'estar de {$size}."
+
+msgid "validator.size.file"
+msgstr "Esto ha de tener {$size} kilobytes."
+
+msgid "validator.size.string"
+msgstr "Esto ha de tener {$size} carácters."
+
+msgid "validator.size.array"
+msgstr "Esto ha de contener {$size} elementos."
+
+msgid "validator.string"
+msgstr "Esta cadena no ye valida."
+
+msgid "validator.timezone"
+msgstr "Esta zona horaria no ye valida."
+
+msgid "validator.unique"
+msgstr "{$attribute} ya ye en uso."
+
+msgid "validator.url"
+msgstr "Esta URL no ye valida."
+
+msgid "validator.no_new_line"
+msgstr "No se permite una linia nueva."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Nomás se permiten [{$tags}] html."
+
+msgid "validator.multilingual"
+msgstr "No se cumple lo requisito de multiidioma pa este campo."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtrar ({$displayName}) compatibilidat de dentrada {$inputTypeName} - "
+"{$typeofInput} determinada"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Se ye intentando executar una transformación que no ye compatible con o suyo "
+"entorno d'instalación."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "No s'ha puesto importar lo nodo XML"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Comando desconoixiu {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autor/a anyadiu."
+
+msgid "notification.editedAuthor"
+msgstr "Autor/a editau."
+
+msgid "common.sandbox"
+msgstr "Aplicación executando-se en modo sandbox."
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Núm."
+
+msgid "common.refreshingData"
+msgstr "Actualizando datos"
+
+msgid "common.viewMoreDetails"
+msgstr "Veyer mas detalles"
+
+msgid "form.requireId"
+msgstr "Ha de proporcionar un ID valido."

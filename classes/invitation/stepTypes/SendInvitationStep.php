@@ -175,15 +175,6 @@ class SendInvitationStep extends InvitationStepTypes
      */
     private function getAllUserGroups(Context $context): array
     {
-        $allUserGroups = [];
-        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
-        foreach ($userGroups as $userGroup) {
-            $allUserGroups[] = [
-                'value' => (int) $userGroup->id,
-                'label' => $userGroup->getLocalizedData('name'),
-                'disabled' => false
-            ];
-        }
-        return $allUserGroups;
+        return UserGroup::withContextIds([$context->getId()])->get()->all();
     }
 }

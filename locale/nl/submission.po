@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-05 22:51+0000\n"
+"PO-Revision-Date: 2025-06-11 15:34+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -208,7 +208,7 @@ msgid "metadata.property.validationMessage.series"
 msgstr "Geef een geldige serie."
 
 msgid "metadata.property.displayName.supplement"
-msgstr "Supplement"
+msgstr "Aanvulling"
 
 msgid "metadata.property.validationMessage.supplement"
 msgstr "Geef een geldig supplement."
@@ -420,7 +420,7 @@ msgid "submission.authorBiographies"
 msgstr "Biografieën auteurs"
 
 msgid "submission.authorWithAffiliation"
-msgstr "{$name}, {$affiliation}"
+msgstr "{$name}, {$affiliation)"
 
 msgid "submission.shortAuthor"
 msgstr "{$author} e.a."
@@ -508,7 +508,7 @@ msgid "submission.comments.addReviews"
 msgstr "Voeg reviews toe aan e-mail"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
-msgstr "Reviewer {$reviewerLetter}:"
+msgstr "Recensie {$reviewerLetter}:"
 
 msgid "submission.comments.noComments"
 msgstr "Geen commentaren"
@@ -517,7 +517,7 @@ msgid "submission.comments.noReviews"
 msgstr "Geen reviews"
 
 msgid "submission.comments.review"
-msgstr "Review"
+msgstr "Recensie"
 
 msgid "submission.comments.sendDecisionToReviewers"
 msgstr "Stuur de redactionele beslissing naar de reviewers"
@@ -749,6 +749,7 @@ msgstr "{$datePublished} — Bijgewerkt op {$dateUpdated}"
 msgid "submission.versions"
 msgstr "Versies"
 
+#, fuzzy
 msgid "submission.versionIdentity"
 msgstr "{$datePublished} ({$version})"
 
@@ -836,7 +837,9 @@ msgid "submission.layout.galleyLocaleRequired"
 msgstr "Een proefdruk taal is verplicht."
 
 msgid "submission.layout.galleyRemoteURL"
-msgstr "Remote URL"
+msgstr ""
+"URL (webadres) die aangeeft waar een repository (map met alle codes en "
+"andere bestanden) is opgeslagen"
 
 msgid "submission.layout.galleyRemoteURLValid"
 msgstr "Geef de remote URL (inclusief http://)."
@@ -944,7 +947,7 @@ msgid "submission.page.history"
 msgstr "#{$id} Geschiedenis"
 
 msgid "submission.page.review"
-msgstr "#{$id} Review"
+msgstr "#{$id} Recensie"
 
 msgid "submission.page.summary"
 msgstr "#{$id} Samenvatting"
@@ -977,7 +980,7 @@ msgid "submission.reviewMetadata"
 msgstr "Beoordeel Metadata"
 
 msgid "submission.review"
-msgstr "Review"
+msgstr "Recensie"
 
 msgid "submission.reviewAndSubmit"
 msgstr "Beoordelen en indienen"
@@ -1312,13 +1315,15 @@ msgstr "Er werden revisies gevraagd."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revisies zijn ingediend en er is een beslissing nodig."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "De inzending moet worden ingediend voor een nieuwe reviewronde."
+msgstr ""
+"De door de auteur verzochte revisies moet worden ingediend voor een nieuwe "
+"recensieronde."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "De inzending is ingediend voor een nieuwe reviewronde."
+msgstr ""
+"Met betrekking tot de ingediende revisies is het nodig een nieuwe ronde te "
+"initiëren."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Doorgegeven aan peer review."
@@ -1338,9 +1343,8 @@ msgstr "In afwachting van antwoorden van reviewers."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Er zijn nieuwe reviews ingediend."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Alle reviews zijn voltooid, er moet een beslissing worden genomen."
+msgstr "Alle reviews zijn bekrachtigd en is het nodig een besluit te nemen."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Een review is te laat."
@@ -2175,7 +2179,7 @@ msgid "submission.copyrightYear"
 msgstr "Copyright jaar"
 
 msgid "submission.copyrightStatement"
-msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
+msgstr "Auteursrecht (c) {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
 msgstr "Geef een geldige externe URL op (inclusief http://)."
@@ -2359,6 +2363,7 @@ msgstr ""
 "U werd toegevoegd aan een discussie met de titel \"{$queryTitle}\" over de "
 "inzending \"{$submissionTitle}\"."
 
+#, fuzzy
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 
@@ -2374,19 +2379,19 @@ msgid "submission.list.empty"
 msgstr "Geen inzendingen gevonden."
 
 msgid "submission.list.responseDue"
-msgstr "In afwachting van een antwoord"
+msgstr "Uiterste reactiedatum: {$date}"
 
 msgid "submission.list.reviewAssignment"
-msgstr "Review toewijzing"
+msgstr "Recensie-evaluatie"
 
 msgid "submission.list.reviewDue"
-msgstr "In afwachting van een review"
+msgstr "Uiterste recensiedatum: {$date}"
 
 msgid "submission.list.reviewComplete"
-msgstr "Review ingediend"
+msgstr "Recensie ingediend"
 
 msgid "submission.list.reviewCancelled"
-msgstr "Review geannuleerd"
+msgstr "Recensie geannuleerd"
 
 msgid "submission.list.confirmDelete"
 msgstr "Inzending verwijderen?"
@@ -2398,50 +2403,50 @@ msgid "submission.list.viewSubmission"
 msgstr "Inzending bekijken"
 
 msgid "submission.list.reviewsCompleted"
-msgstr "Reviews voltooid"
+msgstr "Voltooide toegewezen recensies"
 
 msgid "submission.list.revisionsSubmitted"
-msgstr "Revisies ingediend"
+msgstr "Ingediende revisies"
 
 msgid "submission.list.copyeditsSubmitted"
-msgstr "Geredigeerde bestanden ingediend"
+msgstr "Ingediende geredigeerde bestanden"
 
 msgid "submission.list.galleysCreated"
-msgstr "Proeven aangemaakt"
+msgstr "Aangemaakte proefdrukken"
 
 msgid "submission.list.filesPrepared"
-msgstr "Bestanden voorbereid"
+msgstr "Voorbereide bestanden"
 
 msgid "submission.list.discussions"
-msgstr "Actieve discussies"
+msgstr "Vrij toegankelijke discussies"
 
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
-"U vervult verschillende rollen voor deze inzending. Wilt u de inzending "
-"bekijken als <a href=\"{$urlAuthorWorkflow}\">Auteur</a>  of <a href="
-"\"{$urlEditorialWorkflow}\">Redacteur</a>?"
+"U vervult verschillende rollen voor deze inzending. Wilt u toegang tot het "
+"<a href=\"{$urlAuthorWorkflow}\">Auteurswerkproces</a>  of <a href=\""
+"{$urlEditorialWorkflow}\">Redacteurswerkproces</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
-"U bent redacteur voor deze inzending. Wilt u de inzending bekijken als <a "
-"href=\"{$urlEditorialWorkflow}\">Redacteur</a>?"
+"U bent redacteur voor deze inzending. Wilt u toegang tot <a href=\""
+"{$urlEditorialWorkflow}\">Redacteurswerkproces</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr ""
-"Deze inzending moet worden voltooid alvorens ze kan worden beoordeeld door "
+"Deze inzending moet worden voltooid voordat zij kan worden beoordeeld door "
 "een redacteur."
 
 msgid "submission.list.currentStage"
-msgstr "Nu in de {$stage} stap."
+msgstr "Nu in het {$stage} stadium."
 
 msgid "submission.list.activity"
 msgstr "Activiteit"
 
 msgid "submission.list.daysSinceLastActivity"
-msgstr "Dagen sinds laatste activiteit"
+msgstr "Dagen sinds de laatste activiteit"
 
 msgid "submission.list.assignEditor"
-msgstr "Wijs een redacteur aan"
+msgstr "Wijs een redacteur toe"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
@@ -2812,3 +2817,65 @@ msgstr ""
 
 msgid "fileManager.productionReadyFilesDescription"
 msgstr "Dit zijn bestanden die worden verzonden voor publicatie"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "U hebt een aanbeveling gedaan."
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Bekijk de samenvatting van de inzending"
+
+msgid "submission.list.completeSubmission"
+msgstr "Completeer inzending"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Suggesties van de recensent"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong> Voordat u de oorspronkelijke taal van de inzending wijzigt, "
+"verzekert u zich ervan dat u de velden van de betreffende metadata hebt "
+"ingevuld ter behoud va de systeemintegriteit. Bovendien wordt opgemerkt, dat "
+"informatie over de bijdragers aan de inzending en bestandsnamen van de "
+"eerder ingevoerde informatie worden gekopieerd. </strong>"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Dit betreft de oorspronkelijke taal van de inzending. Wijziging zal gevolgen "
+"hebben voor de inzending en de ingevoerde metadata"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Aanbevolen wordt om de samenvatting toe te voegen. Dit zorgt ervoor dat de "
+"inzending toegankelijk is"
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr "De affiliatienaam ontbreekt met betrekking tot een of meer betrokkenen."
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Bent u er zeker van dat u deze inzending wilt annuleren? Zo ja, dan worden "
+"de inzending en alle hieraan verbonden data vernietigd. Deze handeling kan "
+"niet ongedaan worden gemaakt."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "De door de auteur voorgestelde recensenten"
+
+msgid "submission.review.status.viewed"
+msgstr "De redacteur heeft de recensie bekeken."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Huidige taal van de inzending:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Wijziging"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Wijzig de taal van de inzending voor"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Voer hier de titel van de inzending in {$language}. Indien nodig, kunt u de "
+"opmaak van de titel aanpassen"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Er zijn geen recensenten voorgesteld voor deze inzending."

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/invitation/stepType/SendInvitationStep.php
  *
@@ -14,6 +15,7 @@
 namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Exception;
 use PKP\components\forms\invitation\UserDetailsForm;
 use PKP\context\Context;
@@ -23,6 +25,7 @@ use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
+use PKP\security\Role;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use stdClass;
@@ -107,7 +110,8 @@ class SendInvitationStep extends InvitationStepTypes
             ),
             [
                 'validateFields' => [],
-                'userGroups' => $this->getAllUserGroups($context)
+                'userGroups' => $this->getAllUserGroups($context),
+                'reviewerUserGroupIds' => Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_REVIEWER, $context->getId())
             ]
         );
         $step = new Step(

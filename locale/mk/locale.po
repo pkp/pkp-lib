@@ -3,7 +3,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-02 14:06+0000\n"
+"PO-Revision-Date: 2025-05-25 09:55+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/locale/"
 "mk/>\n"
@@ -559,3 +559,6 @@ msgstr "Клучни зборови"
 
 msgid "submissionGroup.assignedSubEditors"
 msgstr "Назначени модератори"
+
+msgid "article.pageTitle"
+msgstr "Поглед на {$title}"

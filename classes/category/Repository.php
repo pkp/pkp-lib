@@ -180,7 +180,7 @@ class Repository
                     ->getMany()
                     ->first();
 
-                $id = key_exists($props['categoryId'], $props) ? $props['categoryId'] : $object?->getId() ?? null;
+                $id = (array_key_exists('categoryId', $props) ? $props['categoryId'] : $object?->getId()) ?? null;
                 $existingCategoryWithId = $id ? Repo::category()->get($id, $context->getId()) : null;
 
                 if ($existingCategoryWithPath && $existingCategoryWithPath->getPath() !== $existingCategoryWithId?->getPath()) {
@@ -276,7 +276,7 @@ class Repository
         }
     }
 
-    /***
+    /**
      * @param array $subEditors - Editor IDs grouped by Group ID. Example:
      * ```
      * [
@@ -298,11 +298,13 @@ class Repository
                 ->filterByContextIds([$contextId])
                 ->getIds();
             foreach ($subEditors as $userGroupId => $userIds) {
-                foreach ($userIds as $userId) {
-                    if (!$allowedEditors->contains($userId)) {
-                        continue;
+                if ($userIds) {
+                    foreach ($userIds as $userId) {
+                        if (!$allowedEditors->contains($userId)) {
+                            continue;
+                        }
+                        $subEditorsDao->insertEditor($contextId, $categoryId, $userId, Application::ASSOC_TYPE_CATEGORY, (int)$userGroupId);
                     }
-                    $subEditorsDao->insertEditor($contextId, $categoryId, $userId, Application::ASSOC_TYPE_CATEGORY, (int)$userGroupId);
                 }
             }
         }

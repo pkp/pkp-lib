@@ -429,7 +429,8 @@
 			"description": "The timestamp when this publication was created.",
 			"validation": [
 				"date_format:Y-m-d H:i:s"
-			]
+			],
+			"apiSummary": true
 		},
 		"sourcePublicationId": {
 			"type": "integer",

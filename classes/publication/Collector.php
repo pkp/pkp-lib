@@ -13,6 +13,7 @@
 
 namespace PKP\publication;
 
+use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
@@ -30,6 +31,7 @@ class Collector implements CollectorInterface
     public ?array $contextIds;
     public ?array $submissionIds;
     public ?array $doiIds = null;
+    public bool $orderByVersion = false;
     public ?int $count;
     public ?int $offset;
 
@@ -86,6 +88,12 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function orderByVersion(): self
+    {
+        $this->orderByVersion = true;
+        return $this;
+    }
+
     /**
      * Limit the number of objects retrieved
      */
@@ -135,7 +143,22 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        $qb->orderBy('p.publication_id', 'asc');
+        if ($this->orderByVersion) {
+            $orderCase = "CASE p.version_stage ";
+            foreach (VersionStage::cases() as $case) {
+                $orderCase .= "WHEN " . DB::getPdo()->quote($case->value) . " THEN " . $case->order() . " ";
+            }
+            $orderCase .= "ELSE 999 END";
+
+            $qb->orderByRaw("p.version_stage IS NOT NULL ASC");
+            $qb->orderByRaw("CASE WHEN p.version_stage IS NULL THEN p.date_published ELSE NULL END ASC");
+            $qb->orderByRaw($orderCase);
+            $qb->orderBy('p.version_major', 'asc');
+            $qb->orderBy('p.version_minor', 'asc');
+            $qb->orderBy('p.date_published', 'desc');
+        } else {
+            $qb->orderBy('p.publication_id', 'asc');
+        }
 
         // Add app-specific query statements
         Hook::call('Publication::Collector', [&$qb, $this]);

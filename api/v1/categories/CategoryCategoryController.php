@@ -32,6 +32,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
 
 class CategoryCategoryController extends PKPBaseController
 {
@@ -138,7 +139,7 @@ class CategoryCategoryController extends PKPBaseController
             }
         }
 
-        $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_CATEGORY, $illuminateRequest->input());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CATEGORY, $illuminateRequest->input());
         $params['contextId'] = $category->getContextId();
         $errors = Repo::category()->validate($category, $params, $context);
 
@@ -179,10 +180,12 @@ class CategoryCategoryController extends PKPBaseController
         $temporaryFileId = $submittedImageData['temporaryFileId'] ?? null;
 
         // Delete the old image if a new one was submitted or if the existing one was removed
-        if ($temporaryFileId || !$submittedImageData && $oldImageData = $category->getImage()) {
-            $publicFileManager = new PublicFileManager();
-            $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['uploadName']);
-            $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['thumbnailName']);
+        if ($temporaryFileId || (!$submittedImageData && $oldImageData = $category->getImage())) {
+            if (isset($oldImageData)) {
+                $publicFileManager = new PublicFileManager();
+                $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['uploadName']);
+                $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['thumbnailName']);
+            }
         }
 
         $imageData = null;

@@ -179,7 +179,7 @@ class CategoryCategoryController extends PKPBaseController
         $temporaryFileId = $submittedImageData['temporaryFileId'] ?? null;
 
         // Delete the old image if a new one was submitted or if the existing one was removed
-        if ($temporaryFileId || !$submittedImageData && $oldImageData = $category->getImage()) {
+        if (isset($oldImageData)) {
             $publicFileManager = new PublicFileManager();
             $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['uploadName']);
             $publicFileManager->removeContextFile($category->getContextId(), $oldImageData['thumbnailName']);

@@ -631,6 +631,8 @@ class PKPNavigationMenuService
             foreach ($supportedFormLocales as $supportedFormLocale => $supportedFormLocaleValue) {
                 if ($localizedTitle = $nmi->getTitle($supportedFormLocale)) {
                     $nmi->setTitle($localizedTitle, $supportedFormLocale);
+                } elseif ($nmi->getTitleLocaleKey() === '{$loggedInUsername}') {
+                    $nmi->setTitle($nmi->getTitleLocaleKey(), Locale::getLocale());
                 } else {
                     $nmi->setTitle(__($nmi->getTitleLocaleKey(), [], $supportedFormLocale), $supportedFormLocale);
                 }

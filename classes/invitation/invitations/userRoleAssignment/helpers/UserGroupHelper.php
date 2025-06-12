@@ -40,8 +40,8 @@ class UserGroupHelper
         return new self(
             $data['userGroupId'],
             $data['masthead'],
-            $data['dateStart'],
-            $data['dateEnd'] ?? null
+            self::formatDate($data['dateStart']),
+            $data['dateEnd'] ? self::formatDate($data['dateEnd']) : null
         );
     }
 
@@ -50,8 +50,18 @@ class UserGroupHelper
         return new self(
             $userUserGroup->userGroupId,
             $userUserGroup->masthead,
-            $userUserGroup->dateStart,
-            $userUserGroup->dateEnd
+            self::formatDate($userUserGroup->dateStart),
+            $userUserGroup->dateEnd !== null ? self::formatDate($userUserGroup->dateEnd) : null
         );
+    }
+
+    private static function formatDate(string $timestamp): string
+    {
+        try {
+            $date = new \DateTime($timestamp);
+            return $date->format('Y-m-d');
+        } catch (\Exception $exception) {
+            return $timestamp;
+        }
     }
 }

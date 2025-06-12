@@ -14,6 +14,7 @@
 
 namespace PKP\mail\mailables;
 
+use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\facades\Locale;
@@ -186,19 +187,24 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         if (isset($user)) {
             // Existing Roles
 
+            /** @var Collection<UserGroup> $userGroups */
             $userGroups = UserGroup::query()
                 ->withContextIds([$this->invitation->getContextId()])
                 ->withUserIds([$user->getId()])
                 ->get();
 
-            foreach ($userGroups as $userGroup) {
-                $userUserGroups = UserUserGroup::withUserId($user->getId())
+            /** @var Collection<UserUserGroup> $userUserGroups */
+            $userUserGroups = $userGroups->reduce(function (Collection $userUserGroups, UserGroup $userGroup) use ($user) {
+                UserUserGroup::withUserId($user->getId())
                     ->withUserGroupIds([$userGroup->id])
                     ->withActive()
-                    ->get();
+                    ->get()
+                    ->each(fn (UserUserGroup $userUserGroup) => $userUserGroups->add($userUserGroup));
 
-                $existingUserGroups .= $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $existingUserGroupsTitle);
-            }
+                return $userUserGroups;
+            }, collect());
+
+            $existingUserGroups .= $this->getAllUserUserGroupSection($userUserGroups->toArray(), null, $context, $locale, $existingUserGroupsTitle);
         }
 
         $targetPath = Core::getBaseDir() . '/lib/pkp/styles/mailables/style.css';

@@ -117,6 +117,9 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                         case 'permit_metadata_edit':
                             $userGroup->permitMetadataEdit = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
                             break;
+                        case 'masthead':
+                            $userGroup->masthead = filter_var($n->textContent, FILTER_VALIDATE_BOOLEAN);
+                            break;
                     }
                 }
             }

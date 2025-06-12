@@ -207,6 +207,7 @@ Cypress.Commands.add('openReviewAssignment', (familyName) => {
 });
 
 Cypress.Commands.add('assignPublicationStage', (stage, versionIsMinor = 'true', sideModal) => {
+	// "stage" should respect the DEFAULT_VERSION_STAGE of the Publication Entity, namely Publication::DEFAULT_VERSION_STAGE
 	cy.get('select[id="version-versionStage-control"]').select(stage);
 	cy.get('select[id="version-versionIsMinor-control"]').select(versionIsMinor);
 	if (sideModal) {

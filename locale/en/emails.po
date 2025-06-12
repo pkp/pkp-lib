@@ -619,7 +619,7 @@ msgstr ""
 "        <p>At {$contextName}, we value your privacy. As such, we have taken steps to ensure that we are fully GDPR compliant. These steps include you being accountable to enter your own data and choosing who can see what information. For additional information on how we handled your data, please refer to our Privacy Policy.</p>"
 "        <div>{$existingRoles}</div>"
 "        <div>{$rolesAdded}</div>"
-"        <p>On accepting the invite, you will be redirected to {$contextName}</p>"
+"        <p>On accepting the invite, you will be redirected to {$contextName}.</p>"
 "        <p>Feel free to contact me with any questions about the process.</p>"
 "        <p><a href='{$acceptUrl}' class='btn btn-accept'>Accept Invitation</a></p>"
 "        <p><a href='{$declineUrl}' class='btn btn-decline'>Decline Invitation</a></p>"
@@ -682,11 +682,11 @@ msgstr "Ending at {$dateEnd}"
 
 #, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
-msgstr "Your name will not appear in {$contextName}'s masthead as a {$sectionName}"
+msgstr "Your name will not appear in {$contextName}'s masthead as a {$sectionName}."
 
 #, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
-msgstr "Your name will appear in the {$contextName}'s masthead as a {$sectionName}"
+msgstr "Your name will appear in the {$contextName}'s masthead as a {$sectionName}."
 
 #, fuzzy
 msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"

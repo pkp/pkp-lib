@@ -171,6 +171,7 @@ class PKPString
             $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
             $config->set('HTML.Allowed', Config::getVar('security', $configKey));
             $config->set('Cache.SerializerPath', 'cache');
+            $config->set('Attr.AllowedFrameTargets', ['_blank']);
             $purifier = new HTMLPurifier($config);
         }
         return $purifier->purify((string) $input);

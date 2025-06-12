@@ -189,7 +189,7 @@ class Repository
             });
         }
 
-        if (isset($props['image']) && $props['image']['temporaryFileId']) {
+        if (isset($props['image']['temporaryFileId'])) {
             $validator->after(function (Validator $validator) use ($props, $context) {
                 $temporaryFileId = $props['image']['temporaryFileId'];
                 $temporaryFileManager = new TemporaryFileManager();
@@ -198,10 +198,13 @@ class Repository
                 $imageExtension = $temporaryFile ? $temporaryFileManager->getImageExtension($temporaryFile->getFileType()) : [];
                 $isValidExtension = in_array($imageExtension, Category::SUPPORTED_IMAGE_TYPES);
 
-                if (!$isValidExtension || !$temporaryFile ||
+                if (
+                    !$isValidExtension ||
+                    !$temporaryFile ||
                     !($temporaryFileManager->getImageExtension($temporaryFile->getFileType())) ||
                     !($sizeArray = getimagesize($temporaryFile->getFilePath())) ||
-                    $sizeArray[0] <= 0 || $sizeArray[1] <= 0
+                    $sizeArray[0] <= 0 ||
+                    $sizeArray[1] <= 0
                 ) {
                     $validator->errors()->add('image', __('form.invalidImage'));
                 }

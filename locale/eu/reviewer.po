@@ -2,7 +2,7 @@
 # Informatikaria <informatikaria@ueu.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-02 20:51+0000\n"
+"PO-Revision-Date: 2025-06-13 12:56+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -30,6 +30,9 @@ msgstr "Ebaluazio eskaera"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
+"Ondorengo bidalketaren  balizko ebaluatzaile gisa hautatua izan zara. "
+"Jarraian, lanaren ikuspegi orokorra ematen da, baita ebaluaziorako "
+"kronograma. Espero dugu parte hartu ahal izatea."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Ikusi bidalketa-xehetasun guztiak"
@@ -58,7 +61,7 @@ msgid "reviewer.submission.saveReviewForLater"
 msgstr "Gorde gerorako"
 
 msgid "reviewer.submission.reviewerGuidelines"
-msgstr ""
+msgstr "Ebaluatzailearentzako jarraibideak"
 
 msgid "reviewer.submission.enterCompetingInterests"
 msgstr ""
@@ -67,28 +70,33 @@ msgstr ""
 "berrikusteko."
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr ""
+msgstr "Ez dut inolako interes kotrajarririk"
 
 msgid "reviewer.submission.hasCompetingInterests"
-msgstr ""
+msgstr "Baliteke interes kontrajarriak izatea (Behean zehaztu)"
 
 msgid "reviewer.submission.competingInterests"
 msgstr "Interes kontrajarriak"
 
 msgid "reviewer.submission.guidelines"
-msgstr ""
+msgstr "Ebaluaziorako jarraibideak"
 
 msgid "reviewer.submission.noGuidelines"
-msgstr ""
+msgstr "Argitaratzaile honek ez du ebaluaziorako jarraibiderik ezarri ."
 
 msgid "reviewer.submission.downloadDescription"
 msgstr ""
+"Egin klik beheko fitxategi izenen gainean bidalketa honi lotutako "
+"fitxategiak deskargatzeko."
 
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
+"Sartu (edo itsatsi) bidalketa honi egin diozu ebaluazioa beheko inprimakian."
 
 msgid "reviewer.submission.uploadDescription"
 msgstr ""
+"Igo editoreak eta/edo egileak kontsultatzea nahi dituzun fitxategiak, "
+"jatorrizko ebaluazio fitxategien bertsio errebisatuak barne."
 
 msgid "reviewer.complete"
 msgstr "Aurkeztutako ebaluazioa"
@@ -134,3 +142,63 @@ msgstr ""
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Ez da ebaluazioa amaitu."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Aurreko ebaluazioak"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Erronda {$round} Ebaluazioa bidalita honi: {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Irakurketa ebaluazioa erronda {$round}"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Ebaluatzailearen oharrak"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Editoreentzat eta egileentzat"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Editoreentzat bakarrik"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Oharra {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Errefusatzeko arrazoia e-postaz bidalia"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Ez da arrazoirik eman ebaluazioa egiteko gonbidapena errefusatzeko."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Errefusatze data"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Artikuluaren metadatuak"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Mota"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Laburpena"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Gako-hitzak"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Informazio orokorra"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Eranskinak"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Fitxategia hauek dira zure ebaluazioarekin batera erantsi dituzunak"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Ebaluatzeko fitxategiak"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Fitxategi hauek ebaluatzeko bidali zitzaizkizun"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Erronda {$round} Ebaluazioa bidalita honentzat: {$submittedOn}"

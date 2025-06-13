@@ -91,6 +91,40 @@ class ForTheEditors extends PKPMetadataForm
         }
     }
 
+    function transformToHierarchy(LazyCollection $flatData): array {
+        // Build a map of nodes
+        $map = [];
+        $flatData->each(function ($item) use (&$map) {
+            $id = $item->getId();
+            $map[$id] = [
+                // TODO: temporarly hard coded
+                'label' => $item->getData('title')['en'],
+                'value' => $id
+            ];
+        });
+    
+        // Link children to their parents
+        $flatData->each(function ($item) use (&$map) {
+            $parentId = $item->getData('parentId');
+            if ($parentId !== null && isset($map[$parentId])) {
+                if(!$map[$parentId]['items']) {
+                    $map[$parentId]['items'] = []; 
+                }
+                $map[$parentId]['items'][] = &$map[$item->getId()];
+            }
+        });
+    
+        // Collect root items (those with no parentId)
+        $hierarchy = [];
+        $flatData->each(function ($item) use (&$map, &$hierarchy) {
+            if ($item->getData('parentId') === null) {
+                $hierarchy[] = &$map[$item->getId()];
+            }
+        });
+    
+        return $hierarchy;
+    }
+
     protected function addCategoryField(Context $context, LazyCollection $categories): void
     {
         if (!$context->getData('submitWithCategories') || !$categories->count()) {
@@ -106,6 +140,9 @@ class ForTheEditors extends PKPMetadataForm
             ->values()
             ->all();
 
+        error_log('_categories_');
+        error_log(json_encode($categories));
+
         $categoryValues = (array) $this->publication->getData('categoryIds');
         // Check if all categories have a breadcrumb; categories with circular references are filtered out
         $hasAllBreadcrumbs = $categories->count() === count($categoryOptions);
@@ -115,7 +152,11 @@ class ForTheEditors extends PKPMetadataForm
                 'label' => __('submission.submit.placement.categories'),
                 'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
                 'value' => $categoryValues,
-                'options' => $categoryOptions
+                'options' => $categoryOptions,
+                'vocabularies' => [[
+                    'locale' => 'en', 
+                    'addButtonLabel' => __('grid.category.add'), 
+                    'items' => $this->transformToHierarchy($categories)]]
             ]));
         } else {
             $this->addField(new FieldOptions('categoryIds', [

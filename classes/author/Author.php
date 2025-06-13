@@ -30,7 +30,7 @@ use PKP\userGroup\UserGroup;
 class Author extends Identity
 {
     /** @var string Max lifetime for the cache */
-    protected const MAX_CACHE_LIFETIME = '1 second';
+    protected const MAX_CACHE_LIFETIME = '1 year';
 
     /**
      * Get the default/fall back locale the values should exist for
@@ -294,11 +294,10 @@ class Author extends Identity
         );
     }
 
-    /** Get contrubutor credit roles and degrees
-     *
-     * @return array
+    /**
+     * Get contrubutor credit roles and degrees
      */
-    public function getCreditRoles()
+    public function getCreditRoles(): array
     {
         return $this->getData('creditRoles') ?? [];
     }
@@ -314,19 +313,27 @@ class Author extends Identity
     /**
      * Get credit role terms and degrees of contribution
      */
-    public static function getCreditRoleTerms($locale = null) {
-        return self::loadCreditRoleNamesFromFile($locale);
+    public static function getCreditRoleTerms(?string $locale = null): array
+    {
+        $locale ??= Locale::getLocale();
+        static $key = __METHOD__ . static::MAX_CACHE_LIFETIME;
+        // One of the credit role file locales
+        static $defaultLocale = 'en';
+        static $creditRoleTerms = Cache::get($key)[0] ?? [];
+
+        if (!isset($creditRoleTerms[$locale])) {
+            $creditRoleTerms = self::getLocalizedCreditRoleTerms($locale, $creditRoleTerms, $defaultLocale, $key);
+        }
+
+        return $creditRoleTerms[$locale] ?? $creditRoleTerms[$defaultLocale] ?? [];
     }
 
     /**
-     * Type of roles in an associative URI => Term array
-     * Type of degrees in an array
-     * @param $locale The locale for which to fetch the data (default primary locale; en if not available)
+     * Type of roles in an associative array URI => Term
+     * Degrees in an associative array db-key => translation
      */
-    protected static function loadCreditRoleNamesFromFile($locale = null): array
+    protected static function getLocalizedCreditRoleTerms(string $locale, array $creditRoleTerms, string $defaultLocale, string $key): array
     {
-        static $creditRoleTerms;
-        static $creditRoleLocales;
         static $localeMapping = [
             'cz' => ['cs'],
             'fr' => ['fr', 'fr_CA'],
@@ -336,11 +343,8 @@ class Author extends Identity
             'no_nn' => ['nn'],
             'tc' => ['zh_Hant'],
         ];
-        static $key = __METHOD__ . static::MAX_CACHE_LIFETIME;
+        static $creditRoleLocales = Cache::get($key)[1] ?? [];
         static $expiration = \DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
-
-        // One of the credit role file locales
-        static $defaultLocale = 'en';
 
         static $setRoles = fn (array $roles, string $localeKey): array => [
             'roles' => $roles,
@@ -353,8 +357,6 @@ class Author extends Identity
         ];
         static $getJson = fn (string $file): array => is_array($json = json_decode(file_get_contents($file) ?: "", true)) ? $json : [];
         static $getRoles = fn (array $json): array => Arr::map($json['translations'] ?? [], fn (array $items) => $items['name']);
-
-        $locale ??= Locale::getLocale();
 
         if (!$creditRoleTerms) {
             [$creditRoleTerms, $creditRoleLocales] = Cache::remember($key, $expiration, function () use ($localeMapping, $defaultLocale, $setRoles, $getJson, $getRoles): array {
@@ -388,6 +390,6 @@ class Author extends Identity
             }
         }
 
-        return $creditRoleTerms[$locale] ?? $creditRoleTerms[$defaultLocale] ?? [];
+        return $creditRoleTerms;
     }
 }

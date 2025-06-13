@@ -68,7 +68,7 @@
 	{/fbvFormSection}
 
 	{fbvFormSection title="manager.setup.masthead" list=true}
-		{fbvElement type="checkbox" name="masthead" id="masthead" checked=true label="invitation.masthead.show" translate="true" disabled="true"}
+		{fbvElement type="checkbox" id="masthead" checked=true label="invitation.masthead.show" translate="true" disabled="true"}
 	{/fbvFormSection}
 
 	{if $reviewerSuggestionId}

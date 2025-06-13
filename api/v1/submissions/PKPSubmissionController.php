@@ -1550,6 +1550,16 @@ class PKPSubmissionController extends PKPBaseController
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
+        // validate that the supplied group is an AUTHOR group
+        if (isset($params['userGroupId'])) {
+            $userGroup = Repo::userGroup()->get($params['userGroupId']);
+            if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
+                return response()->json([
+                    'userGroupId' => [__('submission.upload.invalidUserGroup')]
+                ], Response::HTTP_BAD_REQUEST);
+            }
+        }
+
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
@@ -1683,6 +1693,13 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);
+        }
+
+        $userGroup = Repo::userGroup()->get($params['userGroupId']);
+        if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
+            return response()->json([
+                'userGroupId' => [__('submission.upload.invalidUserGroup')]
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);

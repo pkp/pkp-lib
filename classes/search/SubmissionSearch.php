@@ -189,7 +189,22 @@ abstract class SubmissionSearch
         $mergedResults = null;
 
         if (isset($keyword['type'])) {
-            $type = $keyword['type'] ?: null;
+            $type = (int) $keyword['type'];
+        }
+
+        if (empty($keyword['+'] && empty($keyword[''])) && ($categoryIds !== null || $sectionIds !== null)) {
+            // If we have no keyword search but category or section IDs are specified, allow contents to be viewed.
+            $phrase = [];
+            $mergedResults = $this->_getMergedPhraseResults(
+                context: $context,
+                phrase: $phrase,
+                type: $type,
+                publishedFrom: $publishedFrom,
+                publishedTo: $publishedTo,
+                categoryIds: $categoryIds,
+                sectionIds: $sectionIds,
+                resultsPerKeyword: $resultsPerKeyword
+            );
         }
 
         foreach ($keyword['+'] as $phrase) {

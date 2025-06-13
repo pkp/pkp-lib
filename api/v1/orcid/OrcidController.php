@@ -28,6 +28,7 @@ use PKP\jobs\orcid\SendAuthorMail;
 use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\userGroup\UserGroup;
 
 class OrcidController extends PKPBaseController
 {
@@ -51,6 +52,7 @@ class OrcidController extends PKPBaseController
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_AUTHOR
             ]),
         ];
     }
@@ -84,6 +86,7 @@ class OrcidController extends PKPBaseController
         $author = $validate['author']; /** @var Author $author */
         try {
             $author->setData('orcidVerificationRequested', true);
+            Repo::author()->edit($author, ['orcidVerificationRequested']);
             dispatch(new SendAuthorMail($author, $context, true));
         } catch (\Exception $exception) {
             return response()->json([
@@ -126,9 +129,9 @@ class OrcidController extends PKPBaseController
     }
 
     /**
-     * Check if the current user has editor permissions
+     * Check if the current user has editor permissions or is an author on the submission.
      */
-    private function hasEditorPermissions(int $publicationId): bool
+    private function hasEditPermissions(int $publicationId): bool
     {
         $user = $this->getRequest()->getUser();
         $context = $this->getRequest()->getContext();
@@ -144,12 +147,35 @@ class OrcidController extends PKPBaseController
         }
 
         $submissionId = Repo::publication()->get($publicationId)->getData('submissionId');
+
+        // Check if is an editor assigned to this submission
         $editorAssignment = StageAssignment::withSubmissionIds([$submissionId])
             ->withRoleIds([Role::ROLE_ID_SUB_EDITOR])
             ->withUserId($user->getId())
             ->first();
 
-        return $editorAssignment !== null;
+        if ($editorAssignment !== null) {
+            return true;
+        }
+
+        // Checks if user is an author on the submission
+        $authorUserGroupIds = UserGroup::withContextIds([$context->getId()])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->get()
+            ->map(fn ($userGroup) => $userGroup->id)
+            ->toArray();
+
+        $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->withUserId($user->getId())
+            ->get();
+
+        foreach ($stageAssignments as $stageAssignment) {
+            if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -176,7 +202,7 @@ class OrcidController extends PKPBaseController
             ];
         }
 
-        if (!$this->hasEditorPermissions($author->getData('publicationId'))) {
+        if (!$this->hasEditPermissions($author->getData('publicationId'))) {
             return [
                 'error' => __('api.orcid.403.editWithoutPermission'),
                 'status' => Response::HTTP_FORBIDDEN

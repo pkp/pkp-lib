@@ -1013,3 +1013,51 @@ Cypress.Commands.add('openEmailTemplate', (mailableName, templateName) => {
 Cypress.Commands.add('setEmailTemplateUnrestrictedTo', (value) => {
 	cy.get(`input[name="isUnrestricted"][value="${value}"]`).check({force: true})
 });
+
+Cypress.Commands.add('addCategory', (title, path, parentName) => {
+	if (parentName) {
+		cy.contains('tr', parentName)
+			.find('button[aria-label="More Actions"]')
+			.click({force: true});
+
+		cy.get('div[role="menu"]')
+			.find('div[role="menuitem"]')
+			.contains('button', 'Add')
+			.click();
+	} else {
+		cy.get('button:contains("Add Category")').click();
+	}
+
+	cy.get('input[name^="title-en"]').type(title);
+	cy.get('input[name^="path"]').type(path);
+	cy.get('form.categories__categoryForm button:contains("Save")').click();
+
+	// Check that category is in the updated tree
+	cy.wait(2000);
+	cy.contains('tr', title);
+});
+
+Cypress.Commands.add('openCategory', (title) => {
+	cy.contains('tr', title)
+		.find('button[aria-label="More Actions"]')
+		.click({force: true});
+
+	cy.get('div[role="menu"]')
+		.find('div[role="menuitem"]')
+		.contains('button', 'Edit')
+		.click();
+});
+
+/**
+ * Toggle sub-categories in the category hierarchy. To toggle a category, all previous categories in the chain has to be toggled first.
+ * Therefore, the entire category chain(in the correct order) must be passed. E.g to expand a "Computer Vision" category 2 levels deep, the hierarchy should be:
+ * ['Applied Science', 'Computer Science', 'Computer Vision'].
+ * @param {Array} hierarchy - An array of category names in the order they should be toggled.
+ */
+Cypress.Commands.add('toggleSubCategories', (hierarchy) => {
+	hierarchy.forEach((categoryName) => {
+		cy.contains('tr', categoryName)
+			.find('button[data-cy="category-manager-toggle-sub-categories"]')
+			.click();
+	});
+});

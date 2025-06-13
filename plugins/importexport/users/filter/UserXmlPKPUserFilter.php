@@ -19,14 +19,17 @@ namespace PKP\plugins\importexport\users\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
 use PKP\mail\mailables\UserCreated;
 use PKP\plugins\importexport\users\PKPUserImportExportDeployment;
+use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\SiteDAO;
 use PKP\user\User;
+use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
@@ -314,21 +317,60 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
             // no exception thrown as is the case with \PKP\author\Author import.
-            $userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
-            if ($userGroupNodeList->length > 0) {
-                for ($i = 0; $i < $userGroupNodeList->length; $i++) {
-                    $n = $userGroupNodeList->item($i);
+            $userUserGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_user_group');
+
+            if ($userUserGroupNodeList->length > 0) {
+                for ($i = 0; $i < $userUserGroupNodeList->length; $i++) {
+                    $n = $userUserGroupNodeList->item($i);
+
+                    $userGroupNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref')->item(0);
+                    $dateStartNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_start')->item(0);
+                    $dateStart = $dateStartNode?->textContent;
+                    $dateEndNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'date_end')->item(0);
+                    $dateEnd = $dateEndNode?->textContent;
+                    $mastheadNode = $n->getElementsByTagNameNS($deployment->getNamespace(), 'masthead')->item(0);
+                    $masthead = filter_var($mastheadNode->textContent, FILTER_VALIDATE_BOOLEAN);
 
                     /** @var \PKP\userGroup\UserGroup $userGroup */
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
-                        // and the user is not already assigned to that group
-                        if (
-                            in_array($n->textContent, $userGroup->name) &&
-                            !Repo::userGroup()->userInGroup($userId, $userGroup->id)
-                        ) {
-                            // Found a candidate; assign user to it.
-                            Repo::userGroup()->assignUserToGroup($userId, $userGroup->id);
+                        if (in_array($userGroupNode->textContent, $userGroup->name)) {
+                            $endedExists = UserUserGroup::withUserId($userId)
+                                ->withUserGroupIds([$userGroup->id])
+                                ->withEnded()
+                                ->get()
+                                ->count() > 0;
+                            $activeExists = UserUserGroup::withUserId($userId)
+                                ->withUserGroupIds([$userGroup->id])
+                                ->withActive()
+                                ->get()
+                                ->count() > 0;
+
+                            // if it is an active user group (according to the XML that is imported),
+                            // and the user is currently not active in that group
+                            // or
+                            // if it is a past/ended user group (according to the XML that is imported),
+                            // and there is no such entry in the user_user_group table
+                            if (($dateEnd == null && !$activeExists) || ($dateEnd != null && !$endedExists)) {
+                                // import that user_user_group
+                                if ($userGroup->roleId = Role::ROLE_ID_REVIEWER) {
+                                    $masthead = true;
+                                }
+
+                                $dateStart = $startDate ?? Core::getCurrentDate();
+                                // Clear editorial masthead cache if a new user is assigned to a masthead role
+                                if ($userGroup->masthead && $masthead) {
+                                    Repo::userGroup()::forgetEditorialCache($userGroup->contextId);
+                                }
+
+                                UserUserGroup::create([
+                                    'userId' => $userId,
+                                    'userGroupId' => $userGroup->id,
+                                    'dateStart' => $dateStart,
+                                    'dateEnd' => $dateEnd,
+                                    'masthead' => $masthead,
+                                ]);
+                            }
                         }
                     }
                 }

@@ -2,7 +2,7 @@
 # Informatikaria <informatikaria@ueu.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-13 12:53+0000\n"
+"PO-Revision-Date: 2025-06-13 12:56+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -182,15 +182,12 @@ msgstr "Mota"
 msgid "reviewer.submission.reviewRound.metadata.abstract"
 msgstr "Laburpena"
 
-#, fuzzy
 msgid "reviewer.submission.reviewRound.metadata.keywords"
 msgstr "Gako-hitzak"
 
-#, fuzzy
 msgid "reviewer.submission.reviewRound.general"
 msgstr "Informazio orokorra"
 
-#, fuzzy
 msgid "reviewer.submission.reviewRound.attachments"
 msgstr "Eranskinak"
 

@@ -254,7 +254,7 @@ class Repository
 
         $affiliation = $this->newDataObject();
         $userAffiliations = $user->getAffiliation(null);
-        if (empty($userAffiliations)) {
+        if (empty($userAffiliations) || count(array_filter($userAffiliations)) == 0) {
             return null;
         }
         foreach ($userAffiliations as $locale => $name) {

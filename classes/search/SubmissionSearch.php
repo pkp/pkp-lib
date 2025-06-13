@@ -25,8 +25,10 @@ use APP\core\Request;
 use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\core\PKPRequest;
 use PKP\core\VirtualArrayIterator;
 use PKP\db\DAO;
+use PKP\db\DBResultRange;
 use PKP\plugins\Hook;
 use PKP\user\User;
 
@@ -62,7 +64,7 @@ abstract class SubmissionSearch
      *
      * @return array of the form ('+' => <required>, '' => <optional>, '-' => excluded)
      */
-    public function _parseQuery($query)
+    public function _parseQuery($query): array
     {
         $count = preg_match_all('/(\+|\-|)("[^"]+"|\(|\)|[^\s\)]+)/', $query, $matches);
         $pos = 0;
@@ -73,7 +75,7 @@ abstract class SubmissionSearch
      * Query parsing helper routine.
      * Returned structure is based on that used by the Search::QueryParser Perl module.
      */
-    public function _parseQueryInternal($signTokens, $tokens, &$pos, $total)
+    public function _parseQueryInternal($signTokens, $tokens, &$pos, $total): array
     {
         $return = ['+' => [], '' => [], '-' => []];
         $postBool = $preBool = '';
@@ -137,8 +139,14 @@ abstract class SubmissionSearch
      *
      * @return array An ordered and flattened list of article IDs.
      */
-    public function _getMergedArray($context, &$keywords, $publishedFrom, $publishedTo)
-    {
+    public function _getMergedArray(
+        Context $context,
+        array &$keywords,
+        ?string $publishedFrom,
+        ?string $publishedTo,
+        ?array $categoryIds,
+        ?array $sectionIds
+    ): array {
         $resultsPerKeyword = Config::getVar('search', 'results_per_keyword', 100);
 
         $mergedKeywords = ['+' => [], '' => [], '-' => []];
@@ -153,22 +161,48 @@ abstract class SubmissionSearch
                 $mergedKeywords['-'][] = ['type' => $type, '+' => [], '' => $keyword['-'], '-' => []];
             }
         }
-        return $this->_getMergedKeywordResults($context, $mergedKeywords, null, $publishedFrom, $publishedTo, $resultsPerKeyword);
+        return $this->_getMergedKeywordResults(
+            context: $context,
+            keyword: $mergedKeywords,
+            type: null,
+            publishedFrom: $publishedFrom,
+            publishedTo: $publishedTo,
+            categoryIds: $categoryIds,
+            sectionIds: $sectionIds,
+            resultsPerKeyword: $resultsPerKeyword
+        );
     }
 
     /**
      * Recursive helper for _getMergedArray.
      */
-    public function _getMergedKeywordResults($context, &$keyword, $type, $publishedFrom, $publishedTo, $resultsPerKeyword)
-    {
+    public function _getMergedKeywordResults(
+        Context $context,
+        array &$keyword,
+        ?int $type,
+        ?string $publishedFrom,
+        ?string $publishedTo,
+        ?array $categoryIds,
+        ?array $sectionIds,
+        int $resultsPerKeyword
+    ): array {
         $mergedResults = null;
 
         if (isset($keyword['type'])) {
-            $type = $keyword['type'];
+            $type = $keyword['type'] ?: null;
         }
 
         foreach ($keyword['+'] as $phrase) {
-            $results = $this->_getMergedPhraseResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword);
+            $results = $this->_getMergedPhraseResults(
+                context: $context,
+                phrase: $phrase,
+                type: $type,
+                publishedFrom: $publishedFrom,
+                publishedTo: $publishedTo,
+                categoryIds: $categoryIds,
+                sectionIds: $sectionIds,
+                resultsPerKeyword: $resultsPerKeyword
+            );
             if ($mergedResults === null) {
                 $mergedResults = $results;
             } else {
@@ -214,19 +248,38 @@ abstract class SubmissionSearch
     /**
      * Recursive helper for _getMergedArray.
      */
-    protected function _getMergedPhraseResults($context, &$phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword)
-    {
+    protected function _getMergedPhraseResults(
+        Context $context,
+        array &$phrase,
+        ?int $type,
+        ?string $publishedFrom,
+        ?string $publishedTo,
+        ?array $categoryIds,
+        ?array $sectionIds,
+        int $resultsPerKeyword
+    ): array {
         if (isset($phrase['+'])) {
-            return $this->_getMergedKeywordResults($context, $phrase, $type, $publishedFrom, $publishedTo, $resultsPerKeyword);
+            return $this->_getMergedKeywordResults(
+                context: $context,
+                keyword: $phrase,
+                type: $type,
+                publishedFrom: $publishedFrom,
+                publishedTo: $publishedTo,
+                categoryIds: $categoryIds,
+                sectionIds: $sectionIds,
+                resultsPerKeyword: $resultsPerKeyword
+            );
         }
 
         return $this->getSearchDao()->getPhraseResults(
-            $context,
-            $phrase,
-            $publishedFrom,
-            $publishedTo,
-            $type,
-            $resultsPerKeyword
+            context: $context,
+            phrase: $phrase,
+            publishedFrom: $publishedFrom,
+            publishedTo: $publishedTo,
+            type: $type,
+            categoryIds: $categoryIds,
+            sectionIds: $sectionIds,
+            limit: $resultsPerKeyword
         );
     }
 
@@ -238,15 +291,6 @@ abstract class SubmissionSearch
      * $keywords[SUBMISSION_SEARCH_...] = array(...);
      * $keywords[''] = array('Matches', 'All', 'Fields');
      *
-     * @param Request $request
-     * @param Context $context The context to search
-     * @param array $keywords List of keywords
-     * @param string $error a reference to a variable that will
-     *  contain an error message if the search service produces
-     *  an error.
-     * @param string $publishedFrom Search-from date
-     * @param string $publishedTo Search-to date
-     * @param ?\PKP\db\DBResultRange $rangeInfo Information on the range of results to return
      * @param array $exclude An array of article IDs to exclude from the result.
      *
      * @return VirtualArrayIterator An iterator with one entry per retrieved
@@ -254,8 +298,18 @@ abstract class SubmissionSearch
      *
      * @hook SubmissionSearch::retrieveResults [[&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results]]
      */
-    public function retrieveResults($request, $context, $keywords, &$error, $publishedFrom = null, $publishedTo = null, $rangeInfo = null, $exclude = [])
-    {
+    public function retrieveResults(
+        PKPRequest $request,
+        Context $context,
+        array $keywords,
+        ?string &$error,
+        ?string $publishedFrom = null,
+        ?string $publishedTo = null,
+        ?array $categoryIds = null,
+        ?array $sectionIds = null,
+        ?DBResultRange $rangeInfo = null,
+        array $exclude = []
+    ): VirtualArrayIterator {
         // Pagination
         if ($rangeInfo && $rangeInfo->isValid()) {
             $page = $rangeInfo->getPage();
@@ -288,7 +342,14 @@ abstract class SubmissionSearch
             // (mergedResults), where mergedResults[submission_id]
             // = sum of all the occurrences for all keywords associated with
             // that article ID.
-            $mergedResults = $this->_getMergedArray($context, $keywords, $publishedFrom, $publishedTo);
+            $mergedResults = $this->_getMergedArray(
+                context: $context,
+                keywords: $keywords,
+                publishedFrom: $publishedFrom,
+                publishedTo: $publishedTo,
+                categoryIds: $categoryIds,
+                sectionIds: $sectionIds
+            );
 
             // Convert mergedResults into an array (frequencyIndicator =>
             // $submissionId).
@@ -325,10 +386,8 @@ abstract class SubmissionSearch
     /**
      * Return the available options for the result
      * set ordering direction.
-     *
-     * @return array
      */
-    public function getResultSetOrderingDirectionOptions()
+    public function getResultSetOrderingDirectionOptions(): array
     {
         return [
             'asc' => __('search.results.orderDir.asc'),
@@ -340,13 +399,11 @@ abstract class SubmissionSearch
      * Return the currently selected result
      * set ordering option (default: descending relevance).
      *
-     * @param Request $request
-     *
      * @return array An array with the order field as the
      * first entry and the order direction as the second
      * entry.
      */
-    public function getResultSetOrdering($request)
+    public function getResultSetOrdering(PKPRequest $request): array
     {
         // Order field.
         $orderBy = $request->getUserVar('orderBy');
@@ -375,12 +432,10 @@ abstract class SubmissionSearch
      * Note that this function is also called externally to fetch
      * results for the title index, and possibly elsewhere.
      *
-     * @param array $results
      * @param User $user optional (if availability information is desired)
      *
-     * @return array
      */
-    abstract public function formatResults($results, $user = null);
+    abstract public function formatResults(array $results, ?User $user = null): array;
 
     /**
      * Return the available options for result set ordering.

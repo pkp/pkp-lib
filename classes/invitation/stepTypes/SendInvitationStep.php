@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/invitation/stepType/SendInvitationStep.php
  *
@@ -107,7 +108,7 @@ class SendInvitationStep extends InvitationStepTypes
             ),
             [
                 'validateFields' => [],
-                'userGroups' => $this->getAllUserGroups($context)
+                'userGroups' => $this->getAllUserGroups($context),
             ]
         );
         $step = new Step(
@@ -171,15 +172,6 @@ class SendInvitationStep extends InvitationStepTypes
      */
     private function getAllUserGroups(Context $context): array
     {
-        $allUserGroups = [];
-        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
-        foreach ($userGroups as $userGroup) {
-            $allUserGroups[] = [
-                'value' => (int) $userGroup->id,
-                'label' => $userGroup->getLocalizedData('name'),
-                'disabled' => false
-            ];
-        }
-        return $allUserGroups;
+        return UserGroup::withContextIds([$context->getId()])->get()->values()->toArray();
     }
 }

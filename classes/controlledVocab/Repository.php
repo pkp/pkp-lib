@@ -141,6 +141,10 @@ class Repository
             });
     }
 
+    /**
+     * Hydrate controlled vocab entries as entry data for a publication which will
+     * include other meta information(e.g. source & identifier) in vocabs
+     */
     public function hydrateVocabsAsEntryData(PKPPublication $publication): PKPPublication
     {
         $mappings = [

@@ -361,9 +361,7 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId(),
-                // [],
-                // \PKP\controlledVocab\Repository::AS_ENTRY_DATA
+                $publication->getId()
             )
         );
 
@@ -372,9 +370,7 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId(),
-                // [],
-                // \PKP\controlledVocab\Repository::AS_ENTRY_DATA
+                $publication->getId()
             )
         );
 
@@ -383,9 +379,7 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId(),
-                // [],
-                // \PKP\controlledVocab\Repository::AS_ENTRY_DATA
+                $publication->getId()
             )
         );
 
@@ -394,9 +388,7 @@ class DAO extends EntityDAO
             Repo::controlledVocab()->getBySymbolic(
                 ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
                 Application::ASSOC_TYPE_PUBLICATION,
-                $publication->getId(),
-                // [],
-                // \PKP\controlledVocab\Repository::AS_ENTRY_DATA
+                $publication->getId()
             )
         );
     }

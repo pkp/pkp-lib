@@ -40,6 +40,29 @@
 				"regex:/^[A-Z]{2}$/"
 			]
 		},
+		"creditRoles": {
+			"type": "array",
+			"description": "CRediT Roles",
+			"apiSummary": true,
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"role": {
+						"type": "string",
+						"validation": [
+							"url"
+						]
+					},
+					"degree": {
+						"type": "string"
+					}
+				}
+			},
+			"validation": [
+				"nullable"
+			]
+		},
 		"email": {
 			"type": "string",
 			"apiSummary": true,

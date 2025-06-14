@@ -61,10 +61,14 @@
 		"fix": "PHP_CS_FIXER_IGNORE_ENV=1 ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes",
 		"post-install-cmd": [
 			"@isoFileCheck",
+			"@creditRolesFilesDownload",
 			"@weblateFilesDownload"
 		],
 		"isoFileCheck": [
 			"PKP\\dev\\ComposerScript::isoFileCheck"
+		],
+		"creditRolesFilesDownload": [
+			"PKP\\dev\\ComposerScript::creditRolesFilesDownload"
 		],
 		"weblateFilesDownload": [
 			"PKP\\dev\\ComposerScript::weblateFilesDownload"

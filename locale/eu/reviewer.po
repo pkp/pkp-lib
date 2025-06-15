@@ -2,7 +2,7 @@
 # Informatikaria <informatikaria@ueu.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-13 12:56+0000\n"
+"PO-Revision-Date: 2025-06-15 20:41+0000\n"
 "Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -30,18 +30,18 @@ msgstr "Ebaluazio eskaera"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
-"Ondorengo bidalketaren  balizko ebaluatzaile gisa hautatua izan zara. "
-"Jarraian, lanaren ikuspegi orokorra ematen da, baita ebaluaziorako "
-"kronograma. Espero dugu parte hartu ahal izatea."
+"Ondorengo bidalketaren ebaluatzaile potentzial moduan hautatua izan zara.  "
+"Hemen bidalketaren ikuspegi orokorra eta ebaluaziorako epeak aurkezten "
+"dira.  Parte hartzeko aukera izango duzula espero dugu."
 
 msgid "reviewer.step1.viewAllDetails"
-msgstr "Ikusi bidalketa-xehetasun guztiak"
+msgstr "Bidalketa-xehetasun guztiak ikusi"
 
 msgid "reviewer.submission.reviewerFiles"
-msgstr "Ebaluatzailearen fitxategiak"
+msgstr "Ebaluatzaile fitxategiak"
 
 msgid "reviewer.submission.declineReview"
-msgstr "Ebaluazio eskaerari uko egin"
+msgstr "Ebaluazio eskaera baztertu"
 
 msgid "reviewer.submission.declineReviewMessage"
 msgstr ""
@@ -49,7 +49,7 @@ msgstr ""
 "diezazkiokezu editoreari."
 
 msgid "reviewer.submission.acceptReview"
-msgstr "Onartu ebaluazioa, #2 urratsera joan"
+msgstr "Ebaluazioa onartu, jarraitu #2 urratsera"
 
 msgid "reviewer.submission.continueToStepThree"
 msgstr "Jarraitu #3 urratsera"
@@ -70,7 +70,7 @@ msgstr ""
 "berrikusteko."
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr "Ez dut inolako interes kotrajarririk"
+msgstr "Ez dut inolako interes kontrajarririk"
 
 msgid "reviewer.submission.hasCompetingInterests"
 msgstr "Baliteke interes kontrajarriak izatea (Behean zehaztu)"
@@ -79,19 +79,18 @@ msgid "reviewer.submission.competingInterests"
 msgstr "Interes kontrajarriak"
 
 msgid "reviewer.submission.guidelines"
-msgstr "Ebaluaziorako jarraibideak"
+msgstr "Ebaluazio Jarraibideak"
 
 msgid "reviewer.submission.noGuidelines"
-msgstr "Argitaratzaile honek ez du ebaluaziorako jarraibiderik ezarri ."
+msgstr "Argitaletxeak ez du ezarri ebaluatzaile jarraibiderik."
 
 msgid "reviewer.submission.downloadDescription"
 msgstr ""
-"Egin klik beheko fitxategi izenen gainean bidalketa honi lotutako "
+"Egin klik beheko fitxategi izenen gainean bidalketa honekin lotutako "
 "fitxategiak deskargatzeko."
 
 msgid "reviewer.submission.reviewDescription"
-msgstr ""
-"Sartu (edo itsatsi) bidalketa honi egin diozu ebaluazioa beheko inprimakian."
+msgstr "Sartu (edo itsatsi) bidalketaren ebaluazioa beheko inprimakian."
 
 msgid "reviewer.submission.uploadDescription"
 msgstr ""
@@ -99,10 +98,10 @@ msgstr ""
 "jatorrizko ebaluazio fitxategien bertsio errebisatuak barne."
 
 msgid "reviewer.complete"
-msgstr "Aurkeztutako ebaluazioa"
+msgstr "Ebaluazioa Bidali Da"
 
 msgid "reviewer.confirmSubmit"
-msgstr "Ziur zaude ebaluazioa aurkeztu nahi duzula?"
+msgstr "Ziur zaude ebaluazioa bidali nahi duzula?"
 
 msgid "reviewer.complete.whatNext"
 msgstr ""
@@ -112,13 +111,13 @@ msgstr ""
 "informazio gehiago lortzeko, beharrezkoa izanez gero."
 
 msgid "reviewer.aboutDueDates"
-msgstr "Erantzunaren Epemugei buruz"
+msgstr "Epemugei buruz"
 
 msgid "reviewer.aboutDueDates.text"
 msgstr ""
-"Editoreak eskatzen dizu ebaluazioa onartzeko edo ukatzeko Erantzunaren "
-"Epemuga baino lehen eta ebaluazioa bukatzeko Ebaluazioaren Epemuga baino "
-"lehen."
+"Editoreak eskatzen dizu Erantzunaren Epemuga baino lehen ebaluazioa "
+"onartzeko edo ukatzeko eta Ebaluazioaren Epemuga baino lehen ebaluazioa "
+"bukatzeko."
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr "Egile eta editorearentzat"
@@ -137,8 +136,8 @@ msgstr "Ebaluatzaileei bidali"
 
 msgid "user.authorization.submissionReviewer"
 msgstr ""
-"Uneko erabiltzailea ez dago eskatutako dokumentuaren ebaluatzaile gisa "
-"esleituta."
+"Uneko erabiltzaile hau ez da eskatutako dokumentuaren ebaluatzaile gisa "
+"esleitu."
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Ez da ebaluazioa amaitu."

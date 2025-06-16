@@ -5,4 +5,4 @@ msgid "userAccess.tableHeader.name"
 msgstr "Name"
 
 msgid "userAccess.search"
-msgstr "Enter a user's name, role (e.g Journal editor), or affiliation"
+msgstr "Search User"

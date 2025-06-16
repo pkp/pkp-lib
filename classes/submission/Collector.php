@@ -780,17 +780,13 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
         // Aggregate current review round number, don't include review assignments in non-relevant rounds
         $currentReviewRound = DB::table('review_rounds', 'rr')
-            ->select('rr.submission_id')
+            ->join('submissions AS s', 's.submission_id', '=', 'rr.submission_id')
+            ->select('rr.submission_id', 's.stage_id')
             ->selectRaw('MAX(rr.round) as current_round')
             ->groupBy('rr.submission_id')
             // narrow results to the active workflow stage, needed for OMP
-            ->whereIn(
-                'rr.stage_id',
-                fn (Builder $q) => $q
-                    ->from('submissions AS s')
-                    ->select('s.stage_id')
-                    ->whereColumn('rr.stage_id', 's.stage_id')
-            );
+            ->whereColumn('s.stage_id', 'rr.stage_id');
+
 
         $q->when(
             $this->isReviewedBy !== null,
@@ -810,6 +806,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     ->where('ra.declined', 0)
                     ->where('ra.cancelled', 0)
                     ->whereColumn('ra.round', '=', 'agrr.current_round')
+                    ->whereColumn('ra.stage_id', '=', 'agrr.stage_id')
             )
         );
 
@@ -835,6 +832,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                     $join->on('ra.submission_id', '=', 'agrr.submission_id')
                                 )
                                 ->whereColumn('ra.round', '=', 'agrr.current_round')
+                                ->whereColumn('ra.stage_id', '=', 'agrr.stage_id')
                                 ->where(
                                     fn (Builder $q) => $q
                                         ->whereNotNull('ra.date_considered')
@@ -870,6 +868,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         ->where('ra.cancelled', 0)
                         ->where('ra.declined', 0)
                         ->whereColumn('ra.round', '=', 'agrr.current_round')
+                        ->whereColumn('ra.stage_id', '=', 'agrr.stage_id')
                 )
         );
 
@@ -889,6 +888,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         )
                         ->whereNotNull('ra.date_completed')
                         ->whereColumn('ra.round', '=', 'agrr.current_round')
+                        ->whereColumn('ra.stage_id', '=', 'agrr.stage_id')
                 )
         );
 
@@ -907,6 +907,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         $join->on('ra.submission_id', '=', 'agrr.submission_id')
                     )
                     ->whereColumn('ra.round', '=', 'agrr.current_round')
+                    ->whereColumn('ra.stage_id', '=', 'agrr.stage_id')
                     ->where('ra.declined', 0)
                     ->where('ra.cancelled', 0)
                     ->where(
@@ -940,6 +941,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                             $join->on('rr.submission_id', '=', 'agrr.submission_id')
                         )
                         ->whereColumn('rr.round', '=', 'agrr.current_round')
+                        ->whereColumn('rr.stage_id', '=', 'agrr.stage_id')
                         ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
                 )
         );
@@ -959,6 +961,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                             $join->on('rr.submission_id', '=', 'agrr.submission_id')
                         )
                         ->whereColumn('rr.round', '=', 'agrr.current_round')
+                        ->whereColumn('rr.stage_id', '=', 'agrr.stage_id')
                         ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED)
                 )
         );

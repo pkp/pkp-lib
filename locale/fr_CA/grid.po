@@ -1,12 +1,13 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
+# Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-03-03 20:29+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-06-16 18:06+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "grid/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -478,7 +479,6 @@ msgstr "Affichage"
 msgid "contributor.listPanel.preview.abbreviated"
 msgstr "Abrégé"
 
-#, fuzzy
 msgid "contributor.listPanel.preview.publicationLists"
 msgstr "Listes de publications"
 
@@ -744,3 +744,30 @@ msgstr "Modifier un-e contributeur-trice"
 
 msgid "grid.user.logInAs"
 msgstr "Connexion sous"
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Ajouter une suggestion d'évaluateur-trice"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Supprimer suggestion d'évaluateur-trice"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Êtes-vous certain que vous souhaitez supprimer cette suggestion ? Cette "
+"action ne peut être annulée."
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Une fois que l'utilisateur-trice est activé-e, son accès au site sera "
+"rétabli, et vous pourrez l'inviter à des rôles différents."
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Veuillez noter qu'une fois qu'un utilisateur-trice est désactivé-e, vous ne "
+"pourrez plus l'ajouter à aucun rôle jusqu'à ce qu'il soit réactivé-e."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Apparaître dans l'entête"
+
+msgid "grid.user.remove"
+msgstr "Supprimer utilisateur-trice"

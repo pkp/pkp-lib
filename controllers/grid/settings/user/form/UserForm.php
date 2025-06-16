@@ -105,14 +105,15 @@ class UserForm extends Form
         $contextId = $request->getContext()?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         $templateMgr = TemplateManager::getManager($request);
 
-        $allUserGroups = $defaultMastheadUserGroups = [];
+        $allUserGroups = $defaultMastheadUserGroups = $reviewerUserGroupIds = [];
 
         $userGroups = UserGroup::withContextIds([$contextId])->get();
 
         foreach ($userGroups as $userGroup) {
             $allUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
-            if ($userGroup->roleId != Role::ROLE_ID_REVIEWER) {
-                $defaultMastheadUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
+            $defaultMastheadUserGroups[(int) $userGroup->id] = $userGroup->getLocalizedData('name');
+            if ($userGroup->roleId == Role::ROLE_ID_REVIEWER) {
+                $reviewerUserGroupIds[] = $userGroup->id;
             }
         }
 
@@ -120,6 +121,7 @@ class UserForm extends Form
             'allUserGroups' => $allUserGroups,
             'assignedUserGroups' => array_map(intval(...), $this->getData('userGroupIds')),
             'defaultMastheadUserGroups' => $defaultMastheadUserGroups,
+            'reviewerUserGroupIds' => $reviewerUserGroupIds,
         ]);
 
         return $this->fetch($request);
@@ -144,11 +146,10 @@ class UserForm extends Form
 
         if ($this->getData('userGroupIds')) {
             $contextId = $request->getContext()->getId();
-            $allUserGroupIds = UserGroup::withContextIds([$contextId])
-                ->get()
-                ->map(
-                    fn (UserGroup $userGroup) => $userGroup->userGroupId
-                )
+            $allUserGroups = UserGroup::withContextIds([$contextId])->get();
+            $allUserGroupIds = $allUserGroups->map(
+                fn (UserGroup $userGroup) => $userGroup->userGroupId
+            )
                 ->all();
             // secure that user-specified user group IDs are from the right context
             $userGroupIds = array_intersect($this->getData('userGroupIds'), $allUserGroupIds);
@@ -178,18 +179,17 @@ class UserForm extends Form
                     fn ($userGroupId) => Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId)
                 );
 
+            $reviewerUserGroupIds = $allUserGroups->filter(
+                fn (UserGroup $userGroup) => $userGroup->roleId == Role::ROLE_ID_REVIEWER
+            )->map(
+                fn (UserGroup $userGroup) => $userGroup->userGroupId
+            )->all();
             // update masthead
-            // ignore reviewer role
-            $reviewerUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_REVIEWER, $contextId);
             collect($userGroupIds)
-                ->filter(
-                    function ($userGroupId) use ($reviewerUserGroupIds) {
-                        return !in_array($userGroupId, $reviewerUserGroupIds);
-                    }
-                )
                 ->each(
-                    function ($userGroupId) use ($mastheadUserGroupIds) {
-                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, in_array($userGroupId, $mastheadUserGroupIds));
+                    function ($userGroupId) use ($mastheadUserGroupIds, $reviewerUserGroupIds) {
+                        $masthead = in_array($userGroupId, $mastheadUserGroupIds) || in_array($userGroupId, $reviewerUserGroupIds);
+                        Repo::userGroup()->updateUserUserGroupMasthead($this->userId, $userGroupId, $masthead);
                     }
                 );
         }

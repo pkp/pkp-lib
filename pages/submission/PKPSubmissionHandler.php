@@ -165,6 +165,8 @@ abstract class PKPSubmissionHandler extends Handler
 
         /** @var Publication $publication */
         $publication = $submission->getCurrentPublication();
+        
+        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
 
         /** @var int $sectionId */
         $sectionId = $publication->getData(Application::getSectionIdPropName());

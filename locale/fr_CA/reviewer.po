@@ -1,12 +1,13 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2025.
+# Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-03-03 20:29+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-06-16 18:06+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -207,6 +208,5 @@ msgstr ""
 "L'utilisateur-trice actuel-elle n'est pas assigné-e en tant qu'évaluateur-"
 "trice pour le document demandé."
 
-#, fuzzy
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "L'évaluation n'a pas été terminée."

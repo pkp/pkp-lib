@@ -783,7 +783,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
             ->join('submissions AS s', 's.submission_id', '=', 'rr.submission_id')
             ->select('rr.submission_id', 's.stage_id')
             ->selectRaw('MAX(rr.round) as current_round')
-            ->groupBy('rr.submission_id')
+            ->groupBy('rr.submission_id', 's.submission_id')
             // narrow results to the active workflow stage, needed for OMP
             ->whereColumn('s.stage_id', 'rr.stage_id');
 

@@ -1,13 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
+# Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2025-03-03 20:29+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-06-16 18:06+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -203,23 +204,19 @@ msgstr "Notification de rapport éditorial"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Rappel d'expiration d'abonnement"
 
-#, fuzzy
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Supprimer les utilisateurs-trices expirés et non validés"
 
-#, fuzzy
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
 "Supprimer les travaux très anciens en échec de la liste des travaux en échec."
 
-#, fuzzy
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Traiter les travaux en attente dans la file d'attente"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Mettre à jour la base de données DB-IP city lite"
 
-#, fuzzy
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
 "Le renommage du fichier de base de données DB-IP city lite {$sourceFilename} "

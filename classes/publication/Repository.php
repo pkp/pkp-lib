@@ -438,6 +438,7 @@ abstract class Repository
             }
         }
 
+        $publication = Repo::controlledVocab()->hydrateVocabsAsEntryData($publication);
         $newPublication = Repo::publication()->newDataObject(array_merge($publication->_data, $params));
         $newPublication->stampModified();
 

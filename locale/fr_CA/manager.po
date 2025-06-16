@@ -4,13 +4,14 @@
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
+# Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-03-03 20:29+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-06-16 18:06+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -367,7 +368,6 @@ msgstr ""
 msgid "doi.exceptions.missingPrefix"
 msgstr "Un préfixe DOI est requis afin de créer un DOI."
 
-#, fuzzy
 msgid "manager.genres.alertDelete"
 msgstr ""
 "Avant que cette élément puisse être supprimé, vous devez associé tous les "
@@ -3945,3 +3945,9 @@ msgstr "Aucun rappel configuré"
 #, fuzzy
 msgid "settings.roles.permitSettings"
 msgstr "Autoriser la modification des configurations"
+
+msgid "manager.highlights.add"
+msgstr "Ajouter un clou"
+
+msgid "manager.highlights.delete"
+msgstr "Supprimer le clou"

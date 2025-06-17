@@ -110,7 +110,9 @@ abstract class I9425_SeparateUIAndSubmissionLocales extends Migration
                     // If there is a '-delimited string part, fetch and use it. If it's just
                     // "::character varying", it was an empty string.
                     true => empty($column['default']) ? null : explode("'", $column['default'])[1],
-                    false => $column['default'],
+                    // For MariaDB > 10.11.13, defaults may be wrapped in ' due to MDEV-13132. If so,
+                    // trim quotes from string defaults.
+                    false => is_string($column['default']) ? trim($column['default'], "'") : $column['default'],
                 };
                 Schema::table($tableName, fn (Blueprint $table) => $table->string($column['name'], 28)->nullable($column['nullable'])->default($default)->change());
             });

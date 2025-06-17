@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-11 15:34+0000\n"
+"PO-Revision-Date: 2025-06-17 17:40+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -2879,3 +2879,72 @@ msgstr ""
 
 msgid "submission.wizard.noReviewerSuggestions"
 msgstr "Er zijn geen recensenten voorgesteld voor deze inzending."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Aan mij toegekend"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Niet op tijd behandelde recensies"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Volledige recensie door vakgenoten"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Ingediende recensies"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "In afwachting van recensies"
+
+#, fuzzy
+msgid "submission.dashboard.view.copyediting"
+msgstr "Volledig in de taalkundige redactiefase"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Alle opdrachten"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "In afwachting"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Voltooid / Afgewezen"
+
+msgid "submission.dashboard.view.active"
+msgstr "Nog in behandeling zijnde inzendingen"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Dit moet nog worden gerecenseerd"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Volledig in de recensiefase"
+
+#, fuzzy
+msgid "submission.dashboard.view.production"
+msgstr "Volledige in de productiefase"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Afgewezen"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Verzochte aanpassingen"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Onvolledige inzendingen"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Ingezonden aanpassingen van de auteur"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Volledig in de inzendingsfase"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Alle opdrachten"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Dit behoeft nog aandacht van een redacteur"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Gepland voor publicatie"
+
+msgid "submission.dashboard.view.published"
+msgstr "Gepubliceerd"

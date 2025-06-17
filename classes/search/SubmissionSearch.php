@@ -29,7 +29,6 @@ use PKP\core\PKPRequest;
 use PKP\core\VirtualArrayIterator;
 use PKP\db\DAO;
 use PKP\db\DBResultRange;
-use PKP\plugins\Hook;
 use PKP\user\User;
 
 abstract class SubmissionSearch
@@ -45,7 +44,6 @@ abstract class SubmissionSearch
     public const SUBMISSION_SEARCH_COVERAGE = 64;
     public const SUBMISSION_SEARCH_GALLEY_FILE = 128;
     public const SUBMISSION_SEARCH_SUPPLEMENTARY_FILE = 256;
-    public const SUBMISSION_SEARCH_INDEX_TERMS = 120;
 
     public const SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT = 20;
 
@@ -310,14 +308,11 @@ abstract class SubmissionSearch
      *
      * @return VirtualArrayIterator An iterator with one entry per retrieved
      *  article containing the article, published submission, issue, context, etc.
-     *
-     * @hook SubmissionSearch::retrieveResults [[&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results]]
      */
     public function retrieveResults(
         PKPRequest $request,
         Context $context,
         array $keywords,
-        ?string &$error,
         ?string $publishedFrom = null,
         ?string $publishedTo = null,
         ?array $categoryIds = null,
@@ -340,54 +335,46 @@ abstract class SubmissionSearch
         // Check whether a search plug-in jumps in to provide ranked search results.
         $totalResults = null;
         $results = null;
-        $hookResult = Hook::call(
-            'SubmissionSearch::retrieveResults',
-            [&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results]
+
+        // Parse the query.
+        foreach ($keywords as $searchType => $query) {
+            $keywords[$searchType] = $this->_parseQuery($query);
+        }
+
+        // Fetch all the results from all the keywords into one array
+        // (mergedResults), where mergedResults[submission_id]
+        // = sum of all the occurrences for all keywords associated with
+        // that article ID.
+        $mergedResults = $this->_getMergedArray(
+            context: $context,
+            keywords: $keywords,
+            publishedFrom: $publishedFrom,
+            publishedTo: $publishedTo,
+            categoryIds: $categoryIds,
+            sectionIds: $sectionIds
         );
 
-        // If no search plug-in is activated then fall back to the
-        // default database search implementation.
-        if ($hookResult === false) {
-            // Parse the query.
-            foreach ($keywords as $searchType => $query) {
-                $keywords[$searchType] = $this->_parseQuery($query);
-            }
+        // Convert mergedResults into an array (frequencyIndicator =>
+        // $submissionId).
+        // The frequencyIndicator is a synthetically-generated number,
+        // where higher is better, indicating the quality of the match.
+        // It is generated here in such a manner that matches with
+        // identical frequency do not collide.
+        $results = $this->getSparseArray($mergedResults, $orderBy, $orderDir, $exclude);
+        $totalResults = count($results);
 
-            // Fetch all the results from all the keywords into one array
-            // (mergedResults), where mergedResults[submission_id]
-            // = sum of all the occurrences for all keywords associated with
-            // that article ID.
-            $mergedResults = $this->_getMergedArray(
-                context: $context,
-                keywords: $keywords,
-                publishedFrom: $publishedFrom,
-                publishedTo: $publishedTo,
-                categoryIds: $categoryIds,
-                sectionIds: $sectionIds
+        // Use only the results for the specified page.
+        $offset = $itemsPerPage * ($page - 1);
+        $length = max($totalResults - $offset, 0);
+        $length = min($itemsPerPage, $length);
+        if ($length == 0) {
+            $results = [];
+        } else {
+            $results = array_slice(
+                $results,
+                $offset,
+                $length
             );
-
-            // Convert mergedResults into an array (frequencyIndicator =>
-            // $submissionId).
-            // The frequencyIndicator is a synthetically-generated number,
-            // where higher is better, indicating the quality of the match.
-            // It is generated here in such a manner that matches with
-            // identical frequency do not collide.
-            $results = $this->getSparseArray($mergedResults, $orderBy, $orderDir, $exclude);
-            $totalResults = count($results);
-
-            // Use only the results for the specified page.
-            $offset = $itemsPerPage * ($page - 1);
-            $length = max($totalResults - $offset, 0);
-            $length = min($itemsPerPage, $length);
-            if ($length == 0) {
-                $results = [];
-            } else {
-                $results = array_slice(
-                    $results,
-                    $offset,
-                    $length
-                );
-            }
         }
 
         // Take the range of results and retrieve the Article, Journal,

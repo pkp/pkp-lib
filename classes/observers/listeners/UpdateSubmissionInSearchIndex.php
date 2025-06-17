@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
-use PKP\jobs\submissions\UpdateSubmissionSearchJob;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 
@@ -43,11 +42,11 @@ class UpdateSubmissionInSearchIndex
 
     public function handleUnpublished(PublicationUnpublished $event)
     {
-        dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
+        $event->submission->syncRemoveFromSearch(collect([$event->submission]));
     }
 
     public function handlePublicationPublished(PublicationPublished $event)
     {
-        dispatch(new UpdateSubmissionSearchJob($event->submission->getId()));
+        $event->submission->syncMakeSearchable(collect([$event->submission]));
     }
 }

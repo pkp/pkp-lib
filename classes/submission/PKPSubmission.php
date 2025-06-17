@@ -30,6 +30,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\DAO;
 use Illuminate\Support\LazyCollection;
+use Laravel\Scout\Searchable;
 use PKP\core\Core;
 use PKP\facades\Locale;
 
@@ -38,6 +39,8 @@ use PKP\facades\Locale;
  */
 abstract class PKPSubmission extends \PKP\core\DataObject
 {
+    use Searchable;
+
     // Submission status constants
     public const STATUS_QUEUED = 1;
     public const STATUS_PUBLISHED = 3;

@@ -1722,12 +1722,6 @@ msgstr "Disciplina(s)"
 msgid "search.fullText"
 msgstr "Texto completo"
 
-msgid "search.indexTerms"
-msgstr "Términos de indexación"
-
-msgid "search.indexTermsLong"
-msgstr "Todos los campos de términos de la indexación"
-
 msgid "search.matchAll"
 msgstr "Coincidencia en todas las categorías"
 

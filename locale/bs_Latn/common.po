@@ -1633,12 +1633,6 @@ msgstr "Disciplina/e"
 msgid "search.fullText"
 msgstr "Tekst priloga"
 
-msgid "search.indexTerms"
-msgstr "Pojmovi"
-
-msgid "search.indexTermsLong"
-msgstr ""
-
 msgid "search.matchAll"
 msgstr "Združi sve kategorije"
 

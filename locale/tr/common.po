@@ -1694,12 +1694,6 @@ msgstr "Bilim dal(lar)ı"
 msgid "search.fullText"
 msgstr "Tam Metin"
 
-msgid "search.indexTerms"
-msgstr "İndeks terimleri"
-
-msgid "search.indexTermsLong"
-msgstr "Tüm indeks terim alanları"
-
 msgid "search.matchAll"
 msgstr "Tüm kategorileri eşle"
 

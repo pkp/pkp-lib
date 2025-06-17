@@ -1653,12 +1653,6 @@ msgstr ""
 msgid "search.fullText"
 msgstr ""
 
-msgid "search.indexTerms"
-msgstr ""
-
-msgid "search.indexTermsLong"
-msgstr ""
-
 msgid "search.matchAll"
 msgstr "Maidsich gach roinn-seòrsa"
 

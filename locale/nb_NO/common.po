@@ -1689,12 +1689,6 @@ msgstr "Fagdisiplin(er)"
 msgid "search.fullText"
 msgstr "Fulltekst"
 
-msgid "search.indexTerms"
-msgstr "Emneord"
-
-msgid "search.indexTermsLong"
-msgstr "Alle termer i indeks"
-
 msgid "search.matchAll"
 msgstr "Treff i alle kategorier"
 

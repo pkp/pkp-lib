@@ -1708,12 +1708,6 @@ msgstr "Fagområde(r)"
 msgid "search.fullText"
 msgstr "Fuldtekst"
 
-msgid "search.indexTerms"
-msgstr "Indekstermer"
-
-msgid "search.indexTermsLong"
-msgstr "Alle indeksterm-felter"
-
 msgid "search.matchAll"
 msgstr "Find alle kategorier"
 

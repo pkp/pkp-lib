@@ -1703,12 +1703,6 @@ msgstr "Disciplin(er)"
 msgid "search.fullText"
 msgstr "Fulltext"
 
-msgid "search.indexTerms"
-msgstr "Ämnesord"
-
-msgid "search.indexTermsLong"
-msgstr "Alla fält för ämnesord"
-
 msgid "search.matchAll"
 msgstr "Matcha i alla kategorier"
 

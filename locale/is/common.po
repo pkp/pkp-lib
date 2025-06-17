@@ -1692,12 +1692,6 @@ msgstr "Fagsvið"
 msgid "search.fullText"
 msgstr "Allur texti"
 
-msgid "search.indexTerms"
-msgstr "Atriðaskrá - skilyrði"
-
-msgid "search.indexTermsLong"
-msgstr "Öll skilyrði atriðaskráa"
-
 msgid "search.matchAll"
 msgstr "Passa við alla flokka"
 

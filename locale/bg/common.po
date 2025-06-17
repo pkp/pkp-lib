@@ -1708,12 +1708,6 @@ msgstr "Дисциплини"
 msgid "search.fullText"
 msgstr "Пълен текст"
 
-msgid "search.indexTerms"
-msgstr "Индексирани термини"
-
-msgid "search.indexTermsLong"
-msgstr "Всички полета на индексираните термини"
-
 msgid "search.matchAll"
 msgstr "Съвпадение на всички категории"
 

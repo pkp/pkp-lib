@@ -1699,12 +1699,6 @@ msgstr "Tieteenala(t)"
 msgid "search.fullText"
 msgstr "Kokoteksti"
 
-msgid "search.indexTerms"
-msgstr "Asiasanat"
-
-msgid "search.indexTermsLong"
-msgstr "Kaikki asiasanakentät"
-
 msgid "search.matchAll"
 msgstr "Yhdistä kaikki kategoriat"
 

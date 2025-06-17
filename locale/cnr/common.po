@@ -1085,12 +1085,6 @@ msgstr ""
 msgid "search.dateTo"
 msgstr "Publikovano prije"
 
-msgid "search.indexTerms"
-msgstr "Pojmovi"
-
-msgid "search.indexTermsLong"
-msgstr "Sva polja pojmova indeksa"
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
 

@@ -1708,12 +1708,6 @@ msgstr "Discipline(s)"
 msgid "search.fullText"
 msgstr "Volledige tekst"
 
-msgid "search.indexTerms"
-msgstr "Geïndexeerde termen"
-
-msgid "search.indexTermsLong"
-msgstr "Alle indextermen"
-
 msgid "search.matchAll"
 msgstr "Vergelijk alle categorieën"
 

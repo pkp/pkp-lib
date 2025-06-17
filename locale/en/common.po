@@ -1773,12 +1773,6 @@ msgstr "Disciplines"
 msgid "search.fullText"
 msgstr "Full Text"
 
-msgid "search.indexTerms"
-msgstr "Index terms"
-
-msgid "search.indexTermsLong"
-msgstr "All index term fields"
-
 msgid "search.matchAll"
 msgstr "Match all categories"
 

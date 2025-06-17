@@ -1712,12 +1712,6 @@ msgstr "Дисциплини"
 msgid "search.fullText"
 msgstr "Целосен текст"
 
-msgid "search.indexTerms"
-msgstr "Поими"
-
-msgid "search.indexTermsLong"
-msgstr "Сите полиња со термини за индекс"
-
 msgid "search.matchAll"
 msgstr "Одговара на сите категории"
 

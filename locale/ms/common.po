@@ -1694,12 +1694,6 @@ msgstr "Disiplin"
 msgid "search.fullText"
 msgstr "Teks Penuh"
 
-msgid "search.indexTerms"
-msgstr "Istilah indeks"
-
-msgid "search.indexTermsLong"
-msgstr "Semua medan istilah indeks"
-
 msgid "search.matchAll"
 msgstr "Padankan semua kategori"
 

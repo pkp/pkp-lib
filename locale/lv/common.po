@@ -1585,9 +1585,6 @@ msgstr "Nozares"
 msgid "search.fullText"
 msgstr "Pilns teksts"
 
-msgid "search.indexTerms"
-msgstr "Rādītāja termini"
-
 msgid "search.matchAll"
 msgstr "Atbilst visām kategorijām"
 
@@ -1767,9 +1764,6 @@ msgstr "Publicēts pēc"
 
 msgid "navigation.previousPage"
 msgstr "&lt;&lt;"
-
-msgid "search.indexTermsLong"
-msgstr "Visi rādītāja termina lauki"
 
 msgid "navigation.skip.description"
 msgstr "Pāriet uz satura saitēm"

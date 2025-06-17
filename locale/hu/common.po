@@ -1688,12 +1688,6 @@ msgstr "Témakör(ök)"
 msgid "search.fullText"
 msgstr "Teljes szöveg"
 
-msgid "search.indexTerms"
-msgstr "Indexelt kifejezések"
-
-msgid "search.indexTermsLong"
-msgstr "Minden index kifejezés mező"
-
 msgid "search.matchAll"
 msgstr "Az összes kategóriának megfelel"
 

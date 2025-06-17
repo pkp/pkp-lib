@@ -1706,12 +1706,6 @@ msgstr "Կանոնակարգեր"
 msgid "search.fullText"
 msgstr "Ամբողջական տեքստ"
 
-msgid "search.indexTerms"
-msgstr "Ինդեքսավորման պայմաններ"
-
-msgid "search.indexTermsLong"
-msgstr "Բոլոր ինդեքսների պայմանների դաշտեր"
-
 msgid "search.matchAll"
 msgstr "Միացնել բոլոր կատեգորիաները"
 

@@ -1699,12 +1699,6 @@ msgstr "Пәндер"
 msgid "search.fullText"
 msgstr "Толық мәтін"
 
-msgid "search.indexTerms"
-msgstr "Индекстеу терминдері"
-
-msgid "search.indexTermsLong"
-msgstr "Барлық термин өрістері индекстеледі"
-
 msgid "search.matchAll"
 msgstr "Барлық категориялар бойынша сәйкестендіріңіз"
 

@@ -1711,12 +1711,6 @@ msgstr "Επιστημονικοί κλάδοι"
 msgid "search.fullText"
 msgstr "Πλήρες κείμενο"
 
-msgid "search.indexTerms"
-msgstr "Όροι ευρετηρίασης"
-
-msgid "search.indexTermsLong"
-msgstr "Όλα τα πεδία ευρετηρίασης"
-
 msgid "search.matchAll"
 msgstr "Εύρεση αποτελεσμάτων που περιέχουν όλους τους όρους."
 

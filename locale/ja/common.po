@@ -1698,12 +1698,6 @@ msgstr "分野"
 msgid "search.fullText"
 msgstr "フルテキスト"
 
-msgid "search.indexTerms"
-msgstr "インデックス検索"
-
-msgid "search.indexTermsLong"
-msgstr "インデックス用語フィールドの全て"
-
 msgid "search.matchAll"
 msgstr "すべてのカテゴリーにマッチ"
 

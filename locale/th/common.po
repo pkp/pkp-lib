@@ -2177,12 +2177,6 @@ msgstr "สาขาวิชา"
 msgid "search.fullText"
 msgstr "เนื้อหาฉบับเต็ม"
 
-msgid "search.indexTerms"
-msgstr "คำดัชนี"
-
-msgid "search.indexTermsLong"
-msgstr "ทุกฟิลด์คำดัชนี"
-
 msgid "search.matchAll"
 msgstr "ตรงกับทุกหมวดหมู่"
 

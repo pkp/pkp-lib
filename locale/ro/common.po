@@ -1701,12 +1701,6 @@ msgstr "Discipline"
 msgid "search.fullText"
 msgstr "Text complet"
 
-msgid "search.indexTerms"
-msgstr "Termenii indexului"
-
-msgid "search.indexTermsLong"
-msgstr "Toate câmpurile indexului de termeni"
-
 msgid "search.matchAll"
 msgstr "Potriviți toate categoriile"
 

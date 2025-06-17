@@ -1660,12 +1660,6 @@ msgstr "Дисциплина/е"
 msgid "search.fullText"
 msgstr "Цео текст"
 
-msgid "search.indexTerms"
-msgstr "Индекс појмова"
-
-msgid "search.indexTermsLong"
-msgstr "Сва поља индекса појмова"
-
 msgid "search.matchAll"
 msgstr "Упари све категорије"
 

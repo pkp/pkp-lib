@@ -88,12 +88,6 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Representations can not be modified on published publications
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'galley.editPublishedDisabled');
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
-        }
-
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION, $representation);
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;

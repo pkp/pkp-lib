@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\languages;
 
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\GridRow;
 use PKP\controllers\grid\languages\form\AddLanguageForm;
 use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\core\JSONMessage;
@@ -79,6 +80,14 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
 
         $data = $this->addLocaleSettingData($request, $data, ['supportedSubmissionLocales', 'supportedSubmissionMetadataLocales']);
         return $data;
+    }
+
+    /**
+     * @copydoc GridHandler::getRowInstance()
+     */
+    protected function getRowInstance()
+    {
+        return new GridRow();
     }
 
     //

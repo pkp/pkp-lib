@@ -14,8 +14,8 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\payload;
 
-use DAORegistry;
 use Illuminate\Validation\Rule;
+use PKP\db\DAORegistry;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\core\InvitePayload;
 use PKP\invitation\invitations\userRoleAssignment\rules\AddUserGroupRule;
@@ -49,8 +49,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         public ?string $sendEmailAddress = null,
         public ?array $inviteStagePayload = null,
         public ?bool $shouldUseInviteData = null,
-    )
-    {
+    ) {
         parent::__construct(get_object_vars($this));
     }
 
@@ -199,7 +198,7 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
                 'max:255',
             ],
             'shouldUseInviteData' => [
-                new ProhibitedIncludingNull($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE||$validationContext === ValidationContext::VALIDATION_CONTEXT_POPULATE),
+                new ProhibitedIncludingNull($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE || $validationContext === ValidationContext::VALIDATION_CONTEXT_POPULATE),
             ],
         ];
 

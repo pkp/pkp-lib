@@ -742,6 +742,17 @@ class Collector implements CollectorInterface
                             ->whereColumn('ui.user_id', '=', 'u.user_id')
                             ->whereRaw('LOWER(cves.setting_value) LIKE LOWER(?)', [$word])
                     )
+                    ->orWhereExists(
+                        fn (Builder $query) => $query->from('user_user_groups', 'uug')
+                            ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                            ->whereColumn('uug.user_id', '=', 'u.user_id')
+                            ->whereExists(
+                                fn (Builder $query) => $query->from('user_group_settings', 'ugs')
+                                    ->whereColumn('ugs.user_group_id', '=', 'ug.user_group_id')
+                                    ->where('ugs.setting_name', '=', 'name')
+                                    ->whereRaw('LOWER(ugs.setting_value) LIKE LOWER(?)', [$word])
+                            )
+                    )
             );
         }
 

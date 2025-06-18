@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/FieldBaseAutosuggest.php
  *
@@ -33,29 +34,36 @@ abstract class FieldBaseAutosuggest extends Field
     public $selected = [];
 
     /**
-     * @var array List of controlled vocabularies available for selection.
-     * Each vocabulary should be structured as:
+     * Controlled vocabularies for selection, by locale.
+     *
+     * @var array[] $vocabularies
      * [
-     *   'locale' => string  // The locale this vocabulary applies to (e.g., 'en')
-     *   'addButtonLabel' => string  // Label for the button to add from this vocabulary
-     *   'title' => string  // Title to display in the vocabulary selection modal
-     *   'modalComponent' => string  // (Optional) Custom modal component to use for this vocabulary. Defaults to VocabularyModal
-     *   'items' => [  // Hierarchical tree of vocabulary items
-     *     [
-     *       'identifier' => string  // Unique identifier for the vocabulary item
-     *       'name' => string  // Display name of the vocabulary item
-     *       'source' => string  // (Optional) Source of the vocabulary (e.g., 'Frascati')
-     *       'items' => [  // (Optional) Child items for hierarchical vocabularies
-     *         // Each child follows the same structure (identifier, name, source, items)
-     *       ]
-     *     ],
-     *     // Additional top-level vocabulary items...
-     *   ]
+     *   [
+     *     'locale'          => string,                     // e.g. 'en'
+     *     'addButtonLabel'  => string,                     // e.g. 'Add subject'
+     *     'modalTitleLabel'           => string,           // modal title
+     *     'modalComponent'? => string,                     // custom component (default: VocabularyModal)
+     *     'items'           => array[                       // tree of nodes
+     *       [
+     *         'label'      => string,                     // display text
+     *         'value'      => int|array{                  // either simple ID (for FieldAutosuggestPreset which has predefined options, e.g. Categories )
+     *                                                     // or full payload (for FieldAutosuggestControlledVocab)
+     *                          identifier: string,         // code (e.g. '1.2')
+     *                          name: string,               // display name
+     *                          source?: string            // optional source
+     *                        },
+     *         'selectable'? => bool,                       // leaf nodes (default: false)
+     *         'items'?      => array[]                     // child nodes
+     *       ],
+     *       …
+     *     ]
+     *   ],
+     *   …
      * ]
      */
     public array $vocabularies = [];
 
-    
+
 
     /**
      * @copydoc Field::getConfig()

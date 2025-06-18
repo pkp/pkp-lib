@@ -21,7 +21,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldAutosuggestPreset;
-use PKP\components\forms\FieldOptions;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\context\Context;
 
@@ -91,40 +90,6 @@ class ForTheEditors extends PKPMetadataForm
         }
     }
 
-    function transformToHierarchy(LazyCollection $flatData): array {
-        // Build a map of nodes
-        $map = [];
-        $flatData->each(function ($item) use (&$map) {
-            $id = $item->getId();
-            $map[$id] = [
-                // TODO: temporarly hard coded
-                'label' => $item->getData('title')['en'],
-                'value' => $id
-            ];
-        });
-    
-        // Link children to their parents
-        $flatData->each(function ($item) use (&$map) {
-            $parentId = $item->getData('parentId');
-            if ($parentId !== null && isset($map[$parentId])) {
-                if(!$map[$parentId]['items']) {
-                    $map[$parentId]['items'] = []; 
-                }
-                $map[$parentId]['items'][] = &$map[$item->getId()];
-            }
-        });
-    
-        // Collect root items (those with no parentId)
-        $hierarchy = [];
-        $flatData->each(function ($item) use (&$map, &$hierarchy) {
-            if ($item->getData('parentId') === null) {
-                $hierarchy[] = &$map[$item->getId()];
-            }
-        });
-    
-        return $hierarchy;
-    }
-
     protected function addCategoryField(Context $context, LazyCollection $categories): void
     {
         if (!$context->getData('submitWithCategories') || !$categories->count()) {
@@ -140,31 +105,23 @@ class ForTheEditors extends PKPMetadataForm
             ->values()
             ->all();
 
-        error_log('_categories_');
-        error_log(json_encode($categories));
-
         $categoryValues = (array) $this->publication->getData('categoryIds');
         // Check if all categories have a breadcrumb; categories with circular references are filtered out
         $hasAllBreadcrumbs = $categories->count() === count($categoryOptions);
 
-        if (count($categoryOptions) > self::MAX_CATEGORY_LIST_SIZE) {
-            $this->addField(new FieldAutosuggestPreset('categoryIds', [
-                'label' => __('submission.submit.placement.categories'),
-                'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
-                'value' => $categoryValues,
-                'options' => $categoryOptions,
-                'vocabularies' => [[
-                    'locale' => 'en', 
-                    'addButtonLabel' => __('grid.category.add'), 
-                    'items' => $this->transformToHierarchy($categories)]]
-            ]));
-        } else {
-            $this->addField(new FieldOptions('categoryIds', [
-                'label' => __('submission.submit.placement.categories'),
-                'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
-                'value' => $categoryValues,
-                'options' => $categoryOptions,
-            ]));
-        }
+        $vocabulary = Repo::category()->getCategoryVocabularyStructure($categories);
+        $this->addField(new FieldAutosuggestPreset('categoryIds', [
+            'label' => __('submission.submit.placement.categories'),
+            'description' => $hasAllBreadcrumbs ? __('submission.wizard.categories.description') : __('submission.wizard.categories.descriptionWithCircularReferenceWarning'),
+            'value' => $categoryValues,
+            'options' => $categoryOptions,
+            'vocabularies' => [
+                [
+                    'addButtonLabel' => __('grid.category.add'),
+                    'modalTitleLabel' => __('grid.category.add'),
+                    'items' => $vocabulary
+                ]
+            ]
+        ]));
     }
 }

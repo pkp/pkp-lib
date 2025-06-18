@@ -29,12 +29,6 @@ use PKP\security\Role;
 
 class PKPSubmissionFilters extends FormComponent
 {
-    /**
-     * The maximum number of options in a field
-     * before it should be shown as an autosuggest
-     */
-    public const OPTIONS_MAX = 7;
-
     public $id = 'submissionFilters';
     public $action = FormComponent::ACTION_EMIT;
 
@@ -136,19 +130,26 @@ class PKPSubmissionFilters extends FormComponent
 
         // Check if all categories have a breadcrumb; categories with circular references are filtered out
         $hasAllBreadcrumbs = $this->categories->count() === count($options);
+
+        $vocabulary = Repo::category()->getCategoryVocabularyStructure($this->categories);
+
         $props = [
             'groupId' => 'default',
             'label' => __('category.category'),
             'description' => $hasAllBreadcrumbs ? '' : __('submission.categories.circularReferenceWarning'),
             'options' => $options,
             'value' => [],
+            'vocabularies' => [
+                [
+                    'addButtonLabel' => __('grid.category.add'),
+                    'modalTitleLabel' => __('grid.category.add'),
+                    'items' => $vocabulary
+                ]
+            ]
+
         ];
 
-        if ($this->categories->count() > self::OPTIONS_MAX) {
-            return $this->addField(new FieldAutosuggestPreset('categoryIds', $props));
-        }
-
-        return $this->addField(new FieldOptions('categoryIds', $props));
+        return $this->addField(new FieldAutosuggestPreset('categoryIds', $props));
     }
 
     protected function addDaysSinceLastActivity(): self

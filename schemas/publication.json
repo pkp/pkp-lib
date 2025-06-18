@@ -54,12 +54,18 @@
 				"type": "integer"
 			}
 		},
+		"useStructuredCitations": {
+			"type": "boolean",
+			"description": "Whether or not to use the structured citations.",
+			"default": true
+		},
 		"citations": {
 			"type": "array",
 			"description": "Optional metadata that contains an array of references for works cited in this submission. References have been split and parsed from the raw text.",
 			"readOnly": true,
 			"items": {
-				"type": "string"
+				"type": "object",
+				"$ref": "#/definitions/Citation"
 			}
 		},
 		"citationsRaw": {

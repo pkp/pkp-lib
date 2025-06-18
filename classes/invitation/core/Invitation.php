@@ -18,7 +18,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Exception;
-use Identity;
+use PKP\identity\Identity;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;

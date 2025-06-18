@@ -30,7 +30,7 @@ use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\security\authorization\AnonymousUserPolicy;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
-use PKPRequest;
+use PKP\core\PKPRequest;
 use Validation;
 
 class UserRoleAssignmentReceiveController extends ReceiveInvitationController
@@ -59,7 +59,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
                 Validation::registerUserSession($user, $reason);
             }
 
-            // if there is a logged-in user and the user is not the invitation's user, then the user should not be allowed 
+            // if there is a logged-in user and the user is not the invitation's user, then the user should not be allowed
             // to perform the action
             if (isset($loggedInUser) && ($loggedInUser->getId() != $user->getId())) {
                 $controller->addPolicy(new AuthorizationPolicy());

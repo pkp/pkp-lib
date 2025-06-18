@@ -31,7 +31,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 
 class GenreGridHandler extends SetupGridHandler
 {
@@ -120,8 +120,8 @@ class GenreGridHandler extends SetupGridHandler
     {
         // Elements to be displayed in the grid
         $context = $request->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        return $genreDao->getEnabledByContextId($context->getId(), self::getRangeInfo($request, $this->getId()));
+        $rangeInfo = self::getRangeInfo($request, $this->getId());
+        return Repo::genre()->getEnabledByContextId($context->getId(), $rangeInfo);
     }
 
     //
@@ -158,12 +158,17 @@ class GenreGridHandler extends SetupGridHandler
      */
     public function setDataElementSequence($request, $rowId, $gridDataElement, $newSequence)
     {
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $context = $request->getContext();
-        $genre = $genreDao->getById($rowId, $context->getId());
-        $genre->setSequence($newSequence);
-        $genreDao->updateObject($genre);
+
+        $genre = Genre::findById($rowId, $context->getId());
+
+        if ($genre) {
+            // updating the sequence
+            $genre->seq = $newSequence;
+            $genre->save();
+        }
     }
+
 
     //
     // Public Genre Grid Actions
@@ -236,8 +241,8 @@ class GenreGridHandler extends SetupGridHandler
     {
         $genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
         $context = $request->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genre = $genreDao->getById($genreId, $context->getId());
+
+        $genre = Genre::findById($genreId, $context->getId());
 
         if (!$request->checkCSRF()) {
             return new JSONMessage(false, __('form.csrfInvalid'));
@@ -257,8 +262,8 @@ class GenreGridHandler extends SetupGridHandler
             return new JSONMessage(false, __('manager.genres.alertDelete'));
         }
 
-        $genreDao->deleteObject($genre);
-        return DAO::getDataChangedEvent($genre->getId());
+        $genre->delete();
+        return DAO::getDataChangedEvent($genre->id);
     }
 
     /**
@@ -277,9 +282,9 @@ class GenreGridHandler extends SetupGridHandler
         }
 
         // Restore all the genres in this context form the registry XML file
+        // this usage is temporary and pending finalization of settings management.
         $context = $request->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genreDao->installDefaults($context->getId(), $context->getSupportedFormLocales());
+        Repo::genre()->installDefaults($context->getId(),$context->getSupportedFormLocales());
         return DAO::getDataChangedEvent();
     }
 }

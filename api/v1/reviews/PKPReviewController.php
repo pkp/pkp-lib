@@ -222,8 +222,7 @@ class PKPReviewController extends PKPBaseController
             }
         }
 
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($contextId)->toArray();
+        $fileGenres = Repo::genre()->getByContextId($contextId)->all();
 
         $attachments = Repo::submissionFile()->getCollector()
             ->filterBySubmissionIds([$submissionId])

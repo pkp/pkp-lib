@@ -45,6 +45,8 @@ use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\genre\Genre;
+
 
 abstract class Repository
 {
@@ -436,8 +438,9 @@ abstract class Repository
         }
 
         // Required submission files
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $requiredGenres = $genreDao->getRequiredToSubmit($context->getId());
+        $requiredGenres = Repo::genre()->getRequiredToSubmit($context->getId());
+
+
         if (!$requiredGenres->isEmpty()) {
             $submissionFiles = Repo::submissionFile()
                 ->getCollector()

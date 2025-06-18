@@ -36,7 +36,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
@@ -120,8 +120,7 @@ class FileApiHandler extends Handler
         if ($reviewAssignment
                 && $reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
                 && $reviewAssignment->getReviewerId() == $request->getUser()->getId()) {
-            $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-            $genre = $genreDao->getById($submissionFile->getData('genreId'));
+            $genre = Genre::find($submissionFile->getData('genreId'));
             $filename = sprintf(
                 '%s-%s-%d-%s-%d',
                 Str::lower($request->getContext()->getLocalizedData('acronym')),

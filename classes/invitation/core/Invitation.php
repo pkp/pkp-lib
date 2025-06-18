@@ -18,11 +18,11 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Exception;
-use Identity;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\identity\Identity;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
@@ -74,7 +74,6 @@ abstract class Invitation
     /**
      * Defines the controller that is responsible for the handle of the create/edit
      * invitation views
-     * @return InvitationUIActionRedirectController|null
      */
     abstract public function getInvitationUIActionRedirectController(): ?InvitationUIActionRedirectController;
 

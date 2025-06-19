@@ -50,11 +50,13 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use APP\publication\enums\VersionStage;
@@ -1616,6 +1618,19 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
+
+        // Allows author ORCID request email to be triggered from frontend before author ID exists
+        $shouldSendOrcidEmail = false;
+        switch ($params['orcid']) {
+            case null:
+                unset($params['orcid']);
+                break;
+            case 'shouldRequestVerification':
+                unset($params['orcid']);
+                $shouldSendOrcidEmail = true;
+                break;
+        }
+
         $params['publicationId'] = $publication->getId();
 
         $submissionContext = $request->getContext();
@@ -1655,6 +1670,17 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $author = Repo::author()->get($newId);
+
+        // Dispatches author ORCID email now that the new user exists
+        if ($shouldSendOrcidEmail) {
+            try {
+                $author->setData('orcidVerificationRequested', true);
+                Repo::author()->edit($author, ['orcidVerificationRequested']);
+                dispatch(new SendAuthorMail($author, $submissionContext, true));
+            } catch (\Exception $exception) {
+                OrcidManager::logError("Could not send email to new author with authorId: {$author->getId()}. Reason: $exception");
+            }
+        }
 
         return response()->json(
             Repo::author()->getSchemaMap()->map($author),
@@ -2295,8 +2321,8 @@ class PKPSubmissionController extends PKPBaseController
     private function validateVersionIsMinor(Request $illuminateRequest): ?bool
     {
         return filter_var(
-            $illuminateRequest->input('versionIsMinor') ?? true, 
-            FILTER_VALIDATE_BOOLEAN, 
+            $illuminateRequest->input('versionIsMinor') ?? true,
+            FILTER_VALIDATE_BOOLEAN,
             FILTER_NULL_ON_FAILURE
         );
     }

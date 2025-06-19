@@ -76,13 +76,17 @@ describe('Tests categories in the submission wizard', function() {
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
 		// Select categories
+		cy.get('button').contains('Add Category').click();
 		categories.forEach((category) => {
-			cy.contains('label', category)
+			const categoryName = category.split('>')[1].trim();
+			cy.contains('label', categoryName)
 				.should(($label) => {
-					expect($label.text().trim()).to.equal(category);
+					expect($label.text().trim()).to.equal(categoryName);
 				})
 				.click();
 		});
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
+
 
 		// Categories visible in review
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
@@ -240,10 +244,12 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
+		cy.get('button').contains('Add Category').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.check();
 
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
 
 		cy.get('button').contains('Save').click();
 		cy.contains('[data-cy="active-modal"] button', 'Close').click();
@@ -252,9 +258,14 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
+		cy.get('button').contains('Add Category').click();
+
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.should('be.checked');
+
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
+
 	});
 
 	it('Unassign category from submission', function() {
@@ -266,9 +277,11 @@ describe('Test category in submission dashboard', function() {
 		cy.openWorkflowMenu(workflowMenu);
 
 		// Unassign the category from the submission
+		cy.get('button').contains('Add Category').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.uncheck();
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
 
 		cy.get('button').contains('Save').click();
 		cy.contains('[data-cy="active-modal"] button', 'Close').click();
@@ -277,14 +290,18 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
+		cy.get('button').contains('Add Category').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.should('not.be.checked');
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
+
 	});
 
 	it('Deletes a category along with its sub-categories, and unassign submission', function() {
 		const categoryLabel = 'Applied Science';
-		const subCategoryLabel = 'Applied Science > Computer Science > Computer Vision';
+		// 'Applied Science > Computer Science > Computer Vision';
+		const subCategoryLabel = 'Computer Vision';
 		cy.login('dbarnes');
 
 		// Assign the category and sub-category to the submission
@@ -292,6 +309,7 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
+		cy.get('button').contains('Add Category').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.check();
@@ -300,9 +318,12 @@ describe('Test category in submission dashboard', function() {
 			.find('input[type="checkbox"]')
 			.check();
 
-		cy.contains('label', 'Applied Science > Computer Science')
+		// 'Applied Science > Computer Science'
+		cy.contains('label', 'Computer Science')
 			.find('input[type="checkbox"]')
 			.check();
+
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
 
 		cy.get('button').contains('Save').click();
 		cy.contains('[data-cy="active-modal"] button', 'Close').click();
@@ -311,6 +332,8 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
+		cy.get('button').contains('Add Category').click();
+
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.should('be.checked');
@@ -318,6 +341,8 @@ describe('Test category in submission dashboard', function() {
 		cy.contains('label', subCategoryLabel)
 			.find('input[type="checkbox"]')
 			.should('be.checked');
+
+		cy.get('[data-cy="active-modal"] button').contains('Save').click();
 
 		// Go to category page and delete the category
 		cy.visit('index.php/publicknowledge/management/settings/context#categories');

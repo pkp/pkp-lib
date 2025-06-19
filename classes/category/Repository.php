@@ -104,6 +104,45 @@ class Repository
         })->filter(fn ($breadcrumb) => $breadcrumb !== ''); // Filter out empty breadcrumbs due to circular references.
     }
 
+    /**
+     * Create tree data structure compatible with Autosuggest fields Vocabulary
+     */
+    public function getCategoryVocabularyStructure(LazyCollection $categories): array
+    {
+        // Build a map of nodes
+        $map = [];
+        $categories->each(function ($item) use (&$map) {
+            $id = $item->getId();
+            $map[$id] = [
+                'label' => $item->getLocalizedTitle(),
+                'value' => $id,
+                'selectable' => true
+            ];
+        });
+
+        // Link children to their parents
+        $categories->each(function ($item) use (&$map) {
+            $parentId = $item->getData('parentId');
+            if ($parentId !== null && isset($map[$parentId])) {
+                if (!$map[$parentId]['items']) {
+                    $map[$parentId]['items'] = [];
+                }
+                $map[$parentId]['items'][] = &$map[$item->getId()];
+            }
+        });
+
+        // Collect root items (those with no parentId)
+        $hierarchy = [];
+        $categories->each(function ($item) use (&$map, &$hierarchy) {
+            if ($item->getData('parentId') === null) {
+                $hierarchy[] = &$map[$item->getId()];
+            }
+        });
+
+        return $hierarchy;
+
+    }
+
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {

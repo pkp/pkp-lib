@@ -1,7 +1,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"PO-Revision-Date: 2025-06-19 21:42+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "vi/>\n"
@@ -16,13 +16,13 @@ msgid "user.accountInformation"
 msgstr "Thông tin tài khoản"
 
 msgid "user.affiliation"
-msgstr "Đơn vị liên kết"
+msgstr "Đơn vị công tác"
 
 msgid "user.affiliation.description"
 msgstr "(Tổ chức của bạn, ví dụ: \"Đại học Simon Fraser\")"
 
 msgid "user.affiliations"
-msgstr "Đơn vị liên kết"
+msgstr "Đơn vị công tác"
 
 msgid "user.authorization.accessDenied"
 msgstr "Truy cập bị từ chối."

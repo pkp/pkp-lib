@@ -48,9 +48,6 @@ msgstr "A ROR name is required."
 msgid "ror.displayLocaleRequired"
 msgstr "ROR display locale is required."
 
-msgid "submission.author.list"
-msgstr "Submission Author List"
-
 msgid "submission.authors.label"
 msgstr "Authors"
 

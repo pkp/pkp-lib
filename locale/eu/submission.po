@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-04-27 07:50+0000\n"
+"PO-Revision-Date: 2025-06-21 13:51+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -1926,7 +1926,7 @@ msgid "submission.attachPermissions"
 msgstr ""
 
 msgid "submission.license"
-msgstr ""
+msgstr "Lizentzia"
 
 msgid "submission.copyright"
 msgstr ""
@@ -1956,22 +1956,22 @@ msgid "submission.licenseURL"
 msgstr "Lizentziaren URLa"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr ""
+msgstr "CC Aitortu-EzKomertziala-LanEratorririkGabe 4.0"
 
 msgid "submission.license.cc.by-nc4"
-msgstr ""
+msgstr "CC Aitortu-EzKomertziala 4.0"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr ""
+msgstr "CC Aitortu-EzKomertziala-PartekatuBerdin 4.0"
 
 msgid "submission.license.cc.by-nd4"
-msgstr ""
+msgstr "CC Aitortu-LanEratorririkGabe 4.0"
 
 msgid "submission.license.cc.by4"
-msgstr ""
+msgstr "CC Aitortu 4.0"
 
 msgid "submission.license.cc.by-sa4"
-msgstr ""
+msgstr "CC Aitortu-PartekatuBerdin 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""

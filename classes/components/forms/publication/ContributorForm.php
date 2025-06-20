@@ -18,6 +18,7 @@ namespace PKP\components\forms\publication;
 
 use APP\submission\Submission;
 use PKP\components\forms\FieldAffiliations;
+use PKP\components\forms\FieldCreditRoles;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldOrcid;
 use PKP\components\forms\FieldRichTextarea;
@@ -132,6 +133,11 @@ class ContributorForm extends FormComponent
         } else {
             $this->addHiddenField('userGroupId', $authorUserGroupsOptions->first()['value']);
         }
+
+        $this->addField(new FieldCreditRoles('creditRoles', [
+            'label' => __('submission.submit.creditRoles.label'),
+            'description' => __('submission.submit.creditRoles.description'),
+        ]));
 
         $this->addField(new FieldOptions('includeInBrowse', [
             'label' => __('submission.submit.includeInBrowse.title'),

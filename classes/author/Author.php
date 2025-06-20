@@ -18,13 +18,20 @@
 
 namespace PKP\author;
 
+use APP\core\Application;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 use PKP\affiliation\Affiliation;
+use PKP\author\creditRoles\CreditRoleDegree;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\userGroup\UserGroup;
 
 class Author extends Identity
 {
+    /** @var string Max lifetime for the cache */
+    protected const MAX_CACHE_LIFETIME = '1 year';
+
     /**
      * Get the default/fall back locale the values should exist for
      * (see LocalizedData trait)
@@ -285,5 +292,104 @@ class Author extends Identity
             $separator,
             $this->getLocalizedAffiliationNames($preferredLocale)
         );
+    }
+
+    /**
+     * Get contrubutor credit roles and degrees
+     */
+    public function getCreditRoles(): array
+    {
+        return $this->getData('creditRoles') ?? [];
+    }
+
+    /**
+     * Set contrubutor credit roles and degrees.
+     */
+    public function setCreditRoles(?array $creditRoles): void
+    {
+        $this->setData('creditRoles', $creditRoles);
+    }
+
+    /**
+     * Get credit role terms and degrees of contribution
+     */
+    public static function getCreditRoleTerms(?string $locale = null): array
+    {
+        $locale ??= Locale::getLocale();
+        static $key = __METHOD__ . static::MAX_CACHE_LIFETIME;
+        // One of the credit role file locales
+        static $defaultLocale = 'en';
+        static $creditRoleTerms = Cache::get($key)[0] ?? [];
+
+        if (!isset($creditRoleTerms[$locale])) {
+            $creditRoleTerms = self::getLocalizedCreditRoleTerms($locale, $creditRoleTerms, $defaultLocale, $key);
+        }
+
+        return $creditRoleTerms[$locale] ?? $creditRoleTerms[$defaultLocale] ?? [];
+    }
+
+    /**
+     * Type of roles in an associative array URI => Term
+     * Degrees in an associative array db-key => translation
+     */
+    protected static function getLocalizedCreditRoleTerms(string $locale, array $creditRoleTerms, string $defaultLocale, string $key): array
+    {
+        static $localeMapping = [
+            'cz' => ['cs'],
+            'fr' => ['fr', 'fr_CA'],
+            'cn' => ['zh_Hans'],
+            'gr' => ['el'],
+            'no_bk' => ['nb_NO'],
+            'no_nn' => ['nn'],
+            'tc' => ['zh_Hant'],
+        ];
+        static $creditRoleLocales = Cache::get($key)[1] ?? [];
+        static $expiration = \DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+
+        static $setRoles = fn (array $roles, string $localeKey): array => [
+            'roles' => $roles,
+            'degrees' => [
+                CreditRoleDegree::NO_DEGREE->value => '',
+                CreditRoleDegree::LEAD->value => __('submission.submit.creditRoles.degrees.lead', [], $localeKey),
+                CreditRoleDegree::EQUAL->value => __('submission.submit.creditRoles.degrees.equal', [], $localeKey),
+                CreditRoleDegree::SUPPORTING->value => __('submission.submit.creditRoles.degrees.supporting', [], $localeKey),
+            ],
+        ];
+        static $getJson = fn (string $file): array => is_array($json = json_decode(file_get_contents($file) ?: "", true)) ? $json : [];
+        static $getRoles = fn (array $json): array => Arr::map($json['translations'] ?? [], fn (array $items) => $items['name']);
+
+        if (!$creditRoleTerms) {
+            [$creditRoleTerms, $creditRoleLocales] = Cache::remember($key, $expiration, function () use ($localeMapping, $defaultLocale, $setRoles, $getJson, $getRoles): array {
+                $folder = dirname(__FILE__, 3) . "/lib/creditRoles/";
+                $uiLocales = array_unique(array_merge([$defaultLocale], Application::get()->getRequest()->getContext()->getSupportedLocales()));
+                $creditRoleLocales = [];
+                $creditRoleTerms = [];
+                foreach (new \DirectoryIterator($folder) as $cursor) {
+                    if ($cursor->isDot()) continue;
+                    $file = "$folder/" . $cursor->getBasename();
+                    $json = $getJson($file);
+                    $jsonLocaleKey = $json['metadata']['languageCode'] ?? '';
+                    $jsonLocaleKeysMapped = $localeMapping[$jsonLocaleKey] ?? [$jsonLocaleKey];
+                    $localeKeys = array_intersect($uiLocales, $jsonLocaleKeysMapped);
+                    if ($localeKeys) {
+                        $roles = $getRoles($json);
+                        if (!$roles) continue;
+                        foreach ($localeKeys as $localeKey) {
+                            $creditRoleTerms[$localeKey] = $setRoles($roles, $localeKey);
+                        }
+                    }
+                    $creditRoleLocales = $creditRoleLocales + Arr::mapWithKeys($jsonLocaleKeysMapped, fn (string $l): array => [$l => $file]);
+                }
+                return [$creditRoleTerms, $creditRoleLocales];
+            });
+        }
+        if (!isset($creditRoleTerms[$locale]) && isset($creditRoleLocales[$locale])) {
+            if ($roles = $getRoles($getJson($creditRoleLocales[$locale]))) {
+                $creditRoleTerms[$locale] = $setRoles($roles, $locale);
+                Cache::put($key, [$creditRoleTerms, $creditRoleLocales], $expiration);
+            }
+        }
+
+        return $creditRoleTerms;
     }
 }

@@ -848,6 +848,9 @@ msgstr "Request ORCID verification"
 msgid "orcid.field.authorEmailModal.message"
 msgstr "Would you like to send an email to this author requesting they verify their ORCID?"
 
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "The email will be sent once the author has been created."
+
 msgid "orcid.field.deleteOrcidModal.title"
 msgstr "Delete ORCID"
 

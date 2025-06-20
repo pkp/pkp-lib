@@ -43,6 +43,12 @@ class FieldOrcid extends Field
         $config['authorId'] = $this->authorId;
         $config['isVerified'] = $this->isVerified;
 
+        // This field must not be inert to let the contributor API endpoint know the ORCID verification request email
+        // should be sent once the new author has been created.
+        if (!$this->authorId) {
+            $config['isInert'] = false;
+        }
+
         return $config;
     }
 }

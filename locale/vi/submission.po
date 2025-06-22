@@ -1,7 +1,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-19 21:42+0000\n"
+"PO-Revision-Date: 2025-06-22 08:56+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/vi/>\n"
@@ -2280,7 +2280,7 @@ msgid "submission.query.new.contents"
 msgstr "Bạn đã được thêm vào cuộc thảo luận có tiêu đề \"{submissionTitle}\"."
 
 msgid "submission.query.participantTitle"
-msgstr "{userGroup}"
+msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr ""

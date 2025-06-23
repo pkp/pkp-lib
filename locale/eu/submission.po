@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-06-23 10:20+0000\n"
+"PO-Revision-Date: 2025-06-23 10:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -709,28 +709,30 @@ msgid "submission.history.viewLog"
 msgstr "Ikusi loga"
 
 msgid "submission.howToCite"
-msgstr ""
+msgstr "Aipuak nola egin"
 
 msgid "submission.howToCite.citationFormats"
-msgstr ""
+msgstr "Aipuak egiteko formatu gehiago"
 
 msgid "submission.howToCite.downloadCitation"
-msgstr ""
+msgstr "Aipua deskargatu"
 
 msgid "submission.initiated"
 msgstr "Hasita"
 
 msgid "submission.updatedOn"
-msgstr ""
+msgstr "{$datePublished} — Eguneratuta: {$dateUpdated}"
 
 msgid "submission.versions"
-msgstr ""
+msgstr "Bertsioak"
 
 msgid "submission.versionIdentity"
-msgstr ""
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr ""
+"{$datePublished}(e)an argitaratutako bertsio zaharra da hau. Jo <a href=\""
+"{$urlRecentVersion}\">bertsio berrienera</a>."
 
 msgid "submission.identifiers"
 msgstr "Identifikatzaileak"
@@ -1975,6 +1977,12 @@ msgstr "CC Aitortu-PartekatuBerdin 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Lan hau <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Aitortu-"
+"EzKomertziala-LanEratorririkGabe 4.0 Nazioarteko Lizentziapean</a> dago "
+"argitaratuta.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
 msgstr ""

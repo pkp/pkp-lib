@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-24 13:20+0000\n"
+"PO-Revision-Date: 2025-06-24 14:11+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -3154,3 +3154,64 @@ msgid "dashboard.reviewAssignment.statusReceived.description"
 msgstr ""
 "De recensie was voltooid op {$date} met de volgende "
 "aanbeveling:<b>{$recommendation}</b>"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Het minimum aantal recensies is bevestigd. Een beslissing is nodig."
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Een becommentarieerde aanbeveling is ontvangen"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Afgewezen tijdens de {$stageName} fase."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Aan de aanbevolen redacteuren is voor deze inzending opgedragen de volgende "
+"stappen te adviseren"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Zie voor uitgebreide informatie"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Zend het recensieverzoek opnieuw in"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Het minimum aantal goedgekeurde recensies: {$number}."
+
+#, fuzzy
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Aangezien u de auteur bent, hebt u geen toegang tot de inzending als "
+"tijdschriftbeheerder, Om deze in te zien, gaat u naar \"Mijn Inzending\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Aangezien u de recensent bent, hebt u geen toegang tot deze inzendking als "
+"tijdschriftbeheerder. Om deze te zien, gaat u naar \"Opdrachtrecensies\""
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Alle becommentarieerde aanbevelingen zijn ontvangen, waardoor een beslissing "
+"nodig is."
+
+#, fuzzy
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Annuleer/Annulering recensent"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Ongedaan maken toewijzing"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Uiterste bewerkingsdatum"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Zie aanbeveling"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Zie ongelezen aanbeveling"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Verstuur recensie naar ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Deze recensie versturen naar reviewer's ORCID?"

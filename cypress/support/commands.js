@@ -1025,7 +1025,7 @@ Cypress.Commands.add('addCategory', (title, path, parentName) => {
 			.contains('button', 'Add')
 			.click();
 	} else {
-		cy.get('button:contains("Select Categories")').click();
+		cy.get('button:contains("Add Category")').click();
 	}
 
 	cy.get('input[name^="title-en"]').type(title);

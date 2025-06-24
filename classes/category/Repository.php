@@ -124,7 +124,7 @@ class Repository
         $categories->each(function ($item) use (&$map) {
             $parentId = $item->getData('parentId');
             if ($parentId !== null && isset($map[$parentId])) {
-                if (!$map[$parentId]['items']) {
+                if (!isset($map[$parentId]['items'])) {
                     $map[$parentId]['items'] = [];
                 }
                 $map[$parentId]['items'][] = &$map[$item->getId()];

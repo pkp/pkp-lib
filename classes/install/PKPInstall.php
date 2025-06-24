@@ -31,7 +31,6 @@ namespace PKP\install;
 use APP\core\Application;
 use APP\facades\Repo;
 use DateTime;
-use DateTimeZone;
 use Exception;
 use Illuminate\Database\MariaDbConnection;
 use Illuminate\Database\MySqlConnection;
@@ -111,13 +110,12 @@ class PKPInstall extends Installer
 
         $result = parent::preInstall();
 
-        if ($result && $this->getParam('timeZone')) {
+        if ($this->getParam('timeZone')) {
             $this->initializeDatabaseTimeZone($this->getParam('timeZone'));
         }
 
         return $result;
     }
-
 
     //
     // Installer actions
@@ -297,19 +295,15 @@ class PKPInstall extends Installer
      *
      * @param string $timeZone The selected timezone from the installation form
      */
-    protected function initializeDatabaseTimeZone(string $timeZone): bool
+    protected function initializeDatabaseTimeZone(string $timeZone): void
     {
         try {
-            // Validate and get the timezone
-            $timeZoneName = (new DateTimeZone($timeZone))->getName();
-
-            // Get the current offset for this timezone
-            $dateTime = new DateTime('now', new DateTimeZone($timeZoneName));
-            $offset = $dateTime->format('P');
-
             date_default_timezone_set($timeZone ?: ini_get('date.timezone') ?: 'UTC');
 
-            // Set the timezone based on database type
+            // Set the current offset for this timezone
+            $offset = (new DateTime())->format('P');
+
+            // Set the timezone based on the database type
             $statement = match (true) {
                 DB::connection() instanceof MySqlConnection,
                 DB::connection() instanceof MariaDbConnection
@@ -319,10 +313,8 @@ class PKPInstall extends Installer
             };
 
             DB::statement($statement);
-            return true;
         } catch (Exception $e) {
             $this->setError(INSTALLER_ERROR_DB, 'Failed to set database timezone: ' . $e->getMessage());
-            return false;
         }
     }
 }

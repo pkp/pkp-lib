@@ -1,12 +1,13 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023.
 # ojs <joglobalise@gmail.com>, 2025.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-05-27 16:45+0000\n"
-"Last-Translator: ojs <joglobalise@gmail.com>\n"
+"PO-Revision-Date: 2025-06-24 13:20+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "nl/>\n"
 "Language: nl\n"
@@ -140,7 +141,7 @@ msgid "reviewer.submission.reviewRound.info"
 msgstr "Eerdere reviews"
 
 msgid "reviewer.submission.reviewRound.comments.editorOnly"
-msgstr "Alleen voor de redacteur"
+msgstr "Enkel voor de redacteuren"
 
 msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
 msgstr "Voor de redacteur en auteur"

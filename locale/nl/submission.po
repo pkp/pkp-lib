@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-24 14:11+0000\n"
+"PO-Revision-Date: 2025-06-24 17:55+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -3121,7 +3121,6 @@ msgstr ""
 msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
 msgstr "De recensie is overschreden met {$days} dagen"
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Deze recensent heeft de recensie niet voltooid. Een antwoord werd verwacht "
@@ -3155,8 +3154,11 @@ msgstr ""
 "De recensie was voltooid op {$date} met de volgende "
 "aanbeveling:<b>{$recommendation}</b>"
 
+#, fuzzy
 msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
-msgstr "Het minimum aantal recensies is bevestigd. Een beslissing is nodig."
+msgstr ""
+"Het minimum aantal recensies is goedgekeurd. Hierdoor is een beslissing "
+"nodig."
 
 msgid "dashboard.recommendOnly.recommendationsReady"
 msgstr "Een becommentarieerde aanbeveling is ontvangen"
@@ -3215,3 +3217,40 @@ msgstr "Verstuur recensie naar ORCID"
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
 msgstr "Deze recensie versturen naar reviewer's ORCID?"
+
+#, fuzzy
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Weet u zeker dat u de geselecteerde items wilt vernietigen? Deze handeling "
+"kan niet worden ongedaan gemaakt. U wordt vriendelijk verzocht om verder te "
+"gaan."
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "De recensie werd geaccepteerd door de redacteur op <b>{$date}</b>."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr ""
+"Wilt u doorgaan ondanks dat het minimum aantal goedgekeurde recensies "
+"ontbreekt?"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Selecteer de onvoltooide inzendingen ter vernietiging."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Alleen toegelaten om een redactionele beslissing aan te bevelen"
+
+msgid "workflow.stageNotStarted"
+msgstr "De {$stage} fase is nog niet gestart."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Momenteel is de inzending in de {$stage} fase."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"De inzending die bevorderd was naar de volgende recensieronde, werd "
+"geaccepteerd en is momenteel in de {$stage} fase."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Het minimum aantal goedgekeurde recensies is nog niet bereikt. Wilt u nog "
+"steeds doorgaan met deze redactionele beslissing?"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-06-24 13:20+0000\n"
+"PO-Revision-Date: 2025-06-24 14:11+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -21,13 +21,13 @@ msgid "author.editPublishedDisabled"
 msgstr ""
 
 msgid "author.publicationNotFound"
-msgstr ""
+msgstr "Ezin izan da egile honen argitalpena aurkitu."
 
 msgid "author.submit.submissionCitations"
 msgstr "Eman aurkezpenean aipatutako lanen erreferentzien formatudun zerrenda."
 
 msgid "author.submission.roundStatus.reviewsReady"
-msgstr ""
+msgstr "Berrikuspen berriak bidali dira eta editorea aztertzen ari da."
 
 #, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
@@ -38,45 +38,47 @@ msgstr "Bidali honela"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
+"Hautatu bidalketa honetan zure ekarpena hobekien deskribatzen duen rola."
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Hautatu edizio-rol bat bidalketa hau zeuk editatu eta argitaratu nahi baduzu."
 
 msgid "submission.submit.submissionChecklist"
-msgstr ""
+msgstr "Bidalketaren baldintzak"
 
 msgid "submission.submit.submissionChecklistDescription"
 msgstr "Bidalketa guztiek baldintza hauek bete behar dituzte."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Bai, nire bidalketak baldintza guzti hauek betetzen ditu."
 
 msgid "submission.submit.submissionComplete"
-msgstr ""
+msgstr "Bidalketa burutua"
 
 msgid "submission.submit.genre.label"
-msgstr ""
+msgstr "Zer motatako fitxategia da?"
 
 msgid "submission.submit.genre.description"
-msgstr ""
+msgstr "Aukeratu fitxategi hau hobekien deskribatzen duen aukera."
 
 msgid "submission.submit.removeConfirm"
 msgstr "Ziur zaude fitxategi hau ezabatu nahi duzula?"
 
 msgid "submission.submit.whatNext.forNow"
-msgstr ""
+msgstr "Oraingoz, aukera hauek dituzu:"
 
 msgid "submission.submit.whatNext.review"
-msgstr ""
+msgstr "Berrikusi bidalketa hau"
 
 msgid "submission.submit.whatNext.create"
-msgstr ""
+msgstr "Sortu bidalketa berri bat"
 
 msgid "submission.submit.whatNext.return"
-msgstr ""
+msgstr "Itzuli mahaigainera"
 
 msgid "submission.submit.extendedMetadata"
-msgstr ""
+msgstr "Metadatu hedatuak"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "Crossref-en erregistratzeko helbide elektronikoa"
@@ -396,7 +398,7 @@ msgid "metadata.property.displayName.abstract"
 msgstr "Laburpena"
 
 msgid "common.queue.long.submissionsUnassigned"
-msgstr ""
+msgstr "Esleitu gabeko bidalketak"
 
 msgid "common.queue.long.myAssigned"
 msgstr "Niri esleituak"
@@ -408,28 +410,28 @@ msgid "submission.authors"
 msgstr "Egileak"
 
 msgid "submission.authorBiography"
-msgstr ""
+msgstr "Egilearen biografia"
 
 msgid "submission.authorBiographies"
-msgstr ""
+msgstr "Egileen biografiak"
 
 msgid "submission.authorWithAffiliation"
-msgstr ""
+msgstr "{$name}, {$affiliation}"
 
 msgid "submission.shortAuthor"
-msgstr ""
+msgstr "{$author} et al."
 
 msgid "submission.representationOfTitle"
-msgstr ""
+msgstr "{$title}-ren {$representation}"
 
 msgid "submission.mySubmissions"
-msgstr ""
+msgstr "Nire bidalketak egile moduan"
 
 msgid "submission.addFile"
 msgstr "Kargatu fitxategia"
 
 msgid "submission.additionalFiles"
-msgstr ""
+msgstr "Fitxategi gehigarriak"
 
 msgid "submission.agencies"
 msgstr "Agentziak"
@@ -447,7 +449,7 @@ msgid "submission.ask"
 msgstr "Galdetu"
 
 msgid "submission.attachedFile"
-msgstr ""
+msgstr "Fitxategi erantsia"
 
 msgid "submission.backToSubmissionEditing"
 msgstr "Itzuli Bidalketaren ediziora"
@@ -456,25 +458,29 @@ msgid "submission.changeComments"
 msgstr "Aldatu hona:"
 
 msgid "submission.changeFile"
-msgstr ""
+msgstr "Aldatu fitxategia"
 
 msgid "submission.citations"
 msgstr "Erreferentziak"
 
 msgid "submission.citations.description"
 msgstr ""
+"Sartu erreferentzia bakoitza lerro berri batean; hala, bereizita atera eta "
+"erregistratu ahal izango dira."
 
 msgid "submission.parsedCitations"
-msgstr ""
+msgstr "Ateratako erreferentziak"
 
 msgid "submission.parsedCitations.DOI"
-msgstr ""
+msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
 msgstr ""
+"Ondorengo erreferentziak atera dira eta bidalketaren metadatuekin lotuko "
+"dira."
 
 msgid "submission.parsedAndSaveCitations"
-msgstr ""
+msgstr "Atera eta gorde erreferentziak"
 
 msgid "submission.comments.addComment"
 msgstr "Gehitu oharra"
@@ -528,19 +534,19 @@ msgid "submission.copyediting"
 msgstr "Zuzenketa"
 
 msgid "submission.queryNoteFiles"
-msgstr ""
+msgstr "Eztabaidarako fitxategiak"
 
 msgid "submission.coverage"
-msgstr ""
+msgstr "Estalduraren informazioa"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Bidalketaren xehetasunak"
 
 msgid "submission.done"
 msgstr "Eginda"
 
 msgid "submission.downloads"
-msgstr ""
+msgstr "Deskargak"
 
 msgid "submission.dueDate"
 msgstr "Epea"
@@ -575,9 +581,12 @@ msgstr "Mezu elektronikoen loga"
 
 msgid "submission.event.participantAdded"
 msgstr ""
+"Bidalketa honi {$userFullName} ({$username}) esleitu zaio {$userGroupName} "
+"bezala."
 
 msgid "submission.event.participantRemoved"
 msgstr ""
+"\"{$userFullName}\" ({$username}) ezabatua izan da {$userGroupName}-tik."
 
 msgid "submission.event.backToEventLog"
 msgstr "Itzuli Gertaeren logera"
@@ -595,10 +604,11 @@ msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
 
 msgid "submission.event.submissionSubmitted"
-msgstr ""
+msgstr "Hasierako bidalketa burutua."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username})-k onartu ditu bidalketaren copyright-baldintzak."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -655,16 +665,19 @@ msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
 
 msgid "submission.event.subjectPrefix"
-msgstr ""
+msgstr "Mezu elektronikoa bidali da:"
 
 msgid "submission.event.viewEmail"
-msgstr ""
+msgstr "Ikusi mezu elektronikoa"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"Egileek metadatuak editatu ditzakete orain bidalketa {stage} fasean "
+"dagoenean."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"Egileek metadatuak ezin dituzte editatu bidalketa {stage} fasean dagoenean."
 
 msgid "submission.files"
 msgstr "Fitxategiak"
@@ -676,10 +689,10 @@ msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Lehen argitalpena"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Editoreentzat"
 
 msgid "submission.galley"
 msgstr "Galerada"
@@ -738,31 +751,31 @@ msgid "submission.identifiers"
 msgstr "Identifikatzaileak"
 
 msgid "submission.publisherId"
-msgstr ""
+msgstr "Argitaletxearen IDa"
 
 msgid "submission.publisherId.description"
 msgstr ""
 
 msgid "submission.publisherId.enable"
-msgstr ""
+msgstr "Gaitu {$objects}-entzat"
 
 msgid "submission.informationCenter.submissionInfo"
-msgstr ""
+msgstr "Bidalketaren informazioa"
 
 msgid "submission.informationCenter.metadata"
 msgstr "Metadatuak"
 
 msgid "submission.informationCenter.notes"
-msgstr ""
+msgstr "Oharrak"
 
 msgid "submission.informationCenter.history"
-msgstr ""
+msgstr "Historia"
 
 msgid "submission.informationCenter.history.allEvents"
-msgstr ""
+msgstr "Erakutsi aurreko bertsioetako gertaerak"
 
 msgid "submission.stageParticipants.notify"
-msgstr ""
+msgstr "Jakinarazi"
 
 msgid "submission.lastModified"
 msgstr "Azken aldaketa"
@@ -962,7 +975,7 @@ msgid "submission.reviewVersion"
 msgstr "Ebaluazio-bertsioa"
 
 msgid "submission.rights"
-msgstr ""
+msgstr "Eskubideak"
 
 msgid "submissions.active"
 msgstr "Aktibo"
@@ -998,7 +1011,7 @@ msgid "submissions.ruling"
 msgstr "Ebazpena"
 
 msgid "submission.source"
-msgstr ""
+msgstr "Iturria"
 
 msgid "submissions.submit"
 msgstr "Bidali"
@@ -1010,7 +1023,7 @@ msgid "submission.submission"
 msgstr "Bidalketa"
 
 msgid "submission.submissionTitle"
-msgstr ""
+msgstr "Bidalketaren izenburua:"
 
 msgid "submission.start"
 msgstr "Hasi"
@@ -1031,49 +1044,51 @@ msgid "submission.submit.selectFile"
 msgstr "Fitxategia aukeratu"
 
 msgid "submission.submit.fileInformation"
-msgstr ""
+msgstr "Fitxategiaren informazioa"
 
 msgid "submission.submit.fileAdded"
-msgstr ""
+msgstr "Fitxategi erantsia"
 
 msgid "submission.submit.includeInBrowse"
 msgstr ""
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Argitalpen zerrendak"
 
 msgid "submission.submit.newFile"
-msgstr ""
+msgstr "Bidali beste fitxategi bat"
 
 msgid "submission.submit.metadataForm"
-msgstr ""
+msgstr "Hobekuntza gehigarriak"
 
 msgid "submission.submit.submissionLocale"
 msgstr "Bidalketaren hizkuntza"
 
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
+msgstr "Hautatu bidalketaren hizkuntza nagusia."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Bidalketa-fitxategiak"
 
 msgid "submission.submit.dependentFiles"
-msgstr ""
+msgstr "Menpeko fitxategiak"
 
 msgid "submission.manageDependentFiles"
-msgstr ""
+msgstr "Kudeatu menpeko fitxategiak"
 
 msgid "submission.upload.instructions"
 msgstr ""
+"Igo erredakzio-taldeak zure bidalketa berrikusteko behar dituen fitxategi "
+"guztiak."
 
 msgid "submission.upload.percentComplete"
-msgstr ""
+msgstr "Kargaren %{$percent} burutua"
 
 msgid "submission.upload.dependent"
-msgstr ""
+msgstr "Igo menpeko fitxategi bat"
 
 msgid "submission.upload.query"
-msgstr ""
+msgstr "Igo eztabaidarako fitxategi bat"
 
 msgid "submission.summary"
 msgstr "Sumarioa"
@@ -1128,40 +1143,40 @@ msgid "submission.date.yyyymmdd"
 msgstr "UUUU-HH-EE"
 
 msgid "submission.submit.contributorRole"
-msgstr ""
+msgstr "Kolaboratzailearen rola"
 
 msgid "submission.submit.addAuthor"
 msgstr "Gehitu egilea"
 
 msgid "submission.submit.form.languagesRequired"
-msgstr ""
+msgstr "Sartu hizkuntza bat."
 
 msgid "submission.submit.form.subjectsRequired"
-msgstr ""
+msgstr "Sartu gai bat."
 
 msgid "submission.submit.form.disciplinesRequired"
-msgstr ""
+msgstr "Sartu diziplina bat."
 
 msgid "submission.submit.form.keywordsRequired"
-msgstr ""
+msgstr "Sartu hitz-gako bat."
 
 msgid "submission.submit.form.coverageRequired"
-msgstr ""
+msgstr "Sartu estalduraren informazioa."
 
 msgid "submission.submit.form.typeRequired"
-msgstr ""
+msgstr "Sartu mota."
 
 msgid "submission.submit.form.sourceRequired"
-msgstr ""
+msgstr "Sartu iturria."
 
 msgid "submission.submit.form.rightsRequired"
-msgstr ""
+msgstr "Sartu eskubideak."
 
 msgid "submission.submit.form.citationsRequired"
-msgstr ""
+msgstr "Sartu erreferentziak."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Sartu datuen erabilgarritasun adierazpena."
 
 msgid "submission.form.name"
 msgstr "Eman fitxategi honi izen erabilgarri bat"
@@ -1170,49 +1185,49 @@ msgid "submission.form.replaceExisting"
 msgstr "Ordeztu jada badagoen fitxategi bat?"
 
 msgid "workflow.review.internalReview"
-msgstr ""
+msgstr "Barneko berrikuspena"
 
 msgid "workflow.stage.any"
-msgstr ""
+msgstr "Edozein fase"
 
 msgid "workflow.stage"
-msgstr ""
+msgstr "Fasea"
 
 msgid "submission.status.editorial"
-msgstr ""
+msgstr "Zuzentzen"
 
 msgid "submission.status.production"
-msgstr ""
+msgstr "Zuzenketa-probetan"
 
 msgid "submission.status.review"
-msgstr ""
+msgstr "Berrikusten"
 
 msgid "submission.status.submission"
-msgstr ""
+msgstr "Editorearen erabakiaren zain"
 
 msgid "submission.status.unassigned"
-msgstr ""
+msgstr "Esleitu gabe"
 
 msgid "submission.status.declined"
 msgstr "Ez da onartu"
 
 msgid "submission.status.published"
-msgstr ""
+msgstr "Argitaratuta"
 
 msgid "submission.submit.uploadStep"
-msgstr ""
+msgstr "1. Igo fitxategia"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr ""
+msgstr "Igo bidalketaren fitxategia"
 
 msgid "submission.submit.metadataStep"
-msgstr ""
+msgstr "2. Berrikusketaren xehetasunak"
 
 msgid "submission.submit.finishingUpStep"
-msgstr ""
+msgstr "3. Amaitu"
 
 msgid "submission.submit.fileNameRequired"
-msgstr ""
+msgstr "Fitxategi honentzat izena sartu behar duzu"
 
 msgid "submission.upload.noGenre"
 msgstr ""
@@ -1227,7 +1242,7 @@ msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
 
 msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr ""
+msgstr "Hautatu berrikusi nahi duzun fitxategia."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
@@ -2417,3 +2432,26 @@ msgstr "Bidalketa-fitxategia"
 
 msgid "submission.authors.label"
 msgstr "Egileak"
+
+msgid "author.authorNotFound"
+msgstr "Ezin izan da aurkitu afiliazio hori duen egilea."
+
+msgid "submission.author.list"
+msgstr "Bidalketaren egileen zerrenda"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Bidalketa bertan behera utzi da eta hari lotutako datu guztiak ezabatu egin "
+"dira."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Berrikuslearen iradokizunerako"
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Bidalketa ezeztatua"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Ezeztatu bidalketa"
+
+msgid "ror.nameRequired"
+msgstr "ROR izena derrigorrezkoa da."

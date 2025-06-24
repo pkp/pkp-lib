@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-19 21:42+0000\n"
+"PO-Revision-Date: 2025-06-24 13:20+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -3129,3 +3129,28 @@ msgstr ""
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Recensie voltooid op {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "De recensie was voltooid op {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "De recensie werd bevestigd door de redacteur"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recensent annuleerde het recensieverzoek"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recensent heeft het recensieverzoek geannuleerd op <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "In afwachting van beantwoording door de recensent"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Het recensieverzoek is opnieuw gedeeld met de recensent. Beantwoording wordt "
+"binnen {$days} days on {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"De recensie was voltooid op {$date} met de volgende "
+"aanbeveling:<b>{$recommendation}</b>"

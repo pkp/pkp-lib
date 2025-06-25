@@ -15,6 +15,9 @@
 namespace PKP\query;
 
 use APP\facades\Repo;
+use PKP\core\PKPApplication;
+use PKP\note\Note;
+use PKP\notification\Notification;
 use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -47,6 +50,15 @@ class Query extends Model
             'dateModified' => 'datetime',
             'closed' => 'boolean'
         ];
+    }
+
+    protected static function booted(): void
+    {
+        // Delete connected model data when a Query is deleted.
+        static::deleted(function (Query $query) {
+            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
+            Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
+        });
     }
 
     /**

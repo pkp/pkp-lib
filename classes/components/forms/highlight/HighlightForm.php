@@ -50,6 +50,7 @@ class HighlightForm extends FormComponent
             ->addField(new FieldRichTextarea('description', [
                 'label' => __('common.description'),
                 'isMultilingual' => true,
+                'size' => 'large',
             ]))
             ->addField(new FieldText('url', [
                 'label' => __('common.url'),

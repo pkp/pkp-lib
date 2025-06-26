@@ -103,6 +103,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'hasVerifiedOrcid':
                     $output[$prop] = $item->hasVerifiedOrcid();
                     break;
+                case 'creditRoles':
+                    $output[$prop] = $item->getCreditRoles();
+                    break;
                 case 'orcidDisplayValue':
                     $output[$prop] = $item->getOrcidDisplayValue();
                     break;

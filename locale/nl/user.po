@@ -1,12 +1,13 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024, 2025.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-01-27 23:50+0000\n"
-"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
+"PO-Revision-Date: 2025-06-26 16:08+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/user/nl/>"
 "\n"
 "Language: nl\n"
@@ -718,3 +719,159 @@ msgstr "Gebruikersnaam of e-mailadres"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Workflowtoegang voor onvolledige inzending is beperkt."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Vul de volledige naam van onderstaand instituut in, met vermijding van "
+"afkortingen. Selecteer de naam uit de keuzelijst en klik \"Toevoegen\" of "
+"\"Add\" om de affiliatie in uw profiel toe te voegen. (bijvoorbeeld \"Simon "
+"Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Instituut"
+
+msgid "user.affiliations.translation"
+msgstr "Meer informatie"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Bewerk de naam van het instituut"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Verwijder instituut"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klik om te bewerken of vernietigen"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Alle beschikbare vertalingen"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} van {$total} talen voltooid"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Vul de naam van het instituut in {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Naam van het instituut in {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Bent u zeker?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "De affiliation <strong>{$affiliation}</strong> zal worden vernietigd."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Vul de naam van het instituut in {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "De door gezochte zin(snede) kan niet worden gevonden"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "De hoofdtaal {$primaryLocale} is vereist"
+
+#, fuzzy
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Voegt u toe, actualiseert of vernietigt u het recensie- suggestie, nu de "
+"voltooide inzending wordt beperkt."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Gewenste initialen voor het profielkenmerk"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr ""
+"Vriendelijk verzoek om een affiliatie toe te voegen in de taal van de "
+"inzending."
+
+msgid "user.role.ended"
+msgstr "Beëindigde rol"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Bewaarde instellingen"
+
+msgid "orcid.manager.settings.city"
+msgstr "Plaats"
+
+#, fuzzy
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Invalide gebruikersidentificatie"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Ongeldig wachtwoord gebruiker"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Op dagboekwijze geconfigureerd"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Geldige gebruikersidentificatie"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Gebruikersidentificatie is ongeldig, controleert u uw invoer"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Gebruikerswachtwoord is geldig"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Het wachtwoord is ongeldig, controleert u uw identificatie"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Dubbele ORCiDs ten aanzien van inzenders waargenomen."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Ongeldige ORCiDs ten aanzien van inzenders waargenomen."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Stel ORCID functionaliteit in"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Stel ORCID-functionaliteit in voor de gehele website"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID-verificatie is verzocht!"
+
+msgid "orcid.field.verification.request"
+msgstr "Verificatieverzoek"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Zend u de verificatie-email terug"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Verzoek om ORCID verificatie"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Wilt u een email versturen naar deze auteur met het verzoek dat zij hun "
+"ORCID controleren?"
+
+msgid "orcid.verify.success.redirect"
+msgstr "U wordt nu automatisch terugverwezen naar {$contextName}."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "De gebruiker behoort anoniem te zijn. Op dit moment bent u ingelogd."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Voer de twee letters is die u als uw profielkenmerkt wilt gebruiken. Deze "
+"initialen worden weergegeven om u te vertegenwoordigen."
+
+#, fuzzy
+msgid "user.pendingEmailChange"
+msgstr ""
+"U hebt verzocht om een wijziging van uw emailadres om \"{$pendingEmail}\". "
+"Wij hebben u al een email verstuurd met aanwijzingen om het veranderde "
+"emailadres te valideren."
+
+msgid "orcid.unauthenticated"
+msgstr "(ontbreken van een geldige identificatie of verificatie)"
+
+#, fuzzy
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"De ORCID-functionaliteit kan optioneel ingesteld en geconfigureerd worden op "
+"website-niveau voor alle journaals/uitgeverijen/servers. Indien ingesteld, "
+"zullen alle inloggegevens op omgevingsniveau worden overgeschreven en de "
+"inloggegevens toepassen voor alle journaals/uitgeverijen/servers op deze "
+"installatie."
+
+msgid "orcid.invalidClient"
+msgstr "Ongeldige inloggegevens"

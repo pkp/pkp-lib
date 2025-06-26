@@ -1,11 +1,12 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2025.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-05-13 17:50+0000\n"
-"Last-Translator: Kay <kay.pepping@huygens.knaw.nl>\n"
+"PO-Revision-Date: 2025-06-26 16:08+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
 "Language: nl\n"
@@ -79,14 +80,20 @@ msgstr "Laat gebruikerssessies verlopen"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"U en alle gebruikers worden direct uit de applicatie gelogd en is het nodig "
+"om opnieuw in te loggen."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
 "Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld "
 "voor u een andere hoofdtaal selecteert."
 
+#, fuzzy
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
+"Bent u zeker dat u de hoofdtaal van de website wilt wijzigen? Waar deze "
+"ontbreken, zullen de vereiste gebruikersnamen worden gekopieerd van de "
+"bestaande website."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -139,7 +146,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "De taak heeft niets gelogd."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Deponeer DOI's bij het geconfigureerde registratiebureau"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -148,12 +155,17 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Verstuur een email naar elke redacteur met een herinnering aan de "
+"openstaande opdrachten"
 
+#, fuzzy
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "to do"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Ingediende {$count} opdrachten om redactionele emailherinneringen te "
+"versturen aan de gebruikers {$userIds} in de omgeving {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -163,31 +175,33 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Verwijder alle logbestanden van geplande taken"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Vernietig alle logboeken van de geplande en uitgevoerde taakprocessen."
 
+#, fuzzy
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Vernietig taaklogboeken"
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr ""
+msgstr "Publiceer de hiervoor geplande inzendingen"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Reviewherinnering"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Bekendmaking van het redactionele verslag"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Herinnering aan vervaldatum van het abonnement"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Verwijder niet-gevalideerde gebruikers met een verlopen account"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Verwijder oude niet-succesvolle opdrachten van de betreffende lijst."
 
+#, fuzzy
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Verwerk nog niet gestarte taken in de wachtrij"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr ""

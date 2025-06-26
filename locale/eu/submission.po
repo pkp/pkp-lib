@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-06-24 14:11+0000\n"
+"PO-Revision-Date: 2025-06-26 16:08+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
-msgstr ""
+msgstr "Ezin dira argitalpen honen egileak editatu, dagoeneko argitaratu baita."
 
 msgid "author.publicationNotFound"
 msgstr "Ezin izan da egile honen argitalpena aurkitu."
@@ -611,7 +611,7 @@ msgstr ""
 "{$filename} ({$username})-k onartu ditu bidalketaren copyright-baldintzak."
 
 msgid "submission.event.fileRevised"
-msgstr ""
+msgstr "\"{$filename}\" berrikuspena igo da {$submissionFileId} fitxategirako."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Bidalketaren metadatuak eguneratu"
@@ -1051,6 +1051,8 @@ msgstr "Fitxategi erantsia"
 
 msgid "submission.submit.includeInBrowse"
 msgstr ""
+"Sartu kolaboratzaile hau argitalpenen zerrendetan egileak "
+"identifikatzerakoan."
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Argitalpen zerrendak"
@@ -1230,13 +1232,13 @@ msgid "submission.submit.fileNameRequired"
 msgstr "Fitxategi honentzat izena sartu behar duzu"
 
 msgid "submission.upload.noGenre"
-msgstr ""
+msgstr "Osagaia falta da edo baliogabea da!"
 
 msgid "submission.upload.invalidUserGroup"
-msgstr ""
+msgstr "Erabiltzaile-taldea falta da edo baliogabea da!"
 
 msgid "submission.upload.possibleRevision"
-msgstr ""
+msgstr "Bikoiztasun edo berrikuspen posiblea detektatu da"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
@@ -1246,27 +1248,29 @@ msgstr "Hautatu berrikusi nahi duzun fitxategia."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
+"Lehendik dagoen fitxategi baten berrikuspena igotzen ari bazara, adierazi "
+"zein fitxategi den."
 
 msgid "submission.upload.uploadNewFile"
-msgstr ""
+msgstr "Hau ez da lehendik dagoen fitxategi baten berrikuspena"
 
 msgid "submission.upload.userGroup"
-msgstr ""
+msgstr "Igo fitxategi hau nire rolean..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr ""
+msgstr "Igo liburutegiko fitxategi bat"
 
 msgid "submission.upload.libraryCategory"
-msgstr ""
+msgstr "Bidalketa dokumentuaren kategoria"
 
 msgid "submission.upload.finalDraft"
 msgstr "Fitxategia igo"
 
 msgid "submission.upload.copyeditedVersion"
-msgstr ""
+msgstr "Igo editatutako fitxategia"
 
 msgid "submission.upload.uploadFiles"
 msgstr "Fitxategiak igo"
@@ -1275,16 +1279,16 @@ msgid "submission.upload.response.description"
 msgstr ""
 
 msgid "submission.upload.productionReady"
-msgstr ""
+msgstr "Igo ekoizpenerako prest dagoen fitxategi bat"
 
 msgid "submission.upload.proof"
-msgstr ""
+msgstr "Igo argitaratzeko prest dagoen fitxategi bat"
 
 msgid "submission.upload.noAvailableReviewFiles"
-msgstr ""
+msgstr "Ez dago berrikusi beharreko fitxategirik une honetan."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
-msgstr ""
+msgstr "Berrikuspenak eskatu dira."
 
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Zuzenketak aurkeztu dira eta erabaki bat behar da."
@@ -1298,19 +1302,19 @@ msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr ""
+msgstr "Kanpoko berrikuspenerako bidalia."
 
 msgid "editor.submission.roundStatus.accepted"
-msgstr ""
+msgstr "Bidalketa onartu da."
 
 msgid "editor.submission.roundStatus.declined"
 msgstr "Bidalketa ukatua."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr ""
+msgstr "Berrikusleak esleitzeko zain."
 
 msgid "editor.submission.roundStatus.pendingReviews"
-msgstr ""
+msgstr "Berrikusleen erantzunen zain."
 
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ebaluazio berriak aurkeztu dira."
@@ -1320,76 +1324,80 @@ msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr ""
 
 msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr ""
+msgstr "Berrikuspen bat amaitu da."
 
 msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr ""
+msgstr "Editoreen gomendioen zain."
 
 msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr ""
+msgstr "Argitalpen-gomendio berriak aurkeztu dira."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Gomendio guztiak aurkeztu dira, erabakia bidali behar da."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "{$days} egun baino gehiagoz inaktibo {$stage} fasean."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Bidalketa berri bat berrikusteko edo ukatzeko zain dago."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Parte-hartzaileak"
 
 msgid "editor.submission.noneAssigned"
-msgstr ""
+msgstr "Ez dago esleituta"
 
 msgid "editor.submission.participant"
-msgstr ""
+msgstr "Parte-hartzailea"
 
 msgid "editor.submission.addStageParticipant"
-msgstr ""
+msgstr "Esleitu parte-hartzailea"
 
 msgid "editor.submission.editStageParticipant"
-msgstr ""
+msgstr "Editatu esleipena"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
 
 msgid "editor.submission.removeStageParticipant"
-msgstr ""
+msgstr "Ezabatu parte-hartzailea"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr ""
+msgstr "Parte-hartzaile hau etapa <strong>guztietatik</strong> kentzear zaude."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
-msgstr ""
+msgstr "Erabiltzaile-talde bat hautatu behar duzu."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
-msgstr ""
+msgstr "Erabiltzaile bat hautatu behar duzu zehaztutako erabiltzaile-talderako."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
 
 msgid "editor.submission.removePermissionToEdit"
-msgstr ""
+msgstr "Ez baimendu metadatuak editatzea"
 
 msgid "editor.submission.addPermissionToEdit"
-msgstr ""
+msgstr "Baimendu metadatuak editatzea"
 
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
+"Ziur zaude bidalketa honen egileak bidalketaren metadatuak fase horretan "
+"editatzeko gai ez izatea nahi duzula?"
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
+"Ziur zaude bidalketa honen egileak bidalketaren metadatuak fase horretan "
+"editatzeko gai izatea nahi duzula?"
 
 msgid "editor.submission.decision"
-msgstr ""
+msgstr "Erabakia"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Jakinarazi egileei"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Jakinarazi berrikusleak"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
@@ -1399,7 +1407,7 @@ msgid ""
 msgstr ""
 
 msgid "editor.submission.decision.accept"
-msgstr ""
+msgstr "Onartu bidalketa"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
@@ -1561,13 +1569,13 @@ msgid "editor.submission.decision.backFromCopyediting"
 msgstr ""
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Bidalketa hau argitaratzeko onartuko da eta ediziora bidaliko da."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr ""
+msgstr "{$editorName}-(e)k edizio fasetik atzera bidali du bidalketa hau."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Ediziotik atzera bueltan bidalia"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
@@ -2455,3 +2463,29 @@ msgstr "Ezeztatu bidalketa"
 
 msgid "ror.nameRequired"
 msgstr "ROR izena derrigorrezkoa da."
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Oharra: Bertsio hau argitaratu da. Editatzeak eragina izan dezake "
+"argitaratutako edukian."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Berrikuslearen iradokizunak"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Gomendioa zuk egin duzu."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Berrikuspenera itzuli da."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Egileak iradokitako berrikusleak"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Eman ROR afiliazio bat edo, gutxienez, afiliazio izen bat."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Eman afiliazioaren izena bidalketaren ezarpen nagusietan."
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR bistaratze-ezarpena beharrezkoa da."

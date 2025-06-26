@@ -199,7 +199,7 @@ class ControlledVocabEntry extends Model
     /**
      * Get entry related data
      */
-    public function getEntryData(string $locale = null): ?array
+    public function getEntryData(?string $locale = null): ?array
     {
         $multilingualProps = array_flip($this->getMultilingualProps());
         $attributes = Arr::mapWithKeys($this->getSettings(), function (string $prop) use ($locale, $multilingualProps): array {

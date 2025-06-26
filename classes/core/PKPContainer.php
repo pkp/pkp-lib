@@ -335,6 +335,9 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\StringEncrypter::class,
             ],
+            'view' => [
+                \Illuminate\Support\Facades\View::class,
+            ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);

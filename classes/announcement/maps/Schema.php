@@ -14,6 +14,7 @@
 namespace PKP\announcement\maps;
 
 use APP\core\Application;
+use Carbon\Carbon;
 use Illuminate\Support\Enumerable;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
@@ -94,6 +95,10 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'id':
                     $output[$prop] = $item->getKey();
+                    break;
+                case 'dateExpire':
+                    // `toDateString` method is available because `dateExpire` is cast to a Carbon instance in Announcement model
+                    $output[$prop] = $item->dateExpire?->toDateString();
                     break;
                 default:
                     $output[$prop] = $item->getAttribute($prop);

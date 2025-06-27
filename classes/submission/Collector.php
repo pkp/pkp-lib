@@ -413,14 +413,7 @@ abstract class Collector implements CollectorInterface
                         $q->on('s.submission_id', '=', 'sa.submission_id')
                             ->whereIn('sa.user_id', $this->assignedTo)
                     )
-                    ->leftJoin('review_assignments as ra', fn (Builder $table) =>
-                        $table->on('s.submission_id', '=', 'ra.submission_id')
-                            ->where('ra.declined', '=', (int) 0)
-                            ->where('ra.cancelled', '=', (int) 0)
-                            ->whereIn('ra.reviewer_id', $this->assignedTo)
-                    )
                     ->whereNotNull('sa.stage_assignment_id')
-                    ->orWhereNotNull('ra.review_id')
             );
         } elseif ($this->assignedTo === self::UNASSIGNED) {
             $sub = DB::table('stage_assignments')

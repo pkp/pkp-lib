@@ -27,7 +27,7 @@ class OpenSearchEngine extends ScoutEngine
      */
     protected function getIndexName(): string
     {
-        return Config::getVar('search', 'opensearch_index', 'submissions');
+        return Config::getVar('search', 'search_index_name', 'submissions');
     }
 
     /**
@@ -64,6 +64,11 @@ class OpenSearchEngine extends ScoutEngine
                 'id' => $submission->getId(),
                 'body' => [
                     'title' => $currentPublication->getLocalizedTitle($locale),
+                    'abstract' => $currentPublication->getData('abstract', $locale),
+                    'contextId' => $submission->getData('contextId'),
+                    'datePublished' => $currentPublication->getData('datePublished'),
+                    'sectionId' => $currentPublication->getData('sectionId'),
+                    'categoryId' => $currentPublication->getData('categoryIds'),
                 ],
             ]);
         });
@@ -88,9 +93,11 @@ class OpenSearchEngine extends ScoutEngine
         foreach ($builder->wheres as $field => $value) {
             switch ($field) {
                 case 'contextId':
+                    $$field = (int) $value;
+                    break;
                 case 'publishedFrom':
                 case 'publishedTo':
-                    $$field = (int) $value;
+                    $$field = new \Carbon\Carbon($value);
                     break;
                 default: throw new \Exception("Unsupported field {$field}!");
             }
@@ -100,9 +107,9 @@ class OpenSearchEngine extends ScoutEngine
         $sectionIds = $categoryIds = null;
         foreach ($builder->whereIns as $field => $list) {
             switch ($field) {
-                case 'sectionIds': $sectionIds = $list;
-                    break;
-                case 'categoryIds': $categoryIds = $list;
+                case 'sectionIds':
+                case 'categoryIds':
+                    $$field = (array) $list;
                     break;
                 default: throw new \Exception("Unsupported field {$field}!");
             }
@@ -123,10 +130,20 @@ class OpenSearchEngine extends ScoutEngine
             'index' => $this->getIndexName(),
             'body' => [
                 'query' => [
-                    'multi_match' => [
-                        'query' => $builder->query,
-                        'fields' => ['title']
-                    ]
+                    'bool' => [
+                        'must' => [
+                            'multi_match' => [
+                                'query' => $builder->query,
+                                'fields' => ['title', 'abstract'],
+                            ],
+                        ],
+                        'filter' => [
+                            ...$contextId ? [['term' => ['contextId' => $contextId]]] : [],
+                            ...($publishedFrom || $publishedTo) ? [['range' => ['datePublished' => ['gte' => $publishedFrom, 'lte' => $publishedTo]]]] : [],
+                            ...$sectionIds ? [['terms' => ['sectionId' => $sectionIds]]] : [],
+                            ...$categoryIds ? [['terms' => ['categoryId' => $categoryIds]]] : [],
+                        ],
+                    ],
                 ]
             ]
         ]);

@@ -48,8 +48,8 @@ class OpenSearchEngine extends ScoutEngine
 
         return (new \OpenSearch\ClientBuilder())
             ->setHosts(json_decode($hosts, flags: JSON_OBJECT_AS_ARRAY))
-            ->setBasicAuthentication($username, $password) // For testing only. Don't store credentials in code.
-            ->setSSLVerification(false) // For testing only. Use certificate for validation
+            ->setBasicAuthentication($username, $password)
+            ->setSSLVerification((bool) Config::getVar('search', 'opensearch_ssl_verification', true))
             ->build();
     }
 

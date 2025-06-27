@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/highlight/HighlightForm.php
  *
@@ -17,6 +18,7 @@ namespace PKP\components\forms\highlight;
 
 use APP\core\Application;
 use PKP\components\forms\FieldRichText;
+use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
@@ -42,12 +44,13 @@ class HighlightForm extends FormComponent
         $this->locales = $this->getLocales($context);
 
         $this->addField(new FieldRichText('title', [
-                'label' => __('common.title'),
-                'isMultilingual' => true,
-            ]))
-            ->addField(new FieldRichText('description', [
+            'label' => __('common.title'),
+            'isMultilingual' => true,
+        ]))
+            ->addField(new FieldRichTextarea('description', [
                 'label' => __('common.description'),
                 'isMultilingual' => true,
+                'size' => 'large',
             ]))
             ->addField(new FieldText('url', [
                 'label' => __('common.url'),

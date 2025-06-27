@@ -22,6 +22,17 @@ use PKP\core\VirtualArrayIterator;
 
 class OpenSearchEngine extends ScoutEngine
 {
+    /**
+     * Get the name of the index to be used for OpenSearch indexing.
+     */
+    protected function getIndexName(): string
+    {
+        return Config::getVar('search', 'opensearch_index', 'submissions');
+    }
+
+    /**
+     * Get an OpenSearch client.
+     */
     protected function getClient(): Client
     {
         $hosts = Config::getVar('search', 'opensearch_hosts', null);
@@ -49,7 +60,7 @@ class OpenSearchEngine extends ScoutEngine
             $currentPublication = $submission->getCurrentPublication();
             $locale = $currentPublication->getData('locale');
             $client->create([
-                'index' => 'submissions',
+                'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
                 'body' => [
                     'title' => $currentPublication->getLocalizedTitle($locale),
@@ -63,7 +74,7 @@ class OpenSearchEngine extends ScoutEngine
         $client = $this->getClient();
         $models->each(function ($submission) use ($client) {
             $client->delete([
-                'index' => 'submissions',
+                'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
             ]);
         });
@@ -109,7 +120,7 @@ class OpenSearchEngine extends ScoutEngine
 
         $client = $this->getClient();
         $results = $client->search([
-            'index' => 'submissions',
+            'index' => $this->getIndexName(),
             'body' => [
                 'query' => [
                     'multi_match' => [
@@ -189,7 +200,7 @@ class OpenSearchEngine extends ScoutEngine
     {
         $client = $this->getClient();
         $client->indices()->delete([
-            'index' => 'submissions',
+            'index' => $this->getIndexName(),
         ]);
     }
 }

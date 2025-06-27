@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/publication/Details.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Details
@@ -40,6 +40,10 @@ class Details extends TitleAbstractForm
 
         $this->removeField('prefix');
         $this->removeField('subtitle');
+        
+        if ($this->getField('plainLanguageSummary')) {
+            $this->removeField('plainLanguageSummary');
+        }
 
         if (in_array($context->getData('keywords'), [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
             $this->addField(new FieldControlledVocab('keywords', [
@@ -52,5 +56,11 @@ class Details extends TitleAbstractForm
                 'isRequired' => $context->getData('keywords') === Context::METADATA_REQUIRE ? true : false,
             ]), [FIELD_POSITION_AFTER, 'title']);
         }
+
+        $this->addPlainLanguageSummary(
+            $this->context,
+            $this->publication,
+            [Context::METADATA_REQUEST, Context::METADATA_REQUIRE]
+        );
     }
 }

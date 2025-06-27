@@ -20,6 +20,13 @@
 				"nullable"
 			]
 		},
+		"plainLanguageSummary": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"authors": {
 			"type": "array",
 			"description": "A list of the authors for this publication.",

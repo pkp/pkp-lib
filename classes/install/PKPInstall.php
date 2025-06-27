@@ -9,8 +9,8 @@
 /**
  * @file classes/install/PKPInstall.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPInstall
@@ -30,7 +30,13 @@ namespace PKP\install;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use DateTime;
+use Exception;
+use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\Config as FacadesConfig;
+use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPContainer;
@@ -102,9 +108,14 @@ class PKPInstall extends Installer
         // initial details from the `config.inc.php` rather than what is set through the install form.
         app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
-        return parent::preInstall();
-    }
+        $result = parent::preInstall();
 
+        if ($this->getParam('timeZone')) {
+            $this->initializeDatabaseTimeZone($this->getParam('timeZone'));
+        }
+
+        return $result;
+    }
 
     //
     // Installer actions
@@ -257,7 +268,7 @@ class PKPInstall extends Installer
         Repo::userGroup()->assignUserToGroup($user->getId(), $adminUserGroup->id);
 
         // Add initial site data
-        /** @var SiteDAO */
+        /** @var SiteDAO $siteDao */
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->newDataObject();
         $site->setRedirect(null);
@@ -277,6 +288,34 @@ class PKPInstall extends Installer
         $siteDao->updateObject($site);
 
         return true;
+    }
+
+    /**
+     * Initialize the database timezone settings during installation
+     *
+     * @param string $timeZone The selected timezone from the installation form
+     */
+    protected function initializeDatabaseTimeZone(string $timeZone): void
+    {
+        try {
+            date_default_timezone_set($timeZone ?: ini_get('date.timezone') ?: 'UTC');
+
+            // Set the current offset for this timezone
+            $offset = (new DateTime())->format('P');
+
+            // Set the timezone based on the database type
+            $statement = match (true) {
+                DB::connection() instanceof MySqlConnection,
+                DB::connection() instanceof MariaDbConnection
+                    => "SET time_zone = '{$offset}'",
+                DB::connection() instanceof PostgresConnection
+                    => "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE"
+            };
+
+            DB::statement($statement);
+        } catch (Exception $e) {
+            $this->setError(INSTALLER_ERROR_DB, 'Failed to set database timezone: ' . $e->getMessage());
+        }
     }
 }
 

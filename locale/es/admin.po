@@ -1,13 +1,14 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # Juan Francisco Vinueza Cobos <tallergrafico@ucuenca.edu.ec>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2025-06-11 15:34+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-06-29 03:15+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
 "Language: es\n"
@@ -995,3 +996,100 @@ msgstr "Clave de aplicación generada: {$appKey}"
 msgid "admin.cli.tool.appKey.options.configure.description"
 msgstr ""
 "Añadir la variable de configuración app_key en el archivo config.inc.php."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Generar una nueva clave de aplicación y reemplazarla en el archivo de "
+"configuración. Usar la opción --show para solo visualizar la clave y --force "
+"para sobrescribir una clave de aplicación válida existente."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Clave de aplicación no válida: cifrado no compatible o longitud de clave "
+"incorrecta. Los cifrados compatibles son: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr ""
+"Clave de aplicación configurada correctamente en el archivo de configuración."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr ""
+"No se ha configurado una clave de aplicación en el archivo de configuración."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Ya hay una clave de aplicación válida y configurada en el archivo de "
+"configuración. Para sobrescribirla, utilice la opción --force con el comando."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"Variable de clave de aplicación configurada correctamente en el archivo de "
+"configuración. Ejecutar el comando 'php lib/pkp/tools/appKey.php generate' "
+"para establecer una nueva clave de aplicación."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"No se pudo configurar la variable 'app_key' en el archivo de configuración. "
+"Por favor, actualice la sección 'general' del archivo de configuración y "
+"agregue la línea 'app_key = '."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Clave de aplicación válida configurada en el archivo de configuración."
+
+#, fuzzy
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Ejecutar el programador de tareas."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Mostrar todas las tareas programadas."
+
+#, fuzzy
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Iniciar el programador de tareas."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Ejecutar una tarea programada específica desde la lista de tareas o use la "
+"opción '--name' para ejecutar una tarea en particular. Use la opción '--no-"
+"scroll' para ver la lista completa sin necesidad de desplazarse."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Mostrar los parámetros de uso del programador de tareas."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "¿Quisiste decir alguno de los siguientes?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"No se pueden ejecutar las tareas programadas porque el modo sandbox de la "
+"aplicación está habilitado."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Ejecutando tareas programadas cada minuto."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "No se han registrado tareas programadas."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "¿Qué comando quisiera ejecutar?"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"No se pueden ejecutar las tareas programadas porque el modo de mantenimiento "
+"de la aplicación está activado."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "No se encontró una tarea programada que coincida."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"No se encontró la variable 'app_key' definida en la sección 'general' del "
+"archivo de configuración. Por favor, actualice la sección 'general' del "
+"archivo de configuración y agregue la línea 'app_key = ', o ejecute el "
+"comando 'php lib/pkp/tools/appKey.php configure' para establecerla."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"La variable 'app_key' ya existe en la sección 'general' del archivo de "
+"configuración. Ejecutar el comando 'php lib/pkp/tools/appKey.php generate' "
+"para generar y configurar una nueva clave de aplicación."

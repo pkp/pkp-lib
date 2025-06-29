@@ -2,13 +2,14 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # pep sanso <pep.sanso@uab.cat>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-05-22 21:18+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-06-29 03:15+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
 "Language: es\n"
@@ -2828,3 +2829,294 @@ msgstr ""
 
 msgid "ror.nameRequired"
 msgstr "Un nombre ROR es obligatorio."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Ingrese el título del envío aquí en {$language}. Puede ajustar el formato de "
+"su título según sea necesario"
+
+msgid "submission.list.completeSubmission"
+msgstr "Completar envío"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "No se han sugerido revisores para este envío."
+
+msgid "submission.dashboard.view.production"
+msgstr "Todo en la fase de producción"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Completado / Rechazado"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirmar eliminación de XML JATS"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Está a punto de eliminar el archivo XML JATS de esta publicación. ¿Está "
+"seguro?"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Este archivo JATS se genera automáticamente a partir de los metadatos del "
+"envío"
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"El plazo para completar esta revisión ha vencido. Por favor, finalice la "
+"revisión lo antes posible."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"El nombre de la afiliación falta en {$language} para una o más afiliaciones "
+"de uno o más colaboradores."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"La solicitud de revisión ha sido enviada al revisor. Se espera respuesta en "
+"<b>{$days} días, el {$date}</b>"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Asignado a mí"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Todo en fase de envío"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Este revisor no ha completado su revisión. La respuesta se esperaba para el "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "La revisión fue completada el {$date}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Archivos de corrección de estilo subidos: {$count}"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Será publicado en el número {$issue}"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Requiere revisión"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revisión solicitada"
+
+msgid "submission.files.content.error"
+msgstr "No se pudo recuperar el contenido del archivo de envío '{$fileName}'."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Motivos para sugerir revisor"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Por favor, indique por qué recomienda a este revisor y mencione si existe "
+"algún posible conflicto de intereses."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"El idioma del envío ({$language}) no es uno de los idiomas de envío "
+"admitidos. Aún puede editar los detalles del envío, pero actualmente no se "
+"aceptan nuevos envíos en este idioma."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Revisores asignados"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Estado de revisión {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Aplicar filtros"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Comenzar un nuevo envío"
+
+msgid "dashboard.assignReviewers"
+msgstr "Asignar revisores"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Se solicitaron revisiones al autor"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Se solicitaron revisiones al autor para iniciar una nueva ronda de revisión"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Se recomienda incluir el resumen en {$language}. Esto ayuda a asegurar que "
+"el contenido sea accesible"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Ver resumen del envío"
+
+msgid "submission.dashboard.view.active"
+msgstr "Envíos activos"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Requiere editor"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Todo en evaluación por pares"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "En espera de revisiones"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Revisiones enviadas"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Revisiones vencidas"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Todo en la fase de revisión"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Todo en la fase de corrección de estilo"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Programado para publicación"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publicado"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Rechazado"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revisiones solicitadas"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Revisiones del autor enviadas"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Envíos incompletos"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Todas las asignaciones"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Pendiente"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Todas las asignaciones"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Acción requerida por mí"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archivado"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Rechazado"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Completado"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publicado"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Revisión (Ronda {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Programar para publicación"
+
+msgid "submission.stage.published"
+msgstr "Publicado"
+
+msgid "publication.jats"
+msgstr "XML JATS"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Eliminar archivo JATS"
+
+msgid "publication.jats.lastModified"
+msgstr "Última modificación el {$modificationDate} por {$username}"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Se creará una nueva ronda de revisión"
+
+msgid "dashboard.submitRevisions"
+msgstr "Enviar revisiones"
+
+msgid "workflow.uploadRevisions"
+msgstr "Subir revisiones"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Responder la solicitud"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Finalizar revisión"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Por favor, acepte o rechace esta solicitud antes del {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Solicitud rechazada el {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Revisión enviada el {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"El plazo para responder a esta solicitud ha vencido. Por favor, acepte o "
+"rechace esta solicitud lo antes posible."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Por favor, complete esta revisión antes del {$date}."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Esperando respuesta del revisor"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Solicitud de revisión rechazada el {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "El revisor rechazó la solicitud de revisión el <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Este revisor no ha respondido a la solicitud de revisión. Se esperaba una "
+"respuesta para el <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Revisión en curso - solicitud aceptada"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Revisión atrasada por {$days} días"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Revisión completada el {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"La revisión fue completada el {$date} con la siguiente recomendación: "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"El revisor aceptó la solicitud de revisión. La entrega de su recomendación "
+"es en <b>{$days} días, el {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Ver detalles"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Solicitud de revisión vencida hace {$days} días"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Antes de cambiar el idioma del envío, asegúrese de haber completado "
+"los siguientes campos de metadatos para mantener la integridad del sistema. "
+"También tenga en cuenta que la información de los colaboradores y los "
+"nombres de los archivos se copiarán desde la información previamente "
+"ingresada.</strong>"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"¿Está seguro de que desea cancelar este envío? Esto eliminará el envío y "
+"todos los datos asociados. Esta acción es irreversible."
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Ocurrió un error al intentar crear el contenido predeterminado de JATS. Por "
+"favor, asegúrese de que el plugin JatsTemplate esté instalado."

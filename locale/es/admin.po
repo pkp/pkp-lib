@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2025-06-29 03:15+0000\n"
+"PO-Revision-Date: 2025-06-29 11:04+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -1036,16 +1036,14 @@ msgstr ""
 msgid "admin.cli.tool.appKey.success.valid"
 msgstr "Clave de aplicación válida configurada en el archivo de configuración."
 
-#, fuzzy
 msgid "admin.cli.tool.scheduler.options.run.description"
 msgstr "Ejecutar el programador de tareas."
 
 msgid "admin.cli.tool.scheduler.options.list.description"
 msgstr "Mostrar todas las tareas programadas."
 
-#, fuzzy
 msgid "admin.cli.tool.scheduler.options.work.description"
-msgstr "Iniciar el programador de tareas."
+msgstr "Ejecutar las tareas programadas."
 
 msgid "admin.cli.tool.scheduler.options.test.description"
 msgstr ""

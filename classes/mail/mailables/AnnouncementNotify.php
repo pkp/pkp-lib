@@ -73,7 +73,7 @@ class AnnouncementNotify extends Mailable
     {
         parent::setData($locale);
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
 
         $request = Application::get()->getRequest();

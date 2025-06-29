@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-06-29 04:17+0000\n"
+"PO-Revision-Date: 2025-06-29 11:04+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
@@ -3249,3 +3249,26 @@ msgstr "Ronda de revisión {$number}"
 
 msgid "fileManager.submissionFilesDescription"
 msgstr "Archivos cargados en el momento del envío"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Estos son archivos de la fase de revisión que deben ser corregidos"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Estos son los archivos que serán enviados para publicación"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Estado del revisor"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmar eliminación de envíos incompletos"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"¿Está seguro de que desea eliminar los elementos seleccionados? Esta acción "
+"es irreversible. Por favor, confirme para continuar."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Seleccione los envíos incompletos que serán eliminados."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Eliminar envíos incompletos"

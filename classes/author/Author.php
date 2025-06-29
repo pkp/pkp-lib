@@ -286,4 +286,20 @@ class Author extends Identity
             $this->getLocalizedAffiliationNames($preferredLocale)
         );
     }
+
+    /**
+     * Get contrubutor credit roles and degrees
+     */
+    public function getCreditRoles(): array
+    {
+        return $this->getData('creditRoles') ?? [];
+    }
+
+    /**
+     * Set contrubutor credit roles and degrees.
+     */
+    public function setCreditRoles(?array $creditRoles): void
+    {
+        $this->setData('creditRoles', $creditRoles);
+    }
 }

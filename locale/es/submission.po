@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-06-29 03:15+0000\n"
+"PO-Revision-Date: 2025-06-29 04:17+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
@@ -3120,3 +3120,132 @@ msgid "publication.jats.defaultContentCreationError"
 msgstr ""
 "Ocurrió un error al intentar crear el contenido predeterminado de JATS. Por "
 "favor, asegúrese de que el plugin JatsTemplate esté instalado."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Se ha confirmado el número mínimo de revisiones requeridas. Es necesario "
+"tomar una decisión."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"El envío avanzó a la siguiente ronda de revisión, fue aceptado y actualmente "
+"se encuentra en la fase de {$stage}."
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "La revisión fue confirmada por el editor"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "La revisión fue aceptada por el editor el <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "El revisor canceló la solicitud de revisión"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "El revisor canceló la solicitud de revisión el <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Esperando respuesta del revisor"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Revisiones cargadas"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Estos archivos han sido enviados por el autor/a después de que se "
+"solicitaron revisiones"
+
+msgid "fileManager.filesForReview"
+msgstr "Archivos para revisión"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Estos archivos serán enviados a los revisores para su revisión"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Archivos corregidos"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Estos son archivos editados que pasarán a la fase de producción"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"No puede acceder a este envió como Gestor de revista porque es el revisor. "
+"Para ver el envío, vaya a \"Asignaciones de revisión\""
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"No puede acceder a este envío como Gestor de revista porque es el Autor/a. "
+"Para ver el envío, vaya a \"Mis envíos\""
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Únicamente puede recomendar una decisión editorial"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Reenviar solicitud de revisión"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancelar revisor"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Sin asignar"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Editar fecha de vencimiento"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Ver recomendación"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Ver recomendación no leída"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Enviar revisión a ORCID"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"La solicitud de revisión ha sido reenviada al revisor. Se espera respuesta "
+"en {$days} días, para el {$date}"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "¿Enviar esta revisión al perfil ORCID del revisor?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Rechazado durante la etapa de {$stageName}."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Los Editores Asesores tienen la tarea de aconsejar los siguientes pasos para "
+"este envío"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Se ha recibido una recomendación editorial"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Se han recibido todas las recomendaciones editoriales y se requiere tomar "
+"una decisión."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Número mínimo de revisiones confirmadas requeridas: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "¿Continuar sin el número mínimo de revisiones confirmadas?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"El número mínimo de revisiones confirmadas no se ha completado. ¿Desea "
+"continuar con esta decisión editorial?"
+
+msgid "workflow.stageNotStarted"
+msgstr "La fase {$stage} aún no ha sido iniciada."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "El envío se encuentra actualmente en la fase de {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "El envío ha avanzado a la siguiente ronda de revisión"
+
+msgid "workflow.reviewRoundN"
+msgstr "Ronda de revisión {$number}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Archivos cargados en el momento del envío"

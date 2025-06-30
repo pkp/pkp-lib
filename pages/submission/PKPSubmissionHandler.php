@@ -208,8 +208,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->withContextIds([$context->getId()])
             ->get();
 
-        $genres = Repo::genre()->getEnabledByContextId($context->getId())->toArray();
-
+        $genres = Repo::genre()->getEnabledByContextId($context->getId())->all();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()

@@ -690,7 +690,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
               ->getByContextId($submission->getData('contextId'))
-              ->toArray();
+              ->all();
 
         if (!$userGroups instanceof LazyCollection) {
             $userGroups = $userGroups->lazy();
@@ -733,7 +733,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
               ->getByContextId($submission->getData('contextId'))
-              ->toArray();
+              ->all();
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
@@ -787,7 +787,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
                     ->getByContextId($submission->getData('contextId'))
-                    ->toArray();
+                    ->all();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
@@ -867,7 +867,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
                     ->getByContextId($submission->getData('contextId'))
-                    ->toArray();
+                    ->all();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $notificationManager = new NotificationManager();
@@ -900,7 +900,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
                     ->getByContextId($submission->getData('contextId'))
-                    ->toArray();
+                    ->all();
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
@@ -1195,7 +1195,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
                     ->getByContextId($submission->getData('contextId'))
-                    ->toArray();
+                    ->all();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1411,7 +1411,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
                     ->getByContextId($submission->getData('contextId'))
-                    ->toArray();
+                    ->all();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1454,7 +1454,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $genres = Repo::genre()
                     ->getByContextId($submission->getData('contextId'))
-                    ->toArray();
+                    ->all();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),

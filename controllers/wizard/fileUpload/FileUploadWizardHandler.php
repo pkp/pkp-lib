@@ -459,11 +459,11 @@ class FileUploadWizardHandler extends Handler
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
 
-        $fileGenres = Repo::genre()->getByContextId($context->getId())->toArray();
+        $fileGenres = Repo::genre()->getByContextId($context->getId());
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()
-            ->map($submissionFile, $fileGenres);
+            ->map($submissionFile, $fileGenres->all());
 
         $json = new JSONMessage(true, $form->fetch($request));
         $json->setGlobalEvent('submissionFile:added', $fileData);
@@ -496,11 +496,11 @@ class FileUploadWizardHandler extends Handler
         }
 
         $contextId = $request->getContext()->getId();
-        $fileGenres = Repo::genre()->getByContextId($contextId)->toArray();
+        $fileGenres = Repo::genre()->getByContextId($contextId);
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()
-            ->map($submissionFile, $fileGenres);
+            ->map($submissionFile, $fileGenres->all());
 
         $json = $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
         $json->setGlobalEvent('submissionFile:edited', $fileData);

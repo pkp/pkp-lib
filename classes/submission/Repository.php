@@ -442,16 +442,11 @@ abstract class Repository
 
 
         if (!$requiredGenres->isEmpty()) {
+            $requiredIds = $requiredGenres->map(fn(Genre $g) => $g->getKey())->all();  
             $submissionFiles = Repo::submissionFile()
                 ->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
-                ->filterByGenreIds(
-                    $requiredGenres->map(
-                        function (Genre $genre) {
-                            return $genre->id;
-                        }
-                    )->toArray()
-                )
+                ->filterByGenreIds($requiredIds)
                 ->getMany();
             $missingGenres = $submissionFiles->isEmpty()
                 ? clone $requiredGenres
@@ -459,7 +454,7 @@ abstract class Repository
                     function (Genre $genre) use ($submissionFiles) {
                         $exists = $submissionFiles->first(
                             function (SubmissionFile $submissionFile) use ($genre) {
-                                return $submissionFile->getData('genreId') === $genre->id;
+                                return $submissionFile->getData('genreId') === $genre->getKey();
                             }
                         );
                         return !$exists;

@@ -232,14 +232,12 @@ class Repository
                 $existing->save();
                 $genre = $existing;
             }
-
-            // Write each locale’s name into genre_settings via ModelWithSettings:
+            // collect all localized names first, then fill/save once
+            $allNames = [];
             foreach ($locales as $locale) {
-                $localizedName = __($attrs['localeKey'], [], $locale);
-                $genre->fill([
-                    'name' => [ $locale => $localizedName ],
-                ]);
+                $allNames[$locale] = __($attrs['localeKey'], [], $locale);
             }
+            $genre->fill([ 'name' => $allNames ]);
             $genre->save();
 
             $seq++;

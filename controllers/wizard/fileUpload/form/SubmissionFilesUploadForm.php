@@ -268,7 +268,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         // assign them to the form.
         $genreList = [];
         foreach ($genres as $genre) {
-            $genreList[$genre->id] = $genre->name; // TODO: localized name handling needed
+            $genreList[$genre->getKey()] = $genre->getLocalizedData('name');
         }
         return $genreList;
     }

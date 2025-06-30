@@ -197,11 +197,11 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
 
-        $genres = Repo::genre()->getByContextId($context->getId())->all();
+        $genres = Repo::genre()->getByContextId($context->getId());
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres, $userRoles)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres->all(), $userRoles)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -230,14 +230,14 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        $genres = Repo::genre()->getByContextId($context->getId())->all();
+        $genres = Repo::genre()->getByContextId($context->getId());
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
                 $submissions,
                 $userGroups,
-                $genres,
+                $genres->all(),
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
                 $this->anonymizeReviews($submissions)
             )->values(),
@@ -308,7 +308,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        $genres = Repo::genre()->getByContextId($context->getId())->all();
+        $genres = Repo::genre()->getByContextId($context->getId());
 
 
         return response()->json([
@@ -316,7 +316,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
                 $submissions,
                 $userGroups,
-                $genres,
+                $genres->all(),
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
             )->values(),
         ], Response::HTTP_OK);

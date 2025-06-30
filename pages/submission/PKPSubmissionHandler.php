@@ -42,7 +42,6 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
@@ -209,9 +208,8 @@ abstract class PKPSubmissionHandler extends Handler
             ->withContextIds([$context->getId()])
             ->get();
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = Repo::genre()->getEnabledByContextId($context->getId())->toArray();
+
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()

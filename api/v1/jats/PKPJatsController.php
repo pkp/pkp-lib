@@ -129,11 +129,10 @@ class PKPJatsController extends PKPBaseController
         }
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile);
@@ -171,11 +170,10 @@ class PKPJatsController extends PKPBaseController
                 $params);
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile);
@@ -192,11 +190,12 @@ class PKPJatsController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
         
         if (!$jatsFile->submissionFile) {
             return response()->json([
@@ -208,7 +207,7 @@ class PKPJatsController extends PKPBaseController
             ->delete($jatsFile->submissionFile);
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         $jatsFilesProp = Repo::jats()
             ->summarize($jatsFile);

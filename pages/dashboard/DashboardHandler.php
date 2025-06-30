@@ -25,7 +25,6 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\config\Config;
 use PKP\userGroup\UserGroup;

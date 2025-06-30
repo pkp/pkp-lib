@@ -51,7 +51,7 @@ use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolic
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;

@@ -23,7 +23,7 @@ use PKP\citation\CitationDAO;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 
 class Schema extends \PKP\core\maps\Schema
 {

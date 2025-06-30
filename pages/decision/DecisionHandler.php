@@ -258,7 +258,7 @@ class DecisionHandler extends Handler
         /** @var Genre $genre */
         foreach ($genreResults as $genre) {
             $fileGenres[] = [
-                'id' => $genre->id,
+                'id' => $genre->getKey(),
                 'name' => $genre->name, // TODO: Handle localization once settings handling is complete
                 'isPrimary' => !$genre->supplementary && !$genre->dependent,
             ];

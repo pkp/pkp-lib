@@ -126,7 +126,7 @@ class FileApiHandler extends Handler
                 Str::lower($request->getContext()->getLocalizedData('acronym')),
                 Str::of(__('submission.list.reviewAssignment'))->kebab(),
                 $submissionFile->getData('submissionId'),
-                $genre ? Str::of($genre->getLocalizedName())->kebab() : 'none',
+                $genre ? Str::of($genre->getLocalizedData('name'))->kebab() : 'none',
                 $submissionFile->getId()
             );
         }

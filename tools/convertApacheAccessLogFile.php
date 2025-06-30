@@ -643,7 +643,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 // is this a full text or supp file
                 $genre = Genre::find($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                if ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
@@ -970,7 +970,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 // is this a full text or supp file
                 $genre = Genre::find($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                if ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
@@ -1165,7 +1165,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 // is this a full text or supp file
                 $genre = Genre::find($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                if ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;

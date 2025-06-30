@@ -90,7 +90,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             if (!isset($genresByContextId[$context->getId()])) {
                 $genres = Genre::where('context_id', $context->getId())->get();
                 foreach ($genres as $genre) {
-                   foreach ($genre->name as $locale => $name) {
+                    foreach ($genre->getLocalizedData('name') as $locale => $name) {
                        $genresByContextId[$context->getId()][$name] = $genre;
                     }
                 }

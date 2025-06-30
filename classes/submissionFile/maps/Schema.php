@@ -155,7 +155,7 @@ class Schema extends BaseSchema
             if ($prop === 'genreName') {
                 $genre = $this->getGenre($submissionFile);
                 $output[$prop] = $genre
-                    ? $genre->getLocalizedData('name', null, Genre::LOCALE_MATCH_STRICT)
+                    ? $genre->getAttribute('name')
                     : null;
                 continue;
             }

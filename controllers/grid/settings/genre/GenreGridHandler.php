@@ -25,7 +25,6 @@ use PKP\controllers\grid\settings\SetupGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -42,10 +41,10 @@ class GenreGridHandler extends SetupGridHandler
     {
         parent::__construct();
         $this->addRoleAssignment([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], [
-            'fetchGrid', 'fetchRow',
-            'addGenre', 'editGenre', 'updateGenre',
-            'deleteGenre', 'restoreGenres', 'saveSequence'
-        ]);
+                'fetchGrid', 'fetchRow',
+                'addGenre', 'editGenre', 'updateGenre',
+                'deleteGenre', 'restoreGenres', 'saveSequence'
+            ]);
     }
 
 
@@ -72,32 +71,32 @@ class GenreGridHandler extends SetupGridHandler
 
         $this->addAction(
             new LinkAction(
-                'addGenre',
-                new AjaxModal(
-                    $router->url($request, null, null, 'addGenre', null, $actionArgs),
-                    __('grid.action.addGenre'),
-                    null,
-                    true
-                ),
+            'addGenre',
+            new AjaxModal(
+                $router->url($request, null, null, 'addGenre', null, $actionArgs),
                 __('grid.action.addGenre'),
-                'add_item'
-            )
-        );
+                null,
+                true
+            ),
+            __('grid.action.addGenre'),
+            'add_item'
+        )
+    );
 
         $this->addAction(
             new LinkAction(
-                'restoreGenres',
-                new RemoteActionConfirmationModal(
-                    $request->getSession(),
-                    __('grid.action.restoreDefaults.confirm'),
-                    null,
-                    $router->url($request, null, null, 'restoreGenres', null, $actionArgs),
-                    'primary'
-                ),
-                __('grid.action.restoreDefaults'),
-                'reset_default'
-            )
-        );
+            'restoreGenres',
+            new RemoteActionConfirmationModal(
+                $request->getSession(),
+                __('grid.action.restoreDefaults.confirm'),
+                null,
+                $router->url($request, null, null, 'restoreGenres', null, $actionArgs),
+                'primary'
+            ),
+            __('grid.action.restoreDefaults'),
+            'reset_default'
+        )
+    );
 
         // Columns
         $cellProvider = new DataObjectGridCellProvider();
@@ -120,8 +119,7 @@ class GenreGridHandler extends SetupGridHandler
     {
         // Elements to be displayed in the grid
         $context = $request->getContext();
-        $rangeInfo = self::getRangeInfo($request, $this->getId());
-        return Repo::genre()->getEnabledByContextId($context->getId(), $rangeInfo);
+        return Repo::genre()->getEnabledByContextId($context->getId());
     }
 
     //
@@ -261,9 +259,9 @@ class GenreGridHandler extends SetupGridHandler
         if ($submissionsByGenre) {
             return new JSONMessage(false, __('manager.genres.alertDelete'));
         }
-
+        
         $genre->delete();
-        return DAO::getDataChangedEvent($genre->id);
+        return DAO::getDataChangedEvent($genre->getKey());
     }
 
     /**

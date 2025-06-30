@@ -133,11 +133,11 @@ class PKPBackendDoiController extends PKPBaseController
         $contextId = $submission->getData('contextId');
 
 
-        $genres = Repo::genre()->getByContextId($submission->getData('contextId'))->all();
+        $genres = Repo::genre()->getByContextId($submission->getData('contextId'));
 
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
             Response::HTTP_OK
         );
     }

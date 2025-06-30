@@ -154,8 +154,10 @@ class GenreForm extends Form
             $genre = Genre::findById((int) $this->getGenreId(),$context->getId());
         }
 
-        // TODO: implement localization for genre names once settings handling is completed.
-        $genre->name = $this->getData('name'); //will be replaced by localization logic.
+        $localizedNames = $this->getData('name');
+        $genre->fill([
+            'name' => $localizedNames
+        ]);
 
         $genre->category = $this->getData('category');
         $genre->dependent = $this->getData('dependent');
@@ -170,7 +172,7 @@ class GenreForm extends Form
 
         // set genreId for newly created genre
         if (!$this->getGenreId()) {
-            $this->setGenreId($genre->id);
+            $this->setGenreId($genre->getKey());
         }
 
         parent::execute(...$functionArgs);

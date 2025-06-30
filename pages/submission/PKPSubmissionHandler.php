@@ -514,7 +514,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         // Don't allow dependent files to be uploaded with the submission
         $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
+            array_filter($genres, fn ($genre) => !$genre->dependent)
         );
 
         $form = new PKPSubmissionFileForm(
@@ -533,9 +533,9 @@ abstract class PKPSubmissionHandler extends Handler
             'form' => $form->getConfig(),
             'genres' => array_map(
                 fn ($genre) => [
-                    'id' => (int) $genre->getId(),
-                    'name' => $genre->getLocalizedName(),
-                    'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
+                    'id' => (int) $genre->getKey(),
+                    'name' => $genre->getLocalizedData('name'),
+                    'isPrimary' => !$genre->supplementary && !$genre->dependent,
                 ],
                 $genres
             ),

@@ -59,6 +59,6 @@ class FileGenreGridColumn extends GridColumn
         }
 
         // Otherwise, the label exists.
-        return ['label' => $genre->getLocalizedName()];
+        return ['label' => $genre->getLocalizedData('name')];
     }
 }

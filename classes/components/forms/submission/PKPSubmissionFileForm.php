@@ -40,8 +40,9 @@ class PKPSubmissionFileForm extends FormComponent
             'type' => 'radio',
             'options' => array_map(function ($genre) {
                 return [
-                    'value' => (int) $genre->getId(),
-                    'label' => htmlspecialchars($genre->getLocalizedName()),
+                    'value' => (int) $genre->id,
+
+                    'label' => htmlspecialchars($genre->getLocalizedData('name')),
                 ];
             }, $genres),
             'value' => 0,

@@ -90,9 +90,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             if (!isset($genresByContextId[$context->getId()])) {
                 $genres = Genre::where('context_id', $context->getId())->get();
                 foreach ($genres as $genre) {
-                    // TODO: handle localized names when settings table is finalized
-                    // adjust the following once localization is implemented:
-                   foreach ($genre->getName(null) as $locale => $name) {
+                   foreach ($genre->name as $locale => $name) {
                        $genresByContextId[$context->getId()][$name] = $genre;
                     }
                 }
@@ -101,9 +99,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
                 $errorOccurred = true;
             } else {
-                // TODO: update this section once localization handling is finalized
                 $genre = $genresByContextId[$context->getId()][$genreName];
-                $genreId = $genre->getId();
+                $genreId = $genre->getKey();
             }
         }
 

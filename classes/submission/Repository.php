@@ -461,7 +461,7 @@ abstract class Repository
                 ->filterByGenreIds(
                     $requiredGenres->map(
                         function (Genre $genre) {
-                            return $genre->getId();
+                            return $genre->id;
                         }
                     )->toArray()
                 )
@@ -472,7 +472,7 @@ abstract class Repository
                     function (Genre $genre) use ($submissionFiles) {
                         $exists = $submissionFiles->first(
                             function (SubmissionFile $submissionFile) use ($genre) {
-                                return $submissionFile->getData('genreId') === $genre->getId();
+                                return $submissionFile->getData('genreId') === $genre->id;
                             }
                         );
                         return !$exists;
@@ -481,7 +481,7 @@ abstract class Repository
             if ($missingGenres->count()) {
                 $missingGenreNames = $missingGenres->map(
                     function (Genre $genre) {
-                        return $genre->getLocalizedName();
+                        return $genre->getLocalizedData('name');
                     }
                 );
                 $errors['files'] = [

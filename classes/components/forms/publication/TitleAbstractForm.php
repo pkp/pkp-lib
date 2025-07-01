@@ -82,7 +82,9 @@ class TitleAbstractForm extends FormComponent
         
         $this->addPlainLanguageSummary(
             Application::getContextDAO()->getById(
-                Repo::submission()->get($this->publication->getId())->getData('contextId')
+                Repo::submission()->get(
+                    $this->publication->getData('submissionId')
+                )->getData('contextId')
             ),
             $this->publication,
             [Context::METADATA_ENABLE, Context::METADATA_REQUEST, Context::METADATA_REQUIRE]

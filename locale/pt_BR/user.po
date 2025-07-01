@@ -1,15 +1,15 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
-# Diego Abadan <diego@lepidus.com.br>, 2022.
+# Diego Abadan <diego@lepidus.com.br>, 2022, 2025.
 # Andre Moura Melgarejo <melgarejo.andre@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2025-05-21 06:36+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2025-07-02 03:27+0000\n"
+"Last-Translator: Diego Abadan <diego@lepidus.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -350,9 +350,8 @@ msgstr "O e-mail informado nos campos não correspondem."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"O campo usuário pode conter apenas caracteres alfanuméricos minúsculos, "
-"sublinhados e hifens e deve começar e terminar com um caractere alfanumérico "
-"(letra ou número)."
+"O campo usuário (login) pode conter apenas letras minúsculas, números, "
+"sublinhados e hifens, e deve começar e terminar com uma letra ou número."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "Ao menos um papel deve ser selecionado."
@@ -947,3 +946,6 @@ msgid "user.removeRole.roleRemainMessage"
 msgstr ""
 "Você não pode remover o papel. Pelo menos um papel deve ser atribuído ao "
 "usuário."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "O e-mail será enviado assim que o autor for criado."

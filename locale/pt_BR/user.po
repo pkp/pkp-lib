@@ -361,9 +361,8 @@ msgstr "O e-mail informado nos campos não correspondem."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"O nome de usuário pode conter somente caracteres alfanuméricos, sublinhados "
-"e hifens, e deve começar e terminar com um caractere alfanumérico (letra ou "
-"número)."
+"O nome de usuário (login) pode conter apenas letras minúsculas, números,"
+"sublinhados e hifens, e deve começar e terminar com uma letra ou número."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "Ao menos um papel deve ser selecionado."
@@ -382,7 +381,7 @@ msgstr "Cadastrar"
 
 msgid "user.register.usernameRestriction"
 msgstr ""
-"O login deve conter apenas letras minúsculas (a-z), números(0-9), "
+"O login deve conter apenas letras minúsculas (a-z), números (0-9), "
 "sublinhados(_) e hífens(-)."
 
 msgid "user.register.registrationCompleted"

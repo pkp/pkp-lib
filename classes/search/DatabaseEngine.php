@@ -41,8 +41,8 @@ class DatabaseEngine extends ScoutEngine
     {
         $models->each(function ($submission) {
             Repo::publication()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->each(function ($publication) use ($submission) {
-                $titles = $publication->getFullTitles();
-                $abstracts = $publication->getData('abstract');
+                $titles = (array) $publication->getFullTitles();
+                $abstracts = (array) $publication->getData('abstract');
                 $bodies = [];
 
                 $submissionFiles = Repo::submissionFile()
@@ -202,6 +202,10 @@ class DatabaseEngine extends ScoutEngine
 
     public function createIndex($name, array $options = [])
     {
+        if (Schema::hasTable($this->getTableName())) {
+            return;
+        }
+
         Schema::create($this->getTableName(), function (Blueprint $table) {
             $table->bigInteger($this->getTableName() . '_search_id')->autoIncrement();
 
@@ -224,11 +228,15 @@ class DatabaseEngine extends ScoutEngine
 
     public function deleteIndex($name)
     {
-        Schema::drop($this->getTableName());
+        if (Schema::hasTable($this->getTableName())) {
+            Schema::drop($this->getTableName());
+        }
     }
 
     public function flush($model)
     {
-        DB::table($this->getTableName())->delete();
+        if (Schema::hasTable($this->getTableName())) {
+            DB::table($this->getTableName())->delete();
+        }
     }
 }

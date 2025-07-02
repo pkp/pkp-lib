@@ -919,4 +919,43 @@ abstract class Repository
 
         return $retValue;
     }
+
+    /**
+     * Get all minor versions' submission files of the same submission, that are
+     * with the same version stage, version major and DOI ID
+     * as the given submission file
+     *
+     * @return array<int,T>
+     */
+    public function getMinorVersionsWithSameDoi(SubmissionFile $submissionFile): array
+    {
+        $publicationFormatId = $submissionFile->getData('assocId');
+        $publicationId = DB::table('publication_formats')
+            ->where('publication_format_id', '=', $publicationFormatId)
+            ->select('publication_id')
+            ->first()?->publication_id;
+        $publication = Repo::publication()->get($publicationId);
+        if (!$publication) {
+            return [];
+        }
+
+        $allMinorVersionIds = Repo::publication()->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->getIds()
+            ->values()
+            ->toArray();
+        $publicationFormatIds = DB::table('publication_formats')
+            ->whereIn('publication_id', $allMinorVersionIds)
+            ->select('publication_format_id')
+            ->pluck('publication_format_id')
+            ->toArray();
+        return $this->getCollector()
+            ->filterBySubmissionIds([$submissionFile->getData('submissionId')])
+            ->filterByAssoc(Application::ASSOC_TYPE_PUBLICATION_FORMAT, $publicationFormatIds)
+            ->filterByDoiIds([$submissionFile->getData('doiId')])
+            ->getMany()
+            ->all();
+    }
 }

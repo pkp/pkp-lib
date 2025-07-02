@@ -485,7 +485,7 @@ class PKPContainer extends Container
             return $service->extend('opensearch', fn () => new \PKP\search\OpenSearchEngine());
         });
         app()->extend(\Laravel\Scout\EngineManager::class, function ($service, $app) {
-            return $service->extend('tntsearch', fn () => new \PKP\search\TNTSearchEngine());
+            return $service->extend('database', fn () => new \PKP\search\DatabaseEngine());
         });
     }
 

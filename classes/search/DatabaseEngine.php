@@ -12,6 +12,7 @@
 
 namespace PKP\search;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -20,9 +21,12 @@ use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
 use PKP\core\VirtualArrayIterator;
+use PKP\submissionFile\SubmissionFile;
 
 class DatabaseEngine extends ScoutEngine
 {
+    public const MINIMUM_DATA_LENGTH = 4096;
+
     protected function getIndexName(): string
     {
         return Config::getVar('search', 'search_index_name', 'submissions');
@@ -39,7 +43,31 @@ class DatabaseEngine extends ScoutEngine
             Repo::publication()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->each(function ($publication) use ($submission) {
                 $titles = $publication->getFullTitles();
                 $abstracts = $publication->getData('abstract');
-                $bodies = []; // FIXME
+                $bodies = [];
+
+                $submissionFiles = Repo::submissionFile()
+                    ->getCollector()
+                    ->filterByAssoc(Application::ASSOC_TYPE_REPRESENTATION, [$publication->getId()])
+                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
+                    ->getMany();
+
+                foreach ($submissionFiles as $submissionFile) {
+                    $galley = Application::getRepresentationDAO()->getById($submissionFile->getData('assocId'));
+                    $parser = SearchFileParser::fromFile($submissionFile);
+                    try {
+                        $parser->open();
+                        do {
+                            for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
+                            if (strlen($buffer)) {
+                                $bodies[$galley->getLocale()] = ($bodies[$galley->getLocale()] ?? '') . $buffer;
+                            }
+                        } while ($chunk !== false);
+                    } catch (\Throwable $e) {
+                        throw new \Exception("Indexation failed for the file: \"{$submissionFile->getData('path')}\"", 0, $e);
+                    } finally {
+                        $parser->close();
+                    }
+                }
 
                 $locales = array_unique(array_merge(array_keys($titles), array_keys($abstracts), array_keys($bodies)));
 
@@ -47,12 +75,13 @@ class DatabaseEngine extends ScoutEngine
                     DB::table($this->getTableName())->upsert(
                         [
                             'submission_id' => $submission->getId(),
+                            'publication_id' => $publication->getId(),
                             'locale' => $locale,
                             'title' => $titles[$locale] ?? null,
                             'abstract' => $abstracts[$locale] ?? null,
                             'body' => $bodies[$locale] ?? null,
                         ],
-                        ['submission_id', 'locale'],
+                        ['submission_id', 'publication_id', 'locale'],
                         ['title', 'abstract', 'body']
                     );
                 }
@@ -113,17 +142,17 @@ class DatabaseEngine extends ScoutEngine
             ->when($publishedFrom || $publishedTo || is_array($sectionIds), fn ($q) => $q->whereExists(
                 fn ($q) =>
         $q->select(DB::raw(1))
-                ->from('publications AS p')
-                ->when($publishedFrom, fn ($q) => $q->where('p.date_published', '>=', $publishedFrom))
-                ->when($publishedTo, fn ($q) => $q->where('p.date_published', '<', $publishedTo))
-                ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))
-                ->when(is_array($categoryIds), fn ($q) => $q->whereIn(
-                    'p.publication_id',
-                    DB::table('publication_categories')->whereIn('category_id', $categoryIds)->select('publication_id')
-                ))
+            ->from('publications AS p')
+            ->when($publishedFrom, fn ($q) => $q->where('p.date_published', '>=', $publishedFrom))
+            ->when($publishedTo, fn ($q) => $q->where('p.date_published', '<', $publishedTo))
+            ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))
+            ->when(is_array($categoryIds), fn ($q) => $q->whereIn(
+                'p.publication_id',
+                DB::table('publication_categories')->whereIn('category_id', $categoryIds)->select('publication_id')
+            ))
             ))
             ->whereFullText(['title', 'abstract', 'body'], $builder->query)
-            ->pluck('s.submission_id')
+            ->distinct()->pluck('s.submission_id')
             ->toArray();
 
         // Pagination
@@ -179,6 +208,9 @@ class DatabaseEngine extends ScoutEngine
             $table->bigInteger('submission_id');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
 
+            $table->bigInteger('publication_id');
+            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+
             $table->string('locale', 28);
 
             $table->text('title')->nullable();
@@ -186,7 +218,7 @@ class DatabaseEngine extends ScoutEngine
             $table->text('body')->nullable();
 
             $table->fulltext(['title', 'abstract', 'body']);
-            $table->unique(['submission_id', 'locale']);
+            $table->unique(['submission_id', 'publication_id', 'locale']);
         });
     }
 

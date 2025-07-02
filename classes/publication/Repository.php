@@ -351,7 +351,6 @@ abstract class Repository
 
         // VersionStage Update
         $newVersionStage = $versionStage;
-        $newIsMinorVersion = $isMinorVersion;
 
         if (!isset($newVersionStage)) {
             $currentVersionInfo = $newPublication->getVersion();
@@ -361,7 +360,7 @@ abstract class Repository
         }
 
         if (isset($newVersionStage)) {
-            $newVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $newVersionStage, $newIsMinorVersion);
+            $newVersionInfo = Repo::submission()->getNextAvailableVersion($submission, $newVersionStage, $isMinorVersion);
             $newPublication->setVersion($newVersionInfo);
         }
 
@@ -370,7 +369,7 @@ abstract class Repository
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
-        if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+        if ($context->getData(Context::SETTING_DOI_VERSIONING) && !$isMinorVersion) {
             $newPublication->setData('doiId', null);
         }
         $newId = $this->add($newPublication);
@@ -570,10 +569,29 @@ abstract class Repository
         ]);
         Repo::eventLog()->add($eventLog);
 
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
+        ? Application::get()->getRequest()->getContext()
+        : app()->get('context')->get($submission->getData('contextId'));
+
         // Mark DOIs stale (if applicable).
         if ($newPublication->getData('status') === Publication::STATUS_PUBLISHED) {
-            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
-            Repo::doi()->markStale($staleDoiIds);
+            if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+                $isMajorVersion = $newPublication->getData('versionStage') != $publication->getData('versionStage') ||
+                    $newPublication->getData('versionMajor') != $publication->getData('versionMajor');
+                if ($isMajorVersion) {
+                    $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
+                    Repo::doi()->markStale($staleDoiIds);
+                } else {
+                    Repo::doi()->markStale([$newPublication->getData('doiId')]);
+                }
+            } else {
+                // Mark publication DOI stale only if this is submission's current (most mature) publication, because
+                // only then the DOI metadata needs to be re-deposited.
+                // For example, it could be that AO is published after a VoR is published.
+                if ($submission->getData('currentPublicationId') === $newPublication->getId()) {
+                    Repo::doi()->markStale([$newPublication->getData('doiId')]);
+                }
+            }
         }
 
         Hook::call(
@@ -584,10 +602,6 @@ abstract class Repository
                 $submission
             ]
         );
-
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
-            ? Application::get()->getRequest()->getContext()
-            : app()->get('context')->get($submission->getData('contextId'));
 
         event(new PublicationPublished($newPublication, $publication, $submission, $context));
     }
@@ -648,10 +662,20 @@ abstract class Repository
             $msg = 'publication.event.versionUnpublished';
         }
 
-        // Mark DOIs stable (if applicable).
+        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
+            ? Application::get()->getRequest()->getContext()
+            : app()->get('context')->get($submission->getData('contextId'));
+
+        // Mark DOIs stale (if applicable).
         if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
             $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
             Repo::doi()->markStale($staleDoiIds);
+        } else {
+            if ($context->getData(Context::SETTING_DOI_VERSIONING) ||
+                $submission->getData('currentPublicationId') === $newPublication->getId()) {
+
+                Repo::doi()->markStale([$newPublication->getData('doiId')]);
+            }
         }
 
         $eventLog = Repo::eventLog()->newDataObject([
@@ -673,10 +697,6 @@ abstract class Repository
                 $submission
             ]
         );
-
-        $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
-            ? Application::get()->getRequest()->getContext()
-            : app()->get('context')->get($submission->getData('contextId'));
 
         event(new PublicationUnpublished($newPublication, $publication, $submission, $context));
     }
@@ -703,7 +723,6 @@ abstract class Repository
      * Given a Version Stage and a flag of whether the Version isMinor,
      * the publication's related data is being updated
      *
-     * @hook 'Publication::updateVersion::before' [&$publication, $oldVersion]
      * @hook Publication::updateVersion::before [&$publication, $oldVersion]
      */
     public function updateVersion(Publication $publication, VersionStage $versionStage, bool $isMinor = true): Publication
@@ -875,7 +894,27 @@ abstract class Repository
     }
 
     /**
-     * Create all DOIs associated with the publication.
+     * Get all minor versions of the same submission, that have
+     * the same version stage, version major and DOI ID
+     * as the given publication
+     *
+     * @return array<int,T>
      */
-    abstract protected function createDois(Publication $newPublication): void;
+    public function getMinorVersionsWithSameDoi(Publication $publication): array
+    {
+        return $this->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->filterByDoiIds([$publication->getData('doiId')])
+            ->getMany()
+            ->all();
+    }
+
+    /**
+     * Create all DOIs associated with the publication.
+     *
+     * @return DoiException[]
+     */
+    abstract public function createDois(Publication $publication): array;
 }

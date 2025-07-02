@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/galley/Repository.php
  *
@@ -205,5 +206,29 @@ class Repository
         }
 
         Hook::call('Galley::delete', [$galley]);
+    }
+
+    /**
+     * Get galleys of all minor versions of the same submission, that are
+     * with the same version stage, version major and DOI ID
+     * as the given galley
+     *
+     * @return array<int,T>
+     */
+    public function getMinorVersionsWithSameDoi(Galley $galley): array
+    {
+        $publication = Repo::publication()->get($galley->getData('publicationId'));
+        $allMinorVersionIds = Repo::publication()->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->getIds()
+            ->values()
+            ->toArray();
+        return $this->getCollector()
+            ->filterByPublicationIds($allMinorVersionIds)
+            ->filterByDoiIds([$galley->getData('doiId')])
+            ->getMany()
+            ->all();
     }
 }

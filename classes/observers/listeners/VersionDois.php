@@ -38,7 +38,7 @@ class VersionDois
      */
     public function handlePublishedEvent(PublicationPublished $event): void
     {
-        $submission = $event->submission;
+        $publication = $event->publication;
         $context = $event->context;
 
         $doisEnabled = $context->getData(Context::SETTING_ENABLE_DOIS);
@@ -47,6 +47,6 @@ class VersionDois
             return;
         }
 
-        $_failureResults = Repo::submission()->createDois($submission);
+        Repo::publication()->createDois($publication);
     }
 }

@@ -19,6 +19,10 @@
 namespace PKP\tests\classes\filter;
 
 use PKP\filter\TypeDescriptionFactory;
+use PKP\tests\classes\filter\TestClass2;
+use PKP\tests\classes\filter\TestClass1;
+use PKP\filter\ClassTypeDescription;
+use PKP\filter\PrimitiveTypeDescription;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -31,13 +35,13 @@ class TypeDescriptionFactoryTest extends PKPTestCase
 
         // Instantiate a primitive type
         $typeDescription = $typeDescriptionFactory->instantiateTypeDescription('primitive::string');
-        self::assertInstanceOf('PrimitiveTypeDescription', $typeDescription);
+        self::assertInstanceOf(PrimitiveTypeDescription::class, $typeDescription);
         self::assertTrue($typeDescription->isCompatible($object = 'some string'));
         self::assertFalse($typeDescription->isCompatible($object = 5));
 
         // Instantiate a class type
-        $typeDescription = $typeDescriptionFactory->instantiateTypeDescription('class::lib.pkp.tests.classes.filter.TestClass1');
-        self::assertInstanceOf('ClassTypeDescription', $typeDescription);
+        $typeDescription = $typeDescriptionFactory->instantiateTypeDescription('class::' . TestClass1::class);
+        self::assertInstanceOf(ClassTypeDescription::class, $typeDescription);
         $compatibleObject = new TestClass1();
         $wrongObject = new TestClass2();
         self::assertTrue($typeDescription->isCompatible($compatibleObject));

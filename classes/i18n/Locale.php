@@ -132,12 +132,16 @@ class Locale implements LocaleInterface
         if (isset($this->locale)) {
             return $this->locale;
         }
+
         $request = $this->_getRequest();
+
         $locale = $request->getUserVar('setLocale')
             ?: $request->getSession()->get('currentLocale')
             ?: $request->getCookieVar('currentLocale')
             ?: $this->getPreferredLocale();
+
         $this->setLocale($locale);
+
         return $this->locale;
     }
 
@@ -475,11 +479,16 @@ class Locale implements LocaleInterface
             return $value;
         }
 
-        // In order to reduce the noise, we're only logging missing entries for the en locale
+        // Will only log missing translation key for defule locale e.g. `LocaleInterface::DEFAULT_LOCALE`
+        // and when the application running in strict mode and not running unit tests
         // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
-        if ($locale === LocaleInterface::DEFAULT_LOCALE) {
+        if ($locale === LocaleInterface::DEFAULT_LOCALE 
+            && app()->runningInStrictMode()
+            && !app()->runningUnitTests()) {
+
             error_log("Missing locale key \"{$key}\" for the locale \"{$locale}\"");
         }
+
         return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
 

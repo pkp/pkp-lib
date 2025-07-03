@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\filter;
 
 use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\filter\FilterGroup;
 use PKP\filter\EmailFilterSetting;
 use PKP\filter\PersistableFilter;
 use PKP\filter\TypeDescriptionFactory;
@@ -36,7 +37,7 @@ class PersistableFilterTest extends PKPTestCase
         $testFilter = new PersistableTestFilter($constructorArg);
 
         // Test getters/setters that are not implicitly tested by other tests
-        self::assertInstanceOf('FilterGroup', $testFilter->getFilterGroup());
+        self::assertInstanceOf(FilterGroup::class, $testFilter->getFilterGroup());
         $testFilter->setDisplayName('Some other display name');
         $testFilter->setIsTemplate(1);
         self::assertTrue($testFilter->getIsTemplate());

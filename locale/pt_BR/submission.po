@@ -4,13 +4,14 @@
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 # Téssio Fechine <tessiof@gmail.com>, 2024.
 # Carolina Miki Tanigushi <carolina.tanigushi@scielo.org>, 2025.
+# Andre Moura Melgarejo <melgarejo.andre@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2025-06-12 00:12+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2025-07-03 23:19+0000\n"
+"Last-Translator: Andre Moura Melgarejo <melgarejo.andre@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -981,10 +982,10 @@ msgid "submission.reviewMetadata"
 msgstr "Avaliar metadados"
 
 msgid "submission.review"
-msgstr "Avaliação"
+msgstr "Revisar"
 
 msgid "submission.reviewAndSubmit"
-msgstr "Revise e submete"
+msgstr "Revise e submeta"
 
 msgid "submission.reviewed"
 msgstr "Avaliado"

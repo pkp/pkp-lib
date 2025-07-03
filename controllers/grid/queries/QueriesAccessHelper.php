@@ -209,6 +209,6 @@ class QueriesAccessHelper
     protected function hasStageRole($stageId, $roles)
     {
         $stageRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-        return !empty(array_intersect($stageRoles[$stageId], $roles));
+        return !empty(array_intersect($stageRoles[$stageId] ?? [], $roles));
     }
 }

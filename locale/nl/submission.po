@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-24 17:55+0000\n"
+"PO-Revision-Date: 2025-07-03 15:34+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -3040,7 +3040,7 @@ msgstr ""
 
 #, fuzzy
 msgid "reviewerSuggestion.suggestionReason"
-msgstr "Suggestieredenen van de recensent"
+msgstr "Redenen voor suggestie van de recensent"
 
 msgid "reviewerSuggestion.suggestionReason.description"
 msgstr ""
@@ -3124,7 +3124,7 @@ msgstr "De recensie is overschreden met {$days} dagen"
 msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
 msgstr ""
 "Deze recensent heeft de recensie niet voltooid. Een antwoord werd verwacht "
-"op  <b>{$date}.</b>"
+"op <b>{$date}.</b>"
 
 msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Recensie voltooid op {$date}"
@@ -3183,8 +3183,8 @@ msgstr "Het minimum aantal goedgekeurde recensies: {$number}."
 #, fuzzy
 msgid "dashboard.noAccessBeingAuthor"
 msgstr ""
-"Aangezien u de auteur bent, hebt u geen toegang tot de inzending als "
-"tijdschriftbeheerder, Om deze in te zien, gaat u naar \"Mijn Inzending\""
+"Omdat u de auteur bent, hebt u geen toegang tot de inzending als "
+"Journalbeheerder, Om deze in te zien, gaat u naar \"Mijn Inzending\""
 
 msgid "dashboard.noAccessBeingReviewer"
 msgstr ""
@@ -3196,9 +3196,8 @@ msgstr ""
 "Alle becommentarieerde aanbevelingen zijn ontvangen, waardoor een beslissing "
 "nodig is."
 
-#, fuzzy
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
-msgstr "Annuleer/Annulering recensent"
+msgstr "Annuleer recensent"
 
 msgid "dashboard.reviewAssignment.action.unassignReviewer"
 msgstr "Ongedaan maken toewijzing"
@@ -3218,12 +3217,11 @@ msgstr "Verstuur recensie naar ORCID"
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
 msgstr "Deze recensie versturen naar reviewer's ORCID?"
 
-#, fuzzy
 msgid "dashboard.submissions.incomplete.bulkDelete.body"
 msgstr ""
 "Weet u zeker dat u de geselecteerde items wilt vernietigen? Deze handeling "
-"kan niet worden ongedaan gemaakt. U wordt vriendelijk verzocht om verder te "
-"gaan."
+"kan niet worden ongedaan gemaakt. U wordt vriendelijk verzocht te bevestigen "
+"om verder te gaan."
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
 msgstr "De recensie werd geaccepteerd door de redacteur op <b>{$date}</b>."

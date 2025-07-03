@@ -120,7 +120,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface {
 	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getQuery()
 	 */
 	public function getQuery() {
-		$this->columns = ['*', 's.locale AS submission_locale'];
+		$this->columns = ['a.*', 's.locale AS submission_locale'];
 		$q = Capsule::table('authors as a');
 		$q->leftJoin('publications as p', 'a.publication_id', '=', 'p.publication_id');
 		$q->leftJoin('submissions as s', 'p.submission_id', '=', 's.submission_id');

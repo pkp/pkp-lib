@@ -43,6 +43,9 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null) Retrieve the scripts
  * @method static array getFormattedDisplayNames(?array $filterByLocales = null, ?array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true) Get the formatted locale display names with country if same language code present multiple times
  * @method static UITranslator getUiTranslator() provides UITranslator
+ * @method static void addIgnorablePattern(string $pattern) Register a pattern for keys to ignore when logging missing translations.
+ * @method static void removeIgnorablePattern(string $pattern) Remove a specific pattern from the ignorable list.
+ * @method static void resetIgnorablePatterns() Reset all ignorable patterns.
  */
 
 class Locale extends Facade

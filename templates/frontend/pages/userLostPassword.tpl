@@ -39,6 +39,14 @@
 					<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true">
 				</label>
 			</div>
+
+			{if $reCaptchaHtml}
+			<div class="captcha">
+				<div class="pkp_form_locale_field">
+					{$reCaptchaHtml}
+				</div>
+			</div>
+			{/if}
 			<div class="buttons">
 				<button class="submit" type="submit">
 					{translate key="user.login.resetPassword"}

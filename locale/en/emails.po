@@ -182,7 +182,7 @@ msgstr ""
 "<p>{$senderName}</p>"
 
 msgid "emails.copyeditRequest.subject"
-msgstr "Submission {$submissionId} is ready to be copyedited for {$contextAcronym}"
+msgstr "Submission {$submissionId} is ready to be copyedited for {$journalAcronym}"
 
 msgid "emails.copyeditRequest.body"
 msgstr ""

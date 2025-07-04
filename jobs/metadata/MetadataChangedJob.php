@@ -53,7 +53,7 @@ class MetadataChangedJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex = Application::getSubmissionSearchIndex(); // FIXME
         $submissionSearchIndex->submissionMetadataChanged($submission);
         $submissionSearchIndex->submissionFilesChanged($submission);
         $submissionSearchIndex->submissionChangesFinished();

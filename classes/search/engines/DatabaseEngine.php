@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/search/DatabaseEngine.php
+ * @file classes/search/engines/DatabaseEngine.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -10,17 +10,18 @@
  * @brief Laravel Scout driver for database fulltext search
  */
 
-namespace PKP\search;
+namespace PKP\search\engines;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder as DatabaseBuilder;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Laravel\Scout\Builder;
+use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
-use PKP\core\VirtualArrayIterator;
 use PKP\submissionFile\SubmissionFile;
 
 class DatabaseEngine extends ScoutEngine
@@ -96,7 +97,7 @@ class DatabaseEngine extends ScoutEngine
         });
     }
 
-    public function search(Builder $builder)
+    protected function buildQuery(SearchBuilder $builder): DatabaseBuilder
     {
         // Handle "where" conditions
         $contextId = null;
@@ -127,57 +128,46 @@ class DatabaseEngine extends ScoutEngine
         };
 
         // Handle options
-        $rangeInfo = null;
         foreach ($builder->options as $option => &$value) {
             switch ($option) {
-                case 'rangeInfo': $rangeInfo = $value;
-                    break;
                 default: throw new \Exception("Unsupported options {$option}!");
             }
         };
 
-        $submissionIds = DB::table($this->getTableName() . ' AS ftsearch')
+        return DB::table($this->getTableName() . ' AS ftsearch')
             ->join('submissions AS s', 'ftsearch.submission_id', '=', 's.submission_id')
             ->when($contextId, fn ($q) => $q->where('context_id', $contextId))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds), fn ($q) => $q->whereExists(
-                fn ($q) =>
-        $q->select(DB::raw(1))
-            ->from('publications AS p')
-            ->when($publishedFrom, fn ($q) => $q->where('p.date_published', '>=', $publishedFrom))
-            ->when($publishedTo, fn ($q) => $q->where('p.date_published', '<', $publishedTo))
-            ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))
-            ->when(is_array($categoryIds), fn ($q) => $q->whereIn(
-                'p.publication_id',
-                DB::table('publication_categories')->whereIn('category_id', $categoryIds)->select('publication_id')
-            ))
+                fn ($q) => $q->select(DB::raw(1))
+                    ->from('publications AS p')
+                    ->where('p.published', 1)
+                    ->when($publishedFrom, fn ($q) => $q->where('p.date_published', '>=', $publishedFrom))
+                    ->when($publishedTo, fn ($q) => $q->where('p.date_published', '<', $publishedTo))
+                    ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))
+                    ->when(is_array($categoryIds), fn ($q) => $q->whereIn(
+                        'p.publication_id',
+                        DB::table('publication_categories')->whereIn('category_id', $categoryIds)->select('publication_id')
+                    ))
             ))
             ->whereFullText(['title', 'abstract', 'body'], $builder->query)
-            ->distinct()->pluck('s.submission_id')
-            ->toArray();
-
-        // Pagination
-        if ($rangeInfo && $rangeInfo->isValid()) {
-            $page = $rangeInfo->getPage();
-            $itemsPerPage = $rangeInfo->getCount();
-        } else {
-            $page = 1;
-            $itemsPerPage = self::SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT;
-        }
-
-        $totalResults = count($submissionIds);
-
-        // Use only the results for the specified page.
-        $offset = $itemsPerPage * ($page - 1);
-        $length = max($totalResults - $offset, 0);
-        $length = min($itemsPerPage, $length);
-
-        $articleSearch = new \APP\search\ArticleSearch();
-        return new VirtualArrayIterator($articleSearch->formatResults($submissionIds), $totalResults, $page, $itemsPerPage);
+            ->groupBy('s.submission_id');
     }
 
-    public function paginate(Builder $builder, $perPage, $page)
+    public function search(SearchBuilder $builder): Collection
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        $query = $this->buildQuery($builder);
+        $results = $query->pluck('s.submission_id');
+        return [
+            'results' => $results,
+            'total' => $results->count()
+        ];
+    }
+
+    public function paginate(SearchBuilder $builder, $perPage, $page): LengthAwarePaginator
+    {
+        return $this->buildQuery($builder)
+            ->select(['s.submission_id AS submissionId'])
+            ->paginate($perPage, ['submissionId'], 'submissions', $page);
     }
 
     public function mapIds($results)
@@ -185,19 +175,22 @@ class DatabaseEngine extends ScoutEngine
         throw new \BadFunctionCallException('Unimplemented function.');
     }
 
-    public function lazyMap(Builder $builder, $results, $model)
+    public function lazyMap(SearchBuilder $builder, $results, $model)
     {
         throw new \BadFunctionCallException('Unimplemented function.');
     }
 
-    public function map(Builder $builder, $results, $model)
+    public function map(SearchBuilder $builder, $results, $model)
     {
         return $results;
     }
 
     public function getTotalCount($results)
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        if ($results instanceof LengthAwarePaginator) {
+            return $results->total();
+        }
+        return $results['total'];
     }
 
     public function createIndex($name, array $options = [])

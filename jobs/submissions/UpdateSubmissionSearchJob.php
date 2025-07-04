@@ -59,7 +59,7 @@ class UpdateSubmissionSearchJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex = Application::getSubmissionSearchIndex(); // FIXME
         if ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
             $submissionSearchIndex->deleteTextIndex($submission->getId());
         } else {

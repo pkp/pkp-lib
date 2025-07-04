@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/search/OpenSearchEngine.php
+ * @file classes/search/engines/OpenSearchEngine.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -12,13 +12,13 @@
  * @brief Laravel Scout driver for OpenSearch
  */
 
-namespace PKP\search;
+namespace PKP\search\engines;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
-use PKP\core\VirtualArrayIterator;
 
 class OpenSearchEngine extends ScoutEngine
 {
@@ -147,40 +147,16 @@ class OpenSearchEngine extends ScoutEngine
                 ]
             ]
         ]);
-        $articleIds = array_map(fn ($result) => $result['_id'], $results['hits']['hits']);
-
-        // Pagination
-        if ($rangeInfo && $rangeInfo->isValid()) {
-            $page = $rangeInfo->getPage();
-            $itemsPerPage = $rangeInfo->getCount();
-        } else {
-            $page = 1;
-            $itemsPerPage = self::SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT;
-        }
-
-        $totalResults = $results['hits']['total']['value'];
-
-        // Use only the results for the specified page.
-        $offset = $itemsPerPage * ($page - 1);
-        $length = max($totalResults - $offset, 0);
-        $length = min($itemsPerPage, $length);
-        if ($length == 0) {
-            $results = [];
-        } else {
-            $results = array_slice(
-                $results,
-                $offset,
-                $length
-            );
-        }
-
-        $articleSearch = new \APP\search\ArticleSearch();
-        return new VirtualArrayIterator($articleSearch->formatResults($articleIds), $totalResults, $page, $itemsPerPage);
+        return [
+            'results' => array_map(fn ($result) => $result['_id'], $results['hits']['hits']),
+            'total' => $results['hits']['total']['value'],
+        ];
     }
 
     public function paginate(Builder $builder, $perPage, $page)
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        $results = $this->search($builder);
+        return new LengthAwarePaginator($results['results'], $results['total'], $perPage, $page);
     }
 
     public function mapIds($results)
@@ -200,24 +176,34 @@ class OpenSearchEngine extends ScoutEngine
 
     public function getTotalCount($results)
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        if ($results instanceof LengthAwarePaginator) {
+            return $results->total();
+        }
+        return $results['total'];
     }
 
     public function createIndex($name, array $options = [])
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        $client = $this->getClient();
+        $client->indices()->create([
+            'index' => $name,
+            'body' => [
+                'settings' => [
+                ]
+            ]
+        ]);
     }
 
     public function deleteIndex($name)
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        $client = $this->getClient();
+        $client->indices()->delete([
+            'index' => $name,
+        ]);
     }
 
     public function flush($model)
     {
-        $client = $this->getClient();
-        $client->indices()->delete([
-            'index' => $this->getIndexName(),
-        ]);
+        $this->deleteIndex($this->getIndexName());
     }
 }

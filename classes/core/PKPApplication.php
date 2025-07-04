@@ -56,20 +56,6 @@ interface iPKPApplicationInfoProvider
     public static function getRepresentationDAO(): DAO|RepresentationDAOInterface;
 
     /**
-     * Get a SubmissionSearchIndex instance.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getSubmissionSearchIndex(): \PKP\search\SubmissionSearchIndex;
-
-    /**
-     * Get a SubmissionSearchDAO instance.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getSubmissionSearchDAO(): \PKP\search\SubmissionSearchDAO;
-
-    /**
      * Get the stages used by the application.
      *
      * @hook PKPApplication::execute::catch ['throwable' => $t]

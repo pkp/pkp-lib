@@ -177,17 +177,21 @@ class QueriesGridHandler extends GridHandler
         parent::initialize($request, $args);
 
         switch ($this->getStageId()) {
-            case WORKFLOW_STAGE_ID_SUBMISSION: $this->setTitle('submission.queries.submission');
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                $this->setTitle('submission.queries.submission');
                 break;
-            case WORKFLOW_STAGE_ID_EDITING: $this->setTitle('submission.queries.editorial');
+            case WORKFLOW_STAGE_ID_EDITING:
+                $this->setTitle('submission.queries.editorial');
                 break;
-            case WORKFLOW_STAGE_ID_PRODUCTION: $this->setTitle('submission.queries.production');
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                $this->setTitle('submission.queries.production');
                 break;
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 $this->setTitle('submission.queries.review');
                 break;
-            default: assert(false);
+            default:
+                assert(false);
         }
 
         // Columns
@@ -374,11 +378,11 @@ class QueriesGridHandler extends GridHandler
         }
 
         $query->delete();
-        Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
-        Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
 
-        if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-            $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+        if (
+            $this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+            $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION
+        ) {
             // Update submission notifications
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
@@ -606,8 +610,10 @@ class QueriesGridHandler extends GridHandler
             $queryForm->execute();
             $notificationMgr = new NotificationManager();
 
-            if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-                $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+            if (
+                $this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+                $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION
+            ) {
                 // Update submission notifications
                 $notificationMgr->updateNotification(
                     $request,

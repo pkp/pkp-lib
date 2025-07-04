@@ -47,7 +47,7 @@ class BatchMetadataChangedJob extends BaseJob
     {
         $successful = 0;
 
-        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex = Application::getSubmissionSearchIndex(); // FIXME
 
         foreach ($this->submissionIds as $currentSubmissionId) {
             $submission = Repo::submission()->get($currentSubmissionId);

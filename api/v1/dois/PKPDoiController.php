@@ -20,6 +20,7 @@ namespace PKP\API\v1\dois;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -688,20 +689,21 @@ class PKPDoiController extends PKPBaseController
 
     /**
      * Download exported DOI XML from temporary file ID
+     * @throws BindingResolutionException
      */
-    public function getExportedFile(Request $illuminateRequest): JsonResponse
+    public function getExportedFile(Request $illuminateRequest): Response
     {
         $fileId = $illuminateRequest->route('fileId');
         $currentUser = Application::get()->getRequest()->getUser();
-
         $tempFileManager = new TemporaryFileManager();
         $isSuccess = $tempFileManager->downloadById($fileId, $currentUser->getId());
+
         if (!$isSuccess) {
-            return response()->json([
+            return response()->make([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
         }
-        return response()->json([], Response::HTTP_OK);
+        return response()->noContent(Response::HTTP_OK);
     }
 
     /**

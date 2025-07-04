@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\orcid\actions\SendReviewToOrcid;
 use APP\template\TemplateManager;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -720,6 +721,7 @@ class PKPReviewController extends PKPBaseController
 
     /**
      * Download exported review file from temporary file ID
+     * @throws BindingResolutionException
      */
     public function getExportedFile(Request $illuminateRequest): Response
     {
@@ -729,11 +731,11 @@ class PKPReviewController extends PKPBaseController
         $isSuccess = $tempFileManager->downloadById($fileId, $currentUser->getId());
 
         if (!$isSuccess) {
-            return response()->json([
+            return response()->make([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_FORBIDDEN);
         }
-        return response()->noContent(Response::HTTP_OK);//json([], Response::HTTP_OK);
+        return response()->noContent(Response::HTTP_OK);
     }
 
     /**

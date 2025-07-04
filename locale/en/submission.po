@@ -465,11 +465,96 @@ msgstr "Change to"
 msgid "submission.changeFile"
 msgstr "Change File"
 
+msgid "submission.citations.structured"
+msgstr "Structured References"
+
+msgid "submission.citations.structured.description"
+msgstr ""
+"This section helps you structure your references. "
+"Clicking \"Enable Metadata Lookup\" will allow the system to process your references and retrieve DOIs and other metadata from external sources. "
+"This may take some time, but you can continue working on your submission and return to this page later to view the updated structured citations. "
+
+msgid "submission.citations.structured.descriptionTable"
+msgstr "The above references have been organised here in a structured format."
+
+msgid "submission.citations.structured.useStructuredReferences"
+msgstr "Enable Metadata Lookup"
+
 msgid "submission.citations"
 msgstr "References"
 
 msgid "submission.citations.description"
-msgstr "Enter each reference on a new line so that they can be extracted and recorded separately."
+msgstr ""
+"Enter each reference on a new line so that they can be individually processed. "
+"You can add one or multiple references at a time. "
+"Click \"Add\" button to process and move them into the table below. "
+"To edit existing entries, please use the \"Edit\" option in the table to modify individual entries."
+
+msgid "submission.citations.structured.deleteAll"
+msgstr "Delete All Structured References"
+
+msgid "submission.citations.structured.collapseAll"
+msgstr "Collapse All"
+
+msgid "submission.citations.structured.expandAll"
+msgstr "Expand All"
+
+msgid "submission.citations.structured.search.placeholder"
+msgstr "Search references here"
+
+msgid "submission.citations.structured.header.article"
+msgstr "Article Information"
+
+msgid "submission.citations.structured.header.authors"
+msgstr "Author Information"
+
+msgid "submission.citations.structured.header.journal"
+msgstr "Journal Information"
+
+msgid "submission.citations.structured.label.doi"
+msgstr "DOI"
+
+msgid "submission.citations.structured.label.title"
+msgstr "Article Name"
+
+msgid "submission.citations.structured.label.date"
+msgstr "Date"
+
+msgid "submission.citations.structured.label.type"
+msgstr "Type"
+
+msgid "submission.citations.structured.label.volume"
+msgstr "Volume"
+
+msgid "submission.citations.structured.label.issue"
+msgstr "Issue"
+
+msgid "submission.citations.structured.label.pages"
+msgstr "Pages"
+
+msgid "submission.citations.structured.label.sourceName"
+msgstr "Journal / Venue"
+
+msgid "submission.citations.structured.label.sourceHost"
+msgstr "Publisher or Host"
+
+msgid "submission.citations.structured.label.url"
+msgstr "URL"
+
+msgid "submission.citations.structured.label.urn"
+msgstr "URN"
+
+msgid "submission.citations.structured.label.arxiv"
+msgstr "Arxiv"
+
+msgid "submission.citations.structured.label.handle"
+msgstr "Handle"
+
+msgid "submission.citations.structured.label.openAlex"
+msgstr "OpenAlex"
+
+msgid "submission.citations.structured.label.wikidata"
+msgstr "Wikidata"
 
 msgid "submission.parsedCitations"
 msgstr "Extracted References"

@@ -45,6 +45,8 @@ use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\genre\Genre;
+
 
 abstract class Repository
 {
@@ -436,8 +438,9 @@ abstract class Repository
         }
 
         // Required submission files
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $requiredGenres = $genreDao->getRequiredToSubmit($context->getId());
+        $requiredGenres = Repo::genre()->getRequiredToSubmit($context->getId());
+
+
         if (!$requiredGenres->isEmpty()) {
             $submissionFiles = Repo::submissionFile()
                 ->getCollector()
@@ -445,7 +448,7 @@ abstract class Repository
                 ->filterByGenreIds(
                     $requiredGenres->map(
                         function (Genre $genre) {
-                            return $genre->getId();
+                            return $genre->id;
                         }
                     )->toArray()
                 )
@@ -456,7 +459,7 @@ abstract class Repository
                     function (Genre $genre) use ($submissionFiles) {
                         $exists = $submissionFiles->first(
                             function (SubmissionFile $submissionFile) use ($genre) {
-                                return $submissionFile->getData('genreId') === $genre->getId();
+                                return $submissionFile->getData('genreId') === $genre->id;
                             }
                         );
                         return !$exists;
@@ -465,7 +468,7 @@ abstract class Repository
             if ($missingGenres->count()) {
                 $missingGenreNames = $missingGenres->map(
                     function (Genre $genre) {
-                        return $genre->getLocalizedName();
+                        return $genre->getLocalizedData('name');
                     }
                 );
                 $errors['files'] = [

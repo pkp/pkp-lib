@@ -104,6 +104,58 @@ class Locale implements LocaleInterface
     /** @var string[]|null Available weblate locales cache, where key = locale and value = weblate name */
     protected ?array $weblateLocaleNames = null;
 
+    /** @var string[] Patterns for keys to ignore when logging missing translations */
+    protected static $ignorablePatterns = [];
+
+    /**
+     * Register a pattern for keys to ignore when logging missing translations.
+     *
+     * @param string $pattern Regex pattern to match ignorable keys
+     */
+    public static function addIgnorablePattern(string $pattern): void
+    {
+        if (!in_array($pattern, static::$ignorablePatterns)) {
+            static::$ignorablePatterns[] = $pattern;
+        }
+    }
+
+    /**
+     * Remove a specific pattern from the ignorable list.
+     *
+     * @param string $pattern Regex pattern to remove
+     */
+    public static function removeIgnorablePattern(string $pattern): void
+    {
+        static::$ignorablePatterns = array_filter(
+            static::$ignorablePatterns,
+            fn($p) => $p !== $pattern
+        );
+    }
+
+    /**
+     * Reset all ignorable patterns.
+     */
+    public static function resetIgnorablePatterns(): void
+    {
+        static::$ignorablePatterns = [];
+    }
+
+    /**
+     * Check if a key matches any ignorable pattern.
+     *
+     * @param string $key Translation key to check
+     * @return bool True if the key should be ignored for logging
+     */
+    protected function isIgnorableKey(string $key): bool
+    {
+        foreach (static::$ignorablePatterns as $pattern) {
+            if (preg_match($pattern, $key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::get()
      *
@@ -132,12 +184,16 @@ class Locale implements LocaleInterface
         if (isset($this->locale)) {
             return $this->locale;
         }
+
         $request = $this->_getRequest();
+
         $locale = $request->getUserVar('setLocale')
             ?: $request->getSession()->get('currentLocale')
             ?: $request->getCookieVar('currentLocale')
             ?: $this->getPreferredLocale();
+
         $this->setLocale($locale);
+
         return $this->locale;
     }
 
@@ -477,9 +533,10 @@ class Locale implements LocaleInterface
 
         // In order to reduce the noise, we're only logging missing entries for the en locale
         // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
-        if ($locale === LocaleInterface::DEFAULT_LOCALE) {
+        if ($locale === LocaleInterface::DEFAULT_LOCALE && !$this->isIgnorableKey($key)) {
             error_log("Missing locale key \"{$key}\" for the locale \"{$locale}\"");
         }
+
         return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
 

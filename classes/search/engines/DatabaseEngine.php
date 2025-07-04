@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Schema;
 use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
+use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
 class DatabaseEngine extends ScoutEngine
@@ -78,9 +79,9 @@ class DatabaseEngine extends ScoutEngine
                             'submission_id' => $submission->getId(),
                             'publication_id' => $publication->getId(),
                             'locale' => $locale,
-                            'title' => $titles[$locale] ?? null,
-                            'abstract' => $abstracts[$locale] ?? null,
-                            'body' => $bodies[$locale] ?? null,
+                            'title' => $titles[$locale] ?? '',
+                            'abstract' => $abstracts[$locale] ?? '',
+                            'body' => $bodies[$locale] ?? '',
                         ],
                         ['submission_id', 'publication_id', 'locale'],
                         ['title', 'abstract', 'body']
@@ -109,7 +110,7 @@ class DatabaseEngine extends ScoutEngine
                     break;
                 case 'publishedFrom':
                 case 'publishedTo':
-                    $$field = new \Carbon\Carbon($value);
+                    $$field = $value ? new \Carbon\Carbon($value) : null;
                     break;
                 default: throw new \Exception("Unsupported field {$field}!");
             }
@@ -135,11 +136,12 @@ class DatabaseEngine extends ScoutEngine
         };
 
         return DB::table($this->getTableName() . ' AS ftsearch')
-            ->join('submissions AS s', 'ftsearch.submission_id', '=', 's.submission_id')
+            ->join('submissions AS s', 'ftsearch.submission_id', 's.submission_id')
             ->when($contextId, fn ($q) => $q->where('context_id', $contextId))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds), fn ($q) => $q->whereExists(
                 fn ($q) => $q->select(DB::raw(1))
                     ->from('publications AS p')
+                    ->whereColumn('p.submission_id', 's.submission_id')
                     ->where('p.published', 1)
                     ->when($publishedFrom, fn ($q) => $q->where('p.date_published', '>=', $publishedFrom))
                     ->when($publishedTo, fn ($q) => $q->where('p.date_published', '<', $publishedTo))
@@ -210,9 +212,9 @@ class DatabaseEngine extends ScoutEngine
 
             $table->string('locale', 28);
 
-            $table->text('title')->nullable();
-            $table->text('abstract')->nullable();
-            $table->text('body')->nullable();
+            $table->text('title')->default('');
+            $table->text('abstract')->default('');
+            $table->text('body')->default('');
 
             $table->fulltext(['title', 'abstract', 'body']);
             $table->unique(['submission_id', 'publication_id', 'locale']);

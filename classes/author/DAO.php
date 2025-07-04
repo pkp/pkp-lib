@@ -161,6 +161,8 @@ class DAO extends EntityDAO
             Repo::affiliation()->getByAuthorId($author->getId())
         );
 
+        $author->setCreditRoles(Repo::creditContributorRole()->getCreditRolesByContributorId($author->getId()));
+
         return $author;
     }
 
@@ -178,6 +180,8 @@ class DAO extends EntityDAO
             Repo::affiliation()->add($affiliation);
         }
 
+        Repo::creditContributorRole()->addCreditRoles($author->getCreditRoles(), $newAuthorId);
+
         return $newAuthorId;
     }
 
@@ -187,6 +191,8 @@ class DAO extends EntityDAO
     public function update(Author $author)
     {
         Repo::affiliation()->saveAffiliations($author);
+
+        Repo::creditContributorRole()->addCreditRoles($author->getCreditRoles(), $author->getId());
 
         parent::_update($author);
     }

@@ -1721,11 +1721,13 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroup = Repo::userGroup()->get($params['userGroupId']);
-        if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
-            return response()->json([
-                'userGroupId' => [__('submission.upload.invalidUserGroup')]
-            ], Response::HTTP_BAD_REQUEST);
+        if (isset($params['userGroupId'])) {
+            $userGroup = Repo::userGroup()->get($params['userGroupId']);
+            if (!$userGroup || $userGroup->roleId !== Role::ROLE_ID_AUTHOR) {
+                return response()->json([
+                    'userGroupId' => [__('submission.upload.invalidUserGroup')]
+                ], Response::HTTP_BAD_REQUEST);
+            }
         }
 
         $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);

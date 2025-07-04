@@ -157,7 +157,3 @@ class DataObjectTombstone extends DataObject
         $this->setData('OAISetObjectsIds', $OAISetObjectsIds);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\tombstone\DataObjectTombstone', '\DataObjectTombstone');
-}

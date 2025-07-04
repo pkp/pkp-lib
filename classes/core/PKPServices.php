@@ -8,15 +8,16 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPServices
- * 
+ *
  * @brief Pimple Dependency Injection Container.
- * 
+ *
  * @deprecated 3.5.0 Consider using {@see app()->get('SERVICE_NAME')}
  * @see app()->get('SERVICE_NAME')
- * 
+ *
  */
 
 namespace PKP\core;
+
 abstract class PKPServices
 {
     /**
@@ -29,8 +30,4 @@ abstract class PKPServices
         return app()->get($service);
     }
 
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPServices', '\PKPServices');
 }

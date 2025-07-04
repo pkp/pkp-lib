@@ -130,7 +130,3 @@ class PKPNotificationsUnsubscribeForm extends Form
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\form\PKPNotificationsUnsubscribeForm', '\PKPNotificationsUnsubscribeForm');
-}

@@ -64,7 +64,3 @@ class XMLDAO
         return $parser->parseStruct($file, $tagsToMatch);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\XMLDAO', '\XMLDAO');
-}

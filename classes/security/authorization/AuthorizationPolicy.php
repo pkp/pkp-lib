@@ -145,15 +145,3 @@ class AuthorizationPolicy
         return self::AUTHORIZATION_DENY;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\AuthorizationPolicy', '\AuthorizationPolicy');
-    foreach ([
-        'AUTHORIZATION_PERMIT',
-        'AUTHORIZATION_DENY',
-        'AUTHORIZATION_ADVICE_DENY_MESSAGE',
-        'AUTHORIZATION_ADVICE_CALL_ON_DENY',
-    ] as $constantName) {
-        define($constantName, constant('\AuthorizationPolicy::' . $constantName));
-    }
-}

@@ -519,7 +519,3 @@ class Form
         return $returner;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\Form', '\Form');
-}

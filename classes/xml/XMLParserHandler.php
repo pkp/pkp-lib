@@ -45,6 +45,3 @@ abstract class XMLParserHandler
     abstract public function getResult(): mixed;
 }
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\xml\XMLParserHandler', '\XMLParserHandler');
-}

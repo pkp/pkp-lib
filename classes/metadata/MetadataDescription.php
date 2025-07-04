@@ -648,15 +648,3 @@ class MetadataDescription extends \PKP\core\DataObject
         return $allowedReplaceLevels;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\metadata\MetadataDescription', '\MetadataDescription');
-    foreach ([
-        'METADATA_DESCRIPTION_REPLACE_ALL',
-        'METADATA_DESCRIPTION_REPLACE_PROPERTIES',
-        'METADATA_DESCRIPTION_REPLACE_NOTHING',
-        'METADATA_DESCRIPTION_UNKNOWN_LOCALE'
-    ] as $constantName) {
-        define($constantName, constant('\MetadataDescription::' . $constantName));
-    }
-}

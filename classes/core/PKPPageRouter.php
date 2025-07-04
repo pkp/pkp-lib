@@ -574,7 +574,3 @@ class PKPPageRouter extends PKPRouter
         return false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPPageRouter', '\PKPPageRouter');
-}

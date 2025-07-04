@@ -31,7 +31,3 @@ class EmailFilterSetting extends FilterSetting
         return $check;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\EmailFilterSetting', '\EmailFilterSetting');
-}

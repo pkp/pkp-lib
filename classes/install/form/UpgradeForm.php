@@ -69,7 +69,3 @@ class UpgradeForm extends MaintenanceForm
         $installer->destroy();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\install\form\UpgradeForm', '\UpgradeForm');
-}

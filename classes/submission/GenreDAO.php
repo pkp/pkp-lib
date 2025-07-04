@@ -54,7 +54,6 @@ class GenreDAO extends DAO
     /**
      * Retrieve all genres
      *
-     * @param int $contextId
      * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory<Genre> containing matching genres
@@ -442,8 +441,4 @@ class GenreDAO extends DAO
     {
         $this->update('DELETE FROM genre_settings WHERE locale = ?', [$locale]);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\GenreDAO', '\GenreDAO');
 }

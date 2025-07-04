@@ -226,7 +226,3 @@ class InstallForm extends MaintenanceForm
         return array_map(fn ($item) => $item[1], $this->supportedDatabaseDrivers);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\install\form\InstallForm', '\InstallForm');
-}

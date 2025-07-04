@@ -29,7 +29,3 @@ class SearchHTMLParser extends SearchFileParser
         return $line;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\search\SearchHTMLParser', '\SearchHTMLParser');
-}

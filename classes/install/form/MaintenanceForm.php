@@ -77,7 +77,3 @@ class MaintenanceForm extends Form
         $this->display($this->_request);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\install\form\MaintenanceForm', '\MaintenanceForm');
-}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/FilterGroup.php
  *
@@ -146,8 +147,4 @@ class FilterGroup extends \PKP\core\DataObject
     {
         return $this->getData('outputType');
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\FilterGroup', '\FilterGroup');
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup linkAction LinkActions
  * Link actions are representations of various kinds of actions that can be
@@ -127,8 +128,4 @@ class LinkAction
     {
         return $this->_image;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\LinkAction', '\LinkAction');
 }

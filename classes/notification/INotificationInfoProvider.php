@@ -67,7 +67,3 @@ interface INotificationInfoProvider
      */
     public function isVisibleToAllUsers(int $notificationType, int $assocType, int $assocId): bool;
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\INotificationInfoProvider', '\INotificationInfoProvider');
-}

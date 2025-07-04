@@ -31,7 +31,3 @@ abstract class PKPViewableFilePlugin extends GenericPlugin
         return 'display.tpl';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PKPViewableFilePlugin', '\PKPViewableFilePlugin');
-}

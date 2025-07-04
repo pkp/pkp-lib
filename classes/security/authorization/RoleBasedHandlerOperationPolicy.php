@@ -141,7 +141,3 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\RoleBasedHandlerOperationPolicy', '\RoleBasedHandlerOperationPolicy');
-}

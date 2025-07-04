@@ -240,7 +240,3 @@ class EditorAction
         return $mailable;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\action\EditorAction', '\EditorAction');
-}

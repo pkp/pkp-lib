@@ -466,7 +466,3 @@ class PKPComponentRouter extends PKPRouter
         return $rpcServiceEndpointParts;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPComponentRouter', '\PKPComponentRouter');
-}

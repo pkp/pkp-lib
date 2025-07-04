@@ -55,7 +55,3 @@ class TemporaryFile extends PKPFile
         $this->setData('userId', $userId);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\TemporaryFile', '\TemporaryFile');
-}

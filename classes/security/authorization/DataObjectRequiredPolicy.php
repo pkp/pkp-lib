@@ -149,7 +149,3 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
         return false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\DataObjectRequiredPolicy', '\DataObjectRequiredPolicy');
-}

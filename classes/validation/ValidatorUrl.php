@@ -33,7 +33,3 @@ class ValidatorUrl extends Validator
         return $validator->passes();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorUrl', '\ValidatorUrl');
-}

@@ -86,7 +86,3 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileAssignedReviewerAccessPolicy', '\SubmissionFileAssignedReviewerAccessPolicy');
-}

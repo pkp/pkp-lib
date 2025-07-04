@@ -294,6 +294,7 @@ abstract class PKPRouter
      * 3) initialization
      * 4) execution
      * 5) client response
+     *
      * @param array{0:PKPHandler,1:string} $serviceEndpoint
      * @param bool $validate whether or not to execute the validation step.
      */
@@ -463,8 +464,4 @@ abstract class PKPRouter
         // Assemble and return the final URL
         return $baseUrl . $pathInfo . $queryParameters . $anchor;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPRouter', '\PKPRouter');
 }

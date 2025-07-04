@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup tests Tests
  * Tests and test framework for unit and integration tests.
@@ -25,11 +26,11 @@ use Illuminate\Support\Facades\Mail;
 use Mockery;
 use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
-use PKP\core\PKPContainer;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\Dispatcher;
+use PKP\core\PKPContainer;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -84,7 +85,7 @@ abstract class PKPTestCase extends TestCase
         parent::setUp();
         $this->setBackupGlobals(true);
 
-        // Set application running unit test 
+        // Set application running unit test
         PKPContainer::getInstance()->setRunningUnitTests();
 
         // Rather than using "include_once()", ADOdb uses
@@ -138,7 +139,7 @@ abstract class PKPTestCase extends TestCase
         // Delete the mocked guzzle client from registry
         Registry::delete(self::MOCKED_GUZZLE_CLIENT_NAME);
 
-        // Unset application running unit test 
+        // Unset application running unit test
         PKPContainer::getInstance()->unsetRunningUnitTests();
 
         parent::tearDown();
@@ -191,8 +192,6 @@ abstract class PKPTestCase extends TestCase
      * And make sure that you merge any additional mocked
      * registry keys with the ones returned from this class.
      *
-     * @param string $path
-     * @param int $userId
      *
      * @return Request
      */
@@ -234,7 +233,6 @@ abstract class PKPTestCase extends TestCase
      * Resolves the configuration id to a configuration
      * file
      *
-     * @param string $config
      *
      * @return string the resolved configuration file name
      */
@@ -257,12 +255,14 @@ abstract class PKPTestCase extends TestCase
 
     /**
      * Mock the mail facade
+     *
      * @see https://laravel.com/docs/11.x/mocking
      */
     protected function mockMail(): void
     {
         /**
          * @disregard P1013 PHP Intelephense error suppression
+         *
          * @see https://github.com/bmewburn/vscode-intelephense/issues/568
          */
         Mail::shouldReceive('send')
@@ -275,12 +275,12 @@ abstract class PKPTestCase extends TestCase
 
     /**
      * Create mockable guzzle client
+     *
      * @see https://docs.guzzlephp.org/en/stable/testing.html
-     * 
+     *
      * @param bool $setToRegistry   Should store it in app registry to be used by call
      *                              as `Application::get()->getHttpClient()`
-     * 
-     * @return \Mockery\MockInterface|\Mockery\LegacyMockInterface
+     *
      */
     protected function mockGuzzleClient(bool $setToRegistry = true): MockInterface|LegacyMockInterface
     {
@@ -288,7 +288,7 @@ abstract class PKPTestCase extends TestCase
             ->makePartial()
             ->shouldReceive('request')
             ->withAnyArgs()
-            ->andReturn(new \GuzzleHttp\Psr7\Response)
+            ->andReturn(new \GuzzleHttp\Psr7\Response())
             ->getMock();
 
         if ($setToRegistry) {
@@ -297,8 +297,4 @@ abstract class PKPTestCase extends TestCase
 
         return $guzzleClientMock;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias(PKPTestCase::class, 'PKPTestCase');
 }

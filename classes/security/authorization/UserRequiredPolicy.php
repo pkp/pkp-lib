@@ -51,7 +51,3 @@ class UserRequiredPolicy extends AuthorizationPolicy
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\UserRequiredPolicy', '\UserRequiredPolicy');
-}

@@ -16,8 +16,8 @@
 
 namespace PKP\note;
 
+use PKP\core\PKPApplication;
 use PKP\db\DAO;
-use PKPApplication;
 
 class Repository
 {

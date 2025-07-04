@@ -42,11 +42,11 @@ class UpdateSubmissionInSearchIndex
 
     public function handleUnpublished(PublicationUnpublished $event)
     {
-        $event->submission->syncRemoveFromSearch(collect([$event->submission]));
+        app(\Laravel\Scout\EngineManager::class)->engine()->delete(collect([$event->submission]));
     }
 
     public function handlePublicationPublished(PublicationPublished $event)
     {
-        $event->submission->syncMakeSearchable(collect([$event->submission]));
+        app(\Laravel\Scout\EngineManager::class)->engine()->update(collect([$event->submission]));
     }
 }

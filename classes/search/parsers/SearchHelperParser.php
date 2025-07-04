@@ -1,20 +1,18 @@
 <?php
 
 /**
- * @file classes/search/SearchHelperParser.php
+ * @file classes/search/parsers/SearchHelperParser.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SearchHelperParser
  *
- * @ingroup search
- *
  * @brief Class to extract text from a file using an external helper program.
  */
 
-namespace PKP\search;
+namespace PKP\search\parsers;
 
 use Exception;
 use PKP\config\Config;
@@ -32,7 +30,7 @@ class SearchHelperParser extends SearchFileParser
         $this->type = $type;
     }
 
-    public function open()
+    public function open(): bool
     {
         $prog = Config::getVar('search', 'index[' . $this->type . ']');
         if (isset($prog)) {
@@ -46,10 +44,11 @@ class SearchHelperParser extends SearchFileParser
         return false;
     }
 
-    public function close()
+    public function close(): void
     {
         if ($this->fp && ($exitCode = pclose($this->fp))) {
             throw new Exception("The indexation process exited with the code \"{$exitCode}\", perhaps the command failed: {$this->command}");
         }
+        $this->fp = null;
     }
 }

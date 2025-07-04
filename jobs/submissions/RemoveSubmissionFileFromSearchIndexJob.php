@@ -20,7 +20,6 @@ namespace PKP\jobs\submissions;
 
 use APP\core\Application;
 use PKP\jobs\BaseJob;
-use PKP\search\SubmissionSearch;
 
 class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {
@@ -55,7 +54,7 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
      */
     public function handle(): void
     {
-        $submissionSearchIndex = Application::getSubmissionSearchIndex();
+        $submissionSearchIndex = Application::getSubmissionSearchIndex(); // FIXME
         $submissionSearchIndex->deleteTextIndex(
             $this->submissionId,
             SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE,

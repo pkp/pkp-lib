@@ -26,11 +26,10 @@ use PKP\controllers\grid\GridHandler;
 use PKP\core\DataObject;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
-use PKP\facades\Locale;
+use PKP\editorialTask\EditorialTask;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\note\Note;
-use PKP\query\Query;
 
 class QueriesGridCellProvider extends DataObjectGridCellProvider
 {
@@ -75,7 +74,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         $element = $row->getData();
         $columnId = $column->getId();
         assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
-        /** @var Query $element */
+        /** @var EditorialTask $element */
         $headNote = Repo::note()->getHeadNote($element->id);
         $user = $headNote?->user;
         $notes = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $element->id)

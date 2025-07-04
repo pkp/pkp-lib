@@ -27,6 +27,7 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
@@ -34,7 +35,6 @@ use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
-use PKP\query\Query;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -722,7 +722,7 @@ abstract class Repository
             }
 
             // Get the associated query.
-            $query = Query::find($note->assocId);
+            $query = EditorialTask::find($note->assocId);
 
             // The query will have an associated file stage.
             return $query?->stageId;

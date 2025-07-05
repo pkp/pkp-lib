@@ -45,3 +45,7 @@ class TestSchema extends MetadataSchema
         $this->addProperty('composite-translated-many', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
     }
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias(TestSchema::class, 'TestSchema');
+}

@@ -21,3 +21,7 @@ class TestClass1
 {
     public string $testField;
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias(TestClass1::class, 'TestClass1');
+}

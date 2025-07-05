@@ -209,3 +209,7 @@ class Galley extends Representation
             ->toArray();
     }
 }
+
+if (!PKP_STRICT_MODE) {
+    class_alias('\PKP\galley\Galley', '\Galley');
+}

@@ -177,7 +177,3 @@ class ContactForm extends BaseProfileForm
         parent::execute(...$functionArgs);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\ContactForm', '\ContactForm');
-}

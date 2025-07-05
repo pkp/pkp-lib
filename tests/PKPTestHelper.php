@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file tests/PKPTestHelper.php
  *
@@ -15,8 +16,8 @@
 
 namespace PKP\tests;
 
-use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\TestCase;
@@ -88,7 +89,7 @@ abstract class PKPTestHelper
     public static function restoreDB($test)
     {
         $filename = getenv('DATABASEDUMP');
-        
+
         if (!$filename) {
             $test->fail('Database dump filename needs to be specified in env variable DATABASEDUMP!');
             return;
@@ -169,8 +170,4 @@ abstract class PKPTestHelper
             }
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias(PKPTestHelper::class, 'PKPTestHelper');
 }

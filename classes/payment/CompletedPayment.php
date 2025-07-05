@@ -66,7 +66,3 @@ class CompletedPayment extends Payment
         $this->_paymentPluginName = $paymentPluginName;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\payment\CompletedPayment', '\CompletedPayment');
-}

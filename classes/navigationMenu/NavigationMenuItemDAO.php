@@ -465,7 +465,3 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
         return $retNavigationMenuItemId;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\navigationMenu\NavigationMenuItemDAO', '\NavigationMenuItemDAO');
-}

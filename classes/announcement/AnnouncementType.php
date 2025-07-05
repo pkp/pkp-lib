@@ -72,7 +72,3 @@ class AnnouncementType extends \PKP\core\DataObject
         $this->setData('name', $name, $locale);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\announcement\AnnouncementType', '\AnnouncementType');
-}

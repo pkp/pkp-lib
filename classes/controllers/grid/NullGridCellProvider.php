@@ -31,7 +31,3 @@ class NullGridCellProvider extends GridCellProvider
         return null;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\NullGridCellProvider', '\NullGridCellProvider');
-}

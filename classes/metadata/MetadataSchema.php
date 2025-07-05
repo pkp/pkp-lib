@@ -294,7 +294,3 @@ class MetadataSchema
         return isset($this->_properties[$propertyName]);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\metadata\MetadataSchema', '\MetadataSchema');
-}

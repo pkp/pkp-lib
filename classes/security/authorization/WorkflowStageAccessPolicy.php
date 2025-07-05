@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/WorkflowStageAccessPolicy.php
  *
@@ -59,8 +60,4 @@ class WorkflowStageAccessPolicy extends ContextPolicy
         // ... if they can access the requested workflow stage.
         $this->addPolicy(new UserAccessibleWorkflowStagePolicy($stageId, $workflowType));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\WorkflowStageAccessPolicy', '\WorkflowStageAccessPolicy');
 }

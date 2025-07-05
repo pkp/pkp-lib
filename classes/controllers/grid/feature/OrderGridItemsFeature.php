@@ -74,7 +74,3 @@ class OrderGridItemsFeature extends OrderItemsFeature
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\OrderGridItemsFeature', '\OrderGridItemsFeature');
-}

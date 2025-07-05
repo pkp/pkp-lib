@@ -189,7 +189,3 @@ class GeneralPagingFeature extends GridFeature
         return $rangeName . 'ItemsPerPage';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\GeneralPagingFeature', '\GeneralPagingFeature');
-}

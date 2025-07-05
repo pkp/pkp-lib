@@ -162,14 +162,3 @@ class GridColumn extends GridBodyElement
         return [];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridColumn', '\GridColumn');
-    foreach ([
-        'COLUMN_ALIGNMENT_LEFT',
-        'COLUMN_ALIGNMENT_CENTER',
-        'COLUMN_ALIGNMENT_RIGHT',
-    ] as $constantName) {
-        define($constantName, constant('\GridColumn::' . $constantName));
-    }
-}

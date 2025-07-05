@@ -383,22 +383,4 @@ class SubmissionFile extends \PKP\core\DataObject
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\submissionFile\SubmissionFile', '\SubmissionFile');
-    foreach ([
-        'SUBMISSION_FILE_SUBMISSION',
-        'SUBMISSION_FILE_NOTE',
-        'SUBMISSION_FILE_REVIEW_FILE',
-        'SUBMISSION_FILE_REVIEW_ATTACHMENT',
-        'SUBMISSION_FILE_FINAL',
-        'SUBMISSION_FILE_COPYEDIT',
-        'SUBMISSION_FILE_PROOF',
-        'SUBMISSION_FILE_PRODUCTION_READY',
-        'SUBMISSION_FILE_ATTACHMENT',
-        'SUBMISSION_FILE_REVIEW_REVISION',
-        'SUBMISSION_FILE_DEPENDENT',
-        'SUBMISSION_FILE_QUERY',
-        'SUBMISSION_FILE_INTERNAL_REVIEW_FILE',
-        'SUBMISSION_FILE_INTERNAL_REVIEW_REVISION',
-    ] as $constantName) {
-        define($constantName, constant('\SubmissionFile::' . $constantName));
-    }
 }

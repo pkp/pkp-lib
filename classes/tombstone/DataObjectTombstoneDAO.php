@@ -286,7 +286,3 @@ class DataObjectTombstoneDAO extends DAO
             (isset($assocId) && isset($assocType) ? 'AND oso.assoc_type = ? AND oso.assoc_id = ?' : '');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\tombstone\DataObjectTombstoneDAO', '\DataObjectTombstoneDAO');
-}

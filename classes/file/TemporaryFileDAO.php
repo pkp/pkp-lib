@@ -191,7 +191,3 @@ class TemporaryFileDAO extends \PKP\db\DAO
         return $temporaryFiles;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\TemporaryFileDAO', '\TemporaryFileDAO');
-}

@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\core\Core;
-use PKP\submission\reviewer\recommendation\ReviewerRecommendation;
 
 class ReviewAssignment extends \PKP\core\DataObject
 {
@@ -268,7 +267,6 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the date the editor confirmed.
      *
-     * @return string|null
      */
     public function getDateConsidered(): ?string
     {
@@ -278,8 +276,6 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the date the editor confirmed.
      *
-     * @param string|null $dateConsidered
-     * @return void
      */
     public function setDateConsidered(?string $dateConsidered): void
     {
@@ -850,34 +846,5 @@ class ReviewAssignment extends \PKP\core\DataObject
         }
 
         return true;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewAssignment\ReviewAssignment', '\ReviewAssignment');
-    foreach ([
-        'SUBMISSION_REVIEWER_RATING_VERY_GOOD',
-        'SUBMISSION_REVIEWER_RATING_GOOD',
-        'SUBMISSION_REVIEWER_RATING_AVERAGE',
-        'SUBMISSION_REVIEWER_RATING_POOR',
-        'SUBMISSION_REVIEWER_RATING_VERY_POOR',
-        'SUBMISSION_REVIEW_METHOD_ANONYMOUS',
-        'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS',
-        'SUBMISSION_REVIEW_METHOD_OPEN',
-        'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE',
-        'REVIEW_ASSIGNMENT_STATUS_DECLINED',
-        'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE',
-        'REVIEW_ASSIGNMENT_STATUS_ACCEPTED',
-        'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE',
-        'REVIEW_ASSIGNMENT_STATUS_RECEIVED',
-        'REVIEW_ASSIGNMENT_STATUS_VIEWED',
-        'REVIEW_ASSIGNMENT_STATUS_COMPLETE',
-        'REVIEW_ASSIGNMENT_STATUS_THANKED',
-        'REVIEW_ASSIGNMENT_STATUS_CANCELLED',
-        'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND',
-    ] as $constantName) {
-        if (!defined($constantName)) {
-            define($constantName, constant('\PKP\submission\reviewAssignment\ReviewAssignment::' . $constantName));
-        }
     }
 }

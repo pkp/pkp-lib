@@ -91,7 +91,3 @@ abstract class GatewayPlugin extends Plugin
         return [];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\GatewayPlugin', '\GatewayPlugin');
-}

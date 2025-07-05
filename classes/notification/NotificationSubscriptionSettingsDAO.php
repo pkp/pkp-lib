@@ -112,7 +112,3 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
             )->pluck('user_id');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\NotificationSubscriptionSettingsDAO', '\NotificationSubscriptionSettingsDAO');
-}

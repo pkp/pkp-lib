@@ -143,7 +143,3 @@ class PKPFile extends \PKP\core\DataObject
         assert(false);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\PKPFile', '\PKPFile');
-}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/ContextPolicy.php
  *
@@ -34,8 +35,4 @@ class ContextPolicy extends PolicySet
         // Ensure we're in a context
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext'));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\ContextPolicy', '\ContextPolicy');
 }

@@ -483,23 +483,3 @@ abstract class SubmissionSearch
      */
     abstract protected function getSearchDao();
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\search\SubmissionSearch', '\SubmissionSearch');
-    foreach ([
-        'SUBMISSION_SEARCH_AUTHOR',
-        'SUBMISSION_SEARCH_TITLE',
-        'SUBMISSION_SEARCH_ABSTRACT',
-        'SUBMISSION_SEARCH_DISCIPLINE',
-        'SUBMISSION_SEARCH_SUBJECT',
-        'SUBMISSION_SEARCH_KEYWORD',
-        'SUBMISSION_SEARCH_TYPE',
-        'SUBMISSION_SEARCH_COVERAGE',
-        'SUBMISSION_SEARCH_GALLEY_FILE',
-        'SUBMISSION_SEARCH_SUPPLEMENTARY_FILE',
-        'SUBMISSION_SEARCH_INDEX_TERMS',
-        'SUBMISSION_SEARCH_DEFAULT_RESULT_LIMIT',
-    ] as $constantName) {
-        define($constantName, constant('\SubmissionSearch::' . $constantName));
-    }
-}

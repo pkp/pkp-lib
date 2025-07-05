@@ -74,7 +74,3 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
         return false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\NotificationManagerDelegate', '\NotificationManagerDelegate');
-}

@@ -125,7 +125,3 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         return Repo::user()->getByUsername($specifier, true);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\cliTool\MergeUsersTool', '\MergeUsersTool');
-}

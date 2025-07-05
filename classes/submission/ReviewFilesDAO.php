@@ -92,7 +92,3 @@ class ReviewFilesDAO extends \PKP\db\DAO
             ->exists();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\ReviewFilesDAO', '\ReviewFilesDAO');
-}

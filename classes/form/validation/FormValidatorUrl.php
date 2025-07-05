@@ -38,7 +38,3 @@ class FormValidatorUrl extends FormValidator
         array_push($form->cssValidation[$field], 'url');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorUrl', '\FormValidatorUrl');
-}

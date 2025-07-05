@@ -66,7 +66,3 @@ abstract class DatabaseTestCase extends PKPTestCase
         parent::tearDown();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias(DatabaseTestCase::class, 'DatabaseTestCase');
-}

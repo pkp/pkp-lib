@@ -985,7 +985,3 @@ class FormBuilderVocabulary
         return $returner;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\FormBuilderVocabulary', '\FormBuilderVocabulary');
-}

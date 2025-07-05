@@ -52,7 +52,3 @@ abstract class MetadataPlugin extends Plugin
      */
     abstract public function getSchemaObject($format);
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\MetadataPlugin', '\MetadataPlugin');
-}

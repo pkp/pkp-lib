@@ -105,7 +105,3 @@ class PKPSection extends \PKP\core\DataObject
         $this->setData('isInactive', $isInactive);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\section\PKPSection', '\PKPSection');
-}

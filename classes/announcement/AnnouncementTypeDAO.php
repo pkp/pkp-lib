@@ -148,7 +148,3 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\announcement\AnnouncementTypeDAO', '\AnnouncementTypeDAO');
-}

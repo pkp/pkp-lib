@@ -123,7 +123,3 @@ class DataObjectTombstoneSettingsDAO extends \PKP\db\DAO
         );
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\tombstone\DataObjectTombstoneSettingsDAO', '\DataObjectTombstoneSettingsDAO');
-}

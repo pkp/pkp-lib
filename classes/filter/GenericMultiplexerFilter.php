@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/GenericMultiplexerFilter.php
  *
@@ -109,8 +110,4 @@ class GenericMultiplexerFilter extends CompositeFilter
 
         return $output;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\GenericMultiplexerFilter', '\GenericMultiplexerFilter');
 }

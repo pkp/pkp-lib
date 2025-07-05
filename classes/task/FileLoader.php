@@ -426,18 +426,3 @@ abstract class FileLoader extends ScheduledTask
         $this->moveFile($this->_processingPath, $this->_stagePath, $this->_claimedFilename);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\task\FileLoader', '\FileLoader');
-    foreach ([
-        'FILE_LOADER_RETURN_TO_STAGING',
-        'FILE_LOADER_ERROR_MESSAGE_TYPE',
-        'FILE_LOADER_WARNING_MESSAGE_TYPE',
-        'FILE_LOADER_PATH_STAGING',
-        'FILE_LOADER_PATH_PROCESSING',
-        'FILE_LOADER_PATH_REJECT',
-        'FILE_LOADER_PATH_ARCHIVE',
-    ] as $constantName) {
-        define($constantName, constant('\FileLoader::' . $constantName));
-    }
-}

@@ -47,7 +47,3 @@ class FormValidatorPost extends FormValidator
         return $request->isPost();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorPost', '\FormValidatorPost');
-}

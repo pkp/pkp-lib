@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/GenericSequencerFilter.php
  *
@@ -56,8 +57,4 @@ class GenericSequencerFilter extends CompositeFilter
         }
         return $output;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\GenericSequencerFilter', '\GenericSequencerFilter');
 }

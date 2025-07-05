@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/PostAndRedirectAction.php
  *
@@ -70,8 +71,4 @@ class PostAndRedirectAction extends RedirectAction
             ['postUrl' => $this->getPostUrl()]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\PostAndRedirectAction', '\PostAndRedirectAction');
 }

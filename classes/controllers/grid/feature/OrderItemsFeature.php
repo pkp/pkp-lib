@@ -211,7 +211,3 @@ class OrderItemsFeature extends GridFeature
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\OrderItemsFeature', '\OrderItemsFeature');
-}

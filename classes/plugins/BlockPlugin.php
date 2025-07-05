@@ -75,7 +75,3 @@ abstract class BlockPlugin extends LazyLoadPlugin
         return $templateMgr->fetch($this->getTemplateResource($blockTemplateFilename));
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\BlockPlugin', '\BlockPlugin');
-}

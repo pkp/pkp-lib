@@ -76,28 +76,3 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
         return Application::ASSOC_TYPE_SUBMISSION;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\event\PKPSubmissionEventLogEntry', '\PKPSubmissionEventLogEntry');
-    foreach ([
-        'SUBMISSION_LOG_SUBMISSION_SUBMIT',
-        'SUBMISSION_LOG_METADATA_UPDATE',
-        'SUBMISSION_LOG_ADD_PARTICIPANT',
-        'SUBMISSION_LOG_REMOVE_PARTICIPANT',
-        'SUBMISSION_LOG_METADATA_PUBLISH',
-        'SUBMISSION_LOG_METADATA_UNPUBLISH',
-        'SUBMISSION_LOG_CREATE_VERSION',
-        'SUBMISSION_LOG_EDITOR_DECISION',
-        'SUBMISSION_LOG_EDITOR_RECOMMENDATION',
-        'SUBMISSION_LOG_REVIEW_ASSIGN',
-        'SUBMISSION_LOG_REVIEW_REINSTATED',
-        'SUBMISSION_LOG_REVIEW_DECLINE',
-        'SUBMISSION_LOG_REVIEW_UNCONSIDERED',
-        'SUBMISSION_LOG_REVIEW_SET_DUE_DATE',
-        'SUBMISSION_LOG_REVIEW_CLEAR',
-        'SUBMISSION_LOG_REVIEW_READY',
-        'SUBMISSION_LOG_REVIEW_CONFIRMED',
-    ] as $constantName) {
-        define($constantName, constant('\PKPSubmissionEventLogEntry::' . $constantName));
-    }
-}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/AddTabAction.php
  *
@@ -29,8 +30,4 @@ class AddTabAction extends EventAction
             'title' => $title,
         ]);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\AddTabAction', '\AddTabAction');
 }

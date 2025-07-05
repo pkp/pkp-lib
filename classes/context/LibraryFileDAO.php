@@ -270,7 +270,3 @@ class LibraryFileDAO extends \PKP\db\DAO
         return $row ? (bool) $row->row_count : false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\LibraryFileDAO', '\LibraryFileDAO');
-}

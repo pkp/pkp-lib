@@ -261,17 +261,3 @@ class ReviewFormElement extends \PKP\core\DataObject
         ];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\reviewForm\ReviewFormElement', '\ReviewFormElement');
-    foreach ([
-        'REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD',
-        'REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD',
-        'REVIEW_FORM_ELEMENT_TYPE_TEXTAREA',
-        'REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES',
-        'REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS',
-        'REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX',
-    ] as $constantName) {
-        define($constantName, constant('\ReviewFormElement::' . $constantName));
-    }
-}

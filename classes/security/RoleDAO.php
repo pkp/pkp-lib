@@ -158,7 +158,3 @@ class RoleDAO extends DAO
         return [Role::ROLE_ID_MANAGER];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\RoleDAO', '\RoleDAO');
-}

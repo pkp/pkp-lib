@@ -184,7 +184,3 @@ class FormValidatorArrayCustom extends FormValidator
         return is_array($this->getFieldValue());
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorArrayCustom', '\FormValidatorArrayCustom');
-}

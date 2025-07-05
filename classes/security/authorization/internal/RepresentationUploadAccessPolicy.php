@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/RepresentationUploadAccessPolicy.php
  *
@@ -98,8 +99,4 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\RepresentationUploadAccessPolicy', '\RepresentationUploadAccessPolicy');
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/RestrictedSiteAccessPolicy.php
  *
@@ -79,8 +80,4 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
         Hook::call('RestrictedSiteAccessPolicy::_getLoginExemptions', [[&$exemptions]]);
         return $exemptions;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\RestrictedSiteAccessPolicy', '\RestrictedSiteAccessPolicy');
 }

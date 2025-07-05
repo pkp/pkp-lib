@@ -241,9 +241,3 @@ class EventLogEntry extends \PKP\core\DataObject
         return $userEmail ?: '';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\event\EventLogEntry', '\EventLogEntry');
-    define('SUBMISSION_LOG_NOTE_POSTED', EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
-    define('SUBMISSION_LOG_MESSAGE_SENT', EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
-}

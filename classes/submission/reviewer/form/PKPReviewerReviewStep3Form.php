@@ -22,20 +22,20 @@ use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\plugins\Hook;
 use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorPost;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
+use PKP\plugins\Hook;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
@@ -402,8 +402,4 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             unset($comment);
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewer\form\PKPReviewerReviewStep3Form', '\PKPReviewerReviewStep3Form');
 }

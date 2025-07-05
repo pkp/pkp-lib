@@ -176,7 +176,3 @@ class OAIUtils
     }
 }
 OAIUtils::init();
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAIUtils', '\OAIUtils');
-}

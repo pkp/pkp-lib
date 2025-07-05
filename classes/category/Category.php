@@ -150,7 +150,3 @@ class Category extends \PKP\core\DataObject
         return $this->setData('sortOption', $sortOption);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\category\Category', '\Category');
-}

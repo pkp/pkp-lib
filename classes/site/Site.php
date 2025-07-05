@@ -200,7 +200,3 @@ class Site extends \PKP\core\DataObject
         $this->setData('uniqueSiteId', $uniqueSiteId);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\site\Site', '\Site');
-}

@@ -66,7 +66,3 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileMatchesSubmissionPolicy', '\SubmissionFileMatchesSubmissionPolicy');
-}

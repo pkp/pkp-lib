@@ -290,33 +290,3 @@ abstract class PKPStatisticsHelper
         return $cachedInstitutionData[$hashedIp][$contextId];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\statistics\PKPStatisticsHelper', '\PKPStatisticsHelper');
-    foreach ([
-        'STATISTICS_DIMENSION_CONTEXT_ID',
-        'STATISTICS_DIMENSION_SUBMISSION_ID',
-        'STATISTICS_DIMENSION_REPRESENTATION_ID',
-        'STATISTICS_DIMENSION_ASSOC_TYPE',
-        'STATISTICS_DIMENSION_FILE_TYPE',
-        'STATISTICS_DIMENSION_YEAR',
-        'STATISTICS_DIMENSION_MONTH',
-        'STATISTICS_DIMENSION_DAY',
-        'STATISTICS_DIMENSION_DATE',
-        'STATISTICS_DIMENSION_COUNTRY',
-        'STATISTICS_DIMENSION_REGION',
-        'STATISTICS_DIMENSION_CITY',
-        'STATISTICS_METRIC',
-        'STATISTICS_METRIC_UNIQUE',
-        'STATISTICS_ORDER_ASC',
-        'STATISTICS_ORDER_DESC',
-        'STATISTICS_FILE_TYPE_HTML',
-        'STATISTICS_FILE_TYPE_PDF',
-        'STATISTICS_FILE_TYPE_OTHER',
-        'STATISTICS_FILE_TYPE_DOC',
-        'STATISTICS_EARLIEST_DATE',
-        'COUNTER_DOUBLE_CLICK_TIME_FILTER_SECONDS',
-    ] as $constantName) {
-        define($constantName, constant('\PKPStatisticsHelper::' . $constantName));
-    }
-}

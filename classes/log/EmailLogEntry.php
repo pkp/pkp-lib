@@ -161,7 +161,3 @@ class EmailLogEntry extends Model
             ->where('user_id', $recipientId);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\EmailLogEntry', '\EmailLogEntry');
-}

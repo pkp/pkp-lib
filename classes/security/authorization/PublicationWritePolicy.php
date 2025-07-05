@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PublicationWritePolicy.php
  *
@@ -43,8 +44,4 @@ class PublicationWritePolicy extends ContextPolicy
         // Can the user edit the publication?
         $this->addPolicy(new PublicationCanBeEditedPolicy($request, 'api.submissions.403.userCantEdit'));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PublicationWritePolicy', '\PublicationWritePolicy');
 }

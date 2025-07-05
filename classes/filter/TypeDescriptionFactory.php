@@ -127,16 +127,3 @@ class TypeDescriptionFactory
         };
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\TypeDescriptionFactory', '\TypeDescriptionFactory');
-    foreach ([
-        'TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE',
-        'TYPE_DESCRIPTION_NAMESPACE_CLASS',
-        'TYPE_DESCRIPTION_NAMESPACE_METADATA',
-        'TYPE_DESCRIPTION_NAMESPACE_XML',
-        'TYPE_DESCRIPTION_NAMESPACE_VALIDATOR',
-    ] as $constantName) {
-        define($constantName, constant('\TypeDescriptionFactory::' . $constantName));
-    }
-}

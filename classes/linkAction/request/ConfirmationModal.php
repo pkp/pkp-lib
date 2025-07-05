@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/ConfirmationModal.php
  *
@@ -111,8 +112,4 @@ class ConfirmationModal extends Modal
             'cancelButton' => $this->getCancelButton(),
             'dialogText' => $this->getDialogText()]);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\ConfirmationModal', '\ConfirmationModal');
 }

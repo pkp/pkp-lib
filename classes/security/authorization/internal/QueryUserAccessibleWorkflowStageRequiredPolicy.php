@@ -62,7 +62,3 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
         return $result;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy', '\QueryUserAccessibleWorkflowStageRequiredPolicy');
-}

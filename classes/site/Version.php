@@ -321,7 +321,3 @@ class Version extends \PKP\core\DataObject
         return $semver->satisfies($version, $constraints);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\site\Version', '\Version');
-}

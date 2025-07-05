@@ -56,7 +56,3 @@ class FormError
         return $this->message;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\FormError', '\FormError');
-}

@@ -51,7 +51,3 @@ class SubmissionFileUploaderAccessPolicy extends SubmissionFileBaseAccessPolicy
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileUploaderAccessPolicy', '\SubmissionFileUploaderAccessPolicy');
-}

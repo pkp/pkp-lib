@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/ReviewRoundRequiredPolicy.php
  *
@@ -86,8 +87,4 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\ReviewRoundRequiredPolicy', '\ReviewRoundRequiredPolicy');
 }

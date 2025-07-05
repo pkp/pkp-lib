@@ -170,8 +170,3 @@ class VersionCheck
         return false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\site\VersionCheck', '\VersionCheck');
-    define('VERSION_CODE_PATH', VersionCheck::VERSION_CODE_PATH);
-}

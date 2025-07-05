@@ -93,7 +93,3 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\ReviewAssignmentAccessPolicy', '\ReviewAssignmentAccessPolicy');
-}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/RemoteActionConfirmationModal.php
  *
@@ -90,8 +91,4 @@ class RemoteActionConfirmationModal extends ConfirmationModal
             ]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\RemoteActionConfirmationModal', '\RemoteActionConfirmationModal');
 }

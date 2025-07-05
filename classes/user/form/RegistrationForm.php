@@ -348,7 +348,3 @@ class RegistrationForm extends Form
         return $userId;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\RegistrationForm', '\RegistrationForm');
-}

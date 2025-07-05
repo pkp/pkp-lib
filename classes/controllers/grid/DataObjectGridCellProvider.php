@@ -89,7 +89,3 @@ class DataObjectGridCellProvider extends GridCellProvider
         return ['label' => $data];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\DataObjectGridCellProvider', '\DataObjectGridCellProvider');
-}

@@ -73,7 +73,3 @@ class NavigationMenu extends \PKP\core\DataObject
         $this->setData('areaName', $areaName);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\navigationMenu\NavigationMenu', '\NavigationMenu');
-}

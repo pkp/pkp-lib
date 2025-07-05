@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/PersistableFilter.php
  *
@@ -296,8 +297,4 @@ abstract class PersistableFilter extends Filter
     {
         return ['id', 'displayName', 'isTemplate', 'parentFilterId', 'seq'];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\PersistableFilter', '\PersistableFilter');
 }

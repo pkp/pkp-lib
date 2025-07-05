@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/validation/ValidatorFactory.php
  *
@@ -14,8 +15,8 @@
 namespace PKP\validation;
 
 use Illuminate\Support\Arr;
-use Illuminate\Validation\Validator;
 use Illuminate\Validation\Factory;
+use Illuminate\Validation\Validator;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
@@ -24,7 +25,7 @@ use PKP\i18n\LocaleMetadata;
 class ValidatorFactory
 {
     private function __construct()
-    {       
+    {
     }
 
     public static function getFactory(): Factory
@@ -47,7 +48,7 @@ class ValidatorFactory
     {
         $validationFactory = static::getFactory();
 
-        return $validationFactory->make($props, $rules, self::getMessages($messages));   
+        return $validationFactory->make($props, $rules, self::getMessages($messages));
     }
 
     /**
@@ -304,8 +305,4 @@ class ValidatorFactory
             }
         });
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorFactory', '\ValidatorFactory');
 }

@@ -62,7 +62,3 @@ class HttpsPolicy extends AuthorizationPolicy
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\HttpsPolicy', '\HttpsPolicy');
-}

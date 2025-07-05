@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/AjaxModal.php
  *
@@ -76,8 +77,4 @@ class AjaxModal extends Modal
             ]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\AjaxModal', '\AjaxModal');
 }

@@ -558,7 +558,3 @@ class CategoryGridHandler extends GridHandler
         return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\CategoryGridHandler', '\CategoryGridHandler');
-}

@@ -18,7 +18,6 @@
 
 namespace PKP\plugins;
 
-use APP\core\Application;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\xml\PKPXMLParser;
@@ -233,8 +232,4 @@ class PluginSettingsDAO extends \PKP\db\DAO
         }
         return true;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PluginSettingsDAO', '\PluginSettingsDAO');
 }

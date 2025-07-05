@@ -111,7 +111,3 @@ class GridCellProvider
         return $column->getCellActions($request, $row, $position);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridCellProvider', '\GridCellProvider');
-}

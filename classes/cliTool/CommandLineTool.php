@@ -156,7 +156,3 @@ class CommandLineTool
         exit(0);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\cliTool\CommandLineTool', '\CommandLineTool');
-}

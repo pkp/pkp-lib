@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submission/reviewer/form/ReviewerReviewForm.php
  *
@@ -120,8 +121,4 @@ class ReviewerReviewForm extends Form
         // Save the reviewer submission.
         Repo::reviewAssignment()->edit($reviewAssignment, $reviewAssignment->getAllData());
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewer\form\ReviewerReviewForm', '\ReviewerReviewForm');
 }

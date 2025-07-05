@@ -85,7 +85,3 @@ class FormValidatorCustom extends FormValidator
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorCustom', '\FormValidatorCustom');
-}

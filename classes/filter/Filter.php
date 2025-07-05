@@ -493,7 +493,3 @@ abstract class Filter extends \PKP\core\DataObject
         return $runtimeEnvironmentSettings;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\Filter', '\Filter');
-}

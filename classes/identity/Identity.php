@@ -385,10 +385,3 @@ class Identity extends \PKP\core\DataObject
         return Str::upper($initials);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\identity\Identity', '\Identity');
-    foreach (['IDENTITY_SETTING_GIVENNAME', 'IDENTITY_SETTING_FAMILYNAME'] as $constantName) {
-        define($constantName, constant('\Identity::' . $constantName));
-    }
-}

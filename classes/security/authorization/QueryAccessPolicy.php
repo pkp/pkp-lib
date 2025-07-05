@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/QueryAccessPolicy.php
  *
@@ -123,8 +124,4 @@ class QueryAccessPolicy extends ContextPolicy
         }
         $this->addPolicy($queryAccessPolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\QueryAccessPolicy', '\QueryAccessPolicy');
 }

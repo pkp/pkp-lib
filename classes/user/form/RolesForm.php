@@ -105,7 +105,3 @@ class RolesForm extends BaseProfileForm
         parent::execute(...$functionArgs);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\RolesForm', '\RolesForm');
-}

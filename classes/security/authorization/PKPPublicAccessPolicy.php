@@ -50,7 +50,3 @@ class PKPPublicAccessPolicy extends HandlerOperationPolicy
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PKPPublicAccessPolicy', '\PKPPublicAccessPolicy');
-}

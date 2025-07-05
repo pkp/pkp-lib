@@ -117,7 +117,3 @@ class QueuedPaymentDAO extends \PKP\db\DAO
         $this->update('DELETE FROM queued_payments WHERE expiry_date < now()');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\payment\QueuedPaymentDAO', '\QueuedPaymentDAO');
-}

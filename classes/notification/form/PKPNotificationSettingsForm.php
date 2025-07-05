@@ -167,7 +167,3 @@ class PKPNotificationSettingsForm extends Form
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\form\PKPNotificationSettingsForm', '\PKPNotificationSettingsForm');
-}

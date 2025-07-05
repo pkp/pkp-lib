@@ -305,8 +305,3 @@ class PluginRegistry
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PluginRegistry', '\PluginRegistry');
-    define('PLUGINS_PREFIX', PluginRegistry::PLUGINS_PREFIX);
-}

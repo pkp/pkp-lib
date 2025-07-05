@@ -402,16 +402,3 @@ class ListbuilderHandler extends GridHandler
         return new ListbuilderGridRow();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\listbuilder\ListbuilderHandler', '\ListbuilderHandler');
-    foreach ([
-        'LISTBUILDER_SOURCE_TYPE_TEXT',
-        'LISTBUILDER_SOURCE_TYPE_SELECT',
-        'LISTBUILDER_SAVE_TYPE_EXTERNAL',
-        'LISTBUILDER_SAVE_TYPE_INTERNAL',
-        'LISTBUILDER_OPTGROUP_LABEL',
-    ] as $constantName) {
-        define($constantName, constant('\ListbuilderHandler::' . $constantName));
-    }
-}

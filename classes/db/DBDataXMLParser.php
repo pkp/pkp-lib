@@ -245,7 +245,3 @@ class DBDataXMLParser
         return [$fieldName, $fieldValue];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\db\DBDataXMLParser', '\DBDataXMLParser');
-}

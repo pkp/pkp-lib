@@ -42,7 +42,3 @@ class PrivateFileManager extends FileManager
         return Config::getVar('files', 'files_dir');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\PrivateFileManager', '\PrivateFileManager');
-}

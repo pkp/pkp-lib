@@ -273,6 +273,3 @@ class XMLNode
     }
 }
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\xml\XMLNode', '\XMLNode');
-}

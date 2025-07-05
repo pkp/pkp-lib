@@ -47,7 +47,3 @@ class OAIRepository
     /** @var string toolkit/software URL */
     public $toolkitURL;
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAIRepository', '\OAIRepository');
-}

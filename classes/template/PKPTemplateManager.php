@@ -802,8 +802,9 @@ class PKPTemplateManager extends Smarty
         );
     }
 
-    public function requiresVueRuntime() {
-        if(!$this->isVueRuntimeIncluded) {
+    public function requiresVueRuntime()
+    {
+        if (!$this->isVueRuntimeIncluded) {
             $this->isVueRuntimeIncluded = true;
             $baseUrl = $this->_request->getBaseUrl();
 
@@ -815,7 +816,7 @@ class PKPTemplateManager extends Smarty
                     'contexts' => ['frontend']
                 ]
             );
-    
+
         }
     }
 
@@ -1033,14 +1034,14 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if(!$request->getContext()->getData('disableSubmissions')) {
+                            if (!$request->getContext()->getData('disableSubmissions')) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
                                 ];
                                 $isNewSubmissionLinkPresent = true;
                             }
-                            
+
                             $menu['dashboards'] = [
                                 'name' => __('navigation.dashboards'),
                                 'icon' => 'Dashboard',
@@ -1084,7 +1085,7 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if(!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
+                            if (!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
@@ -1391,7 +1392,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         if ($context) {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                 'dateFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatLong()),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort()),
@@ -1401,7 +1402,7 @@ class PKPTemplateManager extends Smarty
                 'supportedFormLocales' => $context?->getSupportedFormLocaleNames()
             ]);
         } else {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
                 'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
@@ -2624,17 +2625,5 @@ class PKPTemplateManager extends Smarty
     public function getHeaders(): array
     {
         return $this->headers;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\template\PKPTemplateManager', '\PKPTemplateManager');
-    foreach ([
-        'CACHEABILITY_NO_CACHE', 'CACHEABILITY_NO_STORE', 'CACHEABILITY_PUBLIC', 'CACHEABILITY_MUST_REVALIDATE', 'CACHEABILITY_PROXY_REVALIDATE',
-        'STYLE_SEQUENCE_CORE', 'STYLE_SEQUENCE_NORMAL', 'STYLE_SEQUENCE_LATE', 'STYLE_SEQUENCE_LAST',
-        'CSS_FILENAME_SUFFIX',
-        'PAGE_WIDTH_NARROW', 'PAGE_WIDTH_NORMAL', 'PAGE_WIDTH_WIDE', 'PAGE_WIDTH_FULL',
-    ] as $constantName) {
-        define($constantName, constant('\PKPTemplateManager::' . $constantName));
     }
 }

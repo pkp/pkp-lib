@@ -143,19 +143,3 @@ class WorkflowStageDAO extends \PKP\db\DAO
         return $workflowStages;
     }
 }
-
-// Expose global constants unless operating in strict mode.
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\workflow\WorkflowStageDAO', '\WorkflowStageDAO');
-    foreach ([
-        'WORKFLOW_STAGE_PATH_SUBMISSION',
-        'WORKFLOW_STAGE_PATH_INTERNAL_REVIEW',
-        'WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW',
-        'WORKFLOW_STAGE_PATH_EDITING',
-        'WORKFLOW_STAGE_PATH_PRODUCTION',
-    ] as $constantName) {
-        if (!defined($constantName)) {
-            define($constantName, constant('\WorkflowStageDAO::' . $constantName));
-        }
-    }
-}

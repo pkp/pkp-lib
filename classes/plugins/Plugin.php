@@ -769,7 +769,3 @@ abstract class Plugin
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\Plugin', '\Plugin');
-}

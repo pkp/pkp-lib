@@ -52,7 +52,3 @@ class FormValidatorInSet extends FormValidator
         return $this->isEmptyAndOptional() || in_array($this->getFieldValue(), $this->_acceptedValues);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorInSet', '\FormValidatorInSet');
-}

@@ -93,7 +93,3 @@ class FileArchive
         return self::zipFunctional() || self::tarFunctional();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\FileArchive', '\FileArchive');
-}

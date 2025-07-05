@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/filter/CompositeFilter.php
  *
@@ -413,8 +414,4 @@ abstract class CompositeFilter extends PersistableFilter
         // Return the result.
         return [&$filter, $settingName];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\CompositeFilter', '\CompositeFilter');
 }

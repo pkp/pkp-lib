@@ -224,7 +224,3 @@ class PKPPubIdPluginHelper
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PKPPubIdPluginHelper', '\PKPPubIdPluginHelper');
-}

@@ -250,7 +250,3 @@ class NavigationMenuDAO extends \PKP\db\DAO
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\navigationMenu\NavigationMenuDAO', '\NavigationMenuDAO');
-}

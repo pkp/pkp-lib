@@ -137,7 +137,3 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
         $this->setData('title', $title, $locale);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\navigationMenu\NavigationMenuItemAssignment', '\NavigationMenuItemAssignment');
-}

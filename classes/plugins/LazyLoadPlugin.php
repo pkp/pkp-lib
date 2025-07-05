@@ -121,7 +121,3 @@ abstract class LazyLoadPlugin extends Plugin
         return is_null($context) ? Application::SITE_CONTEXT_ID : $context->getId();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\LazyLoadPlugin', '\LazyLoadPlugin');
-}

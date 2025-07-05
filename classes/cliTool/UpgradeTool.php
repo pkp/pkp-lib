@@ -20,7 +20,6 @@ namespace PKP\cliTool;
 
 use APP\core\Application;
 use APP\install\Upgrade;
-use PKP\core\PKPAppKey;
 use PKP\site\VersionCheck;
 
 Application::upgrade();
@@ -231,8 +230,4 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
     {
         printf("%s [%s]\n", date('Y-m-d H:i:s'), $message);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\cliTool\UpgradeTool', '\UpgradeTool');
 }

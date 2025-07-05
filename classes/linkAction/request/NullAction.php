@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/NullAction.php
  *
@@ -27,8 +28,4 @@ class NullAction extends LinkActionRequest
     {
         return '$.pkp.classes.linkAction.NullAction';
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\NullAction', '\NullAction');
 }

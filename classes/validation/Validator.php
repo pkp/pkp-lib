@@ -34,7 +34,3 @@ abstract class Validator
      */
     abstract public function isValid($value);
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\Validator', '\Validator');
-}

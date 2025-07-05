@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/DecisionWritePolicy.php
  *
@@ -30,8 +31,4 @@ class DecisionWritePolicy extends ContextPolicy
         $this->addPolicy(new DecisionStageValidPolicy());
         $this->addPolicy(new DecisionAllowedPolicy($editor));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\DecisionWritePolicy', '\DecisionWritePolicy');
 }

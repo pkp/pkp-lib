@@ -255,7 +255,3 @@ class InstallTool extends \PKP\cliTool\CommandLineTool
         printf("[%s]\n", $message);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\cliTool\InstallTool', '\InstallTool');
-}

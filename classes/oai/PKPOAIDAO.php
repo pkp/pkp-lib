@@ -283,7 +283,3 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      */
     abstract public function _getRecordsRecordSetQuery($setIds, $from, $until, $set, $submissionId = null, $orderBy = 'journal_id, submission_id');
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\PKPOAIDAO', '\PKPOAIDAO');
-}

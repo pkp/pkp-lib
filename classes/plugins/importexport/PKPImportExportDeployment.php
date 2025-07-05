@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup classes_plugins_importexport import/export deployment
  */
@@ -212,7 +213,6 @@ class PKPImportExportDeployment
     /**
      * Get the import/export publication.
      *
-     * @return Publication
      */
     public function getPublication(): ?Publication
     {
@@ -779,8 +779,4 @@ class PKPImportExportDeployment
 
         return false;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\PKPImportExportDeployment', '\PKPImportExportDeployment');
 }

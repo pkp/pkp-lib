@@ -155,7 +155,3 @@ class InfiniteScrollingFeature extends GeneralPagingFeature
         );
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\InfiniteScrollingFeature', '\InfiniteScrollingFeature');
-}

@@ -61,7 +61,3 @@ abstract class ReportPlugin extends Plugin
      */
     abstract public function display($args, $request);
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\ReportPlugin', '\ReportPlugin');
-}

@@ -103,7 +103,3 @@ class ReviewFormResponse extends \PKP\core\DataObject
         $this->setData('type', $type);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\reviewForm\ReviewFormResponse', '\ReviewFormResponse');
-}

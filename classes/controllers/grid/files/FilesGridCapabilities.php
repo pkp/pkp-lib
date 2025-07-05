@@ -201,17 +201,3 @@ class FilesGridCapabilities
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\files\FilesGridCapabilities', '\FilesGridCapabilities');
-    foreach ([
-        'FILE_GRID_ADD',
-        'FILE_GRID_DOWNLOAD_ALL',
-        'FILE_GRID_DELETE',
-        'FILE_GRID_VIEW_NOTES',
-        'FILE_GRID_MANAGE',
-        'FILE_GRID_EDIT',
-    ] as $constantName) {
-        define($constantName, constant('\FilesGridCapabilities::' . $constantName));
-    }
-}

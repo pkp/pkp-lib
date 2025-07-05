@@ -85,19 +85,3 @@ class Role extends \PKP\core\DataObject
         ];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\Role', '\Role');
-    foreach ([
-        'ROLE_ID_MANAGER',
-        'ROLE_ID_SITE_ADMIN',
-        'ROLE_ID_SUB_EDITOR',
-        'ROLE_ID_AUTHOR',
-        'ROLE_ID_REVIEWER',
-        'ROLE_ID_ASSISTANT',
-        'ROLE_ID_READER',
-        'ROLE_ID_SUBSCRIPTION_MANAGER',
-    ] as $constantName) {
-        define($constantName, constant('\Role::' . $constantName));
-    }
-}

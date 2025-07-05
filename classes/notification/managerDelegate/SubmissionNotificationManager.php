@@ -93,7 +93,3 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
         };
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\SubmissionNotificationManager', '\SubmissionNotificationManager');
-}

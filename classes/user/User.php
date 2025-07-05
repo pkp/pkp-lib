@@ -545,7 +545,3 @@ class User extends Identity implements Authenticatable
         return $this->getLocalizedData('affiliation');
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\User', '\User');
-}

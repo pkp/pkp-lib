@@ -67,7 +67,3 @@ class PKPReviewerReviewStep2Form extends ReviewerReviewForm
         parent::execute(...$functionParams);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewer\form\PKPReviewerReviewStep2Form', '\PKPReviewerReviewStep2Form');
-}

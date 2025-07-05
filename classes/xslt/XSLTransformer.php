@@ -384,10 +384,3 @@ class XSLTransformer
         array_push($this->errors, $error);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\xslt\XSLTransformer', '\XSLTransformer');
-    foreach (['XSL_TRANSFORMER_DOCTYPE_STRING', 'XSL_TRANSFORMER_DOCTYPE_FILE', 'XSL_TRANSFORMER_DOCTYPE_DOM'] as $constantName) {
-        define($constantName, constant('\XSLTransformer::' . $constantName));
-    }
-}

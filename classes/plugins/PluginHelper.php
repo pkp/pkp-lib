@@ -248,16 +248,3 @@ class PluginHelper
         return preg_replace('/[^\w.-]/', '', $filename);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PluginHelper', '\PluginHelper');
-    foreach ([
-        'PLUGIN_ACTION_UPLOAD',
-        'PLUGIN_ACTION_UPGRADE',
-        'PLUGIN_VERSION_FILE',
-        'PLUGIN_INSTALL_FILE',
-        'PLUGIN_UPGRADE_FILE',
-    ] as $constantName) {
-        define($constantName, constant('\PluginHelper::' . $constantName));
-    }
-}

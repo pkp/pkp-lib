@@ -52,7 +52,3 @@ class ListbuilderGridColumn extends GridColumn
         parent::__construct($id, $title, $titleTranslated, $template, $cellProvider, $flags);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\listbuilder\ListbuilderGridColumn', '\ListbuilderGridColumn');
-}

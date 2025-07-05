@@ -167,7 +167,3 @@ class ReviewerAction
         return $mailable;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewer\ReviewerAction', '\ReviewerAction');
-}

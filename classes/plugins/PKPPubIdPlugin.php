@@ -519,7 +519,3 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
         return $contextDao->getById($contextId);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PKPPubIdPlugin', '\PKPPubIdPlugin');
-}

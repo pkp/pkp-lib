@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/RedirectAction.php
  *
@@ -100,8 +101,4 @@ class RedirectAction extends LinkActionRequest
             'specs' => $this->getSpecs()
         ];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\RedirectAction', '\RedirectAction');
 }

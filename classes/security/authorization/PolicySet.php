@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PolicySet.php
  *
@@ -106,10 +107,4 @@ class PolicySet
     {
         return $this->_effectIfNoPolicyApplies;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PolicySet', '\PolicySet');
-    define('COMBINING_DENY_OVERRIDES', PolicySet::COMBINING_DENY_OVERRIDES);
-    define('COMBINING_PERMIT_OVERRIDES', PolicySet::COMBINING_PERMIT_OVERRIDES);
 }

@@ -399,12 +399,12 @@ class GridHandler extends PKPHandler
     public function setGridDataElements($data)
     {
         $this->callFeaturesHook('setGridDataElements', ['grid' => &$this, 'data' => &$data]);
-    
+
         $this->_data = match (true) {
             $data instanceof LazyCollection => $this->toAssociativeArray($data),
-    
+
             $data instanceof Enumerable => $this->toAssociativeArray(LazyCollection::make($data)),
-    
+
             $data instanceof DAOResultFactory => $data->toAssociativeArray(),
             $data instanceof ItemIterator => $data->toArray(),
             is_iterable($data) => $data,
@@ -1386,17 +1386,5 @@ class GridHandler extends PKPHandler
             }
         }
         return $returner;
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridHandler', '\GridHandler');
-    foreach ([
-        'GRID_ACTION_POSITION_DEFAULT',
-        'GRID_ACTION_POSITION_ABOVE',
-        'GRID_ACTION_POSITION_LASTCOL',
-        'GRID_ACTION_POSITION_BELOW',
-    ] as $constantName) {
-        define($constantName, constant('\GridHandler::' . $constantName));
     }
 }

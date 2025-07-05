@@ -132,7 +132,3 @@ abstract class PKPPublicFileManager extends FileManager
         return $this->deleteByPath($this->getSiteFilesPath() . '/' . $fileName);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\PKPPublicFileManager', '\PKPPublicFileManager');
-}

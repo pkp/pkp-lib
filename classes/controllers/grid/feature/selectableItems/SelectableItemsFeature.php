@@ -62,7 +62,3 @@ class SelectableItemsFeature extends GridFeature
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature', '\SelectableItemsFeature');
-}

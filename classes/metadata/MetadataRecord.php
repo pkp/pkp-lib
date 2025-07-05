@@ -135,7 +135,3 @@ class MetadataRecord
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\metadata\MetadataRecord', '\MetadataRecord');
-}

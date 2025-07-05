@@ -217,7 +217,3 @@ class ReviewForm extends \PKP\core\DataObject
         $this->setData('description', $description, $locale);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\reviewForm\ReviewForm', '\ReviewForm');
-}

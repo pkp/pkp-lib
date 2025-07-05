@@ -54,7 +54,3 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
         parent::__construct($listbuilder, $id, $title, $titleTranslated, $template, $cellProvider, $flags);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\listbuilder\MultilingualListbuilderGridColumn', '\MultilingualListbuilderGridColumn');
-}

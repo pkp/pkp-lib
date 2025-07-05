@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/controllers/grid/feature/selectableItems/ItemSelectionGridColumn.php
  *
@@ -78,8 +79,4 @@ class ItemSelectionGridColumn extends GridColumn
             'selectName' => $this->getSelectName(),
             'selected' => $row->getFlag('selected')];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\selectableItems\ItemSelectionGridColumn', '\ItemSelectionGridColumn');
 }

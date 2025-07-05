@@ -159,7 +159,3 @@ class PagingFeature extends GeneralPagingFeature
         );
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\PagingFeature', '\PagingFeature');
-}

@@ -300,7 +300,3 @@ class Dispatcher
         return $contents;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\Dispatcher', '\Dispatcher');
-}

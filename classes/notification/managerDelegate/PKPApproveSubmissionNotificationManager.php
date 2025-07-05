@@ -98,7 +98,3 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\PKPApproveSubmissionNotificationManager', '\PKPApproveSubmissionNotificationManager');
-}

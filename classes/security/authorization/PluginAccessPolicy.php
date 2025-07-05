@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/PluginAccessPolicy.php
  *
@@ -79,10 +80,4 @@ class PluginAccessPolicy extends PolicySet
 
         $this->addPolicy($pluginAccessPolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PluginAccessPolicy', '\PluginAccessPolicy');
-    define('ACCESS_MODE_MANAGE', PluginAccessPolicy::ACCESS_MODE_MANAGE);
-    define('ACCESS_MODE_ADMIN', PluginAccessPolicy::ACCESS_MODE_ADMIN);
 }

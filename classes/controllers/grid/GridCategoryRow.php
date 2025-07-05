@@ -62,7 +62,3 @@ class GridCategoryRow extends GridRow
         return '';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridCategoryRow', '\GridCategoryRow');
-}

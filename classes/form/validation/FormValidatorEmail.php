@@ -42,7 +42,3 @@ class FormValidatorEmail extends FormValidator
         return __($this->_message, ['email' => $this->getFieldValue()]);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorEmail', '\FormValidatorEmail');
-}

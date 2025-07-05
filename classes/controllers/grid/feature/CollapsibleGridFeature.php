@@ -59,7 +59,3 @@ class CollapsibleGridFeature extends GridFeature
         return ['collapsibleLink' => $markup];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\CollapsibleGridFeature', '\CollapsibleGridFeature');
-}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/ContextAccessPolicy.php
  *
@@ -38,8 +39,4 @@ class ContextAccessPolicy extends ContextPolicy
         }
         $this->addPolicy($contextRolePolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\ContextAccessPolicy', '\ContextAccessPolicy');
 }

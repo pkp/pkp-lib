@@ -1707,12 +1707,6 @@ msgstr "Disciplína(y)"
 msgid "search.fullText"
 msgstr "Plný text"
 
-msgid "search.indexTerms"
-msgstr "Výrazy indexu"
-
-msgid "search.indexTermsLong"
-msgstr "Všechna pole indexu"
-
 msgid "search.matchAll"
 msgstr "Zahrnout všechny kategorie"
 

@@ -1703,12 +1703,6 @@ msgstr "Lĩnh vực"
 msgid "search.fullText"
 msgstr "Toàn văn"
 
-msgid "search.indexTerms"
-msgstr "Thuật ngữ chỉ mục"
-
-msgid "search.indexTermsLong"
-msgstr "Tất cả các trường thuật ngữ chỉ mục"
-
 msgid "search.matchAll"
 msgstr "Khớp tất cả danh mục"
 

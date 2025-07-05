@@ -1649,9 +1649,6 @@ msgstr "Xəbərdarlıq"
 msgid "notification.notifications"
 msgstr "Bildirişlər"
 
-msgid "search.indexTerms"
-msgstr "İndeks terminləri"
-
 msgid "notification.settings"
 msgstr "Bildiriş tənzimləri"
 
@@ -1696,9 +1693,6 @@ msgstr "Elm sahələri"
 
 msgid "search.fullText"
 msgstr "Tam mətn"
-
-msgid "search.indexTermsLong"
-msgstr "Bütün indeks termin sahələri"
 
 msgid "search.matchAll"
 msgstr "Bütün kateqoriyaları uyğunlaşdırın"

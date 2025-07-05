@@ -12,12 +12,10 @@
 
 namespace PKP\tests\jobs\submissions;
 
-use Mockery;
-use PKP\db\DAORegistry;
-use PKP\tests\PKPTestCase;
-use PKP\jobs\submissions\RemoveSubmissionFileFromSearchIndexJob;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\jobs\submissions\RemoveSubmissionFileFromSearchIndexJob;
+use PKP\tests\PKPTestCase;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(RemoveSubmissionFileFromSearchIndexJob::class)]
@@ -40,7 +38,7 @@ class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
             unserialize($this->serializedJobData)
         );
     }
-    
+
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
@@ -49,19 +47,8 @@ class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
         /** @var RemoveSubmissionFileFromSearchIndexJob $removeSubmissionFileFromSearchIndexJob */
         $removeSubmissionFileFromSearchIndexJob = unserialize($this->serializedJobData);
 
-        $submissionSearchDAOMock = Mockery::mock(\PKP\search\SubmissionSearchDAO::class)
-            ->makePartial()
-            ->shouldReceive(['deleteSubmissionKeywords' => null])
-            ->withAnyArgs()
-            ->getMock();
-
-        DAORegistry::registerDAO('ArticleSearchDAO', $submissionSearchDAOMock);     // for OJS
-        DAORegistry::registerDAO('MonographSearchDAO', $submissionSearchDAOMock);   // for OMP
-        DAORegistry::registerDAO('PreprintSearchDAO', $submissionSearchDAOMock);    // for OPS
-
         $removeSubmissionFileFromSearchIndexJob->handle();
 
         $this->expectNotToPerformAssertions();
     }
 }
-

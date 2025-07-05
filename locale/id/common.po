@@ -1700,12 +1700,6 @@ msgstr "Disiplin Ilmu"
 msgid "search.fullText"
 msgstr "Teks Lengkap"
 
-msgid "search.indexTerms"
-msgstr "Indeks peristilahan"
-
-msgid "search.indexTermsLong"
-msgstr "Semua kolom istilah indeks"
-
 msgid "search.matchAll"
 msgstr "Cocok dengan semua kategori"
 

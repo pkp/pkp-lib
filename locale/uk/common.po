@@ -1703,12 +1703,6 @@ msgstr "Дисципліни"
 msgid "search.fullText"
 msgstr "Повний текст"
 
-msgid "search.indexTerms"
-msgstr "Терміни для індексування"
-
-msgid "search.indexTermsLong"
-msgstr "Всі поля термінів для індексування"
-
 msgid "search.matchAll"
 msgstr "За всіма полями"
 

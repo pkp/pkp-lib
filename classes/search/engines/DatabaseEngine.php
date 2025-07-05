@@ -46,7 +46,9 @@ class DatabaseEngine extends ScoutEngine
                 $titles = (array) $publication->getFullTitles();
                 $abstracts = (array) $publication->getData('abstract');
                 $bodies = [];
+                $authors = [];
 
+                // Index all galleys
                 $submissionFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(Application::ASSOC_TYPE_REPRESENTATION, [$publication->getId()])
@@ -71,7 +73,14 @@ class DatabaseEngine extends ScoutEngine
                     }
                 }
 
-                $locales = array_unique(array_merge(array_keys($titles), array_keys($abstracts), array_keys($bodies)));
+                // Index all authors
+                foreach ($publication->getData('authors') as $author) {
+                    foreach ($author->getFullNames() as $locale => $fullName) {
+                        $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
+                    }
+                }
+
+                $locales = array_unique(array_merge(array_keys($titles), array_keys($abstracts), array_keys($bodies), array_keys($authors)));
 
                 foreach ($locales as $locale) {
                     DB::table($this->getTableName())->upsert(
@@ -82,6 +91,7 @@ class DatabaseEngine extends ScoutEngine
                             'title' => $titles[$locale] ?? '',
                             'abstract' => $abstracts[$locale] ?? '',
                             'body' => $bodies[$locale] ?? '',
+                            'authors' => $authors[$locale] ?? '',
                         ],
                         ['submission_id', 'publication_id', 'locale'],
                         ['title', 'abstract', 'body']
@@ -151,7 +161,7 @@ class DatabaseEngine extends ScoutEngine
                         DB::table('publication_categories')->whereIn('category_id', $categoryIds)->select('publication_id')
                     ))
             ))
-            ->whereFullText(['title', 'abstract', 'body'], $builder->query)
+            ->whereFullText(['title', 'abstract', 'body', 'authors'], $builder->query)
             ->groupBy('s.submission_id');
     }
 
@@ -212,11 +222,12 @@ class DatabaseEngine extends ScoutEngine
 
             $table->string('locale', 28);
 
-            $table->text('title')->default('');
-            $table->text('abstract')->default('');
-            $table->text('body')->default('');
+            $table->text('title');
+            $table->text('abstract');
+            $table->text('body');
+            $table->text('authors');
 
-            $table->fulltext(['title', 'abstract', 'body']);
+            $table->fulltext(['title', 'abstract', 'body', 'authors']);
             $table->unique(['submission_id', 'publication_id', 'locale']);
         });
     }

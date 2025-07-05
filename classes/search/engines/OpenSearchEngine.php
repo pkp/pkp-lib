@@ -14,11 +14,14 @@
 
 namespace PKP\search\engines;
 
+use APP\core\Application;
+use APP\facades\Repo;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
+use PKP\submissionFile\SubmissionFile;
 
 class OpenSearchEngine extends ScoutEngine
 {
@@ -57,18 +60,54 @@ class OpenSearchEngine extends ScoutEngine
     {
         $client = $this->getClient();
         $models->each(function ($submission) use ($client) {
-            $currentPublication = $submission->getCurrentPublication();
-            $locale = $currentPublication->getData('locale');
+            $publication = $submission->getCurrentPublication();
+
+            // Index all galleys
+            $submissionFiles = Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(Application::ASSOC_TYPE_REPRESENTATION, [$publication->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
+                ->getMany();
+
+            $bodies = [];
+            foreach ($submissionFiles as $submissionFile) {
+                $galley = Application::getRepresentationDAO()->getById($submissionFile->getData('assocId'));
+                $parser = SearchFileParser::fromFile($submissionFile);
+                try {
+                    $parser->open();
+                    do {
+                        for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
+                        if (strlen($buffer)) {
+                            $bodies[$galley->getLocale()] = ($bodies[$galley->getLocale()] ?? '') . $buffer;
+                        }
+                    } while ($chunk !== false);
+                } catch (\Throwable $e) {
+                    throw new \Exception("Indexation failed for the file: \"{$submissionFile->getData('path')}\"", 0, $e);
+                } finally {
+                    $parser->close();
+                }
+            }
+
+            // Index all authors
+            $authors = [];
+            foreach ($publication->getData('authors') as $author) {
+                foreach ($author->getFullNames() as $locale => $fullName) {
+                    $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
+                }
+            }
+
             $client->create([
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
                 'body' => [
-                    'title' => $currentPublication->getLocalizedTitle($locale),
-                    'abstract' => $currentPublication->getData('abstract', $locale),
+                    'titles' => $publication->getFullTitles(),
+                    'abstracts' => $publication->getData('abstract'),
+                    'bodies' => $bodies,
+                    'authors' => $authors,
                     'contextId' => $submission->getData('contextId'),
-                    'datePublished' => $currentPublication->getData('datePublished'),
-                    'sectionId' => $currentPublication->getData('sectionId'),
-                    'categoryId' => $currentPublication->getData('categoryIds'),
+                    'datePublished' => $publication->getData('datePublished'),
+                    'sectionId' => $publication->getData('sectionId'),
+                    'categoryId' => $publication->getData('categoryIds'),
                 ],
             ]);
         });
@@ -85,7 +124,7 @@ class OpenSearchEngine extends ScoutEngine
         });
     }
 
-    public function search(Builder $builder)
+    protected function buildQuery(Builder $builder): array
     {
         // Handle "where" conditions
         $contextId = null;
@@ -97,7 +136,7 @@ class OpenSearchEngine extends ScoutEngine
                     break;
                 case 'publishedFrom':
                 case 'publishedTo':
-                    $$field = new \Carbon\Carbon($value);
+                    $$field = $value ? new \Carbon\Carbon($value) : null;
                     break;
                 default: throw new \Exception("Unsupported field {$field}!");
             }
@@ -117,16 +156,13 @@ class OpenSearchEngine extends ScoutEngine
 
         // Handle options
         $rangeInfo = null;
-        foreach ($builder->options as $option => &$value) {
+        foreach ($builder->options as $option => $value) {
             switch ($option) {
-                case 'rangeInfo': $rangeInfo = $value;
-                    break;
                 default: throw new \Exception("Unsupported options {$option}!");
             }
         };
 
-        $client = $this->getClient();
-        $results = $client->search([
+        return [
             'index' => $this->getIndexName(),
             'body' => [
                 'query' => [
@@ -134,7 +170,7 @@ class OpenSearchEngine extends ScoutEngine
                         'must' => [
                             'multi_match' => [
                                 'query' => $builder->query,
-                                'fields' => ['title', 'abstract'],
+                                'fields' => ['titles.*', 'abstracts.*, bodies.*, authors.*'],
                             ],
                         ],
                         'filter' => [
@@ -146,7 +182,13 @@ class OpenSearchEngine extends ScoutEngine
                     ],
                 ]
             ]
-        ]);
+        ];
+    }
+
+    public function search(Builder $builder)
+    {
+        $client = $this->getClient();
+        $results = $client->search($this->buildQuery($builder));
         return [
             'results' => array_map(fn ($result) => $result['_id'], $results['hits']['hits']),
             'total' => $results['hits']['total']['value'],
@@ -155,8 +197,18 @@ class OpenSearchEngine extends ScoutEngine
 
     public function paginate(Builder $builder, $perPage, $page)
     {
-        $results = $this->search($builder);
-        return new LengthAwarePaginator($results['results'], $results['total'], $perPage, $page);
+        $query = $this->buildQuery($builder);
+        $query['from'] = ($page - 1) * $perPage;
+        $query['size'] = $perPage;
+
+        $client = $this->getClient();
+        $results = $client->search($query);
+        return new LengthAwarePaginator(
+            array_map(fn ($result) => $result['_id'], $results['hits']['hits']),
+            $results['hits']['total']['value'],
+            $perPage,
+            $page
+        );
     }
 
     public function mapIds($results)
@@ -184,14 +236,6 @@ class OpenSearchEngine extends ScoutEngine
 
     public function createIndex($name, array $options = [])
     {
-        $client = $this->getClient();
-        $client->indices()->create([
-            'index' => $name,
-            'body' => [
-                'settings' => [
-                ]
-            ]
-        ]);
     }
 
     public function deleteIndex($name)

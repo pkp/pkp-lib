@@ -30,6 +30,7 @@ use APP\file\PublicFileManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 use Less_Parser;
 use PKP\config\Config;
@@ -802,8 +803,9 @@ class PKPTemplateManager extends Smarty
         );
     }
 
-    public function requiresVueRuntime() {
-        if(!$this->isVueRuntimeIncluded) {
+    public function requiresVueRuntime()
+    {
+        if (!$this->isVueRuntimeIncluded) {
             $this->isVueRuntimeIncluded = true;
             $baseUrl = $this->_request->getBaseUrl();
 
@@ -815,7 +817,7 @@ class PKPTemplateManager extends Smarty
                     'contexts' => ['frontend']
                 ]
             );
-    
+
         }
     }
 
@@ -1033,14 +1035,14 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if(!$request->getContext()->getData('disableSubmissions')) {
+                            if (!$request->getContext()->getData('disableSubmissions')) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
                                 ];
                                 $isNewSubmissionLinkPresent = true;
                             }
-                            
+
                             $menu['dashboards'] = [
                                 'name' => __('navigation.dashboards'),
                                 'icon' => 'Dashboard',
@@ -1084,7 +1086,7 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if(!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
+                            if (!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
@@ -1391,7 +1393,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         if ($context) {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                 'dateFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatLong()),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort()),
@@ -1401,7 +1403,7 @@ class PKPTemplateManager extends Smarty
                 'supportedFormLocales' => $context?->getSupportedFormLocaleNames()
             ]);
         } else {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
                 'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
@@ -1769,9 +1771,9 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        $page = $iterator->getPage();
-        $pageCount = $iterator->getPageCount();
-        $itemTotal = $iterator->getCount();
+        $page = $iterator instanceof LengthAwarePaginator ? $iterator->currentPage() : $iterator->getPage();
+        $pageCount = $iterator instanceof LengthAwarePaginator ? $iterator->lastPage() : $iterator->getPageCount();
+        $itemTotal = $iterator instanceof LengthAwarePaginator ? $iterator->total() : $iterator->getCount();
 
         if ($pageCount < 1) {
             return '';
@@ -1978,8 +1980,8 @@ class PKPTemplateManager extends Smarty
             $numPageLinks = 10;
         }
 
-        $page = $iterator->getPage();
-        $pageCount = $iterator->getPageCount();
+        $page = $iterator instanceof LengthAwarePaginator ? $iterator->currentPage() : $iterator->getPage();
+        $pageCount = $iterator instanceof LengthAwarePaginator ? $iterator->lastPage() : $iterator->getPageCount();
 
         $pageBase = max($page - floor($numPageLinks / 2), 1);
         $paramName = $name . 'Page';

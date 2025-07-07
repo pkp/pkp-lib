@@ -270,6 +270,26 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->unique(['query_id', 'user_id'], 'query_participants_unique');
         });
+
+        Schema::create('submissions_fulltext', function (Blueprint $table) {
+            $table->bigInteger('submissions_fulltext_id')->autoIncrement();
+
+            $table->bigInteger('submission_id');
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
+
+            $table->bigInteger('publication_id');
+            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
+
+            $table->string('locale', 28);
+
+            $table->text('title');
+            $table->text('abstract');
+            $table->text('body');
+            $table->text('authors');
+
+            $table->fulltext(['title', 'abstract', 'body', 'authors']);
+            $table->unique(['submission_id', 'publication_id', 'locale']);
+        });
     }
 
     /**
@@ -277,6 +297,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
+        Schema::drop('submissions_fulltext');
         Schema::drop('query_participants');
         Schema::drop('queries');
         Schema::drop('subeditor_submission_group');

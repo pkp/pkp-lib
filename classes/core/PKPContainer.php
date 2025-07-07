@@ -472,7 +472,7 @@ class PKPContainer extends Container
         ];
 
         $items['scout'] = [
-            'driver' => Config::getVar('search', 'driver', 'pkpdatabase'),
+            'driver' => Config::getVar('search', 'driver', 'database'),
         ];
 
         // Create instance and bind to use globally

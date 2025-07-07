@@ -68,7 +68,7 @@ class DatabaseEngine extends ScoutEngine
                             }
                         } while ($chunk !== false);
                     } catch (\Throwable $e) {
-                        throw new \Exception("Indexation failed for the file: \"{$submissionFile->getData('path')}\"", 0, $e);
+                        error_log($e);
                     } finally {
                         $parser->close();
                     }

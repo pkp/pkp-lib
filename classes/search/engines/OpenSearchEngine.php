@@ -21,10 +21,13 @@ use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
+use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
 class OpenSearchEngine extends ScoutEngine
 {
+    public const MINIMUM_DATA_LENGTH = 4096;
+
     /**
      * Get the name of the index to be used for OpenSearch indexing.
      */
@@ -73,6 +76,10 @@ class OpenSearchEngine extends ScoutEngine
             foreach ($submissionFiles as $submissionFile) {
                 $galley = Application::getRepresentationDAO()->getById($submissionFile->getData('assocId'));
                 $parser = SearchFileParser::fromFile($submissionFile);
+                if (!$parser) {
+                    continue;
+                }
+
                 try {
                     $parser->open();
                     do {
@@ -82,7 +89,7 @@ class OpenSearchEngine extends ScoutEngine
                         }
                     } while ($chunk !== false);
                 } catch (\Throwable $e) {
-                    throw new \Exception("Indexation failed for the file: \"{$submissionFile->getData('path')}\"", 0, $e);
+                    error_log($e);
                 } finally {
                     $parser->close();
                 }

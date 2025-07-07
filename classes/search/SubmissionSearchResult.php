@@ -40,6 +40,9 @@ class SubmissionSearchResult
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
 
                 $submission = Repo::submission()->get($submissionId);
+                if (!$submission) {
+                    continue;
+                }
                 $currentPublication = $submission->getCurrentPublication();
 
                 $issueId = $currentPublication->getData('issueId');

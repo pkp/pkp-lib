@@ -18,7 +18,6 @@
 
 namespace PKP\tests\classes\form;
 
-use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PKP\tests\PKPTestCase;
 
@@ -29,7 +28,7 @@ class FormButtonOrderTest extends PKPTestCase
 
     protected function setUp(): void
     {
-        
+        parent::setUp();
         $this->templatePath = dirname(__FILE__) . '/../../../templates/form/formButtons.tpl';
     }
 

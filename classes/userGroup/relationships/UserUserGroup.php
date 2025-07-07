@@ -33,6 +33,7 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     protected $casts = [
         'dateStart' => 'datetime',
         'dateEnd' => 'datetime',
+        'userId' => 'int',
     ];
 
     public function user(): Attribute

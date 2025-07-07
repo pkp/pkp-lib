@@ -1,6 +1,6 @@
 # Button Order Test
 
-This directory contains tests to validate the button order fix for GitHub issue #3.
+This directory contains tests to validate the button order fix for GitHub issue #11580.
 
 ## Issue Description
 
@@ -25,13 +25,13 @@ php button_order_test.php
 - Confirms the fix addresses GitHub issue #3 requirements
 
 ### 2. PHPUnit Testing Note
-PHPUnit tests for this fix would require a full OJS/OMP application context with proper PKP framework initialization. The standalone test provides comprehensive validation without framework dependencies.
+PHPUnit tests for this can be run with standard lib/pkp/tools/runAllTest.sh.  The standalone test provides comprehensive validation without framework dependencies.
 
 ## Running the Tests
 
 ### Quick Test (Standalone)
 ```bash
-cd /path/to/pkp-lib
+cd /path/to/pkp-lib/tools
 php button_order_test.php
 ```
 

@@ -1699,23 +1699,8 @@ msgstr "Tieteenala(t)"
 msgid "search.fullText"
 msgstr "Kokoteksti"
 
-msgid "search.matchAll"
-msgstr "Yhdistä kaikki kategoriat"
-
 msgid "search.noResults"
 msgstr "Ei tuloksia"
-
-msgid "search.operator.and"
-msgstr "ja"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Hae"
 
 msgid "search.searchResults"
 msgstr "Hakutulokset"

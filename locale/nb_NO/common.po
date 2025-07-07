@@ -1689,23 +1689,8 @@ msgstr "Fagdisiplin(er)"
 msgid "search.fullText"
 msgstr "Fulltekst"
 
-msgid "search.matchAll"
-msgstr "Treff i alle kategorier"
-
 msgid "search.noResults"
 msgstr "Ingen resultat"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "Søk etter"
 
 msgid "search.searchResults"
 msgstr "Søkeresultat"

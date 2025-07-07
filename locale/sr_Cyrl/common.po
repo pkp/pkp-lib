@@ -1660,23 +1660,8 @@ msgstr "Дисциплина/е"
 msgid "search.fullText"
 msgstr "Цео текст"
 
-msgid "search.matchAll"
-msgstr "Упари све категорије"
-
 msgid "search.noResults"
 msgstr "Нема резултата"
-
-msgid "search.operator.and"
-msgstr "и"
-
-msgid "search.operator.not"
-msgstr "не"
-
-msgid "search.operator.or"
-msgstr "или"
-
-msgid "search.SearchFor"
-msgstr "Пронађи"
 
 msgid "search.searchResults"
 msgstr "Резултати претраживања"

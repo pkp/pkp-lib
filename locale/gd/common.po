@@ -1653,23 +1653,8 @@ msgstr ""
 msgid "search.fullText"
 msgstr ""
 
-msgid "search.matchAll"
-msgstr "Maidsich gach roinn-seòrsa"
-
 msgid "search.noResults"
 msgstr "Gun toradh"
-
-msgid "search.operator.and"
-msgstr "agus"
-
-msgid "search.operator.not"
-msgstr "chan e"
-
-msgid "search.operator.or"
-msgstr "no"
-
-msgid "search.SearchFor"
-msgstr "Lorg airson"
 
 msgid "search.searchResults"
 msgstr "Toraidhean luirg"

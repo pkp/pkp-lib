@@ -1703,23 +1703,8 @@ msgstr "Lĩnh vực"
 msgid "search.fullText"
 msgstr "Toàn văn"
 
-msgid "search.matchAll"
-msgstr "Khớp tất cả danh mục"
-
 msgid "search.noResults"
 msgstr "Không có kết quả"
-
-msgid "search.operator.and"
-msgstr "và"
-
-msgid "search.operator.not"
-msgstr "không"
-
-msgid "search.operator.or"
-msgstr "hoặc"
-
-msgid "search.SearchFor"
-msgstr "Tìm kiếm"
 
 msgid "search.searchResults"
 msgstr "Kết quả tìm kiếm"

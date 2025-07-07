@@ -1707,23 +1707,8 @@ msgstr "Disciplína(y)"
 msgid "search.fullText"
 msgstr "Plný text"
 
-msgid "search.matchAll"
-msgstr "Zahrnout všechny kategorie"
-
 msgid "search.noResults"
 msgstr "Žádné výsledky"
-
-msgid "search.operator.and"
-msgstr "a"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Hledat"
 
 msgid "search.searchResults"
 msgstr "Výsledky hledání"

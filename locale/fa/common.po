@@ -1662,23 +1662,8 @@ msgstr "تخصص"
 msgid "search.fullText"
 msgstr "تمام متن"
 
-msgid "search.matchAll"
-msgstr "مطابق بودن با همه بخش ها"
-
 msgid "search.noResults"
 msgstr "بی نتیجه"
-
-msgid "search.operator.and"
-msgstr "و"
-
-msgid "search.operator.not"
-msgstr "نه"
-
-msgid "search.operator.or"
-msgstr "یا"
-
-msgid "search.SearchFor"
-msgstr "جستجو برای"
 
 msgid "search.searchResults"
 msgstr "نتایج جستجو"

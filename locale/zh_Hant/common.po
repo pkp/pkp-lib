@@ -1625,23 +1625,8 @@ msgstr ""
 msgid "search.fullText"
 msgstr ""
 
-msgid "search.matchAll"
-msgstr ""
-
 msgid "search.noResults"
 msgstr "無法搜尋結果"
-
-msgid "search.operator.and"
-msgstr ""
-
-msgid "search.operator.not"
-msgstr ""
-
-msgid "search.operator.or"
-msgstr ""
-
-msgid "search.SearchFor"
-msgstr ""
 
 msgid "search.searchResults"
 msgstr "搜尋結果"

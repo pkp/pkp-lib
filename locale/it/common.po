@@ -1712,23 +1712,8 @@ msgstr "Disciplina(e)"
 msgid "search.fullText"
 msgstr "Full Text"
 
-msgid "search.matchAll"
-msgstr "Abbina tutte le categorie"
-
 msgid "search.noResults"
 msgstr "Nessun risultato"
-
-msgid "search.operator.and"
-msgstr "e"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Cerca per"
 
 msgid "search.searchResults"
 msgstr "Risultati della ricerca"

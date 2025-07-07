@@ -1708,23 +1708,8 @@ msgstr "Fagområde(r)"
 msgid "search.fullText"
 msgstr "Fuldtekst"
 
-msgid "search.matchAll"
-msgstr "Find alle kategorier"
-
 msgid "search.noResults"
 msgstr "Ingen resultater"
-
-msgid "search.operator.and"
-msgstr "og"
-
-msgid "search.operator.not"
-msgstr "ikke"
-
-msgid "search.operator.or"
-msgstr "eller"
-
-msgid "search.SearchFor"
-msgstr "Søg efter"
 
 msgid "search.searchResults"
 msgstr "Søgeresultater"

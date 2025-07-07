@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\mail\Mailable;
 use PKP\note\Note;
@@ -113,7 +114,7 @@ class Repository
         // Add task for assigned participants
         $notificationMgr = new NotificationManager();
 
-        /** @var NotificationSubscriptionSettingsDAO */
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
         foreach ($participantUserIds as $participantUserId) {
@@ -194,5 +195,20 @@ class Repository
             $participantUserIds,
             $submission->getData('contextId')
         );
+    }
+
+    /**
+     * Deletes all queries, notes, and notifications associated with the given submission ID.
+     */
+    public function deleteBySubmissionId(int $submissionId): void
+    {
+        $queries = Query::withAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, $submissionId)->get();
+        $queryIds = $queries->pluck('query_id')->all();
+
+        if (!empty($queryIds)) {
+            Query::whereIn('query_id', $queryIds)->delete();
+            Note::whereIn('assoc_id', $queryIds)->delete();
+            Notification::whereIn('assoc_id', $queryIds)->delete();
+        }
     }
 }

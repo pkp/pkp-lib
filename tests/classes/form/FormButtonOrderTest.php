@@ -20,14 +20,16 @@ namespace PKP\tests\classes\form;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\CoversNothing;
+use PKP\tests\PKPTestCase;
 
 #[CoversNothing]
-class FormButtonOrderTest extends TestCase
+class FormButtonOrderTest extends PKPTestCase
 {
     private $templatePath;
 
     protected function setUp(): void
     {
+        
         $this->templatePath = dirname(__FILE__) . '/../../../templates/form/formButtons.tpl';
     }
 
@@ -48,9 +50,9 @@ class FormButtonOrderTest extends TestCase
         $templateContent = file_get_contents($this->templatePath);
         
         // Verify template contains expected sections
-        $this->assertRegExp('/Cancel button \(if any\)/', $templateContent, 'Template should contain cancel button section');
-        $this->assertRegExp('/Save button/', $templateContent, 'Template should contain save button section');
-        $this->assertRegExp('/Submit button/', $templateContent, 'Template should contain submit button section');
+        $this->assertMatchesRegularExpression('/Cancel button \(if any\)/', $templateContent, 'Template should contain cancel button section');
+        $this->assertMatchesRegularExpression('/Save button/', $templateContent, 'Template should contain save button section');
+        $this->assertMatchesRegularExpression('/Submit button/', $templateContent, 'Template should contain submit button section');
         
         // Check the order by finding line positions
         $lines = explode("\n", $templateContent);

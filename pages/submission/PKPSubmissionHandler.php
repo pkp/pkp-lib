@@ -42,7 +42,6 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
@@ -209,9 +208,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->withContextIds([$context->getId()])
             ->get();
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = Repo::genre()->getEnabledByContextId($context->getId())->all();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
@@ -516,7 +513,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         // Don't allow dependent files to be uploaded with the submission
         $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
+            array_filter($genres, fn ($genre) => !$genre->dependent)
         );
 
         $form = new PKPSubmissionFileForm(
@@ -535,9 +532,9 @@ abstract class PKPSubmissionHandler extends Handler
             'form' => $form->getConfig(),
             'genres' => array_map(
                 fn ($genre) => [
-                    'id' => (int) $genre->getId(),
-                    'name' => $genre->getLocalizedName(),
-                    'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
+                    'id' => (int) $genre->getKey(),
+                    'name' => $genre->getLocalizedData('name'),
+                    'isPrimary' => !$genre->supplementary && !$genre->dependent,
                 ],
                 $genres
             ),

@@ -104,7 +104,3 @@ class FormValidatorArray extends FormValidator
         return $isValid;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorArray', '\FormValidatorArray');
-}

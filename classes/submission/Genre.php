@@ -223,10 +223,3 @@ class Genre extends \PKP\core\DataObject
         return in_array($this->getKey(), $defaultKeys);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\Genre', '\Genre');
-    foreach (['GENRE_CATEGORY_DOCUMENT', 'GENRE_CATEGORY_ARTWORK', 'GENRE_CATEGORY_SUPPLEMENTARY'] as $constantName) {
-        define($constantName, constant('\Genre::' . $constantName));
-    }
-}

@@ -21,8 +21,6 @@ namespace PKP\core;
 use APP\core\Application;
 use Exception;
 use Illuminate\Http\Response;
-use PKP\core\PKPBaseController;
-use PKP\core\PKPRequest;
 use PKP\handler\APIHandler;
 
 class APIRouter extends PKPRouter
@@ -169,8 +167,4 @@ class APIRouter extends PKPRouter
 
         return $this->_urlFromParts($baseUrl, [$context, 'api', Application::API_VERSION, $endpoint], $additionalParameters, $anchor, $escape);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\APIRouter', '\APIRouter');
 }

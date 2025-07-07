@@ -179,14 +179,3 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\OrderCategoryGridItemsFeature', '\OrderCategoryGridItemsFeature');
-    foreach ([
-        'ORDER_CATEGORY_GRID_CATEGORIES_ONLY',
-        'ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY',
-        'ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS',
-    ] as $constantName) {
-        define($constantName, constant('\OrderCategoryGridItemsFeature::' . $constantName));
-    }
-}

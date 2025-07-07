@@ -90,7 +90,3 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
         return $filePath;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\template\PKPTemplateResource', '\PKPTemplateResource');
-}

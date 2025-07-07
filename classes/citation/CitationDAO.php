@@ -260,7 +260,3 @@ class CitationDAO extends \PKP\db\DAO
         $this->updateDataObjectSettings('citation_settings', $citation, ['citation_id' => $citation->getId()]);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\citation\CitationDAO', '\CitationDAO');
-}

@@ -399,7 +399,3 @@ class ReviewRoundDAO extends \PKP\db\DAO
             ->getCountForPagination();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\reviewRound\ReviewRoundDAO', '\ReviewRoundDAO');
-}

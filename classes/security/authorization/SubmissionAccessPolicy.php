@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/SubmissionAccessPolicy.php
  *
@@ -129,8 +130,4 @@ class SubmissionAccessPolicy extends ContextPolicy
 
         $this->addPolicy($submissionAccessPolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\SubmissionAccessPolicy', '\SubmissionAccessPolicy');
 }

@@ -240,7 +240,3 @@ class VersionDAO extends \PKP\db\DAO
         return current($dateInstalledArray)->date_installed;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\site\VersionDAO', '\VersionDAO');
-}

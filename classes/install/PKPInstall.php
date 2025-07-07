@@ -318,7 +318,3 @@ class PKPInstall extends Installer
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\install\PKPInstall', '\PKPInstall');
-}

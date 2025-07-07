@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/OpenWindowAction.php
  *
@@ -64,8 +65,4 @@ class OpenWindowAction extends LinkActionRequest
     {
         return ['url' => $this->getUrl()];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\OpenWindowAction', '\OpenWindowAction');
 }

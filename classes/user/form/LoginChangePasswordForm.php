@@ -16,8 +16,8 @@
 
 namespace PKP\user\form;
 
-use APP\facades\Repo;
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Auth;
 use PKP\form\Form;
@@ -87,14 +87,10 @@ class LoginChangePasswordForm extends Form
             Application::get()->getRequest()->getSessionGuard()->updateUser($user);
             $user = Auth::logoutOtherDevices($this->getData('password'));
             Repo::user()->edit($user);
-            
+
             return true;
         } else {
             return false;
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\LoginChangePasswordForm', '\LoginChangePasswordForm');
 }

@@ -754,7 +754,7 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         // if the review assignment had been unconsidered or only viewed but not considered, update the flag.
-        $newReviewData['considered'] = ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW || 
+        $newReviewData['considered'] = ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW ||
                                        $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED)
             ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
             : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
@@ -1284,16 +1284,5 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         return new $formClassName($this->getSubmission(), $this->getReviewRound());
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler', '\PKPReviewerGridHandler');
-    foreach ([
-        'REVIEWER_SELECT_ADVANCED_SEARCH',
-        'REVIEWER_SELECT_CREATE',
-        'REVIEWER_SELECT_ENROLL_EXISTING',
-    ] as $constantName) {
-        define($constantName, constant('\PKPReviewerGridHandler::' . $constantName));
     }
 }

@@ -36,7 +36,6 @@ class ScheduledTaskHelper
      * Constructor.
      * Overwrites both parameters if one is not passed.
      *
-     * @param string $email (optional)          Contact email
      * @param string $contactName (optional)    Contact name
      */
     public function __construct(public string $contactEmail = '', public string $contactName = '')
@@ -56,7 +55,7 @@ class ScheduledTaskHelper
      * @param string $name Task name.
      * @param bool $result Whether or not the task execution was successful.
      * @param string $executionLogFile Task execution log file path.
-     * 
+     *
      * @return bool True if the notification email was sent successfully
      */
     public function notifyExecutionResult(string $id, string $name, bool $result, string $executionLogFile = ''): bool
@@ -130,18 +129,5 @@ class ScheduledTaskHelper
             ->body($message);
 
         return !is_null(Mail::send($mailable));
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\scheduledTask\ScheduledTaskHelper', '\ScheduledTaskHelper');
-    foreach ([
-        'SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED',
-        'SCHEDULED_TASK_MESSAGE_TYPE_ERROR',
-        'SCHEDULED_TASK_MESSAGE_TYPE_WARNING',
-        'SCHEDULED_TASK_MESSAGE_TYPE_NOTICE',
-        'SCHEDULED_TASK_EXECUTION_LOG_DIR',
-    ] as $constantName) {
-        define($constantName, constant('\ScheduledTaskHelper::' . $constantName));
     }
 }

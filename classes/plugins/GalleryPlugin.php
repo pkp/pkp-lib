@@ -377,7 +377,3 @@ class GalleryPlugin extends \PKP\core\DataObject
         return self::PLUGIN_GALLERY_STATE_CURRENT;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\GalleryPlugin', '\GalleryPlugin');
-}

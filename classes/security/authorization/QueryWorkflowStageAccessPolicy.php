@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/QueryWorkflowStageAccessPolicy.php
  *
@@ -54,8 +55,4 @@ class QueryWorkflowStageAccessPolicy extends ContextPolicy
         }
         $this->addPolicy($roleBasedPolicy);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\QueryWorkflowStageAccessPolicy', '\QueryWorkflowStageAccessPolicy');
 }

@@ -295,8 +295,3 @@ class PluginGalleryDAO extends \PKP\db\DAO
         return false;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PluginGalleryDAO', '\PluginGalleryDAO');
-    define('PLUGIN_GALLERY_XML_URL', PluginGalleryDAO::PLUGIN_GALLERY_XML_URL);
-}

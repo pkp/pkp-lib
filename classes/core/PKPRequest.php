@@ -785,7 +785,3 @@ class PKPRequest
         ]);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPRequest', '\PKPRequest');
-}

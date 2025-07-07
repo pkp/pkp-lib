@@ -469,7 +469,3 @@ abstract class PluginGridHandler extends CategoryGridHandler
         return new JSONMessage(true, $uploadPluginForm->fetch($request));
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\plugins\PluginGridHandler', '\PluginGridHandler');
-}

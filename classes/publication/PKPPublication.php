@@ -20,10 +20,10 @@ namespace PKP\publication;
 
 use APP\author\Author;
 use APP\facades\Repo;
+use APP\publication\enums\VersionStage;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use APP\publication\enums\VersionStage;
 use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
@@ -481,7 +481,7 @@ class PKPPublication extends \PKP\core\DataObject
     /**
      * Get the publication's current version data
      */
-    public function getVersion(): ?PublicationVersionInfo 
+    public function getVersion(): ?PublicationVersionInfo
     {
         $versionStageStr = $this->getData('versionStage');
         if (!isset($versionStageStr)) {
@@ -498,7 +498,7 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
-     * Set the current version of the publication 
+     * Set the current version of the publication
      * given a PublicationVersionInfo object
      */
     public function setVersion(PublicationVersionInfo $versionInfo): void
@@ -507,7 +507,4 @@ class PKPPublication extends \PKP\core\DataObject
         $this->setData('versionMajor', $versionInfo->majorNumbering);
         $this->setData('versionMinor', $versionInfo->minorNumbering);
     }
-}
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\publication\PKPPublication', '\PKPPublication');
 }

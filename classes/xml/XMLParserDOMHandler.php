@@ -89,6 +89,3 @@ class XMLParserDOMHandler extends XMLParserHandler
     }
 }
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\xml\XMLParserDOMHandler', '\XMLParserDOMHandler');
-}

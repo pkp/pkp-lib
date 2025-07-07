@@ -76,7 +76,3 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\UserAccessibleWorkflowStagePolicy', '\UserAccessibleWorkflowStagePolicy');
-}

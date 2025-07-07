@@ -105,7 +105,3 @@ class MailServiceProvider extends IlluminateMailService
             ];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\MailServiceProvider', '\MailServiceProvider');
-}

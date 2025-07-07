@@ -108,7 +108,3 @@ class ItemIterator
         return [];
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\ItemIterator', '\ItemIterator');
-}

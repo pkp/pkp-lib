@@ -66,7 +66,3 @@ class OAIMetadataFormat
         return '';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAIMetadataFormat', '\OAIMetadataFormat');
-}

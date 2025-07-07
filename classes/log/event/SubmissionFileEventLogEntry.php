@@ -32,15 +32,3 @@ class SubmissionFileEventLogEntry extends EventLogEntry
     public const SUBMISSION_LOG_FILE_REVISION_DELETE = 1342177289; // 0x50000009
     */
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\event\SubmissionFileEventLogEntry', '\SubmissionFileEventLogEntry');
-    foreach ([
-        'SUBMISSION_LOG_FILE_UPLOAD',
-        'SUBMISSION_LOG_FILE_DELETE',
-        'SUBMISSION_LOG_FILE_REVISION_UPLOAD',
-        'SUBMISSION_LOG_FILE_EDIT',
-    ] as $constantName) {
-        define($constantName, constant('\SubmissionFileEventLogEntry::' . $constantName));
-    }
-}

@@ -100,6 +100,8 @@ interface iPKPApplicationInfoProvider
 
     /**
      * Define if the application has customizable reviewer recommendation functionality
+     *
+     * @hook PKPApplication::execute::catch ['throwable' => $t]
      */
     public function hasCustomizableReviewerRecommendation(): bool;
 }
@@ -170,10 +172,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     {
         if (!defined('PKP_STRICT_MODE')) {
             define('PKP_STRICT_MODE', (bool) Config::getVar('general', 'strict'));
-            class_alias('\PKP\config\Config', '\Config');
-            class_alias('\PKP\core\Registry', '\Registry');
-            class_alias('\PKP\core\Core', '\Core');
-            class_alias('\PKP\handler\PKPHandler', '\PKPHandler');
             class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
         }
 
@@ -188,11 +186,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {
             foreach ([
-                'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
-                'API_VERSION',
-                'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
-                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL',
-
                 'ASSOC_TYPE_SITE',
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',
@@ -225,9 +218,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 if (!defined($constantName)) {
                     define($constantName, constant('self::' . $constantName));
                 }
-            }
-            if (!class_exists('\PKPApplication')) {
-                class_alias('\PKP\core\PKPApplication', '\PKPApplication');
             }
         }
 

@@ -177,7 +177,3 @@ class Representation extends \PKP\core\DataObject
         return Application::getRepresentationDAO();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\Representation', '\Representation');
-}

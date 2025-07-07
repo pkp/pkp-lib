@@ -84,7 +84,6 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @param int[] $assocIds Section or category ids
      * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
-     * @param int $contextId
      *
      * @return \Illuminate\Support\Collection<int, \stdClass> result rows with userId and userGroupId properties
      */
@@ -309,8 +308,4 @@ class SubEditorsDAO extends \PKP\db\DAO
             ->groupBy('user_id')
             ->map(fn ($userGroups) => $userGroups->pluck('user_group_id'));
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\context\SubEditorsDAO', '\SubEditorsDAO');
 }

@@ -82,7 +82,3 @@ class ListbuilderGridRow extends GridRow
         return parent::addAction($action, $position);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\listbuilder\ListbuilderGridRow', '\ListbuilderGridRow');
-}

@@ -69,8 +69,3 @@ class PKPSiteAccessPolicy extends PolicySet
         return parent::effect();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\PKPSiteAccessPolicy', '\PKPSiteAccessPolicy');
-    define('SITE_ACCESS_ALL_ROLES', PKPSiteAccessPolicy::SITE_ACCESS_ALL_ROLES);
-}

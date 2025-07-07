@@ -193,7 +193,3 @@ class FilterGroupDAO extends \PKP\db\DAO
         return $filterGroup;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\filter\FilterGroupDAO', '\FilterGroupDAO');
-}

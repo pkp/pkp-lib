@@ -129,7 +129,3 @@ class Doi extends DataObject
         return (bool)preg_match($pattern, $text);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\doi\Doi', '\Doi');
-}

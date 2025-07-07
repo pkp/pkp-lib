@@ -39,7 +39,3 @@ class OrderListbuilderItemsFeature extends OrderItemsFeature
         return '$.pkp.classes.features.OrderListbuilderItemsFeature';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\feature\OrderListbuilderItemsFeature', '\OrderListbuilderItemsFeature');
-}

@@ -1701,23 +1701,8 @@ msgstr "Discipline"
 msgid "search.fullText"
 msgstr "Text complet"
 
-msgid "search.matchAll"
-msgstr "Potriviți toate categoriile"
-
 msgid "search.noResults"
 msgstr "Fără rezultate"
-
-msgid "search.operator.and"
-msgstr "și"
-
-msgid "search.operator.not"
-msgstr "nu"
-
-msgid "search.operator.or"
-msgstr "ori"
-
-msgid "search.SearchFor"
-msgstr "Caută pentru"
 
 msgid "search.searchResults"
 msgstr "Rezultatele căutării"

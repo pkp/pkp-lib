@@ -1715,23 +1715,8 @@ msgstr "Дисциплины"
 msgid "search.fullText"
 msgstr "Полный текст"
 
-msgid "search.matchAll"
-msgstr "Совпадение по всем категориям"
-
 msgid "search.noResults"
 msgstr "Нет результатов"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "Искать"
 
 msgid "search.searchResults"
 msgstr "Результаты поиска"

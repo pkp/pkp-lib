@@ -1708,23 +1708,8 @@ msgstr "Дисциплини"
 msgid "search.fullText"
 msgstr "Пълен текст"
 
-msgid "search.matchAll"
-msgstr "Съвпадение на всички категории"
-
 msgid "search.noResults"
 msgstr "Няма резултати"
-
-msgid "search.operator.and"
-msgstr "и (логически +)"
-
-msgid "search.operator.not"
-msgstr "без (логически -)"
-
-msgid "search.operator.or"
-msgstr "или"
-
-msgid "search.SearchFor"
-msgstr "Търсене за"
 
 msgid "search.searchResults"
 msgstr "Резултати от търсене"

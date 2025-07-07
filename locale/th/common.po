@@ -2177,23 +2177,8 @@ msgstr "สาขาวิชา"
 msgid "search.fullText"
 msgstr "เนื้อหาฉบับเต็ม"
 
-msgid "search.matchAll"
-msgstr "ตรงกับทุกหมวดหมู่"
-
 msgid "search.noResults"
 msgstr "ไม่พบผลลัพธ์"
-
-msgid "search.operator.and"
-msgstr "และ"
-
-msgid "search.operator.not"
-msgstr "ไม่"
-
-msgid "search.operator.or"
-msgstr "หรือ"
-
-msgid "search.SearchFor"
-msgstr "ค้นหา"
 
 msgid "search.searchResults"
 msgstr "ผลการค้นหา"

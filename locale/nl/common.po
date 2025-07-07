@@ -1708,23 +1708,8 @@ msgstr "Discipline(s)"
 msgid "search.fullText"
 msgstr "Volledige tekst"
 
-msgid "search.matchAll"
-msgstr "Vergelijk alle categorieën"
-
 msgid "search.noResults"
 msgstr "Geen resultaten"
-
-msgid "search.operator.and"
-msgstr "en"
-
-msgid "search.operator.not"
-msgstr "niet"
-
-msgid "search.operator.or"
-msgstr "of"
-
-msgid "search.SearchFor"
-msgstr "Zoek naar"
 
 msgid "search.searchResults"
 msgstr "Zoekresultaten"

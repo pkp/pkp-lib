@@ -27,6 +27,8 @@ namespace PKP\facades;
 use PKP\affiliation\Repository as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
+use PKP\author\creditContributorRole\Repository as CreditContributorRoleRepository;
+use PKP\author\creditRole\Repository as CreditRoleRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\decision\Repository as DecisionRepository;
@@ -65,6 +67,16 @@ class Repo
     public static function author(): AuthorRepository
     {
         return app(AuthorRepository::class);
+    }
+
+    public static function creditContributorRole(): CreditContributorRoleRepository
+    {
+        return app(CreditContributorRoleRepository::class);
+    }
+
+    public static function creditRole(): CreditRoleRepository
+    {
+        return app(CreditRoleRepository::class);
     }
 
     public static function decision(): DecisionRepository

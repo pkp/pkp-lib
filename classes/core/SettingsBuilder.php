@@ -20,7 +20,6 @@ use Illuminate\Contracts\Database\Query\Expression;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PKP\core\traits\EntityUpdate;
@@ -40,9 +39,9 @@ class SettingsBuilder extends Builder
     public function getModels($columns = ['*'])
     {
         $rows = $this->getModelWithSettings($columns);
-        
+
         $returner = $this->model->hydrate(
-            $rows->all()
+            $rows
         )->all();
 
         return $returner;
@@ -80,13 +79,13 @@ class SettingsBuilder extends Builder
             // Casts are always defined in snake key based column name to cast type
             // Need to convert the snake key based column names to camel case
             $casts = collect($this->model->getCasts())->mapWithKeys(
-                fn(string $cast, string $columnName): array => [
+                fn (string $cast, string $columnName): array => [
                     Str::camel($columnName) => $cast
                 ]
             )->toArray();
 
             foreach ($this->model->getSettings() as $settingName) {
-                
+
                 // If this settings column is not intened to update,
                 // no need to set any type for it
                 if (!$settingValues->has($settingName)) {
@@ -312,13 +311,14 @@ class SettingsBuilder extends Builder
     /*
      * Augment model with data from the settings table
      */
-    protected function getModelWithSettings(array|string $columns = ['*']): Collection
+    protected function getModelWithSettings(array|string $columns = ['*']): array
     {
         // First, get all Model columns from the main table
         $primaryKey = $this->model->getKeyName();
+
         $rows = $this->query->get()->keyBy($primaryKey);
         if ($rows->isEmpty()) {
-            return $rows;
+            return $rows->all();
         }
 
         // Retrieve records from the settings table associated with the primary Model IDs
@@ -327,23 +327,23 @@ class SettingsBuilder extends Builder
             ->whereIn($primaryKey, $ids)
             ->get();
 
-        $settings->each(function (\stdClass $setting) use ($rows, $primaryKey, $columns) {
-            $settingModelId = $setting->{$primaryKey};
+        $rows = $rows->all();
 
-            // Retract the row and fill it with data from a settings table
-            $exactRow = $rows->pull($settingModelId);
+        $settings->each(function (\stdClass $setting) use (&$rows, $primaryKey, $columns) {
+            $settingModelId = $setting->{$primaryKey};
 
             // Even for empty('') locale, the multilingual props need to be an array
             if (isset($setting->locale) && $this->isMultilingual($setting->setting_name)) {
-                $exactRow->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
+                $rows[$settingModelId]->{$setting->setting_name}[$setting->locale] = $setting->setting_value;
             } else {
-                $exactRow->{$setting->setting_name} = $setting->setting_value;
+                $rows[$settingModelId]->{$setting->setting_name} = $setting->setting_value;
             }
-
-            // Include only specified columns
-            $exactRow = $this->filterRow($exactRow, $columns);
-            $rows->put($settingModelId, $exactRow);
         });
+
+        // Include only specified columns
+        foreach ($ids as $id) {
+            $this->filterRow($rows[$id], $columns);
+        }
 
         return $rows;
     }
@@ -351,10 +351,10 @@ class SettingsBuilder extends Builder
     /**
      * If specific columns are selected to fill the Model with, iterate and filter all, which aren't specified
      */
-    protected function filterRow(stdClass $row, string|array $columns = ['*']): stdClass
+    protected function filterRow(stdClass $row, string|array $columns = ['*']): void
     {
         if ($columns == ['*']) {
-            return $row;
+            return;
         }
 
         $columns = Arr::wrap($columns);
@@ -374,8 +374,6 @@ class SettingsBuilder extends Builder
                 unset($row->{$property});
             }
         }
-
-        return $row;
     }
 
     /**

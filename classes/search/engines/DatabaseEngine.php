@@ -15,10 +15,8 @@ namespace PKP\search\engines;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Database\Query\Builder as DatabaseBuilder;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
@@ -58,6 +56,9 @@ class DatabaseEngine extends ScoutEngine
                 foreach ($submissionFiles as $submissionFile) {
                     $galley = Application::getRepresentationDAO()->getById($submissionFile->getData('assocId'));
                     $parser = SearchFileParser::fromFile($submissionFile);
+                    if (!$parser) {
+                        continue;
+                    }
                     try {
                         $parser->open();
                         do {
@@ -207,42 +208,14 @@ class DatabaseEngine extends ScoutEngine
 
     public function createIndex($name, array $options = [])
     {
-        if (Schema::hasTable($this->getTableName())) {
-            return;
-        }
-
-        Schema::create($this->getTableName(), function (Blueprint $table) {
-            $table->bigInteger($this->getTableName() . '_search_id')->autoIncrement();
-
-            $table->bigInteger('submission_id');
-            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
-
-            $table->bigInteger('publication_id');
-            $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
-
-            $table->string('locale', 28);
-
-            $table->text('title');
-            $table->text('abstract');
-            $table->text('body');
-            $table->text('authors');
-
-            $table->fulltext(['title', 'abstract', 'body', 'authors']);
-            $table->unique(['submission_id', 'publication_id', 'locale']);
-        });
     }
 
     public function deleteIndex($name)
     {
-        if (Schema::hasTable($this->getTableName())) {
-            Schema::drop($this->getTableName());
-        }
     }
 
     public function flush($model)
     {
-        if (Schema::hasTable($this->getTableName())) {
-            DB::table($this->getTableName())->delete();
-        }
+        DB::table($this->getTableName())->delete();
     }
 }

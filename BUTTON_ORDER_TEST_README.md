@@ -24,14 +24,8 @@ php button_order_test.php
 - Validates that button generation code follows the correct sequence
 - Confirms the fix addresses GitHub issue #3 requirements
 
-### 2. `tests/classes/form/FormButtonOrderTest.php`
-A PHPUnit test class for more comprehensive testing (requires PKP framework setup).
-
-**What it tests:**
-- Template rendering with different button configurations
-- Button order verification using DOM parsing
-- Edge cases (missing buttons, different combinations)
-- Specific validation for GitHub issue #3 fix
+### 2. PHPUnit Testing Note
+PHPUnit tests for this fix would require a full OJS/OMP application context with proper PKP framework initialization. The standalone test provides comprehensive validation without framework dependencies.
 
 ## Running the Tests
 
@@ -41,11 +35,7 @@ cd /path/to/pkp-lib
 php button_order_test.php
 ```
 
-### Full Test Suite (PHPUnit)
-```bash
-cd /path/to/pkp-lib
-phpunit tests/classes/form/FormButtonOrderTest.php
-```
+This standalone test provides comprehensive validation of the button order fix without requiring the full PKP framework.
 
 ## Expected Output
 

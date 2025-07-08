@@ -802,8 +802,9 @@ class PKPTemplateManager extends Smarty
         );
     }
 
-    public function requiresVueRuntime() {
-        if(!$this->isVueRuntimeIncluded) {
+    public function requiresVueRuntime()
+    {
+        if (!$this->isVueRuntimeIncluded) {
             $this->isVueRuntimeIncluded = true;
             $baseUrl = $this->_request->getBaseUrl();
 
@@ -815,7 +816,17 @@ class PKPTemplateManager extends Smarty
                     'contexts' => ['frontend']
                 ]
             );
-    
+
+            $request = Application::get()->getRequest();
+            // Include css styles used by UI-Library Vue.js components
+            $this->addStyleSheet(
+                'build',
+                $request->getBaseUrl() . '/styles/build.css',
+                [
+                    'priority' => self::STYLE_SEQUENCE_LAST,
+                    'contexts' => 'frontend',
+                ]
+            );
         }
     }
 
@@ -1033,14 +1044,14 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if(!$request->getContext()->getData('disableSubmissions')) {
+                            if (!$request->getContext()->getData('disableSubmissions')) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
                                 ];
                                 $isNewSubmissionLinkPresent = true;
                             }
-                            
+
                             $menu['dashboards'] = [
                                 'name' => __('navigation.dashboards'),
                                 'icon' => 'Dashboard',
@@ -1084,7 +1095,7 @@ class PKPTemplateManager extends Smarty
                                 ];
                             });
 
-                            if(!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
+                            if (!$request->getContext()->getData('disableSubmissions') && !$isNewSubmissionLinkPresent) {
                                 $viewsData['newSubmission'] = [
                                     'name' => __('dashboard.startNewSubmission'),
                                     'url' => $router->url($request, null, 'submission')
@@ -1332,6 +1343,8 @@ class PKPTemplateManager extends Smarty
      */
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
+        $request = Application::get()->getRequest();
+
         if ($this->isBackendPage) {
 
             $this->unregisterPlugin('modifier', 'escape');
@@ -1369,7 +1382,6 @@ class PKPTemplateManager extends Smarty
 
         // add apiBaselUrl for useUrl composable
         $dispatcher = Application::get()->getDispatcher();
-        $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         $pageContext = [
@@ -1391,7 +1403,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         if ($context) {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
                 'dateFormatLong' => PKPString::convertStrftimeFormat($context->getLocalizedDateFormatLong()),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort()),
@@ -1401,7 +1413,7 @@ class PKPTemplateManager extends Smarty
                 'supportedFormLocales' => $context?->getSupportedFormLocaleNames()
             ]);
         } else {
-            $pageContext = array_merge($pageContext, [                
+            $pageContext = array_merge($pageContext, [
                 'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
                 'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
                 'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
@@ -1466,7 +1478,7 @@ class PKPTemplateManager extends Smarty
             $output,
             [
                 'priority' => self::STYLE_SEQUENCE_NORMAL,
-                'contexts' => ['backend'],
+                'contexts' => $this->isVueRuntimeIncluded ? ['backend','frontend'] : ['backend'],
                 'inline' => true,
             ]
         );

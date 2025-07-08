@@ -59,7 +59,7 @@ class APIHandler extends PKPHandler
 
         $router = $controller->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
 
-        Hook::run("APIHandler::endpoints::{$router->getEntity()}", [&$controller, $this]);
+        Hook::run("APIHandler::endpoints::{$router->getEntity()}", [$controller, $this]);
 
         $this->apiController = $controller;
 

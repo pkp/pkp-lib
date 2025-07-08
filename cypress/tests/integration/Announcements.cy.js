@@ -72,6 +72,20 @@ describe('Announcements', function() {
 		cy.contains(title).should('not.exist');
 	});
 
+	it('Check announcements on a sitemap', function() {
+		cy.request('index.php/publicknowledge/en/sitemap').then((response) => {
+			expect(response.status).to.eq(200);
+			expect(response).to.have.property('headers');
+			expect(response.headers).to.have.property('content-type', 'application/xml');
+
+			const parser = new DOMParser();
+			const sitemap = parser.parseFromString(response.body, 'application/xml');
+			const el = Array.from(sitemap.getElementsByTagName('loc'))
+				.find(el => el.textContent.includes('announcement'));
+			expect(el.textContent).contain('announcement');
+		});
+	});
+
 	it('Disables announcements', function() {
 		cy.login('dbarnes');
 		cy.visit('index.php/publicknowledge/management/settings/website');

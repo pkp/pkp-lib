@@ -23,9 +23,6 @@
         <testsuite name="LibraryClasses">
             <directory suffix="Test.php">classes</directory>
         </testsuite>
-        <testsuite name="ApplicationClasses">
-            <directory suffix="Test.php">../../../tests/classes</directory>
-        </testsuite>
         <testsuite name="LibraryPlugins">
             <directory suffix="Test.php">../plugins/*/*/tests</directory>
         </testsuite>

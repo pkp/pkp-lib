@@ -29,6 +29,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use PKP\config\Config;
+use PKP\core\PKPBladeViewServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -187,6 +188,7 @@ class PKPContainer extends Container
         $this->register(new ConsoleCommandServiceProvider($this));
         $this->register(new \PKP\core\ValidationServiceProvider($this));
         $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
+        $this->register(new PKPBladeViewServiceProvider($this));
     }
 
     /**
@@ -332,6 +334,9 @@ class PKPContainer extends Container
                 \Illuminate\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\StringEncrypter::class,
+            ],
+            'view' => [
+                \Illuminate\Support\Facades\View::class,
             ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {

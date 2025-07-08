@@ -93,7 +93,7 @@ function testButtonOrder()
     echo str_repeat("=", 50) . "\n";
     
     // Read the template file
-    $templatePath = __DIR__ . '/templates/form/formButtons.tpl';
+    $templatePath = __DIR__ . '/../templates/form/formButtons.tpl';
     
     if (!file_exists($templatePath)) {
         echo "❌ Template file not found: $templatePath\n";

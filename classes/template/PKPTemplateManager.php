@@ -851,9 +851,10 @@ class PKPTemplateManager extends Smarty
             $this->isVueRuntimeIncluded = true;
             $baseUrl = Application::get()->getRequest()->getBaseUrl();
 
-
-
             $this->setLocaleKeys(['common.close']);
+            $this->setLocaleKeys(['common.unknownError']);
+            $this->setLocaleKeys(['common.error']);
+            $this->setLocaleKeys(['common.ok']);
 
             // Stylesheet compiled from Vue.js single-file components
             $this->addStyleSheet(

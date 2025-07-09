@@ -45,6 +45,7 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler
         // Get all level task notifications.
         $notifications = Notification::withUserId($user->getId())
             ->withLevel(Notification::NOTIFICATION_LEVEL_TASK)
+            ->orderBy(Notification::CREATED_AT, 'desc')
             ->get();
 
         // Checkbox selection requires the array keys match the notification id

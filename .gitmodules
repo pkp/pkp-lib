@@ -1,3 +1,7 @@
 [submodule "lib/counterBots"]
 	path = lib/counterBots
 	url = https://github.com/atmire/COUNTER-Robots.git
+
+[submodule "lib/creditRoles"]
+	path = lib/creditRoles
+	url = https://github.com/contributorshipcollaboration/credit-translation.git

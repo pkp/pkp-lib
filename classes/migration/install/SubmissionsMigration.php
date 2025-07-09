@@ -15,8 +15,10 @@
 namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\core\Core;
 use PKP\submission\PKPSubmission;
 
 class SubmissionsMigration extends \PKP\migration\Migration
@@ -126,6 +128,48 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_unique');
         });
+
+        // Credit roles listing table
+        Schema::create('credit_roles', function (Blueprint $table) {
+            $table->comment('The list of the CRediT Roles');
+            $table->bigInteger('credit_role_id')->autoIncrement();
+            $table->string('credit_role_identifier', 255);
+            $table->unique(['credit_role_identifier'], 'credit_role_identifier_unique');
+        });
+
+        // Load en json, and fill table with values
+        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en.json') ?: "", true);
+        if (!$creditRoles) {
+            throw new \Exception(PKP_LIB_PATH . '/lib/creditRoles/translations/en.json not found');
+        }
+        $creditRolesData = Arr::map(array_keys($creditRoles['translations'] ?? []), fn (string $role): array => ['credit_role_identifier' => $role]);
+        DB::table('credit_roles')
+            ->insert($creditRolesData);
+
+        // Credit and contributor roles
+        Schema::create('credit_contributor_roles', function (Blueprint $table) {
+            $table->comment('The CRediT Roles and the degrees of contributors, and contributor roles');
+            $table->bigInteger('credit_contributor_role_id')->autoIncrement();
+            $table->bigInteger('contributor_id');
+            $table->bigInteger('credit_role_id')->nullable();
+            $table->enum('credit_degree', [
+                'LEAD',
+                'EQUAL',
+                'SUPPORTING',
+            ])->nullable();
+            $table->bigInteger('contributor_role_id')->nullable();
+            $table->foreign('contributor_id', 'contributor_id_author_id_foreign')->references('author_id')->on('authors')->onDelete('cascade');
+            $table->foreign('credit_role_id', 'credit_role_id_foreign')->references('credit_role_id')->on('credit_roles')->onDelete('cascade');
+            $table->unique(['contributor_id', 'credit_role_id'], 'contributor_id_credit_role_id_unique');
+            $table->unique(['contributor_id', 'contributor_role_id'], 'contributor_id_contributor_role_id_unique');
+        });
+
+        // Add contstraint to only allow either credit or contributor role per row
+        DB::statement('
+            ALTER TABLE credit_contributor_roles
+            ADD CONSTRAINT check_xor_credit_contributor_role
+            CHECK ((credit_role_id IS NOT NULL AND contributor_role_id IS NULL) OR (contributor_role_id IS NOT NULL AND credit_role_id IS NULL))
+        ');
 
         // Editor decisions.
         Schema::create('edit_decisions', function (Blueprint $table) {

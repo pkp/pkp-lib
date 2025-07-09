@@ -29,6 +29,7 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\doi\Doi;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -895,6 +896,22 @@ abstract class Repository
             ->filterByVersionMajor($publication->getData('versionMajor'))
             ->filterByDoiIds([$publication->getData('doiId')])
             ->getMany();
+    }
+
+    /**
+     * Get the first DOI object found for minor versions of the same submission,
+     * within the same version stage and version major.
+     */
+    public function getMinorVersionsDoi(Publication $publication): ?Doi
+    {
+        return $this->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->getMany()
+            ->filter(fn ($publication) => $publication->getData('doiId') != null)
+            ->first()
+            ->getData('doiObject');
     }
 
     /**

@@ -18,6 +18,7 @@ use APP\author\Author;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Collector;
@@ -33,7 +34,6 @@ use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
-use APP\publication\enums\VersionStage;
 use PKP\publication\helpers\PublicationVersionInfo;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -840,7 +840,7 @@ abstract class Repository
     }
 
     /**
-     * Return a collection of all existing Versions 
+     * Return a collection of all existing Versions
      * for the submission's publications
      *
      * @return Collection<PublicationVersionInfo>
@@ -873,10 +873,10 @@ abstract class Repository
 
             if ($isMinorChange) {
                 // Increment the minor version
-                $nextVersion->minorNumbering += 1;
+                ++$nextVersion->minorNumbering;
             } else {
                 // Increment the major version and reset the minor version
-                $nextVersion->majorNumbering += 1;
+                ++$nextVersion->majorNumbering;
                 $nextVersion->minorNumbering = PublicationVersionInfo::DEFAULT_MINOR_NUMBERING;
             }
         }
@@ -1354,27 +1354,25 @@ abstract class Repository
     }
 
     /**
-     * Get the appropriate currentPublicationId for a submission based on the
-     * statues of its publications
+     * Get the ID of the most mature published publication for a submission.
+     * If there is no published one, then the most mature one.
      */
     protected function getCurrentPublicationIdByPublications(Submission $submission): ?int
     {
+        // The publications are ordered by version stage, major, minor ASC
         $publications = $submission->getData('publications'); /** @var LazyCollection $publications */
 
         if (!$publications->count()) {
             return null;
         }
 
-        // Use the latest published publication
-        $newCurrentPublicationId = $publications->reduce(function ($a, $b) {
-            return $b->getData('status') === Submission::STATUS_PUBLISHED && $b->getId() > $a ? $b->getId() : $a;
-        }, 0);
+        $newCurrentPublicationId = $publications->last(function (Publication $publication, int $key) {
+            return $publication->getData('status') === Submission::STATUS_PUBLISHED;
+        })?->getId();
 
-        // If there is no published publication, use the latest publication
+        // If there is no published publication, use the latest mature publication
         if (!$newCurrentPublicationId) {
-            $newCurrentPublicationId = $publications->reduce(function ($a, $b) {
-                return $a > $b->getId() ? $a : $b->getId();
-            }, 0);
+            $newCurrentPublicationId = $publications->last()->getId();
         }
 
         return $newCurrentPublicationId ?? $submission->getData('currentPublicationId');

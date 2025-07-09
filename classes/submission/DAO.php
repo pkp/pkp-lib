@@ -279,9 +279,7 @@ class DAO extends EntityDAO
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteBySubmissionId($id);
 
-        // Delete the queries associated with a submission
-        EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)
-            ->delete();
+        Repo::query()->deleteBySubmissionId($id);
 
         // Delete the stage assignments.
         StageAssignment::withSubmissionIds([$id])

@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
@@ -38,7 +39,6 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\log\SubmissionEmailLogEventType;
-use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -173,23 +173,28 @@ class QueriesGridHandler extends GridHandler
      * @copydoc GridHandler::initialize()
      *
      * @param null|mixed $args
+     * @throws Exception
      */
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
 
         switch ($this->getStageId()) {
-            case WORKFLOW_STAGE_ID_SUBMISSION: $this->setTitle('submission.queries.submission');
+            case WORKFLOW_STAGE_ID_SUBMISSION:
+                $this->setTitle('submission.queries.submission');
                 break;
-            case WORKFLOW_STAGE_ID_EDITING: $this->setTitle('submission.queries.editorial');
+            case WORKFLOW_STAGE_ID_EDITING:
+                $this->setTitle('submission.queries.editorial');
                 break;
-            case WORKFLOW_STAGE_ID_PRODUCTION: $this->setTitle('submission.queries.production');
+            case WORKFLOW_STAGE_ID_PRODUCTION:
+                $this->setTitle('submission.queries.production');
                 break;
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 $this->setTitle('submission.queries.review');
                 break;
-            default: assert(false);
+            default:
+                throw new Exception('Unknown workflow stage ID: ' . $this->getStageId());
         }
 
         // Columns
@@ -376,11 +381,11 @@ class QueriesGridHandler extends GridHandler
         }
 
         $query->delete();
-        Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
-        Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)->delete();
 
-        if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-            $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+        if (
+            $this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+            $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION
+        ) {
             // Update submission notifications
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
@@ -607,8 +612,10 @@ class QueriesGridHandler extends GridHandler
             $queryForm->execute();
             $notificationMgr = new NotificationManager();
 
-            if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-                $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+            if (
+                $this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
+                $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION
+            ) {
                 // Update submission notifications
                 $notificationMgr->updateNotification(
                     $request,
@@ -633,7 +640,7 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            /** @var NotificationSubscriptionSettingsDAO */
+            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             $note = Repo::note()->getHeadNote($query->id);
             $submission = $this->getSubmission();

@@ -20,8 +20,10 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\note\Note;
+use PKP\notification\Notification;
 
 class EditorialTask extends Model
 {
@@ -65,6 +67,15 @@ class EditorialTask extends Model
             'type' => 'int',
             'status' => 'int',
         ];
+    }
+
+    protected static function booted(): void
+    {
+        // Delete connected model data when an Editorial Task is deleted.
+        static::deleted(function (EditorialTask $task) {
+            Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->delete();
+            Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $task->id)->delete();
+        });
     }
 
     /**

@@ -1737,29 +1737,8 @@ msgstr "Discipline(s)"
 msgid "search.fullText"
 msgstr "Texte intégral"
 
-msgid "search.indexTerms"
-msgstr "Termes d'indexation"
-
-msgid "search.indexTermsLong"
-msgstr "Tous les termes des champs indexés"
-
-msgid "search.matchAll"
-msgstr "Dans toutes les catégories"
-
 msgid "search.noResults"
 msgstr "Aucun résultat"
-
-msgid "search.operator.and"
-msgstr "et"
-
-msgid "search.operator.not"
-msgstr "sauf"
-
-msgid "search.operator.or"
-msgstr "ou"
-
-msgid "search.SearchFor"
-msgstr "Rechercher"
 
 msgid "search.searchResults"
 msgstr "Résultats de recherche"

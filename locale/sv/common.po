@@ -1703,29 +1703,8 @@ msgstr "Disciplin(er)"
 msgid "search.fullText"
 msgstr "Fulltext"
 
-msgid "search.indexTerms"
-msgstr "Ämnesord"
-
-msgid "search.indexTermsLong"
-msgstr "Alla fält för ämnesord"
-
-msgid "search.matchAll"
-msgstr "Matcha i alla kategorier"
-
 msgid "search.noResults"
 msgstr "Inga träffar"
-
-msgid "search.operator.and"
-msgstr "OCH"
-
-msgid "search.operator.not"
-msgstr "INTE"
-
-msgid "search.operator.or"
-msgstr "ELLER"
-
-msgid "search.SearchFor"
-msgstr "Sök efter"
 
 msgid "search.searchResults"
 msgstr "Sökresultat"

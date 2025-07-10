@@ -17,6 +17,7 @@
 namespace PKP\install;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
@@ -971,4 +972,24 @@ class Installer
         return true;
     }
 
+    /**
+     * Rebuild the search index.
+     */
+    public function rebuildSearchIndex(): bool
+    {
+        $searchEngine = app(\Laravel\Scout\EngineManager::class)->engine();
+        $searchEngine->flush(Config::getVar('search_index_name', 'submissions'));
+
+        $submissions = Repo::submission()->getCollector()
+            ->filterByContextIds([Application::SITE_CONTEXT_ID_ALL])
+            ->getIds()->chunk(100)->each(function ($submissionIds) use ($searchEngine) {
+                $submissions = Repo::submission()->getCollector()
+                    ->filterByContextIds([Application::SITE_CONTEXT_ID_ALL])
+                    ->filterBySubmissionIds($submissionIds->toArray())
+                    ->getMany();
+                $searchEngine->update($submissions);
+            });
+
+        return true;
+    }
 }

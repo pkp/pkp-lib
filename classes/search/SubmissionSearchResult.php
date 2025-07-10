@@ -31,11 +31,10 @@ class SubmissionSearchResult
      */
     public function newCollection(array $models = [])
     {
-        $issueCache = [];
-        $journalCache = [];
+        $contextCache = [];
         $sectionCache = [];
 
-        return LazyCollection::make(function () use ($models, &$issueCache, &$journalCache, &$sectionCache) {
+        return LazyCollection::make(function () use ($models, &$contextCache, &$sectionCache) {
             foreach ($models as $data) {
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
 
@@ -45,20 +44,16 @@ class SubmissionSearchResult
                 }
                 $currentPublication = $submission->getCurrentPublication();
 
-                $issueId = $currentPublication->getData('issueId');
-                $issue = $issueId ? $issueCache[$issueId] ?? ($issueCache[$issueId] = Repo::issue()->get($issueId)) : null;
-
                 $contextId = $submission->getData('contextId');
-                $journal = $journalCache[$contextId] ?? ($journalCache[$contextId] = Application::getContextDAO()->getById($contextId));
+                $context = $contextCache[$contextId] ?? ($contextCache[$contextId] = Application::getContextDAO()->getById($contextId));
 
                 $sectionId = $currentPublication->getData('sectionId');
                 $section = $sectionId ? $sectionCache[$sectionId] ?? ($sectionCache[$sectionId] = Repo::section()->get($sectionId)) : null;
 
                 yield [
-                    'publishedSubmission' => $submission = Repo::submission()->get($submissionId),
-                    'issue' => $issue,
-                    'journal' => $journal,
-                    'issueAvailable' => true, // FIXME
+                    'submission' => $submission,
+                    'currentPublication' => $currentPublication,
+                    'context' => $context,
                     'section' => $section,
                 ];
             }

@@ -15,6 +15,7 @@ namespace PKP\search;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
+use PKP\submission\PKPSubmission;
 
 class SubmissionSearchResult
 {
@@ -39,7 +40,7 @@ class SubmissionSearchResult
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
 
                 $submission = Repo::submission()->get($submissionId);
-                if (!$submission) {
+                if (!$submission || $submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
                     continue;
                 }
                 $currentPublication = $submission->getCurrentPublication();

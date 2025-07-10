@@ -119,6 +119,14 @@
 				}
 			}
 		},
+		"createdAt": {
+			"type": "string",
+			"description": "The timestamp when this publication was created.",
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
 		"dataAvailability": {
 			"type": "string",
 			"description": "Optional metadata that describes whether the author(s) have made their data available and, if so, where readers may access it.",
@@ -283,6 +291,14 @@
 				"nullable"
 			]
 		},
+		"sourcePublicationId": {
+			"type": "integer",
+			"description": "The ID of another publication that this one is derived from. Used to reference the source publication when creating versions.",
+			"validation": [
+				"nullable"
+			],
+			"apiSummary": true
+		},
 		"subjects": {
 			"type": "array",
 			"description": "Optional metadata that consists of keywords, key phrases or classification codes that describe the submission's topics.",
@@ -394,12 +410,12 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
-		"versionStage": {
-			"type": "string",
-			"description": "The version stage as given in VersionStage enumeration",
+		"versionMajor": {
+			"type": "integer",
+			"description": "The major part of the version of a publication given the major.minor notation of the version",
 			"apiSummary": true,
 			"validation": [
-				"nullable"
+				"min:1"
 			]
 		},
 		"versionMinor": {
@@ -410,12 +426,12 @@
 				"min:0"
 			]
 		},
-		"versionMajor": {
-			"type": "integer",
-			"description": "The major part of the version of a publication given the major.minor notation of the version",
+		"versionStage": {
+			"type": "string",
+			"description": "The version stage as given in VersionStage enumeration",
 			"apiSummary": true,
 			"validation": [
-				"min:1"
+				"nullable"
 			]
 		},
 		"versionString": {
@@ -423,22 +439,6 @@
 			"description": "The calculated display string of the version of this publication",
 			"apiSummary": true,
 			"readOnly": true
-		},
-		"createdAt": {
-			"type": "string",
-			"description": "The timestamp when this publication was created.",
-			"validation": [
-				"date_format:Y-m-d H:i:s"
-			],
-			"apiSummary": true
-		},
-		"sourcePublicationId": {
-			"type": "integer",
-			"description": "The ID of another publication that this one is derived from. Used to reference the source publication when creating versions.",
-			"validation": [
-				"nullable"
-			],
-			"apiSummary": true
 		}
 	}
 }

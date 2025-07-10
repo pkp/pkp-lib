@@ -46,7 +46,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public const ORDERBY_LAST_MODIFIED = 'lastModified';
     public const ORDERBY_SEQUENCE = 'sequence';
     public const ORDERBY_TITLE = 'title';
-    public const ORDERBY_SEARCH_RANKING = 'ranking';
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
@@ -471,30 +470,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 $q->addSelect([DB::raw($coalesceTitles)]);
                 $q->orderBy(DB::raw($coalesceTitles), $this->orderDirection);
                 break;
-            case self::ORDERBY_SEARCH_RANKING:
-                if (!$keywords->count()) {
-                    $q->orderBy('s.date_submitted', $this->orderDirection);
-                    break;
-                }
-                // Retrieves the number of matches for all keywords
-                $orderByMatchCount = DB::table('submission_search_objects', 'sso')
-                    ->join('submission_search_object_keywords AS ssok', 'ssok.object_id', '=', 'sso.object_id')
-                    ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
-                    ->where(
-                        fn (Builder $q) =>
-                        $keywords->map(
-                            fn (string $keyword) => $q
-                                ->orWhere('sskl.keyword_text', '=', DB::raw('LOWER(?)'))
-                                ->addBinding($keyword)
-                        )
-                    )
-                    ->whereColumn('s.submission_id', '=', 'sso.submission_id')
-                    ->selectRaw('COUNT(0)');
-                // Retrieves the number of distinct matched keywords
-                $orderByDistinctKeyword = (clone $orderByMatchCount)->select(DB::raw('COUNT(DISTINCT sskl.keyword_id)'));
-                $q->orderBy($orderByDistinctKeyword, $this->orderDirection)
-                    ->orderBy($orderByMatchCount, $this->orderDirection);
-                break;
             case self::ORDERBY_DATE_SUBMITTED:
             default:
                 $q->orderBy('s.date_submitted', $this->orderDirection);
@@ -644,16 +619,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                     ->whereIn('ps.setting_name', ['title', 'abstract'])
                                     ->whereColumn('s.submission_id', '=', 'p.submission_id')
                                     ->where('ps.setting_value', 'like', '%keyword%')
-                                /*                                // Don't permit reviewers to search on author names // FIXME: Allow author search again
-                                                                    ->when(
-                                                                        !empty($this->assignedTo),
-                                                                        fn (Builder $q) => $q
-                                                                            ->where(
-                                                                                fn (Builder $q) => $q
-                                                                                    ->whereNull('any_assignment.value')
-                                                                                    ->orWhere('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
-                                                                            )
-                                                                    )*/
                             )
                         // Search on the publication title
                             ->orWhereIn(

@@ -1,15 +1,19 @@
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
+"PO-Revision-Date: 2025-07-10 14:21+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
+"nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Bijkomende talen"
@@ -116,7 +120,7 @@ msgid "installer.form.usernameRequired"
 msgstr "De gebruikersnaam voor de beheerder is verplicht."
 
 msgid "installer.form.timeZoneRequired"
-msgstr ""
+msgstr "U wordt verzocht een tijdzone te selecteren."
 
 msgid "installer.installationWrongPhp"
 msgstr ""
@@ -146,6 +150,8 @@ msgstr ""
 
 msgid "installer.installMigrationError"
 msgstr ""
+"Er is een programma fout opgetreden tijdens het migreren van de categorie "
+"<tt>{$class}</tt>. De programmafout was {$message}."
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>."
@@ -158,8 +164,9 @@ msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details."
 
+#, fuzzy
 msgid "installer.timezoneInstructions"
-msgstr ""
+msgstr "De tijdzone om voor dit systeem te gebruiken."
 
 msgid "installer.additionalLocalesInstructions"
 msgstr ""

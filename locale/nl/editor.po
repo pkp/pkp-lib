@@ -1,11 +1,12 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-10-19 10:40+0000\n"
-"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"PO-Revision-Date: 2025-07-10 14:21+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/nl/"
 ">\n"
 "Language: nl\n"
@@ -205,7 +206,7 @@ msgid "editor.submissionReview.editReview"
 msgstr "Bewerk review"
 
 msgid "editor.review.anonymousReviewer"
-msgstr "Anonieme reviewer"
+msgstr "Anonieme recensent"
 
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Verstuur een e-mail aan de reviewer"
@@ -424,7 +425,7 @@ msgstr ""
 "bestanden."
 
 msgid "editor.review"
-msgstr "Review"
+msgstr "Recensie"
 
 msgid "editor.review.reviewDetails"
 msgstr "Details review"
@@ -630,3 +631,69 @@ msgstr "Er was een probleem met de {$stepName} stap."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Dezelfde instelling als auteur"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Kies een recensent uit de lijst van voorgestelde recensenten"
+
+#, fuzzy
+msgid "editor.submission.viewSummary"
+msgstr "Samenvatting"
+
+#, fuzzy
+msgid "editor.submission.daysInStage"
+msgstr "Dagen in fase"
+
+msgid "editor.review.logResponse.for"
+msgstr "Meld de beantwoording aan voor"
+
+msgid "editor.review.logResponse"
+msgstr "Meld de beantwoording aan"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Een beantwoording moet worden geselecteerd"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "De recensent heeft de uitnodiging tot beoordeling afgewezen"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Leg de beantwoording namens de recensent vast"
+
+msgid "editor.review.download"
+msgstr "Download het recensieformulier"
+
+msgid "editor.review.allSections"
+msgstr "Het het redactieformulier geeft alle recensie onderwerpen weer"
+
+#, fuzzy
+msgid "editor.review.reviewViewed"
+msgstr "De beoordeelde recensie"
+
+msgid "editor.submission.search"
+msgstr "Zoek inzendingen, ID's, auteurs, trefwoorden, etc."
+
+msgid "editor.submission.days"
+msgstr "Dagen"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "De recensent heeft de uitnodiging tot beoordeling aanvaard"
+
+#, fuzzy
+msgid "editor.review.authorOnly"
+msgstr "De weergegeven 'Enkel voor auteurs'-gedeelten"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"De vervaldatum voor de recensie behoort later dan of gelijk te zijn aan de "
+"vervaltdatum van de beantwoording."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Er was een vergissing bij het toevoegen van de recensent, nu de vervaldatum "
+"van de recensie gelijk aan of later dan de vervaldatum van de vervaldatum "
+"van de beantwoording behoort te zijn."
+
+#, fuzzy
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Als de recensent bijvoorbeeld via e-mail contact met u opneemt, kunt u de "
+"beantwoording voor deze vastleggen"

@@ -21,18 +21,15 @@ use PKP\security\authorization\AuthorizationPolicy;
 
 class WorkflowStageRequiredPolicy extends AuthorizationPolicy
 {
-    /** @var int */
-    public $_stageId;
-
     /**
      * Constructor
      *
-     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param ?int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param ?int $assocType One of the PKPApplication::ASSOC_TYPE_* constants
      */
-    public function __construct($stageId)
+    public function __construct(protected ?int $stageId, protected ?int $assocType = null)
     {
         parent::__construct('user.authorization.workflowStageRequired');
-        $this->_stageId = $stageId;
     }
 
 
@@ -44,14 +41,26 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy
      */
     public function effect(): int
     {
+        if (!$this->stageId && $this->assocType) {
+            // Try to get stage ID from the associated object
+            $assoc = $this->getAuthorizedContextObject($this->assocType);
+            if ($assoc && isset($assoc->stageId)) {
+                $this->stageId = $assoc->stageId;
+            }
+        }
+
+        if (!$this->stageId) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
+
         // Check the stage id.
         $validAppStages = Application::getApplicationStages();
-        if (!in_array($this->_stageId, array_values($validAppStages))) {
+        if (!in_array($this->stageId, array_values($validAppStages))) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the workflow stage to the authorization context.
-        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE, $this->_stageId);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE, $this->stageId);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

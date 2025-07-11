@@ -165,20 +165,29 @@ class APIHandler extends PKPHandler
      * Add a new route details pushed from the `APIHandler::endpoints::ENTITY_NAME` hook
      * for the current running API Controller
      * 
-     * @param string    $method     The route HTTP request method e.g. `GET`,`POST`,...
-     * @param string    $uri        The route uri segment
-     * @param callable  $callback   The callback handling to execute actions when route got hit
-     * @param string    $name       The name of route
-     * @param array     $roles      The route accessable role from `Role::ROLE_ID_*`
+     * @param string        $method             The route HTTP request method e.g. `GET`,`POST`,...
+     * @param string        $uri                The route uri segment
+     * @param callable      $callback           The callback handling to execute actions when route got hit
+     * @param string        $name               The name of route
+     * @param array         $roles              The route accessable role from `Role::ROLE_ID_*`
+     * @param callable|null $policyAuthorizer   Callable contains an array of authorization policies
      */
-    public function addRoute(string $method, string $uri, callable $callback, string $name, array $roles): void
+    public function addRoute(
+        string $method,
+        string $uri,
+        callable $callback,
+        string $name,
+        array $roles,
+        ?callable $policyAuthorizer = null,
+    ): void
     {
         array_push($this->routesFromHook, [
             'method' => $method,
             'uri' => $uri,
             'callback' => $callback,
             'name' => $name,
-            'roles' => $roles
+            'roles' => $roles,
+            'policyAuthorizer' => $policyAuthorizer,
         ]);
     }
 
@@ -214,6 +223,14 @@ class APIHandler extends PKPHandler
                 }
 
                 $route->middleware($middleware);
+            }
+
+            // If route has extra policy authorizer from plugin, add those to route's action stack with custom key
+            // which will be later added in the route controller's authorization stack via `PolicyAuthorizer` global middleware
+            if ($routeParams['policyAuthorizer']) {
+                $route->setAction(array_merge($route->getAction(), [
+                    'policyAuthorizer' => $routeParams['policyAuthorizer']
+                ]));
             }
         }
     }

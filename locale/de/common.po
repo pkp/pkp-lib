@@ -2,13 +2,14 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Emma U <emmaupkp@gmail.com>, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
+# Ralf Weber <ralf@weberr.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-09-18 07:46+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2025-07-11 08:51+0000\n"
+"Last-Translator: Ralf Weber <ralf@weberr.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
 "Language: de\n"
@@ -777,7 +778,9 @@ msgid "common.replaceFile"
 msgstr "Datei ersetzen"
 
 msgid "common.requiredField"
-msgstr "Mit * gekennzeichnete Eingabefelder sind Pflichtfelder"
+msgstr ""
+"Erforderliche Felder sind mit einem Sternchen gekennzeichnet: <abbr class="
+"\"required\" title=\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Erforderlich"
@@ -2334,3 +2337,93 @@ msgstr "Highlight"
 
 msgid "common.sandbox"
 msgstr "Die Anwendung läuft im Sandbox-Modus."
+
+msgid "common.yesContinue"
+msgstr "Ja, Weiter"
+
+msgid "common.filtersClear"
+msgstr "Filter löschen"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "navigation.dashboards"
+msgstr "Herausgeber Dashboard"
+
+msgid "navigation.reviewAssignments"
+msgstr "Meine Aufgaben als Rezensent"
+
+msgid "navigation.mySubmissions"
+msgstr "Meine Einreichungen als Autor"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Bewertung eingereicht am"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Nein"
+
+msgid "common.refreshingData"
+msgstr "Aktualisiere Daten"
+
+msgid "common.viewMoreDetails"
+msgstr "Weitere Details anzeigen"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ansicht <a href=\"{$url}\">Herausgebergeschichte</a>"
+
+msgid "common.moreActions"
+msgstr "Weitere Aktionen"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Peer-Reviewer im Vorjahr"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Peer-Reviewer in den vergangenen Jahren"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Die Herausgeber drücken ihre Wertschätzung gegenüber den unten aufgeführten "
+"Rezensenten für {$year} aus."
+
+msgid "common.editorialHistory.page.description"
+msgstr "In diesem Abschnitt werden frühere Mitwirkende aufgeführt."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "ORCID-Profil von {$name} anzeigen"
+
+msgid "common.editorialHistory"
+msgstr "Redaktionelle Geschichte"
+
+msgid "common.editorialHistory.page"
+msgstr "Seite zur redaktionellen Geschichte"
+
+msgid "common.showingXofX"
+msgstr "Anzeige <strong>{$start} bis {$finish}</strong> von {$total}"
+
+msgid "common.assignments"
+msgstr "Zuordnungen"
+
+msgid "common.loaded"
+msgstr "Geladen"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"1 Fehler erkannt! Bitte korrigieren Sie den Fehler unten, bevor Sie "
+"fortfahren."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} Fehler erkannt! Bitte korrigieren Sie die folgenden Fehler, bevor "
+"Sie fortfahren."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Bewertung angenommen am"
+
+msgid "validator.date.comparison"
+msgstr "Ungültige Daten zum Vergleich vorgesehen."
+
+msgid "validator.multilingual"
+msgstr "Mehrsprachige Anforderung für dieses Feld nicht erfüllt."

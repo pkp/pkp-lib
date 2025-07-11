@@ -337,7 +337,7 @@ class FilterDAO extends \PKP\db\DAO
      * @param $checkRuntimeEnvironment whether to remove filters
      *  from the result set that do not match the current run-time environment.
      *
-     * @return filter instances (transformations) in the given group
+     * @return array<int,Filter> instances (transformations) in the given group
      */
     public function getObjectsByGroup(
         string $groupSymbolic,

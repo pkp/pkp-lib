@@ -16,7 +16,6 @@
 
 namespace PKP\pages\workflow;
 
-use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
@@ -24,38 +23,18 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\Publication;
 use APP\submission\Submission;
-use APP\template\TemplateManager;
 use Exception;
-use Illuminate\Support\Enumerable;
 use PKP\components\forms\FormComponent;
-use PKP\components\forms\publication\PKPCitationsForm;
-use PKP\components\forms\publication\PKPMetadataForm;
-use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
-use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\components\PublicationSectionJats;
-use PKP\config\Config;
 use PKP\context\Context;
-use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\decision\Decision;
-use PKP\facades\Locale;
-use PKP\notification\Notification;
-use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
-use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
-use PKP\submission\PKPSubmission;
-use PKP\submission\reviewRound\ReviewRoundDAO;
-use PKP\user\User;
-use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
 
 abstract class PKPWorkflowHandler extends Handler

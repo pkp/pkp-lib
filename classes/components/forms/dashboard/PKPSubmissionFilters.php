@@ -61,7 +61,7 @@ class PKPSubmissionFilters extends FormComponent
         );
     }
 
-    protected function addSectionFields(): self
+    protected function addSectionFields(): static
     {
         if (count($this->sections) === 1) {
             return $this;
@@ -83,7 +83,7 @@ class PKPSubmissionFilters extends FormComponent
         ]));
     }
 
-    protected function addAssignedTo(): self
+    protected function addAssignedTo(): static
     {
         if (!$this->isManagerOrAdmin()) {
             return $this;
@@ -113,7 +113,7 @@ class PKPSubmissionFilters extends FormComponent
     }
 
 
-    protected function addCategories(): self
+    protected function addCategories(): static
     {
         if (!$this->categories->count()) {
             return $this;
@@ -141,8 +141,8 @@ class PKPSubmissionFilters extends FormComponent
             'value' => [],
             'vocabularies' => [
                 [
-                    'addButtonLabel' => __('grid.category.add'),
-                    'modalTitleLabel' => __('grid.category.add'),
+                    'addButtonLabel' => __('manager.selectCategories'),
+                    'modalTitleLabel' => __('manager.selectCategories'),
                     'items' => $vocabulary
                 ]
             ]
@@ -152,7 +152,7 @@ class PKPSubmissionFilters extends FormComponent
         return $this->addField(new FieldAutosuggestPreset('categoryIds', $props));
     }
 
-    protected function addDaysSinceLastActivity(): self
+    protected function addDaysSinceLastActivity(): static
     {
         $props = [
             'min' => 0,

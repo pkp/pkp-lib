@@ -48,7 +48,7 @@ class AnnouncementHandler extends Handler
         $templateMgr->assign('announcementsIntroduction', $this->getAnnouncementsIntro($request));
 
         // TODO the announcements list should support pagination
-        $announcements = Announcement::withActiveByDate();
+        $announcements = Announcement::withActiveByDate()->orderBy(Announcement::CREATED_AT, 'desc');
 
         $contextIds = [];
         $request->getContext() ? $contextIds[] = $request->getContext()->getId() : $contextIds[] = PKPApplication::SITE_CONTEXT_ID;

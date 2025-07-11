@@ -39,7 +39,7 @@ class PKPIndexHandler extends Handler
         $enableAnnouncements = $contextOrSite->getData('enableAnnouncements');
         $numAnnouncementsHomepage = $contextOrSite->getData('numAnnouncementsHomepage');
         if ($enableAnnouncements && $numAnnouncementsHomepage) {
-            $announcements = Announcement::withActiveByDate()->limit((int) $numAnnouncementsHomepage);
+            $announcements = Announcement::withActiveByDate()->limit((int) $numAnnouncementsHomepage)->orderBy(Announcement::CREATED_AT, 'desc');
 
             $contextIds = [];
             is_a($contextOrSite, Context::class) ? $contextIds[] = $contextOrSite->getId() : $contextIds[] = PKPApplication::SITE_CONTEXT_ID;

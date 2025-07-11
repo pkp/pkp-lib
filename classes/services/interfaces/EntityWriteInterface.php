@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/services/interfaces/EntityWriteInterface.php
  *
@@ -79,9 +80,4 @@ interface EntityWriteInterface
      * @return bool
      */
     public function delete($object);
-}
-
-if (!PKP_STRICT_MODE) {
-    define('VALIDATE_ACTION_ADD', EntityWriteInterface::VALIDATE_ACTION_ADD);
-    define('VALIDATE_ACTION_EDIT', EntityWriteInterface::VALIDATE_ACTION_EDIT);
 }

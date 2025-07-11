@@ -156,7 +156,3 @@ class SearchFileParser
         };
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\search\SearchFileParser', '\SearchFileParser');
-}

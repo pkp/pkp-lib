@@ -90,7 +90,3 @@ class CategoryGridDataProvider extends GridDataProvider
         assert(false);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\CategoryGridDataProvider', '\CategoryGridDataProvider');
-}

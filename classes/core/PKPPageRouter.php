@@ -560,11 +560,13 @@ class PKPPageRouter extends PKPRouter
      */
     private function isAllowedHost(string $protocol, string $redirectUrl): bool
     {
+        $allowedHosts = Config::getVar('general', 'allowed_hosts');
+        if ($allowedHosts == '') { // disabled (null) or empty string ''
+            return true;
+        }
         if (str_starts_with($redirectUrl, $protocol)) {
             $redirectUrl = preg_replace('/^' . preg_quote($protocol . '://', '/') . '/', '', $redirectUrl);
-            ;
         }
-        $allowedHosts = Config::getVar('general', 'allowed_hosts');
         $allowedHosts = array_map(strtolower(...), json_decode($allowedHosts));
         foreach ($allowedHosts as $allowedHost) {
             if (str_starts_with(strtolower($redirectUrl), $allowedHost)) {
@@ -573,8 +575,4 @@ class PKPPageRouter extends PKPRouter
         }
         return false;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\PKPPageRouter', '\PKPPageRouter');
 }

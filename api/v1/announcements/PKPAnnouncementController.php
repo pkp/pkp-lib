@@ -150,7 +150,7 @@ class PKPAnnouncementController extends PKPBaseController
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
-        $announcements = Announcement::limit(self::DEFAULT_COUNT)->offset(0);
+        $announcements = Announcement::limit(self::DEFAULT_COUNT)->offset(0)->orderBy(Announcement::CREATED_AT, 'desc');
 
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {

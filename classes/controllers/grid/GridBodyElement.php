@@ -135,7 +135,3 @@ class GridBodyElement
         $this->_cellProvider = $cellProvider;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridBodyElement', '\GridBodyElement');
-}

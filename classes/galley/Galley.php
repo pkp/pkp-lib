@@ -211,6 +211,5 @@ class Galley extends Representation
 }
 
 if (!PKP_STRICT_MODE) {
-    // Required for import/export toolset
     class_alias('\PKP\galley\Galley', '\Galley');
 }

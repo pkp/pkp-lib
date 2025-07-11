@@ -57,7 +57,3 @@ class PublishSubmissions extends ScheduledTask
         return true;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\task\PublishSubmissions', '\PublishSubmissions');
-}

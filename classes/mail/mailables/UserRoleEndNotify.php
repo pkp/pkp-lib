@@ -72,7 +72,7 @@ class UserRoleEndNotify extends Mailable
     {
         parent::setData($locale);
         if (is_null($locale)) {
-            $locale = Locale::getLocale();
+            $locale = $this->getLocale() ?? Locale::getLocale();
         }
 
         $targetPath = Core::getBaseDir() . '/lib/pkp/styles/mailables/style.css';

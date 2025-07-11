@@ -37,7 +37,3 @@ class FormValidatorControlledVocab extends FormValidator
         parent::__construct($form, $field, $type, $message, $validator);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorControlledVocab', '\FormValidatorControlledVocab');
-}

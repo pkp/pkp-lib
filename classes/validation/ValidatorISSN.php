@@ -33,7 +33,3 @@ class ValidatorISSN extends Validator
         return $validator->passes();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorISSN', '\ValidatorISSN');
-}

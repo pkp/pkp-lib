@@ -86,7 +86,3 @@ abstract class BaseProfileForm extends Form
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\BaseProfileForm', '\BaseProfileForm');
-}

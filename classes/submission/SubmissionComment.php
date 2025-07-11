@@ -264,10 +264,3 @@ class SubmissionComment extends \PKP\core\DataObject
         $this->setData('viewable', $viewable);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\SubmissionComment', '\SubmissionComment');
-    foreach (['COMMENT_TYPE_PEER_REVIEW', 'COMMENT_TYPE_EDITOR_DECISION', 'COMMENT_TYPE_COPYEDIT', 'COMMENT_TYPE_LAYOUT', 'COMMENT_TYPE_PROOFREAD'] as $constantName) {
-        define($constantName, constant('\SubmissionComment::' . $constantName));
-    }
-}

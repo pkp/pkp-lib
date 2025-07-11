@@ -99,6 +99,8 @@ class Notification extends Model
 
     protected $table = 'notifications';
     protected $primaryKey = 'notification_id';
+    public const CREATED_AT = 'date_created';
+    public const UPDATED_AT = null;
     public $timestamps = false;
 
     protected $fillable = [

@@ -48,7 +48,3 @@ class OAIResumptionToken
         $this->expire = $expire;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAIResumptionToken', '\OAIResumptionToken');
-}

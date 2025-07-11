@@ -234,13 +234,3 @@ class GridRow extends GridBodyElement
         $this->setTemplate($template);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridRow', '\GridRow');
-    foreach ([
-        'GRID_ACTION_POSITION_ROW_CLICK',
-        'GRID_ACTION_POSITION_ROW_LEFT',
-    ] as $constantName) {
-        define($constantName, constant('\GridRow::' . $constantName));
-    }
-}

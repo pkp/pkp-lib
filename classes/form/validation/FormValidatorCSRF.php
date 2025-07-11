@@ -47,7 +47,3 @@ class FormValidatorCSRF extends FormValidator
         return $request->checkCSRF();
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorCSRF', '\FormValidatorCSRF');
-}

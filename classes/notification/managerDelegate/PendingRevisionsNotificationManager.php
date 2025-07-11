@@ -99,14 +99,14 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
             // no user IDs provided; nothing to update
             return;
         }
-    
+
         $userId = current($userIds);
-    
+
         if (!$userId || !is_int($userId) || $userId <= 0) {
             // invalid user ID; skip notification creation
             return;
         }
-    
+
         $submissionId = $assocId;
         $stageData = $this->_getStageDataByType();
         if ($stageData == null) {
@@ -176,8 +176,4 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
             Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null,
         };
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\PendingRevisionsNotificationManager', '\PendingRevisionsNotificationManager');
 }

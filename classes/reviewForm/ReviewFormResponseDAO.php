@@ -205,7 +205,3 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
         return $row && $row->row_count > 0;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\reviewForm\ReviewFormResponseDAO', '\ReviewFormResponseDAO');
-}

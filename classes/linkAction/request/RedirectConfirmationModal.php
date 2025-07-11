@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/RedirectConfirmationModal.php
  *
@@ -71,8 +72,4 @@ class RedirectConfirmationModal extends ConfirmationModal
         $parentLocalizedOptions['remoteUrl'] = $this->getRemoteUrl();
         return $parentLocalizedOptions;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\RedirectConfirmationModal', '\RedirectConfirmationModal');
 }

@@ -140,7 +140,3 @@ class APIProfileForm extends BaseProfileForm
         ]);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\form\APIProfileForm', '\APIProfileForm');
-}

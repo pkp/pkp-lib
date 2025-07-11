@@ -66,7 +66,3 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
      */
     abstract public function handle($args, $request);
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\PaymethodPlugin', '\PaymethodPlugin');
-}

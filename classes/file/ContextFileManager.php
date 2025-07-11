@@ -40,7 +40,3 @@ class ContextFileManager extends PrivateFileManager
         return parent::getBasePath() . $dirNames['context'] . $this->contextId . '/';
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\ContextFileManager', '\ContextFileManager');
-}

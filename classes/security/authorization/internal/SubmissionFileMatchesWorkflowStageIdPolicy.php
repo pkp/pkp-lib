@@ -65,7 +65,3 @@ class SubmissionFileMatchesWorkflowStageIdPolicy extends SubmissionFileBaseAcces
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\internal\SubmissionFileMatchesWorkflowStageIdPolicy', '\SubmissionFileMatchesWorkflowStageIdPolicy');
-}

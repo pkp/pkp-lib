@@ -37,7 +37,3 @@ class FormValidatorLocaleEmail extends FormValidatorLocale
         parent::__construct($form, $field, $type, $message, $requiredLocale, $validator);
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\form\validation\FormValidatorLocaleEmail', '\FormValidatorLocaleEmail');
-}

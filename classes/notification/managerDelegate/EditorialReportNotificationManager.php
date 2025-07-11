@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/notification/managerDelegate/EditorialReportNotificationManager.php
  *
@@ -101,8 +102,4 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
             ['contents' => __('notification.type.editorialReport.contents', [], $this->_context->getPrimaryLocale())]
         );
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\managerDelegate\EditorialReportNotificationManager', '\EditorialReportNotificationManager');
 }

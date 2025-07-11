@@ -218,7 +218,7 @@ class EditorAction
             $reviewInvitation = new ReviewerAccessInvite();
             $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null, $sender->getId());
 
-            $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
+            $reviewInvitation->getPayload()->reviewAssignmentId = $reviewAssignment->getId();
             $reviewInvitation->updatePayload();
 
             $reviewInvitation->invite();
@@ -239,8 +239,4 @@ class EditorAction
 
         return $mailable;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\submission\action\EditorAction', '\EditorAction');
 }

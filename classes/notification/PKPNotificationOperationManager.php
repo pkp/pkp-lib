@@ -361,7 +361,3 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         );
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\notification\PKPNotificationOperationManager', '\PKPNotificationOperationManager');
-}

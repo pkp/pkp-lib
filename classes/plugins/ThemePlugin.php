@@ -16,13 +16,13 @@
 
 namespace PKP\plugins;
 
-use Illuminate\Support\Facades\Cache;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
@@ -496,7 +496,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get the localized value of an option
      */
-    public function getLocalizedOption(string $name, string $preferredLocale = null, string &$selectedLocale = null): mixed
+    public function getLocalizedOption(string $name, ?string $preferredLocale = null, ?string &$selectedLocale = null): mixed
     {
         return $this->getBestLocalizedData($this->getOption($name), $preferredLocale, $selectedLocale);
     }
@@ -1033,8 +1033,4 @@ abstract class ThemePlugin extends LazyLoadPlugin
             return 'frontend-preprint-view';
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\ThemePlugin', '\ThemePlugin');
 }

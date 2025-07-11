@@ -168,7 +168,3 @@ class SiteDAO extends \PKP\db\DAO
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\site\SiteDAO', '\SiteDAO');
-}

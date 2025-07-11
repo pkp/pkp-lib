@@ -842,14 +842,3 @@ class FileManager
         throw $lastException;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\FileManager', '\FileManager');
-    foreach ([
-        'FILE_MODE_MASK',
-        'DIRECTORY_MODE_MASK',
-        'DOCUMENT_TYPE_DEFAULT', 'DOCUMENT_TYPE_AUDIO', 'DOCUMENT_TYPE_EXCEL', 'DOCUMENT_TYPE_HTML', 'DOCUMENT_TYPE_IMAGE', 'DOCUMENT_TYPE_PDF', 'DOCUMENT_TYPE_WORD', 'DOCUMENT_TYPE_EPUB', 'DOCUMENT_TYPE_VIDEO', 'DOCUMENT_TYPE_ZIP',
-    ] as $constantName) {
-        define($constantName, constant('\FileManager::' . $constantName));
-    }
-}

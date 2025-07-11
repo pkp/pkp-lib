@@ -161,7 +161,4 @@ class XMLTypeDescription extends TypeDescription
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\xslt\XMLTypeDescription', '\XMLTypeDescription');
-    foreach (['XML_TYPE_DESCRIPTION_VALIDATE_NONE', 'XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'XML_TYPE_DESCRIPTION_VALIDATE_DTD', 'XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG'] as $constantName) {
-        define($constantName, constant('\XMLTypeDescription::' . $constantName));
-    }
 }

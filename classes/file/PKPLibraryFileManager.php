@@ -170,6 +170,7 @@ class PKPLibraryFileManager extends PrivateFileManager
      * Get the type => suffix mapping array
      *
      * @hook PublisherLibrary::types::suffixes [[&$map]]
+     *
      * @return array
      */
     public function &getTypeSuffixMap()
@@ -203,6 +204,7 @@ class PKPLibraryFileManager extends PrivateFileManager
      * Get the type => locale key mapping array
      *
      * @hook PublisherLibrary::types::titles [[&$map]]
+     *
      * @return array
      */
     public function &getTypeTitleKeyMap()
@@ -232,6 +234,7 @@ class PKPLibraryFileManager extends PrivateFileManager
      * Get the type => name mapping array
      *
      * @hook PublisherLibrary::types::names [[&$typeNameMap]]
+     *
      * @return array
      */
     public function &getTypeNameMap()
@@ -245,8 +248,4 @@ class PKPLibraryFileManager extends PrivateFileManager
         Hook::call('PublisherLibrary::types::names', [&$typeNameMap]);
         return $typeNameMap;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\file\PKPLibraryFileManager', '\PKPLibraryFileManager');
 }

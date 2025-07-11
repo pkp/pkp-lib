@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/AjaxAction.php
  *
@@ -104,15 +105,5 @@ class AjaxAction extends LinkActionRequest
             'requestType' => $this->getRequestType(),
             'data' => $this->getRequestData(),
         ];
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\AjaxAction', '\AjaxAction');
-    foreach ([
-        'AJAX_REQUEST_TYPE_GET',
-        'AJAX_REQUEST_TYPE_POST',
-    ] as $constantName) {
-        define($constantName, constant('\AjaxAction::' . $constantName));
     }
 }

@@ -28,7 +28,7 @@
             submissionWizard__reviewPanel__body--{$step.id|escape}
         "
     >
-        <notification 
+        <notification
             v-if="!submission.reviewerSuggestions?.length ?? 0"
             type="warning"
             class="submissionWizard__reviewEmptyWarning"
@@ -54,15 +54,14 @@
                 <h4 class="submissionWizard__reviewPanel__item__header">
                     {{ localize(reviewerSuggestion.fullName) }}
                 </h4>
-                
+
                 <div class="submissionWizard__reviewPanel__item__value">
                     <h5> {{ reviewerSuggestion.email }} </h5>
                 </div>
-                
-                <div
-                    class="submissionWizard__reviewPanel__item__value semantic-defaults" 
-                    v-strip-unsafe-html="localize(reviewerSuggestion.suggestionReason)"
-                ></div>
+
+                <div class="submissionWizard__reviewPanel__item__value">
+                    <h5> {{ localize(reviewerSuggestion.affiliation) }} </h5>
+                </div>
             </li>
             {call_hook name="Template::SubmissionWizard::Section::Review::ReviewerSuggestions" submission=$submission step=$step.id}
         </ul>

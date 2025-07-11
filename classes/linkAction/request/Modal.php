@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/Modal.php
  *
@@ -135,8 +136,4 @@ class Modal extends LinkActionRequest
             'closeButtonText' => $this->getCloseButtonText(),
         ];
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\Modal', '\Modal');
 }

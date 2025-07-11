@@ -762,7 +762,7 @@ class AdminHandler extends Handler
 
         $itemsMax = $announcements->count();
         $items = Repo::announcement()->getSchemaMap()->summarizeMany(
-            $announcements->limit(30)->get()
+            $announcements->limit(30)->orderBy(Announcement::CREATED_AT, 'desc')->get()
         );
 
         return new PKPAnnouncementsListPanel(

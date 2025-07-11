@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/JsEventConfirmationModal.php
  *
@@ -93,8 +94,4 @@ class JsEventConfirmationModal extends ConfirmationModal
         }
         return $parentLocalizedOptions;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\JsEventConfirmationModal', '\JsEventConfirmationModal');
 }

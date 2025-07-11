@@ -35,17 +35,17 @@ class APIHandler extends PKPHandler
      */
     protected ?string $_handlerPath = null;
 
-    /** 
+    /**
      * Define if all the path building for admin api
      */
     protected bool $_apiForAdmin = false;
 
-    /** 
+    /**
      * The API routing controller class
      */
     protected PKPBaseController $apiController;
 
-    /** 
+    /**
      * List of route details that has been added via hook
      */
     protected array $routesFromHook = [];
@@ -59,7 +59,7 @@ class APIHandler extends PKPHandler
 
         $router = $controller->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
 
-        Hook::run("APIHandler::endpoints::{$router->getEntity()}", [&$controller, $this]);
+        Hook::run("APIHandler::endpoints::{$router->getEntity()}", [$controller, $this]);
 
         $this->apiController = $controller;
 
@@ -83,12 +83,12 @@ class APIHandler extends PKPHandler
         return $this->apiController;
     }
 
-    /** 
+    /**
      * Run the API routes
      */
     public function runRoutes(): mixed
-    {   
-        if(app('router')->getRoutes()->count() === 0) {
+    {
+        if (app('router')->getRoutes()->count() === 0) {
             return response()->json([
                 'error' => __('api.400.routeNotDefined')
             ], Response::HTTP_BAD_REQUEST)->send();
@@ -103,17 +103,17 @@ class APIHandler extends PKPHandler
                     return app('router')->dispatch($request);
                 });
 
-            if($response instanceof Throwable) {
+            if ($response instanceof Throwable) {
                 throw $response;
             }
 
-            if($response === null) {
+            if ($response === null) {
                 return response()->json([
                     'error' => __('api.417.routeResponseIsNull')
                 ], Response::HTTP_EXPECTATION_FAILED)->send();
             }
 
-            if(is_object($response) && method_exists($response, 'send')) {
+            if (is_object($response) && method_exists($response, 'send')) {
                 return $response->send();
             }
 
@@ -164,7 +164,7 @@ class APIHandler extends PKPHandler
     /**
      * Add a new route details pushed from the `APIHandler::endpoints::ENTITY_NAME` hook
      * for the current running API Controller
-     * 
+     *
      * @param string    $method     The route HTTP request method e.g. `GET`,`POST`,...
      * @param string    $uri        The route uri segment
      * @param callable  $callback   The callback handling to execute actions when route got hit
@@ -199,26 +199,22 @@ class APIHandler extends PKPHandler
             $route
                 ->name($routeParams['name'])
                 ->middleware($this->apiController->roleAuthorizer($routeParams['roles']));
-            
-                foreach ($this->apiController->getRouteGroupMiddleware() as $middleware) {
-                
-                    // As roles are already supplied for routes directly injecting in the router
-                    // we do not want to add any other roles middleware form controller if defined
-                    if (strstr($middleware, 'has.roles') !== false || strstr($middleware, HasRoles::class) !== false) {
-                        continue;
-                    }
-    
-                    // We don't want to set any middleware to the route which is already set
-                    if (in_array($middleware, $route->middleware())) {
-                        continue;
-                    }
-    
-                    $route->middleware($middleware);
+
+            foreach ($this->apiController->getRouteGroupMiddleware() as $middleware) {
+
+                // As roles are already supplied for routes directly injecting in the router
+                // we do not want to add any other roles middleware form controller if defined
+                if (strstr($middleware, 'has.roles') !== false || strstr($middleware, HasRoles::class) !== false) {
+                    continue;
                 }
+
+                // We don't want to set any middleware to the route which is already set
+                if (in_array($middleware, $route->middleware())) {
+                    continue;
+                }
+
+                $route->middleware($middleware);
+            }
         }
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\handler\APIHandler', '\APIHandler');
 }

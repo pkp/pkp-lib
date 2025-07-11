@@ -76,7 +76,7 @@ describe('Tests categories in the submission wizard', function() {
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
 		// Select categories
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 		categories.forEach((category) => {
 			const categoryName = category.split('>')[1].trim();
 			cy.contains('label', categoryName)
@@ -244,7 +244,7 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.check();
@@ -258,7 +258,7 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
@@ -277,7 +277,7 @@ describe('Test category in submission dashboard', function() {
 		cy.openWorkflowMenu(workflowMenu);
 
 		// Unassign the category from the submission
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.uncheck();
@@ -290,7 +290,7 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.should('not.be.checked');
@@ -309,7 +309,7 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')
 			.check();
@@ -332,7 +332,7 @@ describe('Test category in submission dashboard', function() {
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
-		cy.get('button').contains('Add Category').click();
+		cy.get('button').contains('Select Categories').click();
 
 		cy.contains('label', categoryLabel)
 			.find('input[type="checkbox"]')

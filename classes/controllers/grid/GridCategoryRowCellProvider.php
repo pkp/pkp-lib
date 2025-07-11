@@ -70,7 +70,3 @@ class GridCategoryRowCellProvider extends GridCellProvider
         }
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controllers\grid\GridCategoryRowCellProvider', '\GridCategoryRowCellProvider');
-}

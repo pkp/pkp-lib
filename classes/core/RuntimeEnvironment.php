@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/core/RuntimeEnvironment.php
  *
@@ -125,8 +126,4 @@ class RuntimeEnvironment
         // Compatibility check was successful
         return true;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\RuntimeEnvironment', '\RuntimeEnvironment');
 }

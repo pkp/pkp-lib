@@ -168,7 +168,3 @@ class Payment
         return $this->assocId;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\payment\Payment', '\Payment');
-}

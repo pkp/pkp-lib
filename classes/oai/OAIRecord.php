@@ -50,7 +50,3 @@ class OAIRecord extends OAIIdentifier
         return $returner;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\oai\OAIRecord', '\OAIRecord');
-}

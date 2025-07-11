@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/linkAction/request/WizardModal.php
  *
@@ -29,8 +30,4 @@ class WizardModal extends AjaxModal
         $options['modalHandler'] = '$.pkp.controllers.modal.WizardModalHandler';
         return $options;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\linkAction\request\WizardModal', '\WizardModal');
 }

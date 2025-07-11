@@ -89,7 +89,3 @@ abstract class PKPImportExportFilter extends PersistableFilter
         return $currentFilter;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\importexport\PKPImportExportFilter', '\PKPImportExportFilter');
-}

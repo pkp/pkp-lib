@@ -80,7 +80,7 @@ class DataObject
     /**
      * Get the value of a data variable.
      */
-    public function &getData(string $key, string $locale = null)
+    public function &getData(string $key, ?string $locale = null)
     {
         if (is_null($locale)) {
             if (array_key_exists($key, $this->_data)) {

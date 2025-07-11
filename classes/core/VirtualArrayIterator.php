@@ -167,7 +167,3 @@ class VirtualArrayIterator extends ItemIterator
         return $this->theArray;
     }
 }
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\core\VirtualArrayIterator', '\VirtualArrayIterator');
-}

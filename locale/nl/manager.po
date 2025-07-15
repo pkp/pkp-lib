@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-15 14:00+0000\n"
+"PO-Revision-Date: 2025-07-15 15:44+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -3635,3 +3635,25 @@ msgstr "Configuratie-instellingenrapport"
 
 msgid "manager.language.submission.form.description"
 msgstr "Kies inzendingen en metagegevens-talen."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Einddatum"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"De datum moet in deze vorm en volgorde: JJJJ-MM-DD of JJJJ-MM. De eerst "
+"mogelijke datum is {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"De datum moet in deze vorm en volgorde: JJJJ-MM-DD of JJJJ-MM. De laatst "
+"mogelijke datum is {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Het datumformulier is niet geldig."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Klantnummer"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Meeteenheid"

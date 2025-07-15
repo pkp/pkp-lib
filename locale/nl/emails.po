@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
-"PO-Revision-Date: 2025-07-10 14:21+0000\n"
+"PO-Revision-Date: 2025-07-15 14:00+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/nl/"
 ">\n"
@@ -214,9 +214,8 @@ msgstr ""
 "<p>De volgende opmerkingen zijn ontvangen van de beoordelaars.</p>\n"
 "{$allReviewerComments}"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
-msgstr "Redacteursaanbeveling"
+msgstr "Aanbeveling van de redacteur"
 
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -427,7 +426,6 @@ msgstr ""
 msgid "emailTemplate.variable.unsubscribe"
 msgstr "De link om je af te melden van deze e-mail."
 
-#, fuzzy
 msgid "emails.discussion.subject"
 msgstr "Een bericht over {$contextName}"
 

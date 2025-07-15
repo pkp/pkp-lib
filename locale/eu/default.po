@@ -3,7 +3,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-27 07:51+0000\n"
+"PO-Revision-Date: 2025-07-15 10:42+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "eu/>\n"
@@ -49,3 +49,29 @@ msgstr "FK"
 
 msgid "default.groups.name.funding"
 msgstr "Finantzaketa koordinatzailea"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Produkzio editorea"
+
+msgid "default.groups.name.proofreader"
+msgstr "Proben zuzentzailea"
+
+msgid "default.groups.name.designer"
+msgstr "Diseinatzailea"
+
+msgid "default.groups.name.indexer"
+msgstr "Dokumentalista"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maketatzailea"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketing eta salmenta koordinatzailea"
+
+msgid "default.groups.name.translator"
+msgstr "Itzultzailea"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p><a href=\"{$contextUrl}\">{$contextName}</a>-ren mezu "
+"automatikoa da hau.</p>"

@@ -148,8 +148,7 @@ describe('Test category management', function() {
 			.find('button[aria-label="More Actions"]')
 			.click()
 			.then(() => {
-				cy.get('div[role="menuitem"]')
-					.contains('button', 'Delete Category')
+				cy.get('[role="menuitem"]:contains("Delete Category")')
 					.click();
 			});
 
@@ -175,8 +174,7 @@ describe('Test category management', function() {
 			.find('button[aria-label="More Actions"]')
 			.click()
 			.then(() => {
-				cy.get('div[role="menuitem"]')
-					.contains('button', 'Delete Category')
+				cy.get('[role="menuitem"]:contains("Delete Category")')
 					.click();
 			});
 
@@ -351,8 +349,7 @@ describe('Test category in submission dashboard', function() {
 			.find('button[aria-label="More Actions"]')
 			.click()
 			.then(() => {
-				cy.get('div[role="menuitem"]')
-					.contains('button', 'Delete Category')
+				cy.get('[role="menuitem"]:contains("Delete Category")')
 					.click();
 			});
 

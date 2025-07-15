@@ -1021,8 +1021,7 @@ Cypress.Commands.add('addCategory', (title, path, parentName) => {
 			.click({force: true});
 
 		cy.get('div[role="menu"]')
-			.find('div[role="menuitem"]')
-			.contains('button', 'Add')
+			.find('[role="menuitem"]:contains("Add")')
 			.click();
 	} else {
 		cy.get('button:contains("Add Category")').click();
@@ -1043,8 +1042,7 @@ Cypress.Commands.add('openCategory', (title) => {
 		.click({force: true});
 
 	cy.get('div[role="menu"]')
-		.find('div[role="menuitem"]')
-		.contains('button', 'Edit')
+		.find('[role="menuitem"]:contains("Edit")')
 		.click();
 });
 

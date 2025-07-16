@@ -16,6 +16,7 @@
 
 namespace PKP\API\v1\comments\resources;
 
+use APP\facades\Repo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\user\User;
@@ -39,6 +40,8 @@ class UserCommentResource extends JsonResource
             'userId' => $user->getId(),
             'userName' => $user->getFullName(),
             'userOrcidDisplayValue' => $user->getOrcidDisplayValue(),
+            'userInitials' => $user->getDisplayInitials(),
+            'publicationUrl' => Repo::userComment()->getPublicationUrl($this->resource),
         ];
 
         if (key_exists('includeReports', $requestQueryParams)) {

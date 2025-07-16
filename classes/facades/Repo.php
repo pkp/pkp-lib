@@ -26,9 +26,9 @@ namespace PKP\facades;
 
 use PKP\affiliation\Repository as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
-use PKP\author\Repository as AuthorRepository;
 use PKP\author\creditContributorRole\Repository as CreditContributorRoleRepository;
 use PKP\author\creditRole\Repository as CreditRoleRepository;
+use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\decision\Repository as DecisionRepository;
@@ -49,7 +49,6 @@ use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submission\reviewer\recommendation\Repository as ReviewerRecommendationRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\user\interest\Repository as UserInterestRepository;
-use PKP\userComment\Repository as UserCommentRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 
 class Repo
@@ -182,10 +181,5 @@ class Repo
     public static function reviewerRecommendation(): ReviewerRecommendationRepository
     {
         return app(ReviewerRecommendationRepository::class);
-    }
-
-    public static function userComment(): UserCommentRepository
-    {
-        return app(UserCommentRepository::class);
     }
 }

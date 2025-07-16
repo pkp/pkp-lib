@@ -160,7 +160,7 @@ class UserCommentController extends PKPBaseController
      * Gets a list of comments. Accessible only to moderators(admins/managers).
      * Filters available via query params:
      * ```
-     * publicationIds(required, array) - publication IDs to retrieve comments for.
+     * publicationIds(array) - publication IDs to retrieve comments for.
      * userIds(array) - Include this to filter by user IDs
      * isReported(boolean) - Include this to filter comment based on if they were reported or not.
      * isApproved(boolean) - Include this to filter comments by approval status.
@@ -171,25 +171,7 @@ class UserCommentController extends PKPBaseController
     public function getMany(Request $illuminateRequest): JsonResponse
     {
         $queryParams = $illuminateRequest->query();
-        $publicationIdsRaw = paramToArray($queryParams['publicationIds'] ?? []);
-
-        if (empty($publicationIdsRaw)) {
-            return response()->json(['error' => __('api.userComments.400.missingPublicationParam')], Response::HTTP_BAD_REQUEST);
-        }
-
-        $publicationIds = [];
-        foreach ($publicationIdsRaw as $id) {
-            if (!filter_var($id, FILTER_VALIDATE_INT)) {
-                return response()->json([
-                    'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
-                ], Response::HTTP_BAD_REQUEST);
-            }
-
-            $publicationIds[] = (int)$id;
-        }
-
-        $query = UserComment::withPublicationIds($publicationIds)
-            ->withContextIds([$this->getRequest()->getContext()->getId()]);
+        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()]);
 
         foreach ($queryParams as $param => $value) {
             switch ($param) {
@@ -226,6 +208,21 @@ class UserCommentController extends PKPBaseController
                         ], Response::HTTP_BAD_REQUEST);
                     }
                     $query->withIsReported($isReported);
+                    break;
+                case 'publicationIds':
+                    $publicationIdsRaw = paramToArray($queryParams['publicationIds'] ?? []);
+                    $publicationIds = [];
+
+                    foreach ($publicationIdsRaw as $id) {
+                        if (!filter_var($id, FILTER_VALIDATE_INT)) {
+                            return response()->json([
+                                'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
+                            ], Response::HTTP_BAD_REQUEST);
+                        }
+
+                        $publicationIds[] = (int)$id;
+                    }
+                    $query->withPublicationIds($publicationIds);
                     break;
             }
         }

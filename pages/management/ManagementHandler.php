@@ -141,6 +141,9 @@ class ManagementHandler extends Handler
             case 'user':
                 $this->editUser($args, $request);
                 break;
+            case 'userComments':
+                $this->userComments($args, $request);
+                break;
             default:
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
@@ -617,6 +620,29 @@ class ManagementHandler extends Handler
         $invitation = app(Invitation::class)->createNew('userRoleAssignment');
         $invitationHandler = $invitation->getInvitationUIActionRedirectController();
         $invitationHandler->createHandle($request, $userId);
+    }
+
+    /**
+     * Manage user comments
+     *
+     * @throws \Exception
+     */
+    public function userComments(array $args, Request $request): void
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+
+        $templateMgr->assign([
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+
+        $templateMgr->setState([
+            'pageInitConfig' => [
+                'itemsPerPage' => Repo::userComment()->getPerPage()
+            ],
+        ]);
+
+        $templateMgr->display('management/userComments.tpl');
     }
 
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm

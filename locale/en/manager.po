@@ -3752,6 +3752,72 @@ msgstr "Validate XML before the export and registration."
 msgid "manager.selectCategories"
 msgstr "Select Categories"
 
+msgid "manager.userComment.deleteReport"
+msgstr "Delete Report"
+
+msgid "manager.userComment.deleteReport.confirm"
+msgstr "Are you sure you want to delete this report? This action cannot be undone."
+
+msgid "manager.userComment.deleteReport.success"
+msgstr "The report has been deleted successfully."
+
+msgid "manager.userComment.commentUpdated"
+msgstr "The comment has been updated successfully."
+
+msgid "manager.userComment.deleteComment"
+msgstr "Delete Comment"
+
+msgid "manager.userComment.deleteComment.confirm"
+msgstr "Are you sure you want to delete this comment? This action cannot be undone."
+
+msgid "manager.userComment.deleteComment.success"
+msgstr "The comment has been deleted successfully."
+
+msgid "manager.userComment.userComments"
+msgstr "User Comments"
+
+msgid "manager.userComment.commentDetails"
+msgstr "Comment Details"
+
+msgid "manager.userComment.reports"
+msgstr "Reports"
+
+msgid "manager.userComment.comment"
+msgstr "Comment"
+
+msgid "manager.userComment.reportedBy"
+msgstr "Reported By"
+
+msgid "manager.userComment.report.reason"
+msgstr "Reason"
+
+msgid "manager.userComment.dateReported"
+msgstr "Date Reported"
+
+msgid "manager.userComment.approveThisComment"
+msgstr "Approve This Comment"
+
+msgid "manager.userComment.approveThisComment.description"
+msgstr "Approving a comment will make it visible to all users on the article page."
+
+msgid "manager.userComment.reportDetails"
+msgstr "Report Details"
+
+msgid "manager.userComment.reportedComment"
+msgstr "Reported Comment"
+
+msgid "manager.userComment.approved"
+msgstr "Approved"
+
+msgid "manager.userComment.needsApproval"
+msgstr "Needs Approval/Hidden"
+
+msgid "manager.userComment.reported"
+msgstr "Reported"
+
+msgid "manager.userComment.deletedReport"
+msgstr "Deleted Report"
+
 msgid "manager.userComments.comments"
 msgstr "Comments"
 

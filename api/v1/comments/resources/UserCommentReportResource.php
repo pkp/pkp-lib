@@ -34,6 +34,7 @@ class UserCommentReportResource extends JsonResource
             'userName' => $user->getFullName(),
             'userOrcidDisplayValue' => $user->getOrcidDisplayValue(),
             'note' => $this->note,
+            'userInitials' => $user->getDisplayInitials(),
             'createdAt' => $this->createdAt,
             'updatedAt' => $this->updatedAt,
         ];

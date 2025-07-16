@@ -36,8 +36,7 @@ class Repository
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $context = $request->getContext();
-        $this->perPage = $context->getData('itemsPerPage');
+        $this->perPage = $request->getContext()->getData('itemsPerPage');
     }
 
     /**

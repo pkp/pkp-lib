@@ -39,6 +39,7 @@ class UserCommentResource extends JsonResource
             'userId' => $user->getId(),
             'userName' => $user->getFullName(),
             'userOrcidDisplayValue' => $user->getOrcidDisplayValue(),
+            'userInitials' => $user->getDisplayInitials(),
         ];
 
         if (key_exists('includeReports', $requestQueryParams)) {

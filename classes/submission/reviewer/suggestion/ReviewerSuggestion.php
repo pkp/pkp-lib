@@ -181,7 +181,7 @@ class ReviewerSuggestion extends Model
     protected function existingReviewerRole(): Attribute
     {
         return Attribute::make(
-            get: fn () => (bool)$this->existingUser?->hasRole(
+            get: fn () => ($this->submission !== null) && (bool)$this->existingUser?->hasRole(
                 [Role::ROLE_ID_REVIEWER],
                 $this->submission->getData('contextId')
             )

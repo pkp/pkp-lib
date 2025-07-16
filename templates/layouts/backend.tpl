@@ -41,6 +41,7 @@
 		<pkp-announcer class="sr-only"></pkp-announcer>
 		<modal-manager></modal-manager>
 		<header class="app__header" role="banner">
+			<pkp-skip-link></pkp-skip-link>
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">
 					<template #button>
@@ -86,7 +87,7 @@
 					</pkp-side-nav>
 				{/if}
 			{/block}
-			<main class="app__main">
+			<main id="app-main" class="app__main">
 				<div class="app__page width{if $pageWidth} width--{$pageWidth}{/if}">
 					{block name="breadcrumbs"}
 						{if $breadcrumbs}

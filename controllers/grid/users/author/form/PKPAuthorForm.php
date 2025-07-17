@@ -65,7 +65,7 @@ class PKPAuthorForm extends Form
             }
             return true;
         }));
-        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'affiliation', 'otional', 'user.profile.form.affiliationRequired.locale', $this->defaultLocale));
+        $this->addCheck(new \PKP\form\validation\FormValidatorLocale($this, 'affiliation', 'optional', 'user.profile.form.affiliationRequired.locale', $this->defaultLocale));
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'submission.submit.form.contributorRoleRequired'));

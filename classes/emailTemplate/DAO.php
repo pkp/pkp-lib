@@ -420,7 +420,9 @@ class DAO extends EntityDAO
      */
     protected function variablesToRename(): array
     {
-        return [];
+        return [
+            'contextAcronym' => 'journalAcronym',
+        ];
     }
 
     /**

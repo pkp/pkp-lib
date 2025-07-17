@@ -29,6 +29,8 @@
 namespace PKP\install;
 
 use APP\core\Application;
+use PKP\core\PKPAppKey;
+
 use APP\facades\Repo;
 use DateTime;
 use Exception;
@@ -192,10 +194,17 @@ class PKPInstall extends Installer
     public function createConfig()
     {
         $request = Application::get()->getRequest();
-        return $this->updateConfig(
+        $appKey = PKPAppKey::generate();
+
+        // Need to update the new app key immediately in the facade config after generation
+        $appConfig = FacadesConfig::get('app');
+        $appConfig['key'] = $appKey;
+        FacadesConfig::set('app', $appConfig);
+
+        $returner = $this->updateConfig(
             [
                 'general' => [
-                    'app_key' => \PKP\core\PKPAppKey::generate(),
+                    'app_key' => $appKey,
                     'installed' => 'On',
                     'base_url' => $request->getBaseUrl(),
                     'enable_beacon' => $this->getParam('enableBeacon') ? 'On' : 'Off',
@@ -221,6 +230,13 @@ class PKPInstall extends Installer
                 ]
             ]
         );
+
+        // Need to re-register the encryption service provider after the new app key set as
+        // this will be used for signed url and closure serialization, see details at 
+        // \Illuminate\Encryption\EncryptionServiceProvider::EncryptionServiceProvider()
+        app()->register(new \PKP\core\PKPEncryptionServiceProvider(app()));
+
+        return $returner;
     }
 
     /**

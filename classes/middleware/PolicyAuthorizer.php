@@ -25,6 +25,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKP\core\PKPBaseController;
 use PKP\core\Registry;
+use PKP\plugins\interfaces\HasAuthorizationPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\AuthorizationPolicy;
 use ReflectionFunction;
 
 class PolicyAuthorizer
@@ -39,9 +42,8 @@ class PolicyAuthorizer
     public function handle(Request $request, Closure $next)
     {
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
-
         $routeController = PKPBaseController::getRouteController($request);
-
+        $currentRoute = PKPBaseController::getRequestedRoute($request);
         $pkpRequest = Application::get()->getRequest();
 
         if (!$pkpRequest->getUser()) {
@@ -51,6 +53,17 @@ class PolicyAuthorizer
 
         $args = [$request];
         $roleAssignments = $this->getRoleAssignmentMap($router->getRoutes());
+
+        // if route has extra policy authorizer from plugin, add those to current policy stack
+        $policyAuthorizer = $currentRoute->getAction('policyAuthorizer');
+        if ($policyAuthorizer instanceof HasAuthorizationPolicy) {
+            $policies = $policyAuthorizer->getPolicies($pkpRequest, $args, $roleAssignments->toArray());
+            foreach ($policies as $policy) {
+                if ($policy instanceof AuthorizationPolicy || $policy instanceof PolicySet) {
+                    $routeController->addPolicy($policy); 
+                }
+            }
+        }
 
         $hasAuthorized = $routeController->authorize(
             $pkpRequest,

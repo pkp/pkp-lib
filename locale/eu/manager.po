@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-17 06:56+0000\n"
+"PO-Revision-Date: 2025-07-17 19:22+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1022,19 +1022,24 @@ msgid "manager.setup.notifications.description"
 msgstr ""
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Jakinarazi"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
+"Hautatu posta elektroniko bidezko jakinarazpena jaso behar duten "
+"erabiltzaileak."
 
 msgid "manager.setup.notifyUsers.copyDetails"
 msgstr ""
+"Bidali niri mezu elektroniko honen kopia bat helbide honetara: {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Bidali mezu elektronikoa"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"{$total} erabiltzaileri mezu elektroniko bat bidaltzear zaude. Ziur zaude "
+"mezu elektroniko hau bidali nahi duzula?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1043,7 +1048,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Bidali beste mezu elektroniko bat"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr ""
@@ -1231,7 +1236,7 @@ msgid "manager.categories.form.assignEditors.description"
 msgstr ""
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr ""
+msgstr "Guneko sarbide aukerak"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} (% {$percentage})"
@@ -3324,3 +3329,8 @@ msgstr "Sartu gurasoen xehetasunak"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Baztertu hileko xehetasunak"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Mezu elektronikoak behar bezala ilaran jarri dira ahalik eta azkarren "
+"bidaltzeko."

@@ -127,6 +127,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
             $fileManager = new PrivateFileManager();
             $pathZipDir = $fileManager->getBasePath() . DIRECTORY_SEPARATOR . $this->prefix;
             $pathZipFile = $pathZipDir . '.zip';
+            $logfile = $this->getExecutionLogFile();
 
             // Following jobs will be dispatch in chain and process as follow :-
             //  - Download RoR dataset in chunk, build final zip file and extract it
@@ -158,10 +159,10 @@ class UpdateRorRegistryDataset extends ScheduledTask
                     $this->getExecutionLogFile()
                 )
             ])
-            ->catch(function (Throwable $e) {
+            ->catch(function (Throwable $e) use ($logfile) {
                 static::log(
                     "Error occurred while processing ROR dataset with message: {$e->getMessage()}",
-                    $this->getExecutionLogFile(),
+                    $logfile,
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                 );
             })

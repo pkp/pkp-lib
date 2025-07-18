@@ -15,15 +15,15 @@
 namespace PKP\jobs\ror;
 
 use Exception;
+use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Throwable;
 use ZipArchive;
 use PKP\jobs\BaseJob;
 use PKP\file\PrivateFileManager;
 use PKP\task\UpdateRorRegistryDataset;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class MergeAndExtractRorDatasetChunks extends BaseJob implements ShouldBeUnique
+class MergeAndExtractRorDatasetChunks extends BaseJob
 {
     protected PrivateFileManager $fileManager;
 
@@ -39,19 +39,25 @@ class MergeAndExtractRorDatasetChunks extends BaseJob implements ShouldBeUnique
         $this->fileManager = new PrivateFileManager();
     }
 
+    public function middleware()
+    {
+        return [(new WithoutOverlapping($this->pathZipFile))->expireAfter(60)]; // 1-minute lock
+    }
+
     public function handle()
     {
         try {
-            // Merge chunks
             UpdateRorRegistryDataset::log(
                 'Merging chunks into ' . $this->pathZipFile,
                 $this->scheduledTaskLogFilesPath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
+
             $zipHandle = fopen($this->pathZipFile, 'wb');
             if ($zipHandle === false) {
                 throw new Exception('Failed to open ZIP file for writing');
             }
+
             $chunks = glob($this->chunkDir . DIRECTORY_SEPARATOR . 'chunk_*');
             natsort($chunks); // Ensure chunks are in order
             foreach ($chunks as $chunkFile) {
@@ -63,9 +69,9 @@ class MergeAndExtractRorDatasetChunks extends BaseJob implements ShouldBeUnique
                 stream_copy_to_stream($chunkHandle, $zipHandle);
                 fclose($chunkHandle);
             }
+
             fclose($zipHandle);
 
-            // Extract ZIP
             UpdateRorRegistryDataset::log(
                 'Extracting ZIP file',
                 $this->scheduledTaskLogFilesPath,

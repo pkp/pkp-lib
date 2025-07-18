@@ -1,14 +1,15 @@
 <?php
+
 /**
  * @file tests/classes/publication/PublicationTest.php
  *
- * Copyright (c) 2013-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2013-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationTest
  *
- * @ingroup tests_classes_publicatio
+ * @ingroup tests_classes_publication
  *
  * @see Publication
  *
@@ -19,7 +20,6 @@ namespace PKP\tests\classes\publication;
 
 use APP\publication\DAO;
 use APP\publication\Publication;
-use PKP\citation\CitationDAO;
 use PKP\services\PKPSchemaService;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -36,10 +36,10 @@ class PublicationTest extends PKPTestCase
     {
         parent::setUp();
         $this->publication = (new DAO(
-            new CitationDAO(),
             new PKPSchemaService()
         ))->newDataObject();
     }
+
     /**
      * @see PKPTestCase::tearDown()
      */
@@ -48,7 +48,7 @@ class PublicationTest extends PKPTestCase
         unset($this->publication);
         parent::tearDown();
     }
-    
+
     public function testPageArray()
     {
         $expected = [['i', 'ix'], ['6', '11'], ['19'], ['21']];

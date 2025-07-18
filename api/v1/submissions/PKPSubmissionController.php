@@ -1617,6 +1617,21 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        // validate that if userGroupId is passed, it really is an author group and that email is present.
+        $validator = Validator::make($illuminateRequest->all(), [
+            'userGroupId' => [
+                'nullable',
+                'integer',
+                Rule::exists('user_groups', 'user_group_id')
+                    ->where('role_id', Role::ROLE_ID_AUTHOR)
+                    ->where('context_id', $submission->getData('contextId')),
+            ],
+            'email' => ['required', 'email'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
+        }
+
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
 
         // Allows author ORCID request email to be triggered from frontend before author ID exists
@@ -1643,8 +1658,7 @@ class PKPSubmissionController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
-
-        $affiliationParams = $params['affiliations'];
+        $affiliationParams = $params['affiliations'] ?? [];
         unset($params['affiliations']);
         $author = Repo::author()->newDataObject($params);
         $newId = Repo::author()->add($author);
@@ -1775,6 +1789,21 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        // validate that if userGroupId is passed, it really is an author group and that email is present.
+        $validator = Validator::make($illuminateRequest->all(), [
+            'userGroupId' => [
+                'nullable',
+                'integer',
+                Rule::exists('user_groups', 'user_group_id')
+                    ->where('role_id', Role::ROLE_ID_AUTHOR)
+                    ->where('context_id', $submission->getData('contextId')),
+            ],
+            'email' => ['required', 'email'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
+        }
+
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $params['id'] = $author->getId();
 
@@ -1804,7 +1833,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $affiliations = $newAffiliationErrors = [];
-        foreach ($params['affiliations'] as $position => $affiliationParam) {
+        foreach (($params['affiliations'] ?? []) as $position => $affiliationParam) {
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
             // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/Collector.php
  *
@@ -31,6 +32,9 @@ class Collector implements CollectorInterface
     public ?array $contextIds;
     public ?array $submissionIds;
     public ?array $doiIds = null;
+    public ?string $versionStage = null;
+    public ?int $versionMajor = null;
+    public ?array $statuses = null;
     public bool $orderByVersion = false;
     public ?int $count;
     public ?int $offset;
@@ -88,6 +92,24 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterByVersionStage(?string $versionStage): self
+    {
+        $this->versionStage = $versionStage;
+        return $this;
+    }
+
+    public function filterByVersionMajor(?int $versionMajor): self
+    {
+        $this->versionMajor = $versionMajor;
+        return $this;
+    }
+
+    public function filterByStatus(?array $statuses): self
+    {
+        $this->statuses = $statuses;
+        return $this;
+    }
+
     public function orderByVersion(): self
     {
         $this->orderByVersion = true;
@@ -136,6 +158,18 @@ class Collector implements CollectorInterface
             $qb->whereIn('p.doi_id', $this->doiIds);
         });
 
+        $qb->when($this->versionStage !== null, function (Builder $qb) {
+            $qb->where('p.version_stage', $this->versionStage);
+        });
+
+        $qb->when($this->versionMajor !== null, function (Builder $qb) {
+            $qb->where('p.version_major', $this->versionMajor);
+        });
+
+        if (isset($this->statuses)) {
+            $qb->whereIn('p.status', $this->statuses);
+        }
+
         if (isset($this->count)) {
             $qb->limit($this->count);
         }
@@ -144,14 +178,14 @@ class Collector implements CollectorInterface
         }
 
         if ($this->orderByVersion) {
-            $orderCase = "CASE p.version_stage ";
+            $orderCase = 'CASE p.version_stage ';
             foreach (VersionStage::cases() as $case) {
-                $orderCase .= "WHEN " . DB::getPdo()->quote($case->value) . " THEN " . $case->order() . " ";
+                $orderCase .= 'WHEN ' . DB::getPdo()->quote($case->value) . ' THEN ' . $case->order() . ' ';
             }
-            $orderCase .= "ELSE 999 END";
+            $orderCase .= 'ELSE 999 END';
 
-            $qb->orderByRaw("p.version_stage IS NOT NULL ASC");
-            $qb->orderByRaw("CASE WHEN p.version_stage IS NULL THEN p.date_published ELSE NULL END ASC");
+            $qb->orderByRaw('p.version_stage IS NOT NULL ASC');
+            $qb->orderByRaw('CASE WHEN p.version_stage IS NULL THEN p.date_published ELSE NULL END ASC');
             $qb->orderByRaw($orderCase);
             $qb->orderBy('p.version_major', 'asc');
             $qb->orderBy('p.version_minor', 'asc');

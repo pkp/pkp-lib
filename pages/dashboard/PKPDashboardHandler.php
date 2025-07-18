@@ -158,6 +158,7 @@ abstract class PKPDashboardHandler extends Handler
 
         $versionStageOptions = [];
         $allVersionStages = VersionStage::cases();
+        usort($allVersionStages, fn($a, $b) => $a->order() <=> $b->order());
 
         foreach ($allVersionStages as $versionStage) {
             $versionStageOptions[] = [

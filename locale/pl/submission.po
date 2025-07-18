@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2025-07-18 11:02+0000\n"
+"PO-Revision-Date: 2025-07-18 11:08+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
@@ -2791,3 +2791,36 @@ msgstr "Wymagające recenzji"
 
 msgid "submission.dashboard.view.submissionStageAll"
 msgstr "Wszystkie na etapie składania"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "W oczekiwaniu na recenzje"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Nadesłane recenzje"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Rozpocznij nowe zgłoszenie"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Zaległe recenzje"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Przesłane poprawki autora"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Wszystkie na etapie przeglądu"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Wszystkie na etapie edycji"
+
+msgid "submission.dashboard.view.production"
+msgstr "Wszystkie w fazie produkcji"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Planowane do publikacji"
+
+msgid "submission.dashboard.view.published"
+msgstr "Opublikowane"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Odrzucone"

@@ -148,7 +148,7 @@
 							</tbody>
 						</table>
 					</div>
-					<line-chart :chart-data="chartData" aria-hidden="true"></line-chart>
+					<line-chart :chart-data="chartData"></line-chart>
 					<span v-if="isLoadingTimeline" class="pkpStats__loadingCover">
 						<spinner></spinner>
 					</span>
@@ -251,4 +251,3 @@
 		</div>
 	</div>
 {/block}
-

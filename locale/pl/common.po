@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2025-07-18 11:18+0000\n"
+"PO-Revision-Date: 2025-07-18 13:06+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
@@ -2319,3 +2319,13 @@ msgstr "Panel Edytora"
 
 msgid "navigation.reviewAssignments"
 msgstr "Moje zadania jako recenzenta"
+
+msgid "common.editorialMasthead"
+msgstr "Redakcja czasopisma"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzenci w poprzednim roku"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Redakcja wyraża swoje uznanie dla recenzentów z {$year} wymienionych poniżej."

@@ -68,7 +68,7 @@
 			"description": "The primary language of this submission.",
 			"apiSummary": true,
 			"validation": [
-				"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
+				"regex:/^([a-z]{2})((_[A-Z][a-zA-Z]{0,3})?)(@[a-z]{0,})?$/"
 			]
 		},
 		"publications": {

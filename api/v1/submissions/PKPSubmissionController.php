@@ -1617,6 +1617,20 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
+        // validate that if userGroupId is passed, it really is an author group and that email is present.
+        $validator = Validator::make($illuminateRequest->all(), [
+            'userGroupId' => [
+                'nullable',
+                'integer',
+                Rule::exists('user_groups', 'id')
+                    ->where('role_id', Role::ROLE_ID_AUTHOR),
+            ],
+            'email' => ['required', 'email'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
+        }
+
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
 
         // Allows author ORCID request email to be triggered from frontend before author ID exists
@@ -1773,6 +1787,19 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
+        }
+
+        // validate that if userGroupId is passed, it really is an author group
+        $validator = Validator::make($illuminateRequest->all(), [
+            'userGroupId' => [
+                'nullable',
+                'integer',
+                Rule::exists('user_groups', 'id')
+                    ->where('role_id', Role::ROLE_ID_AUTHOR),
+            ],
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());

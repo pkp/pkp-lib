@@ -1657,29 +1657,8 @@ msgstr "学科"
 msgid "search.fullText"
 msgstr "全文"
 
-msgid "search.indexTerms"
-msgstr "索引项目"
-
-msgid "search.indexTermsLong"
-msgstr "所有索引词字段"
-
-msgid "search.matchAll"
-msgstr "匹配所有类别"
-
 msgid "search.noResults"
 msgstr "没有结果"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.SearchFor"
-msgstr "搜索"
 
 msgid "search.searchResults"
 msgstr "搜索结果"

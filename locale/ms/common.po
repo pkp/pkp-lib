@@ -1694,29 +1694,8 @@ msgstr "Disiplin"
 msgid "search.fullText"
 msgstr "Teks Penuh"
 
-msgid "search.indexTerms"
-msgstr "Istilah indeks"
-
-msgid "search.indexTermsLong"
-msgstr "Semua medan istilah indeks"
-
-msgid "search.matchAll"
-msgstr "Padankan semua kategori"
-
 msgid "search.noResults"
 msgstr "Tiada Hasil"
-
-msgid "search.operator.and"
-msgstr "dan"
-
-msgid "search.operator.not"
-msgstr "tidak"
-
-msgid "search.operator.or"
-msgstr "atau"
-
-msgid "search.SearchFor"
-msgstr "Carian untuk"
 
 msgid "search.searchResults"
 msgstr "Hasil Carian"

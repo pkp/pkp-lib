@@ -270,44 +270,6 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->unique(['query_id', 'user_id'], 'query_participants_unique');
         });
-
-        // List of all keywords.
-        Schema::create('submission_search_keyword_list', function (Blueprint $table) {
-            $table->comment('A list of all keywords used in the search index');
-            $table->bigInteger('keyword_id')->autoIncrement();
-            $table->string('keyword_text', 60);
-            $table->unique(['keyword_text'], 'submission_search_keyword_text');
-        });
-
-        // Indexed objects.
-        Schema::create('submission_search_objects', function (Blueprint $table) {
-            $table->comment('A list of all search objects indexed in the search index');
-            $table->bigInteger('object_id')->autoIncrement();
-
-            $table->bigInteger('submission_id');
-            $table->foreign('submission_id', 'submission_search_object_submission')->references('submission_id')->on('submissions')->onDelete('cascade');
-            $table->index(['submission_id'], 'submission_search_objects_submission_id');
-
-            $table->integer('type')->comment('Type of item. E.g., abstract, fulltext, etc.');
-            $table->bigInteger('assoc_id')->comment('Optional ID of an associated record (e.g., a file_id)')->nullable();
-        });
-
-        // Keyword occurrences for each indexed object.
-        Schema::create('submission_search_object_keywords', function (Blueprint $table) {
-            $table->comment('Relationships between search objects and keywords in the search index');
-            $table->bigIncrements('submission_search_object_keyword_id');
-            $table->bigInteger('object_id');
-            $table->foreign('object_id')->references('object_id')->on('submission_search_objects')->onDelete('cascade');
-            $table->index(['object_id'], 'submission_search_object_keywords_object_id');
-
-            $table->bigInteger('keyword_id');
-            $table->foreign('keyword_id', 'submission_search_object_keywords_keyword_id')->references('keyword_id')->on('submission_search_keyword_list')->onDelete('cascade');
-            $table->index(['keyword_id'], 'submission_search_object_keywords_keyword_id');
-
-            $table->integer('pos')->comment('Word position of the keyword in the object.');
-
-            $table->unique(['object_id', 'pos'], 'submission_search_object_keywords_unique');
-        });
     }
 
     /**
@@ -315,9 +277,6 @@ class SubmissionsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        Schema::drop('submission_search_object_keywords');
-        Schema::drop('submission_search_objects');
-        Schema::drop('submission_search_keyword_list');
         Schema::drop('query_participants');
         Schema::drop('queries');
         Schema::drop('subeditor_submission_group');

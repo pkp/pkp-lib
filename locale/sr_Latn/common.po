@@ -1659,29 +1659,8 @@ msgstr "Disciplina/e"
 msgid "search.fullText"
 msgstr "Ceo tekst"
 
-msgid "search.indexTerms"
-msgstr "Indeks pojmova"
-
-msgid "search.indexTermsLong"
-msgstr "Sva polja indeksa pojmova"
-
-msgid "search.matchAll"
-msgstr "Upari sve kategorije"
-
 msgid "search.noResults"
 msgstr "Nema rezultata"
-
-msgid "search.operator.and"
-msgstr "i"
-
-msgid "search.operator.not"
-msgstr "ne"
-
-msgid "search.operator.or"
-msgstr "ili"
-
-msgid "search.SearchFor"
-msgstr "Pronađi"
 
 msgid "search.searchResults"
 msgstr "Rezultati pretraživanja"

@@ -283,6 +283,9 @@ msgstr ""
 msgid "common.changesSaved"
 msgstr "Your changes have been saved."
 
+msgid "common.changeLanguage"
+msgstr "Change Language"
+
 msgid "common.chooseOne"
 msgstr "Choose One"
 

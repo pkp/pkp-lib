@@ -9,12 +9,12 @@
  *
  * @class Repository
  *
- * @see Query
+ * @see EditorialTask
  *
  * @brief Operations for retrieving and modifying Query objects.
  */
 
-namespace PKP\query;
+namespace PKP\editorialTask;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -41,7 +41,7 @@ class Repository
      */
     public function countOpenPerStage(int $submissionId, ?array $participantIds = null): array
     {
-        $counts = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+        $counts = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->when($participantIds !== null, function ($q) use ($participantIds) {
                 $q->withUserIds($participantIds);
             })
@@ -65,11 +65,11 @@ class Repository
      */
     public function resequence($assocType, $assocId): void
     {
-        $result = Query::withAssoc($assocType, $assocId)
+        $result = EditorialTask::withAssoc($assocType, $assocId)
             ->orderBy('seq')
             ->get();
 
-        $result->each(function (Query $item, int $key = 1) {
+        $result->each(function (EditorialTask $item, int $key = 1) {
             $item->update(['seq' => $key]);
         });
     }
@@ -83,31 +83,34 @@ class Repository
      */
     public function addQuery(int $submissionId, int $stageId, string $title, string $content, User $fromUser, array $participantUserIds, int $contextId, bool $sendEmail = true): int
     {
-        $maxSeq = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+        $maxSeq = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->max('seq') ?? 0;
 
-        $query = Query::create([
+        $query = EditorialTask::create([
             'assocType' => Application::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submissionId,
             'stageId' => $stageId,
-            'seq' => $maxSeq + 1
+            'seq' => $maxSeq + 1,
+            'createdBy' => $fromUser->getId(),
+            'type' => EditorialTask::TYPE_DISCUSSION,
+            'status' => EditorialTask::STATUS_NEW,
         ]);
 
         $addParticipants = [];
         foreach (array_unique($participantUserIds) as $participantUserId) {
             $addParticipants[] = ([
-                'query_id' => $query->id,
+                'edit_task_id' => $query->id,
                 'user_id' => $participantUserId
             ]);
         }
-        QueryParticipant::insert($addParticipants);
+        Participant::insert($addParticipants);
 
         Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,
             'assocId' => $query->id,
-            'title' =>  $title,
-            'contents' =>  $content,
-            'userId' =>  $fromUser->getId(),
+            'title' => $title,
+            'contents' => $content,
+            'userId' => $fromUser->getId(),
         ]);
 
         // Add task for assigned participants

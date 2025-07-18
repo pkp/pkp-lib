@@ -1,12 +1,13 @@
 # rl <biuro@fimagis.pl>, 2022, 2024.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2024-05-17 23:27+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2025-07-18 10:55+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
 "Language: pl\n"
@@ -2778,3 +2779,6 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Plik z tekstem"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktywne zgłoszenia"

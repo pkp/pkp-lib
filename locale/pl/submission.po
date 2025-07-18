@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2025-07-18 11:15+0000\n"
+"PO-Revision-Date: 2025-07-18 11:21+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
@@ -2830,3 +2830,21 @@ msgstr "Wymagające zmian"
 
 msgid "submission.dashboard.view.incompleteSubmissions"
 msgstr "Niekompletne zgłoszenia"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Wszystkie zadania"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Odrzucone"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Wymagające działania"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Zakończone"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Opublikowane"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Zarchiwizowane"

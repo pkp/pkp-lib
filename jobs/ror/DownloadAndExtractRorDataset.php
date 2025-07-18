@@ -15,6 +15,7 @@
 namespace PKP\jobs\ror;
 
 use Exception;
+use Illuminate\Queue\Middleware\WithoutOverlapping;
 use Throwable;
 use PKP\jobs\BaseJob;
 use APP\core\Application;
@@ -25,9 +26,8 @@ use PKP\task\UpdateRorRegistryDataset;
 use GuzzleHttp\Exception\GuzzleException;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\jobs\ror\DownloadRoRDatasetInChunks;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class DownloadAndExtractRorDataset extends BaseJob implements ShouldBeUnique
+class DownloadAndExtractRorDataset extends BaseJob
 {
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
@@ -47,6 +47,11 @@ class DownloadAndExtractRorDataset extends BaseJob implements ShouldBeUnique
         $this->fileManager = new PrivateFileManager();
     }
 
+    public function middleware()
+    {
+        return [(new WithoutOverlapping($this->prefix . ':download'))->expireAfter(600)]; // Unique key
+    }
+
     public function handle()
     {
         $pathZipDir = $this->fileManager->getBasePath() . DIRECTORY_SEPARATOR . $this->prefix;
@@ -60,15 +65,7 @@ class DownloadAndExtractRorDataset extends BaseJob implements ShouldBeUnique
             $fileSize = $this->getFileSize($this->downloadUrl);
 
             if ($fileSize === 0) {
-                UpdateRorRegistryDataset::log(
-                    'Failed to determine file size',
-                    $this->scheduledTaskLogFilesPath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-                );
-
-                $this->fail('Failed to determine file size');
-
-                return;
+                throw new Exception('Failed to determine file size');
             }
 
             $this->performChunkDownload(
@@ -82,7 +79,7 @@ class DownloadAndExtractRorDataset extends BaseJob implements ShouldBeUnique
         } catch (Throwable $e) {
             UpdateRorRegistryDataset::cleanup([$pathZipFile, $pathZipDir]);
             UpdateRorRegistryDataset::log(
-                $e->getMessage(),
+                "RoR dataset downloading in chunk and extract main job have failed: {$e->getMessage()}",
                 $this->scheduledTaskLogFilesPath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
@@ -162,7 +159,7 @@ class DownloadAndExtractRorDataset extends BaseJob implements ShouldBeUnique
                 })
                 ->catch(function (Batch $batch, Throwable $e) use ($scheduledTaskLogFilesPath) {
                     UpdateRorRegistryDataset::log(
-                        $e->getMessage(),
+                        "RoR dataset chunk download batch at progress of {$batch->progress()}% have failed: {$e->getMessage()}",
                         $scheduledTaskLogFilesPath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                     );
@@ -177,10 +174,9 @@ class DownloadAndExtractRorDataset extends BaseJob implements ShouldBeUnique
                 })
                 ->dispatch();
         } catch (Throwable $e) {
-
             UpdateRorRegistryDataset::cleanup([$pathZipDir, $pathZipFile, $chunkDir]);
             UpdateRorRegistryDataset::log(
-                $e->getMessage(),
+                "RoR dataset downloading in chunk batch jobs have failed: {$e->getMessage()}",
                 $this->scheduledTaskLogFilesPath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );

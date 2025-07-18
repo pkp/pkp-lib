@@ -14,21 +14,22 @@
 
 namespace PKP\jobs\ror;
 
+use Exception;
 use Throwable;
+use Illuminate\Queue\Middleware\WithoutOverlapping;
 use PKP\jobs\BaseJob;
 use Illuminate\Bus\Batch;
 use PKP\file\PrivateFileManager;
 use Illuminate\Support\Facades\Bus;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use PKP\task\UpdateRorRegistryDataset;
 
-class ImportRorData extends BaseJob implements ShouldBeUnique
+class ImportRorData extends BaseJob
 {
     /**
-     * The maximum number of SECONDS a job should get processed before consider failed
+     * Indicate if the job should be marked as failed on timeout.
      */
-    public int $timeout = 300;
+    public bool $failOnTimeout = false;
 
     protected PrivateFileManager $fileManager;
 
@@ -46,90 +47,96 @@ class ImportRorData extends BaseJob implements ShouldBeUnique
         $this->fileManager = new PrivateFileManager();
     }
 
+    /**
+     * Define middleware for preventing overlaps
+     */
+    public function middleware()
+    {
+        return [(new WithoutOverlapping($this->prefix))->expireAfter(180)]; // 3 mins lock
+    }
+
     public function handle()
     {
-        $pathZipDir = $this->fileManager->getBasePath() . DIRECTORY_SEPARATOR . $this->prefix;
+        try {
+            $pathZipDir = $this->fileManager->getBasePath() . DIRECTORY_SEPARATOR . $this->prefix;
 
-        if (!$this->fileManager->fileExists($pathZipDir, 'dir')) {
+            if (!$this->fileManager->fileExists($pathZipDir, 'dir')) {
+                throw new Exception("Ror dataset extracted directory at {$pathZipDir} not found");
+            }
+
+            $pathCsv = UpdateRorRegistryDataset::getPathCsv($pathZipDir, $this->csvNameContains);
+            if (empty($pathCsv) || !$this->fileManager->fileExists($pathCsv)) {
+                throw new Exception('CSV file not found');
+            }
+
+            // Count total rows
+            $totalRows = $this->countCsvRows($pathCsv);
+            if ($totalRows === 0) {
+                throw new Exception('No rows found in CSV');
+            }
+
+            // Create batch jobs
+            $batchSize = 5000;
+            $jobs = [];
+            for ($startRow = 1; $startRow <= $totalRows; $startRow += $batchSize) {
+                $endRow = min($startRow + $batchSize - 1, $totalRows);
+                $jobs[] = new ProcessRorCsv(
+                    $pathCsv,
+                    $startRow,
+                    $endRow,
+                    $this->dataMapping,
+                    $this->dataMappingIndex,
+                    $this->noLocale,
+                    $this->temporaryTable,
+                    $this->scheduledTaskLogFilesPath
+                );
+            }
+
+            // we need to get thses in local variables to pass into the batch closures(e.g. then, catch, etc)
+            // as the serialization of $this in closure is buggy and can lead to issues
+            $logFilePath = $this->scheduledTaskLogFilesPath;
+
+        
             UpdateRorRegistryDataset::log(
-                "Ror dataset extracted directory at {$pathZipDir} not found",
+                'RoR dataset importing batch process starting.', 
+                $logFilePath,
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+            );
+
+            Bus::batch($jobs)
+                ->then(function (Batch $batch) use ($pathCsv, $pathZipDir, $logFilePath) {
+                    UpdateRorRegistryDataset::cleanup([$pathCsv, $pathZipDir]);
+                    UpdateRorRegistryDataset::log(
+                        'RoR dataset importing completed.',
+                        $logFilePath,
+                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
+                    );
+                })
+                ->catch(function (Batch $batch, Throwable $e) use ($logFilePath) {
+                    UpdateRorRegistryDataset::log(
+                        "RoR dataset importing batch at progress of {$batch->progress()}% have failed: {$e->getMessage()}",
+                        $logFilePath,
+                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                    );
+                })
+                ->finally(function (Batch $batch) use ($pathCsv, $pathZipDir, $logFilePath) {
+                    UpdateRorRegistryDataset::cleanup([$pathCsv, $pathZipDir]);
+                    UpdateRorRegistryDataset::log(
+                        'RoR dataset importing batch jobs have finished.', 
+                        $logFilePath,
+                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+                    );
+                })
+                ->dispatch();
+        } catch (Throwable $e) {
+            UpdateRorRegistryDataset::log(
+                "RoR dataset importing failed: {$e->getMessage()}",
                 $this->scheduledTaskLogFilesPath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
-            $this->fail("Ror dataset extracted directory at {$pathZipDir} not found");
-            return;
+
+            throw $e;
         }
-
-        $pathCsv = UpdateRorRegistryDataset::getPathCsv($pathZipDir, $this->csvNameContains);
-        if (empty($pathCsv) || !$this->fileManager->fileExists($pathCsv)) {
-            UpdateRorRegistryDataset::log(
-                'CSV file not found',
-                $this->scheduledTaskLogFilesPath,
-                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-            );
-            $this->fail('CSV file not found');
-            return;
-        }
-
-        // Count total rows
-        $totalRows = $this->countCsvRows($pathCsv);
-        if ($totalRows === 0) {
-            UpdateRorRegistryDataset::log(
-                'No rows found in CSV',
-                $this->scheduledTaskLogFilesPath,
-                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-            );
-            $this->fail('No rows found in CSV');
-            return;
-        }
-
-        // Create batch jobs
-        $batchSize = 5000;
-        $jobs = [];
-        for ($startRow = 1; $startRow <= $totalRows; $startRow += $batchSize) {
-            $endRow = min($startRow + $batchSize - 1, $totalRows);
-            $jobs[] = new ProcessRorCsv(
-                $pathCsv,
-                $startRow,
-                $endRow,
-                $this->dataMapping,
-                $this->dataMappingIndex,
-                $this->noLocale,
-                $this->temporaryTable,
-                $this->scheduledTaskLogFilesPath
-            );
-        }
-
-        // we need to get thses in local variables to pass into the batch closures(e.g. then, catch, etc)
-        // as the serialization of $this in closure is buggy and can lead to issues
-        $logFilePath = $this->scheduledTaskLogFilesPath;
-
-        // Dispatch batch
-        Bus::batch($jobs)
-            ->then(function (Batch $batch) use ($pathCsv, $pathZipDir, $logFilePath) {
-                UpdateRorRegistryDataset::cleanup([$pathCsv, $pathZipDir]);
-                UpdateRorRegistryDataset::log(
-                    'RoR dataset importing completed.',
-                    $logFilePath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
-                );
-            })
-            ->catch(function (Batch $batch, Throwable $e) use ($logFilePath) {
-                UpdateRorRegistryDataset::log(
-                    'RoR dataset importing batch jobs have failed.',
-                    $logFilePath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-                );
-            })
-            ->finally(function (Batch $batch) use ($pathCsv, $pathZipDir, $logFilePath) {
-                UpdateRorRegistryDataset::cleanup([$pathCsv, $pathZipDir]);
-                UpdateRorRegistryDataset::log(
-                    'RoR dataset importing batch jobs have finished.', 
-                    $logFilePath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
-                );
-            })
-            ->dispatch();
     }
 
     protected function countCsvRows(string $pathCsv): int

@@ -23,9 +23,9 @@ use PKP\task\UpdateRorRegistryDataset;
 use GuzzleHttp\Exception\GuzzleException;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use Illuminate\Queue\Middleware\Skip;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Queue\Middleware\WithoutOverlapping;
 
-class DownloadRoRDatasetInSync extends BaseJob implements ShouldBeUnique
+class DownloadRoRDatasetInSync extends BaseJob
 {
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
@@ -79,64 +79,55 @@ class DownloadRoRDatasetInSync extends BaseJob implements ShouldBeUnique
                 
                 return false; // Need to download the CSV file
             }),
+            (new WithoutOverlapping($this->pathZipFile . ':sync'))->expireAfter(600), // 10-minute lock
         ];
     }
 
     public function handle()
     {
         try {
+            UpdateRorRegistryDataset::cleanup([$this->pathZipFile, $this->pathZipDir]);
+
+            UpdateRorRegistryDataset::log(
+                'Downloading ROR dataset synchronously',
+                $this->scheduledTaskLogFilesPath,
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+            );
+
             $client = Application::get()->getHttpClient();
             $client->request('GET', $this->downloadUrl, [
                 'sink' => fopen($this->pathZipFile, 'wb'),
-                'connect_timeout' => 10
+                'connect_timeout' => 10,
+                'timeout' => $this->timeout - 10, // set the download time 10 second less than the job timeout
             ]);
 
-            if (!$this->fileManager->fileExists($this->pathZipFile)) {
-                UpdateRorRegistryDataset::log(
-                    'Download failed of RoR dataset zip file',
-                    $this->scheduledTaskLogFilesPath, 
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-                );
-                return;
+            if ($this->fileManager->fileExists($this->pathZipFile)) {
+                throw new Exception('Failed to download ROR dataset');
             }
 
             $zip = new ZipArchive();
             if ($zip->open($this->pathZipFile) !== true) {
-                UpdateRorRegistryDataset::log(
-                    'Failed to open of RoR dataset zip file',
-                    $this->scheduledTaskLogFilesPath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-                );
-                return;
+                throw new Exception('Failed to open ZIP file');
             }
             $zip->extractTo($this->pathZipDir);
             $zip->close();
 
             if (!$this->fileManager->fileExists($this->pathZipDir, 'dir')) {
-                UpdateRorRegistryDataset::log(
-                    'Extraction failed of RoR dataset zip file',
-                    $this->scheduledTaskLogFilesPath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
-                );
-                return;
+                throw new Exception('Extraction failed');
             }
 
             $pathCsv = UpdateRorRegistryDataset::getPathCsv($this->pathZipDir, $this->csvNameContains);
             if (empty($pathCsv) || !$this->fileManager->fileExists($pathCsv)) {
-                UpdateRorRegistryDataset::log(
-                    'CSV file not found',
-                    $this->scheduledTaskLogFilesPath,
-                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
-                $this->fail('CSV file not found');
-                return;
+                throw new Exception('CSV file not found');
             }
 
             // If all ok, we can remove the .zip file as we only need the extracted directory now
             UpdateRorRegistryDataset::cleanup([$this->pathZipFile]);
 
         } catch (GuzzleException|Exception $e) {
+            UpdateRorRegistryDataset::cleanup([$this->pathZipFile, $this->pathZipDir]);
             UpdateRorRegistryDataset::log(
-                $e->getMessage(),
+                "Synchronous download failed: {$e->getMessage()}",
                 $this->scheduledTaskLogFilesPath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );

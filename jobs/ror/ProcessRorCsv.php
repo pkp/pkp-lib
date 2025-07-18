@@ -15,6 +15,7 @@
 namespace PKP\jobs\ror;
 
 use Throwable;
+use Illuminate\Queue\Middleware\WithoutOverlapping;
 use PKP\jobs\BaseJob;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Facades\DB;
@@ -22,10 +23,14 @@ use Illuminate\Support\Facades\Schema;
 use PKP\task\UpdateRorRegistryDataset;
 use Illuminate\Database\Schema\Blueprint;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class ProcessRorCsv extends BaseJob implements ShouldBeUnique
+class ProcessRorCsv extends BaseJob
 {
+    /**
+     * Indicate if the job should be marked as failed on timeout.
+     */
+    public bool $failOnTimeout = false;
+
     use Batchable;
 
     public function __construct(
@@ -42,42 +47,75 @@ class ProcessRorCsv extends BaseJob implements ShouldBeUnique
         parent::__construct();
     }
 
+    /**
+     * Get the middleware the job should pass through.
+     */
+    public function middleware()
+    {
+        return [(new WithoutOverlapping("{$this->pathCsv}:{$this->startRow}-{$this->endRow}"))
+            ->expireAfter(60)]; // 1-minute lock
+    }
+
     public function handle()
     {
-        $this->createTemporaryTable();
+        try {
+            UpdateRorRegistryDataset::log(
+                "Importing batch chunk {$this->startRow}-{$this->endRow} starting",
+                $this->scheduledTaskLogFilesPath,
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+            );
 
-        $batchRows = [];
-        $currentRow = 0;
-        $isHeader = true;
+            $this->createTemporaryTable();
 
-        if (($handle = fopen($this->pathCsv, 'r')) !== false) {
-            while (($rowCsv = fgetcsv($handle, null, ',', '"', '\\')) !== false) {
-                if ($isHeader) {
-                    foreach ($this->dataMapping as $keyDB => $keyCsv) {
-                        $this->dataMappingIndex[$keyDB] = array_search($keyCsv, $rowCsv, true);
+            $batchRows = [];
+            $currentRow = 0;
+            $isHeader = true;
+
+            if (($handle = fopen($this->pathCsv, 'r')) !== false) {
+                while (($rowCsv = fgetcsv($handle, null, ',', '"', '\\')) !== false) {
+                    if ($isHeader) {
+                        foreach ($this->dataMapping as $keyDB => $keyCsv) {
+                            $this->dataMappingIndex[$keyDB] = array_search($keyCsv, $rowCsv, true);
+                        }
+                        $isHeader = false;
+                        continue;
                     }
-                    $isHeader = false;
-                    continue;
-                }
 
-                $currentRow++;
-                if ($currentRow < $this->startRow) {
-                    continue;
-                }
-                if ($currentRow > $this->endRow) {
-                    break;
-                }
+                    $currentRow++;
+                    if ($currentRow < $this->startRow) {
+                        continue;
+                    }
+                    if ($currentRow > $this->endRow) {
+                        break;
+                    }
 
-                $batchRows[] = $this->processRow($rowCsv);
+                    $batchRows[] = $this->processRow($rowCsv);
+                }
+                fclose($handle);
+
+                if (!empty($batchRows)) {
+                    $this->processBatch($batchRows);
+                }
             }
-            fclose($handle);
 
-            if (!empty($batchRows)) {
-                $this->processBatch($batchRows);
-            }
+            $this->dropTemporaryTable();
+
+            UpdateRorRegistryDataset::log(
+                "Importing batch chunk {$this->startRow}-{$this->endRow} completed successfully",
+                $this->scheduledTaskLogFilesPath,
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
+            );
+        } catch (Throwable $e) {
+            UpdateRorRegistryDataset::log(
+                "Importing batch chunk {$this->startRow}-{$this->endRow} failed: {$e->getMessage()}",
+                $this->scheduledTaskLogFilesPath,
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+            );
+
+            $this->dropTemporaryTable();
+
+            throw $e;
         }
-
-        $this->dropTemporaryTable();
     }
 
     /**
@@ -88,7 +126,7 @@ class ProcessRorCsv extends BaseJob implements ShouldBeUnique
         $this->dropTemporaryTable();
 
         UpdateRorRegistryDataset::log(
-            $exception->getMessage(),
+            "Importing batch chunk job has failed : {$exception->getMessage()}",
             $this->scheduledTaskLogFilesPath,
             ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
         );
@@ -201,7 +239,7 @@ class ProcessRorCsv extends BaseJob implements ShouldBeUnique
 
         } catch (Throwable $e) {
             UpdateRorRegistryDataset::log(
-                $e->getMessage(),
+                "Processing batch chunk {$this->startRow}-{$this->endRow} failed: {$e->getMessage()}",
                 $this->scheduledTaskLogFilesPath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );

@@ -15,6 +15,7 @@
 namespace PKP\jobs\ror;
 
 use Exception;
+use Illuminate\Queue\Middleware\WithoutOverlapping;
 use PKP\jobs\BaseJob;
 use APP\core\Application;
 use Illuminate\Bus\Batchable;
@@ -22,9 +23,8 @@ use PKP\file\PrivateFileManager;
 use PKP\task\UpdateRorRegistryDataset;
 use GuzzleHttp\Exception\GuzzleException;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 
-class DownloadRoRDatasetInChunks extends BaseJob implements ShouldBeUnique
+class DownloadRoRDatasetInChunks extends BaseJob
 {
     use Batchable;
 
@@ -44,6 +44,11 @@ class DownloadRoRDatasetInChunks extends BaseJob implements ShouldBeUnique
     ) {
         parent::__construct();
         $this->fileManager = new PrivateFileManager();
+    }
+
+    public function middleware()
+    {
+        return [(new WithoutOverlapping($this->chunkFile))->expireAfter(60)]; // 1-minute lock
     }
 
     public function handle()

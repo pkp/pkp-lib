@@ -1,13 +1,14 @@
 # rl <biuro@fimagis.pl>, 2022, 2023.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 # Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2025-03-06 13:04+0000\n"
-"Last-Translator: Kamil Janeda <kamil.janeda@ue.wroc.pl>\n"
+"PO-Revision-Date: 2025-07-18 13:09+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
 "Language: pl\n"
@@ -3744,3 +3745,6 @@ msgstr "Stopka redakcyjna"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Sprawdź XML przed eksportem i rejestracją."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Zdefiniuj kolejność ról do publicznego wyświetlania."

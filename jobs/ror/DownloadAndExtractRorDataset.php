@@ -50,7 +50,7 @@ class DownloadAndExtractRorDataset extends BaseJob
     public function middleware()
     {
         return [
-            // (new WithoutOverlapping($this->prefix . ':download'))->expireAfter(600), // 10 mins lock
+            (new WithoutOverlapping($this->prefix . ':download'))->expireAfter(600), // 10 mins lock
         ];
     }
 
@@ -150,6 +150,12 @@ class DownloadAndExtractRorDataset extends BaseJob
                         return;
                     }
 
+                    UpdateRorRegistryDataset::log(
+                        'All chunks downloaded successfully, proceeding with merging and extraction',
+                        $scheduledTaskLogFilesPath,
+                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
+                    );
+
                     // chunk downloaded successfully
                     // Now merge those to get the final zip and extract to get the proper directory
                     MergeAndExtractRorDatasetChunks::dispatchSync(
@@ -175,6 +181,17 @@ class DownloadAndExtractRorDataset extends BaseJob
                         $scheduledTaskLogFilesPath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
                     );
+
+                    // Regardless of chunk process success/fail, the fallback sync process will kick off with delay,
+                    // however will run check if the extract and target CSV file is present and if so,
+                    // will skip sync download process
+                    \PKP\jobs\ror\DownloadRoRDatasetInSync::dispatch(
+                        $csvNameContains,
+                        $downloadUrl, 
+                        $pathZipFile, 
+                        $pathZipDir, 
+                        $scheduledTaskLogFilesPath
+                    )->delay(now()->addSeconds(30));
                 })
                 ->name('download.ror.dataset.chunks')
                 ->dispatch();

@@ -52,7 +52,7 @@ class DownloadRoRDatasetInChunks extends BaseJob
     public function middleware()
     {
         return [
-            // (new WithoutOverlapping($this->chunkFile))->expireAfter(60), // 1-minute lock
+            (new WithoutOverlapping($this->chunkFile))->expireAfter(60), // 1-minute lock
             new SkipIfBatchCancelled(),
         ];
     }

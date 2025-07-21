@@ -42,7 +42,7 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
     public function middleware()
     {
         return [
-            // (new WithoutOverlapping($this->pathZipFile))->expireAfter(60) // 1-minute lock
+            (new WithoutOverlapping($this->pathZipFile))->expireAfter(60) // 1-minute lock
         ];
     }
 
@@ -89,6 +89,12 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
             if (!$this->fileManager->fileExists($this->pathZipDir, 'dir')) {
                 throw new Exception('Extraction failed');
             }
+
+            UpdateRorRegistryDataset::log(
+                'Merge and extraction has been completed successfully',
+                $this->scheduledTaskLogFilesPath,
+                ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
+            );
 
             // Get CSV path
             $pathCsv = UpdateRorRegistryDataset::getPathCsv($this->pathZipDir, $this->csvNameContains);

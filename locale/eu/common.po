@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-05-22 12:29+0000\n"
-"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
+"PO-Revision-Date: 2025-07-16 16:02+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
 "Language: eu\n"
@@ -126,7 +126,7 @@ msgid "common.active"
 msgstr "Aktibo"
 
 msgid "common.inactive"
-msgstr ""
+msgstr "Inaktibo"
 
 msgid "common.add"
 msgstr "Gehitu"
@@ -472,7 +472,7 @@ msgid "common.height"
 msgstr "Altuera"
 
 msgid "common.homepageNavigationLabel"
-msgstr ""
+msgstr "Hasiera"
 
 msgid "common.homePageHeaderLogo.altText"
 msgstr "Hasierako orriaren goiburuko logoa"
@@ -502,7 +502,7 @@ msgid "common.insertContentSearch"
 msgstr ""
 
 msgid "common.itemsPerPage"
-msgstr ""
+msgstr "Elementu orriko"
 
 msgid "common.keywords"
 msgstr "Gako-hitzak"
@@ -1399,16 +1399,16 @@ msgid "navigation.admin"
 msgstr "Administrazioa"
 
 msgid "navigation.archives"
-msgstr "Artxibatuak"
+msgstr "Artxiboak"
 
 msgid "navigation.breadcrumbLabel"
 msgstr ""
 
 msgid "navigation.breadcrumbSeparator"
-msgstr ""
+msgstr "/"
 
 msgid "navigation.tools"
-msgstr ""
+msgstr "Tresnak"
 
 msgid "navigation.tools.importExport"
 msgstr ""
@@ -1501,7 +1501,7 @@ msgid "navigation.stepNumber"
 msgstr "{$step}. urratsa"
 
 msgid "navigation.submissions"
-msgstr "Aurkezpenak"
+msgstr "Bidalketak"
 
 msgid "navigation.system"
 msgstr "Sistema"

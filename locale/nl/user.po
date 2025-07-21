@@ -1,12 +1,13 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024, 2025.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-01-27 23:50+0000\n"
-"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
+"PO-Revision-Date: 2025-07-03 15:34+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/user/nl/>"
 "\n"
 "Language: nl\n"
@@ -99,7 +100,7 @@ msgid "user.editMyProfile"
 msgstr "Profiel bewerken"
 
 msgid "user.email"
-msgstr "E-mail"
+msgstr "e-mail"
 
 msgid "user.givenName"
 msgstr "Voornaam"
@@ -402,10 +403,10 @@ msgid "user.role.readers"
 msgstr "Lezers"
 
 msgid "user.role.reviewer"
-msgstr "Reviewer"
+msgstr "Recensent"
 
 msgid "user.role.reviewers"
-msgstr "Reviewers"
+msgstr "Recensenten"
 
 msgid "user.role.siteAdmin"
 msgstr "Sitebeheerder"
@@ -596,13 +597,13 @@ msgid "orcid.author.accessTokenStored"
 msgstr "Toegang tot ORCID was toegestaan met bereik {$orcidAccessScope}, geldig tot"
 
 msgid "orcid.author.requestAuthorization"
-msgstr "Verstuur een e-mail aan de bijdrager om ORCID-authorisatie aan te vragen."
+msgstr "Verstuur een e-mail aan de bijdrager om ORCID-autorisatie aan te vragen"
 
 msgid "orcid.author.deleteORCID"
 msgstr "Verwijder ORCID ID en toegangscode!"
 
 msgid "orcid.author.orcidEmptyNotice"
-msgstr "Zie hieronder voor de aanvraag van een geauthenticeerd ORCID ID."
+msgstr "Zie hieronder voor de aanvraag van een geauthenticeerd ORCID ID"
 
 msgid "orcid.author.unauthenticated"
 msgstr "ORCID ID is niet geauthenticeerd! Vraag authenticatie aan de bijdrager."
@@ -718,3 +719,201 @@ msgstr "Gebruikersnaam of e-mailadres"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Workflowtoegang voor onvolledige inzending is beperkt."
+
+msgid "user.affiliations.description"
+msgstr ""
+"Vul de volledige naam van onderstaand instituut in, met vermijding van "
+"afkortingen. Selecteer de naam uit de keuzelijst en klik \"Toevoegen\" of "
+"\"Add\" om de affiliatie in uw profiel toe te voegen. (bijvoorbeeld \"Simon "
+"Fraser University\")"
+
+msgid "user.affiliations.institution"
+msgstr "Instituut"
+
+msgid "user.affiliations.translation"
+msgstr "Meer informatie"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Bewerk de naam van het instituut"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Verwijder instituut"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Klik om te bewerken of vernietigen"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Alle beschikbare vertalingen"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} van {$total} talen voltooid"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Vul de naam van het instituut in {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Naam van het instituut in {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Bent u zeker?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "De affiliation <strong>{$affiliation}</strong> zal worden vernietigd."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Vul de naam van het instituut in {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "De door gezochte zin(snede) kan niet worden gevonden"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "De hoofdtaal {$primaryLocale} is vereist"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"U wordt verzocht de recensie-suggestie toe te voegen, te actualiseren of te "
+"vernietigen, nu de voltooide inzending gelimiteerd is."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Gewenste initialen voor het profielkenmerk"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr ""
+"Vriendelijk verzoek om een affiliatie toe te voegen in de taal van de "
+"inzending."
+
+msgid "user.role.ended"
+msgstr "Beëindigde rol"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Bewaarde instellingen"
+
+msgid "orcid.manager.settings.city"
+msgstr "Plaats"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Ongeldige gebruikersidentificatie"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Ongeldig wachtwoord gebruiker"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Op dagboekwijze geconfigureerd"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Geldige gebruikersidentificatie"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Gebruikersidentificatie is ongeldig, controleert u uw invoer"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Gebruikerswachtwoord is geldig"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Het wachtwoord is ongeldig, controleert u uw identificatie"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Dubbele ORCiDs ten aanzien van inzenders waargenomen."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Ongeldige ORCiDs ten aanzien van inzenders waargenomen."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Stel ORCID functionaliteit in"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Stel ORCID-functionaliteit in voor de gehele website"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID-verificatie is verzocht!"
+
+msgid "orcid.field.verification.request"
+msgstr "Verificatieverzoek"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Zend u de verificatie-email terug"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Verzoek om ORCID verificatie"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Wilt u een email versturen naar deze auteur met het verzoek dat zij hun "
+"ORCID controleren?"
+
+msgid "orcid.verify.success.redirect"
+msgstr "U wordt nu automatisch terugverwezen naar {$contextName}."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "De gebruiker behoort anoniem te zijn. Op dit moment bent u ingelogd."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Voer de twee letters is die u als uw profielkenmerkt wilt gebruiken. Deze "
+"initialen worden weergegeven om u te vertegenwoordigen."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"U hebt verzocht om een wijziging van uw e-mailadres om \"{$pendingEmail}\". "
+"Wij hebben u al een email verstuurd met aanwijzingen om het veranderde e-"
+"mailadres te valideren."
+
+msgid "orcid.unauthenticated"
+msgstr "(ontbreken van een geldige identificatie of verificatie)"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"De ORCID-functionaliteit kan optioneel worden ingesteld en op website-niveau "
+"voor alle journaals/uitgeverijen/servers worden geconfigureerd. Indien "
+"ingesteld, zullen alle inloggegevens op omgevingsniveau worden "
+"overgeschreven en de inloggegevens van voor alle journaals/uitgeverijen/"
+"servers op deze installatie van toepassing zijn."
+
+msgid "orcid.invalidClient"
+msgstr "Ongeldige inloggegevens"
+
+msgid "user.enabledModal.title"
+msgstr "Zet {$fullName} aan"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"U mag deze rol niet verwijderen. Ten minste één rol moet worden toegewezen "
+"aan de gebruiker."
+
+msgid "user.disabledModal.description"
+msgstr "Huidige rollen : {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Zet {$fullName} uit"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Tot dan kunt u uw profiel herzien en actualiseren. Indien u meent dat dit "
+"een vergissing is, wordt u vriendelijk verzocht contact op te nemen met de "
+"beheerder."
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Vernietig ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Bent u zeker dat u deze ORCID wilt verwijderen?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Deze ORCID is nog niet geverifieerd. Vriendelijk verzoek deze niet-"
+"geverifieerde ORCID te verwijderen en verificatie te vragen rechtstreeks aan "
+"de gebruiker/auteur."
+
+msgid "user.futureRole.notification.message"
+msgstr "De geplande aanvang van uw rol is {$roleStartDate}"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Bent u zeker dat u deze rol definitief wilt verwijderen? Deze handeling zal "
+"de toegang door de gebruiker tot alle informatie en machtigingen intrekken."
+
+msgid "user.bioStatement"
+msgstr "Beknopt C.V. (Curriculum Vitae)"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "De e-mail zal worden verzonden, zodra de auteur is vastgesteld."

@@ -1,13 +1,14 @@
 # rl <biuro@fimagis.pl>, 2022, 2023.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 # Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2025-03-06 13:04+0000\n"
-"Last-Translator: Kamil Janeda <kamil.janeda@ue.wroc.pl>\n"
+"PO-Revision-Date: 2025-07-21 13:14+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
 "Language: pl\n"
@@ -3744,3 +3745,94 @@ msgstr "Stopka redakcyjna"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Sprawdź XML przed eksportem i rejestracją."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Zdefiniuj kolejność ról do publicznego wyświetlania."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenci będą wyświetlani w standardowym formacie, aby zachować "
+"jednolitość i zapewnić łatwość wyszukiwania w tej sekcji."
+
+msgid "manager.highlights.add"
+msgstr "Dodaj wydarzenie"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Języki strony internetowej"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Języki zgłoszeń"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dodaj/Usuń języki"
+
+msgid "manager.language.submission.form.description"
+msgstr "Wybierz języki zgłoszeń i metadanych."
+
+msgid "settings.roles.permitSettings"
+msgstr "Zezwalaj na zmiany w ustawieniach"
+
+msgid "settings.roles.masthead"
+msgstr "Consider role in masthead list"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Raporty Conters R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Statystyki COUNTER R5 nie są jeszcze dostępne."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Więcej informacji na temat każdego raportu można znaleźć na <a href=\"https"
+"://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">COUNTER 5.0.3 documentation</a>."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Prosimy o podanie historii redakcji, w tym pełnego imienia i nazwiska, "
+"afiliacji oraz daty rozpoczęcia i zakończenia pracy każdego redaktora."
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadane"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odpowiedź na wniosek o recenzję - po terminie"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Przegląd zgłoszenia - przed upływem terminu"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Ustaw przypomnienia o recenzji"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odpowiedź na wniosek o recenzję - przed upływem terminu"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Przegląd zgłoszenia - po terminie"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dni przed terminem płatności"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dni po terminie płatności"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Brak"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Nie ustawiono przypomnienia"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Wyślij przypomnienie e-mail przed lub po odpowiedzi na prośbę o recenzję ("
+"jeśli recenzent nie odpowiedział jeszcze na prośbę o recenzję) lub "
+"przesłaniu recenzji (jeśli recenzent nie przesłał jeszcze recenzji)"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Wymagane minimalne potwierdzone recenzje"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalna liczba potwierdzonych recenzji wymaganych do zgłoszenia"

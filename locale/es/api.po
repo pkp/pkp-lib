@@ -1,8 +1,9 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-09 11:38+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-06-29 03:15+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/es/>"
 "\n"
 "Language: es\n"
@@ -171,7 +172,7 @@ msgstr "No puede editar esta publicación porque ya ha sido publicada."
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "No puede modificar el estado directamente a través de la API. En vez de eso, "
-"utilice los terminales /publish y /unpublish."
+"utilice los endpoint /publish y /unpublish."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "Debe retirarlo de publicación antes de poder eliminarlo."
@@ -439,3 +440,8 @@ msgstr "No se ha encontrado el ror solicitado."
 
 msgid "api.409.resourceActionConflict"
 msgstr "No se ha podido completar la acción prevista en el recurso."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Este endpoint no está disponible desde el espacio de nombres global del "
+"sitio y debe ser solicitado para un contexto específico."

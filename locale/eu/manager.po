@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-04-27 07:50+0000\n"
+"PO-Revision-Date: 2025-07-17 19:22+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -914,7 +914,7 @@ msgid "manager.setup.additionalContent.description"
 msgstr ""
 
 msgid "manager.setup.advanced"
-msgstr ""
+msgstr "Aurreratua"
 
 msgid "manager.setup.copyrightNotice"
 msgstr ""
@@ -1022,19 +1022,24 @@ msgid "manager.setup.notifications.description"
 msgstr ""
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Jakinarazi"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
+"Hautatu posta elektroniko bidezko jakinarazpena jaso behar duten "
+"erabiltzaileak."
 
 msgid "manager.setup.notifyUsers.copyDetails"
 msgstr ""
+"Bidali niri mezu elektroniko honen kopia bat helbide honetara: {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Bidali mezu elektronikoa"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"{$total} erabiltzaileri mezu elektroniko bat bidaltzear zaude. Ziur zaude "
+"mezu elektroniko hau bidali nahi duzula?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1043,7 +1048,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Bidali beste mezu elektroniko bat"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr ""
@@ -1066,10 +1071,13 @@ msgid "manager.setup.peerReview.description"
 msgstr ""
 
 msgid "manager.setup.principalContact"
-msgstr ""
+msgstr "Kontaktu nagusia"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
+"Sartu harremanetarako datu ohikoak, normalean erredaktore nagusiarenak, "
+"erredakzio-kudeatzailearenak edo administrazio-kargu batenak, zure webgune "
+"publikoan bistara daitezkeenak."
 
 msgid "manager.setup.privacyStatement"
 msgstr ""
@@ -1150,19 +1158,24 @@ msgid "manager.setup.styleSheetDescription"
 msgstr ""
 
 msgid "manager.setup.technicalSupportContact"
-msgstr ""
+msgstr "Laguntza teknikorako kontaktua"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
+"Editoreei, egileei eta berrikusleei materiala bidaltzeko, editatzeko, "
+"berrikusteko edo argitaratzeko dituzten arazoekin lagun diezaiekeen "
+"harremanetarako pertsona."
 
 msgid "manager.setup.theme"
-msgstr ""
+msgstr "Gaia"
 
 msgid "manager.setup.institutions"
 msgstr ""
 
 msgid "manager.setup.theme.description"
 msgstr ""
+"Gai berriak orrialde honen goialdean dagoen Pluginak fitxatik instala "
+"daitezke."
 
 msgid "manager.setup.theme.notFound"
 msgstr ""
@@ -1223,7 +1236,7 @@ msgid "manager.categories.form.assignEditors.description"
 msgstr ""
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr ""
+msgstr "Guneko sarbide aukerak"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} (% {$percentage})"
@@ -1513,22 +1526,22 @@ msgid "manager.distribution.license"
 msgstr ""
 
 msgid "manager.distribution.license.other"
-msgstr ""
+msgstr "Beste lizentzia baten URLa"
 
 msgid "manager.distribution.licenseTerms"
-msgstr ""
+msgstr "Lizentzia-baldintzak"
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
 
 msgid "manager.distribution.customHeaders"
-msgstr ""
+msgstr "Etiketa pertsonalizatuak"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
 
 msgid "manager.paymentMethod"
-msgstr ""
+msgstr "Ordainketak"
 
 msgid "manager.paymentMethod.title"
 msgstr ""
@@ -1606,10 +1619,10 @@ msgid "settings.libraryFiles.typeRequired"
 msgstr ""
 
 msgid "settings.libraryFiles.category.contracts"
-msgstr ""
+msgstr "Kontratuak"
 
 msgid "settings.libraryFiles.category.marketing"
-msgstr ""
+msgstr "Marketina"
 
 msgid "settings.libraryFiles.category.permissions"
 msgstr "Baimenak"
@@ -1618,7 +1631,7 @@ msgid "settings.libraryFiles.category.reports"
 msgstr "Txostenak"
 
 msgid "settings.libraryFiles.category.other"
-msgstr ""
+msgstr "Beste bat"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
@@ -1699,7 +1712,7 @@ msgid "manager.distribution"
 msgstr "Banaketa"
 
 msgid "manager.distribution.title"
-msgstr ""
+msgstr "Banaketa ezarpenak"
 
 msgid "manager.reviewForms"
 msgstr "Ebaluazio-inprimakiak"
@@ -2222,7 +2235,7 @@ msgstr ""
 "baduzu hemen: Ezarpenak > Lan-fluxua > Bidalketak."
 
 msgid "grid.category.add"
-msgstr ""
+msgstr "Gehitu kategoria"
 
 msgid "grid.category.edit"
 msgstr ""
@@ -3316,3 +3329,8 @@ msgstr "Sartu gurasoen xehetasunak"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Baztertu hileko xehetasunak"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Mezu elektronikoak behar bezala ilaran jarri dira ahalik eta azkarren "
+"bidaltzeko."

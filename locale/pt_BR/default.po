@@ -1,11 +1,12 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2023, 2025.
+# Andre Moura Melgarejo <melgarejo.andre@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2025-03-11 20:40+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2025-07-03 23:19+0000\n"
+"Last-Translator: Andre Moura Melgarejo <melgarejo.andre@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/default/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -194,7 +195,7 @@ msgstr ""
 "<p>Revise as informações inseridas antes de concluir a submissão. Você pode "
 "alterar qualquer um dos detalhes exibidos aqui clicando no botão de edição "
 "na parte superior de cada seção.</p><p>Depois de concluir sua submissão, um "
-"membro de nossa equipe editorial será designado para revisá-lo. Certifique-"
+"membro de nossa equipe editorial será designado para revisá-la. Certifique-"
 "se de que os detalhes inseridos aqui sejam os mais precisos possíveis.</p>"
 
 msgid "default.groups.plural.editorialBoardMember"

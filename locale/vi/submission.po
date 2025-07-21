@@ -1,7 +1,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-14 05:29+0000\n"
+"PO-Revision-Date: 2025-06-23 10:20+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/vi/>\n"
@@ -413,7 +413,7 @@ msgid "submission.authorWithAffiliation"
 msgstr "{affiliation}"
 
 msgid "submission.shortAuthor"
-msgstr "{$author} và những người khác."
+msgstr "{$author} và cộng sự."
 
 msgid "submission.representationOfTitle"
 msgstr "{title}"
@@ -2268,19 +2268,21 @@ msgid "grid.action.openNoteForm"
 msgstr "Thêm câu trả lời mới vào cuộc thảo luận"
 
 msgid "submission.query.activity"
-msgstr "{noteTitle}: {$noteContents}"
+msgstr "{$responderName} trả lời {$noteTitle}: {$noteContents}"
 
 msgid "submission.query.new"
-msgstr "{noteTitle}: {$noteContents}"
+msgstr "{$creatorName} bắt đầu một thảo luận: {$noteTitle}: {$noteContents}"
 
 msgid "submission.query.activity.contents"
 msgstr "Có hoạt động mới trong cuộc thảo luận có tiêu đề \"{submissionTitle}\"."
 
 msgid "submission.query.new.contents"
-msgstr "Bạn đã được thêm vào cuộc thảo luận có tiêu đề \"{submissionTitle}\"."
+msgstr ""
+"Bạn đã được thêm vào cuộc thảo luận có tiêu đề \"{$queryTitle}\" liên quan "
+"đến bài \"{$submissionTitle}\"."
 
 msgid "submission.query.participantTitle"
-msgstr "{userGroup}"
+msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
 msgstr ""

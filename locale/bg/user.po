@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-15 09:54+0000\n"
+"PO-Revision-Date: 2025-07-01 16:51+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -919,3 +919,6 @@ msgid "user.removeRole.roleRemainMessage"
 msgstr ""
 "Не можете да премахнете ролята. Поне една роля трябва да бъде присвоена на "
 "потребителя."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Имейлът ще бъде изпратен след като авторът бъде посочен."

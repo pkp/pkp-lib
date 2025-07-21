@@ -1,11 +1,12 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-10-19 10:40+0000\n"
-"Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
+"PO-Revision-Date: 2025-07-03 15:34+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
 "Language: nl\n"
@@ -2294,3 +2295,10 @@ msgstr "Toon alles"
 
 msgid "common.sandbox"
 msgstr "Applicatie draait in sandboxmodus."
+
+msgid "common.moreActions"
+msgstr "Meer handelingen"
+
+#, fuzzy
+msgid "common.editorialMasthead"
+msgstr "Redactioneel colofon"

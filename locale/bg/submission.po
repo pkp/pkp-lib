@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-20 05:41+0000\n"
+"PO-Revision-Date: 2025-07-01 16:51+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg/>\n"
@@ -3260,3 +3260,6 @@ msgid "publication.editorEditWarning"
 msgstr ""
 "Предупреждение: Тази версия е публикувана. Редактирането ѝ може да повлияе "
 "на публикуваното съдържание."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Рецензията е завършена на {$date}"

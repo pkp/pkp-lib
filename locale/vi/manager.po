@@ -2,7 +2,7 @@
 # Thuan Huynh <verypro.vn@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-03 17:35+0000\n"
+"PO-Revision-Date: 2025-06-19 21:42+0000\n"
 "Last-Translator: Thuan Huynh <verypro.vn@gmail.com>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/vi/>\n"
@@ -2796,7 +2796,7 @@ msgstr ""
 "với các đánh giá ẩn danh"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr "Tên và đơn vị liên kết của các tác giả bài nộp."
+msgstr "Tên và đơn vị công tác của các tác giả bài nộp."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL đến trang nơi người dùng có thể khôi phục mật khẩu bị quên"
@@ -2889,8 +2889,8 @@ msgstr ""
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
 "Tạp chí này tiến hành bình duyệt mở. Người đánh giá sẽ thấy tên và đơn vị "
-"liên kết của bạn, cũng như tên và đơn vị liên kết của các đồng tác giả của "
-"bạn. Tương tự, bạn sẽ thấy tên và đơn vị liên kết của người đánh giá."
+"công tác của bạn, cũng như tên và đơn vị liên kết của các đồng tác giả của "
+"bạn. Tương tự, bạn sẽ thấy tên và đơn vị công tác của người đánh giá."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Tên đầy đủ của người gửi"

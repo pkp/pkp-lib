@@ -1,7 +1,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-27 07:51+0000\n"
+"PO-Revision-Date: 2025-07-17 19:22+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/eu/>"
 "\n"
@@ -129,9 +129,8 @@ msgstr "Bidali mezu elektronikoa"
 msgid "grid.remotelyHostedItem"
 msgstr "Elementu hau urrunetik ostatatuta dago."
 
-#, fuzzy
 msgid "grid.action.unassignReviewer"
-msgstr "Kendu esleipena ikuskatzaile honi"
+msgstr "Kendu esleipena ebaluatzaile honi"
 
 msgid "grid.action.approveCopyedit"
 msgstr "Onartu zuzenketa-fitxategi hau hurrengo fasera bidaltzeko"
@@ -385,9 +384,8 @@ msgstr "Bidalketaren kontrol-zerrenda"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Kontrol-zerrendako elementua"
 
-#, fuzzy
 msgid "grid.columns.locale"
-msgstr "Localea"
+msgstr "Locale-a"
 
 msgid "author.users.contributor.setPrincipalContact"
 msgstr "Ezarri kontaktu nagusia"
@@ -573,9 +571,8 @@ msgstr "Lan-fluxuaren fase guztiak"
 msgid "grid.userGroup.filter.listRoles"
 msgstr "Esleitutako rolen zerrenda"
 
-#, fuzzy
 msgid "grid.userGroup.filter.permissionLevel"
-msgstr "Baimen maila hemen ezarrita:"
+msgstr "Baimen-maila hemen ezarrita:"
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName}-ren rola ezabatuta."
@@ -586,7 +583,6 @@ msgstr "Egilea; izenburua"
 msgid "grid.navigationMenus.navigationMenuItems.noneExist"
 msgstr "Nabigazio menuko elementurik ez"
 
-#, fuzzy
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Hautatu mota bat..."
 

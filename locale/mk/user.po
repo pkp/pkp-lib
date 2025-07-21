@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-10 13:16+0000\n"
+"PO-Revision-Date: 2025-07-02 16:10+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"
@@ -930,3 +930,6 @@ msgid "user.removeRole.roleRemainMessage"
 msgstr ""
 "Не можете да ја отстраните улогата. На корисникот мора да му се додели "
 "најмалку една улога."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Е-поштата ќе биде испратена откако ќе биде креиран авторот."

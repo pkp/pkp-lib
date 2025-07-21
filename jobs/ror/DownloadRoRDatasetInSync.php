@@ -79,7 +79,7 @@ class DownloadRoRDatasetInSync extends BaseJob
                 
                 return false; // Need to download the CSV file
             }),
-            (new WithoutOverlapping($this->pathZipFile . ':sync'))->expireAfter(600), // 10-minute lock
+            // (new WithoutOverlapping($this->pathZipFile . ':sync'))->expireAfter(600), // 10-minute lock
         ];
     }
 

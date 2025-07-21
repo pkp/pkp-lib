@@ -52,7 +52,9 @@ class ImportRorData extends BaseJob
      */
     public function middleware()
     {
-        return [(new WithoutOverlapping($this->prefix))->expireAfter(180)]; // 3 mins lock
+        return [
+            // (new WithoutOverlapping($this->prefix))->expireAfter(180), // 3 mins lock
+        ];
     }
 
     public function handle()
@@ -127,6 +129,7 @@ class ImportRorData extends BaseJob
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
                     );
                 })
+                ->name('import.ror.dataset.chunks')
                 ->dispatch();
         } catch (Throwable $e) {
             UpdateRorRegistryDataset::log(

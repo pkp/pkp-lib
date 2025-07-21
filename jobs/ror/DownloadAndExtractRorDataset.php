@@ -49,7 +49,9 @@ class DownloadAndExtractRorDataset extends BaseJob
 
     public function middleware()
     {
-        return [(new WithoutOverlapping($this->prefix . ':download'))->expireAfter(600)]; // Unique key
+        return [
+            // (new WithoutOverlapping($this->prefix . ':download'))->expireAfter(600), // 10 mins lock
+        ];
     }
 
     public function handle()
@@ -114,6 +116,8 @@ class DownloadAndExtractRorDataset extends BaseJob
                     $startByte,
                     $endByte,
                     $chunkFile,
+                    $pathZipDir,
+                    $this->csvNameContains,
                     $this->scheduledTaskLogFilesPath
                 );
             }
@@ -172,6 +176,7 @@ class DownloadAndExtractRorDataset extends BaseJob
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
                     );
                 })
+                ->name('download.ror.dataset.chunks')
                 ->dispatch();
         } catch (Throwable $e) {
             UpdateRorRegistryDataset::cleanup([$pathZipDir, $pathZipFile, $chunkDir]);

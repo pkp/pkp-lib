@@ -27,9 +27,21 @@ use PKP\task\UpdateRorRegistryDataset;
 class ImportRorData extends BaseJob
 {
     /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 4;
+
+    /**
      * Indicate if the job should be marked as failed on timeout.
      */
     public bool $failOnTimeout = false;
+
+    /**
+     * The number of SECONDS to wait before retrying the job.
+     */
+    public int $backoff = 600;
 
     protected PrivateFileManager $fileManager;
 
@@ -53,7 +65,7 @@ class ImportRorData extends BaseJob
     public function middleware()
     {
         return [
-            // (new WithoutOverlapping($this->prefix))->expireAfter(180), // 3 mins lock
+            (new WithoutOverlapping($this->prefix))->expireAfter(180), // 3 mins lock
         ];
     }
 

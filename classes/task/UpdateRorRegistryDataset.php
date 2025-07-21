@@ -63,7 +63,6 @@
 namespace PKP\task;
 
 use Throwable;
-use PKP\jobs\ror\DownloadRoRDatasetInSync;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use APP\core\Application;
@@ -131,9 +130,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             // Following jobs will be dispatch in chain and process as follow :-
             //  - Download RoR dataset in chunk, build final zip file and extract it
-            //  - Regardless of chunk process success/fail, the fallback sync process will kick off,
-            //    however will run check if the extract and target CSV file is present and if so,
-            //    will skip sync download process
             //  - Import RoR dataset in chunks by parsing the CSV file
             Bus::chain([
                 new DownloadAndExtractRorDataset(
@@ -142,14 +138,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                     $this->prefix,
                     $this->getExecutionLogFile()
                 ),
-                new DownloadRoRDatasetInSync(
-                    $this->csvNameContains,
-                    $downloadUrl, 
-                    $pathZipFile, 
-                    $pathZipDir, 
-                    $this->getExecutionLogFile()
-                ),
-                new ImportRorData(
+                (new ImportRorData(
                     $this->prefix,
                     $this->csvNameContains,
                     $this->dataMapping,
@@ -157,7 +146,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                     $this->noLocale,
                     $this->temporaryTable,
                     $this->getExecutionLogFile()
-                )
+                ))->delay(now()->addSeconds(60)),
             ])
             ->catch(function (Throwable $e) use ($logfile) {
                 static::log(

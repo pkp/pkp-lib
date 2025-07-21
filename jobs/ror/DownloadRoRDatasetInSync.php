@@ -37,6 +37,11 @@ class DownloadRoRDatasetInSync extends BaseJob
      */
     public bool $failOnTimeout = false;
 
+    /**
+     * The number of SECONDS to wait before retrying the job.
+     */
+    public int $backoff = 60;
+
     protected PrivateFileManager $fileManager;
 
     public function __construct(
@@ -79,7 +84,7 @@ class DownloadRoRDatasetInSync extends BaseJob
                 
                 return false; // Need to download the CSV file
             }),
-            // (new WithoutOverlapping($this->pathZipFile . ':sync'))->expireAfter(600), // 10-minute lock
+            (new WithoutOverlapping($this->pathZipFile . ':sync'))->expireAfter(600), // 10-minute lock
         ];
     }
 

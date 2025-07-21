@@ -41,7 +41,9 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
 
     public function middleware()
     {
-        return [(new WithoutOverlapping($this->pathZipFile))->expireAfter(60)]; // 1-minute lock
+        return [
+            // (new WithoutOverlapping($this->pathZipFile))->expireAfter(60) // 1-minute lock
+        ];
     }
 
     public function handle()

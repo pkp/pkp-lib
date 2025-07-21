@@ -23,6 +23,7 @@ use PKP\file\PrivateFileManager;
 use PKP\task\UpdateRorRegistryDataset;
 use GuzzleHttp\Exception\GuzzleException;
 use PKP\scheduledTask\ScheduledTaskHelper;
+use Illuminate\Queue\Middleware\SkipIfBatchCancelled;
 
 class DownloadRoRDatasetInChunks extends BaseJob
 {
@@ -40,6 +41,8 @@ class DownloadRoRDatasetInChunks extends BaseJob
         protected int $startByte,
         protected int $endByte,
         protected string $chunkFile,
+        protected string $pathZipDir,
+        protected string $csvNameContains,
         protected ?string $scheduledTaskLogFilesPath = null
     ) {
         parent::__construct();
@@ -48,12 +51,25 @@ class DownloadRoRDatasetInChunks extends BaseJob
 
     public function middleware()
     {
-        return [(new WithoutOverlapping($this->chunkFile))->expireAfter(60)]; // 1-minute lock
+        return [
+            // (new WithoutOverlapping($this->chunkFile))->expireAfter(60), // 1-minute lock
+            new SkipIfBatchCancelled(),
+        ];
     }
 
     public function handle()
     {
         try {
+
+            $pathCsv = $this->fileManager->fileExists($this->pathZipDir, 'dir')
+                ? UpdateRorRegistryDataset::getPathCsv($this->pathZipDir, $this->csvNameContains)
+                : '';
+            
+            if (!empty($pathCsv) && $this->fileManager->fileExists($pathCsv)) {
+                $this->batch()->cancel();
+                return; // No need to download the CSV file, job can skip and cancel the batch
+            }
+
             $client = Application::get()->getHttpClient();
 
             UpdateRorRegistryDataset::log(

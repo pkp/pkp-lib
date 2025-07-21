@@ -52,8 +52,9 @@ class ProcessRorCsv extends BaseJob
      */
     public function middleware()
     {
-        return [(new WithoutOverlapping("{$this->pathCsv}:{$this->startRow}-{$this->endRow}"))
-            ->expireAfter(60)]; // 1-minute lock
+        return [
+            // (new WithoutOverlapping("{$this->pathCsv}:{$this->startRow}-{$this->endRow}"))->expireAfter(60), // 1-minute lock
+        ];
     }
 
     public function handle()

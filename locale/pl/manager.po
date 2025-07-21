@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2025-07-21 13:08+0000\n"
+"PO-Revision-Date: 2025-07-21 13:13+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -3797,3 +3797,36 @@ msgstr ""
 
 msgid "manager.language.submissionMetadata"
 msgstr "Metadane"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odpowiedź na wniosek o recenzję - po terminie"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Przegląd zgłoszenia - przed upływem terminu"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Ustaw przypomnienia o recenzji"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odpowiedź na wniosek o recenzję - przed upływem terminu"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Przegląd zgłoszenia - po terminie"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dni przed terminem płatności"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dni po terminie płatności"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Brak"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Nie ustawiono przypomnienia"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Wyślij przypomnienie e-mail przed lub po odpowiedzi na prośbę o recenzję ("
+"jeśli recenzent nie odpowiedział jeszcze na prośbę o recenzję) lub "
+"przesłaniu recenzji (jeśli recenzent nie przesłał jeszcze recenzji)"

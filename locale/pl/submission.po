@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2025-07-21 05:35+0000\n"
+"PO-Revision-Date: 2025-07-21 08:37+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
@@ -2851,3 +2851,9 @@ msgstr "Zarchiwizowane"
 
 msgid "submission.dashboard.view.assigned"
 msgstr "Przypisane do mnie"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Aktualny język zgłoszenia:"
+
+msgid "workflow.stageNotStarted"
+msgstr "Etap {$stage} nie został jeszcze zainicjowany."

@@ -1,15 +1,19 @@
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
+"PO-Revision-Date: 2025-07-15 14:00+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
+"nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Bijkomende talen"
@@ -116,7 +120,7 @@ msgid "installer.form.usernameRequired"
 msgstr "De gebruikersnaam voor de beheerder is verplicht."
 
 msgid "installer.form.timeZoneRequired"
-msgstr ""
+msgstr "U wordt verzocht een tijdzone te selecteren."
 
 msgid "installer.installationWrongPhp"
 msgstr ""
@@ -146,6 +150,8 @@ msgstr ""
 
 msgid "installer.installMigrationError"
 msgstr ""
+"Er is een programma fout opgetreden tijdens het migreren van de categorie "
+"<tt>{$class}</tt>. De programmafout was {$message}."
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>."
@@ -158,11 +164,17 @@ msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details."
 
+#, fuzzy
 msgid "installer.timezoneInstructions"
-msgstr ""
+msgstr "De tijdzone om voor dit systeem te gebruiken."
 
+#, fuzzy
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
+"Kies een of meer extra talen ter ondersteuning van dit systeem. Extra talen "
+"kunnen op ieder moment ook worden geïnstalleerd vanaf de interface van het "
+"sitebeheer. <br>* = Het benoemt talen die niet volledig zijn vertaald (>90% "
+"van de vertaalde termen)"
 
 msgid "installer.locale"
 msgstr "Taal"
@@ -241,3 +253,52 @@ msgstr ""
 #~ msgstr ""
 #~ "De codering die gebruikt moet worden voor de gegevens die verzonden "
 #~ "worden naar en ontvangen worden van browsers."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"De configuratievariabele, genaamd `app_key`is niet gedefinieerd in het "
+"`algemene` gedeelte. "
+
+#, fuzzy
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr ""
+"De configuratievariabele, genaamd `app_key ` , is al gedefinieerd in het "
+"`algemene` gedeelte. "
+
+#, fuzzy
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Niet in staat het configuratiebestand te analyseren en interpreteren."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr ""
+"Niet in staat de 'app key'-variabele in het configuratiebestand te schrijven."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Niet-ondersteunde versleutelingsalgoritme of onjuiste versleutelingslengte. "
+"Ondersteunde versleutelingsalgoritme zijn: {$ciphers}."
+
+#, fuzzy
+msgid "installer.appKey.write.error"
+msgstr "Niet in staat om de 'app key' in de configuratiefile te schrijven."
+
+msgid "installer.miscSettings"
+msgstr "Diverse instellingen"
+
+#, fuzzy
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Gelieve om de configuratievariabele, genaamd `app_key` het `algemene`"
+"gedeelte handmatig toe te voegen of het gebod php lib/pkp/tools/appKey.php "
+"configure` in te stellen vanaf CLI."
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Niet in staat het configuratiebestand te lezen of het bestand bestaat niet "
+"in de te verwachten bestandslocatie. "
+
+#, fuzzy
+msgid "installer.appKey.set.value"
+msgstr ""
+"Stel `app_key` waarde in onder het `algemene ` gedeelte in de`config.inc.php`"
+" file to {$key} ."

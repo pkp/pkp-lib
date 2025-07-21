@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2025-05-06 03:03+0000\n"
+"PO-Revision-Date: 2025-07-19 12:42+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ar/>"
 "\n"
@@ -889,3 +889,6 @@ msgstr "ينبغي أن تكون هوية المستخدم محجوبة. حال�
 
 msgid "user.removeRole.roleRemainMessage"
 msgstr "لا يمكنك إزالة الدور. دور واحد على الأقل ينبغي إسناده للمستخدم."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "سيتم إرسال البريد الالكتروني بمجرد إنشاء حساب المؤلف."

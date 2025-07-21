@@ -1,15 +1,16 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
-# Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022, 2025.
 # Emma U <emmaupkp@gmail.com>, 2024.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
+# Ralf Weber <ralf@weberr.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2025-04-17 19:22+0000\n"
-"Last-Translator: Klaus Rummler <klaus@oapublishing.ch>\n"
+"PO-Revision-Date: 2025-07-11 08:51+0000\n"
+"Last-Translator: Ralf Weber <ralf@weberr.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/de/>\n"
 "Language: de\n"
@@ -38,10 +39,9 @@ msgstr ""
 "Neue Gutachten sind eingegangen und werden durch den/die Redakteur/in "
 "geprüft."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Eine/r oder mehrere Gutachter/innen haben die Frist verpaßt. Die Redaktion "
+"Eine/r oder mehrere Gutachter/innen haben die Frist verpasst. Die Redaktion "
 "wurde benachrichtigt und wird sicherstellen, dass die Begutachtung "
 "abgeschlossen wird. Sie müssen nichts weiter tun. Sie werden benachrichtigt, "
 "sobald eine Entscheidung getroffen wurde."
@@ -1347,16 +1347,15 @@ msgstr "Überarbeitungen wurden angefordert."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Überarbeitungen wurden eingereicht und eine Entscheidung wird benötigt."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
-"Die Einreichung muss wieder eingereicht werden für eine neue "
-"Begutachtungsrunde."
+"Vom Autor angeforderte Überarbeitungen sollen in eine neue "
+"Begutachtungsrunde aufgenommen werden."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
-"Die Einreichung wurde wieder eingereicht für eine neue Begutachtungsrunde."
+"Überarbeitungen eingereicht. Es muss eine neue Begutachtungsrunde erstellt "
+"werden."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Zur externen Begutachtung gesendet."
@@ -1376,9 +1375,8 @@ msgstr "Warte auf Antworten von Gutachter/innen."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Neue Gutachten wurden eingereicht."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Gutachten abgeschlossen."
+msgstr "Alle Gutachten wurden bestätigt und es bedarf einer Entscheidung."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Ein Gutachten ist überfällig."
@@ -2778,3 +2776,448 @@ msgstr "Autor/-innen"
 
 msgid "submission.author.list"
 msgstr "Liste der einreichenden Autor/-innen"
+
+msgid "author.competingInterests"
+msgstr "Konkurrierende Interessen"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Bitte legen Sie alle konkurrierenden Interessen offen, die Autor*innen mit "
+"dem Forschungsthema haben könnten."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Die Einreichung befindet sich derzeit in der {$stage}-Phase."
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Die Überprüfung wurde am {$date} abgeschlossen"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Die Rezension wurde vom Herausgeber bestätigt"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Die Rezension wurde vom Herausgeber am <b>{$date}</b> angenommen."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Gutachter stornierte Überprüfungsanfrage"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Details anzeigen"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Sie können als Journal Manager nicht auf diese Einreichung zugreifen, da Sie "
+"der Autor sind. Um es anzuzeigen, gehen Sie zu \"Meine Einsendungen\""
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Ohne mindestens bestätigte Bewertungen vorgehen?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Die Mindestanzahl bestätigter Bewertungen wurde nicht eingehalten. Wollen "
+"Sie mit dieser redaktionellen Entscheidung noch fortfahren?"
+
+msgid "workflow.stageNotStarted"
+msgstr "Die Phase {$stage} wurde noch nicht eingeleitet."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Die Einreichung gelangte in die nächste Überprüfungsrunde, wurde angenommen "
+"und befindet sich derzeit in der {$stage}-Phase."
+
+msgid "fileManager.filesForReview"
+msgstr "Dateien zur Überprüfung"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Kopierte Dateien"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Gutachterstatus"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Das sind die Dateien, die zur Veröffentlichung geschickt werden"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Wählen Sie unvollständige Einsendungen aus, die gelöscht werden sollen."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Unvollständige Einsendungen löschen"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Empfehlung wurde von Ihnen gemacht."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Zurück zur Bewertung."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Vom Autor vorgeschlagene Rezensenten"
+
+msgid "workflow.uploadRevisions"
+msgstr "Überarbeitungen hochladen"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Veröffentlichung in Ausgabe {$issue}"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Bitte akzeptieren oder lehnen Sie diese Anfrage bis zum {$date} ab"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Bitte füllen Sie diese Bewertung bis zum {$date} aus."
+
+msgid "workflow.reviewRoundN"
+msgstr "Rezensionsrunde {$number}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Der Rezensent lehnte die Überprüfungsanfrage unter <b>{$date}</b> ab"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Hierbei handelt es sich um Dateien aus der Begutachtungsphase, die kopiert "
+"werden sollen"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Laufende Prüfung - Antrag angenommen"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Nicht zuweisen"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Empfehlung ansehen"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Ungelesene Empfehlung anzeigen"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Achtung: Diese Version wurde veröffentlicht. Die Bearbeitung kann "
+"Auswirkungen auf den veröffentlichten Inhalt haben."
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Die Einreichung wurde storniert und alle zugehörigen Daten wurden gelöscht."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Gründe für den Vorschlag eines Gutachters"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Bitte teilen Sie mit, warum Sie diesen Rezensenten empfehlen, und erwähnen "
+"Sie, dass es potenzielle Interessenkonflikte gibt."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Die Sprache der Einreichung ({$language}) gehört nicht zu den unterstützten "
+"Einreichungssprachen. Sie können die Einreichungsdetails weiterhin "
+"bearbeiten, neue Einreichungen werden jedoch derzeit in dieser Sprache nicht "
+"akzeptiert."
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Gutachter zugewiesen"
+
+msgid "dashboard.applyFilters"
+msgstr "Filter anwenden"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Starten Sie eine neue Einreichung"
+
+msgid "dashboard.submitRevisions"
+msgstr "Überarbeitungen einreichen"
+
+msgid "dashboard.revisionRequested"
+msgstr "Überarbeitung beantragt"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Mindestanzahl bestätigter Bewertungen erforderlich: {$number}."
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Zum Zeitpunkt der Einreichung hochgeladene Dateien"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Einreichung abbrechen"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Für den Vorschlag des Rezensenten"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Vorschläge des Rezensenten"
+
+msgid "submission.review.status.viewed"
+msgstr "Der Herausgeber hat die Rezension eingesehen."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Für diese Einreichung wurden keine Gutachter vorgeschlagen."
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktive Einreichungen"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Diese Dateien werden den Gutachtern zur Prüfung zugesandt"
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Aktuelle Einreichungssprache:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Veränderung"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Ändern Sie die Einreichungssprache für"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Dies ist die primäre Einreichungssprache. Eine Änderung hat Auswirkungen auf "
+"die Einreichung und die eingegebenen Metadaten"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Geben Sie hier in {$language} den Titel der Einreichung ein. Sie können "
+"Ihren Titel nach Bedarf formatieren"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Die Aufnahme des Abstracts in {$language} wird empfohlen. Dies trägt dazu "
+"bei, dass die Inhalte zugänglich sind"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Zusammenfassung der Einreichung anzeigen"
+
+msgid "submission.list.completeSubmission"
+msgstr "Vollständige Einreichung"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Sind Sie sicher, dass Sie diese Einreichung stornieren möchten? Dadurch "
+"werden die Einreichung und alle damit verbundenen Daten gelöscht. Diese "
+"Aktion kann nicht rückgängig gemacht werden."
+
+#, fuzzy
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Der Name der Zugehörigkeit fehlt in {$language} für eine oder mehrere "
+"Zugehörigkeiten für einen oder mehrere der Mitwirkenden."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Mir zugeteilt"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Alle in der Einreichungsphase"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Alle im Peer-Review"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Alle in der Überprüfungsphase"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Warten auf Bewertungen"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Bewertungen abgegeben"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Bewertungen überfällig"
+
+msgid "submission.dashboard.view.production"
+msgstr "Alle in Produktionsstufe"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Zur Veröffentlichung vorgesehen"
+
+msgid "submission.dashboard.view.published"
+msgstr "Veröffentlicht"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Abgelehnt"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Revisionen beantragt"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Autorenrevisionen eingereicht"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Unvollständige Einreichungen"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Alle Zuordnungen"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Ausstehend"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Abgeschlossen / Abgelehnt"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Alle Zuordnungen"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Von mir geforderte Aktion"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archiviert"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Abgelehnt"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Abgeschlossen"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Veröffentlicht"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Rezension (Runde {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Zur Veröffentlichung geplant"
+
+msgid "submission.stage.published"
+msgstr "Veröffentlicht"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Bestätigen Sie das Löschen von JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Sie sind dabei, die vorhandene JATS-XML-Datei aus dieser Veröffentlichung zu "
+"entfernen. Bist du sicher?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "JATS-Datei löschen"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Diese JATS-Datei wird automatisch durch die eingereichten Metadaten generiert"
+
+msgid "publication.jats.lastModified"
+msgstr "Letzte Änderung am {$modificationDate} durch {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Beim Versuch, den Standard-JATS-Inhalt zu erstellen, ist ein Fehler "
+"aufgetreten. Bitte achten Sie darauf, dass das JatsTemplate Plugin "
+"installiert ist."
+
+msgid "submission.files.content.error"
+msgstr ""
+"Der Inhalt der Einreichungsdatei '{$fileName}' konnte nicht abgerufen werden."
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Vom Autor angeforderte Überarbeitungen"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Vom Autor geforderte Überarbeitungen sollen in eine neue Überprüfungsrunde "
+"aufgenommen werden"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Auf Anfrage antworten"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Überprüfung beenden"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Anfrage abgelehnt am {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Bewertung eingereicht am {$date}"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Warten auf Antwort des Rezensenten"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Der Rezensent hat die Bewertungsanfrage am <b>{$date}</b> storniert."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Warten auf Antwort des Rezensenten"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Überprüfungsanfrage erneut senden"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Fälligkeitsdatum bearbeiten"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Bewertung an ORCID senden"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Senden Sie diese Bewertung an die ORCID des Rezensenten?"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Während der {$stageName}-Phase abgelehnt."
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Eine redaktionelle Empfehlung ist eingegangen"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Sie können als Journal Manager nicht auf diese Einreichung zugreifen, da Sie "
+"der Rezensent sind. Um es anzuzeigen, gehen Sie zu \"Bewertung von Aufgaben\""
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Die Einreichung wurde in die nächste Überprüfungsrunde verschoben"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Bestätigen Sie das Löschen unvollständiger Einreichungen"
+
+msgid "author.authorNotFound"
+msgstr "Der zugehörige Autor konnte nicht gefunden werden."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Einreichung abgebrochen"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Dieser Gutachter hat den Überprüfungsantrag angenommen. Ihre Überprüfung ist "
+"in <b>{$days} Tagen am {$date}.</b> fällig"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Überprüfung ist {$days} Tage überfällig"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Dieser Gutachter hat seine Überprüfung noch nicht abgeschlossen. Eine "
+"Antwort war fällig am <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Bewertung abgeschlossen am {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Die Überprüfung wurde am {$date} mit der folgenden Empfehlung abgeschlossen: "
+"<b>{$empfehlung}</b>"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Bevor Sie die Einreichsprache ändern, stellen Sie sicher, dass Sie "
+"die folgenden Metadatenfelder ausgefüllt haben, um die Systemintegrität "
+"aufrechtzuerhalten. Beachten Sie außerdem, dass die Informationen und "
+"Dateinamen der Mitwirkenden aus zuvor eingegebenen Informationen kopiert "
+"werden.</strong>"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Die Überprüfungsanfrage wurde an den Gutachter weitergeleitet. Warten auf "
+"Antwort in <b>{$days} Tagen am {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Dieser Gutachter hat nicht auf die Überprüfungsanfrage geantwortet. Eine "
+"Antwort war fällig am <b>{$date}</b>"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Alle redaktionellen Empfehlungen sind eingegangen und eine Entscheidung ist "
+"erforderlich."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Die erforderliche Mindestanzahl an Überprüfungen wurde bestätigt. Es bedarf "
+"einer Entscheidung."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Sind Sie sicher, dass Sie die ausgewählten Elemente löschen möchten? Diese "
+"Aktion kann nicht rückgängig gemacht werden. Bitte bestätigen Sie, dass Sie "
+"fortfahren."

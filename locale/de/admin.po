@@ -1,13 +1,14 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
+# Ralf Weber <ralf@weberr.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-09-20 06:55+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2025-07-11 08:51+0000\n"
+"Last-Translator: Ralf Weber <ralf@weberr.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
 ">\n"
 "Language: de\n"
@@ -982,3 +983,124 @@ msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Nutzen Sie die Website als Plattform für alle Zeitschriften."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Aktualisieren Sie den Ror-Registrierungsdatensatz-Cache"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Anzeige der AppKey-Nutzungsparameter"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Validieren Sie den aktuellen App-Schlüssel, falls dieser in der "
+"Konfigurationsdatei gefunden wurde"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr ""
+"Fügen Sie die config-Variable app_key in der config.inc.php-Datei hinzu."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Meinten Sie eine der folgenden?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Generierter App-Schlüssel: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"Die Variable `_key` existiert bereits unter dem Abschnitt `general` in der "
+"config-Datei. Führen Sie den Befehl `php lib/pkp/tools/appKey.php generat` "
+"aus, um einen neuen App-Schlüssel festzulegen."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "In der Konfigurationsdatei ist kein App-Schlüssel festgelegt."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Ungültiger App-Schlüsselsatz, nicht unterstützte Chiffre oder falsche "
+"Schlüssellänge. Unterstützte Chiffren sind: {$chiffren}."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "App-Key erfolgreich in der Config-Datei gesetzt."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"App-Key-Variable erfolgreich in der Config-Datei eingestellt. Führen Sie den "
+"Befehl `php lib/pkp/tools/appKey.php generate` aus, um einen neuen App-"
+"Schlüssel festzulegen."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr ""
+"Ein gültiger App-Schlüssel, der in der Konfigurationsdatei festgelegt ist"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Führen Sie den Scheduler aus."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Listen Sie alle geplanten Aufgaben auf."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Zeigen Sie die Nutzungsparameter des Schedulers an."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Starten Sie den Zeitplanarbeiter."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Meinten Sie eine der folgenden?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Kann geplante Aufgaben nicht ausführen, da der Anwendungs-Sandbox-Modus "
+"aktiviert ist."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Es wurden keine geplanten Aufgaben registriert."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Keine passende geplante Aufgabe gefunden."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Welchen Befehl möchten Sie ausführen?"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Versenden Sie einen Auftrag, um abgelaufene Einladungen automatisch zu "
+"entfernen"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Kann geplante Aufgaben nicht ausführen, da der Wartungsmodus aktiviert ist."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Führen Sie geplante Aufgaben jede Minute aus."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Erzeugen Sie einen neuen App-Schlüssel und ersetzen Sie ihn in der "
+"Konfigurationsdatei. Übergeben Sie mit Flag-Show, um nur einen vorhandenen "
+"gültigen App-Schlüssel anzuzeigen und zu erzwingen."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Keine Schlüsselvariable mit dem Namen `_key` defined in the `general` "
+"section of config file. Bitte aktualisieren Sie den allgemeinen Abschnitt "
+"der Konfigurationsdatei und fügen Sie die Zeile `app_key = ` hinzu oder "
+"führen Sie den Befehl `php lib/pkp/tools/appKey.php configure` aus, um ihn "
+"festzulegen."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Ein gültiger APP-Schlüssel, der bereits in der Konfigurationsdatei "
+"festgelegt ist. Zum Überschreiben übergeben Sie die Flag-Force mit dem "
+"Befehl."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Die Variable `app_key` kann in der Konfigurationsdatei nicht festgelegt "
+"werden. Bitte aktualisieren Sie den allgemeinen Abschnitt der "
+"Konfigurationsdatei und fügen Sie die Zeile `app_key = ` hinzu."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Führen Sie eine bestimmte geplante Aufgabe aus der Liste aus oder verwenden "
+"Sie den --name, um eine bestimmte auszuführen. Legen Sie das flag --no-"
+"scroll fest, um die vollständige Liste ohne Scrollen anzuzeigen."

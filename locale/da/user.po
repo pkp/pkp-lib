@@ -1,12 +1,13 @@
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024, 2025.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
+# "Jesper B. Thestrup" <jbt@kb.dk>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2025-04-09 11:38+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2025-06-27 16:54+0000\n"
+"Last-Translator: \"Jesper B. Thestrup\" <jbt@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/da/>"
 "\n"
 "Language: da\n"
@@ -947,3 +948,6 @@ msgstr "Brugeren bør være anonym. Du er pt. logget ind."
 
 msgid "user.removeRole.roleRemainMessage"
 msgstr "Du kan ikke fjerne denne rolle. Brugeren skal have mindst én rolle."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "E-mailen vil blive sendt når forfatteren er blevet oprettet."

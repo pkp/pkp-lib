@@ -1,12 +1,13 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024, 2025.
 # pep sanso <pep.sanso@uab.cat>, 2023.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-04-10 13:16+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-06-29 11:04+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/es/"
 ">\n"
 "Language: es\n"
@@ -186,7 +187,7 @@ msgstr ""
 "Ahora puede iniciar sesión con la nueva contraseña."
 
 msgid "user.login.registeredEmail"
-msgstr "Correo electronico de usuarios registrados"
+msgstr "Correo electrónico de usuarios/as registrados"
 
 msgid "user.login.registrationComplete"
 msgstr "Registro completo"
@@ -303,7 +304,7 @@ msgid "user.profile.form.usergroupRequired"
 msgstr "Introduzca un grupo de usuarios/as."
 
 msgid "user.profile.form.usernameRequired"
-msgstr "Es necesario el nombre de usuario."
+msgstr "Es necesario el nombre de usuario/a."
 
 msgid "user.profile.form.privacyConsentRequired"
 msgstr "Debe aceptar los términos de la declaración de privacidad."
@@ -346,7 +347,7 @@ msgstr "Sí, deseo que me notifiquen acerca de nuevas publicaciones y avisos."
 msgid "user.register.form.emailExists"
 msgstr ""
 "La dirección de correo electrónico seleccionada ya está siendo utilizada por "
-"otro usuario."
+"otro usuario/a."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Las contraseñas no coinciden."
@@ -356,7 +357,7 @@ msgstr "Los campos de correo electrónico no coinciden."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"El nombre de usuario sólo puede contener caracteres alfanuméricos en "
+"El nombre de usuario/a sólo puede contener caracteres alfanuméricos en "
 "minúsculas, subrayados y guiones, y debe comenzar y finalizar con un "
 "carácter alfanumérico."
 
@@ -365,7 +366,8 @@ msgstr "Debe seleccionar un rol como mínimo."
 
 msgid "user.register.form.usernameExists"
 msgstr ""
-"El nombre de usuario seleccionado ya está siendo utilizado por otro usuario."
+"El nombre de usuario/a seleccionado ya está siendo utilizado por otro "
+"usuario/a."
 
 msgid "user.register.form.passwordLengthRestriction"
 msgstr "La contraseña debe tener como mínimo {$length} caracteres."
@@ -384,7 +386,7 @@ msgstr ""
 msgid "user.register.registrationCompleted"
 msgstr ""
 "Se ha registrado correctamente. <a href=\"{$profileUrl}\">Haga clic aquí</a> "
-"para completar su perfil de usuario."
+"para completar su perfil de usuario/a."
 
 msgid "user.role.assistant"
 msgstr "Ayudante de producción"
@@ -464,7 +466,7 @@ msgid "user.userHome"
 msgstr "Inicio"
 
 msgid "user.username"
-msgstr "Nombre usuario"
+msgstr "Nombre usuario/a"
 
 msgid "user.workingLanguages"
 msgstr "Idiomas de trabajo"
@@ -769,8 +771,8 @@ msgstr ""
 
 msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
 msgstr ""
-"Enviar correo electrónico para solicitar autorización ORCID de los autores "
-"cuando un artículo sea aceptado, es decir, enviado a corrección"
+"Enviar correo electrónico para solicitar autorización ORCID de los autores/"
+"as cuando un artículo sea aceptado, es decir, enviado a corrección"
 
 msgid "orcid.about.howAndWhyMemberAPI"
 msgstr ""
@@ -990,3 +992,7 @@ msgstr "Habilitar {$fullName}"
 
 msgid "user.bioStatement"
 msgstr "Biografía"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr ""
+"El correo electrónico se enviará una vez que el autor/a haya sido creado."

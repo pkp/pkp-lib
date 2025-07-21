@@ -1,12 +1,13 @@
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-11-05 12:08+0000\n"
-"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
+"PO-Revision-Date: 2025-07-15 15:44+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
 "Language: nl\n"
@@ -380,6 +381,9 @@ msgstr "IP-reeksen"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Toegestane waarden inclusief een IP-adres (bijv. 142.58.103.1), IP range ("
+"bijv. 142.58.103.1 - 142.58.103.4), IP range with wildcard '*' (bijv. 142."
+"58.*.*), en een IP-bereik met CIDR (bijv. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
 msgstr "Verwijder Instelling"
@@ -756,6 +760,8 @@ msgstr "Zoek een gebruiker op naam"
 
 msgid "manager.representative.inUse"
 msgstr ""
+"U kunt deze vertegenwoordiger niet vernietigen, omdat deze is toegewezen aan "
+"de metagegevens-markt voor een of meer publicatieformulieren hiervoor."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Wijzig"
@@ -786,36 +792,49 @@ msgstr "Geografische statistieken"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Kies het type geografische gebruiksstatistieken om deze gegevens te "
+"vergaren. Meer gedetailleerde geografische statistieken kan de omvang van uw "
+"database aanzienlijk vergroten en kan, in zeldzame gevallen, de anonimiteit "
+"van uw bezoekers niet garanderen."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Vergaar geen geografische gegevens"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Vergaar het land van de bezoeker"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Vergaar het land van de bezoeker en de regio"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Vergaar het land, de regio en de gemeente van de bezoeker"
 
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionele statistieken"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Activeer instellingsstatistieken, indien u gebruiksstatistieken per "
+"instelling wilt verkrijgen. Als geactiveerd, zult u de IP-configuraties voor "
+"iedere instelling moeten configureren die u wilt volgen"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Activeer instellingsstatistieken"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Openbare API (Application Programming Interface)"
 
+#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Wel of geen beperkte toegang tot de API- apparaten of URL's voor COUNTER "
+"SUSHI-statistieken. Indien niet gecontroleerd, is de API alleen toegankelijk "
+"voor gebruikers met een beheer- of managersrol."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Stel de COUNTER SUSHI statistieken openlijk beschikbaar"
 
 msgid "manager.statistics.reports"
 msgstr "Rapporteringstool"
@@ -3582,3 +3601,59 @@ msgstr "De link om een e-mailadres te valideren"
 
 msgid "manager.statistics.counterR5Reports"
 msgstr "Counter R5 rapporten"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Inzendingstalen"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Voeg talen toe of verwijder talen"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metagegevens"
+
+msgid "manager.language.submission.from.error"
+msgstr ""
+"Ten minste een locale (set taal- en landinstellingen) moet worden gekozen."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Er zijn nog geen COUNTER R5 gebruiksstatistieken beschikbaar."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Begindatum"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Websitetalen"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Zie  <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 documentation</a> voor meer informatie "
+"over elk rapport."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Configuratie-instellingenrapport"
+
+msgid "manager.language.submission.form.description"
+msgstr "Kies inzendingen en metagegevens-talen."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Einddatum"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"De datum moet in deze vorm en volgorde: JJJJ-MM-DD of JJJJ-MM. De eerst "
+"mogelijke datum is {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"De datum moet in deze vorm en volgorde: JJJJ-MM-DD of JJJJ-MM. De laatst "
+"mogelijke datum is {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Het datumformulier is niet geldig."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Klantnummer"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Meeteenheid"

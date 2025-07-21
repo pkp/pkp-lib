@@ -2,13 +2,14 @@
 # Pressto <pressto@amu.edu.pl>, 2022.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 # Kamil Janeda <kamil.janeda@ue.wroc.pl>, 2025.
+# Adam <koleszka2006@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2025-01-17 19:08+0000\n"
-"Last-Translator: Kamil Janeda <kamil.janeda@ue.wroc.pl>\n"
+"PO-Revision-Date: 2025-07-21 13:02+0000\n"
+"Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
 "Language: pl\n"
@@ -2309,3 +2310,37 @@ msgstr "Autor zmieniony."
 
 #~ msgid "common.homepageImage.altText"
 #~ msgstr "Obraz strony głównej"
+
+msgid "navigation.mySubmissions"
+msgstr "Moje zgłoszenia jako autora"
+
+msgid "navigation.dashboards"
+msgstr "Panel Edytora"
+
+msgid "navigation.reviewAssignments"
+msgstr "Moje zadania jako recenzenta"
+
+msgid "common.editorialMasthead"
+msgstr "Redakcja czasopisma"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzenci w poprzednim roku"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Redakcja wyraża swoje uznanie dla recenzentów z {$year} wymienionych poniżej."
+
+msgid "common.highlights"
+msgstr "Wydarzenia"
+
+msgid "common.showingXofX"
+msgstr "Wyświetlane <strong>{$start} do {$finish}</strong> z {$total}"
+
+msgid "common.viewMoreDetails"
+msgstr "Zobacz więcej szczegółów"
+
+msgid "common.filtersClear"
+msgstr "Wyczyść filtry"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Recenzenci w poprzednich latach"

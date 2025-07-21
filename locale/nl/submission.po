@@ -2,13 +2,14 @@
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 # ojs <joglobalise@gmail.com>, 2025.
+# Kay Pepping <openjournalsnl@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-06-11 15:34+0000\n"
-"Last-Translator: ojs <joglobalise@gmail.com>\n"
+"PO-Revision-Date: 2025-07-03 15:34+0000\n"
+"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
 "Language: nl\n"
@@ -749,7 +750,6 @@ msgstr "{$datePublished} — Bijgewerkt op {$dateUpdated}"
 msgid "submission.versions"
 msgstr "Versies"
 
-#, fuzzy
 msgid "submission.versionIdentity"
 msgstr "{$datePublished} ({$version})"
 
@@ -2729,8 +2729,8 @@ msgstr ""
 
 msgid "author.competingInterests.description"
 msgstr ""
-"Vermeld eventuele tegenstrijdige belangen die deze auteur heeft met het "
-"onderwerp van het onderzoek."
+"Vermeld s.v.p. eventuele tegenstrijdige belangen die deze auteur heeft met "
+"het onderwerp van het onderzoek."
 
 msgid "author.competingInterests"
 msgstr "Tegenstrijdige belangen"
@@ -2879,3 +2879,376 @@ msgstr ""
 
 msgid "submission.wizard.noReviewerSuggestions"
 msgstr "Er zijn geen recensenten voorgesteld voor deze inzending."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Aan mij toegekend"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Niet op tijd behandelde recensies"
+
+#, fuzzy
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Volledige recensie door vakgenoten"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Ingediende recensies"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "In afwachting van recensies"
+
+#, fuzzy
+msgid "submission.dashboard.view.copyediting"
+msgstr "Volledig in de taalkundige redactiefase"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Alle opdrachten"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "In afwachting"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Voltooid / Afgewezen"
+
+msgid "submission.dashboard.view.active"
+msgstr "Nog in behandeling zijnde inzendingen"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Dit moet nog worden gerecenseerd"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Volledig in de recensiefase"
+
+msgid "submission.dashboard.view.production"
+msgstr "Volledig in de productiefase"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Afgewezen"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Verzochte aanpassingen"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Onvolledige inzendingen"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Ingezonden aanpassingen van de auteur"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Volledig in de inzendingsfase"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Alle opdrachten"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Dit behoeft nog aandacht van een redacteur"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Gepland voor publicatie"
+
+msgid "submission.dashboard.view.published"
+msgstr "Gepubliceerd"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Voltooid"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Te publiceren in uitgave {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Geredigeerde geuploade bestanden: {$count}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Het verzoek is afgewezen op {$date}"
+
+msgid "publication.jats.lastModified"
+msgstr "Laatste modificatie van {$modificationDate} door {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Er deed zich een fout voor bij het bij de standaardinstelling van de JATS "
+"informatie. U wordt vriendelijk verzocht te controleren dat de JATS- "
+"sjabloonuitbreiding wordt geïnstalleerd."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"De gekozen taal van de inzending ({$language}) wordt niet ondersteund door "
+"een van de bestaande inzendingstalen. U kunt nog details van de inzending "
+"bewerken, maar nieuwe inzendingen worden momenteel niet in deze taal "
+"aanvaard."
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"De uiterste datum voor beantwoording van dit verzoek is overschreden. Graag "
+"dit verzoek zo spoedig mogelijk aanvaarden of afwijzen."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Graag deze recensie afronden op {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"De uiterste datum voor afronding van deze recensie is overschreden. "
+"Vriendelijk verzoek de recensie zo spoedig mogelijk af te ronden."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Het recensieverzoek is met {$days} dagen overschreden"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Mijn actie vereist"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Gearchiveerd"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Aangewezen recensenten"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Afgewezen"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Gepubliceerd"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Recensie (Round {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Geplande Publicatiedatum"
+
+msgid "submission.stage.published"
+msgstr "Gepubliceerd"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"U staat op het punt de bestaande JATS XML uit deze publicatie te "
+"verwijderen. Weet u dit zeker?"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Bevestig verwijdering JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Verwijder JATS File"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Deze JATS File is automatisch gegenereerd door de metadata-inzending"
+
+msgid "submission.files.content.error"
+msgstr ""
+"de informatie van de ingezonden file '{$fileName} kan niet worden "
+"teruggevonden."
+
+#, fuzzy
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Redenen voor suggestie van de recensent"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Vriendelijk verzoek aan te geven waarom u deze recensent aanbeveelt en "
+"vermeld ook of een mogelijk tegenstrijdig belang bestaat."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Actualisering recensie {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Filters toepassen"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Start een nieuwe inzending"
+
+msgid "dashboard.assignReviewers"
+msgstr "Wijs recensenten aan"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Aanpassingen verzocht door author"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"De door de author verzochte aanpassingen worden meegenomen naar een nieuwe "
+"recensie round"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Een recensie round wordt ingericht"
+
+msgid "dashboard.revisionRequested"
+msgstr "Verzochte aanpassing"
+
+msgid "dashboard.submitRevisions"
+msgstr "Zend aanpassingen in"
+
+msgid "workflow.uploadRevisions"
+msgstr "Upload aanpassingen"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Beantwoord een verzoek"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Rond recensie af"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Graag dit verzoek aanvaarden of afwijzen voor {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recensie ingezonden op {$date}"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "In afwachting van beantwoording door de recensent"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"De verzochte recensie is gedeeld met de recensent. In afwachting van "
+"beantwoording binnen <b>{$days} dagen op {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Recensieverzoek is afgewezen op {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "De recensent wees het recensieverzoek af op <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"De recensent heeft het recensieverzoek niet beantwoord. Beantwoording werd "
+"verwacht op <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Lopende recensie - aanvaard verzoek"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Deze recensent heeft het recensieverzoek aanvaard. Hun recensie wordt "
+"verwacht binnen <b>{$days) dagen op {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "De recensie is overschreden met {$days} dagen"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Deze recensent heeft de recensie niet voltooid. Een antwoord werd verwacht "
+"op <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Recensie voltooid op {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "De recensie was voltooid op {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "De recensie werd bevestigd door de redacteur"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Recensent annuleerde het recensieverzoek"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Recensent heeft het recensieverzoek geannuleerd op <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "In afwachting van beantwoording door de recensent"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Het recensieverzoek is opnieuw gedeeld met de recensent. Beantwoording wordt "
+"binnen {$days} days on {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"De recensie was voltooid op {$date} met de volgende "
+"aanbeveling:<b>{$recommendation}</b>"
+
+#, fuzzy
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Het minimum aantal recensies is goedgekeurd. Hierdoor is een beslissing "
+"nodig."
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Een becommentarieerde aanbeveling is ontvangen"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Afgewezen tijdens de {$stageName} fase."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Aan de aanbevolen redacteuren is voor deze inzending opgedragen de volgende "
+"stappen te adviseren"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Zie voor uitgebreide informatie"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Zend het recensieverzoek opnieuw in"
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Het minimum aantal goedgekeurde recensies: {$number}."
+
+#, fuzzy
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Omdat u de auteur bent, hebt u geen toegang tot de inzending als "
+"Journalbeheerder, Om deze in te zien, gaat u naar \"Mijn Inzending\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Aangezien u de recensent bent, hebt u geen toegang tot deze inzendking als "
+"tijdschriftbeheerder. Om deze te zien, gaat u naar \"Opdrachtrecensies\""
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Alle becommentarieerde aanbevelingen zijn ontvangen, waardoor een beslissing "
+"nodig is."
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Annuleer recensent"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Ongedaan maken toewijzing"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Uiterste bewerkingsdatum"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Zie aanbeveling"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Zie ongelezen aanbeveling"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Verstuur recensie naar ORCID"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Deze recensie versturen naar reviewer's ORCID?"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Weet u zeker dat u de geselecteerde items wilt vernietigen? Deze handeling "
+"kan niet worden ongedaan gemaakt. U wordt vriendelijk verzocht te bevestigen "
+"om verder te gaan."
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "De recensie werd geaccepteerd door de redacteur op <b>{$date}</b>."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr ""
+"Wilt u doorgaan ondanks dat het minimum aantal goedgekeurde recensies "
+"ontbreekt?"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Selecteer de onvoltooide inzendingen ter vernietiging."
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Alleen toegelaten om een redactionele beslissing aan te bevelen"
+
+msgid "workflow.stageNotStarted"
+msgstr "De {$stage} fase is nog niet gestart."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Momenteel is de inzending in de {$stage} fase."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"De inzending die bevorderd was naar de volgende recensieronde, werd "
+"geaccepteerd en is momenteel in de {$stage} fase."
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Het minimum aantal goedgekeurde recensies is nog niet bereikt. Wilt u nog "
+"steeds doorgaan met deze redactionele beslissing?"

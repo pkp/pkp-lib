@@ -1,11 +1,12 @@
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martin Brändle <martin.braendle@uzh.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2024-08-27 05:40+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"PO-Revision-Date: 2025-07-10 14:55+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/it/"
 ">\n"
 "Language: it\n"
@@ -452,10 +453,10 @@ msgid "author.users.contributor.principalContact"
 msgstr "Contatto principale"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Impostare il contatto primario"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Anteprima"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""

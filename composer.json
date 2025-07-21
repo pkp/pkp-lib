@@ -53,7 +53,8 @@
 		},
 		"allow-plugins": {
 			"cweagans/composer-patches": true,
-			"captainhook/plugin-composer": true
+			"captainhook/plugin-composer": true,
+			"php-http/discovery": true
 		},
 		"sort-packages": true
 	},

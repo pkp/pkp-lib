@@ -115,6 +115,7 @@ class Notification extends Model
             'dateRead' => 'datetime',
             'assocType' => 'int',
             'assocId' => 'int',
+            'type' => 'int',
         ];
     }
 

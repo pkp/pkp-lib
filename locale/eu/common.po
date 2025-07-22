@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-22 09:44+0000\n"
+"PO-Revision-Date: 2025-07-22 09:54+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -823,10 +823,10 @@ msgid "common.sendEmail"
 msgstr "Bidali mezu elektronikoa"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Erakutsi urrats guztiak"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} urratsa"
 
 msgid "common.size"
 msgstr "Tamaina"
@@ -841,10 +841,10 @@ msgid "common.subject"
 msgstr "Gaia"
 
 msgid "common.subjects"
-msgstr ""
+msgstr "Gaiak"
 
 msgid "common.submenu"
-msgstr ""
+msgstr "Azpimenua"
 
 msgid "common.subtitle"
 msgstr "Azpititulua"
@@ -853,16 +853,16 @@ msgid "common.suggest"
 msgstr "Proposatu"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Aldatu hona"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Aldatu hona {$name}"
 
 msgid "common.title"
 msgstr "Titulua"
 
 msgid "common.titleSeparator"
-msgstr ""
+msgstr " | "
 
 msgid "common.top"
 msgstr "Orri-hasierara"
@@ -874,25 +874,27 @@ msgid "common.type"
 msgstr "Mota"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "{$name}-k igo du"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "{$name}-k igota {$date} honetan"
 
 msgid "common.component"
-msgstr ""
+msgstr "Osagaia"
 
 msgid "common.uninitiated"
 msgstr "Hasi gabe"
 
 msgid "common.unknownError"
 msgstr ""
+"Ustekabeko errore bat gertatu da. Mesedez, kargatu berriro orria eta saiatu "
+"berriro."
 
 msgid "common.unread"
 msgstr "Irakurri gabea"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Gorde gabeko aldaketak"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
@@ -904,7 +906,7 @@ msgid "common.updated"
 msgstr "Eguneratuta"
 
 msgid "common.uploadedDate"
-msgstr ""
+msgstr "Kargatze-data"
 
 msgid "common.upload"
 msgstr "Kargatu"
@@ -918,16 +920,16 @@ msgid "common.up"
 msgstr "Gora"
 
 msgid "common.addFile"
-msgstr ""
+msgstr "Gehitu fitxategia"
 
 msgid "common.upload.addFile"
-msgstr ""
+msgstr "Kargatu fitxategia"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Igo fitxategi bat zure ordenagailutik."
 
 msgid "common.upload.restore"
-msgstr ""
+msgstr "Leheneratu jatorrizkoa"
 
 msgid "common.upload.thumbnailPreview"
 msgstr ""
@@ -2285,3 +2287,7 @@ msgstr "Nabarmenduak"
 
 msgid "common.assignments"
 msgstr "Esleipenak"
+
+msgid "common.showingXofX"
+msgstr ""
+"<strong>{$start}-(e)tik {$finish}-(e)ra</strong> erakusten. Guztira: {$total}"

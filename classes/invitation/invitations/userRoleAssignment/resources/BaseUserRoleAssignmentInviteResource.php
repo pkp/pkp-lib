@@ -51,8 +51,8 @@ class BaseUserRoleAssignmentInviteResource extends JsonResource
                 'userGroupId' => $userGroup['userGroupId'],
                 'userGroupName' => $userGroupModel->getLocalizedData('name'),
                 'masthead' => $userGroup['masthead'],
-                'dateStart' => $userGroup['dateStart'],
-                'dateEnd' => $userGroup['dateEnd'],
+                'dateStart' => $data['dateStart'] ?? null,
+                'dateEnd' => $data['dateEnd'] ?? null,
             ];
         })->toArray();
     }

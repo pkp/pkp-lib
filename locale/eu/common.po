@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-16 16:02+0000\n"
+"PO-Revision-Date: 2025-07-22 09:44+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr ""
+msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
-msgstr ""
+msgstr "Uneko estilo-orria"
 
 msgid "about.description"
 msgstr "Deskribapena"
 
 msgid "about.guidelines"
-msgstr ""
+msgstr "Jarraibideak"
 
 msgid "about.aboutSite"
 msgstr "Guneari buruz"
@@ -84,28 +84,29 @@ msgid "common.allDownloads"
 msgstr "Deskarga guztiak"
 
 msgid "common.navigation.sidebar"
-msgstr ""
+msgstr "Alboko barra"
 
 msgid "common.navigation.site"
-msgstr ""
+msgstr "Gunearen nabigazioa"
 
 msgid "common.navigation.siteContext"
-msgstr ""
+msgstr "Gunearen testuinguruko nabigazioa"
 
 msgid "common.navigation.user"
-msgstr ""
+msgstr "Erabiltzailearen nabigazioa"
 
 msgid "common.tasks"
-msgstr ""
+msgstr "Zereginak"
 
 msgid "common.list"
-msgstr ""
+msgstr "Zerrenda"
 
 msgid "common.grid"
-msgstr ""
+msgstr "Sareta"
 
 msgid "common.confirmDelete"
 msgstr ""
+"Ziur zaude elementu hau ezabatu nahi duzula? Ekintza hau ezin da desegin."
 
 msgid "common.abstract"
 msgstr "Laburpena"
@@ -132,22 +133,22 @@ msgid "common.add"
 msgstr "Gehitu"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Gehitu CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Gehitu fitxategiak"
 
 msgid "common.addSelf"
 msgstr "Gehitu nire burua"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Erantsitako fitxategiak"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Erantsi fitxategiak"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Erantsi hautatukoa"
 
 msgid "common.name"
 msgstr "Izena"
@@ -183,7 +184,7 @@ msgid "common.assigned"
 msgstr "Esleituta"
 
 msgid "common.assigned.date"
-msgstr ""
+msgstr "Esleituta: {$dateAssigned}"
 
 msgid "common.available"
 msgstr ""
@@ -204,10 +205,10 @@ msgid "common.warning"
 msgstr "Oharra"
 
 msgid "common.error"
-msgstr ""
+msgstr "Errorea"
 
 msgid "common.notice"
-msgstr ""
+msgstr "Jakinarazpena"
 
 msgid "common.captcha.error.missing-input-response"
 msgstr ""
@@ -248,7 +249,7 @@ msgid "common.close"
 msgstr "Itxi"
 
 msgid "common.closePanel"
-msgstr ""
+msgstr "Itxi panela"
 
 msgid "common.closeWindow"
 msgstr "Itxi leihoa"
@@ -260,19 +261,19 @@ msgid "common.completed"
 msgstr "Bukatuta"
 
 msgid "common.completed.date"
-msgstr ""
+msgstr "Osatuta: {$dateCompleted}"
 
 msgid "common.confirm"
 msgstr "Baieztatu"
 
 msgid "common.confirmed.date"
-msgstr ""
+msgstr "Baieztatuta: {$dateConfirmed}"
 
 msgid "common.content"
 msgstr "Edukia"
 
 msgid "common.contents"
-msgstr ""
+msgstr "Edukiak"
 
 msgid "common.continue"
 msgstr "Jarraitu"
@@ -290,7 +291,7 @@ msgid "common.dateCompleted"
 msgstr "Bukatze-data"
 
 msgid "common.dateDecided"
-msgstr ""
+msgstr "Erabakitako data"
 
 msgid "common.date"
 msgstr "Data"
@@ -308,7 +309,7 @@ msgid "common.dateUploaded"
 msgstr "Kargatze-data"
 
 msgid "common.dateHijri"
-msgstr ""
+msgstr "Hijri egutegia"
 
 msgid "common.day"
 msgstr "Eguna"
@@ -326,34 +327,34 @@ msgid "common.delete"
 msgstr "Ezabatu"
 
 msgid "common.deleting"
-msgstr ""
+msgstr "Ezabatzen"
 
 msgid "common.deleteSelection"
 msgstr "Ezabatu hautapena"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Deshautatu"
 
 msgid "common.designation"
-msgstr ""
+msgstr "Izendapena"
 
 msgid "common.description"
 msgstr "Azalpena"
 
 msgid "common.details"
-msgstr ""
+msgstr "Xehetasunak"
 
 msgid "common.dimensionsInches"
-msgstr ""
+msgstr "{$width}\" x {$height}\" @ {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
-msgstr ""
+msgstr "{$width} x {$height} pixel"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Ez, baztertu gorde gabeko aldaketak"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Deskonektatuta"
 
 msgid "common.disable"
 msgstr "Desgaitu"
@@ -371,25 +372,25 @@ msgid "common.download"
 msgstr "Deskargatu"
 
 msgid "common.downloadPdf"
-msgstr ""
+msgstr "Deskargatu PDFa"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Deskargatu txostena"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Arrastatu eta askatu fitxategiak hemen."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Edo igo fitxategi bat"
 
 msgid "common.edit"
 msgstr "Editatu"
 
 msgid "common.editItem"
-msgstr ""
+msgstr "Editatu {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Mezu elektronikoen txantiloiak"
 
 msgid "common.enable"
 msgstr "Gaitu"
@@ -451,19 +452,19 @@ msgid "common.filter"
 msgstr "Iragazkiak"
 
 msgid "common.filterAdd"
-msgstr ""
+msgstr "Gehitu iragazkia: {$filterTitle}"
 
 msgid "common.filterRemove"
-msgstr ""
+msgstr "Garbitu iragazkia: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Bilatu txantiloia"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formatua"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geografikoa"
 
 msgid "common.go"
 msgstr "Aurrera"
@@ -493,13 +494,13 @@ msgid "common.inProgress"
 msgstr "Lanean"
 
 msgid "common.insert"
-msgstr ""
+msgstr "Txertatu"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Txertatu edukia"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Bilatu txertatzeko edukia"
 
 msgid "common.itemsPerPage"
 msgstr "Elementu orriko"
@@ -508,7 +509,7 @@ msgid "common.keywords"
 msgstr "Gako-hitzak"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etiketa"
 
 msgid "common.language"
 msgstr "Hizkuntza"
@@ -517,22 +518,22 @@ msgid "common.languages"
 msgstr "Hizkuntzak"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Gordetako azkena {$when}"
 
 msgid "common.lastActivity"
-msgstr ""
+msgstr "Azken jarduera {$date} egunean erregistratu zen."
 
 msgid "common.less"
 msgstr "Gutxiago"
 
 msgid "common.lessThan"
-msgstr ""
+msgstr "{$value} edo gutxiago"
 
 msgid "common.lessThanOnly"
-msgstr ""
+msgstr "Hau baino gutxiago"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Jarraitu lanean"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -562,10 +563,10 @@ msgid "common.more"
 msgstr "Gehiago"
 
 msgid "common.moreThan"
-msgstr ""
+msgstr "{$value} edo gehiago"
 
 msgid "common.moreThanOnly"
-msgstr ""
+msgstr "Hau baino gehiago"
 
 msgid "common.noneAssigned"
 msgstr "Esleitu gabe"
@@ -574,16 +575,16 @@ msgid "common.none"
 msgstr "Bat ere ez"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Bat ere ez da hautatu"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Bat ere ez"
 
 msgid "common.no"
 msgstr "Ez"
 
 msgid "common.noItemsFound"
-msgstr ""
+msgstr "Ez da elementurik aurkitu."
 
 msgid "common.noComments"
 msgstr "Iruzkinik ez"
@@ -601,13 +602,15 @@ msgid "common.note"
 msgstr "Oharra"
 
 msgid "common.noTemporaryFile"
-msgstr ""
+msgstr "Igo duzun fitxategia ezin izan da aurkitu. Saiatu berriro igotzen."
 
 msgid "common.notes"
 msgstr "Oharrak"
 
 msgid "common.notes.tooltip"
 msgstr ""
+"Oharrak (horia: ohar berriak ditu; urdina: ikusitako oharrak ditu; grisa: "
+"oharrik ez du)"
 
 msgid "common.notified"
 msgstr "Jakinarazia"
@@ -619,7 +622,7 @@ msgid "common.noMatches"
 msgstr "Ez dago bat datorrenik"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} gehiago"
 
 msgid "common.off"
 msgstr "Off"
@@ -637,10 +640,10 @@ msgid "common.order"
 msgstr "Ordena"
 
 msgid "common.orderUp"
-msgstr ""
+msgstr "Igo {$itemTitle}-ren postua"
 
 msgid "common.orderDown"
-msgstr ""
+msgstr "Jaitsi {$itemTitle}-ren postua"
 
 msgid "common.originalFileName"
 msgstr "Jatorrizko izena"
@@ -655,28 +658,28 @@ msgid "common.overdue"
 msgstr "Atzeratua"
 
 msgid "common.override"
-msgstr ""
+msgstr "Gainidatzi"
 
 msgid "common.pagination"
-msgstr ""
+msgstr "{$start}-{$end} {$total}-etik"
 
 msgid "common.pagination.label"
-msgstr ""
+msgstr "Ikusi orrialde gehigarriak"
 
 msgid "common.pagination.goToPage"
-msgstr ""
+msgstr "Joan {$page}-era"
 
 msgid "common.pagination.next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgid "common.pagination.previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 msgid "common.pageNumber"
-msgstr ""
+msgstr "Orria{$pageNumber}"
 
 msgid "common.percentage"
-msgstr ""
+msgstr "% {$percentage}"
 
 msgid "common.plugin"
 msgstr "Plugina"
@@ -691,7 +694,7 @@ msgid "common.prefix"
 msgstr "Aurrizkia"
 
 msgid "common.prefixAndTitle.tip"
-msgstr ""
+msgstr "Adibidez: bat, -a"
 
 msgid "common.preview"
 msgstr "Aurrebista"
@@ -700,13 +703,13 @@ msgid "common.publisher"
 msgstr "Argitaratzailea"
 
 msgid "common.quality"
-msgstr ""
+msgstr "Kalitatea"
 
 msgid "common.queue.long.active"
-msgstr ""
+msgstr "Guztiak aktibo"
 
 msgid "common.range"
-msgstr ""
+msgstr "{$min}-{$max}"
 
 msgid "common.re"
 msgstr "Re:"
@@ -715,10 +718,10 @@ msgid "common.readMore"
 msgstr "Gehiago irakurri"
 
 msgid "common.readMoreWithTitle"
-msgstr ""
+msgstr "Irakurri gehiago {$title}-ri buruz"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Berriz konektatzen"
 
 msgid "common.record"
 msgstr "Grabatu"
@@ -733,7 +736,7 @@ msgid "common.reminder"
 msgstr "Gogorarazlea"
 
 msgid "common.reminded.date"
-msgstr ""
+msgstr "Gogorarazita: {$dateReminded}"
 
 msgid "common.remote"
 msgstr "Urruneko"
@@ -745,7 +748,7 @@ msgid "common.remove"
 msgstr "Kendu"
 
 msgid "common.removeItem"
-msgstr ""
+msgstr "Ezabatu {$item}"
 
 msgid "common.removeSelection"
 msgstr "Kendu hautapena"
@@ -766,7 +769,7 @@ msgid "common.reset"
 msgstr "Berrezarri"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Erronda {$round}"
 
 msgid "common.role"
 msgstr "Rola"
@@ -781,22 +784,22 @@ msgid "common.save"
 msgstr "Gorde"
 
 msgid "common.saving"
-msgstr ""
+msgstr "Gordetzen"
 
 msgid "common.search"
 msgstr "Bilatu"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Bilatu esaldia"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Bilatzen"
 
 msgid "common.searchQuery"
-msgstr ""
+msgstr "Bilaketa"
 
 msgid "common.clearSearch"
-msgstr ""
+msgstr "Garbitu bilaketa-esaldia"
 
 msgid "common.second"
 msgstr "Segundoa(k)"
@@ -805,7 +808,7 @@ msgid "common.selectAll"
 msgstr "Hautatu dena"
 
 msgid "common.selectedPrefix"
-msgstr ""
+msgstr "Hautatuta:"
 
 msgid "common.selectNone"
 msgstr "Ez hautatu bat ere"
@@ -814,10 +817,10 @@ msgid "common.select"
 msgstr "Hautatu"
 
 msgid "common.selectWithName"
-msgstr ""
+msgstr "Hautatu {$name}"
 
 msgid "common.sendEmail"
-msgstr ""
+msgstr "Bidali mezu elektronikoa"
 
 msgid "common.showAllSteps"
 msgstr ""
@@ -1420,7 +1423,7 @@ msgid "navigation.browse"
 msgstr "Arakatu"
 
 msgid "navigation.backTo"
-msgstr ""
+msgstr "⟵ Itzuli {$page}-(e)ra"
 
 msgid "navigation.browseByAuthor"
 msgstr "Egileka"
@@ -2246,3 +2249,39 @@ msgstr ""
 
 #~ msgid "common.element"
 #~ msgstr "Elementu"
+
+msgid "common.yesContinue"
+msgstr "Bai, jarraitu"
+
+msgid "common.filtersClear"
+msgstr "Ezabatu iragazkiak"
+
+msgid "common.moreActions"
+msgstr "Ekintza gehiago"
+
+msgid "common.editorialMasthead"
+msgstr "Editorialeko goiburua"
+
+msgid "common.editorialHistory.page"
+msgstr "Edizio-historiaren orria"
+
+msgid "common.editorialHistory"
+msgstr "Edizio-historia"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Atal honek aurreko kolaboratzaileak zerrendatzen ditu."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ikusi <a href=\"{$url}\">edizio-historia</a>"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ikusi {$name}-(r)en ORCID profila"
+
+msgid "common.highlight"
+msgstr "Nabarmendu"
+
+msgid "common.highlights"
+msgstr "Nabarmenduak"
+
+msgid "common.assignments"
+msgstr "Esleipenak"

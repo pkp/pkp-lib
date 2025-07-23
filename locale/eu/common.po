@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-22 09:54+0000\n"
+"PO-Revision-Date: 2025-07-24 07:19+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -187,7 +187,7 @@ msgid "common.assigned.date"
 msgstr "Esleituta: {$dateAssigned}"
 
 msgid "common.available"
-msgstr ""
+msgstr "Eskuragarri"
 
 msgid "common.back"
 msgstr "Atzera"
@@ -212,6 +212,8 @@ msgstr "Jakinarazpena"
 
 msgid "common.captcha.error.missing-input-response"
 msgstr ""
+"Spam bidalketak saihesteko erabiltzen den balidazio-egiaztapena bete behar "
+"duzu."
 
 msgid "common.ccLicense"
 msgstr ""
@@ -932,13 +934,13 @@ msgid "common.upload.restore"
 msgstr "Leheneratu jatorrizkoa"
 
 msgid "common.upload.thumbnailPreview"
-msgstr ""
+msgstr "Une honetan hautatutako irudiaren aurrebista."
 
 msgid "common.upload.changeFile"
-msgstr ""
+msgstr "Aldatu fitxategia"
 
 msgid "common.upload.dragFile"
-msgstr ""
+msgstr "Arrastatu eta askatu hemen fitxategi bat igotzen hasteko"
 
 msgid "common.url"
 msgstr "URLa"
@@ -947,19 +949,19 @@ msgid "common.user"
 msgstr "Erabiltzailea"
 
 msgid "common.user.nonexistent"
-msgstr ""
+msgstr "[Existitzen ez den erabiltzailea]"
 
 msgid "common.view"
 msgstr "Ikusi"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Ikusi errorea"
 
 msgid "common.viewWithName"
-msgstr ""
+msgstr "Ikusi {$name}"
 
 msgid "common.viewProfile"
-msgstr ""
+msgstr "Ikusi profila"
 
 msgid "common.weeks"
 msgstr "aste"
@@ -983,10 +985,10 @@ msgid "common.plugins"
 msgstr "Pluginak"
 
 msgid "common.count"
-msgstr ""
+msgstr "Guztira"
 
 msgid "common.publicAccess"
-msgstr ""
+msgstr "Sarbide publikoa"
 
 msgid "debug.databaseQueries"
 msgstr "Datu-base kontsulten kopurua"
@@ -1010,22 +1012,22 @@ msgid "debug.notes"
 msgstr "Oharrak:"
 
 msgid "defaultMetric.title"
-msgstr ""
+msgstr "Metrika lehenetsia"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Igo ebaluazio-fitxategia"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr ""
+msgstr "Igo fitxategia"
 
 msgid "email.addAttachment"
 msgstr "Gehitu eranskina"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Erantsi bidalketa-fitxategiak"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Erantsi egileak bidalketa-fasean igotako fitxategiak."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
@@ -1033,19 +1035,19 @@ msgstr ""
 "ebaluazioak edo berrikusi beharreko fitxategiak."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Liburutegiko fitxategiak"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Erantsi liburutegiko fitxategiak"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Erantsi fitxategiak bidalketatik eta argitaratzailearen liburutegitik."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Erantsi berrikuspen-fitxategiak"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Erantsi berrikusleek igotako fitxategiak"
 
 msgid "email.addBccRecipient"
 msgstr "Gehitu BCC"
@@ -1060,7 +1062,7 @@ msgid "email.attachments"
 msgstr "Eranskinak"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Ezin izan da {$fileName} fitxategia erantsi."
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1113,10 +1115,10 @@ msgid "email.sender"
 msgstr "Bidaltzailea"
 
 msgid "email.senderName"
-msgstr ""
+msgstr "Bidaltzailearen izena"
 
 msgid "email.senderEmail"
-msgstr ""
+msgstr "Bidaltzailearen posta elektronikoa"
 
 msgid "email.send"
 msgstr "Bidali"
@@ -1137,7 +1139,7 @@ msgid "email.to"
 msgstr "Nori"
 
 msgid "form.url.invalid"
-msgstr ""
+msgstr "Zehaztutako URLa baliogabea da. Mesedez, egiaztatu eta saiatu berriro."
 
 msgid "form.confirmSubmit"
 msgstr "Ziur zaude inprimaki hau bidali nahi duzula?"
@@ -1149,16 +1151,18 @@ msgid "form.dataHasChanged"
 msgstr "Inprimaki honetako datuak aldatu dira. Jarraitu hala ere?"
 
 msgid "form.disallowedLocales"
-msgstr ""
+msgstr "Hizkuntza hauek bakarrik onartzen dira: {$languages}."
 
 msgid "form.disallowedProp"
-msgstr ""
+msgstr "Propietate hau ez da onartzen."
 
 msgid "form.dropzone.dictDefaultMessage"
 msgstr "Utzi fitxategiak hemen igotzeko"
 
 msgid "form.dropzone.dictFallbackMessage"
 msgstr ""
+"Zure nabigatzaileak ez du onartzen \"arrastatu eta askatu\" fitxategi-"
+"igoerarik."
 
 msgid "form.dropzone.dictFallbackText"
 msgstr ""
@@ -1173,31 +1177,31 @@ msgid "form.dropzone.dictResponseError"
 msgstr ""
 
 msgid "form.dropzone.dictCancelUpload"
-msgstr ""
+msgstr "Ezeztatu kargatzea"
 
 msgid "form.dropzone.dictUploadCanceled"
-msgstr ""
+msgstr "Kargatzea ezeztatua"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr ""
+msgstr "Ziur zaude kargatze hau bertan behera utzi nahi duzula?"
 
 msgid "form.dropzone.dictRemoveFile"
-msgstr ""
+msgstr "Ezabatu fitxategia"
 
 msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr ""
+msgstr "Ezin dituzu fitxategi gehiago igo."
 
 msgid "form.errorA11y"
-msgstr ""
+msgstr "Joan hona {$fieldLabel}: {$errorMessage}"
 
 msgid "form.errorGoTo"
-msgstr ""
+msgstr "Joan hurrengo errorera"
 
 msgid "form.errorOne"
-msgstr ""
+msgstr "Mesedez, zuzendu akats bat."
 
 msgid "form.errorMany"
-msgstr ""
+msgstr "Mesedez, zuzendu {$count} akatsak."
 
 msgid "form.errors"
 msgstr ""
@@ -1228,22 +1232,22 @@ msgid "form.csrfInvalid"
 msgstr ""
 
 msgid "form.fileRequired"
-msgstr ""
+msgstr "Fitxategi bat igo behar da."
 
 msgid "form.required"
 msgstr "(* Nahitaezkoa)"
 
 msgid "form.requirePrimaryLocale"
-msgstr ""
+msgstr "Eremu hau {$language} hizkuntzan bete behar duzu."
 
 msgid "form.requireId"
-msgstr ""
+msgstr "Baliozko IDa eman behar duzu."
 
 msgid "form.resubmit"
 msgstr "Birbidali"
 
 msgid "form.saved"
-msgstr ""
+msgstr "Gordeta"
 
 msgid "form.saveToUpload"
 msgstr "Fitxategia kargatzeko, hautatu Gorde."
@@ -1260,10 +1264,10 @@ msgstr ""
 "jpg."
 
 msgid "form.multilingualLabel"
-msgstr ""
+msgstr "{$label} {$localeName}-an"
 
 msgid "form.multilingualProgress"
-msgstr ""
+msgstr "{$count}/{$total} hizkuntza osatu dira"
 
 msgid "help.help"
 msgstr "Laguntza"
@@ -1272,10 +1276,10 @@ msgid "help.toc"
 msgstr "Aurkibidea"
 
 msgid "help.previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 msgid "help.next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgid "help.upALevel"
 msgstr "Igo maila bat"
@@ -1320,7 +1324,7 @@ msgid "icon.view.alt"
 msgstr "Ikusi"
 
 msgid "informationCenter.informationCenter"
-msgstr ""
+msgstr "Informazio-zentroa"
 
 msgid "informationCenter.editorialHistory"
 msgstr ""
@@ -2291,3 +2295,9 @@ msgstr "Esleipenak"
 msgid "common.showingXofX"
 msgstr ""
 "<strong>{$start}-(e)tik {$finish}-(e)ra</strong> erakusten. Guztira: {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Kargatuta"

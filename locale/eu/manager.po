@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-17 19:22+0000\n"
+"PO-Revision-Date: 2025-07-24 07:19+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -923,16 +923,16 @@ msgid "manager.setup.copyrightNotice.description"
 msgstr ""
 
 msgid "manager.setup.authorGuidelines"
-msgstr ""
+msgstr "Egileentzako gidalerroak"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Desgaitu bidalketak"
 
 msgid "manager.setup.checklist"
-msgstr ""
+msgstr "Kontrol-zerrenda"
 
 msgid "manager.setup.competingInterests"
 msgstr ""
@@ -1861,160 +1861,199 @@ msgid "manager.setup.licenseURLDescription"
 msgstr ""
 
 msgid "manager.setup.metadata.submission"
-msgstr ""
+msgstr "Bidalketa-formularioa"
 
 msgid "manager.setup.metadata.coverage"
-msgstr ""
+msgstr "Estaldura"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
+"Estaldurak, normalean, lan baten kokapen espaziala (leku-izen bat edo "
+"koordenatu geografikoak), denbora-tartea (aldiaren etiketa, data edo data-"
+"tartea) edo jurisdikzioa (izendatutako erakunde administratibo bat, adibidez)"
+" adieraziko ditu."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr ""
+msgstr "Gaitu estalduraren metadatuak"
 
 msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
+msgstr "Ez eskatu estaldura-metadaturik egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.coverage.request"
 msgstr ""
+"Eskatu egileari estalduraren metadatuak iradokitzeko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
+"Eskatu egileari estaldura-metadatuak iradokitzeko bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
+"Gako-hitzak hitz batetik hirura bitarteko esaldiak izaten dira normalean, "
+"eta bidalketa baten gai nagusiak adierazteko erabiltzen dira."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr ""
+msgstr "Gaitu gako-hitzaren metadatuak"
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
+msgstr "Ez eskatu gako-hitzik egileari bidalketa bitartean."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr ""
+msgstr "Eskatu egileari gako-hitzak iradokitzeko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.keywords.require"
-msgstr ""
+msgstr "Eskatu egileari gako-hitzak iradokitzeko bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
+"Bidalketaren gaineko eskubide guztiak, jabetza intelektualeko eskubideak "
+"(IPR), egile-eskubideak eta hainbat jabetza-eskubide barne."
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr ""
+msgstr "Gaitu eskubideen metadatuak"
 
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
+msgstr "Ez eskatu egileari eskubideen berri emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
+"Eskatu egileari aurretiazko edozein sarbide-eskubide jakinarazteko bidalketa-"
+"prozesuan."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
+"Eskatu egileari aurretiazko sarbide-eskubideak jakinarazteko bere bidalketa "
+"onartu aurretik."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
+"Iturria bidalketa eratorri den beste lan baten edo baliabide baten ID bat "
+"izan daiteke, hala nola DOI bat."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr ""
+msgstr "Gaitu iturrien metadatuak"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
+msgstr "Ez eskatu iturburu URLa egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.source.request"
-msgstr ""
+msgstr "Eskatu egileari iturburu URLa bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
+"Eskatu egileari iturburu URL bat emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
+"Gaiak aurkezpenaren gaia deskribatzen duten gako-hitzak, gako-esaldiak edo "
+"sailkapen-kodeak izango dira."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr ""
+msgstr "Gaitu gaiaren metadatuak"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
+msgstr "Ez eskatu gaiak egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr ""
+msgstr "Eskatu egileari gaiak emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
+msgstr "Eskatu egileari gaiak emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
+"Bidalketaren eduki nagusiaren izaera edo generoa. Mota normalean \"Testua\" "
+"izaten da, baina baita ere \"Datu-multzoa\", \"Irudia\" edo <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"dcmi-terms/\">Dublin Core motaren bat</a>."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr ""
+msgstr "Gaitu motaren metadatuak"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
+msgstr "Ez eskatu mota egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.type.request"
-msgstr ""
+msgstr "Eskatu egileari mota emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.type.require"
-msgstr ""
+msgstr "Eskatu egileari mota emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
+"Diziplinak unibertsitateko fakultateek eta gizarte ikasiek deskribatzen "
+"dituzten ikasketa motak edo ezagutza adarrak dira."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr ""
+msgstr "Gaitu diziplinen metadatuak"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
+msgstr "Ez eskatu diziplinarik egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
+msgstr "Eskatu egileari diziplinak emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
+msgstr "Eskatu egileari diziplinak emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
+"Laguntza-agentziek ikerketa-finantzaketaren iturria edo ikerketa erraztu "
+"duen bestelako erakunde-laguntza adieraz dezakete."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr ""
+msgstr "Gaitu laguntza-agentzien metadatuak"
 
 msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
+msgstr "Ez eskatu egileari laguntza-agentziarik bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.agencies.request"
-msgstr ""
+msgstr "Eskatu egileari bidalketa-prozesuan laguntza-agentziaren berri emateko."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Eskatu egileari laguntza-agentzien berri adierazteko bere bidalketa onartu "
+"aurretik."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
+"Bildu bidalketa baten erreferentziak aparteko eremu batean. Baliteke hau "
+"beharrezkoa izatea Crossref bezalako aipamenen jarraipen-zerbitzuekin "
+"jarduteko."
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr ""
+msgstr "Gaitu erreferentzien metadatuak"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr ""
+msgstr "Ez eskatu erreferentziarik egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.citations.request"
-msgstr ""
+msgstr "Eskatu egileari erreferentziak emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.citations.require"
-msgstr ""
+msgstr "Eskatu egileari erreferentziak emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Egileek bere ikerketa-datuak eskuragarri jarri dituzten ala ez eta, hala "
+"bada, irakurleek nondik eskura ditzaketen azaltzen duen adierazpen labur bat."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Gaitu datuen erabilgarritasun adierazpenaren metadatuak"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Ez eskatu egileari datuen erabilgarritasun adierazpenik bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Eskatu egileari datuen erabilgarritasun adierazpena emateko bidalketa-"
+"prozesuan."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Eskatu egileari datuen erabilgarritasun adierazpena emateko bere bidalketa "
+"onartu aurretik."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr ""

@@ -16,7 +16,6 @@ namespace PKP\submission\reviewer\suggestion;
 
 use APP\facades\Repo;
 use Carbon\Carbon;
-use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -194,7 +193,7 @@ class ReviewerSuggestion extends Model
     protected function submission(): Attribute
     {
         return Attribute::make(
-            get: fn () => Repo::submission()->get($this->submissionId, true),
+            get: fn () => Repo::submission()->get($this->submissionId),
         )->shouldCache();
     }
 

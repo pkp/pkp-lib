@@ -208,6 +208,14 @@ class PKPTemplateManager extends Smarty
         }
 
         if (Application::isInstalled()) {
+
+            // Inject the CSRF token in header, see https://github.com/pkp/pkp-lib/issues/10311
+            $this->addHeader(
+                'meta',
+                '<meta name="csrf-token" content="'.$request->getSession()->token().'" />',
+                ['contexts' => ['frontend', 'backend']]
+            );
+
             $activeTheme = null;
             $contextOrSite = $currentContext ? $currentContext : $request->getSite();
             $allThemes = PluginRegistry::getPlugins('themes');

@@ -25,6 +25,8 @@ use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
+use Illuminate\Support\Facades\View;
+use PKP\core\PKPContainer;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -57,9 +59,21 @@ class AboutContextHandler extends Handler
      */
     public function index($args, $request)
     {
-        $templateMgr = TemplateManager::getManager($request);
-        $this->setupTemplate($request);
-        $templateMgr->display('frontend/pages/about.tpl');
+        // Render template with page.blade.php
+        // we can also use View::make('TEMPLATE', [...]);
+        echo view('bladeTest.about', [
+            'title' => 'My Title',
+            'text' => 'This is my text!',
+        ]);
+
+        // echo \Illuminate\Support\Facades\View::make('about', [
+        //     'title' => 'My Title',
+        //     'text' => 'This is my text!',
+        // ]);
+        
+        // $templateMgr = TemplateManager::getManager($request);
+        // $this->setupTemplate($request);
+        // $templateMgr->display('frontend/pages/about.tpl');
     }
 
 

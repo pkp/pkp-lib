@@ -129,18 +129,22 @@ class I7135_CreateNewRorRegistryCacheTables extends Migration
             ->distinct()
             ->get();
 
-        $rows->each(function ($row) {
+        $groupedRows = $rows->groupBy('author_id');
+
+        $groupedRows->each(function ($row, $key) {
             DB::table('author_affiliations')
-                ->insert(['author_id' => $row->author_id]);
+                ->insert(['author_id' => $key]);
 
             $newId = DB::getPdo()->lastInsertId();
-            DB::table('author_affiliation_settings')
-                ->insert([
-                    'author_affiliation_id' => $newId,
-                    'locale' => $row->locale,
-                    'setting_name' => 'name',
-                    'setting_value' => $row->setting_value
-                ]);
+            $row->each(function ($affiliationRow) use ($newId) {
+                DB::table('author_affiliation_settings')
+                    ->insert([
+                        'author_affiliation_id' => $newId,
+                        'locale' => $affiliationRow->locale,
+                        'setting_name' => 'name',
+                        'setting_value' => $affiliationRow->setting_value
+                    ]);
+            });
         });
     }
 }

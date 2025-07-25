@@ -1712,29 +1712,8 @@ msgstr "Área do Conhecimento"
 msgid "search.fullText"
 msgstr "Texto Completo"
 
-msgid "search.indexTerms"
-msgstr "Termos indexados"
-
-msgid "search.indexTermsLong"
-msgstr "Todos os campos de índices"
-
-msgid "search.matchAll"
-msgstr "Encontrar em todas as categorias"
-
 msgid "search.noResults"
 msgstr "Nenhum resultado encontrado"
-
-msgid "search.operator.and"
-msgstr "e"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Buscar por"
 
 msgid "search.searchResults"
 msgstr "Resultado da pesquisa"

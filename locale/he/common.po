@@ -128,15 +128,6 @@ msgstr "סוג ההודעה נערך."
 msgid "notification.addedNote"
 msgstr "הערה פורסמה."
 
-msgid "search.operator.not"
-msgstr "לא"
-
-msgid "search.operator.or"
-msgstr "או"
-
-msgid "search.SearchFor"
-msgstr "חפש"
-
 msgid "search.searchResults"
 msgstr "תוצאות חיפוש"
 
@@ -1187,20 +1178,8 @@ msgstr "דיסציפלינות"
 msgid "search.fullText"
 msgstr "טקסט מלא"
 
-msgid "search.indexTerms"
-msgstr "מונחי מדד"
-
-msgid "search.indexTermsLong"
-msgstr "כל שדות מונחי המדד"
-
-msgid "search.matchAll"
-msgstr "התאם את כל הקטגוריות"
-
 msgid "search.noResults"
 msgstr "אין תוצאות"
-
-msgid "search.operator.and"
-msgstr "ו"
 
 msgid "search.searchResults.foundSingle"
 msgstr "נמצא פריט אחד."

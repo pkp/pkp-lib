@@ -30,6 +30,7 @@ use APP\file\PublicFileManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 use Less_Parser;
 use PKP\config\Config;
@@ -1778,9 +1779,9 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        $page = $iterator->getPage();
-        $pageCount = $iterator->getPageCount();
-        $itemTotal = $iterator->getCount();
+        $page = $iterator instanceof LengthAwarePaginator ? $iterator->currentPage() : $iterator->getPage();
+        $pageCount = $iterator instanceof LengthAwarePaginator ? $iterator->lastPage() : $iterator->getPageCount();
+        $itemTotal = $iterator instanceof LengthAwarePaginator ? $iterator->total() : $iterator->getCount();
 
         if ($pageCount < 1) {
             return '';
@@ -1987,8 +1988,8 @@ class PKPTemplateManager extends Smarty
             $numPageLinks = 10;
         }
 
-        $page = $iterator->getPage();
-        $pageCount = $iterator->getPageCount();
+        $page = $iterator instanceof LengthAwarePaginator ? $iterator->currentPage() : $iterator->getPage();
+        $pageCount = $iterator instanceof LengthAwarePaginator ? $iterator->lastPage() : $iterator->getPageCount();
 
         $pageBase = max($page - floor($numPageLinks / 2), 1);
         $paramName = $name . 'Page';

@@ -1697,29 +1697,8 @@ msgstr "Dyscyplina"
 msgid "search.fullText"
 msgstr "Pełny tekst"
 
-msgid "search.indexTerms"
-msgstr "Słowa kluczowe"
-
-msgid "search.indexTermsLong"
-msgstr "Wszystkie indeksowane terminy"
-
-msgid "search.matchAll"
-msgstr "Wszystkie kategorie"
-
 msgid "search.noResults"
 msgstr "Brak wyników"
-
-msgid "search.operator.and"
-msgstr "oraz"
-
-msgid "search.operator.not"
-msgstr "nie"
-
-msgid "search.operator.or"
-msgstr "lub"
-
-msgid "search.SearchFor"
-msgstr "Znajdź"
 
 msgid "search.searchResults"
 msgstr "Wyniki wyszukiwania"

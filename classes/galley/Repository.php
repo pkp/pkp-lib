@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/galley/Repository.php
  *
@@ -19,6 +20,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\LazyCollection;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -205,5 +207,28 @@ class Repository
         }
 
         Hook::call('Galley::delete', [$galley]);
+    }
+
+    /**
+     * Get all minor versions galleys of the same submission, that are
+     * with the same version stage, version major and DOI ID
+     * as the given galley
+     *
+     * @return LazyCollection<int,T>
+     */
+    public function getMinorVersionsWithSameDoi(Galley $galley): LazyCollection
+    {
+        $publication = Repo::publication()->get($galley->getData('publicationId'));
+        $allMinorVersionIds = Repo::publication()->getCollector()
+            ->filterBySubmissionIds([$publication->getData('submissionId')])
+            ->filterByVersionStage($publication->getData('versionStage'))
+            ->filterByVersionMajor($publication->getData('versionMajor'))
+            ->getIds()
+            ->values()
+            ->toArray();
+        return $this->getCollector()
+            ->filterByPublicationIds($allMinorVersionIds)
+            ->filterByDoiIds([$galley->getData('doiId')])
+            ->getMany();
     }
 }

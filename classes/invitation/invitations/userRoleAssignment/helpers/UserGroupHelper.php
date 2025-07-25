@@ -40,8 +40,8 @@ class UserGroupHelper
         return new self(
             $data['userGroupId'],
             $data['masthead'],
-            self::formatDate($data['dateStart']),
-            $data['dateEnd'] ? self::formatDate($data['dateEnd']) : null
+            isset($data['dateStart']) ? self::formatDate($data['dateStart']): null,
+            isset($data['dateEnd']) ? self::formatDate($data['dateEnd']) : null
         );
     }
 

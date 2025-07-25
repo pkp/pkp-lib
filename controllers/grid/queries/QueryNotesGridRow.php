@@ -18,16 +18,16 @@ namespace PKP\controllers\grid\queries;
 
 use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
+use PKP\editorialTask\EditorialTask;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\query\Query;
 
 class QueryNotesGridRow extends GridRow
 {
     /** @var array */
     public $_actionArgs;
 
-    /** @var Query */
+    /** @var EditorialTask */
     public $_query;
 
     /** @var QueryNotesGridHandler */
@@ -37,7 +37,7 @@ class QueryNotesGridRow extends GridRow
      * Constructor
      *
      * @param array $actionArgs Action arguments
-     * @param Query $query
+     * @param EditorialTask $query
      * @param QueryNotesGridHandler $queryNotesGrid The notes grid containing this row
      */
     public function __construct($actionArgs, $query, $queryNotesGrid)
@@ -96,7 +96,7 @@ class QueryNotesGridRow extends GridRow
     /**
      * Get the query
      *
-     * @return Query
+     * @return EditorialTask
      */
     public function getQuery()
     {

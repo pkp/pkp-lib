@@ -109,7 +109,6 @@ class MetadataTypeDescription extends ClassTypeDescription
             if (!defined($assocTypeString)) {
                 return false;
             }
-
             $this->_assocType = constant($assocTypeString);
         }
 

@@ -479,16 +479,6 @@ class Locale implements LocaleInterface
             return $value;
         }
 
-        // Will only log missing translation key for defule locale e.g. `LocaleInterface::DEFAULT_LOCALE`
-        // and when the application running in strict mode and not running unit tests
-        // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
-        if ($locale === LocaleInterface::DEFAULT_LOCALE 
-            && app()->runningInStrictMode()
-            && !app()->runningUnitTests()) {
-
-            error_log("Missing locale key \"{$key}\" for the locale \"{$locale}\"");
-        }
-
         return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
 

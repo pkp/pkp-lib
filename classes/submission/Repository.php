@@ -45,6 +45,8 @@ use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\genre\Genre;
+
 
 abstract class Repository
 {
@@ -436,19 +438,15 @@ abstract class Repository
         }
 
         // Required submission files
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $requiredGenres = $genreDao->getRequiredToSubmit($context->getId());
+        $requiredGenres = Repo::genre()->getRequiredToSubmit($context->getId());
+
+
         if (!$requiredGenres->isEmpty()) {
+            $requiredIds = $requiredGenres->map(fn(Genre $g) => $g->getKey())->all();  
             $submissionFiles = Repo::submissionFile()
                 ->getCollector()
                 ->filterBySubmissionIds([$submission->getId()])
-                ->filterByGenreIds(
-                    $requiredGenres->map(
-                        function (Genre $genre) {
-                            return $genre->getId();
-                        }
-                    )->toArray()
-                )
+                ->filterByGenreIds($requiredIds)
                 ->getMany();
             $missingGenres = $submissionFiles->isEmpty()
                 ? clone $requiredGenres
@@ -456,7 +454,7 @@ abstract class Repository
                     function (Genre $genre) use ($submissionFiles) {
                         $exists = $submissionFiles->first(
                             function (SubmissionFile $submissionFile) use ($genre) {
-                                return $submissionFile->getData('genreId') === $genre->getId();
+                                return $submissionFile->getData('genreId') === $genre->getKey();
                             }
                         );
                         return !$exists;
@@ -465,7 +463,7 @@ abstract class Repository
             if ($missingGenres->count()) {
                 $missingGenreNames = $missingGenres->map(
                     function (Genre $genre) {
-                        return $genre->getLocalizedName();
+                        return $genre->getLocalizedData('name');
                     }
                 );
                 $errors['files'] = [

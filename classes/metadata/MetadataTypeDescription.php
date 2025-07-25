@@ -22,7 +22,6 @@
 
 namespace PKP\metadata;
 
-use APP\core\Application;
 use PKP\filter\ClassTypeDescription;
 
 class MetadataTypeDescription extends ClassTypeDescription
@@ -109,7 +108,6 @@ class MetadataTypeDescription extends ClassTypeDescription
             if (!defined($assocTypeString)) {
                 return false;
             }
-
             $this->_assocType = constant($assocTypeString);
         }
 

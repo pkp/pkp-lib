@@ -618,14 +618,6 @@ class PKPContainer extends Container
     {
         $this->isRunningUnitTest = false;
     }
-
-    /**
-     * Check if the application running in the strict mode
-     */
-    public function runningInStrictMode(): bool
-    {
-        return defined('PKP_STRICT_MODE') && PKP_STRICT_MODE;
-    }
 }
 
 if (!PKP_STRICT_MODE) {

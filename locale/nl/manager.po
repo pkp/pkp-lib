@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-15 15:44+0000\n"
+"PO-Revision-Date: 2025-07-26 16:22+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -812,12 +812,11 @@ msgstr "Vergaar het land, de regio en de gemeente van de bezoeker"
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Institutionele statistieken"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"Activeer instellingsstatistieken, indien u gebruiksstatistieken per "
-"instelling wilt verkrijgen. Als geactiveerd, zult u de IP-configuraties voor "
-"iedere instelling moeten configureren die u wilt volgen"
+"Activeer instellingsstatistieken, als u gebruiksstatistieken per instelling "
+"wilt verkrijgen. Indien geactiveerd, zult u de IP-configuraties voor iedere "
+"instelling moeten configureren, die u wilt volgen."
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
@@ -1017,7 +1016,7 @@ msgstr ""
 "inzendingen, naast voorbeelden van citatieformaten."
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Deactiveer inzendingen"
 
 msgid "manager.setup.checklist"
 msgstr "Controlelijst"
@@ -1066,6 +1065,8 @@ msgstr "Logo"
 
 msgid "manager.setup.noTemporaryFile"
 msgstr ""
+"Het bestand dat u uploadde, kan niet worden gevonden. Probeert u het "
+"nogmaals."
 
 msgid "manager.setup.notifications"
 msgstr "Verwittiging van inzending door een auteur"
@@ -1074,37 +1075,47 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Verstuur een kopie aan dit e-mailadres"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "U wordt verzocht alle auteurs te informeren"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Wie behoort een informatiemail te ontvangen wanneer een redactionele "
+"beslissing is vastgelegd?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
+"U wordt verzocht een e-mailbericht aan alle auteurs van de inzending te "
+"versturen."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"U wordt verzocht alleen een e-mail te versturen aan de auteurs die zijn "
+"toegewezen aan de werkstroom van de inzending."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Kennisgevingen"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "U wordt verzocht de hoofdcontactpersoon te informeren"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Ja, stuur een kopie aan {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Nee"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Informeer ieder"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Een kopie van de ontvangstbevestigingsmail van de inzending zal worden "
+"worden verstuurd aan elk e-mailadres dat hier is vermeld. Splits de "
+"verschillende adressen met een komma. Bijvoorbeeld: een@voorbeeld."
+"com,twee@voorbeeld.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Eén of meer van deze e-mailadressen is niet geldig."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1112,19 +1123,22 @@ msgstr ""
 "deze e-mail kunnen worden verstuurd aan volgende ontvangers:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "U wordt verzocht een kennisgeving te versturen"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
+"Selecteer de gebruikers die een kennisgeving per e-mail behoren te ontvangen."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Verstuurt u een kopie van deze e-mail aan mij naar $email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Verstuur e-mail"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"U staat op het punt een e-mailbericht te sturen aan {$total} gebruikers. U "
+"weet zeker dat u deze mail wilt versturen?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1133,7 +1147,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Stuurt u nog een email"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open Access beleid"
@@ -1178,10 +1192,10 @@ msgid "manager.setup.privacyStatement"
 msgstr "Privacy verklaring"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Datum & Tijd"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Datum- en tijdformulieren"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
@@ -3657,3 +3671,35 @@ msgstr "Klantnummer"
 
 msgid "manager.statistics.counterR5Report.settings.metricType"
 msgstr "Meeteenheid"
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Graag de bovenliggende informatie bijvoegen"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "De inzendings-ID bestaat niet."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Draagt bij aan de verschijning"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publicatiejaar"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Een lijst of rangschikking van publicatiejaren ter beantwoording terugsturen "
+"via het formulier yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP-formulier is niet geldig."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Inzendings-ID"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Geen maandelijkse detailinformatie toevoegen"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"E-mailberichten zijn succesvol gegroepeerd om deze bij de eerste gelegenheid "
+"te versturen."

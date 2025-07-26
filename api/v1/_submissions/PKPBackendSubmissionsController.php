@@ -190,7 +190,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $submissions = $collector->getMany();
+        $submissions = $collector->getMany()->remember();
 
         $contextId = $context->getId();
 
@@ -227,7 +227,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $submissions = $collector
             ->filterByContextIds([$context->getId()])
             ->assignedTo([$user->getId()], $queryParams['assignedWithRoles'] ?? null)
-            ->getMany();
+            ->getMany()
+            ->remember();
 
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
@@ -307,7 +308,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             }
         }
 
-        $submissions = $collector->getMany();
+        $submissions = $collector->getMany()->remember();
 
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();

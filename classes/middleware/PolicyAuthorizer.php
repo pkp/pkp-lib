@@ -18,6 +18,7 @@ namespace PKP\middleware;
 
 use APP\core\Application;
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\RouteCollection;
@@ -25,6 +26,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKP\core\PKPBaseController;
 use PKP\core\Registry;
+use PKP\plugins\interfaces\HasAuthorizationPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\AuthorizationPolicy;
 use ReflectionFunction;
 
 class PolicyAuthorizer
@@ -39,9 +43,8 @@ class PolicyAuthorizer
     public function handle(Request $request, Closure $next)
     {
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
-
         $routeController = PKPBaseController::getRouteController($request);
-
+        $currentRoute = PKPBaseController::getRequestedRoute($request);
         $pkpRequest = Application::get()->getRequest();
 
         if (!$pkpRequest->getUser()) {
@@ -51,6 +54,25 @@ class PolicyAuthorizer
 
         $args = [$request];
         $roleAssignments = $this->getRoleAssignmentMap($router->getRoutes());
+
+        // if route has extra policy authorizer from plugin, add those to current policy stack
+        $pluginPolicyAuthorizer = $currentRoute->getAction('pluginPolicyAuthorizer');
+        if ($pluginPolicyAuthorizer instanceof HasAuthorizationPolicy) {
+            $policies = $pluginPolicyAuthorizer->getPolicies($pkpRequest, $args, $roleAssignments->toArray());
+            foreach ($policies as $policy) {
+                if (!($policy instanceof AuthorizationPolicy || $policy instanceof PolicySet)) {
+                    throw new Exception(
+                        sprintf(
+                            'Invalid authorization policy given for route: %s, must be an instance of %s or %s',
+                            $currentRoute->uri(),
+                            AuthorizationPolicy::class,
+                            PolicySet::class
+                        )
+                    );
+                }
+                $routeController->addPolicy($policy);
+            }
+        }
 
         $hasAuthorized = $routeController->authorize(
             $pkpRequest,

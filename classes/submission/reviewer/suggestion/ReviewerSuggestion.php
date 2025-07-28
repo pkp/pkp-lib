@@ -194,7 +194,7 @@ class ReviewerSuggestion extends Model
     protected function submission(): Attribute
     {
         return Attribute::make(
-            get: fn () => Repo::submission()->get($this->submissionId, true),
+            get: fn () => Repo::submission()->get($this->submissionId),
         )->shouldCache();
     }
 

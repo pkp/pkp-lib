@@ -28,6 +28,8 @@ use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
 use PKP\components\forms\dataCitation\DataCitationEditForm;
+use PKP\components\forms\publication\EmailContributorForm;
+use PKP\components\forms\publication\VersionForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -148,6 +150,14 @@ abstract class PKPDashboardHandler extends Handler
             $context
         );
 
+        // EmailContributorsForm
+        $emailContributorForm = new EmailContributorForm(
+            'emit',
+            [],
+            null,
+            $context
+        );
+
         $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
         $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
 
@@ -196,6 +206,7 @@ abstract class PKPDashboardHandler extends Handler
                 ],
                 'componentForms' => [
                     'contributorForm' => $contributorForm->getConfig(),
+                    'emailContributorForm' => $emailContributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
                     'versionStageOptions' => $versionStageOptions,
                     'citationStructuredEditForm' => $citationStructuredEditForm->getConfig(),

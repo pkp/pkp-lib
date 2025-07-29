@@ -113,7 +113,7 @@ abstract class Repository
 
     /**
      * Get the URL for the publication associated with a comment.
-     *
+     * Override this method at app level.
      */
     abstract public function getPublicationUrl(UserComment $comment): string;
 }

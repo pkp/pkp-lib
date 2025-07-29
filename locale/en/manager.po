@@ -3798,7 +3798,7 @@ msgid "manager.userComment.approveThisComment"
 msgstr "Approve This Comment"
 
 msgid "manager.userComment.approveThisComment.description"
-msgstr "Approving a comment will make it visible to all users on the article page."
+msgstr "Approving a comment will make it visible to on the site."
 
 msgid "manager.userComment.reportDetails"
 msgstr "Report Details"
@@ -3810,10 +3810,13 @@ msgid "manager.userComment.approved"
 msgstr "Approved"
 
 msgid "manager.userComment.needsApproval"
-msgstr "Needs Approval/Hidden"
+msgstr "Needs Approval"
 
 msgid "manager.userComment.reported"
 msgstr "Reported"
 
 msgid "manager.userComment.deletedReport"
 msgstr "Deleted Report"
+
+msgid "manager.userComment.viewPublication"
+msgstr "View Publication"

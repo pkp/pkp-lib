@@ -1226,11 +1226,6 @@ class PKPTemplateManager extends Smarty
                                         'name' => __('navigation.access'),
                                         'url' => $router->url($request, null, 'management', 'settings', ['access']),
                                         'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
-                                    ],
-                                    'userComments' => [
-                                        'name' => __('manager.userComment.userComments'),
-                                        'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
-                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array)$router->getRequestedArgs($request)),
                                     ]
                                 ]
                             ];

@@ -3,16 +3,17 @@
 # COUSSY-LACROIX Hélène <helene.coussy-lacroix@u-bordeaux.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2024-06-29 17:40+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
-"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"PO-Revision-Date: 2025-07-30 00:34+0000\n"
+"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -776,3 +777,203 @@ msgstr "L'accès à ORCID a été refusé à"
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr ""
 "L'accès au flux de travail pour les soumissions incomplètes est restreint."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "L'utilisateur doit être anonyme. Vous êtes actuellement connecté."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Vous avez demandé à modifier votre adresse e-mail pour « {$pendingEmail} ». "
+"Nous vous avons déjà envoyé un e-mail contenant les instructions pour "
+"valider la nouvelle adresse e-mail."
+
+msgid "orcid.manager.settings.saved"
+msgstr "Paramètres enregistrés"
+
+msgid "orcid.manager.settings.city"
+msgstr "Ville"
+
+msgid "orcid.unauthenticated"
+msgstr "(non authentifié)"
+
+msgid "orcid.invalidClient"
+msgstr "Informations d'identification client non valides"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "ID du client non valide"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Le secret du client est valide"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr ""
+"Le secret du client n'est pas valide, veuillez vérifier vos informations "
+"d'identification"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Des ORCiD en double ont été détectés pour certains contributeurs."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr ""
+"Des ORCiD non authentifiés ont été détectés pour certains contributeurs."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Activer la fonctionnalité ORCID"
+
+msgid "orcid.field.verification.request"
+msgstr "Demande de vérification"
+
+msgid "orcid.field.verification.requested"
+msgstr "La vérification ORCID a été demandée !"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Souhaitez-vous envoyer un e-mail à cet auteur pour lui demander de vérifier "
+"son identifiant ORCID ?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Supprimer ORCID"
+
+msgid "user.futureRole.notification.message"
+msgstr "Votre rôle devrait débuter le {$roleStartDate}"
+
+msgid "user.disabledModal.title"
+msgstr "Désactiver {$fullName}"
+
+msgid "user.disabledModal.description"
+msgstr "Rôles actuels : {$roles}"
+
+msgid "user.enabledModal.title"
+msgstr "Activer {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biographie courte"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} sur {$total} langues terminées"
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Saisissez le nom de l'établissement en {$language}"
+
+msgid "user.preferredAvatarInitials"
+msgstr "Initiales préférées pour l'avatar"
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Veuillez ajouter une affiliation dans la langue de soumission."
+
+msgid "user.role.ended"
+msgstr "Rôle terminé"
+
+msgid "orcid.verify.success.redirect"
+msgstr ""
+"Vous allez maintenant être automatiquement redirigé vers {$contextName}."
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Secret du client non valide"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Configuré selon le journal"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "L'identifiant client n'est pas valide, veuillez vérifier votre saisie"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Activer la fonctionnalité ORCID sur l'ensemble du site"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Renvoyer l'e-mail de vérification"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Demander la vérification ORCID"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "L'e-mail sera envoyé une fois que l'auteur aura été créé."
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Vous ne pouvez pas supprimer le rôle. Au moins un rôle doit être attribué à "
+"l'utilisateur."
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Êtes-vous sûr de vouloir supprimer cet ORCID ?"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"En attendant, vous pouvez consulter et mettre à jour votre profil. Si vous "
+"pensez qu'il s'agit d'une erreur, veuillez contacter l'administrateur."
+
+msgid "user.affiliations.institution"
+msgstr "Établissement"
+
+msgid "user.affiliations.translation"
+msgstr "Plus d'informations"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Modifier le nom de l'établissement"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Supprimer l'établissement"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Cliquez pour modifier ou supprimer"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Toutes les traductions disponibles"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Saisissez le nom de l'établissement en {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Nom de l'établissement en {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Êtes-vous sûr ?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "L'affiliation <strong>{$affiliation}</strong> sera supprimée."
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "L'expression recherchée n'a pas pu être trouvée"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "La langue principale {$primaryLocale} est obligatoire"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "ID client non valide"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Entrez le nom complet de l'établissement ci-dessous, en évitant les "
+"acronymes. Sélectionnez le nom dans la liste déroulante et cliquez sur « "
+"Ajouter » pour inclure l'affiliation dans votre profil. (par exemple, « "
+"Université Simon Fraser »)"
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"L'ajout, la mise à jour ou la suppression de suggestions de relecteurs pour "
+"les soumissions terminées est limité."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Entrez les deux lettres que vous souhaitez utiliser comme avatar. Ces "
+"initiales seront affichées pour vous représenter."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"La fonctionnalité ORCID peut être activée et configurée de manière "
+"facultative au niveau du site pour tous les journaux/éditeurs/serveurs. Si "
+"elle est activée, elle remplacera toutes les informations d'identification "
+"au niveau du contexte et appliquera les informations d'identification "
+"suivantes à touts les journaux/éditeurs/serveurs de cette installation."
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Cet identifiant ORCID n'a pas été vérifié. Veuillez supprimer cet "
+"identifiant ORCID non vérifié et demander directement à l'utilisateur/auteur "
+"de le faire vérifier."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Êtes-vous sûr de vouloir supprimer définitivement ce rôle ? Cette action "
+"révoquera l'accès de l'utilisateur à toutes les informations et "
+"autorisations associées à ce rôle."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-24 07:19+0000\n"
+"PO-Revision-Date: 2025-07-30 10:17+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2328,7 +2328,7 @@ msgid "stats.downloads.timelineInterval"
 msgstr ""
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$count} ({$average}/urtean)"
 
 msgid "stats.daily"
 msgstr ""
@@ -2460,7 +2460,7 @@ msgid "stats.searchSubmissionDescription"
 msgstr ""
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Bidalketa aktiboak"
 
 msgid "stats.timeline"
 msgstr ""
@@ -2478,7 +2478,7 @@ msgid "stats.timelineType"
 msgstr ""
 
 msgid "stats.total"
-msgstr ""
+msgstr "Guztira"
 
 msgid "stats.unique"
 msgstr ""
@@ -2487,7 +2487,7 @@ msgid "stats.totalWithinDateRange"
 msgstr ""
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Joerak"
 
 msgid "stats.unknown"
 msgstr ""
@@ -2496,52 +2496,52 @@ msgid "stats.userStatistics"
 msgstr ""
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Jasotako bidalketak"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Beste bidalketak"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Martxan dauden bidalketak"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Inportatutako bidalketak"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Onartutako bidalketak"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Baztertutako bidalketak"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Baztertutako bidalketak (berrikuspenaren aurretik)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Baztertutako bidalketak (berrikuspenaren ondoren)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Argitaratutako bidalketak"
 
 msgid "stats.name.daysToDecision"
-msgstr ""
+msgstr "Lehenengo erabaki editorialerako egunak"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Onartzeko egunak"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Baztertzeko egunak"
 
 msgid "stats.name.acceptanceRate"
-msgstr ""
+msgstr "Onarpen-tasa"
 
 msgid "stats.name.declineRate"
-msgstr ""
+msgstr "Errefusatze-tasa"
 
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Berrikuspen aurreko errefusatze-tasa"
 
 msgid "stats.name.declinedReviewRate"
-msgstr ""
+msgstr "Berrikuspen ondorengo errefusatze-tasa"
 
 msgid "plugins.importexport.native.processFailed"
 msgstr ""

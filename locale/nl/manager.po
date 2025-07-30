@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-28 11:31+0000\n"
+"PO-Revision-Date: 2025-07-30 20:21+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -1301,7 +1301,7 @@ msgid "manager.setup.theme"
 msgstr "Stijl"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Instituten"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1314,6 +1314,9 @@ msgstr ""
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Het volgende wordt aan de auteurs gepresenteerd, voordat zij beginnen met "
+"hun inzending. Voorzie hen van een beknopte uitleg over het "
+"inzendingsproces, zodat de auteur weet wat de verwachtingen zijn."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
@@ -3721,3 +3724,42 @@ msgstr "Stel de automatische recensieherinneringen in"
 
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
 msgstr "Minimum aantal recensies vereist"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Suggestie van de recensent ten aanzien van de inzending"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Verstuur een herinneringsmail voor of na beantwoording van het "
+"recensieverzoek tot recensering (indien de recensent nog niet heeft "
+"geantwoord op het recensieverzoek) dan wel tot de recensering van de "
+"inzending (indien de reviewer nog geen recensie heeft gegeven"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Beantwoording van het recensieverzoek - voor de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Beantwoording van het recensieverzoek - na de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Recensie van de inzending - voor de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Recensie van de inzending - na de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dagen voor de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dagen na de uiterste datum"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"De auteur wordt in de gelegenheid gesteld een aantal mogelijke recensenten "
+"voor te stellen voordat de inzending wordt afgerond, hetgeen het "
+"recensieproces bevordert en voorzien in een waardevolle inbreng voor de "
+"redactieraad."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Vereiste minimum aantal bevestigde recensies voor een inzending"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-24 07:19+0000\n"
+"PO-Revision-Date: 2025-07-30 10:17+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -1327,70 +1327,81 @@ msgid "informationCenter.informationCenter"
 msgstr "Informazio-zentroa"
 
 msgid "informationCenter.editorialHistory"
-msgstr ""
+msgstr "Edizio-historia"
 
 msgid "informationCenter.addNote"
 msgstr "Gehitu oharra"
 
 msgid "informationCenter.noNotes"
-msgstr ""
+msgstr "Ez dago oharrik bistaratzeko."
 
 msgid "informationCenter.pastNotes"
-msgstr ""
+msgstr "Aurreko berrikuspen-oharrak"
 
 msgid "informationCenter.deleteConfirm"
-msgstr ""
+msgstr "Ziur zaude ohar hau ezabatu nahi duzula?"
 
 msgid "informationCenter.currentHistory"
-msgstr ""
+msgstr "Uneko berrikuspena"
 
 msgid "informationCenter.pastHistory"
-msgstr ""
+msgstr "Aurreko berrikuspenak"
 
 msgid "informationCenter.history.noItems"
-msgstr ""
+msgstr "Ez dago gertaerarik erregistratuta."
 
 msgid "informationCenter.history.notePosted"
-msgstr ""
+msgstr "Ohar berria argitaratu da."
 
 msgid "informationCenter.history.messageSent"
-msgstr ""
+msgstr "Erabiltzaileei jakinarazpena bidalita."
 
 msgid "stageParticipants.history.messageSent"
-msgstr ""
+msgstr "Erabiltzaileei jakinarazpena bidalita."
 
 msgid "stageParticipants.notify.startDiscussion"
 msgstr "Eztabaida hasi"
 
 msgid "stageParticipants.notify.startDiscussion.description"
-msgstr ""
+msgstr "Hasi eztabaida zure eta {$userFullName}-en artean."
 
 msgid "stageParticipants.notify.chooseMessage"
 msgstr ""
+"Aukeratu erabili nahi duzun aurrez definitutako mezu bat, edo bete beheko "
+"formularioa."
 
 msgid "stageParticipants.notify.message"
-msgstr ""
+msgstr "Mezua"
 
 msgid "stageParticipants.notify.warning"
 msgstr ""
+"Mesedez, ziurtatu mezuaren eremua bete duzula eta zu ez beste norbait sartu "
+"duzula eztabaidan."
 
 msgid "stageParticipants.options"
-msgstr ""
+msgstr "Pribilegioen esleipena"
 
 msgid "stageParticipants.recommendOnly"
 msgstr ""
+"Parte-hartzaile honek erabaki editorial bat gomendatzeko baimena baino ez "
+"du, beraz, baimendutako editore batek erabaki editorialak erregistratzea "
+"beharko du."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Baimenak"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
+"Baimendu pertsona honi argitalpenean aldaketak egitea, hala nola, izenburua, "
+"laburpena, metadatuak eta argitalpenaren bestelako xehetasunak. Baliteke "
+"pribilegio hau ezeztatu nahi izatea bidalketak azken egiaztapena jaso badu "
+"eta argitaratzeko prest badago."
 
 msgid "stageParticipants.selectedUser"
-msgstr ""
+msgstr "Parte-hartzailea"
 
 msgid "stageParticipants.noOptionsToHandle"
-msgstr ""
+msgstr "Ezin zaio aldaketarik egin parte-hartzaile honi"
 
 msgid "locale.primary"
 msgstr "Locale nagusia"

@@ -83,7 +83,7 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
-        $this->instance('path.config', $this->basePath . DIRECTORY_SEPARATOR . 'config'); // Necessary for Scout to let CLI happen
+        $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {
             return new class () implements ExceptionHandler {
                 public function shouldReport(Throwable $exception)

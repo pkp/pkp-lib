@@ -148,9 +148,9 @@ class DatabaseEngine extends ScoutEngine
 
         return DB::table($this->getTableName() . ' AS ftsearch')
             ->join('submissions AS s', 'ftsearch.submission_id', 's.submission_id')
-            ->when($contextId, fn ($q) => $q->where('context_id', $contextId))
+            ->when($contextId, fn (Builder $q) => $q->where('context_id', $contextId))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds), fn ($q) => $q->whereExists(
-                fn ($q) => $q->select(DB::raw(1))
+                fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
                     ->whereColumn('p.submission_id', 's.submission_id')
                     ->where('p.published', 1)
@@ -216,6 +216,6 @@ class DatabaseEngine extends ScoutEngine
 
     public function flush($model)
     {
-        DB::table($this->getTableName())->delete();
+        DB::table($this->getTableName())->truncate();
     }
 }

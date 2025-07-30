@@ -46,10 +46,10 @@ class SubmissionSearchResult
                 $currentPublication = $submission->getCurrentPublication();
 
                 $contextId = $submission->getData('contextId');
-                $context = $contextCache[$contextId] ?? ($contextCache[$contextId] = Application::getContextDAO()->getById($contextId));
+                $context = $contextCache[$contextId] ??= Application::getContextDAO()->getById($contextId);
 
                 $sectionId = $currentPublication->getData('sectionId');
-                $section = $sectionId ? $sectionCache[$sectionId] ?? ($sectionCache[$sectionId] = Repo::section()->get($sectionId)) : null;
+                $section = $sectionId ? ($sectionCache[$sectionId] ??= Repo::section()->get($sectionId)) : null;
 
                 yield [
                     'submission' => $submission,

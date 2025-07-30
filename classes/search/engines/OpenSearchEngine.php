@@ -41,10 +41,8 @@ class OpenSearchEngine extends ScoutEngine
      */
     protected function getClient(): Client
     {
-        $hosts = Config::getVar('search', 'opensearch_hosts', null);
-        if ($hosts === null) {
-            throw new \Exception('The opensearch_hosts configuration is missing. Review your config.inc.php file for details.');
-        }
+        $hosts = Config::getVar('search', 'opensearch_hosts', null)
+            ?? throw new \Exception('The opensearch_hosts configuration is missing. Review your config.inc.php file for details.');
 
         $username = Config::getVar('search', 'opensearch_username', null);
         $password = Config::getVar('search', 'opensearch_password', null);
@@ -53,7 +51,7 @@ class OpenSearchEngine extends ScoutEngine
         }
 
         return (new \OpenSearch\ClientBuilder())
-            ->setHosts(json_decode($hosts, flags: JSON_OBJECT_AS_ARRAY))
+            ->setHosts(json_decode($hosts, flags: JSON_OBJECT_AS_ARRAY | JSON_THROW_ON_ERROR))
             ->setBasicAuthentication($username, $password)
             ->setSSLVerification((bool) Config::getVar('search', 'opensearch_ssl_verification', true))
             ->build();

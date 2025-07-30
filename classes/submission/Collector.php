@@ -49,8 +49,6 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
-    public const SEARCH_STOPWORDS_FILE = 'lib/pkp/registry/stopwords.txt';
-
     public DAO $dao;
     public ?array $categoryIds = null;
     public ?array $contextIds = null;

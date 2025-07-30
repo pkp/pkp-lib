@@ -40,7 +40,7 @@ class SubmissionSearchResult
                 $submissionId = is_scalar($data) ? (int) $data : (int) $data->submissionId;
 
                 $submission = Repo::submission()->get($submissionId);
-                if (!$submission || $submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
+                if (!$submission || $submission->getData('status') != PKPSubmission::STATUS_PUBLISHED) {
                     continue;
                 }
                 $currentPublication = $submission->getCurrentPublication();

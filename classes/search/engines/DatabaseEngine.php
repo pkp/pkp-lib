@@ -34,13 +34,13 @@ class DatabaseEngine extends ScoutEngine
 
     protected function getTableName(): string
     {
-        return $this->getIndexName() . '_fulltext';
+        return 'submissions_fulltext';
     }
 
     public function update($models)
     {
         $models->each(function ($submission) {
-            Repo::publication()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->each(function ($publication) use ($submission) {
+            $submission->getData('publications')->each(function ($publication) use ($submission) {
                 $titles = (array) $publication->getFullTitles();
                 $abstracts = (array) $publication->getData('abstract');
                 $bodies = [];
@@ -104,9 +104,9 @@ class DatabaseEngine extends ScoutEngine
 
     public function delete($models)
     {
-        $models->each(function ($submission) {
-            DB::table($this->getTableName())->where('submission_id', $submission->getId())->delete();
-        });
+        DB::table($this->getTableName())
+            ->whereIn('submission_id', $models->map(fn (Submission $s) => $s->getId()))
+            ->delete();
     }
 
     protected function buildQuery(SearchBuilder $builder): DatabaseBuilder
@@ -115,28 +115,18 @@ class DatabaseEngine extends ScoutEngine
         $contextId = null;
         $publishedFrom = $publishedTo = null;
         foreach ($builder->wheres as $field => $value) {
-            switch ($field) {
-                case 'contextId':
-                    $$field = (int) $value;
-                    break;
-                case 'publishedFrom':
-                case 'publishedTo':
-                    $$field = $value ? new \Carbon\Carbon($value) : null;
-                    break;
-                default: throw new \Exception("Unsupported field {$field}!");
-            }
+            $$field = match($field) {
+                'contextId' => (int) $value,
+                'publishedFrom', 'publishedTo' => $value ? new \Carbon\Carbon($value) : null,
+            };
         };
 
         // Handle "whereIn" conditions
         $sectionIds = $categoryIds = null;
         foreach ($builder->whereIns as $field => $list) {
-            switch ($field) {
-                case 'sectionIds':
-                case 'categoryIds':
-                    $$field = is_null($list) ? null : (array) $list;
-                    break;
-                default: throw new \Exception("Unsupported field {$field}!");
-            }
+            $$field = match($field) {
+                'sectionIds', 'categoryIds' => is_null($list) ? null : (array) $list,
+            };
         };
 
         // Handle options
@@ -185,12 +175,12 @@ class DatabaseEngine extends ScoutEngine
 
     public function mapIds($results)
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        throw new \BadMethodCallException('Unimplemented function.');
     }
 
     public function lazyMap(SearchBuilder $builder, $results, $model)
     {
-        throw new \BadFunctionCallException('Unimplemented function.');
+        throw new \BadMethodCallException('Unimplemented function.');
     }
 
     public function map(SearchBuilder $builder, $results, $model)

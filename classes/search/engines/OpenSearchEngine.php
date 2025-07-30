@@ -87,7 +87,7 @@ class OpenSearchEngine extends ScoutEngine
                         }
                     } while ($chunk !== false);
                 } catch (\Throwable $e) {
-                    error_log($e);
+                    error_log("Error parsing submission file {$submissionFile->getId()}: {$e}");
                 } finally {
                     $parser->close();
                 }
@@ -135,32 +135,21 @@ class OpenSearchEngine extends ScoutEngine
         $contextId = null;
         $publishedFrom = $publishedTo = null;
         foreach ($builder->wheres as $field => $value) {
-            switch ($field) {
-                case 'contextId':
-                    $$field = (int) $value;
-                    break;
-                case 'publishedFrom':
-                case 'publishedTo':
-                    $$field = $value ? new \Carbon\Carbon($value) : null;
-                    break;
-                default: throw new \Exception("Unsupported field {$field}!");
-            }
+            $$field = match($field) {
+                'contextId' => (int) $value,
+                'publishedFrom', 'publishedTo' => $value ? new \Carbon\Carbon($value) : null,
+            };
         };
 
         // Handle "whereIn" conditions
         $sectionIds = $categoryIds = null;
         foreach ($builder->whereIns as $field => $list) {
-            switch ($field) {
-                case 'sectionIds':
-                case 'categoryIds':
-                    $$field = (array) $list;
-                    break;
-                default: throw new \Exception("Unsupported field {$field}!");
-            }
+            $$field = match($field) {
+                'sectionIds', 'categoryIds' => (array) $list,
+            };
         };
 
         // Handle options
-        $rangeInfo = null;
         foreach ($builder->options as $option => $value) {
             switch ($option) {
                 default: throw new \Exception("Unsupported options {$option}!");

@@ -501,7 +501,7 @@ class PKPContainer extends Container
             : Config::getVar('email', 'default');
 
         if (!$default) {
-            throw new Exception('Mailer driver isn\'t specified in the application\'s config');
+            throw new Exception('The mailer driver isn\'t specified in the config.inc.php configuration file. See the "default" setting in the [email] configuration. Configuration details are available in the config.TEMPLATE.inc.php template.');
         }
 
         return $default;

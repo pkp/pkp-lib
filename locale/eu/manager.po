@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-31 15:21+0000\n"
+"PO-Revision-Date: 2025-07-31 22:34+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -783,6 +783,10 @@ msgstr "Txostenak"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
+"Sistemak denbora-tarte jakin batean gunearen erabilerarekin eta bidalketekin "
+"lotutako xehetasunak jarraitzen dituzten txostenak sortzen ditu. Txostenak "
+"CSV formatuan sortzen dira, eta ikusteko, kalkulu-orrien aplikazio bat behar "
+"da."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Erabili data formatu hau YYYYHH."
@@ -1245,7 +1249,7 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} berri)"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr ""
+msgstr "Erregistratutako erabiltzaileak"
 
 msgid "manager.users"
 msgstr "Erabiltzaileak"
@@ -3290,7 +3294,7 @@ msgstr "Dataren formatua ez da baliozkoa."
 
 #, fuzzy
 msgid "manager.statistics.counterR5Report.settings.metricType"
-msgstr "Tipo metrikoa"
+msgstr "Mota metrikoa"
 
 msgid "manager.statistics.counterR5Report.settings.customerId"
 msgstr "Bezeroaren IDa"
@@ -3375,3 +3379,23 @@ msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "Mezu elektronikoak behar bezala ilaran jarri dira ahalik eta azkarren "
 "bidaltzeko."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Argitalpen-urtea"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Argitalpen-urteen zerrenda edo tartea, yyyy|yyyy|yyyy-yyyy formatuan "
+"erantzun gisa itzultzeko."
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Erakutsi beharreko atributuak"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Txosten bakoitzari buruzko informazio gehiago lortzeko, ikusi <a href=\"https"
+"://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">COUNTER 5.0.3 dokumentazioa</a>."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Ez dago COUNTER R5 erabilera-estatistikarik eskuragarri oraindik."

@@ -18,7 +18,7 @@ namespace PKP\API\v1\submissions\resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EditTaskParticipantResource extends JsonResource
+class EditorialTaskParticipantResource extends JsonResource
 {
     public function toArray(Request $request): array
     {

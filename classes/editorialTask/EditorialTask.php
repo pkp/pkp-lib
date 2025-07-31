@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use PKP\core\PKPApplication;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use PKP\core\traits\ModelWithSettings;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -41,6 +43,11 @@ class EditorialTask extends Model
     // Allow filling and saving related model through 'participants' Model attribute
     public const ATTRIBUTE_PARTICIPANTS = 'participants';
 
+    /**
+     * @var array<Participant> $taskParticipants
+     */
+    protected ?array $taskParticipants = null;
+
     protected $table = 'edit_tasks';
     protected $primaryKey = 'edit_task_id';
 
@@ -52,22 +59,19 @@ class EditorialTask extends Model
         'createdBy', 'type', 'status'
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'assocType' => 'int',
-            'assocId' => 'int',
-            'stageId' => 'int',
-            'seq' => 'float',
-            'createdAt' => 'datetime',
-            'updatedAt' => 'datetime',
-            'closed' => 'boolean',
-            'dateDue' => 'datetime',
-            'createdBy' => 'int',
-            'type' => 'int',
-            'status' => 'int',
-        ];
-    }
+    protected $casts = [
+        'assocType' => 'int',
+        'assocId' => 'int',
+        'stageId' => 'int',
+        'seq' => 'float',
+        'createdAt' => 'datetime',
+        'updatedAt' => 'datetime',
+        'closed' => 'boolean',
+        'dateDue' => 'datetime:Y-m-d',
+        'createdBy' => 'int',
+        'type' => 'int',
+        'status' => 'int',
+    ];
 
     protected static function booted(): void
     {
@@ -99,9 +103,14 @@ class EditorialTask extends Model
      */
     public function fill(array $attributes)
     {
-        $participants = $attributes[self::ATTRIBUTE_PARTICIPANTS] ?? [];
+        if (!isset($attributes[self::ATTRIBUTE_PARTICIPANTS])) {
+            return parent::fill($attributes);
+        }
+
+        $participants = $attributes[self::ATTRIBUTE_PARTICIPANTS];
         foreach ($participants as $participant) {
-            $this->participants[] = new Participant($participant);
+            $participant['editTaskId'] = $this->id;
+            $this->taskParticipants[$participant['userId']] = new Participant($participant);
         }
 
         unset($attributes[self::ATTRIBUTE_PARTICIPANTS]);
@@ -113,12 +122,57 @@ class EditorialTask extends Model
      */
     public function save(array $options = []): bool
     {
+        $exists = $this->exists;
+
         $success = parent::save($options);
         if (!$success) {
             return false;
         }
 
-        $this->participants()->saveMany($this->participants);
+        // If it's newly created task, just save participants
+        if (!$exists && is_array($this->taskParticipants)) {
+            $this->participants()->saveMany($this->taskParticipants);
+            return $success;
+        }
+
+        // If the task is being updated, we need to determine what to do with participants
+
+        // Participants weren't passed to the model, so we don't need to do anything
+        if (!is_array($this->taskParticipants)) {
+            return $success;
+        }
+
+        // Participants were passed as an empty array, so we need to remove them
+        if (empty($this->taskParticipants)) {
+            $this->participants()->delete();
+            return $success;
+        }
+
+        // Participants were passed, so we need to determine which particular ones should be removed, updated or created
+        $oldParticipantIds = $this->participants()->pluck('user_id')->all();
+        $newParticipantIds = array_keys($this->taskParticipants);
+        $deleteParticipantIds = array_diff($oldParticipantIds, $newParticipantIds);
+
+        $this->participants()->whereIn('user_id', $deleteParticipantIds)->delete(); // Remove non-existing participants
+
+        // Update existing participants and create new ones in one operation; note that this will cause the sequence number to increment even on update
+        Participant::upsert(
+            Arr::map($this->taskParticipants, function (Participant $participant) {
+                $data = [];
+                foreach ($participant->getAttributes() as $key => $value) {
+                    $data[Str::snake($key)] = $value;
+                }
+                return $data;
+            }),
+            uniqueBy: [
+                'edit_task_id', 'user_id'
+            ],
+            update: Arr::map(
+                (new Participant())->getFillable(),
+                fn (string $fillable) => Str::snake($fillable)
+            )
+        );
+
         return $success;
     }
 

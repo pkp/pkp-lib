@@ -28,6 +28,7 @@ class Participant extends Model
 
     protected $table = 'edit_task_participants';
     protected $primaryKey = 'edit_task_participant_id';
+
     public $timestamps = false;
 
     protected $guarded = [

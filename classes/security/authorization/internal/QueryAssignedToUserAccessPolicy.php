@@ -37,7 +37,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
      */
     public function __construct($request)
     {
-        parent::__construct('user.authorization.submissionQuery');
+        parent::__construct('user.authorization.submissionQuery.edit');
         $this->_request = $request;
     }
 

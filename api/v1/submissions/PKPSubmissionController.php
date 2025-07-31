@@ -30,7 +30,6 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -38,6 +37,7 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
 use PKP\API\v1\submissions\formRequests\AddTask;
+use PKP\API\v1\submissions\formRequests\EditTask;
 use PKP\API\v1\submissions\resources\TaskResource;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
@@ -71,6 +71,7 @@ use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
+use PKP\security\authorization\QueryWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -449,11 +450,20 @@ class PKPSubmissionController extends PKPBaseController
             $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
         }
 
-        if (in_array($actionName, ['editTask', 'deleteTask', 'getTask'])) {
+        // For operations to retrieve task(s), we just ensure that the user has access to it
+        if (in_array($actionName, ['getTask'])) {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
         }
 
+        // To modify a task, need to check read and write access policies
+        if (in_array($actionName, ['editTask', 'deleteTask'])) {
+            $stageId = $request->getUserVar('stageId');
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+            $this->addPolicy(new QueryWritePolicy($request));
+        }
+
+        // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller must ensure to get a list of tasks where user is a participant
         if (in_array($actionName, ['addTask', 'getTasks'])) {
             $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int) $request->getUserVar('stageId')));
         }
@@ -2032,13 +2042,14 @@ class PKPSubmissionController extends PKPBaseController
         // Managers have access to all tasks and discussions irrespectable of the participation
         if ($currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
             $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
-                ->withAssocIds([$submission->getId()]);
+                ->withAssocIds([$submission->getId()])
+                ->withStageId($illuminateRequest->route('stageId'));
         } else {
             // Other users have access to tasks, where they are included as participants
-            // TODO check further access permissions, e.g., the user can lose access to the stage
             $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
                 ->withAssocIds([$submission->getId()])
-                ->withParticipantIds([$currentUser->getId()]);
+                ->withParticipantIds([$currentUser->getId()])
+                ->withStageId([$illuminateRequest->route('stageId')]);
         }
 
         foreach ($illuminateRequest->query() as $param => $val) {
@@ -2057,9 +2068,50 @@ class PKPSubmissionController extends PKPBaseController
         ], Response::HTTP_OK);
     }
 
-    protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup
+    /**
+     * Edit a task or discussion associated with the submission
+     */
+    public function editTask(EditTask $illuminateRequest): JsonResponse
     {
-        return $userGroups->first(fn (UserGroup $userGroup) => $userGroup->roleId === $role);
+        $editTask = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY);
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $validated = $illuminateRequest->validated();
+
+        if (!$editTask->update($validated)) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        return response()->json(
+            (new TaskResource($editTask->refresh()))
+                ->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Remove task or discussion associated with the submission
+     */
+    public function deleteTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $editTask->delete();
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**

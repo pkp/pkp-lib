@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-31 15:21+0000\n"
+"PO-Revision-Date: 2025-07-31 22:34+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -1829,70 +1829,75 @@ msgid "notification.reviewerResendRequest"
 msgstr ""
 
 msgid "notification.addedStageParticipant"
-msgstr ""
+msgstr "Erabiltzailea faseko parte-hartzaile gisa gehitu da."
 
 msgid "notification.editStageParticipant"
-msgstr ""
+msgstr "Fasearen esleipena aldatu da."
 
 msgid "notification.type.newAnnouncement"
-msgstr ""
+msgstr "Jakinarazpen berria."
 
 msgid "notification.type.reviewAssignment"
-msgstr ""
+msgstr "Berrikuspena zain."
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr ""
+msgstr "Berrikuspenaren esleipena eguneratu da."
 
 msgid "notification.type.auditorRequest"
-msgstr ""
+msgstr "Auditoria eskaera \"{$file}\"-rako"
 
 msgid "notification.type.allReviewsIn"
 msgstr ""
+"Ebaluatzaile guztiek erantzun dute eta erabaki bat hartu behar da {$stage}-n."
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
+"Berrikusitako fitxategi bat igo da zure erabaki editoriala hartzeko {$stage} "
+"atalean."
 
 msgid "notification.type.pendingRevisions"
-msgstr ""
+msgstr "Kontuan hartu beharreko berrikuspenak dituzu {$stage}-n."
 
 msgid "notification.type.pendingRevisions.title"
-msgstr ""
+msgstr "Berrikuspenak {$stage}-era bidalita."
 
 msgid "notification.type.reviewerComment"
-msgstr ""
+msgstr "Ebaluatzaile batek \"{$title}\" artikuluan iruzkin bat egin du."
 
 msgid "notification.signedFile"
-msgstr ""
+msgstr "Fitxategia kontuan hartu da."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Ordu-eremua"
 
 msgid "user.email"
-msgstr ""
+msgstr "Posta elektronikoa"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
+"Uneko erabiltzaileak ez du zehaztutako bidalketa-fitxategia atzitzeko "
+"baimenik."
 
 msgid "user.authorization.invalidPublication"
-msgstr ""
+msgstr "Argitalpena ez da baliozkoa."
 
 msgid "user.authorization.invalidSubmission"
-msgstr ""
+msgstr "Bidalketa baliogabea."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr ""
+msgstr "Ordezkaritza baliogabea."
 
 msgid "user.authorization.invalidReviewRound"
-msgstr ""
+msgstr "Berrikuspen-erronda baliogabea."
 
 msgid "user.authorization.invalidQuery"
-msgstr ""
+msgstr "Eztabaida baliogabea."
 
 msgid "user.authorization.unauthorizedNote"
-msgstr ""
+msgstr "Ez duzu eztabaida-mezu honetarako sarbiderik."
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr ""
+msgstr "Ez duzu berrikuspenaren esleipen honetarako sarbiderik."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
@@ -1901,58 +1906,58 @@ msgid "user.authorization.submissionAuthor"
 msgstr ""
 
 msgid "user.register.form.privacyConsentLabel"
-msgstr ""
+msgstr "Pribatutasun aukerak"
 
 msgid "notification.type.queryActivity"
-msgstr ""
+msgstr "Eztabaidako jarduera."
 
 msgid "notification.type.queryAdded"
-msgstr ""
+msgstr "Eztabaida gehitu da."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
 
 msgid "notification.type.awaitingCopyedits"
-msgstr ""
+msgstr "Zuzenketen zain."
 
 msgid "notification.type.roundStatusTitle"
-msgstr ""
+msgstr "{$round} errondaren egoera"
 
 msgid "notification.type.editorialReport"
-msgstr ""
+msgstr "Estatistiken txostenaren laburpena."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Egin gabeko zereginen asteko posta elektronikoa"
 
 msgid "semicolon"
 msgstr "{$label}:"
 
 msgid "notification.editedNavigationMenuItem"
-msgstr ""
+msgstr "Nabigazio-menuko elementua behar bezala eguneratu da"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr ""
+msgstr "Nabigazio-menuko elementua ongi ezabatu da"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr ""
+msgstr "Nabigazio-menuko elementua behar bezala gehitu da"
 
 msgid "notification.addedNavigationMenu"
-msgstr ""
+msgstr "Nabigazio-menua behar bezala gehitu da"
 
 msgid "notification.editedNavigationMenu"
-msgstr ""
+msgstr "Nabigazio-menua behar bezala eguneratu da"
 
 msgid "notification.removedNavigationMenu"
-msgstr ""
+msgstr "Nabigazio-menua behar bezala ezabatu da"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr ""
+msgstr "Harpidetza kendu duzu"
 
 msgid "notification.unsubscribeNotifications.error"
-msgstr ""
+msgstr "Ezin izan dizugu harpidetza kendu"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
@@ -1967,235 +1972,244 @@ msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
 
 msgid "notification.unsubscribeNotifications"
-msgstr ""
+msgstr "Harpidetza kendu"
 
 msgid "list.viewMore"
-msgstr ""
+msgstr "Erakutsi {$name}ri buruzko xehetasun gehiago"
 
 msgid "list.viewLess"
-msgstr ""
+msgstr "Ezkutatu {$name}ri buruzko xehetasunak"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Zabaldu guztia"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Bildu dena"
 
 msgid "validation.invalidOption"
-msgstr ""
+msgstr "Hau ez da baliozko aukera."
 
 msgid "validator.accepted"
-msgstr ""
+msgstr "Mesedez, onartu elementu hau."
 
 msgid "validator.active_url"
-msgstr ""
+msgstr "URL hau ez da baliozkoa."
 
 msgid "validator.after"
-msgstr ""
+msgstr "Data honek {$date}(r)en ondorengoa izan behar du."
 
 msgid "validator.alpha"
-msgstr ""
+msgstr "Honek letrak bakarrik izan ditzake."
 
 msgid "validator.alpha_dash"
 msgstr ""
+"Honek letrak, zenbakiak, marratxoak eta azpimarrak bakarrik izan ditzake."
 
 msgid "validator.alpha_dash_period"
 msgstr ""
+"Honek letrak, zenbakiak, marratxoak, azpimarrak eta puntuak bakarrik izan "
+"ditzake."
 
 msgid "validator.alpha_num"
-msgstr ""
+msgstr "Honek letrak eta zenbakiak bakarrik izan ditzake."
 
 msgid "validator.array"
-msgstr ""
+msgstr "Hau ez da baliozko matrize bat."
 
 msgid "validator.before"
-msgstr ""
+msgstr "Data honek {$date} baino lehenagokoa izan behar du."
 
 msgid "validator.between.numeric"
-msgstr ""
+msgstr "Honek {$min} eta {$max} artean egon behar du."
 
 msgid "validator.between.file"
-msgstr ""
+msgstr "Honek {$min} eta {$max} kilobyte artean egon behar du."
 
 msgid "validator.between.string"
-msgstr ""
+msgstr "Honek {$min} eta {$max} karaktere artean egon behar du."
 
 msgid "validator.between.array"
-msgstr ""
+msgstr "Honek {$min} eta {$max} elementu artean izan behar ditu."
 
 msgid "validator.boolean"
-msgstr ""
+msgstr "Eremu honek egia edo gezurra izan behar du."
 
 msgid "validator.confirmed"
-msgstr ""
+msgstr "Eremu honen baieztapena ez dator bat."
 
 msgid "validator.country"
-msgstr ""
+msgstr "Hau ez da baliozko herrialdea."
 
 msgid "validator.country.regex"
 msgstr ""
 
 msgid "validator.currency"
-msgstr ""
+msgstr "Hau ez da baliozko moneta bat."
 
 msgid "validator.date"
-msgstr ""
+msgstr "Data hau ez da baliozkoa."
 
 msgid "validator.date_format"
-msgstr ""
+msgstr "Hau ez dator bat {$format} formatuarekin."
 
 msgid "validator.different"
-msgstr ""
+msgstr "{$attribute} eta {$other} desberdinak izan behar dira."
 
 msgid "validator.digits"
-msgstr ""
+msgstr "Honek {$digits} digitu izan behar ditu."
 
 msgid "validator.digits_between"
-msgstr ""
+msgstr "Honek {$min} eta {$max} digitu artean izan behar ditu."
 
 msgid "validator.email"
-msgstr ""
+msgstr "Hau ez da baliozko helbide elektroniko bat."
 
 msgid "validator.exists"
-msgstr ""
+msgstr "Hautatutako {$attribute} baliogabea da."
 
 msgid "validator.filled"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da."
 
 msgid "validator.image"
-msgstr ""
+msgstr "Honek irudi bat izan behar du."
 
 msgid "validator.in"
-msgstr ""
+msgstr "Hautatutako {$attribute} baliogabea da."
 
 msgid "validator.integer"
-msgstr ""
+msgstr "Zenbaki oso hau ez da baliozkoa."
 
 msgid "validator.ip"
-msgstr ""
+msgstr "Hau ez da baliozko IP helbide bat."
 
 msgid "validator.issn"
-msgstr ""
+msgstr "Hau ez da baliozko ISSN bat."
 
 msgid "validator.json"
-msgstr ""
+msgstr "Hau ez da baliozko JSON kate bat."
 
 msgid "validator.locale"
-msgstr ""
+msgstr "Hizkuntza hau ez da onartzen."
 
 msgid "validator.localeExpected"
 msgstr ""
+"Eremu hau eleanitza da. Balio bereiziak eman behar dira onartutako hizkuntza "
+"bakoitzerako."
 
 msgid "validator.localeKey"
 msgstr ""
+"Hizkuntzak tokiko (locale) kodea erabiliz zehaztu behar dira. Adibideak: "
+"en_US, fr_CA, sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
-msgstr ""
+msgstr "Honek ezin du izan {$max} baino handiagoa."
 
 msgid "validator.max.file"
-msgstr ""
+msgstr "Honek ezin du izan {$max} kilobyte baino handiagoa."
 
 msgid "validator.max.string"
-msgstr ""
+msgstr "Honek ezin du izan {$max} karaktere baino handiagoa."
 
 msgid "validator.max.array"
-msgstr ""
+msgstr "Honek ezin ditu izan {$max} elementu baino gehiago."
 
 msgid "validator.mimes"
-msgstr ""
+msgstr "Fitxategi honek {$values} motakoa izan behar du."
 
 msgid "validator.min.numeric"
-msgstr ""
+msgstr "Gutxienez {$min} izan behar du honek."
 
 msgid "validator.min.file"
-msgstr ""
+msgstr "Gutxienez {$min} kilobyte izan behar ditu honek."
 
 msgid "validator.min.string"
-msgstr ""
+msgstr "Gutxienez {$min} karaktere izan behar ditu honek."
 
 msgid "validator.min.array"
-msgstr ""
+msgstr "Gutxienez {$min} elementu izan behar ditu honek."
 
 msgid "validator.not_in"
-msgstr ""
+msgstr "Hautatutako {$attribute} baliogabea da."
 
 msgid "validator.numeric"
-msgstr ""
+msgstr "Zenbaki hau ez da baliozkoa."
 
 msgid "validator.orcid"
-msgstr ""
+msgstr "Hau ez da ORCID baliozkoa."
 
 msgid "validator.present"
-msgstr ""
+msgstr "{$attribute} eremuak presente egon behar du."
 
 msgid "validator.regex"
-msgstr ""
+msgstr "Hau ez dago behar bezala formateatua."
 
 msgid "validator.required"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da."
 
 msgid "validator.required_if"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$other} {$value} denean."
 
 msgid "validator.required_unless"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da, {$other} {$values}-n ez badago behintzat."
 
 msgid "validator.required_with"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values} presente dagoenean."
 
 msgid "validator.required_with_all"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values} presente dagoenean."
 
 msgid "validator.required_without"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values} presente ez dagoenean."
 
 msgid "validator.required_without_all"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values}-tik bat ere ez dagoenean."
 
 msgid "validator.same"
-msgstr ""
+msgstr "{$attribute}-k eta {$other}-k bat etorri behar dute."
 
 msgid "validator.size.numeric"
-msgstr ""
+msgstr "Honek {$size} izan behar du."
 
 msgid "validator.size.file"
-msgstr ""
+msgstr "Honek {$size} kilobyte izan behar du."
 
 msgid "validator.size.string"
-msgstr ""
+msgstr "Honek {$size} karaktere izan behar ditu."
 
 msgid "validator.size.array"
-msgstr ""
+msgstr "Honek {$size} elementu izan behar ditu."
 
 msgid "validator.string"
-msgstr ""
+msgstr "Hau ez da baliozko kate bat."
 
 msgid "validator.timezone"
-msgstr ""
+msgstr "Hau ez da baliozko ordu-eremu bat."
 
 msgid "validator.unique"
-msgstr ""
+msgstr "{$attribute} dagoeneko hartuta dago."
 
 msgid "validator.url"
-msgstr ""
+msgstr "URL hau ez da baliozkoa."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Ez da lerro berririk onartzen."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "[{$tags}] html-etiketa bakarrik onartzen dira."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
 
 msgid "filter.error.missingRequirements"
 msgstr ""
+"Zure instalazio-ingurunean onartzen ez den eraldaketa bat exekutatzen "
+"saiatzen ari zara."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Ezin izan da XML nodoa inportatu"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Agindu ezezaguna {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2204,10 +2218,10 @@ msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
 msgid "notification.addedAuthor"
-msgstr ""
+msgstr "Egilea gehitu da."
 
 msgid "notification.editedAuthor"
-msgstr ""
+msgstr "Egilea editatu da."
 
 #~ msgid "announcement.viewLink"
 #~ msgstr "Gehiago..."
@@ -2333,3 +2347,30 @@ msgstr "Nire esleipenak ebaluatzaile gisa"
 
 msgid "navigation.mySubmissions"
 msgstr "Nire bidalketak egile gisa"
+
+msgid "validator.multilingual"
+msgstr "Hizkuntza anitzeko eskakizuna ez da betetzen eremu honetarako."
+
+msgid "common.refreshingData"
+msgstr "Datuak eguneratzen"
+
+msgid "common.viewMoreDetails"
+msgstr "Ikusi xehetasun gehiago"
+
+msgid "common.sandbox"
+msgstr "Aplikazioa sandbox moduan exekutatzen."
+
+msgid "showAll"
+msgstr "Erakutsi guztia"
+
+msgid "showLess"
+msgstr "Erakutsi gutxiago"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Zenb."
+
+msgid "validator.date.comparison"
+msgstr "Konparaziorako emandako datak baliogabeak dira."

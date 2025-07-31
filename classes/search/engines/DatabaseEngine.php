@@ -12,16 +12,12 @@
 
 namespace PKP\search\engines;
 
-use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Database\Query\Builder as DatabaseBuilder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
-use PKP\search\parsers\SearchFileParser;
-use PKP\submissionFile\SubmissionFile;
 
 class DatabaseEngine extends ScoutEngine
 {
@@ -35,65 +31,7 @@ class DatabaseEngine extends ScoutEngine
     public function update($models)
     {
         $models->each(function ($submission) {
-            $submission->getData('publications')->each(function ($publication) use ($submission) {
-                $titles = (array) $publication->getFullTitles();
-                $abstracts = (array) $publication->getData('abstract');
-                $bodies = [];
-                $authors = [];
-
-                // Index all galleys
-                $submissionFiles = Repo::submissionFile()
-                    ->getCollector()
-                    ->filterByAssoc(Application::ASSOC_TYPE_REPRESENTATION, [$publication->getId()])
-                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
-                    ->getMany();
-
-                foreach ($submissionFiles as $submissionFile) {
-                    $galley = Application::getRepresentationDAO()->getById($submissionFile->getData('assocId'));
-                    $parser = SearchFileParser::fromFile($submissionFile);
-                    if (!$parser) {
-                        continue;
-                    }
-                    try {
-                        $parser->open();
-                        do {
-                            for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
-                            if (strlen($buffer)) {
-                                $bodies[$galley->getLocale()] = ($bodies[$galley->getLocale()] ?? '') . $buffer;
-                            }
-                        } while ($chunk !== false);
-                    } catch (\Throwable $e) {
-                        error_log($e);
-                    } finally {
-                        $parser->close();
-                    }
-                }
-
-                // Index all authors
-                foreach ($publication->getData('authors') as $author) {
-                    foreach ($author->getFullNames() as $locale => $fullName) {
-                        $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
-                    }
-                }
-
-                $locales = array_unique(array_merge(array_keys($titles), array_keys($abstracts), array_keys($bodies), array_keys($authors)));
-
-                foreach ($locales as $locale) {
-                    DB::table('submissions_fulltext')->upsert(
-                        [
-                            'submission_id' => $submission->getId(),
-                            'publication_id' => $publication->getId(),
-                            'locale' => $locale,
-                            'title' => $titles[$locale] ?? '',
-                            'abstract' => $abstracts[$locale] ?? '',
-                            'body' => $bodies[$locale] ?? '',
-                            'authors' => $authors[$locale] ?? '',
-                        ],
-                        ['submission_id', 'publication_id', 'locale'],
-                        ['title', 'abstract', 'body']
-                    );
-                }
-            });
+            dispatch(new \PKP\jobs\submissions\UpdateSubmissionSearchJob($submission->getId()));
         });
     }
 

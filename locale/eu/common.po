@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-30 10:17+0000\n"
+"PO-Revision-Date: 2025-07-31 15:21+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -1171,7 +1171,7 @@ msgid "form.dropzone.dictFileTooBig"
 msgstr ""
 
 msgid "form.dropzone.dictInvalidFileType"
-msgstr ""
+msgstr "Mota honetako fitxategiak ezin dira igo."
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
@@ -1422,7 +1422,7 @@ msgid "navigation.archives"
 msgstr "Artxiboak"
 
 msgid "navigation.breadcrumbLabel"
-msgstr ""
+msgstr "Hemen zaude:"
 
 msgid "navigation.breadcrumbSeparator"
 msgstr "/"
@@ -1431,7 +1431,7 @@ msgid "navigation.tools"
 msgstr "Tresnak"
 
 msgid "navigation.tools.importExport"
-msgstr ""
+msgstr "Inportatu/Esportatu"
 
 msgid "navigation.tools.statistics"
 msgstr "Estatistikak"
@@ -1467,7 +1467,7 @@ msgid "navigation.items"
 msgstr "{$from} - {$to} / {$total}"
 
 msgid "navigation.items.shownTotal"
-msgstr ""
+msgstr "{$total} elementutik {$shown}"
 
 msgid "navigation.login"
 msgstr "Hasi saioa"
@@ -1503,19 +1503,19 @@ msgid "navigation.sitemap"
 msgstr "Gunearen mapa"
 
 msgid "navigation.skip.description"
-msgstr ""
+msgstr "Edukien esteketara salto egin"
 
 msgid "navigation.skip.announcements"
-msgstr ""
+msgstr "Joan oharretara"
 
 msgid "navigation.skip.main"
-msgstr ""
+msgstr "Eduki nagusira joan"
 
 msgid "navigation.skip.nav"
-msgstr ""
+msgstr "Joan nabigazio-menu nagusira"
 
 msgid "navigation.skip.footer"
-msgstr ""
+msgstr "Joan gunearen oin-orrira"
 
 msgid "navigation.stepNumber"
 msgstr "{$step}. urratsa"
@@ -1536,40 +1536,40 @@ msgid "navigation.userManagement"
 msgstr "Erabiltzaileen kudeaketa"
 
 msgid "navigation.viewFrontend"
-msgstr ""
+msgstr "Ikusi gunea"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Erakundeak"
 
 msgid "notification.addedAuditor"
-msgstr ""
+msgstr "Auditorea gehituta."
 
 msgid "notification.removedAuditor"
-msgstr ""
+msgstr "Auditorea ezabatuta."
 
 msgid "notification.addedQuery"
-msgstr ""
+msgstr "Eztabaida gehituta"
 
 msgid "notification.reviewAcknowledged"
-msgstr ""
+msgstr "Berrikuspena onartutzat markatuta. Mezu elektronikoa ez da bidali."
 
 msgid "notification.reviewerThankedEmail"
-msgstr ""
+msgstr "Eskerrak emateko mezu elektronikoa bidali zaio ebaluatzaileari."
 
 msgid "notification.updatedReviewFiles"
-msgstr ""
+msgstr "Berrikuspen-fitxategiak eguneratuta."
 
 msgid "notification.allow"
 msgstr "Onartu horrelako jakinarazpenak nire jakinarazpen barran agertzea."
 
 msgid "notification.addedAnnouncementType"
-msgstr ""
+msgstr "Jakirazpen-mota gehitu da."
 
 msgid "notification.editedAnnouncementType"
-msgstr ""
+msgstr "Jakirazpen-mota editatu da."
 
 msgid "notification.removedAnnouncementType"
-msgstr ""
+msgstr "Jakirazpen-mota ezabatu da."
 
 msgid "notification.removedAnnouncement"
 msgstr "Politika editorialak"
@@ -1581,7 +1581,7 @@ msgid "notification.confirmSuccess"
 msgstr "Harpidetza burutu da."
 
 msgid "notification.email"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik jakinarazpen-mota hauetarako."
 
 msgid "notification.noneExist"
 msgstr "Une honetan ez duzu jakinarazpenik."
@@ -1625,10 +1625,11 @@ msgid "notification.reminderSent"
 msgstr "Pasahitz berria bidali da emandako posta elektronikoko helbidera."
 
 msgid "notification.savedSubmissionMetadata"
-msgstr ""
+msgstr "Bidalketaren metadatuak gordeta."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr ""
+"Bidali mezu elektroniko bat honi buruz erregistratutako erabiltzaile guztiei."
 
 msgid "search.author"
 msgstr "Egileak"
@@ -1640,22 +1641,22 @@ msgid "search.advancedFilters"
 msgstr "Iragazki aurreratuak"
 
 msgid "search.advancedSearchMore"
-msgstr ""
+msgstr "Bilaketa aukera gehiago"
 
 msgid "search.advancedSearchLess"
-msgstr ""
+msgstr "Ezkutatu bilaketa aukera gehiago"
 
 msgid "search.searchAgain"
-msgstr ""
+msgstr "Bilatu berriz"
 
 msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr ""
+msgstr "Garbitu indizea"
 
 msgid "search.cli.rebuildIndex.done"
 msgstr "egina"
 
 msgid "search.cli.rebuildIndex.error"
-msgstr ""
+msgstr "errorea"
 
 msgid "search.cli.rebuildIndex.result"
 msgstr ""
@@ -2312,3 +2313,23 @@ msgstr "({$text})"
 
 msgid "common.loaded"
 msgstr "Kargatuta"
+
+msgid "common.changeLanguage"
+msgstr "Aldatu hizkuntza"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} errore detektatu dira. Mesedez, zuzendu beheko erroreak jarraitu "
+"aurretik."
+
+msgid "form.errorSummaryOne"
+msgstr "Errore bat detektatu da. Jarraitu aurretik, zuzendu beheko errorea."
+
+msgid "navigation.dashboards"
+msgstr "Editorearen kontrol-panela"
+
+msgid "navigation.reviewAssignments"
+msgstr "Nire esleipenak ebaluatzaile gisa"
+
+msgid "navigation.mySubmissions"
+msgstr "Nire bidalketak egile gisa"

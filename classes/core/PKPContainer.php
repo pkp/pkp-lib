@@ -28,6 +28,7 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
+use Laravel\Scout\EngineManager;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -478,12 +479,8 @@ class PKPContainer extends Container
         // Create instance and bind to use globally
         $this->instance('config', new Repository($items));
 
-        app()->extend(\Laravel\Scout\EngineManager::class, function ($service, $app) {
-            return $service->extend('opensearch', fn () => new \PKP\search\engines\OpenSearchEngine());
-        });
-        app()->extend(\Laravel\Scout\EngineManager::class, function ($service, $app) {
-            return $service->extend('database', fn () => new \PKP\search\engines\DatabaseEngine());
-        });
+        app()->extend(EngineManager::class, fn (EngineManager $s) => $s->extend('opensearch', fn () => new \PKP\search\engines\OpenSearchEngine()));
+        app()->extend(EngineManager::class, fn (EngineManager $s) => $s->extend('database', fn () => new \PKP\search\engines\DatabaseEngine()));
     }
 
     /**

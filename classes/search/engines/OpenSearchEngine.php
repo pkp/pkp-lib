@@ -132,8 +132,7 @@ class OpenSearchEngine extends ScoutEngine
     protected function buildQuery(Builder $builder): array
     {
         // Handle "where" conditions
-        $contextId = null;
-        $publishedFrom = $publishedTo = null;
+        $contextId = $publishedFrom = $publishedTo = null;
         foreach ($builder->wheres as $field => $value) {
             $$field = match($field) {
                 'contextId' => (int) $value,

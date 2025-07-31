@@ -32,11 +32,6 @@ class DatabaseEngine extends ScoutEngine
         return Config::getVar('search', 'search_index_name', 'submissions');
     }
 
-    protected function getTableName(): string
-    {
-        return 'submissions_fulltext';
-    }
-
     public function update($models)
     {
         $models->each(function ($submission) {
@@ -84,7 +79,7 @@ class DatabaseEngine extends ScoutEngine
                 $locales = array_unique(array_merge(array_keys($titles), array_keys($abstracts), array_keys($bodies), array_keys($authors)));
 
                 foreach ($locales as $locale) {
-                    DB::table($this->getTableName())->upsert(
+                    DB::table('submissions_fulltext')->upsert(
                         [
                             'submission_id' => $submission->getId(),
                             'publication_id' => $publication->getId(),
@@ -104,7 +99,7 @@ class DatabaseEngine extends ScoutEngine
 
     public function delete($models)
     {
-        DB::table($this->getTableName())
+        DB::table('submissions_fulltext')
             ->whereIn('submission_id', $models->map(fn (Submission $s) => $s->getId()))
             ->delete();
     }
@@ -112,8 +107,7 @@ class DatabaseEngine extends ScoutEngine
     protected function buildQuery(SearchBuilder $builder): DatabaseBuilder
     {
         // Handle "where" conditions
-        $contextId = null;
-        $publishedFrom = $publishedTo = null;
+        $contextId = $publishedFrom = $publishedTo = null;
         foreach ($builder->wheres as $field => $value) {
             $$field = match($field) {
                 'contextId' => (int) $value,
@@ -136,16 +130,16 @@ class DatabaseEngine extends ScoutEngine
             }
         };
 
-        return DB::table($this->getTableName() . ' AS ftsearch')
-            ->join('submissions AS s', 'ftsearch.submission_id', 's.submission_id')
-            ->when($contextId, fn (Builder $q) => $q->where('context_id', $contextId))
+        return DB::table('submissions_fulltext AS ft')
+            ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
+            ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
             ->when($publishedFrom || $publishedTo || is_array($sectionIds), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
                     ->whereColumn('p.submission_id', 's.submission_id')
                     ->where('p.published', 1)
-                    ->when($publishedFrom, fn ($q) => $q->where('p.date_published', '>=', $publishedFrom))
-                    ->when($publishedTo, fn ($q) => $q->where('p.date_published', '<', $publishedTo))
+                    ->when($publishedFrom, fn ($q) => $q->whereDate('p.date_published', '>=', $publishedFrom))
+                    ->when($publishedTo, fn ($q) => $q->whereDate('p.date_published', '<', $publishedTo))
                     ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))
                     ->when(is_array($categoryIds), fn ($q) => $q->whereIn(
                         'p.publication_id',
@@ -206,6 +200,6 @@ class DatabaseEngine extends ScoutEngine
 
     public function flush($model)
     {
-        DB::table($this->getTableName())->truncate();
+        DB::table('submissions_fulltext')->truncate();
     }
 }

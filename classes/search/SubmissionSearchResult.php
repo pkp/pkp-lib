@@ -29,6 +29,8 @@ class SubmissionSearchResult
 
     /**
      * @see Illuminate\Database\Eloquent\HasCollection.
+     *
+     * @param $models PKPSubmission[]
      */
     public function newCollection(array $models = [])
     {

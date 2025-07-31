@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
+use PKP\submission\PKPSubmission;
 
 class DatabaseEngine extends ScoutEngine
 {
@@ -38,7 +39,7 @@ class DatabaseEngine extends ScoutEngine
     public function delete($models)
     {
         DB::table('submissions_fulltext')
-            ->whereIn('submission_id', $models->map(fn (Submission $s) => $s->getId()))
+            ->whereIn('submission_id', $models->map(fn (PKPSubmission $s) => $s->getId()))
             ->delete();
     }
 

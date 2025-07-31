@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-30 20:21+0000\n"
+"PO-Revision-Date: 2025-07-31 15:21+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -1320,21 +1320,38 @@ msgstr ""
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan auteurs tijdens de uploadfase van bestanden. "
+"Voorzie hen van een korte uitleg over de vraag welke bestanden van de "
+"auteurs worden verwacht te delen bij hun inzending."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan auteurs tijdens de bijdragersstap. Voorzie "
+"hen van een korte uitleg over de vraag welke informatie de auteurs over "
+"henzelf, mede-auteurs en andere bijdragende medewerkers behoren te "
+"verstrekken."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan de auteurs tijdens de stap van de "
+"randvoorwaardelijkheden, wanneer zij worden verzocht de titel, samenvatting "
+"of andere kerninformatie over hun inzending te verstrekken."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan de auteurs tijdens de redactionele stap, "
+"wanneer de auteurs worden verzocht metadata (zoals kernwoorden, opmerkingen "
+"aan de redacteur en andere randvoorwaardelijkheden ter ondersteuning van de "
+"redactionele recensie te verstrekken."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Het volgende wordt getoond aan de auteurs tijdens de laatste stap van de "
+"inzendingsinstructies, wanneer zij worden gevraagd alle verstrekte "
+"informatie te verstrekken voorafgaand aan de inzendinkg van hun werk."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Auteursbegeleiding"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checklist voor het voorbereiden van een inzending"
@@ -1346,26 +1363,33 @@ msgstr ""
 "aan alle vereisten die hier zijn gespecificeerd voordat ze met hun inzending "
 "beginnen."
 
+#, fuzzy
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
+"Deactiveer dit gedeelte en laat geen nieuwe of nieuw te maken inzendingen "
+"toe."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Bent u er zeker van dat u dit gedeelte wilt deactiveren?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Bent u er zeker van dat u dit gedeelte wilt activeren?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Redactionele toewijzingen"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Selecteer de redactionele gebruikers die automatisch zouden moeten zijn "
+"toegewezen aan alle nieuwe inzendingen voor dit gedeelte."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Toewijzing aan {$name} als {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Selecteer de redactionele gebruikers, die automatisch zouden moeten zijn "
+"toegewezen aan alle nieuwe inzendingen in deze categorie."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Toegangsopties"
@@ -1377,7 +1401,7 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nieuw)"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr ""
+msgstr "Geregistreerde gebruikers"
 
 msgid "manager.users"
 msgstr "Gebruikers"
@@ -1673,8 +1697,11 @@ msgstr "Taal {$locale} vernieuwd."
 msgid "notification.localeSettingsSaved"
 msgstr "Taalinstellingen zijn bewaard."
 
+#, fuzzy
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"De taalinstelling kan niet worden bewaard. Ten minste één taal per optie "
+"moet worden ingeschakeld"
 
 msgid "notification.editedUser"
 msgstr "Gebruiker is bewerkt."
@@ -1774,7 +1801,7 @@ msgid "settings.roles.stageIdRequired"
 msgstr "Er moet een stap in het redactieproces worden geselecteerd."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr ""
+msgstr "Laat bewerking van de metadata van de inzending toe."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
@@ -1824,13 +1851,18 @@ msgid "grid.action.restoreGenres"
 msgstr "Herstel de onderdelen naar de standaardwaarden"
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Bestandstype"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
+"Dit zijn afhankelijke bestanden, zoals afbeeldingen weergegeven door een "
+"HTML-bestand. Deze worden niet met de gepubliceerde informatie weergegeven."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
+"Dit zijn extra bestanden, zoals gegevensverzamelingen en "
+"onderzoeksmateriaal. Deze zullen afzonderlijk worden weergegeven vanuit de "
+"belangrijkste publicatiebestanden."
 
 msgid "manager.setup.genres.key"
 msgstr "Sleutel"
@@ -1848,7 +1880,7 @@ msgstr ""
 "teken."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Metadatabestand"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
@@ -3763,3 +3795,34 @@ msgstr ""
 
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr "Vereiste minimum aantal bevestigde recensies voor een inzending"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Stel de auteurs in de gelegenheid mogelijke recensenten voor te stellen voor "
+"het inzendingsproces"
+
+#, fuzzy
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"De taalinstelling kan niet worden bewaard. Alle opties behoren te worden "
+"ingeschakeld."
+
+msgid "notification.submissionLocales"
+msgstr "Geupdatete taal- en/of landinstellingen."
+
+#, fuzzy
+msgid "settings.roles.masthead"
+msgstr "Overweeg een rol in de lijst met titels"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Geïinstalleerde versie: {$version}"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Het volgende wordt getoond aan auteurs tijdens de stap van "
+"recensentenvoorstellen. Voorzie hen van een korte uitleg over de vraag welke "
+"informatie de auteurs over henzelf, mede-auteurs en ieder bijdragende "
+"medewerker behoort te verstrekken."
+
+msgid "settings.roles.permitSettings"
+msgstr "Laat wijzigingen in Instellingen toe"

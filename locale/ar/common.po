@@ -1691,29 +1691,8 @@ msgstr "التخصصات العلمية"
 msgid "search.fullText"
 msgstr "النص الكامل"
 
-msgid "search.indexTerms"
-msgstr "عبارات الفهرسة"
-
-msgid "search.indexTermsLong"
-msgstr "كل حقول عبارة الفهرسة"
-
-msgid "search.matchAll"
-msgstr "مطابقة كل الفئات"
-
 msgid "search.noResults"
 msgstr "لا نتائج"
-
-msgid "search.operator.and"
-msgstr "و"
-
-msgid "search.operator.not"
-msgstr "لا"
-
-msgid "search.operator.or"
-msgstr "أو"
-
-msgid "search.SearchFor"
-msgstr "البحث عن"
 
 msgid "search.searchResults"
 msgstr "إبحث ضمن النتائج"

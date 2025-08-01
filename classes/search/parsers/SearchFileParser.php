@@ -1,26 +1,18 @@
 <?php
 
 /**
- * @defgroup search Search
- * Implements search tools, such as file parsers, workflow integration,
- * indexing, querying, etc.
- */
-
-/**
- * @file classes/search/SearchFileParser.php
+ * @file classes/search/parsers/SearchFileParser.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SearchFileParser
  *
- * @ingroup search
- *
  * @brief Abstract class to extract search text from a given file.
  */
 
-namespace PKP\search;
+namespace PKP\search\parsers;
 
 use Exception;
 use PKP\config\Config;
@@ -46,30 +38,24 @@ class SearchFileParser
 
     /**
      * Return the path to the file.
-     *
-     * @return string
      */
-    public function getFilePath()
+    public function getFilePath(): string
     {
         return $this->filePath;
     }
 
     /**
      * Change the file path.
-     *
-     * @param string $filePath
      */
-    public function setFilePath($filePath)
+    public function setFilePath(string $filePath): void
     {
         $this->filePath = $filePath;
     }
 
     /**
      * Open the file.
-     *
-     * @return bool
      */
-    public function open()
+    public function open(): bool
     {
         if (!($this->fp = @fopen($this->filePath, 'rb'))) {
             throw new Exception("Failed to parse the file \"{$this->filePath}\". Last error: " . error_get_last());
@@ -80,19 +66,18 @@ class SearchFileParser
     /**
      * Close the file.
      */
-    public function close()
+    public function close(): void
     {
         if ($this->fp) {
             fclose($this->fp);
+            $this->fp = null;
         }
     }
 
     /**
-     * Read and return the next block/line of text.
-     *
-     * @return string (false on EOF)
+     * Read and return the next block/line of text (or false on EOF).
      */
-    public function read()
+    public function read(): string|bool
     {
         if (!$this->fp || feof($this->fp)) {
             return false;
@@ -101,11 +86,9 @@ class SearchFileParser
     }
 
     /**
-     * Read from the file pointer.
-     *
-     * @return string
+     * Read a string from the file pointer (or false on EOF)
      */
-    public function doRead()
+    public function doRead(): string|bool
     {
         return fgets($this->fp);
     }
@@ -117,12 +100,8 @@ class SearchFileParser
 
     /**
      * Create a text parser for a file.
-     *
-     * @param SubmissionFile $submissionFile
-     *
-     * @return ?SearchFileParser
      */
-    public static function fromFile($submissionFile)
+    public static function fromFile(SubmissionFile $submissionFile): ?SearchFileParser
     {
         $fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
         return static::fromFileType($submissionFile->getData('mimetype'), $fullPath);
@@ -131,12 +110,9 @@ class SearchFileParser
     /**
      * Create a text parser for a file.
      *
-     * @param string $type
-     * @param string $path
-     *
-     * @return ?SearchFileParser
+     * @param string $type MIME type
      */
-    public static function fromFileType($type, $path)
+    public static function fromFileType(string $type, string $path): ?SearchFileParser
     {
         if (Config::getVar('search', "index[{$type}]")) {
             $parserType = 'process';

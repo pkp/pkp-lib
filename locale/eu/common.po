@@ -1661,29 +1661,8 @@ msgstr "Diziplina(k)"
 msgid "search.fullText"
 msgstr "Testu osoa"
 
-msgid "search.indexTerms"
-msgstr "Indizeko terminoak"
-
-msgid "search.indexTermsLong"
-msgstr ""
-
-msgid "search.matchAll"
-msgstr "Kategoria guztietan"
-
 msgid "search.noResults"
 msgstr "Emaitzarik ez"
-
-msgid "search.operator.and"
-msgstr "ETA"
-
-msgid "search.operator.not"
-msgstr "EZ"
-
-msgid "search.operator.or"
-msgstr "EDO"
-
-msgid "search.SearchFor"
-msgstr ""
 
 msgid "search.searchResults"
 msgstr "Bilaketaren emaitza"

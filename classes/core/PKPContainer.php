@@ -28,6 +28,7 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
+use Laravel\Scout\EngineManager;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -83,6 +84,7 @@ class PKPContainer extends Container
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
         $this->instance('path', $this->basePath);
+        $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {
             return new class () implements ExceptionHandler {
                 public function shouldReport(Throwable $exception)
@@ -111,8 +113,8 @@ class PKPContainer extends Container
                                 'error' => $exception->getMessage()
                             ],
                             in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                                ? $exception->getCode()
-                                : Response::HTTP_INTERNAL_SERVER_ERROR
+                            ? $exception->getCode()
+                            : Response::HTTP_INTERNAL_SERVER_ERROR
                         )->send();
                     }
 
@@ -165,10 +167,10 @@ class PKPContainer extends Container
         $this->loadConfiguration();
 
         $this->register(new AppServiceProvider($this));
-        $this->register(new \PKP\core\PKPEncryptionServiceProvider($this));
-        $this->register(new \PKP\core\PKPAuthServiceProvider($this));
+        $this->register(new PKPEncryptionServiceProvider($this));
+        $this->register(new PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
-        $this->register(new \PKP\core\PKPSessionServiceProvider($this));
+        $this->register(new PKPSessionServiceProvider($this));
         $this->register(new \Illuminate\Pipeline\PipelineServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
@@ -185,8 +187,9 @@ class PKPContainer extends Container
         $this->register(new InvitationServiceProvider($this));
         $this->register(new ScheduleServiceProvider($this));
         $this->register(new ConsoleCommandServiceProvider($this));
-        $this->register(new \PKP\core\ValidationServiceProvider($this));
+        $this->register(new ValidationServiceProvider($this));
         $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
+        $this->register(new \Laravel\Scout\ScoutServiceProvider($this));
     }
 
     /**
@@ -469,8 +472,15 @@ class PKPContainer extends Container
             ]
         ];
 
+        $items['scout'] = [
+            'driver' => Config::getVar('search', 'driver', 'database'),
+        ];
+
         // Create instance and bind to use globally
         $this->instance('config', new Repository($items));
+
+        app()->extend(EngineManager::class, fn (EngineManager $s) => $s->extend('opensearch', fn () => new \PKP\search\engines\OpenSearchEngine()));
+        app()->extend(EngineManager::class, fn (EngineManager $s) => $s->extend('database', fn () => new \PKP\search\engines\DatabaseEngine()));
     }
 
     /**

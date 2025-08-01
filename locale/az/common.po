@@ -1649,9 +1649,6 @@ msgstr "Xəbərdarlıq"
 msgid "notification.notifications"
 msgstr "Bildirişlər"
 
-msgid "search.indexTerms"
-msgstr "İndeks terminləri"
-
 msgid "notification.settings"
 msgstr "Bildiriş tənzimləri"
 
@@ -1697,26 +1694,8 @@ msgstr "Elm sahələri"
 msgid "search.fullText"
 msgstr "Tam mətn"
 
-msgid "search.indexTermsLong"
-msgstr "Bütün indeks termin sahələri"
-
-msgid "search.matchAll"
-msgstr "Bütün kateqoriyaları uyğunlaşdırın"
-
 msgid "search.noResults"
 msgstr "Nəticə tapılmadı"
-
-msgid "search.operator.and"
-msgstr "və"
-
-msgid "search.operator.not"
-msgstr "deyil"
-
-msgid "search.operator.or"
-msgstr "və ya"
-
-msgid "search.SearchFor"
-msgstr "üçün axtarın"
 
 msgid "search.searchResults"
 msgstr "Axtarış nəticələri"

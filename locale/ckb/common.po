@@ -1624,28 +1624,7 @@ msgstr ""
 msgid "search.fullText"
 msgstr ""
 
-msgid "search.indexTerms"
-msgstr ""
-
-msgid "search.indexTermsLong"
-msgstr ""
-
-msgid "search.matchAll"
-msgstr ""
-
 msgid "search.noResults"
-msgstr ""
-
-msgid "search.operator.and"
-msgstr ""
-
-msgid "search.operator.not"
-msgstr ""
-
-msgid "search.operator.or"
-msgstr ""
-
-msgid "search.SearchFor"
 msgstr ""
 
 msgid "search.searchResults"

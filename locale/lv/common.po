@@ -1585,26 +1585,8 @@ msgstr "Nozares"
 msgid "search.fullText"
 msgstr "Pilns teksts"
 
-msgid "search.indexTerms"
-msgstr "Rādītāja termini"
-
-msgid "search.matchAll"
-msgstr "Atbilst visām kategorijām"
-
 msgid "search.noResults"
 msgstr "Nav rezultātu"
-
-msgid "search.operator.and"
-msgstr "and"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.SearchFor"
-msgstr "Meklēt"
 
 msgid "search.searchResults"
 msgstr "Meklēšanas rezultāti"
@@ -1767,9 +1749,6 @@ msgstr "Publicēts pēc"
 
 msgid "navigation.previousPage"
 msgstr "&lt;&lt;"
-
-msgid "search.indexTermsLong"
-msgstr "Visi rādītāja termina lauki"
 
 msgid "navigation.skip.description"
 msgstr "Pāriet uz satura saitēm"

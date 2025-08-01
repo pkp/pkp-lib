@@ -5,24 +5,25 @@ declare(strict_types=1);
 /**
  * @file jobs/submissions/UpdateSubmissionSearchJob.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UpdateSubmissionSearchJob
  *
  * @ingroup jobs
  *
- * @brief Class to handle the Submission Search data update as a Job
+ * @brief Class to handle the Submission Search data update as a Job for the database engine
  */
 
 namespace PKP\jobs\submissions;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\job\exceptions\JobException;
+use Illuminate\Support\Facades\DB;
 use PKP\jobs\BaseJob;
-use PKP\submission\PKPSubmission;
+use PKP\search\parsers\SearchFileParser;
+use PKP\submissionFile\SubmissionFile;
 
 class UpdateSubmissionSearchJob extends BaseJob
 {
@@ -54,19 +55,64 @@ class UpdateSubmissionSearchJob extends BaseJob
     public function handle(): void
     {
         $submission = Repo::submission()->get($this->submissionId);
+        $submission->getData('publications')->each(function ($publication) use ($submission) {
+            $titles = (array) $publication->getFullTitles();
+            $abstracts = (array) $publication->getData('abstract');
+            $bodies = [];
+            $authors = [];
 
-        if (!$submission) {
-            throw new JobException(JobException::INVALID_PAYLOAD);
-        }
+            // Index all galleys
+            $submissionFiles = Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(Application::ASSOC_TYPE_REPRESENTATION, [$publication->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
+                ->getMany();
 
-        $submissionSearchIndex = Application::getSubmissionSearchIndex();
-        if ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
-            $submissionSearchIndex->deleteTextIndex($submission->getId());
-        } else {
-            $submissionSearchIndex->submissionMetadataChanged($submission);
-            $submissionSearchIndex->submissionFilesChanged($submission);
-        }
+            foreach ($submissionFiles as $submissionFile) {
+                $galley = Application::getRepresentationDAO()->getById($submissionFile->getData('assocId'));
+                $parser = SearchFileParser::fromFile($submissionFile);
+                if (!$parser) {
+                    continue;
+                }
+                try {
+                    $parser->open();
+                    do {
+                        for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
+                        if (strlen($buffer)) {
+                            $bodies[$galley->getLocale()] = ($bodies[$galley->getLocale()] ?? '') . $buffer;
+                        }
+                    } while ($chunk !== false);
+                } catch (\Throwable $e) {
+                    error_log($e);
+                } finally {
+                    $parser->close();
+                }
+            }
 
-        $submissionSearchIndex->submissionChangesFinished();
+            // Index all authors
+            foreach ($publication->getData('authors') as $author) {
+                foreach ($author->getFullNames() as $locale => $fullName) {
+                    $authors[$locale] = ($authors[$locale] ?? '') . $fullName . ' ';
+                }
+            }
+
+            $locales = array_unique(array_merge(array_keys($titles), array_keys($abstracts), array_keys($bodies), array_keys($authors)));
+
+            foreach ($locales as $locale) {
+                DB::table('submissions_fulltext')->upsert(
+                    [
+                        'submission_id' => $submission->getId(),
+                        'publication_id' => $publication->getId(),
+                        'locale' => $locale,
+                        'title' => $titles[$locale] ?? '',
+                        'abstract' => $abstracts[$locale] ?? '',
+                        'body' => $bodies[$locale] ?? '',
+                        'authors' => $authors[$locale] ?? '',
+                    ],
+                    ['submission_id', 'publication_id', 'locale'],
+                    ['title', 'abstract', 'body']
+                );
+            }
+        });
     }
 }

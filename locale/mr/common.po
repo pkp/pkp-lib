@@ -1290,9 +1290,6 @@ msgstr "सूचना"
 msgid "navigation.setup"
 msgstr "सेटअप"
 
-msgid "search.indexTerms"
-msgstr "सूचीसाठी शोध-शब्द"
-
 msgid "navigation.submissions"
 msgstr "सादरीकरणे"
 
@@ -1301,9 +1298,6 @@ msgstr "वापरकर्त्याचे मुख्यपृष्ठ"
 
 msgid "search.advancedSearchLess"
 msgstr "आणखी शोध पर्याय लपवा"
-
-msgid "search.matchAll"
-msgstr "सगळे प्रवर्ग (Category) जुळवा"
 
 msgid "search.searchResults.foundPlural"
 msgstr "{$count} लेख सापडले."
@@ -1654,18 +1648,6 @@ msgstr "ज्ञानशाखा (Disciplines)"
 msgid "search.fullText"
 msgstr "संपूर्ण लेख"
 
-msgid "search.operator.and"
-msgstr "आणि (Boolean AND)"
-
-msgid "search.operator.not"
-msgstr "नाही (Boolean NOT)"
-
-msgid "search.operator.or"
-msgstr "किंवा (Boolean OR)"
-
-msgid "search.SearchFor"
-msgstr "हे शोधा"
-
 msgid "search.searchResults"
 msgstr "शोधाचा निष्कर्ष"
 
@@ -1800,9 +1782,6 @@ msgstr "तुमचा नवा पासवर्ड नमूद केल�
 
 msgid "search.cli.rebuildIndex.result"
 msgstr "{$numIndexed} लेख सूचिकरणांसाठी योजलेले आहेत"
-
-msgid "search.indexTermsLong"
-msgstr "सगळ्या शोध-शब्दांकरता रकाना (फील्ड)"
 
 msgid "search.typeMethodApproach"
 msgstr "प्रकार (पद्धत/दृष्टिकोन)"

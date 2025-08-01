@@ -12,11 +12,11 @@
 
 namespace PKP\tests\jobs\submissions;
 
-use PKP\tests\PKPTestCase;
-use PKP\jobs\submissions\UpdateSubmissionSearchJob;
 use Mockery;
-use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PKP\jobs\submissions\UpdateSubmissionSearchJob;
+use PKP\tests\PKPTestCase;
 
 #[RunTestsInSeparateProcesses]
 #[CoversClass(UpdateSubmissionSearchJob::class)]
@@ -39,7 +39,7 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
             unserialize($this->serializedJobData)
         );
     }
-    
+
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
@@ -48,12 +48,15 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
         /** @var UpdateSubmissionSearchJob $updateSubmissionSearchJob */
         $updateSubmissionSearchJob = unserialize($this->serializedJobData);
 
+        $fakeSubmission = new \APP\submission\Submission();
+        $fakeSubmission->setData('publications', collect([new \APP\publication\Publication()]));
+
         // Mock the Submission facade to return a fake submission when Repo::submission()->get($id) is called
         $mock = Mockery::mock(app(\APP\submission\Repository::class))
             ->makePartial()
             ->shouldReceive('get')
             ->withAnyArgs()
-            ->andReturn(new \APP\submission\Submission())
+            ->andReturn($fakeSubmission)
             ->getMock();
 
         app()->instance(\APP\submission\Repository::class, $mock);
@@ -63,4 +66,3 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
         $this->expectNotToPerformAssertions();
     }
 }
-

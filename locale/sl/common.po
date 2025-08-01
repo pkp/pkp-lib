@@ -1700,29 +1700,8 @@ msgstr "Veda(e)"
 msgid "search.fullText"
 msgstr "Celotno besedilo"
 
-msgid "search.indexTerms"
-msgstr "Indeksni izrazi"
-
-msgid "search.indexTermsLong"
-msgstr "Vsa iskalna polja"
-
-msgid "search.matchAll"
-msgstr "Zajemi vse kategorije"
-
 msgid "search.noResults"
 msgstr "Ni zadetkov"
-
-msgid "search.operator.and"
-msgstr "in"
-
-msgid "search.operator.not"
-msgstr "ne"
-
-msgid "search.operator.or"
-msgstr "ali"
-
-msgid "search.SearchFor"
-msgstr "Išči"
 
 msgid "search.searchResults"
 msgstr "Rezultati iskanja"

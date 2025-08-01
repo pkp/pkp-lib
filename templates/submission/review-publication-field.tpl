@@ -11,6 +11,7 @@
  * @uses string $inLocale The locale key to show. Only include this for localized data
  * @uses string $name The user-facing name of this property, eg "Keywords"
  * @uses string $type The type of the value. Accepts `string`, `array`, `html`
+ * @uses string $dataField The name of the field to display when `$type` is 'array' and the publication property contains an array of objects.
  *}
 
 {if $inLocale}
@@ -43,12 +44,19 @@
     >
         {if $type === 'array'}
             <template v-if="publication.{$localizedProp|escape} && publication.{$localizedProp|escape}.length">
-                {{
-                    publication.{$localizedProp|escape}
-                        .join(
-                            t('common.commaListSeparator')
-                        )
-                }}
+                <template v-if="'{$dataField}'">
+                    {{
+                        publication.{$localizedProp|escape}
+                            .map(item => item['{$dataField}'])
+                            .join(t('common.commaListSeparator'))
+                    }}
+                </template>
+                <template v-else>
+                    {{
+                        publication.{$localizedProp|escape}
+                            .join(t('common.commaListSeparator'))
+                    }}
+                </template>
             </template>
             <template v-else>
                 {translate key="common.noneProvided"}

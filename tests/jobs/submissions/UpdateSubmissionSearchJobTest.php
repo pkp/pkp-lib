@@ -48,12 +48,15 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
         /** @var UpdateSubmissionSearchJob $updateSubmissionSearchJob */
         $updateSubmissionSearchJob = unserialize($this->serializedJobData);
 
+        $fakeSubmission = new \APP\submission\Submission();
+        $fakeSubmission->setData('publications', collect([new \APP\publication\Publication()]));
+
         // Mock the Submission facade to return a fake submission when Repo::submission()->get($id) is called
         $mock = Mockery::mock(app(\APP\submission\Repository::class))
             ->makePartial()
             ->shouldReceive('get')
             ->withAnyArgs()
-            ->andReturn(new \APP\submission\Submission())
+            ->andReturn($fakeSubmission)
             ->getMock();
 
         app()->instance(\APP\submission\Repository::class, $mock);

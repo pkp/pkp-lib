@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-01 18:55+0000\n"
+"PO-Revision-Date: 2025-08-02 13:51+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -2392,7 +2392,7 @@ msgstr ""
 "tot twee verschillende gebruikers."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "(Software of systeem) testen"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -2610,34 +2610,35 @@ msgid "grid.category.categoryDetails"
 msgstr "Categorie informatie"
 
 msgid "stats.allUsers"
-msgstr ""
+msgstr "Alle gebruikers"
 
 msgid "stats.city"
 msgstr "Stad"
 
+#, fuzzy
 msgid "stats.views"
-msgstr ""
+msgstr "Weergaven"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Downloads"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Het volledige aantal weergaven gesorteerd op datum"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Het volledige aantal downloads gesorteerd op datum"
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$aantal} ({$gemiddeld}/jaar)"
 
 msgid "stats.daily"
-msgstr ""
+msgstr "Dagelijks"
 
 msgid "stats.dateRange"
-msgstr ""
+msgstr "Datumreeks"
 
 msgid "stats.dateRange.allDates"
-msgstr ""
+msgstr "Alle datums"
 
 msgid "stats.dateRange.apply"
 msgstr ""
@@ -3853,3 +3854,31 @@ msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
 "Stel de volgorde van de redactionele rollen m.b.t. de titels vast voor een "
 "openbare weergave."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"De auteur {$authorName} heeft geen affiliatienaam in de taal van de "
+"inzending, {$localeName}. De inzending kan niet zonder deze informatie "
+"worden ingevoerd."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Het inzendingsbestand {$id} werd overgeslagen omdat het geen geldige "
+"herziening heeft."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"De herziening {$revision} van het inzendingsbestand {$id} werd overgeslagen "
+"omdat het bestand niet werd gevonden in de mappenreeks en locatie.\"{$path}\""
+"."
+
+#, fuzzy
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Link naar een pagina die alle diensten weergeeft van alle actuele colofons."
+
+# fuzzy
+#, fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Het menutitel item is vereist."

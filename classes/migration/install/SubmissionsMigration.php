@@ -138,7 +138,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         });
 
         // Load en json, and fill table with values
-        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en.json') ?: "", true);
+        $creditRoles = json_decode(file_get_contents(Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/creditRoles/translations/en.json') ?: '', true);
         if (!$creditRoles) {
             throw new \Exception(PKP_LIB_PATH . '/lib/creditRoles/translations/en.json not found');
         }
@@ -257,7 +257,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->dateTime('date_due')->nullable();
             $table->bigInteger('created_by')->nullable()->default(null);
             $table->foreign('created_by')->references('user_id')->on('users');
-            $table->unsignedSmallInteger('type'); // 1 - task, 2 - discussion
+            $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
             $table->unsignedSmallInteger('status')->default(1); // record about the last activity, default EditorialTask:STATUS_NEW
             $table->index(['assoc_type', 'assoc_id'], 'edit_tasks_assoc_id');
         });

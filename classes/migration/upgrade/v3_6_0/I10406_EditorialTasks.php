@@ -35,7 +35,7 @@ class I10406_EditorialTasks extends Migration
             $table->renameColumn('date_modified', 'updated_at');
             $table->dateTime('date_due')->nullable();
             $table->bigInteger('created_by')->nullable()->default(null);
-            $table->unsignedSmallInteger('type'); // 1 - task, 2 - discussion
+            $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
             $table->unsignedSmallInteger('status')->default(1); // record about the last activity, default EditorialTask:STATUS_NEW
             $table->renameIndex('queries_assoc_id', 'edit_tasks_assoc_id');
         });

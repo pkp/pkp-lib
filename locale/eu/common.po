@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-31 22:34+0000\n"
+"PO-Revision-Date: 2025-08-04 07:14+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -160,7 +160,7 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
-msgstr ""
+msgstr "bat eta edo baina da baldin du"
 
 msgid "common.alreadyAssigned"
 msgstr "Esleituta"
@@ -170,6 +170,9 @@ msgstr "Ordezko testua"
 
 msgid "common.altTextInstructions"
 msgstr ""
+"Deskribatu irudi hau testu-arakatzaile batean edo laguntza-gailuekin "
+"webgunea ikusten ari diren bisitarientzat. Adibidez: \"Gure editorea PKP "
+"biltzarrean hitz egiten.\""
 
 msgid "common.and"
 msgstr "-"
@@ -217,29 +220,33 @@ msgstr ""
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
+"\n"
+"\t\t<br /><br />\n"
 "\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
-"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tLan hau baimentzen du: <a rel=\"license\" target=\"_blank\" href="
-"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
-"Attribution 3.0  License</a>."
+"\t\tLan hau baimentzen du: <a rel=\"license\" target=\"_blank\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  "
+"License</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
-"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
 "\t\tLan hau baimentzen du: <a rel=\"license\" href=\"https://creativecommons."
 "org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
 "License</a>.\n"
-"\t</div>"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Aldaketak gorde dira."
@@ -449,6 +456,10 @@ msgstr "Fitxategi mota"
 
 msgid "common.fileUploaderError"
 msgstr ""
+"Sistemako fitxategien kargatzailea kargatzen ari da. Ez bada agertzen, "
+"litekeena da zure exekuzio-denboretako bat bera ere ez egotea nabigatzaile "
+"honetan onartuta. Mesedez, jarri harremanetan administrazioarekin laguntza "
+"jasotzeko."
 
 msgid "common.filter"
 msgstr "Iragazkiak"
@@ -762,7 +773,9 @@ msgid "common.replaceFile"
 msgstr "Ordeztu fitxategia"
 
 msgid "common.requiredField"
-msgstr "* Nahitaezko eremua adierazten du"
+msgstr ""
+"<abbr class=\"required\" title=\"required\">*</abbr> Nahitaezko eremua "
+"adierazten du"
 
 msgid "common.required"
 msgstr "Nahitaezkoa"
@@ -900,6 +913,10 @@ msgstr "Gorde gabeko aldaketak"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"{$when}-tik gorde gabeko aldaketak aurkitu ditugu. Hori gerta daiteke lanean "
+"ari zaren bitartean zerbitzariarekiko konexioa galtzen baduzu. Aldaketa "
+"horiek leheneratzeak ordutik hona egindako edozein aldaketa gainidatzi "
+"dezake. Aldaketa horiek leheneratu nahi dituzu?"
 
 msgid "common.untitled"
 msgstr "Izengabea"
@@ -997,7 +1014,7 @@ msgid "debug.executionTime"
 msgstr "Page generated in"
 
 msgid "debug.memoryUsage"
-msgstr "Memoria-erabilera:"
+msgstr "Memoria-erabilera"
 
 msgid "debug.notes.localeListLoad"
 msgstr "{$localeList} locale-zerrenda XMLtik kargatu da"
@@ -1078,6 +1095,8 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Ziur zaude mezu elektroniko hau idazteko {$localeName}(e)ra aldatu nahi "
+"duzula? Mezuaren gaian eta gorputzean egindako aldaketak galdu egingo dira."
 
 msgid "email.compose"
 msgstr "Bidali mezua"
@@ -1092,6 +1111,8 @@ msgstr ""
 
 msgid "email.compose.error"
 msgstr ""
+"Arazo bat egon da mezu elektroniko bat bidaltzean. Saiatu berriro geroago "
+"edo jarri harremanetan zure sistemaren administratzailearekin."
 
 msgid "email.email"
 msgstr "Mezu el."
@@ -1165,16 +1186,20 @@ msgstr ""
 "igoerarik."
 
 msgid "form.dropzone.dictFallbackText"
-msgstr ""
+msgstr "Mesedez, erabili beheko ordezko formularioa zure fitxategiak igotzeko."
 
 msgid "form.dropzone.dictFileTooBig"
 msgstr ""
+"Fitxategia handiegia da ({{filesize}}mb). Ezin dira {{maxFilesize}}mb baino "
+"handiagoak diren fitxategiak igo."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Mota honetako fitxategiak ezin dira igo."
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
+"Zerbitzariak {{statusCode}} kodearekin erantzun du. Arazoak jarraitzen badu, "
+"jarri harremanetan sistemaren administratzailearekin."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Ezeztatu kargatzea"
@@ -1205,6 +1230,8 @@ msgstr "Mesedez, zuzendu {$count} akatsak."
 
 msgid "form.errors"
 msgstr ""
+"Inprimakia ez da gorde {$count} errore aurkitu direlako. Zuzendu errore "
+"hauek eta saiatu berriro."
 
 msgid "form.errorsOccurred"
 msgstr "Erroreak gertatu dira inprimaki hau prozesatzean"
@@ -1230,6 +1257,8 @@ msgstr "Inprimakia ez da ondo bidali."
 
 msgid "form.csrfInvalid"
 msgstr ""
+"Ezin izan da formularioa bidali. Baliteke saioa itxita egotea. Kargatu "
+"berriro orria eta saiatu berriro."
 
 msgid "form.fileRequired"
 msgstr "Fitxategi bat igo behar da."
@@ -1659,7 +1688,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "errorea"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr ""
+msgstr "{$numIndexed} artikulu indexatzeko programatuta"
 
 msgid "search.coverage"
 msgstr "Estaldura"
@@ -1686,7 +1715,7 @@ msgid "search.indexTerms"
 msgstr "Indizeko terminoak"
 
 msgid "search.indexTermsLong"
-msgstr ""
+msgstr "Indexazio-terminoen eremu guztiak"
 
 msgid "search.matchAll"
 msgstr "Kategoria guztietan"
@@ -1704,16 +1733,16 @@ msgid "search.operator.or"
 msgstr "EDO"
 
 msgid "search.SearchFor"
-msgstr ""
+msgstr "Bilatu"
 
 msgid "search.searchResults"
 msgstr "Bilaketaren emaitza"
 
 msgid "search.searchResults.foundSingle"
-msgstr ""
+msgstr "Elementu bat aurkitu da."
 
 msgid "search.searchResults.foundPlural"
-msgstr ""
+msgstr "{$count} elementu aurkitu dira."
 
 msgid "search.subject"
 msgstr "Gako-hitza(k)"
@@ -1728,28 +1757,28 @@ msgid "search.typeMethodApproach"
 msgstr "Mota (metodoa/hurbilketa)"
 
 msgid "grid.action.downloadFile"
-msgstr ""
+msgstr "Deskargatu fitxategi hau"
 
 msgid "context.path"
-msgstr ""
+msgstr "Helbidea"
 
 msgid "review.ensuringAnonymousReview"
 msgstr "Nola bermatu fitxategi guztiak anonimizatuta daudela"
 
 msgid "grid.action.showReviewPolicy"
-msgstr ""
+msgstr "Irakurri uneko berrikuspen-politika"
 
 msgid "grid.action.deleteNotification"
-msgstr ""
+msgstr "Ezabatu zeregina"
 
 msgid "grid.action.markNew"
-msgstr ""
+msgstr "Markatu berria"
 
 msgid "grid.action.markRead"
-msgstr ""
+msgstr "Markatu irakurrita"
 
 msgid "dashboard.tasks"
-msgstr ""
+msgstr "Zereginak"
 
 msgid "dashboard.myQueue"
 msgstr "Nire errenka"
@@ -1793,7 +1822,7 @@ msgstr ""
 "<li>Gorde dokumentua</li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
-msgstr ""
+msgstr "Berrikuspenen plangintza"
 
 msgid "reviewer.submission.reviewRequestDate"
 msgstr "Editorearen Eskaera"
@@ -1802,31 +1831,35 @@ msgid "reviewer.submission.responseDueDate"
 msgstr "Erantzunaren Epemuga"
 
 msgid "reviewer.submission.reviewDueDate"
-msgstr ""
+msgstr "Ebaluazioaren epemuga"
 
 msgid "submission.task.responseDueDate"
 msgstr "Erantzunaren Epemuga"
 
 msgid "navigation.goBack"
-msgstr ""
+msgstr "Itzuli"
 
 msgid "notification.addedReviewer"
 msgstr ""
+"{$reviewerName}-ri bidalketa hau berrikusteko esleitu zaio eta posta "
+"elektroniko bidezko jakinarazpena bidali zaio."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr ""
+"{$reviewerName}-ri bidalketa hau berrikusteko esleitu zaio eta ez zaio posta "
+"elektroniko bidezko jakinarazpena bidali."
 
 msgid "notification.removedReviewer"
-msgstr ""
+msgstr "Ebaluatzailea ezabatuta."
 
 msgid "notification.cancelledReviewer"
-msgstr ""
+msgstr "Ebaluatzailea bertan behera."
 
 msgid "notification.reinstatedReviewer"
-msgstr ""
+msgstr "Ebaluatzailea berrezarri da."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Berrikuspen-esleipena berraztertzeko eskaera bidali da."
 
 msgid "notification.addedStageParticipant"
 msgstr "Erabiltzailea faseko parte-hartzaile gisa gehitu da."
@@ -1901,9 +1934,13 @@ msgstr "Ez duzu berrikuspenaren esleipen honetarako sarbiderik."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
+"Ez duzu bidalketa ikusteko baimenik. Editatu zure profila \"Erregistratu "
+"honela\" atalean rol egokiak eman zaizkizula ziurtatzeko."
 
 msgid "user.authorization.submissionAuthor"
 msgstr ""
+"Uneko erabiltzailea ez da eskatutako bidalketaren egilea. Mesedez, egiaztatu "
+"erabiltzaile-kontu zuzenarekin hasi duzula saioa."
 
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Pribatutasun aukerak"
@@ -1916,6 +1953,8 @@ msgstr "Eztabaida gehitu da."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
+"Esleitu zuzentzaile bat parte-hartzaileen zerrendako \"Esleitu\" esteka "
+"erabiliz."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Zuzenketen zain."
@@ -1928,12 +1967,14 @@ msgstr "Estatistiken txostenaren laburpena."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
+"Mezu honekin txosten editorialaren bidez zure aldizkariaren osasuna "
+"egiaztatzeko gogoratzen dizugu."
 
 msgid "notification.type.editorialReminder"
 msgstr "Egin gabeko zereginen asteko posta elektronikoa"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Nabigazio-menuko elementua behar bezala eguneratu da"
@@ -1961,15 +2002,29 @@ msgstr "Ezin izan dizugu harpidetza kendu"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
+"Hautatu {$contextName}-rengandik {$email} helbidean jaso nahi ez dituzun "
+"mezu elektronikoak."
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
+"Edozein unetan harpidetu zaitezke berriro posta elektroniko bidezko "
+"jakinarazpenetara zure <a href=\"{$profileNotificationUrl}\">erabiltzaile "
+"profiletik</a>."
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
+"{$email} helbide elektronikoaren harpidetza behar bezala kendu da. Ez "
+"dizkizugu mezu elektroniko horiek gehiago bidaliko. Edozein unetan harpidetu "
+"zaitezke posta elektroniko bidezko jakinarazpenetara zure <a href=\""
+"{$profileNotificationUrl}\">erabiltzaile profiletik</a>."
 
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
+"Ustekabeko errore bat gertatu da eta ezin izan dugu {$email} helbide "
+"elektronikoaren harpidetza kendu. Zure <a href=\"{$profileNotificationUrl}\""
+">erabiltzaile profilean</a> posta elektroniko bidezko jakinarazpen "
+"guztietatik harpidetza kendu dezakezu edo laguntza jasotzeko zuzenean "
+"gurekin harremanetan jar zaitezke."
 
 msgid "notification.unsubscribeNotifications"
 msgstr "Harpidetza kendu"
@@ -2042,6 +2097,9 @@ msgstr "Hau ez da baliozko herrialdea."
 
 msgid "validator.country.regex"
 msgstr ""
+"Hau ez da baliozko herrialde bat. Herrialdeak 2 letrako nazioarteko "
+"kodeetako bat izan behar du. Ikusi kode guztiak https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements helbidean."
 
 msgid "validator.currency"
 msgstr "Hau ez da baliozko moneta bat."
@@ -2199,6 +2257,8 @@ msgstr "[{$tags}] html-etiketa bakarrik onartzen dira."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"({$displayName}) iragazkiak {$inputTypeName} - {$typeofInput} sarrera "
+"onartzen du"
 
 msgid "filter.error.missingRequirements"
 msgstr ""
@@ -2374,3 +2434,20 @@ msgstr "Zenb."
 
 msgid "validator.date.comparison"
 msgstr "Konparaziorako emandako datak baliogabeak dira."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Ebaluazioa onartu da"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Parekako ebaluatzaileak aurreko urtean"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Parekako ebaluatzaileak aurreko urteetan"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Editoreek eskerrak eman nahi dizkiete behean zerrendatutako {$year} urteko "
+"ebaluatzaileei."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Ebaluazioa bidalita"

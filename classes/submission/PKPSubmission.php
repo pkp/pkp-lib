@@ -43,6 +43,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public const STATUS_PUBLISHED = 3;
     public const STATUS_DECLINED = 4;
     public const STATUS_SCHEDULED = 5;
+    public const STATUS_READY_TO_PUBLISH = 6;
 
     // License settings (internal use only)
     public const PERMISSIONS_FIELD_LICENSE_URL = 1;

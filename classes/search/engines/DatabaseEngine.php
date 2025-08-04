@@ -80,7 +80,7 @@ class DatabaseEngine extends ScoutEngine
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
                     ->whereColumn('p.submission_id', 's.submission_id')
-                    ->where('p.published', 1)
+                    ->where('p.status', PKPSubmission::STATUS_PUBLISHED)
                     ->when($publishedFrom, fn ($q) => $q->whereDate('p.date_published', '>=', $publishedFrom))
                     ->when($publishedTo, fn ($q) => $q->whereDate('p.date_published', '<', $publishedTo))
                     ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-02 13:51+0000\n"
+"PO-Revision-Date: 2025-08-04 13:37+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -2640,56 +2640,61 @@ msgstr "Datumreeks"
 msgid "stats.dateRange.allDates"
 msgstr "Alle datums"
 
+#, fuzzy
 msgid "stats.dateRange.apply"
-msgstr ""
+msgstr "Pas toe"
 
 msgid "stats.dateRange.change"
-msgstr ""
+msgstr "Wijzig de datumvolgorde"
 
 msgid "stats.dateRange.customRange"
-msgstr ""
+msgstr "Aangepaste volgorde"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr ""
+msgstr "Een van de ingevoerde datums bestaat niet."
 
+#, fuzzy
 msgid "stats.dateRange.from"
-msgstr ""
+msgstr "Van / Uit"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Voer iedere datum als volgt in: JJJJ-MM-DD. Bijvoorbeeld, indien u de datum "
+"'15 januari 2019' wenst, voert u in: 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
 msgstr ""
+"De datumformat is niet geldig. Voer iedere datum als volgt in: JJJJ-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr ""
+msgstr "De begindatum moet voorafgaan aan de einddatum."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr ""
+msgstr "De einddatum kan niet later zijn dan {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr ""
+msgstr "De begindatum kan niet vroeger zijn dan {$date}."
 
 msgid "stats.dateRange.last12Months"
-msgstr ""
+msgstr "Afgelopen 12 maanden"
 
 msgid "stats.dateRange.last30Days"
-msgstr ""
+msgstr "Afgelopen 30 dagen"
 
 msgid "stats.dateRange.last90Days"
-msgstr ""
+msgstr "Afgelopen 90 dagen"
 
 msgid "stats.dateRange.lastTwoYears"
-msgstr ""
+msgstr "Afgelopen twee jaren"
 
 msgid "stats.dateRange.lastYear"
-msgstr ""
+msgstr "Afgelopen jaar"
 
 msgid "stats.dateRange.sinceDate"
-msgstr ""
+msgstr "Sinds {$date}"
 
 msgid "stats.dateRange.thisYear"
-msgstr ""
+msgstr "Vanaf het begin van dit jaar tot op vandaag"
 
 msgid "stats.dateRange.to"
 msgstr ""

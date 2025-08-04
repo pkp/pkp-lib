@@ -634,7 +634,7 @@ abstract class Repository
         );
 
         if ($submission->getData('commentsForTheEditors')) {
-            Repo::query()->addCommentsForEditorsQuery($submission);
+            Repo::editorialTask()->addCommentsForEditorsQuery($submission);
         }
     }
 

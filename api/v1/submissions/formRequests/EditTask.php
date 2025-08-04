@@ -23,6 +23,8 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -63,11 +65,11 @@ class EditTask extends FormRequest
             ->all();
 
         return [
-            'status' => ['required', Rule::in([EditorialTask::STATUS_NEW])],
-            'type' => ['required', Rule::in([EditorialTask::TYPE_DISCUSSION, EditorialTask::TYPE_TASK])],
+            'status' => ['required', Rule::in([EditorialTaskStatus::NEW->value])],
+            'type' => ['required', Rule::in([EditorialTaskType::DISCUSSION->value, EditorialTaskType::TASK->value])],
             'dateDue' => [
-                Rule::requiredIf(fn () => $this->input('type') == EditorialTask::TYPE_TASK),
-                Rule::prohibitedIf(fn () => $this->input('type') == EditorialTask::TYPE_DISCUSSION),
+                Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
+                Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
                 Rule::date()->format('Y-m-d'),
                 'after:today',
             ],
@@ -147,11 +149,11 @@ class EditTask extends FormRequest
                 'required',
                 'array:userId,isResponsible',
                 function (string $attribute, array $value, Closure $fail) {
-                    if ($this->input('type') == EditorialTask::TYPE_TASK && count($value) < 1) {
+                    if ($this->input('type') == EditorialTaskType::TASK->value && count($value) < 1) {
                         $fail('At least one participant is required for a task.');
                     }
 
-                    if ($this->input('type') == EditorialTask::TYPE_DISCUSSION && count($value) < 2) {
+                    if ($this->input('type') == EditorialTaskType::DISCUSSION->value && count($value) < 2) {
                         $fail('At least two participants are required for a discussion.');
                     }
                 }
@@ -200,8 +202,8 @@ class EditTask extends FormRequest
             EditorialTask::ATTRIBUTE_PARTICIPANTS . '.*.isResponsible' => [
                 'sometimes',
                 'boolean',
-                Rule::requiredIf(fn () => $this->input('type') == EditorialTask::TYPE_TASK),
-                Rule::prohibitedIf(fn () => $this->input('type') == EditorialTask::TYPE_DISCUSSION),
+                Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
+                Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
             ],
         ];
     }

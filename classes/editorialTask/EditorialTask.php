@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use PKP\core\PKPApplication;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -30,15 +30,6 @@ use PKP\notification\Notification;
 class EditorialTask extends Model
 {
     use ModelWithSettings;
-
-    // Type of the editorial task
-    public const TYPE_DISCUSSION = 1;
-    public const TYPE_TASK = 2;
-
-    // Current status of the editorial task
-    public const STATUS_NEW = 1;
-    public const STATUS_REPLIED = 2;
-    public const STATUS_CLOSED = 3;
 
     // Allow filling and saving related model through 'participants' Model attribute
     public const ATTRIBUTE_PARTICIPANTS = 'participants';
@@ -50,8 +41,6 @@ class EditorialTask extends Model
 
     protected $table = 'edit_tasks';
     protected $primaryKey = 'edit_task_id';
-
-    protected $guarded = ['edit_tasks_id', 'id'];
 
     protected $fillable = [
         'assocType', 'assocId', 'stageId', 'seq',

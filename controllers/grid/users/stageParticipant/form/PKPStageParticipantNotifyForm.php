@@ -28,6 +28,8 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
@@ -191,11 +193,11 @@ class PKPStageParticipantNotifyForm extends Form
             'stageId' => $this->_stageId,
             'seq' => REALLY_BIG_NUMBER,
             'createdBy' => $user->getId(),
-            'type' => EditorialTask::TYPE_DISCUSSION,
-            'status' => EditorialTask::STATUS_NEW,
+            'type' => EditorialTaskType::DISCUSSION,
+            'status' => EditorialTaskStatus::NEW->value,
         ]);
 
-        Repo::query()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
+        Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         // Add the current user and message recipient as participants.
         Participant::create([

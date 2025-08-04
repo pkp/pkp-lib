@@ -25,6 +25,8 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
@@ -76,38 +78,38 @@ class QueryForm extends Form
         if (!$queryId) {
             $this->_isNew = true;
 
-            // Create a query
-            $query = EditorialTask::create([
+            // Create a task
+            $task = EditorialTask::create([
                 'assocType' => $assocType,
                 'assocId' => $assocId,
                 'stageId' => $stageId,
                 'seq' => REALLY_BIG_NUMBER,
                 'createdBy' => $currentUser->getId(),
-                'type' => EditorialTask::TYPE_DISCUSSION,
-                'status' => EditorialTask::STATUS_NEW,
+                'type' => EditorialTaskType::DISCUSSION->value,
+                'status' => EditorialTaskStatus::NEW->value,
+                // Add the current user as a participant by default.
+                EditorialTask::ATTRIBUTE_PARTICIPANTS => [
+                    [
+                        'userId' => $request->getUser()->getId(),
+                    ]
+                ]
             ]);
 
-            Repo::query()->resequence($assocType, $assocId);
-
-            // Add the current user as a participant by default.
-            Participant::create([
-                'editTaskId' => $query->id,
-                'userId' => $request->getUser()->getId()
-            ]);
+            Repo::editorialTask()->resequence($assocType, $assocId);
 
             Note::create([
                 'userId' => $currentUser->getId(),
                 'assocType' => Application::ASSOC_TYPE_QUERY,
-                'assocId' => $query->id,
+                'assocId' => $task->id,
             ]);
         } else {
-            $query = EditorialTask::find($queryId);
-            assert(isset($query));
+            $task = EditorialTask::find($queryId);
+            assert(isset($task));
             // New queries will not have a head note.
-            $this->_isNew = !Repo::note()->getHeadNote($query->id);
+            $this->_isNew = !Repo::note()->getHeadNote($task->id);
         }
 
-        $this->setQuery($query);
+        $this->setQuery($task);
 
         // Validation checks for this form
         $this->addCheck(new FormValidatorCustom($this, 'users', 'required', 'stageParticipants.notify.warning', function ($users) {
@@ -536,43 +538,32 @@ class QueryForm extends Form
      */
     public function execute(...$functionArgs)
     {
-        $query = $this->getQuery();
+        $task = $this->getQuery();
 
-        $headNote = Repo::note()->getHeadNote($query->id);
+        $headNote = Repo::note()->getHeadNote($task->id);
         $headNote->title = $this->getData('subject');
         $headNote->contents = $this->getData('comment');
         $headNote->save();
 
-        $query->update();
-
         // Update participants
-        $oldParticipantIds = Participant::withTaskId($query->id)
-            ->pluck('user_id')
-            ->all();
-
+        $oldParticipantIds = $task->participants()->get()->pluck('userId')->all();
         $newParticipantIds = $this->getData('users');
-        Participant::withTaskId($query->id)
-            ->delete();
-        $addParticipants = [];
-        foreach ($newParticipantIds as $userId) {
-            $addParticipants[] = ([
-                'edit_task_id' => $query->id,
-                'user_id' => $userId
-            ]);
-        }
-        Participant::insert($addParticipants);
+        $task->fill([
+            'participants' => array_map(fn (int $participantId) => ['userId' => $participantId], $newParticipantIds)
+        ]);
+        $task->save();
 
         $removed = array_diff($oldParticipantIds, $newParticipantIds);
         foreach ($removed as $userId) {
-            // Delete this users' notifications relating to this query
-            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $query->id)
+            // Delete this users' notifications relating to this task
+            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $task->id)
                 ->withUserId($userId)
                 ->delete();
         }
 
         // Stamp the submission status modification date.
-        if ($query->assocType == Application::ASSOC_TYPE_SUBMISSION) {
-            $submission = Repo::submission()->get($query->assocId);
+        if ($task->assocType == Application::ASSOC_TYPE_SUBMISSION) {
+            $submission = Repo::submission()->get($task->assocId);
             $submission->stampLastActivity();
             Repo::submission()->dao->update($submission);
         }

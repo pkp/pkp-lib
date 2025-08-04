@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\Participant;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
@@ -152,7 +153,7 @@ class QueryNoteForm extends Form
             }
         }
 
-        $query->status = EditorialTask::STATUS_REPLIED;
+        $query->status = EditorialTaskStatus::REPLIED->value;
         $query->save();
 
         // Always include current user to query participants

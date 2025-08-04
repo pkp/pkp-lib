@@ -31,10 +31,6 @@ class Participant extends Model
 
     public $timestamps = false;
 
-    protected $guarded = [
-        'editTaskParticipantId', 'id'
-    ];
-
     protected $fillable = [
         'editTaskId', 'userId', 'isResponsible'
     ];
@@ -47,7 +43,7 @@ class Participant extends Model
             'isResponsible' => 'bool',
         ];
     }
-    public function toTask(): BelongsTo
+    public function task(): BelongsTo
     {
         return $this->belongsTo(EditorialTask::class, 'edit_task_id', 'edit_task_id');
     }

@@ -25,7 +25,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
-use PKP\editorialTask\EditorialTask;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -279,7 +278,7 @@ class DAO extends EntityDAO
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteBySubmissionId($id);
 
-        Repo::query()->deleteBySubmissionId($id);
+        Repo::editorialTask()->deleteBySubmissionId($id);
 
         // Delete the stage assignments.
         StageAssignment::withSubmissionIds([$id])

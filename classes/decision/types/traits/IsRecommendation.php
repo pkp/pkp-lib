@@ -133,7 +133,7 @@ trait IsRecommendation
             }
         }
 
-        $queryId = Repo::query()->addQuery(
+        $queryId = Repo::editorialTask()->addQuery(
             $submission->getId(),
             $this->getStageId(),
             $email->subject,

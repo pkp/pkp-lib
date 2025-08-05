@@ -507,4 +507,12 @@ class PKPPublication extends \PKP\core\DataObject
         $this->setData('versionMajor', $versionInfo->majorNumbering);
         $this->setData('versionMinor', $versionInfo->minorNumbering);
     }
+
+    /**
+     * @copydoc \PKP\core\DataObject::getDAO()
+     */
+    public function getDAO(): DAO
+    {
+        return Repo::publication()->dao;
+    }
 }

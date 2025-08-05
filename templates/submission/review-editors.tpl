@@ -32,13 +32,13 @@
             "
         >
             {if in_array($currentContext->getData('subjects'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
-                {include file="/submission/review-publication-field.tpl" prop="subjects" inLocale=$localeKey name="{translate key="common.subjects"}" type="array"}
+                {include file="/submission/review-publication-field.tpl" prop="subjects" inLocale=$localeKey name="{translate key="common.subjects"}" type="array" dataField="name"}
             {/if}
             {if in_array($currentContext->getData('disciplines'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
-                {include file="/submission/review-publication-field.tpl" prop="disciplines" inLocale=$localeKey name="{translate key="search.discipline"}" type="array"}
+                {include file="/submission/review-publication-field.tpl" prop="disciplines" inLocale=$localeKey name="{translate key="search.discipline"}" type="array" dataField="name"}
             {/if}
             {if in_array($currentContext->getData('agencies'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
-                {include file="/submission/review-publication-field.tpl" prop="supportingAgencies" inLocale=$localeKey name="{translate key="submission.supportingAgencies"}" type="array"}
+                {include file="/submission/review-publication-field.tpl" prop="supportingAgencies" inLocale=$localeKey name="{translate key="submission.supportingAgencies"}" type="array" dataField="name"}
             {/if}
             {if in_array($currentContext->getData('coverage'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="coverage" inLocale=$localeKey name="{translate key="manager.setup.metadata.coverage"}" type="string"}

@@ -60,7 +60,7 @@ use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\statistics\PKPStatisticsHelper;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
 use PKP\task\FileLoader;
 
 class ConvertApacheAccessLogFile extends ConvertLogFileTool
@@ -642,9 +642,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
 
                 // is this a full text or supp file
-                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-                $genre = $genreDao->getById($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                $genre = Genre::find($submissionFile->getData('genreId'));
+                if ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
@@ -970,9 +969,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
 
                 // is this a full text or supp file
-                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-                $genre = $genreDao->getById($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                $genre = Genre::find($submissionFile->getData('genreId'));
+                if ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
@@ -1166,9 +1164,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
 
                 // is this a full text or supp file
-                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDao $genreDao */
-                $genre = $genreDao->getById($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                $genre = Genre::find($submissionFile->getData('genreId'));
+                if ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;

@@ -42,7 +42,6 @@ use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
@@ -209,16 +208,14 @@ abstract class PKPSubmissionHandler extends Handler
             ->withContextIds([$context->getId()])
             ->get();
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
 
-        $submissionFilesListPanel = $this->getSubmissionFilesListPanel($request, $submission, $genres);
+        $submissionFilesListPanel = $this->getSubmissionFilesListPanel($request, $submission, $genres->all());
         $contributorsListPanel = $this->getContributorsListPanel($request, $submission, $publication, $formLocales);
         $reconfigureSubmissionForm = $this->getReconfigureForm($context, $submission, $publication, $sections, $categories);
 
@@ -250,11 +247,11 @@ abstract class PKPSubmissionHandler extends Handler
             'i18nUnableToSave' => __('submission.wizard.unableToSave'),
             'i18nUnsavedChanges' => __('common.unsavedChanges'),
             'i18nUnsavedChangesMessage' => __('common.unsavedChangesMessage'),
-            'publication' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            'publication' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres->all())->map($publication),
             'publicationApiUrl' => $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId()),
             'reconfigurePublicationProps' => $this->getReconfigurePublicationProps(),
             'reconfigureSubmissionProps' => $this->getReconfigureSubmissionProps(),
-            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles),
+            'submission' => Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres->all(), $userRoles),
             'submissionApiUrl' => Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
             'submissionSavedUrl' => $this->getSubmissionSavedUrl($request, $submission->getId()),
             'submissionWizardUrl' => Repo::submission()->getUrlSubmissionWizard($context, $submission->getId()),
@@ -516,7 +513,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         // Don't allow dependent files to be uploaded with the submission
         $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
+            array_filter($genres, fn ($genre) => !$genre->dependent)
         );
 
         $form = new PKPSubmissionFileForm(
@@ -535,9 +532,9 @@ abstract class PKPSubmissionHandler extends Handler
             'form' => $form->getConfig(),
             'genres' => array_map(
                 fn ($genre) => [
-                    'id' => (int) $genre->getId(),
-                    'name' => $genre->getLocalizedName(),
-                    'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
+                    'id' => (int) $genre->getKey(),
+                    'name' => $genre->getLocalizedData('name'),
+                    'isPrimary' => !$genre->supplementary && !$genre->dependent,
                 ],
                 $genres
             ),

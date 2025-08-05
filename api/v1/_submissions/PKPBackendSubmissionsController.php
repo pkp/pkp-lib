@@ -197,13 +197,11 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
 
-        /** @var \PKP\submission\GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = Repo::genre()->getByContextId($context->getId());
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres, $userRoles)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres->all(), $userRoles)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -232,16 +230,14 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        /** @var \PKP\submission\GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = Repo::genre()->getByContextId($context->getId());
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
                 $submissions,
                 $userGroups,
-                $genres,
+                $genres->all(),
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
                 $this->anonymizeReviews($submissions)
             )->values(),
@@ -312,16 +308,15 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $contextId = $context->getId();
         $userGroups = UserGroup::withContextIds($contextId)->cursor();
 
-        /** @var \PKP\submission\GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = Repo::genre()->getByContextId($context->getId());
+
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
                 $submissions,
                 $userGroups,
-                $genres,
+                $genres->all(),
                 $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
             )->values(),
         ], Response::HTTP_OK);

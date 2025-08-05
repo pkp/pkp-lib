@@ -130,11 +130,10 @@ class Repository
         $user = Application::get()->getRequest()->getUser();
 
         // If no genre has been set and there is only one genre possible, set it automatically
-        /** @var GenreDAO */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
-        $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());
+
+        $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->all());
         if (!$existingJatsFile->isDefaultContent) {
             throw new Exception('A JATS file already exists');
         }
@@ -195,7 +194,7 @@ class Repository
             ->add($submissionFile);
 
         $jatsFile = Repo::jats()
-            ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
+            ->getJatsFile($publication->getId(), $submission->getId(), $genres->all());
 
         return $jatsFile;
     }

@@ -129,6 +129,9 @@ msgstr "You do not have permission to access this review assignment."
 msgid "user.authorization.submissionQuery"
 msgstr "You do not have permission to access this discussion."
 
+msgid "user.authorization.submissionQuery.edit"
+msgstr "You do not have permission to modify this discussion."
+
 msgid "user.authorization.shouldBeAnonymous"
 msgstr "The user should be anonymous. You are currently logged-in."
 

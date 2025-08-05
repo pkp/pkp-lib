@@ -12,7 +12,7 @@
  * @brief Class for QueryParticipant.
  */
 
-namespace PKP\query;
+namespace PKP\editorialTask;
 
 use APP\facades\Repo;
 use Eloquence\Behaviours\HasCamelCasing;
@@ -20,29 +20,32 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PKP\user\User;
 
-class QueryParticipant extends Model
+class Participant extends Model
 {
     use HasCamelCasing;
 
-    protected $table = 'query_participants';
-    protected $primaryKey = 'query_participant_id';
+    protected $table = 'edit_task_participants';
+    protected $primaryKey = 'edit_task_participant_id';
+
     public $timestamps = false;
 
     protected $fillable = [
-        'queryId', 'userId'
+        'editTaskId', 'userId', 'isResponsible'
     ];
 
     protected function casts(): array
     {
         return [
-            'queryId' => 'int',
-            'userId' => 'int'
+            'editTaskId' => 'int',
+            'userId' => 'int',
+            'isResponsible' => 'bool',
         ];
     }
-    public function toQuery(): BelongsTo
+    public function task(): BelongsTo
     {
-        return $this->belongsTo(Query::class, 'query_id', 'query_id');
+        return $this->belongsTo(EditorialTask::class, 'edit_task_id', 'edit_task_id');
     }
 
     /**
@@ -51,8 +54,8 @@ class QueryParticipant extends Model
     protected function id(): Attribute
     {
         return Attribute::make(
-            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
-            set: fn($value) => [$this->primaryKey => $value],
+            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn ($value) => [$this->primaryKey => $value],
         );
     }
 
@@ -73,9 +76,9 @@ class QueryParticipant extends Model
     /**
      * Scope a query to only include query participants with a specific query ID.
      */
-    public function scopeWithQueryId(Builder $query, int $queryId): Builder
+    public function scopeWithTaskId(Builder $query, int $taskId): Builder
     {
-        return $query->where('query_id', $queryId);
+        return $query->where('edit_task_id', $taskId);
     }
 
     /**

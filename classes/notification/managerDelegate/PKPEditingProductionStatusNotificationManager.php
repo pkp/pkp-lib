@@ -21,9 +21,9 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\EditorialTask;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\query\Query;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submissionFile\SubmissionFile;
@@ -92,7 +92,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             ->get();
 
         // Get the production discussions
-        $productionQuery = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+        $productionQuery = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
             ->first();
 
@@ -163,7 +163,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
-                        $editingQueries = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                        $editingQueries = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
                             ->withStageId(WORKFLOW_STAGE_ID_EDITING)
                             ->first();
                         if ($editingQueries) {

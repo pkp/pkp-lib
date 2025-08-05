@@ -21,6 +21,7 @@ use PKP\security\authorization\internal\ContextPolicy;
 use PKP\security\authorization\internal\QueryAssignedToUserAccessPolicy;
 use PKP\security\authorization\internal\QueryRequiredPolicy;
 use PKP\security\authorization\internal\QueryUserAccessibleWorkflowStageRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\Role;
 
 class QueryAccessPolicy extends ContextPolicy
@@ -33,15 +34,19 @@ class QueryAccessPolicy extends ContextPolicy
      * @param array $roleAssignments
      * @param int $stageId
      */
-    public function __construct($request, $args, $roleAssignments, $stageId)
+    public function __construct($request, $args, $roleAssignments, $stageId = null, $stageParameterName = 'queryId')
     {
         parent::__construct($request);
 
-        // We need a valid workflow stage.
-        $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+        // A workflow stage component can only be called if there's a
+        // valid submission in the request.
+        $this->addPolicy(new SubmissionRequiredPolicy($request, $args));
 
         // We need a query matching the submission in the request.
-        $this->addPolicy(new QueryRequiredPolicy($request, $args));
+        $this->addPolicy(new QueryRequiredPolicy($request, $args, $stageParameterName));
+
+        // We need a valid workflow stage.
+        $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, $stageId));
 
         // The query must be assigned to the current user, with exceptions for Managers
         $this->addPolicy(new QueryAssignedToUserAccessPolicy($request));
@@ -76,7 +81,7 @@ class QueryAccessPolicy extends ContextPolicy
             $assistantQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_ASSISTANT, $roleAssignments[Role::ROLE_ID_ASSISTANT]));
 
             // 2) ... but only if they have access to the workflow stage.
-            $assistantQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+            $assistantQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, $stageId));
 
             $queryAccessPolicy->addPolicy($assistantQueryAccessPolicy);
         }
@@ -90,7 +95,7 @@ class QueryAccessPolicy extends ContextPolicy
             $reviewerQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_REVIEWER, $roleAssignments[Role::ROLE_ID_REVIEWER]));
 
             // 2) ... but only if they are assigned to the submissions as a reviewer
-            $reviewerQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+            $reviewerQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, $stageId));
 
             $queryAccessPolicy->addPolicy($reviewerQueryAccessPolicy);
         }
@@ -104,7 +109,7 @@ class QueryAccessPolicy extends ContextPolicy
             $authorQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_AUTHOR, $roleAssignments[Role::ROLE_ID_AUTHOR]));
 
             // 2) ... but only if they are assigned to the workflow stage as an stage participant...
-            $authorQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $stageId));
+            $authorQueryAccessPolicy->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, $stageId));
 
             $queryAccessPolicy->addPolicy($authorQueryAccessPolicy);
         }

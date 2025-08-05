@@ -26,11 +26,11 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\EditorialTask;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\notification\Notification;
 use PKP\payment\QueuedPaymentDAO;
-use PKP\query\Query;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class NotificationsGridCellProvider extends GridCellProvider
@@ -153,8 +153,8 @@ class NotificationsGridCellProvider extends GridCellProvider
                 $submissionId = $reviewRound->getSubmissionId();
                 break;
             case Application::ASSOC_TYPE_QUERY:
-                $query = Query::find($notification->assocId);
-                assert($query instanceof \PKP\query\Query);
+                $query = EditorialTask::find($notification->assocId);
+                assert($query instanceof \PKP\editorialTask\EditorialTask);
                 switch ($query->assocType) {
                     case Application::ASSOC_TYPE_SUBMISSION:
                         $submissionId = $query->assocId;

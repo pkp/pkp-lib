@@ -9,19 +9,22 @@
  *
  * @class Repository
  *
- * @see Query
+ * @see EditorialTask
  *
  * @brief Operations for retrieving and modifying Query objects.
  */
 
-namespace PKP\query;
+namespace PKP\editorialTask;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\mail\Mailable;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -41,7 +44,7 @@ class Repository
      */
     public function countOpenPerStage(int $submissionId, ?array $participantIds = null): array
     {
-        $counts = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+        $counts = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->when($participantIds !== null, function ($q) use ($participantIds) {
                 $q->withUserIds($participantIds);
             })
@@ -65,11 +68,11 @@ class Repository
      */
     public function resequence($assocType, $assocId): void
     {
-        $result = Query::withAssoc($assocType, $assocId)
+        $result = EditorialTask::withAssoc($assocType, $assocId)
             ->orderBy('seq')
             ->get();
 
-        $result->each(function (Query $item, int $key = 1) {
+        $result->each(function (EditorialTask $item, int $key = 1) {
             $item->update(['seq' => $key]);
         });
     }
@@ -83,46 +86,42 @@ class Repository
      */
     public function addQuery(int $submissionId, int $stageId, string $title, string $content, User $fromUser, array $participantUserIds, int $contextId, bool $sendEmail = true): int
     {
-        $maxSeq = Query::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+        $maxSeq = EditorialTask::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
             ->max('seq') ?? 0;
 
-        $query = Query::create([
+        $task = EditorialTask::create([
             'assocType' => Application::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submissionId,
             'stageId' => $stageId,
-            'seq' => $maxSeq + 1
+            'seq' => $maxSeq + 1,
+            'createdBy' => $fromUser->getId(),
+            'type' => EditorialTaskType::DISCUSSION->value,
+            'status' => EditorialTaskStatus::NEW->value,
+            EditorialTask::ATTRIBUTE_PARTICIPANTS => array_map(fn (int $participantId) => ['userId' => $participantId], array_unique($participantUserIds)),
         ]);
 
-        $addParticipants = [];
-        foreach (array_unique($participantUserIds) as $participantUserId) {
-            $addParticipants[] = ([
-                'query_id' => $query->id,
-                'user_id' => $participantUserId
-            ]);
-        }
-        QueryParticipant::insert($addParticipants);
 
         Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,
-            'assocId' => $query->id,
-            'title' =>  $title,
-            'contents' =>  $content,
-            'userId' =>  $fromUser->getId(),
+            'assocId' => $task->id,
+            'title' => $title,
+            'contents' => $content,
+            'userId' => $fromUser->getId(),
         ]);
 
         // Add task for assigned participants
         $notificationMgr = new NotificationManager();
 
-        /** @var NotificationSubscriptionSettingsDAO */
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
-        foreach ($participantUserIds as $participantUserId) {
+        foreach ($task->participants()->get() as $participant) {
             $notificationMgr->createNotification(
-                $participantUserId,
+                $participant->userId,
                 Notification::NOTIFICATION_TYPE_NEW_QUERY,
                 $contextId,
                 Application::ASSOC_TYPE_QUERY,
-                $query->id,
+                $task->id,
                 Notification::NOTIFICATION_LEVEL_TASK
             );
 
@@ -133,14 +132,14 @@ class Repository
             // Check if the user is unsubscribed
             $notificationSubscriptionSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                 NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                $participantUserId,
+                $participant->userId,
                 $contextId
             );
             if (in_array(Notification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                 continue;
             }
 
-            $recipient = Repo::user()->get($participantUserId);
+            $recipient = $participant->user;
             $mailable = new Mailable();
             $mailable->to($recipient->getEmail(), $recipient->getFullName());
             $mailable->from($fromUser->getEmail(), $fromUser->getFullName());
@@ -150,7 +149,7 @@ class Repository
             Mail::send($mailable);
         }
 
-        return $query->id;
+        return $task->id;
     }
 
     /**
@@ -194,5 +193,20 @@ class Repository
             $participantUserIds,
             $submission->getData('contextId')
         );
+    }
+
+    /**
+     * Deletes all tasks, notes, and notifications associated with the given submission ID.
+     */
+    public function deleteBySubmissionId(int $submissionId): void
+    {
+        $editorialTasks = EditorialTask::withAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, $submissionId)->get();
+        $taskIds = $editorialTasks->pluck('query_id')->all();
+
+        if (!empty($taskIds)) {
+            EditorialTask::whereIn('query_id', $taskIds)->delete();
+            Note::whereIn('assoc_id', $taskIds)->delete();
+            Notification::whereIn('assoc_id', $taskIds)->delete();
+        }
     }
 }

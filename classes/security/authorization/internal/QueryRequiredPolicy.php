@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/security/authorization/internal/QueryRequiredPolicy.php
  *
@@ -18,7 +19,7 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\submission\Submission;
 use PKP\core\PKPRequest;
-use PKP\query\Query;
+use PKP\editorialTask\EditorialTask;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 
@@ -50,8 +51,8 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Make sure the query belongs to the submission.
-        $query = Query::find($queryId);
-        if (!$query instanceof Query) {
+        $query = EditorialTask::find($queryId);
+        if (!$query instanceof EditorialTask) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         switch ($query->assocType) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/types/traits/IsRecommendation.php
  *
@@ -25,13 +26,13 @@ use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\decision\Steps;
 use PKP\decision\steps\Email;
+use PKP\editorialTask\EditorialTask;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\RecommendationNotifyEditors;
 use PKP\note\Note;
-use PKP\query\Query;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRound;
@@ -132,7 +133,7 @@ trait IsRecommendation
             }
         }
 
-        $queryId = Repo::query()->addQuery(
+        $queryId = Repo::editorialTask()->addQuery(
             $submission->getId(),
             $this->getStageId(),
             $email->subject,
@@ -143,7 +144,7 @@ trait IsRecommendation
             false
         );
 
-        $query = Query::find($queryId);
+        $query = EditorialTask::find($queryId);
         $note = Repo::note()->getHeadNote($query->id);
         $mailable = new Mailable();
         foreach ($email->attachments as $attachment) {

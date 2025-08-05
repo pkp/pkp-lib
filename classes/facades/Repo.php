@@ -26,12 +26,13 @@ namespace PKP\facades;
 
 use PKP\affiliation\Repository as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
-use PKP\author\Repository as AuthorRepository;
 use PKP\author\creditContributorRole\Repository as CreditContributorRoleRepository;
 use PKP\author\creditRole\Repository as CreditRoleRepository;
+use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
 use PKP\controlledVocab\Repository as ControlledVocabRepository;
 use PKP\decision\Repository as DecisionRepository;
+use PKP\editorialTask\Repository as EditorialTaskRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\highlight\Repository as HighlightRepository;
 use PKP\institution\Repository as InstitutionRepository;
@@ -43,7 +44,6 @@ use PKP\log\event\Repository as EventLogRepository;
 use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
 use PKP\notification\Repository as NotificationRepository;
-use PKP\query\Repository as QueryRepository;
 use PKP\ror\Repository as RorRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submission\reviewer\recommendation\Repository as ReviewerRecommendationRepository;
@@ -164,9 +164,9 @@ class Repo
         return app(NoteRepository::class);
     }
 
-    public static function query(): QueryRepository
+    public static function editorialTask(): EditorialTaskRepository
     {
-        return app(QueryRepository::class);
+        return app(EditorialTaskRepository::class);
     }
 
     public static function controlledVocab(): ControlledVocabRepository

@@ -1970,6 +1970,9 @@ msgstr "Invalid review round."
 msgid "user.authorization.invalidQuery"
 msgstr "Invalid discussion."
 
+msgid "user.authorization.invalidTask"
+msgstr "Invalid task."
+
 msgid "user.authorization.unauthorizedNote"
 msgstr "You do not have access to this discussion message."
 

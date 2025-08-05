@@ -23,10 +23,10 @@ use Illuminate\Support\Str;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
+use PKP\editorialTask\EditorialTask;
 use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\query\Query;
 
 class QueryNotificationManager extends NotificationManagerDelegate
 {
@@ -38,7 +38,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
-        $query = Query::find($notification->assocId);
+        $query = EditorialTask::find($notification->assocId);
 
         $headNote = Repo::note()->getHeadNote($query->id);
         if (!$headNote) {
@@ -70,7 +70,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
     /**
      * Get the submission for a query.
      */
-    protected function getQuerySubmission(Query $query): Submission
+    protected function getQuerySubmission(EditorialTask $query): Submission
     {
         switch ($query->assocType) {
             case Application::ASSOC_TYPE_SUBMISSION:
@@ -93,7 +93,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
             throw new \Exception('Unexpected query assoc type!');
         }
 
-        $query = Query::find($notification->assocId);
+        $query = EditorialTask::find($notification->assocId);
         if (!$query) {
             return null;
         }
@@ -110,7 +110,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
-        $query = Query::find($notification->assocId);
+        $query = EditorialTask::find($notification->assocId);
         $submission = $this->getQuerySubmission($query);
 
         switch ($notification->type) {

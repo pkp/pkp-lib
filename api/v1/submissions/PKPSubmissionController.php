@@ -22,6 +22,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
+use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Collector;
@@ -29,13 +30,15 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
+use PKP\API\v1\submissions\formRequests\AddTask;
+use PKP\API\v1\submissions\formRequests\EditTask;
+use PKP\API\v1\submissions\resources\TaskResource;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -50,6 +53,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\editorialTask\EditorialTask;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
@@ -59,13 +63,15 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use APP\publication\enums\VersionStage;
 use PKP\publication\helpers\PublicationVersionInfoResource;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
+use PKP\security\authorization\QueryAccessPolicy;
+use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
+use PKP\security\authorization\QueryWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -122,6 +128,11 @@ class PKPSubmissionController extends PKPBaseController
         'getChangeLanguageMetadata',
         'changeVersion',
         'getNextAvailableVersion',
+        'addTask',
+        'editTask',
+        'deleteTask',
+        'getTask',
+        'getTasks',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -362,6 +373,37 @@ class PKPSubmissionController extends PKPBaseController
             ->middleware([
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function () {
+
+            Route::post('{submissionId}/tasks', $this->addTask(...))
+                ->name('submission.task.add')
+                ->whereNumber('submissionId');
+
+            Route::put('{submissionId}/tasks/{taskId}', $this->editTask(...))
+                ->name('submission.task.edit')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::delete('{submissionId}/tasks/{taskId}', $this->deleteTask(...))
+                ->name('submission.task.delete ')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::get('{submissionId}/tasks/{taskId}', $this->getTask(...))
+                ->name('submission.task.get')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::get('{submissionId}/stage/{stageId}/tasks', $this->getTasks(...))
+                ->name('submission.task.getMany')
+                ->whereNumber(['submissionId', 'stageId']);
+        });
     }
 
     /**
@@ -406,6 +448,24 @@ class PKPSubmissionController extends PKPBaseController
         )) {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
             $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        }
+
+        // For operations to retrieve task(s), we just ensure that the user has access to it
+        if (in_array($actionName, ['getTask'])) {
+            $stageId = $request->getUserVar('stageId');
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+        }
+
+        // To modify a task, need to check read and write access policies
+        if (in_array($actionName, ['editTask', 'deleteTask'])) {
+            $stageId = $request->getUserVar('stageId');
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+            $this->addPolicy(new QueryWritePolicy($request));
+        }
+
+        // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller must ensure to get a list of tasks where user is a participant
+        if (in_array($actionName, ['addTask', 'getTasks'])) {
+            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int) $request->getUserVar('stageId')));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -1678,7 +1738,7 @@ class PKPSubmissionController extends PKPBaseController
                 Repo::author()->edit($author, ['orcidVerificationRequested']);
                 dispatch(new SendAuthorMail($author, $submissionContext, true));
             } catch (\Exception $exception) {
-                OrcidManager::logError("Could not send email to new author with authorId: {$author->getId()}. Reason: $exception");
+                OrcidManager::logError("Could not send email to new author with authorId: {$author->getId()}. Reason: {$exception}");
             }
         }
 
@@ -1935,9 +1995,123 @@ class PKPSubmissionController extends PKPBaseController
         return response()->json(Repo::decision()->getSchemaMap()->map($decision), Response::HTTP_OK);
     }
 
-    protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup
+    /**
+     * Creates a task or discussion associated with the submission
+     */
+    public function addTask(AddTask $illuminateRequest): JsonResponse
     {
-        return $userGroups->first(fn (UserGroup $userGroup) => $userGroup->roleId === $role);
+        $validated = $illuminateRequest->validated();
+
+        $editorialTask = new EditorialTask($validated);
+        $editorialTask->save();
+
+        return response()->json(
+            (new TaskResource($editorialTask->refresh()))
+                ->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get a single task or discussion associated with the submission
+     */
+    public function getTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(
+            (new TaskResource($editTask))->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get a list of all available tasks and discussions related to the submission
+     */
+    public function getTasks(Request $illuminateRequest): JsonResponse
+    {
+        $currentUser = $this->getRequest()->getUser();
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        // Managers have access to all tasks and discussions irrespectable of the participation
+        if ($currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
+            $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
+                ->withAssocIds([$submission->getId()])
+                ->withStageId($illuminateRequest->route('stageId'));
+        } else {
+            // Other users have access to tasks, where they are included as participants
+            $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
+                ->withAssocIds([$submission->getId()])
+                ->withParticipantIds([$currentUser->getId()])
+                ->withStageId([$illuminateRequest->route('stageId')]);
+        }
+
+        foreach ($illuminateRequest->query() as $param => $val) {
+            switch ($param) {
+                case 'isOpen':
+                    $collector = $collector->withClosed((bool) $val);
+                    break;
+            }
+        }
+
+        $tasks = $collector->get();
+
+        return response()->json([
+            'items' => TaskResource::collection($tasks),
+            'itemMax' => $tasks->count(),
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Edit a task or discussion associated with the submission
+     */
+    public function editTask(EditTask $illuminateRequest): JsonResponse
+    {
+        $editTask = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY);
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $validated = $illuminateRequest->validated();
+
+        if (!$editTask->update($validated)) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        return response()->json(
+            (new TaskResource($editTask->refresh()))
+                ->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Remove task or discussion associated with the submission
+     */
+    public function deleteTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $editTask->delete();
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**

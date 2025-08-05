@@ -29,7 +29,7 @@ class TaskResource extends JsonResource
             'stageId' => $this->stageId,
             'status' => $this->status,
             'createdBy' => $this->createdBy,
-            'dateDue' => $this->dateDue->format('Y-m-d'),
+            'dateDue' => $this->dateDue?->format('Y-m-d'),
             'participants' => EditorialTaskParticipantResource::collection($this->participants),
         ];
     }

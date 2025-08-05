@@ -2049,7 +2049,7 @@ class PKPSubmissionController extends PKPBaseController
             $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
                 ->withAssocIds([$submission->getId()])
                 ->withParticipantIds([$currentUser->getId()])
-                ->withStageId([$illuminateRequest->route('stageId')]);
+                ->withStageId($illuminateRequest->route('stageId'));
         }
 
         foreach ($illuminateRequest->query() as $param => $val) {

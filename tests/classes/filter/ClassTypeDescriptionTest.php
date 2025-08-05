@@ -27,7 +27,7 @@ class ClassTypeDescriptionTest extends PKPTestCase
 {
     public function testInstantiateAndCheck()
     {
-        $typeDescription = new ClassTypeDescription('lib.pkp.tests.classes.filter.TestClass1');
+        $typeDescription = new ClassTypeDescription(TestClass1::class);
         $compatibleObject = new TestClass1();
         $wrongObject = new TestClass2();
         self::assertTrue($typeDescription->isCompatible($compatibleObject));

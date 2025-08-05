@@ -35,6 +35,9 @@ class FieldRichTextarea extends Field
     /** @var string Optional. The API endpoint to upload images to. Only include if image uploads are supported here. */
     public $uploadUrl;
 
+    /** @var string Optional. Array of available links to public files. */
+    public $linkList;
+
     /** @var int Optional. When a word limit is specified a word counter will be shown */
     public $wordLimit = 0;
 
@@ -54,6 +57,9 @@ class FieldRichTextarea extends Field
         $config['toolbar'] = $this->toolbar;
         if (!empty($this->uploadUrl)) {
             $config['uploadUrl'] = $this->uploadUrl;
+        }
+        if (!empty($this->linkList)) {
+            $config['linkList'] = $this->linkList;
         }
         if ($this->wordLimit) {
             $config['wordLimit'] = $this->wordLimit;

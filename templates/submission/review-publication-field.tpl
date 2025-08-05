@@ -44,19 +44,18 @@
     >
         {if $type === 'array'}
             <template v-if="publication.{$localizedProp|escape} && publication.{$localizedProp|escape}.length">
-                <template v-if="'{$dataField}'">
+                {if $dataField}
                     {{
                         publication.{$localizedProp|escape}
                             .map(item => item['{$dataField}'])
                             .join(t('common.commaListSeparator'))
                     }}
-                </template>
-                <template v-else>
-                    {{
-                        publication.{$localizedProp|escape}
-                            .join(t('common.commaListSeparator'))
-                    }}
-                </template>
+               {else}
+                   {{
+                       publication.{$localizedProp|escape}
+                           .join(t('common.commaListSeparator'))
+                   }}
+               {/if}
             </template>
             <template v-else>
                 {translate key="common.noneProvided"}

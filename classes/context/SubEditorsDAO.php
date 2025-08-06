@@ -204,9 +204,17 @@ class SubEditorsDAO extends \PKP\db\DAO
 
         $userGroupIds = $userGroups->keys();
 
-        $assignments = $assignments->filter(function ($assignment) use ($userGroupIds) {
+        $activeUsers = Repo::user()
+            ->getCollector()
+            ->filterByUserIds($assignments->map(fn ($assignment) => $assignment->userId)->all())
+            ->filterByContextIds([$submission->getData('contextId')])
+            ->filterByStatus(Repo::user()->getCollector()::STATUS_ACTIVE)
+            ->getIds();
+
+        $assignments = $assignments->filter(function ($assignment) use ($userGroupIds, $activeUsers) {
             return Repo::userGroup()->userInGroup($assignment->userId, $assignment->userGroupId)
-                && $userGroupIds->contains($assignment->userGroupId);
+                && $userGroupIds->contains($assignment->userGroupId)
+                && $activeUsers->contains($assignment->userId);
         });
 
         foreach ($assignments as $assignment) {

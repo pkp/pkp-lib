@@ -2474,7 +2474,7 @@ class PKPSubmissionController extends PKPBaseController
             });
     }
 
-    private function validateVersionStage(Request $illuminateRequest): VersionStage
+    protected function validateVersionStage(Request $illuminateRequest): VersionStage
     {
         $validator = Validator::make($illuminateRequest->all(), [
             'versionStage' => [
@@ -2490,7 +2490,7 @@ class PKPSubmissionController extends PKPBaseController
         return VersionStage::from($validator->validated()['versionStage']);
     }
 
-    private function validateVersionIsMinor(Request $illuminateRequest): ?bool
+    protected function validateVersionIsMinor(Request $illuminateRequest): ?bool
     {
         return filter_var(
             $illuminateRequest->input('versionIsMinor') ?? true,

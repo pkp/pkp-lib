@@ -2785,6 +2785,12 @@ msgstr "Delete Incomplete Submissions"
 msgid "publication.sendToTextEditor.label"
 msgstr "To which version would you like to send this file?"
 
+msgid "publication.scheduledForPublication.reviewDetails.label"
+msgstr "Review Publishing Details"
+
+msgid "publication.scheduledForPublication.reviewDetails.description"
+msgstr "Before scheduling this submission for publication, please take a moment to review some of the entered important details. This is your oppertunity to assign a version name, confirm the issue it belongs to, and ensure all necessary information is correct."
+
 msgid "publication.versionSource.create.label"
 msgstr "Which version should metadata be copied from?"
 

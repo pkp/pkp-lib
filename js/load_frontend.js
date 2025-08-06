@@ -18,6 +18,7 @@ import {createPinia} from 'pinia';
 import * as usePkpApp from '@/frontend/composables/usePkpApp.js';
 import * as usePkpUrl from '@/frontend/composables/usePkpUrl.js';
 import * as usePkpFetch from '@/frontend/composables/usePkpFetch.js';
+import * as usePkpPaginatedFetch from '@/frontend/composables/usePkpPaginatedFetch.js';
 import * as usePkpModal from '@/frontend/composables/usePkpModal.js';
 
 // Directives
@@ -84,6 +85,7 @@ export default {
 		usePkpApp,
 		usePkpUrl,
 		usePkpFetch,
+		usePkpPaginatedFetch,
 		usePkpModal,
 	},
 	pkpCreateVueApp,

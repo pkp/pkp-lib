@@ -77,6 +77,30 @@ export default {
 		});
 	},
 
+	initVueFromAttributes() {
+		// Select all elements with the data-vue-root attribute
+		document.querySelectorAll('[data-vue-root]').forEach((element) => {
+			// Get the value of the data-vue-root attribute
+			const attrValue = element.getAttribute('data-vue-root');
+			
+			// Check if the value is present (not null or empty string)
+			let rootProps = {};
+			if (attrValue && attrValue.trim() !== '') {
+				try {
+					// Parse the attribute value as JSON to get Vue options
+					rootProps = JSON.parse(attrValue);
+					
+					// Initialize Vue app with the parsed options and mount to the element
+				} catch (error) {
+					// Log error if JSON parsing fails
+					console.error('Failed to parse data-vue-root as JSON for element:', element, error);
+				}
+			}
+			pkp.pkpCreateVueApp({}, rootProps).mount(element);
+
+		});
+	},
+
 	attachPiniaInstance(piniaInstance) {
 		this._piniaInstance = piniaInstance;
 	},

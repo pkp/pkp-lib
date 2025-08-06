@@ -88,6 +88,14 @@ abstract class ThemePlugin extends LazyLoadPlugin
     protected $_optionValues = null;
 
     /**
+     * Track whether vue.js is required
+     *
+     * @var ThemePlugin $parent
+     */
+    public bool $isVueRuntimeRequired = false;
+
+
+    /**
      * @copydoc Plugin::register
      *
      * @param null|mixed $mainContextId
@@ -147,7 +155,16 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function initAfter()
     {
+
         $this->_registerTemplates();
+
+        if ($this->isVueRuntimeRequired) {
+
+            $request = Application::get()->getRequest();
+            $templateManager = TemplateManager::getManager($request);
+            $templateManager->requiresVueRuntime();
+        }
+
         $this->_registerStyles();
         $this->_registerScripts();
     }
@@ -1032,5 +1049,13 @@ abstract class ThemePlugin extends LazyLoadPlugin
         } elseif (Application::get()->getName() == 'ops') {
             return 'frontend-preprint-view';
         }
+    }
+
+    /**
+     * Require vue runtime
+     */
+    protected function requiresVueRuntime()
+    {
+        $this->isVueRuntimeRequired = true;
     }
 }

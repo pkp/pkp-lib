@@ -104,8 +104,17 @@ class PKPTemplateManager extends Smarty
     /** @var array Key/value list of constants to expose in the JS interface */
     private array $_constants = [];
 
+    /** @var array Key/value list of locale keys to expose in the JS interface
+     * Used only for frontend base components
+    */
+    private $_localeKeys = [];
+
     /** @var array Initial state data to be managed by the page's Vue.js component */
     protected array $_state = [];
+
+    /** @var array State that can be expose via pinia store on frontend when vue is enabled */
+    protected array $_piniaData = [];
+
 
     /** @var string Type of cacheability (Cache-Control). */
     private string $_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
@@ -122,7 +131,7 @@ class PKPTemplateManager extends Smarty
     /** @var bool Track whether its backend page */
     private bool $isBackendPage = false;
 
-    /** @var bool Track whether its backend page */
+    /** @var bool Track whether vue runtime is included */
     private bool $isVueRuntimeIncluded = false;
 
     /**
@@ -158,6 +167,7 @@ class PKPTemplateManager extends Smarty
         $application = Application::get();
         $router = $request->getRouter();
         $currentContext = $request->getContext();
+
 
         $this->assign([
             'defaultCharset' => 'utf-8',
@@ -213,7 +223,7 @@ class PKPTemplateManager extends Smarty
             // Inject the CSRF token in header, see https://github.com/pkp/pkp-lib/issues/10311
             $this->addHeader(
                 'meta',
-                '<meta name="csrf-token" content="'.$request->getSession()->token().'" />',
+                '<meta name="csrf-token" content="' . $request->getSession()->token() . '" />',
                 ['contexts' => ['frontend', 'backend']]
             );
 
@@ -652,6 +662,21 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Set locale keys to be exposed in JavaScript at pkp.localeKeys.<key>
+     * Used ONLY on the frontend, backend has automated workflow to populate localeKeys
+     *
+     * @param array $keys Array of locale keys
+     */
+    public function setLocaleKeys($keys)
+    {
+        foreach ($keys as $key) {
+            if (!array_key_exists($key, $this->_localeKeys)) {
+                $this->_localeKeys[$key] = __($key);
+            }
+        }
+    }
+
+    /**
      * Get a piece of the state data
      */
     public function getState(string $key): mixed
@@ -668,6 +693,15 @@ class PKPTemplateManager extends Smarty
     {
         $this->_state = array_merge($this->_state, $data);
     }
+
+    /**
+     * Set initial state data to be managed by the Vue.js component on this page
+     */
+    public function setPiniaData(array $data)
+    {
+        $this->_piniaData = array_merge($this->_piniaData, $data);
+    }
+
 
     /**
      * Register all files required by the core JavaScript library
@@ -815,7 +849,21 @@ class PKPTemplateManager extends Smarty
     {
         if (!$this->isVueRuntimeIncluded) {
             $this->isVueRuntimeIncluded = true;
-            $baseUrl = $this->_request->getBaseUrl();
+            $baseUrl = Application::get()->getRequest()->getBaseUrl();
+
+
+
+            $this->setLocaleKeys(['common.close']);
+
+            // Stylesheet compiled from Vue.js single-file components
+            $this->addStyleSheet(
+                'build',
+                $baseUrl . '/styles/build_frontend.css',
+                [
+                    'priority' => self::STYLE_SEQUENCE_CORE,
+                    'contexts' => ['frontend'],
+                ]
+            );
 
             $this->addJavaScript(
                 'pkpAppFrontend',
@@ -1377,6 +1425,17 @@ class PKPTemplateManager extends Smarty
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
         }
 
+        if (!empty($this->_localeKeys)) {
+            $output .= 'pkp.localeKeys = ' . json_encode($this->_localeKeys) . ';';
+        }
+
+
+        if (!empty($this->_piniaData)) {
+            $output .= 'pkp._piniaData = ' . json_encode($this->_piniaData) . ';';
+        }
+
+
+
         // add apiBaselUrl for useUrl composable
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
@@ -1471,12 +1530,17 @@ class PKPTemplateManager extends Smarty
             }
         }
 
+        $contexts = ['backend'];
+        if ($this->isVueRuntimeIncluded) {
+            $contexts[] = 'frontend';
+        }
+
         $this->addJavaScript(
             'pkpAppData',
             $output,
             [
                 'priority' => self::STYLE_SEQUENCE_NORMAL,
-                'contexts' => ['backend'],
+                'contexts' => $contexts,
                 'inline' => true,
             ]
         );

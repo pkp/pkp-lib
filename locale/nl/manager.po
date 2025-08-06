@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-05 03:12+0000\n"
+"PO-Revision-Date: 2025-08-07 00:43+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -2717,170 +2717,188 @@ msgstr ""
 "acceptatieratio is dan 50% (vier van de acht inzendingen) omdat de twee "
 "inzendingen zonder eindbeslissing niet worden meegerekend."
 
+#, fuzzy
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Het aantal dagen dat het duurt, voordat de meeste inzendingen de eerste "
+"redactionele beslissing ontvangen, zoals (redactionele) afwijzing voordat "
+"recensie plaatsvindt of voor het versturen voor de recensie.<br><br>. Deze "
+"figuren geven aan dat 80% van de inzendingen uitmondt in de beslissing "
+"binnen het gegeven aantal dagen.<br><br>. Deze statistiek tracht de situatie "
+"te beschrijven wanneer de meerderheid van de auteurs die hun inzending "
+"verstuurden aan uw tijdschrift een beslissing kunnen verwachten."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Dit is inclusief inzendingen die niet in de totalen zijn meegerekend, zoals "
+"inzendingen die nog in het proces verkeren en inzendingen waarvan blijkt dat "
+"ze zijn ingevoerd."
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "Beschrijving voor {$stat}"
 
 msgid "stats.editorialActivity"
-msgstr ""
+msgstr "Redactionele activiteit"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Belangrijkste bestand"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Aanvullend bestand"
 
 msgid "stats.fileViews"
-msgstr ""
+msgstr "Bestandweergaven"
 
 msgid "stats.html"
-msgstr ""
+msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr ""
+msgstr "Maandelijks"
 
 msgid "stats.pdf"
-msgstr ""
+msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
 msgstr ""
+"Locatiebepaling beschikbaar gesteld door <a href='https://db-ip.com'>DB-"
+"IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Met betrekking tot locatiebepaling"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} tot {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Geheel {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Download bestanden"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Het aantal downloads voor ieder bestand."
 
+#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Download locatie"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Het aantal weergaven en downloads voor iedere stad, regio en land."
 
 msgid "stats.region"
 msgstr "Regio"
 
 msgid "stats.searchSubmissionDescription"
-msgstr ""
+msgstr "Zoek op titel, auteur en ID"
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Actieve inzendingen"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Tijdlijn"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Het aantal {$type} voor ieder {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Download de tijdlijn"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Tijdlijninterval"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Tijdlijntype"
 
 msgid "stats.total"
 msgstr "Totaal"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Uniek"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Het aantal binnen de datumperiode"
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Ontwikkelingen"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "onbekend"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Gebruikersgegevens"
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Ontvangen inzendingen"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Andere inzendingen"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Inzendingen die in behandeling zijn"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Ingevoerde inzendingen"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Geaccepteerde inzendingen"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Afgewezen inzendingen"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Afgewezen inzendingen (voorafgaand aan recensie)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Afgewezen inzendingen (na recensie)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Gepubliceerde inzendingen"
 
 msgid "stats.name.daysToDecision"
-msgstr ""
+msgstr "Dagen tot aan de eerste redactionele beslissing"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Dagen tot aan acceptatie"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Dagen tot aan afwijzing"
 
 msgid "stats.name.acceptanceRate"
-msgstr ""
+msgstr "Acceptatiepercentage"
 
 msgid "stats.name.declineRate"
-msgstr ""
+msgstr "Afwijzingspercentage"
 
+#, fuzzy
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Directe afwijzingspercentage"
 
 msgid "stats.name.declinedReviewRate"
-msgstr ""
+msgstr "Afwijzingspercentage na recensie"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Foutmelding. Controleer hieronder eventuele fouten of waarschuwingen."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Exporteer inzendingsresultaten"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Download het geëxporteerde bestand"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "De export is succesvol voltooid."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Download het geëxporteerde bestand via de onderstaande knop."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Algemene onderwerpen"
 
+#, fuzzy
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Verkeerde filterinstelling [{$filterName}]: {$filterCount} incidenten. Er "
+"mag slechts één incident tegelijk zijn."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "FOUT:"
@@ -2889,13 +2907,13 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Het opgegeven pad \"{$contextPath}\" bestaat niet."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Het proces blokkeerde om de auteurs te analyseren"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Het proces blokkeerde om de publicaties te analyseren"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""

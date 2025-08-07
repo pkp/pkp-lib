@@ -103,4 +103,9 @@ class Repository
         $context = $context ?: $this->request->getContext();
         return $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
     }
+
+    public function getPerPage(): int
+    {
+        return $this->perPage;
+    }
 }

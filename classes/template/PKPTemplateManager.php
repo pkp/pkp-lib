@@ -1426,9 +1426,9 @@ class PKPTemplateManager extends Smarty
         }
 
         if (!empty($this->_localeKeys)) {
-            $output .= 'pkp.localeKeys = ' . json_encode($this->_localeKeys) . ';';
+            $output .= 'pkp.localeKeys = pkp.localeKeys || {};';
+            $output .= 'Object.assign(pkp.localeKeys, ' . json_encode($this->_localeKeys) . ');';
         }
-
 
         if (!empty($this->_piniaData)) {
             $output .= 'pkp._piniaData = ' . json_encode($this->_piniaData) . ';';

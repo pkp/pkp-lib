@@ -179,6 +179,11 @@ class Hook
                             continue 2;
                         }
 
+                        // Avoid fatal errors due to parse failures during autoload.
+                        if ((string) $stackFrame['function'] ?? '' == 'Composer\Autoload\{closure}') {
+                            continue;
+                        }
+
                         // Attempt to recover the file where the callback was implemented
                         $filename = ($class ? (new ReflectionClass($class))->getFileName() : null)
                             ?? (($function = $stackFrame['function'] ?? null) ? (new ReflectionFunction($function))->getFileName() : null)

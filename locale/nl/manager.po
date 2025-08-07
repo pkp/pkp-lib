@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-07 00:43+0000\n"
+"PO-Revision-Date: 2025-08-07 16:37+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -2901,7 +2901,7 @@ msgstr ""
 "mag slechts één incident tegelijk zijn."
 
 msgid "plugins.importexport.common.cliError"
-msgstr "FOUT:"
+msgstr "FOUTMELDING:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Het opgegeven pad \"{$contextPath}\" bestaat niet."
@@ -2910,94 +2910,113 @@ msgid "plugins.importexport.submission.cli.display"
 msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr "Het proces blokkeerde om de auteurs te analyseren"
+msgstr "Foutmelding bij het analyseren van de auteurs"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr "Het proces blokkeerde om de publicaties te analyseren"
+msgstr "Foutmelding bij het analyseren van de publicaties"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Alle commentaren van de afgeronde recensies. De recensentnamen zijn "
+"achterwege gelaten omwille van de anonimiteit van de recensies"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "De namen en affiliaties van de auteurs van de inzending."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
+"De URL naar de pagina waar de gebruiker een verloren wachtwoord kan "
+"herstellen"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
+"The URL naar volledige inzage in de inzendingen die aan de gebruiker zijn "
+"toegewezen"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "De URL voor de inzage en bewerking van het gebruikersprofiel"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "De naam van de genomen beslissing"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Een beschrijving van de genomen beslissing"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "De fase van de redactionele werkstroom, waarin het genomen besluit"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"De beoordelingsronde, waarin de genomen beslissing, indien de beslissing "
+"wordt gerelateerd aan de recensiefase"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Het onderwerp van de discussie"
 
+#, fuzzy
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "De inhoud van de nieuwe discussie, dan wel de reactie hierop"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Een lijst van inzendingen met openstaande taken"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Het aantal inzendingen dat aan deze redacteur is toegewezen"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "De volledige naam van de ontvanger(s)"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "De gebruikersnaam van de ontvanger(s)"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Datum waarop de recensie moet zijn afgerond"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Datum waarop de recensent de toewijzing zou moeten aanvaarden of afwijzen"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "De URL naar de recensietoewijzing"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "De aanbevolen beslissing, zoals de aanvaarding van de inzending"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "De datum waarop deze recensie werd toegewezen"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Het type recensie, zoals blind, dubbel blind of open"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
+"De aanbeveling van de recensent, zoals de aanvaarding of afwijzing van de "
+"inzending"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "De beoordelingsronde, zoals ronde 1 of ronde 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "De door de recensent geüploade bestanden"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "De naam van de recensent"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Dit tijdschrift voert een dubbelblinde peer review uit. De recensenten "
+"zullen geen informatie zien over u of uw mede-auteurs. Tegelijkertijd zult u "
+"niet weten wie uw inzending beoordeelt, evenmin ontvangt u direct een "
+"reactie van de recensenten."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Dit tijdschrift voort een peer review uit in de zin van 'reviewer "
+"anonymous', dat wil zeggen: uw naam en die van uw mede-auteurs zijn "
+"zichtbaar voor de recensenten, echter de identiteit van hen blijven anoniem."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""

@@ -1035,6 +1035,9 @@ class PKPSubmissionController extends PKPBaseController
      */
     public function changeVersion(Request $illuminateRequest): JsonResponse
     {
+        // ray($illuminateRequest->all());
+        // die();
+        
         $request = $this->getRequest();
         $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 

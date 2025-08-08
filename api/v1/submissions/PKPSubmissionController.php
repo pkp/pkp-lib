@@ -1678,15 +1678,23 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // validate that if userGroupId is passed, it really is an author group and that email is present.
-        $validator = Validator::make($illuminateRequest->all(), [
+        $data = $illuminateRequest->only(['userGroupId']);
+        $validator = Validator::make($data, [
             'userGroupId' => [
+                'sometimes',
                 'nullable',
                 'integer',
-                Rule::exists('user_groups', 'user_group_id')
-                    ->where('role_id', Role::ROLE_ID_AUTHOR)
-                    ->where('context_id', $submission->getData('contextId')),
+                function ($attribute, $value, $fail) use ($submission) {
+                    $exists = UserGroup::query()
+                        ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                        ->withContextIds([$submission->getData('contextId')])
+                        ->whereKey($value)
+                        ->exists();
+                    if (!$exists) {
+                        $fail(__('api.submission.400.invalidId', ['id' => $value]));
+                    }
+                },
             ],
-            'email' => ['required', 'email'],
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
@@ -1850,15 +1858,23 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // validate that if userGroupId is passed, it really is an author group and that email is present.
-        $validator = Validator::make($illuminateRequest->all(), [
+        $data = $illuminateRequest->only(['userGroupId']);
+        $validator = Validator::make($data, [
             'userGroupId' => [
+                'sometimes',
                 'nullable',
                 'integer',
-                Rule::exists('user_groups', 'user_group_id')
-                    ->where('role_id', Role::ROLE_ID_AUTHOR)
-                    ->where('context_id', $submission->getData('contextId')),
+                function ($attribute, $value, $fail) use ($submission) {
+                    $exists = UserGroup::query()
+                        ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                        ->withContextIds([$submission->getData('contextId')])
+                        ->whereKey($value)
+                        ->exists();
+                    if (!$exists) {
+                        $fail(__('api.submission.400.invalidId', ['id' => $value]));
+                    }
+                },
             ],
-            'email' => ['required', 'email'],
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);

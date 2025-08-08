@@ -68,14 +68,14 @@ abstract class PKPScheduler
         $this
             ->schedule
             ->call(fn () => (new StatisticsReport())->execute())
-            ->daily()
+            ->monthlyOn(1)
             ->name(StatisticsReport::class)
             ->withoutOverlapping();
 
         $this
             ->schedule
             ->call(fn () => (new RemoveUnvalidatedExpiredUsers())->execute())
-            ->daily()
+            ->monthlyOn(1)
             ->name(RemoveUnvalidatedExpiredUsers::class)
             ->withoutOverlapping();
 

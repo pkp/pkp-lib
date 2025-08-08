@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-07 16:37+0000\n"
+"PO-Revision-Date: 2025-08-08 14:09+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -3020,81 +3020,90 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Dit tijdschrift voert een open peer review. The recensenten zullen uw naam "
+"en affliatie, alsook die van uw mede-auteurs. Tegelijkertijd, ziet u de "
+"namen en affliaties van de recensenten."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "De volledige naam van de verzender"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Het e-mailadres van de verzender"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "De e-mailhandtekening van de verzender"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "De volledige naam van de hoofdcontactpersoon van de website"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Het e-mailadres van de hoofdcontactpersoon van de website"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "De e-mailhandtekening van de website voor de automatische reacties"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "De aan de inzending toegewezen redacteuren, die beslissingsbevoegd zijn"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "De titel van de inzending"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Het unieke ID-nummer van de inzending"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "De beknopte samenvatting van de inzending"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "De namen van de auteurs in een korte frase, zoals \"Barnes e.a.\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "De volledige namen van de auteurs"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "De URL naar de inzending van de auteur"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "De URL naar de inzending in de niet-zichtbare serverkant"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "De URL naar de gepubliceerde inzending"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "De URL naar de inzending in de inzendingswizard"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"De namen van de auteurs, die zijn toegewezen aan de werkstroom van de "
+"inzending. Meestal is dit de auteur die een inzending verricht"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Gehashte (versleutelde) URL die ter beveiliging naar een gebruiker is "
+"verzonden om het opnieuw instellen van het wachtwoord te bevestigen"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nieuw willekeurig wachtwoord"
 
+#, fuzzy
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Herinstelling /heraanstelling? van de recensent"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Mail het recensieverzoek terug aan de recensent"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "De volledige naam van een gebruiker die een inzendingsbestand uploadde"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "De titelaankondiging"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Korte beschrijving van de aankondiging"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "De URL naar de aankondiging"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Het aantal inzendingen deze maand ontvangen"
@@ -3510,8 +3519,9 @@ msgid "mailable.announcementNotify.description"
 msgstr ""
 "Deze e-mail wordt verzonden wanneer er een nieuwe aankondiging is gemaakt."
 
+#, fuzzy
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Statistisch verslagmelding"
 
 msgid "mailable.editReviewNotify.name"
 msgstr "Wijzig Review Bericht"
@@ -3521,35 +3531,49 @@ msgstr ""
 "Deze e-mail brengt de reviewer automatisch op de hoogte wanneer de details "
 "van hun reviewopdracht zijn gewijzigd."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Door recensent becommentarieerde melding aan de redactie"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Deze e-mail wort automatisch verstuurd aan de aangewezen redacteuren wanneer "
+"de recensent een aanbeveling doet"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Authenticatiebron"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Voor review teruggezonden inzending"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Deze e-mail bericht de auteur dat de inzending is teruggestuurd naar de "
+"recensiefase."
 
+#, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "De inzending is teruggezonden naar de beginfase"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Deze e-mail bericht de auteur dat de inzending is teruggezonden naar de "
+"inzendingsfase."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Behandel e-mailberichten"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Voeg templates toe en bewerk deze</a> voor alle e-"
+"mailberichten die door het systeem zijn verzonden.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"U wordt verzocht de templates bij te voegen en te bewerken die u beschikbaar "
+"wilt maken voor de gebruiker bij het versturen van dit e-mailbericht. De "
+"standaardinstelling wordt automatisch geladen. De gebruiker kan hierdoor "
+"ieder door u bijgevoegde templates op snelle wijze laden."
 
 msgid "manager.mailables.templates"
 msgstr "Sjablonen"
@@ -3558,55 +3582,65 @@ msgid "manager.mailables.editTemplate"
 msgstr "Wijzig Sjabloon"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Verwijder template"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Bent u er zeker van dat u de template wilt vernietigen "
+"<strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Stel template opnieuw in"
 
+#, fuzzy
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Bent u er zeker van dat u onderwerp en inhoud opnieuw wilt resetten naar de "
+"standaardinstellingen voor de template  <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Zoek op naam of beschrijving"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Voer een korte naam in om deze template te kunnen vinden."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Nieuwe inzending"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Configureer ter verzending de e-mailberichten wanneer een nieuwe inzending "
+"wordt gedaan."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Wie behoort een e-mail te ontvangen wanneer een nieuwe inzending is afgerond?"
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Verstuur geen e-mailbericht."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Verstuur een e-mailbericht aan alleen de auteur die een inzending doet."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Verstuur een e-mailbericht aan alle auteurs."
 
 msgid "manager.editorialDecisions"
 msgstr "Redactionele beslissingen"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Configureer een e-mailbericht ter verzending aan auteurs wanneer een "
+"redactionele beslissing is vastgelegd."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Voor redactieleden"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Configureer de e-mailberichten ter verzending aan redactieleden."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Redactionele gegevens"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""

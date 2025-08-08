@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-08 14:09+0000\n"
+"PO-Revision-Date: 2025-08-09 13:00+0000\n"
 "Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -3411,7 +3411,7 @@ msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "De huidige publicatie van de inzending ontbreekt"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Foutmelding bij submission's child"
 
 msgid "mailable.editorialReminder.name"
 msgstr "Redactionele Herinnering"
@@ -3642,41 +3642,48 @@ msgstr "Configureer de e-mailberichten ter verzending aan redactieleden."
 msgid "manager.editorialStatistics"
 msgstr "Redactionele gegevens"
 
+#, fuzzy
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Wel of geen maandelijks e-mailbericht aan redactieleden met de redactionele "
+"gegevens van het tijdschrift, zoals aanvaardings- en afwijzingspercentages. "
+"Redactieleden kunnen hun gebruikersprofiel via dit e-mailbericht "
+"uitschrijven."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Verstuur een maandelijkse e-mail aan redactieleden."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Verstuur geen e-mailbericht aan redactieleden."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Zou de auteur gevraagd moeten worden een categorie te kiezen bij het "
+"indienen van een nieuwe inzending?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Ja, voeg een veld 'categorieën toe aan de inzendingswizard."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nee, toon de auteurs dit veld niet."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Verzoek tekstredactie"
 
 msgid "mailable.editorAssign.name"
-msgstr "Redacteur toegewezen"
+msgstr "Toegewezen redacteur"
 
 msgid "mailable.layoutRequest.name"
-msgstr "Naar Productie"
+msgstr "Gereed voor productie"
 
 msgid "mailable.system"
 msgstr "Systeem"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Gecreëerde versie"
 
 msgid "mailable.reviewComplete.name"
-msgstr "Review Voltooid"
+msgstr "Review voltooid"
 
 msgid "mailable.reviewEdit.name"
 msgstr "Review aangepast"
@@ -3689,6 +3696,8 @@ msgstr "Redacteur toegewezen (Auto)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Dit e-mailbericht is verzonden aan een redactielid, aan wie automatisch een "
+"inzending is toegewezen."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Redacteur toekennen"
@@ -3970,3 +3979,24 @@ msgstr ""
 #, fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "Het menutitel item is vereist."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Uitnodiging tot wijziging van het e-mailadres"
+
+#, fuzzy
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Beschrijf de volgorde van de belangrijkste rollen met betrekking tot "
+"publicering"
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"De recensenten zullen worden weergegeven in een gestandaardiseerd format, "
+"ter behoud van de eenheid en ter verzekering van een gemakkelijke "
+"vindbaarheid in dit gedeelte."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"U wordt vriendelijk verzocht het redactionele curriculum vitae te "
+"verstrekken, inclusief de volledige naam, affiliatie, als ook begin- en "
+"einddatums met betrekking tot ieder redactielid."

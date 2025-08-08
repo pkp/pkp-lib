@@ -19,12 +19,15 @@ namespace PKP\API\v1\dois;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\galley\Galley;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -299,14 +302,25 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        // All minor versions of the same submission, verstion stage and version major have one, the same DOI.
+        // So get all the minor versions that have the same DOI.
+        // Eventuell we could just edit all the same DOIs, but this way we eventually keep
+        // some older ones that should stay as they are, e.g. if there was a switch in the settings
+        // from one DOI for all versions to different DOIs for different versions.
+        $pubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
+
         // Copy DOI object data
         $newDoi = clone $doi;
         $newDoi->unsetData('id');
         $newDoi->setAllData(array_merge($newDoi->getAllData(), ['doi' => $params['doi']]));
         $newDoiId = Repo::doi()->add($newDoi);
 
-        // Update pubObject with new DOI and remove elsewhere if no longer in use
-        $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, $newDoiId);
+        // Update pubObjects with new DOI
+        foreach ($pubObjects as $pubObject) {
+            $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, $newDoiId);
+        }
+
+        // Remove old DOI if no longer in use
         if (!Repo::doi()->isAssigned($doi->getId(), $pubObjectType)) {
             Repo::doi()->delete($doi);
         }
@@ -365,8 +379,14 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Remove reference to DOI from pubObject and remove DOI object if no longer in use elsewhere
-        $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, null);
+        $pubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
+
+        // Remove reference to DOI from pubObjects
+        foreach ($pubObjects as $pubObject) {
+            $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, null);
+        }
+
+        // Remove DOI object if no longer in use elsewhere
         if (!Repo::doi()->isAssigned($doi->getId(), $pubObjectType)) {
             Repo::doi()->delete($doi);
         }
@@ -689,6 +709,7 @@ class PKPDoiController extends PKPBaseController
 
     /**
      * Download exported DOI XML from temporary file ID
+     *
      * @throws BindingResolutionException
      */
     public function getExportedFile(Request $illuminateRequest): Response
@@ -721,6 +742,19 @@ class PKPDoiController extends PKPBaseController
             Repo::doi()::TYPE_REPRESENTATION => Repo::galley(),
             default => null,
         };
+    }
+
+
+    /**
+     * Retrieve all minor versions for the same submission, version stage and major, that have the same DOI
+     *
+     * @param mixed $pubObjectHandler Either a repo or DAO for the pub object type
+     *
+     * @return LazyCollection<int,Publication|Galley>
+     */
+    protected function getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject): LazyCollection
+    {
+        return $pubObjectHandler->getMinorVersionsWithSameDoi($pubObject);
     }
 
     /**

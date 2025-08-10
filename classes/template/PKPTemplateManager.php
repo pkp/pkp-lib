@@ -916,11 +916,7 @@ class PKPTemplateManager extends Smarty
             'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => Submission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
-            'STATUS_READY_TO_PUBLISH' => Submission::STATUS_READY_TO_PUBLISH,
-            'STATUS_READY_TO_SCHEDULE' => Submission::STATUS_READY_TO_SCHEDULE,
         ]);
-
-
 
         $hash = Locale::getUITranslator()->getCacheHash();
         $this->addJavaScript(

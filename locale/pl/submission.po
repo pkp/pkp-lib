@@ -2736,6 +2736,7 @@ msgstr "Wersja {$wersja}"
 
 #~ msgid "publication.editDisabled"
 #~ msgstr ""
+
 #~ "Niniejsza wersja metadanych została opublikowana i nie może być już "
 #~ "zmieniana."
 

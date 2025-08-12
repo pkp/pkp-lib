@@ -1676,30 +1676,6 @@ class PKPSubmissionController extends PKPBaseController
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
         }
-
-        // validate that if userGroupId is passed, it really is an author group and that email is present.
-        $data = $illuminateRequest->only(['userGroupId']);
-        $validator = Validator::make($data, [
-            'userGroupId' => [
-                'sometimes',
-                'nullable',
-                'integer',
-                function ($attribute, $value, $fail) use ($submission) {
-                    $exists = UserGroup::query()
-                        ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                        ->withContextIds([$submission->getData('contextId')])
-                        ->whereKey($value)
-                        ->exists();
-                    if (!$exists) {
-                        $fail(__('api.submission.400.invalidId', ['id' => $value]));
-                    }
-                },
-            ],
-        ]);
-        if ($validator->fails()) {
-            return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
-        }
-
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
 
         // Allows author ORCID request email to be triggered from frontend before author ID exists
@@ -1855,29 +1831,6 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
-        }
-
-        // validate that if userGroupId is passed, it really is an author group and that email is present.
-        $data = $illuminateRequest->only(['userGroupId']);
-        $validator = Validator::make($data, [
-            'userGroupId' => [
-                'sometimes',
-                'nullable',
-                'integer',
-                function ($attribute, $value, $fail) use ($submission) {
-                    $exists = UserGroup::query()
-                        ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                        ->withContextIds([$submission->getData('contextId')])
-                        ->whereKey($value)
-                        ->exists();
-                    if (!$exists) {
-                        $fail(__('api.submission.400.invalidId', ['id' => $value]));
-                    }
-                },
-            ],
-        ]);
-        if ($validator->fails()) {
-            return response()->json($validator->errors()->toArray(), Response::HTTP_BAD_REQUEST);
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());

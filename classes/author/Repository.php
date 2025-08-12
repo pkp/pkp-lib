@@ -26,6 +26,8 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
+use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 
 class Repository
 {
@@ -132,6 +134,28 @@ class Repository
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
                 } elseif ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                     $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
+                }
+            }
+        });
+        $validator->after(function ($validator) use ($props, $submission) {
+            if (
+                array_key_exists('userGroupId', $props) &&
+                !is_null($props['userGroupId']) &&
+                !$validator->errors()->get('userGroupId')
+            ) {
+                $userGroupId = (int) $props['userGroupId'];
+
+                $exists = UserGroup::query()
+                    ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->withContextIds([$submission->getData('contextId')])
+                    ->whereKey($userGroupId)
+                    ->exists();
+
+                if (!$exists) {
+                    $validator->errors()->add(
+                        'userGroupId',
+                        __('api.submission.400.invalidId', ['id' => $userGroupId])
+                    );
                 }
             }
         });

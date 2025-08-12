@@ -89,7 +89,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $publicationId = Repo::publication()->dao->insert($publication);
         $publication = Repo::publication()->get($publicationId);
         // Non-persisted temporary ID, will be updated and stored once the authors get parsed
-        $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id'));
+        $publication->setData('primaryContactId', $node->getAttribute('primary_contact_id') ?: null);
         $deployment->setPublication($publication);
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {

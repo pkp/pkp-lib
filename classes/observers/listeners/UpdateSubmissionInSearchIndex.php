@@ -42,7 +42,8 @@ class UpdateSubmissionInSearchIndex
 
     public function handleUnpublished(PublicationUnpublished $event)
     {
-        app(\Laravel\Scout\EngineManager::class)->engine()->delete(collect([$event->submission]));
+        // Not using ->delete because other publications may exist for this submission.
+        app(\Laravel\Scout\EngineManager::class)->engine()->update(collect([$event->submission]));
     }
 
     public function handlePublicationPublished(PublicationPublished $event)

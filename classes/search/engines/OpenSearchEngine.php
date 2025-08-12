@@ -59,6 +59,9 @@ class OpenSearchEngine extends ScoutEngine
 
     public function update($models)
     {
+        // Delete any related records before re-indexing.
+        $this->delete($models);
+
         $client = $this->getClient();
         $models->each(function ($submission) use ($client) {
             $publication = $submission->getCurrentPublication();

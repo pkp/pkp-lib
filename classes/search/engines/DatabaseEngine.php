@@ -31,6 +31,9 @@ class DatabaseEngine extends ScoutEngine
 
     public function update($models)
     {
+        // Clear out any related entries before updating the index.
+        $this->delete($models);
+
         $models->each(function ($submission) {
             dispatch(new \PKP\jobs\submissions\UpdateSubmissionSearchJob($submission->getId()));
         });

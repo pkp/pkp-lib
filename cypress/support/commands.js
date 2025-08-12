@@ -285,7 +285,8 @@ Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 			if (hasKeywords) {
 				expect(xhr.body.keywords.en.length).to.eq(data.keywords.length);
 				data.keywords.forEach((keyword, i) => {
-					expect(xhr.body.keywords.en[i]).to.eq(keyword);
+					expect(xhr.body.keywords.en[i]).to.have.property('name');
+					expect(xhr.body.keywords.en[i].name).to.eq(keyword);
 				});
 			}
 		});

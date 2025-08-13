@@ -2374,6 +2374,25 @@ msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
 "Require the author to provide a data availability statement before accepting their submission."
 
+msgid "manager.setup.metadata.plainLanguageSummary"
+msgstr "Plain language summary"
+
+msgid "manager.setup.metadata.plainLanguageSummary.description"
+msgstr "A short summary of the submission intended for a general audience."
+
+msgid "manager.setup.metadata.plainLanguageSummary.enable"
+msgstr "Enable plain language summary metadata"
+
+msgid "manager.setup.metadata.plainLanguageSummary.noRequest"
+msgstr "Do not request a plain language summary from the author during submission."
+
+msgid "manager.setup.metadata.plainLanguageSummary.request"
+msgstr "Ask the author to provide a plain language summary during submission."
+
+msgid "manager.setup.metadata.plainLanguageSummary.require"
+msgstr ""
+"Require the author to provide a plain language summary before accepting their submission."
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validation errors:"
 

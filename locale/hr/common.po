@@ -1,13 +1,14 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2022, 2023.
 # Maria Češnik <mariaces237@gmail.com>, 2023.
 # Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2025-08-13 17:41+0000\n"
-"Last-Translator: Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>\n"
+"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hr/>\n"
 "Language: hr\n"
@@ -1439,7 +1440,7 @@ msgid "navigation.about"
 msgstr "O časopisu"
 
 msgid "navigation.admin"
-msgstr "Uprava"
+msgstr "Administracija stranice"
 
 msgid "navigation.archives"
 msgstr "Arhiva"

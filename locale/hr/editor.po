@@ -1,13 +1,14 @@
 # Tadej Grlić <tadejgrlic@gmail.com>, 2023.
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2025-08-13 17:41+0000\n"
-"Last-Translator: Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>\n"
+"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hr/>\n"
 "Language: hr\n"
@@ -37,7 +38,7 @@ msgid "editor.submission.workflowDecision.submission.accepted"
 msgstr "Prijava prihvaćena."
 
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Podnesak je objavljen."
+msgstr "Rad je objavljen."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
 msgstr "Poslano na novi krug recenzija."
@@ -46,7 +47,7 @@ msgid "editor.submission.workflowDecision.submission.production"
 msgstr "Poslano u proizvodnju."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Podnesak prihvaćen na recenziju."
+msgstr "Rad prihvaćen na recenziju."
 
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Promjena odluke"
@@ -74,8 +75,7 @@ msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr "Ova runda recenzije nije dio ovog podneska."
 
 msgid "editor.submission.workflowDecision.invalidStage"
-msgstr ""
-"Podnesak nije u odgovarajućoj fazi tijeka rada za donošenje ove odluke."
+msgstr "Prijava nije u odgovarajućoj fazi tijeka rada za donošenje ove odluke."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
@@ -457,8 +457,8 @@ msgstr "Nemojte stvarati raspravu o recenziji."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""
-"Upravo ćete izraditi novi krug recenzije za ovaj podnesak. Datoteke koje "
-"nisu korištene u drugim krugovima recenzije navedene su u nastavku."
+"Upravo ćete izraditi novi krug recenzije za ovaj rad. Datoteke koje nisu "
+"korištene u drugim krugovima recenzije navedene su u nastavku."
 
 msgid "editor.submission.createNewRound"
 msgstr "Stvorite novi krug recenzije"

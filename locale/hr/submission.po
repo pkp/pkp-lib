@@ -1,21 +1,22 @@
 # Ljiljana Brkić <ljilja96@outlook.com>, 2023.
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-05-30 17:15+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2025-08-13 17:41+0000\n"
+"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -58,7 +59,7 @@ msgid "submission.submit.submissionChecklistDescription"
 msgstr "Sve prijave moraju ispunjavati sljedeće zahtjeve."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr "Da, moj podnesak ispunjava sve ove zahtjeve."
+msgstr "Da, moja prijava ispunjava sve ove zahtjeve."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Podnošenje završeno"
@@ -76,10 +77,10 @@ msgid "submission.submit.whatNext.forNow"
 msgstr "Za sada možete:"
 
 msgid "submission.submit.whatNext.review"
-msgstr "Pregledajte ovaj podnesak"
+msgstr "Pregledajte ovu prijavu"
 
 msgid "submission.submit.whatNext.create"
-msgstr "Izradite novi podnesak"
+msgstr "Izradite novu prijavu"
 
 msgid "submission.submit.whatNext.return"
 msgstr "Vratite se na svoju nadzornu ploču"
@@ -405,7 +406,7 @@ msgid "common.queue.long.myAssigned"
 msgstr "Moj Dodijeljeni"
 
 msgid "common.queue.long.submissionsArchived"
-msgstr "Arhivirani podnesci"
+msgstr "Arhivirane prijave"
 
 msgid "submission.authors"
 msgstr "Autori"
@@ -567,7 +568,7 @@ msgid "submission.email.backToEmailLog"
 msgstr "Nazad na zapis e-pošte"
 
 msgid "submission.email.confirmClearLog"
-msgstr "Jeste li sigurni da želite obrisati zapisnik e-pošte za ovaj podnesak?"
+msgstr "Jeste li sigurni da želite obrisati zapisnik e-pošte za ovu prijavu?"
 
 msgid "submission.email.confirmDeleteLogEntry"
 msgstr "Jeste li sigurni da želite obrisati ovu stavku zapisa e-pošte?"
@@ -589,8 +590,7 @@ msgid "submission.event.backToEventLog"
 msgstr "Nazad na zapis događaja"
 
 msgid "submission.event.confirmClearLog"
-msgstr ""
-"Jeste li sigurni da želite obrisati zapisnik događaja za ovaj podnesak?"
+msgstr "Jeste li sigurni da želite obrisati zapisnik događaja za ovu prijavu?"
 
 msgid "submission.event.confirmDeleteLogEntry"
 msgstr "Jeste li sigurni da želite obrisati ovu stavku zapisa događaja?"
@@ -1302,13 +1302,11 @@ msgstr "Zatražene su revizije."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Revizije su predane i potrebna je odluka."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Podnesak se mora ponovno poslati za drugi krug pregleda."
+msgstr "Tražene autorove ispravke bit će uključene u sljedeći krug recenzije."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Podnesak je ponovno poslan na drugi krug pregleda."
+msgstr "Ispravke su predane. Potrebno je otvoriti novi krug recenzije."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Poslano na vanjski pregled."
@@ -1348,7 +1346,7 @@ msgid "editor.submission.status.inactiveDaysInStage"
 msgstr "Neaktivan više od {$days} dana u fazi {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr "Novi podnesak čeka na slanje na pregled ili je odbijen."
+msgstr "Nova prijava čeka da bude poslana na recenziju ili odbijena."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Sudionici"
@@ -1434,8 +1432,7 @@ msgid "editor.submission.decision.accept"
 msgstr "Prihvati predaju"
 
 msgid "editor.submission.decision.accept.description"
-msgstr ""
-"Ovaj će podnesak biti prihvaćen za objavljivanje i poslan na uređivanje."
+msgstr "Ovaj će rad biti prihvaćen za objavljivanje i poslan na recenziju."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
@@ -1494,10 +1491,10 @@ msgid "editor.submission.decision.newReviewRound"
 msgstr "Novi krug pregleda"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr "Otvorite još jedan krug pregleda za ovaj podnesak."
+msgstr "Otvorite još jedan krug recenzija za ovaj rad."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr "{$editorName} je izradio novi krug pregleda za ovaj podnesak."
+msgstr "{$editorName} je izradio novi krug recenzija za ovaj rad."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Stvoren je krug pregleda"
@@ -1507,8 +1504,8 @@ msgstr "Autor je obaviješten, osim ako niste odlučili preskočiti tu e-poruku.
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Pošaljite e-poruku autorima da ih obavijestite da je njihov podnesak poslan "
-"na novi krug pregleda. Ova e-poruka neće biti poslana dok se odluka ne "
+"Pošaljite e-poruku autorima da ih obavijestite da je njihov rad poslan na "
+"novi krug recenzija. Ova e-poruka neće biti poslana dok se odluka ne "
 "zabilježi."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
@@ -1525,11 +1522,11 @@ msgstr "Zatražite revizije"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
-"Autor mora dostaviti revizije prije nego što ovaj podnesak bude prihvaćen za "
+"Autor mora dostaviti revizije prije nego što ovaj rad bude prihvaćen za "
 "objavljivanje."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr "{$editorName} je zatražio revizije za ovaj podnesak."
+msgstr "{$editorName} je zatražio revizije za ovaj rad."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Zatražene revizije"
@@ -1542,19 +1539,18 @@ msgstr ""
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Pošaljite e-poruku autorima kako biste ih obavijestili da će biti potrebne "
-"revizije prije nego što ovaj podnesak bude prihvaćen za objavljivanje. "
-"Uključite sve pojedinosti koje će autor trebati kako bi revidirao svoj "
-"podnesak. Gdje je to prikladno, ne zaboravite anonimizirati sve komentare "
-"recenzenata. Ova e-poruka neće biti poslana dok se odluka ne zabilježi."
+"ispravke prije nego što ovaj rad bude prihvaćen za objavljivanje. Uključite "
+"sve pojedinosti koje će autor trebati kako bi revidirao svoj rad. Gdje je to "
+"prikladno, ne zaboravite anonimizirati sve komentare recenzenata. Ova e-"
+"poruka neće biti poslana dok se odluka ne zabilježi."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Otkaži krug pregleda"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
-"Otkažite trenutni krug pregleda i pošaljite podnesak natrag u zadnji krug "
-"pregleda. Ako je ovo prvi krug pregleda, bit će poslan natrag u fazu "
-"podnošenja."
+"Otkažite trenutačni krug recenzije i vratite rad na prethodni krug "
+"recenzije. Ako je ovo prvi krug recenzije, rad će biti vraćen u fazu prijave."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName} je otkazao krug pregleda."
@@ -1578,12 +1574,12 @@ msgstr "Ponovno pošalji na pregled"
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
 "Autor mora dostaviti revizije koje će biti poslane na još jedan krug "
-"pregleda prije nego što ovaj podnesak bude prihvaćen za objavljivanje."
+"recenzija prije nego što ovaj rad bude prihvaćen za objavljivanje."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
-"{$editorName} je zatražio revizije za ovaj podnesak koje treba poslati na "
-"drugi krug pregleda."
+"{$editorName} je zatražio ispravke za ovaj rad koje treba poslati na drugi "
+"krug recenzija."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Zatražene revizije"
@@ -1596,27 +1592,27 @@ msgstr ""
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
-"Pošaljite e-poruku autorima da ih obavijestite da će revizije biti potrebno "
-"dovršiti i poslati na još jedan krug pregleda. Uključite sve pojedinosti "
-"koje će autor trebati kako bi revidirao svoj podnesak. Gdje je to prikladno, "
-"ne zaboravite anonimizirati sve komentare recenzenata."
+"Pošaljite e-poruku autorima da ih obavijestite da će ispravke biti potrebno "
+"dovršiti i poslati na još jedan krug recenzija. Uključite sve pojedinosti "
+"koje će autor trebati kako bi revidirao svoj rad. Gdje je to prikladno, ne "
+"zaboravite anonimizirati sve komentare recenzenata."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Pošaljite na pregled"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr "Ovaj je podnesak spreman za slanje na recenziju od strane kolega."
+msgstr "Ovaj je rad spreman za slanje na recenziju od strane kolega."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr "{$editorName} je poslao ovaj podnesak u fazu pregleda."
+msgstr "{$editorName} je poslao ovaj rad u fazu recenzija."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Poslano na recenziju"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
-"Podnesak, {$title}, poslan je u fazu pregleda. Autor je obaviješten, osim "
-"ako niste odlučili preskočiti tu e-poruku."
+"Rad, {$title}, je poslan u fazu recenzija. Autor je obaviješten, osim ako "
+"niste odlučili preskočiti tu e-poruku."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Novi krug pregleda"
@@ -1625,33 +1621,32 @@ msgid "editor.submission.decision.sendToProduction"
 msgstr "Pošaljite u produkciju"
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr ""
-"Pošaljite ovaj podnesak u fazu proizvodnje kako bi se pripremio za objavu."
+msgstr "Pošaljite ovaj radu fazu produkcije kako bi se pripremio za objavu."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr "{$editorName} je poslao ovaj podnesak u produkcijsku fazu."
+msgstr "{$editorName} je poslao ovaj rad u produkcijsku fazu."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Poslano u produkcijsku fazu"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
-"Podnesak, {$ title}, poslan je u fazu proizvodnje. Autor je obaviješten, "
-"osim ako niste odlučili preskočiti tu e-poruku."
+"Rad, {$ title}, je poslan u fazu proizvodnje. Autor je obaviješten, osim ako "
+"niste odlučili preskočiti tu e-poruku."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
-"Pošaljite e-poruku autorima da ih obavijestite da je ovaj podnesak poslan u "
-"fazu proizvodnje. Ova e-poruka neće biti poslana dok se odluka ne zabilježi."
+"Pošaljite e-poruku autorima da ih obavijestite da je ovaj rad poslan u fazu "
+"proizvodnje. Ova e-poruka neće biti poslana dok se odluka ne zabilježi."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Odustani od uređivanja"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr "Pošaljite ovaj podnesak natrag iz faze uređivanja."
+msgstr "Pošaljite ovaj rad natrag iz faze uređivanja."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr "{$editorName} je vratio ovaj podnesak iz faze uređivanja."
+msgstr "{$editorName} je vratio ovaj rad iz faze uređivanja."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Vraćeno iz faze uređivanja"
@@ -2322,7 +2317,7 @@ msgid "submission.list.infoCenter"
 msgstr "Dnevnik aktivnosti i bilješke"
 
 msgid "submission.list.empty"
-msgstr "Nisu pronađeni podnesci."
+msgstr "Nisu pronađene prijave."
 
 msgid "submission.list.responseDue"
 msgstr "Rok za odgovor: {$date}"

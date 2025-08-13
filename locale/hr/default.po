@@ -1,18 +1,19 @@
 # Maria Češnik <mariaces237@gmail.com>, 2023.
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
+# Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-09 21:35+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2025-08-13 17:41+0000\n"
+"Last-Translator: Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Administrator web stranice"
@@ -192,3 +193,9 @@ msgstr ""
 "uređivanje na vrhu svakog odjeljka.</p><p>Nakon što dovršite svoj podnesak, "
 "članu našeg uredničkog tima bit će dodijeljen pregled. Provjerite jesu li "
 "detalji koje ste ovdje unijeli što točniji.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Član uredništva"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Članovi uredništva"

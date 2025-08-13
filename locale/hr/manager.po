@@ -1,22 +1,23 @@
 # Maja Jurić <maja-juric@windowslive.com>, 2023.
 # Jula Dakić <juladakic@gmail.com>, 2023.
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-03-03 16:17+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2025-08-13 17:41+0000\n"
+"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informacije"
@@ -571,7 +572,7 @@ msgid "manager.language.ui"
 msgstr "UI"
 
 msgid "manager.language.submissions"
-msgstr "Podnesci"
+msgstr "Prijave rada"
 
 msgid "manager.language.forms"
 msgstr "Formulari"
@@ -1336,7 +1337,7 @@ msgstr "Urednički zadaci"
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
 "Odaberite uredničke korisnike koji bi trebali biti automatski dodijeljeni "
-"svim novim podnescima u ovom odjeljku."
+"svim novim prijavama u ovom odjeljku."
 
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Dodijeli {$ime} kao {$uloga}"
@@ -1344,7 +1345,7 @@ msgstr "Dodijeli {$ime} kao {$uloga}"
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
 "Odaberite uredničke korisnike koji bi trebali biti automatski dodijeljeni "
-"svim novim podnescima u ovoj kategoriji."
+"svim novim prijavama u ovoj kategoriji."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Mogućnosti pristupa stranici"
@@ -1830,7 +1831,7 @@ msgstr ""
 "titlove i licence."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr "Zahtijevaj s podnescima"
+msgstr "Obavezno uz prijavu"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
@@ -2484,7 +2485,7 @@ msgstr "Poveznica za stranicu koja prikazuje vašu izjavu o privatnosti ."
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "Ova poveznica bit će prikazana samo ako ste unijeli izjavu o privatnosti pod "
-"Postavke > Tijek rada > Podnesci."
+"Postavke > Tijek rada > Prijave."
 
 msgid "grid.category.add"
 msgstr "Dodaj kategoriju"
@@ -2725,31 +2726,31 @@ msgid "stats.userStatistics"
 msgstr "Korisnička statistika"
 
 msgid "stats.name.submissionsReceived"
-msgstr "Primljeni podnesci"
+msgstr "Zaprimljeno prijava"
 
 msgid "stats.name.submissionsSkipped"
-msgstr "Ostali podnesci"
+msgstr "Ostale prijave"
 
 msgid "stats.name.submissionsInProgress"
-msgstr "Podnesci u tijeku"
+msgstr "Prijave u tijeku"
 
 msgid "stats.name.submissionsImported"
-msgstr "Importirani podnesci"
+msgstr "Uvezene prijave"
 
 msgid "stats.name.submissionsAccepted"
-msgstr "Prihvaćeni podnesci"
+msgstr "Prihvaćene prijave"
 
 msgid "stats.name.submissionsDeclined"
-msgstr "Odbijeni podnesci"
+msgstr "Odbijene prijave"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Odbijeni podnesci (odbijeni od strane urednika)"
+msgstr "Odbijeno odmah"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Odbijeni podnesci (odbijeni nakon recenzije)"
+msgstr "Odbijeno nakon recenzija"
 
 msgid "stats.name.submissionsPublished"
-msgstr "Objavljeni podnesci"
+msgstr "Objavljeno prijava"
 
 msgid "stats.name.daysToDecision"
 msgstr "Broj dana do prve odluke uredništva"

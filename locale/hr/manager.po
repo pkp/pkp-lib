@@ -2,13 +2,14 @@
 # Jula Dakić <juladakic@gmail.com>, 2023.
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
+# Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2025-08-13 17:41+0000\n"
-"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
+"Last-Translator: Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr/>\n"
 "Language: hr\n"
@@ -3596,3 +3597,25 @@ msgstr "Impresum"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Prije izvoženja i registracije potvrdi XML."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "COUNTER R5 izvještaji"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "Postavka jezika se ne može spremiti. Potrebno je omogućiti sve opcije."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Odredite redoslijed uloga u impresumu za javni prikaz."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Navedite uredničku povijest, uključujući puno ime, ustanovu te datum početka "
+"i završetka mandata svakog urednika."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzenti će biti prikazani u standardiziranom formatu radi očuvanja "
+"ujednačenosti i lakšeg pronalaženja u ovom odjeljku."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Poziv za promjenu adrese e-pošte"

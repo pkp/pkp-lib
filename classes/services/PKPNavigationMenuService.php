@@ -428,8 +428,7 @@ class PKPNavigationMenuService
             }
         }
         /** @var NavigationMenuDAO */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        Cache::put("navigationMenu-{$navigationMenu->getId()}", 60 * 24 * 24, json_encode($navigationMenu));
+        Cache::put($cacheId = "navigationMenu-{$navigationMenu->getId()}", json_encode($navigationMenu), 60 * 60 * 24);
     }
 
     /**

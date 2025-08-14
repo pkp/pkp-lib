@@ -2,7 +2,7 @@
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
 "Language: fr\n"
@@ -39,13 +39,12 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "De nouvelles évaluations ont été soumises et sont examinées par le rédacteur."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Un ou plusieurs évaluateurs ou évaluatrices ont manqué leur date limite. "
+"Un ou plusieurs évaluateurs/trices ont dépassé leur délai de révision. "
 "L'équipe éditoriale en a été informée et prendra les mesures nécessaires "
 "pour s'assurer que les évaluations soient réalisées. Vous n'avez aucune "
-"action à effectuer pour le moment. Vous recevrez une notification lorsque la "
+"action à effectuer pour le moment. Vous recevrez une notification lorsqu'une "
 "décision aura été prise."
 
 msgid "submission.submit.availableUserGroups"
@@ -1343,14 +1342,13 @@ msgstr "Accepté en attente de corrections."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Des révisions ont été soumises et une décision est nécessaire."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr ""
-"La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
+msgstr "La soumission doit être soumise à un nouveau cycle d'évaluation."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Nouvelle version de la soumission déposée."
+msgstr ""
+"Nouvelle version de la soumission déposée. Un nouveau cycle d'évaluation "
+"doit être créé."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Envoyé à un relecteur externe."
@@ -1370,9 +1368,8 @@ msgstr "En attente des réponses des évaluateur·rice·s."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "L'évaluation est terminée."
+msgstr "L'évaluation est terminée et une décision doit être prise."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Un rapport est en retard."
@@ -1395,13 +1392,13 @@ msgstr ""
 "refusée."
 
 msgid "editor.submission.stageParticipants"
-msgstr "Participants"
+msgstr "Participant-es"
 
 msgid "editor.submission.noneAssigned"
 msgstr "Aucun n'a été attribué"
 
 msgid "editor.submission.participant"
-msgstr "Participant"
+msgstr "Participant-e"
 
 msgid "editor.submission.addStageParticipant"
 msgstr "Ajouter un participant"
@@ -3017,11 +3014,10 @@ msgstr "Supprimer les soumissions incomplètes"
 msgid "dashboard.toBePublishedInIssue"
 msgstr "À paraître dans le numéro {$issue}"
 
-#, fuzzy
 msgid "dashboard.recommendOnly.pendingRecommendations"
 msgstr ""
-"Les éditeurs en charge sont chargés de conseiller les prochaines étapes pour "
-"cette soumission."
+"Les éditeurs en charge sont chargés de conseiller sur les prochaines étapes "
+"pour cette soumission"
 
 msgid "publication.editorEditWarning"
 msgstr ""

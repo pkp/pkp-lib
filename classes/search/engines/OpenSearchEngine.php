@@ -177,12 +177,12 @@ class OpenSearchEngine extends ScoutEngine
             'body' => [
                 'query' => [
                     'bool' => [
-                        'must' => [
+                        ...($builder->query ? ['must' => [
                             'multi_match' => [
                                 'query' => $builder->query,
                                 'fields' => ['titles.*', 'abstracts.*, bodies.*, authors.*'],
                             ],
-                        ],
+                        ]] : []),
                         'filter' => [
                             ...$contextId ? [['term' => ['contextId' => $contextId]]] : [],
                             ...($publishedFrom || $publishedTo) ? [['range' => ['datePublished' => ['gte' => $publishedFrom, 'lte' => $publishedTo]]]] : [],

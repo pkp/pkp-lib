@@ -2,7 +2,7 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr/>\n"
 "Language: fr\n"
@@ -2506,13 +2506,14 @@ msgstr "Évaluation acceptée le"
 msgid "reviewer.submission.submittedOn"
 msgstr "Évaluation soumise le"
 
-#, fuzzy
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
 
-#, fuzzy
 msgid "common.inParenthesis"
 msgstr "({$text})"
 
 msgid "common.viewMoreDetails"
 msgstr "Voir plus de détails"
+
+msgid "common.changeLanguage"
+msgstr "Changer de langue"

@@ -22,6 +22,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\jobs\BaseJob;
+use PKP\search\engines\DatabaseEngine;
 use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
@@ -77,13 +78,13 @@ class UpdateSubmissionSearchJob extends BaseJob
                 try {
                     $parser->open();
                     do {
-                        for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
+                        for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < DatabaseEngine::MINIMUM_DATA_LENGTH;);
                         if (strlen($buffer)) {
                             $bodies[$galley->getLocale()] = ($bodies[$galley->getLocale()] ?? '') . $buffer;
                         }
                     } while ($chunk !== false);
                 } catch (\Throwable $e) {
-                    error_log($e);
+                    error_log($e->getMessage());
                 } finally {
                     $parser->close();
                 }

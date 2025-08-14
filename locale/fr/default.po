@@ -2,16 +2,17 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-04-24 16:12+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 15:07+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,3 +202,21 @@ msgstr ""
 "soumission terminée, un membre de notre équipe éditoriale sera chargé de "
 "l'examiner. Veuillez vous assurer que les détails que vous avez saisis ici "
 "sont aussi exacts que possible.</p>"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "MCE"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Membre du comité éditorial"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Lors de la soumission, vous avez la possibilité de suggérer des "
+"rapporteurs potentiels. Cela peut faciliter le processus de relecture et "
+"aider grandement l'équipe éditoriale. Choisissez des personnes exportes de "
+"votre domaine et qui n'ont pas de conflit d'intérêt avec votre travail. "
+"Cette fonctionnalité vise à améliorer le processus de relecture et à fournir "
+"une meilleure expérience pour tous les intervenants.</p>"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Membres du comité éditorial"

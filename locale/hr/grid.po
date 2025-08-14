@@ -4,7 +4,7 @@
 # Petra Cacic <petracacic3@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"PO-Revision-Date: 2025-08-14 10:49+0000\n"
 "Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "hr/>\n"
@@ -740,3 +740,22 @@ msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
 msgstr ""
 "Jeste li sigurni da želite ukloniti ovaj prijedlog? Ova radnja se ne može "
 "poništiti."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Prikaži u impresumu"
+
+msgid "grid.user.remove"
+msgstr "Ukloni korisnika"
+
+msgid "grid.user.logInAs"
+msgstr "Prijavi se kao"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Imajte na umu da korisniku, nakon što je onemogućen, nećete moći dodijeliti "
+"nijednu ulogu dok ga ponovno ne omogućite."
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Kada ponovno aktivirate korisnika, imat će pristup stranici i moći ćete ga, "
+"prema potrebi, pozvati da preuzme određene uloge."

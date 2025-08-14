@@ -84,16 +84,23 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @param int[] $assocIds Section or category ids
      * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
+     * @param bool $allowDisabled If true, include disabled users in the results. By default, only enabled users are included.
      *
      * @return \Illuminate\Support\Collection<int, \stdClass> result rows with userId and userGroupId properties
      */
-    public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId): Collection
+    public function getBySubmissionGroupIds(array $assocIds, int $assocType, int $contextId, bool $allowDisabled = false): Collection
     {
         return DB::table('subeditor_submission_group')
-            ->where('assoc_type', '=', $assocType)
-            ->where('context_id', '=', $contextId)
-            ->whereIn('assoc_id', $assocIds)
-            ->get(['user_id as userId', 'user_group_id as userGroupId']);
+            ->where('subeditor_submission_group.assoc_type', '=', $assocType)
+            ->where('subeditor_submission_group.context_id', '=', $contextId)
+            ->whereIn('subeditor_submission_group.assoc_id', $assocIds)
+            ->when(!$allowDisabled, function ($query) {
+                return $query->join('users', 'subeditor_submission_group.user_id', '=', 'users.user_id')
+                    ->where('users.disabled', '=', false);
+            })->get([
+                'subeditor_submission_group.user_id as userId',
+                'subeditor_submission_group.user_group_id as userGroupId'
+            ]);
     }
 
     /**

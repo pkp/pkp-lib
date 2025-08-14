@@ -21,6 +21,8 @@ use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use OpenSearch\Client;
 use PKP\config\Config;
+use PKP\controlledVocab\ControlledVocab;
+use PKP\facades\Locale;
 use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
@@ -116,6 +118,14 @@ class OpenSearchEngine extends ScoutEngine
                     'datePublished' => $publication->getData('datePublished'),
                     'sectionId' => $publication->getData('sectionId'),
                     'categoryId' => $publication->getData('categoryIds'),
+                    'keyword' => array_merge(...array_values(array_filter(
+                        Repo::controlledVocab()->getBySymbolic(
+                            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+                            Application::ASSOC_TYPE_PUBLICATION,
+                            $submission->getCurrentPublication()->getId(),
+                            [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
+                        )
+                    )))
                 ],
             ]);
         });
@@ -125,10 +135,14 @@ class OpenSearchEngine extends ScoutEngine
     {
         $client = $this->getClient();
         $models->each(function ($submission) use ($client) {
-            $client->delete([
-                'index' => $this->getIndexName(),
-                'id' => $submission->getId(),
-            ]);
+            try {
+                $client->delete([
+                    'index' => $this->getIndexName(),
+                    'id' => $submission->getId(),
+                ]);
+            } catch (\OpenSearch\Common\Exceptions\Missing404Exception $e) {
+                // Ignore data that's not in the index.
+            }
         });
     }
 
@@ -144,10 +158,10 @@ class OpenSearchEngine extends ScoutEngine
         };
 
         // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = null;
+        $sectionIds = $categoryIds = $keywords = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds' => (array) $list,
+                'sectionIds', 'categoryIds', 'keywords' => (array) $list,
             };
         };
 
@@ -174,6 +188,7 @@ class OpenSearchEngine extends ScoutEngine
                             ...($publishedFrom || $publishedTo) ? [['range' => ['datePublished' => ['gte' => $publishedFrom, 'lte' => $publishedTo]]]] : [],
                             ...$sectionIds ? [['terms' => ['sectionId' => $sectionIds]]] : [],
                             ...$categoryIds ? [['terms' => ['categoryId' => $categoryIds]]] : [],
+                            ...$keywords ? [['terms' => ['keyword.keyword' => $keywords]]] : [],
                         ],
                     ],
                 ]
@@ -244,6 +259,10 @@ class OpenSearchEngine extends ScoutEngine
 
     public function flush($model)
     {
-        $this->deleteIndex($this->getIndexName());
+        try {
+            $this->deleteIndex($this->getIndexName());
+        } catch (\OpenSearch\Common\Exceptions\Missing404Exception $e) {
+            // Don't worry about missing indexes.
+        }
     }
 }

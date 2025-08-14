@@ -2,7 +2,7 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr/>\n"
 "Language: fr\n"
@@ -2760,7 +2760,7 @@ msgid "stats.description.acceptRejectRate"
 msgstr ""
 "Le pourcentage est calculé pour les soumissions qui ont été faites durant "
 "l'intervalle de dates sélectionnées et qui ont reçu une décision finale. "
-"<br> <br> Par exemple, si dix soumissions ont été reçues pendant ce laps de "
+"<br><br> Par exemple, si dix soumissions ont été reçues pendant ce laps de "
 "temps, que quatre ont été acceptées, quatre rejetées et deux attendent "
 "toujours une décision finale, le taux d'acceptation sera de <strong>50%</"
 "strong> (4 des 8 soumissions). Les deux soumissions qui n'ont pas encore "
@@ -2770,10 +2770,10 @@ msgid "stats.description.daysToDecision"
 msgstr ""
 "Le nombre de jours nécessaires à la plupart des soumissions pour recevoir "
 "une première décision éditoriale, comme le rejet en pré-évaluation ou "
-"l'envoi pour évaluation. <br> <br> Ces chiffres indiquent que 80% des "
-"soumissions parviennent à la décision dans ce délai imparti. < br> <br> "
-"Cette statistique tente de chiffrer le délai dans lequel la majorité des "
-"personnes soumettant à votre revue peuvent recevoir une décision."
+"l'envoi pour évaluation. <br><br> Ces chiffres indiquent que 80% des "
+"soumissions parviennent à la décision dans ce délai imparti. < br><br> Cette "
+"statistique tente de chiffrer le délai dans lequel la majorité des personnes "
+"soumettant à votre revue peuvent recevoir une décision."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
@@ -4123,3 +4123,6 @@ msgstr ""
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
 "Définissez l'ordre d'affichage public des rôles éditoriaux dans l'équipe."
+
+msgid "notification.submissionLocales"
+msgstr "Paramètres locaux de soumission mis à jour."

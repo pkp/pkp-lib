@@ -26,6 +26,8 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
+use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 
 class Repository
 {
@@ -124,14 +126,30 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-        // The publicationId must match an existing publication that is not yet published
-        $validator->after(function ($validator) use ($props) {
+        $validator->after(function ($validator) use ($props, $submission) {
+            // publicationId must match an existing publication that is not yet published
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
                 } elseif ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                     $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
+                }
+            }
+            // userGroupId must be an Author group within the current context
+            if (isset($props['userGroupId']) && !$validator->errors()->get('userGroupId')) {
+                $userGroupId = (int) $props['userGroupId'];
+                $exists = UserGroup::query()
+                    ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->withContextIds([$submission->getData('contextId')])
+                    ->whereKey($userGroupId)
+                    ->exists();
+
+                if (!$exists) {
+                    $validator->errors()->add(
+                        'userGroupId',
+                        __('api.submission.400.invalidId', ['id' => $userGroupId])
+                    );
                 }
             }
         });

@@ -1676,7 +1676,6 @@ class PKPSubmissionController extends PKPBaseController
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
         }
-
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
 
         // Allows author ORCID request email to be triggered from frontend before author ID exists
@@ -1703,8 +1702,7 @@ class PKPSubmissionController extends PKPBaseController
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
-
-        $affiliationParams = $params['affiliations'];
+        $affiliationParams = $params['affiliations'] ?? [];
         unset($params['affiliations']);
         $author = Repo::author()->newDataObject($params);
         $newId = Repo::author()->add($author);
@@ -1864,7 +1862,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $affiliations = $newAffiliationErrors = [];
-        foreach ($params['affiliations'] as $position => $affiliationParam) {
+        foreach (($params['affiliations'] ?? []) as $position => $affiliationParam) {
             $affiliationErrors = Repo::affiliation()->validate(null, $affiliationParam, $submission, $submissionContext);
             // Map errors to the specific affiliation in the UI using the position = index
             if (!empty($affiliationErrors)) {

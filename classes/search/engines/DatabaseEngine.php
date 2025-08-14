@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder as SearchBuilder;
 use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\submission\PKPSubmission;
 
 class DatabaseEngine extends ScoutEngine
@@ -58,10 +59,10 @@ class DatabaseEngine extends ScoutEngine
         };
 
         // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = null;
+        $sectionIds = $categoryIds = $keywords = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds' => is_null($list) ? null : (array) $list,
+                'sectionIds', 'categoryIds', 'keywords' => is_null($list) ? null : (array) $list,
             };
         };
 
@@ -75,7 +76,7 @@ class DatabaseEngine extends ScoutEngine
         return DB::table('submissions_fulltext AS ft')
             ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
             ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
-            ->when($publishedFrom || $publishedTo || is_array($sectionIds), fn ($q) => $q->whereExists(
+            ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
                     ->whereColumn('p.submission_id', 's.submission_id')
@@ -87,8 +88,23 @@ class DatabaseEngine extends ScoutEngine
                         'p.publication_id',
                         DB::table('publication_categories')->whereIn('category_id', $categoryIds)->select('publication_id')
                     ))
+                    ->when(is_array($keywords), function ($q) use ($keywords) {
+                        foreach ($keywords as $keyword) {
+                            $q->whereExists(function (DatabaseBuilder $query) use ($keyword) {
+                                $query->select(DB::raw(1))
+                                    ->from('controlled_vocabs AS cv')
+                                    ->join('controlled_vocab_entries AS cve', 'cv.controlled_vocab_id', 'cve.controlled_vocab_id')
+                                    ->join('controlled_vocab_entry_settings AS cves', 'cve.controlled_vocab_entry_id', 'cves.controlled_vocab_entry_id')
+                                    ->where('cv.assoc_type', ASSOC_TYPE_PUBLICATION)
+                                    ->whereColumn('cv.assoc_id', 'p.publication_id')
+                                    ->where('cv.symbolic', ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD)
+                                    ->where('cves.setting_value', $keyword)
+                                    ->whereIn('cves.setting_name', ['name', 'identifier']);
+                            });
+                        }
+                    })
             ))
-            ->whereFullText(['title', 'abstract', 'body', 'authors'], $builder->query)
+            ->when($builder->query, fn ($q) => $q->whereFullText(['title', 'abstract', 'body', 'authors'], $builder->query))
             ->groupBy('s.submission_id');
     }
 

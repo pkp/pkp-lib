@@ -2,15 +2,15 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # COUSSY-LACROIX Hélène <helene.coussy-lacroix@u-bordeaux.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-07-30 00:34+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fr/>"
 "\n"
 "Language: fr\n"
@@ -246,8 +246,9 @@ msgstr "Nom public souhaité"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Comment préférez-vous que l'on s'adresse à vous ? Les titres, seconds "
-"prénoms et suffixes peuvent être ajoutés ici si vous le souhaitez."
+"Indiquez la forme préférée du nom tel qu'il doit apparaître sur la "
+"publication. Les titres, seconds prénoms et suffixes peuvent être ajoutés "
+"ici si vous le souhaitez"
 
 msgid "user.profile.changePasswordInstructions"
 msgstr ""

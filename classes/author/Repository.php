@@ -126,8 +126,8 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-        // The publicationId must match an existing publication that is not yet published
-        $validator->after(function ($validator) use ($props) {
+        $validator->after(function ($validator) use ($props, $submission) {
+            // publicationId must match an existing publication that is not yet published
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
@@ -136,15 +136,9 @@ class Repository
                     $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
                 }
             }
-        });
-        $validator->after(function ($validator) use ($props, $submission) {
-            if (
-                array_key_exists('userGroupId', $props) &&
-                !is_null($props['userGroupId']) &&
-                !$validator->errors()->get('userGroupId')
-            ) {
+            // userGroupId must be an Author group within the current context
+            if (isset($props['userGroupId']) && !$validator->errors()->get('userGroupId')) {
                 $userGroupId = (int) $props['userGroupId'];
-
                 $exists = UserGroup::query()
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->withContextIds([$submission->getData('contextId')])

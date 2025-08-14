@@ -1,5 +1,4 @@
 <?php
-// TODO : we need this anymore ? remove this after testing
 /**
  * @file classes/components/form/FieldSelect.php
  *

@@ -123,7 +123,7 @@ import FieldRadioInput from '@/components/Form/fields/FieldRadioInput.vue';
 import FieldRichText from '@/components/Form/fields/FieldRichText.vue';
 import FieldRichTextarea from '@/components/Form/fields/FieldRichTextarea.vue';
 import FieldSelect from '@/components/Form/fields/FieldSelect.vue';
-// import FieldSelectIssue from '@/components/Form/fields/FieldSelectIssue.vue';
+import FieldSelectIssue from '@/components/Form/fields/FieldSelectIssue.vue';
 import FieldSelectIssues from '@/components/Form/fields/FieldSelectIssues.vue';
 import FieldIssueSelection from '@/components/Form/fields/FieldIssueSelection.vue';
 import FieldSelectSubmissions from '@/components/Form/fields/FieldSelectSubmissions.vue';
@@ -240,7 +240,7 @@ VueRegistry.registerComponent('PkpFieldRadioInput', FieldRadioInput);
 VueRegistry.registerComponent('PkpFieldRichText', FieldRichText);
 VueRegistry.registerComponent('PkpFieldRichTextarea', FieldRichTextarea);
 VueRegistry.registerComponent('PkpFieldSelect', FieldSelect);
-// VueRegistry.registerComponent('PkpFieldSelectIssue', FieldSelectIssue);
+VueRegistry.registerComponent('PkpFieldSelectIssue', FieldSelectIssue);
 VueRegistry.registerComponent('PkpFieldSelectIssues', FieldSelectIssues);
 VueRegistry.registerComponent('PkpFieldIssueSelection', FieldIssueSelection);
 VueRegistry.registerComponent(

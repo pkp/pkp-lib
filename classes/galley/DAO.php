@@ -124,7 +124,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
                 ->get();
 
             foreach ($rows as $row) {
-                yield $row->user_id = $this->fromRow($row);
+                yield $row->galley_id = $this->fromRow($row);
             }
         });
     }
@@ -242,6 +242,12 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * Build the query for getExportable. This is the shared logic
      * that OJS, OMP, and OPS can all use.
+     *
+     * @param null|mixed $pubIdType
+     * @param null|mixed $title
+     * @param null|mixed $author
+     * @param null|mixed $pubIdSettingName
+     * @param null|mixed $pubIdSettingValue
      */
     protected function buildGetExportableQuery(int $contextId, $pubIdType = null, $title = null, $author = null, $pubIdSettingName = null, $pubIdSettingValue = null): Builder
     {
@@ -249,41 +255,59 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->leftJoin('publications AS p', 'p.publication_id', '=', 'g.publication_id')
             ->leftJoin('submissions AS s', 's.submission_id', '=', 'p.submission_id')
             ->leftJoin('submission_files AS sf', 'g.submission_file_id', '=', 'sf.submission_file_id')
-            ->when($pubIdType != null, fn (Builder $q) =>
+            ->when(
+                $pubIdType != null,
+                fn (Builder $q) =>
                 $q->leftJoin('publication_galley_settings AS gs', 'g.galley_id', '=', 'gs.galley_id')
             )
-            ->when($title != null, fn (Builder $q) =>
+            ->when(
+                $title != null,
+                fn (Builder $q) =>
                 $q->leftJoin('publication_settings AS pst', 'p.publication_id', '=', 'pst.publication_id')
             )
             ->when(
                 $author != null,
                 fn (Builder $q) => $q->leftJoin('authors AS au', 'p.publication_id', '=', 'au.publication_id')
-                    ->leftJoin('author_settings AS asgs', fn (JoinClause $j) =>
+                    ->leftJoin(
+                        'author_settings AS asgs',
+                        fn (JoinClause $j) =>
                         $j->on('asgs.author_id', '=', 'au.author_id')
-                          ->where('asgs.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
+                            ->where('asgs.setting_name', '=', Identity::IDENTITY_SETTING_GIVENNAME)
                     )
-                    ->leftJoin('author_settings AS asfs', fn (JoinClause $j) =>
+                    ->leftJoin(
+                        'author_settings AS asfs',
+                        fn (JoinClause $j) =>
                         $j->on('asfs.author_id', '=', 'au.author_id')
-                          ->where('asfs.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
+                            ->where('asfs.setting_name', '=', Identity::IDENTITY_SETTING_FAMILYNAME)
                     )
             )
-            ->when($pubIdSettingName != null, fn (Builder $q) =>
-                $q->leftJoin('publication_galley_settings AS gss', fn (JoinClause $j) =>
+            ->when(
+                $pubIdSettingName != null,
+                fn (Builder $q) =>
+                $q->leftJoin(
+                    'publication_galley_settings AS gss',
+                    fn (JoinClause $j) =>
                     $j->on('g.galley_id', '=', 'gss.galley_id')
-                      ->where('gss.setting_name', '=', $pubIdSettingName)
+                        ->where('gss.setting_name', '=', $pubIdSettingName)
                 )
             )
             ->where('s.status', '=', PKPSubmission::STATUS_PUBLISHED)
             ->where('s.context_id', '=', $contextId)
-            ->when($pubIdType != null, fn (Builder $q) =>
+            ->when(
+                $pubIdType != null,
+                fn (Builder $q) =>
                 $q->where('gs.setting_name', '=', "pub-id::{$pubIdType}")
-                  ->whereNotNull('gs.setting_value')
+                    ->whereNotNull('gs.setting_value')
             )
-            ->when($title != null, fn (Builder $q) =>
+            ->when(
+                $title != null,
+                fn (Builder $q) =>
                 $q->where('pst.setting_name', '=', 'title')
-                  ->where('pst.setting_value', 'LIKE', "%{$title}%")
+                    ->where('pst.setting_value', 'LIKE', "%{$title}%")
             )
-            ->when($author != null, fn (Builder $q) =>
+            ->when(
+                $author != null,
+                fn (Builder $q) =>
                 $q->whereRaw("CONCAT(COALESCE(asgs.setting_value, ''), ' ', COALESCE(asfs.setting_value, '')) LIKE ?", ["%{$author}%"])
             )
             ->when(

@@ -118,11 +118,11 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->user_id = $this->fromRow($row);
             }

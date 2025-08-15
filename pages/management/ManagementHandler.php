@@ -283,8 +283,10 @@ class ManagementHandler extends Handler
                 'isCurrent' => false,
                 'icon' => 'Announcements',
             ],
+            'userCommentsInitConfig' => [
+                'itemsPerPage' => Repo::userComment()->getPerPage()
+            ],
         ]);
-
         $templateMgr->assign([
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
@@ -618,7 +620,6 @@ class ManagementHandler extends Handler
         $invitationHandler = $invitation->getInvitationUIActionRedirectController();
         $invitationHandler->createHandle($request, $userId);
     }
-
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm
     {
         $locales = $context->getSupportedFormLocaleNames();

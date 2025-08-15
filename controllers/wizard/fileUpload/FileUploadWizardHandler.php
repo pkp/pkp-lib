@@ -192,6 +192,8 @@ class FileUploadWizardHandler extends Handler
 
     /**
      * @copydoc PKPHandler::initialize()
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -461,7 +463,7 @@ class FileUploadWizardHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($context->getId())->toArray();
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()
@@ -499,7 +501,7 @@ class FileUploadWizardHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()

@@ -199,7 +199,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -235,7 +235,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -315,7 +315,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),

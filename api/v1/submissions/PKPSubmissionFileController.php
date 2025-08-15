@@ -581,7 +581,7 @@ class PKPSubmissionFileController extends PKPBaseController
     {
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toArray();
+        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toAssociativeArray();
     }
 
     /**

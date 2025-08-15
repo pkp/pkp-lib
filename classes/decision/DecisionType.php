@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/decision/DecisionType.php
  *
@@ -539,6 +540,6 @@ abstract class DecisionType
     {
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($contextId)->toArray();
+        return $genreDao->getByContextId($contextId)->toAssociativeArray();
     }
 }

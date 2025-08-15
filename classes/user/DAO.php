@@ -125,11 +125,11 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows, $query) {
             foreach ($rows as $row) {
                 yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
             }
@@ -341,21 +341,21 @@ class DAO extends EntityDAO
     /** Get admin users */
     public function getAdminUsers(): LazyCollection
     {
-        $adminGroups = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_SITE_ADMIN);
-        $rows = collect();
-        if (count($adminGroups)) {
-            $rows = DB::table('users', 'u')
-                ->select('u.*')
-                ->where('u.disabled', '=', 0)
-                ->whereExists(
-                    fn (Builder $query) => $query->from('user_user_groups', 'uug')
-                        ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
-                        ->whereColumn('uug.user_id', '=', 'u.user_id')
-                        ->whereIn('uug.user_group_id', $adminGroups)
-                )
-                ->get();
-        }
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () {
+            $adminGroups = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_SITE_ADMIN);
+            $rows = collect();
+            if (count($adminGroups)) {
+                $rows = DB::table('users', 'u')
+                    ->select('u.*')
+                    ->where('u.disabled', '=', 0)
+                    ->whereExists(
+                        fn (Builder $query) => $query->from('user_user_groups', 'uug')
+                            ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                            ->whereColumn('uug.user_id', '=', 'u.user_id')
+                            ->whereIn('uug.user_group_id', $adminGroups)
+                    )
+                    ->get();
+            }
             foreach ($rows as $row) {
                 yield $row->user_id => $this->fromRow($row);
             }

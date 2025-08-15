@@ -918,8 +918,6 @@ class PKPTemplateManager extends Smarty
             'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
         ]);
 
-
-
         $hash = Locale::getUITranslator()->getCacheHash();
         $this->addJavaScript(
             'i18n_keys',

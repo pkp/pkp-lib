@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/submissionFile/maps/Schema.php
  *
@@ -31,7 +32,7 @@ class Schema extends BaseSchema
     /**  */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
 
-    /** @var Genre[] File genres in this context */
+    /** @var Genre[] Associative array of file genres in this context by ID */
     public array $genres;
 
     public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
@@ -44,7 +45,7 @@ class Schema extends BaseSchema
      *
      * Includes all properties in the submission file schema.
      *
-     * @param Genre[] $genres
+     * @param Genre[] $genres Associative array of genres by ID
      */
     public function map(SubmissionFile $item, array $genres): array
     {
@@ -57,7 +58,7 @@ class Schema extends BaseSchema
      *
      * Includes properties with the apiSummary flag in the submission file schema.
      *
-     * @param Genre[] $genres
+     * @param Genre[] $genres Associative array of genres by ID
      */
     public function summarize(SubmissionFile $item, array $genres): array
     {
@@ -70,7 +71,7 @@ class Schema extends BaseSchema
      *
      * @see self::map
      *
-     * @param Genre[] $genres
+     * @param Genre[] $genres Associative array of genres by ID
      */
     public function mapMany(Enumerable $collection, array $genres): Enumerable
     {
@@ -85,7 +86,7 @@ class Schema extends BaseSchema
      *
      * @see self::summarize
      *
-     * @param Genre[] $genres
+     * @param Genre[] $genres Associative array of genres by ID
      */
     public function summarizeMany(Enumerable $collection, array $genres): Enumerable
     {
@@ -240,11 +241,6 @@ class Schema extends BaseSchema
 
     protected function getGenre(SubmissionFile $submissionFile): ?Genre
     {
-        foreach ($this->genres as $genre) {
-            if ($genre->getId() === $submissionFile->getData('genreId')) {
-                return $genre;
-            }
-        }
-        return null;
+        return $this->genres[$submissionFile->getData('genreId')] ?? null;
     }
 }

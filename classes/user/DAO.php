@@ -160,9 +160,20 @@ class DAO extends EntityDAO
     }
 
     /**
+     * Get a collection associating [user IDs => usernames]
+     *
+     * @return Collection<int,string>
+     */
+    public function getUsernames(Collector $query): Collection
+    {
+        return $query
+            ->getQueryBuilder()
+            ->pluck('u.username', 'u.' . $this->primaryKeyColumn);
+    }
+
+    /**
      * Retrieve a user by username.
      *
-     * @return ?User
      */
     public function getByUsername(string $username, bool $allowDisabled = false): ?User
     {
@@ -180,7 +191,6 @@ class DAO extends EntityDAO
     /**
      * Retrieve a user by email address.
      *
-     * @return ?User
      */
     public function getByEmail(string $email, bool $allowDisabled = false): ?User
     {
@@ -200,7 +210,6 @@ class DAO extends EntityDAO
      * @param string $authstr
      * @param bool $allowDisabled
      *
-     * @return ?User
      */
     public function getUserByAuthStr($authstr, $allowDisabled = true): ?User
     {
@@ -221,7 +230,6 @@ class DAO extends EntityDAO
      * @param string $password encrypted password
      * @param bool $allowDisabled
      *
-     * @return ?User
      */
     public function getUserByCredentials($username, $password, $allowDisabled = true): ?User
     {
@@ -294,10 +302,10 @@ class DAO extends EntityDAO
         foreach ($settingNames as $settingName) {
             DB::delete("DELETE from user_settings WHERE locale = ? AND setting_name = ? AND setting_value = ''", [$newLocale, $settingName]);
         }
-    
+
         // escape new locale value
         $newLocaleEscaped = DB::getPdo()->quote($newLocale);
-    
+
         // insert missing data
         DB::table('user_settings')->insertUsing(
             ['user_id', 'locale', 'setting_name', 'setting_value'],

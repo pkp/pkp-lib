@@ -24,6 +24,7 @@ use PKP\core\maps\Schema as BaseSchema;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 
 class Schema extends BaseSchema
 {
@@ -52,7 +53,11 @@ class Schema extends BaseSchema
      */
     public function map(SubmissionFile $item): array
     {
-        return $this->mapByProperties($this->getProps(), $item, $this->submission);
+        return $this->mapByProperties(
+            $this->getProps(),
+            $item,
+            $this->getUploaderUsernames(collect([$item]))
+        );
     }
 
     /**
@@ -62,7 +67,11 @@ class Schema extends BaseSchema
      */
     public function summarize(SubmissionFile $item): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item, $this->submission);
+        return $this->mapByProperties(
+            $this->getSummaryProps(),
+            $item,
+            $this->getUploaderUsernames(collect($item))
+        );
     }
 
     /**
@@ -72,9 +81,14 @@ class Schema extends BaseSchema
      */
     public function mapMany(Enumerable $collection): Enumerable
     {
+        $uploaderUsernames = $this->getUploaderUsernames($collection);
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->map($item, $this->genres, $this->submission);
+        return $collection->map(function ($item) use ($uploaderUsernames) {
+            return $this->mapByProperties(
+                $this->getProps(),
+                $item,
+                $uploaderUsernames
+            );
         });
     }
 
@@ -85,16 +99,21 @@ class Schema extends BaseSchema
      */
     public function summarizeMany(Enumerable $collection): Enumerable
     {
+        $uploaderUsernames = $this->getUploaderUsernames($collection);
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarize($item, $this->genres, $this->submission);
+        return $collection->map(function ($item) use ($uploaderUsernames) {
+            return $this->mapByProperties(
+                $this->getSummaryProps(),
+                $item,
+                $uploaderUsernames
+            );
         });
     }
 
     /**
      * Map schema properties of a submission file to an assoc array
      */
-    protected function mapByProperties(array $props, SubmissionFile $submissionFile): array
+    protected function mapByProperties(array $props, SubmissionFile $submissionFile, array $uploaderUsernames): array
     {
         $output = [];
         foreach ($props as $prop) {
@@ -194,8 +213,7 @@ class Schema extends BaseSchema
 
             if ($prop === 'uploaderUserName') {
                 $userId = $submissionFile->getData('uploaderUserId');
-                $user = !is_null($userId) ? Repo::user()->get($userId) : null; // userId can be null, see pkp/pkp-lib#8493
-                $output[$prop] = $user?->getUsername() ?? '';
+                $output[$prop] = $userId ? $uploaderUsernames[$userId] : ''; // userId can be null, see pkp/pkp-lib#8493
 
                 continue;
             }
@@ -237,5 +255,15 @@ class Schema extends BaseSchema
     protected function getGenre(SubmissionFile $submissionFile): ?Genre
     {
         return $this->genres[$submissionFile->getData('genreId')] ?? null;
+    }
+
+    /**
+     * Given a collection of SubmissionFile objects, get an associative array of uploader [user ID => username]
+     */
+    protected function getUploaderUsernames(Enumerable $collection): array
+    {
+        $userIds = $collection->map(fn (SubmissionFile $submissionFile) => $submissionFile->getUploaderUserId())
+            ->unique()->filter()->toArray();
+        return $userIds ? Repo::user()->getCollector()->filterByUserIds($userIds)->getUsernames()->all() : [];
     }
 }

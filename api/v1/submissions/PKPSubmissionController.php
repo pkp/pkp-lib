@@ -1610,7 +1610,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::author()->getSchemaMap()->map($author),
+            Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
         );
     }
@@ -1641,7 +1641,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
+            'items' => Repo::author()->getSchemaMap($submission)->summarizeMany($authors)->values(),
         ], Response::HTTP_OK);
     }
 

@@ -258,8 +258,8 @@ class PKPSubmissionFileController extends PKPBaseController
         $files = $collector->getMany();
 
         $items = Repo::submissionFile()
-            ->getSchemaMap()
-            ->summarizeMany($files, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->summarizeMany($files);
 
         $data = [
             'itemsMax' => $files->count(),

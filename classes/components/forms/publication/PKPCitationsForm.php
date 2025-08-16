@@ -39,7 +39,7 @@ class PKPCitationsForm extends FormComponent
         $this->addField(new FieldTextarea('citationsRaw', [
             'label' => __('submission.citations'),
             'description' => __('submission.citations.description'),
-            'value' => $publication->getData('citationsRaw'),
+            'value' => (string) $publication->getData('citationsRaw'),
             'isRequired' => $isRequired
         ]));
     }

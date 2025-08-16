@@ -115,6 +115,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * @return Collection<int,string>
+     */
+    public function getUsernames(): Collection
+    {
+        return $this->dao->getUsernames($this);
+    }
+
+
+    /**
      * Limit results to users in these user groups
      */
     public function filterByUserGroupIds(?array $userGroupIds): self

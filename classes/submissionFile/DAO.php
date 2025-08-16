@@ -146,11 +146,11 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
 
-        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->submission_file_id => $this->fromRow($row);
             }

@@ -19,6 +19,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -95,10 +96,18 @@ abstract class Repository
     /**
      * Get an instance of the map class for mapping
      * submission Files to their schema
+     *
+     * @aram $genres array Associative array of genres by ID
      */
-    public function getSchemaMap(): Schema
+    public function getSchemaMap(Submission $submission, array $genres): Schema
     {
-        return app('maps')->withExtensions($this->schemaMap);
+        return app('maps')->withExtensions(
+            $this->schemaMap,
+            [
+                'submission' => $submission,
+                'genres' => $genres,
+            ]
+        );
     }
 
     /**

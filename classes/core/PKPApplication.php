@@ -216,7 +216,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         Registry::set('application', $this);
 
-        $microTime = Core::microtime();
+        $microTime = microtime(true); // Necessary for reference
         Registry::set('system.debug.startTime', $microTime);
 
         $this->initializeLaravelContainer();

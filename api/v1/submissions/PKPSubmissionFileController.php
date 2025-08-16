@@ -258,8 +258,8 @@ class PKPSubmissionFileController extends PKPBaseController
         $files = $collector->getMany();
 
         $items = Repo::submissionFile()
-            ->getSchemaMap()
-            ->summarizeMany($files, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->summarizeMany($files);
 
         $data = [
             'itemsMax' => $files->count(),
@@ -581,7 +581,7 @@ class PKPSubmissionFileController extends PKPBaseController
     {
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toArray();
+        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toAssociativeArray();
     }
 
     /**

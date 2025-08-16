@@ -22,12 +22,12 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submission\PKPSubmission;
 use PKP\user\User;
-use PKP\validation\ValidatorFactory;
-use PKP\security\Role;
 use PKP\userGroup\UserGroup;
+use PKP\validation\ValidatorFactory;
 
 class Repository
 {
@@ -82,9 +82,14 @@ class Repository
      * Get an instance of the map class for mapping
      * authors to their schema
      */
-    public function getSchemaMap(): maps\Schema
+    public function getSchemaMap(Submission $submission): maps\Schema
     {
-        return app('maps')->withExtensions($this->schemaMap);
+        return app('maps')->withExtensions(
+            $this->schemaMap,
+            [
+                'submission' => $submission,
+            ]
+        );
     }
 
     /**

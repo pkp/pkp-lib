@@ -123,7 +123,8 @@ class Schema extends \PKP\core\maps\Schema
                     if ($this->anonymize) {
                         $output[$prop] = [];
                     } else {
-                        $output[$prop] = Repo::author()->getSchemaMap()->summarizeMany($publication->getData('authors'))->values();
+                        $output[$prop] = Repo::author()->getSchemaMap($this->submission)
+                            ->summarizeMany($publication->getData('authors'))->values();
                     }
                     break;
                 case 'authorsString':

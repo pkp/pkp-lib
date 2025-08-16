@@ -62,15 +62,6 @@ class Core
     }
 
     /**
-     * Return *nix timestamp with microseconds (in units of seconds).
-     */
-    public static function microtime(): float
-    {
-        [$usec, $sec] = explode(' ', microtime());
-        return (float)$sec + (float)$usec;
-    }
-
-    /**
      * Check if the server platform is Windows.
      */
     public static function isWindows(): bool

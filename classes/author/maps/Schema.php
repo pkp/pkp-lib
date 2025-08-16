@@ -16,6 +16,7 @@ namespace PKP\author\maps;
 
 use APP\author\Author;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\core\PKPRequest;
 use PKP\security\Role;
@@ -27,12 +28,15 @@ class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
+    public Submission $submission;
     public string $schema = PKPSchemaService::SCHEMA_AUTHOR;
 
     protected Enumerable $authorUserGroups;
 
-    public function __construct(PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
     {
+        $this->submission = $submission;
+
         parent::__construct($request, $context, $schemaService);
 
         $this->authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])->withContextIds([$this->context->getId()])->get();
@@ -67,7 +71,7 @@ class Schema extends \PKP\core\maps\Schema
     {
         $this->collection = $collection;
         return $collection->map(function ($item) {
-            return $this->map($item);
+            return $this->map($item, $this->submission);
         });
     }
 
@@ -109,7 +113,7 @@ class Schema extends \PKP\core\maps\Schema
                 case 'affiliations':
                     $data = [];
                     foreach ($item->getAffiliations() as $affiliation) {
-                        $data[] = Repo::affiliation()->getSchemaMap()->map($affiliation);
+                        $data[] = Repo::affiliation()->getSchemaMap($this->submission)->map($affiliation);
                     }
                     $output[$prop] = $data;
                     break;
@@ -119,7 +123,7 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $locales = Repo::submission()->get(Repo::publication()->get($item->getData('publicationId'))->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
+        $locales = $this->submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
 
         $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $locales);
 

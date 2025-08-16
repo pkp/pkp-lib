@@ -76,9 +76,14 @@ class Repository
     /**
      * Get an instance of the map class for mapping affiliations to their schema.
      */
-    public function getSchemaMap(): maps\Schema
+    public function getSchemaMap(Submission $submission): maps\Schema
     {
-        return app('maps')->withExtensions($this->schemaMap);
+        return app('maps')->withExtensions(
+            $this->schemaMap,
+            [
+                'submission' => $submission,
+            ]
+        );
     }
 
     /**

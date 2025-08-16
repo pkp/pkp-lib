@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/galley/maps/Schema.php
  *
@@ -31,7 +32,7 @@ class Schema extends \PKP\core\maps\Schema
     public string $schema = PKPSchemaService::SCHEMA_GALLEY;
     public Submission $submission;
 
-    public function __construct(Submission $submission, Publication  $publication, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, Publication $publication, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
         parent::__construct($request, $context, $schemaService);
         $this->publication = $publication;
@@ -114,8 +115,8 @@ class Schema extends \PKP\core\maps\Schema
                         }
 
                         $output[$prop] = Repo::submissionFile()
-                            ->getSchemaMap()
-                            ->map($submissionFile, $this->genres);
+                            ->getSchemaMap($this->submission, $this->genres)
+                            ->map($submissionFile);
                     }
                     break;
                 case 'urlPublished':

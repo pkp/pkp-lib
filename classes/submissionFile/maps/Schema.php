@@ -17,6 +17,7 @@ namespace PKP\submissionFile\maps;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\maps\Schema as BaseSchema;
@@ -29,14 +30,18 @@ class Schema extends BaseSchema
     /**  */
     public Enumerable $collection;
 
+    public Submission $submission;
+
     /**  */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION_FILE;
 
     /** @var Genre[] Associative array of file genres in this context by ID */
     public array $genres;
 
-    public function __construct(Request $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(Submission $submission, array $genres, Request $request, Context $context, PKPSchemaService $schemaService)
     {
+        $this->submission = $submission;
+        $this->genres = $genres;
         parent::__construct($request, $context, $schemaService);
     }
 
@@ -44,40 +49,32 @@ class Schema extends BaseSchema
      * Map a submission file
      *
      * Includes all properties in the submission file schema.
-     *
-     * @param Genre[] $genres Associative array of genres by ID
      */
-    public function map(SubmissionFile $item, array $genres): array
+    public function map(SubmissionFile $item): array
     {
-        $this->genres = $genres;
-        return $this->mapByProperties($this->getProps(), $item);
+        return $this->mapByProperties($this->getProps(), $item, $this->submission);
     }
 
     /**
      * Summarize a submission file
      *
      * Includes properties with the apiSummary flag in the submission file schema.
-     *
-     * @param Genre[] $genres Associative array of genres by ID
      */
-    public function summarize(SubmissionFile $item, array $genres): array
+    public function summarize(SubmissionFile $item): array
     {
-        $this->genres = $genres;
-        return $this->mapByProperties($this->getSummaryProps(), $item);
+        return $this->mapByProperties($this->getSummaryProps(), $item, $this->submission);
     }
 
     /**
      * Map a collection of submission files
      *
      * @see self::map
-     *
-     * @param Genre[] $genres Associative array of genres by ID
      */
-    public function mapMany(Enumerable $collection, array $genres): Enumerable
+    public function mapMany(Enumerable $collection): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) use ($genres) {
-            return $this->map($item, $genres);
+        return $collection->map(function ($item) {
+            return $this->map($item, $this->genres, $this->submission);
         });
     }
 
@@ -85,14 +82,12 @@ class Schema extends BaseSchema
      * Summarize a collection of submission files
      *
      * @see self::summarize
-     *
-     * @param Genre[] $genres Associative array of genres by ID
      */
-    public function summarizeMany(Enumerable $collection, array $genres): Enumerable
+    public function summarizeMany(Enumerable $collection): Enumerable
     {
         $this->collection = $collection;
-        return $collection->map(function ($item) use ($genres) {
-            return $this->summarize($item, $genres);
+        return $collection->map(function ($item) {
+            return $this->summarize($item, $this->genres, $this->submission);
         });
     }
 
@@ -121,7 +116,7 @@ class Schema extends BaseSchema
                     ->includeDependentFiles()
                     ->getMany();
 
-                $output[$prop] = $this->summarizeMany($dependentFiles, $this->genres)->values();
+                $output[$prop] = $this->summarizeMany($dependentFiles, $this->genres, $this->submission)->values();
 
                 continue;
             }
@@ -226,7 +221,7 @@ class Schema extends BaseSchema
             $output[$prop] = $submissionFile->getData($prop);
         }
 
-        $locales = Repo::submission()->get($submissionFile->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales(), $submissionFile->getLanguages());
+        $locales = $this->submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales(), $submissionFile->getLanguages());
 
         $output = $this->schemaService->addMissingMultilingualValues(
             $this->schema,

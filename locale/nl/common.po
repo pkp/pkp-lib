@@ -1,12 +1,13 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-07-03 15:34+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-08-17 22:30+0000\n"
+"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
 "Language: nl\n"
@@ -2302,3 +2303,92 @@ msgstr "Meer handelingen"
 #, fuzzy
 msgid "common.editorialMasthead"
 msgstr "Redactioneel colofon"
+
+msgid "common.changeLanguage"
+msgstr "Taal wijzigen"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.yesContinue"
+msgstr "Ja, doorgaan"
+
+msgid "common.filtersClear"
+msgstr "Filters wissen"
+
+msgid "common.loaded"
+msgstr "Geladen"
+
+msgid "form.errorSummaryOne"
+msgstr ""
+"1 fout gedetecteerd! Corrigeer de onderstaande fout voordat u verdergaat."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Review geaccepteerd op"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Bekijk <a href=\"{$url}\">Redactionele geschiedenis</a>"
+
+msgid "common.editorialHistory"
+msgstr "Redactionele geschiedenis"
+
+msgid "common.editorialHistory.page"
+msgstr "Redactionele geschiedenis pagina"
+
+msgid "common.editorialHistory.page.description"
+msgstr "In dit gedeelte staan de vroegere bijdragers vermeld."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Bekijk het ORCID-profiel van {$name}"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Peer reviewers in het voorgaande jaar"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Peer reviewers in voorgaande jaren"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"De redactie spreekt haar waardering uit voor de reviewers van {$jaar} die "
+"hieronder worden vermeld."
+
+msgid "navigation.mySubmissions"
+msgstr "Mijn inzendingen als auteur"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mijn taken als reviewer"
+
+msgid "navigation.dashboards"
+msgstr "Redactiedashboard"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Review ingediend op"
+
+msgid "common.assignments"
+msgstr "Opdrachten"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Nee"
+
+msgid "common.refreshingData"
+msgstr "Gegevens vernieuwen"
+
+msgid "common.viewMoreDetails"
+msgstr "Meer details bekijken"
+
+msgid "common.showingXofX"
+msgstr "Weergave van <strong>{$start} tot {$finish}</strong> van {$total}"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} fouten gedetecteerd! Corrigeer de onderstaande fouten voordat u "
+"verdergaat."
+
+msgid "validator.date.comparison"
+msgstr "Ongeldige datums opgegeven voor vergelijking."
+
+msgid "validator.multilingual"
+msgstr "De vereiste voor meertaligheid is niet vervuld voor dit veld."

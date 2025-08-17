@@ -1410,9 +1410,11 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
 
-        // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
-        // should be used instead.
-        if (array_key_exists('status', $params)) {
+        // Only allow to update the status if it's a pre-publish status
+        // For the publishing statuses, the `/publish` and /unpublish endpoints should be used instead.
+        if (array_key_exists('status', $params)
+            && !in_array($params['status'], Submission::getPrePublishStatuses())) {
+            
             return response()->json([
                 'error' => __('api.publication.403.cantEditStatus'),
             ], Response::HTTP_FORBIDDEN);
@@ -1427,6 +1429,20 @@ class PKPSubmissionController extends PKPBaseController
 
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        // update of version information at publication edit
+        if ($illuminateRequest->has('versionStage') && $illuminateRequest->has('versionIsMinor')) {
+
+            $versionStage = $this->validateVersionStage($illuminateRequest);
+            $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
+            
+            // will only allow to update the version details at publication edit 
+            // if there is no version information added yet for this publication
+            // or if the given version stage information is different from what already assigned
+            if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
+                $publication = Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
+            }
         }
 
         Repo::publication()->edit($publication, $params);

@@ -288,4 +288,12 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     {
         return __('plugins.importexport.submission.cli.display', ['submissionId' => $this->getId(), 'submissionTitle' => $this->getCurrentPublication()->getLocalizedTitle()]);
     }
+
+    /**
+     * Get the valid pre-publish statuses if available
+     */
+    public static function getPrePublishStatuses(): array
+    {
+        return [];
+    }
 }

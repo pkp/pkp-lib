@@ -466,7 +466,7 @@ class FileUploadWizardHandler extends Handler
         $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap($this->getSubmission(), $genres)
+            ->getSchemaMap($this->getSubmission(), $fileGenres)
             ->map($submissionFile);
 
         $json = new JSONMessage(true, $form->fetch($request));

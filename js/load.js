@@ -123,7 +123,7 @@ import FieldRadioInput from '@/components/Form/fields/FieldRadioInput.vue';
 import FieldRichText from '@/components/Form/fields/FieldRichText.vue';
 import FieldRichTextarea from '@/components/Form/fields/FieldRichTextarea.vue';
 import FieldSelect from '@/components/Form/fields/FieldSelect.vue';
-import FieldSelectIssue from '@/components/Form/fields/FieldSelectIssue.vue';
+import FieldSelectIssue from '@/components/Form/fields/FieldSelectIssue.vue'; // FIXME: removing this cause install page to break
 import FieldSelectIssues from '@/components/Form/fields/FieldSelectIssues.vue';
 import FieldIssueSelection from '@/components/Form/fields/FieldIssueSelection.vue';
 import FieldSelectSubmissions from '@/components/Form/fields/FieldSelectSubmissions.vue';

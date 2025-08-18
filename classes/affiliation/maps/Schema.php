@@ -89,7 +89,7 @@ class Schema extends \PKP\core\maps\Schema
     protected function mapByProperties(array $props, Affiliation $item): array
     {
         $author = Repo::author()->get($item->getAuthorId());
-        $locales = $submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
+        $locales = $this->submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
 
         $output = [];
         foreach ($props as $prop) {

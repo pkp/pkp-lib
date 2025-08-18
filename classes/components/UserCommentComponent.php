@@ -27,7 +27,7 @@ use PKP\userComment\UserComment;
 class UserCommentComponent
 {
     private int $allCommentsCount;
-    private Enumerable $publishedPublicationIds;
+    private Enumerable $publishedPublication;
 
     private array $commentsCountPerPublication;
 
@@ -41,13 +41,16 @@ class UserCommentComponent
         $this->submission = $submission;
 
         // get all published  publication ids for this submission
-        $this->publishedPublicationIds = collect();
+        $this->publishedPublication = collect();
         foreach (array_reverse($submission->getPublishedPublications()) as $publishedPublication) {
-            $this->publishedPublicationIds->add($publishedPublication->getId());
+            $this->publishedPublication->add([
+                'id' => $publishedPublication->getId(), 
+                'version' => $publishedPublication->getData('versionString')
+            ]);
         }
 
 
-        $this->commentsCountPerPublication = UserComment::withPublicationIds($this->publishedPublicationIds->all())
+        $this->commentsCountPerPublication = UserComment::withPublicationIds($this->publishedPublication->pluck('id')->all())
             ->withIsApproved(true)
             ->select('publication_id', DB::raw('count(*) as count'))
             ->groupBy('publication_id')
@@ -113,7 +116,7 @@ class UserCommentComponent
     public function getConfig()
     {
         return [
-            'publicationIds' => $this->publishedPublicationIds->values(),
+            'publicationIds' => $this->publishedPublicationIds->sortDesc()->values(),
             'latestPublicationId' => $this->submission->getCurrentPublication()->getId(),
             'itemsPerPage' => Repo::userComment()->getPerPage(),
             'loginUrl' => $this->getLoginUrl(),

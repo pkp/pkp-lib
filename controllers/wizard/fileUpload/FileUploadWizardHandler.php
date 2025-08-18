@@ -466,8 +466,8 @@ class FileUploadWizardHandler extends Handler
         $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $fileGenres);
+            ->getSchemaMap($this->getSubmission(), $genres)
+            ->map($submissionFile);
 
         $json = new JSONMessage(true, $form->fetch($request));
         $json->setGlobalEvent('submissionFile:added', $fileData);
@@ -504,8 +504,8 @@ class FileUploadWizardHandler extends Handler
         $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $fileGenres);
+            ->getSchemaMap($submission, $fileGenres)
+            ->map($submissionFile);
 
         $json = $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
         $json->setGlobalEvent('submissionFile:edited', $fileData);

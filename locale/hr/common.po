@@ -2,13 +2,14 @@
 # Maria Češnik <mariaces237@gmail.com>, 2023.
 # Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-13 17:41+0000\n"
-"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
+"PO-Revision-Date: 2025-08-18 12:43+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hr/>\n"
 "Language: hr\n"
@@ -1948,7 +1949,7 @@ msgid "notification.type.awaitingCopyedits"
 msgstr "Čeka se uređivanje."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Status runde {$round}"
+msgstr "Status {$round} kruga"
 
 msgid "notification.type.editorialReport"
 msgstr "Sažetak statističkog izvješća."

@@ -53,6 +53,7 @@ VueRegistry.registerComponent('PkpIcon', PkpIcon);
 VueRegistry.registerComponent('PkpUserComment', PkpUserComment);
 VueRegistry.registerComponent('PkpUserCommentsList', PkpUserCommentsList);
 VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
+VueRegistry.registerComponent('PkpIcon', PkpIcon);
 
 const pinia = createPinia();
 

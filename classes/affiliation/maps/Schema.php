@@ -18,6 +18,7 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\affiliation\Affiliation;
+use PKP\core\PKPRequest;
 use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema

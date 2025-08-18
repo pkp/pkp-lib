@@ -1,9 +1,10 @@
 # Maria Češnik <mariaces237@gmail.com>, 2023.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-13 17:41+0000\n"
-"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
+"PO-Revision-Date: 2025-08-18 12:43+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hr/>\n"
 "Language: hr\n"
@@ -129,3 +130,12 @@ msgstr "Pošalji recenzentima"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Trenutačni korisnik nije dodijeljen kao recenzent traženog dokumenta."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Prethodne recenzije"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Krug {$round} Recenzija predana {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Pročitaj {$round} krug recenzije"

@@ -3,7 +3,7 @@
 # Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-18 12:43+0000\n"
+"PO-Revision-Date: 2025-08-18 13:46+0000\n"
 "Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hr/>\n"
@@ -97,7 +97,7 @@ msgstr ""
 "revidirane verzije pregledanih datoteka."
 
 msgid "reviewer.complete"
-msgstr "Recenzija poslana"
+msgstr "Recenzija predana"
 
 msgid "reviewer.confirmSubmit"
 msgstr "Jeste li sigurni da želite poslati ovu recenziju?"
@@ -135,7 +135,25 @@ msgid "reviewer.submission.reviewRound.info"
 msgstr "Prethodne recenzije"
 
 msgid "reviewer.submission.reviewRound.info.submittedOn"
-msgstr "Krug {$round} Recenzija predana {$submittedOn}"
+msgstr "Recenzija za krug {$round} predana je {$submittedOn}"
 
 msgid "reviewer.submission.reviewRound.info.read"
 msgstr "Pročitaj {$round} krug recenzije"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Predali ste recenziju za {$round} krug za"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Komentari recenzenta"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Za urednike i autore"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Samo za urednike"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Komentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Razlog odbijanja poslan e-mailom"

@@ -19,6 +19,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\affiliation\Affiliation;
 use PKP\services\PKPSchemaService;
+use PKP\core\PKPRequest;
 
 class Schema extends \PKP\core\maps\Schema
 {

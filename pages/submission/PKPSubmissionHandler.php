@@ -541,8 +541,8 @@ abstract class PKPSubmissionHandler extends Handler
             ),
             'id' => 'submissionFiles',
             'items' => Repo::submissionFile()
-                ->getSchemaMap()
-                ->summarizeMany($submissionFiles, $genres)
+                ->getSchemaMap($submission, $genres)
+                ->summarizeMany($submissionFiles)
                 ->values(),
             'options' => [
                 'maxFilesize' => Application::getIntMaxFileMBs(),

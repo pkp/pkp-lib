@@ -15,6 +15,7 @@
 namespace PKP\jats;
 
 use APP\core\Application;
+use APP\submission\Submission;
 use APP\facades\Repo;
 use APP\plugins\generic\jatsTemplate\classes\Article;
 use Exception;
@@ -29,13 +30,13 @@ class Repository
     /**
      * Summarize the JatsFile along with the jatsContent
      */
-    public function summarize(JatsFile $jatsFile): array
+    public function summarize(JatsFile $jatsFile, Submission $submission): array
     {
         $fileProps = [];
         if (!$jatsFile->isDefaultContent) {
             $fileProps = Repo::submissionFile()
-                ->getSchemaMap()
-                ->summarize($jatsFile->submissionFile, $jatsFile->genres);
+                ->getSchemaMap($submission, $jatsFile->genres)
+                ->summarize($jatsFile->submissionFile);
         }
 
         if ($jatsFile->jatsContent) {

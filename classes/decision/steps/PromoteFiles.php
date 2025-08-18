@@ -56,8 +56,8 @@ class PromoteFiles extends Step
         $files = $collector->getMany();
 
         $fileSummaries = Repo::submissionFile()
-            ->getSchemaMap()
-            ->summarizeMany($files, $this->genres);
+            ->getSchemaMap($this->submission, $this->genres)
+            ->summarizeMany($files);
 
         $this->lists[] = [
             'name' => $name,

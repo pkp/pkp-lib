@@ -235,8 +235,8 @@ class PKPReviewController extends PKPBaseController
             ->getMany();
 
         $attachmentsProps = Repo::submissionFile()
-            ->getSchemaMap()
-            ->mapMany($attachments, $fileGenres)
+            ->getSchemaMap($submission, $fileGenres)
+            ->mapMany($attachments)
             ->toArray();
 
         $stageId = $reviewAssignment->getStageId();
@@ -258,8 +258,8 @@ class PKPReviewController extends PKPBaseController
                 ->getMany();
 
             $filesProps = Repo::submissionFile()
-                ->getSchemaMap()
-                ->mapMany($files, $fileGenres)
+                ->getSchemaMap($submission, $fileGenres)
+                ->mapMany($files)
                 ->toArray();
         }
 

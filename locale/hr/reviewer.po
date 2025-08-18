@@ -3,7 +3,7 @@
 # Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-18 13:46+0000\n"
+"PO-Revision-Date: 2025-08-18 16:27+0000\n"
 "Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hr/>\n"
@@ -157,3 +157,9 @@ msgstr "Komentar {$index}: "
 
 msgid "reviewer.submission.reviewRound.emailLog"
 msgstr "Razlog odbijanja poslan e-mailom"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Razlog odbijanja poziva na recenziju nije bio naveden."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Datum odbijanja"

@@ -285,7 +285,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $authorItems = [];
         foreach ($latestPublication->getData('authors') as $contributor) {
-            $authorItems[] = Repo::author()->getSchemaMap()->map($contributor);
+            $authorItems[] = Repo::author()->getSchemaMap($submission)->map($contributor);
         }
 
         $contributorsListPanel = $this->getContributorsListPanel(

@@ -1741,7 +1741,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::author()->getSchemaMap()->map($author),
+            Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
         );
     }
@@ -1789,7 +1789,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $output = Repo::author()->getSchemaMap()->map($author);
+        $output = Repo::author()->getSchemaMap($submission)->map($author);
 
         Repo::author()->delete($author);
 
@@ -1889,7 +1889,7 @@ class PKPSubmissionController extends PKPBaseController
         $author = Repo::author()->get($author->getId());
 
         return response()->json(
-            Repo::author()->getSchemaMap()->map($author),
+            Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
         );
     }
@@ -1942,7 +1942,7 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
-        $authorsArray = Repo::author()->getSchemaMap()->summarizeMany($authors)->toArray();
+        $authorsArray = Repo::author()->getSchemaMap($submission)->summarizeMany($authors)->toArray();
         $indexedArray = array_values($authorsArray);
 
         return response()->json(

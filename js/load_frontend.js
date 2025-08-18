@@ -31,6 +31,7 @@ import PkpButton from '@/frontend/components/PkpButton/PkpButton.vue';
 import PkpAccordion from '@/frontend/components/PkpAccordion/PkpAccordion.vue';
 import PkpTextarea from '@/frontend/components/PkpTextarea/PkpTextarea.vue';
 import PkpDropdownActions from '@/frontend/components/PkpDropdownActions/PkpDropdownActions.vue';
+import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -43,6 +44,7 @@ VueRegistry.registerComponent('PkpAccordion', PkpAccordion);
 VueRegistry.registerComponent('PkpModalManager', PkpModalManager);
 VueRegistry.registerComponent('PkpTextarea', PkpTextarea);
 VueRegistry.registerComponent('PkpDropdownActions', PkpDropdownActions);
+VueRegistry.registerComponent('PkpIcon', PkpIcon);
 
 const pinia = createPinia();
 

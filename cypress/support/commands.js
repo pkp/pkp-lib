@@ -126,7 +126,7 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id=additionalLocales-fr_CA').check();
 
 	// Complete the installation
-	cy.get('button[id^=submitFormButton-]').click({timeout: 180000});
+	cy.get('button[id^=submitFormButton-]').click();
 	cy.get('p:contains("has completed successfully.")');
 });
 

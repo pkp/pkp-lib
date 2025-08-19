@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2025-08-19 11:16+0000\n"
+"PO-Revision-Date: 2025-08-19 11:29+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "fi/>\n"
@@ -278,9 +278,8 @@ msgstr ""
 "<p>Ystävällisin terveisin,</p>\n"
 "<p>{$signature}</p>\n"
 
-#, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Toimittajan päätös"
+msgstr "Käsikirjoituksenne on hylätty"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"

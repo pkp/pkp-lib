@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2025-08-19 16:26+0000\n"
+"PO-Revision-Date: 2025-08-19 18:13+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fi/>\n"
@@ -919,3 +919,41 @@ msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Päivitä ROR-rekisterin tietokantavälimuisti"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Käynnistä jono­työntekijä­daemonit uudelleen niiden nykyisen työn "
+"valmistuttua."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "Työntekijät lopettavat hallitusti nykyisen työn suorituksen jälkeen."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Tiedostoa {$file} ei voitu siirtää sijainnista {$dispatchFilePath} "
+"sijaintiin {$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Tiedostoa {$file} ei ole olemassa."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Lähetä työ, joka poistaa vanhentuneet kutsut automaattisesti"
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Näytä AppKey-käyttöparametrit"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Tarkista nykyinen sovellusavain, jos sellainen löytyy määritystiedostosta"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Lisää app_key-muuttuja tiedostoon config.inc.php."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Tiedosto {$filename} siirrettiin lähetyskansioon."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Jonossa olevia töitä ei voi suorittaa, koska sovelluksen testitila on "
+"käytössä."

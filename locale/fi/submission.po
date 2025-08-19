@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-19 16:26+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fi/>\n"
@@ -32,7 +32,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Uusia arvioita on lähetetty ja ne ovat toimittajan käsittelyssä."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Yhden tai useamman arvioijan arvio on myöhässä. Toimittajat pyrkivät "
@@ -2728,3 +2727,33 @@ msgstr "Kirjoittajat"
 
 msgid "submission.author.list"
 msgstr "Käsikirjoituksen kirjoittajaluettelo"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Varoitus: Tämä versio on julkaistu. Sen muokkaaminen voi vaikuttaa "
+"julkaistuun sisältöön."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Lähettäminen peruttu"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Peru käsikirjoituksen lähetys"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Käsikirjoituksen lähetys on peruttu, ja kaikki siihen liittyvät tiedot on "
+"poistettu."
+
+#, fuzzy
+msgid "author.authorNotFound"
+msgstr "Kirjoittajaa ei löytynyt."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Anna ROR-tunniste tai affiliaation nimi."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Anna affiliaation nimi käsikirjoituksen pääasiallisella kielellä."
+
+#, fuzzy
+msgid "ror.nameRequired"
+msgstr "ROR-tunniste vaaditaan."

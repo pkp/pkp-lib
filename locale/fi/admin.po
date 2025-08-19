@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-19 16:26+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fi/>\n"
@@ -916,3 +916,6 @@ msgstr ""
 "Usean kontekstin asennuksessa arvioijatilastot, kuten lähetettyjen "
 "arviointien määrä, voidaan näyttää joko erikseen kunkin kontekstin osalta "
 "tai kootusti koko sivuston laajuudelta."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Päivitä ROR-rekisterin tietokantavälimuisti"

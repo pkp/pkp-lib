@@ -103,7 +103,7 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        return LazyCollection::make(function () use (query) {
+        return LazyCollection::make(function () use ($query) {
             $rows = $query
                 ->getQueryBuilder()
                 ->select(['i.*'])

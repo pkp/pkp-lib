@@ -3,7 +3,7 @@
 # Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-18 16:27+0000\n"
+"PO-Revision-Date: 2025-08-19 13:54+0000\n"
 "Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hr/>\n"
@@ -163,3 +163,33 @@ msgstr "Razlog odbijanja poziva na recenziju nije bio naveden."
 
 msgid "reviewer.submission.reviewRound.reviewDeclineDate"
 msgstr "Datum odbijanja"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Recenzija nije dovršena."
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Metapodaci članka"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tip"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Sažetak"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Ključne riječi"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Opće informacije"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Privici"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Ovo su datoteke koje ste priložili uz svoju recenziju"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Datoteke za recenziju"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Ove datoteke su vam poslane na recenziju"

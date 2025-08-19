@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-19 16:26+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fi/>\n"
@@ -612,3 +612,63 @@ msgstr "Askeleen {$stepName} kanssa oli ongelma."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Sama instituutio kuin kirjoittajalla"
+
+msgid "editor.review.importantDates.notice"
+msgstr ""
+"Arvioinnin määräpäivän on oltava sama tai myöhäisempi kuin vastaamisen "
+"määräpäivä."
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Arvioijan lisääminen epäonnistui, koska arvioinnin määräpäivän on oltava "
+"sama tai myöhäisempi kuin vastaamisen määräpäivä."
+
+msgid "editor.submission.search"
+msgstr "Hae käsikirjoituksia, ID-tunnisteita, kirjoittajia, avainsanoja jne."
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Arvioija on hyväksynyt arviointipyynnön"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Jos arvioija ottaa sinuun yhteyttä sähköpostitse tai muulla tavalla, voit "
+"tallentaa hänen vastauksensa hänen puolestaan"
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Valitse arvioija arvioijaehdotuksista"
+
+msgid "editor.review.reviewViewed"
+msgstr "Arvio luettu"
+
+msgid "editor.submission.days"
+msgstr "Päivää"
+
+msgid "editor.submission.daysInStage"
+msgstr "Päiviä vaiheessa"
+
+msgid "editor.submission.viewSummary"
+msgstr "Yhteenveto"
+
+msgid "editor.review.logResponse.for"
+msgstr "Kirjaa vastaus"
+
+msgid "editor.review.logResponse"
+msgstr "Kirjaa vastaus"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Vastaus vaaditaan"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Arvioija on hylännyt arviointipyynnön"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Tallenna vastaus arvioijan puolesta"
+
+msgid "editor.review.download"
+msgstr "Lataa arviointilomake"
+
+msgid "editor.review.authorOnly"
+msgstr "Vain kirjoittajille tarkoitetut osiot näkyvissä"
+
+msgid "editor.review.allSections"
+msgstr "Toimittajan lomakkeessa näytetään kaikki arviointiosiot"

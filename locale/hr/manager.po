@@ -3,13 +3,14 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
 # Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-14 15:07+0000\n"
-"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
+"PO-Revision-Date: 2025-08-19 13:54+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr/>\n"
 "Language: hr\n"
@@ -354,6 +355,8 @@ msgstr ""
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI oznake se ne mogu dodijeliti ako ne navedete svoj dodijeljeni DOI "
+"prefiks <a href=\"{$doiSettingsUrl}\">Dodaj DOI prefiks</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
@@ -3608,3 +3611,8 @@ msgstr ""
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Poziv za promjenu adrese e-pošte"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Potrebno je <a href=\"#announcements/announcement-settings\"> omogućiti "
+"obavijest </a>."

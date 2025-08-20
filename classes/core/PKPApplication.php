@@ -234,7 +234,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         Registry::set('application', $this);
 
-        $microTime = Core::microtime();
+        $microTime = microtime(true); // Necessary for reference
         Registry::set('system.debug.startTime', $microTime);
 
         $this->initializeLaravelContainer();
@@ -270,7 +270,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $this->initializeTimeZone();
 
         if (Config::getVar('database', 'debug')) {
-            DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
+            DB::listen(function (QueryExecuted $query) {
+                static $count = 0;
+                error_log($count++ . ": Database query\n{$query->sql}\n" . json_encode($query->bindings));
+            });
         }
     }
 

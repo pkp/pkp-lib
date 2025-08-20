@@ -1077,7 +1077,8 @@ class Schema extends \PKP\core\maps\Schema
         $stageAssignments = StageAssignment::with(['userGroup.userUserGroups', 'userGroup.userGroupStages'])
             ->withSubmissionIds($submissionIds)
             ->withRoleIds(empty($roleIds) ? null : $roleIds)
-            ->lazy();
+            ->lazy()
+            ->remember();
 
         return $stageAssignments;
     }
@@ -1195,7 +1196,8 @@ class Schema extends \PKP\core\maps\Schema
             ->getCollector()
             ->filterBySubmissionIds($submissionIds)
             ->filterByFileStages($stageIds)
-            ->getMany();
+            ->getMany()
+            ->remember();
     }
 
     /**

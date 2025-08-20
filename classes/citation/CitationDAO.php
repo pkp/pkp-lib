@@ -18,7 +18,7 @@
 
 namespace PKP\citation;
 
-use Illuminate\Support\Collection;
+use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
@@ -82,17 +82,14 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Import citations from a raw citation list of the particular publication.
      *
-     * @param int $publicationId
-     * @param string $rawCitationList
-     *
      * @hook Citation::importCitations::after [$publicationId, $existingCitations, $importedCitations]
      */
-    public function importCitations($publicationId, $rawCitationList)
+    public function importCitations(int $publicationId, string $rawCitationList)
     {
         assert(is_numeric($publicationId));
         $publicationId = (int) $publicationId;
 
-        $existingCitations = $this->getByPublicationId($publicationId)->toAssociativeArray();
+        $existingCitations = $this->getByPublicationId($publicationId)->all();
 
         // Remove existing citations.
         $this->deleteByPublicationId($publicationId);
@@ -124,35 +121,37 @@ class CitationDAO extends \PKP\db\DAO
 
     /**
      * Retrieve an array of citations matching a particular publication id.
-     *
-     * @param int $publicationId
-     * @param ?\PKP\db\DBResultRange $rangeInfo
-     *
-     * @return DAOResultFactory<Citation> containing matching Citations
      */
-    public function getByPublicationId($publicationId, $rangeInfo = null)
+    public function getByPublicationId(int $publicationId): LazyCollection
     {
-        $result = $this->retrieveRange(
-            'SELECT *
-			FROM citations
-			WHERE publication_id = ?
-			ORDER BY seq, citation_id',
-            [(int)$publicationId],
-            $rangeInfo
-        );
-        return new DAOResultFactory($result, $this, '_fromRow', ['id']);
+        return LazyCollection::make(function() use ($publicationId) {
+            $rows = DB::table('citations')
+                ->select('*')
+                ->where('publication_id', $publicationId)
+                ->orderBy('seq')->orderBy('citation_id')
+                ->get();
+            foreach ($rows as $row) {
+                yield $row->citation_id => $this->_fromRow($row);
+            }
+        });
     }
 
     /**
      * Retrieve raw citations for the given publication.
      */
-    public function getRawCitationsByPublicationId(int $publicationId): Collection
+    public function getRawCitationsByPublicationId(int $publicationId): LazyCollection
     {
-        return DB::table('citations')
-            ->select(['raw_citation'])
-            ->where('publication_id', '=', $publicationId)
-            ->orderBy('seq')
-            ->pluck('raw_citation');
+        return LazyCollection::make(function() use ($publicationId) {
+            $rawCitations = DB::table('citations')
+                ->select(['raw_citation'])
+                ->where('publication_id', '=', $publicationId)
+                ->orderBy('seq')
+                ->pluck('raw_citation');
+
+            foreach ($rawCitations as $rawCitation) {
+                yield $rawCitation;
+            }
+        });
     }
 
     /**
@@ -210,7 +209,7 @@ class CitationDAO extends \PKP\db\DAO
     public function deleteByPublicationId($publicationId)
     {
         $citations = $this->getByPublicationId($publicationId);
-        while ($citation = $citations->next()) {
+        foreach ($citations as $citation) {
             $this->deleteById($citation->getId());
         }
         return true;
@@ -232,20 +231,16 @@ class CitationDAO extends \PKP\db\DAO
     /**
      * Internal function to return a citation object from a
      * row.
-     *
-     * @param array $row
-     *
-     * @return Citation
      */
-    public function _fromRow($row)
+    public function _fromRow(\stdClass $row) : Citation
     {
         $citation = $this->_newDataObject();
-        $citation->setId((int)$row['citation_id']);
-        $citation->setData('publicationId', (int)$row['publication_id']);
-        $citation->setRawCitation($row['raw_citation']);
-        $citation->setSequence((int)$row['seq']);
+        $citation->setId((int)$row->citation_id);
+        $citation->setData('publicationId', (int) $row->publication_id);
+        $citation->setRawCitation($row->raw_citation);
+        $citation->setSequence((int) $row->seq);
 
-        $this->getDataObjectSettings('citation_settings', 'citation_id', $row['citation_id'], $citation);
+        $this->getDataObjectSettings('citation_settings', 'citation_id', $row->citation_id, $citation);
 
         return $citation;
     }

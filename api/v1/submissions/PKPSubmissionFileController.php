@@ -258,8 +258,8 @@ class PKPSubmissionFileController extends PKPBaseController
         $files = $collector->getMany();
 
         $items = Repo::submissionFile()
-            ->getSchemaMap()
-            ->summarizeMany($files, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->summarizeMany($files);
 
         $data = [
             'itemsMax' => $files->count(),
@@ -275,10 +275,11 @@ class PKPSubmissionFileController extends PKPBaseController
     public function get(Request $illuminateRequest): JsonResponse
     {
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -403,8 +404,8 @@ class PKPSubmissionFileController extends PKPBaseController
             ->get($submissionFileId);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -479,8 +480,8 @@ class PKPSubmissionFileController extends PKPBaseController
             ->get($submissionFile->getId());
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -550,8 +551,8 @@ class PKPSubmissionFileController extends PKPBaseController
         $newSubmissionFile = Repo::submissionFile()->get($newSubmissionFileId);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($newSubmissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($newSubmissionFile);
 
         return response()->json($data, Response::HTTP_OK);
     }
@@ -562,10 +563,11 @@ class PKPSubmissionFileController extends PKPBaseController
     public function delete(Request $illuminateRequest): JsonResponse
     {
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $data = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $this->getFileGenres());
+            ->getSchemaMap($submission, $this->getFileGenres())
+            ->map($submissionFile);
 
         Repo::submissionFile()->delete($submissionFile);
 
@@ -581,7 +583,7 @@ class PKPSubmissionFileController extends PKPBaseController
     {
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toArray();
+        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toAssociativeArray();
     }
 
     /**

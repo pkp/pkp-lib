@@ -436,7 +436,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -547,7 +547,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(Repo::submission()->getSchemaMap()->map(
             $submission,
@@ -682,7 +682,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         if (!$userGroups instanceof LazyCollection) {
             $userGroups = $userGroups->lazy();
@@ -725,7 +725,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
@@ -778,7 +778,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
@@ -859,7 +859,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $notificationManager = new NotificationManager();
@@ -892,7 +892,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles);
@@ -1060,7 +1060,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -1093,7 +1093,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1132,7 +1132,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1211,7 +1211,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1283,7 +1283,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1355,7 +1355,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1398,7 +1398,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1440,7 +1440,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         $output = Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication);
 
@@ -1484,7 +1484,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::author()->getSchemaMap()->map($author),
+            Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
         );
     }
@@ -1515,7 +1515,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
+            'items' => Repo::author()->getSchemaMap($submission)->summarizeMany($authors)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -1620,7 +1620,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::author()->getSchemaMap()->map($author),
+            Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
         );
     }
@@ -1662,7 +1662,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $output = Repo::author()->getSchemaMap()->map($author);
+        $output = Repo::author()->getSchemaMap($submission)->map($author);
 
         Repo::author()->delete($author);
 
@@ -1764,7 +1764,7 @@ class PKPSubmissionController extends PKPBaseController
         $author = Repo::author()->get($author->getId());
 
         return response()->json(
-            Repo::author()->getSchemaMap()->map($author),
+            Repo::author()->getSchemaMap($submission)->map($author),
             Response::HTTP_OK
         );
     }
@@ -1810,7 +1810,7 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
-        $authorsArray = Repo::author()->getSchemaMap()->summarizeMany($authors)->toArray();
+        $authorsArray = Repo::author()->getSchemaMap($submission)->summarizeMany($authors)->toArray();
         $indexedArray = array_values($authorsArray);
 
         return response()->json(

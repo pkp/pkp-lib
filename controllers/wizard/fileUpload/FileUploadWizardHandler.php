@@ -192,6 +192,8 @@ class FileUploadWizardHandler extends Handler
 
     /**
      * @copydoc PKPHandler::initialize()
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {
@@ -461,11 +463,11 @@ class FileUploadWizardHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($context->getId())->toArray();
+        $fileGenres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $fileGenres);
+            ->getSchemaMap($this->getSubmission(), $fileGenres)
+            ->map($submissionFile);
 
         $json = new JSONMessage(true, $form->fetch($request));
         $json->setGlobalEvent('submissionFile:added', $fileData);
@@ -499,11 +501,11 @@ class FileUploadWizardHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toAssociativeArray();
 
         $fileData = Repo::submissionFile()
-            ->getSchemaMap()
-            ->map($submissionFile, $fileGenres);
+            ->getSchemaMap($submission, $fileGenres)
+            ->map($submissionFile);
 
         $json = $templateMgr->fetchJson('controllers/wizard/fileUpload/form/fileSubmissionComplete.tpl');
         $json->setGlobalEvent('submissionFile:edited', $fileData);

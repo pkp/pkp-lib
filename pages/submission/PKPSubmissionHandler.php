@@ -211,7 +211,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = $genreDao->getEnabledByContextId($context->getId())->toAssociativeArray();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
@@ -515,9 +515,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->getMany();
 
         // Don't allow dependent files to be uploaded with the submission
-        $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
-        );
+        $genres = array_filter($genres, fn ($genre) => !$genre->getDependent());
 
         $form = new PKPSubmissionFileForm(
             $this->getSubmissionFilesApiUrl($request, $submission->getId()),
@@ -533,18 +531,18 @@ abstract class PKPSubmissionHandler extends Handler
             'emptyAddLabel' => __('common.upload.addFile'),
             'fileStage' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'form' => $form->getConfig(),
-            'genres' => array_map(
+            'genres' => array_values(array_map(
                 fn ($genre) => [
                     'id' => (int) $genre->getId(),
                     'name' => $genre->getLocalizedName(),
                     'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
                 ],
                 $genres
-            ),
+            )),
             'id' => 'submissionFiles',
             'items' => Repo::submissionFile()
-                ->getSchemaMap()
-                ->summarizeMany($submissionFiles, $genres)
+                ->getSchemaMap($submission, $genres)
+                ->summarizeMany($submissionFiles)
                 ->values(),
             'options' => [
                 'maxFilesize' => Application::getIntMaxFileMBs(),

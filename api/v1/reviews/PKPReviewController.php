@@ -224,7 +224,7 @@ class PKPReviewController extends PKPBaseController
         }
 
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($contextId)->toArray();
+        $fileGenres = $genreDao->getByContextId($contextId)->toAssociativeArray();
 
         $attachments = Repo::submissionFile()->getCollector()
             ->filterBySubmissionIds([$submissionId])
@@ -235,8 +235,8 @@ class PKPReviewController extends PKPBaseController
             ->getMany();
 
         $attachmentsProps = Repo::submissionFile()
-            ->getSchemaMap()
-            ->mapMany($attachments, $fileGenres)
+            ->getSchemaMap($submission, $fileGenres)
+            ->mapMany($attachments)
             ->toArray();
 
         $stageId = $reviewAssignment->getStageId();
@@ -258,8 +258,8 @@ class PKPReviewController extends PKPBaseController
                 ->getMany();
 
             $filesProps = Repo::submissionFile()
-                ->getSchemaMap()
-                ->mapMany($files, $fileGenres)
+                ->getSchemaMap($submission, $fileGenres)
+                ->mapMany($files)
                 ->toArray();
         }
 
@@ -721,6 +721,7 @@ class PKPReviewController extends PKPBaseController
 
     /**
      * Download exported review file from temporary file ID
+     *
      * @throws BindingResolutionException
      */
     public function getExportedFile(Request $illuminateRequest): Response

@@ -529,14 +529,14 @@ abstract class PKPSubmissionHandler extends Handler
             'emptyAddLabel' => __('common.upload.addFile'),
             'fileStage' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'form' => $form->getConfig(),
-            'genres' => array_map(
+            'genres' => array_values(array_map(
                 fn ($genre) => [
                     'id' => (int) $genre->getId(),
                     'name' => $genre->getLocalizedName(),
                     'isPrimary' => !$genre->getSupplementary() && !$genre->getDependent(),
                 ],
                 $genres
-            ),
+            )),
             'id' => 'submissionFiles',
             'items' => Repo::submissionFile()
                 ->getSchemaMap($submission, $genres)

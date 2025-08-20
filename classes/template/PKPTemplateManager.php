@@ -27,6 +27,7 @@ use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
@@ -917,6 +918,10 @@ class PKPTemplateManager extends Smarty
             'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => Submission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
+            'PUBLICATION_STATUS_QUEUED' => Publication::STATUS_QUEUED,
+            'PUBLICATION_STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
+            'PUBLICATION_STATUS_DECLINED' => Publication::STATUS_DECLINED,
+            'PUBLICATION_STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
         ]);
 
         $hash = Locale::getUITranslator()->getCacheHash();

@@ -14,6 +14,7 @@
 namespace PKP\section;
 
 use APP\section\DAO;
+use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
@@ -168,7 +169,7 @@ class Collector implements CollectorInterface
                         ->from('publications AS p')
                         ->whereNotNull('p.' . $this->dao->primaryKeyColumn)
                         ->whereColumn('p.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn)
-                        ->where('p.status', '=', Submission::STATUS_PUBLISHED);
+                        ->where('p.status', '=', Publication::STATUS_PUBLISHED);
                 });
             })
             ->orderBy('s.seq')

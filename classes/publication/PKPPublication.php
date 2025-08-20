@@ -30,6 +30,20 @@ use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
 {
+    // publication status constants
+    public const STATUS_QUEUED = 1;
+    public const STATUS_PUBLISHED = 3;
+    public const STATUS_DECLINED = 4;
+    public const STATUS_SCHEDULED = 5;
+
+    /**
+     * Get the valid pre-publish statuses if available
+     */
+    public static function getPrePublishStatuses(): array
+    {
+        return [];
+    }
+    
     /**
      * Get the default/fall back locale the values should exist for
      */
@@ -507,4 +521,5 @@ class PKPPublication extends \PKP\core\DataObject
         $this->setData('versionMajor', $versionInfo->majorNumbering);
         $this->setData('versionMinor', $versionInfo->minorNumbering);
     }
+
 }

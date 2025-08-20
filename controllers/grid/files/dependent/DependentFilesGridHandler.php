@@ -19,6 +19,7 @@
 namespace PKP\controllers\grid\files\dependent;
 
 use APP\core\Application;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
@@ -95,7 +96,7 @@ class DependentFilesGridHandler extends FileListGridHandler
         $publication = $this->getPublication();
 
         if ($publication) {
-            if ($publication->getData('status') == Submission::STATUS_PUBLISHED) {
+            if ($publication->getData('status') == Publication::STATUS_PUBLISHED) {
                 $capabilities = FilesGridCapabilities::FILE_GRID_VIEW_NOTES;
             }
         }

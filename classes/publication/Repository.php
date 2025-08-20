@@ -337,7 +337,7 @@ abstract class Repository
         $newPublication->setData('id', null);
         $newPublication->setData('sourcePublicationId', $publication->getId());
         $newPublication->setData('datePublished', null);
-        $newPublication->setData('status', Submission::STATUS_QUEUED);
+        $newPublication->setData('status', Publication::STATUS_QUEUED);
 
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
@@ -487,7 +487,7 @@ abstract class Repository
         // Set the copyright and license information
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
-        $itsPublished = ($newPublication->getData('status') === PKPSubmission::STATUS_PUBLISHED);
+        $itsPublished = ($newPublication->getData('status') === PKPPublication::STATUS_PUBLISHED);
 
         if ($itsPublished && !$newPublication->getData('copyrightHolder')) {
             $newPublication->setData(
@@ -543,12 +543,12 @@ abstract class Repository
             $submission = Repo::submission()->get($submission->getId());
         }
 
-        $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.scheduled' : 'publication.event.published';
+        $msg = ($newPublication->getData('status') === Publication::STATUS_SCHEDULED) ? 'publication.event.scheduled' : 'publication.event.published';
 
         // Log an event when publication is published. Adjust the message depending
         // on whether this is the first publication or a subsequent version
         if (count($submission->getData('publications')) > 1) {
-            $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
+            $msg = ($newPublication->getData('status') === Publication::STATUS_SCHEDULED) ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
         }
 
         $eventLog = Repo::eventLog()->newDataObject([
@@ -563,7 +563,7 @@ abstract class Repository
         Repo::eventLog()->add($eventLog);
 
         // Mark DOIs stale (if applicable).
-        if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
+        if ($newPublication->getData('status') === Publication::STATUS_PUBLISHED) {
             $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
             Repo::doi()->markStale($staleDoiIds);
         }
@@ -610,7 +610,7 @@ abstract class Repository
     public function unpublish(Publication $publication)
     {
         $newPublication = clone $publication;
-        $newPublication->setData('status', Submission::STATUS_QUEUED);
+        $newPublication->setData('status', Publication::STATUS_QUEUED);
         $newPublication->stampModified();
 
         Hook::call(

@@ -12,14 +12,16 @@
 
 namespace PKP\search\engines;
 
-use Illuminate\Database\Query\Builder as DatabaseBuilder;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\DB;
-use Laravel\Scout\Builder as SearchBuilder;
-use Laravel\Scout\Engines\Engine as ScoutEngine;
 use PKP\config\Config;
-use PKP\controlledVocab\ControlledVocab;
+use APP\core\Application;
 use PKP\submission\PKPSubmission;
+use Illuminate\Support\Facades\DB;
+use PKP\publication\PKPPublication;
+use PKP\controlledVocab\ControlledVocab;
+use Laravel\Scout\Builder as SearchBuilder;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Laravel\Scout\Engines\Engine as ScoutEngine;
+use Illuminate\Database\Query\Builder as DatabaseBuilder;
 
 class DatabaseEngine extends ScoutEngine
 {
@@ -80,7 +82,7 @@ class DatabaseEngine extends ScoutEngine
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
                     ->whereColumn('p.submission_id', 's.submission_id')
-                    ->where('p.status', PKPSubmission::STATUS_PUBLISHED)
+                    ->where('p.status', PKPPublication::STATUS_PUBLISHED)
                     ->when($publishedFrom, fn ($q) => $q->whereDate('p.date_published', '>=', $publishedFrom))
                     ->when($publishedTo, fn ($q) => $q->whereDate('p.date_published', '<', $publishedTo))
                     ->when(is_array($sectionIds), fn ($q) => $q->whereIn('p.section_id', $sectionIds))
@@ -95,7 +97,7 @@ class DatabaseEngine extends ScoutEngine
                                     ->from('controlled_vocabs AS cv')
                                     ->join('controlled_vocab_entries AS cve', 'cv.controlled_vocab_id', 'cve.controlled_vocab_id')
                                     ->join('controlled_vocab_entry_settings AS cves', 'cve.controlled_vocab_entry_id', 'cves.controlled_vocab_entry_id')
-                                    ->where('cv.assoc_type', ASSOC_TYPE_PUBLICATION)
+                                    ->where('cv.assoc_type', Application::ASSOC_TYPE_PUBLICATION)
                                     ->whereColumn('cv.assoc_id', 'p.publication_id')
                                     ->where('cv.symbolic', ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD)
                                     ->where('cves.setting_value', $keyword)

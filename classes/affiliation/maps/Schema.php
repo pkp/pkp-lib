@@ -15,8 +15,10 @@
 namespace PKP\affiliation\maps;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
 use PKP\affiliation\Affiliation;
+use PKP\core\PKPRequest;
 use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
@@ -24,8 +26,16 @@ class Schema extends \PKP\core\maps\Schema
     /** @copydoc \PKP\core\maps\Schema::$collection */
     public Enumerable $collection;
 
+    public Submission $submission;
+
     /** @copydoc \PKP\core\maps\Schema::$schema */
     public string $schema = PKPSchemaService::SCHEMA_AFFILIATION;
+
+    public function __construct(Submission $submission, PKPRequest $request, \PKP\context\Context $context, PKPSchemaService $schemaService)
+    {
+        $this->submission = $submission;
+        parent::__construct($request, $context, $schemaService);
+    }
 
     /**
      * Map a affiliation
@@ -79,7 +89,7 @@ class Schema extends \PKP\core\maps\Schema
     protected function mapByProperties(array $props, Affiliation $item): array
     {
         $author = Repo::author()->get($item->getAuthorId());
-        $locales = Repo::submission()->get(Repo::publication()->get($author->getData('publicationId'))->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
+        $locales = $this->submission->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
 
         $output = [];
         foreach ($props as $prop) {

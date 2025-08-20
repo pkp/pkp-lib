@@ -108,11 +108,10 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
             foreach ($rows as $row) {
                 yield $row->publication_id => $this->fromRow($row);
             }
@@ -177,10 +176,15 @@ class DAO extends EntityDAO
         $publication->setData('locale', $locale);
 
         $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $citations = $citationDao->getByPublicationId($publication->getId())->toArray();
-        $citationsRaw = $citationDao->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
+        $citations = $citationDao->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', $citationsRaw);
+        $publication->setData('citationsRaw', new class($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId) {}
+            function __toString() {
+                $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
+                return $citationDao->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
+            }
+        });
 
         $publicationVersionString = Repo::publication()->getVersionString($publication);
         $publication->setData('versionString', $publicationVersionString);
@@ -205,7 +209,7 @@ class DAO extends EntityDAO
         $this->saveCategories($publication);
 
         // Parse the citations
-        if ($publication->getData('citationsRaw')) {
+        if ((string) $publication->getData('citationsRaw')) {
             $this->saveCitations($publication);
         }
 
@@ -224,7 +228,7 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
+        if ($oldPublication && (string) $oldPublication->getData('citationsRaw') != (string) $publication->getData('citationsRaw')) {
             $this->saveCitations($publication);
         }
     }

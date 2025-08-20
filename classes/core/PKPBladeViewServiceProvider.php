@@ -78,6 +78,11 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
                 $app->get('config')->get('view.compiled_extension', 'php'),
             ), function (BladeCompiler $bladeCompiler) {
                 $bladeCompiler->component('dynamic-component', DynamicComponent::class);
+                
+                // Register component namespaces for PKP and APP Blade components
+                $bladeCompiler->componentNamespace('PKP\\components', 'pkp');
+                $bladeCompiler->componentNamespace('APP\\components', 'app');
+                
                 $this->app->instance(BladeCompiler::class, $bladeCompiler);
                 $this->app->alias(
                     BladeCompiler::class, 

@@ -378,7 +378,7 @@
 		},
 		"status": {
 			"type": "integer",
-			"description": "Whether the publication is Queued (not yet scheduled for publication), Declined, Published or Scheduled (scheduled for publication at a future date). One of the `PKPSubmission::STATUS_*` constants. Default is `PKPSubmission::STATUS_QUEUED`.",
+			"description": "Whether the publication is Queued (not yet scheduled for publication), Declined, Published or Scheduled (scheduled for publication at a future date). One of the `PKPPublication::STATUS_*` constants. Default is `PKPPublication::STATUS_QUEUED`.",
 			"apiSummary": true,
 			"default": 1,
 			"validation": [

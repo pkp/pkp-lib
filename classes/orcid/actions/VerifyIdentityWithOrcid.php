@@ -15,6 +15,7 @@
 namespace PKP\orcid\actions;
 
 use APP\author\Author;
+use PKP\publication\PKPPublication;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
@@ -202,7 +203,7 @@ class VerifyIdentityWithOrcid
             $publicationId = $this->request->getUserVar('state');
             $publication = Repo::publication()->get($publicationId);
 
-            if ($publication->getData('status') == PKPSubmission::STATUS_PUBLISHED) {
+            if ($publication->getData('status') == PKPPublication::STATUS_PUBLISHED) {
                 (new SendSubmissionToOrcid($publication, $this->context))->execute();
                 $this->addTemplateVar('sendSubmissionSuccess', true);
             } else {

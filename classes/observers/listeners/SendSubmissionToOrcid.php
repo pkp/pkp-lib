@@ -17,6 +17,7 @@
 namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
+use PKP\publication\PKPPublication;
 use PKP\observers\events\PublicationPublished;
 use PKP\orcid\OrcidManager;
 use PKP\submission\PKPSubmission;
@@ -42,8 +43,8 @@ class SendSubmissionToOrcid
         }
 
         $publicationStatus = $publishedEvent->publication->getData('status');
-        if ($publicationStatus === PKPSubmission::STATUS_PUBLISHED ||
-                $publicationStatus === PKPSubmission::STATUS_SCHEDULED) {
+        if ($publicationStatus === PKPPublication::STATUS_PUBLISHED ||
+                $publicationStatus === PKPPublication::STATUS_SCHEDULED) {
             (new \APP\orcid\actions\SendSubmissionToOrcid($publishedEvent->publication, $publishedEvent->context))->execute();
         }
     }

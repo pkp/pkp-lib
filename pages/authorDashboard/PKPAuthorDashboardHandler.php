@@ -249,6 +249,10 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
+            'PUBLICATION_STATUS_QUEUED' => Publication::STATUS_QUEUED,
+            'PUBLICATION_STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
+            'PUBLICATION_STATUS_DECLINED' => Publication::STATUS_DECLINED,
+            'PUBLICATION_STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
             'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
             'FORM_CITATIONS' => $citationsForm::FORM_CITATIONS,
         ]);

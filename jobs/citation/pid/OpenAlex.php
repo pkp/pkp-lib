@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file jobs/citation/pid/OpenAlex.php
+ *
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class OpenAlex
+ *
+ * @ingroup citation
+ *
+ * @brief OpenAlex class
+ */
+
+namespace PKP\jobs\citation\pid;
+
+class OpenAlex extends BasePid
+{
+    /** @copydoc AbstractPid::regex */
+    public const string prefix = 'https://openalex.org';
+
+    /** @copydoc AbstractPid::prefixInCorrect */
+    public const array prefixInCorrect = [
+        'openalex:',
+        'openalex.org/works',
+        'www.openalex.org/works'
+    ];
+}

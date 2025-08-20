@@ -16,6 +16,8 @@
 
 namespace PKP\API\v1\comments\resources;
 
+use APP\facades\Repo;
+use APP\publication\Publication;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\user\User;
@@ -26,6 +28,8 @@ class UserCommentResource extends JsonResource
     {
         $user = $this->user; /** @var User $user */
         $requestQueryParams = $request->query();
+
+        $publication = $this->publication; /** @var Publication $publication */
 
         $results = [
             'id' => $this->id,
@@ -42,6 +46,18 @@ class UserCommentResource extends JsonResource
             'isUserOrcidAuthenticated' => $user->hasVerifiedOrcid(),
             'userAffiliation' => $user->getLocalizedAffiliation(),
             'userDisplayInitials' => $user->getDisplayInitials(),
+            'userInitials' => $user->getDisplayInitials(),
+            'publication' => [
+                'authorsStringShort' => $publication->getShortAuthorString(),
+                'id' => $publication->getId(),
+                'submissionId' => $publication->getData('submissionId'),
+                'fullTitle' => $publication->getLocalizedFullTitle(),
+            ],
+            // Fields only available to moderators
+            $this->mergeWhen(Repo::userComment()->isModerator($request->user()), [
+                'approvedAt' => $this->approvedAt,
+                'approvedByUserName' => $this->approvedByUserId ? Repo::user()->get($this->approvedByUserId)->getFullName() : null,
+            ]),
         ];
 
         if (key_exists('includeReports', $requestQueryParams)) {

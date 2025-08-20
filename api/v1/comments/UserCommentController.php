@@ -324,6 +324,9 @@ class UserCommentController extends PKPBaseController
         }
 
         $comment->isApproved = $isApproved;
+        $comment->approvedAt = $isApproved ? now() : null;
+        $comment->approvedByUserId = $isApproved ? $this->getRequest()->getUser()->getId() : null;
+
         $comment->save();
 
         return response()->json(new UserCommentResource($comment), Response::HTTP_OK);

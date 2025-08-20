@@ -3785,6 +3785,9 @@ msgstr "Reports"
 msgid "manager.userComment.comment"
 msgstr "Comment"
 
+msgid "manager.userComment.comments"
+msgstr "Comments"
+
 msgid "manager.userComment.reportedBy"
 msgstr "Reported By"
 

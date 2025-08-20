@@ -28,7 +28,7 @@ use PKP\security\Role;
 use PKP\user\User;
 use PKP\userComment\relationships\UserCommentReport;
 
-abstract class Repository
+class Repository
 {
     private Request $request;
     private int $perPage;
@@ -110,10 +110,4 @@ abstract class Repository
     {
         return $this->perPage;
     }
-
-    /**
-     * Get the URL for the publication associated with a comment.
-     * Override this method at app level.
-     */
-    abstract public function getPublicationUrl(UserComment $comment): string;
 }

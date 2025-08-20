@@ -42,7 +42,6 @@ class UserCommentResource extends JsonResource
             'publicationId' => $this->publicationId,
             'userId' => $user->getId(),
             'userName' => $user->getFullName(),
-            'userInitials' => $user->getDisplayInitials(),
             'publication' => [
                 'authorsStringShort' => $publication->getShortAuthorString(),
                 'id' => $publication->getId(),
@@ -52,7 +51,6 @@ class UserCommentResource extends JsonResource
             'userOrcidDisplayValue' => $user->getOrcidDisplayValue(),
             'isUserOrcidAuthenticated' => $user->hasVerifiedOrcid(),
             'userAffiliation' => $user->getLocalizedAffiliation(),
-            'userDisplayInitials' => $user->getDisplayInitials(),
             // Fields only available to moderators
             $this->mergeWhen(Repo::userComment()->isModerator($request->user()), [
                 'approvedAt' => $this->approvedAt,

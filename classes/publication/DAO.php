@@ -178,16 +178,11 @@ class DAO extends EntityDAO
         $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
         $citations = $citationDao->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);
-
-        // citationsRaw is rarely used and we don't want to incur a fetch for every publication, so we use an anonymous
-        // class to cause it to be fetched upon first use. Casting the result to (string) will give the actual data.
-        $publication->setData('citationsRaw', new class($publication->getId(), $publication) implements \Stringable {
-            public function __construct(public int $publicationId, public Publication $publication) {}
+        $publication->setData('citationsRaw', new class($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId) {}
             function __toString() {
                 $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-                $citationsRawString = $citationDao->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
-                $this->publication->setData('citationsRaw', $citationsRawString); // Save string form for subsequent calls
-                return $citationsRawString;
+                return $citationDao->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
             }
         });
 

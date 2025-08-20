@@ -124,7 +124,7 @@
 			</tabs>
 		</tab>
 		<tab id="userComments" label="{translate key="manager.userComment.userComments"}">
-			<user-comments-page v-bind="userCommentsConfig"></user-comments-page>
+			<user-comments-page v-bind="userCommentsInitConfig"></user-comments-page>
 		</tab>
 		{call_hook name="Template::Settings::website"}
 	</tabs>

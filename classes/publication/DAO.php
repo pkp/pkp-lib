@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -21,11 +21,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
-use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -48,19 +46,6 @@ class DAO extends EntityDAO
 
     /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'publication_id';
-
-    /** @var CitationDAO */
-    public $citationDao;
-
-    /**
-     * Constructor
-     */
-    public function __construct(CitationDAO $citationDao, PKPSchemaService $schemaService)
-    {
-        parent::__construct($schemaService);
-
-        $this->citationDao = $citationDao;
-    }
 
     /**
      * Get the parent object ID column name
@@ -176,11 +161,10 @@ class DAO extends EntityDAO
             ->value('locale');
         $publication->setData('locale', $locale);
 
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $citations = $citationDao->getByPublicationId($publication->getId())->toArray();
-        $citationsRaw = $citationDao->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
-        $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', $citationsRaw);
+        $publication->setData('citations',
+            Repo::citation()->getByPublicationId($publication->getId()));
+        $publication->setData('citationsRaw',
+            Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL));
 
         $this->setAuthors($publication);
         $this->setCategories($publication);
@@ -201,10 +185,10 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $id);
         $this->saveCategories($publication);
 
-        // Parse the citations
-        if ($publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
-        }
+        Repo::citation()->importCitations(
+            $publication->getId(),
+            $publication->getData('citationsRaw')
+        );
 
         return $id;
     }
@@ -221,8 +205,11 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
+        if ($oldPublication) {
+            Repo::citation()->importCitations(
+                $publication->getId(),
+                $publication->getData('citationsRaw')
+            );
         }
     }
 
@@ -244,7 +231,7 @@ class DAO extends EntityDAO
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
-        $this->deleteCitations($publicationId);
+        Repo::citation()->deleteByPublicationId($publicationId);
 
         return $affectedRows;
     }
@@ -470,22 +457,6 @@ class DAO extends EntityDAO
     protected function deleteCategories(int $publicationId): void
     {
         PublicationCategory::where('publication_id', $publicationId)->delete();
-    }
-
-    /**
-     * Save the citations
-     */
-    protected function saveCitations(Publication $publication)
-    {
-        $this->citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
-    }
-
-    /**
-     * Delete the citations
-     */
-    protected function deleteCitations(int $publicationId)
-    {
-        $this->citationDao->deleteByPublicationId($publicationId);
     }
 
     /**

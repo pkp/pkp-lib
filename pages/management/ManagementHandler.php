@@ -141,6 +141,9 @@ class ManagementHandler extends Handler
             case 'user':
                 $this->editUser($args, $request);
                 break;
+            case 'userComments':
+                $this->userComments($args, $request);
+                break;
             default:
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
@@ -282,9 +285,6 @@ class ManagementHandler extends Handler
                 'url' => $router->url($request, null, 'management', 'settings', ['announcements']),
                 'isCurrent' => false,
                 'icon' => 'Announcements',
-            ],
-            'userCommentsInitConfig' => [
-                'itemsPerPage' => Repo::userComment()->getPerPage()
             ],
         ]);
         $templateMgr->assign([
@@ -601,6 +601,29 @@ class ManagementHandler extends Handler
         ]);
 
         $templateMgr->display('management/manageEmails.tpl');
+    }
+
+    /**
+     * Display the page to manage/moderate user comments
+     *
+     * @throws \Exception
+     */
+    public function userComments(array $args, Request $request): void
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->assign([
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+
+        $templateMgr->setState([
+            'pageInitConfig' => [
+                'itemsPerPage' => Repo::userComment()->getPerPage(),
+            ],
+        ]);
+
+        $templateMgr->display('management/userComments.tpl');
     }
 
     /**

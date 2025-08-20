@@ -3785,6 +3785,9 @@ msgstr "Reports"
 msgid "manager.userComment.comment"
 msgstr "Comment"
 
+msgid "manager.userComment.comments"
+msgstr "Comments"
+
 msgid "manager.userComment.reportedBy"
 msgstr "Reported By"
 
@@ -3842,8 +3845,5 @@ msgstr "All"
 msgid "manager.userComment.viewReport"
 msgstr "View Report"
 
-msgid "manager.userComments.comments"
-msgstr "Comments"
-
-msgid "manager.userComments.enableComments"
+msgid "manager.userComment.enableComments"
 msgstr "Enable Public Comments"

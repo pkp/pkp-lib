@@ -306,7 +306,11 @@ class UserCommentController extends PKPBaseController
      */
     public function setApproval(Request $illuminateRequest): JsonResponse
     {
-        $isApproved = PKPString::strictConvertToBoolean($illuminateRequest->input('approved') ?? ''); // Process the boolean value in body, returning null for invalid values.
+        $isApproved = $illuminateRequest->input('approved');
+
+        if (isset($isApproved) && !is_bool($isApproved)) {
+            $isApproved = PKPString::strictConvertToBoolean($isApproved);
+        }
 
         if ($isApproved === null) {
             return response()->json([

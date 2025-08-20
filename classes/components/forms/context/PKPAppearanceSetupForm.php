@@ -91,11 +91,11 @@ class PKPAppearanceSetupForm extends FormComponent
                 'options' => $sidebarOptions,
             ]))
             ->addField(new FieldOptions('enablePublicComments', [
-                'label' => __('manager.userComments.comments'),
+                'label' => __('manager.userComment.comments'),
                 'type' => 'checkbox',
                 'value' => $context->getData('enablePublicComments'),
                 'options' => [
-                    ['value' => true, 'label' => __('manager.userComments.enableComments')],
+                    ['value' => true, 'label' => __('manager.userComment.enableComments')],
                 ],
             ]));
     }

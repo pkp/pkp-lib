@@ -1576,6 +1576,9 @@ msgstr "Search"
 msgid "navigation.settings"
 msgstr "Settings"
 
+msgid "navigation.content"
+msgstr "Content"
+
 msgid "navigation.setup"
 msgstr "Setup"
 

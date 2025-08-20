@@ -46,7 +46,6 @@ class UserCommentResource extends JsonResource
             'isUserOrcidAuthenticated' => $user->hasVerifiedOrcid(),
             'userAffiliation' => $user->getLocalizedAffiliation(),
             'userDisplayInitials' => $user->getDisplayInitials(),
-            'userInitials' => $user->getDisplayInitials(),
             'publication' => [
                 'authorsStringShort' => $publication->getShortAuthorString(),
                 'id' => $publication->getId(),

@@ -211,7 +211,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
+        $genres = $genreDao->getEnabledByContextId($context->getId())->toAssociativeArray();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()
@@ -515,9 +515,7 @@ abstract class PKPSubmissionHandler extends Handler
             ->getMany();
 
         // Don't allow dependent files to be uploaded with the submission
-        $genres = array_values(
-            array_filter($genres, fn ($genre) => !$genre->getDependent())
-        );
+        $genres = array_filter($genres, fn ($genre) => !$genre->getDependent());
 
         $form = new PKPSubmissionFileForm(
             $this->getSubmissionFilesApiUrl($request, $submission->getId()),

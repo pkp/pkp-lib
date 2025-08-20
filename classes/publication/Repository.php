@@ -360,7 +360,7 @@ abstract class Repository
             }
         }
 
-        if (!empty($newPublication->getData('citationsRaw'))) {
+        if (!empty((string) $newPublication->getData('citationsRaw'))) {
             $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var \PKP\citation\CitationDAO $citationDao */
             $citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
         }

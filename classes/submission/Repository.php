@@ -426,9 +426,9 @@ abstract class Repository
             if (!$schema) {
                 continue;
             }
-            if (empty($schema->multilingual) && empty($publication->getData($metadata))) {
+            if (empty($schema->multilingual) && empty((string) $publication->getData($metadata))) {
                 $errors[$metadata] = [__('validator.required')];
-            } elseif (!empty($schema->multilingual) && empty($publication->getData($metadata, $locale))) {
+            } elseif (!empty($schema->multilingual) && empty((string) $publication->getData($metadata, $locale))) {
                 $errors[$metadata] = [$locale => [__('validator.required')]];
             }
         }

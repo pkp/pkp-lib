@@ -206,7 +206,7 @@ class DAO extends EntityDAO
         $this->saveCategories($publication);
 
         // Parse the citations
-        if ($publication->getData('citationsRaw')) {
+        if ((string) $publication->getData('citationsRaw')) {
             $this->saveCitations($publication);
         }
 
@@ -225,7 +225,7 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication && $oldPublication->getData('citationsRaw') != $publication->getData('citationsRaw')) {
+        if ($oldPublication && (string) $oldPublication->getData('citationsRaw') != (string) $publication->getData('citationsRaw')) {
             $this->saveCitations($publication);
         }
     }

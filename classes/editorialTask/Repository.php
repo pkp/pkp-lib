@@ -23,7 +23,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\mail\Mailable;
 use PKP\note\Note;
@@ -96,7 +95,6 @@ class Repository
             'seq' => $maxSeq + 1,
             'createdBy' => $fromUser->getId(),
             'type' => EditorialTaskType::DISCUSSION->value,
-            'status' => EditorialTaskStatus::NEW->value,
             EditorialTask::ATTRIBUTE_PARTICIPANTS => array_map(fn (int $participantId) => ['userId' => $participantId], array_unique($participantUserIds)),
         ]);
 

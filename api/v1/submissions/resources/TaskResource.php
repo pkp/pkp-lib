@@ -17,11 +17,22 @@ namespace PKP\API\v1\submissions\resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\user\User;
 
 class TaskResource extends JsonResource
 {
-    public function toArray(Request $request)
+    use EnrichesWithData;
+
+    public function toArray(Request $request, ?array $data = [])
     {
+        if (!empty($data)) {
+            $this->data = $data;
+        }
+
+        ['users' => $users] = $this->data;
+
+        $createdBy = $users->get($this->createdBy); /** @var User $createdBy */
+
         return [
             'id' => $this->id,
             'type' => $this->type,
@@ -29,8 +40,13 @@ class TaskResource extends JsonResource
             'stageId' => $this->stageId,
             'status' => $this->status,
             'createdBy' => $this->createdBy,
+            'createdByName' => $createdBy?->getFullName(),
+            'createdByUsername' => $createdBy?->getUsername(),
             'dateDue' => $this->dateDue?->format('Y-m-d'),
-            'participants' => EditorialTaskParticipantResource::collection($this->participants),
+            'dateStarted' => $this->dateStarted?->format('Y-m-d'),
+            'dateClosed' => $this->dateClosed?->format('Y-m-d'),
+            'title' => $this->title,
+            'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
         ];
     }
 }

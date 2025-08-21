@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/Collector.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Collector
@@ -32,6 +32,8 @@ class Collector implements CollectorInterface
     public ?array $contextIds;
     public ?array $submissionIds;
     public ?array $doiIds = null;
+    public ?string $versionStage = null;
+    public ?int $versionMajor = null;
     public ?array $statuses = null;
     public bool $orderByVersion = false;
     public ?int $count;
@@ -96,6 +98,18 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterByVersionStage(?string $versionStage): self
+    {
+        $this->versionStage = $versionStage;
+        return $this;
+    }
+
+    public function filterByVersionMajor(?int $versionMajor): self
+    {
+        $this->versionMajor = $versionMajor;
+        return $this;
+    }
+
     public function orderByVersion(): self
     {
         $this->orderByVersion = true;
@@ -147,6 +161,14 @@ class Collector implements CollectorInterface
         if (isset($this->statuses)) {
             $qb->whereIn('p.status', $this->statuses);
         }
+
+        $qb->when($this->versionStage !== null, function (Builder $qb) {
+            $qb->where('p.version_stage', $this->versionStage);
+        });
+
+        $qb->when($this->versionMajor !== null, function (Builder $qb) {
+            $qb->where('p.version_major', $this->versionMajor);
+        });
 
         if (isset($this->count)) {
             $qb->limit($this->count);

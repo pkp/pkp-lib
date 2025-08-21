@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-20 13:38+0000\n"
+"PO-Revision-Date: 2025-08-21 19:38+0000\n"
 "Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr/>\n"
@@ -914,6 +914,8 @@ msgstr "Prilagođeni uzorak DOI sufiksa"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Jedna ili više odabranih vrsta DOI oznaka nije dopuštena kod odabrane DOI "
+"registracijske agencije."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -3616,3 +3618,203 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Potrebno je <a href=\"#announcements/announcement-settings\"> omogućiti "
 "obavijest </a>."
+
+msgid "manager.highlights.add"
+msgstr "Dodaj isticanje"
+
+msgid "manager.image"
+msgstr "Slika"
+
+msgid "manager.highlights.url.description"
+msgstr "Potpuni URL, uključujući https://, za istaknuti gumb."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Postavi podsjetnike za recenziju"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Pošalji podsjetnik e-poštom prije ili nakon odgovora na zahtjev za recenziju "
+"(ako recenzent još nije odgovorio) ili predaje recenzije (ako recenzent još "
+"nije predao recenziju)"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dana nakon isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Odgovor na zahtjev za recenziju - Nakon isteka roka"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Dozvoli autorima da predlože potencijalne recenzente tijekom procesa predaje"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dana prije isteka roka"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Postavke izvješće"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Vrsta metrike"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atributi za prikaz"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Jezici web stranice"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Jezici prijave"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Dodaj/ukloni jezike"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metapodaci"
+
+msgid "manager.language.submission.form.description"
+msgstr "Odaberi jezik prijave i metapodataka."
+
+msgid "manager.language.submission.from.error"
+msgstr "Potrebno je odabrati barem jedan jezik."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Datum početka"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datum treba biti u formatu YYYY-MM-DD ili YYYY-MM. Najraniji mogući datum je "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Datum završetka"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Neispravan format datuma."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID korisnika"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datum treba biti u formatu YYYY-MM-DD ili YYYY-MM. Zadnji mogući datum je "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Pogledaj <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\"> Counter 5.0.3 dokumentaciju</a>za više informacija o "
+"svakom izvješću."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Statistike korištenja prema COUNTER R5 još nisu dostupne."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Godina objave"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Popis ili raspon godina objave koja će se rabiti u odgovoru mora biti u "
+"formatu yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Neispravan format godine."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID prijave"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID prijave ne postoji."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Uključi podatke nadređenog zapisa"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Isključi mjesečne podatke"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "E-poruke su uspješno stavljene u red za slanje čim bude moguće."
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Odgovor na zahtjev za recenziju - Prije isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Predaja recenzije - Nakon isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Predaja recenzije - Prije isteka roka"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nijedan"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Podsjetnik nije postavljen"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Prijedlog recenzenta pri predaji"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Autor može predložiti nekoliko potencijalnih recenzenata prije dovršetka "
+"predaje radi ubrzavanja procesa recenziranja i pružanja vrijednih "
+"informacija uredničkom timu."
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Ovo se prikazuje autorima tijekom koraka prijedloga recenzenta. Navedi "
+"kratak opis informacija koje bi autor trebao pružiti o sebi, suautorima i "
+"ostalim suradnicima."
+
+msgid "notification.submissionLocales"
+msgstr "Jezici predaje su ažurirani."
+
+msgid "settings.roles.masthead"
+msgstr "Uključi ulogu u popis uredništva"
+
+msgid "settings.roles.permitSettings"
+msgstr "Dopusti izmjene postavki"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Odredi redoslijed uredničkih uloga u popisu uredništva za javni prikaz."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Autor {$authorName} nema naziv afilijacije na jeziku predaje {$localeName}. "
+"Predaja se ne može uvesti bez te informacije."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "Datoteka predaje {$id} je preskočena jer nema valjanu reviziju."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "Datoteka predaje {$id} je preskočena jer nema valjanu fazu datoteke."
+
+msgid "manager.highlights.delete"
+msgstr "Ukloni isticanje"
+
+msgid "manager.highlights.edit"
+msgstr "Uredi isticanje"
+
+msgid "manager.highlights.image"
+msgstr "Slika"
+
+msgid "manager.highlights.urlText"
+msgstr "Tekst gumba"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Tekst istaknutog gumba (npr. Pročitaj više)."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Jeste li sigurni da želite izbrisati {$title}? Ova radnja ne može se "
+"poništiti."
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Minimalan broj potrebnih potvrđenih recenzija"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalan broj potvrđenih recenzija potreban za predaju"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Instalirana verzija: {$version}"

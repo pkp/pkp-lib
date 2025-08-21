@@ -25,7 +25,6 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\editorialTask\EditorialTask;
-use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\form\Form;
@@ -86,7 +85,6 @@ class QueryForm extends Form
                 'seq' => REALLY_BIG_NUMBER,
                 'createdBy' => $currentUser->getId(),
                 'type' => EditorialTaskType::DISCUSSION->value,
-                'status' => EditorialTaskStatus::NEW->value,
                 // Add the current user as a participant by default.
                 EditorialTask::ATTRIBUTE_PARTICIPANTS => [
                     [

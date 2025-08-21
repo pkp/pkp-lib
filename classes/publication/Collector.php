@@ -32,6 +32,8 @@ class Collector implements CollectorInterface
     public ?array $contextIds;
     public ?array $submissionIds;
     public ?array $doiIds = null;
+    public ?string $versionStage = null;
+    public ?int $versionMajor = null;
     public ?array $statuses = null;
     public bool $orderByVersion = false;
     public ?int $count;
@@ -96,6 +98,18 @@ class Collector implements CollectorInterface
         return $this;
     }
 
+    public function filterByVersionStage(?string $versionStage): self
+    {
+        $this->versionStage = $versionStage;
+        return $this;
+    }
+
+    public function filterByVersionMajor(?int $versionMajor): self
+    {
+        $this->versionMajor = $versionMajor;
+        return $this;
+    }
+
     public function orderByVersion(): self
     {
         $this->orderByVersion = true;
@@ -147,6 +161,14 @@ class Collector implements CollectorInterface
         if (isset($this->statuses)) {
             $qb->whereIn('s.status', $this->statuses);
         }
+
+        $qb->when($this->versionStage !== null, function (Builder $qb) {
+            $qb->where('p.version_stage', $this->versionStage);
+        });
+
+        $qb->when($this->versionMajor !== null, function (Builder $qb) {
+            $qb->where('p.version_major', $this->versionMajor);
+        });
 
         if (isset($this->count)) {
             $qb->limit($this->count);

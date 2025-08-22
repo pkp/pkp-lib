@@ -75,7 +75,7 @@ class SubmissionAcknowledgementOtherAuthors extends Mailable
     {
         $authors = $this->submission->getCurrentPublication()->getData('authors');
 
-        if ($authors->empty()) {
+        if ($authors->isEmpty()) {
             return '';
         }
 

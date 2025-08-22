@@ -1,11 +1,11 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023, 2025.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-22 11:42+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -3402,7 +3402,7 @@ msgstr "Keskustelu (käsikirjoitusvaihe)"
 msgid "mailable.discussionSubmission.description"
 msgstr ""
 "Tämä sähköposti lähetetään, kun keskustelu luodaan tai siihen vastataan "
-"käsikirjoitusvaiheessa, eli työnkulun ensimmäisessä vaiheessa."
+"lähetysvaiheessa, eli työnkulun ensimmäisessä vaiheessa."
 
 msgid "mailable.discussionReview.name"
 msgstr "Keskustelu (arviointi)"
@@ -3478,8 +3478,8 @@ msgstr "Käsikirjoitus lähetetty takaisin käsikirjoitusvaiheeseen"
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
-"käsikirjoituksensa on lähetetty takaisin käsikirjoitusvaiheeseen, eli "
-"ensimmäiseen työvaiheeseen."
+"käsikirjoituksensa on lähetetty takaisin lähetysvaiheeseen, eli ensimmäiseen "
+"työvaiheeseen."
 
 msgid "manager.manageEmails"
 msgstr "Hallinnoi sähköposteja"

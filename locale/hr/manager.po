@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-21 19:38+0000\n"
+"PO-Revision-Date: 2025-08-22 11:42+0000\n"
 "Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr/>\n"
@@ -2312,7 +2312,7 @@ msgstr ""
 "postojećem korisniku."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testiranje"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Naslov"
@@ -2877,19 +2877,19 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "Preporučena odluka, kao što je Prihvati prijavu"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datum kada je recenzija dodijeljena"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Vrsta recenzije, na primjer Anonimna, Dvostruko anonimna ili Otvorena"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Preporuka recenzenta, na primjer Prihvati predaju ili Odbij"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Krug recenzije, na primjer Krug 1 ili Krug 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Datoteke koje je prenio recenzent"
 
 msgid "emailTemplate.variable.review.name"
 msgstr "Ime recenzenta"
@@ -3818,3 +3818,25 @@ msgstr "Minimalan broj potvrđenih recenzija potreban za predaju"
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Instalirana verzija: {$version}"
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Naziv stavke izbornika je obavezan."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Poveznica za potvrdu računa e-pošte"
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revizija {$revision} datoteke predaje {$id} je preskočena jer datoteka nije "
+"pronađena na putanji \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Slika naslovnice publikacije {$id} nije izvezena jer datoteka nije pronađena "
+"na putanji \"{$path}\"."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Poveznica na stranicu sa svim aktivnim uredničkim ulogama u popisu "
+"uredništva."

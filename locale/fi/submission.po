@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2025-08-19 16:26+0000\n"
+"PO-Revision-Date: 2025-08-22 11:42+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fi/>\n"
@@ -1792,9 +1792,9 @@ msgstr ""
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
-"Käsikirjoitus {$title} on nyt aktiivinen käsikirjoitusvaiheessa, eli "
-"ensimmäisessä työvaiheessa. Kirjoittajalle on ilmoitettu, ellet päättänyt "
-"ohittaa tätä sähköpostiviestiä."
+"Käsikirjoitus {$title} on nyt aktiivinen lähetysvaiheessa, eli ensimmäisessä "
+"työvaiheessa. Kirjoittajalle on ilmoitettu, ellet päättänyt ohittaa tätä "
+"sähköpostiviestiä."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
@@ -2744,9 +2744,8 @@ msgstr ""
 "Käsikirjoituksen lähetys on peruttu, ja kaikki siihen liittyvät tiedot on "
 "poistettu."
 
-#, fuzzy
 msgid "author.authorNotFound"
-msgstr "Kirjoittajaa ei löytynyt."
+msgstr "Kirjoittajaa tälle affiliaatiolle ei löytynyt."
 
 msgid "author.affiliationRorAndNameEmpty"
 msgstr "Anna ROR-tunniste tai affiliaation nimi."
@@ -2754,6 +2753,11 @@ msgstr "Anna ROR-tunniste tai affiliaation nimi."
 msgid "author.affiliationNamePrimaryLocaleMissing"
 msgstr "Anna affiliaation nimi käsikirjoituksen pääasiallisella kielellä."
 
-#, fuzzy
 msgid "ror.nameRequired"
 msgstr "ROR-tunniste vaaditaan."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Arvioijaehdotusta varten"
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR-kieli vaaditaan."

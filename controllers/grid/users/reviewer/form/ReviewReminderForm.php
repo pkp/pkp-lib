@@ -90,6 +90,11 @@ class ReviewReminderForm extends Form
         // Don't expose the reviewer's one-click access URL to editors
         $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
         $body = Mail::compileParams($template->getLocalizedData('body'), $data);
+        $body = preg_replace(
+            '/<a[^>]+href="[^"]*\{\$reviewAssignmentUrl\}[^"]*"[^>]*>.*?<\/a>/i',
+            'login to the {$reviewAssignmentUrl}',
+            $body
+        );
 
         $this->setData('stageId', $reviewAssignment->getStageId());
         $this->setData('reviewAssignmentId', $reviewAssignment->getId());

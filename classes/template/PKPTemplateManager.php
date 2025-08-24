@@ -659,7 +659,7 @@ class PKPTemplateManager extends Smarty
      */
     public function setConstants(array $constants): void
     {
-        $this->_constants = array_merge($this->_constants, $constants);
+        $this->_constants = deepArrayMerge($this->_constants, $constants);
     }
 
     /**
@@ -914,14 +914,18 @@ class PKPTemplateManager extends Smarty
             'ROLE_ID_READER' => Role::ROLE_ID_READER,
             'ROLE_ID_SUB_EDITOR' => Role::ROLE_ID_SUB_EDITOR,
             'ROLE_ID_SUBSCRIPTION_MANAGER' => Role::ROLE_ID_SUBSCRIPTION_MANAGER,
-            'STATUS_QUEUED' => Submission::STATUS_QUEUED,
-            'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
-            'STATUS_DECLINED' => Submission::STATUS_DECLINED,
-            'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
-            'PUBLICATION_STATUS_QUEUED' => Publication::STATUS_QUEUED,
-            'PUBLICATION_STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
-            'PUBLICATION_STATUS_DECLINED' => Publication::STATUS_DECLINED,
-            'PUBLICATION_STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
+            'submission' => [
+                'STATUS_QUEUED' => Submission::STATUS_QUEUED,
+                'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
+                'STATUS_DECLINED' => Submission::STATUS_DECLINED,
+                'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
+            ],
+            'publication' => [
+                'STATUS_QUEUED' => Publication::STATUS_QUEUED,
+                'STATUS_PUBLISHED' => Publication::STATUS_PUBLISHED,
+                'STATUS_DECLINED' => Publication::STATUS_DECLINED,
+                'STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
+            ],
         ]);
 
         $hash = Locale::getUITranslator()->getCacheHash();

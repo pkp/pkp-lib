@@ -1411,6 +1411,10 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
 
+        if (array_key_exists('status', $params) && is_null($params['status'])) {
+            unset($params['status']);
+        }
+
         // Only allow to update the status if it's a pre-publish status
         // For the publishing statuses, the `/publish` and /unpublish endpoints should be used instead.
         if (array_key_exists('status', $params)

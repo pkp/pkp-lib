@@ -51,6 +51,11 @@ class QueryWritePolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
+        // User who created a task can always edit or delete it.
+        if ($editTask->createdBy == $user->getId()) {
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+        }
+
         // Check roles within the stage assignments and review assignments related to the query.
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $roles = $accessibleWorkflowStages[$editTask->stageId];

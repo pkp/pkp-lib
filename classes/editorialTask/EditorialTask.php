@@ -60,8 +60,8 @@ class EditorialTask extends Model
         'dateDue' => 'datetime:Y-m-d',
         'createdBy' => 'int',
         'type' => 'int',
-        'dateStarted' => 'datetime:Y-m-d',
-        'dateClosed' => 'datetime:Y-m-d',
+        'dateStarted' => 'datetime',
+        'dateClosed' => 'datetime',
         'title' => 'string',
     ];
 

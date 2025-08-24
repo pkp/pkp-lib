@@ -226,7 +226,7 @@ class QueryForm extends Form
                 'queryId' => $query->id,
                 'subject' => $headNote?->title,
                 'comment' => $headNote?->contents,
-                'userIds' => Participant::withTaskId($query->id)
+                'userIds' => Participant::withTaskIds([$query->id])
                     ->pluck('user_id')
                     ->all(),
                 'template' => null,
@@ -321,7 +321,7 @@ class QueryForm extends Form
 
         // Get currently selected participants in the query
         $assignedParticipants = $query->id
-            ? Participant::withTaskId($query->id)->get()->map(fn ($qp) => $qp->userId)->all()
+            ? Participant::withTaskIds([$query->id])->get()->map(fn ($qp) => $qp->userId)->all()
             : [];
 
         // Always include current user, even if not with a stage assignment

@@ -173,6 +173,7 @@ class QueriesGridHandler extends GridHandler
      * @copydoc GridHandler::initialize()
      *
      * @param null|mixed $args
+     *
      * @throws Exception
      */
     public function initialize($request, $args = null)
@@ -595,7 +596,7 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->id)) {
             return new JSONMessage(false);
         }
-        $oldParticipantIds = Participant::withTaskId($query->id)
+        $oldParticipantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
 
@@ -727,7 +728,7 @@ class QueriesGridHandler extends GridHandler
         $queryId = $args['queryId'];
         $user = $request->getUser();
         if ($user && $this->_getCurrentUserCanLeave($queryId)) {
-            Participant::withTaskId($queryId)
+            Participant::withTaskIds([$queryId])
                 ->withUserId($user->getId())
                 ->delete();
             $json = new JSONMessage();
@@ -751,7 +752,7 @@ class QueriesGridHandler extends GridHandler
         if (!count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, ], $userRoles))) {
             return false;
         }
-        $participantIds = Participant::withTaskId($queryId)
+        $participantIds = Participant::withTaskIds([$queryId])
             ->pluck('user_id')
             ->all();
         if (count($participantIds) < 3) {

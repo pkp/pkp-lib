@@ -244,7 +244,6 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Tasks and discussions on submission workflow
         Schema::create('edit_tasks', function (Blueprint $table) {
-            ;
             $table->comment('Editorial tasks and discussions, usually related to a submission, created by editors, authors and other editorial staff.');
             $table->bigInteger('edit_task_id')->autoIncrement();
             $table->bigInteger('assoc_type');

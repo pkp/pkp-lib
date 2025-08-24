@@ -155,7 +155,7 @@ class QueryNoteForm extends Form
         $query->save();
 
         // Always include current user to query participants
-        $participantIds = Participant::withTaskId($query->id)
+        $participantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
         if (!in_array($user->getId(), $participantIds)) {

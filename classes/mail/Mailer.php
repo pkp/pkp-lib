@@ -27,6 +27,7 @@ use PKP\config\Config;
 use PKP\observers\events\MessageSendingFromContext;
 use PKP\observers\events\MessageSendingFromSite;
 use PKP\site\Site;
+use PKP\plugins\Hook;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\Transport\TransportInterface;
@@ -158,6 +159,7 @@ class Mailer extends IlluminateMailer
     {
         $sentMessage = null;
         try {
+            Hook::call('Email::send::before', ['message' => $message, 'mailer' => $this]);
             $sentMessage = $this->transport->send($message, Envelope::create($message));
         } catch (TransportException $e) {
             error_log($e->getMessage());

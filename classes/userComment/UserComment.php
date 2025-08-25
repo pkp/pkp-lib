@@ -73,6 +73,16 @@ class UserComment extends Model
     }
 
     /**
+     * @copydoc \PKP\core\traits\ModelWithSettings::getSettings
+     */
+    public function getSettings(): array
+    {
+        return [
+            'approvedAt',
+            'approvedByUserId'
+        ];
+    }
+    /**
      * Get the primary key of the model as 'id' property.
      */
     protected function id(): Attribute
@@ -89,6 +99,19 @@ class UserComment extends Model
     {
         return Attribute::make(
             get: fn () => Repo::user()->get($this->userId, true),
+        )->shouldCache();
+    }
+
+
+    /**
+     * Accessor for publication. Can be replaced with relationship once Publication is converted to an Eloquent Model.
+     */
+    protected function publication(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                return Repo::publication()->get($this->publicationId);
+            },
         )->shouldCache();
     }
 

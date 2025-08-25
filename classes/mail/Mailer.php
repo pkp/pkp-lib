@@ -159,7 +159,7 @@ class Mailer extends IlluminateMailer
     {
         $sentMessage = null;
         try {
-            Hook::call('Email::BeforeSend', [$message]);
+            Hook::call('Email::send::before', [$message]);
             $sentMessage = $this->transport->send($message, Envelope::create($message));
         } catch (TransportException $e) {
             error_log($e->getMessage());

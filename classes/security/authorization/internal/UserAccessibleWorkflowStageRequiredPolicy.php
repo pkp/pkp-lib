@@ -18,8 +18,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use APP\facades\Repo;
-use PKP\core\PKPApplication;
+use PKP\security\Role;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -53,39 +52,40 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
      */
     public function effect(): int
     {
-        $request = $this->_request;
-        $context = $request->getContext();
-        $contextId = $context->getId();
-        $user = $request->getUser();
-        if (!$user instanceof \PKP\user\User) {
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
-        }
+        $accessible = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
-        $accessibleWorkflowStages = Repo::user()->getAccessibleWorkflowStages(
-            $user->getId(),
-            $contextId,
-            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION),
-            $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES)
-        );
+        $userRoles = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+        $isSubEditor = in_array(Role::ROLE_ID_SUB_EDITOR, $userRoles, true);
+        $isManagerOrAdmin = in_array(Role::ROLE_ID_MANAGER, $userRoles, true)
+            || in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles, true);
 
-        // Does the user have a role which matches the requested workflow?
-        if (!is_null($this->_workflowType)) {
-            $workflowTypeRoles = Application::getWorkflowTypeRoles();
-            foreach ($accessibleWorkflowStages as $stageId => $roles) {
-                if (array_intersect($workflowTypeRoles[$this->_workflowType], $roles)) {
-                    return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+        if ($isSubEditor || $isManagerOrAdmin) {
+            foreach ([
+                WORKFLOW_STAGE_ID_SUBMISSION,
+                WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
+                WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
+                WORKFLOW_STAGE_ID_EDITING,
+                WORKFLOW_STAGE_ID_PRODUCTION,
+            ] as $stageId) {
+                $existing = $accessible[$stageId] ?? [];
+                if ($isSubEditor && !in_array(Role::ROLE_ID_SUB_EDITOR, $existing, true)) {
+                    $existing[] = Role::ROLE_ID_SUB_EDITOR;
                 }
+                if ($isManagerOrAdmin && !in_array(Role::ROLE_ID_MANAGER, $existing, true)) {
+                    $existing[] = Role::ROLE_ID_MANAGER;
+                }
+                $accessible[$stageId] = $existing;
             }
-            return AuthorizationPolicy::AUTHORIZATION_DENY;
 
-            // User has at least one role in any stage in any workflow
-        } elseif (!empty($accessibleWorkflowStages)) {
-            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+            $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessible);
         }
 
-        return AuthorizationPolicy::AUTHORIZATION_DENY;
+        if (empty($accessible)) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
+
+        return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }
 

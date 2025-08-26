@@ -18,6 +18,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use PKP\security\Role;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
@@ -54,22 +55,33 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
      */
     public function effect(): int
     {
-        $userAccessibleStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userRoles = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (
+            in_array(Role::ROLE_ID_SUB_EDITOR, $userRoles, true) ||
+            in_array(Role::ROLE_ID_MANAGER, $userRoles, true) ||
+            in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles, true)
+        ) {
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
+        }
 
-        // User has no access to any stage in any workflow
+        $userAccessibleStages = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+
         if (empty($userAccessibleStages)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
 
-            // Does user have access to this stage in the requested workflow?
-        } elseif (!is_null($this->_workflowType)) {
+        if (!is_null($this->_workflowType)) {
             $workflowTypeRoles = Application::getWorkflowTypeRoles();
-            if (array_key_exists($this->_stageId, $userAccessibleStages) && array_intersect($workflowTypeRoles[$this->_workflowType], $userAccessibleStages[$this->_stageId])) {
+            if (
+                array_key_exists($this->_stageId, $userAccessibleStages) &&
+                array_intersect($workflowTypeRoles[$this->_workflowType] ?? [], $userAccessibleStages[$this->_stageId] ?? [])
+            ) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
             return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
 
-            // The user has access to this stage in any workflow
-        } elseif (array_key_exists($this->_stageId, $userAccessibleStages)) {
+        if (array_key_exists($this->_stageId, $userAccessibleStages)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

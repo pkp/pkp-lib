@@ -136,7 +136,7 @@ class PKPJatsController extends PKPBaseController
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
 
         $jatsFilesProp = Repo::jats()
-            ->summarize($jatsFile);
+            ->summarize($jatsFile, $submission);
 
         return response()->json($jatsFilesProp, Response::HTTP_OK);
     }
@@ -178,7 +178,8 @@ class PKPJatsController extends PKPBaseController
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
 
         $jatsFilesProp = Repo::jats()
-            ->summarize($jatsFile);
+            ->summarize($jatsFile, $submission);
+
         
         return response()->json($jatsFilesProp, Response::HTTP_OK);
     }
@@ -211,7 +212,7 @@ class PKPJatsController extends PKPBaseController
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
 
         $jatsFilesProp = Repo::jats()
-            ->summarize($jatsFile);
+            ->summarize($jatsFile, $submission);
         
         return response()->json($jatsFilesProp, Response::HTTP_OK);
     }

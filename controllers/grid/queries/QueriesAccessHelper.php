@@ -191,7 +191,7 @@ class QueriesAccessHelper
      */
     protected function isAssigned($userId, $queryId)
     {
-        $participantIds = Participant::withTaskId($queryId)
+        $participantIds = Participant::withTaskIds([$queryId])
             ->pluck('user_id')
             ->all();
         return in_array($userId, $participantIds);

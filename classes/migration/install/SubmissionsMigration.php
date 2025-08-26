@@ -244,7 +244,6 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Tasks and discussions on submission workflow
         Schema::create('edit_tasks', function (Blueprint $table) {
-            ;
             $table->comment('Editorial tasks and discussions, usually related to a submission, created by editors, authors and other editorial staff.');
             $table->bigInteger('edit_task_id')->autoIncrement();
             $table->bigInteger('assoc_type');
@@ -258,7 +257,9 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('created_by')->nullable()->default(null);
             $table->foreign('created_by')->references('user_id')->on('users');
             $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
-            $table->unsignedSmallInteger('status')->default(1); // record about the last activity, default EditorialTask:STATUS_NEW
+            $table->dateTime('date_started')->nullable();
+            $table->dateTime('date_closed')->nullable();
+            $table->string('title')->nullable();
             $table->index(['assoc_type', 'assoc_id'], 'edit_tasks_assoc_id');
         });
 

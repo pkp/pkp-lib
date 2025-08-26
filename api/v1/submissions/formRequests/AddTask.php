@@ -20,7 +20,6 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Validation\Rule;
 use PKP\core\PKPApplication;
-use PKP\editorialTask\enums\EditorialTaskStatus;
 
 class AddTask extends EditTask
 {
@@ -47,7 +46,6 @@ class AddTask extends EditTask
     {
         $this->merge([
             'createdBy' => Application::get()->getRequest()?->getUser()?->getId(),
-            'status' => EditorialTaskStatus::NEW->value,
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $this->route('submissionId'),
         ]);

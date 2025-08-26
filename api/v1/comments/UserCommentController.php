@@ -134,10 +134,21 @@ class UserCommentController extends PKPBaseController
             $publicationIds[] = (int)$id;
         }
 
-        $query = UserComment::withPublicationIds($publicationIds)
-            ->withContextIds([$this->getRequest()->getContext()->getId()])
+        $query = UserComment::withContextIds([$this->getRequest()->getContext()->getId()])
             ->withIsApproved(true);
 
+
+        $user = $this->getRequest()->getUser();
+
+        // Allow logged-in user to see their own unapproved comments.
+        if ($user) {
+            $query->orWhere(function ($query) use ($user) {
+                $query->where('user_id', $user->getId())
+                    ->where('is_approved', false);
+            });
+        }
+
+        $query->withPublicationIds($publicationIds);
         $paginatedInfo = Repo::userComment()
             ->setPage($illuminateRequest->query('page') ?? 1)
             ->getPaginatedData($query);

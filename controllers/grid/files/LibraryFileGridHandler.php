@@ -110,6 +110,14 @@ class LibraryFileGridHandler extends CategoryGridHandler
         // Basic grid row configuration
         $this->addColumn($this->getFileNameColumn());
 
+        $this->addColumn(new GridColumn(
+            'url',
+            'common.url',
+            null,
+            null,
+            new LibraryFileGridCellProvider()
+        ));
+
         $router = $request->getRouter();
 
         // Add grid-level actions

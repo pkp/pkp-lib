@@ -2346,8 +2346,11 @@ msgstr "All Versions"
 msgid "publication.version.confirm"
 msgstr "Are you sure you want to create a new version?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr "The abstract is too long. It should be {$limit} words or less. It is currently {$count} words long."
+
+msgid "publication.plainLanguageSummary.wordCountLong"
+msgstr "The plain language summary is too long. It should be {$limit} words or less. It is currently {$count} words long."
 
 msgid "publication.wordCount"
 msgstr "Word Count: {$count}/{$limit}"

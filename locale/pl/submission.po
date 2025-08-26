@@ -2572,7 +2572,7 @@ msgstr "Wszystkie wersje"
 msgid "publication.version.confirm"
 msgstr "Czy na pewno chcesz stworzyć nową wersje metadanych?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrakt jest zbyt długi. Limit wynosi {$limit} słów lub mniej. W tej chwili "
 "jest o {$count} słów za długi."

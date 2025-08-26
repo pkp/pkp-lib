@@ -40,9 +40,12 @@ use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\traits\HasWordCountValidation;
 
 abstract class Repository
 {
+    use HasWordCountValidation;
+
     /** @var DAO */
     public $dao;
 
@@ -212,6 +215,15 @@ abstract class Repository
                 }
             });
         }
+
+        // validate the requirement of Plain language summary
+        $validator->after(function ($validator) use ($props, $context, $primaryLocale) {
+            if ($context->getData('plainLanguageSummary') === Context::METADATA_REQUIRE) {
+                if (empty($props['plainLanguageSummary']) || !isset($props['plainLanguageSummary'][$primaryLocale])) {
+                    $validator->errors()->add('plainLanguageSummary.' . $primaryLocale, __('validator.required'));
+                }
+            }
+        });
 
         // If a new file has been uploaded, check that the temporary file exists and
         // the current user owns it

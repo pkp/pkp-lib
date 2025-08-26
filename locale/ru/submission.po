@@ -2630,7 +2630,7 @@ msgstr "Все версии"
 msgid "publication.version.confirm"
 msgstr "Вы уверены, что хотите создать новую версию?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В "
 "данный момент её длина {$count} слов."

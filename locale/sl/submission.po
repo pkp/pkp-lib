@@ -2553,7 +2553,7 @@ msgstr "Vse verzije"
 msgid "publication.version.confirm"
 msgstr "Ste prepričani, da želite ustvariti novo verzijo?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Izvleček je predolg. Največja dolžina je {$limit} besed. Trenutno je dolg "
 "{$count} besed."

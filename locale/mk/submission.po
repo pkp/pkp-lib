@@ -2591,7 +2591,7 @@ msgstr "Сите верзии"
 msgid "publication.version.confirm"
 msgstr "Дали сте сигурни дека сакате да создадете нова верзија?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Апстрактот е премногу долг. Треба да има {$limit} или помалку зборови. "
 "Моментално има {$count} зборови."

@@ -2586,7 +2586,7 @@ msgstr "Tutte le versioni"
 msgid "publication.version.confirm"
 msgstr "Sei sicuro di voler creare una nuova versione?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "L'abstract è troppo lungo: è di {$count} mentre non deve superare le "
 "{$limit} parole."

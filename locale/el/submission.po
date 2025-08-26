@@ -2463,7 +2463,7 @@ msgstr "Όλες οι εκδόσεις"
 msgid "publication.version.confirm"
 msgstr ""
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Η περίληψη είναι πολύ μεγάλη. Θα πρέπει να είναι {$limit} λέξεις ή "
 "λιγότερες. Προς το παρόν είναι {$count} λέξεις."

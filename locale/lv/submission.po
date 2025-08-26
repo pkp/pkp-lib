@@ -421,7 +421,7 @@ msgstr ""
 msgid "publication.titleAbstract"
 msgstr "Virsraksts un kopsavilkums"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Kopsavilkums ir pārāk garš. Tam jābūt ne vairāk kā {$limit} vārdus garam. "
 "Šobrīd tā garums {$count} vārdu."

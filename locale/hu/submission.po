@@ -2509,7 +2509,7 @@ msgstr "Minden verzió"
 msgid "publication.version.confirm"
 msgstr "Biztosan új verziót szeretne létrehozni?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Az absztrakt túl hosszú.  {$limit} vagy kevesebb szóból kell állnia. "
 "Jelenleg {$count} szó hosszú."

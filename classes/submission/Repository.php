@@ -45,9 +45,12 @@ use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
+use PKP\submission\traits\HasWordCountValidation;
 
 abstract class Repository
 {
+    use HasWordCountValidation;
+    
     public const STAGE_STATUS_SUBMISSION_UNASSIGNED = 1;
 
     /** @var DAO $dao */
@@ -476,6 +479,12 @@ abstract class Repository
                         : __('submission.files.required.genre', ['genre' => $missingGenreNames->first()])
                 ];
             }
+        }
+
+        // check required plain language sumary
+        if ($context->getData('plainLanguageSummary') === Context::METADATA_REQUIRE
+            && !$publication->getData('plainLanguageSummary', $locale)) {
+            $errors['plainLanguageSummary'] = [$locale => [__('validator.required')]];
         }
 
         Hook::call('Submission::validateSubmit', [&$errors, $submission, $context]);

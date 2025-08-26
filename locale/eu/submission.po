@@ -2581,7 +2581,7 @@ msgstr "Bertsio guztiak"
 msgid "publication.version.confirm"
 msgstr "Ziur zaude bertsio berri bat sortu nahi duzula?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Laburpena luzeegia da. {$limit} hitz edo gutxiago izan beharko lituzke. Une "
 "honetan {$count} hitz ditu."

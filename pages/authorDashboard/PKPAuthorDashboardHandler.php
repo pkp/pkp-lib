@@ -245,10 +245,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $citationsForm = new PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 
         $templateMgr->setConstants([
-            'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
-            'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
-            'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
-            'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
             'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
             'FORM_CITATIONS' => $citationsForm::FORM_CITATIONS,
         ]);

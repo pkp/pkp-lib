@@ -3751,3 +3751,9 @@ msgstr "Validate XML before the export and registration."
 
 msgid "manager.selectCategories"
 msgstr "Select Categories"
+
+msgid "manager.userComments.comments"
+msgstr "Comments"
+
+msgid "manager.userComments.enableComments"
+msgstr "Enable Public Comments"

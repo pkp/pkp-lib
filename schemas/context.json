@@ -988,6 +988,14 @@
 				"nullable",
 				"in:0,enable,request,require"
 			]
+		},
+		"enablePublicComments": {
+			"type": "boolean",
+			"description": "Whether or not the public commenting feature should be enabled.",
+			"default": false,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

@@ -1,13 +1,14 @@
 # Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2023.
 # Maria Lamury <marialamury@gmail.com>, 2025.
 # Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>, 2025.
+# Muhammad Fauzi <fauzi.padlaw@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2025-05-03 17:35+0000\n"
-"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
+"PO-Revision-Date: 2025-08-26 06:07+0000\n"
+"Last-Translator: Muhammad Fauzi <fauzi.padlaw@gmail.com>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "id/>\n"
 "Language: id\n"
@@ -101,7 +102,7 @@ msgid "user.editMyProfile"
 msgstr "Edit Profil Saya"
 
 msgid "user.email"
-msgstr "Surel"
+msgstr "Email"
 
 msgid "user.givenName"
 msgstr "Nama Depan"
@@ -935,3 +936,6 @@ msgid "user.removeRole.roleRemainMessage"
 msgstr ""
 "Anda tidak dapat menghapus peran tersebut. Setidaknya satu peran harus "
 "ditetapkan kepada pengguna."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Email akan otomatis terkirim setelah penulis ditambahkan."

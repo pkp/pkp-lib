@@ -20,6 +20,8 @@ import * as usePkpUrl from '@/frontend/composables/usePkpUrl.js';
 import * as usePkpFetch from '@/frontend/composables/usePkpFetch.js';
 import * as usePkpFetchPaginated from '@/frontend/composables/usePkpFetchPaginated.js';
 import * as usePkpModal from '@/frontend/composables/usePkpModal.js';
+import * as usePkpLocalize from '@/frontend/composables/usePkpLocalize';
+import * as usePkpDate from '@/frontend/composables/usePkpDate';
 
 // Directives
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
@@ -32,6 +34,9 @@ import PkpAccordion from '@/frontend/components/PkpAccordion/PkpAccordion.vue';
 import PkpTextarea from '@/frontend/components/PkpTextarea/PkpTextarea.vue';
 import PkpDropdownActions from '@/frontend/components/PkpDropdownActions/PkpDropdownActions.vue';
 import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
+import PkpUserComment from '@/frontend/components/PkpUserComment/PkpUserComment.vue';
+import PkpUserCommentsList from '@/frontend/components/PkpUserComment/PkpUserCommentsList.vue';
+import PkpScrollToComments from '@/frontend/components/PkpUserComment/PkpScrollToComments.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -45,6 +50,9 @@ VueRegistry.registerComponent('PkpModalManager', PkpModalManager);
 VueRegistry.registerComponent('PkpTextarea', PkpTextarea);
 VueRegistry.registerComponent('PkpDropdownActions', PkpDropdownActions);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
+VueRegistry.registerComponent('PkpUserComment', PkpUserComment);
+VueRegistry.registerComponent('PkpUserCommentsList', PkpUserCommentsList);
+VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 
 const pinia = createPinia();
 
@@ -89,6 +97,8 @@ export default {
 		usePkpFetch,
 		usePkpFetchPaginated,
 		usePkpModal,
+		usePkpLocalize,
+		usePkpDate,
 	},
 	pkpCreateVueApp,
 	createApp,

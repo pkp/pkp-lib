@@ -1243,9 +1243,10 @@ class PKPSubmissionController extends PKPBaseController
 
         // only proceed if user is allowed to edit publications
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        $roleBypass = array_intersect($userRoles, [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]);
-
-        if (empty($roleBypass) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (
+            !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) &&
+            !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())
+        ) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);
@@ -1714,9 +1715,7 @@ class PKPSubmissionController extends PKPBaseController
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        $roleBypass = array_intersect($userRoles, [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]);
-
-        if (empty($roleBypass) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);

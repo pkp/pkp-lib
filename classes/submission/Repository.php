@@ -519,6 +519,13 @@ abstract class Repository
             ->get();
 
         $submission = $this->get($submissionId);
+
+        // if user has no stage assigments, check if user can edit anyway ie. is manager
+        $context = Application::get()->getRequest()->getContext();
+        if ($this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+            return true;
+        }
+
         // any published or scheduled then probe
         $hasLockedPublication = $submission?->getData('publications')
             ->contains(
@@ -536,12 +543,6 @@ abstract class Repository
         if ($assignments->contains(fn($sa) => $sa->canChangeMetadata)) {
             return true;
         }
-        // If user has no stage assigments, check if user can edit anyway ie. is manager
-        $context = Application::get()->getRequest()->getContext();
-        if ($assignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
-            return true;
-        }
-        // Else deny access
         return false;
     }
 

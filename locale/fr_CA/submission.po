@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-08-27 17:56+0000\n"
+"PO-Revision-Date: 2025-08-28 04:27+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
@@ -2572,10 +2572,9 @@ msgstr ""
 msgid "submission.wizard.validating"
 msgstr "Soumission en vérification"
 
-#, fuzzy
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
-"Ajouter toute information pertinente pour l'évaluation de votre soumission."
+"Ajoutez toute information pertinente pour l'évaluation de votre soumission."
 
 #, fuzzy
 msgid "submission.wizard.confirm"
@@ -2862,3 +2861,178 @@ msgid "submission.list.changeSubmissionLanguage.languageDescription"
 msgstr ""
 "Ceci est la langue initiale de la soumission. Les modifications auront un "
 "effet sur la soumission et ses métadonnées."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Avant de modifier la langue de cette soumission, assurez-vous "
+"d'avoir complété les champs de métadonnées suivants afin de préserver "
+"l'intégrité du système. Les informations des contributeur-trices et les noms "
+"de fichiers seront copiés à partir des informations saisies "
+"précédemment.</strong>"
+
+#, fuzzy
+msgid "submission.list.completeSubmission"
+msgstr "Compléter la soumission"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Souhaitez-vous vraiment annuler cette soumission? Si vous acceptez, la "
+"soumission et toutes les métadonnées associées seront supprimées. Cette "
+"action est irréversible."
+
+#, fuzzy
+msgid "submission.dashboard.view.assigned"
+msgstr "Assignées à moi"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Toutes les assignations"
+
+#, fuzzy
+msgid "submission.dashboard.view.scheduled"
+msgstr "Publication programmée"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "En attente d'évaluations"
+
+#, fuzzy
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirmer la suppression du XML JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Ce fichier JATS est généré automatiquement à partir des métadonnées de la "
+"soumission"
+
+#, fuzzy
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Une erreur s'est produite lors de la création du fichier JATS par défaut. "
+"Veuillez-vous assurer que le plugiciel JatsTemplate est installé."
+
+msgid "author.competingInterests"
+msgstr "Conflit d'intérêts"
+
+#, fuzzy
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Saisissez le titre en {$language}. Vous pouvez formatter le titre tel que "
+"nécessaire."
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Il est recommandé d'ajouter un résumé en {$language} afin d'assurer "
+"l'accessibilité du contenu."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Personne n'a été suggéré pour évaluer cette soumission."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Le nom d'une ou plusieurs affiliations manque en {$language} pour un.e ou "
+"plusieurs contributeur-trices."
+
+msgid "submission.dashboard.view.active"
+msgstr "Soumissions actives"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Sans éditeur-trice"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Sans évaluations"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Évaluations soumises"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Évaluations en retard"
+
+msgid "submission.dashboard.view.production"
+msgstr "En production"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "En révision"
+
+#, fuzzy
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "En soumission initiale"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "En évaluation par les pairs"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "En cours d'évaluation"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Refusées"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publiées"
+
+#, fuzzy
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Révisions demandées"
+
+#, fuzzy
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Révisions des auteur-trices complétées"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Soumissions incomplètes"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Toutes les assignations"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "En attente"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Action requise de ma part"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archivées"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Refusées"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Complétées"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publiées"
+
+#, fuzzy
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Évaluation (Cycle {$round})"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Complétées / refusées"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Publication programmée"
+
+msgid "submission.stage.published"
+msgstr "Publiées"
+
+#, fuzzy
+msgid "publication.jats"
+msgstr "XML JATS"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Vous êtes sur le point de supprimer le XML JATS de cette publication. "
+"Souhaitez-vous vraiment faire cette suppression?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Supprimer le fichier JATS"
+
+msgid "publication.jats.lastModified"
+msgstr "Dernière modification le {$modificationDate} par {$username}"
+
+msgid "submission.files.content.error"
+msgstr "Le contenu du fichier de soumission '{$fileName}' n'a pu être récupéré."
+
+#, fuzzy
+msgid "author.competingInterests.description"
+msgstr ""
+"Veuillez déclarer tout conflit d'intérêts potentiel de cette personne par "
+"rapport au sujet de recherche."

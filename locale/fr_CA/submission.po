@@ -1,4 +1,4 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023, 2025.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-06-17 20:19+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2025-08-27 17:56+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -1344,15 +1344,15 @@ msgstr "Les révisions ont été demandées."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Les révisions ont été soumises et une décision est requise."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
-"La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
+"Les révisions demandées à l'auteur-trice doivent faire l'objet d'un nouveau "
+"cycle d'évaluation."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
 msgstr ""
-"La soumission a été soumise à nouveau pour un autre cycle d'évaluation."
+"Des révisions ont été soumises, et un nouveau cycle d'évaluation doit être "
+"créé."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Envoyée à un-e évaluateur-trice externe."
@@ -1372,10 +1372,9 @@ msgstr "En attente des réponses des évaluateurs-trices."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr ""
-"Les évaluateurs-trices ont complété leur tâche. Une décision est requise."
+"Toutes les évaluations ont été complétées, et une décision doit être prise."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Une évaluation est en retard."
@@ -1825,12 +1824,11 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "Annuler le refus"
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
-"Renverser un décision précédente afin de refuser cette soumission et de la "
-"retourner dans le processus éditorial. L'auteur-trice a été informé, à moins "
-"que vous ayez décidé de ne pas envoyer de notification."
+"Renverser la décision initiale de refuser cette soumission, et la renvoyer "
+"dans le processus éditorial. L'auteur-trice a été informé, à moins que vous "
+"ayez décidé de ne pas envoyer de notification."
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} a renversé la décision de refuser cette soumission."
@@ -1845,9 +1843,8 @@ msgstr "La soumission, {$title}, est à nouveau active à l'étape d'évaluation
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
 "Envoyer un courriel aux auteurs-trices afin de les informer que la décision "
-"initiale de refuser la soumission a été renversée. Justifier pourquoi la "
-"décision a été renversée et laisser leur savoir si leur soumission doit "
-"subir une nouvelle évaluation."
+"initiale de refuser la soumission a été renversée. Justifiez le renversement "
+"de la décision, et indiquez si la soumission subira une nouvelle évaluation."
 
 #, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
@@ -1856,11 +1853,10 @@ msgstr ""
 "'auteur-trice a été informé, à moins que vous ayez décidé de ne pas envoyer "
 "de notification."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Assigner un-e rédacteur-trice pour activer les décisions éditoriales à cette "
-"étape."
+"Assigner un-e rédacteur-trice pour activer les décisions éditoriales de "
+"cette étape."
 
 #, fuzzy
 msgid "editor.submission.recommend.notifyEditors.description"
@@ -1907,17 +1903,15 @@ msgstr "{$editorName} recommande que des révisions soient demandées."
 msgid "editor.submission.recommend.resubmit"
 msgstr "Recommander de resoumettre à une évaluation"
 
-#, fuzzy
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
-"Recommander que l'auteur-trice soumette une nouvelle version révisée pour un "
-"nouveau cycle d'évaluation."
+"Recommander que l'auteur-trice soumette une version révisée pour un nouveau "
+"cycle d'évaluation."
 
-#, fuzzy
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
 "{$editorName} a recommandé que des révisions soient demandées et que les "
-"révisions soient soumisses à un nouveau cycle d'évaluation."
+"révisions soient soumises à un nouveau cycle d'évaluation."
 
 #, fuzzy
 msgid "editor.submission.recommend.decline"
@@ -2820,3 +2814,51 @@ msgstr ""
 
 msgid "submission.author.list"
 msgstr "Liste des auteurs-es de la soumission"
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Veuillez fournir une affiliation ROR ou au moins un nom d'affiliation."
+
+#, fuzzy
+msgid "ror.nameRequired"
+msgstr "Un nom ROR est requis."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Veuillez indiquer le nom de l'affiliation dans la langue initiale de la "
+"soumission."
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Vous avez émis une recommandation."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Langue de cette soumission:"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Modifier la langue de la soumission"
+
+msgid "ror.displayLocaleRequired"
+msgstr "La langue d'affichage ROR est requise."
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuler la soumission"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Attention: cette version a été publiée. Tout modification pourrait se "
+"répercuter sur le contenu publié."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Soumission annulée"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"La soumission a été annulée, et toutes les métadonnées associées ont été "
+"supprimées."
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Modifier"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Ceci est la langue initiale de la soumission. Les modifications auront un "
+"effet sur la soumission et ses métadonnées."

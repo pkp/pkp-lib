@@ -1,21 +1,24 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2022, 2023.
 # Maria Češnik <mariaces237@gmail.com>, 2023.
+# Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-03-03 16:17+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2025-08-18 12:43+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -1438,7 +1441,7 @@ msgid "navigation.about"
 msgstr "O časopisu"
 
 msgid "navigation.admin"
-msgstr "Uprava"
+msgstr "Administracija stranice"
 
 msgid "navigation.archives"
 msgstr "Arhiva"
@@ -1925,7 +1928,7 @@ msgid "notification.type.awaitingCopyedits"
 msgstr "Čeka se uređivanje."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Status runde {$round}"
+msgstr "Status {$round} kruga"
 
 msgid "notification.type.editorialReport"
 msgstr "Sažetak statističkog izvješća."
@@ -2296,3 +2299,23 @@ msgstr "Autor uređen."
 
 #~ msgid "search.searchCategories"
 #~ msgstr "Kategorije pretraživanja"
+
+msgid "common.moreActions"
+msgstr "Više radnji"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Pogledajte <a href=\"{$url}\">uredničku povijest</a>"
+
+msgid "common.editorialMasthead"
+msgstr "Popis uredništva"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Recenzenti u prethodnoj godini"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Recenzenti iz prethodnih godina"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Uredništvo izražava zahvalnost recenzentima za {$year}, navedenima u "
+"nastavku."

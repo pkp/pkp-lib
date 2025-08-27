@@ -3,13 +3,14 @@
 # Emma U <emmaupkp@gmail.com>, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2024.
 # Ralf Weber <ralf@weberr.de>, 2025.
+# Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2025-07-11 08:51+0000\n"
-"Last-Translator: Ralf Weber <ralf@weberr.de>\n"
+"PO-Revision-Date: 2025-08-18 13:10+0000\n"
+"Last-Translator: Sebastian Wolf <bibliothekswelt@htmlwolf.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
 "Language: de\n"
@@ -2406,3 +2407,7 @@ msgstr "Ungültige Daten zum Vergleich vorgesehen."
 
 msgid "validator.multilingual"
 msgstr "Mehrsprachige Anforderung für dieses Feld nicht erfüllt."
+
+#, fuzzy
+msgid "common.editorialMasthead"
+msgstr "Redaktion"

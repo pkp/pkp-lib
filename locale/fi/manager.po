@@ -1,11 +1,11 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023, 2025.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-23 17:23+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -3402,7 +3402,7 @@ msgstr "Keskustelu (käsikirjoitusvaihe)"
 msgid "mailable.discussionSubmission.description"
 msgstr ""
 "Tämä sähköposti lähetetään, kun keskustelu luodaan tai siihen vastataan "
-"käsikirjoitusvaiheessa, eli työnkulun ensimmäisessä vaiheessa."
+"lähetysvaiheessa, eli työnkulun ensimmäisessä vaiheessa."
 
 msgid "mailable.discussionReview.name"
 msgstr "Keskustelu (arviointi)"
@@ -3478,8 +3478,8 @@ msgstr "Käsikirjoitus lähetetty takaisin käsikirjoitusvaiheeseen"
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 "Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
-"käsikirjoituksensa on lähetetty takaisin käsikirjoitusvaiheeseen, eli "
-"ensimmäiseen työvaiheeseen."
+"käsikirjoituksensa on lähetetty takaisin lähetysvaiheeseen, eli ensimmäiseen "
+"työvaiheeseen."
 
 msgid "manager.manageEmails"
 msgstr "Hallinnoi sähköposteja"
@@ -3737,3 +3737,200 @@ msgstr "Tunnuslaatikko"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validoi XML ennen vientiä ja rekisteröintiä."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "COUNTER R5 -raportit"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Katso <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 -dokumentaatio</a> saadaksesi "
+"lisätietoja raporteista."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "COUNTER R5 -käyttötilastoja ei ole vielä saatavilla."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Raportin asetukset"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Aloituspäivä"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Päivämäärän tulee olla muodossa VVVV-KK-PP tai VVVV-KK. Aikaisin mahdollinen "
+"päivämäärä on {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Päivämäärän tulee olla muodossa VVVV-KK-PP tai VVVV-KK. Myöhäisin "
+"mahdollinen päivämäärä on {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Asiakastunnus"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tilastotyyppi"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Aseta muistutukset arvioinneille"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Arvioinnin toimittaminen – ennen määräpäivää"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Arvioinnin toimittaminen – määräpäivän jälkeen"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} päivää ennen määräpäivää"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} päivää määräpäivän jälkeen"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Ei mitään"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Muistutusta ei ole asetettu"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Arvioijaehdotus käsikirjoituksen lähetyksen yhteydessä"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Kirjoittaja voi ehdottaa useita mahdollisia arvioijia lähettäessään "
+"käsikirjoitusta, mikä voi nopeuttaa arviointiprosessia ja tarjota arvokasta "
+"apua toimituskunnalle."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Salli kirjoittajien ehdottaa arvioijia käsikirjoituksen lähetyksen yhteydessä"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Seuraava näytetään kirjoittajille arvioijaehdotusten yhteydessä. Anna lyhyt "
+"selitys siitä, mitä tietoja kirjoittajan tulisi antaa itsestään, "
+"kanssakirjoittajista ja muista tekijöistä."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Kieliasetusta ei voitu tallentaa. Kaikkien valintojen tulee olla valittuna."
+
+msgid "notification.submissionLocales"
+msgstr "Käsikirjoitusten kielialueet päivitetty."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Määritä toimituskunnan roolien järjestys julkisilla sivuilla."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Kirjoittajalta {$authorName} puuttuu organisaation nimi käsikirjoituksen "
+"kielellä {$localeName}. Käsikirjoitusta ei voida tuoda ilman tätä tietoa."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Linkki sivulle, joka näyttää kaikki aktiiviset toimituskunnan tiedot."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Valikon kohteen otsikko on pakollinen."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Määritä toimituskunnan roolien järjestys julkisilla sivuilla."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Arvioijat näytetään yhdenmukaisessa muodossa yhtenäisyyden säilyttämiseksi "
+"ja helpon löydettävyyden varmistamiseksi."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Anna toimituksellinen historia, joka sisältää kunkin toimittajan koko nimen, "
+"organisaation sekä alku- ja loppupäivämäärät hänen toimikautensa ajalta."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Kutsu sähköpostiosoitteen vaihtamiseen"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Lähetä sähköpostimuistutus ennen tai jälkeen arviointipyynnön vastauksen ("
+"jos arvioija ei ole vielä vastannut arviointipyyntöön) tai arvioinnin "
+"toimittamisen (jos arvioija ei ole vielä toimittanut arviointia)"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Käsikirjoitustiedosto {$id} ohitettiin, koska sillä ei ole kelvollista "
+"tiedostovaihetta."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Päättymispäivä"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Päivämäärän muoto ei ole kelvollinen."
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Näytettävät attribuutit"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Julkaisuvuosi"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Palautettava julkaisuvuosien lista tai aikaväli muodossa vvvv|vvvv|vvvv-vvvv."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Julkaisuvuoden muoto ei ole kelvollinen."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Käsikirjoituksen tunnus"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Käsikirjoituksen tunnusta ei ole olemassa."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Sisällytä ylemmän tason tiedot"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Älä sisällytä kuukausikohtaisia tietoja"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Asennettu versio: {$version}"
+
+msgid "settings.roles.masthead"
+msgstr "Näytä rooli toimituskunnan tiedoissa"
+
+msgid "settings.roles.permitSettings"
+msgstr "Salli asetusten muuttaminen"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Vähimmäismäärä vahvistettuja arviointeja"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Vähimmäismäärä vahvistettuja arviointeja, jotka vaaditaan käsikirjoitukselle"
+
+msgid "manager.statistics.counterR5"
+msgstr "COUNTER R5"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Verkkosivuston kielet"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Käsikirjoitusten kielet"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Lisää/poista kieliä"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Kuvailutiedot"
+
+msgid "manager.language.submission.form.description"
+msgstr "Valitse käsikirjoitusten ja kuvailutietojen kielet."
+
+msgid "manager.language.submission.from.error"
+msgstr "Vähintään yksi kieli täytyy valita."
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Arviointipyyntöön vastaaminen – ennen määräpäivää"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Arviointipyyntöön vastaaminen – määräpäivän jälkeen"

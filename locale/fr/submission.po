@@ -2,16 +2,17 @@
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024, 2025.
-# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023, 2025.
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-04-17 19:22+0000\n"
-"Last-Translator: Klaus Rummler <klaus@oapublishing.ch>\n"
+"PO-Revision-Date: 2025-08-14 09:46+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
 "Language: fr\n"
@@ -38,13 +39,12 @@ msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "De nouvelles évaluations ont été soumises et sont examinées par le rédacteur."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Un ou plusieurs évaluateurs ou évaluatrices ont manqué leur date limite. "
+"Un ou plusieurs évaluateurs/trices ont dépassé leur délai de révision. "
 "L'équipe éditoriale en a été informée et prendra les mesures nécessaires "
 "pour s'assurer que les évaluations soient réalisées. Vous n'avez aucune "
-"action à effectuer pour le moment. Vous recevrez une notification lorsque la "
+"action à effectuer pour le moment. Vous recevrez une notification lorsqu'une "
 "décision aura été prise."
 
 msgid "submission.submit.availableUserGroups"
@@ -519,7 +519,7 @@ msgid "submission.comments.addReviews"
 msgstr "Ajouter les rapports au mail"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
-msgstr "Rapporteur {$reviewerLetter} :"
+msgstr "Relecteur {$reviewerLetter} :"
 
 msgid "submission.comments.noComments"
 msgstr "Aucun commentaire"
@@ -531,7 +531,7 @@ msgid "submission.comments.review"
 msgstr "Évaluation"
 
 msgid "submission.comments.sendDecisionToReviewers"
-msgstr "Envoyer la décision éditoriale aux rapporteurs"
+msgstr "Envoyer la décision éditoriale aux relecteurs"
 
 msgid "submission.comments.subject"
 msgstr "Objet"
@@ -659,13 +659,13 @@ msgid "submission.event.reviewer.reviewDueDate"
 msgstr "Date d'échéance de l'évaluation modifiée"
 
 msgid "submission.event.reviewer.reviewerAssigned"
-msgstr "Rapporteur assigné à une soumission"
+msgstr "Relecteur assigné à une soumission"
 
 msgid "submission.event.reviewer.reviewerRated"
-msgstr "Notation du rapporteur soumise"
+msgstr "Note du relecteur soumise"
 
 msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "Rapporteur non assigné à une soumission"
+msgstr "Relecteur non assigné à une soumission"
 
 msgid "submission.event.reviewer.reviewFile"
 msgstr "Fichier d'évaluation mis à jour"
@@ -683,7 +683,7 @@ msgid "submission.event.reviewer.reviewResubmitted"
 msgstr "Nouvelle soumission de l'évaluation"
 
 msgid "submission.event.reviewer.reviewRevision"
-msgstr "Fichiers de révision du rapporteur mis à jour"
+msgstr "Fichiers de révision du relecteur mis à jour"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
@@ -1342,17 +1342,16 @@ msgstr "Accepté en attente de corrections."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Des révisions ont été soumises et une décision est nécessaire."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr ""
-"La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
+msgstr "La soumission doit être soumise à un nouveau cycle d'évaluation."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Nouvelle version de la soumission déposée."
+msgstr ""
+"Nouvelle version de la soumission déposée. Un nouveau cycle d'évaluation "
+"doit être créé."
 
 msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "Envoyé à un rapporteur externe."
+msgstr "Envoyé à un relecteur externe."
 
 msgid "editor.submission.roundStatus.accepted"
 msgstr "Soumission acceptée."
@@ -1361,7 +1360,7 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "Soumission refusée."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "En attente de l'assignation de rapporteurs."
+msgstr "En attente de l'assignation de relecteurs."
 
 msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "En attente des réponses des évaluateur·rice·s."
@@ -1369,9 +1368,8 @@ msgstr "En attente des réponses des évaluateur·rice·s."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "L'évaluation est terminée."
+msgstr "L'évaluation est terminée et une décision doit être prise."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Un rapport est en retard."
@@ -1394,13 +1392,13 @@ msgstr ""
 "refusée."
 
 msgid "editor.submission.stageParticipants"
-msgstr "Participants"
+msgstr "Participant-es"
 
 msgid "editor.submission.noneAssigned"
 msgstr "Aucun n'a été attribué"
 
 msgid "editor.submission.participant"
-msgstr "Participant"
+msgstr "Participant-e"
 
 msgid "editor.submission.addStageParticipant"
 msgstr "Ajouter un participant"
@@ -1660,7 +1658,7 @@ msgstr ""
 "commentaires des évaluateur·rice·s."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr "Envoyer au rapporteur externe"
+msgstr "Envoyer au relecteur externe"
 
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Cette soumission est prête à être envoyée pour évaluation externe."
@@ -2112,29 +2110,29 @@ msgstr ""
 "la soumission {$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
-msgstr "En attente de réponse du rapporteur."
+msgstr "En attente de réponse du relecteur."
 
 msgid "submission.review.status.declined"
-msgstr "Le rapporteur a décliné la demande d'évaluation."
+msgstr "Le relecteur a décliné la demande d'évaluation."
 
 msgid "submission.review.status.responseOverdue"
-msgstr "Le rapporteur a dépassé la date de réponse."
+msgstr "Le relecteur a dépassé la date de réponse."
 
 msgid "submission.review.status.reviewOverdue"
-msgstr "Le rapporteur a dépassé la date de retour de l'évaluation."
+msgstr "Le relecteur a dépassé la date de retour de l'évaluation."
 
 msgid "submission.review.status.accepted"
 msgstr "Le rapport a été accepté."
 
 msgid "submission.review.status.received"
-msgstr "Le rapporteur a soumis son rapport."
+msgstr "Le relecteur a soumis son rapport."
 
 msgid "submission.review.status.complete"
 msgstr "L'évaluation est complète."
 
 msgid "submission.review.status.thanked"
 msgstr ""
-"Cette évaluation est finie et le rapporteur a été remercié pour sa "
+"Cette évaluation est terminée et le relecteur a été remercié pour sa "
 "contribution."
 
 msgid "submission.document"
@@ -2910,3 +2908,516 @@ msgstr ""
 
 msgid "author.competingInterests"
 msgstr "Conflit d'intérêt"
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Qui m'a été attribué"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Tout en phase de relecture"
+
+msgid "submission.dashboard.view.production"
+msgstr "Tout en phase de production"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Veuillez accepter ou refuser cette demande avant le {$date}"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Prévu pour publication"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Fichiers révisés"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Le relecteur a annulé la demande d'évaluation"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Modifier la date d'échéance"
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Aucun relecteur n'a été proposé pour cette soumission."
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Refusé pendant la phase {$stageName}."
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Toutes les recommandations éditoriales ont été reçues, et une décision doit "
+"être prise."
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Envoyer cette évaluation à l'ORCID du relecteur ?"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Afficher les recommandations non lues"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Envoyer l'évaluation à ORCID"
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Le nombre minimum requis d'évaluations a été confirmé. Une décision doit "
+"être prise."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Nombre minimum d'évaluations confirmés requis : {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Poursuivre sans nombre minimum d'évaluations confirmées ?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Le nombre minimum d'évaluations confirmées n'a pas été atteint. Souhaitez-"
+"vous tout de même poursuivre cette décision éditoriale ?"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Seulement autorisé à recommander une décision éditoriale"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Ces fichiers ont été soumis par l'auteur après que des révisions ont été "
+"demandées"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Ce sont fichiers provenant de la phase de révision qui doivent être révisés"
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Pour suggestion du relecteur"
+
+msgid "submission.reviewerSuggestions"
+msgstr "Suggestions des relecteurs"
+
+msgid "submission.review.status.viewed"
+msgstr "L'éditeur a pris connaissance de l'évaluation."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Langue actuelle de la soumission :"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Modifier la langue de soumission pour"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Afficher le résumé de la soumission"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Action requise de ma part"
+
+msgid "dashboard.revisionRequested"
+msgstr "Révision demandée"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Terminer l'évaluation"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Supprimer les soumissions incomplètes"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "À paraître dans le numéro {$issue}"
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Les éditeurs en charge sont chargés de conseiller sur les prochaines étapes "
+"pour cette soumission"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Avertissement : cette version a été publiée. La modifier pourrait avoir un "
+"impact sur le contenu publié."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Soumission annulée"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Annuler la soumission"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"La soumission a été annulée et toutes les données associées ont été "
+"supprimées."
+
+msgid "dashboard.applyFilters"
+msgstr "Appliquer des filtres"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"La demande d'évaluation a été transmise au relecteur. En attente d'une "
+"réponse dans <b>{$days} jours à compter du {$date}</b>"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "La recommandation a été faite par vous."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Réviseurs suggérés par l'auteur"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Changer"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Entrez ici le titre de votre soumission en {$language}. Vous pouvez formater "
+"votre titre comme vous le souhaitez"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Il est recommandé d'inclure le résumé en {$language}. Cela permet de "
+"garantir que le contenu est accessible"
+
+msgid "submission.list.completeSubmission"
+msgstr "Compléter la soumission"
+
+msgid "submission.dashboard.view.active"
+msgstr "Soumissions actives"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Nécessite un éditeur"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Tout en phase de soumission"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Tout en phase d'évaluation par les pairs"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Nécessite une évaluation"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "En attente des évaluations"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Évaluation soumise"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Évaluation en retard"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Tout en phase d'édition"
+
+msgid "submission.dashboard.view.published"
+msgstr "Publié"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Refusé"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Révisions demandées"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Révisions soumises par l'auteur"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Soumissions incomplètes"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Toutes les tâches"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "En attente"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Terminé / Refusé"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Toutes les tâches"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Archivé"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Refusé"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Terminé"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Publié"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Évaluation (tour {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Prévu pour publication"
+
+msgid "submission.stage.published"
+msgstr "Publié"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirmer la suppression du fichier JATS XML"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Supprimer le fichier JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Ce fichier JATS est généré automatiquement à partir des métadonnées de "
+"soumission"
+
+msgid "publication.jats.lastModified"
+msgstr "Dernière modification le {$modificationDate} par {$username}"
+
+msgid "submission.files.content.error"
+msgstr "Le contenu du fichier soumis « {$fileName} » n'a pas pu être récupéré."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr ""
+"Mise à jour des évaluations {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Commencer une nouvelle soumission"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Révisions demandées à l'auteur"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Révisions demandées à l'auteur afin de passer à un nouveau cycle d'évaluation"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Un nouveau tour d'évaluations va être créé"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Fichiers révisés téléchargés : {$count}"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Raisons pour lesquelles vous suggérez ce relecteur"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Relecteurs désignés"
+
+msgid "dashboard.assignReviewers"
+msgstr "Désignez des relecteurs"
+
+msgid "dashboard.submitRevisions"
+msgstr "Soumettre les révisions"
+
+msgid "workflow.uploadRevisions"
+msgstr "Téléverser les révisions"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Répondre à la demande"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Demande refusée le {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Évaluation soumise le {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Veuillez compléter cette évaluation avant le {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"La date limite pour terminer cette évaluation est dépassée. Veuillez "
+"compléter l'évaluation dans les plus brefs délais."
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Demande d'évaluation refusée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Demande d'évaluation en retard depuis {$days} jours"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Évaluation en cours - demande acceptée"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Évaluation en retard de {$days} jours"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Évaluation complétée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"L'évaluation a été achevée le {$date} avec la recommandation suivante : "
+"<b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "L'évaluation a été complétée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "L'évaluation a été confirmée par l'éditeur"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "L'évaluation a été acceptée par l'éditeur le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "En attente de la réponse du relecteur"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Le relecteur a refusé la demande d'évaluation le <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Le relecteur a annulé la demande d'évaluation le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "En attente de la réponse du relecteur"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Voir les détails"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Renvoyer la demande d'évaluation"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Désassigner"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Voir la recommandation"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Une recommandation éditoriale a été reçue"
+
+msgid "workflow.stageNotStarted"
+msgstr "La phase {$stage} n'a pas encore été lancée."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"La soumission retenue pour passer à la phase d'évaluation suivante, a été "
+"acceptée et est actuellement à la phase {$stage}."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "La soumission est actuellement à la phase {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "La soumission a été transmise à la prochaine phase d'évaluation"
+
+msgid "workflow.reviewRoundN"
+msgstr "Tour d'évaluation {$number}"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Révisions téléversées"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Fichiers téléversés au moment de la soumission"
+
+msgid "fileManager.filesForReview"
+msgstr "Fichiers à examiner"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Ce sont les fichiers qui seront envoyés pour publication"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Ce sont les fichiers édités qui seront utilisés lors de la phase de "
+"production"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmer la suppression des soumissions incomplètes"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Sélectionnez les soumissions incomplètes à supprimer."
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Annuler le relecteur"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Ces fichiers seront envoyés aux relecteurs pour évaluation"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Statut du relecteur"
+
+msgid "author.authorNotFound"
+msgstr "L'auteur de cette affiliation n'a pas pu être trouvé."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Veuillez indiquer une affiliation ROR ou au moins un nom d'affiliation."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr ""
+"Veuillez indiquer le nom de l'affiliation dans la langue principale de la "
+"soumission."
+
+msgid "ror.nameRequired"
+msgstr "Un nom ROR est requis."
+
+msgid "ror.displayLocaleRequired"
+msgstr "Le paramètre régional d'affichage ROR est obligatoire."
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Il s'agit de la langue principale de soumission. La modification de cette "
+"option aura des répercussions sur la soumission et les métadonnées saisies"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Avant de modifier la langue de soumission, assurez-vous d'avoir "
+"rempli les champs de métadonnées suivants afin de préserver l'intégrité du "
+"système. Notez également que les informations relatives aux contributeurs et "
+"les noms de fichiers seront copiés à partir des informations précédemment "
+"saisies.</strong>"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Êtes-vous sûr de vouloir annuler cette soumission ? Cela supprimera la "
+"soumission et toutes les données associées. Cette action ne peut pas être "
+"annulée."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Le nom de l'affiliation est manquant en {$language} pour une ou plusieurs "
+"affiliations pour un ou plusieurs contributeurs."
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Vous êtes sur le point de supprimer le fichier XML JATS existant de cette "
+"publication. Êtes-vous sûr ?"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Une erreur s'est produite lors de la création du contenu JATS par défaut. "
+"Veuillez vous assurer que le module JatsTemplate est installé."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"La langue de la soumission ({$language}) n'est pas l'une des langues prises "
+"en charge. Vous pouvez toujours modifier les détails de la soumission, mais "
+"les nouvelles soumissions dans cette langue ne sont actuellement pas "
+"acceptées."
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"La date limite pour répondre à cette demande est dépassée. Veuillez accepter "
+"ou refuser cette demande dans les plus brefs délais."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Ce relecteur n'a pas répondu à la demande d'évaluation. Une réponse était "
+"attendue pour le <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Ce relecteur n'a pas complété son évaluation. Une réponse était attendue "
+"pour le <b>{$date}.</b>"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Vous ne pouvez pas accéder à cette soumission en tant que directeur de la "
+"revue, car vous en êtes l'auteur. Pour la consulter, rendez-vous dans « Mes "
+"soumissions »"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Êtes-vous certain de vouloir supprimer les éléments sélectionnés ? Cette "
+"action ne peut pas être annulée. Veuillez confirmer pour continuer."
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Veuillez expliquer pourquoi vous recommandez ce relecteur et mentionner s'il "
+"existe un conflit d'intérêts potentiel."
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Ce relecteur a accepté la demande de révision. Sa révision est prévue dans "
+"<b>{$days} jours, soit le {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"La demande de révision a été renvoyée au relecteur. En attente d'une réponse "
+"dans {$days} jours, le {$date}"
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Vous ne pouvez pas accéder à cette soumission en tant que directeur de la "
+"revue, car vous êtes le relecteur. Pour la consulter, rendez-vous dans « "
+"Attributions d'évaluations »"

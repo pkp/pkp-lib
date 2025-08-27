@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-12 12:32+0000\n"
+"PO-Revision-Date: 2025-07-31 15:21+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -2384,3 +2384,6 @@ msgstr "Դիտեք ավելի շատ մանրամասներ"
 
 msgid "common.yesContinue"
 msgstr "Այո, շարունակեք"
+
+msgid "common.changeLanguage"
+msgstr "Փոխել լեզուն"

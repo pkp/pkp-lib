@@ -3,7 +3,7 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-19 21:42+0000\n"
+"PO-Revision-Date: 2025-08-19 06:31+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
@@ -2435,3 +2435,6 @@ msgstr "Мои поднесоци како автор"
 
 msgid "validator.date.comparison"
 msgstr "Неважечки датуми се предвидени за споредба."
+
+msgid "common.changeLanguage"
+msgstr "Смени јазик"

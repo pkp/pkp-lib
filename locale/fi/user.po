@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2024.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2024-11-16 09:40+0000\n"
+"PO-Revision-Date: 2025-08-24 00:06+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fi/"
 ">\n"
@@ -754,3 +754,164 @@ msgstr "Tekijätiedot sisältävät vahvistamattomia ORCID-tunnuksia."
 
 msgid "orcid.invalidClient"
 msgstr "Virheelliset asiakkaan käyttäjätiedot (client)"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Kirjoita organisaation koko nimi alle ilman lyhenteitä. Valitse nimi "
+"avattavasta valikosta ja valitse \"Lisää\" liittääksesi organisaation "
+"profiiliisi. (esim. \"Turun yliopisto\")"
+
+msgid "user.affiliations.institution"
+msgstr "Organisaatio"
+
+msgid "user.affiliations.translation"
+msgstr "Lisätietoja"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Muokkaa organisaation nimeä"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Poista organisaatio"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Valitse muokataksesi tai poistaaksesi"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Kaikki käännökset saatavilla"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} / {$total} kielestä valmis"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Kirjoita organisaation nimi kielellä {$language}"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Organisaation nimi kielellä {$language}"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Oletko varma?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Affiliaatio <strong>{$affiliation}</strong> poistetaan."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Kirjoita organisaation nimi kielellä {$language}"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Hakemaasi ei löytynyt"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Ensisijainen kieli {$primaryLocale} on pakollinen"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Työnkulkuun pääsy on rajoitettu keskeneräiselle käsikirjoitukselle."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Arvioijaehdotusten lisääminen, muokkaaminen tai poistaminen on rajoitettu "
+"valmiille käsikirjoitukselle."
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Anna kaksi kirjainta, joita haluat käyttää profiilikuvana. Nämä "
+"nimikirjaimia käytetään sinun tunnistamiseen työnkuluissa."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Lisää affiliaatio käsikirjoituksen kielellä."
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID-toiminto voidaan haluttaessa ottaa käyttöön ja määrittää "
+"sivustotasolla kaikille lehdille/julkaisijoille/palvelimille. Jos se otetaan "
+"käyttöön, se korvaa kaikki kontekstikohtaiset tunnukset ja soveltaa "
+"seuraavia tunnuksia kaikkiin tämän asennuksen lehtiin/julkaisijoihin/"
+"palvelimiin."
+
+msgid "orcid.field.verification.request"
+msgstr "Pyydä vahvistus"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Lähetä vahvistussähköposti uudelleen"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Pyydä ORCID-vahvistusta"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Haluatko lähettää tälle kirjoittajalle sähköpostin, jossa pyydetään "
+"vahvistamaan hänen ORCID-tunnuksensa?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Tätä ORCID-tunnusta ei ole vahvistettu. Poista tämä vahvistamaton ORCID ja "
+"pyydä vahvistus suoraan käyttäjältä/kirjoittajalta."
+
+msgid "user.futureRole.notification.message"
+msgstr "Roolisi on määrä alkaa {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Siihen asti voit tarkastella ja päivittää profiiliasi. Jos uskot tämän "
+"olevan virhe, ota yhteyttä ylläpitäjään."
+
+msgid "user.disabledModal.description"
+msgstr "Nykyiset roolit: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Poista käytöstä {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Ota käyttöön {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Esittelyteksti"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Et voi poistaa roolia. Käyttäjälle täytyy olla osoitettuna vähintään yksi "
+"rooli."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr ""
+"Käyttäjän tulee olla anonyymi. Olet tällä hetkellä kirjautuneena sisään."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Profiilikuvan nimikirjaimet"
+
+msgid "user.role.ended"
+msgstr "Rooli päättynyt"
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Olet pyytänyt sähköpostiosoitteesi vaihtamista osoitteeseen \"{$pendingEmail}"
+"\". Olemme lähettäneet sinulle sähköpostin, jossa on ohjeet muutoksen "
+"vahvistamiseen."
+
+msgid "orcid.unauthenticated"
+msgstr "(todentamaton)"
+
+msgid "orcid.verify.success.redirect"
+msgstr "Sinut ohjataan automaattisesti takaisin kohteeseen {$contextName}."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Ota ORCID-toiminto käyttöön"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Ota ORCID-toiminto käyttöön koko sivustolla"
+
+msgid "orcid.field.verification.requested"
+msgstr "ORCID-vahvistusta on pyydetty!"
+
+msgid "user.removeRole.message"
+msgstr ""
+"Haluatko varmasti poistaa tämän roolin pysyvästi? Tämä poistaa käyttäjän "
+"pääsyn kaikkeen tähän rooliin liittyvään tietoon ja käyttöoikeuksiin."
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "Sähköposti lähetetään, kun kirjoittaja on luotu."
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Poista ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Haluatko varmasti poistaa tämän ORCID-tunnuksen?"

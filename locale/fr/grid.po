@@ -1,15 +1,16 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-05-31 16:41+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
-"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"PO-Revision-Date: 2025-08-14 15:07+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -777,3 +778,33 @@ msgstr "Modifier un contributeur"
 #~ "La presse facilite le bon déroulement de la communication par l'usage de "
 #~ "courriers électroniques rédigés à l'avance. La formulation par défaut des "
 #~ "modèles peut facilement être modifée ci-dessous."
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Apparaît dans l'en-tête"
+
+msgid "grid.user.logInAs"
+msgstr "Se connecter en tant que"
+
+msgid "grid.user.remove"
+msgstr "Retirer l'utilisateur"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Veuillez noter qu'une fois qu'un utilisateur est désactivé, vous ne pourrez "
+"plus l'ajouter à aucun rôle tant qu'il n'aura pas été réactivé."
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr ""
+"Voulez-vous vraiment supprimer cette suggestion ? Cette action est "
+"irréversible."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Suggérer un rapporter"
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Supprimer la suggestion d'un nouveau rapporteur"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Une fois que l'utilisateur est activé, il retrouvera l'accès au site et vous "
+"pourrez l'inviter à occuper des rôles selon vos besoins."

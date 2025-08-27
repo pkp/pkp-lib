@@ -1,17 +1,19 @@
 # Maria Češnik <mariaces237@gmail.com>, 2023.
+# Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-09 10:50+0000\n"
-"Last-Translator: Maria Češnik <mariaces237@gmail.com>\n"
+"PO-Revision-Date: 2025-08-19 13:54+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Upit"
@@ -30,9 +32,9 @@ msgstr "Zahtjev za pregled"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
-"Procijenjeni ste kao mogući recenzent za sljedeći podnesak. U nastavku je "
-"pregled podnošenja i vremenski okvir za ovu recenziju. Nadamo se da ćete "
-"tome moći pridonijeti."
+"Procijenjeni ste kao mogući recenzent za sljedeću prijavu. U nastavku je "
+"pregled prijava i vremenski okvir za ovu recenziju. Nadamo se da ćete tome "
+"moći pridonijeti."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Pogledajte sve pojedinosti o predaji"
@@ -95,7 +97,7 @@ msgstr ""
 "revidirane verzije pregledanih datoteka."
 
 msgid "reviewer.complete"
-msgstr "Recenzija poslana"
+msgstr "Recenzija predana"
 
 msgid "reviewer.confirmSubmit"
 msgstr "Jeste li sigurni da želite poslati ovu recenziju?"
@@ -128,3 +130,66 @@ msgstr "Pošalji recenzentima"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Trenutačni korisnik nije dodijeljen kao recenzent traženog dokumenta."
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Prethodne recenzije"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Recenzija za krug {$round} predana je {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Pročitaj {$round} krug recenzije"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Predali ste recenziju za {$round} krug za"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Komentari recenzenta"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Za urednike i autore"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Samo za urednike"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Komentar {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Razlog odbijanja poslan e-mailom"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Razlog odbijanja poziva na recenziju nije bio naveden."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Datum odbijanja"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Recenzija nije dovršena."
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Metapodaci članka"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tip"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Sažetak"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Ključne riječi"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Opće informacije"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Privici"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Ovo su datoteke koje ste priložili uz svoju recenziju"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Datoteke za recenziju"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Ove datoteke su vam poslane na recenziju"

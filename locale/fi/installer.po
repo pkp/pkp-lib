@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-19 19:08+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/fi/>\n"
@@ -156,10 +156,10 @@ msgstr "Virhe jäsennettäessä sähköpostipohjatiedostoa <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Virhe jäsennettäessä suodattimen määritystiedostoa <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Päivitystä ei tueta. Katso docs/UPGRADE-UNSUPPORTED saadaksesi lisätietoja."
+"Päivitystä ei tueta. Katso https://docs.pkp.sfu.ca/dev/upgrade-guide "
+"saadaksesi lisätietoja."
 
 msgid "installer.timezoneInstructions"
 msgstr "Tällä asennuksella käytettävä aikavyöhyke."
@@ -252,3 +252,40 @@ msgstr ""
 
 msgid "installer.miscSettings"
 msgstr "Muut asetukset"
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr ""
+"Lisää määritysmuuttuja `app_key` käsin määritystiedoston general-osioon tai "
+"suorita komento `php lib/pkp/tools/appKey.php configure` asettaaksesi sen "
+"komentoriviltä."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr ""
+"Määritystiedoston muuttujaa `app_key` ei ole määritelty general-osiossa. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr "Määritystiedoston muuttuja `app_key` on jo määritelty general-osiossa. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr ""
+"Määritystiedostoa ei voida lukea tai sitä ei ole olemassa odotetussa "
+"sijainnissa. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Määritystiedostoa ei voida lukea oikein."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Sovellusavainta ei voida kirjoittaa määritystiedostoon."
+
+msgid "installer.appKey.validate.error"
+msgstr ""
+"Salausmenetelmää ei ole tuettu tai avaimen pituus on virheellinen. Tuetut "
+"salausmenetelmät ovat: {$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "Sovellusavainta ei voida kirjoittaa määritystiedostoon."
+
+msgid "installer.appKey.set.value"
+msgstr ""
+"Aseta tiedoston `config.inc.php` general-osioon muuttujan `app_key` arvoksi "
+"{$key}."

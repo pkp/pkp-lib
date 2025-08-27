@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2025-08-23 17:23+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fi/>\n"
@@ -32,7 +32,6 @@ msgstr ""
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Uusia arvioita on lähetetty ja ne ovat toimittajan käsittelyssä."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 "Yhden tai useamman arvioijan arvio on myöhässä. Toimittajat pyrkivät "
@@ -1312,13 +1311,11 @@ msgstr "Korjauksia on pyydetty."
 msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Uusi versioita on lähetetty, ja tarvitaan päätös."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Käsikirjoitus pitää lähettää uudelle arviointikierrokselle."
+msgstr "Kirjoittajalta on pyydetty korjauksia uutta arviointikierrosta varten."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Käsikirjoitus on lähetetty uudelle arviointikierrokselle."
+msgstr "Korjaukset on lähetetty. Tarvitaan uusi arviointikierros."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Lähetetty ulkopuoliseen arviointiin."
@@ -1338,9 +1335,8 @@ msgstr "Odottaa vastauksia arvioijilta."
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Uusia arviointeja on lähetetty."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Arvioinnit suoritettu."
+msgstr "Kaikki arvioinnit on vahvistettu, ja päätös tarvitaan."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Arvion määräaika on umpeutunut."
@@ -1793,9 +1789,9 @@ msgstr ""
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
-"Käsikirjoitus {$title} on nyt aktiivinen käsikirjoitusvaiheessa, eli "
-"ensimmäisessä työvaiheessa. Kirjoittajalle on ilmoitettu, ellet päättänyt "
-"ohittaa tätä sähköpostiviestiä."
+"Käsikirjoitus {$title} on nyt aktiivinen lähetysvaiheessa, eli ensimmäisessä "
+"työvaiheessa. Kirjoittajalle on ilmoitettu, ellet päättänyt ohittaa tätä "
+"sähköpostiviestiä."
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
@@ -2728,3 +2724,507 @@ msgstr "Kirjoittajat"
 
 msgid "submission.author.list"
 msgstr "Käsikirjoituksen kirjoittajaluettelo"
+
+msgid "publication.editorEditWarning"
+msgstr ""
+"Varoitus: Tämä versio on julkaistu. Sen muokkaaminen voi vaikuttaa "
+"julkaistuun sisältöön."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Lähettäminen peruttu"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Peru käsikirjoituksen lähetys"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Käsikirjoituksen lähetys on peruttu, ja kaikki siihen liittyvät tiedot on "
+"poistettu."
+
+msgid "author.authorNotFound"
+msgstr "Kirjoittajaa tälle affiliaatiolle ei löytynyt."
+
+msgid "author.affiliationRorAndNameEmpty"
+msgstr "Anna ROR-tunniste tai affiliaation nimi."
+
+msgid "author.affiliationNamePrimaryLocaleMissing"
+msgstr "Anna affiliaation nimi käsikirjoituksen pääasiallisella kielellä."
+
+msgid "ror.nameRequired"
+msgstr "ROR-tunniste vaaditaan."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Arvioijaehdotusta varten"
+
+msgid "ror.displayLocaleRequired"
+msgstr "ROR-kieli vaaditaan."
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr "Vähimmäismäärä arviointeja on vahvistettu. Päätös tarvitaan."
+
+msgid "submission.reviewerSuggestions"
+msgstr "Arvioijaehdotukset"
+
+msgid "editor.submission.roundStatus.recommendationMadeByYou"
+msgstr "Olet tehnyt suosituksen."
+
+msgid "editor.submission.reviewerSuggestions"
+msgstr "Kirjoittajan ehdottamat arvioijat"
+
+msgid "submission.review.status.viewed"
+msgstr "Toimittaja on nähnyt arvioinnin."
+
+msgid "submission.list.changeSubmissionLanguage.currentLanguage"
+msgstr "Nykyinen käsikirjoituksen kieli:"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Vaihda"
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Vaihda käsikirjoituksen kieli"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription"
+msgstr ""
+"<strong>Ennen käsikirjoituksen kielen vaihtamista varmista, että olet "
+"täyttänyt seuraavat kuvailutiedot. Huomaa myös, että tekijätiedot ja "
+"tiedostonimet kopioidaan aiemmin syötetyistä tiedoista.</strong>"
+
+msgid "submission.list.viewSubmissionSummary"
+msgstr "Näytä käsikirjoituksen yhteenveto"
+
+msgid "submission.list.completeSubmission"
+msgstr "Viimeistele käsikirjoituksen lähetys"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Tämä on käsikirjoituksen ensisijainen kieli. Sen muuttaminen vaikuttaa sekä "
+"käsikirjoitukseen että syötettyihin metatietoihin"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.title"
+msgstr ""
+"Syötä käsikirjoituksen otsikko kielellä {$language}. Voit muotoilla otsikon "
+"haluamallasi tavalla"
+
+msgid "submission.list.changeSubmissionLanguage.metadataDescription.abstract"
+msgstr ""
+"Tiivistelmän lisääminen kielellä {$language} on suositeltavaa. Näin "
+"varmistetaan, että sisältö on helposti löydettävissä"
+
+msgid "submission.wizard.cancel.confirmation"
+msgstr ""
+"Haluatko varmasti peruuttaa tämän käsikirjoituksen lähetyksen? Tämä poistaa "
+"käsikirjoituksen ja kaikki siihen liittyvät tiedot pysyvästi."
+
+msgid "submission.wizard.noReviewerSuggestions"
+msgstr "Tälle käsikirjoitukselle ei ole ehdotettu arvioijia."
+
+msgid "submission.wizard.missingContributorAffiliationLanguage"
+msgstr ""
+"Yhden tai useamman tekijän affiliaation nimi puuttuu kielellä {$language}."
+
+msgid "submission.dashboard.view.assigned"
+msgstr "Minulle osoitettu"
+
+msgid "submission.dashboard.view.active"
+msgstr "Aktiiviset käsikirjoitukset"
+
+msgid "submission.dashboard.view.needsEditor"
+msgstr "Vaatii toimittajan"
+
+msgid "submission.dashboard.view.submissionStageAll"
+msgstr "Kaikki lähetysvaiheessa"
+
+msgid "submission.dashboard.view.reviewExternal"
+msgstr "Kaikki vertaisarvioinnissa"
+
+msgid "submission.dashboard.view.reviewAll"
+msgstr "Kaikki arviointivaiheessa"
+
+msgid "submission.dashboard.view.needsReviews"
+msgstr "Vaatii arviointeja"
+
+msgid "submission.dashboard.view.awaitingReviews"
+msgstr "Odottaa arviointeja"
+
+msgid "submission.dashboard.view.reviewsSubmitted"
+msgstr "Arvioinnit lähetetty"
+
+msgid "submission.dashboard.view.reviewsOverdue"
+msgstr "Arvioinnit myöhässä"
+
+msgid "submission.dashboard.view.copyediting"
+msgstr "Kaikki teknisessä toimituksessa"
+
+msgid "submission.dashboard.view.production"
+msgstr "Kaikki tuotantovaiheessa"
+
+msgid "submission.dashboard.view.scheduled"
+msgstr "Ajoitettu julkaistavaksi"
+
+msgid "submission.dashboard.view.published"
+msgstr "Julkaistu"
+
+msgid "submission.dashboard.view.declined"
+msgstr "Hylätty"
+
+msgid "submission.dashboard.view.revisionsRequested"
+msgstr "Korjauksia pyydetty"
+
+msgid "submission.dashboard.view.revisionsSubmitted"
+msgstr "Kirjoittajan korjaukset lähetetty"
+
+msgid "submission.dashboard.view.incompleteSubmissions"
+msgstr "Keskeneräiset käsikirjoitukset"
+
+msgid "submission.dashboard.view.reviewerAssignmentsAll"
+msgstr "Kaikki arviointipyynnöt"
+
+msgid "submission.dashboard.view.reviewerAssignmentsPending"
+msgstr "Odottaa vastausta"
+
+msgid "submission.dashboard.view.reviewerAssignmentsFinished"
+msgstr "Valmis / hylätty"
+
+msgid "submission.dashboard.view.reviewAssignments.all"
+msgstr "Kaikki arviointipyynnöt"
+
+msgid "submission.dashboard.view.reviewAssignments.actionRequired"
+msgstr "Minun osallistumista vaaditaan"
+
+msgid "submission.dashboard.view.reviewAssignments.archived"
+msgstr "Arkistoitu"
+
+msgid "submission.dashboard.view.reviewAssignments.declined"
+msgstr "Hylätty"
+
+msgid "submission.dashboard.view.reviewAssignments.completed"
+msgstr "Valmis"
+
+msgid "submission.dashboard.view.reviewAssignments.published"
+msgstr "Julkaistu"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Kerro, miksi suosittelet tätä arvioijaa, ja mainitse mahdolliset "
+"esteellisyydet."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"Käsikirjoituksen kieli ({$language}) ei ole tuettu kieli. Voit edelleen "
+"muokata käsikirjoituksen tietoja, mutta uusia käsikirjoituksia tällä "
+"kielellä ei hyväksytä."
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Arviointien tila {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.applyFilters"
+msgstr "Käytä suodattimia"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Aloita uusi käsikirjoituksen lähetys"
+
+msgid "dashboard.assignReviewers"
+msgstr "Osoita arvioijat"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Kirjoittajalta on pyydetty korjauksia"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Kirjoittajalta on pyydetty korjauksia uutta arviointikierrosta varten"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Uusi arviointikierros luodaan"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "Julkaistaan numerossa {$issue}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Korjauksia pyydetty"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Vastaa pyyntöön"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Viimeistele arviointi"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Hyväksy tai hylkää tämä pyyntö viimeistään {$date}"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Pyyntö hylätty {$date}"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Arviointi lähetetty {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Arviointipyyntö hylätty {$date}"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Arviointi käynnissä – pyyntö hyväksytty"
+
+msgid "workflow.stageNotStarted"
+msgstr "Työvaihetta {$stage} ei ole vielä aloitettu."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "Käsikirjoitus on tällä hetkellä työvaiheessa {$stage}."
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"Käsikirjoitus eteni seuraavalle arviointikierrokselle, hyväksyttiin ja on "
+"nyt työvaiheessa {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "Käsikirjoitus on edennyt seuraavalle arviointikierrokselle"
+
+msgid "fileManager.revisionsUploaded"
+msgstr "Korjatut versiot ladattu"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr "Kirjoittaja on ladannut nämä tiedostot korjauspyyntöjen jälkeen"
+
+msgid "fileManager.filesForReview"
+msgstr "Arvioitavat tiedostot"
+
+msgid "fileManager.filesForReviewDescription"
+msgstr "Nämä tiedostot lähetetään arvioijille arvioitavaksi"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Teknisesti toimitetut tiedostot"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr ""
+"Nämä ovat teknisesti toimitettuja tiedostoja, jotka siirretään "
+"tuotantovaiheeseen"
+
+msgid "fileManager.draftFilesDescription"
+msgstr ""
+"Nämä ovat arviointivaiheesta tulleita tiedostoja, jotka menevät tekniseen "
+"toimitukseen"
+
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Nämä ovat julkaistavaksi lähetettävät tiedostot"
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Arvioijan tila"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Vahvista käsikirjoituksen lähetyksessä kesken jääneiden poistaminen"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Haluatko varmasti poistaa valitut kohteet? Tätä toimintoa ei voi perua. "
+"Vahvista jatkaaksesi."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Poista lähetyksessä kesken jääneet käsikirjoitukset"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"Arviointipyyntö on lähetetty uudelleen arvioijalle. Vastausta odotetaan "
+"{$days} päivän kuluessa, viimeistään {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "Arviointi valmistui {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Toimittaja vahvisti arvioinnin"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "Toimittaja hyväksyi arvioinnin <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Arvioija perui arviointipyynnön"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Arvioija perui arviointipyynnön <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Odotetaan arvioijan vastausta"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Näytä tiedot"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Peruuta arvioija"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
+msgstr "Lähetetäänkö tämä arviointi arvioijan ORCID-profiiliin?"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Käsikirjoituksen lähetyksen yhteydessä ladatut tiedostot"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Teknisesti toimitettuja tiedostoja ladattu: {$count}"
+
+msgid "submission.stage.externalReviewWithRound"
+msgstr "Arviointi (Kierros {$round})"
+
+msgid "submission.stage.scheduledForPublication"
+msgstr "Ajoitettu julkaistavaksi"
+
+msgid "submission.stage.published"
+msgstr "Julkaistu"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Vahvista JATS XML -tiedoston poistaminen"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr ""
+"Olet poistamassa JATS XML -tiedoston tästä julkaisusta. Haluatko varmasti "
+"jatkaa?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Poista JATS-tiedosto"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr ""
+"Tämä JATS-tiedosto on luotu automaattisesti käsikirjoituksen kuvailutiedoista"
+
+msgid "publication.jats.lastModified"
+msgstr "Viimeksi muokattu {$modificationDate}, käyttäjä: {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Virhe JATS-muodon luomisessa. Varmista, että JatsTemplate-lisäosa on "
+"asennettu."
+
+msgid "submission.files.content.error"
+msgstr "Käsikirjoitustiedoston '{$fileName}' sisältöä ei voitu hakea."
+
+msgid "author.competingInterests"
+msgstr "Sidonnaisuudet"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Ilmoita mahdolliset sidonnaisuudet, joita tällä kirjoittajalla voi olla "
+"tutkimusaiheeseen liittyen."
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Perustelut arvioijaehdotukselle"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Arvioijat osoitettu"
+
+msgid "dashboard.submitRevisions"
+msgstr "Lähetä korjaukset"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Lähetä arviointipyyntö uudelleen"
+
+msgid "workflow.uploadRevisions"
+msgstr "Lataa korjaukset"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"Määräaika tämän pyynnön vastaamiseen on umpeutunut. Hyväksy tai hylkää tämä "
+"pyyntö mahdollisimman pian."
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Viimeistele arviointi viimeistään {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"Arvioinnin määräaika on umpeutunut. Viimeistele arviointi mahdollisimman "
+"pian."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Odotetaan arvioijan vastausta"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Arvioija hylkäsi arviointipyynnön <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Arviointipyyntö myöhässä {$days} päivää"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"Arviointipyyntö on lähetetty arvioijalle. Vastausta odotetaan <b>{$days} "
+"päivän kuluessa, viimeistään {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"Arvioija ei ole vastannut arviointipyyntöön. Vastaus olisi pitänyt antaa "
+"<b>{$date}</b>"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Valitse poistettavat lähetyksessä kesken jääneet käsikirjoitukset."
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Poista arvioija"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Muokkaa määräpäivää"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Näytä suositus"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "Näytä lukematon suositus"
+
+msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
+msgstr "Lähetä arviointi ORCID-tietokantaan"
+
+msgid "dashboard.declinedDuringStage"
+msgstr "Hylätty työvaiheessa {$stageName}."
+
+msgid "dashboard.recommendOnly.pendingRecommendations"
+msgstr ""
+"Suosittelevien toimittajien tehtävänä on ehdottaa seuraavia päätöksiä tälle "
+"käsikirjoitukselle"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Toimituksellinen suositus on vastaanotettu"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Kaikki toimitukselliset suositukset on vastaanotettu, ja päätös tarvitaan."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Vaadittu vähimmäismäärä vahvistettuja arviointeja: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Jatketaanko ilman vaadittua vähimmäismäärää vahvistettuja arviointeja?"
+
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Vähimmäismäärää vahvistettuja arviointeja ei ole saavutettu. Haluatko silti "
+"jatkaa tämän toimituksellisen päätöksen tekemistä?"
+
+msgid "participantManager.onlyAllowedToRecommend"
+msgstr "Voi ainoastaan antaa suosituksen toimituksellisesta päätöksestä"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Et voi tarkastella tätä käsikirjoitusta lehden hallinnoijana, koska olet sen "
+"kirjoittaja. Näet sen kohdasta \"Omat käsikirjoitukseni\""
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Et voi tarkastella tätä käsikirjoitusta lehden hallinnoijana, koska olet sen "
+"arvioija. Näet sen kohdasta \"Arviointipyynnöt\""
+
+msgid "workflow.reviewRoundN"
+msgstr "Arviointikierros {$number}"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"Arvioija on hyväksynyt arviointipyynnön. Arvioinnin määräaikaan on <b>{$days}"
+" päivää, viimeistään {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Arviointi myöhässä {$days} päivää"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"Arvioija ei ole viimeistellyt arviointiaan. Arvioinnin määräaika oli "
+"<b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Arviointi valmistunut {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"Arviointi valmistui {$date}, ja sen suositus oli: <b>{$recommendation}</b>"

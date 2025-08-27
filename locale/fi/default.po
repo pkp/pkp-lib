@@ -1,10 +1,10 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-05-24 17:45+0000\n"
+"PO-Revision-Date: 2025-08-19 19:08+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "fi/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Sivuston ylläpitäjä"
@@ -190,3 +190,21 @@ msgstr ""
 "muuttaa mitä tahansa tietoja painamalla muokkaa-nappia osion kohdalla</"
 "p><p>Kun lähetät käsikirjoituksen, toimituskunnan jäsen osoitetaan "
 "käsittelemään sitä. Varmista, että antamasi tiedot ovat oikein.</p>"
+
+msgid "default.groups.name.editorialBoardMember"
+msgstr "Toimituskunnan jäsen"
+
+msgid "default.groups.plural.editorialBoardMember"
+msgstr "Toimituskunnan jäsenet"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "EBM"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Käsikirjoituksen lähetyksen yhteydessä sinulla on mahdollisuus ehdottaa "
+"useita mahdollisia arvioijia. Tämä voi auttaa sujuvoittamaan "
+"arviointiprosessia ja tarjoaa arvokasta apua toimituskunnalle. Valitse "
+"arvioijiksi henkilöitä, jotka ovat alasi asiantuntijoita eivätkä ole "
+"esteellisiä työsi suhteen. Tämän ominaisuuden tarkoituksena on parantaa ja "
+"tehostaa arviointiprosessia sekä kirjoittajille että toimituskunnalle.</p>"

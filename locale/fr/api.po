@@ -1,16 +1,17 @@
 # Deleted User <noreply+532@weblate.org>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Henri De Plaen <henri.deplaen@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-12-11 19:07+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
-"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"PO-Revision-Date: 2025-07-30 00:34+0000\n"
+"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fr/>"
+"\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -414,3 +415,75 @@ msgstr ""
 
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Il n'est pas possible d'attribuer un DOI à cet élément."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"Vous ne pouvez pas modifier les auteurs des soumissions qui ne vous ont pas "
+"été attribuées."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "La soumission pour cette tâche d'évaluation est introuvable."
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Seules les valeurs « accept » et « decline » sont valides"
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Impossible de traiter la requête API."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"Vous ne pouvez pas effectuer cette opération lorsque la fonctionnalité ORCID "
+"est désactivée."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Impossible de recevoir la réponse attendue."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Paramètre incompatible avec l'auteur."
+
+msgid "api.400.routeNotDefined"
+msgstr "Aucune route API n'a été fournie."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "L'auteur demandé n'a pas été trouvé"
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Ce point de terminaison n'est pas disponible à partir de l'espace de noms du "
+"site et doit être demandé pour un contexte donné."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Le réviseur pour cette mission n'a pas pu être trouvé"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "La section fournie n'existe pas."
+
+msgid "api.submission.400.invalidId"
+msgstr "ID invalide : « {$id} » fourni."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Le formulaire d'identifiants de publication n'est pas disponible car aucun "
+"identifiant n'est activé."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Le ror que vous avez demandé n'a pas été trouvé."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Impossible d'effectuer l'action prévue sur la ressource."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Vous avez fourni un « eventType » invalide pour les e-mails de l'auteur : "
+"{$eventType}."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Vous ne pouvez pas modifier la langue de cette soumission, car elle comporte "
+"déjà plusieurs versions de publication ou une publication déjà publiée."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"La requête ne contient pas le paramètre de requête obligatoire « ids ». "
+"Veuillez fournir les identifiants « ids » des soumissions que vous souhaitez "
+"supprimer."

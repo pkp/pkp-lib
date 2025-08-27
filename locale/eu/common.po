@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-16 16:02+0000\n"
+"PO-Revision-Date: 2025-08-04 07:14+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr ""
+msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
-msgstr ""
+msgstr "Uneko estilo-orria"
 
 msgid "about.description"
 msgstr "Deskribapena"
 
 msgid "about.guidelines"
-msgstr ""
+msgstr "Jarraibideak"
 
 msgid "about.aboutSite"
 msgstr "Guneari buruz"
@@ -84,28 +84,29 @@ msgid "common.allDownloads"
 msgstr "Deskarga guztiak"
 
 msgid "common.navigation.sidebar"
-msgstr ""
+msgstr "Alboko barra"
 
 msgid "common.navigation.site"
-msgstr ""
+msgstr "Gunearen nabigazioa"
 
 msgid "common.navigation.siteContext"
-msgstr ""
+msgstr "Gunearen testuinguruko nabigazioa"
 
 msgid "common.navigation.user"
-msgstr ""
+msgstr "Erabiltzailearen nabigazioa"
 
 msgid "common.tasks"
-msgstr ""
+msgstr "Zereginak"
 
 msgid "common.list"
-msgstr ""
+msgstr "Zerrenda"
 
 msgid "common.grid"
-msgstr ""
+msgstr "Sareta"
 
 msgid "common.confirmDelete"
 msgstr ""
+"Ziur zaude elementu hau ezabatu nahi duzula? Ekintza hau ezin da desegin."
 
 msgid "common.abstract"
 msgstr "Laburpena"
@@ -132,22 +133,22 @@ msgid "common.add"
 msgstr "Gehitu"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Gehitu CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Gehitu fitxategiak"
 
 msgid "common.addSelf"
 msgstr "Gehitu nire burua"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Erantsitako fitxategiak"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Erantsi fitxategiak"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Erantsi hautatukoa"
 
 msgid "common.name"
 msgstr "Izena"
@@ -159,7 +160,7 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
-msgstr ""
+msgstr "bat eta edo baina da baldin du"
 
 msgid "common.alreadyAssigned"
 msgstr "Esleituta"
@@ -169,6 +170,9 @@ msgstr "Ordezko testua"
 
 msgid "common.altTextInstructions"
 msgstr ""
+"Deskribatu irudi hau testu-arakatzaile batean edo laguntza-gailuekin "
+"webgunea ikusten ari diren bisitarientzat. Adibidez: \"Gure editorea PKP "
+"biltzarrean hitz egiten.\""
 
 msgid "common.and"
 msgstr "-"
@@ -183,10 +187,10 @@ msgid "common.assigned"
 msgstr "Esleituta"
 
 msgid "common.assigned.date"
-msgstr ""
+msgstr "Esleituta: {$dateAssigned}"
 
 msgid "common.available"
-msgstr ""
+msgstr "Eskuragarri"
 
 msgid "common.back"
 msgstr "Atzera"
@@ -204,39 +208,45 @@ msgid "common.warning"
 msgstr "Oharra"
 
 msgid "common.error"
-msgstr ""
+msgstr "Errorea"
 
 msgid "common.notice"
-msgstr ""
+msgstr "Jakinarazpena"
 
 msgid "common.captcha.error.missing-input-response"
 msgstr ""
+"Spam bidalketak saihesteko erabiltzen den balidazio-egiaztapena bete behar "
+"duzu."
 
 msgid "common.ccLicense"
 msgstr ""
-"<br /><br />\n"
+"\n"
+"\t\t<br /><br />\n"
 "\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
-"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\tLan hau baimentzen du: <a rel=\"license\" target=\"_blank\" href="
-"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
-"Attribution 3.0  License</a>."
+"\t\tLan hau baimentzen du: <a rel=\"license\" target=\"_blank\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  "
+"License</a>.\n"
+"\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
-"<div class=\"rtBlock\">\n"
+"\n"
+"\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
-"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
 "\t\tLan hau baimentzen du: <a rel=\"license\" href=\"https://creativecommons."
 "org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
 "License</a>.\n"
-"\t</div>"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Aldaketak gorde dira."
@@ -248,7 +258,7 @@ msgid "common.close"
 msgstr "Itxi"
 
 msgid "common.closePanel"
-msgstr ""
+msgstr "Itxi panela"
 
 msgid "common.closeWindow"
 msgstr "Itxi leihoa"
@@ -260,19 +270,19 @@ msgid "common.completed"
 msgstr "Bukatuta"
 
 msgid "common.completed.date"
-msgstr ""
+msgstr "Osatuta: {$dateCompleted}"
 
 msgid "common.confirm"
 msgstr "Baieztatu"
 
 msgid "common.confirmed.date"
-msgstr ""
+msgstr "Baieztatuta: {$dateConfirmed}"
 
 msgid "common.content"
 msgstr "Edukia"
 
 msgid "common.contents"
-msgstr ""
+msgstr "Edukiak"
 
 msgid "common.continue"
 msgstr "Jarraitu"
@@ -290,7 +300,7 @@ msgid "common.dateCompleted"
 msgstr "Bukatze-data"
 
 msgid "common.dateDecided"
-msgstr ""
+msgstr "Erabakitako data"
 
 msgid "common.date"
 msgstr "Data"
@@ -308,7 +318,7 @@ msgid "common.dateUploaded"
 msgstr "Kargatze-data"
 
 msgid "common.dateHijri"
-msgstr ""
+msgstr "Hijri egutegia"
 
 msgid "common.day"
 msgstr "Eguna"
@@ -326,34 +336,34 @@ msgid "common.delete"
 msgstr "Ezabatu"
 
 msgid "common.deleting"
-msgstr ""
+msgstr "Ezabatzen"
 
 msgid "common.deleteSelection"
 msgstr "Ezabatu hautapena"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Deshautatu"
 
 msgid "common.designation"
-msgstr ""
+msgstr "Izendapena"
 
 msgid "common.description"
 msgstr "Azalpena"
 
 msgid "common.details"
-msgstr ""
+msgstr "Xehetasunak"
 
 msgid "common.dimensionsInches"
-msgstr ""
+msgstr "{$width}\" x {$height}\" @ {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
-msgstr ""
+msgstr "{$width} x {$height} pixel"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Ez, baztertu gorde gabeko aldaketak"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Deskonektatuta"
 
 msgid "common.disable"
 msgstr "Desgaitu"
@@ -371,25 +381,25 @@ msgid "common.download"
 msgstr "Deskargatu"
 
 msgid "common.downloadPdf"
-msgstr ""
+msgstr "Deskargatu PDFa"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Deskargatu txostena"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Arrastatu eta askatu fitxategiak hemen."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Edo igo fitxategi bat"
 
 msgid "common.edit"
 msgstr "Editatu"
 
 msgid "common.editItem"
-msgstr ""
+msgstr "Editatu {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Mezu elektronikoen txantiloiak"
 
 msgid "common.enable"
 msgstr "Gaitu"
@@ -446,24 +456,28 @@ msgstr "Fitxategi mota"
 
 msgid "common.fileUploaderError"
 msgstr ""
+"Sistemako fitxategien kargatzailea kargatzen ari da. Ez bada agertzen, "
+"litekeena da zure exekuzio-denboretako bat bera ere ez egotea nabigatzaile "
+"honetan onartuta. Mesedez, jarri harremanetan administrazioarekin laguntza "
+"jasotzeko."
 
 msgid "common.filter"
 msgstr "Iragazkiak"
 
 msgid "common.filterAdd"
-msgstr ""
+msgstr "Gehitu iragazkia: {$filterTitle}"
 
 msgid "common.filterRemove"
-msgstr ""
+msgstr "Garbitu iragazkia: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Bilatu txantiloia"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formatua"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geografikoa"
 
 msgid "common.go"
 msgstr "Aurrera"
@@ -493,13 +507,13 @@ msgid "common.inProgress"
 msgstr "Lanean"
 
 msgid "common.insert"
-msgstr ""
+msgstr "Txertatu"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Txertatu edukia"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Bilatu txertatzeko edukia"
 
 msgid "common.itemsPerPage"
 msgstr "Elementu orriko"
@@ -508,7 +522,7 @@ msgid "common.keywords"
 msgstr "Gako-hitzak"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etiketa"
 
 msgid "common.language"
 msgstr "Hizkuntza"
@@ -517,22 +531,22 @@ msgid "common.languages"
 msgstr "Hizkuntzak"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Gordetako azkena {$when}"
 
 msgid "common.lastActivity"
-msgstr ""
+msgstr "Azken jarduera {$date} egunean erregistratu zen."
 
 msgid "common.less"
 msgstr "Gutxiago"
 
 msgid "common.lessThan"
-msgstr ""
+msgstr "{$value} edo gutxiago"
 
 msgid "common.lessThanOnly"
-msgstr ""
+msgstr "Hau baino gutxiago"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Jarraitu lanean"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -562,10 +576,10 @@ msgid "common.more"
 msgstr "Gehiago"
 
 msgid "common.moreThan"
-msgstr ""
+msgstr "{$value} edo gehiago"
 
 msgid "common.moreThanOnly"
-msgstr ""
+msgstr "Hau baino gehiago"
 
 msgid "common.noneAssigned"
 msgstr "Esleitu gabe"
@@ -574,16 +588,16 @@ msgid "common.none"
 msgstr "Bat ere ez"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Bat ere ez da hautatu"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Bat ere ez"
 
 msgid "common.no"
 msgstr "Ez"
 
 msgid "common.noItemsFound"
-msgstr ""
+msgstr "Ez da elementurik aurkitu."
 
 msgid "common.noComments"
 msgstr "Iruzkinik ez"
@@ -601,13 +615,15 @@ msgid "common.note"
 msgstr "Oharra"
 
 msgid "common.noTemporaryFile"
-msgstr ""
+msgstr "Igo duzun fitxategia ezin izan da aurkitu. Saiatu berriro igotzen."
 
 msgid "common.notes"
 msgstr "Oharrak"
 
 msgid "common.notes.tooltip"
 msgstr ""
+"Oharrak (horia: ohar berriak ditu; urdina: ikusitako oharrak ditu; grisa: "
+"oharrik ez du)"
 
 msgid "common.notified"
 msgstr "Jakinarazia"
@@ -619,7 +635,7 @@ msgid "common.noMatches"
 msgstr "Ez dago bat datorrenik"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} gehiago"
 
 msgid "common.off"
 msgstr "Off"
@@ -637,10 +653,10 @@ msgid "common.order"
 msgstr "Ordena"
 
 msgid "common.orderUp"
-msgstr ""
+msgstr "Igo {$itemTitle}-ren postua"
 
 msgid "common.orderDown"
-msgstr ""
+msgstr "Jaitsi {$itemTitle}-ren postua"
 
 msgid "common.originalFileName"
 msgstr "Jatorrizko izena"
@@ -655,28 +671,28 @@ msgid "common.overdue"
 msgstr "Atzeratua"
 
 msgid "common.override"
-msgstr ""
+msgstr "Gainidatzi"
 
 msgid "common.pagination"
-msgstr ""
+msgstr "{$start}-{$end} {$total}-etik"
 
 msgid "common.pagination.label"
-msgstr ""
+msgstr "Ikusi orrialde gehigarriak"
 
 msgid "common.pagination.goToPage"
-msgstr ""
+msgstr "Joan {$page}-era"
 
 msgid "common.pagination.next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgid "common.pagination.previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 msgid "common.pageNumber"
-msgstr ""
+msgstr "Orria{$pageNumber}"
 
 msgid "common.percentage"
-msgstr ""
+msgstr "% {$percentage}"
 
 msgid "common.plugin"
 msgstr "Plugina"
@@ -691,7 +707,7 @@ msgid "common.prefix"
 msgstr "Aurrizkia"
 
 msgid "common.prefixAndTitle.tip"
-msgstr ""
+msgstr "Adibidez: bat, -a"
 
 msgid "common.preview"
 msgstr "Aurrebista"
@@ -700,13 +716,13 @@ msgid "common.publisher"
 msgstr "Argitaratzailea"
 
 msgid "common.quality"
-msgstr ""
+msgstr "Kalitatea"
 
 msgid "common.queue.long.active"
-msgstr ""
+msgstr "Guztiak aktibo"
 
 msgid "common.range"
-msgstr ""
+msgstr "{$min}-{$max}"
 
 msgid "common.re"
 msgstr "Re:"
@@ -715,10 +731,10 @@ msgid "common.readMore"
 msgstr "Gehiago irakurri"
 
 msgid "common.readMoreWithTitle"
-msgstr ""
+msgstr "Irakurri gehiago {$title}-ri buruz"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Berriz konektatzen"
 
 msgid "common.record"
 msgstr "Grabatu"
@@ -733,7 +749,7 @@ msgid "common.reminder"
 msgstr "Gogorarazlea"
 
 msgid "common.reminded.date"
-msgstr ""
+msgstr "Gogorarazita: {$dateReminded}"
 
 msgid "common.remote"
 msgstr "Urruneko"
@@ -745,7 +761,7 @@ msgid "common.remove"
 msgstr "Kendu"
 
 msgid "common.removeItem"
-msgstr ""
+msgstr "Ezabatu {$item}"
 
 msgid "common.removeSelection"
 msgstr "Kendu hautapena"
@@ -757,7 +773,9 @@ msgid "common.replaceFile"
 msgstr "Ordeztu fitxategia"
 
 msgid "common.requiredField"
-msgstr "* Nahitaezko eremua adierazten du"
+msgstr ""
+"<abbr class=\"required\" title=\"required\">*</abbr> Nahitaezko eremua "
+"adierazten du"
 
 msgid "common.required"
 msgstr "Nahitaezkoa"
@@ -766,7 +784,7 @@ msgid "common.reset"
 msgstr "Berrezarri"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Erronda {$round}"
 
 msgid "common.role"
 msgstr "Rola"
@@ -781,22 +799,22 @@ msgid "common.save"
 msgstr "Gorde"
 
 msgid "common.saving"
-msgstr ""
+msgstr "Gordetzen"
 
 msgid "common.search"
 msgstr "Bilatu"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Bilatu esaldia"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Bilatzen"
 
 msgid "common.searchQuery"
-msgstr ""
+msgstr "Bilaketa"
 
 msgid "common.clearSearch"
-msgstr ""
+msgstr "Garbitu bilaketa-esaldia"
 
 msgid "common.second"
 msgstr "Segundoa(k)"
@@ -805,7 +823,7 @@ msgid "common.selectAll"
 msgstr "Hautatu dena"
 
 msgid "common.selectedPrefix"
-msgstr ""
+msgstr "Hautatuta:"
 
 msgid "common.selectNone"
 msgstr "Ez hautatu bat ere"
@@ -814,16 +832,16 @@ msgid "common.select"
 msgstr "Hautatu"
 
 msgid "common.selectWithName"
-msgstr ""
+msgstr "Hautatu {$name}"
 
 msgid "common.sendEmail"
-msgstr ""
+msgstr "Bidali mezu elektronikoa"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Erakutsi urrats guztiak"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} urratsa"
 
 msgid "common.size"
 msgstr "Tamaina"
@@ -838,10 +856,10 @@ msgid "common.subject"
 msgstr "Gaia"
 
 msgid "common.subjects"
-msgstr ""
+msgstr "Gaiak"
 
 msgid "common.submenu"
-msgstr ""
+msgstr "Azpimenua"
 
 msgid "common.subtitle"
 msgstr "Azpititulua"
@@ -850,16 +868,16 @@ msgid "common.suggest"
 msgstr "Proposatu"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Aldatu hona"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Aldatu hona {$name}"
 
 msgid "common.title"
 msgstr "Titulua"
 
 msgid "common.titleSeparator"
-msgstr ""
+msgstr " | "
 
 msgid "common.top"
 msgstr "Orri-hasierara"
@@ -871,28 +889,34 @@ msgid "common.type"
 msgstr "Mota"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "{$name}-k igo du"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "{$name}-k igota {$date} honetan"
 
 msgid "common.component"
-msgstr ""
+msgstr "Osagaia"
 
 msgid "common.uninitiated"
 msgstr "Hasi gabe"
 
 msgid "common.unknownError"
 msgstr ""
+"Ustekabeko errore bat gertatu da. Mesedez, kargatu berriro orria eta saiatu "
+"berriro."
 
 msgid "common.unread"
 msgstr "Irakurri gabea"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Gorde gabeko aldaketak"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"{$when}-tik gorde gabeko aldaketak aurkitu ditugu. Hori gerta daiteke lanean "
+"ari zaren bitartean zerbitzariarekiko konexioa galtzen baduzu. Aldaketa "
+"horiek leheneratzeak ordutik hona egindako edozein aldaketa gainidatzi "
+"dezake. Aldaketa horiek leheneratu nahi dituzu?"
 
 msgid "common.untitled"
 msgstr "Izengabea"
@@ -901,7 +925,7 @@ msgid "common.updated"
 msgstr "Eguneratuta"
 
 msgid "common.uploadedDate"
-msgstr ""
+msgstr "Kargatze-data"
 
 msgid "common.upload"
 msgstr "Kargatu"
@@ -915,25 +939,25 @@ msgid "common.up"
 msgstr "Gora"
 
 msgid "common.addFile"
-msgstr ""
+msgstr "Gehitu fitxategia"
 
 msgid "common.upload.addFile"
-msgstr ""
+msgstr "Kargatu fitxategia"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Igo fitxategi bat zure ordenagailutik."
 
 msgid "common.upload.restore"
-msgstr ""
+msgstr "Leheneratu jatorrizkoa"
 
 msgid "common.upload.thumbnailPreview"
-msgstr ""
+msgstr "Une honetan hautatutako irudiaren aurrebista."
 
 msgid "common.upload.changeFile"
-msgstr ""
+msgstr "Aldatu fitxategia"
 
 msgid "common.upload.dragFile"
-msgstr ""
+msgstr "Arrastatu eta askatu hemen fitxategi bat igotzen hasteko"
 
 msgid "common.url"
 msgstr "URLa"
@@ -942,19 +966,19 @@ msgid "common.user"
 msgstr "Erabiltzailea"
 
 msgid "common.user.nonexistent"
-msgstr ""
+msgstr "[Existitzen ez den erabiltzailea]"
 
 msgid "common.view"
 msgstr "Ikusi"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Ikusi errorea"
 
 msgid "common.viewWithName"
-msgstr ""
+msgstr "Ikusi {$name}"
 
 msgid "common.viewProfile"
-msgstr ""
+msgstr "Ikusi profila"
 
 msgid "common.weeks"
 msgstr "aste"
@@ -978,10 +1002,10 @@ msgid "common.plugins"
 msgstr "Pluginak"
 
 msgid "common.count"
-msgstr ""
+msgstr "Guztira"
 
 msgid "common.publicAccess"
-msgstr ""
+msgstr "Sarbide publikoa"
 
 msgid "debug.databaseQueries"
 msgstr "Datu-base kontsulten kopurua"
@@ -990,7 +1014,7 @@ msgid "debug.executionTime"
 msgstr "Page generated in"
 
 msgid "debug.memoryUsage"
-msgstr "Memoria-erabilera:"
+msgstr "Memoria-erabilera"
 
 msgid "debug.notes.localeListLoad"
 msgstr "{$localeList} locale-zerrenda XMLtik kargatu da"
@@ -1005,22 +1029,22 @@ msgid "debug.notes"
 msgstr "Oharrak:"
 
 msgid "defaultMetric.title"
-msgstr ""
+msgstr "Metrika lehenetsia"
 
 msgid "editor.submissionReview.uploadFile"
 msgstr "Igo ebaluazio-fitxategia"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr ""
+msgstr "Igo fitxategia"
 
 msgid "email.addAttachment"
 msgstr "Gehitu eranskina"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Erantsi bidalketa-fitxategiak"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Erantsi egileak bidalketa-fasean igotako fitxategiak."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
@@ -1028,19 +1052,19 @@ msgstr ""
 "ebaluazioak edo berrikusi beharreko fitxategiak."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Liburutegiko fitxategiak"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Erantsi liburutegiko fitxategiak"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Erantsi fitxategiak bidalketatik eta argitaratzailearen liburutegitik."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Erantsi berrikuspen-fitxategiak"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Erantsi berrikusleek igotako fitxategiak"
 
 msgid "email.addBccRecipient"
 msgstr "Gehitu BCC"
@@ -1055,7 +1079,7 @@ msgid "email.attachments"
 msgstr "Eranskinak"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Ezin izan da {$fileName} fitxategia erantsi."
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1071,6 +1095,8 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Ziur zaude mezu elektroniko hau idazteko {$localeName}(e)ra aldatu nahi "
+"duzula? Mezuaren gaian eta gorputzean egindako aldaketak galdu egingo dira."
 
 msgid "email.compose"
 msgstr "Bidali mezua"
@@ -1085,6 +1111,8 @@ msgstr ""
 
 msgid "email.compose.error"
 msgstr ""
+"Arazo bat egon da mezu elektroniko bat bidaltzean. Saiatu berriro geroago "
+"edo jarri harremanetan zure sistemaren administratzailearekin."
 
 msgid "email.email"
 msgstr "Mezu el."
@@ -1108,10 +1136,10 @@ msgid "email.sender"
 msgstr "Bidaltzailea"
 
 msgid "email.senderName"
-msgstr ""
+msgstr "Bidaltzailearen izena"
 
 msgid "email.senderEmail"
-msgstr ""
+msgstr "Bidaltzailearen posta elektronikoa"
 
 msgid "email.send"
 msgstr "Bidali"
@@ -1132,7 +1160,7 @@ msgid "email.to"
 msgstr "Nori"
 
 msgid "form.url.invalid"
-msgstr ""
+msgstr "Zehaztutako URLa baliogabea da. Mesedez, egiaztatu eta saiatu berriro."
 
 msgid "form.confirmSubmit"
 msgstr "Ziur zaude inprimaki hau bidali nahi duzula?"
@@ -1144,58 +1172,66 @@ msgid "form.dataHasChanged"
 msgstr "Inprimaki honetako datuak aldatu dira. Jarraitu hala ere?"
 
 msgid "form.disallowedLocales"
-msgstr ""
+msgstr "Hizkuntza hauek bakarrik onartzen dira: {$languages}."
 
 msgid "form.disallowedProp"
-msgstr ""
+msgstr "Propietate hau ez da onartzen."
 
 msgid "form.dropzone.dictDefaultMessage"
 msgstr "Utzi fitxategiak hemen igotzeko"
 
 msgid "form.dropzone.dictFallbackMessage"
 msgstr ""
+"Zure nabigatzaileak ez du onartzen \"arrastatu eta askatu\" fitxategi-"
+"igoerarik."
 
 msgid "form.dropzone.dictFallbackText"
-msgstr ""
+msgstr "Mesedez, erabili beheko ordezko formularioa zure fitxategiak igotzeko."
 
 msgid "form.dropzone.dictFileTooBig"
 msgstr ""
+"Fitxategia handiegia da ({{filesize}}mb). Ezin dira {{maxFilesize}}mb baino "
+"handiagoak diren fitxategiak igo."
 
 msgid "form.dropzone.dictInvalidFileType"
-msgstr ""
+msgstr "Mota honetako fitxategiak ezin dira igo."
 
 msgid "form.dropzone.dictResponseError"
 msgstr ""
+"Zerbitzariak {{statusCode}} kodearekin erantzun du. Arazoak jarraitzen badu, "
+"jarri harremanetan sistemaren administratzailearekin."
 
 msgid "form.dropzone.dictCancelUpload"
-msgstr ""
+msgstr "Ezeztatu kargatzea"
 
 msgid "form.dropzone.dictUploadCanceled"
-msgstr ""
+msgstr "Kargatzea ezeztatua"
 
 msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr ""
+msgstr "Ziur zaude kargatze hau bertan behera utzi nahi duzula?"
 
 msgid "form.dropzone.dictRemoveFile"
-msgstr ""
+msgstr "Ezabatu fitxategia"
 
 msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr ""
+msgstr "Ezin dituzu fitxategi gehiago igo."
 
 msgid "form.errorA11y"
-msgstr ""
+msgstr "Joan hona {$fieldLabel}: {$errorMessage}"
 
 msgid "form.errorGoTo"
-msgstr ""
+msgstr "Joan hurrengo errorera"
 
 msgid "form.errorOne"
-msgstr ""
+msgstr "Mesedez, zuzendu akats bat."
 
 msgid "form.errorMany"
-msgstr ""
+msgstr "Mesedez, zuzendu {$count} akatsak."
 
 msgid "form.errors"
 msgstr ""
+"Inprimakia ez da gorde {$count} errore aurkitu direlako. Zuzendu errore "
+"hauek eta saiatu berriro."
 
 msgid "form.errorsOccurred"
 msgstr "Erroreak gertatu dira inprimaki hau prozesatzean"
@@ -1221,24 +1257,26 @@ msgstr "Inprimakia ez da ondo bidali."
 
 msgid "form.csrfInvalid"
 msgstr ""
+"Ezin izan da formularioa bidali. Baliteke saioa itxita egotea. Kargatu "
+"berriro orria eta saiatu berriro."
 
 msgid "form.fileRequired"
-msgstr ""
+msgstr "Fitxategi bat igo behar da."
 
 msgid "form.required"
 msgstr "(* Nahitaezkoa)"
 
 msgid "form.requirePrimaryLocale"
-msgstr ""
+msgstr "Eremu hau {$language} hizkuntzan bete behar duzu."
 
 msgid "form.requireId"
-msgstr ""
+msgstr "Baliozko IDa eman behar duzu."
 
 msgid "form.resubmit"
 msgstr "Birbidali"
 
 msgid "form.saved"
-msgstr ""
+msgstr "Gordeta"
 
 msgid "form.saveToUpload"
 msgstr "Fitxategia kargatzeko, hautatu Gorde."
@@ -1255,10 +1293,10 @@ msgstr ""
 "jpg."
 
 msgid "form.multilingualLabel"
-msgstr ""
+msgstr "{$label} {$localeName}-an"
 
 msgid "form.multilingualProgress"
-msgstr ""
+msgstr "{$count}/{$total} hizkuntza osatu dira"
 
 msgid "help.help"
 msgstr "Laguntza"
@@ -1267,10 +1305,10 @@ msgid "help.toc"
 msgstr "Aurkibidea"
 
 msgid "help.previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 msgid "help.next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgid "help.upALevel"
 msgstr "Igo maila bat"
@@ -1315,73 +1353,84 @@ msgid "icon.view.alt"
 msgstr "Ikusi"
 
 msgid "informationCenter.informationCenter"
-msgstr ""
+msgstr "Informazio-zentroa"
 
 msgid "informationCenter.editorialHistory"
-msgstr ""
+msgstr "Edizio-historia"
 
 msgid "informationCenter.addNote"
 msgstr "Gehitu oharra"
 
 msgid "informationCenter.noNotes"
-msgstr ""
+msgstr "Ez dago oharrik bistaratzeko."
 
 msgid "informationCenter.pastNotes"
-msgstr ""
+msgstr "Aurreko berrikuspen-oharrak"
 
 msgid "informationCenter.deleteConfirm"
-msgstr ""
+msgstr "Ziur zaude ohar hau ezabatu nahi duzula?"
 
 msgid "informationCenter.currentHistory"
-msgstr ""
+msgstr "Uneko berrikuspena"
 
 msgid "informationCenter.pastHistory"
-msgstr ""
+msgstr "Aurreko berrikuspenak"
 
 msgid "informationCenter.history.noItems"
-msgstr ""
+msgstr "Ez dago gertaerarik erregistratuta."
 
 msgid "informationCenter.history.notePosted"
-msgstr ""
+msgstr "Ohar berria argitaratu da."
 
 msgid "informationCenter.history.messageSent"
-msgstr ""
+msgstr "Erabiltzaileei jakinarazpena bidalita."
 
 msgid "stageParticipants.history.messageSent"
-msgstr ""
+msgstr "Erabiltzaileei jakinarazpena bidalita."
 
 msgid "stageParticipants.notify.startDiscussion"
 msgstr "Eztabaida hasi"
 
 msgid "stageParticipants.notify.startDiscussion.description"
-msgstr ""
+msgstr "Hasi eztabaida zure eta {$userFullName}-en artean."
 
 msgid "stageParticipants.notify.chooseMessage"
 msgstr ""
+"Aukeratu erabili nahi duzun aurrez definitutako mezu bat, edo bete beheko "
+"formularioa."
 
 msgid "stageParticipants.notify.message"
-msgstr ""
+msgstr "Mezua"
 
 msgid "stageParticipants.notify.warning"
 msgstr ""
+"Mesedez, ziurtatu mezuaren eremua bete duzula eta zu ez beste norbait sartu "
+"duzula eztabaidan."
 
 msgid "stageParticipants.options"
-msgstr ""
+msgstr "Pribilegioen esleipena"
 
 msgid "stageParticipants.recommendOnly"
 msgstr ""
+"Parte-hartzaile honek erabaki editorial bat gomendatzeko baimena baino ez "
+"du, beraz, baimendutako editore batek erabaki editorialak erregistratzea "
+"beharko du."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Baimenak"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
+"Baimendu pertsona honi argitalpenean aldaketak egitea, hala nola, izenburua, "
+"laburpena, metadatuak eta argitalpenaren bestelako xehetasunak. Baliteke "
+"pribilegio hau ezeztatu nahi izatea bidalketak azken egiaztapena jaso badu "
+"eta argitaratzeko prest badago."
 
 msgid "stageParticipants.selectedUser"
-msgstr ""
+msgstr "Parte-hartzailea"
 
 msgid "stageParticipants.noOptionsToHandle"
-msgstr ""
+msgstr "Ezin zaio aldaketarik egin parte-hartzaile honi"
 
 msgid "locale.primary"
 msgstr "Locale nagusia"
@@ -1402,7 +1451,7 @@ msgid "navigation.archives"
 msgstr "Artxiboak"
 
 msgid "navigation.breadcrumbLabel"
-msgstr ""
+msgstr "Hemen zaude:"
 
 msgid "navigation.breadcrumbSeparator"
 msgstr "/"
@@ -1411,7 +1460,7 @@ msgid "navigation.tools"
 msgstr "Tresnak"
 
 msgid "navigation.tools.importExport"
-msgstr ""
+msgstr "Inportatu/Esportatu"
 
 msgid "navigation.tools.statistics"
 msgstr "Estatistikak"
@@ -1420,7 +1469,7 @@ msgid "navigation.browse"
 msgstr "Arakatu"
 
 msgid "navigation.backTo"
-msgstr ""
+msgstr "⟵ Itzuli {$page}-(e)ra"
 
 msgid "navigation.browseByAuthor"
 msgstr "Egileka"
@@ -1447,7 +1496,7 @@ msgid "navigation.items"
 msgstr "{$from} - {$to} / {$total}"
 
 msgid "navigation.items.shownTotal"
-msgstr ""
+msgstr "{$total} elementutik {$shown}"
 
 msgid "navigation.login"
 msgstr "Hasi saioa"
@@ -1483,19 +1532,19 @@ msgid "navigation.sitemap"
 msgstr "Gunearen mapa"
 
 msgid "navigation.skip.description"
-msgstr ""
+msgstr "Edukien esteketara salto egin"
 
 msgid "navigation.skip.announcements"
-msgstr ""
+msgstr "Joan oharretara"
 
 msgid "navigation.skip.main"
-msgstr ""
+msgstr "Eduki nagusira joan"
 
 msgid "navigation.skip.nav"
-msgstr ""
+msgstr "Joan nabigazio-menu nagusira"
 
 msgid "navigation.skip.footer"
-msgstr ""
+msgstr "Joan gunearen oin-orrira"
 
 msgid "navigation.stepNumber"
 msgstr "{$step}. urratsa"
@@ -1516,40 +1565,40 @@ msgid "navigation.userManagement"
 msgstr "Erabiltzaileen kudeaketa"
 
 msgid "navigation.viewFrontend"
-msgstr ""
+msgstr "Ikusi gunea"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Erakundeak"
 
 msgid "notification.addedAuditor"
-msgstr ""
+msgstr "Auditorea gehituta."
 
 msgid "notification.removedAuditor"
-msgstr ""
+msgstr "Auditorea ezabatuta."
 
 msgid "notification.addedQuery"
-msgstr ""
+msgstr "Eztabaida gehituta"
 
 msgid "notification.reviewAcknowledged"
-msgstr ""
+msgstr "Berrikuspena onartutzat markatuta. Mezu elektronikoa ez da bidali."
 
 msgid "notification.reviewerThankedEmail"
-msgstr ""
+msgstr "Eskerrak emateko mezu elektronikoa bidali zaio ebaluatzaileari."
 
 msgid "notification.updatedReviewFiles"
-msgstr ""
+msgstr "Berrikuspen-fitxategiak eguneratuta."
 
 msgid "notification.allow"
 msgstr "Onartu horrelako jakinarazpenak nire jakinarazpen barran agertzea."
 
 msgid "notification.addedAnnouncementType"
-msgstr ""
+msgstr "Jakirazpen-mota gehitu da."
 
 msgid "notification.editedAnnouncementType"
-msgstr ""
+msgstr "Jakirazpen-mota editatu da."
 
 msgid "notification.removedAnnouncementType"
-msgstr ""
+msgstr "Jakirazpen-mota ezabatu da."
 
 msgid "notification.removedAnnouncement"
 msgstr "Politika editorialak"
@@ -1561,7 +1610,7 @@ msgid "notification.confirmSuccess"
 msgstr "Harpidetza burutu da."
 
 msgid "notification.email"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik jakinarazpen-mota hauetarako."
 
 msgid "notification.noneExist"
 msgstr "Une honetan ez duzu jakinarazpenik."
@@ -1605,10 +1654,11 @@ msgid "notification.reminderSent"
 msgstr "Pasahitz berria bidali da emandako posta elektronikoko helbidera."
 
 msgid "notification.savedSubmissionMetadata"
-msgstr ""
+msgstr "Bidalketaren metadatuak gordeta."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr ""
+"Bidali mezu elektroniko bat honi buruz erregistratutako erabiltzaile guztiei."
 
 msgid "search.author"
 msgstr "Egileak"
@@ -1620,25 +1670,25 @@ msgid "search.advancedFilters"
 msgstr "Iragazki aurreratuak"
 
 msgid "search.advancedSearchMore"
-msgstr ""
+msgstr "Bilaketa aukera gehiago"
 
 msgid "search.advancedSearchLess"
-msgstr ""
+msgstr "Ezkutatu bilaketa aukera gehiago"
 
 msgid "search.searchAgain"
-msgstr ""
+msgstr "Bilatu berriz"
 
 msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr ""
+msgstr "Garbitu indizea"
 
 msgid "search.cli.rebuildIndex.done"
 msgstr "egina"
 
 msgid "search.cli.rebuildIndex.error"
-msgstr ""
+msgstr "errorea"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr ""
+msgstr "{$numIndexed} artikulu indexatzeko programatuta"
 
 msgid "search.coverage"
 msgstr "Estaldura"
@@ -1665,7 +1715,7 @@ msgid "search.indexTerms"
 msgstr "Indizeko terminoak"
 
 msgid "search.indexTermsLong"
-msgstr ""
+msgstr "Indexazio-terminoen eremu guztiak"
 
 msgid "search.matchAll"
 msgstr "Kategoria guztietan"
@@ -1683,16 +1733,16 @@ msgid "search.operator.or"
 msgstr "EDO"
 
 msgid "search.SearchFor"
-msgstr ""
+msgstr "Bilatu"
 
 msgid "search.searchResults"
 msgstr "Bilaketaren emaitza"
 
 msgid "search.searchResults.foundSingle"
-msgstr ""
+msgstr "Elementu bat aurkitu da."
 
 msgid "search.searchResults.foundPlural"
-msgstr ""
+msgstr "{$count} elementu aurkitu dira."
 
 msgid "search.subject"
 msgstr "Gako-hitza(k)"
@@ -1707,28 +1757,28 @@ msgid "search.typeMethodApproach"
 msgstr "Mota (metodoa/hurbilketa)"
 
 msgid "grid.action.downloadFile"
-msgstr ""
+msgstr "Deskargatu fitxategi hau"
 
 msgid "context.path"
-msgstr ""
+msgstr "Helbidea"
 
 msgid "review.ensuringAnonymousReview"
 msgstr "Nola bermatu fitxategi guztiak anonimizatuta daudela"
 
 msgid "grid.action.showReviewPolicy"
-msgstr ""
+msgstr "Irakurri uneko berrikuspen-politika"
 
 msgid "grid.action.deleteNotification"
-msgstr ""
+msgstr "Ezabatu zeregina"
 
 msgid "grid.action.markNew"
-msgstr ""
+msgstr "Markatu berria"
 
 msgid "grid.action.markRead"
-msgstr ""
+msgstr "Markatu irakurrita"
 
 msgid "dashboard.tasks"
-msgstr ""
+msgstr "Zereginak"
 
 msgid "dashboard.myQueue"
 msgstr "Nire errenka"
@@ -1772,7 +1822,7 @@ msgstr ""
 "<li>Gorde dokumentua</li></ul></li></ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
-msgstr ""
+msgstr "Berrikuspenen plangintza"
 
 msgid "reviewer.submission.reviewRequestDate"
 msgstr "Editorearen Eskaera"
@@ -1781,400 +1831,445 @@ msgid "reviewer.submission.responseDueDate"
 msgstr "Erantzunaren Epemuga"
 
 msgid "reviewer.submission.reviewDueDate"
-msgstr ""
+msgstr "Ebaluazioaren epemuga"
 
 msgid "submission.task.responseDueDate"
 msgstr "Erantzunaren Epemuga"
 
 msgid "navigation.goBack"
-msgstr ""
+msgstr "Itzuli"
 
 msgid "notification.addedReviewer"
 msgstr ""
+"{$reviewerName}-ri bidalketa hau berrikusteko esleitu zaio eta posta "
+"elektroniko bidezko jakinarazpena bidali zaio."
 
 msgid "notification.addedReviewerNoEmail"
 msgstr ""
+"{$reviewerName}-ri bidalketa hau berrikusteko esleitu zaio eta ez zaio posta "
+"elektroniko bidezko jakinarazpena bidali."
 
 msgid "notification.removedReviewer"
-msgstr ""
+msgstr "Ebaluatzailea ezabatuta."
 
 msgid "notification.cancelledReviewer"
-msgstr ""
+msgstr "Ebaluatzailea bertan behera."
 
 msgid "notification.reinstatedReviewer"
-msgstr ""
+msgstr "Ebaluatzailea berrezarri da."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Berrikuspen-esleipena berraztertzeko eskaera bidali da."
 
 msgid "notification.addedStageParticipant"
-msgstr ""
+msgstr "Erabiltzailea faseko parte-hartzaile gisa gehitu da."
 
 msgid "notification.editStageParticipant"
-msgstr ""
+msgstr "Fasearen esleipena aldatu da."
 
 msgid "notification.type.newAnnouncement"
-msgstr ""
+msgstr "Jakinarazpen berria."
 
 msgid "notification.type.reviewAssignment"
-msgstr ""
+msgstr "Berrikuspena zain."
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr ""
+msgstr "Berrikuspenaren esleipena eguneratu da."
 
 msgid "notification.type.auditorRequest"
-msgstr ""
+msgstr "Auditoria eskaera \"{$file}\"-rako"
 
 msgid "notification.type.allReviewsIn"
 msgstr ""
+"Ebaluatzaile guztiek erantzun dute eta erabaki bat hartu behar da {$stage}-n."
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
+"Berrikusitako fitxategi bat igo da zure erabaki editoriala hartzeko {$stage} "
+"atalean."
 
 msgid "notification.type.pendingRevisions"
-msgstr ""
+msgstr "Kontuan hartu beharreko berrikuspenak dituzu {$stage}-n."
 
 msgid "notification.type.pendingRevisions.title"
-msgstr ""
+msgstr "Berrikuspenak {$stage}-era bidalita."
 
 msgid "notification.type.reviewerComment"
-msgstr ""
+msgstr "Ebaluatzaile batek \"{$title}\" artikuluan iruzkin bat egin du."
 
 msgid "notification.signedFile"
-msgstr ""
+msgstr "Fitxategia kontuan hartu da."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Ordu-eremua"
 
 msgid "user.email"
-msgstr ""
+msgstr "Posta elektronikoa"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
+"Uneko erabiltzaileak ez du zehaztutako bidalketa-fitxategia atzitzeko "
+"baimenik."
 
 msgid "user.authorization.invalidPublication"
-msgstr ""
+msgstr "Argitalpena ez da baliozkoa."
 
 msgid "user.authorization.invalidSubmission"
-msgstr ""
+msgstr "Bidalketa baliogabea."
 
 msgid "user.authorization.invalidRepresentation"
-msgstr ""
+msgstr "Ordezkaritza baliogabea."
 
 msgid "user.authorization.invalidReviewRound"
-msgstr ""
+msgstr "Berrikuspen-erronda baliogabea."
 
 msgid "user.authorization.invalidQuery"
-msgstr ""
+msgstr "Eztabaida baliogabea."
 
 msgid "user.authorization.unauthorizedNote"
-msgstr ""
+msgstr "Ez duzu eztabaida-mezu honetarako sarbiderik."
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr ""
+msgstr "Ez duzu berrikuspenaren esleipen honetarako sarbiderik."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
+"Ez duzu bidalketa ikusteko baimenik. Editatu zure profila \"Erregistratu "
+"honela\" atalean rol egokiak eman zaizkizula ziurtatzeko."
 
 msgid "user.authorization.submissionAuthor"
 msgstr ""
+"Uneko erabiltzailea ez da eskatutako bidalketaren egilea. Mesedez, egiaztatu "
+"erabiltzaile-kontu zuzenarekin hasi duzula saioa."
 
 msgid "user.register.form.privacyConsentLabel"
-msgstr ""
+msgstr "Pribatutasun aukerak"
 
 msgid "notification.type.queryActivity"
-msgstr ""
+msgstr "Eztabaidako jarduera."
 
 msgid "notification.type.queryAdded"
-msgstr ""
+msgstr "Eztabaida gehitu da."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
+"Esleitu zuzentzaile bat parte-hartzaileen zerrendako \"Esleitu\" esteka "
+"erabiliz."
 
 msgid "notification.type.awaitingCopyedits"
-msgstr ""
+msgstr "Zuzenketen zain."
 
 msgid "notification.type.roundStatusTitle"
-msgstr ""
+msgstr "{$round} errondaren egoera"
 
 msgid "notification.type.editorialReport"
-msgstr ""
+msgstr "Estatistiken txostenaren laburpena."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
+"Mezu honekin txosten editorialaren bidez zure aldizkariaren osasuna "
+"egiaztatzeko gogoratzen dizugu."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Egin gabeko zereginen asteko posta elektronikoa"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
-msgstr ""
+msgstr "Nabigazio-menuko elementua behar bezala eguneratu da"
 
 msgid "notification.removedNavigationMenuItem"
-msgstr ""
+msgstr "Nabigazio-menuko elementua ongi ezabatu da"
 
 msgid "notification.addedNavigationMenuItem"
-msgstr ""
+msgstr "Nabigazio-menuko elementua behar bezala gehitu da"
 
 msgid "notification.addedNavigationMenu"
-msgstr ""
+msgstr "Nabigazio-menua behar bezala gehitu da"
 
 msgid "notification.editedNavigationMenu"
-msgstr ""
+msgstr "Nabigazio-menua behar bezala eguneratu da"
 
 msgid "notification.removedNavigationMenu"
-msgstr ""
+msgstr "Nabigazio-menua behar bezala ezabatu da"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr ""
+msgstr "Harpidetza kendu duzu"
 
 msgid "notification.unsubscribeNotifications.error"
-msgstr ""
+msgstr "Ezin izan dizugu harpidetza kendu"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
+"Hautatu {$contextName}-rengandik {$email} helbidean jaso nahi ez dituzun "
+"mezu elektronikoak."
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
+"Edozein unetan harpidetu zaitezke berriro posta elektroniko bidezko "
+"jakinarazpenetara zure <a href=\"{$profileNotificationUrl}\">erabiltzaile "
+"profiletik</a>."
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
+"{$email} helbide elektronikoaren harpidetza behar bezala kendu da. Ez "
+"dizkizugu mezu elektroniko horiek gehiago bidaliko. Edozein unetan harpidetu "
+"zaitezke posta elektroniko bidezko jakinarazpenetara zure <a href=\""
+"{$profileNotificationUrl}\">erabiltzaile profiletik</a>."
 
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
+"Ustekabeko errore bat gertatu da eta ezin izan dugu {$email} helbide "
+"elektronikoaren harpidetza kendu. Zure <a href=\"{$profileNotificationUrl}\""
+">erabiltzaile profilean</a> posta elektroniko bidezko jakinarazpen "
+"guztietatik harpidetza kendu dezakezu edo laguntza jasotzeko zuzenean "
+"gurekin harremanetan jar zaitezke."
 
 msgid "notification.unsubscribeNotifications"
-msgstr ""
+msgstr "Harpidetza kendu"
 
 msgid "list.viewMore"
-msgstr ""
+msgstr "Erakutsi {$name}ri buruzko xehetasun gehiago"
 
 msgid "list.viewLess"
-msgstr ""
+msgstr "Ezkutatu {$name}ri buruzko xehetasunak"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Zabaldu guztia"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Bildu dena"
 
 msgid "validation.invalidOption"
-msgstr ""
+msgstr "Hau ez da baliozko aukera."
 
 msgid "validator.accepted"
-msgstr ""
+msgstr "Mesedez, onartu elementu hau."
 
 msgid "validator.active_url"
-msgstr ""
+msgstr "URL hau ez da baliozkoa."
 
 msgid "validator.after"
-msgstr ""
+msgstr "Data honek {$date}(r)en ondorengoa izan behar du."
 
 msgid "validator.alpha"
-msgstr ""
+msgstr "Honek letrak bakarrik izan ditzake."
 
 msgid "validator.alpha_dash"
 msgstr ""
+"Honek letrak, zenbakiak, marratxoak eta azpimarrak bakarrik izan ditzake."
 
 msgid "validator.alpha_dash_period"
 msgstr ""
+"Honek letrak, zenbakiak, marratxoak, azpimarrak eta puntuak bakarrik izan "
+"ditzake."
 
 msgid "validator.alpha_num"
-msgstr ""
+msgstr "Honek letrak eta zenbakiak bakarrik izan ditzake."
 
 msgid "validator.array"
-msgstr ""
+msgstr "Hau ez da baliozko matrize bat."
 
 msgid "validator.before"
-msgstr ""
+msgstr "Data honek {$date} baino lehenagokoa izan behar du."
 
 msgid "validator.between.numeric"
-msgstr ""
+msgstr "Honek {$min} eta {$max} artean egon behar du."
 
 msgid "validator.between.file"
-msgstr ""
+msgstr "Honek {$min} eta {$max} kilobyte artean egon behar du."
 
 msgid "validator.between.string"
-msgstr ""
+msgstr "Honek {$min} eta {$max} karaktere artean egon behar du."
 
 msgid "validator.between.array"
-msgstr ""
+msgstr "Honek {$min} eta {$max} elementu artean izan behar ditu."
 
 msgid "validator.boolean"
-msgstr ""
+msgstr "Eremu honek egia edo gezurra izan behar du."
 
 msgid "validator.confirmed"
-msgstr ""
+msgstr "Eremu honen baieztapena ez dator bat."
 
 msgid "validator.country"
-msgstr ""
+msgstr "Hau ez da baliozko herrialdea."
 
 msgid "validator.country.regex"
 msgstr ""
+"Hau ez da baliozko herrialde bat. Herrialdeak 2 letrako nazioarteko "
+"kodeetako bat izan behar du. Ikusi kode guztiak https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements helbidean."
 
 msgid "validator.currency"
-msgstr ""
+msgstr "Hau ez da baliozko moneta bat."
 
 msgid "validator.date"
-msgstr ""
+msgstr "Data hau ez da baliozkoa."
 
 msgid "validator.date_format"
-msgstr ""
+msgstr "Hau ez dator bat {$format} formatuarekin."
 
 msgid "validator.different"
-msgstr ""
+msgstr "{$attribute} eta {$other} desberdinak izan behar dira."
 
 msgid "validator.digits"
-msgstr ""
+msgstr "Honek {$digits} digitu izan behar ditu."
 
 msgid "validator.digits_between"
-msgstr ""
+msgstr "Honek {$min} eta {$max} digitu artean izan behar ditu."
 
 msgid "validator.email"
-msgstr ""
+msgstr "Hau ez da baliozko helbide elektroniko bat."
 
 msgid "validator.exists"
-msgstr ""
+msgstr "Hautatutako {$attribute} baliogabea da."
 
 msgid "validator.filled"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da."
 
 msgid "validator.image"
-msgstr ""
+msgstr "Honek irudi bat izan behar du."
 
 msgid "validator.in"
-msgstr ""
+msgstr "Hautatutako {$attribute} baliogabea da."
 
 msgid "validator.integer"
-msgstr ""
+msgstr "Zenbaki oso hau ez da baliozkoa."
 
 msgid "validator.ip"
-msgstr ""
+msgstr "Hau ez da baliozko IP helbide bat."
 
 msgid "validator.issn"
-msgstr ""
+msgstr "Hau ez da baliozko ISSN bat."
 
 msgid "validator.json"
-msgstr ""
+msgstr "Hau ez da baliozko JSON kate bat."
 
 msgid "validator.locale"
-msgstr ""
+msgstr "Hizkuntza hau ez da onartzen."
 
 msgid "validator.localeExpected"
 msgstr ""
+"Eremu hau eleanitza da. Balio bereiziak eman behar dira onartutako hizkuntza "
+"bakoitzerako."
 
 msgid "validator.localeKey"
 msgstr ""
+"Hizkuntzak tokiko (locale) kodea erabiliz zehaztu behar dira. Adibideak: "
+"en_US, fr_CA, sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
-msgstr ""
+msgstr "Honek ezin du izan {$max} baino handiagoa."
 
 msgid "validator.max.file"
-msgstr ""
+msgstr "Honek ezin du izan {$max} kilobyte baino handiagoa."
 
 msgid "validator.max.string"
-msgstr ""
+msgstr "Honek ezin du izan {$max} karaktere baino handiagoa."
 
 msgid "validator.max.array"
-msgstr ""
+msgstr "Honek ezin ditu izan {$max} elementu baino gehiago."
 
 msgid "validator.mimes"
-msgstr ""
+msgstr "Fitxategi honek {$values} motakoa izan behar du."
 
 msgid "validator.min.numeric"
-msgstr ""
+msgstr "Gutxienez {$min} izan behar du honek."
 
 msgid "validator.min.file"
-msgstr ""
+msgstr "Gutxienez {$min} kilobyte izan behar ditu honek."
 
 msgid "validator.min.string"
-msgstr ""
+msgstr "Gutxienez {$min} karaktere izan behar ditu honek."
 
 msgid "validator.min.array"
-msgstr ""
+msgstr "Gutxienez {$min} elementu izan behar ditu honek."
 
 msgid "validator.not_in"
-msgstr ""
+msgstr "Hautatutako {$attribute} baliogabea da."
 
 msgid "validator.numeric"
-msgstr ""
+msgstr "Zenbaki hau ez da baliozkoa."
 
 msgid "validator.orcid"
-msgstr ""
+msgstr "Hau ez da ORCID baliozkoa."
 
 msgid "validator.present"
-msgstr ""
+msgstr "{$attribute} eremuak presente egon behar du."
 
 msgid "validator.regex"
-msgstr ""
+msgstr "Hau ez dago behar bezala formateatua."
 
 msgid "validator.required"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da."
 
 msgid "validator.required_if"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$other} {$value} denean."
 
 msgid "validator.required_unless"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da, {$other} {$values}-n ez badago behintzat."
 
 msgid "validator.required_with"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values} presente dagoenean."
 
 msgid "validator.required_with_all"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values} presente dagoenean."
 
 msgid "validator.required_without"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values} presente ez dagoenean."
 
 msgid "validator.required_without_all"
-msgstr ""
+msgstr "Eremu hau derrigorrezkoa da {$values}-tik bat ere ez dagoenean."
 
 msgid "validator.same"
-msgstr ""
+msgstr "{$attribute}-k eta {$other}-k bat etorri behar dute."
 
 msgid "validator.size.numeric"
-msgstr ""
+msgstr "Honek {$size} izan behar du."
 
 msgid "validator.size.file"
-msgstr ""
+msgstr "Honek {$size} kilobyte izan behar du."
 
 msgid "validator.size.string"
-msgstr ""
+msgstr "Honek {$size} karaktere izan behar ditu."
 
 msgid "validator.size.array"
-msgstr ""
+msgstr "Honek {$size} elementu izan behar ditu."
 
 msgid "validator.string"
-msgstr ""
+msgstr "Hau ez da baliozko kate bat."
 
 msgid "validator.timezone"
-msgstr ""
+msgstr "Hau ez da baliozko ordu-eremu bat."
 
 msgid "validator.unique"
-msgstr ""
+msgstr "{$attribute} dagoeneko hartuta dago."
 
 msgid "validator.url"
-msgstr ""
+msgstr "URL hau ez da baliozkoa."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Ez da lerro berririk onartzen."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "[{$tags}] html-etiketa bakarrik onartzen dira."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
+"({$displayName}) iragazkiak {$inputTypeName} - {$typeofInput} sarrera "
+"onartzen du"
 
 msgid "filter.error.missingRequirements"
 msgstr ""
+"Zure instalazio-ingurunean onartzen ez den eraldaketa bat exekutatzen "
+"saiatzen ari zara."
 
 msgid "filter.import.error.couldNotImportNode"
-msgstr ""
+msgstr "Ezin izan da XML nodoa inportatu"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Agindu ezezaguna {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2183,10 +2278,10 @@ msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
 msgid "notification.addedAuthor"
-msgstr ""
+msgstr "Egilea gehitu da."
 
 msgid "notification.editedAuthor"
-msgstr ""
+msgstr "Egilea editatu da."
 
 #~ msgid "announcement.viewLink"
 #~ msgstr "Gehiago..."
@@ -2246,3 +2341,113 @@ msgstr ""
 
 #~ msgid "common.element"
 #~ msgstr "Elementu"
+
+msgid "common.yesContinue"
+msgstr "Bai, jarraitu"
+
+msgid "common.filtersClear"
+msgstr "Ezabatu iragazkiak"
+
+msgid "common.moreActions"
+msgstr "Ekintza gehiago"
+
+msgid "common.editorialMasthead"
+msgstr "Editorialeko goiburua"
+
+msgid "common.editorialHistory.page"
+msgstr "Edizio-historiaren orria"
+
+msgid "common.editorialHistory"
+msgstr "Edizio-historia"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Atal honek aurreko kolaboratzaileak zerrendatzen ditu."
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Ikusi <a href=\"{$url}\">edizio-historia</a>"
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Ikusi {$name}-(r)en ORCID profila"
+
+msgid "common.highlight"
+msgstr "Nabarmendu"
+
+msgid "common.highlights"
+msgstr "Nabarmenduak"
+
+msgid "common.assignments"
+msgstr "Esleipenak"
+
+msgid "common.showingXofX"
+msgstr ""
+"<strong>{$start}-(e)tik {$finish}-(e)ra</strong> erakusten. Guztira: {$total}"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.loaded"
+msgstr "Kargatuta"
+
+msgid "common.changeLanguage"
+msgstr "Aldatu hizkuntza"
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"{$count} errore detektatu dira. Mesedez, zuzendu beheko erroreak jarraitu "
+"aurretik."
+
+msgid "form.errorSummaryOne"
+msgstr "Errore bat detektatu da. Jarraitu aurretik, zuzendu beheko errorea."
+
+msgid "navigation.dashboards"
+msgstr "Editorearen kontrol-panela"
+
+msgid "navigation.reviewAssignments"
+msgstr "Nire esleipenak ebaluatzaile gisa"
+
+msgid "navigation.mySubmissions"
+msgstr "Nire bidalketak egile gisa"
+
+msgid "validator.multilingual"
+msgstr "Hizkuntza anitzeko eskakizuna ez da betetzen eremu honetarako."
+
+msgid "common.refreshingData"
+msgstr "Datuak eguneratzen"
+
+msgid "common.viewMoreDetails"
+msgstr "Ikusi xehetasun gehiago"
+
+msgid "common.sandbox"
+msgstr "Aplikazioa sandbox moduan exekutatzen."
+
+msgid "showAll"
+msgstr "Erakutsi guztia"
+
+msgid "showLess"
+msgstr "Erakutsi gutxiago"
+
+msgid "common.fromUntil"
+msgstr "{$from} &ndash; {$until}"
+
+msgid "common.numero"
+msgstr "Zenb."
+
+msgid "validator.date.comparison"
+msgstr "Konparaziorako emandako datak baliogabeak dira."
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Ebaluazioa onartu da"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Parekako ebaluatzaileak aurreko urtean"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Parekako ebaluatzaileak aurreko urteetan"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr ""
+"Editoreek eskerrak eman nahi dizkiete behean zerrendatutako {$year} urteko "
+"ebaluatzaileei."
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Ebaluazioa bidalita"

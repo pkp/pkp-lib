@@ -3,11 +3,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2024-05-13 15:39+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-07-30 00:34+0000\n"
+"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
-"fr_FR/>\n"
-"Language: fr_FR\n"
+"fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -571,3 +571,33 @@ msgstr ""
 
 msgid "emails.orcidCollectAuthorId.subject"
 msgstr "Soumission ORCID"
+
+msgid "emails.changeProfileEmailInvitationNotify.subject"
+msgstr ""
+"Confirmer la demande de modification de l'adresse e-mail de contact du compte"
+
+msgid "emailTemplate.variable.authorOrcidUrl"
+msgstr "Lien d'autorisation ORCID OAuth"
+
+msgid "mailable.userRoleEndNotify.name"
+msgstr "Notification de fin de rôle utilisateur"
+
+msgid "emailTemplate.variable.userRoleEnd.roleRemoved"
+msgstr "Il s'agit du nom du rôle utilisateur qui a été supprimé"
+
+msgid "emails.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"Cet e-mail est envoyé aux utilisateurs qui demandent une modification de "
+"leur adresse e-mail."
+
+msgid "emailTemplate.variable.orcidAboutUrl"
+msgstr "URL vers la page dédiée à ORCID"
+
+msgid "orcid.orcidRequestUpdateScope.name"
+msgstr "orcidRequestUpdateScope"
+
+msgid "mailable.userRoleEndNotify.description"
+msgstr "E-mail envoyé à un utilisateur lorsqu'il est supprimé d'un rôle."
+
+msgid "emails.userRoleEndNotify.subject"
+msgstr "Vous avez été supprimé d'un rôle"

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2025-07-21 11:45+0000\n"
+"PO-Revision-Date: 2025-07-23 07:03+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
@@ -2878,3 +2878,43 @@ msgstr "Zastosuj filtry"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Usuwanie niekompletnych zgłoszeń"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Recenzja przesłana w dniu {$date}"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Pliki przesłane w momencie zgłoszenia"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Potwierdź usunięcie JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "Chcesz usunąć istniejący plik JATS XML z tej publikacji. Czy na pewno?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Usuń plik JATS"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "Plik JATS jest generowany automatycznie na podstawie przesłanych danych"
+
+msgid "publication.jats.lastModified"
+msgstr "Ostatnia modyfikacja w dniu {$modificationDate} przez {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr ""
+"Wystąpił błąd podczas próby utworzenia domyślnej zawartości JATS. Upewnij "
+"się, że wtyczka JatsTemplate jest zainstalowana."
+
+msgid "submission.list.changeSubmissionLanguage.title"
+msgstr "Zmień język zgłoszenia dla"
+
+msgid "submission.list.changeSubmissionLanguage.languageDescription"
+msgstr ""
+"Jest to główny język zgłoszenia. Zmiana tego ustawienia będzie miała wpływ "
+"na zgłoszenie i wprowadzone metadane"
+
+msgid "submission.list.changeSubmissionLanguage.buttonLabel"
+msgstr "Zmiana"

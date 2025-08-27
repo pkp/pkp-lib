@@ -1,13 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
 # Emma U <emmaupkp@gmail.com>, 2025.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-06-16 18:06+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-08-15 14:36+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "grid/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -312,7 +313,7 @@ msgid "grid.action.bookInfo"
 msgstr "Renseignements sur la soumission"
 
 msgid "grid.action.logInAs"
-msgstr "Connexion sous"
+msgstr "Se connecter en tant que"
 
 msgid "grid.action.exportAllUsers"
 msgstr "Exporter tous les utilisateurs-trices"

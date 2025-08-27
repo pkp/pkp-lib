@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-17 19:22+0000\n"
+"PO-Revision-Date: 2025-07-31 22:34+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -783,6 +783,10 @@ msgstr "Txostenak"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
+"Sistemak denbora-tarte jakin batean gunearen erabilerarekin eta bidalketekin "
+"lotutako xehetasunak jarraitzen dituzten txostenak sortzen ditu. Txostenak "
+"CSV formatuan sortzen dira, eta ikusteko, kalkulu-orrien aplikazio bat behar "
+"da."
 
 msgid "manager.statistics.reports.month.label"
 msgstr "Erabili data formatu hau YYYYHH."
@@ -917,22 +921,22 @@ msgid "manager.setup.advanced"
 msgstr "Aurreratua"
 
 msgid "manager.setup.copyrightNotice"
-msgstr ""
+msgstr "Egile-eskubideen oharra"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
 
 msgid "manager.setup.authorGuidelines"
-msgstr ""
+msgstr "Egileentzako gidalerroak"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Desgaitu bidalketak"
 
 msgid "manager.setup.checklist"
-msgstr ""
+msgstr "Kontrol-zerrenda"
 
 msgid "manager.setup.competingInterests"
 msgstr ""
@@ -1080,7 +1084,7 @@ msgstr ""
 "publikoan bistara daitezkeenak."
 
 msgid "manager.setup.privacyStatement"
-msgstr ""
+msgstr "Pribatutasun-adierazpena"
 
 msgid "manager.setup.dateTime"
 msgstr ""
@@ -1245,7 +1249,7 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} berri)"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr ""
+msgstr "Erregistratutako erabiltzaileak"
 
 msgid "manager.users"
 msgstr "Erabiltzaileak"
@@ -1640,7 +1644,7 @@ msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr ""
 
 msgid "grid.action.addGenre"
-msgstr ""
+msgstr "Gehitu osagai bat"
 
 msgid "grid.action.editGenre"
 msgstr ""
@@ -1861,160 +1865,199 @@ msgid "manager.setup.licenseURLDescription"
 msgstr ""
 
 msgid "manager.setup.metadata.submission"
-msgstr ""
+msgstr "Bidalketa-formularioa"
 
 msgid "manager.setup.metadata.coverage"
-msgstr ""
+msgstr "Estaldura"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
+"Estaldurak, normalean, lan baten kokapen espaziala (leku-izen bat edo "
+"koordenatu geografikoak), denbora-tartea (aldiaren etiketa, data edo data-"
+"tartea) edo jurisdikzioa (izendatutako erakunde administratibo bat, adibidez)"
+" adieraziko ditu."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr ""
+msgstr "Gaitu estalduraren metadatuak"
 
 msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
+msgstr "Ez eskatu estaldura-metadaturik egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.coverage.request"
 msgstr ""
+"Eskatu egileari estalduraren metadatuak iradokitzeko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
+"Eskatu egileari estaldura-metadatuak iradokitzeko bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
+"Gako-hitzak hitz batetik hirura bitarteko esaldiak izaten dira normalean, "
+"eta bidalketa baten gai nagusiak adierazteko erabiltzen dira."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr ""
+msgstr "Gaitu gako-hitzaren metadatuak"
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
+msgstr "Ez eskatu gako-hitzik egileari bidalketa bitartean."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr ""
+msgstr "Eskatu egileari gako-hitzak iradokitzeko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.keywords.require"
-msgstr ""
+msgstr "Eskatu egileari gako-hitzak iradokitzeko bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
+"Bidalketaren gaineko eskubide guztiak, jabetza intelektualeko eskubideak "
+"(IPR), egile-eskubideak eta hainbat jabetza-eskubide barne."
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr ""
+msgstr "Gaitu eskubideen metadatuak"
 
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
+msgstr "Ez eskatu egileari eskubideen berri emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
+"Eskatu egileari aurretiazko edozein sarbide-eskubide jakinarazteko bidalketa-"
+"prozesuan."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
+"Eskatu egileari aurretiazko sarbide-eskubideak jakinarazteko bere bidalketa "
+"onartu aurretik."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
+"Iturria bidalketa eratorri den beste lan baten edo baliabide baten ID bat "
+"izan daiteke, hala nola DOI bat."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr ""
+msgstr "Gaitu iturrien metadatuak"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
+msgstr "Ez eskatu iturburu URLa egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.source.request"
-msgstr ""
+msgstr "Eskatu egileari iturburu URLa bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
+"Eskatu egileari iturburu URL bat emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
+"Gaiak aurkezpenaren gaia deskribatzen duten gako-hitzak, gako-esaldiak edo "
+"sailkapen-kodeak izango dira."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr ""
+msgstr "Gaitu gaiaren metadatuak"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
+msgstr "Ez eskatu gaiak egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr ""
+msgstr "Eskatu egileari gaiak emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
+msgstr "Eskatu egileari gaiak emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
+"Bidalketaren eduki nagusiaren izaera edo generoa. Mota normalean \"Testua\" "
+"izaten da, baina baita ere \"Datu-multzoa\", \"Irudia\" edo <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"dcmi-terms/\">Dublin Core motaren bat</a>."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr ""
+msgstr "Gaitu motaren metadatuak"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
+msgstr "Ez eskatu mota egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.type.request"
-msgstr ""
+msgstr "Eskatu egileari mota emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.type.require"
-msgstr ""
+msgstr "Eskatu egileari mota emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
+"Diziplinak unibertsitateko fakultateek eta gizarte ikasiek deskribatzen "
+"dituzten ikasketa motak edo ezagutza adarrak dira."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr ""
+msgstr "Gaitu diziplinen metadatuak"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
+msgstr "Ez eskatu diziplinarik egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
+msgstr "Eskatu egileari diziplinak emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
+msgstr "Eskatu egileari diziplinak emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
+"Laguntza-agentziek ikerketa-finantzaketaren iturria edo ikerketa erraztu "
+"duen bestelako erakunde-laguntza adieraz dezakete."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr ""
+msgstr "Gaitu laguntza-agentzien metadatuak"
 
 msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
+msgstr "Ez eskatu egileari laguntza-agentziarik bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.agencies.request"
-msgstr ""
+msgstr "Eskatu egileari bidalketa-prozesuan laguntza-agentziaren berri emateko."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Eskatu egileari laguntza-agentzien berri adierazteko bere bidalketa onartu "
+"aurretik."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
+"Bildu bidalketa baten erreferentziak aparteko eremu batean. Baliteke hau "
+"beharrezkoa izatea Crossref bezalako aipamenen jarraipen-zerbitzuekin "
+"jarduteko."
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr ""
+msgstr "Gaitu erreferentzien metadatuak"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr ""
+msgstr "Ez eskatu erreferentziarik egileari bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.citations.request"
-msgstr ""
+msgstr "Eskatu egileari erreferentziak emateko bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.citations.require"
-msgstr ""
+msgstr "Eskatu egileari erreferentziak emateko bere bidalketa onartu aurretik."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Egileek bere ikerketa-datuak eskuragarri jarri dituzten ala ez eta, hala "
+"bada, irakurleek nondik eskura ditzaketen azaltzen duen adierazpen labur bat."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Gaitu datuen erabilgarritasun adierazpenaren metadatuak"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Ez eskatu egileari datuen erabilgarritasun adierazpenik bidalketa-prozesuan."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Eskatu egileari datuen erabilgarritasun adierazpena emateko bidalketa-"
+"prozesuan."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Eskatu egileari datuen erabilgarritasun adierazpena emateko bere bidalketa "
+"onartu aurretik."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr ""
@@ -2271,7 +2314,7 @@ msgid "grid.category.categoryDetails"
 msgstr ""
 
 msgid "stats.allUsers"
-msgstr ""
+msgstr "Erabiltzaile guztiak"
 
 msgid "stats.city"
 msgstr ""
@@ -2289,73 +2332,75 @@ msgid "stats.downloads.timelineInterval"
 msgstr ""
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$count} ({$average}/urtean)"
 
 msgid "stats.daily"
-msgstr ""
+msgstr "Egunero"
 
 msgid "stats.dateRange"
-msgstr ""
+msgstr "Data-barrutia"
 
 msgid "stats.dateRange.allDates"
-msgstr ""
+msgstr "Data guztiak"
 
 msgid "stats.dateRange.apply"
-msgstr ""
+msgstr "Aplikatu"
 
 msgid "stats.dateRange.change"
-msgstr ""
+msgstr "Aldatu data-barrutia"
 
 msgid "stats.dateRange.customRange"
-msgstr ""
+msgstr "Barruti pertsonalizatua"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr ""
+msgstr "Sartutako datetako bat ez da existitzen."
 
 msgid "stats.dateRange.from"
-msgstr "Norengandik"
+msgstr "Noiztik"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Sartu data bakoitza UUUU-HH-EE formatuan. Adibidez, 2019ko urtarrilaren "
+"15eko data adierazteko, idatzi 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
-msgstr ""
+msgstr "Dataren formatua ez da baliozkoa. Sartu data UUUU-HH-EE formatuan."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr ""
+msgstr "Hasiera-datak amaiera-data baino lehenagokoa izan behar du."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr ""
+msgstr "Amaiera-data ezin da izan {$data} baino geroagokoa."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr ""
+msgstr "Hasiera-data ezin da izan {$date} baino lehenagokoa."
 
 msgid "stats.dateRange.last12Months"
-msgstr ""
+msgstr "Azken 12 hilabeteak"
 
 msgid "stats.dateRange.last30Days"
-msgstr ""
+msgstr "Azken 30 egunak"
 
 msgid "stats.dateRange.last90Days"
-msgstr ""
+msgstr "Azken 90 egunak"
 
 msgid "stats.dateRange.lastTwoYears"
-msgstr ""
+msgstr "Azken bi urteak"
 
 msgid "stats.dateRange.lastYear"
-msgstr ""
+msgstr "Azken urtea"
 
 msgid "stats.dateRange.sinceDate"
-msgstr ""
+msgstr "{$date}-tik aurrera"
 
 msgid "stats.dateRange.thisYear"
-msgstr ""
+msgstr "Orain arteko urtea"
 
 msgid "stats.dateRange.to"
-msgstr ""
+msgstr "Noiz arte"
 
 msgid "stats.dateRange.untilDate"
-msgstr ""
+msgstr "{$date} arte"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
@@ -2379,16 +2424,16 @@ msgid "stats.file.type.suppFile"
 msgstr ""
 
 msgid "stats.fileViews"
-msgstr ""
+msgstr "Fitxategiaren bistaratzeak"
 
 msgid "stats.html"
-msgstr ""
+msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr ""
+msgstr "Hilero"
 
 msgid "stats.pdf"
-msgstr ""
+msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
 msgstr ""
@@ -2403,25 +2448,25 @@ msgid "stats.downloadReport.allFilters"
 msgstr ""
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Deskargatu fitxategiak"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Fitxategi bakoitzaren deskarga kopurua."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Deskargatu datu geografikoak"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Hiri, eskualde edo herrialde bakoitzeko ikustaldi eta deskarga kopurua."
 
 msgid "stats.region"
 msgstr ""
 
 msgid "stats.searchSubmissionDescription"
-msgstr ""
+msgstr "Bilatu izenburuaren, egilearen eta IDaren arabera"
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Bidalketa aktiboak"
 
 msgid "stats.timeline"
 msgstr ""
@@ -2439,7 +2484,7 @@ msgid "stats.timelineType"
 msgstr ""
 
 msgid "stats.total"
-msgstr ""
+msgstr "Guztira"
 
 msgid "stats.unique"
 msgstr ""
@@ -2448,7 +2493,7 @@ msgid "stats.totalWithinDateRange"
 msgstr ""
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Joerak"
 
 msgid "stats.unknown"
 msgstr ""
@@ -2457,52 +2502,52 @@ msgid "stats.userStatistics"
 msgstr ""
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Jasotako bidalketak"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Beste bidalketak"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Martxan dauden bidalketak"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Inportatutako bidalketak"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Onartutako bidalketak"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Baztertutako bidalketak"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Baztertutako bidalketak (berrikuspenaren aurretik)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Baztertutako bidalketak (berrikuspenaren ondoren)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Argitaratutako bidalketak"
 
 msgid "stats.name.daysToDecision"
-msgstr ""
+msgstr "Lehenengo erabaki editorialerako egunak"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Onartzeko egunak"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Baztertzeko egunak"
 
 msgid "stats.name.acceptanceRate"
-msgstr ""
+msgstr "Onarpen-tasa"
 
 msgid "stats.name.declineRate"
-msgstr ""
+msgstr "Errefusatze-tasa"
 
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Berrikuspen aurreko errefusatze-tasa"
 
 msgid "stats.name.declinedReviewRate"
-msgstr ""
+msgstr "Berrikuspen ondorengo errefusatze-tasa"
 
 msgid "plugins.importexport.native.processFailed"
 msgstr ""
@@ -3249,7 +3294,7 @@ msgstr "Dataren formatua ez da baliozkoa."
 
 #, fuzzy
 msgid "manager.statistics.counterR5Report.settings.metricType"
-msgstr "Tipo metrikoa"
+msgstr "Mota metrikoa"
 
 msgid "manager.statistics.counterR5Report.settings.customerId"
 msgstr "Bezeroaren IDa"
@@ -3334,3 +3379,23 @@ msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "Mezu elektronikoak behar bezala ilaran jarri dira ahalik eta azkarren "
 "bidaltzeko."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Argitalpen-urtea"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Argitalpen-urteen zerrenda edo tartea, yyyy|yyyy|yyyy-yyyy formatuan "
+"erantzun gisa itzultzeko."
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Erakutsi beharreko atributuak"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Txosten bakoitzari buruzko informazio gehiago lortzeko, ikusi <a href=\"https"
+"://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">COUNTER 5.0.3 dokumentazioa</a>."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Ez dago COUNTER R5 erabilera-estatistikarik eskuragarri oraindik."

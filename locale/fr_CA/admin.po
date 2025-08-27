@@ -1,5 +1,5 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023, 2025.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
 # Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2025-06-16 18:06+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-08-27 17:56+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -262,13 +262,11 @@ msgstr ""
 msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Date non valide."
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr "Le Context ID n'est pas un nombre entier."
+msgstr "L'identifiant du contexte n'est pas un nombre entier."
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr "Le Submission ID n'est pas un nombre entier."
+msgstr "L'identifiant de soumission n'est pas un nombre entier."
 
 #, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
@@ -598,13 +596,12 @@ msgstr ""
 "paramètres/repères --redispatch et --clear pour redistribuer dans la liste "
 "d'attente ou vider tous les travaux en échec ou certains d'entre eux."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Distribuer les travaux disponibles dans la file d'attente. Si vous souhaitez "
-"distribuer un travail dans une file d'attente spécifique, passez le "
-"paramètre --queue=QUEUE_NAME. Il est aussi possible de passer --test pour "
-"lancer un travail test et --once pour lancer un travail à la fois"
+"distribuer un travail dans une file d'attente spécifique, utilisez le "
+"paramètre --queue=QUEUE_NAME. Il est aussi possible d'utiliser --test pour "
+"lancer un travail test et --once pour ne lancer qu'un seul travail."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"

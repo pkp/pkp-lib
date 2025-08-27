@@ -28,11 +28,12 @@ import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
 
 // Global components of UI Library
 import PkpModalManager from '@/frontend/components/PkpModal/PkpModalManager.vue';
+import PkpDialog from '@/frontend/components/PkpDialog/PkpDialog.vue';
 import PkpHelloWorld from '@/frontend/components/PkpHelloWorld/PkpHelloWorld.vue';
 import PkpButton from '@/frontend/components/PkpButton/PkpButton.vue';
 import PkpAccordion from '@/frontend/components/PkpAccordion/PkpAccordion.vue';
 import PkpTextarea from '@/frontend/components/PkpTextarea/PkpTextarea.vue';
-import PkpDropdownActions from '@/frontend/components/PkpDropdownActions/PkpDropdownActions.vue';
+import PkpDropdownMenu from '@/frontend/components/PkpDropdownMenu/PkpDropdownMenu.vue';
 import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
 import PkpUserComment from '@/frontend/components/PkpUserComment/PkpUserComment.vue';
 import PkpUserCommentsList from '@/frontend/components/PkpUserComment/PkpUserCommentsList.vue';
@@ -45,10 +46,11 @@ VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 
 VueRegistry.registerComponent('PkpHelloWorld', PkpHelloWorld);
 VueRegistry.registerComponent('PkpButton', PkpButton);
+VueRegistry.registerComponent('PkpDialog', PkpDialog);
 VueRegistry.registerComponent('PkpAccordion', PkpAccordion);
 VueRegistry.registerComponent('PkpModalManager', PkpModalManager);
 VueRegistry.registerComponent('PkpTextarea', PkpTextarea);
-VueRegistry.registerComponent('PkpDropdownActions', PkpDropdownActions);
+VueRegistry.registerComponent('PkpDropdownMenu', PkpDropdownMenu);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
 VueRegistry.registerComponent('PkpUserComment', PkpUserComment);
 VueRegistry.registerComponent('PkpUserCommentsList', PkpUserCommentsList);

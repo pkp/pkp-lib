@@ -3,8 +3,8 @@
 /**
  * @file pages/catalog/PKPCatalogHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPCatalogHandler
@@ -23,7 +23,6 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
-use PKP\db\DAO;
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -71,7 +70,7 @@ class PKPCatalogHandler extends Handler
         }
 
         $this->setupTemplate($request);
-        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . DAO::SORT_DIRECTION_DESC;
+        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . Collector::ORDER_DIR_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
@@ -82,7 +81,7 @@ class PKPCatalogHandler extends Handler
             ->filterByContextIds([$context->getId()])
             ->filterByCategoryIds([$category->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->orderBy($orderBy, $orderDir === DAO::SORT_DIRECTION_ASC ? Collector::ORDER_DIR_ASC : Collector::ORDER_DIR_DESC);
+            ->orderBy($orderBy, $orderDir);
 
         // Featured items are only in OMP at this time
         if (method_exists($collector, 'orderByFeatured')) {

@@ -3752,8 +3752,98 @@ msgstr "Validate XML before the export and registration."
 msgid "manager.selectCategories"
 msgstr "Select Categories"
 
-msgid "manager.userComments.comments"
+msgid "manager.userComment.deleteReport"
+msgstr "Delete Report"
+
+msgid "manager.userComment.deleteReport.confirm"
+msgstr "Are you sure you want to delete this report? This action cannot be undone."
+
+msgid "manager.userComment.deleteReport.success"
+msgstr "The report has been deleted successfully."
+
+msgid "manager.userComment.commentUpdated"
+msgstr "The comment has been updated successfully."
+
+msgid "manager.userComment.deleteComment"
+msgstr "Delete Comment"
+
+msgid "manager.userComment.deleteComment.confirm"
+msgstr "Are you sure you want to delete this comment? This action cannot be undone."
+
+msgid "manager.userComment.deleteComment.success"
+msgstr "The comment has been deleted successfully."
+
+msgid "manager.userComment.userComments"
+msgstr "User Comments"
+
+msgid "manager.userComment.viewDetailsCommentBy"
+msgstr "View comment details by"
+
+msgid "manager.userComment.reports"
+msgstr "Reports"
+
+msgid "manager.userComment.comment"
+msgstr "Comment"
+
+msgid "manager.userComment.comments"
 msgstr "Comments"
 
-msgid "manager.userComments.enableComments"
+msgid "manager.userComment.reportedBy"
+msgstr "Reported By"
+
+msgid "manager.userComment.report.reason"
+msgstr "Reason"
+
+msgid "manager.userComment.dateReported"
+msgstr "Date Reported"
+
+msgid "manager.userComment.approveComment"
+msgstr "Approve Comment"
+
+msgid "manager.userComment.hideComment"
+msgstr "Hide Comment"
+
+msgid "manager.userComment.approveThisComment.description"
+msgstr "Approving a comment will make it visible to all users on the site."
+
+msgid "manager.userComment.approved"
+msgstr "Approved"
+
+msgid "manager.userComment.hiddenOrNeedsApproval"
+msgstr "Hidden/Needs Approval"
+
+msgid "manager.userComment.reported"
+msgstr "Reported"
+
+msgid "manager.userComment.report.description"
+msgstr "This is the list of all the users who have reported this comment"
+
+msgid "manager.userComment.report.noReports"
+msgstr "No one has reported this comment yet"
+
+msgid "manager.userComment.commentPreview"
+msgstr "Comment preview"
+
+msgid "manager.userComment.viewComment"
+msgstr "View Comment"
+
+msgid "manager.userComment.viewReportDetailsBy"
+msgstr "View report details by"
+
+msgid "manager.userComment.reportPreview"
+msgstr "Report preview"
+
+msgid "manager.userComment.approved.note"
+msgstr "This comment was approved on {$approvedAt} by {$approvedBy}."
+
+msgid "manager.userComment.approval.warning"
+msgstr "Approving this comment will make it visible to all users on the site"
+
+msgid "manager.userComment.all"
+msgstr "All"
+
+msgid "manager.userComment.viewReport"
+msgstr "View Report"
+
+msgid "manager.userComment.enableComments"
 msgstr "Enable Public Comments"

@@ -36,6 +36,8 @@ class UserCommentReportResource extends JsonResource
             'note' => $this->note,
             'createdAt' => $this->createdAt,
             'updatedAt' => $this->updatedAt,
+            'isUserOrcidAuthenticated' => $user->hasVerifiedOrcid(),
+            'userAffiliation' => $user->getLocalizedAffiliation(),
         ];
     }
 }

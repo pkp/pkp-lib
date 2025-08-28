@@ -141,6 +141,9 @@ class ManagementHandler extends Handler
             case 'user':
                 $this->editUser($args, $request);
                 break;
+            case 'userComments':
+                $this->userComments($args, $request);
+                break;
             default:
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
@@ -284,7 +287,6 @@ class ManagementHandler extends Handler
                 'icon' => 'Announcements',
             ],
         ]);
-
         $templateMgr->assign([
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
@@ -602,6 +604,29 @@ class ManagementHandler extends Handler
     }
 
     /**
+     * Display the page to manage/moderate user comments
+     *
+     * @throws \Exception
+     */
+    public function userComments(array $args, Request $request): void
+    {
+        $this->setupTemplate($request);
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->assign([
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+
+        $templateMgr->setState([
+            'pageInitConfig' => [
+                'itemsPerPage' => Repo::userComment()->getPerPage(),
+            ],
+        ]);
+
+        $templateMgr->display('management/userComments.tpl');
+    }
+
+    /**
      * Edit or view user using user access table action
      *
      * @throws \Exception
@@ -618,7 +643,6 @@ class ManagementHandler extends Handler
         $invitationHandler = $invitation->getInvitationUIActionRedirectController();
         $invitationHandler->createHandle($request, $userId);
     }
-
     protected function getEmailTemplateForm(Context $context, string $apiUrl): EmailTemplateForm
     {
         $locales = $context->getSupportedFormLocaleNames();

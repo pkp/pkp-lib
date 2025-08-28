@@ -24,15 +24,18 @@ use PKP\submissionFile\SubmissionFile;
 class Repository
 {
     /**
-     * Summarize the BodyTextFile along with the body text content
+     * Map the BodyTextFile to an array including body text content and dependent files
      */
-    public function summarize(BodyTextFile $bodyTextFile): array
+    public function map(BodyTextFile $bodyTextFile): array
     {
         $fileProps = [];
+
         if ($bodyTextFile->submissionFile) {
-            $fileProps = Repo::submissionFile()
-                ->getSchemaMap()
-                ->summarize($bodyTextFile->submissionFile, $bodyTextFile->genres);
+            $submission = Repo::submission()->get($bodyTextFile->submissionId);
+            $schemaMap = Repo::submissionFile()->getSchemaMap($submission, $bodyTextFile->genres);
+
+            // Use map() to get full properties including dependentFiles
+            $fileProps = $schemaMap->map($bodyTextFile->submissionFile);
         }
 
         if ($bodyTextFile->bodyTextContent) {
@@ -73,7 +76,7 @@ class Repository
     }
 
     /**
-     * Base function that will add a new body text file
+     * Create or update the body text file for a publication
      */
     public function setBodyText(
         string $bodyText,
@@ -88,27 +91,84 @@ class Repository
         $context = Application::get()->getRequest()->getContext();
         $user = Application::get()->getRequest()->getUser();
 
-        // If no genre has been set and there is only one genre possible, set it automatically
         /** @var GenreDAO */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genresIterator = $genreDao->getEnabledByContextId($context->getId());
+        $genres = $genresIterator->toArray();
 
-        $temporaryFileManager = new TemporaryFileManager();
-        $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'bodyText');
-        if (!file_put_contents($temporaryFilename, $bodyText)) {
-            throw new \Exception('Unable to save body text!');
+        // Check if body text file already exists
+        $existingBodyTextFile = $this->getBodyTextFile($publicationId, $submission->getId(), $genres);
+
+        if ($existingBodyTextFile->submissionFile) {
+            // Update existing file
+            return $this->updateBodyTextFile($existingBodyTextFile->submissionFile, $bodyText, $submission, $genres);
         }
 
-        $submissionDir = Repo::submissionFile()
-            ->getSubmissionDir(
-                $submission->getData('contextId'),
-                $submission->getId()
-            );
+        // Create new file
+        return $this->createBodyTextFile($bodyText, $publication, $submission, $context, $user, $genres, $type, $params);
+    }
 
-        $fileId = app()->get('file')->add(
-            $temporaryFilename,
-            $submissionDir . '/' . uniqid() . '.txt'
+    /**
+     * Store body text content to file storage
+     *
+     * @return int The new file ID
+     */
+    protected function storeContent(string $bodyText, $submission): int
+    {
+        $temporaryFileManager = new TemporaryFileManager();
+        $temporaryFilename = tempnam($temporaryFileManager->getBasePath(), 'bodyText');
+
+        if (!file_put_contents($temporaryFilename, $bodyText)) {
+            throw new Exception('Unable to save body text!');
+        }
+
+        $submissionDir = Repo::submissionFile()->getSubmissionDir(
+            $submission->getData('contextId'),
+            $submission->getId()
         );
+
+        return app()->get('file')->add(
+            $temporaryFilename,
+            $submissionDir . '/' . uniqid() . '.json'
+        );
+    }
+
+    /**
+     * Update existing body text file content
+     */
+    protected function updateBodyTextFile(
+        SubmissionFile $submissionFile,
+        string $bodyText,
+        $submission,
+        array $genres
+    ): BodyTextFile {
+        $newFileId = $this->storeContent($bodyText, $submission);
+
+        $oldFileId = $submissionFile->getData('fileId');
+        Repo::submissionFile()->edit($submissionFile, ['fileId' => $newFileId]);
+        app()->get('file')->delete($oldFileId);
+
+        return $this->getBodyTextFile(
+            $submissionFile->getData('assocId'),
+            $submission->getId(),
+            $genres
+        );
+    }
+
+    /**
+     * Create new body text file
+     */
+    protected function createBodyTextFile(
+        string $bodyText,
+        $publication,
+        $submission,
+        $context,
+        $user,
+        array $genres,
+        int $type,
+        array $params
+    ): BodyTextFile {
+        $fileId = $this->storeContent($bodyText, $submission);
 
         $params['fileId'] = $fileId;
         $params['submissionId'] = $submission->getId();
@@ -117,42 +177,31 @@ class Repository
 
         $primaryLocale = $context->getPrimaryLocale();
         $allowedLocales = $context->getData('supportedSubmissionLocales');
-        $params['name'] = [$primaryLocale => 'bodyText'];
+        $params['name'] = [$primaryLocale => 'bodyText.json'];
 
-        if (empty($params['genreId'])) {
-
-            [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
-            if ($firstGenre && !$secondGenre) {
-                $params['genreId'] = $firstGenre->getId();
-            }
+        if (empty($params['genreId']) && count($genres) === 1) {
+            $params['genreId'] = reset($genres)->getId();
         }
 
         $params['assocType'] = Application::ASSOC_TYPE_PUBLICATION;
         $params['assocId'] = $publication->getId();
 
-        $errors = Repo::submissionFile()
-            ->validate(
-                null,
-                $params,
-                $allowedLocales,
-                $primaryLocale
-            );
+        $errors = Repo::submissionFile()->validate(
+            null,
+            $params,
+            $allowedLocales,
+            $primaryLocale
+        );
 
         if (!empty($errors)) {
             app()->get('file')->delete($fileId);
             throw new Exception(print_r($errors, true));
         }
 
-        $submissionFile = Repo::submissionFile()
-            ->newDataObject($params);
+        $submissionFile = Repo::submissionFile()->newDataObject($params);
+        Repo::submissionFile()->add($submissionFile);
 
-        $submissionFileId = Repo::submissionFile()
-            ->add($submissionFile);
-
-        $bodyTextFile = Repo::bodyText()
-            ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
-
-        return $bodyTextFile;
+        return $this->getBodyTextFile($publication->getId(), $submission->getId(), $genres);
     }
 
     /**

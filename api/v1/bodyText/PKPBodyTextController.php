@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/bodyText/BodyTextController.php
+ * @file api/v1/bodyText/PKPBodyTextController.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class BodyTextController
+ * @class PKPBodyTextController
  *
  * @brief Handle API requests for body text file operations.
  *
@@ -34,7 +34,7 @@ use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\submissionFile\SubmissionFile;
 
-class BodyTextController extends PKPBaseController
+class PKPBodyTextController extends PKPBaseController
 {
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
@@ -70,8 +70,8 @@ class BodyTextController extends PKPBaseController
             Route::get('', $this->get(...))
                 ->name('publication.bodyText.get');
 
-            Route::post('', $this->post(...))
-                ->name('publication.bodyText.post');
+            Route::put('', $this->save(...))
+                ->name('publication.bodyText.save');
 
             Route::delete('', $this->delete(...))
                 ->name('publication.bodyText.delete');
@@ -97,7 +97,7 @@ class BodyTextController extends PKPBaseController
             $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
         }
 
-        if ($actionName === 'post') {
+        if ($actionName === 'save') {
             $params = $illuminateRequest->input();
             $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : SubmissionFile::SUBMISSION_FILE_BODY_TEXT;
             $this->addPolicy(
@@ -133,16 +133,16 @@ class BodyTextController extends PKPBaseController
         $bodyTextFile = Repo::bodyText()
             ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
 
-        $bodyTextFilesProp = Repo::bodyText()
-            ->summarize($bodyTextFile);
-
-        return response()->json($bodyTextFilesProp, Response::HTTP_OK);
+        return response()->json(
+            Repo::bodyText()->map($bodyTextFile),
+            Response::HTTP_OK
+        );
     }
 
     /**
-     * Add a body text file to a publication
+     * Save body text content for a publication
      */
-    public function post(Request $illuminateRequest): JsonResponse
+    public function save(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
@@ -165,10 +165,10 @@ class BodyTextController extends PKPBaseController
         $bodyTextFile = Repo::bodyText()
             ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
 
-        $bodyTextFilesProp = Repo::bodyText()
-            ->summarize($bodyTextFile);
-
-        return response()->json($bodyTextFilesProp, Response::HTTP_OK);
+        return response()->json(
+            Repo::bodyText()->map($bodyTextFile),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -198,9 +198,9 @@ class BodyTextController extends PKPBaseController
         $bodyTextFile = Repo::bodyText()
             ->getBodyTextFile($publication->getId(), $submission->getId(), $genres->toArray());
 
-        $bodyTextFilesProp = Repo::bodyText()
-            ->summarize($bodyTextFile);
-
-        return response()->json($bodyTextFilesProp, Response::HTTP_OK);
+        return response()->json(
+            Repo::bodyText()->map($bodyTextFile),
+            Response::HTTP_OK
+        );
     }
 }

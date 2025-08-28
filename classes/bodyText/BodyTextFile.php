@@ -15,7 +15,6 @@
 namespace PKP\bodyText;
 
 use APP\facades\Repo;
-use PKP\bodyText\exceptions\UnableToCreateBodyTextContentException;
 use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
 use PKP\submissionFile\SubmissionFile;
 
@@ -35,15 +34,34 @@ class BodyTextFile
         try {
             if ($submissionFile) {
                 $this->isDefaultContent = false;
-
                 $this->bodyTextContent = Repo::submissionFile()
                     ->getSubmissionFileContent($submissionFile);
             } else {
-                $this->bodyTextContent = '';
+                $this->bodyTextContent = $this->getDefaultContent();
             }
-        } catch (UnableToCreateFileContentException | UnableToCreateBodyTextContentException $e) {
+        } catch (UnableToCreateFileContentException $e) {
             $this->loadingContentError = $e->getMessage();
         }
+    }
 
+    /**
+     * Returns the default body text document structure
+     */
+    protected function getDefaultContent(): string
+    {
+        return json_encode([
+            'type' => 'doc',
+            'content' => [
+                [
+                    'type' => 'heading',
+                    'attrs' => ['level' => 1],
+                    'content' => [['type' => 'text', 'text' => 'Introduction']],
+                ],
+                [
+                    'type' => 'paragraph',
+                    'content' => [['type' => 'text', 'text' => 'Start writing your article content here...']],
+                ],
+            ],
+        ]);
     }
 }

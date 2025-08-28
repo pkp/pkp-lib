@@ -21,11 +21,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
-use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -48,19 +46,6 @@ class DAO extends EntityDAO
 
     /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'publication_id';
-
-    /** @var CitationDAO */
-    public $citationDao;
-
-    /**
-     * Constructor
-     */
-    public function __construct(CitationDAO $citationDao, PKPSchemaService $schemaService)
-    {
-        parent::__construct($schemaService);
-
-        $this->citationDao = $citationDao;
-    }
 
     /**
      * Get the parent object ID column name
@@ -108,10 +93,11 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+        $rows = $query
+            ->getQueryBuilder()
+            ->get();
+
+        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->publication_id => $this->fromRow($row);
             }
@@ -175,16 +161,10 @@ class DAO extends EntityDAO
             ->value('locale');
         $publication->setData('locale', $locale);
 
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $citations = $citationDao->getByPublicationId($publication->getId());
-        $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', new class($publication->getId()) implements \Stringable {
-            public function __construct(public int $publicationId) {}
-            function __toString() {
-                $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-                return $citationDao->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
-            }
-        });
+        $publication->setData('citations',
+            Repo::citation()->getByPublicationId($publication->getId()));
+        $publication->setData('citationsRaw',
+            Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL));
 
         $this->setAuthors($publication);
         $this->setCategories($publication);
@@ -205,10 +185,10 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $id);
         $this->saveCategories($publication);
 
-        // Parse the citations
-        if ((string) $publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
-        }
+        Repo::citation()->importCitations(
+            $publication->getId(),
+            $publication->getData('citationsRaw')
+        );
 
         return $id;
     }
@@ -225,8 +205,11 @@ class DAO extends EntityDAO
         $this->saveControlledVocab($vocabs, $publication->getId());
         $this->saveCategories($publication);
 
-        if ($oldPublication && (string) $oldPublication->getData('citationsRaw') != (string) $publication->getData('citationsRaw')) {
-            $this->saveCitations($publication);
+        if ($oldPublication) {
+            Repo::citation()->importCitations(
+                $publication->getId(),
+                $publication->getData('citationsRaw')
+            );
         }
     }
 
@@ -248,7 +231,7 @@ class DAO extends EntityDAO
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
-        $this->deleteCitations($publicationId);
+        Repo::citation()->deleteByPublicationId($publicationId);
 
         return $affectedRows;
     }
@@ -474,22 +457,6 @@ class DAO extends EntityDAO
     protected function deleteCategories(int $publicationId): void
     {
         PublicationCategory::where('publication_id', $publicationId)->delete();
-    }
-
-    /**
-     * Save the citations
-     */
-    protected function saveCitations(Publication $publication)
-    {
-        $this->citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
-    }
-
-    /**
-     * Delete the citations
-     */
-    protected function deleteCitations(int $publicationId)
-    {
-        $this->citationDao->deleteByPublicationId($publicationId);
     }
 
     /**

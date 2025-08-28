@@ -70,7 +70,7 @@ class Schema extends BaseSchema
         return $this->mapByProperties(
             $this->getSummaryProps(),
             $item,
-            $this->getUploaderUsernames(collect($item))
+            $this->getUploaderUsernames(collect([$item]))
         );
     }
 

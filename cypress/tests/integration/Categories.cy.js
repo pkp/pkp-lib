@@ -230,6 +230,7 @@ describe('Test category in submission dashboard', function() {
 
 	it('Assign category to submission', function() {
 		const categoryLabel = 'Test Category';
+		const issueAssignmentOption = "Don't Assign To An Issue"; // only for OJS
 
 		// Step 1: Add a new category
 		cy.login('dbarnes');
@@ -241,6 +242,12 @@ describe('Test category in submission dashboard', function() {
 		cy.visit('/index.php/publicknowledge/en/dashboard/editorial?currentViewId=active');
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
+
+		// Only for OJS, we need to select the issue which now part of Issue from as part of #9295
+		// It must be selected with proper assignment option to save the form
+		if (Cypress.env('defaultGenre') === 'Article Text') {
+			cy.get('label:Contains("'+issueAssignmentOption+'")').click();
+		}
 
 		cy.get('button').contains('Select Categories').click();
 		cy.contains('label', categoryLabel)

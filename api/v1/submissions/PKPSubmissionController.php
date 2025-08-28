@@ -18,6 +18,7 @@
 namespace PKP\API\v1\submissions;
 
 use APP\author\Author;
+use PKP\publication\PKPPublication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
@@ -999,7 +1000,7 @@ class PKPSubmissionController extends PKPBaseController
         $newLocale = $paramsSubmission['locale'] ?? null;
 
         // Submission language can not be changed when there are more than one publication or a publication's status is published
-        if (!$newLocale || count($submission->getData('publications')) > 1 || $publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if (!$newLocale || count($submission->getData('publications')) > 1 || $publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json(['error' => __('api.submission.403.cantChangeSubmissionLanguage')], Response::HTTP_FORBIDDEN);
         }
 
@@ -1377,7 +1378,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1394,9 +1395,11 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
 
-        // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
-        // should be used instead.
-        if (array_key_exists('status', $params)) {
+        // Only allow to update the status if it's a pre-publish status
+        // For the publishing statuses, the `/publish` and /unpublish endpoints should be used instead.
+        if (array_key_exists('status', $params)
+            && !in_array($params['status'], Publication::getPrePublishStatuses())) {
+            
             return response()->json([
                 'error' => __('api.publication.403.cantEditStatus'),
             ], Response::HTTP_FORBIDDEN);
@@ -1411,6 +1414,20 @@ class PKPSubmissionController extends PKPBaseController
 
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        // update of version information at publication edit
+        if ($illuminateRequest->has('versionStage') && $illuminateRequest->has('versionIsMinor')) {
+
+            $versionStage = $this->validateVersionStage($illuminateRequest);
+            $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
+            
+            // will only allow to update the version details at publication edit 
+            // if there is no version information added yet for this publication
+            // or if the given version stage information is different from what already assigned
+            if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
+                $publication = Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
+            }
         }
 
         Repo::publication()->edit($publication, $params);
@@ -1453,7 +1470,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.alreadyPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1509,7 +1526,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if (!in_array($publication->getData('status'), [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED])) {
+        if (!in_array($publication->getData('status'), [PKPPublication::STATUS_PUBLISHED, PKPPublication::STATUS_SCHEDULED])) {
             return response()->json([
                 'error' => __('api.publication.403.alreadyUnpublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1556,7 +1573,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantDeletePublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1671,7 +1688,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1765,7 +1782,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1827,7 +1844,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1920,7 +1937,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -2474,7 +2491,7 @@ class PKPSubmissionController extends PKPBaseController
             });
     }
 
-    private function validateVersionStage(Request $illuminateRequest): VersionStage
+    protected function validateVersionStage(Request $illuminateRequest): VersionStage
     {
         $validator = Validator::make($illuminateRequest->all(), [
             'versionStage' => [
@@ -2490,7 +2507,7 @@ class PKPSubmissionController extends PKPBaseController
         return VersionStage::from($validator->validated()['versionStage']);
     }
 
-    private function validateVersionIsMinor(Request $illuminateRequest): ?bool
+    protected function validateVersionIsMinor(Request $illuminateRequest): ?bool
     {
         return filter_var(
             $illuminateRequest->input('versionIsMinor') ?? true,

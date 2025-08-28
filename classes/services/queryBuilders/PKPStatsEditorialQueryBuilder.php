@@ -18,6 +18,7 @@
 namespace PKP\services\queryBuilders;
 
 use APP\facades\Repo;
+use PKP\publication\PKPPublication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
@@ -220,7 +221,7 @@ abstract class PKPStatsEditorialQueryBuilder
                 $q->where('p.publication_id', function ($q) {
                     $q->from('publications as p2')
                         ->where('p2.submission_id', '=', DB::raw('s.submission_id'))
-                        ->where('p2.status', '=', PKPSubmission::STATUS_PUBLISHED)
+                        ->where('p2.status', '=', PKPPublication::STATUS_PUBLISHED)
                         ->orderBy('p2.date_published', 'ASC')
                         ->limit(1)
                         ->select('p2.publication_id');
@@ -303,7 +304,7 @@ abstract class PKPStatsEditorialQueryBuilder
                 $q->where('p.publication_id', function ($q) {
                     $q->from('publications as p2')
                         ->where('p2.submission_id', '=', DB::raw('s.submission_id'))
-                        ->where('p2.status', '=', PKPSubmission::STATUS_PUBLISHED)
+                        ->where('p2.status', '=', PKPPublication::STATUS_PUBLISHED)
                         ->orderBy('p2.date_published', 'ASC')
                         ->limit(1)
                         ->select('p2.publication_id');
@@ -365,7 +366,7 @@ abstract class PKPStatsEditorialQueryBuilder
                 'pi.publication_id',
                 fn (Builder $q) => $q->from('publications as pi2')
                     ->whereColumn('pi2.submission_id', '=', 's.submission_id')
-                    ->where('pi2.status', '=', PKPSubmission::STATUS_PUBLISHED)
+                    ->where('pi2.status', '=', PKPPublication::STATUS_PUBLISHED)
                     ->orderBy('pi2.date_published', 'ASC')
                     ->limit(1)
                     ->select('pi2.publication_id')

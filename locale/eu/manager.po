@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-31 22:34+0000\n"
+"PO-Revision-Date: 2025-08-28 21:13+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -581,7 +581,7 @@ msgid "manager.people.disable"
 msgstr "Desgaitu"
 
 msgid "manager.people.doNotEnroll"
-msgstr "Funtziorik gabe"
+msgstr "Rolik gabe"
 
 msgid "manager.people.editProfile"
 msgstr "Editatu profila"
@@ -619,13 +619,13 @@ msgid "manager.people.enrollSelected"
 msgstr "Inskribatu hautatutako erabiltzaileak"
 
 msgid "manager.people.enrollSyncRole"
-msgstr "Sinkronizatu funtzio hau"
+msgstr "Sinkronizatu rol hau"
 
 msgid "manager.people.enrollSync"
 msgstr "Sinkronizatu inskripzioa"
 
 msgid "manager.people.enrollUserAsDescription"
-msgstr "Edozein unetan eslei (edo ken) dakioke funtzio bat erabiltzaile bati."
+msgstr "Edozein unetan eslei (edo ken) dakioke rol bat erabiltzaile bati."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Inskribatu erabiltzailea honela:"
@@ -647,8 +647,8 @@ msgstr "Batu erabiltzaileak"
 
 msgid "manager.people.mustChooseRole"
 msgstr ""
-"Hautatu funtzio bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik "
-"egin aurretik."
+"Hautatu rol bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik egin "
+"aurretik."
 
 msgid "manager.people.mustProvideName"
 msgstr "Lehenengo, erabiltzailearen abizen bat eman behar duzu."
@@ -737,7 +737,7 @@ msgstr ""
 "ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu."
 
 msgid "manager.roles"
-msgstr "Funtzioak"
+msgstr "Rolak"
 
 msgid "manager.setup.statistics"
 msgstr "Estatistikak"

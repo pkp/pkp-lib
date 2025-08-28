@@ -62,8 +62,8 @@ class ReviewRequest extends Mailable
         }
 
         if (!$this->reviewAssignment->getMessageId()) {
-            error_log('Assigning message ID: ' . $messageId);
             $messageId = $this->reviewAssignment->assignMessageId();
+            error_log('Assigning message ID: ' . $messageId);
             Repo::reviewAssignment()->edit($this->reviewAssignment, ['messageId' => $messageId]);
         }
 

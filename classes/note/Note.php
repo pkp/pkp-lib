@@ -141,6 +141,14 @@ class Note extends Model
     }
 
     /**
+     * Scope a query to only include notes with a specific message ID.
+     */
+    public function scopeWithMessageId(Builder $query, string $messageId): Builder
+    {
+        return $query->where('message_id', $messageId);
+    }
+
+    /**
      * Scope a query to only include notes with a specific type.
      */
     public function scopeWithContents(Builder $query, string $contents): Builder

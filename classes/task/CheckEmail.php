@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use EmailReplyParser\Parser\EmailParser;
 use PKP\config\Config;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
+use PKP\note\Note;
 use PKP\scheduledTask\ScheduledTask;
 use Pop\Mail\Client\Imap;
 use Sabre\VObject;
@@ -129,8 +129,7 @@ class CheckEmail extends ScheduledTask
         }
 
         // See if there is a note with a message ID corresponding to this message's in-reply-to.
-        $noteDao = DAORegistry::getDAO('NoteDAO');
-        $note = $noteDao->getByMessageId(trim($headers['in_reply_to'], '<>'));
+        $note = Note::withMessageId(trim($headers['in_reply_to'], '<>'))->first();
         if (!$note) {
             return false;
         }
@@ -172,14 +171,14 @@ class CheckEmail extends ScheduledTask
         $newText = $email->getVisibleText();
 
         // We have successfully located a user, note, and text content. Add it to the DB.
-        $newNote = $noteDao->newDataObject();
-        $newNote->setAssocType($note->assocType);
-        $newNote->setAssocId($note->assocId);
-        $newNote->setUserId($user->getId());
-        $newNote->setTitle($headers['subject']);
-        $newNote->setContents($newText);
-        $newNote->assignMessageId();
-        $noteDao->insertObject($newNote);
+        $newNote = Note::create([
+            'assocType' => $note->assocType,
+            'assocId' => $note->assocId,
+            'userId' => $user->getId(),
+            'title' => $headers['subject'],
+            'contents' => $newText,
+            'messageId' => Note::generateMessageId(),
+        ]);
 
         error_log('Parsed an email response by ' . $user->getEmail() . ' to note ID ' . $note->id);
         return true;

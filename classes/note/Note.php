@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use PKP\config\Config;
 use PKP\db\DAO;
 
 class Note extends Model
@@ -38,7 +39,8 @@ class Note extends Model
     protected $fillable = [
         'assocType', 'assocId', 'userId',
         'dateCreated', 'dateModified',
-        'title', 'contents'
+        'title', 'contents',
+        'messageId',
     ];
 
     protected function casts(): array
@@ -101,6 +103,14 @@ class Note extends Model
     public function getData(?string $field)
     {
         return $field ? $this->$field : $this;
+    }
+
+    /**
+     * Generate a new unique message ID.
+     */
+    public static function generateMessageId(): string
+    {
+        return 'note-' . (new \Random\Randomizer())->getInt(0, PHP_INT_MAX) . Config::getVar('email', 'message_id_suffix');
     }
 
     // Scopes

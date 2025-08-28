@@ -37,9 +37,11 @@ class NotesMigration extends \PKP\migration\Migration
             $table->datetime('date_created');
             $table->datetime('date_modified')->nullable();
             $table->string('title', 255)->nullable();
+            $table->string('message_id', 255)->nullable();
             $table->text('contents')->nullable();
 
             $table->index(['assoc_type', 'assoc_id'], 'notes_assoc');
+            $table->index(['message_id'], 'notes_message_id');
         });
     }
 

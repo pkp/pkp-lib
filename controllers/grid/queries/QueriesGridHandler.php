@@ -173,6 +173,7 @@ class QueriesGridHandler extends GridHandler
      * @copydoc GridHandler::initialize()
      *
      * @param null|mixed $args
+     *
      * @throws Exception
      */
     public function initialize($request, $args = null)
@@ -681,7 +682,8 @@ class QueriesGridHandler extends GridHandler
                     ->recipients([$user])
                     ->subject($note->title)
                     ->body($note->contents)
-                    ->allowUnsubscribe($notification);
+                    ->allowUnsubscribe($notification)
+                    ->allowCapturableReply($note->messageId);
 
                 $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(
                     $item->getId(),

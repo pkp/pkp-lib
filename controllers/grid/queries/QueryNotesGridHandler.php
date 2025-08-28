@@ -344,7 +344,8 @@ class QueryNotesGridHandler extends GridHandler
                 ->recipients([$recipient])
                 ->subject(__('common.re') . ' ' . $title)
                 ->body($note->contents)
-                ->allowUnsubscribe($notification);
+                ->allowUnsubscribe($notification)
+                ->allowCapturableReply($note->messageId);
 
             $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(
                 $item->getId(),

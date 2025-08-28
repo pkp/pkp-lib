@@ -148,6 +148,9 @@ msgstr "Task process stopped."
 msgid "admin.scheduledTask.noLog"
 msgstr "Task produced no log."
 
+msgid "admin.scheduledTask.checkEmail"
+msgstr "Check incoming emails"
+
 msgid "admin.scheduledTask.depositDois"
 msgstr "Deposit DOIs with configured registration agency"
 

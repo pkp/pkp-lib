@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "2d8d3ed919ea66efed2f2ccf4bd39d31",
+	"content-hash": "56487d1e6e090c11e5122f86779d5329",
 	"packages": [
 		{
 			"name": "altcha-org/altcha",
@@ -9497,6 +9497,58 @@
 				"source": "https://github.com/wikimedia/less.php/tree/v3.2.1"
 			},
 			"time": "2023-02-03T06:43:41+00:00"
+		},
+		{
+			"name": "willdurand/email-reply-parser",
+			"version": "2.10.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/willdurand/EmailReplyParser.git",
+				"reference": "f25f8c6c3cb876112e3857eb3da15e38e44e4725"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/willdurand/EmailReplyParser/zipball/f25f8c6c3cb876112e3857eb3da15e38e44e4725",
+				"reference": "f25f8c6c3cb876112e3857eb3da15e38e44e4725",
+				"shasum": ""
+			},
+			"require": {
+				"php": ">=7.4.0"
+			},
+			"require-dev": {
+				"symfony/phpunit-bridge": "^5.0"
+			},
+			"type": "library",
+			"extra": {
+				"branch-alias": {
+					"dev-master": "2.8-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"EmailReplyParser\\": "src/EmailReplyParser"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "William Durand",
+					"email": "will+git@drnd.me"
+				}
+			],
+			"description": "Port of the cool GitHub's EmailReplyParser library in PHP",
+			"keywords": [
+				"email",
+				"reply-parser"
+			],
+			"support": {
+				"issues": "https://github.com/willdurand/EmailReplyParser/issues",
+				"source": "https://github.com/willdurand/EmailReplyParser/tree/2.10.0"
+			},
+			"time": "2022-01-30T20:56:36+00:00"
 		},
 		{
 			"name": "zing/laravel-scout-opensearch",

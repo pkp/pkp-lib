@@ -61,13 +61,16 @@ class ReviewRequest extends Mailable
             return [];
         }
 
+        $messageId = $this->reviewAssignment->assignMessageId();
+        Repo::reviewAssignment()->edit($this->reviewAssignment, ['messageId' => $messageId]);
+
         $dateDue = $this->reviewAssignment->getDateDue();
         $vCalendar = new VObject\Component\VCalendar([
             'VEVENT' => [
                 'SUMMARY' => __(static::$name),
                 'DTSTART' => Carbon::now(),
                 'DTEND' => $dateDue ? new Carbon($dateDue) : null,
-                'UID' => uniqid('reviewAssignment'),
+                'UID' => $messageId,
             ]
         ]);
 

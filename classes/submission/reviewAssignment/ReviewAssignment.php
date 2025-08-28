@@ -18,6 +18,7 @@ namespace PKP\submission\reviewAssignment;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 
@@ -86,6 +87,32 @@ class ReviewAssignment extends \PKP\core\DataObject
     public function setSubmissionId($submissionId)
     {
         $this->setData('submissionId', $submissionId);
+    }
+
+    /**
+     * Get message ID of review assignment submission.
+     */
+    public function getMessageId(): ?string
+    {
+        return $this->getData('messageId');
+    }
+
+    /**
+     * Assign a new message ID to the review assignment and return it.
+     */
+    public function assignMessageId(): string
+    {
+        $messageId = 'reviewAssignment-' . (new \Random\Randomizer())->getInt(0, PHP_INT_MAX) . Config::getVar('email', 'message_id_suffix');
+        $this->setMessageId($messageId);
+        return $messageId;
+    }
+
+    /**
+     * Set message ID of review assignment
+     */
+    public function setMessageId(?string $messageId): void
+    {
+        $this->setData('messageId', $messageId);
     }
 
     /**

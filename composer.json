@@ -29,6 +29,7 @@
 		"mpdf/mpdf": "^8.2",
 		"opensearch-project/opensearch-php": "^2.4",
 		"phpmailer/phpmailer": "6.*",
+		"popphp/pop-mail": "^4.0",
 		"ralouphie/getallheaders": "*",
 		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",

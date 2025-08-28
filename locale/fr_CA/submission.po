@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-08-28 04:27+0000\n"
+"PO-Revision-Date: 2025-08-28 21:13+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
@@ -3036,3 +3036,271 @@ msgid "author.competingInterests.description"
 msgstr ""
 "Veuillez déclarer tout conflit d'intérêts potentiel de cette personne par "
 "rapport au sujet de recherche."
+
+msgid "reviewerManager.reviewerStatus"
+msgstr "Statut de l'évaluateur-trice"
+
+msgid "reviewerSuggestion.suggestionReason.description"
+msgstr ""
+"Merci d'expliquer pour quelles raisons vous recommandez cette personne. "
+"Veuillez mentionner tout conflit d'intérêt potentiel."
+
+msgid "submission.localeNotSupported"
+msgstr ""
+"La langue de la soumission ({$language}) ne fait pas partie des langues "
+"supportées. Vous pouvez toujours modifier les détails de cette soumission, "
+"mais aucune nouvelle soumission ne sera acceptée dans cette langue."
+
+msgid "dashboard.applyFilters"
+msgstr "Appliquer les filtres"
+
+msgid "dashboard.reviewAssignment.acceptOrDeclineRequestDate"
+msgstr "Merci d'accepter ou refuser cette demande au plus tard le {$date}"
+
+msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
+msgstr ""
+"La date d'échéance pour répondre à cette demande est passée. Merci "
+"d'accepter ou refuser cette demande aussitôt que possible."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr ""
+"La demande d'évaluation a été partagée avec les évaluateur-trices. Une "
+"réponse est attendue dans <b>{$days} jours, le {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "L'évaluateur-trice a annulé la demande d'évaluation le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "Voir la recommandation"
+
+msgid "workflow.submissionNextReviewRoundInFutureStage"
+msgstr ""
+"La soumission est passée au cycle d'évaluation suivant, a été acceptée, et "
+"est présentement à l'étape {$stage}."
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr ""
+
+msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
+msgstr ""
+"Le nombre minimum d'évaluations confirmées a été atteint. Une décision doit "
+"être rendue."
+
+msgid "workflow.reviewRoundN"
+msgstr "Cycle d'évaluation {$number}"
+
+msgid "dashboard.recommendOnly.recommendationsReady"
+msgstr "Une recommandation éditoriale a été reçue"
+
+msgid "fileManager.copyeditedFilesDescription"
+msgstr "Ces fichiers modifiés seront envoyés à l'étape de la production"
+
+msgid "dashboard.noAccessBeingAuthor"
+msgstr ""
+"Vous ne pouvez accéder à cette soumission en tant que directeur-trice de la "
+"revue car vous en êtes l'auteur-e. Pour la consulter, aller à l'onglet \"Mes "
+"soumissions\"."
+
+msgid "dashboard.submissions.incomplete.bulkDelete.column.description"
+msgstr "Veuillez sélectionner les soumissions incomplètes à supprimer."
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Réenvoyer la demande d'évaluation"
+
+#, fuzzy
+msgid "dashboard.submissions.incomplete.bulkDelete.body"
+msgstr ""
+"Voulez-vous vraiment supprimer les items sélectionnés? Cette action est "
+"irréversible."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr ""
+"L'évaluateur-trice n'a pas répondu à la demande d'évaluation. Une réponse "
+"était attendue le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Demande d'évaluation en retard depuis {$days} days"
+
+msgid "reviewerSuggestion.suggestionReason"
+msgstr "Raisons pour proposer l'évaluateur-trice"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Évaluateur-trices assigné-es"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Créer une nouvelle soumission"
+
+msgid "dashboard.assignReviewers"
+msgstr "Assigner des évaluateur-trices"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Révisions requises de l'auteur-e"
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr ""
+"Révisions requises de l'auteur-e et qui doivent faire l'objet d'un nouveau "
+"cycle d'évaluation"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "Nouveau cycle d'évaluation à créer"
+
+msgid "dashboard.toBePublishedInIssue"
+msgstr "À publier dans le numéro {$issue}"
+
+msgid "dashboard.copyEditedFilesUploaded"
+msgstr "Fichiers révisés téléversés: {$count}"
+
+msgid "dashboard.revisionRequested"
+msgstr "Révision requise"
+
+msgid "dashboard.submitRevisions"
+msgstr "Soumettre les révisions"
+
+msgid "workflow.uploadRevisions"
+msgstr "Téléverser les révisions"
+
+msgid "dashboard.actions.finishReview"
+msgstr "Terminer l'évaluation"
+
+msgid "dashboard.reviewAssignment.declined"
+msgstr "Demande refusée le {$date}"
+
+msgid "dashboard.actions.respondToRequest"
+msgstr "Répondre à la demande"
+
+msgid "dashboard.reviewAssignment.reviewSubmitted"
+msgstr "Évaluation soumise le {$date}"
+
+msgid "dashboard.reviewAssignment.completeReviewByDate"
+msgstr "Merci de compléter cette évaluation au plus tard le {$date}."
+
+msgid "dashboard.reviewAssignment.deadlineForCompletingReviewHasPassed"
+msgstr ""
+"La date d'échéance pour compléter cette évaluation est passée. Merci de "
+"compléter cette évaluation aussitôt que possible."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "En attente d'une réponse de l'évaluateur-trice"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Demande d'évaluation refusée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "L'évaluateur-trice a refusé la demande d'évaluation le <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
+msgstr "L'évaluation a été complétée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "L'évaluation a été confirmée par l'éditeur-trice"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "L'évaluation a été acceptée par l'éditeur-trice le <b>{$date}</b>."
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "L'évaluateur-trice a annulé la demande d'évaluation"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "En attente d'une réponse de l'évaluateur-trice"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr ""
+"La demande d'évaluation a été réenvoyée à l'évaluateur-trice. Une réponse "
+"est attendue dans {$days} jours, le {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "Voir les détails"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Retirer l'évaluateur-trice"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Retirer l'assignation"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Modifier la date d'échéance"
+
+msgid "dashboard.recommendOnly.recommendationsCompleted"
+msgstr ""
+"Toutes les recommandations éditoriales ont été reçues et une décision doit "
+"être rendue."
+
+msgid "dashboard.noAccessBeingReviewer"
+msgstr ""
+"Vous ne pouvez accéder à cette soumission en tant que directeur-trice de la "
+"revue car vous en êtes l'évaluateur-trice. Pour la consulter, aller à "
+"l'onglet \"Mes soumissions\"."
+
+msgid "dashboard.minimumConfirmedReviewsRequired"
+msgstr "Nombre minimum d'évaluations requises: {$number}."
+
+msgid "dashboard.proceedWithoutMinimumReviews"
+msgstr "Continuer sans le nombre minimum d'évaluations confirmées?"
+
+#, fuzzy
+msgid "dashboard.minimumConfirmedReviewsNotMet"
+msgstr ""
+"Le nombre minimum d'évaluations confirmées n'a pas été atteint. Voulez-vous "
+"tout de même rendre cette décision éditoriale?"
+
+msgid "workflow.stageNotStarted"
+msgstr "L'étape {$stage} n'a pas encore commencé."
+
+msgid "workflow.submissionInFutureStage"
+msgstr "La soumission est présentement à l'étape {$stage}."
+
+msgid "workflow.submissionInNextReviewRound"
+msgstr "La soumission est passée au cycle d'évaluation suivant"
+
+msgid "fileManager.submissionFilesDescription"
+msgstr "Fichiers téléversés lors de la soumission"
+
+msgid "fileManager.revisionsUploadedDescription"
+msgstr ""
+"Ces fichiers ont été soumis par l'auteur-e après que des révision aient été "
+"demandées"
+
+msgid "fileManager.filesForReview"
+msgstr "Fichiers pour l'évaluation"
+
+#, fuzzy
+msgid "fileManager.filesForReviewDescription"
+msgstr ""
+"Ces fichiers seront transmis aux évaluateur-trices pour fin d'évaluation"
+
+msgid "fileManager.copyeditedFiles"
+msgstr "Fichiers révisés"
+
+msgid "fileManager.draftFilesDescription"
+msgstr "Ces fichiers de l'étape d'évaluation doivent être révisés"
+
+#, fuzzy
+msgid "fileManager.productionReadyFilesDescription"
+msgstr "Ces fichiers seront envoyés à la publication"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.confirm"
+msgstr "Confirmez la suppression des soumissions incomplètes"
+
+msgid "dashboard.submissions.incomplete.bulkDelete.button"
+msgstr "Supprimer les soumissions incomplètes"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr ""
+"L'évaluateur-trice a accepté la demande d'évaluation. Son évaluation doit "
+"être rendue dans <b>{$days} jours, le {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Évaluation en retard de {$days} jours"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr ""
+"L'évaluateur-trice n'a pas complété son évaluation. Une réponse était "
+"attendue le <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Évaluation complétée le {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr ""
+"L'évaluation a été complétée le {$date} avec la recommandation suivante: "
+"<b>{$recommendation}</b>"

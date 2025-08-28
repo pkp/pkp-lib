@@ -19,13 +19,6 @@ namespace PKP\mail\mailables;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use Illuminate\Mail\Mailables\Attachment;
-use Jsvrcek\ICS\CalendarExport;
-use Jsvrcek\ICS\CalendarStream;
-use Jsvrcek\ICS\Model\Calendar;
-use Jsvrcek\ICS\Model\CalendarEvent;
-use Jsvrcek\ICS\Model\Relationship\Attendee;
-use Jsvrcek\ICS\Model\Relationship\Organizer;
-use Jsvrcek\ICS\Utility\Formatter;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
@@ -36,6 +29,7 @@ use PKP\mail\traits\Sender;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use Sabre\VObject;
 
 class ReviewRequest extends Mailable
 {
@@ -67,38 +61,32 @@ class ReviewRequest extends Mailable
             return [];
         }
 
-        $event = new CalendarEvent();
-        $event->setStart(new \DateTime())
-            ->setSummary(__(static::$name))
-            ->setUid(uniqid('reviewAssignment'));
-
-        if ($dateDue = $this->reviewAssignment->getDateDue()) {
-            $event->setEnd(new Carbon($dateDue));
-        }
+        $dateDue = $this->reviewAssignment->getDateDue();
+        $vCalendar = new VObject\Component\VCalendar([
+            'VEVENT' => [
+                'SUMMARY' => __(static::$name),
+                'DTSTART' => Carbon::now(),
+                'DTEND' => $dateDue ? new Carbon($dateDue) : null,
+                'UID' => uniqid('reviewAssignment'),
+            ]
+        ]);
 
         $reviewerUser = Repo::user()->get($this->reviewAssignment->getReviewerId());
-        $attendee = new Attendee(new Formatter());
-        $attendee->setValue($reviewerUser->getEmail())
-            ->setName($reviewerUser->getFullName())
-            ->setRsvp('TRUE');
-        $event->addAttendee($attendee);
+        $vCalendar->VEVENT->add('ATTENDEE', $reviewerUser->getEmail(), [
+            'CN' => $reviewerUser->getFullName(),
+            'RSVP' => 'TRUE',
+        ]);
 
         $request = PKPApplication::get()->getRequest();
         $user = $request->getUser();
-        $organizer = new Organizer(new Formatter());
-        $organizer->setValue(Config::getVar('email', 'reply_to_address'))
-            ->setName($user->getFullName());
-        $event->setOrganizer($organizer);
+        $vCalendar->VEVENT->add('ORGANIZER', Config::getVar('email', 'reply_to_address'), [
+            'CN' => $user->getFullName(),
+        ]);
 
-        $calendar = new Calendar();
-        $calendar->setProdId('-//PKP//Public Knowledge Project//EN')
-            ->addEvent($event);
-
-        $calendarExport = new CalendarExport(new CalendarStream(), new Formatter());
-        $calendarExport->addCalendar($calendar);
+        $vCalendar->PRODID = '-//PKP//Public Knowledge Project//EN';
 
         return [
-            Attachment::fromData(fn () => $calendarExport->getStream(), 'invite.ics')
+            Attachment::fromData(fn () => $vCalendar->serialize(), 'invite.ics')
                 ->withMime('text/calendar; charset="utf-8"; method=REQUEST')
         ];
     }

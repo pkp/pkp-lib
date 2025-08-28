@@ -27,7 +27,7 @@ class CheckEmail extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.checkEmail');
     }
@@ -35,14 +35,14 @@ class CheckEmail extends ScheduledTask
     /**
      * @copydoc ScheduledTask::executeActions()
      */
-    public function executeActions()
+    public function executeActions(): bool
     {
         if (($imapHost = Config::getVar('email', 'imap_host')) == null ||
             ($imapUsername = Config::getVar('email', 'imap_username')) == null ||
             ($imapPassword = Config::getVar('email', 'imap_password')) == null
         ) {
             error_log('IMAP inbox not configured; skipping email check.');
-            return;
+            return false;
         }
         error_log('Beginning email check task...');
 
@@ -55,6 +55,7 @@ class CheckEmail extends ScheduledTask
 
         // Get all messages sorted by date, oldest first
         foreach ($imap->getMessageIdsBy(SORTDATE) as $messageId) {
+            error_log("Checking email ID {$messageId}");
             $headers = $imap->getMessageHeadersById($messageId);
 
             // Identify the note the email is in response to (by message ID)

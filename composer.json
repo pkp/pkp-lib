@@ -18,6 +18,7 @@
 		"gettext/gettext": "5.*",
 		"gettext/translator": "1.2.*",
 		"guzzlehttp/guzzle": "^7.0",
+		"jsvrcek/ics": "^0.8.5",
 		"kevinlebrun/colors.php": "^1.0",
 		"kirkbushell/eloquence": "^11.0",
 		"laravel/framework": "^11.0",

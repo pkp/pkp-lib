@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2025-08-27 17:56+0000\n"
+"PO-Revision-Date: 2025-08-28 21:13+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
@@ -621,10 +621,10 @@ msgstr ""
 "pour voir l'ensemble des travaux en échec."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Afficher les commandes d'utilisation des tâches"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Afficher les paramètres d'utilisation des tâches"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.empty.option"
@@ -647,7 +647,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
 msgstr "Connexion"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Nom d'affichage de la tâche"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
@@ -982,13 +982,13 @@ msgid "admin.cli.tool.jobs.work.options.description"
 msgstr "Options disponible pour la commande work"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Nom de la connection de file à traiter [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Nom de la file à traiter [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Nom du processus[default : '{$default}']"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
@@ -1019,6 +1019,7 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Forcer le processus à rouler même en mode maintenance [default : {$default}]"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
@@ -1030,6 +1031,8 @@ msgstr "Nombre de travaux à traiter avant d'arrêter[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Durée maximale en secondes où le processus devrait rouler [default : "
+"'{$default}']"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.rest.description"
@@ -1037,7 +1040,7 @@ msgstr ""
 "Nombre de seconde à attendre entre chaque travail[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Rouler le processus pour la file de test"
 
 msgid "admin.fileLoader.fileDispatched"
 msgstr "Le fichier {$filename} a été déplacé dans le dossier de répartition."
@@ -1069,3 +1072,35 @@ msgstr "Ajouter la variable app_key dans le fichier config.inc.php."
 
 msgid "admin.cli.tool.appKey.show"
 msgstr "Générer l'App Key: {$appKey}"
+
+#, fuzzy
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Attribuez une tâche pour retirer automatiquement les invitations en retard"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Confirmez la clé de l'application courante, si une clé a été trouvée dans le "
+"fichier de configuration"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Vouliez-vous dire l'une des options suivantes?"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Aucune variable de clé `app_key` n'est définie dans la section `general` du "
+"fichier de configuration. Veuillez mettre à jour la section `general` du "
+"fichier de configuration et y ajouter la ligne `app_key = `, ou encore faire "
+"la commande `php lib/pkp/tools/appKey.php configure` pour définir la "
+"variable."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Générer une nouvelle clé d'application et remplacer la clé dans le fichier "
+"de configuration. Passez le paramètre --show pour uniquement afficher et --"
+"force pour écraser une clé déjà existante."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Les processus se termineront en douceur après avoir complété la tâche "
+"actuelle."

@@ -50,6 +50,10 @@
 					{capture assign=genresUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="genresGridContainer" url=$genresUrl}
 				</tab>
+				<tab id="contributorRoles" label="{translate key="grid.contributorRoles.title"}">
+					{capture assign=contributorRolesUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.contributorRoles.ContributorRoleGridHandler" op="fetchGrid" escape=false}{/capture}
+					{load_url_in_div id="contributorRolesGridContainer" url=$contributorRolesUrl}
+				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
 			</tabs>
 		</tab>

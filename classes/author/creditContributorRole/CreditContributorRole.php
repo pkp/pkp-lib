@@ -15,10 +15,12 @@
 namespace PKP\author\creditContributorRole;
 
 use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\JoinClause;
+use PKP\author\contributorRole\ContributorRole;
 
 class CreditContributorRole extends Model
 {
@@ -77,6 +79,14 @@ class CreditContributorRole extends Model
     public function scopeWithContributorId(Builder $query, int $contributorId): Builder
     {
         return $query->where('contributor_id', $contributorId);
+    }
+
+    /**
+     * Scope a query to only include contributors with a specific contributor role id.
+     */
+    public function scopeWithContributorRoleId(Builder $query, int $roleId): Builder
+    {
+        return $query->where('contributor_role_id', $roleId);
     }
 
     /**

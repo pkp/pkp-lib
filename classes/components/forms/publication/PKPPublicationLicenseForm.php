@@ -34,16 +34,15 @@ class PKPPublicationLicenseForm extends FormComponent
      * @param array $locales Supported locales
      * @param Publication $publication The publication to change settings for
      * @param \PKP\context\Context $context The publication's context
-     * @param Enumerable<int,\PKP\userGroup\UserGroup> $userGroups User groups in this context
      */
-    public function __construct($action, $locales, $publication, $context, Enumerable $userGroups)
+    public function __construct($action, $locales, $publication, $context)
     {
         $this->action = $action;
         $this->locales = $locales;
 
         // Get the copyright that will be set on publication based on context settings
         if ($context->getData('copyrightHolderType') === 'author') {
-            $copyright = $publication->getAuthorString($userGroups);
+            $copyright = $publication->getAuthorString();
         } elseif ($context->getData('copyrightHolderType') === 'other') {
             $copyright = $context->getLocalizedData('copyrightHolderOther');
         } else {

@@ -3751,3 +3751,24 @@ msgstr "Validate XML before the export and registration."
 
 msgid "manager.selectCategories"
 msgstr "Select Categories"
+
+msgid "grid.action.addContributorRole"
+msgstr "Add Role"
+
+msgid "grid.contributorRoles.title"
+msgstr "Contributor Roles"
+
+msgid "manager.setup.contributorRoles.identifier"
+msgstr "Role Identifier"
+
+msgid "manager.setup.contributorRoles.name"
+msgstr "Role Name"
+
+msgid "manager.setup.contributorRoles.nameRequired"
+msgstr "Role names required in all of the languages."
+
+msgid "manager.contributorRoles.alert.delete.inUse"
+msgstr "One or more contributors are using this role. Change the role to another before delete."
+
+msgid "manager.contributorRoles.alert.delete.atLeastOne"
+msgstr "At least one role must exist."

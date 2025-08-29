@@ -108,6 +108,7 @@ class ValidatorFactory
                 'file' => __('validator.min.file'),
                 'string' => __('validator.min.string'),
                 'array' => __('validator.min.array'),
+                'object' => __('validator.min.array'),
             ],
             'not_in' => __('validator.not_in'),
             'numeric' => __('validator.numeric'),

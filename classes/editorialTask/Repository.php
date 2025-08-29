@@ -107,6 +107,7 @@ class Repository
             'title' => $title,
             'contents' => $content,
             'userId' => $fromUser->getId(),
+            'messageId' => Note::generateMessageId(),
         ]);
 
         // Add task for assigned participants

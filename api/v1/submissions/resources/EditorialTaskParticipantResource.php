@@ -17,26 +17,17 @@ namespace PKP\API\v1\submissions\resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\core\traits\ResourceWithData;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 
 class EditorialTaskParticipantResource extends JsonResource
 {
-    use EnrichesWithData;
+    use ResourceWithData;
 
-    public function toArray(Request $request, ?array $data = []): array
+    public function toArray(Request $request, array $data = []): array
     {
-        if (!empty($data)) {
-            $this->data = $data;
-        }
-
-        [
-            'submission' => $submission,
-            'stageAssignments' => $stageAssignments,
-            'users' => $users,
-            'userGroups' => $userGroups,
-            'reviewAssignments' => $reviewAssignments,
-        ] = $this->data;
+        [$stageAssignments, $users, $userGroups, $reviewAssignments] = $this->getData('stageAssignments', 'users', 'userGroups', 'reviewAssignments');
 
         $user = $users->get($this->userId);
         $userAssignments = $stageAssignments->where('userId', $this->userId);
@@ -108,6 +99,20 @@ class EditorialTaskParticipantResource extends JsonResource
             'fullName' => $user->getFullName(),
             'username' => $user->getUsername(),
             'roles' => $groupedRoles,
+        ];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected static function requiredKeys(): array
+    {
+        return [
+            'submission',
+            'users',
+            'userGroups',
+            'stageAssignments',
+            'reviewAssignments',
         ];
     }
 }

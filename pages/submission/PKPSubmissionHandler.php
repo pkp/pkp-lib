@@ -3,8 +3,8 @@
 /**
  * @file pages/submission/PKPSubmissionHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
@@ -28,7 +28,6 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
-use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\CommentsForTheEditors;
 use PKP\components\forms\submission\ConfirmSubmission;
@@ -743,22 +742,6 @@ abstract class PKPSubmissionHandler extends Handler
                 'form' => $this->getLocalizedForm($titleAbstractForm, $submission->getData('locale'), $locales),
             ],
         ];
-
-        if (in_array($request->getContext()->getData('citations'), [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
-            $citationsForm = new PKPCitationsForm(
-                $publicationApiUrl,
-                $publication,
-                $request->getContext()->getData('citations') === Context::METADATA_REQUIRE
-            );
-            $this->removeButtonFromForm($citationsForm);
-            $sections[] = [
-                'id' => $citationsForm->id,
-                'name' => '',
-                'type' => self::SECTION_TYPE_FORM,
-                'description' => '',
-                'form' => $citationsForm->getConfig(),
-            ];
-        }
 
         return [
             'id' => 'details',

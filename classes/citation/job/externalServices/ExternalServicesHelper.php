@@ -75,7 +75,7 @@ class ExternalServicesHelper
 
             return $result;
 
-        } catch (GuzzleException|Exception $e) {
+        } catch (GuzzleException | Exception $e) {
             error_log(__METHOD__ . ' ' . $e->getMessage());
         }
 

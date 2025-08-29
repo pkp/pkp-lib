@@ -169,7 +169,7 @@ class PKPCitationController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CITATION, $illuminateRequest->input());
 
-        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
+        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_CITATION, $params);
         if (!empty($readOnlyErrors)) {
             return response()->json($readOnlyErrors, Response::HTTP_BAD_REQUEST);
         }

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2025-08-28 21:13+0000\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
@@ -1104,3 +1104,84 @@ msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Les processus se termineront en douceur après avoir complété la tâche "
 "actuelle."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"La variable `app_key` existe déjà dans la section`general` du fichier de "
+"configuration. Faites la commande `php lib/pkp/tools/appKey.php generate` "
+"pour définir une nouvelle clé d'application."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Aucune clé d'application dans le fichier de configuration."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Le jeu de clé d'application est invalide, à cause d'un chiffre non supporté "
+"ou d'une longueur de clé incorrecte. Les chiffres supportés sont: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Une clé d'application valide est déjà définie dans le fichier de "
+"configuration. Pour l'écraser, faites la commande avec le paramètre --force."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "La clé d'application a été définie dans le fichier de configuration."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Impossible de définir la variable `app_key` dans le fichier de "
+"configuration. Veuillez ajouter la ligne `app_key = ` dans la section "
+"`general` du fichier de configuration."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Une clé d'application a été définie dans le fichier de configuration"
+
+#, fuzzy
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Exécuter le programmateur."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Afficher la liste des tâches pogrammées."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Démarrer le processus de programmation."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Choisissez une tâche programmée dans la liste, ou en utilisant le paramètre "
+"--name. Passez le paramètre --no-scroll pour voir la liste complète sans "
+"défilement."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Afficher les paramètres d'utilisation du programmateur."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Vouliez-vous dire l'un des éléments suivants ?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Les tâches programmées n'ont pu être exécutées car l'application est en mode "
+"bac à sable."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Les tâches programmées seront exécutées à chaque minute."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Aucune tâche programmée correspondante."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Quelle commande voulez-vous faire?"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Les tâches programmées n'ont pu être exécutées car l'application est en mode "
+"maintenance."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Aucune tâche n'a été programmée."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"La clé d'application a été définie dans le fichier de configuration. Faites "
+"la commande `php lib/pkp/tools/appKey.php generate` pour définir une "
+"nouvelle clé d'application."

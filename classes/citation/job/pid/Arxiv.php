@@ -19,13 +19,13 @@ namespace PKP\citation\job\pid;
 class Arxiv extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const string regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
+    public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
 
     /** @copydoc AbstractPid::prefix */
-    public const string prefix = 'https://arxiv.org/abs';
+    public const prefix = 'https://arxiv.org/abs';
 
     /** @copydoc AbstractPid::prefixInCorrect */
-    public const array prefixInCorrect = [
+    public const prefixInCorrect = [
         'arxiv:'
     ];
 
@@ -40,8 +40,10 @@ class Arxiv extends BasePid
         $prefixes = $class::prefixInCorrect;
         $prefixes[] = $class::prefix;
 
-        foreach($prefixes as $prefix){
-            if(str_contains($string, $prefix)) return $string;
+        foreach ($prefixes as $prefix) {
+            if (str_contains($string, $prefix)) {
+                return $string;
+            }
         }
 
         return '';

@@ -93,11 +93,10 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
             foreach ($rows as $row) {
                 yield $row->publication_id => $this->fromRow($row);
             }
@@ -161,10 +160,14 @@ class DAO extends EntityDAO
             ->value('locale');
         $publication->setData('locale', $locale);
 
-        $publication->setData('citations',
-            Repo::citation()->getByPublicationId($publication->getId()));
-        $publication->setData('citationsRaw',
-            Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL));
+        $citations = Repo::citation()->getByPublicationId($publication->getId());
+        $publication->setData('citations', $citations);
+        $publication->setData('citationsRaw', new class($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId) {}
+            function __toString() {
+                return Repo::citation()->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
+            }
+        });
 
         $this->setAuthors($publication);
         $this->setCategories($publication);

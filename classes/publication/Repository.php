@@ -363,7 +363,7 @@ abstract class Repository
 
         Repo::citation()->importCitations(
             $newPublication->getId(),
-            $newpublication->getData('citationsRaw')
+            $newPublication->getData('citationsRaw')
         );
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */

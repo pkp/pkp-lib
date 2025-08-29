@@ -19,10 +19,10 @@ namespace PKP\citation\job\pid;
 class Orcid extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const string prefix = 'https://orcid.org';
+    public const prefix = 'https://orcid.org';
 
     /** @copydoc AbstractPid::prefixInCorrect */
-    public const array prefixInCorrect = [
+    public const prefixInCorrect = [
         'orcid:',
         'orcid_id:',
         'orcidId:'

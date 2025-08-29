@@ -19,13 +19,13 @@ namespace PKP\citation\job\pid;
 class Handle extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const string regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
+    public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
 
     /** @copydoc AbstractPid::prefix */
-    public const string prefix = 'https://hdl.handle.net';
+    public const prefix = 'https://hdl.handle.net';
 
     /** @copydoc AbstractPid::prefixInCorrect */
-    public const array prefixInCorrect = [
+    public const prefixInCorrect = [
         'handle:'
     ];
 
@@ -40,8 +40,10 @@ class Handle extends BasePid
         $prefixes = $class::prefixInCorrect;
         $prefixes[] = $class::prefix;
 
-        foreach($prefixes as $prefix){
-            if(str_contains($string, $prefix)) return $string;
+        foreach ($prefixes as $prefix) {
+            if (str_contains($string, $prefix)) {
+                return $string;
+            }
         }
 
         return '';

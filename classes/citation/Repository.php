@@ -23,6 +23,7 @@ use PKP\citation\filter\CitationListTokenizerFilter;
 use PKP\jobs\citation\MetadataLookup;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 
 class Repository
 {
@@ -93,7 +94,26 @@ class Repository
      */
     public function validate(?Citation $citation, array $props): array
     {
+        $validator = ValidatorFactory::make(
+            $props,
+            $this->schemaService->getValidationRules($this->dao->schema, [])
+        );
+
+        // Check required fields
+        ValidatorFactory::required(
+            $validator,
+            $citation,
+            $this->schemaService->getRequiredProps($this->dao->schema),
+            $this->schemaService->getMultilingualProps($this->dao->schema),
+            [],
+            ''
+        );
+
         $errors = [];
+
+        if ($validator->fails()) {
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
+        }
 
         Hook::call('Citation::validate', [&$errors, $citation, $props]);
 
@@ -152,7 +172,6 @@ class Repository
     {
         return $this->getCollector()
             ->filterByPublicationId($publicationId)
-            ->orderBy(Collector::ORDERBY_SEQUENCE)
             ->getMany()
             ->all();
     }
@@ -189,9 +208,7 @@ class Repository
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
-        $existingRawCitations = collect($this->getByPublicationId($publicationId))
-            ->map(fn(Citation $citation) => $citation->getData('rawCitation'))
-            ->all();
+        $existingRawCitations = $this->getRawCitationsByPublicationId($publicationId);
 
         if ($existingRawCitations !== $citationStrings) {
             $importedCitations = [];
@@ -254,22 +271,6 @@ class Repository
     public function existsRawCitation(int $publicationId, string $rawCitation): bool
     {
         return $this->dao->existsRawCitation($publicationId, $rawCitation);
-    }
-
-    /**
-     * Add a new job for metadata lookup for a given publication.
-     */
-    public function addJobForPublication(int $publicationId): void
-    {
-        $citations = $this->getByPublicationId($publicationId);
-
-        if (empty($citations)) {
-            return;
-        }
-
-        foreach ($citations as $citation) {
-            $this->addJobForCitation($citation->getId());
-        }
     }
 
     /**

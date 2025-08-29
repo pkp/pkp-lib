@@ -19,5 +19,5 @@ namespace PKP\citation\job\pid;
 class Url extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const string regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
+    public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
 }

@@ -21,13 +21,13 @@ namespace PKP\citation\job\pid;
 class Doi extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const string regex = '(10[.][0-9]{4,}[^\s"/<>]*/[^\s"<>]+)';
+    public const regex = '(10[.][0-9]{4,}[^\s"/<>]*/[^\s"<>]+)';
 
     /** @copydoc AbstractPid::prefix */
-    public const string prefix = 'https://doi.org';
+    public const prefix = 'https://doi.org';
 
     /** @copydoc AbstractPid::prefixInCorrect */
-    public const array prefixInCorrect = [
+    public const prefixInCorrect = [
         'doi:',
         'dx.doi.org'
     ];

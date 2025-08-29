@@ -21,7 +21,6 @@ use PKP\citation\job\externalServices\crossref\Inbound as CrossrefInbound;
 use PKP\citation\job\externalServices\openAlex\Inbound as OpenAlexInbound;
 use PKP\citation\job\externalServices\orcid\Inbound as OrcidInbound;
 use PKP\citation\job\pid\ExtractPidsHelper;
-use PKP\jobs\citation\MetadataLookup;
 
 class MetadataLookupHandler
 {
@@ -36,7 +35,7 @@ class MetadataLookupHandler
     public function execute(): void
     {
         $citation = Repo::citation()->get($this->citationId);
-        if($citation->getData('isProcessed')){
+        if ($citation->getData('isProcessed')) {
             return;
         }
 
@@ -60,8 +59,7 @@ class MetadataLookupHandler
         ) {
             $citation->setData('isProcessed', true);
             Repo::citation()->edit($citation, []);
-        }
-        else{
+        } else {
             Repo::citation()->addJobForCitation($this->citationId, 300);
         }
     }

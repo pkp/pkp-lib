@@ -54,18 +54,11 @@ class ExternalServicesHelper
      */
     public static function apiRequest(string $method, string $url, array $options): array
     {
-        if ($method !== 'POST' && $method !== 'GET') return [];
+        if ($method !== 'POST' && $method !== 'GET') {
+            return [];
+        }
 
         $httpClient = Application::get()->getHttpClient();
-//        $httpClient = new \GuzzleHttp\Client(
-//            [
-//                'headers' => [
-//                    'User-Agent' => Application::get()->getName(),
-//                    'Accept' => 'application/json'
-//                ],
-//                'verify' => false
-//            ]
-//        );
 
         try {
             $response = $httpClient->request($method, $url, $options);
@@ -76,7 +69,9 @@ class ExternalServicesHelper
 
             $result = json_decode($response->getBody(), true);
 
-            if (empty($result) || json_last_error() !== JSON_ERROR_NONE) return [];
+            if (empty($result) || json_last_error() !== JSON_ERROR_NONE) {
+                return [];
+            }
 
             return $result;
 

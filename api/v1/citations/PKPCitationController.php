@@ -168,9 +168,15 @@ class PKPCitationController extends PKPBaseController
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CITATION, $illuminateRequest->input());
+
+        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
+        if (!empty($readOnlyErrors)) {
+            return response()->json($readOnlyErrors, Response::HTTP_BAD_REQUEST);
+        }
+
         $params['id'] = $citation->getId();
 
-        $errors = Repo::citation()->validate(null, $params);
+        $errors = Repo::citation()->validate($citation, $params);
 
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
@@ -189,16 +195,51 @@ class PKPCitationController extends PKPBaseController
      */
     public function delete(Request $illuminateRequest): JsonResponse
     {
-        if (!Repo::citation()->exists((int)$illuminateRequest->route('citationId'))) {
+        $citation = Repo::citation()->get((int)$illuminateRequest->route('citationId'));
+
+        if (!$citation) {
             return response()->json([
                 'error' => __('api.citations.404.citationNotFound')
             ], Response::HTTP_OK);
         }
 
-        $citation = Repo::citation()->get((int)$illuminateRequest->route('citationId'));
-
         Repo::citation()->delete($citation);
 
         return response()->json(Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK);
+    }
+
+    /**
+     * This method returns errors for any params that match
+     * properties in the schema with writeDisabledInApi set to true.
+     *
+     * This is used for properties that can not be edited through
+     * the API, but which otherwise can be edited by the entity's
+     * repository.
+     */
+    protected function getWriteDisabledErrors(string $schemaName, array $params): array
+    {
+        $schema = app()->get('schema')->get($schemaName);
+
+        $writeDisabledProps = [];
+        foreach ($schema->properties as $propName => $propSchema) {
+            if (!empty($propSchema->writeDisabledInApi)) {
+                $writeDisabledProps[] = $propName;
+            }
+        }
+
+        $errors = [];
+
+        $notAllowedProps = array_intersect(
+            $writeDisabledProps,
+            array_keys($params)
+        );
+
+        if (!empty($notAllowedProps)) {
+            foreach ($notAllowedProps as $propName) {
+                $errors[$propName] = [__('api.400.propReadOnly', ['prop' => $propName])];
+            }
+        }
+
+        return $errors;
     }
 }

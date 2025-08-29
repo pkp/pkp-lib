@@ -19,10 +19,10 @@ namespace PKP\citation\job\pid;
 class OpenAlex extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const string prefix = 'https://openalex.org';
+    public const prefix = 'https://openalex.org';
 
     /** @copydoc AbstractPid::prefixInCorrect */
-    public const array prefixInCorrect = [
+    public const prefixInCorrect = [
         'openalex:',
         'openalex.org/works',
         'www.openalex.org/works'

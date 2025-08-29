@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\LazyCollection;
 use PKP\affiliation\Affiliation;
+use PKP\citation\Citation;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
@@ -2290,7 +2291,8 @@ class PKPSubmissionController extends PKPBaseController
         $publicationId = $publication->getId();
 
         $existingCitations = [];
-        foreach (Repo::citation()->getByPublicationId($publicationId) as $citation) {
+        foreach ($publication->getData('citations') as $citation) {
+            /** @var Citation $citation */
             $existingCitations[] = Repo::citation()->getSchemaMap()->map($citation);
         }
 

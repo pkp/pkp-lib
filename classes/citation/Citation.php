@@ -40,9 +40,9 @@ class Citation extends DataObject
     /**
      * Set the rawCitation.
      */
-    public function setRawCitation(?string $rawCitation): void
+    public function setRawCitation(string $rawCitation): void
     {
-        $rawCitation = $this->cleanCitationString($rawCitation ?? '');
+        $rawCitation = $this->cleanCitationString($rawCitation);
         $this->setData('rawCitation', $rawCitation);
     }
 
@@ -85,16 +85,17 @@ class Citation extends DataObject
     /**
      * Take a citation string and clean/normalize it
      */
-    public function cleanCitationString(?string $citationString = null): string|null
+    public function cleanCitationString(string $citationString = null): string
     {
         $citationString = trim(stripslashes($citationString));
-        return preg_replace('/[\s]+/u', ' ', $citationString);
+        $newCitationString = preg_replace('/[\s]+/u', ' ', $citationString);
+        return empty($newCitationString) ? $citationString : $newCitationString;
     }
 
     /**
      * Determine if citation is structured.
      */
-    public function calculateIsStructured(): bool
+    public function isStructured(): bool
     {
         foreach ($this->requirementIsStructured as $set) {
             $isStructured = false;
@@ -112,6 +113,14 @@ class Citation extends DataObject
         }
 
         return true;
+    }
+
+    /**
+     * @deprecated This method will be removed in future versions. Use getRawCitationWithLinks() instead.
+     */
+    public function getCitationWithLinks(): string
+    {
+        return $this->getRawCitationWithLinks();
     }
 }
 

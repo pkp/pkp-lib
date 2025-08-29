@@ -16,6 +16,7 @@
 
 namespace PKP\jobs\citation;
 
+use APP\facades\Repo;
 use PKP\citation\job\MetadataLookupHandler;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
@@ -33,7 +34,9 @@ class MetadataLookup extends BaseJob
 
     public function handle(): void
     {
-        if (!$this->citationId) {
+        $citation = Repo::citation()->get($this->citationId);
+
+        if (!$citation) {
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 

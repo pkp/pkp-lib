@@ -86,11 +86,10 @@ class DAO extends EntityDAO
      */
     public function getMany(Collector $query): LazyCollection
     {
-        $rows = $query
-            ->getQueryBuilder()
-            ->get();
-
-        return LazyCollection::make(function () use ($rows) {
+        return LazyCollection::make(function () use ($query) {
+            $rows = $query
+                ->getQueryBuilder()
+                ->get();
             foreach ($rows as $row) {
                 yield $row->citation_id => $this->fromRow($row);
             }
@@ -100,14 +99,14 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::insert() */
     public function insert(Citation $citation): int
     {
-        $citation->setData('isStructured', $citation->calculateIsStructured());
+        $citation->setData('isStructured', $citation->isStructured());
         return parent::_insert($citation);
     }
 
     /** @copydoc EntityDAO::update() */
     public function update(Citation $citation): void
     {
-        $citation->setData('isStructured', $citation->calculateIsStructured());
+        $citation->setData('isStructured', $citation->isStructured());
         parent::_update($citation);
     }
 

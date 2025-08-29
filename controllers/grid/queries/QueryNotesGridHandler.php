@@ -296,7 +296,7 @@ class QueryNotesGridHandler extends GridHandler
                 [$note->id]
             )->filterBySubmissionIds([$submission->getId()])
             ->getMany();
-        $participantIds = Participant::withTaskId($query->id)
+        $participantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
         foreach ($participantIds as $userId) {

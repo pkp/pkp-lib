@@ -30,6 +30,7 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -54,6 +55,8 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\editorialTask\EditorialTask;
+use PKP\editorialTask\enums\EditorialTaskType;
+use PKP\editorialTask\Participant;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
@@ -78,6 +81,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -393,7 +397,7 @@ class PKPSubmissionController extends PKPBaseController
                 ->whereNumber(['submissionId', 'taskId']);
 
             Route::delete('{submissionId}/tasks/{taskId}', $this->deleteTask(...))
-                ->name('submission.task.delete ')
+                ->name('submission.task.delete')
                 ->whereNumber(['submissionId', 'taskId']);
 
             Route::get('{submissionId}/tasks/{taskId}', $this->getTask(...))
@@ -403,6 +407,18 @@ class PKPSubmissionController extends PKPBaseController
             Route::get('{submissionId}/stage/{stageId}/tasks', $this->getTasks(...))
                 ->name('submission.task.getMany')
                 ->whereNumber(['submissionId', 'stageId']);
+
+            Route::put('{submissionId}/tasks/{taskId}/close', $this->closeTask(...))
+                ->name('submission.task.close')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::put('{submissionId}/tasks/{taskId}/open', $this->openTask(...))
+                ->name('submission.task.open')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::put('{submissionId}/tasks/{taskId}/start', $this->startTask(...))
+                ->name('submission.task.start')
+                ->whereNumber(['submissionId', 'taskId']);
         });
     }
 
@@ -457,7 +473,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // To modify a task, need to check read and write access policies
-        if (in_array($actionName, ['editTask', 'deleteTask'])) {
+        if (in_array($actionName, ['editTask', 'deleteTask', 'closeTask', 'openTask', 'startTask'])) {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
             $this->addPolicy(new QueryWritePolicy($request));
@@ -2002,10 +2018,11 @@ class PKPSubmissionController extends PKPBaseController
 
         $editorialTask = new EditorialTask($validated);
         $editorialTask->save();
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $editorialTask->refresh();
 
         return response()->json(
-            (new TaskResource($editorialTask->refresh()))
-                ->toArray($illuminateRequest),
+            new TaskResource(resource: $editorialTask, data: $this->getTaskData($submission, $editorialTask)),
             Response::HTTP_OK
         );
     }
@@ -2016,6 +2033,7 @@ class PKPSubmissionController extends PKPBaseController
     public function getTask(Request $illuminateRequest): JsonResponse
     {
         $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
 
         if (!$editTask) {
             return response()->json([
@@ -2024,7 +2042,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            (new TaskResource($editTask))->toArray($illuminateRequest),
+            (new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask))),
             Response::HTTP_OK
         );
     }
@@ -2036,18 +2054,19 @@ class PKPSubmissionController extends PKPBaseController
     {
         $currentUser = $this->getRequest()->getUser();
         $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $stageId = (int) $illuminateRequest->route('stageId');
 
         // Managers have access to all tasks and discussions irrespectable of the participation
         if ($currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
             $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
                 ->withAssocIds([$submission->getId()])
-                ->withStageId($illuminateRequest->route('stageId'));
+                ->withStageId($stageId);
         } else {
             // Other users have access to tasks, where they are included as participants
             $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
                 ->withAssocIds([$submission->getId()])
                 ->withParticipantIds([$currentUser->getId()])
-                ->withStageId($illuminateRequest->route('stageId'));
+                ->withStageId($stageId);
         }
 
         foreach ($illuminateRequest->query() as $param => $val) {
@@ -2059,9 +2078,41 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $tasks = $collector->get();
+        $taskIds = $tasks->pluck('id')->toArray();
+
+        // Get task participants and creators
+        $participantIds = Participant::withTaskIds($taskIds)->get()->pluck('userId')->merge(
+            $tasks->pluck('createdBy')
+        )->filter()->unique()->toArray();
+
+        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+
+        $stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
+            ->get();
+
+
+        $userGroups = UserGroup::with('userUserGroups')
+            ->withContextIds($submission->getData('contextId'))
+            ->withUserIds($participantIds)
+            ->get();
+
+        $reviewAssignments = in_array($stageId, Application::get()->getReviewStages()) ? Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewerIds($participantIds)
+            ->filterByStageId($stageId)
+            ->getMany() :
+            collect()->lazy();
 
         return response()->json([
-            'items' => TaskResource::collection($tasks),
+            'items' => TaskResource::collection(resource: $tasks, data: [
+                'submission' => $submission,
+                'stageAssignments' => $stageAssignments,
+                'users' => $users,
+                'userGroups' => $userGroups,
+                'reviewAssignments' => $reviewAssignments,
+            ]),
             'itemMax' => $tasks->count(),
         ], Response::HTTP_OK);
     }
@@ -2071,7 +2122,8 @@ class PKPSubmissionController extends PKPBaseController
      */
     public function editTask(EditTask $illuminateRequest): JsonResponse
     {
-        $editTask = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY);
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $editTask = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY); /** @var EditorialTask $editTask */
 
         if (!$editTask) {
             return response()->json([
@@ -2088,8 +2140,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            (new TaskResource($editTask->refresh()))
-                ->toArray($illuminateRequest),
+            new TaskResource(resource: $editTask->refresh(), data: $this->getTaskData($submission, $editTask)),
             Response::HTTP_OK
         );
     }
@@ -2110,6 +2161,127 @@ class PKPSubmissionController extends PKPBaseController
         $editTask->delete();
 
         return response()->json([], Response::HTTP_OK);
+    }
+
+    /**
+     * Close a task or discussion; closed task cannot be edited anymore
+     */
+    public function closeTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($editTask->dateClosed) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        $editTask->fill(['dateClosed' => Carbon::now()])->save();
+        $editTask->refresh();
+        return response()->json(
+            new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Re-open a closed task or discussion
+     */
+    public function openTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if (!$editTask->dateClosed) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        $editTask->fill(['dateClosed' => null])->save();
+        $editTask->refresh();
+        return response()->json(
+            new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Start a task or discussion; once started, it cannot be unstarted
+     */
+    public function startTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($editTask->dateStarted || $editTask->type === EditorialTaskType::DISCUSSION->value) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        $editTask->fill(['dateStarted' => Carbon::now()])->save();
+        $editTask->refresh();
+        return response()->json(
+            new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get task related data to supply the editorial task and editorial tasl participants resource
+     */
+    protected function getTaskData(Submission $submission, EditorialTask $editTask): array
+    {
+        $stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$submission->getId()])
+            ->withStageIds([$editTask->stageId])
+            ->get();
+
+        $participantIds = $editTask->participants()->get()->pluck('userId')->unique()->toArray();
+        $creatorId = $editTask->createdBy;
+        if (!in_array($creatorId, $participantIds)) {
+            $participantIds[] = $creatorId;
+        }
+
+        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $userGroups = UserGroup::with('userUserGroups')
+            ->withContextIds($submission->getData('contextId'))
+            ->withUserIds($participantIds)
+            ->get();
+        $reviewAssignments = in_array($editTask->stageId, Application::get()->getReviewStages()) ? Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewerIds($participantIds)
+            ->filterByStageId($editTask->stageId)
+            ->getMany() :
+            collect()->lazy();
+
+        return [
+            'submission' => $submission,
+            'stageAssignments' => $stageAssignments,
+            'users' => $users,
+            'userGroups' => $userGroups,
+            'reviewAssignments' => $reviewAssignments,
+        ];
     }
 
     /**

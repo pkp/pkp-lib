@@ -28,7 +28,6 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\editorialTask\EditorialTask;
-use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
 use PKP\form\Form;
@@ -194,7 +193,6 @@ class PKPStageParticipantNotifyForm extends Form
             'seq' => REALLY_BIG_NUMBER,
             'createdBy' => $user->getId(),
             'type' => EditorialTaskType::DISCUSSION,
-            'status' => EditorialTaskStatus::NEW->value,
         ]);
 
         Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());

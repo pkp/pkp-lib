@@ -111,13 +111,13 @@ class PKPCitationController extends PKPBaseController
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
-        if (!Repo::citation()->exists((int)$illuminateRequest->route('citationId'))) {
+        $citation = Repo::citation()->get((int)$illuminateRequest->route('citationId'));
+
+        if (!$citation) {
             return response()->json([
                 'error' => __('api.citations.404.citationNotFound')
             ], Response::HTTP_OK);
         }
-
-        $citation = Repo::citation()->get((int)$illuminateRequest->route('citationId'));
 
         return response()->json(Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK);
     }

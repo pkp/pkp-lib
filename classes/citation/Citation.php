@@ -85,7 +85,7 @@ class Citation extends DataObject
     /**
      * Take a citation string and clean/normalize it
      */
-    public function cleanCitationString(string $citationString = null): string
+    public function cleanCitationString(string $citationString): string
     {
         $citationString = trim(stripslashes($citationString));
         $newCitationString = preg_replace('/[\s]+/u', ' ', $citationString);

@@ -2291,8 +2291,8 @@ class PKPSubmissionController extends PKPBaseController
         $publicationId = $publication->getId();
 
         $existingCitations = [];
+        /** @var Citation $citation */
         foreach ($publication->getData('citations') as $citation) {
-            /** @var Citation $citation */
             $existingCitations[] = Repo::citation()->getSchemaMap()->map($citation);
         }
 

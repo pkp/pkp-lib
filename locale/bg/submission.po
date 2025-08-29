@@ -2615,7 +2615,7 @@ msgstr "Всички версии"
 msgid "publication.version.confirm"
 msgstr "Наистина ли искате да създадете нова версия?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Резюмето (абстракт) е твърде дълго. Трябва да бъде {$count} думи или по-"
 "малко. В момента съдържа {$count} думи."

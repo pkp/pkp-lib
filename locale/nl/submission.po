@@ -2611,7 +2611,7 @@ msgstr "Alle versies"
 msgid "publication.version.confirm"
 msgstr "Weet je zeker dat je een nieuwe versie wilt maken?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "De samenvatting is te lang. Het mag maximaal {$limit} woorden zijn. Het is "
 "nu {$count} woorden."

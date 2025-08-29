@@ -2583,7 +2583,7 @@ msgstr "Բոլոր տարբերակները"
 msgid "publication.version.confirm"
 msgstr "Վստա՞հ եք, որ ցանկանում եք ստեղծել նոր տարբերակ:"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Ամփոփումը չափազանց երկար է։ Այն պետք է լինի {$limit} բառ կամ ավելի քիչ: Այն "
 "ներկայումս ունի {$count} բառ:"

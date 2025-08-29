@@ -2528,7 +2528,7 @@ msgstr "Tất cả phiên bản"
 msgid "publication.version.confirm"
 msgstr "Bạn có chắc chắn muốn tạo phiên bản mới không?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr "Tóm tắt quá dài. Nó nên có {count} từ."
 
 msgid "publication.wordCount"

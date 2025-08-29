@@ -2334,7 +2334,7 @@ msgstr "ทุกเวอร์ชัน"
 msgid "publication.version.confirm"
 msgstr "คุณแน่ใจหรือว่าต้องการสร้างเวอร์ชันใหม่?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "บทคัดย่อยาวเกินไป ควรมีความยาวไม่เกิน {$limit} คำ ขณะนี้มีความยาว {$count} คำ"
 

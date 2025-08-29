@@ -2555,7 +2555,7 @@ msgstr "Alla versioner"
 msgid "publication.version.confirm"
 msgstr "Vill du skapa en ny version?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstractet är för långt. Det får inte vara fler än {$limit} ord. Nu är det "
 "{$count} ord."

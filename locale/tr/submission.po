@@ -2544,7 +2544,7 @@ msgstr "Tüm Sürümler"
 msgid "publication.version.confirm"
 msgstr "Yeni bir sürüm oluşturmak istediğinizden emin misiniz?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Özet çok uzun. {$limit} kelime veya daha az olmalıdır. Şu anda {$count} "
 "kelime uzunluğunda."

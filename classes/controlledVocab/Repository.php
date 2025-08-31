@@ -22,8 +22,6 @@ use PKP\publication\PKPPublication;
 
 class Repository
 {
-    const AS_ENTRY_DATA = true;
-
     /**
      * Fetch a Controlled Vocab by symbolic info, building it if needed.
      */
@@ -51,9 +49,8 @@ class Repository
         int $assocType,
         ?int $assocId,
         ?array $locales = [],
-        bool $asEntryData = !Repository::AS_ENTRY_DATA
-    ): array
-    {
+        bool $asStringOnly = false
+    ): array {
         $result = [];
 
         ControlledVocabEntry::query()
@@ -63,12 +60,14 @@ class Repository
             )
             ->when(!empty($locales), fn ($query) => $query->withLocales($locales))
             ->get()
-            ->each(function ($entry) use (&$result, $asEntryData) {
+            ->each(function ($entry) use (&$result, $asStringOnly) {
                 foreach ($entry->name as $locale => $value) {
-                    $result[$locale][] = $asEntryData ? $entry->getEntryData($locale) : $value;
+                    $result[$locale][] = $asStringOnly
+                        ? $value
+                        : $entry->getEntryData($locale);
                 }
             });
-        
+
         return $result;
     }
 
@@ -141,35 +140,4 @@ class Repository
             });
     }
 
-    /**
-     * Hydrate controlled vocab entries as entry data for a publication which will
-     * include other meta information(e.g. source & identifier) in vocabs
-     */
-    public function hydrateVocabsAsEntryData(PKPPublication $publication): PKPPublication
-    {
-        $mappings = [
-            'keywords' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-            'subjects' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-            'disciplines' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-            'supportingAgencies' => ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-        ];
-
-        foreach ($mappings as $dataKey => $symbolic) {
-            if (empty($publication->getData($dataKey))) {
-                continue;
-            }
-            $publication->setData(
-                $dataKey,
-                $this->getBySymbolic(
-                    $symbolic,
-                    Application::ASSOC_TYPE_PUBLICATION,
-                    $publication->getId(),
-                    [],
-                    static::AS_ENTRY_DATA
-                )
-            );
-        }
-
-        return $publication;
-    }
 }

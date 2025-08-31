@@ -360,6 +360,8 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
+        # f11557
+        # These now return an object with all the data
         $publication->setData(
             'keywords',
             Repo::controlledVocab()->getBySymbolic(

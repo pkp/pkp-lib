@@ -228,7 +228,7 @@ class Repository
                         $citationId = $this->dao->insert($citation);
                         $importedCitations[] = $citation;
                         if ($publication->getData('citationsMetadataLookup')) {
-                            $this->addJobForCitation($citationId);
+                            dispatch(new MetadataLookup($citation->getId()))->delay(now()->addSeconds(5));
                         }
                     }
                 }
@@ -245,6 +245,7 @@ class Repository
     {
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
+
         $existingSeq = collect($this->getByPublicationId($publicationId))
             ->map(fn(Citation $citation) => $citation->getData('seq'))
             ->all();
@@ -263,9 +264,8 @@ class Repository
                         $citation->setData('isProcessed', false);
                         $newCitationId = $this->dao->insert($citation);
                         if ($publication->getData('citationsMetadataLookup')) {
-                            $this->addJobForCitation($newCitationId);
+                            dispatch(new MetadataLookup($citation->getId()))->delay(now()->addSeconds(5));
                         }
-                        $this->addJobForCitation($newCitationId);
                         $lastSeq++;
                     } else {
                         $rejectedCitations[] = $rawCitationString;
@@ -281,19 +281,5 @@ class Repository
     public function existsRawCitation(int $publicationId, string $rawCitation): bool
     {
         return $this->dao->existsRawCitation($publicationId, $rawCitation);
-    }
-
-    /**
-     * Add a new job for metadata lookup for a given publication.
-     */
-    public function addJobForCitation(int $citationId, int $jobDelay = 60): void
-    {
-        $citation = $this->get($citationId);
-
-        if ($citation->getData('isProcessed') || !$citation->getData('rawCitation')) {
-            return;
-        } else {
-            dispatch(new MetadataLookup($citation->getId()))->delay(now()->addSeconds($jobDelay));
-        }
     }
 }

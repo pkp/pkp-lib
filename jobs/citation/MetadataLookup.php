@@ -17,7 +17,10 @@
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
-use PKP\citation\job\MetadataLookupHandler;
+use PKP\citation\job\externalServices\crossref\Inbound as CrossrefInbound;
+use PKP\citation\job\externalServices\openAlex\Inbound as OpenAlexInbound;
+use PKP\citation\job\externalServices\orcid\Inbound as OrcidInbound;
+use PKP\citation\job\pid\ExtractPidsHelper;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
@@ -40,6 +43,29 @@ class MetadataLookup extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        new MetadataLookupHandler($this->citationId);
+        $extractPids = new ExtractPidsHelper();
+        $extractPidsStatus = $extractPids->execute($this->citationId);
+
+        $crossref = new CrossrefInbound();
+        $crossrefStatus = $crossref->execute($this->citationId);
+
+        $openAlex = new OpenAlexInbound();
+        $openAlexStatus = $openAlex->execute($this->citationId);
+
+        $orcid = new OrcidInbound();
+        $orcidStatus = $orcid->execute($this->citationId);
+
+        if (
+            $extractPidsStatus &&
+            $crossrefStatus &&
+            $openAlexStatus &&
+            $orcidStatus
+        ) {
+            $citation = Repo::citation()->get($this->citationId);
+            $citation->setData('isProcessed', true);
+            Repo::citation()->edit($citation, []);
+        } else {
+            dispatch(new MetadataLookup($this->citationId))->delay(now()->addSeconds(5));
+        }
     }
 }

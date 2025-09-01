@@ -28,6 +28,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FormComponent;
+use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\forms\submission\CommentsForTheEditors;
 use PKP\components\forms\submission\ConfirmSubmission;
@@ -742,6 +743,22 @@ abstract class PKPSubmissionHandler extends Handler
                 'form' => $this->getLocalizedForm($titleAbstractForm, $submission->getData('locale'), $locales),
             ],
         ];
+
+        if (in_array($request->getContext()->getData('citations'), [Context::METADATA_REQUEST, Context::METADATA_REQUIRE])) {
+            $citationsForm = new PKPCitationsForm(
+                $publicationApiUrl,
+                $publication,
+                $request->getContext()->getData('citations') === Context::METADATA_REQUIRE
+            );
+            $this->removeButtonFromForm($citationsForm);
+            $sections[] = [
+                'id' => $citationsForm->id,
+                'name' => '',
+                'type' => self::SECTION_TYPE_FORM,
+                'description' => '',
+                'form' => $citationsForm->getConfig(),
+            ];
+        }
 
         return [
             'id' => 'details',

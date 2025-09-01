@@ -17,6 +17,7 @@
 namespace PKP\citation;
 
 use APP\core\Request;
+use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use PKP\citation\filter\CitationListTokenizerFilter;
@@ -204,16 +205,19 @@ class Repository
 
         Hook::call('Citation::importCitations::before', [$publicationId, $existingCitations, $rawCitationList]);
 
-        // Tokenize raw citations
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
-        $existingRawCitations = $this->getRawCitationsByPublicationId($publicationId);
+        $existingRawCitations = [];
+        foreach ($existingCitations as $id => $citation) {
+            $existingRawCitations[] = $citation->getRawCitation();
+        }
 
         if ($existingRawCitations !== $citationStrings) {
             $importedCitations = [];
             $this->deleteByPublicationId($publicationId);
             if (is_array($citationStrings) && !empty($citationStrings)) {
+                $publication = Repo::publication()->get($publicationId);
                 foreach ($citationStrings as $seq => $rawCitationString) {
                     if (!empty(trim($rawCitationString))) {
                         $citation = new Citation();
@@ -223,7 +227,9 @@ class Repository
                         $citation->setData('isProcessed', false);
                         $citationId = $this->dao->insert($citation);
                         $importedCitations[] = $citation;
-                        $this->addJobForCitation($citationId);
+                        if ($publication->getData('citationsMetadataLookup')) {
+                            $this->addJobForCitation($citationId);
+                        }
                     }
                 }
             }
@@ -246,6 +252,7 @@ class Repository
 
         $rejectedCitations = [];
         if (is_array($citationStrings) && !empty($citationStrings)) {
+            $publication = Repo::publication()->get($publicationId);
             foreach ($citationStrings as $rawCitationString) {
                 if (!empty(trim($rawCitationString))) {
                     if (!$this->existsRawCitation($publicationId, $rawCitationString)) {
@@ -255,6 +262,9 @@ class Repository
                         $citation->setSequence($lastSeq);
                         $citation->setData('isProcessed', false);
                         $newCitationId = $this->dao->insert($citation);
+                        if ($publication->getData('citationsMetadataLookup')) {
+                            $this->addJobForCitation($newCitationId);
+                        }
                         $this->addJobForCitation($newCitationId);
                         $lastSeq++;
                     } else {

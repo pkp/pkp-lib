@@ -150,7 +150,7 @@ class PKPCitationController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::citation()->getSchemaMap()->summarizeMany($citations->values())->values(),
+            'items' => Repo::citation()->getSchemaMap()->summarizeMany($citations)->values(),
         ], Response::HTTP_OK);
     }
 

@@ -79,7 +79,7 @@ class Inbound
         foreach (Mapping::getWork() as $key => $mappedKey) {
             switch ($key) {
                 case 'doi':
-                    $newValue = Doi::addPrefix(ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey));
+                    $newValue = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
                     break;
                 default:
                     if (is_array($mappedKey)) {

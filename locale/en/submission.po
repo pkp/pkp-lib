@@ -469,6 +469,9 @@ msgid "submission.citations"
 msgstr "References"
 
 msgid "submission.citations.description"
+msgstr "Enter each reference on a new line so that they can be extracted and recorded separately."
+
+msgid "submission.citations.structured.description"
 msgstr ""
 "Enter each reference on a new line so that they can be individually processed. "
 "You can add one or multiple references at a time. "

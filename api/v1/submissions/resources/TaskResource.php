@@ -18,6 +18,7 @@ namespace PKP\API\v1\submissions\resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;
+use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\user\User;
 
 class TaskResource extends JsonResource
@@ -36,7 +37,7 @@ class TaskResource extends JsonResource
             'assocType' => $this->assocType,
             'assocId' => $this->assocId,
             'stageId' => $this->stageId,
-            'status' => $this->status,
+            'status' => $this->dateClosed ? EditorialTaskStatus::CLOSED->value : ($this->dateStarted ? EditorialTaskStatus::STARTED->value : EditorialTaskStatus::NEW->value),
             'createdBy' => $this->createdBy,
             'createdByName' => $createdBy?->getFullName(),
             'createdByUsername' => $createdBy?->getUsername(),

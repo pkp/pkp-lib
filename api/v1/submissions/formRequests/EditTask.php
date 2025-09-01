@@ -66,12 +66,7 @@ class EditTask extends FormRequest
 
         return [
             'type' => ['required', Rule::in([EditorialTaskType::DISCUSSION->value, EditorialTaskType::TASK->value])],
-            'title' => [
-                Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
-                Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
-                'string',
-                'max:255'
-            ],
+            'title' => ['required', 'string', 'max:255'],
             'dateDue' => [
                 Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
                 Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),

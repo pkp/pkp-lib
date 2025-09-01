@@ -9,7 +9,7 @@
  *
  * @enum EditorialTaskStatus
  *
- * @brief The current state of the task.
+ * @brief The status of the task
  */
 
 namespace PKP\editorialTask\enums;
@@ -17,6 +17,6 @@ namespace PKP\editorialTask\enums;
 enum EditorialTaskStatus: int
 {
     case NEW = 1;
-    case REPLIED = 2;
+    case STARTED = 2;
     case CLOSED = 3;
 }

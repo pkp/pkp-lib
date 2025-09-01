@@ -22,6 +22,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use PKP\user\User;
 
+/**
+ * @method static withTaskIds(array $taskIds)
+ * @method static withUserId(int $userId)
+ */
+
 class Participant extends Model
 {
     use HasCamelCasing;
@@ -74,11 +79,11 @@ class Participant extends Model
     // Scopes
 
     /**
-     * Scope a query to only include query participants with a specific query ID.
+     * Scope a task to only include participants with specific IDs.
      */
-    public function scopeWithTaskId(Builder $query, int $taskId): Builder
+    public function scopeWithTaskIds(Builder $query, array $taskIds): Builder
     {
-        return $query->where('edit_task_id', $taskId);
+        return $query->whereIn('edit_task_id', $taskIds);
     }
 
     /**

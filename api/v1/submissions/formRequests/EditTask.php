@@ -23,7 +23,6 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 use PKP\editorialTask\EditorialTask;
-use PKP\editorialTask\enums\EditorialTaskStatus;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
@@ -59,14 +58,15 @@ class EditTask extends FormRequest
             ->getMany()
             ->toArray();
 
-        $this->stageAssignments = StageAssignment::with('userGroup')->withSubmissionIds([$this->submission->getId()])
+        $this->stageAssignments = StageAssignment::with('userGroup')
+            ->withSubmissionIds([$this->submission->getId()])
             ->withStageIds([$this->getStageId()])
             ->get()
             ->all();
 
         return [
-            'status' => ['required', Rule::in([EditorialTaskStatus::NEW->value])],
             'type' => ['required', Rule::in([EditorialTaskType::DISCUSSION->value, EditorialTaskType::TASK->value])],
+            'title' => ['required', 'string', 'max:255'],
             'dateDue' => [
                 Rule::requiredIf(fn () => $this->input('type') == EditorialTaskType::TASK->value),
                 Rule::prohibitedIf(fn () => $this->input('type') == EditorialTaskType::DISCUSSION->value),
@@ -144,10 +144,6 @@ class EditTask extends FormRequest
 
                     return true;
                 },
-            ],
-            EditorialTask::ATTRIBUTE_PARTICIPANTS . '.*' => [
-                'required',
-                'array:userId,isResponsible',
                 function (string $attribute, array $value, Closure $fail) {
                     if ($this->input('type') == EditorialTaskType::TASK->value && count($value) < 1) {
                         $fail('At least one participant is required for a task.');
@@ -157,6 +153,10 @@ class EditTask extends FormRequest
                         $fail('At least two participants are required for a discussion.');
                     }
                 }
+            ],
+            EditorialTask::ATTRIBUTE_PARTICIPANTS . '.*' => [
+                'required',
+                'array:userId,isResponsible',
             ],
             EditorialTask::ATTRIBUTE_PARTICIPANTS . '.*.userId' => [
                 'required',

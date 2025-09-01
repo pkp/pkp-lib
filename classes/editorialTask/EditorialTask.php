@@ -45,7 +45,8 @@ class EditorialTask extends Model
     protected $fillable = [
         'assocType', 'assocId', 'stageId', 'seq',
         'createdAt', 'updatedAt', 'closed', 'dateDue',
-        'createdBy', 'type', 'status'
+        'createdBy', 'type', 'status', 'dateStarted',
+        'dateClosed', 'title',
     ];
 
     protected $casts = [
@@ -59,7 +60,9 @@ class EditorialTask extends Model
         'dateDue' => 'datetime:Y-m-d',
         'createdBy' => 'int',
         'type' => 'int',
-        'status' => 'int',
+        'dateStarted' => 'datetime',
+        'dateClosed' => 'datetime',
+        'title' => 'string',
     ];
 
     protected static function booted(): void

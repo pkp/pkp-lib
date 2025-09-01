@@ -68,7 +68,7 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $participantIds = Participant::withTaskId($query->id)
+        $participantIds = Participant::withTaskIds([$query->id])
             ->pluck('user_id')
             ->all();
         if (in_array($user->getId(), $participantIds)) {

@@ -17,20 +17,49 @@ namespace PKP\API\v1\submissions\resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use PKP\core\traits\ResourceWithData;
+use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\user\User;
 
 class TaskResource extends JsonResource
 {
+    use ResourceWithData;
+
     public function toArray(Request $request)
     {
+        [$users] = $this->getData('users');
+
+        $createdBy = $users->get($this->createdBy); /** @var User $createdBy */
+
         return [
             'id' => $this->id,
             'type' => $this->type,
+            'assocType' => $this->assocType,
             'assocId' => $this->assocId,
             'stageId' => $this->stageId,
-            'status' => $this->status,
+            'status' => $this->dateClosed ? EditorialTaskStatus::CLOSED->value : ($this->dateStarted ? EditorialTaskStatus::STARTED->value : EditorialTaskStatus::NEW->value),
             'createdBy' => $this->createdBy,
+            'createdByName' => $createdBy?->getFullName(),
+            'createdByUsername' => $createdBy?->getUsername(),
             'dateDue' => $this->dateDue?->format('Y-m-d'),
-            'participants' => EditorialTaskParticipantResource::collection($this->participants),
+            'dateStarted' => $this->dateStarted?->format('Y-m-d'),
+            'dateClosed' => $this->dateClosed?->format('Y-m-d'),
+            'title' => $this->title,
+            'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
+        ];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected static function requiredKeys(): array
+    {
+        return [
+            'submission',
+            'users',
+            'userGroups',
+            'stageAssignments',
+            'reviewAssignments',
         ];
     }
 }

@@ -16,7 +16,6 @@
 
 namespace PKP\citation\job\externalServices\openAlex;
 
-use APP\facades\Repo;
 use PKP\citation\Citation;
 use PKP\citation\job\externalServices\ExternalServicesHelper;
 
@@ -25,50 +24,24 @@ class Inbound
     /** @var string The base URL for API requests. */
     public string $url = 'https://api.openalex.org';
 
-    private ?Citation $citation;
-
-    /**
-     * Executes for a given publication.
-     * Return:
-     *   - true: doi empty, isProcessed, openAlex found
-     *   - false: citation not found
-     */
-    public function execute(int $citationId): bool
-    {
-        $this->citation = Repo::citation()->get($citationId);
-
-        if (empty($this->citation)) {
-            return false;
-        }
-
-        if ($this->citation->getData('isProcessed') ||
-            empty($this->citation->getData('doi')) ||
-            !empty($this->citation->getData('openAlex'))
-        ) {
-            return true;
-        }
-
-        if ($this->getWork()) {
-            Repo::citation()->edit($this->citation, []);
-            return true;
-        }
-
-        return false;
-    }
+    /** @var int Status code of external service response. */
+    public int $statusCode = 200;
 
     /**
      * Get citation (work) from external service
      */
-    private function getWork(): bool
+    public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            'GET',
-            $this->url . '/works/doi:' . $this->citation->getData('doi'),
-            []
-        );
+            $this->url . '/works/doi:' . $citation->getData('doi'));
+
+        if (is_int($response)) {
+            $this->statusCode = $response;
+            return null;
+        }
 
         if (empty($response)) {
-            return false;
+            return null;
         }
 
         foreach (Mapping::getWork() as $key => $mappedKey) {
@@ -88,10 +61,10 @@ class Inbound
                     }
                     break;
             }
-            $this->citation->setData($key, $newValue);
+            $citation->setData($key, $newValue);
         }
 
-        return true;
+        return $citation;
     }
 
     /**

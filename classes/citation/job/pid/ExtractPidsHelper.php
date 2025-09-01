@@ -16,46 +16,47 @@
 
 namespace PKP\citation\job\pid;
 
-use APP\facades\Repo;
+use Exception;
+use PKP\citation\Citation;
 
 class ExtractPidsHelper
 {
-    public function execute(int $citationId): bool
+    public function execute(Citation $citation): ?Citation
     {
-        $citation = Repo::citation()->get($citationId);
+        try {
+            $rowRaw = $citation->cleanCitationString($citation->getRawCitation());
 
-        $rowRaw = $citation->cleanCitationString($citation->getRawCitation());
+            // extract doi
+            $doi = Doi::extractFromString($rowRaw);
+            if (!empty($doi)) {
+                $citation->setData('doi', Doi::addPrefix($doi));
+            }
 
-        // extract doi
-        $doi = Doi::extractFromString($rowRaw);
-        if (!empty($doi)) {
-            $citation->setData('doi', Doi::addPrefix($doi));
+            // remove doi from raw
+            $rowRaw = str_replace(Doi::addPrefix($doi), '', Doi::normalize($rowRaw));
+
+            // parse url (after parsing doi)
+            $url = Url::extractFromString($rowRaw);
+            $handle = Handle::extractFromString($rowRaw);
+            $arxiv = Arxiv::extractFromString($rowRaw);
+
+            if (!empty($handle)) {
+                $citation->setData('handle', $handle);
+            } else if (!empty($arxiv)) {
+                $citation->setData('arxiv', $arxiv);
+            } else if (!empty($url)) {
+                $citation->setData('url', $url);
+            }
+
+            // urn
+            $urn = Urn::extractFromString($rowRaw);
+            if (!empty($urn)) {
+                $citation->setData('urn', Urn::extractFromString($rowRaw));
+            }
+
+            return $citation;
+        } catch (Exception) {
+            return null;
         }
-
-        // remove doi from raw
-        $rowRaw = str_replace(Doi::addPrefix($doi), '', Doi::normalize($rowRaw));
-
-        // parse url (after parsing doi)
-        $url = Url::extractFromString($rowRaw);
-        $handle = Handle::extractFromString($rowRaw);
-        $arxiv = Arxiv::extractFromString($rowRaw);
-
-        if (!empty($handle)) {
-            $citation->setData('handle', $handle);
-        } else if (!empty($arxiv)) {
-            $citation->setData('arxiv', $arxiv);
-        } else if (!empty($url)) {
-            $citation->setData('url', $url);
-        }
-
-        // urn
-        $urn = Urn::extractFromString($rowRaw);
-        if (!empty($urn)) {
-            $citation->setData('urn', Urn::extractFromString($rowRaw));
-        }
-
-        Repo::citation()->edit($citation, []);
-
-        return true;
     }
 }

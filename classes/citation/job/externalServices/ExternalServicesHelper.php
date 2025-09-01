@@ -47,38 +47,32 @@ class ExternalServicesHelper
     /**
      * Makes HTTP request to the API and returns the response as an array.
      *
-     * @param string $method The HTTP method (e.g., 'POST', 'GET').
      * @param string $url The API endpoint URL.
-     * @param array $options Additional options for the HTTP request.
-     * @return array The response data as an associative array.
+     * @return array|int|null The response as an associative array, request status code or null.
      */
-    public static function apiRequest(string $method, string $url, array $options): array
+    public static function apiRequest(string $url): array|int|null
     {
-        if ($method !== 'POST' && $method !== 'GET') {
-            return [];
-        }
-
         $httpClient = Application::get()->getHttpClient();
 
         try {
-            $response = $httpClient->request($method, $url, $options);
+            $response = $httpClient->request('GET', $url);
 
             if (!str_contains('200,201,202', (string)$response->getStatusCode())) {
-                return [];
+                return $response->getStatusCode();
             }
 
             $result = json_decode($response->getBody(), true);
 
             if (empty($result) || json_last_error() !== JSON_ERROR_NONE) {
-                return [];
+                return null;
             }
 
             return $result;
 
-        } catch (GuzzleException | Exception $e) {
+        } catch (GuzzleException|Exception $e) {
             error_log(__METHOD__ . ' ' . $e->getMessage());
         }
 
-        return [];
+        return null;
     }
 }

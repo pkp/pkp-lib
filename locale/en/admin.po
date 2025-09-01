@@ -725,6 +725,9 @@ msgstr "View Failed Jobs"
 msgid "navigation.tools.job.failed.details.view"
 msgstr "View Failed Job:{$id} Details"
 
+msgid "admin.job.failed.connection.externalService"
+msgstr "Job failed to connection with status code {$statusCode}"
+
 msgid "admin.job.failed.list.attribute"
 msgstr "Attribute"
 

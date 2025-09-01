@@ -63,6 +63,22 @@ class Citation extends DataObject
     }
 
     /**
+     * Get the is processed.
+     */
+     public function getIsProcessed(): bool
+    {
+        return $this->getData('isProcessed');
+    }
+
+    /**
+     * Set is processed.
+     */
+    public function setIsProcessed(bool $isProcessed): void
+    {
+        $this->setData('isProcessed', $isProcessed);
+    }
+
+    /**
      * Replace URLs through HTML links, if the citation does not already contain HTML links.
      */
     public function getRawCitationWithLinks(): string

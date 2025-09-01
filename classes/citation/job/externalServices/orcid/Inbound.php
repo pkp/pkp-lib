@@ -16,8 +16,6 @@
 
 namespace PKP\citation\job\externalServices\orcid;
 
-use APP\facades\Repo;
-use PKP\citation\Citation;
 use PKP\citation\job\externalServices\ExternalServicesHelper;
 use PKP\citation\job\pid\Orcid;
 
@@ -26,51 +24,25 @@ class Inbound
     /** @var string The base URL for API requests. */
     public string $url = 'https://pub.orcid.org/v2.1';
 
-    private ?Citation $citation;
+    /** @var int Status code of external service response. */
+    public int $statusCode = 200;
 
-    /**
-     * Executes this external service
-     */
-    public function execute(int $citationId): bool
-    {
-        $this->citation = Repo::citation()->get($citationId);
-
-        if (empty($this->citation)) {
-            return false;
-        }
-
-        $authors = $this->citation->getData('authors');
-
-        if (empty($authors)) {
-            return true;
-        }
-
-        $changedAuthors = [];
-        foreach ($authors as $author) {
-            $changedAuthors[] = !empty($author['orcid'])
-                ? $this->getAuthor($author)
-                : $author;
-        }
-        $this->citation->setData('authors', $changedAuthors);
-
-        Repo::citation()->edit($this->citation, []);
-
-        return true;
-    }
 
     /**
      * Convert to Author with mappings
      */
-    private function getAuthor(array $author): array
+    public function getAuthor(array $author): ?array
     {
         $response = ExternalServicesHelper::apiRequest(
-            'GET',
-            $this->url . '/' . Orcid::removePrefix($author['orcid']),
-            []
-        );
+            $this->url . '/' . Orcid::removePrefix($author['orcid']));
+
+        if (is_int($response)) {
+            $this->statusCode = $response;
+            return null;
+        }
 
         if (empty($response)) {
-            return $author;
+            return null;
         }
 
         foreach (Mapping::getAuthor() as $key => $mappedKey) {
@@ -79,13 +51,7 @@ class Inbound
             } else {
                 $newValue = $response[$key];
             }
-
-            if (empty($author[$key])) {
-                $author[$key] = $newValue;
-            }
-
-            if (str_contains(strtolower($author[$key]), 'deactivated'))
-                $author[$key] = '';
+            $author[$key] = $newValue;
         }
 
         return $author;

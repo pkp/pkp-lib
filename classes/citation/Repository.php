@@ -20,11 +20,17 @@ use APP\core\Request;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Bus;
 use PKP\citation\filter\CitationListTokenizerFilter;
-use PKP\jobs\citation\MetadataLookup;
+use PKP\jobs\citation\ExtractPidsJob;
+use PKP\jobs\citation\CrossrefJob;
+use PKP\jobs\citation\IsProcessedJob;
+use PKP\jobs\citation\OpenAlexJob;
+use PKP\jobs\citation\OrcidJob;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
+use Throwable;
 
 class Repository
 {
@@ -224,11 +230,11 @@ class Repository
                         $citation->setRawCitation($rawCitationString);
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($seq + 1);
-                        $citation->setData('isProcessed', false);
-                        $citationId = $this->dao->insert($citation);
+                        $citation->setIsProcessed(false);
+                        $newCitationId = $this->dao->insert($citation);
                         $importedCitations[] = $citation;
                         if ($publication->getData('citationsMetadataLookup')) {
-                            dispatch(new MetadataLookup($citation->getId()))->delay(now()->addSeconds(5));
+                            $this->addJobCitation($newCitationId);
                         }
                     }
                 }
@@ -261,10 +267,10 @@ class Repository
                         $citation->setRawCitation($rawCitationString);
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($lastSeq);
-                        $citation->setData('isProcessed', false);
+                        $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
                         if ($publication->getData('citationsMetadataLookup')) {
-                            dispatch(new MetadataLookup($citation->getId()))->delay(now()->addSeconds(5));
+                            $this->addJobCitation($newCitationId);
                         }
                         $lastSeq++;
                     } else {
@@ -281,5 +287,24 @@ class Repository
     public function existsRawCitation(int $publicationId, string $rawCitation): bool
     {
         return $this->dao->existsRawCitation($publicationId, $rawCitation);
+    }
+
+    /**
+     * Add a new job chain for a citation.
+     */
+    public function addJobCitation(int $citationId): void
+    {
+        $jobs = [
+            new ExtractPidsJob($citationId),
+            new CrossrefJob($citationId),
+            new OpenAlexJob($citationId),
+            new OrcidJob($citationId),
+            new IsProcessedJob($citationId)
+        ];
+
+        Bus::chain($jobs)
+            ->catch(function (Throwable $e) {
+            })
+            ->dispatch();
     }
 }

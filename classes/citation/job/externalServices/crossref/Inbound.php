@@ -16,64 +16,39 @@
 
 namespace PKP\citation\job\externalServices\crossref;
 
-use APP\facades\Repo;
 use PKP\citation\Citation;
 use PKP\citation\job\externalServices\ExternalServicesHelper;
-use PKP\citation\job\pid\Doi;
 
 class Inbound
 {
-    /** @var int Threshold of score for accepting found item */
-    public int $scoreThreshold = 100;
-
     /** @var string The base URL for API requests. */
     public string $url = 'https://api.crossref.org';
 
-    private ?Citation $citation;
+    /** @var int Status code of external service response. */
+    public int $statusCode = 200;
 
-    /**
-     * Executes for a given publication.
-     * Return:
-     *   - true: doi exists, isProcessed, match found
-     *   - false: citation not found
-     */
-    public function execute(int $citationId): bool
-    {
-        $this->citation = Repo::citation()->get($citationId);
-
-        if (empty($this->citation)) {
-            return false;
-        }
-
-        if (!empty($this->citation->getData('isProcessed')) || $this->citation->getData('doi')) {
-            return true;
-        }
-
-        if ($this->getWork()) {
-            Repo::citation()->edit($this->citation, []);
-            return true;
-        }
-
-        return false;
-    }
+    /** @var int Threshold of score for accepting found item */
+    public int $scoreThreshold = 100;
 
     /**
      * Get citation (work) from external service
      */
-    private function getWork(): bool
+    public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            'GET',
-            $this->url . '/works/?query.bibliographic=' . $this->citation->getData('rawCitation'),
-            []
-        );
+            $this->url . '/works/?query.bibliographic=' . $citation->getData('rawCitation'));
 
-        if (empty($response)) {
-            return false;
+        if (is_int($response)) {
+            $this->statusCode = $response;
+            return null;
         }
 
-        if (!$this->isMatched($this->citation->getData('rawCitation'), $response)) {
-            return true;
+        if (empty($response)) {
+            return null;
+        }
+
+        if (!$this->isMatched($citation->getData('rawCitation'), $response)) {
+            return $citation;
         }
 
         foreach (Mapping::getWork() as $key => $mappedKey) {
@@ -89,10 +64,10 @@ class Inbound
                     }
                     break;
             }
-            $this->citation->setData($key, $newValue);
+            $citation->setData($key, $newValue);
         }
 
-        return true;
+        return $citation;
     }
 
     /**

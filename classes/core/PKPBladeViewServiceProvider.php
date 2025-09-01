@@ -2,16 +2,36 @@
 
 namespace PKP\core;
 
-use PKP\core\PKPContainer;
-use Illuminate\View\Factory as ViewFactory;
 use Illuminate\View\FileViewFinder;
-use Illuminate\View\DynamicComponent;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\View\Compilers\BladeCompiler;
+use Illuminate\View\Factory as ViewFactory;
+use PKP\core\PKPContainer;
+use PKP\core\blade\BladeCompiler;
+use PKP\core\blade\DynamicComponent;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
+    /**
+     * Boot the service provider
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // This allows templates to be referenced explicitly, 
+        // e.g., @include('app::some-template') or @include('pkp::some-template'),
+        // or even allow to render view as view('VIEW_NAMESPACE:some-template', [....])
+        // which allow to render views from any namespace ambiguity and improving maintainability.
+        collect($this->app->get('config')->get('view.paths'))
+            ->each(fn ($path, $namespace) => view()->addNamespace($namespace, $path));
+        
+        // This allows to render components as <x-COMPONENT_NAMESPACE::some-component />
+        // which allow to render components from any namespace ambiguity and improving maintainability.
+        collect($this->app->get('config')->get('view.components.namespace'))
+            ->each(fn ($namespace, $prefix) => \Illuminate\Support\Facades\Blade::componentNamespace($namespace, $prefix));
+    }
+
     /**
      * Register the service provider.
      *
@@ -54,10 +74,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             'view.finder',
             fn (PKPContainer $app) => new FileViewFinder(
                 $app->get('files'), 
-                [
-                    $app->basePath('/templates'),
-                    $app->basePath('/lib/pkp/templates'),
-                ]
+                array_values($app->get('config')->get('view.paths'))
             )
         );
     }
@@ -70,22 +87,29 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     public function registerBladeCompiler()
     {
         $this->app->singleton('blade.compiler', function (PKPContainer  $app) {
-            return tap(new BladeCompiler(
-                $app->get('files'),
-                BASE_SYS_DIR . '/compiled',
-                $app->get('config')->get('view.relative_hash', false) ? $app->basePath() : '',
-                $app->get('config')->get('view.cache', true),
-                $app->get('config')->get('view.compiled_extension', 'php'),
-            ), function (BladeCompiler $bladeCompiler) {
-                $bladeCompiler->component('dynamic-component', DynamicComponent::class);
-                $this->app->instance(BladeCompiler::class, $bladeCompiler);
-                $this->app->alias(
-                    BladeCompiler::class, 
-                    (new class extends \Illuminate\Support\Facades\Blade {
+            $viewConfig = $app->get('config')->get('view'); /** @var array $viewConfig */
+            
+            return tap(
+                new BladeCompiler(
+                    $app->get('files'),
+                    $viewConfig['compiled'],
+                    $viewConfig['relative_hash'] ? $app->basePath() : '',
+                    $viewConfig['cache'],
+                    $viewConfig['compiled_extension'],
+                ),
+                function (BladeCompiler $bladeCompiler) {
+                    $bladeCompiler->component('dynamic-component', DynamicComponent::class);
+
+                    $this->app->instance(BladeCompiler::class, $bladeCompiler);
+                    $this->app->instance(\Illuminate\View\Compilers\BladeCompiler::class, $bladeCompiler);
+                    
+                    $facadeAccessor = (new class extends \Illuminate\Support\Facades\Blade {
                         public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
-                    })::getFacadeAccessor()
-                );
-            });
+                    })::getFacadeAccessor();
+                    $this->app->alias(BladeCompiler::class, $facadeAccessor);
+                    $this->app->alias(\Illuminate\View\Compilers\BladeCompiler::class, $facadeAccessor);
+                }
+            );
         });
     }
 

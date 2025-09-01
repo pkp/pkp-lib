@@ -61,7 +61,7 @@ class AboutContextHandler extends Handler
     {
         // Render template with page.blade.php
         // we can also use View::make('TEMPLATE', [...]);
-        echo view('bladeTest.about', [
+        return view('bladeTest.about', [
             'title' => 'My Title',
             'text' => 'This is my text!',
         ]);

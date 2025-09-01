@@ -531,10 +531,10 @@ msgid "submission.citations.structured.processed.description"
 msgstr "All references have been processed and added below. You can review, edit or remove them at any time."
 
 msgid "submission.citations.structured.deleteDialog.title"
-msgstr "Delete this structured citation (title)"
+msgstr "Delete this structured citation."
 
 msgid "submission.citations.structured.deleteDialog.confirm"
-msgstr "This will remove this citation (message)."
+msgstr "This will remove this citation."
 
 msgid "submission.citations.structured.deleteAllLink"
 msgstr "Delete All Structured References"

@@ -396,6 +396,11 @@ abstract class Plugin
             $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
             $pluginTemplateResource = new PKPTemplateResource($templatePath);
             $templateMgr->registerResource($this->getTemplateResource(null, $inCore), $pluginTemplateResource);
+
+            // Register the plugin's template path to render blade views and components
+            $fileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $fileViewFinder */
+            $fileViewFinder->addLocation(app()->basePath($templatePath));
+            view()->addNamespace($this->getName(), app()->basePath($templatePath));
         }
     }
 

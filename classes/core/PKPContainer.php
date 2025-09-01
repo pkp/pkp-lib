@@ -481,6 +481,26 @@ class PKPContainer extends Container
             'driver' => Config::getVar('search', 'driver', 'database'),
         ];
 
+        // Blade view settings
+        $items['view'] = [
+            'compiled' => Str::of(
+                Config::getVar('cache', 'compiled', Core::getBaseDir() . '/cache/opcache')
+            )->beforeLast('/')->append('/t_compile')->value(),
+            'cache' => false, // FIXME: Must be true in production, should it be a control config ?
+            'compiled_extension' => 'php',
+            'relative_hash' => false,
+            'paths' => [
+                'app' => $this->basePath('templates'),
+                'pkp' => $this->basePath('lib/pkp/templates'),
+            ],
+            'components' =>  [
+                'namespace' => [
+                    'app' => 'APP\\view\\components\\',
+                    'pkp' => 'PKP\\view\\components\\',
+                ],
+            ]
+        ];
+
         // Create instance and bind to use globally
         $this->instance('config', new Repository($items));
 
@@ -632,5 +652,13 @@ class PKPContainer extends Container
     public function unsetRunningUnitTests(): void
     {
         $this->isRunningUnitTest = false;
+    }
+
+    /**
+     * Get the application namespace.
+     */
+    public function getNamespace(): string
+    {
+        return 'PKP\\';
     }
 }

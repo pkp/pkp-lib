@@ -57,10 +57,11 @@ class MetadataLookupHandler
             $openAlexStatus &&
             $orcidStatus
         ) {
+            $citation = Repo::citation()->get($this->citationId);
             $citation->setData('isProcessed', true);
             Repo::citation()->edit($citation, []);
         } else {
-            Repo::citation()->addJobForCitation($this->citationId, 300);
+            Repo::citation()->addJobForCitation($this->citationId);
         }
     }
 }

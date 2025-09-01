@@ -71,8 +71,6 @@ class Inbound
             return false;
         }
 
-        // error_log(json_encode($response, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
-
         foreach (Mapping::getWork() as $key => $mappedKey) {
             switch ($key) {
                 case 'authors':

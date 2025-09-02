@@ -22,6 +22,7 @@ use APP\publication\DAO;
 use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\Core;
@@ -965,4 +966,12 @@ abstract class Repository
      * @return DoiException[]
      */
     abstract public function createDois(Publication $publication): array;
+
+    /**
+     * @copydoc DAO::getVoRMinorVersionsSettingValues()
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return $this->dao->getMinorVersionsSettingValues($submissionId, $versionStage, $versionMajor, $settingName);
+    }
 }

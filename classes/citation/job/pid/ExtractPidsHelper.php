@@ -29,7 +29,7 @@ class ExtractPidsHelper
             // extract doi
             $doi = Doi::extractFromString($rowRaw);
             if (!empty($doi)) {
-                $citation->setData('doi', Doi::addPrefix($doi));
+                $citation->setData('doi', $doi);
             }
 
             // remove doi from raw

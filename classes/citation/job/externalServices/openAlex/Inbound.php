@@ -76,22 +76,18 @@ class Inbound
 
         foreach (Mapping::getAuthor() as $key => $mappedKey) {
             if (is_array($mappedKey)) {
-                $newValue = ExternalServicesHelper::getValueFromArrayPath($externalAuthor, $mappedKey);
+                $author[$key] = ExternalServicesHelper::getValueFromArrayPath($externalAuthor, $mappedKey);
             } else {
-                $newValue = $externalAuthor[$key];
-            }
-
-            if (empty($author[$key])) {
-                $author[$key] = $newValue;
+                $author[$key] = $externalAuthor[$key];
             }
         }
 
-        $author['displayName'] = trim(str_replace('null', '', $author['displayName']));
-        if (empty($author['displayName'])) {
-            $author['displayName'] = $externalAuthor['raw_author_name'];
+        $displayName = $externalAuthor['author']['display_name'];
+        if (empty($displayName)) {
+            $displayName = $externalAuthor['raw_author_name'];
         }
 
-        $authorDisplayNameParts = explode(' ', trim($author['displayName']));
+        $authorDisplayNameParts = explode(' ', trim($displayName));
         if (count($authorDisplayNameParts) > 1) {
             $author['familyName'] = array_pop($authorDisplayNameParts);
             $author['givenName'] = implode(' ', $authorDisplayNameParts);

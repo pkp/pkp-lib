@@ -43,9 +43,6 @@
 			"items": {
 				"type": "object",
 				"properties": {
-					"displayName": {
-						"type": "string"
-					},
 					"givenName": {
 						"type": "string"
 					},
@@ -54,7 +51,10 @@
 					},
 					"orcid": {
 						"type": "string"
-					}
+					},
+                    "openAlex": {
+                         "type": "string"
+                    }
 				}
 			}
 		},

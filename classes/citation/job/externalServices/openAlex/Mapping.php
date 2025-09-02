@@ -57,9 +57,8 @@ final class Mapping
     public static function getAuthor(): array
     {
         return [
-            'displayName' => ['author', 'display_name'],
-            'givenName' => ['author', 'display_name'],
-            'familyName' => ['author', 'display_name'],
+            // 'givenName' => ['author', 'display_name'], // this is mapped in Inbound class
+            // 'familyName' => ['author', 'display_name'], // this is mapped in Inbound class
             'orcid' => ['author', 'orcid'],
             'openAlex' => ['author', 'id']
         ];

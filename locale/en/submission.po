@@ -490,6 +490,9 @@ msgstr ""
 msgid "submission.citations.structured.descriptionTable"
 msgstr "The above references have been organised here in a structured format."
 
+msgid "submission.citations.structured.noStructuredInformationFound"
+msgstr "No structured information found"
+
 msgid "submission.citations.structured.citationsMetadataLookup"
 msgstr "Enable Metadata Lookup"
 

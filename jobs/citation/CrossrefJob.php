@@ -40,7 +40,7 @@ class CrossrefJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if($citation->getIsProcessed()) {
+        if ($citation->getIsProcessed()) {
             return;
         }
 
@@ -54,6 +54,8 @@ class CrossrefJob extends BaseJob
                 case '504':
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
+                default:
+                    return;
             }
         }
 

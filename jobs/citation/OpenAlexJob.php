@@ -39,7 +39,7 @@ class OpenAlexJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if($citation->getIsProcessed()) {
+        if ($citation->getIsProcessed()) {
             return;
         }
 
@@ -49,12 +49,13 @@ class OpenAlexJob extends BaseJob
 
         if (empty($citationChanged)) {
             switch ($service->statusCode) {
-                case '404':
-                    return;
                 case '408':
                 case '504':
                     throw new JobException(__('admin.job.failed.connection.externalService', [
                         'statusCode' => $service->statusCode]));
+                case '404':
+                default:
+                    return;
             }
         }
 

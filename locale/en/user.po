@@ -407,6 +407,9 @@ msgstr "The selected email address is already in use by another user."
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "The passwords do not match."
 
+msgid "user.register.form.cannotReuseOldPassword"
+msgstr "You cannot reuse your old password."
+
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "The email address fields do not match."
 

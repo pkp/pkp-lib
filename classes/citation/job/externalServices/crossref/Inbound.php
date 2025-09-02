@@ -36,7 +36,7 @@ class Inbound
     public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/?query.bibliographic=' . $citation->getData('rawCitation'));
+            $this->url . '/works/?query.bibliographic=' . urlencode($citation->getData('rawCitation')));
 
         if (is_int($response)) {
             $this->statusCode = $response;

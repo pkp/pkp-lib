@@ -27,14 +27,13 @@ class Inbound
     /** @var int Status code of external service response. */
     public int $statusCode = 200;
 
-
     /**
      * Convert to Author with mappings
      */
     public function getAuthor(array $author): ?array
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/' . Orcid::removePrefix($author['orcid']));
+            $this->url . '/' . urlencode(Orcid::removePrefix($author['orcid'])));
 
         if (is_int($response)) {
             $this->statusCode = $response;

@@ -2277,10 +2277,9 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $publicationId = $publication->getId();
         $rawCitations = (string)$illuminateRequest->input('rawCitations');
 
-        $result = Repo::citation()->importAdditionalCitations($publicationId, $rawCitations);
+        $result = Repo::citation()->importAdditionalCitations($publication->getId(), $rawCitations);
 
         return response()->json($result, Response::HTTP_OK);
     }
@@ -2298,15 +2297,13 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $publicationId = $publication->getId();
-
         $existingCitations = [];
         /** @var Citation $citation */
         foreach ($publication->getData('citations') as $citation) {
             $existingCitations[] = Repo::citation()->getSchemaMap()->map($citation);
         }
 
-        Repo::citation()->deleteByPublicationId($publicationId);
+        Repo::citation()->deleteByPublicationId($publication->getId());
 
         return response()->json([
             'itemsMax' => count($existingCitations),

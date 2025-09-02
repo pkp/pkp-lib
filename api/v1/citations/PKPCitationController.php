@@ -81,6 +81,10 @@ class PKPCitationController extends PKPBaseController
             ->name('citation.edit')
             ->whereNumber('citationId');
 
+        Route::post('{citationId}/addJob', $this->addJob(...))
+            ->name('citation.addJob')
+            ->whereNumber('citationId');
+
         Route::delete('{citationId}', $this->delete(...))
             ->name('citation.delete')
             ->whereNumber('citationId');
@@ -107,7 +111,7 @@ class PKPCitationController extends PKPBaseController
     }
 
     /**
-     * Get a single citation
+     * Get a single citation.
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
@@ -123,7 +127,7 @@ class PKPCitationController extends PKPBaseController
     }
 
     /**
-     * Get a collection of citations
+     * Get a collection of citations.
      *
      * @hook API::citations::params [[$collector, $illuminateRequest]]
      */
@@ -155,7 +159,7 @@ class PKPCitationController extends PKPBaseController
     }
 
     /**
-     * Edit a citation
+     * Edit a citation.
      */
     public function edit(Request $illuminateRequest): JsonResponse
     {
@@ -191,7 +195,7 @@ class PKPCitationController extends PKPBaseController
     }
 
     /**
-     * Delete a citation
+     * Delete a citation.
      */
     public function delete(Request $illuminateRequest): JsonResponse
     {
@@ -205,7 +209,34 @@ class PKPCitationController extends PKPBaseController
 
         Repo::citation()->delete($citation);
 
-        return response()->json(Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK);
+        return response()->json(
+            Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Add a job for a citation.
+     */
+    public function addJob(Request $illuminateRequest): JsonResponse
+    {
+        $citation = Repo::citation()->get((int)$illuminateRequest->route('citationId'));
+
+        if (!$citation) {
+            return response()->json([
+                'error' => __('api.citations.404.citationNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $citation->setIsProcessed(false);
+        Repo::citation()->edit($citation, []);
+
+        Repo::citation()->addJobCitation($citation->getId());
+
+        $citation = Repo::citation()->get($citation->getId());
+
+        return response()->json(
+            Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK
+        );
     }
 
     /**

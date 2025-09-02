@@ -2239,10 +2239,20 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $publication->setData(
-            'citationsMetadataLookup',
-            (bool)$illuminateRequest->input('citationsMetadataLookup')
-        );
+        $citationsMetadataLookup = (bool)$illuminateRequest->input('citationsMetadataLookup');
+
+        /** @var Citation $citation */
+        if ($citationsMetadataLookup && $publication->getData('citationsMetadataLookup')) {
+            $citationsChanged = [];
+            foreach ($publication->getData('citations') as $citation) {
+                $citation->setIsProcessed(false);
+                $citationsChanged[] = $citation;
+                Repo::citation()->addJobCitation($citation->getId());
+            }
+            $publication->setData('citations', $citationsChanged);
+        }
+
+        $publication->setData('citationsMetadataLookup', $citationsMetadataLookup);
         Repo::publication()->edit($publication, []);
 
         $publication = Repo::publication()->get($publication->getId());

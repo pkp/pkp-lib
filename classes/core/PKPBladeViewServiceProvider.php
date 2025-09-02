@@ -9,6 +9,8 @@ use Illuminate\View\Factory as ViewFactory;
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\DynamicComponent;
+use Illuminate\Support\Str;
+use PKP\core\PKPString;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -37,6 +39,17 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
                 \$parameters = $expression ? (array) ($expression) : [];
                 echo \PKP\\template\\PKPTemplateManager::getManager()->smartyUrl(\$parameters);
             ?>";
+        });
+
+        // FIXME :
+        // problem is in blade file we need to use the full namespace like `\Illuminate\Support\Str::sanitizeHtml`
+        // Should define a alias ?
+        // should move this to a global macro ?
+        Str::macro('sanitizeHtml', function ($input, $configKey = 'allowed_html') {
+            $sanitized = PKPString::stripUnsafeHtml($input, $configKey);
+            $sanitized = str_replace('{{', '<span v-pre>{{</span>', $sanitized);
+            $sanitized = str_replace('}}', '<span v-pre>}}</span>', $sanitized);
+            return $sanitized;
         });
     }
 

@@ -9,6 +9,8 @@ use Illuminate\View\Factory as ViewFactory;
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\DynamicComponent;
+use Illuminate\Support\Str;
+use PKP\core\PKPString;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -20,8 +22,8 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
     public function boot()
     {
         // This allows templates to be referenced explicitly, 
-        // e.g., @include('app::some-template') or @include('pkp::some-template'),
-        // or even allow to render view as view('VIEW_NAMESPACE:some-template', [....])
+        // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
+        // or even allow to render view as view('VIEW_NAMESPACE::some-template', [....])
         // which allow to render views from any namespace ambiguity and improving maintainability.
         collect($this->app->get('config')->get('view.paths'))
             ->each(fn ($path, $namespace) => view()->addNamespace($namespace, $path));
@@ -30,6 +32,25 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // which allow to render components from any namespace ambiguity and improving maintainability.
         collect($this->app->get('config')->get('view.components.namespace'))
             ->each(fn ($namespace, $prefix) => \Illuminate\Support\Facades\Blade::componentNamespace($namespace, $prefix));
+        
+        // Register the @url directive
+        \Illuminate\Support\Facades\Blade::directive('url', function ($expression) {
+            return "<?php
+                \$parameters = $expression ? (array) ($expression) : [];
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyUrl(\$parameters);
+            ?>";
+        });
+
+        // FIXME :
+        // problem is in blade file we need to use the full namespace like `\Illuminate\Support\Str::sanitizeHtml`
+        // Should define a alias ?
+        // should move this to a global macro ?
+        Str::macro('sanitizeHtml', function ($input, $configKey = 'allowed_html') {
+            $sanitized = PKPString::stripUnsafeHtml($input, $configKey);
+            $sanitized = str_replace('{{', '<span v-pre>{{</span>', $sanitized);
+            $sanitized = str_replace('}}', '<span v-pre>}}</span>', $sanitized);
+            return $sanitized;
+        });
     }
 
     /**

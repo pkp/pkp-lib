@@ -349,6 +349,17 @@ abstract class Plugin
      */
     public function getTemplateResource($template = null, $inCore = false)
     {
+        if ($template) {
+            // This is to accommodate the case if template files path beign set as similar
+            // to the smarty templates e.g. `some-path/some-template.blade.php`
+            // as blade view needed to in just `some-path.some-template`
+            $bladeTemplatePath = str_replace(['//', '.blade.php'], ['.', ''], $template);
+
+            if (view()->exists("{$this->getName()}::{$bladeTemplatePath}")) {
+                return "{$this->getName()}::{$bladeTemplatePath}";
+            }
+        }
+
         $pluginPath = $this->getPluginPath();
         if ($inCore) {
             $pluginPath = PKP_LIB_PATH . "/{$pluginPath}";

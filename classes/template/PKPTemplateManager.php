@@ -158,6 +158,24 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
+     * Blade proof of concept: Override Smarty assign function to also expose variables globally to Blade
+     * (Not that this is good practice -- just to show we can!)
+     *
+     * @param null|mixed $value
+     */
+    public function assign($tpl_var, $value = null, $nocache = false)
+    {
+        parent::assign($tpl_var, $value, $nocache);
+        if (is_array($tpl_var)) {
+            foreach ($tpl_var as $key => $value) {
+                \Illuminate\Support\Facades\View::share($key, $value);
+            }
+        } else {
+            \Illuminate\Support\Facades\View::share($tpl_var, $value);
+        }
+    }
+
+    /**
      * Initialize the template manager.
      */
     public function initialize(PKPRequest $request)
@@ -1341,6 +1359,16 @@ class PKPTemplateManager extends Smarty
      */
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
+        // If a blade view instance given, just return the rendered content
+        if ($template instanceof \Illuminate\View\View) {
+            return $template->render();
+        }
+
+        // if the given template found as blade view, return the rendered content
+        if (view()->exists($template)) {
+            return view($template)->render();
+        }
+
         // If no compile ID was assigned, get one.
         if (!$compile_id) {
             $compile_id = $this->getCompileId($template);
@@ -1943,7 +1971,7 @@ class PKPTemplateManager extends Smarty
      * - escape (default to true unless otherwise specified)
      * - params: parameters to include in the URL if available as an array
      */
-    public function smartyUrl($parameters, $smarty): string
+    public function smartyUrl($parameters, $smarty = null): string
     {
         if (!isset($parameters['context'])) {
             // Extract the variables named in $paramList, and remove them

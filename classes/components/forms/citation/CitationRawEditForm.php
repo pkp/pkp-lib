@@ -31,7 +31,7 @@ class CitationRawEditForm extends FormComponent
         $this->action = $action;
         $this->isRequired = $isRequired;
 
-        $this->addField(new FieldTextarea('citationsRaw', [
+        $this->addField(new FieldTextarea('rawCitation', [
             'label' => __('submission.citations.structured.label.rawCitation'),
             'description' => '',
             'value' => null,

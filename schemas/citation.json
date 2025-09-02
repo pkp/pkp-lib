@@ -131,9 +131,7 @@
 			"type": "string",
 			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
 			"multilingual": false,
-			"validation": [
-				"nullable"
-			]
+			"validation": []
 		},
 		"rawCitationWithLinks": {
 			"type": "string",
@@ -185,15 +183,6 @@
 		"issue": {
 			"type": "string",
 			"description": "The issue of the journal, e.g. 7442.",
-			"multilingual": false,
-			"apiSummary": true,
-			"validation": [
-				"nullable"
-			]
-		},
-		"pages": {
-			"type": "string",
-			"description": "The pages of the work/article, e.g. 64.",
 			"multilingual": false,
 			"apiSummary": true,
 			"validation": [

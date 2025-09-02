@@ -135,6 +135,14 @@ class Schema extends \PKP\core\maps\Schema
                 case 'categoryIds':
                     $output[$prop] = $publication->getData('categoryIds');
                     break;
+                case 'citationsMetadataLookup':
+                    if(is_null($publication->getData($prop))){
+                        $output[$prop] = $this->request->getContext()->getData('citationsMetadataLookup');
+                    }
+                    else{
+                        $output[$prop] = $publication->getData($prop);
+                    }
+                    break;
                 case 'citations':
                     $data = [];
                     foreach ($publication->getData('citations') as $citation) {

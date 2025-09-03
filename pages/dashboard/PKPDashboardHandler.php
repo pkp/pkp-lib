@@ -286,7 +286,14 @@ abstract class PKPDashboardHandler extends Handler
 
 
             // Email log event types
-            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR
+            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR,
+
+            // Editorial Tasks
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => 1,
+            'EDITORIAL_TASK_TYPE_TASK' => 2,
+            'EDITORIAL_TASK_STATUS_PENDING' => 1,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => 2,
+            'EDITORIAL_TASK_STATUS_CLOSED' => 3,
         ]);
 
         $this->setupIndex($request);

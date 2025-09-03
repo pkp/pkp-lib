@@ -471,6 +471,9 @@ msgstr "References"
 msgid "submission.citations.description"
 msgstr "Enter each reference on a new line so that they can be extracted and recorded separately."
 
+msgid "submission.citations.structured"
+msgstr "Structured References"
+
 msgid "submission.citations.structured.description"
 msgstr ""
 "Enter each reference on a new line so that they can be individually processed. "
@@ -478,10 +481,7 @@ msgstr ""
 "Click \"Add\" button to process and move them into the table below. "
 "To edit existing entries, please use the \"Edit\" option in the table to modify individual entries."
 
-msgid "submission.citations.structured"
-msgstr "Structured References"
-
-msgid "submission.citations.structured.description"
+msgid "submission.citations.structured.citationsMetadataLookup.description"
 msgstr ""
 "This section helps you structure your references. "
 "Clicking \"Enable Metadata Lookup\" will allow the system to process your references and retrieve DOIs and other metadata from external sources. "

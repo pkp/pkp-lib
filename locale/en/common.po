@@ -84,6 +84,33 @@ msgstr "View Announcement"
 msgid "common.allDownloads"
 msgstr "All Downloads"
 
+msgid "common.closed"
+msgstr "Closed"
+
+msgid "common.confirmUnsavedChanges"
+msgstr "You have unsaved changes. Are you sure you want to cancel?"
+
+msgid "common.createdBy"
+msgstr "Created by"
+
+msgid "common.dueDate"
+msgstr "Due Date"
+
+msgid "common.history"
+msgstr "History"
+
+msgid "common.me"
+msgstr "Me"
+
+msgid "common.new"
+msgstr "New"
+
+msgid "common.startDate"
+msgstr "Start Date"
+
+msgid "common.yetToBegin"
+msgstr "Yet to begin"
+
 msgid "common.navigation.sidebar"
 msgstr "Sidebar"
 

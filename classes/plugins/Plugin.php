@@ -80,6 +80,9 @@ abstract class Plugin
     /** @var PKPRequest the current request object */
     public $request;
 
+    /** @var string the view namespace of plugin's templates for blade views and components */
+    public $templateViewNamespace;
+
     /**
      * Constructor
      */
@@ -411,8 +414,37 @@ abstract class Plugin
             // Register the plugin's template path to render blade views and components
             $fileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $fileViewFinder */
             $fileViewFinder->addLocation(app()->basePath($templatePath));
-            view()->addNamespace($this->getName(), app()->basePath($templatePath));
+
+            $this->_registerTemplateViewNamespace($this->getName(), $inCore);
         }
+    }
+
+    protected function _registerTemplateViewNamespace(string $viewNamespace, bool $inCore = false): void
+    {
+        $templatePath = $this->getTemplatePath($inCore);
+        
+        if (!$templatePath) {
+            throw new \Exception('unable to resolve the template path');
+        }
+
+        $this->templateViewNamespace = $viewNamespace;
+
+        // Set or replace(if already set) the plugin's view namespace same as plugin name
+        view()->replaceNamespace($viewNamespace, app()->basePath($templatePath));
+            
+        // Make sure to set the plugin's name always available for plugins view 
+        // as it's been used a plugin's view namespace
+        \Illuminate\Support\Facades\View::composer(
+            "{$viewNamespace}::*",
+            fn (\Illuminate\View\View $view) => $view->with('viewNamespace', $viewNamespace)
+        );
+    }
+
+    protected function _registerViewComponentNamespace(string $componentNamespacePath, ?string $viewNamespace = null): void
+    {
+        $viewNamespace ??= $this->templateViewNamespace;
+
+        \Illuminate\Support\Facades\Blade::componentNamespace($componentNamespacePath, $viewNamespace);
     }
 
     /**

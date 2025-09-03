@@ -1,3 +1,862 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "user.authorization.loginRequired"
+msgstr "Reikia prisijungti."
+
+msgid "user.profile.oldPassword"
+msgstr "Dabartinis slaptažodis"
+
+msgid "user.apiKey.remove"
+msgstr "Ištrinti"
+
+msgid "orcid.displayName"
+msgstr "ORCID"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Narių smėlio dėžė"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Kliento ID"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Klaidos"
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Šiam pateikimui ORCID iD jau buvo išsaugotas."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Kliento slaptasis kodas galioja"
+
+msgid "user.removeRole.roleRemainMessage"
+msgstr ""
+"Negalite pašalinti vaidmens. Naudotojui turi būti priskirtas bent vienas "
+"vaidmuo."
+
+msgid "user.accountInformation"
+msgstr "Informacija apie paskyrą"
+
+msgid "user.affiliation"
+msgstr "Institucija"
+
+msgid "user.affiliation.description"
+msgstr "(Jūsų institucija, pvz., „Simon Fraser University“)"
+
+msgid "user.affiliations"
+msgstr "Institucijos"
+
+msgid "user.affiliations.description"
+msgstr ""
+"Žemiau įveskite pilną institucijos pavadinimą, vengdami akronimų. "
+"Pasirinkite pavadinimą išskleidžiamajame meniu ir spustelėkite „Pridėti“, "
+"kad įtrauktumėte priklausomybę į savo profilį. (pvz., „Simono Fraserio "
+"universitetas“)"
+
+msgid "user.affiliations.institution"
+msgstr "Įstaiga"
+
+msgid "user.affiliations.translation"
+msgstr "Daugiau informacijos"
+
+msgid "user.affiliations.translationEditActionLabel"
+msgstr "Redaguoti įstaigos pavadinimą"
+
+msgid "user.affiliations.translationDeleteActionLabel"
+msgstr "Pašalinti įstaigą"
+
+msgid "user.affiliations.translationActionsAriaLabel"
+msgstr "Spustelėkite, jei norite redaguoti arba ištrinti"
+
+msgid "user.affiliations.translationsAllAvailable"
+msgstr "Visi vertimai prieinami"
+
+msgid "user.affiliations.translationsSomeAvailable"
+msgstr "{$count} iš {$total} kalbų baigta"
+
+msgid "user.affiliations.typeTranslationNameInLanguageLabel"
+msgstr "Įveskite instituto pavadinimą {$language} kalba"
+
+msgid "user.affiliations.translationNameInLanguage"
+msgstr "Instituto pavadinimas {$language} kalba"
+
+msgid "user.affiliations.deleteModal.title"
+msgstr "Ar tikrai?"
+
+msgid "user.affiliations.deleteModal.message"
+msgstr "Priskyrimas <strong>{$affiliation</strong> bus ištrintas."
+
+msgid "user.affiliations.searchPhraseLabel"
+msgstr "Įveskite instituto pavadinimą {$language} kalba"
+
+msgid "user.affiliations.searchPhraseNothingFound"
+msgstr "Jūsų paieškos frazės nerasta"
+
+msgid "user.affiliations.primaryLocaleRequired"
+msgstr "Būtina nurodyti pagrindinę kalbą {$primaryLocale}"
+
+msgid "user.authorization.accessDenied"
+msgstr "Neleidžiama prieiti."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Netinkamas procesą atpažįstantis raktas arba jo trūksta."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Negalite paleisti šios operacijos be konteksto (spauda, žurnalas, "
+"konferencija ir kt.)"
+
+msgid "user.authorization.privateOperation"
+msgstr "Bandote pasiekti privačią arba neegzistuojančią operaciją."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Prieiga prie šios svetainės šiuo metu apribota."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Su dabartine funkcija negalima atlikti šios operacijos."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Dirbant su šiuo straipsniu, su Jums paskirta funkcija neleidžiama atlikti "
+"šios operacijos."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Turite nustatyti tinkamą vartotojų grupę norėdami pasiekti šią operaciją."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Mokslinė sekretorė, pvz., leidybos redaktorė, turi būti paskirta šiam "
+"etapui, kad galėtų tęsti."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Šiuo metu Jums neleidžiama pasiekti šio darbo etapo."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Nenurodytas darbo etapas."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Prieiga prie darbo eigos, kai pateikta nepilnai, yra ribojama."
+
+msgid "user.authorization.submission.complete.reviewerSuggestionRestrict"
+msgstr ""
+"Užbaigto pateikimo recenzento pasiūlymų pridėjimas, atnaujinimas arba "
+"ištrynimas yra ribojamas."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Nenurodytas reikalingas įskiepis."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Neturite teisės peržiūrėti šios recenzijos."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Neturite teisės dalyvauti šioje diskusijoje."
+
+msgid "user.authorization.shouldBeAnonymous"
+msgstr "Vartotojas turėtų būti anonimiškas. Šiuo metu esate prisijungęs."
+
+msgid "user.biography"
+msgstr "Duomenys apie Jus (pvz., pareigos, mokslo laipsnis)"
+
+msgid "user.changeMyPassword"
+msgstr "Pakeisti mano slaptažodį"
+
+msgid "user.changePassword"
+msgstr "Pakeisti slaptažodį"
+
+msgid "user.dateLastLogin"
+msgstr "Paskutinį kartą prisijungta"
+
+msgid "user.dateRegistered"
+msgstr "Kada užregistruota."
+
+msgid "user.editMyProfile"
+msgstr "Taisyti profilį"
+
+msgid "user.email"
+msgstr "Elektroninis paštas"
+
+msgid "user.givenName"
+msgstr "Vardas"
+
+msgid "user.interests"
+msgstr "Recenzuojamos sritys"
+
+msgid "user.gossip"
+msgstr "Redaktorių pastabos"
+
+msgid "user.gossip.description"
+msgstr ""
+"Pateikti pastabas apie recenzentą, kurios būtų matomos kitiems "
+"administratoriams, redakcijos sekretoriams ir visiems redaktoriams. Pastabos "
+"pravers atliekant tolimesnes recenzavimo užduotis."
+
+msgid "user.group"
+msgstr "Vartotojų grupė"
+
+msgid "user.familyName"
+msgstr "Pavardė"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Profilio paveikslėlis pateiktas netinkamu formatu arba yra per didelis. "
+"Tinkami formatai yra .gif, .jpg, .png, o paveikslėlis negali būti didesnis "
+"nei 150×150 pikselių."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Jūsų paskyra pasyvinta dėl šių priežasčių: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Jūsų paskyra pasyvinta. Norėdami sužinoti daugiau, susisiekite su "
+"administratoriumi."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Jums išsiųstas elektroninis patvirtinimo laiškas paštu {$email}. Norėdami "
+"aktyvuoti savo naują paskyrą, sekite laiške pateiktas instrukcijas. Jeigu "
+"elektroninio laiško negavote, patikrinkite savo brukalų aplanką."
+
+msgid "user.login.activate"
+msgstr "Aktyvuoti paskyrą."
+
+msgid "user.login.activated"
+msgstr ""
+"Dėkojame, kad aktyvavote savo paskyrą. Dabar galite prisijungti, naudojant "
+"registracijos metu pateiktus vartotojo vardą ir slaptažodį."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Prieš prisijungiant prie svetainės Jums reikia pasikeisti slaptažodį.<br /"
+"><br />Norėdami pakeisti savo paskyros slaptažodį, žemiau esančiuose "
+"laukeliuose įveskite savo dabartinį bei naują slaptažodžius."
+
+msgid "user.login.forgotPassword"
+msgstr "Pamiršote slaptažodį?"
+
+msgid "user.login.loginError"
+msgstr "Netinkamas vartotojo vardas arba slaptažodis. Pamėginkite dar kartą."
+
+msgid "user.login"
+msgstr "Prisijungti"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Patvirtinimas išsiųstas elektroniniu paštu. Norėdami atkurti savo "
+"slaptažodį, sekite laiške pateiktas instrukcijas."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Atsiprašome, ši nuoroda nebegalioja arba netinkama. Pabandykite savo "
+"slaptažodį atstatyti dar kartą."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Naujas slaptažodis išsiųstas elektroniniu paštu. Dabar galite prisijungti su "
+"naujuoju slaptažodžiu."
+
+msgid "user.login.registeredEmail"
+msgstr "Registruoto vartotojo elektroninis paštas"
+
+msgid "user.login.registrationComplete"
+msgstr "Registracija sėkminga"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Ačiū, kad užsiregistravote. Kas toliau?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Peržiūrėti straipsnius"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Pateikti naują straipsnį"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Tęsti naršymą"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Reikia patvirtinti registraciją"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Likti prisijungus"
+
+msgid "user.login.resetPassword"
+msgstr "Atkurti slaptažodį"
+
+msgid "user.logOut"
+msgstr "Atsijungti"
+
+msgid "user.logOutAs"
+msgstr "Atsijungti kaip"
+
+msgid "user.hello"
+msgstr "Sveiki, "
+
+msgid "user.mailingAddress"
+msgstr "Pašto adresas"
+
+msgid "user.myAccount"
+msgstr "Mano paskyra"
+
+msgid "user.name"
+msgstr "Vardas"
+
+msgid "user.password"
+msgstr "Slaptažodis"
+
+msgid "user.repeatPassword"
+msgstr "Pakartoti slaptažodį"
+
+msgid "user.phone"
+msgstr "Telefono numeris"
+
+msgid "user.preferredPublicName"
+msgstr "Pasirinktas viešai matomas vardas"
+
+msgid "user.preferredPublicName.description"
+msgstr "Kaip į Jus kreiptis? Čia galite nurodyti slapyvardį, prievardį ar pan."
+
+msgid "user.preferredAvatarInitials"
+msgstr "Pageidaujami avataro inicialai"
+
+msgid "user.preferredAvatarInitials.description"
+msgstr ""
+"Įveskite dvi raides, kurias norite naudoti kaip savo avatarą. Šios inicialai "
+"bus rodomi kaip jūsų atvaizdas."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Norėdami pakeisti savo paskyros slaptažodį, įveskite dabartinį ir naują "
+"slaptažodžius."
+
+msgid "user.profile.editProfile"
+msgstr "Taisyti profilį"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Reikia nurodyti šalį."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Reikia pateikti tinkamą elektroninio pašto adresą."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Reikia nurodyti vardą."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Kuria kalba nurodėte tik savo pavarę, ta kalba pateikite ir vardą."
+
+msgid "user.profile.form.affiliationRequired.locale"
+msgstr "Prašome pridėti priklausomybę pateikimo kalba."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Reikia nurodyti pašto adresą."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Turite įrašyti savo naują slaptažodį."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Neteisingai įrašėte dabartinį slaptažodį."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Elektroniniu paštu siunčiami pranešimai apie numerio atvirą prieigą."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Reikia nurodyti slaptažodį."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Jūsų naujas slaptažodis yra toks pats, kaip ir senas slaptažodis."
+
+msgid "user.profile.form.profileImage"
+msgstr "Profilio paveikslėlis"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Elektroniniu laišku siunčiami pranešimai apie naują išleistą numerį."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Pateikta netinkama nuoroda (URL). Dar kartą ją patikrinkite. (Patariama "
+"prieš nuorodą (URL) prirašyti „http://“.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Reikia nurodyti vartotojų grupę."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Reikia nurodyti vartotojo vardą."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Būtina sutikti su privatumo nuostatos sąlyga."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Palikite slaptažodžio laukelį tuščią, nenorėdami jo pakeisti."
+
+msgid "user.profile.newPassword"
+msgstr "Naujas slaptažodis"
+
+msgid "user.profile"
+msgstr "Profilis"
+
+msgid "user.profile.publicProfile"
+msgstr "Vartotojo profilis"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Pakartokite naują slaptažodį."
+
+msgid "user.login.registerNewAccount"
+msgstr "Registruotis"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Įveskite savo paskyros elektroninio pašto adresą ir Jums bus išsiųstas "
+"laiškas su nurodymais, kaip pakeisti slaptažodį."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sutinku teikti <a href=\"../journalPolicies#19-privacy-statement\" target="
+"\"_blank\">privatumo nuostatoje</a> nurodytus duomenis."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Taip, noriu gauti pranešimus apie naujai išleistus numerius ir skelbimus."
+
+msgid "user.register.form.emailExists"
+msgstr "Pasirinktas elektroninio pašto adresas yra naudojamas kito vartotojo."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Slaptažodžiai nesutampa."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Laukeliuose įvesti elektroninio pašto adresai nesutampa."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Vartotojo vardas gali būti sudarytas tik iš mažųjų raidžių, skaitmenų, "
+"pabraukimų ir brūkšnių, taip pat turi prasidėti ir pasibaigti skaitmeniu "
+"arba raide."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Reikia pasirinkti bent vieną funkciją."
+
+msgid "user.register.form.usernameExists"
+msgstr "Pasirinktas vartotojo vardas jau yra naudojamas kito vartotojo."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Slaptažodis turi būti sudarytas iš ne mažiau kaip {$length} ženklų."
+
+msgid "user.register.registerAs"
+msgstr "Registruotis prie „{$contextName}“ kaip…"
+
+msgid "user.register"
+msgstr "Registruotis"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Vartotojo vardas gali būti sudarytas tik iš mažųjų raidžių, skaitmenų, "
+"brūkšnelių ir pabraukimo brūkšnių."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Jūs sėkmingai užsiregistravote. <a href=\"{$profileUrl}\">Paspauskite čia</"
+"a>,kad  baigtumėte pildyti savo vartotojo profilį."
+
+msgid "user.role.assistant"
+msgstr "Pagalbininkas"
+
+msgid "user.role.author"
+msgstr "Autorius (-ė)"
+
+msgid "user.role.author_s"
+msgstr "Autoriai"
+
+msgid "user.role.authors"
+msgstr "Autoriai (-ės)"
+
+msgid "user.role.editor"
+msgstr "Vyriausioji redaktorė"
+
+msgid "user.role.editors"
+msgstr "Redaktoriai"
+
+msgid "user.role.reader"
+msgstr "Skaitytojas (-a)"
+
+msgid "user.role.readers"
+msgstr "Skaitytojai"
+
+msgid "user.role.reviewer"
+msgstr "Recenzentas (-ė)"
+
+msgid "user.role.reviewers"
+msgstr "Recenzentai"
+
+msgid "user.role.siteAdmin"
+msgstr "Svetainės administratorius"
+
+msgid "user.role.siteAdmins"
+msgstr "Svetainės administratoriai"
+
+msgid "user.role.copyeditor"
+msgstr "Kalbos redaktorius (-ė)"
+
+msgid "user.role.copyeditors"
+msgstr "Kalbos redaktoriai"
+
+msgid "user.role.proofreader"
+msgstr "Korektorius (-ė)"
+
+msgid "user.role.proofreaders"
+msgstr "Korektoriai"
+
+msgid "user.role.layoutEditor"
+msgstr "Maketuotojas (-a)"
+
+msgid "user.role.layoutEditors"
+msgstr "Maketuotojai"
+
+msgid "user.role.ended"
+msgstr "Vaidmuo baigėsi"
+
+msgid "user.roles"
+msgstr "Funkcijos"
+
+msgid "user.sendPassword"
+msgstr "Patvirtinimas"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Siųsti man patvirtinimą elektroniniu paštu, kur bus pateikti mano vartotojo "
+"vardas ir slaptažodis."
+
+msgid "user.signature"
+msgstr "Parašas"
+
+msgid "user.title"
+msgstr "Antraštė"
+
+msgid "user.url"
+msgstr "Nuoroda (URL)"
+
+msgid "user.userHome"
+msgstr "Vartotojo pagrindinis puslapis"
+
+msgid "user.username"
+msgstr "Vartotojo vardas"
+
+msgid "user.usernameOrEmail"
+msgstr "Vartotojo vardas arba el. pašto adresas"
+
+msgid "user.workingLanguages"
+msgstr "Susirašinėjant vartosimos kalbos"
+
+msgid "user.orcid"
+msgstr "ORCID identifikatorius"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Nurodytas neteisingas ORCID identifikatorius. Įtraukite pilną URI (pvz., "
+"„http://orcid.org/0000-0002-1825-0097“)."
+
+msgid "user.profile.identity"
+msgstr "Tapatybė"
+
+msgid "user.profile.contact"
+msgstr "Kontaktai"
+
+msgid "user.profile.public"
+msgstr "Viešai matoma"
+
+msgid "user.apiKey"
+msgstr "API raktas"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Norėdami pasiekti šią paskyrą, įgalinti išorines programas su šiuo API raktu."
+
+msgid "user.apiKey.generate"
+msgstr "Generuoti naują API kodą"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Generavus naują API raktą, esamas raktas šiam vartotojui taps netinkamas."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Ištrynus raktą, bus panaikinta prieiga prie bet kurios programos, kuri jį "
+"naudoja."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Ar tikrai norite ištrinti šį API raktą?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Norint sukurti API raktą, svetainės administratoriui pirma reikia nustatyti "
+"paslaptį konfigūracijos faile („api_secret_key“)."
+
+msgid "user.privacyLink"
+msgstr ""
+"Jūsų duomenys saugomi pagal <a href=\"{$privacyUrl}\" target=\"_blank\""
+">privatumo nuostatų</a> reikalavimus."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Nepavyko įvykdyti slaptažodžio atkūrimo užklausos, nes {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Įveskite naują slaptažodį, kad atnaujintumėte prisijungimo slaptažodį."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Slaptažodis sėkmingai atnaujintas. Prisijunkite naudodami atnaujintą "
+"slaptažodį."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"Pateikėte užklausą pakeisti savo el. pašto adresą į „{$pendingEmail}“. Jau "
+"išsiuntėme jums el. laišką su instrukcijomis, kaip patvirtinti pakeistą el. "
+"pašto adresą."
+
+msgid "orcid.description"
+msgstr "Leidžia importuoti vartotojo profilio informaciją iš ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Šią formą galite iš anksto užpildyti informacija iš ORCID profilio. Įveskite "
+"su ORCID profiliu susietą el. pašto adresą arba ORCID iD ir spustelėkite "
+"„Pateikti“."
+
+msgid "orcid.noData"
+msgstr "Nepavyko rasti jokių duomenų iš ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "El. pašto adresas arba ORCID iD:"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API nustatymai"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "paslėptas"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Prašome sukonfigūruoti ORCID API prieigą, kad ji būtų naudojama ORCID "
+"profilio informacijai įkelti į naudotojų ir autorių profilius bei prijungtų "
+"ORCID įrašų atnaujinimui naujomis publikacijomis (tik ORCID nariams)."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Viešas"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Vieša smėlio dėžė"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Narys"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Kliento paslaptis"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profilio prieigos apimtis"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "El. pašto nustatymai"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Nustatymai išsaugoti"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Siųsti el. laišką, kad autoriai gautų ORCID leidimą, kai straipsnis "
+"priimamas, t. y. siunčiamas redagavimui."
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID užklausų žurnalas"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Visi"
+
+msgid "orcid.manager.settings.city"
+msgstr "Miestas"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID prieiga buvo uždrausta"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Suteikta prieiga prie ORCID įrašo su aprėptimi {$orcidAccessScope}, galioja "
+"iki"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Siųskite el. laišką, kad paprašytumėte bendraautorio ORCID leidimo"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Ištrinkite ORCID iD ir prieigos raktą!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Žr. toliau, kaip pateikti užklausą dėl autentifikuoto ORCID iD"
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"ORCID iD neautentifikuotas! Prašome paprašyti autentifikavimo iš "
+"bendraautorio."
+
+msgid "orcid.unauthenticated"
+msgstr "(neautentifikuota)"
+
+msgid "orcid.verify.title"
+msgstr "ORCID autorizacija"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Pateikta informacija buvo pridėta prie jūsų ORCID įrašo."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Pateiktos informacijos nepavyko pridėti prie jūsų ORCID įrašo."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Pateikimas bus pridėtas prie jūsų ORCID įrašo publikavimo metu."
+
+msgid "orcid.verify.success"
+msgstr "Jūsų ORCID iD buvo patvirtintas ir sėkmingai susietas su pateikimu."
+
+msgid "orcid.verify.success.redirect"
+msgstr "Dabar būsite automatiškai nukreipti atgal į {$contextName}."
+
+msgid "orcid.verify.failure"
+msgstr "Jūsų ORCID ID patvirtinti nepavyko. Nuoroda nebegalioja."
+
+msgid "orcid.verify.denied"
+msgstr "Jūs uždraudėte prieigą prie savo ORCID įrašo."
+
+msgid "orcid.authFailure"
+msgstr "ORCID autorizacijos nuoroda jau buvo panaudota arba yra negaliojanti."
+
+msgid "orcid.invalidClient"
+msgstr "Neteisingi kliento prisijungimo duomenys"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Prašome susisiekti su žurnalo vadovu ir nurodyti savo vardą, pavardę, ORCID "
+"numerį ir pateikto darbo duomenis."
+
+msgid "orcid.connect"
+msgstr "Sukurkite arba prijunkite savo ORCID iD"
+
+msgid "orcid.authorise"
+msgstr "Autorizuokite ir prijunkite savo ORCID iD"
+
+msgid "orcid.about.title"
+msgstr "Kas yra ORCID?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Kaip ir kodėl renkame ORCID identifikatorius?"
+
+msgid "orcid.about.display.title"
+msgstr "Kur rodomi ORCID identifikatoriai?"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Neteisingas kliento ID"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Neteisingas kliento slaptasis kodas"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Žurnalų konfigūracija"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Kliento ID galiojantis"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Kliento ID neteisingas, patikrinkite įvestį"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Kliento slaptažodis negalioja, patikrinkite savo prisijungimo duomenis"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Aptikti pasikartojantys bendraautorių ORCiD."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Aptikti neautentifikuoti bendraautorių ORCiD."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Įjungti ORCID funkciją"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Įgalinti ORCID funkcionalumą visoje svetainėje"
+
+msgid "orcid.manager.siteWide.description"
+msgstr ""
+"ORCID funkcionalumą galima pasirinktinai įjungti ir konfigūruoti svetainės "
+"lygmeniu visiems žurnalams / spaudos mašinoms / serveriams. Jei įjungta, tai "
+"pakeis visus konteksto lygio prisijungimo duomenis ir taikys toliau "
+"nurodytus prisijungimo duomenis visiems žurnalams / spaudos mašinoms / "
+"serveriams šioje instaliacijoje."
+
+msgid "orcid.field.verification.request"
+msgstr "Prašyti patvirtinimo"
+
+msgid "orcid.field.verification.requested"
+msgstr "Pateiktas ORCID patvirtinimo prašymas!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Išsiųsti patvirtinimo el. laišką dar kartą"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Prašyti ORCID patvirtinimo"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr ""
+"Ar norėtumėte išsiųsti el. laišką šiam autoriui su prašymu patvirtinti savo "
+"ORCID?"
+
+msgid "orcid.field.authorEmailModal.message.noAuthor"
+msgstr "El. laiškas bus išsiųstas, kai autorius bus sukurtas."
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Ištrinti ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Ar tikrai norite pašalinti šį ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr ""
+"Šis ORCID nebuvo patvirtintas. Pašalinkite šį nepatvirtintą ORCID ir "
+"paprašykite patvirtinimo tiesiogiai iš naudotojo / autoriaus."
+
+msgid "user.removeRole.message"
+msgstr ""
+"Ar tikrai norite visam laikui pašalinti šį vaidmenį? Šis veiksmas panaikins "
+"naudotojo prieigą prie visos informacijos ir leidimų, susijusių su šiuo "
+"vaidmeniu."
+
+msgid "user.futureRole.notification.message"
+msgstr "Jūsų pareigos turėtų prasidėti {$roleStartDate}"
+
+msgid "user.futureRole.notification.description"
+msgstr ""
+"Iki tol galite peržiūrėti ir atnaujinti savo profilį. Jei manote, kad tai "
+"klaida, susisiekite su administratoriumi."
+
+msgid "user.disabledModal.description"
+msgstr "Dabartiniai vaidmenys: {$roles}"
+
+msgid "user.disabledModal.title"
+msgstr "Išjungti {$fullName}"
+
+msgid "user.enabledModal.title"
+msgstr "Įjungti {$fullName}"
+
+msgid "user.bioStatement"
+msgstr "Biografija"

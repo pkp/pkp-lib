@@ -232,8 +232,6 @@ class PKPCitationController extends PKPBaseController
 
         Repo::citation()->addJobCitation($citation->getId());
 
-        $citation = Repo::citation()->get($citation->getId());
-
         return response()->json(
             Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK
         );

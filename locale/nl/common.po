@@ -1,13 +1,14 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-08-17 22:30+0000\n"
-"Last-Translator: Henri De Plaen <henri.deplaen@gmail.com>\n"
+"PO-Revision-Date: 2025-09-03 17:32+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
 "Language: nl\n"
@@ -18,7 +19,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgstr "Openbaar Kennisproject"
 
 msgid "common.currentStyleSheet"
 msgstr "Huidige stylesheet"
@@ -373,8 +374,9 @@ msgstr "Uitschakelen"
 msgid "common.disabled"
 msgstr "Uitgeschakeld"
 
+#, fuzzy
 msgid "common.discipline"
-msgstr "Discipline"
+msgstr "Vakgebied"
 
 msgid "common.done"
 msgstr "Voltooid"
@@ -695,7 +697,7 @@ msgid "common.pageNumber"
 msgstr "Pagina {$pageNumber}"
 
 msgid "common.percentage"
-msgstr "{$percentage}%"
+msgstr "{$percentage} %"
 
 msgid "common.plugin"
 msgstr "Plugin"
@@ -970,8 +972,9 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Gebruiker"
 
+#, fuzzy
 msgid "common.user.nonexistent"
-msgstr "[Nonexistent user]"
+msgstr "[Niet-bestaande gebruiker]"
 
 msgid "common.view"
 msgstr "Bekijk"
@@ -1001,7 +1004,7 @@ msgid "common.yes"
 msgstr "Ja"
 
 msgid "common.loading"
-msgstr "Laden..."
+msgstr "Laden"
 
 msgid "common.plugins"
 msgstr "Plugins"
@@ -1328,7 +1331,7 @@ msgid "icon.edit.alt"
 msgstr "Bewerk"
 
 msgid "icon.folder.alt"
-msgstr "Folder"
+msgstr "Map"
 
 msgid "icon.font_large.alt"
 msgstr "Groot"
@@ -1528,8 +1531,9 @@ msgstr "Instellingen"
 msgid "navigation.setup"
 msgstr "Instellen"
 
+#, fuzzy
 msgid "navigation.sitemap"
-msgstr "Site Map"
+msgstr "Overzichtsmap"
 
 msgid "navigation.skip.description"
 msgstr "Ga naar inhoudsopgave"
@@ -1887,7 +1891,7 @@ msgid "timeZone"
 msgstr "Tijdzone"
 
 msgid "user.email"
-msgstr "E-mailadres"
+msgstr "e-mailadres"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -2285,11 +2289,13 @@ msgstr "Auteur bijgewerkt."
 msgid "showLess"
 msgstr "Toon minder"
 
+#, fuzzy
 msgid "common.highlight"
-msgstr "Highlight"
+msgstr "Markering"
 
+#, fuzzy
 msgid "common.highlights"
-msgstr "Highlights"
+msgstr "Markeringen"
 
 msgid "showAll"
 msgstr "Toon alles"

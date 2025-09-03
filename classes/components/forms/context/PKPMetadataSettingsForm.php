@@ -168,7 +168,7 @@ class PKPMetadataSettingsForm extends FormComponent
                 'value' => $context->getData('citations') ? $context->getData('citations') : Context::METADATA_DISABLE,
             ]))
             ->addField(new FieldOptions('citationsMetadataLookup', [
-                'label' => __('submission.citations.structured'),
+                'label' => __('submission.citations.structured.citationsMetadataLookup'),
                 'options' => [
                     [
                         'value' => 'true',

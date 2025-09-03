@@ -1,3 +1,425 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "Nepavyko rasti užduoties recenzento"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Galioja tik „priimti“ ir „atmesti“ reikšmės."
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "Pateikto skyriaus nėra."
+
+msgid "api.submission.400.invalidId"
+msgstr "Neteisingas ID: pateiktas \\\"{$id}\\\"."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Įkeliant šį paveikslėlį įvyko klaida."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Nepavyko apdoroti API užklausos."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Nepavyko gauti jokio laukiamo atsakymo."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Neteisingas autoriui patogus parametras."
+
+msgid "api.400.routeNotDefined"
+msgstr "Nebuvo pateiktas API maršrutas."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametras {$param} nepalaikomas."
+
+msgid "api.400.propReadOnly"
+msgstr "Ypatybės {$prop} negalima modifikuoti."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Nepavyko patvirtinti API prieigos rakto. Tai gali reikšti API prieigos rakto "
+"klaidą arba tai, kad API prieigos raktas nebegalioja."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Nepavyko dekoduoti „apiToken“ dėl šios klaidos: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Turite nurodyti el. laiško temą ir tekstą."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Šio elemento sukūrimo laiko pakeisti neįmanoma."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "DOI generavimui reikalingas DOI prefiksas."
+
+msgid "api.403.unauthorized"
+msgstr "Jūs neturite leidimo pasiekti prašomo ištekliaus."
+
+msgid "api.404.resourceNotFound"
+msgstr "Prašomas išteklius nerastas."
+
+msgid "api.404.endpointNotFound"
+msgstr "Prašomas URL nebuvo atpažintas."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API prieigos rakto negalima naudoti norint pasiekti šią svetainę, nes "
+"svetainės administratorius nesukonfigūravo slapto rakto."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Jūsų prašomas pranešimas nerastas."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Jūsų ieškoma įstaiga nerasta."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Šios lokalės nepalaikomos: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Negalite redaguoti elemento DOI, jei jo nėra šiame kontekste."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Šiam elementui negalima priskirti DOI."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Leidinio tipas neatpažintas."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Šis galinis taškas nepasiekiamas visoje svetainėje esančioje vardų erdvėje "
+"ir turi būti užklaustas konkrečiam kontekstui."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Jūsų prašomas DOI nerastas."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Jūsų prašomas publikacijos objektas nerastas."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "Jūsų prašomas įrašas nerastas."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Nepaskelbtų elementų negalima eksportuoti / įkelti. Prašome panaikinti "
+"nepaskelbtų elementų žymėjimą ir bandykite dar kartą."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Įvyko klaida ir nepavyko sukurti DOI objekto."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Įvyko XML patvirtinimo klaida ir XML eksportuoti nepavyko."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Įvyko klaida ir kai kurie pateikti elementai nebuvo pažymėti kaip "
+"užregistruoti."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Kai kurių elementų nepavyko sėkmingai įnešti. Patikrinkite atskirus "
+"elementus, ar nėra konkrečių klaidų pranešimų."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Prie užklausos nebuvo pridėta jokių galiojančių publikavimo objektų."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Prie užklausos buvo pridėtas vienas ar keli negaliojantys publikacijos "
+"objektai."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"Šiuo metu sukonfigūruotas įskiepis turi būti registracijos agentūros "
+"įskiepis."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Negalite užregistruoti sprendimo arba rekomenduoti sprendimo šiam "
+"pateikimui, nes jis jau paskelbtas."
+
+msgid "api.emails.400.missingBody"
+msgstr "Turite įtraukti el. pašto adresą, kuris bus išsiųstas."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Turite nurodyti el. laiško temą."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Turite nurodyti naudotojų vaidmenis, kurie turėtų gauti šį el. laišką."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Jums neleidžiama siųsti el. laiško vartotojams, turintiems vieną ar kelis "
+"pasirinktus vaidmenis."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Tai nėra numatytasis el. laiško šablonas žinomam el. laiškui."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Tai nėra tinkamas kontekstas."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Jūsų prašomo el. laiško šablono nerasta."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"Autorių el. pašto adresams nurodėte neteisingą \\\"eventType\\\", "
+"{$eventType}."
+
+msgid "api.files.400.noUpload"
+msgstr "Pagal užklausą nerasta jokių įkeliamų failų."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nepavyko įkelti vieno ar kelių failų."
+
+msgid "api.files.400.fileSize"
+msgstr "Didesnių nei {$maxSize} failų įkelti negalima."
+
+msgid "api.files.400.config"
+msgstr ""
+"Nepavyko įkelti failo dėl serverio konfigūracijos klaidos. Susisiekite su "
+"sistemos administratoriumi."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Nepavyko išsaugoti paryškintų elementų užsakymo, nes nerasta jokios užsakymo "
+"informacijos."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Svarbiausių momentų tvarkos išsaugoti nepavyko, nes nepavyko rasti vieno ar "
+"kelių svarbiausių momentų."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Pageidaujamas paryškinimas nerastas."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "Šios operacijos negalima atlikti išjungus ORCID funkciją."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "Ieškomo autoriaus nerasta"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "Negalite keisti autorių pateiktuose darbuose, kuriems nesate priskirti."
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Šis galinis taškas nepasiekiamas visoje svetainėje esančioje vardų erdvėje "
+"ir turi būti užklaustas konkrečiam kontekstui."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Leidinys, kurį norite publikuoti, jau yra publikuotas."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Leidinys, kurio publikavimą norite atšaukti, nėra publikuotas."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Šio leidinio redaguoti negalima, nes jis jau publikuotas."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Negalite modifikuoti būsenos tiesiogiai per API. Vietoj to naudokite "
+"galinius taškus /publish ir /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Prieš ištrindami šį leidinį, turite atšaukti jo publikavimą."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Galite įkelti tik šių tipų failus: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Įkeltas paveikslėlis negalioja."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Įkeltas failas neatitiko failo plėtinio. Taip gali nutikti, kai failas buvo "
+"pervadintas į nesuderinamo tipo failą, pavyzdžiui, „photo.png“ pakeistas į "
+"„photo.jpg“."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Jums neleidžiama įkelti failų."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Jūsų vartotojo kataloge nepakanka vietos. Įkeliamo failo dydis yra "
+"{$fileUploadSize} kb, o jums liko {$dirSizeLeft} kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Viešųjų failų katalogas nerastas arba failų jame negalima įrašyti. Norėdami "
+"išspręsti šią problemą, susisiekite su administratoriumi."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr ""
+"Your request was not valid. The date has to be in the format YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr ""
+"Your request was not valid. The dateStart can not be later than the dateEnd."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Pradžios data negali būti ankstesnė nei 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Pabaigos data negali būti vėlesnė nei vakar."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Jūsų užklausa negalioja. Laiko intervalas turi būti „diena“ arba „mėnuo“."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Jūsų užklausa negalioja. Užsakymo kryptis (orderDirection) turi būti „desc“ "
+"arba „asc“."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Jūsų užklausa negalioja. Laiko intervalas turi būti „diena“ arba „mėnuo“."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Negalite modifikuoti failo asociacijos neperduodami „assocType“ ir „assocId“."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Šio failo etapo failo negalima susieti su kitu pateikimo failu."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Šio failo etapo failo negalima susieti su diskusijos pastaba."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Šio failo etapo failo negalima susieti su peržiūros užduotimi."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Šio failo etapo failo negalima susieti su peržiūros etapu."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Pateikdami užklausą dėl failų peržiūros etape, turite nurodyti peržiūros "
+"raundą."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Turite pateikti failo etapą."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Nurodytas failo etapas negalioja."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Užklausoje redaguoti šį failą nerasta jokių pakeitimų."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr "Perkeldami failą į šį failo etapą, turite pateikti peržiūros etapo ID."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Jūsų pateiktas peržiūros etapas nėra šio pateikimo dalis."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Jums neleidžiama pasiekti šių failų."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Jums neleidžiama pridėti ir redaguoti šių failų."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Šiame peržiūros etape jums neleidžiama pasiekti failų."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Jūsų prašymas negalėjo būti įvykdytas, nes trūksta reikiamos informacijos."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Prašomi tomas, numeris ar metai netinkami."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Jums neleidžiama pateikti šio vartotojo vaidmens."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"Negalite pakeisti šio pateikimo kalbos, nes jis jau turi daugiau nei vieną "
+"publikavimo versiją arba publikacija jau paskelbta."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Prašymas atmestas. Taip galėjo nutikti, jei Jūsų prisijungimui skirtas "
+"laikas pasibaigė.  Pabadykite pakartoti atnaujinus puslapį."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Negalite ištrinti straipsnio, kuris nepaskirtas šiam žurnalui."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Galite matyti tik tuos nepublikuotus straipsnius, prie kurių esate paskirtas."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Neturite teisės ištrini šio straipsnio."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Jums neleidžiama redaguoti šio leidinio."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Šis galinis taškas nepasiekiamas iš konteksto. Prie jo reikia prisijungti iš "
+"visos svetainės vardų erdvės."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "Aktyvi tema {$themePluginPath} neįgalinta ir gali būti neįdiegta."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Lokalė {$locale} nepalaikoma."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Jūsų prašomas el. pašto adresas nerastas."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "Nepavykusio darbo nepavykusių užduočių sąraše nerasta."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr "Nepavykusiam darbui trūksta pakartotinai siunčiamo naudingojo krovinio."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Sąraše nerasta nepavykusių užduočių."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Nepavyko išsiųsti iš naujo nepavykusio darbo."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "Nepavykęs darbas sėkmingai išsiųstas iš naujo."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Visos pakartotinai siunčiamos nepavykusios užduotys su galiojančia apkrova "
+"buvo sėkmingai vėl įtrauktos į eilę."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Nepavyko ištrinti nepavykusio darbo iš nepavykusių užduočių sąrašo."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Nepavykęs darbas sėkmingai ištrintas iš nepavykusių užduočių sąrašo."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "Šios peržiūros užduoties pateikto darbo rasti nepavyko."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Užklausoje trūksta būtino užklausos parametro „ids“. Pateikite norimų "
+"ištrinti pateiktų elementų „ids“."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Leidinio identifikatorių forma nepasiekiama, nes nėra įgalintų "
+"identifikatorių."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "Jūsų prašoma klaida nerasta."
+
+msgid "api.409.resourceActionConflict"
+msgstr "Nepavyko atlikti numatyto veiksmo su ištekliumi."

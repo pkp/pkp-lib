@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-03 07:45+0000\n"
+"PO-Revision-Date: 2025-09-03 11:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -164,42 +164,64 @@ msgstr "Gordailatu DOIak"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak {$registrationAgency} "
+"erakundera bidaltzear zaude. Ziur zaude erregistro horiek gordailatu nahi "
+"dituzula?"
 
 msgid "manager.dois.actions.markRegistered.label"
 msgstr "Markatu DOIak erregistratu gisa"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak erregistratutzat markatzear "
+"zaude. Ziur zaude erregistro horiek erregistratu gisa markatu nahi dituzula?"
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Markatu DOIak erregistratu gabeko gisa"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak erregistratu gabe bezala "
+"markatzear zaude. Ziur zaude erregistro horiek erregistratu gabe bezala "
+"markatu nahi dituzula?"
 
 msgid "manager.dois.actions.markStale.label"
 msgstr "Markatu sinkronizazioa behar duten DOIak"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak sinkronizatu beharreko gisa "
+"markatzear zaude. \"Sinkronizatu behar du\" egoera aurrez bidalitako DOIei "
+"bakarrik aplika dakieke. Ziur zaude erregistro horiek zaharkitu gisa markatu "
+"nahi dituzula?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Esportatu DOIak"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"{$registrationAgency}-rako {$count} elementuren DOI metadatuen erregistroak "
+"esportatzear zaude. Ziur zaude erregistro horiek esportatu nahi dituzula?"
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Esleitu DOIak"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"{$count} elementuri DOI berriak esleitzear zaude, dagoeneko DOI bat "
+"esleituta ez duen edozein elementu egokiren kasuan. Ziur zaude elementu "
+"horiei DOIak esleitu nahi dizkiezula?"
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Gordailatu DOI guztiak"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"DOI metadatu erregistro guztiak {$registrationAgency}-en gordailatzea "
+"programatzear zaude. DOI bat duten argitaratutako elementuak bakarrik "
+"gordailatuko dira. Elementu bakoitzaren egoera eguneratu egingo da erantzuna "
+"jasotzen denean. Ziur zaude elementu horien guztien gordailuak programatu "
+"nahi dituzula?"
 
 msgid "manager.dois.actions.description"
 msgstr "Ekintza burutu hautatutako {$count} elementuetan."
@@ -1188,24 +1210,41 @@ msgstr ""
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei bidalketa hasi aurretik. Eman bidalketa "
+"prozesuaren azalpen labur bat, egileak zer espero dezakeen jakin dezan."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei fitxategiak igotzeko urratsean. Eman "
+"azalpen labur bat egileek beren bidalketarekin zer fitxategi partekatu behar "
+"dituzten adieraziz."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei kolaboratzaileen urratsean. Eman azalpen "
+"labur bat egileak bere buruari, egilekideei eta beste edozein "
+"kolaboratzaileri buruz eman behar duen informazioaren inguruan."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Xehetasunen urratsean, egileei honako hau erakusten zaie, izenburua, "
+"laburpena eta bidalketaren inguruko beste informazio garrantzitsu batzuk "
+"emateko eskatzen zaienean."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei Editoreentzat urratsean, metadatuak "
+"emateko eskatzen zaienean, hala nola gako-hitzak, editoreari egindako "
+"iruzkinak eta bestelako xehetasunak, berrikuspen editorialean laguntzeko."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Bidalketa-morroiaren azken urratsean, egileei honako hau erakusten zaie, "
+"lana bidali aurretik emandako informazio guztia berrikusteko eskatzen "
+"zaienean."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Egilearen gida"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
@@ -1562,58 +1601,63 @@ msgid "manager.paymentMethod.currency"
 msgstr ""
 
 msgid "settings.roles.roleOptions"
-msgstr ""
+msgstr "Rol-aukerak"
 
 msgid "settings.roles.showTitles"
-msgstr ""
+msgstr "Erakutsi rolaren izenburua kolaboratzaileen zerrendan"
 
 msgid "settings.roles.permitSelfRegistration"
-msgstr ""
+msgstr "Baimendu erabiltzaileen autoerregistroa"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
+"Rol honek berrikuspen-erabaki bat gomendatzea baino ez du baimenduta, eta "
+"editore baimendu batek azken erabakia erregistratu beharko du."
 
 msgid "settings.roles.roleName"
-msgstr ""
+msgstr "Rolaren izena"
 
 msgid "settings.roles.roleAbbrev"
-msgstr ""
+msgstr "Laburdura"
 
 msgid "settings.roles.assignedStages"
-msgstr ""
+msgstr "Esleitutako faseak"
 
 msgid "settings.roles.stages"
-msgstr ""
+msgstr "Faseak"
 
 msgid "settings.roles.roleDetails"
-msgstr ""
+msgstr "Rolaren xehetasunak"
 
 msgid "settings.roles.from"
-msgstr ""
+msgstr "Baimen-maila"
 
 msgid "settings.roles.removeText"
 msgstr ""
+"Rol hori testuinguru horretatik kentzear zaude. Eragiketa honek rol honi "
+"lotutako ezarpenak eta erabiltzaileen esleipen guztiak ere ezabatuko ditu. "
+"Jarraitu nahi duzu?"
 
 msgid "settings.roles.nameRequired"
-msgstr ""
+msgstr "Rolaren izena definitu behar duzu."
 
 msgid "settings.roles.abbrevRequired"
-msgstr ""
+msgstr "Rolaren laburdura definitu behar duzu."
 
 msgid "settings.roles.uniqueName"
-msgstr ""
+msgstr "Rol-izen bakarra definitu behar duzu."
 
 msgid "settings.roles.uniqueAbbrev"
-msgstr ""
+msgstr "Rol-laburdura bakarra definitu behar duzu."
 
 msgid "settings.roles.roleIdRequired"
-msgstr ""
+msgstr "Rol-baimenen maila bat definitu behar duzu."
 
 msgid "settings.roles.stageIdRequired"
-msgstr ""
+msgstr "Esleitzeko etapa bat definitu behar duzu."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr ""
+msgstr "Baimendu bidalketaren metadatuak editatzea."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
@@ -3401,3 +3445,15 @@ msgstr ""
 
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Ez dago COUNTER R5 erabilera-estatistikarik eskuragarri oraindik."
+
+msgid "settings.roles.permitSettings"
+msgstr "Baimendu aldaketak ezarpenetan"
+
+msgid "settings.roles.masthead"
+msgstr "Kontuan hartu rola goiburuko zerrendan"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Honako hau erakusten zaie egileei berrikusleen iradokizunen urratsean. Eman "
+"azalpen labur bat egileak bere buruari, egilekideei eta beste edozein "
+"kolaboratzaileri buruz eman behar duen informazioaren inguruan."

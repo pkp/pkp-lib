@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-03 17:32+0000\n"
+"PO-Revision-Date: 2025-09-04 08:31+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/lt/>\n"
@@ -803,3 +803,31 @@ msgstr "Nerasta atitinkančių suplanuotų užduočių."
 
 msgid "admin.cli.tool.scheduler.run.prompt"
 msgstr "Kurią komandą norėtumėte paleisti?"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Nepavyko pervadinti DB-IP „City Lite“ duomenų bazės failo {$sourceFilename} "
+"į {$targetFilename}."
+
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"Eilutė {$line Number} žurnalo faile {$file} yra neteisingo formato ir ar tai "
+"bus praleista?"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Katalogas {$directory} nėra tuščias. Tai gali rodyti anksčiau nepavykusį "
+"procesą arba tuo pačiu metu veikiantį procesą. Šis failas bus automatiškai "
+"apdorotas iš naujo."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Failas {$file} yra seno žurnalo failo formato, kurio negalima apdoroti, "
+"todėl jis bus perkeltas atgal į etapo katalogą."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Praleistas žurnalo failas {$file}, nes to mėnesio statistika jau buvo "
+"apskaičiuota. Norėdami perskaičiuoti ankstesnio mėnesio statistiką, turite "
+"atkurti visus to mėnesio žurnalo failus ir naudoti CLI įrankį statistikai iš "
+"naujo apdoroti."

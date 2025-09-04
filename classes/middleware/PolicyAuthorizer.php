@@ -30,6 +30,8 @@ use PKP\plugins\interfaces\HasAuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\AuthorizationPolicy;
 use ReflectionFunction;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Throwable;
 
 class PolicyAuthorizer
 {
@@ -74,20 +76,34 @@ class PolicyAuthorizer
             }
         }
 
-        $hasAuthorized = $routeController->authorize(
-            $pkpRequest,
-            $args,
-            $roleAssignments->toArray()
-        );
+        $hasAuthorized = false;
+        $exceptionStatusCode = null;
+
+        try {
+            $hasAuthorized = $routeController->authorize(
+                $pkpRequest,
+                $args,
+                $roleAssignments->toArray()
+            );
+        } catch (Throwable $e) {
+            $exceptionStatusCode = $e instanceof HttpExceptionInterface
+                ? $e->getStatusCode()
+                : $e->getCode();
+        }
 
         if (!$hasAuthorized) {
-
             $authorizationMessage = $routeController->getLastAuthorizationMessage();
 
             return response()->json([
                 'error' => empty($authorizationMessage) ? __('api.403.unauthorized') : $authorizationMessage,
                 'errorMessage' => empty($authorizationMessage) ? '' : __($authorizationMessage),
-            ], Response::HTTP_UNAUTHORIZED);
+            ], $exceptionStatusCode
+                ? (in_array($exceptionStatusCode, array_keys(Response::$statusTexts))
+                    ? $exceptionStatusCode
+                    : Response::HTTP_INTERNAL_SERVER_ERROR
+                )
+                : Response::HTTP_UNAUTHORIZED
+            );
         }
 
         return $next($request);

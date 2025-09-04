@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/PKPPublication.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2016-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublication
@@ -506,5 +506,13 @@ class PKPPublication extends \PKP\core\DataObject
         $this->setData('versionStage', $versionInfo->stage->value);
         $this->setData('versionMajor', $versionInfo->majorNumbering);
         $this->setData('versionMinor', $versionInfo->minorNumbering);
+    }
+
+    /**
+     * @copydoc \PKP\core\DataObject::getDAO()
+     */
+    public function getDAO(): DAO
+    {
+        return Repo::publication()->dao;
     }
 }

@@ -698,6 +698,9 @@ msgstr "{$userGroupName} role assigned to {$stageName} stage."
 msgid "grid.userGroup.unassignedStage"
 msgstr "{$userGroupName} role unassigned from {$stageName} stage."
 
+msgid "grid.publication.itemSubmissionId"
+msgstr "Submission ID"
+
 msgid "grid.submission.itemTitle"
 msgstr "Author; Title"
 

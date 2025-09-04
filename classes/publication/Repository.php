@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/publication/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -18,8 +19,10 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\publication\DAO;
+use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\Core;
@@ -33,7 +36,6 @@ use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
-use APP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
@@ -692,10 +694,10 @@ abstract class Repository
     }
 
     /**
-     * Given a Version Stage and a flag of whether the Version isMinor, 
+     * Given a Version Stage and a flag of whether the Version isMinor,
      * the publication's related data is being updated
      *
-     * @hook 'Publication::updateVersion::before' [&$publication, $oldVersion]
+     * @hook Publication::updateVersion::before [&$publication, $oldVersion]
      */
     public function updateVersion(Publication $publication, VersionStage $versionStage, bool $isMinor = true): Publication
     {
@@ -716,10 +718,10 @@ abstract class Repository
     }
 
     /**
-     * Get the string that describes the 
+     * Get the string that describes the
      * given publication's version.
      */
-    public function getVersionString(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string 
+    public function getVersionString(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string
     {
         $currentVersionInfo = $publication->getVersion();
 
@@ -869,4 +871,12 @@ abstract class Repository
      * Create all DOIs associated with the publication.
      */
     abstract protected function createDois(Publication $newPublication): void;
+
+    /**
+     * @copydoc DAO::getVoRMinorVersionsSettingValues()
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return $this->dao->getMinorVersionsSettingValues($submissionId, $versionStage, $versionMajor, $settingName);
+    }
 }

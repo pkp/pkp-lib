@@ -27,13 +27,22 @@ class Inbound
     /** @var int Status code of external service response. */
     public int $statusCode = 200;
 
+    /** @var string Email address of journal contact. */
+    public string $contactEmail = '';
+
+    public function __construct(string $contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+    }
+
     /**
      * Convert to Author with mappings
      */
     public function getAuthor(array $author): ?array
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/' . urlencode(Orcid::removePrefix($author['orcid'])));
+            $this->url . '/' . urlencode(Orcid::removePrefix($author['orcid'])),
+            ['headers' => ['mailto' => $this->contactEmail]]);
 
         if (is_int($response)) {
             $this->statusCode = $response;

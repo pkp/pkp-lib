@@ -30,13 +30,22 @@ class Inbound
     /** @var int Threshold of score for accepting found item */
     public int $scoreThreshold = 100;
 
+    /** @var string Email address of journal contact. */
+    public string $contactEmail = '';
+
+    public function __construct(string $contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+    }
+
     /**
      * Get citation (work) from external service
      */
     public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/?query.bibliographic=' . urlencode($citation->getData('rawCitation')));
+            $this->url . '/works/?query.bibliographic=' . urlencode($citation->getData('rawCitation')),
+            ['headers' => ['mailto' => $this->contactEmail]]);
 
         if (is_int($response)) {
             $this->statusCode = $response;

@@ -50,9 +50,9 @@ class ExternalServicesHelper
      * @param string $url The API endpoint URL.
      * @return array|int|null The response as an associative array, request status code or null.
      */
-    public static function apiRequest(string $url): array|int|null
+    public static function apiRequest(string $url, array $options = []): array|int|null
     {
-        $httpClient = Application::get()->getHttpClient();
+        $httpClient = Application::get()->getHttpClient($options);
 
         try {
             $response = $httpClient->request('GET', $url);

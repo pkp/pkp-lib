@@ -16,6 +16,7 @@
 
 namespace PKP\jobs\citation;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\citation\job\externalServices\openAlex\Inbound;
 use PKP\job\exceptions\JobException;
@@ -28,6 +29,7 @@ class OpenAlexJob extends BaseJob
     public function __construct(int $citationId)
     {
         parent::__construct();
+
         $this->citationId = $citationId;
     }
 
@@ -43,7 +45,12 @@ class OpenAlexJob extends BaseJob
             return;
         }
 
-        $service = new Inbound();
+        $publication = Repo::publication()->get($citation->getData('publicationId'));
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+        $contactEmail = $context->getContactEmail();
+
+        $service = new Inbound($contactEmail);
 
         $citationChanged = $service->getWork($citation);
 

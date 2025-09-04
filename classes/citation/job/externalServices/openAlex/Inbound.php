@@ -27,13 +27,22 @@ class Inbound
     /** @var int Status code of external service response. */
     public int $statusCode = 200;
 
+    /** @var string Email address of journal contact. */
+    public string $contactEmail = '';
+
+    public function __construct(string $contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+    }
+
     /**
      * Get citation (work) from external service
      */
     public function getWork(Citation $citation): ?Citation
     {
         $response = ExternalServicesHelper::apiRequest(
-            $this->url . '/works/doi:' . urlencode($citation->getData('doi')));
+            $this->url . '/works/doi:' . urlencode($citation->getData('doi')),
+            ['headers' => ['mailto' => $this->contactEmail]]);
 
         if (is_int($response)) {
             $this->statusCode = $response;

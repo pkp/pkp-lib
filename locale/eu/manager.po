@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-03 11:52+0000\n"
+"PO-Revision-Date: 2025-09-04 06:42+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -771,6 +771,10 @@ msgstr "Estatistika geografikoak"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Hautatu bildu beharreko erabilera geografikoaren estatistika-mota. "
+"Estatistika geografiko zehatzagoek zure datu-basearen tamaina nabarmen "
+"handitu dezakete eta, kasu bakan batzuetan, zure bisitarien anonimotasuna "
+"kaltetu dezakete."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Ez bildu datu geografikorik"
@@ -798,6 +802,9 @@ msgstr "API publikoa"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"COUNTER SUSHI estatistiketarako API amaierako puntuetarako sarbidea mugatu "
+"ala ez. Markatu gabe badago, APIa administratzaile edo kudeatzaile rolak "
+"dituzten erabiltzaileentzat bakarrik egongo da eskuragarri."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "COUNTER SUSHI estatistikak publikoki eskura jarri"
@@ -841,9 +848,16 @@ msgstr "Gaitu gordailu automatikoa"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI erregistroa eta metadatuak automatikoki gordailutu daitezke hautatutako "
+"erregistro-agentzian, DOI bat duen elementu bat argitaratzen den bakoitzean. "
+"Gordailu automatikoa programatutako tarteetan egingo da, eta DOI bakoitzaren "
+"erregistro-egoera DOI kudeaketa-orritik kontrolatu ahal izango da."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
+"DOI aurrizkia erregistro-agentzia batek esleitzen du, hala nola <a href="
+"\"https://www.crossref.org\" target=\"_new\">Crossref</a> edo <a href=\"https"
+"://datacite.org/\" target=\"new\">DataCite</a>. Adibidea: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "DOI aurrizkia beharrezkoa da eta formatu hau izan behar du: 10.xxxx."
@@ -880,6 +894,8 @@ msgstr "DOI atzizki pertsonalizatuaren patroia"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Hautatutako DOI mota bat edo gehiago ez dira onartzen konfiguratutako DOI "
+"erregistro-agentziarentzat."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -890,27 +906,33 @@ msgstr ""
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Bat ere ez - Atzizkiak eskuz sartu behar dira <a href=\"{$doiManagementUrl}\""
+">DOI kudeaketa-orrian</a>, eta ez dira automatikoki sortuko"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Eredu pertsonalizatua - (ez da gomendagarria)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Erregistro-agentzia"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Mesedez, hautatu DOIak gordailatzeko erabili nahi duzun erregistro-agentzia."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Ez dago erregistro-agentziarik gaituta"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOIak automatikoki sortu eta erregistro-agentzia batean gordailutu daitezke. "
+"Funtzio hau erabiltzeko, bilatu eta instalatu dagokion erregistro-"
+"agentziaren plugina."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Bat ere ez"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOIaren bertsionatzea"
 
 msgid "doi.authorization.enabledRequired"
 msgstr ""
@@ -2172,7 +2194,7 @@ msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Probak"
 
 msgid "manager.navigationMenus.form.title"
 msgstr ""

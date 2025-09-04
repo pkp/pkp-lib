@@ -30,6 +30,7 @@ use APP\template\TemplateManager;
 use PKP\announcement\Announcement;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\CategoryForm;
+use PKP\components\forms\context\ContentCommentsForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\context\PKPAppearanceMastheadForm;
 use PKP\components\forms\context\PKPContactForm;
@@ -254,6 +255,7 @@ class ManagementHandler extends Handler
         $privacyForm = new PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
         $themeForm = new PKPThemeForm($themeApiUrl, $locales, $context);
         $dateTimeForm = new PKPDateTimeForm($contextApiUrl, $locales, $context);
+        $contentCommentSettingsForm = new ContentCommentsForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
 
@@ -271,6 +273,7 @@ class ManagementHandler extends Handler
             $themeForm::FORM_THEME => $themeForm->getConfig(),
             $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
+            $contentCommentSettingsForm::FORM_CONTENT_COMMENT => $contentCommentSettingsForm->getConfig(),
         ];
 
         if ($informationForm) {
@@ -296,6 +299,7 @@ class ManagementHandler extends Handler
         $templateMgr->registerClass($appearanceAdvancedForm::class, $appearanceAdvancedForm::class);
         $templateMgr->registerClass($appearanceSetupForm::class, $appearanceSetupForm::class);
         $templateMgr->registerClass($appearanceMastheadForm::class, $appearanceMastheadForm::class);
+        $templateMgr->registerClass($contentCommentSettingsForm::class, $contentCommentSettingsForm::class);
         $templateMgr->registerClass($listsForm::class, $listsForm::class);
         $templateMgr->registerClass($privacyForm::class, $privacyForm::class);
         $templateMgr->registerClass($themeForm::class, $themeForm::class);

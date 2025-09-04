@@ -123,6 +123,17 @@
 				{call_hook name="Template::Settings::website::plugins"}
 			</tabs>
 		</tab>
+		<tab id="content" label="{translate key="navigation.content"}">
+			<tabs :is-side-tabs="true" :track-history="true">
+				<tab id="publicComments" label="{translate key="manager.userComment.comments"}">
+					<pkp-form
+						v-bind="components.{PKP\components\forms\context\ContentCommentsForm::FORM_CONTENT_COMMENT}"
+						@set="set"
+					/>
+				</tab>
+				{call_hook name="Template::Settings::website::content"}
+			</tabs>
+		</tab>
 		{call_hook name="Template::Settings::website"}
 	</tabs>
 {/block}

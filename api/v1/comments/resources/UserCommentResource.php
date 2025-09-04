@@ -53,7 +53,7 @@ class UserCommentResource extends JsonResource
                 'fullTitle' => $publication->getLocalizedFullTitle(),
             ],
             // Fields only available to moderators
-            $this->mergeWhen(Repo::userComment()->isModerator($request->user()), [
+            $this->mergeWhen($request->user() && Repo::userComment()->isModerator($request->user()), [
                 'approvedAt' => $this->approvedAt,
                 'approvedByUserName' => $this->approvedByUserId ? Repo::user()->get($this->approvedByUserId)->getFullName() : null,
             ]),

@@ -1,3 +1,119 @@
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-09-04 11:01+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "U moet het onderwerp en tekstbericht aan de e-mail toevoegen."
+
+msgid "api.404.resourceNotFound"
+msgstr "De verzochte bron werd niet gevonden."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"De API-token kan niet worden gebruikt om toegang te verkrijgen tot deze "
+"website, omdat de beheerder geen geheime sleutel heeft geconfigureerd."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Ongepubliceerde items kunnen niet worden geëxporteerd/opgeslagen. U wordt "
+"vriendelijk verzocht om de ongepubliceerde items uit de selectie te "
+"verwijderen en het opnieuw te proberen."
+
+msgid "api.404.endpointNotFound"
+msgstr "De verzochte URL werd niet herkend."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Er was een foutmelding bij het uploaden van deze afbeelding."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Ongeschikt om dit API verzoek te verwerken."
+
+msgid "api.417.routeResponseIsNull"
+msgstr "Ongeschikt om enig verwachte reactie te ontvangen."
+
+msgid "api.400.invalidAuthorFriendlyParameter"
+msgstr "Ongeldig auteursvriendelijke parameter."
+
+msgid "api.400.routeNotDefined"
+msgstr "Er was niet voorzien in een API-route."
+
+msgid "api.400.paramNotSupported"
+msgstr "De {$param} wordt niet ondersteund."
+
+msgid "api.400.propReadOnly"
+msgstr "De {$prop}-eigendom kan niet worden gewijzigd."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"De API-token kan niet worden gevalideerd. Dit kan duiden op een foutmelding "
+"in de API-token of betekenen dat de API-token niet langer geldig is."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+"De API-token kan niet worden gedecodeerd vanwege de volgende foutmelding: "
+"{$error}"
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Het is niet mogelijk om de gecreëerde tijd te wijzigen."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Een DOI -voorvoegsel wordt vereist voor het genereren van DOI's."
+
+msgid "api.403.unauthorized"
+msgstr ""
+"U bent niet geautoriseerd om toegang tot de verzochte bron te verkrijgen."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "De aankondiging waar u om verzocht werd niet gevonden."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Het instituut waar u om verzocht werd niet gevonden."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+"De volgende taal- of regio-instellingen worden niet ondersteund: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "U kunt geen DOI-items bewerken, die niet in deze omgeving voorkomen."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Een DOI kan niet aan dit item worden toegewezen."
+
+#, fuzzy
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "De publicatiesoort werd niet herkend."
+
+#, fuzzy
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Dit eindpunt is niet beschikbaar vanaf de website-omvattende naamruimte, en "
+"moet worden verzocht voor een gegeven context."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "De DOI waar u om verzocht werd niet gevonden."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Het gepubliceerde onderwerp waar u om verzocht werd niet gevonden."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "De inzending waar u om verzocht werd niet gevonden."
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+"Er deed zich een foutmelding voor en het DOI-object kan niet worden "
+"aangemaakt."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Er deed zich een foutmelding voor bij de XML-validering en de XML kan niet "
+"worden geëxporteerd."

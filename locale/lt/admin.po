@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-04 08:31+0000\n"
+"PO-Revision-Date: 2025-09-04 08:32+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/lt/>\n"
@@ -811,7 +811,7 @@ msgstr ""
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
-"Eilutė {$line Number} žurnalo faile {$file} yra neteisingo formato ir ar tai "
+"Eilutė {$lineNumber} žurnalo faile {$file} yra neteisingo formato ir ar tai "
 "bus praleista?"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
@@ -831,3 +831,22 @@ msgstr ""
 "apskaičiuota. Norėdami perskaičiuoti ankstesnio mėnesio statistiką, turite "
 "atkurti visus to mėnesio žurnalo failus ir naudoti CLI įrankį statistikai iš "
 "naujo apdoroti."
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr ""
+"Neteisingas žurnalo įrašas {$lineNumber} eilutėje žurnalo faile {$file}: "
+"{$error}"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Peržiūrėkite informaciją apie programos ir serverio versiją ir "
+"konfigūracijos nustatymus."
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Nepavyko išskleisti failo. Nepavyko atidaryti šaltinio gz failo {$filePath} "
+"naudojant gzopen."
+
+msgid "admin.job.processLogFile.insertError"
+msgstr ""
+"Apdorojant žurnalo failą {$file} eilutėje {$lineNumber} įvyko klaida: {$msg}"

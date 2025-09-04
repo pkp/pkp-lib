@@ -2,7 +2,7 @@
 # ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-04 11:01+0000\n"
+"PO-Revision-Date: 2025-09-04 17:08+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
 "Language: nl\n"
@@ -117,3 +117,124 @@ msgid "api.dois.400.xmlExportFailed"
 msgstr ""
 "Er deed zich een foutmelding voor bij de XML-validering en de XML kan niet "
 "worden geëxporteerd."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Er deed zich een foutmelding voor en een aantal ingezonden items zijn niet "
+"gespecificeerd geregistreerd."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Een aantal items werd niet succesvol opgeslagen. U wordt vriendelijk "
+"verzocht de afzonderlijke items voor de specifieke foutmeldingen te "
+"controleren."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Bij het verzoek waren geen geldige publicatie-onderwerpen gevoegd."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Bij het verzoek waren een of meer ongeldige publicatie-onderwerpen gevoegd."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"U kunt geen beslissing vastleggen of hiervoor aanbeveling doen voor deze "
+"inzending, omdat het reeds is gepubliceerd."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"U bent niet bevoegd een e-mail te versturen aan gebruikers in een of meer "
+"van de geselecteeerde rollen."
+
+msgid "api.emailLogs.400.unrecognisedAuthorEmailEventType"
+msgstr ""
+"U gaf een ongeldige \"eventType\",{$eventType} e-mailberichten voor auteurs."
+
+msgid "api.files.400.config"
+msgstr ""
+"Het bestand kan niet worden geüpload wegens een configuratiefoutmelding van "
+"de server. U wordt vriendelijk gevraagd contact op te nemen met de "
+"systeembeheerder."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "De verzochte auteur werd niet gevonden"
+
+msgid "api.orcid.404.contextRequired"
+msgstr ""
+"Deze apparatuur is niet beschikbaar vanaf de website-omvattende naamruimte "
+"en moet worden verzocht voor een bekende omgeving."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "De publicatie die u wilt verspreiden is reeds gepubliceerd."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "De publicatie die u wilt depubliceren is niet gepubliceerd."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "U kunt deze publicatie niet bewerken omdat deze al is verspreid."
+
+#, fuzzy
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"U kunt de status direct via de API niet wijzigen. In plaats hiervan, "
+"gebruikt u de"
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "U moet eerst de publicatie depubliceren, voordat u het verwijdert."
+
+#, fuzzy
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"De lopende geconfigureerde aanvulling moet een registratiekantoorplugin zijn."
+
+msgid "api.emails.400.missingBody"
+msgstr "U moet een te versturen e-mail insluiten."
+
+msgid "api.emails.400.missingSubject"
+msgstr "U moet een onderwerp voor de e-mail toevoegen."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"U moet de gebruikersrollen aangeven die deze e-mail behoren te ontvangen."
+
+#, fuzzy
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Dit is geen standaard-email voor een bekende e-mail."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Dit is geen geldige omgeving."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "De standaard e-mail, waar u om verzocht werd niet gevonden."
+
+msgid "api.files.400.noUpload"
+msgstr "Bij het verzoek kon geen te uploaden bestand worden gevonden."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Een of meer bestanden konden niet worden geüpload."
+
+msgid "api.files.400.fileSize"
+msgstr "Bestanden groter dan {$maxSize} kunnen niet worden geüpload."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"De markeringsopdracht kan niet worden bewaard, omdat geen opdrachtinformatie "
+"werd gevonden."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"De markeringsopdracht kon niet worden bewaard, omdat een of meer van de "
+"markeringen niet konden worden gevonden."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "De markering waar u om verzocht werd niet gevonden."
+
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr ""
+"U kunt deze verrichtingen niet uitvoeren met een uitgeschakelde ORCID-"
+"functionaliteit."
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr ""
+"U kunt geen wijzigingen aanbrengen bij auteurs, van wie de inzendingen niet "
+"aan u zijn toegekend."

@@ -54,7 +54,7 @@ class ReviewReminder extends ScheduledTask
         foreach ($incompleteAssignments as $reviewAssignment) {
             
             // Fetch the submission
-            if ($submission == null || $submission->getId() != $reviewAssignment->getSubmissionId()) {
+            if ($submission == null || $submission?->getId() != $reviewAssignment->getSubmissionId()) {
                 unset($submission);
                 $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
                 // Avoid review assignments without submission in database.
@@ -68,7 +68,7 @@ class ReviewReminder extends ScheduledTask
             }
 
             // Fetch the context
-            if ($context == null || $context->getId() != $submission->getData('contextId')) {
+            if ($context == null || $context?->getId() != $submission->getData('contextId')) {
                 unset($context);
                 $context = $contextDao->getById($submission->getData('contextId'));
 
@@ -95,7 +95,7 @@ class ReviewReminder extends ScheduledTask
                     // need to check should we sent a BEFORE REVIEW REQUEST RESPONSE reminder
                     if ($numDaysBeforeReviewResponseReminderDue > 0 &&
                         $dateResponseDue->gt($currentDate) &&
-                        $dateResponseDue->diffInDays($currentDate) <= $numDaysBeforeReviewResponseReminderDue) {
+                        (int)abs($dateResponseDue->diffInDays($currentDate)) <= $numDaysBeforeReviewResponseReminderDue) {
                     
                         // ACTION:-> we need to send BEFORE REVIEW REQUEST RESPONSE reminder
                         $mailable = ReviewResponseRemindAuto::class;
@@ -109,7 +109,7 @@ class ReviewReminder extends ScheduledTask
                     if ($numDaysAfterReviewResponseReminderDue > 0 &&
                         $currentDate->gt($dateResponseDue) &&
                         $dateReminded->lt($dateResponseDue) &&
-                        $currentDate->diffInDays($dateResponseDue) >= $numDaysAfterReviewResponseReminderDue) {
+                        (int)abs($currentDate->diffInDays($dateResponseDue)) >= $numDaysAfterReviewResponseReminderDue) {
                     
                         // ACTION:-> we need to send AFTER REVIEW REQUEST RESPONSE reminder
                         $mailable = ReviewResponseRemindAuto::class;
@@ -124,7 +124,7 @@ class ReviewReminder extends ScheduledTask
                     // no REVIEW SUBMIT reminder has been sent
                     if ($numDaysBeforeReviewSubmitReminderDue > 0 &&
                         $currentDate->lt($dateDue) &&
-                        $dateDue->diffInDays($currentDate) <= $numDaysBeforeReviewSubmitReminderDue) {
+                        (int)abs($dateDue->diffInDays($currentDate)) <= $numDaysBeforeReviewSubmitReminderDue) {
 
                         // ACTION:-> we need to sent a BEFORE REVIEW SUBMIT reminder
                         $mailable = ReviewRemindAuto::class;
@@ -138,7 +138,7 @@ class ReviewReminder extends ScheduledTask
                     if ($numDaysAfterReviewSubmitReminderDue > 0 &&
                         $currentDate->gt($dateDue) &&
                         $dateReminded->lt($dateDue) &&
-                        $currentDate->diffInDays($dateDue) >= $numDaysAfterReviewSubmitReminderDue) {
+                        (int)abs($currentDate->diffInDays($dateDue)) >= $numDaysAfterReviewSubmitReminderDue) {
                     
                         // ACTION:-> we need to send AFTER REVIEW SUBMIT reminder
                         $mailable = ReviewRemindAuto::class;

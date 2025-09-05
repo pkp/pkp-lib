@@ -70,6 +70,13 @@ class I10406_EditorialTasks extends Migration
             $table->foreign('created_by')->references('user_id')->on('users');
         });
 
+        Schema::table('edit_tasks', function (Blueprint $table) {
+            // if task was auto-created from a template, keep source template ID. manual tasks will keep this NULL.
+            $table->unsignedBigInteger('edit_task_template_id')->nullable();
+            // index to check if a task from this template exists and for filtering by template.
+            $table->index(['edit_task_template_id'], 'edit_tasks_edit_task_template_id');
+        });
+
         Schema::table('edit_task_participants', function (Blueprint $table) {
             $table->dropForeign('query_participants_user_id_foreign');
             $table->foreign('user_id')->references('user_id')->on('users')->cascadeOnDelete();
@@ -110,6 +117,7 @@ class I10406_EditorialTasks extends Migration
             $table->foreign('email_template_id')
                 ->references('email_id')
                 ->on('email_templates');
+            $table->string('title', 255);
             $table->timestamps();
         });
 
@@ -126,6 +134,25 @@ class I10406_EditorialTasks extends Migration
             $table->mediumText('setting_value')->nullable();
             $table->unique(['edit_task_template_id', 'locale', 'setting_name'], 'edit_task__template_settings_unique');
             $table->index(['edit_task_template_id'], 'edit_task_template_settings_edit_task_id');
+        });
+
+        // template and user_groups pivot
+        Schema::create('edit_task_template_user_groups', function (Blueprint $table) {
+            $table->comment('Links editorial task templates to user groups for auto-assignment.');
+            $table->unsignedBigInteger('edit_task_template_id');
+            $table->unsignedBigInteger('user_group_id');
+
+            $table->primary(['edit_task_template_id', 'user_group_id'], 'ett_ug_pk');
+
+            $table->foreign('edit_task_template_id', 'ett_ug_template_fk')
+                ->references('edit_task_template_id')->on('edit_task_templates')
+                ->onDelete('cascade');
+
+            $table->foreign('user_group_id', 'ett_ug_user_group_fk')
+                ->references('user_group_id')->on('user_groups')
+                ->onDelete('cascade');
+
+            $table->index(['user_group_id'], 'ett_ug_user_group_idx');
         });
     }
 

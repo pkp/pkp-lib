@@ -2468,7 +2468,7 @@ msgstr "Alle versjoner"
 msgid "publication.version.confirm"
 msgstr "Er du sikker på at du vil opprette en ny versjon?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Sammendraget er for langt. Det må være på {$limit} ord eller mindre. For "
 "tiden er det {$count} ord."

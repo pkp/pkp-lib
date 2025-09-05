@@ -2501,7 +2501,7 @@ msgstr "كل النسخ"
 msgid "publication.version.confirm"
 msgstr "هل أنت متأكد من رغبتك في إنشاء نسخة جديدة؟"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "الملخص طويل للغاية. لا بد أن يقتصر على {$limit} كلمة أو أقل. طوله الحالي "
 "{$count} كلمة."

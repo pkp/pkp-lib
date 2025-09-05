@@ -2566,7 +2566,7 @@ msgstr "Všechny verze"
 msgid "publication.version.confirm"
 msgstr "Opravdu chcete vytvořit novou verzi?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrakt je příliš dlouhý. Může být dlouhý maximálně {$limit} slov. V "
 "současné době je {$count} slov dlouhý."

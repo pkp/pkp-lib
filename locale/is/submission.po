@@ -2550,7 +2550,7 @@ msgstr "Allar útgáfur"
 msgid "publication.version.confirm"
 msgstr "Ertu viss um að þú viljir búa til nýja útgáfu?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Útdrátturinn er of langur. Hann ætti að vera {$limit} orð eða styttri. "
 "Núverandi lengd er {$count} orð."

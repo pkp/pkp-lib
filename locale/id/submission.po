@@ -2565,7 +2565,7 @@ msgstr "Semua Versi"
 msgid "publication.version.confirm"
 msgstr "Yakin ingin membuat versi baru?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrak terlalu panjang. Jumlah katanya maksimal {$limit} atau kurang. "
 "Sekarang jumlahnya {$count} kata."

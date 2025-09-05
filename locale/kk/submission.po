@@ -2538,7 +2538,7 @@ msgstr "Барлық нұсқалар"
 msgid "publication.version.confirm"
 msgstr "Жаңа нұсқаны шынымен жасағыңыз келе ме?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Аннотация тым ұзын. Ол {$limit} сөзден аспауы керек. Қазіргі уақытта ол "
 "{$count} сөзден тұрады."

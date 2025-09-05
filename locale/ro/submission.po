@@ -2464,7 +2464,7 @@ msgstr "Toate versiunile"
 msgid "publication.version.confirm"
 msgstr "Ești sigur că vrei să creezi o nouă versiune?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Rezumatul este prea lung. Ar trebui să fie {$limit} cuvinte sau mai puțin. "
 "În prezent sunt {$count} cuvinte lungi."

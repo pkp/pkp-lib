@@ -2442,7 +2442,7 @@ msgstr "Semua Versi"
 msgid "publication.version.confirm"
 msgstr "Adakah anda pasti mahu mencipta versi baharu?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Abstrak terlalu panjang. Ia sepatutnya {$limit} perkataan atau kurang. Pada "
 "masa ini panjangnya {$count} perkataan."

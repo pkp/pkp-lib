@@ -2644,7 +2644,7 @@ msgstr "La rota URL no puede estar un numero."
 msgid "publication.version.confirm"
 msgstr "Seguro que quiere crear una versión nueva?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Lo resumen ye masiau largo. Habría de tener {$limit} parolas u menos. "
 "Actualment tiene {$count} parolas."

@@ -18,6 +18,7 @@
 namespace PKP\services\queryBuilders;
 
 use APP\statistics\StatisticsHelper;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -78,7 +79,7 @@ class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
                         ->whereIn('p.publication_id', function ($q) {
                             $q->selectRaw('MIN(p2.publication_id)')
                                 ->from('publications as p2')
-                                ->where('p2.status', Submission::STATUS_PUBLISHED)
+                                ->where('p2.status', Publication::STATUS_PUBLISHED)
                                 ->where('p2.submission_id', '=', DB::raw('m.submission_id'));
                         });
                 });
@@ -128,7 +129,7 @@ class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
                     ->whereIn('p.publication_id', function ($q) {
                         $q->selectRaw('MIN(p2.publication_id)')
                             ->from('publications as p2')
-                            ->where('p2.status', Submission::STATUS_PUBLISHED)
+                            ->where('p2.status', Publication::STATUS_PUBLISHED)
                             ->where('p2.submission_id', '=', DB::raw('m.submission_id'));
                     });
             });

@@ -6,6 +6,9 @@ use Illuminate\View\FileViewFinder;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Factory as ViewFactory;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
+use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\DynamicComponent;
@@ -21,6 +24,10 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
      */
     public function boot()
     {
+        // Allow to render blade files as .blade e.g. with the .php extension
+        // but still allow to render views as .blade.php to accommodate default behavior.
+        View::addExtension('blade', 'blade');
+
         // This allows templates to be referenced explicitly, 
         // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
         // or even allow to render view as view('VIEW_NAMESPACE::some-template', [....])
@@ -31,20 +38,17 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         // This allows to render components as <x-COMPONENT_NAMESPACE::some-component />
         // which allow to render components from any namespace ambiguity and improving maintainability.
         collect($this->app->get('config')->get('view.components.namespace'))
-            ->each(fn ($namespace, $prefix) => \Illuminate\Support\Facades\Blade::componentNamespace($namespace, $prefix));
+            ->each(fn ($namespace, $prefix) => Blade::componentNamespace($namespace, $prefix));
         
         // Register the @url directive
-        \Illuminate\Support\Facades\Blade::directive('url', function ($expression) {
+        Blade::directive('url', function ($expression) {
             return "<?php
                 \$parameters = $expression ? (array) ($expression) : [];
                 echo \PKP\\template\\PKPTemplateManager::getManager()->smartyUrl(\$parameters);
             ?>";
         });
 
-        // FIXME :
-        // problem is in blade file we need to use the full namespace like `\Illuminate\Support\Str::sanitizeHtml`
-        // Should define a alias ?
-        // should move this to a global macro ?
+        // Register the sanitizeHtml macro
         Str::macro('sanitizeHtml', function ($input, $configKey = 'allowed_html') {
             $sanitized = PKPString::stripUnsafeHtml($input, $configKey);
             $sanitized = str_replace('{{', '<span v-pre>{{</span>', $sanitized);
@@ -122,13 +126,13 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
                     $bladeCompiler->component('dynamic-component', DynamicComponent::class);
 
                     $this->app->instance(BladeCompiler::class, $bladeCompiler);
-                    $this->app->instance(\Illuminate\View\Compilers\BladeCompiler::class, $bladeCompiler);
+                    $this->app->instance(IlluminateBladeCompiler::class, $bladeCompiler);
                     
                     $facadeAccessor = (new class extends \Illuminate\Support\Facades\Blade {
                         public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
                     })::getFacadeAccessor();
                     $this->app->alias(BladeCompiler::class, $facadeAccessor);
-                    $this->app->alias(\Illuminate\View\Compilers\BladeCompiler::class, $facadeAccessor);
+                    $this->app->alias(IlluminateBladeCompiler::class, $facadeAccessor);
                 }
             );
         });
@@ -178,7 +182,7 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         $app->instance(\Illuminate\Contracts\View\Factory::class, $factory);
         $app->alias(
             \Illuminate\Contracts\View\Factory::class, 
-            (new class extends \Illuminate\Support\Facades\View {
+            (new class extends View {
                 public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
             })::getFacadeAccessor()
         );

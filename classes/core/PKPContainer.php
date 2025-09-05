@@ -56,6 +56,7 @@ class PKPContainer extends Container
         $this->settingProxyForStreamContext();
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
+        $this->registerClassAliases();
     }
 
     /**
@@ -346,6 +347,20 @@ class PKPContainer extends Container
                 $this->alias($key, $alias);
             }
         }
+    }
+
+    /**
+     * Register class aliases to simplify the usage of the class 
+     * To register more aliases, as AliasLoader::getInstance()->alias('key', SomeClass::class)
+     */
+    protected function registerClassAliases(): void
+    {
+        $aliases = [
+            'Str' => \Illuminate\Support\Str::class,
+            'Arr' => \Illuminate\Support\Arr::class,
+        ];
+
+        \Illuminate\Foundation\AliasLoader::getInstance($aliases)->register();
     }
 
     /**

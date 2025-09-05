@@ -3,13 +3,11 @@
 /**
  * @file classes/core/PKPApplication.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
- *
- * @ingroup core
  *
  * @brief Class describing this application.
  *
@@ -30,69 +28,15 @@ use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\context\Context;
-use PKP\db\DAO;
+use PKP\core\interfaces\PKPApplicationInfoProvider;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
-use PKP\submission\RepresentationDAOInterface;
 
-interface iPKPApplicationInfoProvider
-{
-    /**
-     * Get the top-level context DAO.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getContextDAO(): \PKP\context\ContextDAO;
-
-    /**
-     * Get the representation DAO.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getRepresentationDAO(): DAO|RepresentationDAOInterface;
-
-    /**
-     * Get the stages used by the application.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getApplicationStages(): array;
-
-    /**
-     * Get the file directory array map used by the application.
-     * should return array('context' => ..., 'submission' => ...)
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getFileDirectories(): array;
-
-    /**
-     * Returns the context type for this application.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public static function getContextAssocType(): int;
-
-    /**
-     * Get the review workflow stages used by this application.
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public function getReviewStages(): array;
-
-    /**
-     * Define if the application has customizable reviewer recommendation functionality
-     *
-     * @hook PKPApplication::execute::catch ['throwable' => $t]
-     */
-    public function hasCustomizableReviewerRecommendation(): bool;
-}
-
-abstract class PKPApplication implements iPKPApplicationInfoProvider
+abstract class PKPApplication implements PKPApplicationInfoProvider
 {
     public const PHP_REQUIRED_VERSION = '8.2.0';
 

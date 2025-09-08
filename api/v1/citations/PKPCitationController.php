@@ -81,8 +81,8 @@ class PKPCitationController extends PKPBaseController
             ->name('citation.edit')
             ->whereNumber('citationId');
 
-        Route::post('{citationId}/addJob', $this->addJob(...))
-            ->name('citation.addJob')
+        Route::post('{citationId}/reprocessCitation', $this->reprocessCitation(...))
+            ->name('citation.reprocessCitation')
             ->whereNumber('citationId');
 
         Route::delete('{citationId}', $this->delete(...))
@@ -217,7 +217,7 @@ class PKPCitationController extends PKPBaseController
     /**
      * Add a job for a citation.
      */
-    public function addJob(Request $illuminateRequest): JsonResponse
+    public function reprocessCitation(Request $illuminateRequest): JsonResponse
     {
         $citation = Repo::citation()->get((int)$illuminateRequest->route('citationId'));
 
@@ -230,7 +230,7 @@ class PKPCitationController extends PKPBaseController
         $citation->setIsProcessed(false);
         Repo::citation()->edit($citation, []);
 
-        Repo::citation()->addJobCitation($citation->getId());
+        Repo::citation()->reprocessCitation($citation->getId());
 
         return response()->json(
             Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK

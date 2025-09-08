@@ -277,8 +277,8 @@ msgstr ""
 "Error occured when processing the log file {$file} at the line "
 "{$lineNumber}: {$msg}"
 
-msgid "admin.job.add"
-msgstr "Add job"
+msgid "admin.citation.reprocess"
+msgstr "Reprocess"
 
 #,fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"

@@ -292,7 +292,7 @@ class Repository
     /**
      * Add a new job chain for a citation.
      */
-    public function addJobCitation(int $citationId): void
+    public function reprocessCitation(int $citationId): void
     {
         $jobs = [
             new ExtractPidsJob($citationId),

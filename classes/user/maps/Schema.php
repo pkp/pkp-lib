@@ -28,12 +28,17 @@ use PKP\user\User;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
+use Illuminate\Support\Facades\DB;
 
 class Schema extends \PKP\core\maps\Schema
 {
     public Enumerable $collection;
 
     public string $schema = PKPSchemaService::SCHEMA_USER;
+
+    // page scoped cache to check if current user manage all contexts of target user
+    private array $managesAllMap = [];
+    private ?int $currentUserId = null;
 
     /**
      * Map a publication
@@ -72,10 +77,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapMany(Enumerable $collection): Enumerable
     {
-        $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->map($item);
-        });
+        return $this->mapCollectionWithPermissionCheck($collection, fn ($item) => $this->map($item));
     }
 
     /**
@@ -85,10 +87,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function summarizeMany(Enumerable $collection): Enumerable
     {
-        $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarize($item);
-        });
+        return $this->mapCollectionWithPermissionCheck($collection, fn ($item) => $this->summarize($item));
     }
 
     /**
@@ -98,10 +97,106 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function summarizeManyReviewers(Enumerable $collection): Enumerable
     {
+        return $this->mapCollectionWithPermissionCheck($collection, fn ($item) => $this->summarizeReviewer($item));
+    }
+
+    // single entry point used by all "list of users" methods above
+    private function mapCollectionWithPermissionCheck(Enumerable $collection, callable $perItem): Enumerable
+    {
         $this->collection = $collection;
-        return $collection->map(function ($item) {
-            return $this->summarizeReviewer($item);
-        });
+        $this->loadUserContextPermissions($collection); // one batched query per page
+        return $collection->map($perItem);
+    }
+
+    // compute the page wide coverage map
+    private function loadUserContextPermissions(Enumerable $collection): void
+    {
+        $request = Application::get()->getRequest();
+        $currentUser = $request?->getUser();
+        $this->currentUserId = $currentUser?->getId();
+
+        $ids = $collection->map(fn ($u) => (int) $u->getId())->unique()->values()->all();
+
+        if (empty($ids)) {
+            $this->managesAllMap = [];
+            return;
+        }
+
+        // if not logged in then no permissions
+        if (!$this->currentUserId) {
+            $this->managesAllMap = array_fill_keys($ids, false);
+            return;
+        }
+
+        // site admin bypass
+        if (Validation::isSiteAdmin()) {
+            $this->managesAllMap = array_fill_keys($ids, true);
+            return;
+        }
+
+        // compute results for this page
+        $this->buildUserContextManagementMap($this->currentUserId, $ids);
+    }
+
+    // ensure cache has entries for ad hoc lookups
+    private function loadUserContextMap(array $targetIds): void
+    {
+        $targetIds = array_values(array_unique(array_map('intval', $targetIds)));
+        if (!$this->currentUserId || empty($targetIds)) {
+            return;
+        }
+
+        // if admin then all targets are true
+        if (Validation::isSiteAdmin()) {
+            foreach ($targetIds as $tid) {
+                $this->managesAllMap[$tid] = true;
+            }
+            return;
+        }
+
+        $known = array_keys($this->managesAllMap);
+        $missing = array_values(array_diff($targetIds, $known));
+        if (!empty($missing)) {
+            $this->buildUserContextManagementMap($this->currentUserId, $missing);
+        }
+    }
+
+    /**
+     * extend $this->managesAllMap for the given manager and target ids
+     */
+    private function buildUserContextManagementMap(int $managerId, array $targetIds): void
+    {
+        if (empty($targetIds)) {
+            return;
+        }
+
+        $rows = DB::table('users as u')
+            ->select('u.user_id')
+            ->selectRaw(
+                // does target have any context the manager doesn't manage?
+                'CASE WHEN EXISTS (
+                    SELECT 1
+                    FROM user_user_groups uug_t
+                    JOIN user_groups ug_t ON ug_t.user_group_id = uug_t.user_group_id
+                    WHERE uug_t.user_id = u.user_id
+                      AND NOT EXISTS (
+                        SELECT 1
+                        FROM user_groups ug_m
+                        JOIN user_user_groups uug_m ON ug_m.user_group_id = uug_m.user_group_id
+                        WHERE ug_m.role_id = ?
+                          AND uug_m.user_id = ?
+                          AND ug_m.context_id = ug_t.context_id
+                      )
+                )
+                THEN 0 ELSE 1 END AS manages_all',
+                [ (int) Role::ROLE_ID_MANAGER, (int) $managerId ]
+            )
+            ->whereIn('u.user_id', array_map('intval', $targetIds))
+            ->get();
+
+        foreach ($rows as $r) {
+            $this->managesAllMap[(int) $r->user_id] = ((int) $r->manages_all) === 1;
+        }
     }
 
     /**
@@ -299,8 +394,18 @@ class Schema extends \PKP\core\maps\Schema
             return false;
         }
 
-        // This calls Validation::canUserLoginAs(...) if you have it
-        return Validation::canUserLoginAs($targetUser->getId(), $currentUser->getId());
+        // site admin bypass
+        if (Validation::isSiteAdmin()) {
+            return true;
+        }
+
+        // ensure if cache is populated for this target
+        if ($this->currentUserId !== (int) $currentUser->getId()) {
+            $this->currentUserId = (int) $currentUser->getId();
+        }
+        $this->loadUserContextMap([(int) $targetUser->getId()]);
+
+        return $this->managesAllMap[(int) $targetUser->getId()] ?? false;
     }
 
     /**
@@ -321,7 +426,7 @@ class Schema extends \PKP\core\maps\Schema
             return false;
         }
 
-        // check if the current user has full administration rights over the target user. it fully covers the site admin case.
-        return Validation::getAdministrationLevel($targetUser->getId(), $currentUser->getId()) === Validation::ADMINISTRATION_FULL;
+        // keep behaviour strict to site admins only
+        return Validation::isSiteAdmin();
     }
 }

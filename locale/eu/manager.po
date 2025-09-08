@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-08 07:09+0000\n"
+"PO-Revision-Date: 2025-09-08 07:35+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -958,10 +958,10 @@ msgstr ""
 "agertuko da."
 
 msgid "manager.setup.additionalContent"
-msgstr ""
+msgstr "Eduki gehigarria"
 
 msgid "manager.setup.additionalContent.description"
-msgstr ""
+msgstr "Hemen sartzen den guztia zure hasierako orrian agertuko da."
 
 msgid "manager.setup.advanced"
 msgstr "Aurreratua"
@@ -991,7 +991,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Errorea elementu hau ezabatzean."
 
 msgid "manager.setup.favicon"
-msgstr ""
+msgstr "Webgunearen ikonoa (Favicon)"
 
 msgid "manager.setup.homepageImage"
 msgstr "Hasierako orriaren irudia"
@@ -1010,7 +1010,7 @@ msgstr ""
 "gif, .jpg, edo .png formatuak bakarrik onartzen dira."
 
 msgid "manager.setup.information.descriptionTitle"
-msgstr ""
+msgstr "Azalpenak"
 
 msgid "manager.setup.layout.sidebar"
 msgstr "Alboko barra"
@@ -2203,46 +2203,55 @@ msgid "plugins.importexport.common.settings.form.testMode.label"
 msgstr "Probak"
 
 msgid "manager.navigationMenus.form.title"
-msgstr ""
+msgstr "Titulua"
 
 msgid "manager.navigationMenus.form.path"
-msgstr ""
+msgstr "Helbidea"
 
 msgid "manager.navigationMenus"
-msgstr ""
+msgstr "Nabigazioa"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
+"<p>Orri hau eskuragarri egongo da hemen: <blockquote>{$pagesPath}</"
+"blockquote>... non %PATH% goian sartutako helbidea den. <strong>Oharra:</"
+"strong> Bi orrik ezin dute helbide bera izan. Sisteman sartuta dauden "
+"helbideak erabiltzeak funtzio garrantzitsuetarako sarbidea galtzea eragin "
+"dezake.</p>"
 
 msgid "manager.navigationMenus.form.content"
-msgstr ""
+msgstr "Edukia"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
+"Helbidearen eremuak karaktere alfanumerikoak eta '.', '/', '-' eta '_' "
+"bakarrik izan behar ditu."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr ""
+"Helbide hau nabigazio menuko beste elementu batentzat existitzen da "
+"dagoeneko."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr ""
+msgstr "Izenburu hori beste nabigazio menu baterako existitzen da dagoeneko."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr ""
+msgstr "Titulua beharrezkoa da"
 
 msgid "manager.navigationMenuItems"
 msgstr ""
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr ""
+msgstr "Esleitutako menu-elementuak"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr ""
+msgstr "Esleitu gabeko menu-elementuak"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr ""
+msgstr "Gai aktiboaren nabigazio-eremuak"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr ""
+msgstr "Hautatu nabigazio-eremu bat"
 
 msgid "manager.navigationMenus.form.menuAssigned"
 msgstr ""

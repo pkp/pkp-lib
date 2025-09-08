@@ -16,7 +16,7 @@
 
 namespace PKP\citation\job\externalServices;
 
-use Application;
+use APP\core\Application;
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 
@@ -55,7 +55,7 @@ class ExternalServicesHelper
         $httpClient = Application::get()->getHttpClient($options);
 
         try {
-            $response = $httpClient->request('GET', $url);
+            $response = $httpClient->request('GET', $url, $options);
 
             if (!str_contains('200,201,202', (string)$response->getStatusCode())) {
                 return $response->getStatusCode();

@@ -344,7 +344,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Return a HTTP client implementation.
      */
-    public function getHttpClient(array $options = []): Client
+    public function getHttpClient(): Client
     {
         if (PKPContainer::getInstance()->runningUnitTests()) {
             $client = Registry::get(\PKP\tests\PKPTestCase::MOCKED_GUZZLE_CLIENT_NAME);
@@ -362,7 +362,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             $userAgent .= '?';
         }
 
-        return new Client(array_merge_recursive([
+        return new Client([
             'proxy' => [
                 'http' => Config::getVar('proxy', 'http_proxy', null),
                 'https' => Config::getVar('proxy', 'https_proxy', null),
@@ -371,7 +371,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'User-Agent' => $userAgent,
             ],
             'allow_redirects' => ['strict' => true]
-        ], $options));
+        ]);
     }
 
     /**

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-08 07:35+0000\n"
+"PO-Revision-Date: 2025-09-08 08:37+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2254,88 +2254,100 @@ msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "Hautatu nabigazio-eremu bat"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr ""
+msgstr "Nabigazio menu bat dagoeneko esleituta dago eremu honi."
 
 msgid "manager.navigationMenus.form.url"
-msgstr ""
+msgstr "URL"
 
 msgid "manager.navigationMenus.form.customUrlError"
-msgstr ""
+msgstr "URL bat eman behar da"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr ""
+"Lortu informazio gehiago menuko elementu hau noiz bistaratuko edo ezkutatuko "
+"den jakiteko."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr ""
+msgstr "Nabigazio-menu mota"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr ""
+msgstr "Hautatu nabigazio-menu mota bat edo pertsonalizatua zurea egiteko"
 
 msgid "manager.navigationMenus.customPage"
-msgstr ""
+msgstr "Orri pertsonalizatua"
 
 msgid "manager.navigationMenus.customPage.description"
 msgstr ""
+"Sortu orri pertsonalizatu bat zure webgunean, eta estekatu orri horretara "
+"nabigazio-menu batetik."
 
 msgid "manager.navigationMenus.remoteUrl"
-msgstr ""
+msgstr "Urruneko URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
 msgstr ""
+"Esteka beste gune bateko edozein URLtara, adibidez, https://pkp.sfu.ca "
+"bezala."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
+"Esteka \"Aldizkariari buruz\" edukia erakusten duen orri batera, Ezarpenak > "
+"Aldizkaria atalean"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
+"Esteka hori Ezarpenak > Aldizkaria ataleko Aldizkariari buruz atala bete "
+"baduzu bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr ""
+msgstr "Bidalketa-jarraibideak erakusten dituen orrirako esteka."
 
 msgid "manager.navigationMenus.current.description"
-msgstr ""
+msgstr "Esteka zure uneko zenbakira."
 
 msgid "manager.navigationMenus.archives.description"
-msgstr ""
+msgstr "Aurreko zenbakien artxiborako esteka."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr ""
+msgstr "Zure iragarkiak erakusten dituen orrirako esteka."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
+"Esteka hau Ezarpenak > Webgunea atalean iragarkiak gaitu badituzu bakarrik "
+"bistaratuko da."
 
 msgid "manager.navigationMenus.login.description"
-msgstr ""
+msgstr "Erabiltzailearen saio-hasierako orrirako esteka."
 
 msgid "manager.navigationMenus.register.description"
-msgstr ""
+msgstr "Erabiltzailearen erregistro-orrirako esteka."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr ""
+msgstr "Esteka erredakzio-panelera."
 
 msgid "manager.navigationMenus.profile.description"
-msgstr ""
+msgstr "Erabiltzailearen profilaren orrirako esteka."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr ""
+msgstr "Gune osoko administrazio-tresnetarako esteka."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr ""
+msgstr "Esteka hori administrazioko erabiltzaileei bakarrik erakutsiko zaie."
 
 msgid "manager.navigationMenus.logOut.description"
-msgstr ""
+msgstr "Erabiltzailearen saioa itxiko duen esteka."
 
 msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr ""
+msgstr "Esteka hau bisitariak saioa hasten duenean bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr ""
+msgstr "Esteka hau bisitariak saioa hasi EZ duenean bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.contact.description"
-msgstr ""
+msgstr "Zure harremanetarako informazioa erakusten duen orri baterako esteka."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
@@ -3507,3 +3519,8 @@ msgstr ""
 
 msgid "manager.setup.editorialMasthead.order.description"
 msgstr "Definitu goiburuko rolen ordena publikoki bistaratzeko."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Goiburuko zerbitzu editorial aktibo guztiak erakusten dituen orri baterako "
+"esteka."

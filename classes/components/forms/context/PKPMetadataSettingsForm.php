@@ -152,7 +152,7 @@ class PKPMetadataSettingsForm extends FormComponent
                         'label' => __('manager.setup.competingInterests.requireAuthors'),
                     ],
                 ],
-                'value' => (bool)$context->getData('requireAuthorCompetingInterests'),
+                'value' => (bool) $context->getData('requireAuthorCompetingInterests'),
             ]))
             ->addField(new FieldMetadataSetting('citations', [
                 'label' => __('submission.citations'),

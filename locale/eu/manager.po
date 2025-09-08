@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-08 08:45+0000\n"
+"PO-Revision-Date: 2025-09-08 09:18+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1137,34 +1137,41 @@ msgid "manager.setup.privacyStatement"
 msgstr "Pribatutasun-adierazpena"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Data eta ordua"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Data eta orduaren formatuak"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Aukeratu data eta orduetarako nahiago duzun formatua. <a href=\"https://www."
+"php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters\""
+">Formatu-karaktere</a> bereziak erabiliz formatu pertsonalizatua sar daiteke."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr ""
+msgstr "Data"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr ""
+msgstr "Data (laburra)"
 
 msgid "manager.setup.dateTime.time"
-msgstr ""
+msgstr "Ordua"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr ""
+msgstr "Data eta ordua"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr ""
+msgstr "Data eta ordua (laburrak)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr ""
+msgstr "Pertsonalizatua"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
+"Adierazpen hau erabiltzailea erregistratzean, egilearen bidalketan eta "
+"publikoki eskuragarri dagoen Pribatutasun orrian agertuko da. Jurisdikzio "
+"batzuetan, legez behartuta zaude pribatutasun-politika honetan "
+"erabiltzaileen datuak nola kudeatzen dituzun jakinaraztera."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr ""
@@ -2239,7 +2246,7 @@ msgid "manager.navigationMenus.form.titleRequired"
 msgstr "Titulua beharrezkoa da"
 
 msgid "manager.navigationMenuItems"
-msgstr ""
+msgstr "Nabigazio-menuko elementuak"
 
 msgid "manager.navigationMenus.assignedMenuItems"
 msgstr "Esleitutako menu-elementuak"
@@ -3535,3 +3542,6 @@ msgstr ""
 # fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
 msgstr "Menuko elementuaren izenburua beharrezkoa da."
+
+msgid "manager.highlights.urlText.description"
+msgstr "Nabarmendutako botoiaren etiketa, adibidez, \"Irakurri gehiago\"."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-08 06:26+0000\n"
+"PO-Revision-Date: 2025-09-08 07:09+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -994,10 +994,10 @@ msgid "manager.setup.favicon"
 msgstr ""
 
 msgid "manager.setup.homepageImage"
-msgstr ""
+msgstr "Hasierako orriaren irudia"
 
 msgid "manager.setup.homepageImage.description"
-msgstr ""
+msgstr "Kargatu irudi bat hasierako orrian nabarmenki bistaratzeko."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr ""
@@ -1013,16 +1013,18 @@ msgid "manager.setup.information.descriptionTitle"
 msgstr ""
 
 msgid "manager.setup.layout.sidebar"
-msgstr ""
+msgstr "Alboko barra"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
+"Ezin da {$name} blokea aurkitu. Mesedez, ziurtatu plugina instalatuta eta "
+"gaituta dagoela."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Log-erregistroa eta kontrola"
 
 msgid "manager.setup.logo"
-msgstr ""
+msgstr "Logoa"
 
 msgid "manager.setup.noTemporaryFile"
 msgstr ""
@@ -1112,10 +1114,12 @@ msgstr ""
 "formatuak bakarrik onartzen dira."
 
 msgid "manager.setup.pageFooter"
-msgstr ""
+msgstr "Orri-oina"
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
+"Sartu zure webgunearen beheko aldean agertzea nahi duzun edozein irudi, "
+"testu edo HTML kode."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
@@ -3486,3 +3490,11 @@ msgid "manager.setup.editorialMasthead.editorialHistory.description"
 msgstr ""
 "Mesedez, eman erredakzio-historia, editore bakoitzaren izen-abizenak, "
 "filiazioa eta hasiera- eta amaiera-datak barne."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Ebaluatzaileak formatu estandarizatu batean erakutsiko dira, uniformetasuna "
+"mantentzeko eta atal honetan erraz aurki daitezen."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Definitu goiburuko rolen ordena publikoki bistaratzeko."

@@ -199,7 +199,7 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => true, 'label' => __('manager.submitWithCategories.yes')],
                     ['value' => false, 'label' => __('manager.submitWithCategories.no')],
                 ],
-                'value' => (bool)$context->getData('submitWithCategories')
+                'value' => (bool) $context->getData('submitWithCategories')
             ]));
     }
 }

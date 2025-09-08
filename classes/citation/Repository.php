@@ -233,8 +233,8 @@ class Repository
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
                         $importedCitations[] = $citation;
-                        if ($publication->getData('citationsMetadataLookup')) {
-                            $this->addJobCitation($newCitationId);
+                        if ($publication->getData('citationsMetadataLookup') && $this->request->getContext()->getData('citationsMetadataLookup')) {
+                            $this->reprocessCitation($newCitationId);
                         }
                     }
                 }
@@ -269,8 +269,8 @@ class Repository
                         $citation->setSequence($lastSeq);
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
-                        if ($publication->getData('citationsMetadataLookup')) {
-                            $this->addJobCitation($newCitationId);
+                        if ($publication->getData('citationsMetadataLookup') && $this->request->getContext()->getData('citationsMetadataLookup')) {
+                            $this->reprocessCitation($newCitationId);
                         }
                         $lastSeq++;
                     } else {

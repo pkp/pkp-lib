@@ -370,7 +370,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'headers' => [
                 'User-Agent' => $userAgent,
             ],
-            'allow_redirects' => ['strict' => true]
+            'allow_redirects' => ['strict' => true],
         ]);
     }
 

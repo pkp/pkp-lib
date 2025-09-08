@@ -18,6 +18,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use APP\core\Application;
 use PKP\core\Core;
 use PKP\submission\PKPSubmission;
 
@@ -257,7 +258,9 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('created_by')->nullable()->default(null);
             $table->foreign('created_by')->references('user_id')->on('users');
             $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
-            $table->unsignedSmallInteger('status')->default(1); // record about the last activity, default EditorialTask:STATUS_NEW
+            $table->dateTime('date_started')->nullable();
+            $table->dateTime('date_closed')->nullable();
+            $table->string('title')->nullable();
             // if task was auto-created from a template, keep source template ID. manual tasks will keep this NULL.
             $table->unsignedBigInteger('edit_task_template_id')->nullable();
             // index to check if a task from this template exists and for filtering by template.
@@ -299,17 +302,16 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->unsignedBigInteger('edit_task_template_id')->autoIncrement()->primary();
             $table->unsignedSmallInteger('stage_id');
             $table->string('title', 255); // template title
-            /*
-            // Pending confirmation from devika to scope templates per context
 
+            // templates are journal/context scoped
             $table->bigInteger('context_id')->comment('Journal/press ID for scoping templates');
-            $contextDao = \APP\core\Application::getContextDAO();
+            $contextDao = Application::getContextDAO();
             $table->foreign('context_id', 'edit_task_templates_context_id')
-                ->references($contextDao->primaryKeyColumn)
+                ->references('context_id')
                 ->on($contextDao->tableName)
                 ->onDelete('cascade');
             $table->index(['context_id'], 'edit_task_templates_context_id');
-            */
+
             $table->boolean('include')->default(false);
             $table->bigInteger('email_template_id')->nullable();
             $table->foreign('email_template_id')

@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * @file classes/migration/upgrade/v3_6_0/I11754_TaskTemplateEnhancements.php
  * Copyright (c) 2014-2025 Simon Fraser University
@@ -16,49 +15,49 @@ namespace PKP\migration\upgrade\v3_6_0;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
+use APP\core\Application;
 
 class I11754_TaskTemplateEnhancements extends Migration
 {
     public function up(): void
     {
-        if (!Schema::hasColumn('edit_tasks', 'edit_task_template_id')) {
-            Schema::table('edit_tasks', function (Blueprint $table) {
-                // if this task was auto-created from a template, keep the source template ID here. manual tasks keep NULL.
-                $table->unsignedBigInteger('edit_task_template_id')
-                      ->nullable()
-                      ->comment('Source template ID if auto-created; NULL for manual tasks.');
+        Schema::table('edit_tasks', function (Blueprint $table) {
+            $table->unsignedBigInteger('edit_task_template_id')
+                ->nullable()
+                ->comment('Source template ID if auto-created; NULL for manual tasks.');
+            $table->index(['edit_task_template_id'], 'edit_tasks_edit_task_template_id');
+        });
 
-                $table->index(['edit_task_template_id'], 'edit_tasks_edit_task_template_id');
-            });
-        }
+        //title and context scoping to template
+        $contextDao = Application::getContextDAO();
+        Schema::table('edit_task_templates', function (Blueprint $table) use ($contextDao) {
+            $table->string('title', 255)->after('stage_id');
+            $table->bigInteger('context_id')->comment('Journal/press ID for scoping templates');
+            $table->index(['context_id'], 'edit_task_templates_context_id');
+            $table->foreign('context_id', 'edit_task_templates_context_id')
+                ->references('context_id')
+                ->on($contextDao->tableName)
+                ->onDelete('cascade');
+        });
 
-        // template title
-        if (Schema::hasTable('edit_task_templates') && !Schema::hasColumn('edit_task_templates', 'title')) {
-            Schema::table('edit_task_templates', function (Blueprint $table) {
-                $table->string('title', 255)->after('stage_id');
-            });
-        }
+        // pivot templates <-> user groups
+        Schema::create('edit_task_template_user_groups', function (Blueprint $table) {
+            $table->comment('Links editorial task templates to user groups for auto-assignment.');
+            $table->unsignedBigInteger('edit_task_template_id');
+            $table->unsignedBigInteger('user_group_id');
 
-        // template and user_groups pivot
-        if (!Schema::hasTable('edit_task_template_user_groups')) {
-            Schema::create('edit_task_template_user_groups', function (Blueprint $table) {
-                $table->comment('Links editorial task templates to user groups for auto-assignment.');
-                $table->unsignedBigInteger('edit_task_template_id');
-                $table->unsignedBigInteger('user_group_id');
+            $table->primary(['edit_task_template_id', 'user_group_id'], 'ett_ug_pk');
 
-                $table->primary(['edit_task_template_id', 'user_group_id'], 'ett_ug_pk');
+            $table->foreign('edit_task_template_id', 'ett_ug_template_fk')
+                ->references('edit_task_template_id')->on('edit_task_templates')
+                ->onDelete('cascade');
 
-                $table->foreign('edit_task_template_id', 'ett_ug_template_fk')
-                    ->references('edit_task_template_id')->on('edit_task_templates')
-                    ->onDelete('cascade');
+            $table->foreign('user_group_id', 'ett_ug_user_group_fk')
+                ->references('user_group_id')->on('user_groups')
+                ->onDelete('cascade');
 
-                $table->foreign('user_group_id', 'ett_ug_user_group_fk')
-                    ->references('user_group_id')->on('user_groups')
-                    ->onDelete('cascade');
-
-                $table->index(['user_group_id'], 'ett_ug_user_group_idx');
-            });
-        }
+            $table->index(['user_group_id'], 'ett_ug_user_group_idx');
+        });
     }
 
     public function down(): void

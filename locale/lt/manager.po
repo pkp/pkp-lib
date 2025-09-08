@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 08:49+0000\n"
-"PO-Revision-Date: 2025-09-08 13:48+0000\n"
+"PO-Revision-Date: 2025-09-08 13:59+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/lt/>\n"
@@ -3225,36 +3225,50 @@ msgstr "Priminimas apie peržiūrą"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Šį el. laišką siunčia redaktorius, norėdamas priminti recenzentui, kad jo "
+"atsiliepimo terminas jau atėjo."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Peržiūros priminimas (automatinis)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
+"Šis el. laiškas automatiškai išsiunčiamas, kai recenzentas iki nustatyto "
+"termino nebaigia peržiūros."
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Atsiliepimo patvirtinimas"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Šį el. laišką redaktorius siunčia recenzentui, norėdamas patvirtinti, kad jo "
+"recenzija gauta, ir padėkoti recenzentui už indėlį."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Peržiūros atsakymo terminas vėluoja (automatinis)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
+"Šis el. laiškas automatiškai išsiunčiamas, kai baigiasi recenzento atsakymo "
+"į peržiūros užklausą terminas."
 
 msgid "mailable.reviewRequest.name"
 msgstr "Peržiūros užklausa"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
+"Šiame skyriaus redaktoriaus el. laiške recenzentui prašoma recenzento "
+"priimti arba atmesti pateikto darbo peržiūros užduotį. "
 
 msgid "mailable.reviewRequestSubsequent.name"
 msgstr "Vėlesnis peržiūros prašymas"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
+"Šiame redaktoriaus el. laiške recenzentui prašoma recenzento sutikti arba "
+"atmesti pateikto darbo peržiūrą papildomam peržiūros etapui. Jame pateikiama "
+"informacija apie pateiktą darbą, pavyzdžiui, pavadinimas ir santrauka, "
+"peržiūros terminas ir kaip pasiekti patį pateiktą darbą."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "Trūksta pateikto dokumento dabartinės publikacijos"
@@ -3275,18 +3289,27 @@ msgstr "Slaptažodžio atstatymo patvirtinimas"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
+"Šis el. laiškas siunčiamas registruotam vartotojui, kai jis nurodo, kad "
+"pamiršo slaptažodį arba negali prisijungti. Jame pateikiamas URL adresas, "
+"kuriuo naudodamasis jis gali atkurti slaptažodį."
 
 msgid "mailable.userRegister.name"
 msgstr "Vartotojo sukurtas"
 
 msgid "mailable.userRegister.description"
 msgstr ""
+"Šis el. laiškas siunčiamas naujai sukurtam vartotojui, kai redakcijos "
+"vadovas jį sukuria per vartotojo nustatymus. El. laiške turėtų būti "
+"pasveikinimas prisijungus prie sistemos ir pateiktas vartotojo vardas bei "
+"slaptažodis."
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Recenzentų registras"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
+"Šis el. laiškas siunčiamas naujai užsiregistravusiam recenzentui, siekiant "
+"pasveikinti jį sistemoje ir pateikti jo vartotojo vardą bei slaptažodį."
 
 msgid "mailable.submissionSavedForLater.name"
 msgstr "Pateikimas išsaugotas vėlesniam laikui"
@@ -3301,42 +3324,57 @@ msgstr "Pateikimo patvirtinimas"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
+"Šis el. laiškas automatiškai siunčiamas autoriui, kai jis pateikia darbą. "
+"Jame pateikiama informacija apie pateikto darbo stebėjimą redagavimo procese "
+"ir dėkojama autoriui už pateiktą darbą."
 
 msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Pateikimo patvirtinimas (kiti autoriai)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
+"Šis el. laiškas automatiškai siunčiamas autoriams, nurodytiems pateikto "
+"darbo autoriams, kurie nėra patys pateikiantys darbą."
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Diskusija (pateikimas)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Šis el. laiškas siunčiamas, kai pateikimo etape sukuriama diskusija arba į "
+"ją atsakoma."
 
 msgid "mailable.discussionReview.name"
 msgstr "Diskusija (apžvalga)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Šis el. laiškas siunčiamas, kai peržiūros etape sukuriama diskusija arba į "
+"ją atsakoma."
 
 msgid "mailable.discussionCopyediting.name"
 msgstr "Diskusija (redagavimas)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Šis el. laiškas siunčiamas, kai kopijavimo etape sukuriama arba į ją "
+"atsakoma diskusija."
 
 msgid "mailable.discussionProduction.name"
 msgstr "Diskusija (produkcija)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Šis el. laiškas siunčiamas, kai gamybos etape sukuriama diskusija arba į ją "
+"atsakoma."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Pranešimas apie pataisytą versiją"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
+"Šis el. laiškas automatiškai išsiunčiamas priskirtam redaktoriui, kai "
+"autorius įkelia pataisytą straipsnio versiją."
 
 msgid "mailable.announcementNotify.name"
 msgstr "Naujas pranešimas"
@@ -3352,12 +3390,16 @@ msgstr "Pranešimas apie peržiūros redagavimą"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Šis el. laiškas automatiškai informuoja recenzentą, kai pakeičiama jo "
+"recenzijos užduoties informacija."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Recenzentas pakomentavo Pranešti redaktoriams"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Šis el. laiškas automatiškai siunčiamas priskirtiems redaktoriams, kai "
+"recenzentas pateikia peržiūros rekomendaciją."
 
 msgid "manager.people.authSource"
 msgstr "Tapatybės nustatymo šaltinis"
@@ -3367,12 +3409,16 @@ msgstr "Pateikimas išsiųstas atgal peržiūrai"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas grąžintas į "
+"peržiūros etapą."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr "Pateikimas išsiųstas atgal į pateikimo skyrių"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas grąžintas į "
+"pateikimo etapą."
 
 msgid "manager.manageEmails"
 msgstr "Tvarkyti el. laiškus"
@@ -3504,6 +3550,8 @@ msgstr "Redaktorius priskirtas (automatinis)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Šis el. laiškas siunčiamas redaktoriui, kai jam automatiškai priskiriamas "
+"pateiktas darbas."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Priskirti redaktorių"
@@ -3769,3 +3817,20 @@ msgstr "Būtinas meniu elemento pavadinimas."
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Nuoroda el. pašto paskyrai patvirtinti"
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Pateikite redakcijos istoriją, įskaitant kiekvieno redaktoriaus vardą ir "
+"pavardę, narystę bei darbo pradžios ir pabaigos datas."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr ""
+"Apibrėžkite viešai rodomų pagrindinio puslapio antraštės vaidmenų tvarką."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Recenzentų sąrašas bus rodomas standartizuotu formatu, siekiant išlaikyti "
+"vienodumą ir užtikrinti lengvą randamumą šiame skyriuje."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Kvietimas pakeisti el. pašto adresą"

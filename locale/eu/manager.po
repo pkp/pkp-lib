@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-08 08:37+0000\n"
+"PO-Revision-Date: 2025-09-08 08:45+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2351,21 +2351,28 @@ msgstr "Zure harremanetarako informazioa erakusten duen orri baterako esteka."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
+"Esteka hori Ezarpenak > Kontaktua ataleko \"Harremanetarako informazioa\" "
+"atala bete baduzu bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr ""
+msgstr "Mesedez, hautatu nabigazio-menu mota bat."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
+"Esteka hau Ezarpenak > Banaketa > Ordainketak atalean, ordainketak gaituta "
+"badaude bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
+"Esteka hau soilik bistaratuko da bisitaria saioa hasita badago, ordainketak "
+"gaituta badaude Ezarpenak > Banaketa > Ordainketak atalean eta harpidetzak "
+"beharrezkoak badira Ezarpenak > Banaketa > Sarbidea atalean."
 
 msgid "manager.navigationMenus.search.description"
-msgstr ""
+msgstr "Bilaketa-orrirako esteka."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr ""
+msgstr "Zure pribatutasun-adierazpena erakusten duen orrirako esteka."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
@@ -3524,3 +3531,7 @@ msgid "manager.navigationMenus.editorialMasthead.description"
 msgstr ""
 "Goiburuko zerbitzu editorial aktibo guztiak erakusten dituen orri baterako "
 "esteka."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Menuko elementuaren izenburua beharrezkoa da."

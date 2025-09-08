@@ -2248,6 +2248,7 @@ class PKPSubmissionController extends PKPBaseController
                 $citation->setIsProcessed(false);
             } else {
                 $citation->setIsProcessed(true);
+                Repo::citation()->addJobCitation($citation->getId());
             }
             $citationsChanged[] = $citation;
         }
@@ -2257,10 +2258,6 @@ class PKPSubmissionController extends PKPBaseController
         Repo::publication()->edit($publication, []);
 
         $publication = Repo::publication()->get($publication->getId());
-
-        foreach ($publication->getData('citations') as $citation) {
-            Repo::citation()->addJobCitation($citation->getId());
-        }
 
         return response()->json([
             'citationsMetadataLookup' => $publication->getData('citationsMetadataLookup')

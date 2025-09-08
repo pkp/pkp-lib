@@ -41,7 +41,7 @@ class OpenAlexJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if ($citation->getIsProcessed()) {
+        if ($citation->getIsProcessed() || !$citation->getData('doi')) {
             return;
         }
 

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 08:49+0000\n"
-"PO-Revision-Date: 2025-09-04 11:01+0000\n"
+"PO-Revision-Date: 2025-09-08 13:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/lt/>\n"
@@ -179,30 +179,45 @@ msgstr "Pažymėti DOI neregistruotus"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Ketinate pažymėti {$count} elemento(-ių) DOI metaduomenų įrašus kaip "
+"neregistruotus. Ar tikrai norite pažymėti šiuos įrašus kaip neregistruotus?"
 
 msgid "manager.dois.actions.markStale.label"
 msgstr "Reikia sinchronizuoti žymų DOI"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Ketinate pažymėti {$count} elemento(-ių) DOI metaduomenų įrašus kaip "
+"sinchronizuojamus. Būseną „Reikia sinchronizuoti“ galima taikyti tik "
+"anksčiau pateiktiems DOI. Ar tikrai norite pažymėti šiuos įrašus kaip "
+"pasenusius?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Eksportuoti DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Ketinate eksportuoti {$count} elemento(-ių) DOI metaduomenų įrašus, skirtus "
+"{$registrationAgency}. Ar tikrai norite eksportuoti šiuos įrašus?"
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Priskirti DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Ketinate priskirti naujus DOI {$count} elementui(-iams) bet kuriam tinkamam "
+"elementui, kuriam dar nepriskirtas DOI. Ar tikrai norite priskirti DOI šiems "
+"elementams?"
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Deponuokite visus DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Ketinate suplanuoti visų likusių DOI metaduomenų įrašų deponavimą "
+"{$registrationAgency}. Bus deponuoti tik publikuoti elementai su DOI. "
+"Kiekvieno elemento būsena bus atnaujinta gavus atsakymą. Ar tikrai norite "
+"suplanuoti visų šių elementų deponavimą?"
 
 msgid "manager.dois.actions.description"
 msgstr "Atlikite veiksmą su pasirinktais elementais (-ais)."
@@ -217,13 +232,14 @@ msgid "manager.dois.publicationStatus"
 msgstr "Leidinio būsena"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Šio elemento metaduomenys pateikti {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
 msgstr ""
+"Šis elementas buvo rankiniu būdu užregistruotas registracijos agentūroje."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Šio elemento metaduomenys nebuvo pateikti {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
 msgstr "Šio elemento negalima pateikti, kol jis nebus paskelbtas."
@@ -341,6 +357,8 @@ msgstr "Bandyta sukurti DOI, bet kontekstui sukurti reikalingas DOI prefiksas."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Prieš ištrinant šį komponentą, visus susijusius pateikimo failus turite "
+"susieti su kitu komponentu."
 
 msgid "manager.institutions.edit"
 msgstr "Redaguoti įstaigą"
@@ -356,6 +374,9 @@ msgstr "IP diapazonai"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Galimos vertės apima IP adresą (pvz., 142.58.103.1), IP diapazoną (pvz., 142."
+"58.103.1–142.58.103.4), IP diapazoną su pakaitos simboliu „*“ (pvz., 142."
+"58.*.*) ir IP diapazoną su CIDR (pvz., 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
 msgstr "Ištrinti įstaigą"
@@ -392,9 +413,13 @@ msgstr "DOI"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"{$registrationAgency} pateikė šią klaidą, kurioje pateikiama išsami "
+"informacija apie klaidos priežastį:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"{$registrationAgency} grąžino šį pranešimą, kuriame pateikiama išsami "
+"informacija apie registraciją:"
 
 msgid "manager.emails.addEmail"
 msgstr "Pridėti elektroninio laiško šabloną"
@@ -730,6 +755,8 @@ msgstr "Ieškoti vartotojo pagal vardą"
 
 msgid "manager.representative.inUse"
 msgstr ""
+"Šio atstovo ištrinti negalite, nes jam priskirti rinkos metaduomenys vienam "
+"ar keliems šio pateikimo leidinių formatams."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Pakeisti"
@@ -837,12 +864,19 @@ msgstr "Įgalinti automatinį įnešimą"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI registracija ir metaduomenys gali būti automatiškai pateikti pasirinktai "
+"registracijos agentūrai, kai tik publikuojamas elementas su DOI. Automatinis "
+"pateikimas bus atliekamas suplanuotais intervalais, o kiekvieno DOI "
+"registracijos būseną galima stebėti DOI valdymo puslapyje."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
+"DOI prefiksą priskiria registracijos agentūra, pvz., <a href=\"https://www."
+"crossref.org\" target=\"_new\">Crossref</a> arba <a href=\"https://datacite."
+"org/\" target=\"new\">DataCite</a>. Pavyzdys: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI prefiksas yra privalomas ir turi būti tokiu formatu: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
 msgstr "Automatinis DOI priskyrimas"
@@ -900,12 +934,17 @@ msgstr "Registracijos agentūra"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Pasirinkite registracijos agentūrą, kurios paslaugomis norėtumėte "
+"pasinaudoti teikdami DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
 msgstr "Registracijos agentūra neįjungta"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI gali būti automatiškai sukurti ir pateikti registracijos agentūrai. "
+"Norėdami naudoti šią funkciją, suraskite ir įdiekite atitinkamos "
+"registracijos agentūros papildinį."
 
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Nėra"
@@ -933,6 +972,8 @@ msgstr "Leidimo informacija"
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
+"Ši informacija gali būti įtraukta į metaduomenis, teikiamus trečiųjų šalių "
+"archyvų įstaigoms."
 
 msgid "manager.setup.additionalContent"
 msgstr "Papildomas turinys"
@@ -997,6 +1038,8 @@ msgstr "Šoninis meniu"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
+"Nepavyko rasti bloko „{$name}“. Įsitikinkite, kad įskiepis įdiegtas ir "
+"įjungtas."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Prisijungimas ir tikrinimas"
@@ -1005,7 +1048,7 @@ msgid "manager.setup.logo"
 msgstr "Logotipas"
 
 msgid "manager.setup.noTemporaryFile"
-msgstr ""
+msgstr "Įkelto failo nerasta. Bandykite jį įkelti dar kartą."
 
 msgid "manager.setup.notifications"
 msgstr "Pranešimas apie autoriaus straipsnį"
@@ -1018,12 +1061,16 @@ msgstr "Pranešti visiems autoriams"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Kas turėtų gauti el. laišką su pranešimu, kai užfiksuojamas redakcinis "
+"sprendimas?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Išsiųskite el. pašto pranešimą visiems pateikto darbo autoriams."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"El. laišką siųskite tik autoriams, priskirtiems pateikimo darbo eigai. "
+"Paprastai tai yra pateikiantis autorius."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Pranešimai"
@@ -1042,6 +1089,9 @@ msgstr "Pranešti visiems"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Pateikimo patvirtinimo el. laiško kopija bus išsiųsta bet kuriuo iš čia "
+"įvestų el. pašto adresų. Jei el. pašto adresai keli, juos atskirkite "
+"kableliu. Pavyzdys: vienas@example.com, du@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr "Vienas ar keli iš šių el. pašto adresų negalioja."
@@ -1065,6 +1115,8 @@ msgstr "Siųsti el. laišką"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"Ketinate išsiųsti el. laišką {$total} naudotojams. Ar tikrai norite išsiųsti "
+"šį el. laišką?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1093,6 +1145,8 @@ msgstr "Puslapio poraštė"
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
+"Įveskite bet kokius vaizdus, tekstą ar HTML kodą, kurį norėtumėte matyti "
+"savo svetainės apačioje."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
@@ -1120,6 +1174,9 @@ msgstr "Datos ir laiko formatai"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Pasirinkite pageidaujamą datos ir laiko formatą. Pasirinktinį formatą galima "
+"įvesti naudojant specialius <a href=\"https://www.php.net/manual/en/datetime."
+"format.php#refsect1-datetime.format-parameters\">formato simbolius</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Data"
@@ -1184,6 +1241,8 @@ msgstr "Numatytasis peržiūros režimas"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
+"Pateikite nuorodą, kaip <button type=\"button\">užtikrinti, kad visi failai "
+"būtų anonimizuoti</button> įkėlimo metu"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Ryšiai su rėmėjais ir nuostatų aprašymas"
@@ -1215,6 +1274,8 @@ msgstr "Institucijos"
 
 msgid "manager.setup.theme.description"
 msgstr ""
+"Naujas temas galima įdiegti iš šio puslapio viršuje esančio skirtuko "
+"„Papildiniai“."
 
 msgid "manager.setup.theme.notFound"
 msgstr "Pasirinkta tema neįdiegta arba neįgalinta."
@@ -1268,7 +1329,7 @@ msgstr ""
 "pateiktas darbas atitinka visus čia nurodytus reikalavimus."
 
 msgid "manager.sections.form.deactivateSection"
-msgstr ""
+msgstr "Išjungti šią skiltį ir neleisti į ją pateikti naujų įrašų."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Ar tikrai norite deaktyvuoti šią skiltį?"
@@ -1585,6 +1646,8 @@ msgstr "Lokalės nustatymai išsaugoti."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Kalbos nustatymo išsaugoti nepavyko. Kiekvienai parinkčiai turi būti įjungta "
+"bent viena kalba."
 
 msgid "notification.editedUser"
 msgstr "Vartotojas pataisytas."
@@ -1600,12 +1663,17 @@ msgstr "Licencijos sąlygos"
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
+"Įveskite viešas licencijavimo sąlygas, kurias norėtumėte rodyti šalia "
+"paskelbto darbo."
 
 msgid "manager.distribution.customHeaders"
 msgstr "Pasirinktinės žymos"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
+"Pridėkite pasirinktines HTML žymas, dar vadinamas metažymėmis, kurias "
+"norėtumėte įterpti kiekvieno puslapio antraštėje. Prieš pridėdami žymas čia, "
+"pasitarkite su techniniu konsultantu."
 
 msgid "manager.paymentMethod"
 msgstr "Mokėjimai"
@@ -1760,6 +1828,12 @@ msgstr "Failo metaduomenys"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Pasirinkite metaduomenų tipą, kurį šie failai gali gauti. Pagrindiniams "
+"leidinio failams, pvz., atsisiunčiamam PDF failui, reikėtų pasirinkti "
+"„Dokumentas“, kad šie failai paveldėtų savo metaduomenis iš leidinio. "
+"Priešingu atveju daugumai failų tipų pasirinkite „Papildomas turinys“. "
+"„Iliustracijos“ tinka failams, kuriems reikalingi atskiri autoriaus, "
+"antraštės ir licencijavimo metaduomenys."
 
 msgid "manager.setup.genres.submitRequired.label"
 msgstr "Reikalauti kartu su pateikimais"
@@ -1955,6 +2029,9 @@ msgstr "Aprėptis"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
+"Aprėptis paprastai nurodo kūrinio erdvinę vietą (vietovardį arba geografines "
+"koordinates), laiko laikotarpį (laikotarpio žymą, datą arba datų intervalą) "
+"arba jurisdikciją (pvz., įvardintą administracinį vienetą)."
 
 msgid "manager.setup.metadata.coverage.enable"
 msgstr "Įjungti aprėpties metaduomenis"
@@ -1967,9 +2044,13 @@ msgstr "Paprašykite autoriaus pateikti aprėpties metaduomenis pateikimo metu."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
+"Reikalauti, kad autorius pasiūlytų aprėpties metaduomenis prieš priimdamas "
+"jų pateikimą."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
+"Raktiniai žodžiai paprastai yra vieno–trijų žodžių frazės, naudojamos "
+"pagrindinėms pateikimo temoms nurodyti."
 
 msgid "manager.setup.metadata.keywords.enable"
 msgstr "Įgalinti raktinių žodžių metaduomenis"
@@ -1982,9 +2063,13 @@ msgstr "Pateikimo metu paprašykite autoriaus pasiūlyti raktinius žodžius."
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
+"Reikalauti, kad autorius pasiūlytų raktinius žodžius prieš priimdamas jų "
+"pateiktą darbą."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
+"Bet kokios teisės, susijusios su pateiktu dokumentu, įskaitant intelektinės "
+"nuosavybės teises (IPR), autorių teises ir įvairias nuosavybės teises."
 
 msgid "manager.setup.metadata.rights.enable"
 msgstr "Įjungti teisių metaduomenis"
@@ -1999,9 +2084,13 @@ msgstr ""
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
+"Reikalauti, kad autorius atskleistų visas ankstesnes prieigos teises prieš "
+"priimdamas jų pateiktą medžiagą."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
+"Šaltinis gali būti kito kūrinio ar ištekliaus, iš kurio gautas pateiktas "
+"tekstas, ID, pvz., DOI."
 
 msgid "manager.setup.metadata.source.enable"
 msgstr "Įgalinti šaltinio metaduomenis"
@@ -2014,9 +2103,13 @@ msgstr "Pateikiant darbą, paprašykite autoriaus pateikti šaltinio URL."
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
+"Reikalauti, kad autorius pateiktų šaltinio URL prieš priimdamas jo pateiktą "
+"darbą."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
+"Temos bus raktiniai žodžiai, pagrindinės frazės arba klasifikavimo kodai, "
+"apibūdinantys pateikto darbo temą."
 
 msgid "manager.setup.metadata.subjects.enable"
 msgstr "Įgalinti temos metaduomenis"
@@ -2028,10 +2121,14 @@ msgid "manager.setup.metadata.subjects.request"
 msgstr "Paprašykite autoriaus nurodyti temas pateikimo metu."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
+msgstr "Reikalauti, kad autorius pateiktų temas prieš priimdamas jų pateikimą."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
+"Pateikiamo pagrindinio turinio pobūdis arba žanras. Tipas paprastai yra "
+"„Tekstas“, bet taip pat gali būti „Duomenų rinkinys“, „Vaizdas“ arba bet "
+"kuris iš <a target=\"_blank\" href=\"https://www.dublincore.org/"
+"specifications/dublin-core/dcmi-terms/\">„Dublin Core“ tipų</a>."
 
 msgid "manager.setup.metadata.type.enable"
 msgstr "Įgalinti tipo metaduomenis"
@@ -2044,9 +2141,12 @@ msgstr "Paprašykite autoriaus nurodyti tipą pateikimo metu."
 
 msgid "manager.setup.metadata.type.require"
 msgstr ""
+"Reikalauti, kad autorius pateiktų tipą prieš priimdamas jų pateiktą darbą."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
+"Disciplinos yra studijų rūšys arba žinių šakos, kaip jas apibūdina "
+"universitetų fakultetai ir mokslinės draugijos."
 
 msgid "manager.setup.metadata.disciplines.enable"
 msgstr "Įgalinti disciplinų metaduomenis"
@@ -2059,9 +2159,12 @@ msgstr "Pateikimo metu paprašykite autoriaus nurodyti disciplinas."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
+"Reikalauti, kad autorius pateiktų disciplinas prieš priimdamas jų pateikimą."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
+"Remiančios agentūros gali nurodyti tyrimų finansavimo šaltinį ar kitą "
+"institucinę paramą, kuri palengvino tyrimą."
 
 msgid "manager.setup.metadata.agencies.enable"
 msgstr "Įgalinti pagalbinių agentūrų metaduomenis"
@@ -2075,9 +2178,14 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Reikalauti, kad autorius atskleistų visas remiančias agentūras prieš "
+"priimdamas jų pateiktą darbą."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
+"Pateikto darbo nuorodas surinkite atskirame lauke. Tai gali būti "
+"reikalaujama, kad būtų laikomasi citavimo stebėjimo paslaugų, tokių kaip "
+"„Crossref“, reikalavimų."
 
 msgid "manager.setup.metadata.citations.enable"
 msgstr "Įjungti nuorodų metaduomenis"
@@ -2090,9 +2198,14 @@ msgstr "Paprašykite autoriaus pateikti nuorodas pateikimo metu."
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
+"Reikalauti, kad autorius pateiktų nuorodas prieš priimdamas jų pateiktą "
+"darbą."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Trumpas pareiškimas, kuriame aprašoma, ar autorius (-iai) pateikė savo "
+"tyrimo duomenis viešai prieinamus, ir, jei taip, kur skaitytojai gali juos "
+"rasti."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr "Įgalinti duomenų prieinamumo pareiškimo metaduomenis"
@@ -2108,6 +2221,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Reikalauti, kad autorius pateiktų duomenų prieinamumo pareiškimą prieš "
+"priimdamas jų pateikimą."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Patvirtinimo klaidos:"
@@ -2164,6 +2279,8 @@ msgstr "Straipsnio failo nepavyko importuoti"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"Pateikimo failas {$id} buvo praleistas, nes jis pridėtas prie įrašo, kuris "
+"nebus importuojamas, pvz., peržiūros užduoties ar diskusijos."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Importavimo / eksportavimo klaidos;"
@@ -2443,6 +2560,8 @@ msgstr "Nuo"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Kiekvieną datą įveskite formatu YYYY-MM-DD. Pavyzdžiui, jei norite 2019 m. "
+"sausio 15 d. datos, įveskite 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
 msgstr ""
@@ -2486,12 +2605,27 @@ msgstr "Iki {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Pasirinkto laikotarpio procentinė dalis apskaičiuojama pagal paraiškas, "
+"kurios buvo pateiktos per šį laikotarpį ir dėl kurių buvo priimtas galutinis "
+"sprendimas.<br><br>Pavyzdžiui, įsivaizduokite atvejį, kai per šį laikotarpį "
+"buvo pateikta dešimt paraiškų. Keturios buvo priimtos, keturios atmestos, o "
+"dvi vis dar laukia galutinio sprendimo.<br><br>Priėmimo rodiklis bus 50 % (4 "
+"iš 8 paraiškų), nes dvi paraiškos, dėl kurių nebuvo priimtas galutinis "
+"sprendimas, neskaičiuojamos."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Dienų skaičius, per kurį dėl daugumos pateiktų darbų priimamas pirmasis "
+"redakcinis sprendimas, pvz., atmetimas arba siuntimas peržiūrai.<br><br>Šie "
+"skaičiai rodo, kad 80 % pateiktų darbų sprendimas priimamas per nurodytą "
+"dienų skaičių.<br><br>Ši statistika bando apibūdinti, kada dauguma autorių, "
+"teikiančių darbus jūsų žurnalui, gali tikėtis sprendimo."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Tai apima pateiktas paraiškas, kurios neįskaičiuotos į kitas bendras sumas, "
+"pvz., tas, kurios vis dar nagrinėjamos, ir tas, kurios, atrodo, buvo "
+"importuotos."
 
 msgid "stats.descriptionForStat"
 msgstr "{$stat} aprašymas"
@@ -2652,6 +2786,8 @@ msgstr "Bendrieji elementai"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Neteisinga filtro konfigūracija [{$filterName}]: {$filterCount} atvejų. "
+"Turėtų būti tik vienas."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "KLAIDA:"
@@ -2670,6 +2806,8 @@ msgstr "Procesui nepavyko išanalizuoti publikacijų"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Visi komentarai iš užbaigtų apžvalgų. Anoniminių apžvalgų apžvalgininkų "
+"vardai paslėpti."
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr "Pateikimo autorių vardai ir pavardės bei priklausomybės."
@@ -2694,6 +2832,8 @@ msgstr "Redakcinio darbo etapas, kuriame šis sprendimas buvo priimtas"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Peržiūros etapas, kuriame šis sprendimas buvo priimtas, jei sprendimas "
+"susijęs su peržiūros etapu"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "Diskusijos tema"
@@ -2749,12 +2889,23 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Šis žurnalas atlieka dvigubą anoniminę recenzavimą. Recenzentai nematys "
+"jokios identifikuojančios informacijos apie jus ar jūsų bendraautorius. Taip "
+"pat nežinosite, kas peržiūrėjo jūsų pateiktą darbą, ir tiesiogiai iš "
+"recenzentų negausite informacijos."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Šis žurnalas atlieka „anoniminių recenzentų“ recenzavimą. Jūsų ir jūsų "
+"bendraautorių vardai bus matomi recenzentams; tačiau recenzentų tapatybės "
+"liks anonimiškos."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Šis žurnalas vykdo atvirą recenzavimą. Recenzentai matys jūsų vardą ir "
+"pavardę bei priklausomybę mokslo įstaigai, taip pat jūsų bendraautorių "
+"vardus ir pavardes bei priklausomybę mokslo įstaigai. Panašiai matysite ir "
+"recenzentų vardus ir pavardes bei priklausomybę mokslo įstaigai."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Pilnas siuntėjo vardas"
@@ -2806,6 +2957,8 @@ msgstr "Pateikimo vedlio URL adresas pateikimui"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Pateikimo darbo eigai priskirtų autorių vardai ir pavardės. Paprastai tai "
+"yra pateikiančio autoriaus vardas ir pavardė."
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
@@ -2868,6 +3021,8 @@ msgstr "Nuoroda į redakcinės veiklos puslapį"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Šis el. laiškas siunčiamas, kai redaktorius atkuria recenzentą, kuriam buvo "
+"panaikintas priskyrimas."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
@@ -2886,12 +3041,18 @@ msgstr "Patvirtinti el. pašto adresą (svetainė)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Šis el. laiškas automatiškai išsiunčiamas naujam vartotojui, kai jis "
+"užsiregistruoja žurnale, jei nustatymuose reikalaujama patvirtinti el. pašto "
+"adresą."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
 msgstr "Pranešti kitiems autoriams"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Šis el. laiškas siunčiamas siekiant informuoti pateikto darbo autorius, "
+"kurie nėra priskirti dalyviams, apie priimtą sprendimą. Paprastai tai yra "
+"visi kiti, išskyrus pateikiantį autorių."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr "Pateikiančiam autoriui išsiųsto el. laiško kopija"
@@ -2901,9 +3062,13 @@ msgstr "Pranešti peržiūros vykdytojams apie sprendimą"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Šį el. laišką redaktorius siunčia recenzentui, norėdamas informuoti jį apie "
+"priimtą sprendimą dėl jo peržiūrėto pateikto darbo."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Trumpas šio sprendimo aprašymas, kuris bus išsiųstas recenzentams el. paštu "
+"apie šį sprendimą."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Nusprendėme priimti šį pateikimą be pataisymų."
@@ -2914,44 +3079,54 @@ msgstr "Nusprendėme atmesti šį pateikimą."
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Pakvietėme autorius pateikti pataisymus."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
+msgstr "Pakvietėme autorius pateikti pataisytą versiją tolesnei peržiūrai."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Pakviesto recenzento priskyrimas pateiktam darbui buvo atšauktas."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Pateikimas priimtas"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas priimtas "
+"publikuoti."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Pateikimas išsiųstas atgal redagavimui"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas buvo "
+"grąžintas redagavimo etapui."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
 msgstr "Pateikimas išsiųstas atgal iš redagavimo tarnybos"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas buvo "
+"grąžintas redagavimo etapui."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Peržiūros etapas atšauktas"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autoriui pranešama, kad jo pateikto darbo peržiūros etapas "
+"buvo atšauktas."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
 msgstr "Pateikimas atmestas"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autoriui pranešama, kad jo pateiktas darbas buvo atmestas po "
+"kolegų peržiūros."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr "Pateikimas atmestas (išankstinė peržiūra)"
@@ -2961,60 +3136,83 @@ msgstr "Pradėtas naujas peržiūros etapas"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad prasideda naujas jo pateikto "
+"darbo peržiūros etapas."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
 msgstr "Prašomos pataisos"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autoriui pranešama apie sprendimą prašyti pataisymų kolegų "
+"vertinimo metu."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
 msgstr "Pateikti pakartotinai peržiūrai"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas apie sprendimą dėl jo pateikto darbo „"
+"peržiūrėti ir pateikti iš naujo“."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
 msgstr "Atkurti atmestą pateikimą"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autoriui pranešama, kad ankstesnis sprendimas atmesti jo "
+"pateiktą darbą po kolegų peržiūros yra atšaukiamas."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
 msgstr "Atkurti pateiktą informaciją atmesta be peržiūros"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autoriui pranešama, kad ankstesnis sprendimas atmesti jo "
+"pateiktą darbą be peržiūros yra atšaukiamas."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
 msgstr "Išsiųsta peržiūrėti"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas siunčiamas "
+"peržiūros etapui."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
 msgstr "Išsiųsta į gamybą"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas siunčiamas į "
+"gamybos etapą."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr "Pateikimas priimtas (be peržiūros)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Šiuo el. laišku autorius informuojamas, kad jo pateiktas darbas siunčiamas "
+"tiesiai į redagavimo etapą ir nebus recenzuojamas kolegų."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
 msgstr "Pateikta rekomendacija"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Šis pranešimas praneša vyresniajam redaktoriui arba skyriaus redaktoriui, "
+"kad pateikta redakcinė rekomendacija dėl vieno iš jam priskirtų darbų. Šis "
+"pranešimas naudojamas, kai redaktorius gali tik rekomenduoti redakcinį "
+"sprendimą ir reikalauja, kad įgaliotas redaktorius užfiksuotų redakcinius "
+"sprendimus. Šią parinktį galima pasirinkti priskiriant dalyvius darbui."
 
 msgid "mailable.reviewConfirm.name"
 msgstr "Peržiūros patvirtinimas"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
+"Šis el. laiškas automatiškai išsiunčiamas, kai recenzentas priima peržiūros "
+"užklausą"
 
 msgid "mailable.reviewDecline.name"
 msgstr "Atsiliepimo atmetimas"
@@ -3341,3 +3539,233 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Turite <a href=\"#announcements/announcement-settings\">įjungti "
 "pranešimus</a>."
+
+msgid "manager.language.submission.form.description"
+msgstr "Pasirinkite pateikimo ir metaduomenų kalbas."
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Data turi būti pateikta formatu YYYY-MM-DD arba YYYY-MM. Ankstyviausia "
+"galima data yra {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Data turi būti pateikta formatu YYYY-MM-DD arba YYYY-MM. Paskutinė galima "
+"data yra {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Leidimo metų sąrašas arba diapazonas, kurį reikia pateikti atsakyme formatu "
+"yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Daugiau informacijos apie kiekvieną ataskaitą žr. <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\">COUNTER "
+"5.0.3 dokumentacijoje</a>."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Pateikties ID"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Siųsti el. pašto priminimą prieš arba po peržiūros užklausos atsakymo (jei "
+"recenzentas dar neatsakė į peržiūros užklausą) arba peržiūros pateikimo (jei "
+"recenzentas dar nepateikė atsiliepimo)"
+
+msgid "manager.language.websiteLanguages"
+msgstr "Svetainės kalbos"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Kalba, kuria teikiamas straipsnis"
+
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Pridėti / pašalinti kalbas"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metaduomenys"
+
+msgid "manager.language.submission.from.error"
+msgstr "Reikia pasirinkti bent vieną lokalę."
+
+msgid "manager.statistics.counterR5"
+msgstr "Skaitliukas R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "R5 skaitiklio ataskaitos"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Kol kas nėra COUNTER R5 naudojimo statistikos."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Ataskaitos nustatymai"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Pradžios data"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Pabaigos data"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datos formatas netinkamas."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Kliento ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrikos tipas"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Rodytini atributai"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Leidimo metai"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP formatas negalioja."
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Pateikimo ID neegzistuoja."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Įtraukti tėvų duomenis"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Neįtraukti mėnesinės informacijos"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "El. laiškai sėkmingai įtraukti į eilę, kad būtų išsiųsti kuo greičiau."
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Nustatyti priminimus peržiūrai"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Atsakymas į peržiūros užklausą – iki nustatyto termino"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Atsakymas į peržiūros užklausą – iki nustatyto termino"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Atsiliepimo pateikimas – iki nustatyto termino"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Atsiliepimo pateikimas – iki nustatyto termino"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} dienos iki mokėjimo datos"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} dienos po mokėjimo termino"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Nėra"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Priminimas nenustatytas"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Recenzento pasiūlymas pateikimo metu"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Prieš užbaigdamas teikimą autorius gali pasiūlyti kelis potencialius "
+"recenzentus, o tai gali supaprastinti peržiūros procesą ir suteikti "
+"vertingos informacijos redakcijos komandai."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr "Leisti autoriams siūlyti galimus recenzentus pateikimo proceso metu"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Toliau pateikta informacija rodoma autoriams recenzento pasiūlymų teikimo "
+"etape. Pateikite trumpą paaiškinimą, kokią informaciją autorius turėtų "
+"pateikti apie save, bendraautorius ir kitus bendradarbius."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Kalbos nustatymo išsaugoti nepavyko. Turi būti įjungtos visos parinktys."
+
+msgid "notification.submissionLocales"
+msgstr "Straipsnio failas atnaujintas"
+
+msgid "settings.roles.masthead"
+msgstr "Apsvarstykite vaidmenį pagrindinio puslapio antraštėje"
+
+msgid "settings.roles.permitSettings"
+msgstr "Leisti nustatymų pakeitimus"
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Apibrėžkite redakcinių antraštės vaidmenų tvarką viešam rodymui."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"Autorius {$authorName} neturi filialo pavadinimo pateikta kalba "
+"({$localeName}). Be šios informacijos pateiktas darbas negali būti "
+"importuotas."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Pateikimo failas {$id} buvo praleistas, nes jame nėra galiojančios versijos."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Pateikimo failas {$id} buvo praleistas, nes jame nėra galiojančio failo "
+"etapo."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Pateikto failo {$id} versija {$revision} buvo praleista, nes failas nerastas "
+"kelyje „{$path}“."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Nuoroda į puslapį, kuriame rodomos visos aktyvios redakcinės antraštės "
+"paslaugos."
+
+msgid "manager.highlights.add"
+msgstr "Pridėti paryškinimą"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Ar tikrai norite ištrinti {$title}? Šio veiksmo negalima atšaukti."
+
+msgid "manager.highlights.delete"
+msgstr "Ištrinti paryškintą"
+
+msgid "manager.highlights.edit"
+msgstr "Redaguoti paryškintą"
+
+msgid "manager.highlights.image"
+msgstr "Vaizdas"
+
+msgid "manager.highlights.url.description"
+msgstr "Visas paryškinto mygtuko URL adresas, įskaitant https://."
+
+msgid "manager.highlights.urlText"
+msgstr "Mygtuko žymė"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Paryškinto mygtuko žymė, pvz., „Skaityti daugiau“."
+
+msgid "manager.image"
+msgstr "Vaizdas"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Reikalingas minimalus patvirtintų atsiliepimų skaičius"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr "Minimalus patvirtintų atsiliepimų skaičius, reikalingas pateikimui"
+
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Įdiegta versija: {$version}"
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Leidinio {$id} viršelio paveikslėlis nebuvo eksportuotas, jo failas nerastas "
+"kelyje „{$path}“."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Būtinas meniu elemento pavadinimas."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Nuoroda el. pašto paskyrai patvirtinti"

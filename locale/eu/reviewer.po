@@ -3,7 +3,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-27 07:50+0000\n"
+"PO-Revision-Date: 2025-09-08 13:01+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -77,7 +77,7 @@ msgid "reviewer.submission.hasCompetingInterests"
 msgstr "Baliteke interes kontrajarriak izatea (Behean zehaztu)"
 
 msgid "reviewer.submission.competingInterests"
-msgstr "Interes kontrajarriak"
+msgstr "Interes-gatazkak"
 
 msgid "reviewer.submission.guidelines"
 msgstr "Ebaluazio Jarraibideak"

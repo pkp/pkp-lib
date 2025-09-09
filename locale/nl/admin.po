@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-09 12:51+0000\n"
+"PO-Revision-Date: 2025-09-09 16:52+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -332,7 +332,7 @@ msgid "admin.settings.disableBulkEmailRoles.label"
 msgstr "Schakel rollen uit"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Alleen een beheerder is bevoegd deze instelling aan te passen."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Taal van de site"
@@ -375,9 +375,11 @@ msgstr "Systeeminformatie"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Verwezen wordt naar de informatie over de versie en configuratie-"
+"instellingen van de applicatie en server."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Verwezen wordt naar de systeem informatie"
 
 msgid "admin.versionBuild"
 msgstr "Build"
@@ -438,54 +440,82 @@ msgstr "Uploader"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bron-gz-bestand ({$filePath}"
+" kan niet worden geopend met gz-open."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bestemmingsbestand "
+"{$filePath} kan niet worden geopend met f-open."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Het bestand kan niet worden gedecomprimeerd. Het bron gz-bestand {$file} kan "
+"niet worden gelezen met gz-read."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bestemmingsbestand "
+"{$filePath} kon niet geschreven worden met f-write."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het geopende bestemmingsbestand "
+"{$filePath} kon niet worden gesloten met f-close."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het geopende bron-gz-bestand "
+"{$filePath} kan niet worden gesloten met gz-close."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het gedecomprimeerde bron-gz-"
+"bestand {$filePath} kon niet worden verwijderd met een ontkoppeling."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bestemmings-gz-bestand "
+"{$filePath} kon niet worden geopend met gz-open."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bronbestand {$filePath} kon "
+"niet worden geopend met f-open."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bronbestand {$filePath} kon "
+"niet worden verwijderd met f-read."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Het bestand kon niet worden geopend. Het bestemmings-gz bestand {$filePath} "
+"kon niet worden geschreven met gz-write."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Het bestand kon niet worden geopend. Het geopende bronbestand {$filePath} "
+"kon niet worden gesloten met f-close."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Het bestand kon niet worden geopend. Het geopende bestemmings-gz-bestand "
+"{$filePath} kon niet worden gesloten met gz-close."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Het bestand kon niet worden geopend. Het gecomprimeerde bronbestand "
+"{$filePath} kon niet worden verwijderd met een ontkoppeling."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Er zijn geen taalbestanden om te downloaden."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Gebruik:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "instructie [argumenten]"
 
 msgid "admin.cli.tool.available.commands"
 msgstr ""
@@ -832,3 +862,7 @@ msgstr ""
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Schakel de samengevoegde gegevens van de recensenten uit"
+
+#, fuzzy
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Het bestand {$filename} werd verplaatst naar de te verzenden (?) map."

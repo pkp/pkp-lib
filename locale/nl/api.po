@@ -2,7 +2,7 @@
 # ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-04 17:08+0000\n"
+"PO-Revision-Date: 2025-09-09 10:05+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
 "Language: nl\n"
@@ -238,3 +238,123 @@ msgid "api.orcid.403.editWithoutPermission"
 msgstr ""
 "U kunt geen wijzigingen aanbrengen bij auteurs, van wie de inzendingen niet "
 "aan u zijn toegekend."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Uw verzoek was niet geldig. De ordermap moet 'desc' of 'asc' zijn."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een ander "
+"inzendingsbestand."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een "
+"recensietoewijzing."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Het bestand dat u aanleverde is niet geldig in deze fase."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Uw verzoek was niet geldig. De tijdlijninterval moet 'dag' of 'maand' zijn."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Er konden geen wijzigingen worden gevonden bij het verzoek om dit bestand te "
+"bewerken."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"U moet een beoordelingsronde aanleveren wanneer u een bestand naar dit "
+"moment in het dossier wilt verplaatsen."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+"U bent niet gemachtigd om deze bestanden toe te voegen en deze te bewerken."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "U verzoek kan niet worden vervuld omdat vereiste informatie ontbreekt."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "U kunt enkel de volgende bestandtypes laden: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "De afbeelding die u uploadde is niet geldig."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Het bestand dat u uploadde paste niet met de bestandsextensie. Dat kan "
+"gebeuren wanneer een bestand is hernoemd naar een onverenigbaar type, "
+"bijvoorbeeld wijziging 'foto.png' naar 'foto.jpg'."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "U bent niet gemachtigd om bestanden te laden."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"U hebt onvoldoende ruimte in uw gebruikersmap. Het bestand dat u aan het "
+"laden bent is {$fileUploadSize}kb en u hebt nog ruimte voor {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"De voor ieder toegankelijke bestandsmappen werd niet gevonden, dan wel "
+"bestanden kunnen hier niet worden bewaard. U wordt vriendelijk verzocht om "
+"uw beheerder te benaderen om dit issue te verhelpen."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "De datum moet in de volgende vorm: JJJJ-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "De begindatum kan niet later dan de einddatum zijn."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "De begindatum kan niet vroeger dan 2001-01-01 zijn."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "De einddatum kan niet later dan gisteren zijn."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Uw verzoek was niet geldig. De tijdlijninterval moet 'dag' of 'maand' zijn."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"U kunt niet de bestandskoppeling niet aanpassen zonder langs assocType en "
+"associd te gaan."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een "
+"discussiememo."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Vanaf dit moment in het dossier, kunt u geen bestand koppelen met een "
+"recensieronde."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"U moet een beoordelingsronde vastleggen, wanneer u tijdens deze fase om "
+"bestanden verzoekt."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "U moet tijdens deze fse een bestand aanleveren."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"De beoordelingsronde die u aanleverde maakt geen deel uit van deze inzending."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "U bent niet gemachtigd om toegang tot deze bestanden verkrijgen."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+"U bent niet gemachtigd om in deze beoordelingsronde toegang te verkrijgen "
+"tot bestanden."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "De verzochte aflevering, nummer of jaar is niet geldig."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "U bent niet gemachtigd in te dienen in deze gebruikersrol."

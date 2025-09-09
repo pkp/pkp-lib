@@ -2,7 +2,7 @@
 # ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-09 10:05+0000\n"
+"PO-Revision-Date: 2025-09-09 12:31+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
 "Language: nl\n"
@@ -89,15 +89,13 @@ msgstr "U kunt geen DOI-items bewerken, die niet in deze omgeving voorkomen."
 msgid "api.dois.403.editItemDoiCantBeAssigned"
 msgstr "Een DOI kan niet aan dit item worden toegewezen."
 
-#, fuzzy
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "De publicatiesoort werd niet herkend."
+msgstr "Het publicatietype werd niet herkend."
 
-#, fuzzy
 msgid "api.dois.404.contextNotFound"
 msgstr ""
-"Dit eindpunt is niet beschikbaar vanaf de website-omvattende naamruimte, en "
-"moet worden verzocht voor een gegeven context."
+"Dit eindpunt is niet beschikbaar vanaf de website-omvattende naamruimte, dit "
+"moet worden verzocht met betrekking tot een bestaande omgeving."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "De DOI waar u om verzocht werd niet gevonden."
@@ -176,8 +174,8 @@ msgstr "U kunt deze publicatie niet bewerken omdat deze al is verspreid."
 #, fuzzy
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"U kunt de status direct via de API niet wijzigen. In plaats hiervan, "
-"gebruikt u de"
+"U kunt de status direct via de API niet wijzigen. In de plaats hiervan, "
+"gebruikt u de publicatie en depublicatie-apparatuur."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "U moet eerst de publicatie depubliceren, voordat u het verwijdert."
@@ -358,3 +356,112 @@ msgstr "De verzochte aflevering, nummer of jaar is niet geldig."
 
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr "U bent niet gemachtigd in te dienen in deze gebruikersrol."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Uw verzoek werd afgewezen. Dit kan vanwege het verlopen van uw "
+"logingegevens. Probeert u de pagina opnieuw te laden en nogmaals in te "
+"loggen."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dit apparaat is niet beschikbaar vanaf de omgeving. Dit moet via de "
+"websitebrede naamruimte worden bereikt."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+"De foutieve verwerking waardoor de essentiële inhoud opnieuw moet worden "
+"aangemaakt."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+"De foutieve verwerking werd niet teruggevonden in de desbetreffende lijst."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"U kunt een inzending niet vernietigen die niet in deze omgeving is "
+"toegewezen."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"U kunt enkel ongepubliceerde inzendingen inzien, die aan u zijn toegewezen."
+
+msgid "api.submission.403.cantChangeSubmissionLanguage"
+msgstr ""
+"U kunt niet de taal van deze inzending wisselen, omdat er reeds meer dan één "
+"publicatie(versie) bestaat."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "U hebt geen toestemming deze inzending te vernietigen."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "U bent niet gemachtigd deze publicatie te bewerken."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Dit actieve thema {$themePluginPath} is niet ingeschakeld en kan niet worden "
+"geïnstalleerd."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "De {$locale}-locatie wordt niet ondersteund."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "De e-mail waar u om verzocht werd niet gevonden."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Er werden geen foutieve verwerkingen gevonden in de lijst."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Niet in staat om een foutieve verwerking opnieuw te verwerken."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "De eerdere foutieve verwerking is nu succesvol verwerkt."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Alle opnieuw verwerkte foutieve verwerkingen met geldige essentiële "
+"informatie, zijn succesvol in de wachtrij geplaatst."
+
+#, fuzzy
+msgid "api.409.resourceActionConflict"
+msgstr ""
+"Niet in staat de voorgenomen handeling te voltooien met inzetbare middelen."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+"De foutieve verwerking is succesvol verwijderd van de betreffende lijst."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+"Niet in staat om een foutieve verwerking van de betreffende lijst te "
+"verwijderen."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "De inzending voor deze recensietoewijzing kan niet worden gevonden."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "De recensent voor deze toewijzing kan niet worden gevonden"
+
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Enkel 'aanvaarding' en 'afwijzing' zijn geldige waarden"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "De aangeleverde sectie bestaat niet."
+
+msgid "api.submission.400.missingQueryParam"
+msgstr ""
+"Bij het verzoek ontbreekt de vereiste zoekparameter 'ids'. U wordt "
+"vriendelijk verzocht de 'ids' van de inzending die u wilt verwijderen aan te "
+"leveren."
+
+#, fuzzy
+msgid "api.submission.400.invalidId"
+msgstr "Ongeldig ID: {$id}\" provided."
+
+msgid "api.publications.403.noEnabledIdentifiers"
+msgstr ""
+"Het publicatie-identiersformulier is niet beschikbaaar omdat er geen "
+"beschikbare authenticatiemiddelen zijn."
+
+msgid "api.rors.404.rorNotFound"
+msgstr "De ror waar u om verzocht werd niet gevonden."

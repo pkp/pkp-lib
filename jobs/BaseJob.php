@@ -11,14 +11,11 @@ declare(strict_types=1);
  *
  * @class BaseJob
  *
- * @ingroup support
- *
  * @brief Abstract class for Jobs
  */
 
 namespace PKP\jobs;
 
-use APP\core\Application;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -65,20 +62,8 @@ abstract class BaseJob implements ShouldQueue
      */
     public function __construct()
     {
-        $this->connection = $this->defaultConnection();
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Config::getVar('queues', 'default_queue', 'queue');
-    }
-
-    /**
-     * Get the queue job default connection to execute
-     */
-    protected function defaultConnection(): string
-    {
-        if (Application::isUnderMaintenance()) {
-            return 'sync';
-        }
-
-        return Config::getVar('queues', 'default_connection', 'database');
     }
 
     /**

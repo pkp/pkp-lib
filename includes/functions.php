@@ -360,6 +360,16 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
 }
 
 /**
+ * Check if run on CLI
+ */
+if (!function_exists('runOnCLI')) {
+    function runOnCLI(?string $scriptPath = null): bool
+    {
+        return \PKP\core\PKPContainer::getInstance()->runningInConsole($scriptPath);
+    }
+}
+
+/**
  * Converts a shorthand byte value to an integer byte value.
  *
  * @link https://secure.php.net/manual/en/function.ini-get.php

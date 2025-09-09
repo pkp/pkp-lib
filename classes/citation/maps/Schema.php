@@ -92,7 +92,7 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'authors':
                     $authors = [];
-                    foreach ($item->getData($prop) as $author) {
+                    foreach (is_array($item->getData($prop)) ? $item->getData($prop) : [] as $author) {
                         $authors[] = array_merge($authorModel, $author);
                     }
                     $output[$prop] = $authors;

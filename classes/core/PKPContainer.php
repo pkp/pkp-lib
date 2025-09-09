@@ -406,6 +406,30 @@ class PKPContainer extends Container
     {
         return PKPApplication::isUnderMaintenance();
     }
+
+    /**
+     * Determine if the application is running in the console.
+     */
+    public function runningInConsole(?string $scriptPath = null): bool
+    {
+        if (strtolower(php_sapi_name() ?: '') === 'cli') {
+            return true;
+        }
+
+        if (!$scriptPath) {
+            return false;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 if (!PKP_STRICT_MODE) {

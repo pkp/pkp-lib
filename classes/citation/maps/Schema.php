@@ -79,6 +79,8 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function mapByProperties(array $props, Citation $item): array
     {
+        $authorModel = $this->getCitationAuthorDataModel();
+
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
@@ -87,6 +89,13 @@ class Schema extends \PKP\core\maps\Schema
                         'citations/' . $item->getId(),
                         $this->context->getData('urlPath')
                     );
+                    break;
+                case 'authors':
+                    $authors = [];
+                    foreach ($item->getData($prop) as $author) {
+                        $authors[] = array_merge($authorModel, $author);
+                    }
+                    $output[$prop] = $authors;
                     break;
                 case 'rawCitationWithLinks':
                     $output[$prop] = $item->getRawCitationWithLinks();
@@ -98,5 +107,19 @@ class Schema extends \PKP\core\maps\Schema
         }
         ksort($output);
         return $this->withExtensions($output, $item);
+    }
+
+    /**
+     * Get author data model as defined in schemas/citation.json.
+     */
+    public function getCitationAuthorDataModel(): array
+    {
+        $schemaService = new PKPSchemaService();
+        $schema = $schemaService->get($this->schema);
+        $authorModel = [];
+        foreach (array_keys((array)$schema->properties->authors->items->properties) as $property) {
+            $authorModel[$property] = '';
+        }
+        return $authorModel;
     }
 }

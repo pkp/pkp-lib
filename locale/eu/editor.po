@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-04 09:12+0000\n"
+"PO-Revision-Date: 2025-09-09 06:23+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -155,34 +155,37 @@ msgid "editor.review.resendRequestReviewer"
 msgstr ""
 
 msgid "editor.submissionReview.reviewType"
-msgstr ""
+msgstr "Berrikuspen mota"
 
 msgid "editor.submissionReview.sendEmail"
 msgstr ""
+"Bidali posta elektroniko bidezko jakinarazpena egileari(ei): {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
 msgstr ""
+"Bidali posta elektroniko bidezko jakinarazpena editoreari(ei): {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
-msgstr ""
+msgstr "Ez bidali posta elektroniko bidezko jakinarazpenik"
 
 msgid "editor.submissionReview.open"
-msgstr ""
+msgstr "Irekia"
 
 msgid "editor.submissionReview.anonymous"
-msgstr ""
+msgstr "Ebaluatzaile anonimoa/Egilea agerian utzita"
 
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr ""
+msgstr "Ebaluatzaile anonimoa/Egile anonimoa"
 
+#, fuzzy
 msgid "editor.submissionReview.restrictFiles"
-msgstr ""
+msgstr "Berrikusi beharreko fitxategiak"
 
 msgid "editor.submissionReview.restrictFiles.hide"
-msgstr ""
+msgstr "Itxi fitxategien hautaketa"
 
 msgid "editor.submissionReview.editReview"
-msgstr ""
+msgstr "Editatu berrikuspena"
 
 msgid "editor.review.anonymousReviewer"
 msgstr ""
@@ -395,22 +398,22 @@ msgid "editor.submission.newRound"
 msgstr "Ebaluazio-txanda berria"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr ""
+msgstr "Grabatu erabaki editoriala"
 
 msgid "editor.submissionReview.recordRecommendation"
-msgstr ""
+msgstr "Grabatu argitaletxearen gomendioa"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr ""
+msgstr "Jakinarazi editoreei"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik editoreei."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr ""
+msgstr "Sortu berrikuspen-eztabaida bat gomendio horri buruz."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr ""
+msgstr "Ez sortu berrikuspen-eztabaidarik."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""

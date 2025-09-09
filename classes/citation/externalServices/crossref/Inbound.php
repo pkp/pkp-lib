@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/externalServices/crossref/Inbound.php
+ * @file classes/citation/externalServices/crossref/Inbound.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,10 +14,10 @@
  * @brief Inbound class for Crossref
  */
 
-namespace PKP\citation\job\externalServices\crossref;
+namespace PKP\citation\externalServices\crossref;
 
 use PKP\citation\Citation;
-use PKP\citation\job\externalServices\ExternalServicesHelper;
+use PKP\citation\externalServices\ExternalServicesHelper;
 
 class Inbound
 {

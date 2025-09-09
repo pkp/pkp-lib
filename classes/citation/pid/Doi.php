@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/pid/Doi.php
+ * @file classes/citation/pid/Doi.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,9 +14,10 @@
  * @brief Doi class
  *
  * @see https://www.crossref.org/blog/dois-and-matching-regular-expressions/
+ * @see https://stackoverflow.com/questions/27910/finding-a-doi-in-a-document-or-page
  */
 
-namespace PKP\citation\job\pid;
+namespace PKP\citation\pid;
 
 class Doi extends BasePid
 {

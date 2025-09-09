@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/externalServices/ExternalServicesHelper.php
+ * @file classes/citation/externalServices/ExternalServicesHelper.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,7 +14,7 @@
  * @brief Provides static helper methods.
  */
 
-namespace PKP\citation\job\externalServices;
+namespace PKP\citation\externalServices;
 
 use APP\core\Application;
 use Exception;
@@ -52,7 +52,7 @@ class ExternalServicesHelper
      */
     public static function apiRequest(string $url, array $options = []): array|int|null
     {
-        $httpClient = Application::get()->getHttpClient($options);
+        $httpClient = Application::get()->getHttpClient();
 
         try {
             $response = $httpClient->request('GET', $url, $options);

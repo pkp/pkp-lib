@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/pid/Url.php
+ * @file classes/citation/pid/Url.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,7 +14,7 @@
  * @brief Url class
  */
 
-namespace PKP\citation\job\pid;
+namespace PKP\citation\pid;
 
 class Url extends BasePid
 {

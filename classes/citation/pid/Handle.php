@@ -1,32 +1,32 @@
 <?php
 
 /**
- * @file classes/citation/job/pid/Arxiv.php
+ * @file classes/citation/pid/Handle.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Arxiv
+ * @class Handle
  *
  * @ingroup citation
  *
- * @brief Arxiv class
+ * @brief Handle class
  */
 
-namespace PKP\citation\job\pid;
+namespace PKP\citation\pid;
 
-class Arxiv extends BasePid
+class Handle extends BasePid
 {
     /** @copydoc AbstractPid::regex */
     public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
 
     /** @copydoc AbstractPid::prefix */
-    public const prefix = 'https://arxiv.org/abs';
+    public const prefix = 'https://hdl.handle.net';
 
     /** @copydoc AbstractPid::prefixInCorrect */
     public const prefixInCorrect = [
-        'arxiv:'
+        'handle:'
     ];
 
     /** @copydoc AbstractPid::extractFromString() */

@@ -230,7 +230,7 @@ class PKPCitationController extends PKPBaseController
         $citation->setIsProcessed(false);
         Repo::citation()->edit($citation, []);
 
-        Repo::citation()->reprocessCitation($citation->getId());
+        Repo::citation()->reprocessCitation($citation);
 
         return response()->json(
             Repo::citation()->getSchemaMap()->map($citation), Response::HTTP_OK

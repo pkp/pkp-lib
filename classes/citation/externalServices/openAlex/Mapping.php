@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/externalServices/openalex/Mapping.php
+ * @file classes/citation/externalServices/openalex/Mapping.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -20,7 +20,7 @@
  * @see https://docs.openalex.org/api-entities/sources
  */
 
-namespace PKP\citation\job\externalServices\openAlex;
+namespace PKP\citation\externalServices\openAlex;
 
 final class Mapping
 {

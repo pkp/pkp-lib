@@ -17,8 +17,7 @@
 namespace PKP\jobs\citation;
 
 use APP\facades\Repo;
-use Illuminate\Database\Query\Builder;
-use PKP\citation\job\pid\ExtractPidsHelper;
+use PKP\citation\pid\ExtractPidsHelper;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
@@ -33,7 +32,11 @@ class ExtractPidsJob extends BaseJob
         $this->citationId = $citationId;
     }
 
-    /** @inheritDoc */
+    /**
+     * Handle the queue job execution process
+     *
+     * @throws JobException
+     */
     public function handle(): void
     {
         $citation = Repo::citation()->get($this->citationId);
@@ -42,17 +45,12 @@ class ExtractPidsJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
-        if($citation->getIsProcessed()) {
+        if ($citation->getIsProcessed()) {
             return;
         }
 
         $extractPids = new ExtractPidsHelper();
-        $citationChanged = $extractPids->execute($citation);
 
-        if (empty($citationChanged)) {
-            throw new JobException(__('common.error'));
-        }
-
-        Repo::citation()->edit($citationChanged, []);
+        Repo::citation()->edit($extractPids->execute($citation), []);
     }
 }

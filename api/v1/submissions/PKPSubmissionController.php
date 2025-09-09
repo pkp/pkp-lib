@@ -2245,7 +2245,7 @@ class PKPSubmissionController extends PKPBaseController
         foreach ($publication->getData('citations') as &$citation) {
             if ($citationsMetadataLookup && !$publication->getData('citationsMetadataLookup')) {
                 $citation->setIsProcessed(false);
-                Repo::citation()->reprocessCitation($citation->getId());
+                Repo::citation()->reprocessCitation($citation);
             } else {
                 $citation->setIsProcessed(true);
             }

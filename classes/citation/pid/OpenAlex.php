@@ -1,30 +1,30 @@
 <?php
 
 /**
- * @file classes/citation/job/pid/Orcid.php
+ * @file classes/citation/pid/OpenAlex.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Orcid
+ * @class OpenAlex
  *
  * @ingroup citation
  *
- * @brief Orcid class
+ * @brief OpenAlex class
  */
 
-namespace PKP\citation\job\pid;
+namespace PKP\citation\pid;
 
-class Orcid extends BasePid
+class OpenAlex extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const prefix = 'https://orcid.org';
+    public const prefix = 'https://openalex.org';
 
     /** @copydoc AbstractPid::prefixInCorrect */
     public const prefixInCorrect = [
-        'orcid:',
-        'orcid_id:',
-        'orcidId:'
+        'openalex:',
+        'openalex.org/works',
+        'www.openalex.org/works'
     ];
 }

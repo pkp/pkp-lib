@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/externalServices/crossref/Mapping.php
+ * @file classes/citation/externalServices/crossref/Mapping.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -16,7 +16,7 @@
  * @see https://api.crossref.org/works/?query.bibliographic=Hauschke C, Cartellieri S, Heller L (2018) Reference implementation for open scientometric indicators (ROSI). Research Ideas and Outcomes 4
  */
 
-namespace PKP\citation\job\externalServices\crossref;
+namespace PKP\citation\externalServices\crossref;
 
 final class Mapping
 {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/externalServices/orcid/Inbound.php
+ * @file classes/citation/externalServices/orcid/Inbound.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,10 +14,10 @@
  * @brief Inbound class for Orcid
  */
 
-namespace PKP\citation\job\externalServices\orcid;
+namespace PKP\citation\externalServices\orcid;
 
-use PKP\citation\job\externalServices\ExternalServicesHelper;
-use PKP\citation\job\pid\Orcid;
+use PKP\citation\externalServices\ExternalServicesHelper;
+use PKP\citation\pid\Orcid;
 
 class Inbound
 {

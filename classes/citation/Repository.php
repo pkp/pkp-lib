@@ -16,6 +16,7 @@
 
 namespace PKP\citation;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
@@ -225,17 +226,18 @@ class Repository
             if (is_array($citationStrings) && !empty($citationStrings)) {
                 $publication = Repo::publication()->get($publicationId);
                 foreach ($citationStrings as $seq => $rawCitationString) {
-                    if (!empty(trim($rawCitationString))) {
+                    if (!empty($rawCitationString)) {
                         $citation = new Citation();
                         $citation->setRawCitation($rawCitationString);
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($seq + 1);
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
-                        $importedCitations[] = $citation;
+                        $citation->setId($newCitationId);
                         if ($publication->getData('citationsMetadataLookup') && $this->request->getContext()->getData('citationsMetadataLookup')) {
-                            $this->reprocessCitation($newCitationId);
+                            $this->reprocessCitation($citation);
                         }
+                        $importedCitations[] = $citation;
                     }
                 }
             }
@@ -252,27 +254,25 @@ class Repository
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
-        $existingSeq = collect($this->getByPublicationId($publicationId))
-            ->map(fn(Citation $citation) => $citation->getData('seq'))
-            ->all();
-        $lastSeq = end($existingSeq) ? end($existingSeq) + 1 : 1;
+        $lastSeq = $this->getLastSeq($publicationId);
 
         $rejectedCitations = [];
         if (is_array($citationStrings) && !empty($citationStrings)) {
             $publication = Repo::publication()->get($publicationId);
             foreach ($citationStrings as $rawCitationString) {
-                if (!empty(trim($rawCitationString))) {
+                if (!empty($rawCitationString)) {
                     if (!$this->existsRawCitation($publicationId, $rawCitationString)) {
+                        $lastSeq++;
                         $citation = new Citation();
                         $citation->setRawCitation($rawCitationString);
                         $citation->setData('publicationId', $publicationId);
                         $citation->setSequence($lastSeq);
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
+                        $citation->setId($newCitationId);
                         if ($publication->getData('citationsMetadataLookup') && $this->request->getContext()->getData('citationsMetadataLookup')) {
-                            $this->reprocessCitation($newCitationId);
+                            $this->reprocessCitation($citation);
                         }
-                        $lastSeq++;
                     } else {
                         $rejectedCitations[] = $rawCitationString;
                     }
@@ -290,16 +290,30 @@ class Repository
     }
 
     /**
+     * Get the last (max) sequence.
+     */
+    public function getLastSeq(int $publicationId): int
+    {
+        return $this->dao->getLastSeq($publicationId);
+    }
+
+    /**
      * Add a new job chain for a citation.
      */
-    public function reprocessCitation(int $citationId): void
+    public function reprocessCitation(Citation $citation): void
     {
+        $publication = Repo::publication()->get($citation->getData('publicationId'));
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
+
+        $contactEmail = $context->getContactEmail();
+
         $jobs = [
-            new ExtractPidsJob($citationId),
-            new CrossrefJob($citationId),
-            new OpenAlexJob($citationId),
-            new OrcidJob($citationId),
-            new IsProcessedJob($citationId)
+            new ExtractPidsJob($citation->getId()),
+            new CrossrefJob($citation->getId(), $contactEmail),
+            new OpenAlexJob($citation->getId(), $contactEmail),
+            new OrcidJob($citation->getId(), $contactEmail),
+            new IsProcessedJob($citation->getId())
         ];
 
         Bus::chain($jobs)

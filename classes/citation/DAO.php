@@ -137,7 +137,6 @@ class DAO extends EntityDAO
         return DB::table('citations')
             ->select(['raw_citation'])
             ->where('publication_id', '=', $publicationId)
-            ->orderBy('seq')
             ->pluck('raw_citation');
     }
 
@@ -160,5 +159,18 @@ class DAO extends EntityDAO
             ->where('publication_id', '=', $publicationId)
             ->where('raw_citation', '=', $rawCitation)
             ->exists();
+    }
+
+    /**
+     * Get the last (max) sequence.
+     */
+    public function getLastSeq(int $publicationId): int
+    {
+        $lastSeq = DB::table($this->table)
+            ->where('publication_id', '=', $publicationId)
+            ->groupBy('publication_id')
+            ->max('seq');
+
+        return $lastSeq ? $lastSeq : 0;
     }
 }

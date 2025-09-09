@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/pid/BasePid.php
+ * @file classes/citation/pid/BasePid.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,7 +14,7 @@
  * @brief BasePid abstract class
  */
 
-namespace PKP\citation\job\pid;
+namespace PKP\citation\pid;
 
 abstract class BasePid
 {
@@ -32,6 +32,7 @@ abstract class BasePid
 
     /**
      * Add prefix
+     *
      * @param string|null $string e.g. 10.123/tib123
      * @return string e.g. https://doi.org10.123/tib123
      */
@@ -56,6 +57,7 @@ abstract class BasePid
 
     /**
      * Remove prefix
+     *
      * @param string|null $string e.g. https://doi.org10.123/tib123
      * @return string e.g. 10.123/tib123
      */
@@ -73,13 +75,14 @@ abstract class BasePid
             return $string;
         }
 
-        $string = str_replace($class::prefix, '', $string);
+        $string = str_ireplace($class::prefix, '', $string);
 
         return trim($string, $class::defaultTrimCharacters);
     }
 
     /**
      * Normalize PID by removing any incorrect prefixes.
+     *
      * @param string|null $string e.g. doi:10.123/tib123
      * @return string e.g. https://doi.org/10.123/tib123
      */
@@ -100,16 +103,16 @@ abstract class BasePid
         $prefixInCorrect = $class::prefixInCorrect;
 
         // prefix without https://
-        $prefixAlt = str_replace('https://', '', $class::prefix);
+        $prefixAlt = str_ireplace('https://', '', $class::prefix);
 
         // make secure
-        $string = str_replace('http://', 'https://', $string);
+        $string = str_ireplace('http://', 'https://', $string);
 
         // process longer first, e.g. dx.doi.org before doi.org
         usort($prefixInCorrect, function ($a, $b) {
             return strlen($b) - strlen($a);
         });
-        $string = str_replace($prefixInCorrect, $prefixAlt, $string);
+        $string = str_ireplace($prefixInCorrect, $prefixAlt, $string);
 
         // common mistakes, e.g. doi.org:10.123/tib123
         $fixes = [
@@ -118,7 +121,7 @@ abstract class BasePid
             "$prefixAlt ",
             "www.$prefixAlt"
         ];
-        $string = str_replace($fixes, $prefixAlt, $string);
+        $string = str_ireplace($fixes, $prefixAlt, $string);
 
         // add https://
         $string = str_replace($prefixAlt, "https://$prefixAlt/", $string);
@@ -129,13 +132,14 @@ abstract class BasePid
             "https://https://$prefixAlt/",
             "https://https://$prefixAlt//"
         ];
-        $string = str_replace($doubles, "https://$prefixAlt/", $string);
+        $string = str_ireplace($doubles, "https://$prefixAlt/", $string);
 
         return trim($string, $class::defaultTrimCharacters);
     }
 
     /**
      * Extract from string with regex
+     *
      * @param string|null $string
      * @return string e.g. 10.123/tib123
      */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/citation/job/externalServices/openalex/Inbound.php
+ * @file classes/citation/externalServices/openalex/Inbound.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -14,10 +14,10 @@
  * @brief Inbound class for OpenAlex
  */
 
-namespace PKP\citation\job\externalServices\openAlex;
+namespace PKP\citation\externalServices\openAlex;
 
 use PKP\citation\Citation;
-use PKP\citation\job\externalServices\ExternalServicesHelper;
+use PKP\citation\externalServices\ExternalServicesHelper;
 
 class Inbound
 {

@@ -16,23 +16,28 @@
 
 namespace PKP\jobs\citation;
 
-use APP\core\Application;
 use APP\facades\Repo;
-use PKP\citation\job\externalServices\orcid\Inbound;
+use PKP\citation\externalServices\orcid\Inbound;
 use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 
 class OrcidJob extends BaseJob
 {
     protected int $citationId;
+    protected string $contactEmail = '';
 
-    public function __construct(int $citationId)
+    public function __construct(int $citationId, string $contactEmail)
     {
         parent::__construct();
-
         $this->citationId = $citationId;
+        $this->contactEmail = $contactEmail;
     }
 
+    /**
+     * Handle the queue job execution process
+     *
+     * @throws JobException
+     */
     public function handle(): void
     {
         $citation = Repo::citation()->get($this->citationId);
@@ -50,13 +55,10 @@ class OrcidJob extends BaseJob
             return;
         }
 
-        $publication = Repo::publication()->get($citation->getData('publicationId'));
-        $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $context = Application::getContextDAO()->getById($submission->getData('contextId'));
-        $contactEmail = $context->getContactEmail();
+        $service = new Inbound($this->contactEmail);
 
-        $service = new Inbound($contactEmail);
         $authorsChanged = [];
+
         foreach ($authors as $author) {
             if (empty($author['orcid'])) {
                 $authorsChanged[] = $author;

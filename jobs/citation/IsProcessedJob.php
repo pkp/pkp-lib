@@ -27,10 +27,14 @@ class IsProcessedJob extends BaseJob
     public function __construct(int $citationId)
     {
         parent::__construct();
-
         $this->citationId = $citationId;
     }
 
+    /**
+     * Handle the queue job execution process
+     *
+     * @throws JobException
+     */
     public function handle(): void
     {
         $citation = Repo::citation()->get($this->citationId);

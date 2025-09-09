@@ -17,6 +17,7 @@
 namespace PKP\task;
 
 use APP\core\Application;
+use PKP\core\PKPContainer;
 use PKP\config\Config;
 use PKP\queue\JobRunner;
 use PKP\scheduledTask\ScheduledTask;
@@ -49,10 +50,18 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // Executes all pending jobs when running the runScheduledTasks.php on the CLI
-        if (Application::isRunningOnCLI('runScheduledTasks.php')) {
-            while ($jobBuilder->count()) {
-                $jobQueue->runJobInQueue();
+        // When processing queue jobs via schedule task in CLI mode
+        // will process a limited number of jobs at a single time
+        if (PKPContainer::getInstance()->runningInConsole('runScheduledTasks.php')) {
+            $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
+            
+            while ($jobBuilder->count() && $maxJobCountToProcess) {
+                // if there is no more jobs to run, exit the loop
+                if ($jobQueue->runJobInQueue() === false) {
+                    break;
+                }
+                
+                --$maxJobCountToProcess;
             }
 
             return true;

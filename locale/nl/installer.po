@@ -1,11 +1,12 @@
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-07-15 14:00+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-09-09 12:31+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
 "nl/>\n"
 "Language: nl\n"
@@ -159,22 +160,21 @@ msgstr "Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Fout in het filter configuratiebestand <tt>{$file}</tt>"
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details."
+"Upgrade wordt niet ondersteund.Zie voor details de Upgradegids (https://docs."
+"pkp.sfu.ca/dev/upgrade-guide)."
 
-#, fuzzy
 msgid "installer.timezoneInstructions"
-msgstr "De tijdzone om voor dit systeem te gebruiken."
+msgstr "De te gebruiken tijdzone om voor dit systeem."
 
 #, fuzzy
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
 "Kies een of meer extra talen ter ondersteuning van dit systeem. Extra talen "
 "kunnen op ieder moment ook worden geïnstalleerd vanaf de interface van het "
-"sitebeheer. <br>* = Het benoemt talen die niet volledig zijn vertaald (>90% "
-"van de vertaalde termen)"
+"sitebeheerder. <br>* = Het benoemt talen die niet volledig zijn vertaald ("
+">90% van de vertaalde termen)"
 
 msgid "installer.locale"
 msgstr "Taal"
@@ -259,15 +259,14 @@ msgstr ""
 "De configuratievariabele, genaamd `app_key`is niet gedefinieerd in het "
 "`algemene` gedeelte. "
 
-#, fuzzy
 msgid "installer.appKey.keyVariable.alreadyExist.notice"
 msgstr ""
-"De configuratievariabele, genaamd `app_key ` , is al gedefinieerd in het "
-"`algemene` gedeelte. "
+"De configuratievariabele, genaamd 'app_key', is al gedefinieerd in het "
+"'algemene' gedeelte. "
 
-#, fuzzy
 msgid "installer.appKey.keyVariable.configFile.parse.error"
-msgstr "Niet in staat het configuratiebestand te analyseren en interpreteren."
+msgstr ""
+"Niet in staat het configuratiebestand te analyseren en te interpreteren."
 
 msgid "installer.appKey.keyVariable.configFile.write.error"
 msgstr ""
@@ -278,9 +277,8 @@ msgstr ""
 "Niet-ondersteunde versleutelingsalgoritme of onjuiste versleutelingslengte. "
 "Ondersteunde versleutelingsalgoritme zijn: {$ciphers}."
 
-#, fuzzy
 msgid "installer.appKey.write.error"
-msgstr "Niet in staat om de 'app key' in de configuratiefile te schrijven."
+msgstr "Niet in staat om de 'app key' in het configuratiebestand te schrijven."
 
 msgid "installer.miscSettings"
 msgstr "Diverse instellingen"
@@ -289,8 +287,8 @@ msgstr "Diverse instellingen"
 msgid "installer.appKey.keyVariable.missing.instruction"
 msgstr ""
 "Gelieve om de configuratievariabele, genaamd `app_key` het `algemene`"
-"gedeelte handmatig toe te voegen of het gebod php lib/pkp/tools/appKey.php "
-"configure` in te stellen vanaf CLI."
+"gedeelte handmatig toe te voegen of de instructie 'php lib/pkp/tools/"
+"appKey.php configure` in te stellen vanaf CLI."
 
 msgid "installer.appKey.keyVariable.configFile.read.error"
 msgstr ""

@@ -6,13 +6,14 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
 # Henri De Plaen <henri.deplaen@gmail.com>, 2025.
+# Express2120+ <mirouxmmp111@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-14 09:46+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2025-08-30 12:40+0000\n"
+"Last-Translator: Express2120+ <mirouxmmp111@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr/>\n"
 "Language: fr\n"
@@ -24,11 +25,11 @@ msgstr ""
 
 msgid "author.editPublishedDisabled"
 msgstr ""
-"Les auteures et auteurs de cette publication ne peuvent être modifiés "
-"puisque celle-ci a déjà été publiée."
+"Les auteurs de cette publication ne peuvent être modifiés puisque celle-ci a "
+"déjà été publiée."
 
 msgid "author.publicationNotFound"
-msgstr "Aucune publication pour cet auteur ou auteure n'a pu être trouvée."
+msgstr "Aucune publication pour cet auteur n'a pu être trouvée."
 
 msgid "author.submit.submissionCitations"
 msgstr ""

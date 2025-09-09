@@ -1,5 +1,5 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023, 2025.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 # Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 msgid ""
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2024-06-21 19:39+0000\n"
-"Last-Translator: Rodolphe Lemétayer <rlemetayer@protonmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -2344,3 +2344,9 @@ msgstr "Auteur-e modifié-e."
 
 #~ msgid "common.captchaField"
 #~ msgstr "Validation"
+
+msgid "navigation.dashboards"
+msgstr "Tableau de bord éditorial"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Afficher l'<a href=\"{$url}\">historique éditorial</a>"

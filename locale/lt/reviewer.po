@@ -1,0 +1,192 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Prašymas"
+
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Ankstesnės apžvalgos"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "{$round} raundas Atsiliepimas pateiktas {$submittedOn}"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Tik redaktoriui"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Šio el. pašto pranešimo kopiją su nematoma kopija (angl. BCC) išsiųskite "
+"šiems recenzentams."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Siųsti recenzentams"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Šis vartotojas nepriskirtas kaip recenzentas šiam dokumentui"
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "Apžvalga nebuvo baigta."
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Gairės"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Atsisiųsti ir recenzuoti"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Pabaiga"
+
+msgid "reviewer.step1.request"
+msgstr "Prašymas recenzuoti"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Jūsų prašoma recenzuoti šį straipsnį. Žemiau yra pateikta straipsnio "
+"apžvalga ir recenzavimo terminas. Tikimės, kad galite bendradarbiauti."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Peržiūrėti visą informaciją apie straipsnį"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Recenzento pateikti failai"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Atmesti prašymą recenzuoti"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Galite pateikti redaktoriui priežastis, kodėl atsisakote recenzavimo."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Sutikti recenzuoti, toliau – 2-as žingsnis"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Toliau – 3-ias žingsnis"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Pateikti recenziją"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Išsaugoti vėlesniam laikui"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Gairės recenzentui"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Šis leidėjas turi politiką, leidžiančią atskleisti galimus recenzentų "
+"interesų konfliktus. Prašome skirti laiko ir peržiūrėti šią politiką."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Neturiu jokių interesų konfliktų"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Galiu turėti interesų konfliktų (nurodyti žemiau)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Interesų konfliktai"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Gairės recenzentui"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Šis leidėjas nepateikė jokių gairių recenzentui."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr "Norėdami atsisiųsti šio straipsnio failus paspauskite jų pavadinimus."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Pateikite (įklijuokite) savo recenziją į žemiau pateiktą formą."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Įkelkite redaktoriui ir (ar) autoriui aktualius failus, įskaitant taisytą "
+"recenzuoto straipsnio failą."
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Skaitykite „Round {$round}“ apžvalgą"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "{$round} raundas. Jūsų pateikta apžvalga"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Recenzento komentarai"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "Redaktoriams ir autoriams"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "Tik redaktoriams"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Komentaras {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Atmetimo priežastis išsiųsta el. paštu"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Nepateikta jokia priežastis, kodėl atmestas kvietimas atlikti peržiūrą."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Atmetimo data"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Straipsnio metaduomenys"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Tipas"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Santrauka"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Raktiniai žodžiai"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Bendra informacija"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Priedai"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Tai yra failai, kuriuos pridėjote kartu su savo apžvalga"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Failai peržiūrai"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Šie failai buvo išsiųsti jums peržiūrėti"
+
+msgid "reviewer.complete"
+msgstr "Recenzija pateikta"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Ar tikrai norite pateikti šią recenziją?"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Ačiū už šio straipsnio recenziją. Ji yra sėkmingai pateikta. Dėkojame už "
+"Jūsų darbą, prireikus, redaktorius gali su Jumis susisiekti."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Ką reiškia nustatytos datos"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Redaktorius prašo iki nurodytos atsakymo datos priimti arba atmesti prašymą "
+"recenzuoti, o iki nurodytos recenzavimo datos pateikti recenziją."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Autoriui ir redaktoriui"

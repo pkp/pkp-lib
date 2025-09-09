@@ -2,10 +2,11 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-14 09:46+0000\n"
-"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/hr/>\n"
 "Language: hr\n"
@@ -200,3 +201,16 @@ msgstr "Član uredništva"
 
 msgid "default.groups.plural.editorialBoardMember"
 msgstr "Članovi uredništva"
+
+msgid "default.submission.step.reviewerSuggestions"
+msgstr ""
+"<p>Tijekom predaje rada imate mogućnost predložiti nekoliko potencijalnih "
+"recenzenata. To može ubrzati recenzentski postupak i pružiti vrijedne "
+"informacije uredničkom timu. Molimo odaberite recenzente koji su stručnjaci "
+"u Vašem području, pri tome pripazite na potencijalni sukob interesa s "
+"obzirom na temu rada. Ova značajka osmišljena je kako bi unaprijedila "
+"recenzentski postupak i omogućila učinkovitije iskustvo i za autore i za "
+"urednički tim.</p>"
+
+msgid "default.groups.abbrev.editorialBoardMember"
+msgstr "Član uredničkog odbora"

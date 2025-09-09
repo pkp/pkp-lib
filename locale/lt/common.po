@@ -1,0 +1,2348 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "common.assigned.date"
+msgstr "Paskirta: {$dateAssigned}"
+
+msgid "common.contents"
+msgstr "Turinys"
+
+msgid "common.declined"
+msgstr "Atmestas"
+
+msgid "common.details"
+msgstr "Išsami informacija"
+
+msgid "common.disabled"
+msgstr "Pasyvinta"
+
+msgid "common.discipline"
+msgstr "Disciplina"
+
+msgid "common.fileName"
+msgstr "Failo pavadinimas"
+
+msgid "common.none"
+msgstr "Nėra"
+
+msgid "common.noComments"
+msgstr "Nėra komentarų"
+
+msgid "common.pagination.next"
+msgstr "Kitas puslapis"
+
+msgid "common.uninitiated"
+msgstr "Nepradėta"
+
+msgid "common.upload"
+msgstr "Įkelti"
+
+msgid "common.year"
+msgstr "Metai"
+
+msgid "debug.notes"
+msgstr "Pastabos:"
+
+msgid "email.from"
+msgstr "Nuo"
+
+msgid "email.recipient"
+msgstr "Gavėjas"
+
+msgid "form.fileRequired"
+msgstr "Reikia įkelti failą."
+
+msgid "notification.removedSubmission"
+msgstr "Pašalintas straipsnis."
+
+msgid "notification.notification"
+msgstr "Pranešimas"
+
+msgid "grid.action.markNew"
+msgstr "Žymėti kaip naują"
+
+msgid "grid.action.markRead"
+msgstr "Žymėti kaip skaitytą"
+
+msgid "semicolon"
+msgstr "{$label}: "
+
+msgid "validator.issn"
+msgstr "Tai nėra galiojantis ISSN."
+
+msgid "common.refreshingData"
+msgstr "Atnaujinami duomenys"
+
+msgid "common.viewMoreDetails"
+msgstr "Peržiūrėti daugiau informacijos"
+
+msgid "common.publicKnowledgeProject"
+msgstr "„Public Knowledge Project“"
+
+msgid "common.currentStyleSheet"
+msgstr "Dabartiniai stiliai"
+
+msgid "about.description"
+msgstr "Aprašymas"
+
+msgid "about.guidelines"
+msgstr "Gairės"
+
+msgid "about.aboutSite"
+msgstr "Apie svetainę"
+
+msgid "about.contact"
+msgstr "Kontaktai"
+
+msgid "about.contact.email"
+msgstr "Elektroninis paštas"
+
+msgid "about.contact.phone"
+msgstr "Telefono numeris"
+
+msgid "about.contact.principalContact"
+msgstr "Redaktorius (-ė)"
+
+msgid "about.contact.supportContact"
+msgstr "Mokslo sekretorius (-ė)"
+
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "Peržiūrėti <a href=\\\"{$url}\\\">Redakcijos istoriją</a>"
+
+msgid "about.other"
+msgstr "Kita"
+
+msgid "about.people"
+msgstr "Žmonės"
+
+msgid "about.policies"
+msgstr "Nuostatai"
+
+msgid "about.siteMap"
+msgstr "Svetainės planas"
+
+msgid "announcement.announcements"
+msgstr "Pranešimai"
+
+msgid "announcement.announcementsHome"
+msgstr "Pranešimai"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Daugiau pranešimų…"
+
+msgid "announcement.noneExist"
+msgstr "Nėra pranešimų."
+
+msgid "announcement.posted"
+msgstr "Paskelbta"
+
+msgid "announcement.postedOn"
+msgstr "Paskelbta {$postData}"
+
+msgid "announcement.view"
+msgstr "Žiūrėti pranešimą"
+
+msgid "common.allDownloads"
+msgstr "Visi atsisiuntimai"
+
+msgid "common.navigation.sidebar"
+msgstr "Šoninė juosta"
+
+msgid "common.navigation.site"
+msgstr "Naršymas po svetainę"
+
+msgid "common.navigation.siteContext"
+msgstr "Naršymas po žurnalą"
+
+msgid "common.navigation.user"
+msgstr "Vartotojo naršymas"
+
+msgid "common.tasks"
+msgstr "Užduotys"
+
+msgid "common.list"
+msgstr "Sąrašas"
+
+msgid "common.grid"
+msgstr "Tinklelis"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Ar tikrai norinti ištrinti šį elementą? Šio veiksmo nebus galima atšaukti."
+
+msgid "common.abstract"
+msgstr "Anotacija"
+
+msgid "common.accepted"
+msgstr "Priimta"
+
+msgid "common.acknowledged"
+msgstr "Patvirtinta"
+
+msgid "common.action"
+msgstr "Veiksmas"
+
+msgid "common.moreActions"
+msgstr "Daugiau veiksmų"
+
+msgid "common.activate"
+msgstr "Aktyvuoti"
+
+msgid "common.active"
+msgstr "Aktyvus"
+
+msgid "common.inactive"
+msgstr "Neaktyvus"
+
+msgid "common.add"
+msgstr "Pridėti"
+
+msgid "common.addCCBCC"
+msgstr "Pridėti kopiją / nematomąją kopiją"
+
+msgid "common.addFiles"
+msgstr "Pridėti failus"
+
+msgid "common.addSelf"
+msgstr "Pridėti save"
+
+msgid "common.attachedFiles"
+msgstr "Prisegti failai"
+
+msgid "common.attachFiles"
+msgstr "Pridėti failus"
+
+msgid "common.attachSelected"
+msgstr "Pridėti pasirinktus"
+
+msgid "common.editorialMasthead"
+msgstr "Redakcijos antraštė"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Praėjusių metų recenzentai"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Praėjusių metų recenzentai"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "Redaktoriai reiškia padėką žemiau išvardytiems {$year} recenzentams."
+
+msgid "common.editorialHistory"
+msgstr "Redakcijos istorija"
+
+msgid "common.editorialHistory.page"
+msgstr "Redakcijos istorijos puslapis"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Šiame skyriuje pateikiami ankstesnių bendraautorių sąrašai."
+
+msgid "common.editorialHistory.page.orcidLink"
+msgstr "Peržiūrėti {$name} ORCID profilį"
+
+msgid "common.name"
+msgstr "Pavadinimas"
+
+msgid "common.all"
+msgstr "Visi"
+
+msgid "common.alphaList"
+msgstr "A Ą B C Č D E Ę Ė F G H I Į Y J K L M N O P R S Š T U Ų Ū V Z Ž"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "common.alreadyAssigned"
+msgstr "Paskirta"
+
+msgid "common.altText"
+msgstr "Alternatyvus tekstas"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Siekiant pagerinti Jūsų ieškyklės optimizavimą ir suderinti su WCAG "
+"standartais, aprašykite, kas vaizduojama šiame paveikslėlyje, kurio "
+"nesimatys, jei svetainė bus peržiūrima vien tik tekstine naršykle arba su "
+"pagalbiniais įrenginiais. Pavyzdžiui: „Mūsų redaktorius kalba PKP#2015 "
+"konferencijoje.“"
+
+msgid "common.and"
+msgstr "ir"
+
+msgid "common.applyAction"
+msgstr "Taikyti veiksmą"
+
+msgid "common.assign"
+msgstr "Paskirti"
+
+msgid "common.assigned"
+msgstr "Paskirta"
+
+msgid "common.assignments"
+msgstr "Užduotys"
+
+msgid "common.available"
+msgstr "Pasiekiama"
+
+msgid "common.back"
+msgstr "Atgal"
+
+msgid "common.between"
+msgstr "tarp"
+
+msgid "common.cancel"
+msgstr "Atšaukti"
+
+msgid "common.cancelled"
+msgstr "Atšaukta"
+
+msgid "common.warning"
+msgstr "Įspėjimas"
+
+msgid "common.error"
+msgstr "Klaida"
+
+msgid "common.notice"
+msgstr "Pastebėjimas"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Turite praeiti patikrą, kuria siekiama užkirsti kelią brukalams."
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br /\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\"\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Pakeitimai atlikti."
+
+msgid "common.changeLanguage"
+msgstr "Keisti kalbą"
+
+msgid "common.chooseOne"
+msgstr "Pasirinkite"
+
+msgid "common.close"
+msgstr "Užverti"
+
+msgid "common.closePanel"
+msgstr "Užverti skydelį"
+
+msgid "common.closeWindow"
+msgstr "Užverti langą"
+
+msgid "common.complete"
+msgstr "Baigta"
+
+msgid "common.completed"
+msgstr "Užbaigta"
+
+msgid "common.completed.date"
+msgstr "Užbaigta: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Patvirtinti"
+
+msgid "common.confirmed.date"
+msgstr "Patvirtinta: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Turinys"
+
+msgid "common.continue"
+msgstr "Tęsti"
+
+msgid "common.yesContinue"
+msgstr "Taip, tęsti"
+
+msgid "common.copy"
+msgstr "Kopija"
+
+msgid "common.country"
+msgstr "Šalis"
+
+msgid "common.create"
+msgstr "Sukurti"
+
+msgid "common.dateCompleted"
+msgstr "Data sutvarkyta"
+
+msgid "common.dateDecided"
+msgstr "Data sutvarkyta"
+
+msgid "common.date"
+msgstr "Data"
+
+msgid "common.dateModified"
+msgstr "Data pakeista"
+
+msgid "common.dateRequested"
+msgstr "Reikia pateikti datą"
+
+msgid "common.dateSubmitted"
+msgstr "Data pateikta"
+
+msgid "common.dateUploaded"
+msgstr "Data įkelta"
+
+msgid "common.dateHijri"
+msgstr "Hidžros kalendorius"
+
+msgid "common.day"
+msgstr "Diena"
+
+msgid "common.deactivate"
+msgstr "Pasyvinti"
+
+msgid "common.default"
+msgstr "Numatytas"
+
+msgid "common.delete"
+msgstr "Ištrinti"
+
+msgid "common.deleting"
+msgstr "Trinama"
+
+msgid "common.deleteSelection"
+msgstr "Ištrinti pažymėtus"
+
+msgid "common.deselect"
+msgstr "Atšaukti pasirinkimą"
+
+msgid "common.designation"
+msgstr "Pavadinimas"
+
+msgid "common.description"
+msgstr "Aprašymas"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.discardChanges"
+msgstr "Ne, atmesti neišsaugotus pakeitimus"
+
+msgid "common.disconnected"
+msgstr "Atjungtas"
+
+msgid "common.disable"
+msgstr "Pasyvinti"
+
+msgid "common.done"
+msgstr "Atlikta"
+
+msgid "common.download"
+msgstr "Atsiųsti"
+
+msgid "common.downloadPdf"
+msgstr "Atsiųsti PDF"
+
+msgid "common.downloadReport"
+msgstr "Atsisiųsti ataskaitą"
+
+msgid "common.dragAndDropHere"
+msgstr "Nuvilkite failus čia."
+
+msgid "common.orUploadFile"
+msgstr "Arba įkelkite failą"
+
+msgid "common.edit"
+msgstr "Taisyti"
+
+msgid "common.editItem"
+msgstr "Redaguoti {$name}"
+
+msgid "common.emailTemplates"
+msgstr "El. laiškų šablonai"
+
+msgid "common.enable"
+msgstr "Įgalinti"
+
+msgid "common.enabled"
+msgstr "Įgalinta"
+
+msgid "common.error.databaseError"
+msgstr "Įvyko duomenų bazės klaida: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Įvyko nežinoma ryšio su duomenų baze klaida."
+
+msgid "common.error.framesRequired"
+msgstr ""
+"This page requires frames. <a href=\"{$url}\">Click here</a> for the non-"
+"frames version."
+
+msgid "common.event"
+msgstr "Įvykis"
+
+msgid "common.export"
+msgstr "Eksportuoti"
+
+msgid "common.finish"
+msgstr "Baigti"
+
+msgid "common.fullscreen"
+msgstr "Rodyti per visą ekraną"
+
+msgid "common.fullscreenOff"
+msgstr "Nerodyti per visą ekraną"
+
+msgid "common.false"
+msgstr "Neteisingai"
+
+msgid "common.file"
+msgstr "Failas"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileSize"
+msgstr "Failo dydis"
+
+msgid "common.fileType"
+msgstr "Failo tipas"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Įkeliama sistemos failų įkėlyklė. Jei ji nepasirodo, tikriausiai ši naršyklė "
+"nepalaiko jokio jos vykdymo laiko. Susisiekite su administratoriumi (-e) dėl "
+"pagalbos."
+
+msgid "common.filter"
+msgstr "Filtruoti"
+
+msgid "common.filterAdd"
+msgstr "Pridėti filtravimą: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Atsisakyti filtravimo: {$filterTitle}"
+
+msgid "common.filtersClear"
+msgstr "Išvalyti filtrus"
+
+msgid "common.findTemplate"
+msgstr "Rasti šabloną"
+
+msgid "common.formatting"
+msgstr "Formatavimas"
+
+msgid "common.geographic"
+msgstr "Geografinis"
+
+msgid "common.go"
+msgstr "Eiti"
+
+msgid "common.height"
+msgstr "Aukštis"
+
+msgid "common.highlight"
+msgstr "Paryškinti"
+
+msgid "common.highlights"
+msgstr "Svarbiausi dalykai"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Pradžia"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Pradinio puslapio antraštės logotipas"
+
+msgid "common.hour"
+msgstr "Valanda"
+
+msgid "common.id"
+msgstr "Identifikatorius"
+
+msgid "common.import"
+msgstr "Importuoti"
+
+msgid "common.initiate"
+msgstr "Pradėti"
+
+msgid "common.inProgress"
+msgstr "Vyksta"
+
+msgid "common.insert"
+msgstr "Įterpti"
+
+msgid "common.insertContent"
+msgstr "Įterpti turinį"
+
+msgid "common.insertContentSearch"
+msgstr "Rasti turinį, kurį norite įterpti"
+
+msgid "common.itemsPerPage"
+msgstr "Elementų puslapyje"
+
+msgid "common.keywords"
+msgstr "Esminiai žodžiai * (atskiriami paspaudus „enter“)"
+
+msgid "common.label"
+msgstr "Etiketė"
+
+msgid "common.language"
+msgstr "Kalba"
+
+msgid "common.languages"
+msgstr "Kalbos"
+
+msgid "common.lastSaved"
+msgstr "Paskutinį kartą išsaugota {$when}"
+
+msgid "common.lastActivity"
+msgstr "Paskutinė veikla užfiksuota {$date}."
+
+msgid "common.less"
+msgstr "Mažiau"
+
+msgid "common.lessThan"
+msgstr "{$value} arba mažiau"
+
+msgid "common.lessThanOnly"
+msgstr "Mažiau nei"
+
+msgid "common.keepWorking"
+msgstr "Toliau dirbkite"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Valdyti"
+
+msgid "common.mailingAddress"
+msgstr "Pašto adresas"
+
+msgid "common.billingAddress"
+msgstr "Adresas sąskaitoms (jei skiriasi)"
+
+msgid "common.minute"
+msgstr "Minutė (-ės)"
+
+msgid "common.modify"
+msgstr "Taisyti"
+
+msgid "common.month"
+msgstr "Mėnuo"
+
+msgid "common.more"
+msgstr "Daugiau"
+
+msgid "common.moreThan"
+msgstr "{$value} arba daugiau"
+
+msgid "common.moreThanOnly"
+msgstr "Daugiau nei"
+
+msgid "common.noneAssigned"
+msgstr "Nieko nepaskirta"
+
+msgid "common.noneSelected"
+msgstr "Niekas nepasirinkta"
+
+msgid "common.noneProvided"
+msgstr "Nieko nepateikta"
+
+msgid "common.no"
+msgstr "Ne"
+
+msgid "common.noItemsFound"
+msgstr "Nerasta jokių elementų."
+
+msgid "common.notApplicable"
+msgstr "Nepasiekiama"
+
+msgid "common.notApplicableShort"
+msgstr "Nepasiekiama"
+
+msgid "common.notAvailable"
+msgstr "Neprieinama"
+
+msgid "common.note"
+msgstr "Pastaba"
+
+msgid "common.noTemporaryFile"
+msgstr "Įkelto failo nerasta. Bandykite jį įkelti dar kartą."
+
+msgid "common.notes"
+msgstr "Pastabos"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Pastabos (geltona: naujos pastabos; mėlyna: žiūrėtos pastabos; pilka: nėra "
+"pastabų)"
+
+msgid "common.notified"
+msgstr "Pranešta"
+
+msgid "common.notified.date"
+msgstr "Pranešta: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Nerasta"
+
+msgid "common.numberedMore"
+msgstr "dar {$number}"
+
+msgid "common.off"
+msgstr "Išjungta"
+
+msgid "common.on"
+msgstr "Įjungta"
+
+msgid "common.ok"
+msgstr "Gerai"
+
+msgid "common.options"
+msgstr "Parinktys"
+
+msgid "common.order"
+msgstr "Rikiuoti"
+
+msgid "common.orderUp"
+msgstr "Padidinti {$itemTitle} poziciją"
+
+msgid "common.orderDown"
+msgstr "Sumažinti {$itemTitle} poziciją"
+
+msgid "common.originalFileName"
+msgstr "Originalus failo pavadinimas"
+
+msgid "common.or"
+msgstr "arba"
+
+msgid "common.other"
+msgstr "Kita"
+
+msgid "common.overdue"
+msgstr "Vėluojama"
+
+msgid "common.override"
+msgstr "Nepaisyti"
+
+msgid "common.pagination"
+msgstr "{$start}–{$end} iš {$total}"
+
+msgid "common.pagination.label"
+msgstr "Naršyti po papildomus puslapius"
+
+msgid "common.pagination.goToPage"
+msgstr "Eiti į {$page}"
+
+msgid "common.pagination.previous"
+msgstr "Ankstesnis puslapis"
+
+msgid "common.pageNumber"
+msgstr "{$pageNumber} puslapis"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Įskiepis"
+
+msgid "common.pluginEnabled"
+msgstr "Įskiepis „{$pluginName}“ įgalintas."
+
+msgid "common.pluginDisabled"
+msgstr "Įskiepis „{$pluginName}“ pasyvintas."
+
+msgid "common.prefix"
+msgstr "Prefiksas"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Pavyzdžiai: A, The"
+
+msgid "common.preview"
+msgstr "Peržiūra"
+
+msgid "common.publisher"
+msgstr "Leidėjas"
+
+msgid "common.quality"
+msgstr "Kokybė"
+
+msgid "common.queue.long.active"
+msgstr "Visi tvarkomi"
+
+msgid "common.range"
+msgstr "{$min}–{$max}"
+
+msgid "common.re"
+msgstr "Ats.:"
+
+msgid "common.readMore"
+msgstr "Skaityti daugiau"
+
+msgid "common.readMoreWithTitle"
+msgstr "Skaityti daugiau apie „{$title}“"
+
+msgid "common.reconnecting"
+msgstr "Pakartotinis prisijungimas"
+
+msgid "common.record"
+msgstr "Įrašas"
+
+msgid "common.refresh"
+msgstr "Atnaujinti"
+
+msgid "common.related"
+msgstr "Susiję"
+
+msgid "common.reminder"
+msgstr "Priminimas"
+
+msgid "common.reminded.date"
+msgstr "Priminta: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Nuotolinis"
+
+msgid "common.remoteURL"
+msgstr "Nuotolinė nuoroda (URL)"
+
+msgid "common.remove"
+msgstr "Pašalinti"
+
+msgid "common.removeItem"
+msgstr "Pašalinti {$item}"
+
+msgid "common.removeSelection"
+msgstr "Pašalinti pažymėtus"
+
+msgid "common.replaced"
+msgstr "Pakeistas"
+
+msgid "common.replaceFile"
+msgstr "Pakeisti failą"
+
+msgid "common.requiredField"
+msgstr "* Įrašyti būtina"
+
+msgid "common.required"
+msgstr "Būtinas"
+
+msgid "common.reset"
+msgstr "Atkurti"
+
+msgid "common.reviewRoundNumber"
+msgstr "Apvalus {$round}"
+
+msgid "common.role"
+msgstr "Vaidmuo"
+
+msgid "common.saveAndContinue"
+msgstr "Išsaugoti ir tęsti"
+
+msgid "common.saveAndEmail"
+msgstr "Išsaugoti ir siųsti elektroniniu paštu"
+
+msgid "common.save"
+msgstr "Išsaugoti"
+
+msgid "common.saving"
+msgstr "Saugoma"
+
+msgid "common.search"
+msgstr "Ieškoti"
+
+msgid "common.searchPhrase"
+msgstr "Paieškos frazė"
+
+msgid "common.searching"
+msgstr "Ieškoma"
+
+msgid "common.searchQuery"
+msgstr "Paieškos užklausa"
+
+msgid "common.clearSearch"
+msgstr "Ištrinti paieškos frazę"
+
+msgid "common.second"
+msgstr "Sekundė (-ės)"
+
+msgid "common.selectAll"
+msgstr "Pažymėti viską"
+
+msgid "common.selectedPrefix"
+msgstr "Pasirinkta:"
+
+msgid "common.selectNone"
+msgstr "Nieko nežymėti"
+
+msgid "common.select"
+msgstr "Pažymėti"
+
+msgid "common.selectWithName"
+msgstr "Pasirinkite {$name}"
+
+msgid "common.sendEmail"
+msgstr "Siųsti elektroninį laišką"
+
+msgid "common.showAllSteps"
+msgstr "Rodyti visus veiksmus"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} žingsnių"
+
+msgid "common.showingXofX"
+msgstr "Rodoma nuo <strong>{$start} iki {$finish}</strong> iš {$total}"
+
+msgid "common.size"
+msgstr "Dydis"
+
+msgid "common.source"
+msgstr "Šaltinis"
+
+msgid "common.status"
+msgstr "Būsena"
+
+msgid "common.subject"
+msgstr "Tema"
+
+msgid "common.subjects"
+msgstr "Temos"
+
+msgid "common.submenu"
+msgstr "Submeniu"
+
+msgid "common.subtitle"
+msgstr "Paantraštė"
+
+msgid "common.suggest"
+msgstr "Pasiūlyti"
+
+msgid "common.switchTo"
+msgstr "Perjungti į"
+
+msgid "common.switchToNamedItem"
+msgstr "Perjungti į {$name}"
+
+msgid "common.title"
+msgstr "Antraštė"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "Viršus"
+
+msgid "common.true"
+msgstr "Teisingai"
+
+msgid "common.type"
+msgstr "Tipas"
+
+msgid "common.uploadedBy"
+msgstr "Įkėlė {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Įkėlė {$name} {$date}"
+
+msgid "common.component"
+msgstr "Komponentas"
+
+msgid "common.unknownError"
+msgstr ""
+"Įvyko netikėta klaida. Įkelkite puslapį iš naujo ir bandykite dar kartą."
+
+msgid "common.unread"
+msgstr "Neskaityta"
+
+msgid "common.unsavedChanges"
+msgstr "Neišsaugoti pakeitimai"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Radome neišsaugotų pakeitimų nuo {$when}. Taip gali nutikti, jei darbo metu "
+"prarandate ryšį su serveriu. Atkūrus šiuos pakeitimus, gali būti perrašyti "
+"visi nuo to laiko atlikti pakeitimai. Ar norite atkurti šiuos pakeitimus "
+"dabar?"
+
+msgid "common.untitled"
+msgstr "Be antraštės"
+
+msgid "common.updated"
+msgstr "Atnaujinta"
+
+msgid "common.uploadedDate"
+msgstr "Įkelta data"
+
+msgid "common.uploadFailed"
+msgstr "Failo nepavyko įkelti ar peržiūrėti."
+
+msgid "common.up"
+msgstr "Aukštyn"
+
+msgid "common.addFile"
+msgstr "Pridėti failą"
+
+msgid "common.upload.addFile"
+msgstr "Įkelti failą"
+
+msgid "common.upload.addFile.description"
+msgstr "Įkelkite failą iš savo kompiuterio."
+
+msgid "common.upload.restore"
+msgstr "Atkurti originalą"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Šiuo metu pasirinkto vaizdo peržiūra."
+
+msgid "common.upload.changeFile"
+msgstr "Pakeisti failą"
+
+msgid "common.upload.dragFile"
+msgstr "Norėdami įkelti, tempkite failą čia"
+
+msgid "common.url"
+msgstr "Nuoroda (URL)"
+
+msgid "common.user"
+msgstr "Vartotojas"
+
+msgid "common.user.nonexistent"
+msgstr "[Neegzistuojantis vartotojas]"
+
+msgid "common.view"
+msgstr "Peržiūrėti"
+
+msgid "common.viewError"
+msgstr "Peržiūrėti klaidą"
+
+msgid "common.viewWithName"
+msgstr "Peržiūrėti {$name}"
+
+msgid "common.viewProfile"
+msgstr "Peržiūrėti profilį"
+
+msgid "common.weeks"
+msgstr "savaitės"
+
+msgid "common.width"
+msgstr "Plotis"
+
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.yes"
+msgstr "Taip"
+
+msgid "common.loading"
+msgstr "Kraunama"
+
+msgid "common.loaded"
+msgstr "Pakrautas"
+
+msgid "common.plugins"
+msgstr "Įskiepiai"
+
+msgid "common.count"
+msgstr "Suskaičiuoti"
+
+msgid "common.publicAccess"
+msgstr "Vieša prieiga"
+
+msgid "debug.databaseQueries"
+msgstr "Duomenų bazės užklausų skaičius"
+
+msgid "debug.executionTime"
+msgstr "Puslapis sukurtas"
+
+msgid "debug.memoryUsage"
+msgstr "Atminties naudojimas"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Įkeltas lokalės sąrašas „{$localeList}“ iš XML"
+
+msgid "debug.notes.localeLoad"
+msgstr "Įkeltas lokalės failas „{$localeFile}“ iš XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Trūksta lokalės rakto „{$key}“."
+
+msgid "defaultMetric.title"
+msgstr "Numatytoji metrinė"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Įkelti recenzijos failą"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Įkelti failą"
+
+msgid "email.addAttachment"
+msgstr "Pridėti priedą"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Pridėti pateikimo failus"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Prisekite autoriaus įkeltus failus pateikimo etape."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Pridėkite pateikimo darbo eigos metu įkeltus failus, pvz., pataisymus arba "
+"peržiūrėtinus failus."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Bibliotekos failai"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Pridėti bibliotekos failus"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Prisekite failus iš pateikimo ir leidėjo bibliotekų."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Pridėti peržiūros failus"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Pridėkite recenzentų įkeltus failus"
+
+msgid "email.addBccRecipient"
+msgstr "Pridėti nematomą kopiją"
+
+msgid "email.addCcRecipient"
+msgstr "Pridėti kopiją"
+
+msgid "email.addToRecipient"
+msgstr "Pridėti gavėją"
+
+msgid "email.attachments"
+msgstr "Priedai"
+
+msgid "email.attachmentNotFound"
+msgstr "Nepavyko pridėti failo {$fileName}."
+
+msgid "email.bcc"
+msgstr "Nematoma kopija"
+
+msgid "email.bccSender"
+msgstr "Siųsti šio pranešimo kopiją mano adresu ({$address})"
+
+msgid "email.body"
+msgstr "Pagrindinis tekstas"
+
+msgid "email.cc"
+msgstr "Kopija"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Ar tikrai norite pakeisti į {$localeName}, kad galėtumėte rašyti šį el. "
+"laišką? Visi atlikti el. laiško temos ir teksto pakeitimai bus prarasti."
+
+msgid "email.compose"
+msgstr "Siųsti elektroninį laišką"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Per daug gavėjų, kuriems bandote išsiųsti pranešimą."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Bandote išsiųsti pranešimą per greitai nuo paskutinio pranešimo išsiuntimo. "
+"Prašome palaukti prieš siųsdami kitą pranešimą."
+
+msgid "email.compose.error"
+msgstr ""
+"Įvyko klaida siunčiant pranešimą elektroniniu paštu. Pabandykite vėliau arba "
+"susisiekite su savo sistemos administratoriumi (-e)."
+
+msgid "email.email"
+msgstr "Elektroninis laiškas"
+
+msgid "email.invalid"
+msgstr "Elektroninio pašto adresas {$email} yra netinkamas."
+
+msgid "email.multipart"
+msgstr "Tai daugiadalis pranešimas MIME formatu."
+
+msgid "email.recipients"
+msgstr "Gavėjai"
+
+msgid "email.sender"
+msgstr "Siuntėjas"
+
+msgid "email.senderName"
+msgstr "Siuntėjo vardas"
+
+msgid "email.senderEmail"
+msgstr "Siuntėjo elektroninis paštas"
+
+msgid "email.send"
+msgstr "Siųsti"
+
+msgid "email.skip"
+msgstr "Nesiųsti elektroninio laiško"
+
+msgid "email.subject"
+msgstr "Tema"
+
+msgid "email.subjectRequired"
+msgstr "Pateikite elektroninio laiško temą."
+
+msgid "email.bodyRequired"
+msgstr "Pateikite elektroninio laiško tekstą."
+
+msgid "email.to"
+msgstr "Kam"
+
+msgid "form.url.invalid"
+msgstr ""
+"Nurodyta netinkama nuoroda (URL). Patikrinkite ją ir bandykite dar kartą."
+
+msgid "form.confirmSubmit"
+msgstr "Ar tikrai norite pateikti šią formą?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Patvirtinti"
+
+msgid "form.dataHasChanged"
+msgstr "Duomenys šioje formoje pasikeitė. Norite tęsti neišsaugoję?"
+
+msgid "form.disallowedLocales"
+msgstr "Leidžiamos tik šios kalbos: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Ši nuosavybė neleidžiama."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Numeskite failus čia, kad įkeltumėte"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Jūsų naršyklė nepalaiko failų įkėlimo vilkimo ir numetimo būdu."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Norėdami įkelti failus, naudokite toliau pateiktą atsarginę formą."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Failas per didelis ({{filesize}}mb). Failų, didesnių nei {{maxFilesize}}mb, "
+"įkelti negalima."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Šio tipo failų įkelti negalima."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Serveris atsakė kodu {{statusCode}}. Jei problema išlieka, susisiekite su "
+"sistemos administratoriumi."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Atšaukti įkėlimą"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Įkėlimas atšauktas"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Ar tikrai norite atšaukti šį įkėlimą?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Pašalinti failą"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Daugiau failų įkelti negalima."
+
+msgid "form.errorA11y"
+msgstr "Eikite į {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Pereiti prie kitos klaidos"
+
+msgid "form.errorOne"
+msgstr "Prašau ištaisyti vieną klaidą."
+
+msgid "form.errorMany"
+msgstr "Ištaisykite {$count} klaidas."
+
+msgid "form.errorSummaryOne"
+msgstr "Aptikta 1 klaida! Prieš tęsdami, ištaisykite toliau pateiktą klaidą."
+
+msgid "form.errorSummaryMany"
+msgstr ""
+"Aptikta {$count} klaidų! Prieš tęsdami, ištaisykite toliau pateiktas klaidas."
+
+msgid "form.errors"
+msgstr ""
+"Forma nebuvo išsaugota, nes buvo aptikta {$count} klaida(-ų). Ištaisykite "
+"šias klaidas ir bandykite dar kartą."
+
+msgid "form.errorsOccurred"
+msgstr "Klaida"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Norėdami įvesti informaciją žemiau kitomis kalbomis, pirmiausia pasirinkite "
+"kalbą."
+
+msgid "form.formLanguage"
+msgstr "Formos kalba"
+
+msgid "form.contains"
+msgstr "turi"
+
+msgid "form.is"
+msgstr "yra"
+
+msgid "form.startsWith"
+msgstr "prasideda"
+
+msgid "form.postRequired"
+msgstr "Forma nebuvo pateikta tinkamai."
+
+msgid "form.csrfInvalid"
+msgstr "Forma nebuvo pateikta tinkamai."
+
+msgid "form.required"
+msgstr "(* Būtinas)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Šį lauką turite užpildyti {$language}."
+
+msgid "form.requireId"
+msgstr "Privalote pateikti galiojantį asmens dokumentą."
+
+msgid "form.resubmit"
+msgstr "Pakartotinai pateikti"
+
+msgid "form.saved"
+msgstr "Išsaugota"
+
+msgid "form.saveToUpload"
+msgstr "Norėdami įkelti failą, paspauskite „išsaugoti“."
+
+msgid "form.send"
+msgstr "Siųsti"
+
+msgid "form.submit"
+msgstr "Pateikti"
+
+msgid "form.invalidImage"
+msgstr ""
+"Paveikslėlis įkeltas netinkamu formatu. Reikia pateikti .png, .gif arba .jpg "
+"formatais."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} vietovėje {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "Išspręsta {$count}/{$total} kalbos"
+
+msgid "help.help"
+msgstr "Pagalba"
+
+msgid "help.toc"
+msgstr "Turinys"
+
+msgid "help.previous"
+msgstr "Ankstesnis"
+
+msgid "help.next"
+msgstr "Kitas"
+
+msgid "help.upALevel"
+msgstr "Grįžti aukščiau"
+
+msgid "icon.checked.alt"
+msgstr "Pasirinkta"
+
+msgid "icon.comment.alt"
+msgstr "Komentaras"
+
+msgid "icon.delete.alt"
+msgstr "Ištrinti"
+
+msgid "icon.edit.alt"
+msgstr "Taisyti"
+
+msgid "icon.folder.alt"
+msgstr "Aplankas"
+
+msgid "icon.font_large.alt"
+msgstr "Didelis"
+
+msgid "icon.font_medium.alt"
+msgstr "Vidutinis"
+
+msgid "icon.font_small.alt"
+msgstr "Mažas"
+
+msgid "icon.info.alt"
+msgstr "Informacija"
+
+msgid "icon.letter.alt"
+msgstr "Laiškas"
+
+msgid "icon.mail.alt"
+msgstr "Paštas"
+
+msgid "icon.unchecked.alt"
+msgstr "Nepasirinkta"
+
+msgid "icon.view.alt"
+msgstr "Peržiūrėti"
+
+msgid "informationCenter.informationCenter"
+msgstr "Informacijos centras"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Redagavimo istorija"
+
+msgid "informationCenter.addNote"
+msgstr "Pridėti pastabą"
+
+msgid "informationCenter.noNotes"
+msgstr "Nėra rodytinų pastabų."
+
+msgid "informationCenter.pastNotes"
+msgstr "Ankstesnės taisymų pastabos"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Ar tikrai norite ištrinti šią pastabą?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Naujausi pataisymai"
+
+msgid "informationCenter.pastHistory"
+msgstr "Ankstesni pataisymai"
+
+msgid "informationCenter.history.noItems"
+msgstr "Nėra užregistruotų jokių įvykių."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Paskelbta nauja pastaba."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Pranešimas išsiųstas vartotojams."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Pranešimas išsiųstas vartotojams."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Pradėti diskusiją"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Pradėti diskusiją su {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Pasirinkite parengtą pranešimą arba užpildykite apačioje pateiktą formą."
+
+msgid "stageParticipants.notify.message"
+msgstr "Pranešimas"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Įsitikinkite, kad užpildėte pranešimo lauką ir nurodėte bent vieną gavėją."
+
+msgid "stageParticipants.options"
+msgstr "Turimos teisės"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Šis dalyvis gali tik siūlyti redakcijos sprendimą dėl spausdinimo, jį "
+"patvirtinti gali tik įgaliojimus turintis redaktorius."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Leidimai"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Leisti šiam asmeniui keisti leidinį, pvz., pavadinimą, santrauką, "
+"metaduomenis ir kitą leidinio informaciją. Galite atšaukti šią privilegiją, "
+"jei pateiktas darbas buvo galutinai patikrintas ir paruoštas publikuoti."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Dalyvis"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Šio dalyvio negalima keisti"
+
+msgid "locale.primary"
+msgstr "Pirminė lokalė"
+
+msgid "locale.supported"
+msgstr "Palaikomos lokalės"
+
+msgid "navigation.access"
+msgstr "Vartotojai ir funkcijos"
+
+msgid "navigation.about"
+msgstr "Apie"
+
+msgid "navigation.admin"
+msgstr "Administracija"
+
+msgid "navigation.archives"
+msgstr "Archyvas"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Jūs esate čia:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Įrankiai"
+
+msgid "navigation.data"
+msgstr "Duomenys"
+
+msgid "navigation.tools.importExport"
+msgstr "Importuoti / eksportuoti"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistika"
+
+msgid "navigation.browse"
+msgstr "Naršyti"
+
+msgid "navigation.home"
+msgstr "Pradžia"
+
+msgid "navigation.backTo"
+msgstr "⟵ Atgal į {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "Pagal autorių"
+
+msgid "navigation.browseByTitle"
+msgstr "Pagal antraštę"
+
+msgid "navigation.dashboard"
+msgstr "Valdymo skydelis"
+
+msgid "navigation.infoForReaders"
+msgstr "Skaitytojams"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informacija skaitytojams"
+
+msgid "navigation.items"
+msgstr "{$from} – {$to} iš {$total}"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} iš {$total}"
+
+msgid "navigation.login"
+msgstr "Prisijungti"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Kitas žingsnis"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Ankstesnis žingsnis"
+
+msgid "navigation.publicMenu"
+msgstr "Viešas meniu"
+
+msgid "navigation.register"
+msgstr "Registruotis"
+
+msgid "navigation.search"
+msgstr "Paieška"
+
+msgid "navigation.settings"
+msgstr "Nustatymai"
+
+msgid "navigation.setup"
+msgstr "Sąranka"
+
+msgid "navigation.sitemap"
+msgstr "Svetainės planas"
+
+msgid "navigation.skip.description"
+msgstr "Pereiti prie turinio nuorodų"
+
+msgid "navigation.skip.announcements"
+msgstr "Praleisti pranešimus"
+
+msgid "navigation.skip.main"
+msgstr "Pereiti prie pagrindinio turinio"
+
+msgid "navigation.skip.nav"
+msgstr "Pereiti prie pagrindinio naršymo meniu"
+
+msgid "navigation.skip.footer"
+msgstr "Pereiti prie svetainės poraštės"
+
+msgid "navigation.stepNumber"
+msgstr "{$step} žingsnis"
+
+msgid "navigation.submissions"
+msgstr "Straipsnių teikimas"
+
+msgid "navigation.dashboards"
+msgstr "Redaktoriaus valdymo skydelis"
+
+msgid "navigation.reviewAssignments"
+msgstr "Mano, kaip recenzento, užduotys"
+
+msgid "navigation.mySubmissions"
+msgstr "Mano, kaip autoriaus, pateiktos medžiagos"
+
+msgid "navigation.system"
+msgstr "Sistema"
+
+msgid "navigation.userHome"
+msgstr "Vartotojo pradinis puslapis"
+
+msgid "navigation.user"
+msgstr "Vartotojas"
+
+msgid "navigation.userManagement"
+msgstr "Vartotojo tvarkymas"
+
+msgid "navigation.viewFrontend"
+msgstr "Peržiūrėti svetainę"
+
+msgid "institution.institutions"
+msgstr "Institucijos"
+
+msgid "notification.addedAuditor"
+msgstr "Tikrintojas pridėtas."
+
+msgid "notification.removedAuditor"
+msgstr "Tikrintojas pašalintas."
+
+msgid "notification.addedQuery"
+msgstr "Pridėta diskusija"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Recenzija pažymėta kaip patvirtinta. Elektroninis laiškas nesiųstas."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Recenzentui padėkota elektroniniu paštu."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Recenzijos failai atnaujinti"
+
+msgid "notification.allow"
+msgstr "Įgalinti."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Pranešimo tipas pridėtas."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Pranešimo tipas pataisytas."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Pranešimo tipas pašalintas."
+
+msgid "notification.removedAnnouncement"
+msgstr "Pranešimas pašalintas."
+
+msgid "notification.confirmError"
+msgstr "Tvirtinant Jūsų prenumeratą įvyko klaida"
+
+msgid "notification.confirmSuccess"
+msgstr "Jūs sėkmingai užsiprenumeravote."
+
+msgid "notification.email"
+msgstr "Nesiųsti pranešimų elektroniniu paštu."
+
+msgid "notification.noneExist"
+msgstr "Šiuo metu neturite jokių pranešimų."
+
+msgid "notification.addedNote"
+msgstr "Pastaba paskelbta."
+
+msgid "notification.removedNote"
+msgstr "Pastaba ištrinta."
+
+msgid "notification.removedFile"
+msgstr "Pašalintas failas."
+
+msgid "notification.notifications"
+msgstr "Pranešimai"
+
+msgid "notification.sentNotification"
+msgstr "Pranešimas išsiųstas."
+
+msgid "notification.settings"
+msgstr "Pranešimo nustatymai"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Pažymėkite, apie kokius  sistemos įvykius norėtumėte gauti pranešimus. "
+"Nepažymėjus įvykiai nebus rodomi sistemoje ir nebus siunčiami elektroniniu "
+"paštu. Pažymėjus tuos įvykius matysite sistemoje ir dar galėsite gauti "
+"elektroniniu paštu."
+
+msgid "notification.reminderError"
+msgstr ""
+"Įvyko klaida siunčiant Jūsų slaptažodį. Įsitikinkite, kad savo elektroninio "
+"pašto adresą įvedėte teisingai."
+
+msgid "notification.reminderSent"
+msgstr "Jūsų naujas slaptažodis išsiųstas pateiktu elektroninio pašto adresu."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Straipsnio metaduomenys išsaugoti."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+"Išsiųsti pranešimus elektroniniu paštu visiems registruotiems vartotojams"
+
+msgid "search.author"
+msgstr "Pagal autorių"
+
+msgid "search.abstract"
+msgstr "Anotacija"
+
+msgid "search.advancedFilters"
+msgstr "Išplėstiniai filtrai"
+
+msgid "search.advancedSearchMore"
+msgstr "Papildomos paieškos parinktys"
+
+msgid "search.advancedSearchLess"
+msgstr "Paslėpti papildomas paieškos parinktis"
+
+msgid "search.searchAgain"
+msgstr "Ieškoti dar kartą"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Indekso ištrynimas"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "atlikta"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "klaida"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} straipsniai indeksuoti"
+
+msgid "search.coverage"
+msgstr "Aprėptis"
+
+msgid "search.date"
+msgstr "Paskelbimo data"
+
+msgid "search.dateFrom"
+msgstr "Išleista vėliau, nei"
+
+msgid "search.dateTo"
+msgstr "Išleista anksčiau, nei"
+
+msgid "search.deleteFilter"
+msgstr "Ištrinti"
+
+msgid "search.discipline"
+msgstr "Disciplina (-os)"
+
+msgid "search.fullText"
+msgstr "Visas tekstas"
+
+msgid "search.indexTerms"
+msgstr "Rodyklės terminai"
+
+msgid "search.indexTermsLong"
+msgstr "Visi rodyklės terminų laukai"
+
+msgid "search.matchAll"
+msgstr "Atitikti visas kategorijas"
+
+msgid "search.noResults"
+msgstr "Nieko nerasta"
+
+msgid "search.operator.and"
+msgstr "ir"
+
+msgid "search.operator.not"
+msgstr "ne"
+
+msgid "search.operator.or"
+msgstr "arba"
+
+msgid "search.SearchFor"
+msgstr "Ieškoti"
+
+msgid "search.searchResults"
+msgstr "Paieškos rezultatai"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Rado vieną daiktą."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Rasta {$count} elementų."
+
+msgid "search.subject"
+msgstr "Esminiai žodžiai"
+
+msgid "search.titleIndex"
+msgstr "Naršyti antraščių rodyklėje"
+
+msgid "search.title"
+msgstr "Antraštė"
+
+msgid "search.typeMethodApproach"
+msgstr "Tipas (metodas / kryptis)"
+
+msgid "grid.action.downloadFile"
+msgstr "Atsisiųsti šį failą"
+
+msgid "context.path"
+msgstr "Kelias"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Kaip užtikrinti visų failų anonimiškumą"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Perskaityti dabartinius recenzavimo nuostatus"
+
+msgid "grid.action.deleteNotification"
+msgstr "Ištrinti užduotį"
+
+msgid "dashboard.tasks"
+msgstr "Užduotys"
+
+msgid "dashboard.myQueue"
+msgstr "Mano straipsniai"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Kaip užtikrinti visų failų anonimiškumą"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Siekiant užtikrinti anoniminio recenzavimo vientisumą, reikėtų dėti visas "
+"pastangas, kad autorių ir recenzentų tapatybės nebūtų žinomos. Tai reiškia, "
+"kad autoriai, redaktoriai ir recenzentai (kurie įkelia dokumentus kaip "
+"peržiūros dalį) patikrina, ar buvo atlikti šie veiksmai dėl teksto ir failo "
+"ypatybių:</p>\n"
+"<ul><li>Dokumento autoriai ištrynė savo vardus iš teksto, o nuorodose ir "
+"išnašose vietoj autoriaus vardo, straipsnio pavadinimo ir kt. naudojamas "
+"žodis „Autorius“ ir metai.</li>\n"
+"<li>Dokumento autoriai pašalino asmeninę informaciją iš failo ypatybių "
+"atlikdami šiuos veiksmus:\n"
+"<ul><li>„Microsoft Word“, skirta „Windows“:\n"
+"<ul><li>Eikite į „Failas“</li>\n"
+"<li>Pasirinkite informaciją</li>\n"
+"<li>Spustelėkite „Tikrinti problemas“</li>\n"
+"<li>Spustelėkite „Tikrinti dokumentą“</li>\n"
+"<li>Dialogo lange Dokumentų inspektorius pažymėkite žymimuosius langelius, "
+"kad pasirinktumėte norimo patikrinti paslėpto turinio tipą.</li>\n"
+"<li>Spustelėkite „Pašalinti viską“</li>\n"
+"<li>Spustelėkite „Uždaryti“</li>\n"
+"<li>Įrašyti dokumentą</li></ul>\n"
+"<li>„Microsoft Word“, skirta „MacOS“:\n"
+"<ul><li>Eikite į „Įrankiai“</li>\n"
+"<li>Spustelėkite „Apsaugoti dokumentą“</li>\n"
+"<li>Pasirinkite „Pašalinti asmeninę informaciją iš šio failo įrašant“</li>\n"
+"<li>Spustelėkite „Gerai“ ir išsaugokite failą</li></ul></li>\n"
+"<li>„Adobe Acrobat“ (PDF):\n"
+"<ul><li>Eikite į „Failas“</li>\n"
+"<li>Pasirinkite „Ypatybės“</li>\n"
+"<li>Pašalinkite bet kokį vardą autoriaus lauke</li>\n"
+"<li>Spustelėkite „Gerai“</li>\n"
+"<li>Įrašyti dokumentą</li></ul></li></ul>\n"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Recenzavimo grafikas"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Redaktoriaus prašymas"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Atsakymą pateikti iki"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Recenziją pateikti iki"
+
+msgid "reviewer.submission.acceptedOn"
+msgstr "Peržiūra priimta"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Atsiliepimas pateiktas"
+
+msgid "submission.task.responseDueDate"
+msgstr "Atsakymą pateikti iki"
+
+msgid "navigation.goBack"
+msgstr "Grįžti"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} paskirtas (-a) recenzuoti šį straipsnį ir apie tai "
+"informuotas elektroniniu paštu."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} paskirtas (-a) recenzuoti šį straipsnį ir apie tai "
+"neinformuotas elektroniniu paštu."
+
+msgid "notification.removedReviewer"
+msgstr "Recenzentas pašalintas."
+
+msgid "notification.cancelledReviewer"
+msgstr "Recenzentas atšaukė."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Recenzentas grąžintas į pareigas."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Prašymas persvarstyti peržiūros užduotį išsiųstas."
+
+msgid "notification.addedStageParticipant"
+msgstr "Vartotojas pridėtas prie etapo."
+
+msgid "notification.editStageParticipant"
+msgstr "Scenos paskirstymas buvo pakeistas."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Naujas pranešimas."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Laukiama recenzijos."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Atnaujinta recenzijos prieskyra."
+
+msgid "notification.type.auditorRequest"
+msgstr "Prašoma patikrinti failą „{$file}“"
+
+msgid "notification.type.allReviewsIn"
+msgstr "Gautos visos recenzijos, reikia pateikti sprendimą etape „{$stage}“."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Įkeltas pataisytas failas, kurį turite apsvarstyti etape „{$stage}“."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Reikia apsvarstyti pataisymus etape „{$stage}“."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Pataisymai pateikti etapui „{$stage}“."
+
+msgid "notification.type.reviewerComment"
+msgstr "Recenzentas pateikė pastabų dėl straipsnio „{$title}“."
+
+msgid "notification.signedFile"
+msgstr "Failas apsvarstytas."
+
+msgid "timeZone"
+msgstr "Laiko juosta"
+
+msgid "user.email"
+msgstr "El. pašto adresas"
+
+msgid "user.authorization.submissionFile"
+msgstr "Šiam vartotojui neleidžiama pasiekti nurodyto straipsnio failo."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Neteisingas leidinys."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Netinkamas straipsnis."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Netinkamas atvaizdavimas."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Neteisingas peržiūros etapas."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Neteisinga diskusija."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Jūs neturite prieigos prie šio diskusijos pranešimo."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Jūs neturite prieigos prie šios peržiūros užduoties."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Šiuo metu neturite teisių, kad galėtumėte peržiūrėti straipsnį. Patikrinkite "
+"savo profilį skiltyje „užsiregistruoti kaip“ ir įsitikinkite, kad Jums "
+"suteiktos tinkamos teisės."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Šis vartotojas nėra prašomo straipsnio autorius. Prašome įsitikinti, kad "
+"prisijungėte su tinkama vartotojo paskyra."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Privatumo parinktys"
+
+msgid "notification.type.queryActivity"
+msgstr "Diskusijos eiga."
+
+msgid "notification.type.queryAdded"
+msgstr "Diskusija pridėta."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Naudodamiesi prieskyros nuorodą dalyvių sąraše, paskirkite kalbos redaktorių."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Laukiama kalbos redagavimo."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} recenzavimo būsena"
+
+msgid "notification.type.editorialReport"
+msgstr "Statistikos ataskaitos santrauka."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Tai malonus priminimas jums pasitikrinti savo žurnalo būklę peržvelgiant "
+"redakcinę ataskaitą."
+
+msgid "notification.type.editorialReminder"
+msgstr "Savaitinis el. laiškas su neatliktomis užduotimis"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Naršymo meniu punktas sėkmingai atnaujintas"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Naršymo meniu punktas sėkmingai pašalintas"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Naršymo meniu punktas sėkmingai pridėtas"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Naršymo meniu sėkmingai pridėtas"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Naršymo meniu sėkmingai atnaujintas"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Naršymo meniu sėkmingai pašalintas"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Jūsų prenumerata buvo atšaukta"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Nepavyko atšaukti jūsų prenumeratos"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Pasirinkite el. laiškus, kurių nebenorite gauti adresu {$email} iš "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Galite bet kada iš naujo užsiprenumeruoti el. pašto pranešimus savo <a href="
+"\"{$profileNotificationUrl}\">naudotojo profilyje</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"El. pašto adresas {$email} buvo sėkmingai atšauktas. Daugiau nebesiųsime "
+"jums šių el. laiškų. Galite bet kada iš naujo užsiprenumeruoti el. pašto "
+"pranešimus savo <a href=\"{$profileNotificationUrl}\">naudotojo "
+"profilyje</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Įvyko netikėta klaida ir negalėjome atsisakyti el. pašto adreso {$email} "
+"prenumeratos. Galite atsisakyti visų el. pašto pranešimų savo <a href=\""
+"{$profileNotificationUrl}\">naudotojo profilyje</a> arba susisiekti su mumis "
+"tiesiogiai dėl pagalbos."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Atsisakyti prenumeratos"
+
+msgid "showAll"
+msgstr "Rodyti viską"
+
+msgid "showLess"
+msgstr "Rodyti mažiau"
+
+msgid "list.viewMore"
+msgstr "Rodyti daugiau informacijos apie „{$name}“"
+
+msgid "list.viewLess"
+msgstr "Nerodyti daugiau informacijos apie „{$name}“"
+
+msgid "list.expandAll"
+msgstr "Išskleisti viską"
+
+msgid "list.collapseAll"
+msgstr "Sutraukti viską"
+
+msgid "validation.invalidOption"
+msgstr "Tai nėra tinkama parinktis."
+
+msgid "validator.accepted"
+msgstr "Prašau priimti šį elementą."
+
+msgid "validator.active_url"
+msgstr "Tai nėra galiojantis URL."
+
+msgid "validator.after"
+msgstr "Ši data turi būti vėlesnė nei {$date}."
+
+msgid "validator.alpha"
+msgstr "Čia gali būti tik raidės."
+
+msgid "validator.alpha_dash"
+msgstr "Čia gali būti tik raidės, skaičiai, brūkšneliai ir pabraukimai."
+
+msgid "validator.alpha_dash_period"
+msgstr "Čia gali būti tik raidės, skaičiai, brūkšneliai, pabraukimai ir taškai."
+
+msgid "validator.alpha_num"
+msgstr "Tai gali būti tik raidės ir skaičiai."
+
+msgid "validator.array"
+msgstr "Tai nėra galiojantis masyvas."
+
+msgid "validator.before"
+msgstr "Ši data turi būti ankstesnė nei {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Tai turi būti tarp {$min} ir {$max}."
+
+msgid "validator.between.file"
+msgstr "Tai turi būti nuo {$min} iki {$max} kilobaitų."
+
+msgid "validator.between.string"
+msgstr "Tai turi būti nuo {$min} iki {$max} simbolių."
+
+msgid "validator.between.array"
+msgstr "Čia turi būti nuo {$min} iki {$max} elementų."
+
+msgid "validator.boolean"
+msgstr "Šis laukas turi būti teisingas arba klaidingas."
+
+msgid "validator.confirmed"
+msgstr "Šio lauko patvirtinimas nesutampa."
+
+msgid "validator.country"
+msgstr "Tai nėra tinkama šalis."
+
+msgid "validator.country.regex"
+msgstr ""
+"Tai negaliojanti šalis. Šalis turi būti vienas iš dviejų raidžių "
+"tarptautinių kodų. Visus kodus rasite adresu https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "validator.currency"
+msgstr "Tai negaliojanti valiuta."
+
+msgid "validator.date"
+msgstr "Tai negaliojanti data."
+
+msgid "validator.date.comparison"
+msgstr "Palyginimui pateiktos neteisingos datos."
+
+msgid "validator.date_format"
+msgstr "Tai neatitinka formato {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} ir {$other} turi skirtis."
+
+msgid "validator.digits"
+msgstr "Tai turi būti {$digits} skaitmenų ilgio."
+
+msgid "validator.digits_between"
+msgstr "Tai turi būti tarp {$min} ir {$max} skaitmenų."
+
+msgid "validator.email"
+msgstr "Tai nėra galiojantis el. pašto adresas."
+
+msgid "validator.exists"
+msgstr "Pasirinktas {$attribute} yra neteisingas."
+
+msgid "validator.filled"
+msgstr "Šis laukas yra privalomas."
+
+msgid "validator.image"
+msgstr "Tai turi būti paveikslėlis."
+
+msgid "validator.in"
+msgstr "Pasirinktas {$attribute} yra neteisingas."
+
+msgid "validator.integer"
+msgstr "Tai nėra galiojantis sveikasis skaičius."
+
+msgid "validator.ip"
+msgstr "Tai nėra galiojantis IP adresas."
+
+msgid "validator.json"
+msgstr "Tai nėra galiojanti JSON eilutė."
+
+msgid "validator.locale"
+msgstr "Ši kalba nepriimtina."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Šis laukas yra daugiakalbis. Kiekvienai palaikomai kalbai turi būti "
+"pateiktos atskiros reikšmės."
+
+msgid "validator.localeKey"
+msgstr ""
+"Kalbos turi būti nurodytos naudojant lokalės kodą. Pavyzdžiai: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Tai negali būti didesnė nei {$max}."
+
+msgid "validator.max.file"
+msgstr "Tai negali būti didesnė nei {$max} kilobaitai."
+
+msgid "validator.max.string"
+msgstr "Tai negali būti daugiau nei {$max} simbolių."
+
+msgid "validator.max.array"
+msgstr "Čia negali būti daugiau nei {$max} elementų."
+
+msgid "validator.mimes"
+msgstr "Tai turi būti {$values} tipo failas."
+
+msgid "validator.min.numeric"
+msgstr "Tai turi būti bent {$min}."
+
+msgid "validator.min.file"
+msgstr "Tai turi būti bent {$min} kilobaitų."
+
+msgid "validator.min.string"
+msgstr "Turi būti bent {$min} simbolių."
+
+msgid "validator.min.array"
+msgstr "Čia turi būti bent {$min} elementai."
+
+msgid "validator.not_in"
+msgstr "Pasirinktas {$attribute} yra neteisingas."
+
+msgid "validator.numeric"
+msgstr "Tai nėra galiojantis numeris."
+
+msgid "validator.orcid"
+msgstr "Tai nėra galiojantis ORCID."
+
+msgid "validator.present"
+msgstr "Laukas {$attribute} turi būti."
+
+msgid "validator.regex"
+msgstr "Tai neteisingai suformatuota."
+
+msgid "validator.required"
+msgstr "Šis laukas yra privalomas."
+
+msgid "validator.required_if"
+msgstr "Šis laukas būtinas, kai {$other} yra {$value}."
+
+msgid "validator.required_unless"
+msgstr "Šis laukas yra privalomas, nebent {$other} yra {$values} reikšmėje."
+
+msgid "validator.required_with"
+msgstr "Šis laukas būtinas, kai yra {$values}."
+
+msgid "validator.required_with_all"
+msgstr "Šis laukas būtinas, kai yra {$values}."
+
+msgid "validator.required_without"
+msgstr "Šis laukas būtinas, kai nėra {$values}."
+
+msgid "validator.required_without_all"
+msgstr "Šis laukas būtinas, kai nėra nė vienos iš {$values} reikšmių."
+
+msgid "validator.same"
+msgstr "{$attribute} ir {$other} turi sutapti."
+
+msgid "validator.size.numeric"
+msgstr "Tai turi būti {$size}."
+
+msgid "validator.size.file"
+msgstr "Tai turi būti {$size} kilobaitai."
+
+msgid "validator.size.string"
+msgstr "Tai turi būti {$size} simbolių."
+
+msgid "validator.size.array"
+msgstr "Čia turi būti {$size} elementai."
+
+msgid "validator.string"
+msgstr "Tai nėra galiojanti eilutė."
+
+msgid "validator.timezone"
+msgstr "Tai netinkama laiko juosta."
+
+msgid "validator.unique"
+msgstr "{$attribute} jau užimtas."
+
+msgid "validator.url"
+msgstr "Tai nėra galiojantis URL."
+
+msgid "validator.no_new_line"
+msgstr "Nauja eilutė neleidžiama."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Leidžiamos tik [{$tags}] HTML žymės."
+
+msgid "validator.multilingual"
+msgstr "Šiame lauke daugiakalbystės reikalavimas neįvykdytas."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtras ({$displayName}) palaiko įvestį {$inputTypeName} - {$typeofInput} "
+"duotas"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Bandoma vykdyti transformaciją, kuri nepalaikoma jūsų diegimo aplinkoje."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nepavyko importuoti XML mazgo"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Nežinoma komanda {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Autorius pridėtas."
+
+msgid "notification.editedAuthor"
+msgstr "Autorius pataisytas."
+
+msgid "common.sandbox"
+msgstr "Programa veikia smėlio dėžės režimu."
+
+msgid "common.fromUntil"
+msgstr "{$from} – {$until}"
+
+msgid "common.numero"
+msgstr "Ne"

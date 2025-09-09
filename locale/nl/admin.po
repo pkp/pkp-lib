@@ -1,12 +1,13 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2025.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-06-26 16:08+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-09-09 16:52+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
 "Language: nl\n"
@@ -185,7 +186,7 @@ msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publiceer de hiervoor geplande inzendingen"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr "Reviewherinnering"
+msgstr "Recensieherinnering"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Bekendmaking van het redactionele verslag"
@@ -204,61 +205,83 @@ msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Verwerk nog niet gestarte taken in de wachtrij"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Actualiseer DB-IP adres lite databank"
 
+#, fuzzy
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Het hernoemen van de DB-IP-adress lite databankbestand {$sourceFilename} to "
+"{$targetFilename} is niet gelukt."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Het gebruik van statistiek bestandsladertaak"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Deze map {$directory} is niet leeg. Dat kan wijzen op een eerder foutieve of "
+"een gelijklopende verwerking. Dit bestand zal automatisch opnieuw worden "
+"verwerkt."
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr ""
+msgstr "Het bestand {$file} kan niet worden geopend en werd afgewezen."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Het bestand {$file}  betreft een oud logbestandformat, dat niet kan worden "
+"verwerkt en dus wordt terugverwezen naar de hoofdmap"
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Dit betreft een verwijderd logbestand {$file} omdat de maandgegevens al zijn "
+"verwerkt. Om gegevens opnieuw te verwerken voor een eerdere maand, moet u "
+"alle betreffende maandlogbestanden opnieuw opslaan en de CLI-button "
+"gebruiken om de gegevens opnieuw te verwerken."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"De regel {$lineNumber} in het logbestand zit in het foutieve format en zal "
+"dus worden verwijderd."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Ongeldige inlog in regel {$lineNumber} in het logbestand {$file}: {error}"
 
+#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "De aangegeven tijd is geen geldige datum"
 
+#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "De ID-omgeving is geen afgerond geheel."
 
+#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "De inzendings-ID is geen afgerond geheel."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "De representatie-ID is geen afgerond geheel."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc type wordt niet ondersteund."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Bestandstype wordt niet ondersteund."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "De naam van het land is geen alfabetisch tweeletter-tekenreeks."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "De regio is geen alfa-nummerieke tekenreeks tot drie letters."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "De ID van het instituut is geen array."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Er deed zich een foutmelding voor bij het verwerken van het logbestand "
+"{$file} bij de regel {$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -288,7 +311,7 @@ msgid "admin.settings.about"
 msgstr "Over de site"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Massa-e-mailberichten"
 
 msgid "admin.settings.contactEmail"
 msgstr "E-mailadres van de eerste contactpersoon"
@@ -303,13 +326,13 @@ msgid "admin.settings.minPasswordLength"
 msgstr "Minimale wachtwoordlengte"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Beperken massa-emailberichten"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Schakel rollen uit"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Alleen een beheerder is bevoegd deze instelling aan te passen."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Taal van de site"
@@ -352,9 +375,11 @@ msgstr "Systeeminformatie"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Verwezen wordt naar de informatie over de versie en configuratie-"
+"instellingen van de applicatie en server."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Verwezen wordt naar de systeem informatie"
 
 msgid "admin.versionBuild"
 msgstr "Build"
@@ -415,54 +440,82 @@ msgstr "Uploader"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bron-gz-bestand ({$filePath}"
+" kan niet worden geopend met gz-open."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bestemmingsbestand "
+"{$filePath} kan niet worden geopend met f-open."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Het bestand kan niet worden gedecomprimeerd. Het bron gz-bestand {$file} kan "
+"niet worden gelezen met gz-read."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bestemmingsbestand "
+"{$filePath} kon niet geschreven worden met f-write."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het geopende bestemmingsbestand "
+"{$filePath} kon niet worden gesloten met f-close."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het geopende bron-gz-bestand "
+"{$filePath} kan niet worden gesloten met gz-close."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het gedecomprimeerde bron-gz-"
+"bestand {$filePath} kon niet worden verwijderd met een ontkoppeling."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bestemmings-gz-bestand "
+"{$filePath} kon niet worden geopend met gz-open."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bronbestand {$filePath} kon "
+"niet worden geopend met f-open."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Het bestand kon niet worden gedecomprimeerd. Het bronbestand {$filePath} kon "
+"niet worden verwijderd met f-read."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Het bestand kon niet worden geopend. Het bestemmings-gz bestand {$filePath} "
+"kon niet worden geschreven met gz-write."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Het bestand kon niet worden geopend. Het geopende bronbestand {$filePath} "
+"kon niet worden gesloten met f-close."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Het bestand kon niet worden geopend. Het geopende bestemmings-gz-bestand "
+"{$filePath} kon niet worden gesloten met gz-close."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Het bestand kon niet worden geopend. Het gecomprimeerde bronbestand "
+"{$filePath} kon niet worden verwijderd met een ontkoppeling."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Er zijn geen taalbestanden om te downloaden."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Gebruik:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "instructie [argumenten]"
 
 msgid "admin.cli.tool.available.commands"
 msgstr ""
@@ -793,3 +846,23 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+
+#, fuzzy
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Actualiseer de Ror-registratie dataset cache"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "De gegevens van de recensent"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"In een multi omgevingsinstallatie, kunnen de gegevens van de recensent, "
+"zoals het aantal van de ingezonden recensie, individueel voor iedere "
+"omgeving worden weergegeven of collectief samengevoegd."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Schakel de samengevoegde gegevens van de recensenten uit"
+
+#, fuzzy
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Het bestand {$filename} werd verplaatst naar de te verzenden (?) map."

@@ -1,0 +1,752 @@
+# Darius Zviedris <darius.zviedris@lki.lt>, 2025.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "grid.noItems"
+msgstr "Nieko nėra"
+
+msgid "grid.action.sort"
+msgstr "Rikiuoti"
+
+msgid "grid.action.editMedia"
+msgstr "Taisyti medijos failą"
+
+msgid "grid.action.newVersion"
+msgstr "Sukurti naują versiją"
+
+msgid "grid.user.mustProvideName"
+msgstr "Pirma pateikite bent vartotojo pavardę."
+
+msgid "grid.user.selectUser"
+msgstr "Nurodyti vartotoją"
+
+msgid "grid.submission.itemTitle"
+msgstr "Autorius (-ė); antraštė"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Įtraukti nebaigtus, autoriaus nepateiktus straipsnius."
+
+msgid "grid.user.remove"
+msgstr "Pašalinti vartotoją"
+
+msgid "grid.user.logInAs"
+msgstr "Prisijungti kaip"
+
+msgid "grid.user.enableReasonDescription"
+msgstr ""
+"Kai vartotojas bus įgalintas, jis atgaus prieigą prie svetainės ir galėsite "
+"jį pakviesti į vaidmenis pagal poreikį."
+
+msgid "grid.settings"
+msgstr "Nustatymai"
+
+msgid "grid.noAuditors"
+msgstr "Nieko nėra"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Šis elementas pasiekiamas nuotoliniu būdu."
+
+msgid "grid.action.uninstall"
+msgstr "Pašalinti"
+
+msgid "grid.action.manageAccess"
+msgstr "Tvarkyti prieigą"
+
+msgid "grid.action.addItem"
+msgstr "Pridėti elementą"
+
+msgid "grid.action.addNote"
+msgstr "Pridėti pastabą"
+
+msgid "grid.action.addQuery"
+msgstr "Pradėti naują diskusiją"
+
+msgid "grid.action.readQuery"
+msgstr "Skaityti diskusiją"
+
+msgid "grid.action.deleteQuery"
+msgstr "Ištrinti diskusiją"
+
+msgid "grid.action.updateQuery"
+msgstr "Atnaujinti diskusiją"
+
+msgid "grid.action.addUser"
+msgstr "Pridėti vartotoją"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Atšaukti šį recenzentą"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Šį suredaguotą failą pateikti kitam etapui."
+
+msgid "grid.action.reload"
+msgstr "Atnaujinti"
+
+msgid "grid.action.delete"
+msgstr "Ištrinti"
+
+msgid "grid.action.deleteFile"
+msgstr "Ištrinti failą"
+
+msgid "grid.action.deleteMedia"
+msgstr "Ištrinti medijos failą"
+
+msgid "grid.action.editSection"
+msgstr "Taisyti skyrių"
+
+msgid "grid.action.export"
+msgstr "Eksportuoti"
+
+msgid "grid.action.deleteSection"
+msgstr "Ištrinti skyrių"
+
+msgid "grid.action.editorialHistory"
+msgstr "Redagavimo istorija"
+
+msgid "grid.action.remove"
+msgstr "Pašalinti"
+
+msgid "grid.action.edit"
+msgstr "Taisyti"
+
+msgid "grid.action.approve"
+msgstr "Patvirtinti"
+
+msgid "grid.action.disapprove"
+msgstr "Nepatvirtinti"
+
+msgid "grid.action.setApproval"
+msgstr "Patvirtinti"
+
+msgid "grid.action.moreInformation"
+msgstr "Daugiau informacijos"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Atkurti numatytuosius"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Ar tikrai norite atkurti numatytuosius?"
+
+msgid "grid.action.addAuthor"
+msgstr "Pridėti autorių"
+
+msgid "grid.action.editAuthor"
+msgstr "Taisyti autorių"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Ištrinti autorių"
+
+msgid "grid.action.addAuditor"
+msgstr "Pridėti tikrintoją"
+
+msgid "grid.action.upgrade"
+msgstr "Naujovinti"
+
+msgid "grid.action.order"
+msgstr "Rikiuoti"
+
+msgid "grid.action.saveOrdering"
+msgstr "Išsaugoti užsakymą"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Atšaukti rikiavimą"
+
+msgid "grid.action.extendAll"
+msgstr "Viską išplėsti"
+
+msgid "grid.action.collapse"
+msgstr "Suskleisti"
+
+msgid "grid.action.collapseAll"
+msgstr "Viską suskleisti"
+
+msgid "grid.action.wizard"
+msgstr "Nustatymų vediklis"
+
+msgid "grid.action.moveItem"
+msgstr "Perkelti elementą"
+
+msgid "grid.action.downloadAll"
+msgstr "Atsiųsti visus failus suarchyvuotus"
+
+msgid "grid.action.readReview"
+msgstr "Skaityti šią recenziją"
+
+msgid "grid.action.email"
+msgstr "Siųsti elektroninį laišką"
+
+msgid "grid.action.addReviewer"
+msgstr "Pridėti recenzentą"
+
+msgid "grid.action.addFile"
+msgstr "Pridėti failą"
+
+msgid "grid.action.editFile"
+msgstr "Taisyti failą"
+
+msgid "grid.action.selectFiles"
+msgstr "Pasirinkti, kuriuos failus tvarkyti"
+
+msgid "grid.action.requestRevisions"
+msgstr "Prašyti šį straipsnį pataisyti"
+
+msgid "grid.action.accept"
+msgstr "Priimti šį straipsnį"
+
+msgid "grid.action.decline"
+msgstr "Atmesti šį straipsnį"
+
+msgid "grid.action.internalReview"
+msgstr "Nusiųsti šį straipsnį vidiniam recenzavimui"
+
+msgid "grid.action.externalReview"
+msgstr "Nusiųsti šį straipsnį išoriniam recenzavimui"
+
+msgid "grid.action.sendToProduction"
+msgstr "Nusiųsti šį straipsnį leidybai"
+
+msgid "grid.action.settings"
+msgstr "Nustatymai"
+
+msgid "grid.action.importexport"
+msgstr "Importuoti ar eksportuoti turinį ar svetainės duomenis"
+
+msgid "grid.action.orderItems"
+msgstr "Įgalinti rikiavimo režimą"
+
+msgid "grid.action.resetAll"
+msgstr "Atstatyti visų elementų numatytąsias reikšmes"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Pridėti naują elektroninio laiško šabloną"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Taisyti šį elektroninio laiško šabloną"
+
+msgid "grid.action.disableEmail"
+msgstr "Pasyvinti šį elektroninio laiško šabloną"
+
+msgid "grid.action.resetEmail"
+msgstr "Atstatyti šį elektroninio laiško šabloną į numatytąjį"
+
+msgid "grid.action.expandAll"
+msgstr "Viską išskleisti"
+
+msgid "grid.action.requestAccount"
+msgstr "Pridėti dalyvį"
+
+msgid "grid.action.expand"
+msgstr "Išskleisti"
+
+msgid "grid.action.notify"
+msgstr "Pranešti šiam vartotojui"
+
+msgid "grid.action.addUserGroup"
+msgstr "Pridėti naują vartotojų grupę"
+
+msgid "grid.action.editUserGroup"
+msgstr "Taisyti šią vartotojų grupę"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Pašalinti šią naudotojų grupę"
+
+msgid "grid.action.disable"
+msgstr "Pasyvinti"
+
+msgid "grid.action.details"
+msgstr "Peržiūrėti šį elementą"
+
+msgid "grid.action.enrolExisting"
+msgstr "Įtraukti esamą vartotoją kaip recenzentą"
+
+msgid "grid.action.selectCreate"
+msgstr "Sukurti naują recenzentą"
+
+msgid "grid.action.search"
+msgstr "Paieška"
+
+msgid "grid.action.advancedSearch"
+msgstr "Išplėstinė paieška"
+
+msgid "grid.action.viewLibrary"
+msgstr "Peržiūrėti dokumentų biblioteką"
+
+msgid "grid.action.viewMetadata"
+msgstr "Peržiūrėti šio straipsnio metaduomenis"
+
+msgid "grid.action.sendReminder"
+msgstr "Nusiųsti priminimą apie užduotį šiam vartotojui"
+
+msgid "grid.action.newRound"
+msgstr "Sukurti naują etapą"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Peržiūrėti recenzavimo gaires"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Peržiūrėti interesų konflikto gairių nuostatus"
+
+msgid "grid.action.thankReviewer"
+msgstr "Padėkoti šiam recenzentui pranešimu"
+
+msgid "grid.action.uploadFile"
+msgstr "Įkelti failą"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Pridėti pranešimo tipą"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Pridėti pranešimą"
+
+msgid "grid.action.addInstitution"
+msgstr "Pridėti įstaigą"
+
+msgid "grid.action.mergeUser"
+msgstr "Sujungti vartotoją"
+
+msgid "grid.action.unassignUser"
+msgstr "Pašalinti vartotoją"
+
+msgid "grid.action.history"
+msgstr "Peržiūrėti istoriją"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Ši recenzija baigta, bet dar galite persigalvoti"
+
+msgid "grid.action.enable"
+msgstr "Įgalinti"
+
+msgid "grid.action.bookInfo"
+msgstr "Informacija apie straipsnį"
+
+msgid "grid.action.logInAs"
+msgstr "Prisijungti kaip"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Eksportuoti visus vartotojus"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Ar tikrai norite eksportuoti visus vartotojus?"
+
+msgid "grid.action.activate"
+msgstr "Aktyvinti"
+
+msgid "grid.action.deactivate"
+msgstr "Pasyvinti"
+
+msgid "grid.action.copy"
+msgstr "Kopijuoti"
+
+msgid "grid.action.preview"
+msgstr "Peržiūra"
+
+msgid "grid.action.install"
+msgstr "Įdiegti"
+
+msgid "grid.action.moreItems"
+msgstr "Įkelti daugiau"
+
+msgid "grid.action.users"
+msgstr "Žiūrėti arba pasirinkti vartotojus"
+
+msgid "grid.task.status.completed"
+msgstr "Ši užduotis užbaigta"
+
+msgid "grid.task.status.new"
+msgstr "Pažymėta, kai apsvarstyta"
+
+msgid "grid.task.status.uploaded"
+msgstr "Stulpelio antraštė nurodo, kas įkėlė šį failą"
+
+msgid "grid.task.status.unfinished"
+msgstr "Užduotis nebaigta"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Ši recenzija parengta. Norėdami ją perskaityti, paspauskite kairėje esančią "
+"pastabos piktogramą."
+
+msgid "grid.columns.actions"
+msgstr "Veiksmai"
+
+msgid "grid.columns.institution"
+msgstr "Institucija"
+
+msgid "grid.columns.url"
+msgstr "Nuoroda (URL)"
+
+msgid "grid.columns.auditor"
+msgstr "Tikrintojas"
+
+msgid "grid.columns.locale"
+msgstr "Lokalė"
+
+msgid "grid.columns.locale.code"
+msgstr "Kodas"
+
+msgid "grid.sponsor.title"
+msgstr "Remiančiosios organizacijos"
+
+msgid "grid.action.addSponsor"
+msgstr "Pridėti rėmėją"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Ištrinti rėmėją"
+
+msgid "grid.action.editSponsor"
+msgstr "Taisyti rėmėją"
+
+msgid "grid.action.addSeries"
+msgstr "Pridėti seriją"
+
+msgid "grid.action.editSeries"
+msgstr "Taisyti seriją"
+
+msgid "grid.action.deleteSeries"
+msgstr "Ištrinti seriją"
+
+msgid "grid.action.addCategory"
+msgstr "Pridėti kategoriją"
+
+msgid "grid.action.editCategory"
+msgstr "Taisyti kategoriją"
+
+msgid "grid.action.deleteCategory"
+msgstr "Ištrinti kategoriją"
+
+msgid "grid.contributor.title"
+msgstr "Paramos šaltiniai"
+
+msgid "grid.action.addContributor"
+msgstr "Pridėti autorių"
+
+msgid "grid.action.deleteContributor"
+msgstr "Ištrinti autorių"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Ar tikrai norite pašalinti {$name} kaip bendraautorį? Šio veiksmo negalima "
+"atšaukti."
+
+msgid "grid.action.addReviewerSuggestion"
+msgstr "Pridėti recenzento pasiūlymą"
+
+msgid "grid.action.deleteReviewerSuggestion.confirmationMessage"
+msgstr "Ar tikrai norite pašalinti šį pasiūlymą? Šio veiksmo negalima atšaukti."
+
+msgid "grid.action.deleteReviewerSuggestion"
+msgstr "Ištrinti recenzento pasiūlymą"
+
+msgid "grid.reviewForm.title"
+msgstr "Recenzijų formos"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Atsakymo variantai"
+
+msgid "grid.noFiles"
+msgstr "Nieko nėra"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Failai"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Straipsnių biblioteka"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Redagavimo biblioteka"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Recenzijų biblioteka"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Leidinių biblioteka"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Leidybos šablonų biblioteka"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Reikalavimai straipsniui"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Reikalavimas"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Pirminis adresatas"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Nustatyti pagrindinį kontaktinį asmenį"
+
+msgid "contributor.listPanel.preview"
+msgstr "Peržiūra"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Šio leidinio autoriai bus nurodyti šiais formatais."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formatas"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Ekranas"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Sutrumpintas"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Publikacijų sąrašai"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Pilnas"
+
+msgid "grid.roles.currentRoles"
+msgstr "Dabartinės funkcijos"
+
+msgid "grid.roles.add"
+msgstr "Sukurti naują funkciją"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Paskirti etapą"
+
+msgid "grid.user.currentUsers"
+msgstr "Dabartiniai vartotojai"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Dabartinis įtraukimas"
+
+msgid "grid.user.allRoles"
+msgstr "Visos funkcijos"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Visi leidimo lygmenys"
+
+msgid "grid.user.add"
+msgstr "Pridėti vartotoją"
+
+msgid "grid.user.enroll"
+msgstr "Įtraukti vartotoją"
+
+msgid "grid.user.edit"
+msgstr "Taisyti vartotoją"
+
+msgid "grid.user.email"
+msgstr "Elektroninis laiškas"
+
+msgid "grid.user.enable"
+msgstr "Įgalinti"
+
+msgid "grid.user.disable"
+msgstr "Pasyvinti"
+
+msgid "grid.user.disableReason"
+msgstr "Vartotojo pasyvinimo priežastis"
+
+msgid "grid.user.enableReason"
+msgstr "Vartotojo įgalinimo priežastis"
+
+msgid "grid.user.error"
+msgstr "Įvyko klaida administruojant šį vartotoją. Pabandykite dar kartą."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Įvyko klaida siunčiant šį elektroninį laišką. Įsitikinkite, kad elektroninio "
+"pašto serverio konfigūracija tinkama ir (ar) susisiekite su savo sistemos "
+"administratoriumi (-e)."
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Jums neleidžiama administruoti šio vartotojo. Tai gali padaryti tik "
+"svetainės arba visų kontekstų, prie kurių šis vartotojas įtrauktas, "
+"administratorius."
+
+msgid "grid.user.generatePassword"
+msgstr "Sukurti slaptažodį"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Sukurti atsitiktinį slaptažodį šiam vartotojui."
+
+msgid "grid.user.notifyUser"
+msgstr "Pranešti vartotojui"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Pasveikinti vartotoją elektroniniu paštu."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Pakeisti slaptažodį"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Kitą kartą prisijungdamas, vartotojas turi pakeisti slaptažodį."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"Reikalauti, kad vartotojas pakeistų savo slaptažodį kitą kartą "
+"prisijungdamas."
+
+msgid "grid.user.moreDetails"
+msgstr "Daugiau informacijos apie vartotoją"
+
+msgid "grid.user.lessDetails"
+msgstr "Mažiau informacijos apie vartotoją"
+
+msgid "grid.user.userDetails"
+msgstr "Informacija apie vartotoją"
+
+msgid "grid.user.userRoles"
+msgstr "Vartotojo funkcijos"
+
+msgid "grid.user.userRoles.masthead"
+msgstr "Rodyti pagrindinio puslapio antraštėje"
+
+msgid "grid.user.userNoRoles"
+msgstr "Šiam vartotojui nepaskirta nė viena funkcija."
+
+msgid "grid.user.step1"
+msgstr "1-as žingsnis: Užpildyti informaciją apie vartotoją"
+
+msgid "grid.user.step2"
+msgstr "2-as žingsnis: Priskirti funkcijas vartotojui „{$userFullName}“"
+
+msgid "grid.user.addRoles"
+msgstr "Pridėti funkcijas"
+
+msgid "grid.user.addRole"
+msgstr "Pridėti funkciją"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Nurodykite vartotoją"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Prijungti kaip šis vartotojas? Viskas, ką darysite bus priskirta šiam "
+"vartotojui."
+
+msgid "grid.user.mergeUsers"
+msgstr "Sujungti vartotojus"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Sujungti vartotoją"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Sujungti su šiuo vartotoju"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Visi įtraukti vartotojai"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Ar tikrai norite sujungti paskyrą „{$oldUsername}“ su paskyra "
+"„{$newUsername}“? Paskyros „{$oldUsername}“ nebeliks, šis veiksmas "
+"negrįžtamas."
+
+msgid "grid.preparedEmails.title"
+msgstr "Paruošti elektroninių laiškų šablonai"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Dabartinis sąrašas"
+
+msgid "grid.plugin.allCategories"
+msgstr "Visos kategorijos"
+
+msgid "grid.plugin.disable"
+msgstr "Ar tikrai norite pasyvinti šį įskiepį?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Korektūros atliktos. Galite nebekreipti dėmesio į šią užduotį."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "Funkcija „{$userGroupName}“ yra numatytoji ir negali būti pašalinta."
+
+msgid "grid.artworkFile.caption"
+msgstr "Pavadinimas"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kreditas"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Autorinių teisių savininkas"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Kontaktai (jei ne autorius/leidėjas)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Teisių sąlygos"
+
+msgid "grid.artworkFile.placement"
+msgstr "Vieta straipsnyje"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Paskirti etapą"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Atšaukti etapą"
+
+msgid "grid.userGroup.allStages"
+msgstr "Visi darbo etapai"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Sąrašas funkcijų, priskirtų"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Su leidimo lygmeniu, nustatytu"
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Negalima pašalinti funkcijos „{$userGroupName}“. Šiuo metu {$userCount} "
+"vartotojas (-ai) atlieka šią funkciją."
+
+msgid "grid.userGroup.removed"
+msgstr "Funkcija „{$userGroupName}“ pašalinta."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Etapui „{$stageName}“ paskirta funkcija „{$userGroupName}“."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Iš etapo „{$stageName}“ pašalinta funkcija „{$userGroupName}“."
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Pridėti meniu"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Pridėti punktą"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Nėra naršymo meniu punktų"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Nėra naršymo meniu"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Pasirinkti tipą…"
+
+msgid "grid.action.view"
+msgstr "Peržiūrėti"
+
+msgid "author.users.contributor.name"
+msgstr "Vardas ir pavardė"
+
+msgid "author.users.contributor.email"
+msgstr "Elektroninis paštas"
+
+msgid "author.users.contributor.role"
+msgstr "Funkcija"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Sąraše paieškai"
+
+msgid "grid.action.editContributor"
+msgstr "Taisyti autorių"
+
+msgid "grid.user.disableReasonDescription"
+msgstr ""
+"Atkreipkite dėmesį, kad išjungus naudotoją, negalėsite jo pridėti prie jokių "
+"vaidmenų, kol naudotojas vėl nebus įjungtas."

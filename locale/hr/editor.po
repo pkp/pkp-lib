@@ -2,13 +2,14 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2023.
 # Ljiljana Jertec Musap <ljiljana.jertec.musap@srce.hr>, 2025.
 # Petra Cacic <petracacic3@gmail.com>, 2025.
+# Iva Vidović <iva.vidovic@srce.hr>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2025-08-13 17:41+0000\n"
-"Last-Translator: Petra Cacic <petracacic3@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Iva Vidović <iva.vidovic@srce.hr>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "hr/>\n"
 "Language: hr\n"
@@ -38,7 +39,7 @@ msgid "editor.submission.workflowDecision.submission.accepted"
 msgstr "Prijava prihvaćena."
 
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Rad je objavljen."
+msgstr "Objavljeno."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
 msgstr "Poslano na novi krug recenzija."
@@ -637,3 +638,44 @@ msgid "editor.review.errorAddingReviewer.dateValidationFailed"
 msgstr ""
 "Pogreška pri dodavanju recenzenta: datum završetka recenzije mora biti "
 "jednak ili kasniji od datuma za odgovor."
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Ista ustanova kao i autor"
+
+msgid "editor.review.logResponse.for"
+msgstr "Zabilježi odgovor za"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent je prihvatio poziv za recenziranje"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zabilježite odgovor u ime recenzenta"
+
+msgid "editor.review.allSections"
+msgstr "Prikaži sve odjeljke recenzije u uredničkom obrascu"
+
+msgid "editor.submission.search"
+msgstr "Pretraži prijave, ID, autore, ključne riječi itd."
+
+msgid "editor.submission.days"
+msgstr "Dani"
+
+msgid "editor.submission.daysInStage"
+msgstr "Dana u fazi"
+
+msgid "editor.review.logResponse"
+msgstr "Zabilježi odgovor"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent je odbio poziv za recenziranje"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Potrebno je odabrati odgovor"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"U slučaju da Vas recenzent kontaktira putem e-maila ili na bilo koji drugi "
+"način, možete zabilježiti njihov odgovor umjesto njih"
+
+msgid "editor.review.authorOnly"
+msgstr "Prikazani odjeljci vidljivi samo autoru"

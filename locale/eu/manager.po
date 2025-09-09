@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-31 22:34+0000\n"
+"PO-Revision-Date: 2025-09-09 07:20+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -164,42 +164,64 @@ msgstr "Gordailatu DOIak"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak {$registrationAgency} "
+"erakundera bidaltzear zaude. Ziur zaude erregistro horiek gordailatu nahi "
+"dituzula?"
 
 msgid "manager.dois.actions.markRegistered.label"
 msgstr "Markatu DOIak erregistratu gisa"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak erregistratutzat markatzear "
+"zaude. Ziur zaude erregistro horiek erregistratu gisa markatu nahi dituzula?"
 
 msgid "manager.dois.actions.markUnregistered.label"
 msgstr "Markatu DOIak erregistratu gabeko gisa"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak erregistratu gabe bezala "
+"markatzear zaude. Ziur zaude erregistro horiek erregistratu gabe bezala "
+"markatu nahi dituzula?"
 
 msgid "manager.dois.actions.markStale.label"
 msgstr "Markatu sinkronizazioa behar duten DOIak"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"{$count} elementuren DOI metadatuen erregistroak sinkronizatu beharreko gisa "
+"markatzear zaude. \"Sinkronizatu behar du\" egoera aurrez bidalitako DOIei "
+"bakarrik aplika dakieke. Ziur zaude erregistro horiek zaharkitu gisa markatu "
+"nahi dituzula?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Esportatu DOIak"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"{$registrationAgency}-rako {$count} elementuren DOI metadatuen erregistroak "
+"esportatzear zaude. Ziur zaude erregistro horiek esportatu nahi dituzula?"
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Esleitu DOIak"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"{$count} elementuri DOI berriak esleitzear zaude, dagoeneko DOI bat "
+"esleituta ez duen edozein elementu egokiren kasuan. Ziur zaude elementu "
+"horiei DOIak esleitu nahi dizkiezula?"
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Gordailatu DOI guztiak"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"DOI metadatu erregistro guztiak {$registrationAgency}-en gordailatzea "
+"programatzear zaude. DOI bat duten argitaratutako elementuak bakarrik "
+"gordailatuko dira. Elementu bakoitzaren egoera eguneratu egingo da erantzuna "
+"jasotzen denean. Ziur zaude elementu horien guztien gordailuak programatu "
+"nahi dituzula?"
 
 msgid "manager.dois.actions.description"
 msgstr "Ekintza burutu hautatutako {$count} elementuetan."
@@ -291,6 +313,9 @@ msgstr "Elementu guztiek erroreren bat izan dute erregistratze-prozesuan."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Erregistro-agentzia batean azken aldiz gordailuan utzi zirenetik "
+"berrargitaratu diren elementu guztiak. Erregistro agentziara berriro bidali "
+"behar dira haien metadatuen erregistroak eguneratzeko."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI eguneraketak huts egin du"
@@ -321,9 +346,13 @@ msgstr "DOIen egoerak"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI kudeaketa mugitu egin da. Ikusi <a href=\"{$doiManagementUrl}\">DOI "
+"kudeaketa</a> eta <a href=\"{$doiSettingsUrl}\">DOI ezarpenak</a> orriak."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOIak ezin dira esleitu, esleitutako DOI aurrizkia eman ezean. <a href=\""
+"{$doiSettingsUrl}\">Gehitu DOI aurrizkia</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
@@ -332,6 +361,8 @@ msgstr ""
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Osagai hau ezabatu aurretik, erlazionatutako bidalketa-fitxategi guztiak "
+"beste osagai batekin lotu behar dituzu."
 
 msgid "manager.institutions.edit"
 msgstr "Editatu instituzioa"
@@ -347,6 +378,10 @@ msgstr "IP barrutiak"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Baliozko balioen artean daude IP helbidea (adibidez, 142.58.103.1), IP "
+"barrutia (adibidez, 142.58.103.1 - 142.58.103.4), '*' komodina duen IP "
+"barrutia (adibidez, 142.58.*.*) eta CIDR duen IP barrutia (adibidez, 142.58."
+"100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
 msgstr "Ezabatu instituzioa"
@@ -376,16 +411,20 @@ msgid "manager.publication.reviewerGuidance"
 msgstr "Ikuskatzaileentzako gida"
 
 msgid "manager.publication.reviewReminders.success"
-msgstr ""
+msgstr "Berrikuspenaren abisuaren xehetasunak eguneratu dira."
 
 msgid "manager.dois.title"
 msgstr "DOIak"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Ondorengo errorea {$registrationAgency}-(e)k itzuli du eta errorearen "
+"zergatiari buruzko xehetasunak ditu:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Ondorengo mezua {$registrationAgency}-(e)k itzuli du eta erregistroari "
+"buruzko xehetasunak ditu:"
 
 msgid "manager.emails.addEmail"
 msgstr "Gehitu txantiloia"
@@ -415,13 +454,15 @@ msgid "manager.emails.emailTemplate"
 msgstr "Mezu elektronikoen txantiloia"
 
 msgid "manager.emails.emailTemplates"
-msgstr "Eposta txantiloiak"
+msgstr "Posta elektroniko txantiloiak"
 
 msgid "manager.emails.otherTemplates"
 msgstr "Beste txantiloiak"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
+"Testuinguruaren ID bat eman behar duzu posta elektronikoko txantiloi bat "
+"gehitzean."
 
 msgid "manager.emails.enabled"
 msgstr "Gaitu mezu-txantiloi hau"
@@ -581,7 +622,7 @@ msgid "manager.people.disable"
 msgstr "Desgaitu"
 
 msgid "manager.people.doNotEnroll"
-msgstr "Funtziorik gabe"
+msgstr "Rolik gabe"
 
 msgid "manager.people.editProfile"
 msgstr "Editatu profila"
@@ -619,13 +660,13 @@ msgid "manager.people.enrollSelected"
 msgstr "Inskribatu hautatutako erabiltzaileak"
 
 msgid "manager.people.enrollSyncRole"
-msgstr "Sinkronizatu funtzio hau"
+msgstr "Sinkronizatu rol hau"
 
 msgid "manager.people.enrollSync"
 msgstr "Sinkronizatu inskripzioa"
 
 msgid "manager.people.enrollUserAsDescription"
-msgstr "Edozein unetan eslei (edo ken) dakioke funtzio bat erabiltzaile bati."
+msgstr "Edozein unetan eslei (edo ken) dakioke rol bat erabiltzaile bati."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Inskribatu erabiltzailea honela:"
@@ -647,8 +688,8 @@ msgstr "Batu erabiltzaileak"
 
 msgid "manager.people.mustChooseRole"
 msgstr ""
-"Hautatu funtzio bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik "
-"egin aurretik."
+"Hautatu rol bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik egin "
+"aurretik."
 
 msgid "manager.people.mustProvideName"
 msgstr "Lehenengo, erabiltzailearen abizen bat eman behar duzu."
@@ -718,6 +759,8 @@ msgstr "Bilatu erabiltzailea izenaren arabera"
 
 msgid "manager.representative.inUse"
 msgstr ""
+"Ezin da ordezkari hori ezabatu, bidalketa horretarako argitalpen-formatu "
+"baten edo gehiagoren merkatu metadatuei esleituta baitago."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Aldatu"
@@ -737,7 +780,7 @@ msgstr ""
 "ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu."
 
 msgid "manager.roles"
-msgstr "Funtzioak"
+msgstr "Rolak"
 
 msgid "manager.setup.statistics"
 msgstr "Estatistikak"
@@ -747,6 +790,10 @@ msgstr "Estatistika geografikoak"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Hautatu bildu beharreko erabilera geografikoaren estatistika-mota. "
+"Estatistika geografiko zehatzagoek zure datu-basearen tamaina nabarmen "
+"handitu dezakete eta, kasu bakan batzuetan, zure bisitarien anonimotasuna "
+"kaltetu dezakete."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
 msgstr "Ez bildu datu geografikorik"
@@ -774,6 +821,9 @@ msgstr "API publikoa"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"COUNTER SUSHI estatistiketarako API amaierako puntuetarako sarbidea mugatu "
+"ala ez. Markatu gabe badago, APIa administratzaile edo kudeatzaile rolak "
+"dituzten erabiltzaileentzat bakarrik egongo da eskuragarri."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "COUNTER SUSHI estatistikak publikoki eskura jarri"
@@ -817,9 +867,16 @@ msgstr "Gaitu gordailu automatikoa"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI erregistroa eta metadatuak automatikoki gordailutu daitezke hautatutako "
+"erregistro-agentzian, DOI bat duen elementu bat argitaratzen den bakoitzean. "
+"Gordailu automatikoa programatutako tarteetan egingo da, eta DOI bakoitzaren "
+"erregistro-egoera DOI kudeaketa-orritik kontrolatu ahal izango da."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
+"DOI aurrizkia erregistro-agentzia batek esleitzen du, hala nola <a href="
+"\"https://www.crossref.org\" target=\"_new\">Crossref</a> edo <a href=\"https"
+"://datacite.org/\" target=\"new\">DataCite</a>. Adibidea: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "DOI aurrizkia beharrezkoa da eta formatu hau izan behar du: 10.xxxx."
@@ -856,6 +913,8 @@ msgstr "DOI atzizki pertsonalizatuaren patroia"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Hautatutako DOI mota bat edo gehiago ez dira onartzen konfiguratutako DOI "
+"erregistro-agentziarentzat."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -866,42 +925,48 @@ msgstr ""
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Bat ere ez - Atzizkiak eskuz sartu behar dira <a href=\"{$doiManagementUrl}\""
+">DOI kudeaketa-orrian</a>, eta ez dira automatikoki sortuko"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Eredu pertsonalizatua - (ez da gomendagarria)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Erregistro-agentzia"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Mesedez, hautatu DOIak gordailatzeko erabili nahi duzun erregistro-agentzia."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Ez dago erregistro-agentziarik gaituta"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOIak automatikoki sortu eta erregistro-agentzia batean gordailutu daitezke. "
+"Funtzio hau erabiltzeko, bilatu eta instalatu dagokion erregistro-"
+"agentziaren plugina."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Bat ere ez"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOIaren bertsionatzea"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Ezin zaio eragiketa horri deitu DOIak aktibatuta ez badaude."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "{$count} bertsio daude."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Guztiak ikusi"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "Bertsio guztietarako DOIak"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOIak karaktere baliogabeak ditu."
 
 msgid "manager.setup.publishing"
 msgstr "Argitalpen zehaztasunak"
@@ -912,10 +977,10 @@ msgstr ""
 "agertuko da."
 
 msgid "manager.setup.additionalContent"
-msgstr ""
+msgstr "Eduki gehigarria"
 
 msgid "manager.setup.additionalContent.description"
-msgstr ""
+msgstr "Hemen sartzen den guztia zure hasierako orrian agertuko da."
 
 msgid "manager.setup.advanced"
 msgstr "Aurreratua"
@@ -939,19 +1004,19 @@ msgid "manager.setup.checklist"
 msgstr "Kontrol-zerrenda"
 
 msgid "manager.setup.competingInterests"
-msgstr ""
+msgstr "Interes-gatazkak"
 
 msgid "manager.setup.errorDeletingItem"
 msgstr "Errorea elementu hau ezabatzean."
 
 msgid "manager.setup.favicon"
-msgstr ""
+msgstr "Webgunearen ikonoa (Favicon)"
 
 msgid "manager.setup.homepageImage"
-msgstr ""
+msgstr "Hasierako orriaren irudia"
 
 msgid "manager.setup.homepageImage.description"
-msgstr ""
+msgstr "Kargatu irudi bat hasierako orrian nabarmenki bistaratzeko."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr ""
@@ -964,37 +1029,40 @@ msgstr ""
 "gif, .jpg, edo .png formatuak bakarrik onartzen dira."
 
 msgid "manager.setup.information.descriptionTitle"
-msgstr ""
+msgstr "Azalpenak"
 
 msgid "manager.setup.layout.sidebar"
-msgstr ""
+msgstr "Alboko barra"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
+"Ezin da {$name} blokea aurkitu. Mesedez, ziurtatu plugina instalatuta eta "
+"gaituta dagoela."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Log-erregistroa eta kontrola"
 
 msgid "manager.setup.logo"
-msgstr ""
+msgstr "Logoa"
 
 msgid "manager.setup.noTemporaryFile"
-msgstr ""
+msgstr "Igo duzun fitxategia ezin izan da aurkitu. Saiatu berriro igotzen."
 
 msgid "manager.setup.notifications"
-msgstr ""
+msgstr "Egilearen bidalketaren jakinarazpena"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr ""
+msgstr "Bidali kopia bat helbide elektroniko honetara"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Jakinarazi egile guztiei"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
+"Bidali mezu elektroniko bidezko jakinarazpena bidalketaren egile guztiei."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
@@ -1002,25 +1070,25 @@ msgstr ""
 "elektroniko bat. Oro har, hori da bidalketaren egilea."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Jakinarazpenak"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Jakinarazi kontaktu nagusiari"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Bai, bidali kopia bat {$email} helbidera"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Ez"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Jakinarazi edonori"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Helbide elektroniko horietako bat edo gehiago ez dira baliozkoak."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1055,10 +1123,12 @@ msgid "manager.setup.notifyUsers.sendAnother"
 msgstr "Bidali beste mezu elektroniko bat"
 
 msgid "manager.setup.openAccessPolicy"
-msgstr ""
+msgstr "Sarbide irekiko politika"
 
 msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
+"Argitaratutako eduki guztietarako berehalako sarbide librea ematen baduzu, "
+"zure sarbide irekiko politikaren deskribapena sar dezakezu."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
@@ -1066,10 +1136,12 @@ msgstr ""
 "formatuak bakarrik onartzen dira."
 
 msgid "manager.setup.pageFooter"
-msgstr ""
+msgstr "Orri-oina"
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
+"Sartu zure webgunearen beheko aldean agertzea nahi duzun edozein irudi, "
+"testu edo HTML kode."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
@@ -1087,52 +1159,61 @@ msgid "manager.setup.privacyStatement"
 msgstr "Pribatutasun-adierazpena"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Data eta ordua"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Data eta orduaren formatuak"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Aukeratu data eta orduetarako nahiago duzun formatua. <a href=\"https://www."
+"php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters\""
+">Formatu-karaktere</a> bereziak erabiliz formatu pertsonalizatua sar daiteke."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr ""
+msgstr "Data"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr ""
+msgstr "Data (laburra)"
 
 msgid "manager.setup.dateTime.time"
-msgstr ""
+msgstr "Ordua"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr ""
+msgstr "Data eta ordua"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr ""
+msgstr "Data eta ordua (laburrak)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr ""
+msgstr "Pertsonalizatua"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
+"Adierazpen hau erabiltzailea erregistratzean, egilearen bidalketan eta "
+"publikoki eskuragarri dagoen Pribatutasun orrian agertuko da. Jurisdikzio "
+"batzuetan, legez behartuta zaude pribatutasun-politika honetan "
+"erabiltzaileen datuak nola kudeatzen dituzun jakinaraztera."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr ""
+msgstr "Erantzuteko epe lehenetsia"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr ""
+msgstr "Lehenetsitako amaiera-epea"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr ""
+msgstr "Berrikuspen-eskaera bat onartzeko edo ukatzeko aste-kopurua."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr ""
+msgstr "Berrikuspena burutzeko baimendutako asteak"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr ""
+msgstr "Inoiz ez gogorarazi"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr ""
+"Lehenetsitako balioak alda daitezke berrikuspen bakoitzerako edizio-"
+"prozesuan zehar."
 
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr ""
@@ -1147,19 +1228,25 @@ msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 
 msgid "manager.setup.reviewOptions.reviewMode"
-msgstr ""
+msgstr "Berrikuspen modu lehenetsia"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
+"Aurkeztu kargatzean <button type=\"button\">nola ziurtatu fitxategi guztiak "
+"anonimizatuta daudela</button> azaltzen duen esteka bat"
 
 msgid "manager.setup.sponsors.note"
-msgstr ""
+msgstr "Babesleen harremana eta politikaren deskribapena"
 
 msgid "manager.setup.sponsors.description"
 msgstr ""
+"Adibideak: elkarte akademikoak, unibertsitate-sailak, kooperatibak, etab. "
+"Babesleak publikoki erakusten dira."
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
+"Web-garatzaile esperientziadunek CSS fitxategi bat igo dezakete webgunearen "
+"itxura gehiago pertsonalizatzeko."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Laguntza teknikorako kontaktua"
@@ -1174,7 +1261,7 @@ msgid "manager.setup.theme"
 msgstr "Gaia"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Erakundeak"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1182,28 +1269,45 @@ msgstr ""
 "daitezke."
 
 msgid "manager.setup.theme.notFound"
-msgstr ""
+msgstr "Hautatu duzun gaia ez dago instalatuta edo gaituta."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei bidalketa hasi aurretik. Eman bidalketa "
+"prozesuaren azalpen labur bat, egileak zer espero dezakeen jakin dezan."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei fitxategiak igotzeko urratsean. Eman "
+"azalpen labur bat egileek beren bidalketarekin zer fitxategi partekatu behar "
+"dituzten adieraziz."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei kolaboratzaileen urratsean. Eman azalpen "
+"labur bat egileak bere buruari, egilekideei eta beste edozein "
+"kolaboratzaileri buruz eman behar duen informazioaren inguruan."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Xehetasunen urratsean, egileei honako hau erakusten zaie, izenburua, "
+"laburpena eta bidalketaren inguruko beste informazio garrantzitsu batzuk "
+"emateko eskatzen zaienean."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Honako hau erakusten zaie egileei Editoreentzat urratsean, metadatuak "
+"emateko eskatzen zaienean, hala nola gako-hitzak, editoreari egindako "
+"iruzkinak eta bestelako xehetasunak, berrikuspen editorialean laguntzeko."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Bidalketa-morroiaren azken urratsean, egileei honako hau erakusten zaie, "
+"lana bidali aurretik emandako informazio guztia berrikusteko eskatzen "
+"zaienean."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Egilearen gida"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
@@ -1222,19 +1326,19 @@ msgid "manager.sections.form.deactivateSection"
 msgstr ""
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Ziur zaude atal hau desaktibatu nahi duzula?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Ziur zaude atal hau aktibatu nahi duzula?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Editorial esleipenak"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Esleitu {$name} {$role} gisa"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
@@ -1259,7 +1363,7 @@ msgstr "Metadatuen pluginak"
 
 msgid "plugins.categories.metadata.description"
 msgstr ""
-"Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,"
+"Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte."
 
 msgid "plugins.categories.auth"
 msgstr "Baimena emateko pluginak"
@@ -1273,7 +1377,7 @@ msgstr ""
 "baterako, alboko barrako tresnak."
 
 msgid "plugins.categories.gateways.description"
-msgstr "Atebide-pluginek zuzeneko datuak pasatzen dituzte kanpoko sistemetara"
+msgstr "Atebide-pluginek zuzeneko datuak pasatzen dituzte kanpoko sistemetara."
 
 msgid "plugins.categories.gateways"
 msgstr "Atebide-pluginak"
@@ -1283,11 +1387,11 @@ msgstr "Plugin generikoak"
 
 msgid "plugins.categories.importexport.description"
 msgstr ""
-"Inportatu eta Esportatzeko pluginak edukia beste sistema batzuetatik eta "
+"Inportazio/esportazio pluginak edukia beste sistema batzuetatik eta "
 "batzuetara transferitzeko erabiltzen dira."
 
 msgid "plugins.categories.importexport"
-msgstr "Inportatu eta Esportatzeko pluginak"
+msgstr "Inportazio/esportazio pluginak"
 
 msgid "plugins.categories.paymethod.description"
 msgstr ""
@@ -1299,30 +1403,31 @@ msgstr "Ordainketen pluginak"
 
 msgid "plugins.categories.reports.description"
 msgstr ""
-"Txostenen pluginak Konferentzia-kudeatzaileentzako txostenak eta datu-"
-"aterakinak prestatzeko erabiltzen dira."
+"Txostenen pluginak hainbat motatako txostenak eta datu-laburpenak "
+"inplementatzeko erabiltzen dira."
 
 msgid "plugins.categories.reports"
 msgstr "Txostenen pluginak"
 
 msgid "plugins.categories.themes.description"
-msgstr "Sistemaren itxura aldatzeko erabiltzen dira Temen pluginak."
+msgstr "Gaien pluginak sistemaren itxura aldatzeko erabiltzen dira."
 
 msgid "plugins.categories.themes"
-msgstr "Temen pluginak"
+msgstr "Gaien pluginak"
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "OAI Metadatuen Formatuen Pluginak"
+msgstr "OAI Metadatuen Formatuen pluginak"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr ""
 "Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan."
 
 msgid "plugins.categories.pubIds"
-msgstr ""
+msgstr "Identifikatzaile Publikoen pluginak"
 
 msgid "plugins.categories.pubIds.description"
 msgstr ""
+"Plugin hauek identifikatzaile publiko baten euskarria inplementatzen dute."
 
 msgid "manager.plugins.copyError"
 msgstr ""
@@ -1331,7 +1436,7 @@ msgid "manager.plugins.delete"
 msgstr "Ezabatu plugina"
 
 msgid "manager.plugins.installConfirm"
-msgstr ""
+msgstr "Ziur zaude plugin hau instalatu nahi duzula?"
 
 msgid "manager.plugins.upgradeConfirm"
 msgstr "Ziur zaude plugin hau eguneratu nahi duzula?"
@@ -1369,7 +1474,7 @@ msgid "manager.plugins.uploadDescription"
 msgstr ""
 
 msgid "manager.plugins.uploadFailed"
-msgstr ""
+msgstr "Mesedez, ziurtatu fitxategi bat hautatu dela kargatzeko."
 
 msgid "manager.plugins.installed"
 msgstr "Instalatutako pluginak"
@@ -1467,10 +1572,12 @@ msgid "manager.plugins.wrongName"
 msgstr ""
 
 msgid "manager.plugins.pleaseInstall"
-msgstr ""
+msgstr "Plugina ez dago. Mesedez, instalatu ezazu"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
+"Plugina dagoeneko existitzen da, baina instalatutako bertsioa baino "
+"berriagoa da. Mesedez, eguneratu"
 
 msgid "manager.plugins.settings"
 msgstr "Ezarpenak"
@@ -1482,52 +1589,53 @@ msgid "manager.plugins.upgradeDescription"
 msgstr ""
 
 msgid "manager.plugins.upgradeFailed"
-msgstr ""
+msgstr "Eguneratzeak huts egin du. {$errorString}"
 
 msgid "manager.plugins.upgradeSuccessful"
-msgstr ""
+msgstr "{$versionString} bertsiora behar bezala eguneratu da"
 
 msgid "manager.plugins.uploadError"
-msgstr ""
+msgstr "Errorea fitxategia igotzean"
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr ""
+msgstr "Hautatu pluginaren fitxategia"
 
 msgid "manager.plugins.versionFileInvalid"
 msgstr ""
+"Plugin direktorioan dagoen version.xml fitxategiak datu baliogabeak ditu."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr ""
+msgstr "version.xml ez da pluginen direktorioan aurkitu"
 
 msgid "notification.localeEnabled"
-msgstr ""
+msgstr "Lokalizazioa aktibatuta."
 
 msgid "notification.localeDisabled"
-msgstr ""
+msgstr "Lokalizazioa desaktibatuta."
 
 msgid "notification.primaryLocaleDefined"
-msgstr ""
+msgstr "{$locale} locale nagusi gisa definituta."
 
 msgid "notification.localeInstalled"
-msgstr ""
+msgstr "Hautatutako eskualdeko ezarpen guztiak instalatu eta aktibatu dira."
 
 msgid "notification.localeUninstalled"
-msgstr ""
+msgstr "{$locale} eskualdeko ezarpena desinstalatu da."
 
 msgid "notification.localeReloaded"
 msgstr ""
 
 msgid "notification.localeSettingsSaved"
-msgstr ""
+msgstr "Eskualdeko ezarpenak gorde dira."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
 
 msgid "notification.editedUser"
-msgstr ""
+msgstr "Erabiltzailea editatu da."
 
 msgid "manager.distribution.license"
-msgstr ""
+msgstr "Lizentzia"
 
 msgid "manager.distribution.license.other"
 msgstr "Beste lizentzia baten URLa"
@@ -1537,6 +1645,8 @@ msgstr "Lizentzia-baldintzak"
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
+"Idatzi argitaratutako lanarekin batera bistaratu nahi dituzun lizentzia "
+"publikoen baldintzak."
 
 msgid "manager.distribution.customHeaders"
 msgstr "Etiketa pertsonalizatuak"
@@ -1548,79 +1658,84 @@ msgid "manager.paymentMethod"
 msgstr "Ordainketak"
 
 msgid "manager.paymentMethod.title"
-msgstr ""
+msgstr "Ordainketa-moduak"
 
 msgid "manager.paymentMethod.none"
-msgstr ""
+msgstr "Ez da ordainketa-modurik hautatu"
 
 msgid "manager.paymentMethod.method"
-msgstr ""
+msgstr "Ordaintzeko modua"
 
 msgid "manager.paymentMethod.currency"
-msgstr ""
+msgstr "Moneta"
 
 msgid "settings.roles.roleOptions"
-msgstr ""
+msgstr "Rol-aukerak"
 
 msgid "settings.roles.showTitles"
-msgstr ""
+msgstr "Erakutsi rolaren izenburua kolaboratzaileen zerrendan"
 
 msgid "settings.roles.permitSelfRegistration"
-msgstr ""
+msgstr "Baimendu erabiltzaileen autoerregistroa"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
+"Rol honek berrikuspen-erabaki bat gomendatzea baino ez du baimenduta, eta "
+"editore baimendu batek azken erabakia erregistratu beharko du."
 
 msgid "settings.roles.roleName"
-msgstr ""
+msgstr "Rolaren izena"
 
 msgid "settings.roles.roleAbbrev"
-msgstr ""
+msgstr "Laburdura"
 
 msgid "settings.roles.assignedStages"
-msgstr ""
+msgstr "Esleitutako faseak"
 
 msgid "settings.roles.stages"
-msgstr ""
+msgstr "Faseak"
 
 msgid "settings.roles.roleDetails"
-msgstr ""
+msgstr "Rolaren xehetasunak"
 
 msgid "settings.roles.from"
-msgstr ""
+msgstr "Baimen-maila"
 
 msgid "settings.roles.removeText"
 msgstr ""
+"Rol hori testuinguru horretatik kentzear zaude. Eragiketa honek rol honi "
+"lotutako ezarpenak eta erabiltzaileen esleipen guztiak ere ezabatuko ditu. "
+"Jarraitu nahi duzu?"
 
 msgid "settings.roles.nameRequired"
-msgstr ""
+msgstr "Rolaren izena definitu behar duzu."
 
 msgid "settings.roles.abbrevRequired"
-msgstr ""
+msgstr "Rolaren laburdura definitu behar duzu."
 
 msgid "settings.roles.uniqueName"
-msgstr ""
+msgstr "Rol-izen bakarra definitu behar duzu."
 
 msgid "settings.roles.uniqueAbbrev"
-msgstr ""
+msgstr "Rol-laburdura bakarra definitu behar duzu."
 
 msgid "settings.roles.roleIdRequired"
-msgstr ""
+msgstr "Rol-baimenen maila bat definitu behar duzu."
 
 msgid "settings.roles.stageIdRequired"
-msgstr ""
+msgstr "Esleitzeko etapa bat definitu behar duzu."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr ""
+msgstr "Baimendu bidalketaren metadatuak editatzea."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
 
 msgid "settings.libraryFiles.nameRequired"
-msgstr ""
+msgstr "Liburutegi-fitxategi honetarako izen bat behar da."
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr ""
+msgstr "Liburutegi-fitxategi honetarako fitxategi-mota bat behar da."
 
 msgid "settings.libraryFiles.category.contracts"
 msgstr "Kontratuak"
@@ -1641,64 +1756,80 @@ msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr ""
+msgstr "Hautatu erantsi beharreko liburutegi-fitxategiak"
 
 msgid "grid.action.addGenre"
 msgstr "Gehitu osagai bat"
 
 msgid "grid.action.editGenre"
-msgstr ""
+msgstr "Editatu osagai hau"
 
 msgid "grid.action.deleteGenre"
-msgstr ""
+msgstr "Ezabatu osagai hau"
 
 msgid "grid.action.restoreGenres"
 msgstr ""
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Fitxategi mota"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
+"Hauek menpeko fitxategiak dira, HTML fitxategi batek erakusten dituen "
+"irudiak adibidez, eta ez dira argitaratutako edukiarekin erakutsiko."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
+"Hauek fitxategi osagarriak dira, hala nola datu-multzoak eta ikerketa-"
+"materialak, eta argitalpen-fitxategi nagusietatik bereizita erakutsiko dira."
 
 msgid "manager.setup.genres.key"
-msgstr ""
+msgstr "Gakoa"
 
 msgid "manager.setup.genres.key.description"
-msgstr ""
+msgstr "Genero honetarako identifikatzaile sinboliko laburra, aukerakoa."
 
 msgid "manager.setup.genres.key.exists"
-msgstr ""
+msgstr "Gakoa dagoeneko existitzen da."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
+"Gakoak karaktere alfanumerikoak, azpimarrak eta marratxoak bakarrik izan "
+"ditzake, eta karaktere alfanumeriko batekin hasi eta amaitu behar da."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Fitxategiaren metadatuak"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Hautatu fitxategi horiek jaso ditzaketen metadatuen mota. Dokumentua hautatu "
+"behar da argitalpenaren fitxategi nagusietarako, hala nola deskargatu "
+"daitekeen PDFrako, fitxategi horiek beren metadatuak argitalpenetik heredatu "
+"ditzaten. Bestela, aukeratu Eduki osagarria fitxategi-mota gehienetarako. "
+"Artelana egokia da kreditu, azpititulu eta lizentzia-metadatu desberdinak "
+"behar dituzten fitxategietarako."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Bidalketekin eskatu"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Gutxienez fitxategi horietako bat exijitu behar da bidalketa berri "
+"bakoitzarekin? Baiezkoa hautatzen baduzu, egileek ezin izango dute "
+"bidalketarik egin gutxienez mota horretako fitxategi bat kargatu arte."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Bai, eskatu bidalketaren egileei fitxategi hauetako bat edo gehiago igotzea."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Ez, baimendu bidalketa berriak fitxategi horiek gabe."
 
 msgid "manager.settings.wizard"
-msgstr ""
+msgstr "Ezarpenen laguntzailea"
 
 msgid "manager.users.roleRequired"
-msgstr ""
+msgstr "Gutxienez rol bat hautatu behar duzu erabiltzaile honi lotzeko."
 
 msgid "manager.website"
 msgstr "Webgunea"
@@ -1832,7 +1963,7 @@ msgid "manager.reviewFormElements.question"
 msgstr "Elementua"
 
 msgid "manager.reviewFormElements.description"
-msgstr ""
+msgstr "Deskribapena"
 
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Aukera-botoiak (bakarra aukera daiteke)"
@@ -1841,7 +1972,7 @@ msgid "manager.reviewFormElements.required"
 msgstr "Ebaluatzaileek bete egin behar dute elementua"
 
 msgid "manager.reviewFormElements.included"
-msgstr ""
+msgstr "Egileari bidalitako mezuan sartuta"
 
 msgid "manager.reviewFormElements.smalltextfield"
 msgstr "Hitz bakarreko testu-koadroa"
@@ -1853,7 +1984,7 @@ msgid "manager.reviewFormElements.textfield"
 msgstr "Lerro bakarreko testu-koadroa"
 
 msgid "manager.reviewFormElements.viewable"
-msgstr ""
+msgstr "Ikusgai (egileentzat)"
 
 msgid "grid.action.createReviewForm"
 msgstr ""
@@ -1862,7 +1993,7 @@ msgid "manager.setup.competingInterests.required"
 msgstr ""
 
 msgid "manager.setup.licenseURLDescription"
-msgstr ""
+msgstr "Lizentzia deskribatzen duen web orri baten URLa, erabilgarri badago."
 
 msgid "manager.setup.metadata.submission"
 msgstr "Bidalketa-formularioa"
@@ -2060,28 +2191,28 @@ msgstr ""
 "onartu aurretik."
 
 msgid "plugins.importexport.common.validationErrors"
-msgstr ""
+msgstr "Baliozkotze-erroreak:"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr ""
+msgstr "Aurkitutako abisuak:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr ""
+msgstr "Aurkitutako erroreak:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
-msgstr ""
+msgstr "Elementu ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
 msgstr ""
 
 msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr ""
+msgstr "Kodeketa ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.encodingError"
-msgstr ""
+msgstr "Edukia ez dago {$param} gisa kodetuta"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
@@ -2093,7 +2224,7 @@ msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr ""
+msgstr "Kargatzaile ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr ""
@@ -2105,13 +2236,13 @@ msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr ""
+msgstr "Ezin izan da inportatu bidalketa-fitxategia"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr ""
+msgstr "Inportazio/esportazio erroreak:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
@@ -2126,151 +2257,179 @@ msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Probak"
 
 msgid "manager.navigationMenus.form.title"
-msgstr ""
+msgstr "Titulua"
 
 msgid "manager.navigationMenus.form.path"
-msgstr ""
+msgstr "Helbidea"
 
 msgid "manager.navigationMenus"
-msgstr ""
+msgstr "Nabigazioa"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
+"<p>Orri hau eskuragarri egongo da hemen: <blockquote>{$pagesPath}</"
+"blockquote>... non %PATH% goian sartutako helbidea den. <strong>Oharra:</"
+"strong> Bi orrik ezin dute helbide bera izan. Sisteman sartuta dauden "
+"helbideak erabiltzeak funtzio garrantzitsuetarako sarbidea galtzea eragin "
+"dezake.</p>"
 
 msgid "manager.navigationMenus.form.content"
-msgstr ""
+msgstr "Edukia"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
+"Helbidearen eremuak karaktere alfanumerikoak eta '.', '/', '-' eta '_' "
+"bakarrik izan behar ditu."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr ""
+"Helbide hau nabigazio menuko beste elementu batentzat existitzen da "
+"dagoeneko."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr ""
+msgstr "Izenburu hori beste nabigazio menu baterako existitzen da dagoeneko."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr ""
+msgstr "Titulua beharrezkoa da"
 
 msgid "manager.navigationMenuItems"
-msgstr ""
+msgstr "Nabigazio-menuko elementuak"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr ""
+msgstr "Esleitutako menu-elementuak"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr ""
+msgstr "Esleitu gabeko menu-elementuak"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr ""
+msgstr "Gai aktiboaren nabigazio-eremuak"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr ""
+msgstr "Hautatu nabigazio-eremu bat"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr ""
+msgstr "Nabigazio menu bat dagoeneko esleituta dago eremu honi."
 
 msgid "manager.navigationMenus.form.url"
-msgstr ""
+msgstr "URL"
 
 msgid "manager.navigationMenus.form.customUrlError"
-msgstr ""
+msgstr "URL bat eman behar da"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr ""
+"Lortu informazio gehiago menuko elementu hau noiz bistaratuko edo ezkutatuko "
+"den jakiteko."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr ""
+msgstr "Nabigazio-menu mota"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr ""
+msgstr "Hautatu nabigazio-menu mota bat edo pertsonalizatua zurea egiteko"
 
 msgid "manager.navigationMenus.customPage"
-msgstr ""
+msgstr "Orri pertsonalizatua"
 
 msgid "manager.navigationMenus.customPage.description"
 msgstr ""
+"Sortu orri pertsonalizatu bat zure webgunean, eta estekatu orri horretara "
+"nabigazio-menu batetik."
 
 msgid "manager.navigationMenus.remoteUrl"
-msgstr ""
+msgstr "Urruneko URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
 msgstr ""
+"Esteka beste gune bateko edozein URLtara, adibidez, https://pkp.sfu.ca "
+"bezala."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
+"Esteka \"Aldizkariari buruz\" edukia erakusten duen orri batera, Ezarpenak > "
+"Aldizkaria atalean"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
+"Esteka hori Ezarpenak > Aldizkaria ataleko Aldizkariari buruz atala bete "
+"baduzu bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr ""
+msgstr "Bidalketa-jarraibideak erakusten dituen orrirako esteka."
 
 msgid "manager.navigationMenus.current.description"
-msgstr ""
+msgstr "Esteka zure uneko zenbakira."
 
 msgid "manager.navigationMenus.archives.description"
-msgstr ""
+msgstr "Aurreko zenbakien artxiborako esteka."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr ""
+msgstr "Zure iragarkiak erakusten dituen orrirako esteka."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
+"Esteka hau Ezarpenak > Webgunea atalean iragarkiak gaitu badituzu bakarrik "
+"bistaratuko da."
 
 msgid "manager.navigationMenus.login.description"
-msgstr ""
+msgstr "Erabiltzailearen saio-hasierako orrirako esteka."
 
 msgid "manager.navigationMenus.register.description"
-msgstr ""
+msgstr "Erabiltzailearen erregistro-orrirako esteka."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr ""
+msgstr "Esteka erredakzio-panelera."
 
 msgid "manager.navigationMenus.profile.description"
-msgstr ""
+msgstr "Erabiltzailearen profilaren orrirako esteka."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr ""
+msgstr "Gune osoko administrazio-tresnetarako esteka."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr ""
+msgstr "Esteka hori administrazioko erabiltzaileei bakarrik erakutsiko zaie."
 
 msgid "manager.navigationMenus.logOut.description"
-msgstr ""
+msgstr "Erabiltzailearen saioa itxiko duen esteka."
 
 msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr ""
+msgstr "Esteka hau bisitariak saioa hasten duenean bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr ""
+msgstr "Esteka hau bisitariak saioa hasi EZ duenean bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.contact.description"
-msgstr ""
+msgstr "Zure harremanetarako informazioa erakusten duen orri baterako esteka."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
+"Esteka hori Ezarpenak > Kontaktua ataleko \"Harremanetarako informazioa\" "
+"atala bete baduzu bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr ""
+msgstr "Mesedez, hautatu nabigazio-menu mota bat."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
+"Esteka hau Ezarpenak > Banaketa > Ordainketak atalean, ordainketak gaituta "
+"badaude bakarrik bistaratuko da."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
+"Esteka hau soilik bistaratuko da bisitaria saioa hasita badago, ordainketak "
+"gaituta badaude Ezarpenak > Banaketa > Ordainketak atalean eta harpidetzak "
+"beharrezkoak badira Ezarpenak > Banaketa > Sarbidea atalean."
 
 msgid "manager.navigationMenus.search.description"
-msgstr ""
+msgstr "Bilaketa-orrirako esteka."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr ""
+msgstr "Zure pribatutasun-adierazpena erakusten duen orrirako esteka."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
@@ -2281,16 +2440,16 @@ msgid "grid.category.add"
 msgstr "Gehitu kategoria"
 
 msgid "grid.category.edit"
-msgstr ""
+msgstr "Editatu kategoria"
 
 msgid "grid.category.name"
 msgstr "Izena"
 
 msgid "grid.category.path"
-msgstr ""
+msgstr "Helbidea"
 
 msgid "grid.category.urlWillBe"
-msgstr ""
+msgstr "Kategoriaren URLa hau izango da: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
 msgstr ""
@@ -2299,13 +2458,13 @@ msgid "grid.category.pathExists"
 msgstr ""
 
 msgid "grid.category.description"
-msgstr ""
+msgstr "Deskribapena"
 
 msgid "grid.category.parentCategory"
-msgstr ""
+msgstr "Kategoria gurasoa"
 
 msgid "grid.category.removeText"
-msgstr ""
+msgstr "Ziur zaude kategoria hau ezabatu nahi duzula?"
 
 msgid "grid.category.nameRequired"
 msgstr ""
@@ -3209,12 +3368,14 @@ msgstr ""
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Bidalketaren egileari kategoria bat hautatzeko eskatu behar zaio bidalketa "
+"berri bat egiten duenean?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Bai, gehitu kategoria-eremu bat bidalketa-morroiari."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Ez, ez erakutsi egileei eremu hori."
 
 msgid "mailable.copyeditRequest.name"
 msgstr ""
@@ -3399,3 +3560,81 @@ msgstr ""
 
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Ez dago COUNTER R5 erabilera-estatistikarik eskuragarri oraindik."
+
+msgid "settings.roles.permitSettings"
+msgstr "Baimendu aldaketak ezarpenetan"
+
+msgid "settings.roles.masthead"
+msgstr "Kontuan hartu rola goiburuko zerrendan"
+
+msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
+msgstr ""
+"Honako hau erakusten zaie egileei berrikusleen iradokizunen urratsean. Eman "
+"azalpen labur bat egileak bere buruari, egilekideei eta beste edozein "
+"kolaboratzaileri buruz eman behar duen informazioaren inguruan."
+
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr ""
+"Mesedez, eman erredakzio-historia, editore bakoitzaren izen-abizenak, "
+"filiazioa eta hasiera- eta amaiera-datak barne."
+
+msgid "manager.setup.editorialMasthead.order.reviewers.description"
+msgstr ""
+"Ebaluatzaileak formatu estandarizatu batean erakutsiko dira, uniformetasuna "
+"mantentzeko eta atal honetan erraz aurki daitezen."
+
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Definitu goiburuko rolen ordena publikoki bistaratzeko."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr ""
+"Goiburuko zerbitzu editorial aktibo guztiak erakusten dituen orri baterako "
+"esteka."
+
+# fuzzy
+msgid "manager.navigationMenus.items.form.title.required"
+msgstr "Menuko elementuaren izenburua beharrezkoa da."
+
+msgid "manager.highlights.urlText.description"
+msgstr "Nabarmendutako botoiaren etiketa, adibidez, \"Irakurri gehiago\"."
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "Bat ere ez"
+
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Ezarri berrikuspenerako gogorarazleak"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Bidali posta elektroniko bidezko abisua aurretik edo ondoren berrikuspen-"
+"eskaerari erantzuteko (ebaluatzaileak oraindik ez badio erantzun berrikuspen-"
+"eskaerari) edo berrikuspena bidaltzeko (ebaluatzaileak oraindik ez badu "
+"berrikuspena bidali)"
+
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Berrikuspen-eskaerari erantzuna - Epemuga baino lehen"
+
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Berrikuspen-eskaerari erantzuna - Epemugaren ondoren"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Berrikuspenaren bidalketa - Epemuga baino lehen"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Berrikuspenaren bidalketa - Epemugaren ondoren"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} egun epea baino lehen"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} egun epea amaitu eta gero"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "Ez da abisurik ezarri"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission"
+msgstr "Gutxieneko berrikuspen-baieztatu kopurua"
+
+msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
+msgstr ""
+"Bidalketa batentzat eskatuko den gutxieneko berrikuspen-baieztatu kopurua"

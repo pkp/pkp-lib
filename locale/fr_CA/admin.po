@@ -1,5 +1,5 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023, 2025.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2025.
 # Emma U <emmaupkp@gmail.com>, 2025.
 msgid ""
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2025-06-16 18:06+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -262,13 +262,11 @@ msgstr ""
 msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Date non valide."
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr "Le Context ID n'est pas un nombre entier."
+msgstr "L'identifiant du contexte n'est pas un nombre entier."
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr "Le Submission ID n'est pas un nombre entier."
+msgstr "L'identifiant de soumission n'est pas un nombre entier."
 
 #, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
@@ -598,13 +596,12 @@ msgstr ""
 "paramètres/repères --redispatch et --clear pour redistribuer dans la liste "
 "d'attente ou vider tous les travaux en échec ou certains d'entre eux."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Distribuer les travaux disponibles dans la file d'attente. Si vous souhaitez "
-"distribuer un travail dans une file d'attente spécifique, passez le "
-"paramètre --queue=QUEUE_NAME. Il est aussi possible de passer --test pour "
-"lancer un travail test et --once pour lancer un travail à la fois"
+"distribuer un travail dans une file d'attente spécifique, utilisez le "
+"paramètre --queue=QUEUE_NAME. Il est aussi possible d'utiliser --test pour "
+"lancer un travail test et --once pour ne lancer qu'un seul travail."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
@@ -624,10 +621,10 @@ msgstr ""
 "pour voir l'ensemble des travaux en échec."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Afficher les commandes d'utilisation des tâches"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Afficher les paramètres d'utilisation des tâches"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.empty.option"
@@ -650,7 +647,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
 msgstr "Connexion"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Nom d'affichage de la tâche"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
@@ -985,13 +982,13 @@ msgid "admin.cli.tool.jobs.work.options.description"
 msgstr "Options disponible pour la commande work"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Nom de la connection de file à traiter [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Nom de la file à traiter [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Nom du processus[default : '{$default}']"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
@@ -1022,6 +1019,7 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Forcer le processus à rouler même en mode maintenance [default : {$default}]"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
@@ -1033,6 +1031,8 @@ msgstr "Nombre de travaux à traiter avant d'arrêter[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Durée maximale en secondes où le processus devrait rouler [default : "
+"'{$default}']"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.rest.description"
@@ -1040,7 +1040,7 @@ msgstr ""
 "Nombre de seconde à attendre entre chaque travail[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Rouler le processus pour la file de test"
 
 msgid "admin.fileLoader.fileDispatched"
 msgstr "Le fichier {$filename} a été déplacé dans le dossier de répartition."
@@ -1072,3 +1072,116 @@ msgstr "Ajouter la variable app_key dans le fichier config.inc.php."
 
 msgid "admin.cli.tool.appKey.show"
 msgstr "Générer l'App Key: {$appKey}"
+
+#, fuzzy
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Attribuez une tâche pour retirer automatiquement les invitations en retard"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Confirmez la clé de l'application courante, si une clé a été trouvée dans le "
+"fichier de configuration"
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Vouliez-vous dire l'une des options suivantes?"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Aucune variable de clé `app_key` n'est définie dans la section `general` du "
+"fichier de configuration. Veuillez mettre à jour la section `general` du "
+"fichier de configuration et y ajouter la ligne `app_key = `, ou encore faire "
+"la commande `php lib/pkp/tools/appKey.php configure` pour définir la "
+"variable."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Générer une nouvelle clé d'application et remplacer la clé dans le fichier "
+"de configuration. Passez le paramètre --show pour uniquement afficher et --"
+"force pour écraser une clé déjà existante."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Les processus se termineront en douceur après avoir complété la tâche "
+"actuelle."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"La variable `app_key` existe déjà dans la section`general` du fichier de "
+"configuration. Faites la commande `php lib/pkp/tools/appKey.php generate` "
+"pour définir une nouvelle clé d'application."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Aucune clé d'application dans le fichier de configuration."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Le jeu de clé d'application est invalide, à cause d'un chiffre non supporté "
+"ou d'une longueur de clé incorrecte. Les chiffres supportés sont: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Une clé d'application valide est déjà définie dans le fichier de "
+"configuration. Pour l'écraser, faites la commande avec le paramètre --force."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "La clé d'application a été définie dans le fichier de configuration."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Impossible de définir la variable `app_key` dans le fichier de "
+"configuration. Veuillez ajouter la ligne `app_key = ` dans la section "
+"`general` du fichier de configuration."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Une clé d'application a été définie dans le fichier de configuration"
+
+#, fuzzy
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Exécuter le programmateur."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Afficher la liste des tâches pogrammées."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Démarrer le processus de programmation."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Choisissez une tâche programmée dans la liste, ou en utilisant le paramètre "
+"--name. Passez le paramètre --no-scroll pour voir la liste complète sans "
+"défilement."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Afficher les paramètres d'utilisation du programmateur."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Vouliez-vous dire l'un des éléments suivants ?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Les tâches programmées n'ont pu être exécutées car l'application est en mode "
+"bac à sable."
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Les tâches programmées seront exécutées à chaque minute."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Aucune tâche programmée correspondante."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Quelle commande voulez-vous faire?"
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"Les tâches programmées n'ont pu être exécutées car l'application est en mode "
+"maintenance."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Aucune tâche n'a été programmée."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"La clé d'application a été définie dans le fichier de configuration. Faites "
+"la commande `php lib/pkp/tools/appKey.php generate` pour définir une "
+"nouvelle clé d'application."

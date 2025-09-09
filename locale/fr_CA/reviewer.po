@@ -1,13 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2025.
 # Emma U <emmaupkp@gmail.com>, 2025.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-06-16 18:06+0000\n"
-"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
+"PO-Revision-Date: 2025-08-28 04:27+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -83,7 +84,7 @@ msgstr ""
 "Il est possible que j'aie des intérêts divergents (veuillez spécifier)."
 
 msgid "reviewer.submission.competingInterests"
-msgstr "Intérêts divergents"
+msgstr "Conflit d'intérêts"
 
 msgid "reviewer.submission.guidelines"
 msgstr "Lignes directrices pour l'évaluation"

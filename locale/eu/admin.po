@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-07-31 22:34+0000\n"
+"PO-Revision-Date: 2025-09-03 07:45+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -16,19 +16,21 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr ""
+msgstr "Ezarpenaren izena"
 
 msgid "admin.systemInfo.settingValue"
-msgstr ""
+msgstr "Ezarpenaren balioa"
 
 msgid "admin.adminFunctions"
 msgstr "Funtzio administratiboak"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Ezabatu katxea"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Ezabatu cache fitxategiak sistematik. Hori garapen-inguruneetan bakarrik "
+"egin behar da."
 
 msgid "admin.clearDataCache"
 msgstr "Garbitu datu-cacheak"
@@ -77,6 +79,8 @@ msgstr "Iraungi erabiltzaileen saioak"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Erabiltzaile guztiei berehala saioa itxiko zaie aplikazioan, zu barne, eta "
+"berriro saioa hasi beharko dute."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -333,9 +337,11 @@ msgstr "Sistema-informazioa"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Ikusi aplikazioaren eta zerbitzariaren bertsioaren eta konfigurazio-"
+"ezarpenei buruzko informazioa."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Ikusi sistema-informazioa"
 
 msgid "admin.versionBuild"
 msgstr "Konpilazio-bertsioa"
@@ -578,31 +584,33 @@ msgid "admin.cli.tool.jobs.mean.those"
 msgstr ""
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Guztira <strong>{$total}</strong> lan daude ilaran"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Guztira <strong>{$total}</strong> huts egindako lan daude."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Ikusi ilaran dauden lanak"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Lanak"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Huts egindako lanak"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Huts egindako lanaren xehetasunak"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Ikusi sisteman ilaran dauden lan guztiak eta jarraitu huts egindako "
+"saiakerak."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Ikusi lanak"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Ikusi huts egindako lanak"
 
 msgid "navigation.tools.job.failed.details.view"
 msgstr ""
@@ -614,46 +622,46 @@ msgid "admin.job.failed.list.attribute.value"
 msgstr ""
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Lana"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Ilara"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Konexioa"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Saiakerak"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Noiz sortua"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Noiz huts egin"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Karga erabilgarria"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Salbuespena"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Ekintzak"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "{$failedAt}-an huts egin"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "{$createdAt}-an sortua"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Saiatu berriz"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Berriro ilaran jarri huts egindako lan guztiak"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""

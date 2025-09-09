@@ -1,7 +1,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-17 19:22+0000\n"
+"PO-Revision-Date: 2025-09-08 13:01+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/eu/>"
 "\n"
@@ -283,7 +283,7 @@ msgid "grid.columns.actions"
 msgstr "Ekintzak"
 
 msgid "grid.columns.institution"
-msgstr "Instituzioa"
+msgstr "Erakundea"
 
 msgid "grid.columns.url"
 msgstr "URL"
@@ -548,7 +548,7 @@ msgid "grid.artworkFile.credit"
 msgstr "Kreditua"
 
 msgid "grid.artworkFile.copyrightOwner"
-msgstr "Copyright-aren jabea"
+msgstr "Egile-eskubideen jabea"
 
 msgid "grid.artworkFile.copyrightContact"
 msgstr "Harremanetarako informazioa (egilerik/argitaratzailerik ez badago)"

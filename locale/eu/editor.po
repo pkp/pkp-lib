@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-07-30 10:17+0000\n"
+"PO-Revision-Date: 2025-09-09 06:23+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -140,7 +140,7 @@ msgid "editor.review.createReviewer"
 msgstr ""
 
 msgid "editor.review.enrollReviewer.short"
-msgstr ""
+msgstr "Inskribatu lehendik dagoen erabiltzaile bat"
 
 msgid "editor.review.unassignReviewer"
 msgstr ""
@@ -155,34 +155,37 @@ msgid "editor.review.resendRequestReviewer"
 msgstr ""
 
 msgid "editor.submissionReview.reviewType"
-msgstr ""
+msgstr "Berrikuspen mota"
 
 msgid "editor.submissionReview.sendEmail"
 msgstr ""
+"Bidali posta elektroniko bidezko jakinarazpena egileari(ei): {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
 msgstr ""
+"Bidali posta elektroniko bidezko jakinarazpena editoreari(ei): {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
-msgstr ""
+msgstr "Ez bidali posta elektroniko bidezko jakinarazpenik"
 
 msgid "editor.submissionReview.open"
-msgstr ""
+msgstr "Irekia"
 
 msgid "editor.submissionReview.anonymous"
-msgstr ""
+msgstr "Ebaluatzaile anonimoa/Egilea agerian utzita"
 
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr ""
+msgstr "Ebaluatzaile anonimoa/Egile anonimoa"
 
+#, fuzzy
 msgid "editor.submissionReview.restrictFiles"
-msgstr ""
+msgstr "Berrikusi beharreko fitxategiak"
 
 msgid "editor.submissionReview.restrictFiles.hide"
-msgstr ""
+msgstr "Itxi fitxategien hautaketa"
 
 msgid "editor.submissionReview.editReview"
-msgstr ""
+msgstr "Editatu berrikuspena"
 
 msgid "editor.review.anonymousReviewer"
 msgstr ""
@@ -350,7 +353,7 @@ msgid "editor.submission.taskSchedule"
 msgstr ""
 
 msgid "editor.review.enrollReviewer"
-msgstr ""
+msgstr "Inskribatu erabiltzailea ebaluatzaile gisa"
 
 msgid "editor.submission.noAuditRequested"
 msgstr ""
@@ -395,22 +398,22 @@ msgid "editor.submission.newRound"
 msgstr "Ebaluazio-txanda berria"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr ""
+msgstr "Grabatu erabaki editoriala"
 
 msgid "editor.submissionReview.recordRecommendation"
-msgstr ""
+msgstr "Grabatu argitaletxearen gomendioa"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr ""
+msgstr "Jakinarazi editoreei"
 
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik editoreei."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr ""
+msgstr "Sortu berrikuspen-eztabaida bat gomendio horri buruz."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr ""
+msgstr "Ez sortu berrikuspen-eztabaidarik."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""
@@ -539,25 +542,34 @@ msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Bertan behera utzi erabakia"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Ziur zaude erabaki hau bertan behera utzi nahi duzula?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Jarraitu ondorengo urratsak erabaki hau hartzeko"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Ez saltatu mezu elektroniko hau"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Urrats hau saltatu da eta ez da mezu elektronikorik bidaliko."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Grabatu erabakia"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Saltatu mezu elektroniko hau"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Arazo bat egon da {$stepName} urratsarekin."
+
+msgid "editor.submission.daysInStage"
+msgstr "Egunak fase honetan"
+
+msgid "editor.submission.days"
+msgstr "Egunak"
+
+msgid "editor.submission.search"
+msgstr "Bilatu bidalketak, IDa, egileak, gako-hitzak, etab."

@@ -1,4 +1,4 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2021.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2021, 2025.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 # "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
@@ -7,9 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-11-01 14:38+0000\n"
-"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2025-08-29 21:32+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "api/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -390,3 +389,6 @@ msgstr "Le travail en échec a été supprimé avec succès de la liste des éch
 
 msgid "api.400.errorUploadingImage"
 msgstr "Une erreur est survenue lors du téléversement de cette image."
+
+msgid "api.422.routeRequestUnableToProcess"
+msgstr "Impossible de traiter la requête API."

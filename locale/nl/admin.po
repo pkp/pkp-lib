@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-09 12:31+0000\n"
+"PO-Revision-Date: 2025-09-09 12:51+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -186,7 +186,7 @@ msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publiceer de hiervoor geplande inzendingen"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr "Reviewherinnering"
+msgstr "Recensieherinnering"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Bekendmaking van het redactionele verslag"
@@ -270,16 +270,18 @@ msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Bestandstype wordt niet ondersteund."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "De naam van het land is geen alfabetisch tweeletter-tekenreeks."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "De regio is geen alfa-nummerieke tekenreeks tot drie letters."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "De ID van het instituut is geen array."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Er deed zich een foutmelding voor bij het verwerken van het logbestand "
+"{$file} bij de regel {$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -309,7 +311,7 @@ msgid "admin.settings.about"
 msgstr "Over de site"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Massa-e-mailberichten"
 
 msgid "admin.settings.contactEmail"
 msgstr "E-mailadres van de eerste contactpersoon"
@@ -324,10 +326,10 @@ msgid "admin.settings.minPasswordLength"
 msgstr "Minimale wachtwoordlengte"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Beperken massa-emailberichten"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Schakel rollen uit"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
 msgstr ""
@@ -818,3 +820,15 @@ msgstr ""
 #, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Actualiseer de Ror-registratie dataset cache"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "De gegevens van de recensent"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"In een multi omgevingsinstallatie, kunnen de gegevens van de recensent, "
+"zoals het aantal van de ingezonden recensie, individueel voor iedere "
+"omgeving worden weergegeven of collectief samengevoegd."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Schakel de samengevoegde gegevens van de recensenten uit"

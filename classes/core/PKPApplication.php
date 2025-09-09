@@ -233,7 +233,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         /** @var \PKP\context\ContextDAO $contextDao */
-        $contextDao = DAORegistry::getDAO(ucfirst($this->getContextName()) . 'DAO');
+        $contextDao = static::getContextDAO();
 
         if($context = $contextDao->getById($context)) {
             $this->cliContext = $context;
@@ -821,30 +821,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (!defined('RUNNING_UPGRADE')) {
             define('RUNNING_UPGRADE', true);
         }
-    }
-
-    /**
-     * Check if application currently running on CLI
-     */
-    public static function isRunningOnCLI(string $scriptPath = null): bool
-    {
-        if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
-            return true;
-        }
-
-        if ($scriptPath) {
-            $serverVars = $_SERVER;
-
-            if (isset($serverVars['SCRIPT_NAME']) && strpos(strtolower($serverVars['SCRIPT_NAME']), strtolower($scriptPath)) !== false) {
-                return true;
-            }
-
-            if (isset($serverVars['SCRIPT_FILENAME']) && strpos(strtolower($serverVars['SCRIPT_FILENAME']), strtolower($scriptPath)) !== false) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**

@@ -2992,7 +2992,7 @@ msgid "task.closeThisTask"
 msgstr "Close this Task"
 
 msgid "task.completeThisTask"
-msgstr "Complete this task'"
+msgstr "Complete this task"
 
 msgid "task.confirmCloseTask"
 msgstr "Are you sure you want to close this task? Closing the task won't end the discussion - you can still send messages on it."

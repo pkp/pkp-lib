@@ -137,6 +137,12 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
+                // We only want to Job Runner for the web request life cycle
+                // not in any CLI based request life cycle
+                if (app()->runningInConsole()) {
+                    return;
+                }
+
                 (new JobRunner($this))
                     ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()
@@ -165,21 +171,26 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
             // Clear the context for current CLI session when job failed to process
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
-            if (app()->runningInConsole()) {
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
                 Application::get()->clearCliContext();
             }
         });
 
-        Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
-            return [
-                'context_id' => Application::get()->getRequest()->getContext()?->getId(),
-            ];
-        });
-
+        // We will only register the payload creator if the application is not under maintenance
+        // to prevent any unintended DB access.
+        if (!Application::get()->isUnderMaintenance()) {
+            Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
+                if (!array_key_exists('context_id', $payload)) {
+                    $payload['context_id'] = Application::get()->getRequest()->getContext()?->getId();
+                }
+                return $payload;
+            });
+        }
+        
         Queue::before(function(JobProcessing $event){
             // Set the context for current CLI session if available right before job start processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
-            if (app()->runningInConsole()) {
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
                 // FIXME: should validate the context and fail the job is invalid ?
                 Application::get()->setCliContext($event->job->payload()['context_id'] ?? null);
             }
@@ -188,7 +199,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         Queue::after(function(JobProcessed $event){
             // Clear the context for current CLI session if available when job finish the processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
-            if (app()->runningInConsole()) {
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
                 Application::get()->clearCliContext();
             }
         });

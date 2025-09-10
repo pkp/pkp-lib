@@ -143,6 +143,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
+                // Not to run in unit test mode
+                if (app()->runningUnitTests()) {
+                    return;
+                }
+
                 (new JobRunner($this))
                     ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()
@@ -180,14 +185,37 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         // to prevent any unintended DB access.
         if (!Application::get()->isUnderMaintenance()) {
             Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
-                if (!array_key_exists('context_id', $payload)) {
-                    $payload['context_id'] = Application::get()->getRequest()->getContext()?->getId();
+                // if running in unit tests, no change to payload and immediate return
+                if (app()->runningUnitTests()) {
+                    return $payload;
                 }
+
+                $contextId = null;
+                
+                if (!array_key_exists('context_id', $payload)) {
+                    // This try/catch block is to facilitate the case when the application
+                    // running in CLI mode and a job get dispatched in CLI where it trying to
+                    // determine the context form the request() . But as the request delegate
+                    // to router and in CLI mode, perhaps the router is not available which throws
+                    // as \AssertionError. In that case it will fallback to CLI context to get
+                    // directly from there if exists a context and set it.
+                    try {
+                        $contextId = Application::get()->getRequest()->getContext()?->getId();
+                    } catch (\Throwable $e) {
+                        // error_log('Failed to retrieve context ID from request on queue payload creator with exception: ' . $e->__toString());
+                        $contextId = Application::get()->getCliContext();
+                    }
+
+                    if ($contextId) {
+                        $payload['context_id'] = $contextId;
+                    }
+                }
+
                 return $payload;
             });
         }
         
-        Queue::before(function(JobProcessing $event){
+        Queue::before(function(JobProcessing $event) {
             // Set the context for current CLI session if available right before job start processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
             if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
@@ -196,7 +224,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             }
         });
 
-        Queue::after(function(JobProcessed $event){
+        Queue::after(function(JobProcessed $event) {
             // Clear the context for current CLI session if available when job finish the processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
             if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {

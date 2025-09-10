@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-09 06:23+0000\n"
+"PO-Revision-Date: 2025-09-10 07:41+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -26,25 +26,25 @@ msgid "editor.submissionLibrary"
 msgstr "Bidalketen liburutegia"
 
 msgid "editor.submission.workflowDecision.submission"
-msgstr ""
+msgstr "Erabaki erregistratua"
 
 msgid "editor.submission.workflowDecision.submission.declined"
 msgstr "Bidalketa ukatua."
 
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr ""
+msgstr "Bidalketa onartua."
 
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr ""
+msgstr "Bidalketa argitaratua."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr ""
+msgstr "Berrikuspen-txanda berrira bidalia."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr ""
+msgstr "Ekoizpenera bidalia."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr ""
+msgstr "Bidalketa berrikusteko onartua."
 
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Erabakia aldatu"
@@ -59,13 +59,13 @@ msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Berrikuspen-erronda hau ezin izan da aurkitu."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Berrikuspen-erronda hau ez da bidalketa honen parte."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr "Bidalketa ez dago lan-fluxuaren etapa egokian erabakia hartzeko."
@@ -86,43 +86,48 @@ msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
 
 msgid "editor.review.notInitiated"
-msgstr "Oraindik ez da hasi berrikuspen-prozesua."
+msgstr "Berrikuspen-prozesua oraindik ez da hasi."
 
 msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Erabiltzaileari mezua"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr ""
+msgstr "Hautatu fitxategi hauek berrikuspen-fasera bidaltzeko."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr ""
+msgstr "Gutxienez fitxategi bat aukeratu behar duzu erabiltzaileari esleitzeko."
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr ""
+msgstr "Mezu pertsonalizatu bat sartu behar duzu."
 
 msgid "editor.submission.fileAuditor.skipEmail"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik auditoreari"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr ""
+msgstr "Zein erabiltzaileri esleitu aukeratu behar duzu."
 
 msgid "editor.submission.uploadSelectFiles"
-msgstr "Igo/aukeratu fitxategiak"
+msgstr "Igo/hautatu fitxategiak"
 
 msgid "editor.submission.selectFiles"
 msgstr "Hautatu fitxategiak"
 
 msgid "editor.submission.revisions"
-msgstr ""
+msgstr "Berrikuspenak"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
+"Erabili <em>+Ebaluatzailea gehitu</em> irakurleak bidalketa-fitxategiak "
+"berrikustera gonbidatzeko. Liburuxka ikonoak berrikuspen bat bidali dela "
+"adierazten du eta <em>Onartua</em> marka jarriko zaio kontsultatu ondoren. "
+"Berrikuspen atzeratuak daudenean, gutun-azal gorri baten ikonoarekin "
+"agertzen da ebaluatzaileak gogorarazteko."
 
 msgid "editor.submission.addReviewer"
-msgstr ""
+msgstr "Gehitu ebaluatzailea"
 
 msgid "editor.submission.findAndSelectReviewer"
-msgstr ""
+msgstr "Kokatu ebaluatzaile bat"
 
 msgid "editor.submission.findAndSelectUser"
 msgstr "Aurkitu erabiltzaile bat"
@@ -131,28 +136,28 @@ msgid "editor.submission.fileList.includeAllStages"
 msgstr "Bistaratu lan-fluxuaren etapa eskuragarri guztietako fitxategiak."
 
 msgid "editor.submission.review.currentFiles"
-msgstr ""
+msgstr "{$round}. errondako uneko berrikuspen-fitxategiak"
 
 msgid "editor.submission.backToSearch"
-msgstr ""
+msgstr "Itzuli bilaketara"
 
 msgid "editor.review.createReviewer"
-msgstr ""
+msgstr "Sortu ebaluatzaile berria"
 
 msgid "editor.review.enrollReviewer.short"
 msgstr "Inskribatu lehendik dagoen erabiltzaile bat"
 
 msgid "editor.review.unassignReviewer"
-msgstr ""
+msgstr "Kendu esleipena ebaluatzaileari"
 
 msgid "editor.review.cancelReviewer"
-msgstr ""
+msgstr "Ezeztatu ebaluatzailea"
 
 msgid "editor.review.reinstateReviewer"
-msgstr ""
+msgstr "Berrezarri ebaluatzailea"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Birbidali berrikuspen-eskaera"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Berrikuspen mota"
@@ -188,19 +193,19 @@ msgid "editor.submissionReview.editReview"
 msgstr "Editatu berrikuspena"
 
 msgid "editor.review.anonymousReviewer"
-msgstr ""
+msgstr "Ebaluatzaile anonimoa"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr ""
+msgstr "Ebaluatzaileari bidaltzeko mezu elektronikoa"
 
 msgid "editor.review.importantDates"
-msgstr ""
+msgstr "Data garrantzitsuak"
 
 msgid "editor.review.uploadRevision"
-msgstr ""
+msgstr "Igo berrikuspena"
 
 msgid "editor.review.newReviewRound"
-msgstr ""
+msgstr "Berrikuspen-erronda berria behar da"
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr ""
@@ -215,85 +220,85 @@ msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
 
 msgid "editor.review.dateAccepted"
-msgstr ""
+msgstr "Berrikuspenaren onarpen-data"
 
 msgid "editor.review.reviewsAdded"
-msgstr ""
+msgstr "Mezuaren gorputzari berrikuspenak gehitu zaizkio."
 
 msgid "editor.review.noReviews"
 msgstr ""
 
 msgid "editor.review.reminder"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea"
 
 msgid "editor.review.thankReviewer"
-msgstr ""
+msgstr "Eskerrak eman ebaluatzaileari"
 
 msgid "editor.review.reminderError"
-msgstr ""
+msgstr "Errorea berrikuspen-abisua bidaltzean"
 
 msgid "editor.review.thankReviewerError"
-msgstr ""
+msgstr "Errorea ebaluatzaileari eskerrak emateko mezua bidaltzean"
 
 msgid "editor.review.skipEmail"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik ebaluatzaileari."
 
 msgid "editor.review.sendReminder"
-msgstr ""
+msgstr "Bidali abisua"
 
 msgid "editor.review.readReview"
-msgstr ""
+msgstr "Irakurri berrikuspena"
 
 msgid "editor.review.readNewReview"
-msgstr ""
+msgstr "Irakurri berrikuspen berria"
 
 msgid "editor.review.responseDue"
-msgstr ""
+msgstr "Erantzuteko epea: {$date}"
 
 msgid "editor.review.requestSent"
-msgstr ""
+msgstr "Eskaera bidalia"
 
 msgid "editor.review.requestAccepted"
-msgstr ""
+msgstr "Eskaera onartua"
 
 msgid "editor.review.requestDeclined"
-msgstr ""
+msgstr "Eskaera ukatua"
 
 msgid "editor.review.requestCancelled"
-msgstr ""
+msgstr "Eskaera ezeztatua"
 
 msgid "editor.review.requestDeclined.tooltip"
-msgstr ""
+msgstr "Ebaluatzaileak berrikuspen-eskaera hau ukatu du."
 
 msgid "editor.review.requestCancelled.tooltip"
-msgstr ""
+msgstr "Editoreak berrikuspen-eskaera hau ezeztatu du."
 
 msgid "editor.review.revertDecision"
-msgstr ""
+msgstr "Erabakia atzera botatzea"
 
 msgid "editor.review.reviewDue"
-msgstr ""
+msgstr "Berrikuspenaren epea: {$date}"
 
 msgid "editor.review.reviewDueDate"
 msgstr "Ebaluazioaren Epemuga"
 
 msgid "editor.review.reviewCompleted"
-msgstr ""
+msgstr "Berrikuspena osatua"
 
 msgid "editor.review.reviewConfirmed"
-msgstr ""
+msgstr "Berrikuspena baieztatua"
 
 msgid "editor.review.reviewSubmitted"
-msgstr ""
+msgstr "Berrikuspena bidalia"
 
 msgid "editor.review.reviewerThanked"
-msgstr ""
+msgstr "Ebaluatzaileari eskerrak eman zaizkio"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Eskaera birbidalia"
 
 msgid "editor.review.reviewerComments"
-msgstr ""
+msgstr "Ebaluatzailearen oharrak"
 
 msgid "editor.review.rateReviewer"
 msgstr "Ebaluatzailearen balorazioa"
@@ -302,19 +307,20 @@ msgid "editor.review.rateReviewer.description"
 msgstr ""
 
 msgid "editor.review.reviewerRating.none"
-msgstr ""
+msgstr "Baloraziorik ez"
 
 msgid "editor.review.mustSelect"
-msgstr ""
+msgstr "Ebaluatzaile bat hautatu behar duzu"
 
 msgid "editor.review.errorAddingReviewer"
-msgstr ""
+msgstr "Errorea gertatu da ebaluatzailea gehitzean. Mesedez, saiatu berriro."
 
 msgid "editor.review.errorDeletingReviewer"
-msgstr ""
+msgstr "Errorea gertatu da ikuskatzailea ezabatzean. Mesedez, saiatu berriro."
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr ""
+"Errorea gertatu da ikuskatzailea berrezartzean. Mesedez, saiatu berriro."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
@@ -326,7 +332,7 @@ msgid "editor.review.unconsiderReviewText"
 msgstr ""
 
 msgid "editor.review.unconsiderReview"
-msgstr ""
+msgstr "Kontuan ez hartu berrikuspen hau"
 
 msgid "editor.review.readConfirmation"
 msgstr ""
@@ -344,13 +350,13 @@ msgid "editor.submission.selectCopyedingFiles"
 msgstr ""
 
 msgid "editor.submission.selectReviewer"
-msgstr ""
+msgstr "Hautatu ebaluatzailea"
 
 msgid "editor.submission.taskDueDate"
-msgstr ""
+msgstr "Zereginaren amaiera-epea"
 
 msgid "editor.submission.taskSchedule"
-msgstr ""
+msgstr "Zereginen plangintza"
 
 msgid "editor.review.enrollReviewer"
 msgstr "Inskribatu erabiltzailea ebaluatzaile gisa"
@@ -359,10 +365,10 @@ msgid "editor.submission.noAuditRequested"
 msgstr ""
 
 msgid "editor.submission.personalMessageToUser"
-msgstr ""
+msgstr "Erabiltzaileari bidaltzeko mezu elektronikoa"
 
 msgid "editor.submission.proof.reminder"
-msgstr ""
+msgstr "Zuzenketa gogorarazlea"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr ""
@@ -371,7 +377,7 @@ msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr ""
 
 msgid "editor.submission.addAuditor"
-msgstr ""
+msgstr "Esleitu auditorea"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
@@ -379,17 +385,18 @@ msgstr ""
 msgid "editor.review"
 msgstr "Berrikuspena"
 
+#, fuzzy
 msgid "editor.review.reviewDetails"
-msgstr ""
+msgstr "Berrikusi xehetasunak"
 
 msgid "editor.review.noReviewFilesUploaded"
 msgstr "Ez da fitxategirik igo"
 
 msgid "editor.review.noReviewFilesUploaded.details"
-msgstr ""
+msgstr "Ez duzu berrikuspen-fitxategirik kargatu."
 
 msgid "editor.review.emailReviewer"
-msgstr ""
+msgstr "Bidali mezu elektronikoa ebaluatzaileari"
 
 msgid "editor.submission.production.productionReadyFiles"
 msgstr "Ekoizpenerako prest dauden artxiboak"
@@ -419,46 +426,46 @@ msgid "editor.submission.newRoundDescription"
 msgstr ""
 
 msgid "editor.submission.createNewRound"
-msgstr ""
+msgstr "Sortu berrikuspen-erronda berri bat"
 
 msgid "editor.article.reviewForms"
-msgstr ""
+msgstr "Ebaluazio-inprimakiak"
 
 msgid "editor.article.selectReviewForm"
-msgstr ""
+msgstr "Hautatu ebaluazio-inprimakia"
 
 msgid "editor.article.confirmChangeReviewForm"
 msgstr ""
 
 msgid "editor.submission.noReviewerFilesSelected"
-msgstr ""
+msgstr "Ez da fitxategirik hautatu"
 
 msgid "editor.submission.noReviewerFilesSelected.details"
 msgstr ""
 
 msgid "submission.queries.subjectRequired"
-msgstr ""
+msgstr "Eztabaidaren gaia zehaztea beharrezkoa da."
 
 msgid "submission.queries.messageRequired"
-msgstr ""
+msgstr "Eztabaidaren mezua beharrezkoa da."
 
 msgid "submission.queries.attachedFiles"
-msgstr ""
+msgstr "Erantsitako fitxategiak"
 
 msgid "grid.action.editQuery"
-msgstr ""
+msgstr "Editatu eztabaida"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr ""
 
 msgid "editor.submission.selectedReviewer"
-msgstr ""
+msgstr "Ebaluatzailea hautatuta"
 
 msgid "editor.submission.proofreading.approveProof"
-msgstr ""
+msgstr "Onartu proba"
 
 msgid "editor.submission.proofreading.revokeProofApproval"
-msgstr ""
+msgstr "Ezeztatu probaren onespena"
 
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""
@@ -476,49 +483,49 @@ msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr ""
 
 msgid "reviewer.list.filterRating"
-msgstr ""
+msgstr "Baloratua gutxienez"
 
 msgid "reviewer.list.activeReviews"
-msgstr ""
+msgstr "{$count} aktibo"
 
 msgid "reviewer.list.activeReviewsDescription"
-msgstr ""
+msgstr "Une honetan esleitutako berrikuspen aktiboak"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr ""
 
 msgid "reviewer.list.completedReviews"
-msgstr ""
+msgstr "Osatutako berrikuspenak"
 
 msgid "reviewer.list.declinedReviews"
-msgstr ""
+msgstr "Ukatutako berrikuspen-eskaerak"
 
 msgid "reviewer.list.cancelledReviews"
-msgstr ""
+msgstr "Ezeztatutako berrikuspen-eskaerak"
 
 msgid "reviewer.list.reviewerRating"
-msgstr ""
+msgstr "Ebaluatzailearen balorazioa: {$rating}"
 
 msgid "reviewer.list.daysSinceLastAssignment"
-msgstr ""
+msgstr "Duela {$days} egun"
 
 msgid "reviewer.list.daySinceLastAssignment"
-msgstr ""
+msgstr "Atzo"
 
 msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr ""
+msgstr "Azken berrikuspena esleitu zenetik igarotako egunak"
 
 msgid "reviewer.list.averageCompletion"
-msgstr ""
+msgstr "Berrikuspena burutzeko batez besteko egunak"
 
 msgid "reviewer.list.neverAssigned"
-msgstr ""
+msgstr "Inoiz esleitu gabea"
 
 msgid "reviewer.list.reassign"
-msgstr ""
+msgstr "Berriro esleitu"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Berriro esleitu {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr ""
@@ -527,19 +534,19 @@ msgid "reviewer.list.warnOnAssign"
 msgstr ""
 
 msgid "reviewer.list.warnOnAssignUnlock"
-msgstr ""
+msgstr "Desblokeatu"
 
 msgid "reviewer.list.reviewInterests"
-msgstr ""
+msgstr "Ebaluatzeko interesak"
 
 msgid "reviewer.list.biography"
-msgstr ""
+msgstr "Biografia"
 
 msgid "reviewer.list.empty"
-msgstr ""
+msgstr "Ez da ebaluatzailerik aurkitu"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Aurreko erronda batera esleitua"
 
 msgid "editor.decision.cancelDecision"
 msgstr "Bertan behera utzi erabakia"
@@ -573,3 +580,18 @@ msgstr "Egunak"
 
 msgid "editor.submission.search"
 msgstr "Bilatu bidalketak, IDa, egileak, gako-hitzak, etab."
+
+msgid "editor.submission.findAndSelectReviewerFromSuggestions"
+msgstr "Hautatu ebaluatzaile bat ebaluatzaileen iradokizunetatik"
+
+msgid "editor.review.download"
+msgstr "Deskargatu ebaluazio-inprimakia"
+
+msgid "editor.review.reviewViewed"
+msgstr "Berrikuspena ikusia"
+
+msgid "editor.submission.viewSummary"
+msgstr "Laburpena"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Egilearen erakunde bera"

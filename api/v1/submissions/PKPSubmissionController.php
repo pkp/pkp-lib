@@ -2227,7 +2227,7 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
-     * Update citationsMetadataLookup of a publication.
+     * Update citationsMetadataLookup of a publication, reprocess citations if getting enabled.
      */
     protected function editCitationsMetadataLookup(Request $illuminateRequest): JsonResponse
     {
@@ -2241,13 +2241,16 @@ class PKPSubmissionController extends PKPBaseController
 
         $citationsMetadataLookup = (bool)$illuminateRequest->input('citationsMetadataLookup');
 
+        $processCitation = false;
+        if ($citationsMetadataLookup && !$publication->getData('citationsMetadataLookup')) {
+            $processCitation = true;
+        }
+
         /** @var Citation $citation */
         foreach ($publication->getData('citations') as &$citation) {
-            if ($citationsMetadataLookup && !$publication->getData('citationsMetadataLookup')) {
-                $citation->setIsProcessed(false);
+            $citation->setIsProcessed(!$processCitation);
+            if ($processCitation) {
                 Repo::citation()->reprocessCitation($citation);
-            } else {
-                $citation->setIsProcessed(true);
             }
         }
         unset($citation);

@@ -68,7 +68,7 @@ class JobRunner
      * Create a new instance
      *
      */
-    public function __construct(PKPQueueProvider $jobQueue = null)
+    public function __construct(?PKPQueueProvider $jobQueue = null)
     {
         $this->jobQueue = $jobQueue ?? app('pkpJobQueue');
     }

@@ -129,18 +129,22 @@ class LoginHandler extends Handler
             $request->redirectSSL();
         }
 
-        $error = null;
         $isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_login') && Config::getVar('captcha', 'recaptcha');
         if ($isCaptchaEnabled) {
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
             try {
                 FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
             } catch (Exception $exception) {
-                $error = 'common.captcha.error.missing-input-response';
+                $recaptchaError = 'common.captcha.error.missing-input-response';
             }
         }
 
-        $error = $this->_validateAltchasResponse($request, 'altcha_on_login');
+        $isAltchaEnabled = Config::getVar('captcha', 'altcha_on_login') && Config::getVar('captcha', 'altcha');
+        if ($isAltchaEnabled) {
+            $altchaError = $this->_validateAltchasResponse($request, 'altcha_on_login');
+        }
+
+        $error = $recaptchaError ?? $altchaError ?? null;
         $username = $request->getUserVar('username');
         $reason = null;
         $user = $error || !strlen($username ?? '')
@@ -169,7 +173,6 @@ class LoginHandler extends Handler
             $error = 'user.login.accountDisabled';
         }
         $error ??= 'user.login.loginError';
-
 
         $templateMgr->assign([
             'username' => $username,
@@ -450,7 +453,6 @@ class LoginHandler extends Handler
         $request->redirect(null, $request->getRequestedPage());
     }
 
-
     /**
      * Restore original user account after signing in as a user.
      */
@@ -470,7 +472,6 @@ class LoginHandler extends Handler
         }
         $this->_redirectByURL($request);
     }
-
 
     /**
      * Redirect to redirectURL if exists else send to Home

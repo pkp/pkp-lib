@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-09 07:20+0000\n"
+"PO-Revision-Date: 2025-09-10 08:03+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -812,6 +812,9 @@ msgstr "Estatistika instituzionalak"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Gaitu erakundeen estatistikak erakundeen araberako erabilera-estatistikak "
+"bildu nahi badituzu. Gaituta egonez gero, arakatu nahi duzun erakunde "
+"bakoitzaren IP barrutiak konfiguratu beharko dituzu."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Gaitu estatistika instituzionalak"
@@ -2476,19 +2479,19 @@ msgid "stats.allUsers"
 msgstr "Erabiltzaile guztiak"
 
 msgid "stats.city"
-msgstr ""
+msgstr "Hiria"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Bistaratzeak"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Deskargak"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Bistaratze guztiak dataren arabera"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Deskarga guztiak dataren arabera"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/urtean)"
@@ -2571,16 +2574,16 @@ msgid "stats.description.submissionsSkipped"
 msgstr ""
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "{$stat}-ren deskribapena"
 
 msgid "stats.editorialActivity"
 msgstr "Argitalpen-jarduera"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Fitxategi nagusia"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Fitxategi osagarria"
 
 msgid "stats.fileViews"
 msgstr "Fitxategiaren bistaratzeak"
@@ -2595,16 +2598,16 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "<a href='https://db-ip.com'>DB-IP</a>-k emandako geolokalizazioa"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Geolokalizazioari buruz"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} - {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Guztiak {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
 msgstr "Deskargatu fitxategiak"
@@ -2618,8 +2621,9 @@ msgstr "Deskargatu datu geografikoak"
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Hiri, eskualde edo herrialde bakoitzeko ikustaldi eta deskarga kopurua."
 
+#, fuzzy
 msgid "stats.region"
-msgstr ""
+msgstr "Eskualdea"
 
 msgid "stats.searchSubmissionDescription"
 msgstr "Bilatu izenburuaren, egilearen eta IDaren arabera"
@@ -2628,37 +2632,37 @@ msgid "stats.submissionsActive"
 msgstr "Bidalketa aktiboak"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Denbora-lerroa"
 
 msgid "stats.timeline.downloadReport.description"
 msgstr ""
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Deskargatu denbora-lerroa"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Denbora-lerroaren tartea"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Denbora-lerro mota"
 
 msgid "stats.total"
 msgstr "Guztira"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Bakarra"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Guztira data-tartearen barruan"
 
 msgid "stats.trends"
 msgstr "Joerak"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "ezezaguna"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Erabiltzailearen estatistikak"
 
 msgid "stats.name.submissionsReceived"
 msgstr "Jasotako bidalketak"
@@ -2939,7 +2943,7 @@ msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Argitalpen-jardueraren orrirako esteka"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""

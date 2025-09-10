@@ -68,7 +68,7 @@ class JobRunner
      * Create a new instance
      *
      */
-    public function __construct(PKPQueueProvider $jobQueue = null)
+    public function __construct(?PKPQueueProvider $jobQueue = null)
     {
         $this->jobQueue = $jobQueue ?? app('pkpJobQueue');
     }
@@ -193,7 +193,7 @@ class JobRunner
      * Process/Run/Execute jobs off CLI
      *
      */
-    public function processJobs(EloquentBuilder $jobBuilder = null): bool
+    public function processJobs(?EloquentBuilder $jobBuilder = null): bool
     {
         $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
 
@@ -217,7 +217,10 @@ class JobRunner
                 return true;
             }
 
-            $this->jobQueue->runJobInQueue();
+            // if there is no more jobs to run, exit the loop
+            if ($this->jobQueue->runJobInQueue() === false) {
+                return true;
+            }
 
             $jobProcessedCount = $jobProcessedCount + 1;
         }

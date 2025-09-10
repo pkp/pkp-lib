@@ -22,6 +22,8 @@ use APP\core\Application;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
 use Illuminate\Queue\Worker;
 use Illuminate\Queue\WorkerOptions;
@@ -90,21 +92,23 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     /**
      * Run the queue worker to process queue the jobs
      */
-    public function runJobInQueue(): void
+    public function runJobInQueue(): bool
     {
         $job = $this->getJobModelBuilder()->limit(1)->first();
 
         if ($job === null) {
-            return;
+            return false; // this will signal that there are no jobs to run
         }
 
         $laravelContainer = PKPContainer::getInstance();
 
         $laravelContainer['queue.worker']->runNextJob(
-            'database',
+            Config::getVar('queues', 'default_connection', 'database'),
             $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()
         );
+
+        return true;
     }
 
     /**
@@ -114,7 +118,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     public function boot()
     {
         if (Config::getVar('queues', 'job_runner', true)) {
-            register_shutdown_function(function () {
+            $currentWorkingDir = getcwd();
+            register_shutdown_function(function () use ($currentWorkingDir) {
+                
+                // restore the current working directory
+                // see: https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
+                chdir($currentWorkingDir);
+
                 // As this runs at the current request's end but the 'register_shutdown_function' registered
                 // at the service provider's registration time at application initial bootstrapping,
                 // need to check the maintenance status within the 'register_shutdown_function'
@@ -124,6 +134,17 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
                 if (Config::getVar('general', 'sandbox', false)) {
                     error_log(__('admin.cli.tool.jobs.sandbox.message'));
+                    return;
+                }
+
+                // We only want to Job Runner for the web request life cycle
+                // not in any CLI based request life cycle
+                if (app()->runningInConsole()) {
+                    return;
+                }
+
+                // Not to run in unit test mode
+                if (app()->runningUnitTests()) {
                     return;
                 }
 
@@ -137,7 +158,8 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         }
 
         Queue::failing(function (JobFailed $event) {
-            error_log($event->exception->__toString());
+            $contextId = $event->job->payload()['context_id'] ?? 'unknown';
+            error_log("Job failed for context_id {$contextId}: {$event->exception->__toString()}");
 
             app('queue.failer')->log(
                 $event->connectionName,
@@ -151,6 +173,63 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     'trace' => $event->exception->getTrace(),
                 ])
             );
+
+            // Clear the context for current CLI session when job failed to process
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
+                Application::get()->clearCliContext();
+            }
+        });
+
+        // We will only register the payload creator if the application is not under maintenance
+        // to prevent any unintended DB access.
+        if (!Application::get()->isUnderMaintenance()) {
+            Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
+                // if running in unit tests, no change to payload and immediate return
+                if (app()->runningUnitTests()) {
+                    return $payload;
+                }
+
+                $contextId = null;
+                
+                if (!array_key_exists('context_id', $payload)) {
+                    // This try/catch block is to facilitate the case when the application
+                    // running in CLI mode and a job get dispatched in CLI where it trying to
+                    // determine the context form the request() . But as the request delegate
+                    // to router and in CLI mode, perhaps the router is not available which throws
+                    // as \AssertionError. In that case it will fallback to CLI context to get
+                    // directly from there if exists a context and set it.
+                    try {
+                        $contextId = Application::get()->getRequest()->getContext()?->getId();
+                    } catch (\Throwable $e) {
+                        // error_log('Failed to retrieve context ID from request on queue payload creator with exception: ' . $e->__toString());
+                        $contextId = Application::get()->getCliContext();
+                    }
+
+                    if ($contextId) {
+                        $payload['context_id'] = $contextId;
+                    }
+                }
+
+                return $payload;
+            });
+        }
+        
+        Queue::before(function(JobProcessing $event) {
+            // Set the context for current CLI session if available right before job start processing
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
+                // FIXME: should validate the context and fail the job is invalid ?
+                Application::get()->setCliContext($event->job->payload()['context_id'] ?? null);
+            }
+        });
+
+        Queue::after(function(JobProcessed $event) {
+            // Clear the context for current CLI session if available when job finish the processing
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
+                Application::get()->clearCliContext();
+            }
         });
     }
 

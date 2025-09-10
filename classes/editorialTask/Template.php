@@ -18,6 +18,7 @@ namespace PKP\editorialTask;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use PKP\core\traits\ModelWithSettings;
 use PKP\emailTemplate\EmailTemplate;
 
@@ -28,28 +29,31 @@ class Template extends Model
     protected $table = 'edit_task_templates';
     protected $primaryKey = 'edit_task_template_id';
 
-    protected $guarded = [
-        'id',
-        'editTaskTemplateId'
+    public $timestamps = true;
+
+    // columns on edit_task_templates
+    protected $fillable = [
+        'stage_id',
+        'title',
+        'context_id',
+        'include',
+        'email_template_id',
     ];
 
-    protected function casts()
-    {
-        return [
-            'id' => 'integer',
-            'editTaskTemplateId' => 'integer',
-            'emailTemplateId' => 'integer',
-            'name' => 'string',
-            'description' => 'string',
-        ];
-    }
+    protected $casts = [
+        'stage_id' => 'int',
+        'context_id' => 'int',
+        'include' => 'bool',
+        'email_template_id' => 'int',
+        'title' => 'string',
+    ];
 
     /**
      * @inheritDoc
      */
     public function getSettingsTable(): string
     {
-        return 'edit_task_settings';
+        return 'edit_task_template_settings';
     }
 
     /**
@@ -92,5 +96,18 @@ class Template extends Model
     public function emailTemplate()
     {
         return $this->hasOne(EmailTemplate::class, 'email_id', 'email_template_id');
+    }
+
+    /**
+     * Link template to user groups via pivot table.
+     */
+    public function userGroups(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            \PKP\userGroup\UserGroup::class,
+            'edit_task_template_user_groups',
+            'edit_task_template_id',
+            'user_group_id'
+        );
     }
 }

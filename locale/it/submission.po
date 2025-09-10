@@ -1,15 +1,15 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022, 2024, 2025.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
-# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024, 2025.
 # Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2025-07-10 14:48+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2025-09-10 08:55+0000\n"
+"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/it/>\n"
 "Language: it\n"
@@ -2469,7 +2469,7 @@ msgid "submission.wizard.confirm"
 msgstr ""
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Invia una proposta"
 
 msgid "submission.wizard.titleWithStep"
 msgstr ""

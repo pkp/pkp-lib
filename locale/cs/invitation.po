@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-10 19:23+0000\n"
+"PO-Revision-Date: 2025-09-10 21:04+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/cs/>\n"
@@ -269,3 +269,138 @@ msgstr "Počáteční datum"
 
 msgid "userInvitation.roleTable.endDate"
 msgstr "Datum ukončení"
+
+msgid "invitation.step"
+msgstr "KROK"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Prohlášení o ochraně osobních údajů"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Příjmení, rodinné jméno nebo poslední jméno je většinou dědičná část "
+"osobního jména, která označuje rodinu dané osoby."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Toto je institut, ke kterému patříte"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Jedná se o zemi, ve které se nachází institut, ke kterému patříte"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Stát afiliace"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Podrobnosti účtu"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Podrobnosti o uživateli"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Zobrazit všechna podání"
+
+msgid "invitation.tableHeader.name"
+msgstr "Jméno"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Zadejte alespoň jedno vyhledávací kritérium."
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Zrušit pozvání"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Zrušit pozvánku"
+
+msgid "invitation.masthead.show"
+msgstr "Zobrazit v tiráži"
+
+msgid "invitation.masthead.hidden"
+msgstr "Nebude zobrazeno v tiráži"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Změnit roli"
+
+msgid "invitation.management.options"
+msgstr "Možnosti správy pozvánek"
+
+msgid "userInvitation.cancel.message"
+msgstr "Opravdu chcete tuto pozvánku zrušit?"
+
+msgid "userInvitation.status.invited"
+msgstr "Pozváno {$date}"
+
+msgid "invitation.removeRoles"
+msgstr "Uživatel odstraněn z role"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Zrušit proces pozvání"
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Odhlaste se a přihlaste se pomocí správného účtu, abyste přijali tuto "
+"pozvánku."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Uživatel je momentálně deaktivován."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Uživatel byl deaktivován. Dokud je deaktivován, nelze mu přiřadit roli. "
+"Nejprve uživatele aktivujte, abyste mu mohli přiřadit roli."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Souhlas s ochranou osobních údajů"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Ano, souhlasím se shromažďováním a ukládáním mých údajů v souladu s {$url}"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Také známé jako křestní jméno nebo první jméno, je to část osobního jména, "
+"která identifikuje osobu."
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Zpět"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Prohlížíte si podrobnosti o uživateli {$name}"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Zrušením pozvánky zaslané {$givenName} {$familyName} se deaktivuje odkaz pro "
+"přijetí zaslaný e-mailem. Zde jsou podrobnosti pozvánky: "
+
+msgid "userInvitation.edit.title"
+msgstr "Upravit pozvánku"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Pokud upravíte stávající pozvánku nebo přidáte novou roli, aktuální pozvánka "
+"bude zrušena a bude odeslána nová. Opravdu chcete pokračovat?"
+
+msgid "validation.after_or_equal"
+msgstr "Datum zahájení by mělo být větší nebo rovno dnešnímu dni"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Potvrďte, že jste si přečetli a souhlasíte s prohlášením o ochraně osobních "
+"údajů"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Opravdu chcete zrušit? Zrušením se zastaví proces přijetí role a budete "
+"muset začít znovu od pozvánky v e-mailu, abyste roli přijali znovu. Pokud "
+"již jste uživatelem, budete přesměrováni zpět na hlavní panel. Pokud ne, "
+"budete muset otevřít pozvánku v e-mailu a začít proces znovu."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Zrušit proces pozvání do role?"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Pozvánka nebyla přijata. Jste přihlášeni jako jiný uživatel."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Vyhledejte uživatele podle e-mailové adresy, uživatelského jména nebo ORCID "
+"iD. Pro začátek stačí zadat pouze jedno z nich!"

@@ -125,6 +125,14 @@ class OpenSearchEngine extends ScoutEngine
                             $submission->getCurrentPublication()->getId(),
                             [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
                         )
+                    ))),
+                    'subject' => array_merge(...array_values(array_filter(
+                        Repo::controlledVocab()->getBySymbolic(
+                            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+                            Application::ASSOC_TYPE_PUBLICATION,
+                            $submission->getCurrentPublication()->getId(),
+                            [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
+                        )
                     )))
                 ],
             ]);
@@ -158,10 +166,10 @@ class OpenSearchEngine extends ScoutEngine
         };
 
         // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = $keywords = null;
+        $sectionIds = $categoryIds = $keywords = $subjects = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds', 'keywords' => (array) $list,
+                'sectionIds', 'categoryIds', 'keywords', 'subjects' => (array) $list,
             };
         };
 
@@ -189,6 +197,7 @@ class OpenSearchEngine extends ScoutEngine
                             ...$sectionIds ? [['terms' => ['sectionId' => $sectionIds]]] : [],
                             ...$categoryIds ? [['terms' => ['categoryId' => $categoryIds]]] : [],
                             ...$keywords ? [['terms' => ['keyword.keyword' => $keywords]]] : [],
+                            ...$subjects ? [['terms' => ['subject.keyword' => $subjects]]] : [],
                         ],
                     ],
                 ]

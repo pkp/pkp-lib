@@ -59,10 +59,10 @@ class DatabaseEngine extends ScoutEngine
         };
 
         // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = $keywords = null;
+        $sectionIds = $categoryIds = $keywords = $subjects = null;
         foreach ($builder->whereIns as $field => $list) {
             $$field = match($field) {
-                'sectionIds', 'categoryIds', 'keywords' => is_null($list) ? null : (array) $list,
+                'sectionIds', 'categoryIds', 'keywords', 'subjects' => is_null($list) ? null : (array) $list,
             };
         };
 
@@ -76,7 +76,7 @@ class DatabaseEngine extends ScoutEngine
         return DB::table('submissions_fulltext AS ft')
             ->join('submissions AS s', 'ft.submission_id', 's.submission_id')
             ->when($contextId, fn (DatabaseBuilder $q) => $q->where('context_id', $contextId))
-            ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords), fn ($q) => $q->whereExists(
+            ->when($publishedFrom || $publishedTo || is_array($sectionIds) || is_array($categoryIds) || is_array($keywords) || is_array($subjects), fn ($q) => $q->whereExists(
                 fn ($q) => $q->selectRaw(1)
                     ->from('publications AS p')
                     ->whereColumn('p.submission_id', 's.submission_id')
@@ -99,6 +99,21 @@ class DatabaseEngine extends ScoutEngine
                                     ->whereColumn('cv.assoc_id', 'p.publication_id')
                                     ->where('cv.symbolic', ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD)
                                     ->where('cves.setting_value', $keyword)
+                                    ->whereIn('cves.setting_name', ['name', 'identifier']);
+                            });
+                        }
+                    })
+                    ->when(is_array($subjects), function ($q) use ($subjects) {
+                        foreach ($subjects as $subject) {
+                            $q->whereExists(function (DatabaseBuilder $query) use ($subject) {
+                                $query->select(DB::raw(1))
+                                    ->from('controlled_vocabs AS cv')
+                                    ->join('controlled_vocab_entries AS cve', 'cv.controlled_vocab_id', 'cve.controlled_vocab_id')
+                                    ->join('controlled_vocab_entry_settings AS cves', 'cve.controlled_vocab_entry_id', 'cves.controlled_vocab_entry_id')
+                                    ->where('cv.assoc_type', ASSOC_TYPE_PUBLICATION)
+                                    ->whereColumn('cv.assoc_id', 'p.publication_id')
+                                    ->where('cv.symbolic', ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT)
+                                    ->where('cves.setting_value', $subject)
                                     ->whereIn('cves.setting_name', ['name', 'identifier']);
                             });
                         }

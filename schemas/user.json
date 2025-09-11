@@ -117,7 +117,10 @@
 		},
 		"givenName": {
 			"type": "string",
-			"multilingual": true
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"gossip": {
 			"type": "string",

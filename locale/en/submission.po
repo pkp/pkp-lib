@@ -39,6 +39,9 @@ msgstr "Please provide a ROR affiliation or at least one affiliation name."
 msgid "author.affiliationNamePrimaryLocaleMissing"
 msgstr "Please provide affiliation name in the submission primary locale."
 
+msgid "publication.editorEditWarning"
+msgstr "Warning: This version has been published. Editing it may impact the published content."
+
 msgid "ror.nameRequired"
 msgstr "A ROR name is required."
 

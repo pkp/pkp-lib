@@ -138,7 +138,6 @@ VueRegistry.registerComponent(
 	BaseDropdownMenuItemLabel,
 );
 VueRegistry.registerComponent('BaseDropdownMenuItems', BaseDropdownMenuItems);
-VueRegistry.registerComponent('BaseDropdownMenuLabel', BaseDropdownMenuLabel);
 VueRegistry.registerComponent(
 	'BaseDropdownMenuTrigger',
 	BaseDropdownMenuTrigger,

@@ -143,7 +143,8 @@ class Schema extends \PKP\core\maps\Schema
         bool|Collection $anonymizeReviews = false,
         ?Enumerable $reviewerSuggestions = null,
         ?Enumerable $stageFiles = null,
-        ?Enumerable $reviewRounds = null
+        ?Enumerable $reviewRounds = null,
+        ?Enumerable $reviewers = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -156,11 +157,14 @@ class Schema extends \PKP\core\maps\Schema
         $reviewRounds ??= DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId());
         $this->addAppSpecificData(collect([$item]));
 
+        $reviewers ??= $this->getReviewersForAssignments($this->reviewAssignments);
+
         return $this->mapByProperties(
             props: $this->getProps(),
             submission: $item,
             anonymizeReviews: $anonymizeReviews,
-            reviewRounds: $reviewRounds
+            reviewRounds: $reviewRounds,
+            reviewers: $reviewers
         );
     }
 
@@ -186,7 +190,8 @@ class Schema extends \PKP\core\maps\Schema
         bool|Collection $anonymizeReviews = false,
         ?Enumerable $reviewerSuggestions = null,
         ?Enumerable $stageFiles = null,
-        ?Enumerable $reviewRounds = null
+        ?Enumerable $reviewRounds = null,
+        ?Enumerable $reviewers = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -197,11 +202,14 @@ class Schema extends \PKP\core\maps\Schema
         $reviewRounds ??= DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId());
         $this->addAppSpecificData(collect([$item]));
 
+        $reviewers ??= $this->getReviewersForAssignments($this->reviewAssignments);
+
         return $this->mapByProperties(
             props: $this->getSummaryProps(),
             submission: $item,
             anonymizeReviews: $anonymizeReviews,
-            reviewRounds: $reviewRounds
+            reviewRounds: $reviewRounds,
+            reviewers: $reviewers
         );
     }
 
@@ -254,6 +262,7 @@ class Schema extends \PKP\core\maps\Schema
         );
 
         $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds([$submissionIds]);
+        $reviewers ??= $this->getReviewersForAssignments($reviewAssignments);
 
         return $collection->map(
             fn ($item) =>
@@ -268,7 +277,8 @@ class Schema extends \PKP\core\maps\Schema
                 anonymizeReviews: $anonymizeReviews,
                 reviewerSuggestions: $associatedReviewerSuggestions->get($item->getId()),
                 submissionStageFiles: $associatedSubmissionStageFiles->get($item->getId()),
-                reviewRounds: $reviewRounds->get($item->getId())
+                reviewRounds: $reviewRounds->get($item->getId()),
+                reviewers: $reviewers
             )
         );
     }
@@ -313,6 +323,7 @@ class Schema extends \PKP\core\maps\Schema
         );
 
         $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds([$submissionIds]);
+        $reviewers ??= $this->getReviewersForAssignments($reviewAssignments);
 
         return $collection->map(
             fn ($item) =>
@@ -325,7 +336,8 @@ class Schema extends \PKP\core\maps\Schema
                 anonymizeReviews: $anonymizeReviews,
                 reviewerSuggestions: $associatedReviewerSuggestions->get($item->getId()),
                 stageFiles: $associatedSubmissionStageFiles->get($item->getId()),
-                reviewRounds: $reviewRounds->get($item->getId())
+                reviewRounds: $reviewRounds->get($item->getId()),
+                reviewers: $reviewers
             )
         );
     }
@@ -353,6 +365,7 @@ class Schema extends \PKP\core\maps\Schema
         ?Enumerable $reviewerSuggestions = null,
         ?Enumerable $stageFiles = null,
         ?Iterable $reviewRounds = null,
+        ?Iterable $reviewers = null
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -363,11 +376,14 @@ class Schema extends \PKP\core\maps\Schema
         $this->submissionStageFiles = $stageFiles;
         $this->addAppSpecificData(collect([$item]));
 
+        $reviewers ??= $this->getReviewersForAssignments($reviewAssignments);
+
         return $this->mapByProperties(
             props: $this->getSubmissionsListProps(),
             submission: $item,
             reviewRounds: $reviewRounds ?? DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionId($item->getId())->toArray(),
-            anonymizeReviews: $anonymizeReviews
+            anonymizeReviews: $anonymizeReviews,
+            reviewers: $reviewers
         );
     }
 
@@ -409,6 +425,7 @@ class Schema extends \PKP\core\maps\Schema
             fn (StageAssignment $stageAssignment, int $key) =>
             $stageAssignment->submissionId
         );
+
         $associatedDecisions = $this->decisions->groupBy(
             fn (Decision $decision, int $key) =>
             $decision->getData('submissionId')
@@ -425,6 +442,8 @@ class Schema extends \PKP\core\maps\Schema
         );
 
         $reviewRounds = DAORegistry::getDAO('ReviewRoundDAO')->getBySubmissionIds($submissionIds);
+        $reviewers ??= $this->getReviewersForAssignments($this->reviewAssignments);
+
         return $collection->map(
             fn ($item) => $this->mapToSubmissionsList(
                 item: $item,
@@ -436,7 +455,8 @@ class Schema extends \PKP\core\maps\Schema
                 anonymizeReviews: $anonymizeReviews,
                 reviewerSuggestions: $associatedReviewerSuggestions->get($item->getId()),
                 stageFiles: $associatedSubmissionStageFiles->get($item->getId()),
-                reviewRounds: (array) $reviewRounds->get($item->getId())
+                reviewRounds: (array) $reviewRounds->get($item->getId()),
+                reviewers: $reviewers
             )
         );
     }
@@ -483,7 +503,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    protected function mapByProperties(array $props, Submission $submission, Iterable $reviewRounds, bool|Collection $anonymizeReviews = false): array
+    protected function mapByProperties(array $props, Submission $submission, Iterable $reviewRounds, Iterable $reviewers, bool|Collection $anonymizeReviews = false): array
     {
         $output = [];
 
@@ -539,7 +559,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $currentReviewRound && $this->stageAssignments ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;
                     break;
                 case 'reviewAssignments':
-                    $output[$prop] = $this->reviewAssignments ? $this->getPropertyReviewAssignments($this->reviewAssignments, $stages, $anonymizeReviews) : [];
+                    $output[$prop] = $this->reviewAssignments ? $this->getPropertyReviewAssignments($this->reviewAssignments, $stages, $reviewers, $anonymizeReviews) : [];
                     break;
                 case 'participants':
                     $output[$prop] = $this->getPropertyParticipants($submission);
@@ -663,7 +683,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Get details about the review assignments for a submission
      */
-    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, array $stages, bool|Collection $anonymizeReviews = false): array
+    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, array $stages, Enumerable $reviewers, bool|Collection $anonymizeReviews = false): array
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
@@ -702,9 +722,10 @@ class Schema extends \PKP\core\maps\Schema
                 $canGossip = Repo::user()->canCurrentUserGossip($reviewerId);
             }
 
+            $reviewer = $reviewers->get($reviewerId);
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),
-                'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
+                'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewerId,
                 'statusId' => (int) $reviewAssignment->getStatus(),
                 'status' => __($reviewAssignment->getStatusKey()),
                 'dateDue' => $dateDue,
@@ -718,13 +739,13 @@ class Schema extends \PKP\core\maps\Schema
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'recommendation' => $reviewAssignment->getRecommendation(),
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
-                'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
+                'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewerId,
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
                 'canLoginAs' => $canLoginAs,
                 'canGossip' => $canGossip,
-                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::user()->get($reviewAssignment->getReviewerId())->getDisplayInitials(),
-                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && !!Repo::user()->get($reviewAssignment->getReviewerId())->getData('orcidIsVerified')
+                'reviewerDisplayInitials' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewer->getDisplayInitials(),
+                'reviewerHasOrcid' => !($anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId())) && $reviewer->getData('orcidIsVerified')
             ];
         }
 
@@ -1112,7 +1133,6 @@ class Schema extends \PKP\core\maps\Schema
             ->withRoleIds(empty($roleIds) ? null : $roleIds)
             ->lazy()
             ->remember();
-
         return $stageAssignments;
     }
 
@@ -1220,6 +1240,13 @@ class Schema extends \PKP\core\maps\Schema
             ->filterByFileStages($stageIds)
             ->getMany()
             ->remember();
+    }
+
+    protected function getReviewersForAssignments(Enumerable $reviewAssignments) : LazyCollection
+    {
+        return Repo::user()->getCollector()
+            ->filterByUserIds($reviewAssignments->map(fn($reviewAssignment) => $reviewAssignment->getReviewerId())->unique()->toArray())
+            ->getMany()->remember();
     }
 
     /**

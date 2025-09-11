@@ -140,7 +140,13 @@ class LoginHandler extends Handler
             }
         }
 
-        $error = $this->_validateAltchasResponse($request, 'altcha_on_login');
+        if ($error === null) {
+            $isAltchaEnabled = Config::getVar('captcha', 'altcha_on_login') && Config::getVar('captcha', 'altcha');
+            if ($isAltchaEnabled) {
+                $error = $this->_validateAltchasResponse($request, 'altcha_on_login');
+            }
+        }
+
         $username = $request->getUserVar('username');
         $reason = null;
         $user = $error || !strlen($username ?? '')
@@ -169,7 +175,6 @@ class LoginHandler extends Handler
             $error = 'user.login.accountDisabled';
         }
         $error ??= 'user.login.loginError';
-
 
         $templateMgr->assign([
             'username' => $username,
@@ -450,7 +455,6 @@ class LoginHandler extends Handler
         $request->redirect(null, $request->getRequestedPage());
     }
 
-
     /**
      * Restore original user account after signing in as a user.
      */
@@ -470,7 +474,6 @@ class LoginHandler extends Handler
         }
         $this->_redirectByURL($request);
     }
-
 
     /**
      * Redirect to redirectURL if exists else send to Home

@@ -44,7 +44,7 @@ msgid "userComment.allComments"
 msgstr "All Comments ({$commentCount})"
 
 msgid "userComment.versionWithCount"
-msgstr "Version {$version} ({$versionCommentsCount})"
+msgstr "{$version} ({$versionCommentsCount})"
 
 msgid "userComment.deleteComment"
 msgstr "Delete Comment"

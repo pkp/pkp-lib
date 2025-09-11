@@ -27,35 +27,30 @@ import * as usePkpDate from '@/frontend/composables/usePkpDate';
 import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
 
 // Global components of UI Library
-import PkpModalManager from '@/frontend/components/PkpModal/PkpModalManager.vue';
+import PkpModalManager from '@/frontend/components/PkpModalManager/PkpModalManager.vue';
 import PkpDialog from '@/frontend/components/PkpDialog/PkpDialog.vue';
-import PkpHelloWorld from '@/frontend/components/PkpHelloWorld/PkpHelloWorld.vue';
 import PkpButton from '@/frontend/components/PkpButton/PkpButton.vue';
-import PkpAccordion from '@/frontend/components/PkpAccordion/PkpAccordion.vue';
 import PkpTextarea from '@/frontend/components/PkpTextarea/PkpTextarea.vue';
 import PkpDropdownMenu from '@/frontend/components/PkpDropdownMenu/PkpDropdownMenu.vue';
 import PkpIcon from '@/frontend/components/PkpIcon/PkpIcon.vue';
-import PkpUserComment from '@/frontend/components/PkpUserComment/PkpUserComment.vue';
-import PkpUserCommentsList from '@/frontend/components/PkpUserComment/PkpUserCommentsList.vue';
-import PkpScrollToComments from '@/frontend/components/PkpUserComment/PkpScrollToComments.vue';
-
+import PkpScrollToComments from '@/frontend/components/PkpComments/PkpScrollToComments.vue';
+import PkpComments from '@/frontend/components/PkpComments/PkpComments.vue';
+import PkpCommentReportDialog from '@/frontend/components/PkpComments/PkpCommentReportDialog.vue';
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
 VueRegistry.registerDirective('strip-unsafe-html', stripUnsafeHtml);
 
-VueRegistry.registerComponent('PkpHelloWorld', PkpHelloWorld);
 VueRegistry.registerComponent('PkpButton', PkpButton);
 VueRegistry.registerComponent('PkpDialog', PkpDialog);
-VueRegistry.registerComponent('PkpAccordion', PkpAccordion);
 VueRegistry.registerComponent('PkpModalManager', PkpModalManager);
 VueRegistry.registerComponent('PkpTextarea', PkpTextarea);
 VueRegistry.registerComponent('PkpDropdownMenu', PkpDropdownMenu);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
-VueRegistry.registerComponent('PkpUserComment', PkpUserComment);
-VueRegistry.registerComponent('PkpUserCommentsList', PkpUserCommentsList);
 VueRegistry.registerComponent('PkpScrollToComments', PkpScrollToComments);
 VueRegistry.registerComponent('PkpIcon', PkpIcon);
+VueRegistry.registerComponent('PkpComments', PkpComments);
+VueRegistry.registerComponent('PkpCommentReportDialog', PkpCommentReportDialog);
 
 const pinia = createPinia();
 

@@ -153,7 +153,7 @@ class UserForm extends Form
                 ->all();
             // secure that user-specified user group IDs are from the right context
             $userGroupIds = array_intersect($this->getData('userGroupIds'), $allUserGroupIds);
-            $mastheadUserGroupIds = array_intersect($this->getData('mastheadUserGroupIds'), $allUserGroupIds);
+            $mastheadUserGroupIds = array_intersect($this->getData('mastheadUserGroupIds') ?? [], $allUserGroupIds);
 
             // get current user group IDs for this context
             $oldUserGroupIds = UserGroup::query()

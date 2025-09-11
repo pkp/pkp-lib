@@ -31,6 +31,10 @@ msgstr ""
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"Um ou mais avaliadores não cumpriram o prazo. A equipe editorial foi notificada "
+"e tomará medidas para garantir que as avaliações sejam concluídas. Você não "
+"precisa tomar nenhuma atitude neste momento. Você será notificado quando uma"
+"decisão for tomada."
 
 msgid "submission.confirm.message"
 msgstr ""
@@ -78,16 +82,16 @@ msgstr ""
 "Sim, eu concordo em cumprir os termos da declaração de direitos autorais."
 
 msgid "submission.submit.genre.label"
-msgstr ""
+msgstr "Que tipo de arquivo é este?"
 
 msgid "submission.submit.genre.description"
-msgstr ""
+msgstr "Escolha a opção que melhor descreve este arquivo."
 
 msgid "submission.submit.genre.error"
-msgstr ""
+msgstr "Por favor, selecione o tipo de arquivo para cada envio."
 
 msgid "submission.submit.removeConfirm"
-msgstr ""
+msgstr "Tem certeza de que deseja remover este arquivo?"
 
 msgid "submission.submit.whatNext"
 msgstr "O que acontece a seguir?"
@@ -693,10 +697,10 @@ msgid "submission.files.downloadAll"
 msgstr "Baixar Todos os Arquivos"
 
 msgid "submission.file.notAllowedUploaderUserId"
-msgstr ""
+msgstr "Um registro do remetente do arquivo é salvo quando o arquivo é criado e não pode ser alterado."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Publicado pela primeira vez"
 
 msgid "submission.galley"
 msgstr "Composição Final"
@@ -1099,10 +1103,10 @@ msgid "submission.manageDependentFiles"
 msgstr "Gerenciar Arquivos Dependentes"
 
 msgid "submission.upload.instructions"
-msgstr ""
+msgstr "Envie os arquivos que a equipe editorial precisará para avaliar sua submissão."
 
 msgid "submission.upload.percentComplete"
-msgstr ""
+msgstr "Carregando {$percent}% completo"
 
 msgid "submission.upload.dependent"
 msgstr "Carregar um Arquivo Dependente"
@@ -1470,7 +1474,7 @@ msgstr ""
 "ou compra. Deseja desaprová-lo?"
 
 msgid "editor.submission.decision.revertDecline"
-msgstr ""
+msgstr "Reverter Rejeição"
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Designe um editor para habilitar as decisões editoriais nesse estágio."
@@ -1529,7 +1533,7 @@ msgid "editor.submission.addAuditorError"
 msgstr "Houve um erro ao tentar atribuir o auditor. Por favor tente novamente."
 
 msgid "submission.event.fileEdited"
-msgstr ""
+msgstr "Os metadados do arquivo \"{$originalFileName}\" foram editados por {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
@@ -1622,7 +1626,7 @@ msgid "notification.type.editorDecisionDecline"
 msgstr "Submissão rejeitada."
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr ""
+msgstr "Submissão rejeitada reativada."
 
 msgid "notification.uploadedResponse"
 msgstr "Resposta enviada."
@@ -1636,7 +1640,7 @@ msgid "notification.type.submissionNewVersion"
 msgstr "Uma nova versão de uma submissão foi criada"
 
 msgid "notification.type.revertDecline"
-msgstr ""
+msgstr "A decisão de rejeitar esta submissão foi revertida."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Anexos da avaliação"
@@ -2136,10 +2140,16 @@ msgid "publication.wordCount"
 msgstr "Contagem de palavras: {$count}/{$limit}"
 
 msgid "submission.layout.viewGalley"
-msgstr ""
+msgstr "Visualizar Composição Final"
 
 msgid "galley.cantEditPublished"
-msgstr ""
+msgstr "Esta composição final não pode ser editada porque já foi publicada."
+
+msgid "author.competingInterests"
+msgstr "Conflito de Interesses"
+
+msgid "author.competingInterests.description"
+msgstr "Por favor, divulgue quaisquer conflitos de interesse que este autor possa ter com o tema da pesquisa."
 
 #~ msgid "submission.metadataDescription"
 #~ msgstr ""

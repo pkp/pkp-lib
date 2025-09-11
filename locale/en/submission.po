@@ -2532,6 +2532,9 @@ msgstr "Competing Interests"
 msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
 
+msgid "author.competingInterests.required"
+msgstr "A competing interest statement is required."
+
 msgid "reviewerSuggestion.suggestionReason"
 msgstr "Reasons for suggesting reviewer"
 

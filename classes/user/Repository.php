@@ -131,10 +131,8 @@ class Repository
      * Can the current user view and edit the gossip field for a user
      *
      * @param int $userId The user who's gossip field should be accessed
-     *
-     * @return bool
      */
-    public function canCurrentUserGossip(int $userId)
+    public function canCurrentUserGossip(int $userId): bool
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();

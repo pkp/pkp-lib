@@ -1128,12 +1128,10 @@ class Schema extends \PKP\core\maps\Schema
     protected function getStageAssignmentsBySubmissions(Enumerable $submissions, array $roleIds = []): LazyCollection
     {
         $submissionIds = $submissions->map(fn (Submission $submission) => $submission->getId())->toArray();
-        $stageAssignments = StageAssignment::with(['userGroup.userUserGroups', 'userGroup.userGroupStages'])
-            ->withSubmissionIds($submissionIds)
+        return StageAssignment::withSubmissionIds($submissionIds)
             ->withRoleIds(empty($roleIds) ? null : $roleIds)
             ->lazy()
             ->remember();
-        return $stageAssignments;
     }
 
     /**

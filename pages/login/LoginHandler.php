@@ -129,22 +129,24 @@ class LoginHandler extends Handler
             $request->redirectSSL();
         }
 
+        $error = null;
         $isCaptchaEnabled = Config::getVar('captcha', 'captcha_on_login') && Config::getVar('captcha', 'recaptcha');
         if ($isCaptchaEnabled) {
             $templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
             try {
                 FormValidatorReCaptcha::validateResponse($request->getUserVar('g-recaptcha-response'), $request->getRemoteAddr(), $request->getServerHost());
             } catch (Exception $exception) {
-                $recaptchaError = 'common.captcha.error.missing-input-response';
+                $error = 'common.captcha.error.missing-input-response';
             }
         }
 
-        $isAltchaEnabled = Config::getVar('captcha', 'altcha_on_login') && Config::getVar('captcha', 'altcha');
-        if ($isAltchaEnabled) {
-            $altchaError = $this->_validateAltchasResponse($request, 'altcha_on_login');
+        if ($error === null) {
+            $isAltchaEnabled = Config::getVar('captcha', 'altcha_on_login') && Config::getVar('captcha', 'altcha');
+            if ($isAltchaEnabled) {
+                $error = $this->_validateAltchasResponse($request, 'altcha_on_login');
+            }
         }
 
-        $error = $recaptchaError ?? $altchaError ?? null;
         $username = $request->getUserVar('username');
         $reason = null;
         $user = $error || !strlen($username ?? '')

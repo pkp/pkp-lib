@@ -234,7 +234,8 @@ class Repository
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($publication->getData('citationsMetadataLookup') && $this->request->getContext()->getData('citationsMetadataLookup')) {
+                        if ($publication->getData('citationsMetadataLookup') ||
+                            (is_null($publication->getData('citationsMetadataLookup')) && $this->request->getContext()->getData('citationsMetadataLookup'))) {
                             $this->reprocessCitation($citation);
                         }
                         $importedCitations[] = $citation;
@@ -270,7 +271,8 @@ class Repository
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($publication->getData('citationsMetadataLookup') && $this->request->getContext()->getData('citationsMetadataLookup')) {
+                        if ($publication->getData('citationsMetadataLookup') ||
+                            (is_null($publication->getData('citationsMetadataLookup')) && $this->request->getContext()->getData('citationsMetadataLookup'))) {
                             $this->reprocessCitation($citation);
                         }
                     } else {

@@ -79,7 +79,7 @@ import BaseCommentsMessages from '@/frontend/components/PkpComments/base/BaseCom
 import BaseCommentsNew from '@/frontend/components/PkpComments/base/BaseCommentsNew.vue';
 import BaseCommentsNewInput from '@/frontend/components/PkpComments/base/BaseCommentsNewInput.vue';
 import BaseCommentsNewSubmit from '@/frontend/components/PkpComments/base/BaseCommentsNewSubmit.vue';
-import BaseCommentsNotificationMessageApproved from '@/frontend/components/PkpComments/base/BaseCommentsNotificationMessageApproved.vue';
+import BaseCommentsNotificationMessageNeedsApproval from '@/frontend/components/PkpComments/base/BaseCommentsNotificationMessageNeedsApproval.vue';
 import BaseCommentsNotificationNotLatest from '@/frontend/components/PkpComments/base/BaseCommentsNotificationNotLatest.vue';
 import BaseCommentsVersion from '@/frontend/components/PkpComments/base/BaseCommentsVersion.vue';
 import BaseCommentsVersionContent from '@/frontend/components/PkpComments/base/BaseCommentsVersionContent.vue';
@@ -187,8 +187,8 @@ VueRegistry.registerComponent('BaseCommentsNew', BaseCommentsNew);
 VueRegistry.registerComponent('BaseCommentsNewInput', BaseCommentsNewInput);
 VueRegistry.registerComponent('BaseCommentsNewSubmit', BaseCommentsNewSubmit);
 VueRegistry.registerComponent(
-	'BaseCommentsNotificationMessageApproved',
-	BaseCommentsNotificationMessageApproved,
+	'BaseCommentsNotificationMessageNeedsApproval',
+	BaseCommentsNotificationMessageNeedsApproval,
 );
 VueRegistry.registerComponent(
 	'BaseCommentsNotificationNotLatest',

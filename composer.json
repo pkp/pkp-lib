@@ -83,6 +83,8 @@
 			"APP\\pages\\": "../../pages/",
 			"PKP\\": "classes/",
 			"APP\\": "../../classes/",
+			"PKP\\components\\": ["templates/components/"],
+			"APP\\components\\": ["../../templates/components/"],
 			"PKP\\plugins\\": "plugins/",
 			"APP\\plugins\\": "../../plugins/",
 			"PKP\\jobs\\": "jobs/",

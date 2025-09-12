@@ -42,6 +42,7 @@ use PKP\job\repositories\FailedJob as FailedJobRepository;
 use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\log\Repository as EmailLogEntryRepository;
+use PKP\navigationMenu\Repository as NavigationMenuRepository;
 use PKP\note\Repository as NoteRepository;
 use PKP\notification\Repository as NotificationRepository;
 use PKP\ror\Repository as RorRepository;
@@ -157,6 +158,11 @@ class Repo
     public static function notification(): NotificationRepository
     {
         return app(NotificationRepository::class);
+    }
+
+    public static function navigationMenu(): NavigationMenuRepository
+    {
+        return app(NavigationMenuRepository::class);
     }
 
     public static function note(): NoteRepository

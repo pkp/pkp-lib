@@ -41,6 +41,8 @@ class PKPSchemaService
     public const SCHEMA_HIGHLIGHT = 'highlight';
     public const SCHEMA_INSTITUTION = 'institution';
     public const SCHEMA_ISSUE = 'issue';
+    public const SCHEMA_NAVIGATION_MENU = 'navigationMenu';
+    public const SCHEMA_NAVIGATION_MENU_ITEM = 'navigationMenuItem';
     public const SCHEMA_PUBLICATION = 'publication';
     public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';
     public const SCHEMA_REVIEW_ROUND = 'reviewRound';
@@ -188,14 +190,23 @@ class PKPSchemaService
      *
      * @return array List of property names
      */
-    public function getFullProps($schemaName)
+    public function getFullProps($schemaName, $shouldBePublic = false)
     {
         $schema = $this->get($schemaName);
 
         $propNames = [];
         foreach ($schema->properties as $propName => $propSchema) {
             if (empty($propSchema->writeOnly)) {
-                $propNames[] = $propName;
+                if ($shouldBePublic) {
+                    $canDisplay = !empty($propSchema->isPublic);
+                } else {
+                    $canDisplay = true;
+                }
+
+                if ($canDisplay) {
+                    $propNames[] = $propName;
+                }
+
             }
         }
 

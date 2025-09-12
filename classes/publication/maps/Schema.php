@@ -58,9 +58,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the publication schema.
      */
-    public function map(Publication $item, bool $anonymize = false): array
+    public function map(Publication $item, bool $anonymize = false, bool $isPublic = false): array
     {
-        return $this->mapByProperties($this->getProps(), $item, $anonymize);
+        return $this->mapByProperties($this->getProps($isPublic), $item, $anonymize);
     }
 
     /**

@@ -33,7 +33,7 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
         protected string $pathZipDir,
         protected string $pathZipFile,
         protected string $chunkDir,
-        protected ?string $scheduledTaskLogFilesPath = null
+        protected string $scheduledTaskLogFilePath
     ) {
         parent::__construct();
         $this->fileManager = new PrivateFileManager();
@@ -49,9 +49,9 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
     public function handle()
     {
         try {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 'Merging chunks into ' . $this->pathZipFile,
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
 
@@ -74,9 +74,9 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
 
             fclose($zipHandle);
 
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 'Extracting ZIP file',
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
             $zip = new ZipArchive();
@@ -90,9 +90,9 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
                 throw new Exception('Extraction failed');
             }
 
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 'Merge and extraction has been completed successfully',
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
             );
 
@@ -106,9 +106,9 @@ class MergeAndExtractRorDatasetChunks extends BaseJob
             UpdateRorRegistryDataset::cleanup([$this->chunkDir]);
         } catch (Throwable $e) {
             UpdateRorRegistryDataset::cleanup([$this->chunkDir, $this->pathZipFile, $this->pathZipDir]);
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 $e->getMessage(),
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
 

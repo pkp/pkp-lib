@@ -26,13 +26,14 @@ use PKP\task\UpdateRorRegistryDataset;
 use GuzzleHttp\Exception\GuzzleException;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\jobs\ror\DownloadRoRDatasetInChunks;
+use Illuminate\Support\Facades\Cache;
 
 class DownloadAndExtractRorDataset extends BaseJob
 {
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
      */
-    public int $timeout = 600;
+    public int $timeout = 300;
 
     protected PrivateFileManager $fileManager;
 
@@ -40,17 +41,20 @@ class DownloadAndExtractRorDataset extends BaseJob
         protected string $downloadUrl, 
         protected string $csvNameContains, 
         protected string $prefix,
-        protected ?string $scheduledTaskLogFilesPath = null
+        protected string $scheduledTaskLogFilePath
     )
     {
         parent::__construct();
         $this->fileManager = new PrivateFileManager();
     }
 
+    /**
+     * Define middleware for preventing overlaps
+     */
     public function middleware()
     {
         return [
-            (new WithoutOverlapping($this->prefix . ':download'))->expireAfter(600), // 10 mins lock
+            (new WithoutOverlapping($this->prefix . ':download'))->expireAfter(300), // 5 mins lock
         ];
     }
 
@@ -63,11 +67,19 @@ class DownloadAndExtractRorDataset extends BaseJob
         try {
             // Clean up any existing files
             UpdateRorRegistryDataset::cleanup([$pathZipFile, $pathZipDir, $chunkDir]);
+            Cache::forget(UpdateRorRegistryDataset::CACHE_KEY_CHUNK_BATCH);
 
-            $fileSize = $this->getFileSize($this->downloadUrl);
+            [$fileSize, $supportsRange] = $this->getFileSizeAndVerifyRangeDownload($this->downloadUrl);
 
-            if ($fileSize === 0) {
-                throw new Exception('Failed to determine file size');
+            // if can not determine file size or range download support, 
+            // we will not kick off the chunk download process and exit this job process
+            if ($fileSize === 0 || !$supportsRange) {
+                UpdateRorRegistryDataset::writeToExecutionLogFile(
+                    "Unable to determine file size or range download support, cancelling the chunk download process",
+                    $this->scheduledTaskLogFilePath,
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+                );
+                return;
             }
 
             $this->performChunkDownload(
@@ -79,16 +91,20 @@ class DownloadAndExtractRorDataset extends BaseJob
             );
 
         } catch (Throwable $e) {
+            Cache::forget(UpdateRorRegistryDataset::CACHE_KEY_CHUNK_BATCH);
             UpdateRorRegistryDataset::cleanup([$pathZipFile, $pathZipDir]);
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "RoR dataset downloading in chunk and extract main job have failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
             throw $e;
         }
     }
 
+    /**
+     * Dispatch the chunk download batch jobs and chunks merge job.
+     */
     protected function performChunkDownload(
         string $pathZipDir,
         string $pathZipFile,
@@ -118,109 +134,111 @@ class DownloadAndExtractRorDataset extends BaseJob
                     $chunkFile,
                     $pathZipDir,
                     $this->csvNameContains,
-                    $this->scheduledTaskLogFilesPath
+                    $this->scheduledTaskLogFilePath
                 );
             }
 
-            // we need to get thses in local variables to pass into the batch closures(e.g. then, catch, etc)
+            // we need to get these in local variables to pass into the batch closures(e.g. then, catch, etc)
             // as the serialization of $this in closure is buggy and can lead to issues
             $prefix = $this->prefix;
             $csvNameContains = $this->csvNameContains;
-            $scheduledTaskLogFilesPath = $this->scheduledTaskLogFilesPath;
+            $scheduledTaskLogFilePath = $this->scheduledTaskLogFilePath;
 
             // Dispatch batch
             Bus::batch($jobs)
-                ->then(function (Batch $batch) use ($pathZipDir, $pathZipFile, $chunkDir, $fileSize, $chunkSize, $prefix, $csvNameContains, $scheduledTaskLogFilesPath) {
+                ->then(function (Batch $batch) use ($pathZipDir, $pathZipFile, $chunkDir, $fileSize, $chunkSize, $prefix, $csvNameContains, $scheduledTaskLogFilePath) {
                     // after successfully completing all the batch jobs, 
                     // first we need to verify if all chunks downloaded
                     $chunks = glob($chunkDir . '/chunk_*');
 
                     if (count($chunks) !== (int) ceil($fileSize / $chunkSize)) {
-                        // not all chunks downloaded
-                        // we will not attempt any more chunk downloads and cancel batch process
-                        // and fall back to sync download
-                        $batch->cancel();
-
-                        UpdateRorRegistryDataset::log(
+                        UpdateRorRegistryDataset::writeToExecutionLogFile(
                             'Not all chunks downloaded, cancelling batch chunk downloading',
-                            $scheduledTaskLogFilesPath,
+                            $scheduledTaskLogFilePath,
                             ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                         );
 
-                        return;
+                        return; // Skip merging, rely on finally block
                     }
 
-                    UpdateRorRegistryDataset::log(
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         'All chunks downloaded successfully, proceeding with merging and extraction',
-                        $scheduledTaskLogFilesPath,
+                        $scheduledTaskLogFilePath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
                     );
 
-                    // chunk downloaded successfully
-                    // Now merge those to get the final zip and extract to get the proper directory
+                    // chunks downloaded successfully
+                    // Now merge those to get the final zip and extract to get the proper directory.
+                    // This is dispatch as sync so that we can ensure the order of operations as
+                    // just dispatch a new job will be outside of main calling of chain which can lead
+                    // to case where next job in chain starts before this one finish
                     MergeAndExtractRorDatasetChunks::dispatchSync(
                         $prefix,
                         $csvNameContains,
                         $pathZipDir,
                         $pathZipFile,
                         $chunkDir,
-                        $scheduledTaskLogFilesPath
+                        $scheduledTaskLogFilePath
                     );
+
+                    Cache::forget(UpdateRorRegistryDataset::CACHE_KEY_CHUNK_BATCH);
                 })
-                ->catch(function (Batch $batch, Throwable $e) use ($scheduledTaskLogFilesPath) {
-                    UpdateRorRegistryDataset::log(
+                ->catch(function (Batch $batch, Throwable $e) use ($scheduledTaskLogFilePath) {
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         "RoR dataset chunk download batch at progress of {$batch->progress()}% have failed: {$e->getMessage()}",
-                        $scheduledTaskLogFilesPath,
+                        $scheduledTaskLogFilePath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                     );
                 })
-                ->finally(function (Batch $batch) use ($downloadUrl, $pathZipFile, $pathZipDir, $chunkDir, $csvNameContains, $scheduledTaskLogFilesPath) {
+                ->finally(function (Batch $batch) use ($prefix, $downloadUrl, $pathZipFile, $pathZipDir, $chunkDir, $csvNameContains, $scheduledTaskLogFilePath) {
                     UpdateRorRegistryDataset::cleanup([$pathZipFile, $chunkDir]);
-                    UpdateRorRegistryDataset::log(
+
+                    Cache::put(UpdateRorRegistryDataset::CACHE_KEY_CHUNK_BATCH, true, 600);
+
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         'RoR dataset downloading in chunk batch jobs have finished.', 
-                        $scheduledTaskLogFilesPath,
+                        $scheduledTaskLogFilePath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
                     );
-
-                    // Regardless of chunk process success/fail, the fallback sync process will kick off with delay,
-                    // however will run check if the extract and target CSV file is present and if so,
-                    // will skip sync download process
-                    \PKP\jobs\ror\DownloadRoRDatasetInSync::dispatch(
-                        $csvNameContains,
-                        $downloadUrl, 
-                        $pathZipFile, 
-                        $pathZipDir, 
-                        $scheduledTaskLogFilesPath
-                    )->delay(now()->addSeconds(30));
                 })
                 ->name('download.ror.dataset.chunks')
                 ->dispatch();
         } catch (Throwable $e) {
+            Cache::forget(UpdateRorRegistryDataset::CACHE_KEY_CHUNK_BATCH);
             UpdateRorRegistryDataset::cleanup([$pathZipDir, $pathZipFile, $chunkDir]);
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "RoR dataset downloading in chunk batch jobs have failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
+            throw $e;
         }
     }
 
-    protected function getFileSize(string $downloadUrl): int
+    /**
+     * Get the target file size and verify range download support.
+     */
+    protected function getFileSizeAndVerifyRangeDownload(string $downloadUrl): array
     {
         try {
             $client = Application::get()->getHttpClient();
             $response = $client->request('HEAD', $downloadUrl, [
-                'connect_timeout' => 10
+                'connect_timeout' => 10,
+                'headers' => ['Range' => 'bytes=0-1023'],
             ]);
+
             $contentLength = $response->getHeaderLine('Content-Length');
-            return $contentLength ? (int) $contentLength : 0;
+            $supportsRange = $response->getStatusCode() === 206 || $response->hasHeader('Accept-Ranges');
+
+            return [$contentLength ? (int) $contentLength : 0, $supportsRange];
         } catch (GuzzleException|Exception $e) {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Failed to get file size: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
-            return 0;
+
+            return [0, false];
         }
     }
 }

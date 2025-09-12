@@ -29,8 +29,6 @@
 namespace PKP\install;
 
 use APP\core\Application;
-use PKP\core\PKPAppKey;
-
 use APP\facades\Repo;
 use DateTime;
 use Exception;
@@ -39,6 +37,7 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\Config as FacadesConfig;
 use Illuminate\Support\Facades\DB;
+use PKP\core\PKPAppKey;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPContainer;

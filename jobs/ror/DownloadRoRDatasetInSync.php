@@ -24,13 +24,14 @@ use GuzzleHttp\Exception\GuzzleException;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use Illuminate\Queue\Middleware\Skip;
 use Illuminate\Queue\Middleware\WithoutOverlapping;
+use Illuminate\Support\Facades\Cache;
 
 class DownloadRoRDatasetInSync extends BaseJob
 {
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
      */
-    public int $timeout = 600;
+    public int $timeout = 300;
 
     /**
      * Indicate if the job should be marked as failed on timeout.
@@ -49,7 +50,7 @@ class DownloadRoRDatasetInSync extends BaseJob
         protected string $downloadUrl, 
         protected string $pathZipFile, 
         protected string $pathZipDir,
-        protected ?string $scheduledTaskLogFilesPath = null
+        protected string $scheduledTaskLogFilePath
     )
     {
         parent::__construct();
@@ -68,17 +69,17 @@ class DownloadRoRDatasetInSync extends BaseJob
                     : '';
                 
                 if (!empty($pathCsv) && $this->fileManager->fileExists($pathCsv)) {
-                    UpdateRorRegistryDataset::log(
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         'Cancelling sync download as the CSV alerady exists',
-                        $this->scheduledTaskLogFilesPath, 
+                        $this->scheduledTaskLogFilePath, 
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                     );
-                    return true; // No need to download the CSV file, job can skip
+                    return true; // No need to download the CSV file, job can skipped
                 }
 
-                UpdateRorRegistryDataset::log(
+                UpdateRorRegistryDataset::writeToExecutionLogFile(
                     'Proceeding with sync download as the CSV file not found',
-                    $this->scheduledTaskLogFilesPath, 
+                    $this->scheduledTaskLogFilePath, 
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                 );
                 
@@ -91,22 +92,38 @@ class DownloadRoRDatasetInSync extends BaseJob
     public function handle()
     {
         try {
+
+            // if the chunk process still ongoing,
+            // we will release back the job in the queue for next attempt
+            if (Cache::has(UpdateRorRegistryDataset::CACHE_KEY_CHUNK_BATCH) 
+                && $this->attempts() <= $this->tries
+            ) {
+                UpdateRorRegistryDataset::writeToExecutionLogFile(
+                    "Chunk batch not complete, redispatching DownloadRoRDatasetInSync with attempt {$this->attempts()}",
+                    $this->scheduledTaskLogFilePath,
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+                );
+                $this->release($this->backoff);
+            }
+
             UpdateRorRegistryDataset::cleanup([$this->pathZipFile, $this->pathZipDir]);
 
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 'Downloading ROR dataset synchronously',
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
 
             $client = Application::get()->getHttpClient();
-            $client->request('GET', $this->downloadUrl, [
+            $response = $client->request('GET', $this->downloadUrl, [
                 'sink' => fopen($this->pathZipFile, 'wb'),
                 'connect_timeout' => 10,
                 'timeout' => $this->timeout - 10, // set the download time 10 second less than the job timeout
             ]);
 
-            if ($this->fileManager->fileExists($this->pathZipFile)) {
+            if ($response->getStatusCode() !== 200
+                || !$this->fileManager->fileExists($this->pathZipFile)
+            ) {
                 throw new Exception('Failed to download ROR dataset');
             }
 
@@ -131,9 +148,9 @@ class DownloadRoRDatasetInSync extends BaseJob
 
         } catch (GuzzleException|Exception $e) {
             UpdateRorRegistryDataset::cleanup([$this->pathZipFile, $this->pathZipDir]);
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Synchronous download failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
             throw $e;

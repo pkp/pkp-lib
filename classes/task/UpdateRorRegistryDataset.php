@@ -64,11 +64,12 @@ namespace PKP\task;
 
 use Throwable;
 use Exception;
-use GuzzleHttp\Exception\GuzzleException;
 use APP\core\Application;
-use PKP\file\PrivateFileManager;
 use DirectoryIterator;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Bus;
+use PKP\file\PrivateFileManager;
+use PKP\jobs\ror\DownloadRoRDatasetInSync;
 use PKP\jobs\ror\DownloadAndExtractRorDataset;
 use PKP\jobs\ror\ImportRorData;
 use PKP\scheduledTask\ScheduledTask;
@@ -76,6 +77,8 @@ use PKP\scheduledTask\ScheduledTaskHelper;
 
 class UpdateRorRegistryDataset extends ScheduledTask
 {
+    public const CACHE_KEY_CHUNK_BATCH = 'ror:chunk:batch:processing';
+
     /** @var string API Url of the data dump versions. */
     private string $urlVersions = 'https://zenodo.org/api/communities/ror-data/records?q=&sort=newest';
 
@@ -103,18 +106,22 @@ class UpdateRorRegistryDataset extends ScheduledTask
     /** @var string Name of temporary table */
     private string $temporaryTable = 'rors_temporary';
 
-    /** @copydoc ScheduledTask::getName() */
+    /**
+     * @copydoc ScheduledTask::getName()
+     */
     public function getName(): string
     {
         return __('admin.scheduledTask.UpdateRorRegistryDataset');
     }
 
-    /** @copydoc ScheduledTask::executeActions() */
+    /**
+     * @copydoc ScheduledTask::executeActions()
+     */
     public function executeActions(): bool
     {
         $downloadUrl = $this->getDownloadUrl();
         if (empty($downloadUrl)) {
-            UpdateRorRegistryDataset::log(
+            static::writeToExecutionLogFile(
                 'Failed to get download URL',
                 $this->getExecutionLogFile(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -128,28 +135,36 @@ class UpdateRorRegistryDataset extends ScheduledTask
             $pathZipFile = $pathZipDir . '.zip';
             $logfile = $this->getExecutionLogFile();
 
-            // Following jobs will be dispatch in chain and process as follow :-
-            //  - Download RoR dataset in chunk, build final zip file and extract it
+            // Following jobs will be dispatched in chain and process is as follows :-
+            //  - Download RoR dataset in chunks, build final zip file and extract it
+            //  - kick off the sync download approach anyway and let it determine 
             //  - Import RoR dataset in chunks by parsing the CSV file
             Bus::chain([
                 new DownloadAndExtractRorDataset(
                     $downloadUrl,
                     $this->csvNameContains,
                     $this->prefix,
-                    $this->getExecutionLogFile()
+                    $logfile
                 ),
-                (new ImportRorData(
+                new DownloadRoRDatasetInSync(
+                    $this->csvNameContains,
+                    $downloadUrl, 
+                    $pathZipFile, 
+                    $pathZipDir, 
+                    $logfile
+                ),
+                new ImportRorData(
                     $this->prefix,
                     $this->csvNameContains,
                     $this->dataMapping,
                     $this->dataMappingIndex,
                     $this->noLocale,
                     $this->temporaryTable,
-                    $this->getExecutionLogFile()
-                ))->delay(now()->addSeconds(60)),
+                    $logfile
+                ),
             ])
             ->catch(function (Throwable $e) use ($logfile) {
-                static::log(
+                static::writeToExecutionLogFile(
                     "Error occurred while processing ROR dataset with message: {$e->getMessage()}",
                     $logfile,
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -159,14 +174,18 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             return true;
         } catch (Throwable $e) {
-            $this->addExecutionLogEntry(
+            static::writeToExecutionLogFile(
                 $e->getMessage(),
+                $this->getExecutionLogFile(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
             return false;
         }
     }
 
+    /**
+     * generate and get the ROR dataset download url
+     */
     protected function getDownloadUrl(): string
     {
         try {
@@ -177,8 +196,11 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             $responseArray = json_decode($response->getBody(), true);
 
-            if ($response->getStatusCode() !== 200 || json_last_error() !== JSON_ERROR_NONE || empty($responseArray)) {
-                UpdateRorRegistryDataset::log(
+            if ($response->getStatusCode() !== 200
+                || json_last_error() !== JSON_ERROR_NONE
+                || empty($responseArray)
+            ) {
+                static::writeToExecutionLogFile(
                     'Invalid response from Zenodo API',
                     $this->getExecutionLogFile(),
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -188,7 +210,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             return $responseArray['hits']['hits'][0]['files'][0]['links']['self'] ?? '';
         } catch (GuzzleException|Exception $e) {
-            UpdateRorRegistryDataset::log(
+            static::writeToExecutionLogFile(
                 $e->getMessage(),
                 $this->getExecutionLogFile(),
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -197,6 +219,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
         }
     }
 
+    /**
+     * Get the path to the CSV file
+     */
     public static function getPathCsv(string $pathZipDir, string $csvNameContains): string
     {
         $iterator = new DirectoryIterator($pathZipDir);
@@ -210,6 +235,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
         return '';
     }
 
+    /**
+     * Clean up the temporary files and directories.
+     */
     public static function cleanup(array $paths = []): void
     {
         $fileManager = new PrivateFileManager();
@@ -226,17 +254,5 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 $fileManager->deleteByPath($path);
             }
         }
-    }
-
-    public static function log(string $message, ?string $logFilePath = null, ?string $type = null): void
-    {
-        // debug in error log
-        error_log($message);
-
-        if (!$logFilePath) {
-            return;
-        }
-
-        static::writeToExecutionLogFile($logFilePath, $message, $type);
     }
 }

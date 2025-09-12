@@ -43,7 +43,7 @@ class DownloadRoRDatasetInChunks extends BaseJob
         protected string $chunkFile,
         protected string $pathZipDir,
         protected string $csvNameContains,
-        protected ?string $scheduledTaskLogFilesPath = null
+        protected string $scheduledTaskLogFilePath
     ) {
         parent::__construct();
         $this->fileManager = new PrivateFileManager();
@@ -72,9 +72,9 @@ class DownloadRoRDatasetInChunks extends BaseJob
 
             $client = Application::get()->getHttpClient();
 
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Downloading chunk {$this->startByte}-{$this->endByte} to {$this->chunkFile}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
 
@@ -89,16 +89,16 @@ class DownloadRoRDatasetInChunks extends BaseJob
                 throw new Exception('Failed to download chunk');
             }
 
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Downloading chunk {$this->startByte}-{$this->endByte} to {$this->chunkFile} completed successfully",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
 
         } catch (GuzzleException|Exception $e) {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Downloading chunk {$this->startByte}-{$this->endByte} to {$this->chunkFile} failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
             

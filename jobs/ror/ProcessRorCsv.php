@@ -41,7 +41,7 @@ class ProcessRorCsv extends BaseJob
         protected array $dataMappingIndex,
         protected string $noLocale,
         protected string $temporaryTable,
-        protected ?string $scheduledTaskLogFilesPath = null
+        protected string $scheduledTaskLogFilePath
     )
     {
         parent::__construct();
@@ -60,9 +60,9 @@ class ProcessRorCsv extends BaseJob
     public function handle()
     {
         try {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Importing batch chunk {$this->startRow}-{$this->endRow} starting",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
 
@@ -101,15 +101,15 @@ class ProcessRorCsv extends BaseJob
 
             $this->dropTemporaryTable();
 
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Importing batch chunk {$this->startRow}-{$this->endRow} completed successfully",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
             );
         } catch (Throwable $e) {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Importing batch chunk {$this->startRow}-{$this->endRow} failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
 
@@ -126,9 +126,9 @@ class ProcessRorCsv extends BaseJob
     {
         $this->dropTemporaryTable();
 
-        UpdateRorRegistryDataset::log(
+        UpdateRorRegistryDataset::writeToExecutionLogFile(
             "Importing batch chunk job has failed : {$exception->getMessage()}",
-            $this->scheduledTaskLogFilesPath,
+            $this->scheduledTaskLogFilePath,
             ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
         );
     }
@@ -239,9 +239,9 @@ class ProcessRorCsv extends BaseJob
             );
 
         } catch (Throwable $e) {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Processing batch chunk {$this->startRow}-{$this->endRow} failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
             throw $e;

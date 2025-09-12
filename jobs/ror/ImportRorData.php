@@ -41,7 +41,7 @@ class ImportRorData extends BaseJob
     /**
      * The number of SECONDS to wait before retrying the job.
      */
-    public int $backoff = 600;
+    public int $backoff = 30;
 
     protected PrivateFileManager $fileManager;
 
@@ -52,7 +52,7 @@ class ImportRorData extends BaseJob
         protected array $dataMappingIndex,
         protected string $noLocale,
         protected string $temporaryTable,
-        protected ?string $scheduledTaskLogFilesPath = null
+        protected string $scheduledTaskLogFilePath
     )
     {
         parent::__construct();
@@ -102,16 +102,16 @@ class ImportRorData extends BaseJob
                     $this->dataMappingIndex,
                     $this->noLocale,
                     $this->temporaryTable,
-                    $this->scheduledTaskLogFilesPath
+                    $this->scheduledTaskLogFilePath
                 );
             }
 
             // we need to get thses in local variables to pass into the batch closures(e.g. then, catch, etc)
             // as the serialization of $this in closure is buggy and can lead to issues
-            $logFilePath = $this->scheduledTaskLogFilesPath;
+            $logFilePath = $this->scheduledTaskLogFilePath;
 
         
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 'RoR dataset importing batch process starting.', 
                 $logFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
@@ -120,14 +120,14 @@ class ImportRorData extends BaseJob
             Bus::batch($jobs)
                 ->then(function (Batch $batch) use ($pathCsv, $pathZipDir, $logFilePath) {
                     UpdateRorRegistryDataset::cleanup([$pathCsv, $pathZipDir]);
-                    UpdateRorRegistryDataset::log(
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         'RoR dataset importing completed.',
                         $logFilePath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
                     );
                 })
                 ->catch(function (Batch $batch, Throwable $e) use ($logFilePath) {
-                    UpdateRorRegistryDataset::log(
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         "RoR dataset importing batch at progress of {$batch->progress()}% have failed: {$e->getMessage()}",
                         $logFilePath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
@@ -135,7 +135,7 @@ class ImportRorData extends BaseJob
                 })
                 ->finally(function (Batch $batch) use ($pathCsv, $pathZipDir, $logFilePath) {
                     UpdateRorRegistryDataset::cleanup([$pathCsv, $pathZipDir]);
-                    UpdateRorRegistryDataset::log(
+                    UpdateRorRegistryDataset::writeToExecutionLogFile(
                         'RoR dataset importing batch jobs have finished.', 
                         $logFilePath,
                         ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
@@ -144,9 +144,9 @@ class ImportRorData extends BaseJob
                 ->name('import.ror.dataset.chunks')
                 ->dispatch();
         } catch (Throwable $e) {
-            UpdateRorRegistryDataset::log(
+            UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "RoR dataset importing failed: {$e->getMessage()}",
-                $this->scheduledTaskLogFilesPath,
+                $this->scheduledTaskLogFilePath,
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
             );
 
@@ -154,15 +154,25 @@ class ImportRorData extends BaseJob
         }
     }
 
+    /**
+     * Count the number of rows in the CSV file.
+     */
     protected function countCsvRows(string $pathCsv): int
     {
         $rowCount = 0;
+
         $handle = fopen($pathCsv, 'r');
-        while (!feof($handle)) {
-            $buffer = fread($handle, 8192);
-            $rowCount += substr_count($buffer, "\n");
+        if ($handle === false) {
+            throw new Exception("Failed to open CSV file: {$pathCsv}");
+        }
+
+        // Skip header row
+        fgets($handle);
+        while (fgets($handle) !== false) {
+            $rowCount++;
         }
         fclose($handle);
-        return $rowCount - 1; // Subtract header
+
+        return $rowCount;
     }
 }

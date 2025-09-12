@@ -121,7 +121,7 @@ abstract class ScheduledTask
             return;
         }
 
-        static::writeToExecutionLogFile($logFile, $message, $type);
+        static::writeToExecutionLogFile($message, $logFile, $type);
     }
 
     /**
@@ -156,11 +156,11 @@ abstract class ScheduledTask
     /**
      * Write an entry into the execution log.
      *
-     * @param string $logFile Path to the log file.
      * @param string $message A translated message.
+     * @param string $logFile Path to the log file.
      * @param ?string $type One of the ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE... constants
      */
-    public static function writeToExecutionLogFile(string $logFile, string $message, ?string $type = null): void
+    public static function writeToExecutionLogFile(string $message, string $logFile, ?string $type = null): void
     {
         $date = '[' . Core::getCurrentDate() . '] ';
 

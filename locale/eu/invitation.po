@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-10 15:23+0000\n"
+"PO-Revision-Date: 2025-09-12 07:12+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/eu/>\n"
@@ -239,3 +239,130 @@ msgstr "Ikusi bidalketa guztiak"
 
 msgid "invitation.role.modifyRole.button"
 msgstr "Aldatu rola"
+
+#, fuzzy
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Ezabatu erabiltzaile-rolak ezin dira definitu existitzen ez diren "
+"erabiltzaileentzat."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Gonbidapena ezin da bidali, ez baituzu erabiltzaile-taldeen aldaketarik "
+"definitu"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Gonbidapen bat erabiltzaile-id bati ({$userId}) esleituta dagoenean, "
+"dagokion erabiltzaileak existitu behar du."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Gonbidapen batek helbide elektroniko bat ({$email}) esleituta duenean, "
+"helbide elektroniko hori ez du beste erabiltzaile batek erabili behar."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"{reviewAssignmentId} IDa ez dator bat baliozko berrikuspen-esleipen batekin"
+
+#, fuzzy
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr ""
+"Atributua ez dago baimenduta dauden erabiltzaileentzat sarbidea izateko."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr ""
+"Atributua ez dago baimenduta ez dauden erabiltzaileentzat sarbidea izateko"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Atributu honek gaurko balio berdina edo geroagokoa izan behar du"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr ":attribute eremua debekatuta dago"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Mesedez, eman ondorengo datuak zure kontua kudeatzen laguntzeko"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Gutxienez 6 karaktere izan behar ditu eta letra larrien, letra xeheen, "
+"zenbakien eta sinboloen konbinazioa izan daiteke"
+
+#, fuzzy
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Forename edo lehen izen bezala ere ezaguna, pertsona bat identifikatzen duen "
+"izen pertsonalaren zatia da."
+
+#, fuzzy
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Hau zu atxikita zauden erakundea da"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"{$givenName} {$familyName}-ri bidalitako gonbidapena bertan behera utziz "
+"gero, posta elektronikoz bidalitako onarpen-esteka desaktibatu egingo da. "
+"Hona hemen gonbidapenaren xehetasunak: "
+
+#, fuzzy
+msgid "invitation.masthead.show"
+msgstr "Goiburuan agertu"
+
+#, fuzzy
+msgid "invitation.masthead.hidden"
+msgstr "Goiburuan ez agertu"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Itzuli"
+
+msgid "userInvitation.status.invited"
+msgstr "Gonbidatua {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Editatu gonbidapena"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Elementuan espero ez ziren propietateak aurkitu dira {$attribute} indizean: "
+"{$properties}."
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Ezin dituzu posta elektronikoa eta erabiltzaile IDa batera eman."
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Erabiltzailea existitzen ez bada, rolak hartzera gonbida dezakezu. "
+"Erabiltzailea sisteman existitzen bada, haren informazioa ikusi eta rol "
+"gehiago hartzera gonbida dezakezu."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Sartu zure datuak, hala nola posta elektronikoaren IDa, afiliazioa, etab. "
+"GDPRren arabera, informazio hau zuk bakarrik alda dezakezu. Informazio hori "
+"zure profilean editorearentzat ikusgai egotea nahi duzun ere aukera dezakezu."
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Letra larrien, letra xeheen edo zenbakien konbinazioa izan daiteke"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "Bai, onartzen dut nire datuak {$url}-aren arabera biltzea eta gordetzea"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Abizena, familia izena edo deitura norberaren izen pertsonalaren zati "
+"hereditario nagusia da, norberaren familia adierazten duena."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Zu afiliatuta zauden erakundea kokatuta dagoen herrialdea da hau"
+
+msgid "invitation.management.options"
+msgstr "Gonbidapenak kudeatzeko aukerak"
+
+msgid "userInvitation.cancel.message"
+msgstr "Ziur zaude gonbidapen hau bertan behera utzi nahi duzula?"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Lehendik dagoen gonbidapen bat editatzen baduzu edo rol berri bat gehitzen "
+"baduzu, uneko gonbidapena bertan behera utziko da eta berri bat bidaliko da. "
+"Ziur zaude jarraitu nahi duzula?"

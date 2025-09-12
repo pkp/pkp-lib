@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/maps/Schema.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Schema
@@ -19,9 +19,7 @@ use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\citation\CitationDAO;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 
@@ -109,8 +107,6 @@ class Schema extends \PKP\core\maps\Schema
 
         $output = [];
 
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $rawCitationList = $citationDao->getRawCitationsByPublicationId($publication->getId());
         foreach ($props as $prop) {
             switch ($prop) {
                 case '_href':
@@ -140,10 +136,14 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $publication->getData('categoryIds');
                     break;
                 case 'citations':
-                    $output[$prop] = $rawCitationList->toArray();
+                    $data = [];
+                    foreach ($publication->getData('citations') as $citation) {
+                        $data[] = Repo::citation()->getSchemaMap()->map($citation);
+                    }
+                    $output[$prop] = $data;
                     break;
                 case 'citationsRaw':
-                    $output[$prop] = $rawCitationList->implode(PHP_EOL);
+                    $output[$prop] = Repo::citation()->getRawCitationsByPublicationId($publication->getId())->implode(PHP_EOL);
                     break;
                 case 'doiObject':
                     if ($publication->getData('doiObject')) {
@@ -151,7 +151,6 @@ class Schema extends \PKP\core\maps\Schema
                     } else {
                         $retVal = null;
                     }
-
                     $output[$prop] = $retVal;
                     break;
                 case 'fullTitle':

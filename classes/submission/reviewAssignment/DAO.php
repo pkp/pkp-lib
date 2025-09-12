@@ -151,9 +151,14 @@ class DAO extends EntityDAO
     public function fromRow(object $row): ReviewAssignment
     {
         $reviewAssignment = parent::fromRow($row);
+        $reviewerData = Repo::user()->get($reviewAssignment->getReviewerId());
         $reviewAssignment->setData(
             'reviewerFullName',
-            Repo::user()->get($reviewAssignment->getReviewerId())->getFullName()
+            $reviewerData->getFullName()
+        );
+        $reviewAssignment->setData(
+            'reviewerUserName',
+            $reviewerData->getUserName()
         );
 
         return $reviewAssignment;

@@ -195,6 +195,12 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"reviewerUserName": {
+			"type": "string",
+			"description": "The username of the reviewer",
+			"readOnly": true,
+			"apiSummary": true
+		},
 		"reviewerId": {
 			"type": "integer",
 			"description": "reviewer's unique ID",

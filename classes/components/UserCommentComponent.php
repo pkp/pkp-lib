@@ -40,7 +40,7 @@ class UserCommentComponent
         $this->request = $request;
         $this->submission = $submission;
 
-        // get all published  publication ids for this submission
+        // get all published publications for this submission
         $this->publishedPublication = collect();
         foreach (array_reverse($submission->getPublishedPublications()) as $publishedPublication) {
             $this->publishedPublication->add([

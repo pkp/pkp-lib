@@ -26,9 +26,13 @@ class AcceptInvitationStep extends InvitationStepTypes
     /**
      * get accept invitation steps
      *
+     * @param Invitation|null $invitation
+     * @param Context $context
+     * @param User|null $user
+     * @param String $invitationType
      * @throws \Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context, ?User $user): array
+    public function getSteps(?Invitation $invitation, Context $context, ?User $user, string $invitationType): array
     {
         $steps = [];
 

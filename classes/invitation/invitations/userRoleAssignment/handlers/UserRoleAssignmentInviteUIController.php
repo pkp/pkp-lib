@@ -105,7 +105,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
         ];
         $steps = new SendInvitationStep();
         $templateMgr->setState([
-            'steps' => $steps->getSteps(null, $context, $user),
+            'steps' => $steps->getSteps(null, $context, $user,'userRoleAssignment'),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -186,7 +186,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
         ];
         $steps = new SendInvitationStep();
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation, $context, $user),
+            'steps' => $steps->getSteps($this->invitation, $context, $user,'userRoleAssignment'),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(

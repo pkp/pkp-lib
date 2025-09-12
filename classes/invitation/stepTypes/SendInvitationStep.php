@@ -23,7 +23,9 @@ use PKP\invitation\sections\Email;
 use PKP\invitation\sections\Form;
 use PKP\invitation\sections\Sections;
 use PKP\invitation\steps\Step;
+use PKP\mail\mailables\ReviewerAccessInvitationNotify;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
+use PKP\security\Role;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use stdClass;
@@ -35,14 +37,19 @@ class SendInvitationStep extends InvitationStepTypes
      *
      * @throws Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context, ?User $user): array
+    public function getSteps(?Invitation $invitation, Context $context, ?User $user,string $invitationType): array
     {
         $steps = [];
-        if (!$invitation && !$user) {
+        if ((!$invitation && !$user)) {
             $steps[] = $this->invitationSearchUser();
         }
-        $steps[] = $this->invitationDetailsForm($context);
-        $steps[] = $this->invitationInvitedEmail($context);
+        if(self::INVITATION_USER_ROLE_ASSIGNMENT === $invitationType || (self::INVITATION_REVIEWER_ACCESS_INVITE === $invitationType && !$user)) {
+            $steps[] = $this->invitationDetailsForm($context);
+        }
+        if(self::INVITATION_REVIEWER_ACCESS_INVITE === $invitationType) {
+            $steps[] = $this->invitationReviewDetails();
+        }
+        $steps[] = $this->invitationInvitedEmail($context,$invitationType);
         return $steps;
     }
 
@@ -128,7 +135,7 @@ class SendInvitationStep extends InvitationStepTypes
      *
      * @throws Exception
      */
-    private function invitationInvitedEmail(Context $context): stdClass
+    private function invitationInvitedEmail(Context $context, string $invitationType): stdClass
     {
         $sections = new Sections(
             'userInvitedEmail',
@@ -137,8 +144,11 @@ class SendInvitationStep extends InvitationStepTypes
             'UserInvitationEmailComposerStep',
             __('userInvitation.sendMail.stepName'),
         );
-        $fakeInvitation = $this->getFakeInvitation();
-        $mailable = new UserRoleAssignmentInvitationNotify($context, $fakeInvitation);
+        $fakeInvitation = $this->getFakeInvitation($invitationType);
+        $mailable = self::INVITATION_REVIEWER_ACCESS_INVITE === $invitationType
+            ? new ReviewerAccessInvitationNotify($context, $fakeInvitation)
+            : new UserRoleAssignmentInvitationNotify($context, $fakeInvitation);
+
         $sections->addSection(
             new Email(
                 'userInvited',
@@ -162,6 +172,41 @@ class SendInvitationStep extends InvitationStepTypes
             __('userInvitation.sendMail.nextButtonLabel'),
             'email',
             __('userInvitation.sendMail.stepDescription'),
+        );
+        $step->addSectionToStep($sections->getState());
+        return $step->getState();
+    }
+
+    /**
+     * create search user section
+     */
+    private function invitationReviewDetails(): stdClass
+    {
+        $sections = new Sections(
+            'reviewDetailsForm',
+            __('reviewerInvitation.reviewDetails.stepName'),
+            'form',
+            'ReviewerReviewDetailsStep',
+            __('reviewerInvitation.reviewDetails.stepDescription'),
+        );
+        $sections->addSection(
+            null,
+            [
+                'validateFields' => [
+                    'responseDueDate',
+                    'reviewDueDate',
+                    'reviewTypes'
+                ]
+            ]
+        );
+        $step = new Step(
+            'reviewDetails',
+            __('reviewerInvitation.reviewDetails.stepName'),
+            __('reviewerInvitation.reviewDetails.stepLabel'),
+            __('reviewerInvitation.reviewDetails.nextButtonLabel'),
+            'emptySection',
+            __('reviewerInvitation.reviewDetails.stepDescription'),
+            false
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();

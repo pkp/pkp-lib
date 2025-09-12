@@ -723,3 +723,38 @@ msgstr "This is the accept invitation URL"
 #, fuzzy
 msgid "emailTemplate.variable.invitation.declineUrl"
 msgstr "This is the decline invitation URL"
+
+#, fuzzy
+msgid "mailable.reviewerAccessInvitationNotify.name"
+msgstr "User Invited to Review Notification"
+
+#, fuzzy
+msgid "mailable.reviewerAccessInvitationNotify.description"
+msgstr "This email is sent to users that are invited to review certain submissions"
+
+#, fuzzy
+msgid "emails.reviewerAccessInvitationNotify.subject"
+msgstr "You are invited to new submission reviews"
+
+#, fuzzy
+msgid "emails.reviewerAccessInvitationNotify.body"
+msgstr ""
+"<div class='email-container'>"
+"    <div class='email-content'>"
+"        <p>Hello {$recipientName},</p>"
+"        <p>{$submissionTitle}</p>"
+"        <h2>About Submission</h2>"
+"        <div><b>Title</b> {$submissionTitle} </div>"
+"        <div><b>Abstract</b> {$submissionAbstract} </div>"
+"        <div><b>The review itself due </b> {$reviewDueDate} </div>"
+"        <p>On accepting the invite, you will be redirected to {$contextName}</p>"
+"        <p>Feel free to contact me with any questions about the process.</p>"
+"        <p><a href='{$acceptUrl}' class='btn btn-accept'>Accept Invitation</a></p>"
+"        <p><a href='{$declineUrl}' class='btn btn-decline'>Decline Invitation</a></p>"
+"        <p>Kind regards,</p>"
+"        <p>{$contextName}</p>"
+"    </div>"
+"</div>"
+"<style>"
+"{$emailTemplateStyle}"
+"</style>"

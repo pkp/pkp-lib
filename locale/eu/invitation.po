@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-12 07:12+0000\n"
+"PO-Revision-Date: 2025-09-12 07:27+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/eu/>\n"
@@ -366,3 +366,50 @@ msgstr ""
 "Lehendik dagoen gonbidapen bat editatzen baduzu edo rol berri bat gehitzen "
 "baduzu, uneko gonbidapena bertan behera utziko da eta berri bat bidaliko da. "
 "Ziur zaude jarraitu nahi duzula?"
+
+msgid "validation.after_or_equal"
+msgstr "Hasiera-datak gaurkoa edo geroagokoa izan behar du"
+
+msgid "invitation.removeRoles"
+msgstr "Erabiltzailea roletik kendu da"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Mesedez, baieztatu irakurri duzula eta onartu pribatutasun-adierazpena"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Bertan behera utzi rolak gonbidatzeko prozesua?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Bertan behera utzi gonbidapen-prozesua"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Gonbidapena ez da onartu. Beste erabiltzaile batekin hasi duzu saioa."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Mesedez, itxi saioa eta hasi saioa kontu egokiarekin gonbidapen hau "
+"onartzeko."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Erabiltzailea desgaituta dago une honetan."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Erabiltzailea desgaituta dago. Ezin zaie rolik esleitu desgaituta dauden "
+"bitartean. Mesedez, lehenik gaitu erabiltzailea rol batera gonbidatzeko."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Pribatutasun-baimena"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Ziur zaude bertan behera utzi nahi duzula? Orain bertan behera uzteak rolak "
+"onartzeko prozesua geldituko du, eta gonbidapenaren mezu elektronikotik "
+"berrabiarazi beharko duzu rola berriro onartzeko. Erabiltzailea bazara, "
+"kontrol-panelera itzuliko zara. Hala ez bada, gonbidapenaren mezu "
+"elektronikora sartu beharko duzu prozesua berriro hasteko."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Bilatu erabiltzaile bat helbide elektronikoaren, erabiltzaile-izenaren edo "
+"ORCID iDaren arabera. Sartu bakarra hasteko!"

@@ -410,6 +410,9 @@ msgstr "Add Contributor"
 msgid "grid.action.deleteContributor"
 msgstr "Delete Contributor"
 
+msgid "grid.action.emailAllAuthors"
+msgstr "Email All Authors"
+
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
 "Are you sure you want to remove {$name} as a contributor? This action can "
@@ -748,5 +751,4 @@ msgstr "Once the user is enabled, they will regain access to the site, and you'l
 
 msgid "grid.user.disableReasonDescription"
 msgstr "Please note that once a user is disabled, you won't be able to add them to any roles until the user is enabled again."
-
 

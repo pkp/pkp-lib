@@ -69,16 +69,16 @@ class AboutContextHandler extends Handler
             ->masthead(true)
             ->excludeRoles([Role::ROLE_ID_REVIEWER])
             ->get();
-    
+
         $savedOrder = (array) $context->getData('mastheadUserGroupIds');
-    
+
         $sortedUserGroups = $mastheadUserGroups->sortBy(function ($userGroup) use ($savedOrder) {
             return array_search($userGroup->id, $savedOrder);
         });
-    
+
         return $sortedUserGroups;
     }
-    
+
 
     /**
      * Display editorial masthead page.
@@ -91,16 +91,16 @@ class AboutContextHandler extends Handler
     public function editorialMasthead($args, $request)
     {
         $context = $request->getContext();
-    
+
         // Get sorted masthead roles using the extracted method
         $mastheadRoles = $this->getSortedMastheadUserGroups($context);
-    
+
         // Get all user IDs grouped by user group ID for the masthead roles
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
             $mastheadRoles->all(),
             $context->getId()
         );
-    
+
         $mastheadUsers = [];
         foreach ($mastheadRoles as $userGroupId => $mastheadUserGroup) {
             foreach ($allUsersIdsGroupedByUserGroupId[$userGroupId] ?? [] as $userId) {
@@ -111,10 +111,10 @@ class AboutContextHandler extends Handler
                     ->withMasthead()
                     ->first();
                 if ($userUserGroup) {
-                    $startDatetime = new DateTime($userUserGroup->dateStart);
+                    $startDatetime = $userUserGroup->dateStart ? new DateTime($userUserGroup->dateStart) : null;
                     $mastheadUsers[$userGroupId][$user->getId()] = [
                         'user' => $user,
-                        'dateStart' => $startDatetime->format('Y'),
+                        'dateStart' => $startDatetime ? $startDatetime->format('Y') : '',
                     ];
                 }
             }
@@ -160,7 +160,7 @@ class AboutContextHandler extends Handler
 
         // get sorted masthead roles using the extracted method
         $mastheadRoles = $this->getSortedMastheadUserGroups($context);
-    
+
         // get all user IDs grouped by user group ID for the masthead roles with ended status
         $allUsersIdsGroupedByUserGroupId = Repo::userGroup()->getMastheadUserIdsByRoleIds(
             $mastheadRoles->all(),
@@ -180,10 +180,10 @@ class AboutContextHandler extends Handler
                     ->get();
                 $services = [];
                 foreach ($userUserGroups as $userUserGroup) {
-                    $startDatetime = new DateTime($userUserGroup->dateStart);
+                    $startDatetime = $userUserGroup->dateStart ? new DateTime($userUserGroup->dateStart) : null;
                     $endDatetime = new DateTime($userUserGroup->dateEnd);
                     $services[] = [
-                        'dateStart' => $startDatetime->format('Y'),
+                        'dateStart' => $startDatetime ? $startDatetime->format('Y') : '',
                         'dateEnd' => $endDatetime->format('Y'),
                     ];
                 }

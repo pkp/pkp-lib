@@ -21,7 +21,9 @@
 			{foreach from=$mastheadUsers[$mastheadRole->id] item="mastheadUser"}
 				<li>
 					{strip}
-						<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
+						{if !empty($mastheadUser['dateStart'])}
+							<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>
+						{/if}
 						<span class="name">
 							{$mastheadUser['user']->getFullName()|escape}
 							{if $mastheadUser['user']->getData('orcid') && $mastheadUser['user']->hasVerifiedOrcid()}

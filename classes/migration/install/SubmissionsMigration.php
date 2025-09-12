@@ -306,11 +306,11 @@ class SubmissionsMigration extends \PKP\migration\Migration
             // templates are journal/context scoped
             $table->bigInteger('context_id')->comment('Journal/press ID for scoping templates');
             $contextDao = Application::getContextDAO();
-            $table->foreign('context_id', 'edit_task_templates_context_id')
-                ->references('context_id')
+            $table->foreign('context_id', 'edit_task_templates_context_fk')
+                ->references($contextDao->primaryKeyColumn)
                 ->on($contextDao->tableName)
                 ->onDelete('cascade');
-            $table->index(['context_id'], 'edit_task_templates_context_id');
+            $table->index(['context_id'], 'edit_task_templates_context_id_idx');
 
             $table->boolean('include')->default(false);
             $table->bigInteger('email_template_id')->nullable();
@@ -338,7 +338,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         Schema::create('edit_task_template_user_groups', function (Blueprint $table) {
             $table->comment('Links task templates to user groups.');
             $table->unsignedBigInteger('edit_task_template_id');
-            $table->unsignedBigInteger('user_group_id');
+            $table->bigInteger('user_group_id');
 
             $table->primary(['edit_task_template_id', 'user_group_id'], 'ett_ug_pk');
 
@@ -352,6 +352,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->index(['user_group_id'], 'ett_ug_user_group_idx');
         });
+
 
     }
 

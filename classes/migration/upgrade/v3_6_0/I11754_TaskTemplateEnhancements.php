@@ -31,20 +31,24 @@ class I11754_TaskTemplateEnhancements extends Migration
         //title and context scoping to template
         $contextDao = Application::getContextDAO();
         Schema::table('edit_task_templates', function (Blueprint $table) use ($contextDao) {
-            $table->string('title', 255)->after('stage_id');
-            $table->bigInteger('context_id')->comment('Journal/press ID for scoping templates');
-            $table->index(['context_id'], 'edit_task_templates_context_id');
-            $table->foreign('context_id', 'edit_task_templates_context_id')
-                ->references('context_id')
-                ->on($contextDao->tableName)
-                ->onDelete('cascade');
+            if (!Schema::hasColumn('edit_task_templates', 'title')) {
+                $table->string('title', 255)->after('stage_id');
+            }
+            if (!Schema::hasColumn('edit_task_templates', 'context_id')) {
+                $table->bigInteger('context_id')->comment('Journal ID for scoping templates');
+                $table->index(['context_id'], 'edit_task_templates_context_id_idx');
+                $table->foreign('context_id', 'edit_task_templates_context_fk')
+                    ->references($contextDao->primaryKeyColumn)
+                    ->on($contextDao->tableName)
+                    ->onDelete('cascade');
+            }
         });
 
         // pivot templates <-> user groups
         Schema::create('edit_task_template_user_groups', function (Blueprint $table) {
             $table->comment('Links editorial task templates to user groups for auto-assignment.');
             $table->unsignedBigInteger('edit_task_template_id');
-            $table->unsignedBigInteger('user_group_id');
+            $table->bigInteger('user_group_id');
 
             $table->primary(['edit_task_template_id', 'user_group_id'], 'ett_ug_pk');
 

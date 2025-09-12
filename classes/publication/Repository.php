@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/publication/Repository.php
  *
@@ -18,6 +19,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\publication\DAO;
+use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
@@ -33,14 +35,13 @@ use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
-use APP\publication\enums\VersionStage;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
+use PKP\submission\traits\HasWordCountValidation;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
-use PKP\submission\traits\HasWordCountValidation;
 
 abstract class Repository
 {
@@ -272,11 +273,6 @@ abstract class Repository
         // Don't allow declined submissions to be published
         if ($submission->getData('status') === PKPSubmission::STATUS_DECLINED) {
             $errors['declined'] = __('publication.required.declined');
-        }
-
-        // Don't allow a publication to be published before passing the review stage
-        if ($submission->getData('stageId') <= WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-            $errors['reviewStage'] = __('publication.required.reviewStage');
         }
 
         // Orcid errors
@@ -704,10 +700,11 @@ abstract class Repository
     }
 
     /**
-     * Given a Version Stage and a flag of whether the Version isMinor, 
+     * Given a Version Stage and a flag of whether the Version isMinor,
      * the publication's related data is being updated
      *
      * @hook 'Publication::updateVersion::before' [&$publication, $oldVersion]
+     * @hook Publication::updateVersion::before [&$publication, $oldVersion]
      */
     public function updateVersion(Publication $publication, VersionStage $versionStage, bool $isMinor = true): Publication
     {
@@ -728,10 +725,10 @@ abstract class Repository
     }
 
     /**
-     * Get the string that describes the 
+     * Get the string that describes the
      * given publication's version.
      */
-    public function getVersionString(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string 
+    public function getVersionString(Publication $publication, ?Submission $submission = null, ?Context $submissionContext = null): string
     {
         $currentVersionInfo = $publication->getVersion();
 

@@ -167,8 +167,7 @@ class PKPMetadataForm extends FormComponent
             $symbolic,
             Application::ASSOC_TYPE_PUBLICATION,
             $this->publication->getId(),
-            [],
-            Repo::controlledVocab()::AS_ENTRY_DATA
+            []
         );
     }
 }

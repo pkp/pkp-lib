@@ -18,6 +18,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use APP\core\Application;
 use PKP\core\Core;
 use PKP\submission\PKPSubmission;
 
@@ -260,6 +261,10 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->dateTime('date_started')->nullable();
             $table->dateTime('date_closed')->nullable();
             $table->string('title')->nullable();
+            // if task was auto-created from a template, keep source template ID. manual tasks will keep this NULL.
+            $table->unsignedBigInteger('edit_task_template_id')->nullable();
+            // index to check if a task from this template exists and for filtering by template.
+            $table->index(['edit_task_template_id'], 'edit_tasks_edit_task_template_id');
             $table->index(['assoc_type', 'assoc_id'], 'edit_tasks_assoc_id');
         });
 
@@ -296,6 +301,17 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->comment('Represents templates for the editorial tasks.');
             $table->unsignedBigInteger('edit_task_template_id')->autoIncrement()->primary();
             $table->unsignedSmallInteger('stage_id');
+            $table->string('title', 255); // template title
+
+            // templates are journal/context scoped
+            $table->bigInteger('context_id')->comment('Journal/press ID for scoping templates');
+            $contextDao = Application::getContextDAO();
+            $table->foreign('context_id', 'edit_task_templates_context_fk')
+                ->references($contextDao->primaryKeyColumn)
+                ->on($contextDao->tableName)
+                ->onDelete('cascade');
+            $table->index(['context_id'], 'edit_task_templates_context_id_idx');
+
             $table->boolean('include')->default(false);
             $table->bigInteger('email_template_id')->nullable();
             $table->foreign('email_template_id')
@@ -318,6 +334,26 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->unique(['edit_task_template_id', 'locale', 'setting_name'], 'edit_task__template_settings_unique');
             $table->index(['edit_task_template_id'], 'edit_task_template_settings_edit_task_id');
         });
+
+        Schema::create('edit_task_template_user_groups', function (Blueprint $table) {
+            $table->comment('Links task templates to user groups.');
+            $table->unsignedBigInteger('edit_task_template_id');
+            $table->bigInteger('user_group_id');
+
+            $table->primary(['edit_task_template_id', 'user_group_id'], 'ett_ug_pk');
+
+            $table->foreign('edit_task_template_id', 'ett_ug_template_fk')
+                ->references('edit_task_template_id')->on('edit_task_templates')
+                ->onDelete('cascade');
+
+            $table->foreign('user_group_id', 'ett_ug_user_group_fk')
+                ->references('user_group_id')->on('user_groups')
+                ->onDelete('cascade');
+
+            $table->index(['user_group_id'], 'ett_ug_user_group_idx');
+        });
+
+
     }
 
     /**
@@ -325,6 +361,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
+        Schema::drop('edit_task_template_user_groups');
         Schema::drop('edit_task_template_settings');
         Schema::drop('edit_task_templates');
         Schema::drop('edit_task_participants');

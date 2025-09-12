@@ -109,6 +109,7 @@ class ContributorForm extends FormComponent
                 'label' => __('author.competingInterests'),
                 'description' => __('author.competingInterests.description'),
                 'isMultilingual' => true,
+                'isRequired' => true,
             ]));
         }
         $this->addField(new FieldRichTextarea('biography', [

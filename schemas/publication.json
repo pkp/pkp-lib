@@ -437,6 +437,11 @@
 			"description": "The calculated display string of the version of this publication",
 			"apiSummary": true,
 			"readOnly": true
+		},
+		"status": {
+			"type": "integer",
+			"description": "The status of the publication",
+			"apiSummary": true
 		}
 	}
 }

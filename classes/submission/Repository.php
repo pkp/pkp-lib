@@ -1340,11 +1340,11 @@ abstract class Repository
 
         $newStatus = Submission::STATUS_QUEUED;
         foreach ($publications as $publication) {
-            if ($publication->getData('status') === Submission::STATUS_PUBLISHED) {
+            if ($publication->getData('status') === Publication::STATUS_PUBLISHED) {
                 $newStatus = Submission::STATUS_PUBLISHED;
                 break;
             }
-            if ($publication->getData('status') === Submission::STATUS_SCHEDULED) {
+            if ($publication->getData('status') === Publication::STATUS_SCHEDULED) {
                 $newStatus = Submission::STATUS_SCHEDULED;
                 continue;
             }
@@ -1367,7 +1367,7 @@ abstract class Repository
         }
 
         $newCurrentPublicationId = $publications->last(function (Publication $publication, int $key) {
-            return $publication->getData('status') === Submission::STATUS_PUBLISHED;
+            return $publication->getData('status') === Publication::STATUS_PUBLISHED;
         })?->getId();
 
         // If there is no published publication, use the latest mature publication

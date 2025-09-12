@@ -24,6 +24,7 @@ use PKP\identity\Identity;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\publication\PKPPublication;
 use PKP\submission\PKPSubmission;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
@@ -137,7 +138,7 @@ class Repository
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
-                } elseif ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+                } elseif ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
                     $validator->errors()->add('publicationId', __('author.editPublishedDisabled'));
                 }
             }

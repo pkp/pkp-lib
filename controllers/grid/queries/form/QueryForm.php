@@ -99,6 +99,7 @@ class QueryForm extends Form
                 'userId' => $currentUser->getId(),
                 'assocType' => Application::ASSOC_TYPE_QUERY,
                 'assocId' => $task->id,
+                'messageId' => Note::generateMessageId(),
             ]);
         } else {
             $task = EditorialTask::find($queryId);

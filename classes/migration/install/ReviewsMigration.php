@@ -49,6 +49,9 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->comment('Data about peer review assignments for all submissions.');
             $table->bigInteger('review_id')->autoIncrement();
 
+            $table->string('message_id', 255)->nullable();
+            $table->index(['message_id'], 'review_assignments_message_id');
+
             $table->bigInteger('submission_id');
             $table->foreign('submission_id')->references('submission_id')->on('submissions');
             $table->index(['submission_id'], 'review_assignments_submission_id');

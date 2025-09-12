@@ -42,7 +42,7 @@ class UserCommentComponent
 
         // get all published  publication ids for this submission
         $this->publishedPublicationIds = collect();
-        foreach ($submission->getPublishedPublications() as $publishedPublication) {
+        foreach (array_reverse($submission->getPublishedPublications()) as $publishedPublication) {
             $this->publishedPublicationIds->add($publishedPublication->getId());
         }
 
@@ -113,7 +113,7 @@ class UserCommentComponent
     public function getConfig()
     {
         return [
-            'publicationIds' => $this->publishedPublicationIds->sortDesc()->values(),
+            'publicationIds' => $this->publishedPublicationIds->values(),
             'latestPublicationId' => $this->submission->getCurrentPublication()->getId(),
             'itemsPerPage' => Repo::userComment()->getPerPage(),
             'loginUrl' => $this->getLoginUrl(),

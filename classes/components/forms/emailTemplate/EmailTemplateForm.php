@@ -60,8 +60,8 @@ class EmailTemplateForm extends FormComponent
                 'label' => __('email.body'),
                 'size' => 'large',
                 'isMultilingual' => true,
-                'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
-                'plugins' => ['link','lists'],
+                'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | emoticons',
+                'plugins' => ['link','lists','emoticons'],
             ]))
             ->addField(new FieldOptions('isUnrestricted', [
                 'label' => __('admin.workflow.email.userGroup.assign.unrestricted'),

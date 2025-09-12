@@ -2601,7 +2601,7 @@ msgstr "Kaikki versiot"
 msgid "publication.version.confirm"
 msgstr "Oletko varma, että haluat luoda uuden version?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Tiivistelmä on liian pitkä. Oikea pituus on {$limit} sanaa tai vähemmän. "
 "Tiivistelmä on nyt {$count} sanan pituinen."

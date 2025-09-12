@@ -2801,7 +2801,7 @@ msgstr ""
 "आवृत्तीत (revisions) आवश्यक असलेल्या सर्व तपशीलांची नोंद पाठवा. समीक्षकांच्या"
 " टिप्पण्या अनामिक आहेत याकडे आवश्यकतेनुसार लक्ष द्या."
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "सारांश खूप मोठा आहे. तो {$limit} शब्दांचा किंवा त्यापेक्षा लहान असावा. तो "
 "सध्या {$count} शब्दांचा आहे."

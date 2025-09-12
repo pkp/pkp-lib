@@ -2473,7 +2473,7 @@ msgstr "全バージョン"
 msgid "publication.version.confirm"
 msgstr "新しいバージョンを作成してもよろしいですか。"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "要旨が長すぎます。{$limit}語以内でなければなりません。現在、{$count}語の長さ"
 "です。"

@@ -2607,7 +2607,7 @@ msgstr "Alle versioner"
 msgid "publication.version.confirm"
 msgstr "Er du sikker på, at du vil oprette en ny version?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Resuméet er for langt. Det skal være {$limit} ord eller færre. Den er i "
 "øjeblikket {$count} ord langt."

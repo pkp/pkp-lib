@@ -2608,7 +2608,7 @@ msgstr "Всі версії"
 msgid "publication.version.confirm"
 msgstr "Ви впевнені, що хочете створити нову версію?"
 
-msgid "publication.wordCountLong"
+msgid "publication.abstract.wordCountLong"
 msgstr ""
 "Анотація занадто довга. Довжина має бути не більше {$limit} слів або менше. "
 "Наразі вона складається з {$count} слів."

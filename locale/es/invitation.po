@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-13 04:45+0000\n"
+"PO-Revision-Date: 2025-09-13 10:32+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/es/>\n"
@@ -19,3 +19,175 @@ msgstr "Se debe definir al menos un grupo de usuarios para eliminar"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Debe definirse al menos un grupo de usuarios para agregar"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "No se pueden remover roles de un usuario que no existe."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"No se puede enviar la invitación porque no se definieron cambios en el grupo "
+"de usuarios"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Cuando una invitación tiene un ID de usuario ({$userId}) asignado, ese "
+"usuario debe existir."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Se debe proporcionar un nombre de usuario"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Se debe proporcionar una contraseña"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Se debe proporcionar una afiliación"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Se debe proporcionar un país"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Se debe proporcionar un apellido"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Para los grupos de usuarios agregados, se debe proporcionar una fecha de "
+"inicio"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "No se ha definido un correo electrónico para este tipo de invitación"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "No se pudo completar la invitación"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "El grupo de usuarios con ID {$userGroupId} no existe"
+
+msgid "invitation.validation.required"
+msgstr "El campo {$attribute} es obligatorio."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Se encontraron propiedades inesperadas en el elemento con índice "
+"{$attribute}: {$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"El ID {reviewAssignmentId} no corresponde a una asignación de revisión válida"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Esta invitación no se puede cancelar"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "No se permite ingresar el correo electrónico y el ID de usuario juntos."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "No se permite acceder a este atributo en usuarios existentes"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "No se permite acceder a este atributo en usuarios que no existen"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr ""
+"Este atributo debe tener un valor con fecha igual o posterior a la actual"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "No se permite el uso del campo :attribute"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Se requiere un valor para la configuración regional ‘{$primaryLocale}’"
+
+msgid "invitation.step"
+msgstr "PASO"
+
+msgid "invitation.header"
+msgstr "Invitaciones"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Invitar a un rol"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Invitar al usuario a asumir un rol"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Ingresar datos"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Buscar usuario"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Verificar y enviar invitación para asignar los roles"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Buscar usuario"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Buscar usuario"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Si el usuario no existe, puedes invitarlo a asumir roles. Si el usuario ya "
+"existe en el sistema, puedes ver su información e invitarlo a asumir roles "
+"adicionales."
+
+msgid "userInvitation.searchField.description"
+msgstr "p. ej.: aeinstein@example.com o aeinstein o 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Ingresar datos"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "invitation.role.selectRole"
+msgstr "Seleccionar un nuevo rol"
+
+msgid "invitation.role.dateStart"
+msgstr "Fecha de inicio"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Ingresar datos y enviar invitación para asignar los roles"
+
+msgid "invitation.role.dateEnd"
+msgstr "Fecha límite"
+
+msgid "invitation.role.addRole.button"
+msgstr "Añadir otro rol"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rol"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Fecha de inicio"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Fecha límite"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Verificar y enviar invitación para asignar los roles"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Invitar al usuario a asumir el rol"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Los grupos de usuarios proporcionados contienen entradas duplicadas"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Ya existe un usuario con el nombre de usuario {$username}, prueba con uno "
+"diferente"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Cuando una invitación tiene asignado el correo electrónico ({$email}), este "
+"no debe estar en uso por otro usuario."
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Se debe proporcionar un nombre"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Para los grupos de usuarios agregados, se debe proporcionar un ID"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr ""
+"Para los grupos de usuarios agregados, se debe proporcionar una cabecera "
+"editorial"

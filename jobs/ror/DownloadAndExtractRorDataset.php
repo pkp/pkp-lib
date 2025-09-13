@@ -222,15 +222,42 @@ class DownloadAndExtractRorDataset extends BaseJob
     {
         try {
             $client = Application::get()->getHttpClient();
-            $response = $client->request('HEAD', $downloadUrl, [
+
+            // Step 1: Get file size without Range header
+            $sizeResponse = $client->request('HEAD', $downloadUrl, [
                 'connect_timeout' => 10,
+            ]);
+            $contentLength = $sizeResponse->getHeaderLine('Content-Length');
+            $fileSize = $contentLength ? (int) $contentLength : 0;
+
+            if ($fileSize === 0) {
+                UpdateRorRegistryDataset::writeToExecutionLogFile(
+                    "File size is 0 or unknown for URL: {$downloadUrl}",
+                    $this->scheduledTaskLogFilePath,
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                );
+                return [0, false];
+            }
+
+            // Step 2: Verify range support with a small GET range request (GET instead of HEAD for better server compatibility)
+            $rangeResponse = $client->request('GET', $downloadUrl, [
+                'connect_timeout' => 10,
+                'timeout' => 30,
                 'headers' => ['Range' => 'bytes=0-1023'],
             ]);
 
-            $contentLength = $response->getHeaderLine('Content-Length');
-            $supportsRange = $response->getStatusCode() === 206 || $response->hasHeader('Accept-Ranges');
+            $supportsRange = $rangeResponse->getStatusCode() === 206 && $rangeResponse->hasHeader('Content-Range');
+            
+            if (!$supportsRange) {
+                UpdateRorRegistryDataset::writeToExecutionLogFile(
+                    "Server does not support range requests for URL: {$downloadUrl} (status: {$rangeResponse->getStatusCode()})",
+                    $this->scheduledTaskLogFilePath,
+                    ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
+                );
+            }
 
-            return [$contentLength ? (int) $contentLength : 0, $supportsRange];
+            return [$fileSize, $supportsRange];
+
         } catch (GuzzleException|Exception $e) {
             UpdateRorRegistryDataset::writeToExecutionLogFile(
                 "Failed to get file size: {$e->getMessage()}",

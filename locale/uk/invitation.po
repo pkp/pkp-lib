@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-10 19:23+0000\n"
+"PO-Revision-Date: 2025-09-15 02:18+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/uk/>\n"
@@ -108,3 +108,80 @@ msgstr "Потрібне значення локалі '{$primaryLocale}'"
 
 msgid "invitation.header"
 msgstr "Запрошення"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} – Ввести деталі"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Перевірити ORCID iD"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Так, я погоджуюся на збирання та зберігання моїх даних відповідно до {$url}"
+
+msgid "invitation.email.description"
+msgstr "наприклад: aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Після прийняття запрошення користувача буде перенаправлено на ORCID для "
+"підтвердження облікового запису, якщо він цього забажає."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Якщо вам відомо ім'я користувача, ви можете ввести цю інформацію. Однак "
+"користувач може змінити цю інформацію."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Якщо вам відоме прізвище користувача, ви можете ввести цю інформацію. Однак "
+"користувач може змінити цю інформацію."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Перевірити ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} – Перевірити ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Ввести деталі"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Введіть свої дані, такі як електронна адреса, афіліація тощо. Відповідно до "
+"GDPR цю інформацію можете змінити лише ви. Ви також можете вибрати, чи "
+"хочете, щоб ця інформація була видимою для редактора у Вашому профілі."
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Будь ласка, надайте наступну інформацію, щоб допомогти нам керувати Вашим "
+"обліковим записом"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Переглянути та створити обліковий запис"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} – Переглянути та створити обліковий запис"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Пропустити перевірку ORCID"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Це може бути комбінація великих літер, малих літер або цифр"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Він має містити щонайменше 6 символів і може бути комбінацією великих літер, "
+"малих літер, цифр і символів"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Заява про конфіденційність"

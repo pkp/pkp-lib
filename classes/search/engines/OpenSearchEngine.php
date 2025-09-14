@@ -23,6 +23,7 @@ use OpenSearch\Client;
 use PKP\config\Config;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\facades\Locale;
+use PKP\plugins\Hook;
 use PKP\search\parsers\SearchFileParser;
 use PKP\submissionFile\SubmissionFile;
 
@@ -106,7 +107,7 @@ class OpenSearchEngine extends ScoutEngine
                 }
             }
 
-            $client->create([
+            $json = [
                 'index' => $this->getIndexName(),
                 'id' => $submission->getId(),
                 'body' => [
@@ -134,8 +135,12 @@ class OpenSearchEngine extends ScoutEngine
                             [Locale::getLocale(), $submission->getData('locale'), Locale::getPrimaryLocale()]
                         )
                     )))
-                ],
-            ]);
+                ]
+            ];
+            // Give hooks a chance to alter the record before indexing
+            if (Hook::run('OpenSearchEngine::update', ['json' => &$json, 'submission' => $submission]) !== Hook::ABORT) {
+                $client->create($json);
+            }
         });
     }
 
@@ -156,31 +161,12 @@ class OpenSearchEngine extends ScoutEngine
 
     protected function buildQuery(Builder $builder): array
     {
-        // Handle "where" conditions
-        $contextId = $publishedFrom = $publishedTo = null;
-        foreach ($builder->wheres as $field => $value) {
-            $$field = match($field) {
-                'contextId' => (int) $value,
-                'publishedFrom', 'publishedTo' => $value ? new \Carbon\Carbon($value) : null,
-            };
-        };
+        // Ensure we don't disturb reuse of the builder, which is consumed here
+        $originalBuilder = $builder;
+        $builder = clone $builder;
 
-        // Handle "whereIn" conditions
-        $sectionIds = $categoryIds = $keywords = $subjects = null;
-        foreach ($builder->whereIns as $field => $list) {
-            $$field = match($field) {
-                'sectionIds', 'categoryIds', 'keywords', 'subjects' => (array) $list,
-            };
-        };
-
-        // Handle options
-        foreach ($builder->options as $option => $value) {
-            switch ($option) {
-                default: throw new \Exception("Unsupported options {$option}!");
-            }
-        };
-
-        return [
+        $filter = [];
+        $query = [
             'index' => $this->getIndexName(),
             'body' => [
                 'query' => [
@@ -191,18 +177,73 @@ class OpenSearchEngine extends ScoutEngine
                                 'fields' => ['titles.*', 'abstracts.*, bodies.*, authors.*'],
                             ],
                         ]] : []),
-                        'filter' => [
-                            ...$contextId ? [['term' => ['contextId' => $contextId]]] : [],
-                            ...($publishedFrom || $publishedTo) ? [['range' => ['datePublished' => ['gte' => $publishedFrom, 'lte' => $publishedTo]]]] : [],
-                            ...$sectionIds ? [['terms' => ['sectionId' => $sectionIds]]] : [],
-                            ...$categoryIds ? [['terms' => ['categoryId' => $categoryIds]]] : [],
-                            ...$keywords ? [['terms' => ['keyword.keyword' => $keywords]]] : [],
-                            ...$subjects ? [['terms' => ['subject.keyword' => $subjects]]] : [],
-                        ],
+                        'filter' => &$filter,
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
+
+        // Handle "where" conditions
+        $publishedFrom = $publishedTo = null;
+        foreach ($builder->wheres as $field => $value) {
+            switch ($field) {
+                case 'contextId':
+                    if ($value) {
+                        $filter[] = ['term' => ['contextId' => (int) $value]];
+                    }
+                    break;
+                case 'publishedFrom':
+                case 'publishedTo':
+                    if ($value) {
+                        $$field = new \Carbon\Carbon($value);
+                    }
+                    break;
+                default: continue 2;
+            }
+            unset($builder->wheres[$field]);
+        }
+        if ($publishedFrom || $publishedTo) {
+            $filter[] = ['range' => ['datePublished' => ['gte' => $publishedFrom, 'lte' => $publishedTo]]];
+        }
+
+        // Handle "whereIn" conditions
+        foreach ($builder->whereIns as $field => $list) {
+            $list = (array) $list;
+            if (!empty($list)) {
+                switch ($field) {
+                    case 'sectionIds':
+                        $filter[] = ['terms' => ['sectionId' => $list]];
+                        break;
+                    case 'categoryIds':
+                        $filter[] = ['terms' => ['categoryId' => $list]];
+                        break;
+                    case 'keywords':
+                        $filter[] = ['terms' => ['keyword.keyword' => $list]];
+                        break;
+                    case 'subjects':
+                        $filter[] = ['terms' => ['subject.keyword' => $list]];
+                        break;
+                    default: continue 2;
+                }
+            };
+            unset($builder->whereIns[$field]);
+        };
+
+        // Allow hook registrants to process and consume additional query builder elements
+        Hook::run('OpenSearchEngine::buildQuery', ['query' => &$query, 'filter' => &$filter, 'builder' => $builder, 'originalBuilder' => $originalBuilder]);
+
+        // Ensure that the query builder was completely consumed (there were no unsupported details provided)
+        if (!empty($builder->whereIns)) {
+            throw new \Exception('Unsupported "whereIn" query: ' . json_encode($builder->whereIns));
+        }
+        if (!empty($builder->wheres)) {
+            throw new \Exception('Unsupported "where" query: ' . json_encode($builder->wheres));
+        }
+        if (!empty($builder->options)) {
+            throw new \Exception('Unsupported option: ' . json_encode($builder->options));
+        }
+
+        return $query;
     }
 
     public function search(Builder $builder)

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-10 15:23+0000\n"
+"PO-Revision-Date: 2025-09-15 07:48+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1844,7 +1844,7 @@ msgid "manager.workflow"
 msgstr "Lan-fluxua"
 
 msgid "manager.workflow.title"
-msgstr "Bidalketa-fitxategiak"
+msgstr "Lan-fluxuaren ezarpenak"
 
 msgid "manager.distribution"
 msgstr "Banaketa"
@@ -3211,7 +3211,7 @@ msgid "mailable.submissionSavedForLater.description"
 msgstr ""
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Bidalketaren baieztapena"
 
 #, fuzzy
 msgid "mailable.submissionAck.description"
@@ -3296,10 +3296,12 @@ msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Kudeatu mezu elektronikoak"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Gehitu eta editatu</a> sistemak bidalitako mezu "
+"elektroniko guztien txantiloiak.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
@@ -3329,10 +3331,12 @@ msgid "manager.emailTemplate.name.description"
 msgstr ""
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Bidalketa berria"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Konfiguratu posta elektroniko bidezko jakinarazpenak, bidalketa berri bat "
+"egiten denean bidaltzeko."
 
 msgid "manager.submissionAck.description"
 msgstr ""

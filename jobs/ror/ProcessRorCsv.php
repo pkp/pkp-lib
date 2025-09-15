@@ -133,6 +133,9 @@ class ProcessRorCsv extends BaseJob
         );
     }
 
+    /**
+     * Process the CSV row to generate the ROR data array.
+     */
     protected function processRow(array $row): array
     {
         $ror = $row[$this->dataMappingIndex['ror']];
@@ -168,6 +171,9 @@ class ProcessRorCsv extends BaseJob
         ];
     }
 
+    /**
+     * Process the CSV row to store in DB
+     */
     protected function processBatch(array $rows): void
     {
         try {

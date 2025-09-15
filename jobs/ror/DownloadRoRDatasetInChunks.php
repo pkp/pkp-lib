@@ -78,12 +78,20 @@ class DownloadRoRDatasetInChunks extends BaseJob
                 ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
             );
 
+            // Check if fopen succeeds before passing to Guzzle
+            $fileHandle = fopen($this->chunkFile, 'wb');
+            if ($fileHandle === false) {
+                throw new Exception("Failed to open chunk file {$this->chunkFile} for writing");
+            }
+
             $response = $client->request('GET', $this->downloadUrl, [
                 'headers' => ['Range' => "bytes={$this->startByte}-{$this->endByte}"],
-                'sink' => fopen($this->chunkFile, 'wb'),
+                'sink' => $fileHandle,
                 'connect_timeout' => 10,
                 'timeout' => $this->timeout - 1, // set the download time 1 second less than the job timeout
             ]);
+
+            fclose($fileHandle);
 
             if ($response->getStatusCode() !== 206 || !$this->fileManager->fileExists($this->chunkFile)) {
                 throw new Exception('Failed to download chunk');

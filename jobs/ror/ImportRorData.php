@@ -106,7 +106,7 @@ class ImportRorData extends BaseJob
                 );
             }
 
-            // we need to get thses in local variables to pass into the batch closures(e.g. then, catch, etc)
+            // we need to get these in local variables to pass into the batch closures(e.g. then, catch, etc)
             // as the serialization of $this in closure is buggy and can lead to issues
             $logFilePath = $this->scheduledTaskLogFilePath;
 

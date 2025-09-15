@@ -70,9 +70,9 @@ class DownloadRoRDatasetInSync extends BaseJob
                 
                 if (!empty($pathCsv) && $this->fileManager->fileExists($pathCsv)) {
                     UpdateRorRegistryDataset::writeToExecutionLogFile(
-                        'Cancelling sync download as the CSV alerady exists',
+                        'Cancelling sync download as the CSV already exists',
                         $this->scheduledTaskLogFilePath, 
-                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
+                        ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE
                     );
                     return true; // No need to download the CSV file, job can skipped
                 }

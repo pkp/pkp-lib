@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-15 08:31+0000\n"
+"PO-Revision-Date: 2025-09-15 12:30+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2900,7 +2900,7 @@ msgid "emailTemplate.variable.password"
 msgstr ""
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Berrezarri ebaluatzailea"
 
 msgid "mailable.reviewerResendRequest.name"
 msgstr ""
@@ -2969,7 +2969,7 @@ msgid "mailable.validateEmailSite.description"
 msgstr ""
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Jakinarazi beste egileei"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
@@ -2978,7 +2978,7 @@ msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Jakinarazi erabakia ebaluatzaileei"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -2987,25 +2987,27 @@ msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Bidalketa hau berrikuspenik gabe onartzea erabaki dugu."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Bidalketa hau baztertzea erabaki dugu."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Egileak berrikuspenak bidaltzera gonbidatu ditugu."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Egileak bertsio berrikusi bat aurkeztera gonbidatu ditugu, beste ebaluazio "
+"bat egiteko."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr ""
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa onartua"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
@@ -3074,19 +3076,19 @@ msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Ekoizpenera bidalia"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa onartua (berrikuspenik gabe)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Gomendioa egina"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3193,7 +3195,7 @@ msgstr ""
 "ematen du."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Erabiltzailea sortuta"
 
 #, fuzzy
 msgid "mailable.userRegister.description"
@@ -3330,7 +3332,7 @@ msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Bilatu izenaren edo deskribapenaren arabera"
 
 msgid "manager.emailTemplate.name.description"
 msgstr ""
@@ -3407,10 +3409,10 @@ msgid "mailable.layoutRequest.name"
 msgstr ""
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Sistema"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Bertsioa sortuta"
 
 msgid "mailable.reviewComplete.name"
 msgstr ""
@@ -3422,13 +3424,13 @@ msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Bidalketaren aitorpena beste egileei"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Editorea esleituta (automatikoa)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Esleitu editorea"
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""

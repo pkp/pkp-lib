@@ -18,7 +18,6 @@
 namespace PKP\API\v1\submissions;
 
 use APP\author\Author;
-use PKP\publication\PKPPublication;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
@@ -37,9 +36,14 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
+
+use function Laravel\Prompts\error;
+
 use PKP\affiliation\Affiliation;
+use PKP\API\v1\submissions\formRequests\AddNote;
 use PKP\API\v1\submissions\formRequests\AddTask;
 use PKP\API\v1\submissions\formRequests\EditTask;
+use PKP\API\v1\submissions\resources\NoteResource;
 use PKP\API\v1\submissions\resources\TaskResource;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
@@ -62,12 +66,14 @@ use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\helpers\PublicationVersionInfoResource;
+use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -84,7 +90,6 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
@@ -420,6 +425,14 @@ class PKPSubmissionController extends PKPBaseController
             Route::put('{submissionId}/tasks/{taskId}/start', $this->startTask(...))
                 ->name('submission.task.start')
                 ->whereNumber(['submissionId', 'taskId']);
+
+            Route::post('{submissionId}/tasks/{taskId}/notes', $this->addNote(...))
+                ->name('submission.note.add')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::delete('{submissionId}/tasks/{taskId}/notes/{noteId}', $this->deleteNote(...))
+                ->name('submission.note.delete')
+                ->whereNumber(['submissionId', 'taskId', 'noteId']);
         });
     }
 
@@ -468,7 +481,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // For operations to retrieve task(s), we just ensure that the user has access to it
-        if (in_array($actionName, ['getTask'])) {
+        if (in_array($actionName, ['getTask', 'addNote', 'deleteNote'])) {
             $stageId = $request->getUserVar('stageId');
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
         }
@@ -1419,7 +1432,7 @@ class PKPSubmissionController extends PKPBaseController
         // For the publishing statuses, the `/publish` and /unpublish endpoints should be used instead.
         if (array_key_exists('status', $params)
             && !in_array($params['status'], Publication::getPrePublishStatuses())) {
-            
+
             return response()->json([
                 'error' => __('api.publication.403.cantEditStatus'),
             ], Response::HTTP_FORBIDDEN);
@@ -1441,8 +1454,8 @@ class PKPSubmissionController extends PKPBaseController
 
             $versionStage = $this->validateVersionStage($illuminateRequest);
             $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
-            
-            // will only allow to update the version details at publication edit 
+
+            // will only allow to update the version details at publication edit
             // if there is no version information added yet for this publication
             // or if the given version stage information is different from what already assigned
             if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
@@ -2303,6 +2316,57 @@ class PKPSubmissionController extends PKPBaseController
             'userGroups' => $userGroups,
             'reviewAssignments' => $reviewAssignments,
         ];
+    }
+
+    /**
+     * Add a reply to a task or discussion, excluding the headnote
+     */
+    public function addNote(AddNote $illuminateRequest): JsonResponse
+    {
+        $validated = $illuminateRequest->validated();
+
+        $note = new Note($validated);
+        $note->save();
+        $note->refresh();
+
+        return response()->json(
+            new NoteResource(resource: $note, data: ['users' => collect([$this->getRequest()->getUser()])]),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Delete a note from a task or discussion, excluding the headnote
+     */
+    public function deleteNote(Request $illuminateRequest): JsonResponse
+    {
+        $note = Note::find($illuminateRequest->route('noteId'));
+
+        if (!$note) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($note->isHeadnote) {
+            return response()->json([
+                'error' => __('api.403.forbidden'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $user = $this->getRequest()->getUser();
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        // Allow removing the note for its creator or a manager/admin
+        if ($note->userId !== $user->getId() || !$user->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
+            return response()->json([
+                'error' => __('api.403.forbidden'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $note->delete();
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**

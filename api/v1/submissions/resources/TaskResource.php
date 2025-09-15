@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/reviewers/suggestions/resources/TaskResource.php
+ * @file api/v1/submissions/resources/TaskResource.php
  *
  * Copyright (c) 2014-2025 Simon Fraser University
  * Copyright (c) 2003-2025 John Willinsky
@@ -46,6 +46,7 @@ class TaskResource extends JsonResource
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
+            'notes' => NoteResource::collection(resource: $this->notes, data: $this->data),
         ];
     }
 

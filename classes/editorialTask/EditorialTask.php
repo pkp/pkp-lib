@@ -31,13 +31,21 @@ class EditorialTask extends Model
 {
     use ModelWithSettings;
 
-    // Allow filling and saving related model through 'participants' Model attribute
+    // Allow filling and saving related model through the 'participants' Model attribute
     public const ATTRIBUTE_PARTICIPANTS = 'participants';
+
+    // Allow filling the headnote together with the task through the 'description' Model attribute
+    public const ATTRIBUTE_HEADNOTE = 'description';
 
     /**
      * @var array<Participant> $taskParticipants
      */
     protected ?array $taskParticipants = null;
+
+    /**
+     * @var Note|null The note associated with the task, used as a headnote/description
+     */
+    protected ?Note $headnote = null;
 
     protected $table = 'edit_tasks';
     protected $primaryKey = 'edit_task_id';
@@ -95,17 +103,14 @@ class EditorialTask extends Model
      */
     public function fill(array $attributes)
     {
-        if (!isset($attributes[self::ATTRIBUTE_PARTICIPANTS])) {
-            return parent::fill($attributes);
+        if (isset($attributes[self::ATTRIBUTE_HEADNOTE])) {
+            $attributes = $this->fillHeadnote($attributes);
         }
 
-        $participants = $attributes[self::ATTRIBUTE_PARTICIPANTS];
-        foreach ($participants as $participant) {
-            $participant['editTaskId'] = $this->id;
-            $this->taskParticipants[$participant['userId']] = new Participant($participant);
+        if (isset($attributes[self::ATTRIBUTE_PARTICIPANTS])) {
+            $attributes = $this->fillParticipants($attributes);
         }
 
-        unset($attributes[self::ATTRIBUTE_PARTICIPANTS]);
         return parent::fill($attributes);
     }
 
@@ -121,77 +126,10 @@ class EditorialTask extends Model
             return false;
         }
 
-        // If it's newly created task, just save participants
-        if (!$exists && is_array($this->taskParticipants)) {
-            $this->participants()->saveMany($this->taskParticipants);
-            return $success;
-        }
-
-        // If the task is being updated, we need to determine what to do with participants
-
-        // Participants weren't passed to the model, so we don't need to do anything
-        if (!is_array($this->taskParticipants)) {
-            return $success;
-        }
-
-        // Participants were passed as an empty array, so we need to remove them
-        if (empty($this->taskParticipants)) {
-            $this->participants()->delete();
-            return $success;
-        }
-
-        // Participants were passed, so we need to determine which particular ones should be removed, updated or created
-        $oldParticipantIds = $this->participants()->pluck('user_id')->all();
-        $newParticipantIds = array_keys($this->taskParticipants);
-        $deleteParticipantIds = array_diff($oldParticipantIds, $newParticipantIds);
-
-        $this->participants()->whereIn('user_id', $deleteParticipantIds)->delete(); // Remove non-existing participants
-
-        // Update existing participants and create new ones in one operation; note that this will cause the sequence number to increment even on update
-        Participant::upsert(
-            Arr::map($this->taskParticipants, function (Participant $participant) {
-                $data = [];
-                foreach ($participant->getAttributes() as $key => $value) {
-                    $data[Str::snake($key)] = $value;
-                }
-                return $data;
-            }),
-            uniqueBy: [
-                'edit_task_id', 'user_id'
-            ],
-            update: Arr::map(
-                (new Participant())->getFillable(),
-                fn (string $fillable) => Str::snake($fillable)
-            )
-        );
+        $this->saveParticipants($exists);
+        $this->saveHeadnote();
 
         return $success;
-    }
-
-    /**
-     * Accessor and Mutator for primary key => id
-     */
-    protected function id(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
-            set: fn ($value) => [$this->primaryKey => $value],
-        );
-    }
-
-    /**
-     * Accessor for users. Can be replaced with relationship once User is converted to an Eloquent Model.
-     */
-    protected function users(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                $userIds = $this->participants()
-                    ->pluck('user_id')
-                    ->all();
-                return Repo::user()->getCollector()->filterByUserIds($userIds)->getMany();
-            },
-        );
     }
 
     /**
@@ -259,5 +197,144 @@ class EditorialTask extends Model
     public function scopeWithAssocType(Builder $query, int $assocType): Builder
     {
         return $query->where('assoc_type', $assocType);
+    }
+
+    /**
+     * Accessor and Mutator for primary key => id
+     */
+    protected function id(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn ($value) => [$this->primaryKey => $value],
+        );
+    }
+
+    /**
+     * Accessor for users. Can be replaced with relationship once User is converted to an Eloquent Model.
+     */
+    protected function users(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $userIds = $this->participants()
+                    ->pluck('user_id')
+                    ->all();
+                return Repo::user()->getCollector()->filterByUserIds($userIds)->getMany();
+            },
+        );
+    }
+
+    /**
+     * Fill headnote when corresponding attribute is passed to the model or leave the description empty
+     * Headnote should be always created together with the task/discussion
+     */
+    protected function fillHeadnote(array $attributes): array
+    {
+        if (isset($attributes[self::ATTRIBUTE_HEADNOTE])) {
+            $this->headnote = new Note([
+                'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+                'assocId' => $this->id,
+                'userId' => $attributes['createdBy'] ?? $this->createdBy,
+                'contents' => $attributes[self::ATTRIBUTE_HEADNOTE],
+            ]);
+
+            unset($attributes[self::ATTRIBUTE_HEADNOTE]);
+        }
+
+        return $attributes;
+    }
+
+    /**
+     * Fill participants when corresponding attribute is passed to the model
+     */
+    protected function fillParticipants(array $attributes): array
+    {
+        if (isset($attributes[self::ATTRIBUTE_PARTICIPANTS])) {
+            $participants = $attributes[self::ATTRIBUTE_PARTICIPANTS];
+            foreach ($participants as $participant) {
+                $participant['editTaskId'] = $this->id;
+                $this->taskParticipants[$participant['userId']] = new Participant($participant);
+            }
+            unset($attributes[self::ATTRIBUTE_PARTICIPANTS]);
+        }
+        return $attributes;
+    }
+
+
+    /**
+     * Save participants into a separate table.
+     *
+     * @param bool $exists Whether the task model already exists in the database
+     */
+    protected function saveParticipants(bool $exists): void
+    {
+        // If it's newly created task, just save participants
+        if (!$exists && is_array($this->taskParticipants)) {
+            $this->participants()->saveMany($this->taskParticipants);
+            return;
+        }
+
+        // If the task is being updated, we need to determine what to do with participants
+
+        // Participants weren't passed to the model, so we don't need to do anything
+        if (!is_array($this->taskParticipants)) {
+            return;
+        }
+
+        // Participants were passed as an empty array, so we need to remove them
+        if (empty($this->taskParticipants)) {
+            $this->participants()->delete();
+            return;
+        }
+
+        // Participants were passed, so we need to determine which particular ones should be removed, updated or created
+        $oldParticipantIds = $this->participants()->pluck('user_id')->all();
+        $newParticipantIds = array_keys($this->taskParticipants);
+        $deleteParticipantIds = array_diff($oldParticipantIds, $newParticipantIds);
+
+        $this->participants()->whereIn('user_id', $deleteParticipantIds)->delete(); // Remove non-existing participants
+
+        // Update existing participants and create new ones in one operation; note that this will cause the sequence number to increment even on update
+        Participant::upsert(
+            Arr::map($this->taskParticipants, function (Participant $participant) {
+                $data = [];
+                foreach ($participant->getAttributes() as $key => $value) {
+                    $data[Str::snake($key)] = $value;
+                }
+                return $data;
+            }),
+            uniqueBy: [
+                'edit_task_id', 'user_id'
+            ],
+            update: Arr::map(
+                (new Participant())->getFillable(),
+                fn (string $fillable) => Str::snake($fillable)
+            )
+        );
+    }
+
+    /**
+     * Save headnote into a separate table.
+     *
+     */
+    protected function saveHeadnote(): void
+    {
+        if (!is_a($this->headnote, Note::class)) {
+            return;
+        }
+
+        // Check whether a headnote already exists
+        $headnote = $this->notes()->where('is_headnote', true)->first();
+
+        if (!$headnote) {
+            $this->notes()->save($this->headnote);
+            return;
+        }
+
+        $headnote->update([
+            'contents' => $this->headnote->contents,
+            'dateModified' => now(),
+        ]);
     }
 }

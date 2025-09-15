@@ -73,6 +73,7 @@ class EditTask extends FormRequest
                 Rule::date()->format('Y-m-d'),
                 'after:today',
             ],
+            EditorialTask::ATTRIBUTE_HEADNOTE => ['sometimes', 'string'],
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
                 'required',
                 'array',

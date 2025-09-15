@@ -48,6 +48,7 @@ class AddTask extends EditTask
             'createdBy' => Application::get()->getRequest()?->getUser()?->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $this->route('submissionId'),
+            'description' => $this->input('description', ''),
         ]);
     }
 

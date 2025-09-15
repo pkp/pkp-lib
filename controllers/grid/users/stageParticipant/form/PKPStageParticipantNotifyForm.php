@@ -185,6 +185,14 @@ class PKPStageParticipantNotifyForm extends Form
             $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
         }
 
+        // Populate mailable with data before compiling headNote
+        $mailable
+            ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
+            ->sender($request->getUser())
+            ->recipients([$user])
+            ->body($this->getData('message'))
+            ->subject($template->getLocalizedData('subject'));
+
         // Create a query
         $query = EditorialTask::create([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -193,6 +201,10 @@ class PKPStageParticipantNotifyForm extends Form
             'seq' => REALLY_BIG_NUMBER,
             'createdBy' => $user->getId(),
             'type' => EditorialTaskType::DISCUSSION,
+            'title' => Mail::compileParams(
+                $template->getLocalizedData('subject'),
+                $mailable->getData()
+            ),
         ]);
 
         Repo::editorialTask()->resequence(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
@@ -209,14 +221,6 @@ class PKPStageParticipantNotifyForm extends Form
             ]);
         }
 
-        // Populate mailable with data before compiling headNote
-        $mailable
-            ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
-            ->sender($request->getUser())
-            ->recipients([$user])
-            ->body($this->getData('message'))
-            ->subject($template->getLocalizedData('subject'));
-
         //Substitute email template variables not available before form being executed
         $additionalVariables = $this->getEmailVariableNames($template->getData('key'));
 
@@ -225,10 +229,6 @@ class PKPStageParticipantNotifyForm extends Form
             'userId' => $request->getUser()->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $query->id,
-            'title' => Mail::compileParams(
-                $template->getLocalizedData('subject'),
-                $mailable->getData()
-            ),
             'contents' => Mail::compileParams(
                 $this->getData('message'),
                 array_intersect_key($mailable->getData(), $additionalVariables)

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-15 07:48+0000\n"
+"PO-Revision-Date: 2025-09-15 08:31+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1062,6 +1062,8 @@ msgstr "Jakinarazi egile guztiei"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Nork jaso beharko luke jakinarazpen-mezu elektroniko bat argitalpen-erabaki "
+"bat erregistratzen denean?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
@@ -1089,6 +1091,9 @@ msgstr "Jakinarazi edonori"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Bidalketaren baieztapen-mezuaren kopia hemen sartutako helbide elektroniko "
+"guztietara bidaliko da. Bereizi helbide elektronikoak koma batekin. Adibidez:"
+" bat@adibidea.com,bi@adibidea.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr "Helbide elektroniko horietako bat edo gehiago ez dira baliozkoak."
@@ -3213,19 +3218,19 @@ msgstr ""
 msgid "mailable.submissionAck.name"
 msgstr "Bidalketaren baieztapena"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira "
-"eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena "
-"egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana "
-"bidaltzeagatik."
+"Mezu elektroniko hau automatikoki bidaltzen zaio egileari bidalketa bat "
+"osatzen duenean. Argitalpen-prozesuan zehar bidalketaren jarraipena egiteko "
+"informazioa ematen du, eta egileari eskerrak ematen dizkio bidalketagatik."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Bidalketaren baieztapena (beste egileak)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaie bidalketa batean "
+"izendatutako egileei, egile bidaltzaile ez izan arren."
 
 msgid "mailable.discussionSubmission.name"
 msgstr ""
@@ -3340,39 +3345,46 @@ msgstr ""
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Nork jaso behar du mezu elektroniko bat bidalketa berri bat osatzen denean."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Bidali mezu elektroniko bat egile-bidaltzaileari bakarrik."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Bidali mezu elektroniko bat egile guztiei."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Argitalpen-erabakiak"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfiguratu egileei bidaltzeko posta elektroniko bidezko jakinarazpenak, "
+"argitalpen-erabaki bat erregistratzen denean."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Editoreentzat"
 
 msgid "manager.forEditors.description"
 msgstr ""
+"Konfiguratu posta elektroniko bidezko jakinarazpenak editoreei bidaltzeko."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Argitalpen-estatistikak"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Editoreei hilero mezu elektroniko bat bidali edo ez, aldizkariaren "
+"argitalpen-estatistikekin, hala nola, onarpen- eta uko-tasak. Editoreek mezu "
+"elektroniko honetatik harpidetza eten dezakete euren erabiltzaile-profiletik."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Bidali hilero mezu elektroniko bat editoreei."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Ez bidali mezu elektronikoa editoreei."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
@@ -3407,7 +3419,7 @@ msgid "mailable.reviewEdit.name"
 msgstr ""
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Bidalketaren aitorpena beste egileei"
 
 msgid "mailable.editorAssigned.name"
 msgstr ""

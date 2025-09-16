@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;
 use PKP\editorialTask\enums\EditorialTaskStatus;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\user\User;
 
 class TaskResource extends JsonResource
@@ -37,12 +38,13 @@ class TaskResource extends JsonResource
             'assocType' => $this->assocType,
             'assocId' => $this->assocId,
             'stageId' => $this->stageId,
-            'status' => $this->dateClosed ? EditorialTaskStatus::CLOSED->value : ($this->dateStarted ? EditorialTaskStatus::STARTED->value : EditorialTaskStatus::NEW->value),
+            'status' => $this->determineStatus(),
             'createdBy' => $this->createdBy,
             'createdByName' => $createdBy?->getFullName(),
             'createdByUsername' => $createdBy?->getUsername(),
             'dateDue' => $this->dateDue?->format('Y-m-d'),
             'dateStarted' => $this->dateStarted?->format('Y-m-d'),
+            'startedBy' => $this->startedBy,
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
@@ -62,5 +64,17 @@ class TaskResource extends JsonResource
             'stageAssignments',
             'reviewAssignments',
         ];
+    }
+
+    /**
+     * Determine the status of the task based on its type and dates.
+     */
+    protected function determineStatus()
+    {
+        if ($this->type == EditorialTaskType::TASK) {
+            return $this->dateClosed ? EditorialTaskStatus::CLOSED->value : ($this->dateStarted ? EditorialTaskStatus::IN_PROGRESS->value : EditorialTaskStatus::PENDING->value);
+        }
+
+        return $this->dateClosed ? EditorialTaskStatus::CLOSED->value : EditorialTaskStatus::IN_PROGRESS->value;
     }
 }

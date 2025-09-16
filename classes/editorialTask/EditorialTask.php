@@ -37,6 +37,15 @@ class EditorialTask extends Model
     // Allow filling the headnote together with the task through the 'description' Model attribute
     public const ATTRIBUTE_HEADNOTE = 'description';
 
+    // Order directions
+    public const ORDER_DIR_ASC = 'asc';
+    public const ORDER_DIR_DESC = 'desc';
+
+    // Order options
+    public const ORDERBY_DATE_CREATED = 'dateCreated';
+    public const ORDERBY_DATE_DUE = 'dateDue';
+    public const ORDERBY_DATE_STARTED = 'dateStarted';
+
     /**
      * @var array<Participant> $taskParticipants
      */
@@ -168,9 +177,29 @@ class EditorialTask extends Model
     /**
      * Scope a query to only include queries with a specific closed status.
      */
-    public function scopeWithClosed(Builder $query, bool $closed): Builder
+    public function scopeWithOpen(Builder $query, bool $isOpen): Builder
     {
-        return $query->where('closed', $closed);
+        if (!$isOpen) {
+            return $query;
+        }
+
+        return $query->whereNotNull('date_closed');
+    }
+
+    /**
+     * Scope a query to order results by a specific date field.
+     *
+     * @param string $orderBy One of the ORDERBY_* constants.
+     * @param string $direction One of the ORDER_DIR_* constants.
+     */
+    public function scopeOrderBy(Builder $query, string $orderBy, string $direction = self::ORDER_DIR_ASC): Builder
+    {
+        return match ($orderBy) {
+            self::ORDERBY_DATE_CREATED => $query->orderBy('created_at', $direction),
+            self::ORDERBY_DATE_STARTED => $query->orderBy('date_started', $direction),
+            self::ORDERBY_DATE_DUE => $query->orderBy('date_due', $direction),
+            default => $query,
+        };
     }
 
     /**

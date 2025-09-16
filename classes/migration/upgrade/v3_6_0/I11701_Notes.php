@@ -29,6 +29,11 @@ class I11701_Notes extends Migration
      */
     public function up(): void
     {
+        Schema::table('edit_tasks', function (Blueprint $table) {
+            $table->bigInteger('started_by')->nullable()->default(null);
+            $table->foreign('started_by')->references('user_id')->on('users')->cascadeOnDelete();
+        });
+
         Schema::table('notes', function (Blueprint $table) {
             $table->boolean('is_headnote')->default(false);
         });

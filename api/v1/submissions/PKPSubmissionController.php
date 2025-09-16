@@ -36,9 +36,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
-
-use function Laravel\Prompts\error;
-
 use PKP\affiliation\Affiliation;
 use PKP\API\v1\submissions\formRequests\AddNote;
 use PKP\API\v1\submissions\formRequests\AddTask;
@@ -2106,7 +2103,19 @@ class PKPSubmissionController extends PKPBaseController
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'isOpen':
-                    $collector = $collector->withClosed((bool) $val);
+                    $collector = $collector->withOpen((bool) $val);
+                    break;
+                case 'orderBy':
+                    if (in_array($val, [
+                        EditorialTask::ORDERBY_DATE_CREATED,
+                        EditorialTask::ORDERBY_DATE_DUE,
+                        EditorialTask::ORDERBY_DATE_STARTED,
+                    ])) {
+                        $direction = $illuminateRequest->query('orderDirection') === EditorialTask::ORDER_DIR_DESC
+                            ? EditorialTask::ORDER_DIR_DESC
+                            : EditorialTask::ORDER_DIR_ASC;
+                        $collector->orderBy($val, $direction);
+                    }
                     break;
             }
         }
@@ -2273,7 +2282,10 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_CONFLICT);
         }
 
-        $editTask->fill(['dateStarted' => Carbon::now()])->save();
+        $editTask->fill([
+            'dateStarted' => Carbon::now(),
+            'startedBy' => $this->getRequest()->getUser()->getId(),
+        ])->save();
         $editTask->refresh();
         return response()->json(
             new TaskResource(resource: $editTask, data: $this->getTaskData($submission, $editTask)),

@@ -16,7 +16,7 @@ namespace PKP\editorialTask\enums;
 
 enum EditorialTaskStatus: int
 {
-    case NEW = 1;
-    case STARTED = 2;
+    case PENDING = 1;
+    case IN_PROGRESS = 2;
     case CLOSED = 3;
 }

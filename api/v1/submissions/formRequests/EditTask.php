@@ -77,10 +77,16 @@ class EditTask extends FormRequest
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
                 'required',
                 'array',
+                // Check responsible participant for the task completion
                 function (string $attribute, array $value, Closure $fail) {
+                    // No need to check responsible for discussions
+                    if ($this->input('type') == EditorialTaskType::DISCUSSION->value) {
+                        return true;
+                    }
+
                     $responsibles = array_filter(Arr::pluck($this->input('participants'), 'isResponsible'));
-                    if (count($responsibles) > 1) {
-                        return $fail('There should be the only one user responsible for the task');
+                    if (count($responsibles) != 1) {
+                        return $fail('There should be one user responsible for the task');
                     }
 
                     return true;

@@ -33,6 +33,7 @@ use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
 use PKP\queue\WorkerConfiguration;
+use Throwable;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
 {
@@ -100,9 +101,9 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             return false; // this will signal that there are no jobs to run
         }
 
-        $laravelContainer = PKPContainer::getInstance();
+        $queueWorker = app()->get('queue.worker'); /** @var \Illuminate\Queue\Worker $queueWorker */
 
-        $laravelContainer['queue.worker']->runNextJob(
+        $queueWorker->runNextJob(
             Config::getVar('queues', 'default_connection', 'database'),
             $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()
@@ -143,7 +144,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
-                // Not to run in unit test mode
+                // Not to run in unit test mode as part of the application lifecycle
                 if (app()->runningUnitTests()) {
                     return;
                 }
@@ -186,13 +187,56 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         if (!Application::get()->isUnderMaintenance()) {
             Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
                 // if running in unit tests, no change to payload and immediate return
-                if (app()->runningUnitTests()) {
-                    return $payload;
+                // if (app()->runningUnitTests()) {
+                //     return $payload;
+                // }
+
+                // If a `context_id` already exists, will not try to set a new one.
+                if (array_key_exists('context_id', $payload)) {
+                    return [];
                 }
 
                 $contextId = null;
+
+                $jobClass = $payload['data']['commandName']; /** @var \PKP\jobs\BaseJob $jobClass */
+                $jobInstance = $payload['data']['command'];
+
+                // will not try to set context id if the job is not context aware
+                if (!$jobClass::contextAware()) {
+                    return [];
+                }
+
+                // will only try to deduce context id if the job explicitly defines it
+                if ($jobClass::shouldTryToDeduceContextFromArgs()
+                    && $jobInstance instanceof \Illuminate\Contracts\Queue\ShouldQueue
+                ) {
+                    try {
+                        foreach ($jobClass::contextDeductionArgMap() as $arg => $method) {
+
+                            if (!method_exists($jobClass, $method)) {
+                                error_log("Warning: No {$method} method defined for property {$arg} in job class {$jobClass}");
+                                continue;
+                            }
+
+                            $contextId = $jobClass::$method($jobInstance);
+
+                            if ($contextId) {
+                                break;
+                            }
+                        }
+                    } catch (Throwable $e) {
+                        error_log(
+                            sprintf(
+                                'failed to deduce context ID for job class %s exception %s',
+                                $jobClass,
+                                $e->__toString()
+                            )
+                        );
+                    }
+                }
                 
-                if (!array_key_exists('context_id', $payload)) {
+                // Fallback to determine the context id from app reqeust or CLI context if available
+                if (!$contextId) {
                     // This try/catch block is to facilitate the case when the application
                     // running in CLI mode and a job get dispatched in CLI where it trying to
                     // determine the context form the request() . But as the request delegate
@@ -201,17 +245,18 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     // directly from there if exists a context and set it.
                     try {
                         $contextId = Application::get()->getRequest()->getContext()?->getId();
-                    } catch (\Throwable $e) {
+                    } catch (Throwable $e) {
                         // error_log('Failed to retrieve context ID from request on queue payload creator with exception: ' . $e->__toString());
-                        $contextId = Application::get()->getCliContext();
-                    }
-
-                    if ($contextId) {
-                        $payload['context_id'] = $contextId;
+                        $contextId = Application::get()->getCliContext()?->getId();
                     }
                 }
+                
 
-                return $payload;
+                if ($contextId) {
+                    return ['context_id' => $contextId];
+                }
+
+                return [];
             });
         }
         

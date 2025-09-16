@@ -38,11 +38,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
+use PKP\citation\Citation;
 use PKP\API\v1\submissions\formRequests\AddTask;
 use PKP\API\v1\submissions\formRequests\EditTask;
 use PKP\API\v1\submissions\resources\TaskResource;
 use PKP\components\forms\FormComponent;
-use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
@@ -125,7 +125,6 @@ class PKPSubmissionController extends PKPBaseController
         'editContributor',
         'saveContributorsOrder',
         'addDecision',
-        'getPublicationReferenceForm',
         'getPublicationMetadataForm',
         'getPublicationIdentifierForm',
         'getPublicationLicenseForm',
@@ -333,7 +332,6 @@ class PKPSubmissionController extends PKPBaseController
 
             Route::prefix('{submissionId}/publications/{publicationId}/_components')->group(function () {
                 Route::get('metadata', $this->getPublicationMetadataForm(...))->name('submission.publication._components.metadata');
-                Route::get('reference', $this->getPublicationReferenceForm(...))->name('submission.publication._components.reference');
                 Route::get('titleAbstract', $this->getPublicationTitleAbstractForm(...))->name('submission.publication._components.titleAbstract');
                 Route::get('changeLanguageMetadata', $this->getChangeLanguageMetadata(...))->name('submission.publication._components.changeLanguageMetadata');
             })->whereNumber(['submissionId', 'publicationId']);
@@ -421,6 +419,27 @@ class PKPSubmissionController extends PKPBaseController
                 ->name('submission.task.start')
                 ->whereNumber(['submissionId', 'taskId']);
         });
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function () {
+            Route::put('{submissionId}/publications/{publicationId}/citations/metadataLookup', $this->editCitationsMetadataLookup(...))
+                ->name('submission.citations.import')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::post('{submissionId}/publications/{publicationId}/citations/importAdditionalCitations', $this->importAdditionalCitations(...))
+                ->name('submission.citations.import')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::delete('{submissionId}/publications/{publicationId}/citations/deleteCitationsByPublicationId', $this->deleteCitationsByPublicationId(...))
+                ->name('submission.citations.delete')
+                ->whereNumber(['submissionId', 'publicationId']);
+        });
     }
 
     /**
@@ -455,7 +474,6 @@ class PKPSubmissionController extends PKPBaseController
         if (in_array(
             $actionName,
             [
-                'getPublicationReferenceForm',
                 'getPublicationMetadataForm',
                 'getPublicationIdentifierForm',
                 'getPublicationLicenseForm',
@@ -1419,7 +1437,7 @@ class PKPSubmissionController extends PKPBaseController
         // For the publishing statuses, the `/publish` and /unpublish endpoints should be used instead.
         if (array_key_exists('status', $params)
             && !in_array($params['status'], Publication::getPrePublishStatuses())) {
-            
+
             return response()->json([
                 'error' => __('api.publication.403.cantEditStatus'),
             ], Response::HTTP_FORBIDDEN);
@@ -1441,8 +1459,8 @@ class PKPSubmissionController extends PKPBaseController
 
             $versionStage = $this->validateVersionStage($illuminateRequest);
             $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
-            
-            // will only allow to update the version details at publication edit 
+
+            // will only allow to update the version details at publication edit
             // if there is no version information added yet for this publication
             // or if the given version stage information is different from what already assigned
             if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
@@ -2381,26 +2399,6 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
-     * Get Publication Reference/Citation Form component
-     */
-    protected function getPublicationReferenceForm(Request $illuminateRequest): JsonResponse
-    {
-        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
-
-        if (isset($data['error'])) {
-            return response()->json([ 'error' => $data['error'],], $data['status']);
-        }
-
-        $publication = $data['publication']; /** @var Publication $publication*/
-        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
-
-        $citationsForm = new PKPCitationsForm($publicationApiUrl, $publication);
-
-        return response()->json($citationsForm->getConfig(), Response::HTTP_OK);
-    }
-
-
-    /**
      * Get Publication License Form component
      */
     protected function getPublicationLicenseForm(Request $illuminateRequest): JsonResponse
@@ -2690,5 +2688,93 @@ class PKPSubmissionController extends PKPBaseController
             FILTER_VALIDATE_BOOLEAN,
             FILTER_NULL_ON_FAILURE
         );
+    }
+
+    /**
+     * Update citationsMetadataLookup of a publication, reprocess citations if getting enabled.
+     */
+    protected function editCitationsMetadataLookup(Request $illuminateRequest): JsonResponse
+    {
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $citationsMetadataLookup = (bool)$illuminateRequest->input('citationsMetadataLookup');
+
+        $processCitation = false;
+        if ($citationsMetadataLookup && !$publication->getData('citationsMetadataLookup')) {
+            $processCitation = true;
+        }
+
+        /** @var Citation $citation */
+        foreach ($publication->getData('citations') as &$citation) {
+            $citation->setIsProcessed(!$processCitation);
+            if ($processCitation) {
+                Repo::citation()->reprocessCitation($citation);
+            }
+        }
+        unset($citation);
+
+        $publication->setData('citationsMetadataLookup', $citationsMetadataLookup);
+        Repo::publication()->edit($publication, []);
+
+        $publication = Repo::publication()->get($publication->getId());
+
+        return response()->json([
+            'citationsMetadataLookup' => $publication->getData('citationsMetadataLookup')
+        ],
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Import / add citations from a raw citation string of a publication.
+     */
+    protected function importAdditionalCitations(Request $illuminateRequest): JsonResponse
+    {
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $rawCitations = (string)$illuminateRequest->input('rawCitations');
+
+        $result = Repo::citation()->importAdditionalCitations($publication->getId(), $rawCitations);
+
+        return response()->json($result, Response::HTTP_OK);
+    }
+
+    /**
+     * Delete a publication's citations.
+     */
+    protected function deleteCitationsByPublicationId(Request $illuminateRequest): JsonResponse
+    {
+        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $existingCitations = [];
+        /** @var Citation $citation */
+        foreach ($publication->getData('citations') as $citation) {
+            $existingCitations[] = Repo::citation()->getSchemaMap()->map($citation);
+        }
+
+        Repo::citation()->deleteByPublicationId($publication->getId());
+
+        return response()->json([
+            'itemsMax' => count($existingCitations),
+            'items' => $existingCitations
+        ], Response::HTTP_OK);
     }
 }

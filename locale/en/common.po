@@ -400,6 +400,9 @@ msgstr "Declined"
 msgid "common.delete"
 msgstr "Delete"
 
+msgid "common.deleteAll"
+msgstr "Delete All"
+
 msgid "common.deleting"
 msgstr "Deleting"
 

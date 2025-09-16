@@ -37,8 +37,8 @@ msgstr "Show more ({$count})"
 msgid "userComment.login"
 msgstr "Log in to comment"
 
-msgid "userComment.commentOnThisPublication"
-msgstr "Comment on this publication"
+msgid "userComment.commentsOnThisPublication"
+msgstr "Comments on this publication"
 
 msgid "userComment.allComments"
 msgstr "All Comments ({$commentCount})"

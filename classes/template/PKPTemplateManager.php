@@ -1477,7 +1477,10 @@ class PKPTemplateManager extends Smarty
                 null,
             ),
             'helpUrl' => Application::get()->getHelpUrl(),
-            'timeZone' => Config::getVar('general', 'time_zone')
+            'timeZone' => Config::getVar('general', 'time_zone'),
+            'featureFlags' => [
+                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions')
+            ]
         ];
 
         if ($context) {

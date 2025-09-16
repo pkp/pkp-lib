@@ -16,6 +16,7 @@
 
 namespace PKP\citation\filter;
 
+use PKP\citation\Citation;
 use PKP\filter\Filter;
 
 class CitationListTokenizerFilter extends Filter
@@ -30,20 +31,24 @@ class CitationListTokenizerFilter extends Filter
     /** @copy Filter::process() */
     public function &process(&$input): array
     {
-        // The default implementation assumes that raw citations are
-        // separated with line endings.
+        // The default implementation assumes that raw citations are separated with line endings.
+
         // 1) Remove empty lines and normalize line endings.
         $input = preg_replace('/[\r\n]+/us', "\n", $input);
+
         // 2) Remove trailing/leading line breaks.
         $input = trim($input, "\n");
+
         // 3) Break up at line endings.
         if (empty($input)) {
             $citations = [];
         } else {
             $citations = explode("\n", $input);
         }
+
         // 4) Remove whitespace from the beginning and the end of each citation.
-        $citations = array_map(trim(...), $citations);
+        $citation = new Citation();
+        $citations = array_map($citation->cleanCitationString(...), $citations);
 
         return $citations;
     }

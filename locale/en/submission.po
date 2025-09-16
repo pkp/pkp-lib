@@ -515,6 +515,9 @@ msgstr ""
 "This will also remove all references currently listed. "
 "You'll need to re-enter and process your citations again if you continue."
 
+msgid "submission.citations.structured.addRaw.empty"
+msgstr "The raw citations cannot be empty, please review and try again."
+
 msgid "submission.citations.structured.addRaw.success"
 msgstr "All raw citations are added to the list below."
 

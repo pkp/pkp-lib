@@ -47,6 +47,14 @@
 			"apiSummary": true,
 			"writeDisabledInApi": true
 		},
+		"contextCitationsMetadataLookup": {
+			"type": "boolean",
+			"description": "Enable metadata lookup by default for new submissions.",
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"currentPublicationId": {
 			"type": "integer",
 			"description": "Which publication is the latest published version.",

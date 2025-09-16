@@ -25,16 +25,29 @@ class FieldAuthors extends Field
     public $default = [];
 
     /**
-     * Label for the add button.
+     * Primary language
+     * Filled in components/ListPanel/contributors/ContributorsListPanel.vue
      */
-    public string $addButtonLabel = '';
+    public string $primaryLocale = '';
+
+    /**
+     * Supported locales for forms
+     * Filled in components/ListPanel/contributors/ContributorsListPanel.vue
+     */
+    public array $supportedFormLocales = [];
+
+    /**
+     * This value overrides the common.add button text if given.
+     */
+    private string $addButtonLabel = '';
 
     /**
      * @copydoc Field::getConfig()
      */
-    public function getConfig(): array
+    public function getConfig()
     {
         $config = parent::getConfig();
+        $config['value'] = $this->value ?? $this->default ?? null;
         $config['addButtonLabel'] = $this->addButtonLabel;
         return $config;
     }

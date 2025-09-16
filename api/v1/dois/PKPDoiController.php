@@ -19,6 +19,8 @@ namespace PKP\API\v1\dois;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\galley\Galley;
+use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
@@ -273,6 +275,8 @@ class PKPDoiController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
+        // pubObjectType and pubObjectId is used in case of different DOIs for different versions
+        // when editing submission sub-elements
         $pubObjectType = $illuminateRequest->input('pubObjectType');
         $pubObjectId = $illuminateRequest->input('pubObjectId');
 
@@ -299,14 +303,25 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        // All minor versions of the same submission, version stage and version major have one, the same DOI.
+        // So get all the minor versions that have the same DOI.
+        // Eventually we could just edit all the same DOIs, but this way we eventually keep
+        // some older ones that should stay as they are, e.g. if there was a switch in the settings
+        // from one DOI for all versions to different DOIs for different versions.
+        $pubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
+
         // Copy DOI object data
         $newDoi = clone $doi;
         $newDoi->unsetData('id');
         $newDoi->setAllData(array_merge($newDoi->getAllData(), ['doi' => $params['doi']]));
         $newDoiId = Repo::doi()->add($newDoi);
 
-        // Update pubObject with new DOI and remove elsewhere if no longer in use
-        $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, $newDoiId);
+        // Update pubObjects with new DOI
+        foreach ($pubObjects as $pubObject) {
+            $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, $newDoiId);
+        }
+
+        // Remove old DOI if no longer in use
         if (!Repo::doi()->isAssigned($doi->getId(), $pubObjectType)) {
             Repo::doi()->delete($doi);
         }
@@ -365,8 +380,14 @@ class PKPDoiController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Remove reference to DOI from pubObject and remove DOI object if no longer in use elsewhere
-        $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, null);
+        $pubObjects = $this->getMinorVersionsViaPubObjectHandler($pubObjectHandler, $pubObject);
+
+        // Remove reference to DOI from pubObjects
+        foreach ($pubObjects as $pubObject) {
+            $this->editViaPubObjectHandler($pubObjectHandler, $pubObject, null);
+        }
+
+        // Remove DOI object if no longer in use elsewhere
         if (!Repo::doi()->isAssigned($doi->getId(), $pubObjectType)) {
             Repo::doi()->delete($doi);
         }
@@ -689,6 +710,7 @@ class PKPDoiController extends PKPBaseController
 
     /**
      * Download exported DOI XML from temporary file ID
+     *
      * @throws BindingResolutionException
      */
     public function getExportedFile(Request $illuminateRequest): Response
@@ -723,6 +745,20 @@ class PKPDoiController extends PKPBaseController
         };
     }
 
+
+    /**
+     * Retrieve all minor versions for the same submission, version stage and major, that have the same DOI
+     *
+     * @param mixed $pubObjectHandler Either a repo or DAO for the pub object type
+     * @param mixed $pubObject The pub object to get the minor versions for
+     *
+     * @return array<int,Publication|Galley|Chapter|PublicationFormat|SubmissionFile>
+     */
+    protected function getMinorVersionsViaPubObjectHandler(mixed $pubObjectHandler, mixed $pubObject): array
+    {
+        return $pubObjectHandler->getMinorVersionsWithSameDoi($pubObject);
+    }
+
     /**
      * Retrieve the pub object with the given ID.
      *
@@ -739,7 +775,7 @@ class PKPDoiController extends PKPBaseController
      * Edit the DOI ID for the given pub object via the "handler" (repo or DAO).
      *
      * @param mixed $pubObjectHandler Either a repo or DAO for the pub object type
-     * @param mixed $pubObject The pub object th edit
+     * @param mixed $pubObject The pub object to edit
      */
     protected function editViaPubObjectHandler(mixed $pubObjectHandler, mixed $pubObject, ?int $doiId): void
     {

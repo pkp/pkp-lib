@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPMetadataSettingsForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataSettingsForm
@@ -165,6 +166,17 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.citations.require')],
                 ],
                 'value' => $context->getData('citations') ? $context->getData('citations') : Context::METADATA_DISABLE,
+            ]))
+            ->addField(new FieldOptions('citationsMetadataLookup', [
+                'label' => __('submission.citations.structured.citationsMetadataLookup'),
+                'options' => [
+                    [
+                        'value' => 'true',
+                        'label' => __('manager.setup.metadata.citationsMetadataLookup.enable')
+                    ]
+                ],
+                'value' => (bool)$context->getData('citationsMetadataLookup'),
+                'showWhen' => 'citations'
             ]))
             ->addField(new FieldMetadataSetting('dataAvailability', [
                 'label' => __('submission.dataAvailability'),

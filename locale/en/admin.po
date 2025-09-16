@@ -277,6 +277,9 @@ msgstr ""
 "Error occured when processing the log file {$file} at the line "
 "{$lineNumber}: {$msg}"
 
+msgid "admin.citation.reprocess"
+msgstr "Reprocess"
+
 #,fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -724,6 +727,9 @@ msgstr "View Failed Jobs"
 
 msgid "navigation.tools.job.failed.details.view"
 msgstr "View Failed Job:{$id} Details"
+
+msgid "admin.job.failed.connection.externalService"
+msgstr "Job failed to connection with status code {$statusCode}"
 
 msgid "admin.job.failed.list.attribute"
 msgstr "Attribute"

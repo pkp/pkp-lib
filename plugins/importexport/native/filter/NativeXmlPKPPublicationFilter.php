@@ -3,8 +3,8 @@
 /**
  * @file plugins/importexport/native/filter/NativeXmlPKPPublicationFilter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPPublicationFilter
@@ -19,9 +19,7 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use PKP\citation\CitationDAO;
 use PKP\controlledVocab\ControlledVocab;
-use PKP\db\DAORegistry;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
@@ -277,17 +275,16 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     public function parseCitations($n, $publication)
     {
         $publicationId = $publication->getId();
-        $citationsString = '';
+        $citationsRaw = '';
         foreach ($n->childNodes as $citNode) {
             $nodeText = trim($citNode->textContent);
             if (empty($nodeText)) {
                 continue;
             }
-            $citationsString .= $nodeText . "\n";
+            $citationsRaw .= $nodeText . "\n";
         }
-        $publication->setData('citationsRaw', $citationsString);
-        $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
-        $citationDao->importCitations($publicationId, $citationsString);
+        $publication->setData('citationsRaw', $citationsRaw);
+        Repo::citation()->importCitations($publicationId, $citationsRaw);
     }
 
     //

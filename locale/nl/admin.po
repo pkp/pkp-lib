@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-09 16:52+0000\n"
+"PO-Revision-Date: 2025-09-16 11:49+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -170,7 +170,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
-"Weet u zeker dat u alle logbestanden van geplande taken wil verwijderen?"
+"Weet u zeker dat u alle logbestanden van geplande opdrachten wilt "
+"verwijderen?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Verwijder alle logbestanden van geplande taken"
@@ -200,9 +201,8 @@ msgstr "Verwijder niet-gevalideerde gebruikers met een verlopen account"
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr "Verwijder oude niet-succesvolle opdrachten van de betreffende lijst."
 
-#, fuzzy
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr "Verwerk nog niet gestarte taken in de wachtrij"
+msgstr "Verwerk nog niet gestarte opdrachten in de wachtrij"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Actualiseer DB-IP adres lite databank"
@@ -518,97 +518,127 @@ msgid "admin.cli.tool.usage.parameters"
 msgstr "instructie [argumenten]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Beschikbare instructies voor de {$namespace}`naamruimte:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Kan geen opdrachten in de wachtrij plaatsen omdat de onderhoudsmodus van de "
+"applicatie is ingeschakeld."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Maak een lijst van opdrachten in de wachtrij. Indien u resultaten wilt "
+"voorzien van paginanummers, gebruikt u de parameters --pagina= en -- "
+"perPagina. Druk op de schakelaar --mislukt om de foutieve taken in een lijst "
+"te zetten."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Verwijder een specifieke opdracht uit de wachtrij, gebaseerd op diens ID. "
+"Indien u alle wachtrijtaken wilt verwijderen, gebruik de parameter --alle. "
+"Indien u alle taken wilt verwijderen van een bepaalde wachtrij, gebruik de "
+"parameter --wachtrij="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Voeg een testopdracht toe aan de testwachtrij. Gebruik daarbij de optionele "
+"parameters --enkel= en ga langs 'foutief' of 'succesvol' om de foutieve of "
+"succesvolle opdracht te verplaatsen."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Voer een geruisloze achtergrondtaak uit die doorgaat met het verwerken van "
+"taken. Gebruik daarbij de hulpbutton om de beschikbare opties te zien die "
+"aan deze opdracht zijn gekoppeld."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Zet alle foutieve opdrachten in een lijst. Om de lijst te filteren, stel de "
+"parameter --wachtrij=WACHTRIJ-_NAAM en verbinding=VERBINDING_NAAM in. Toets "
+"ook de parameter/markering --verplaats en --opschonen om terug te plaatsen "
+"naar de wachtrij of om alle/bepaalde foutieve taken op te schonen."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Verplaats de beschikbare opdrachten naar de wachtrij. Om een opdracht naar "
+"een bepaalde wachtrij te verplaatsen, gebruik de parameter\n"
+"--wachtrij=WACHTRIJ_NAAM. Gebruik --test om een testopdracht uit te voeren "
+"en --eenmalig om te stoppen na een enkelvoudige opdracht."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Afgeronde lopende {$jobCount}opdrachten in de wachtrij {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"Er zijn geen opdrachten beschikbaar om de wachtrij {$queueName} uit te "
+"voeren."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Geef het totale aantal opdrachten in de wachtrij weer. Druk op de button --"
+"mislukt om het totaal aantal foutieve opdrachten te zien."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Geef het gebruik van de opdrachteninstructie weer"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Geef de parameters van het opdrachtengebruik weer"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Deze optie zou niet leeg behoren te zijn! Controleer de gebruikswijze."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Foutieve opdrachten in de wachtrij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Opdrachten in de wachtrij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Wachtrij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Verbinding"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Naam van de opdrachtweergave"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Pogingen"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Gereserveerd bij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Beschikbaar bij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Gecreëerd bij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Foutief bij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Foutmelding"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Pagina-instelling"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Lopend"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Eerdere"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Volgende"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"U moet ten minste een Opdracht-ID doorgeven, '--alle' of '--wachtrij' om "
+"deze instructie te gebruiken"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
@@ -674,40 +704,42 @@ msgid "navigation.tools.jobs.description"
 msgstr ""
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Zie Opdrachten"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Zie foutieve opdrachten"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Zie foutieve opdracht:{$id} Details"
 
+#, fuzzy
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Kenmerk"
 
+#, fuzzy
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Waardekenmerk"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Opdracht"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Wachtrij"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Verbinding"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Pogingen"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Gecreëerd met betrekking tot"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Foutmelding bij"
 
 msgid "admin.jobs.list.payload"
 msgstr ""
@@ -866,3 +898,17 @@ msgstr "Schakel de samengevoegde gegevens van de recensenten uit"
 #, fuzzy
 msgid "admin.fileLoader.fileDispatched"
 msgstr "Het bestand {$filename} werd verplaatst naar de te verzenden (?) map."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Medewerkers zullen geruisloos stoppen, nadat zij de uitvoering van de "
+"lopende opdracht hebben afgerond."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr ""
+"Herstart de taken die op de achtergrond lopen na afloop van de huidige taak."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Kan geen opdrachten in de wachtrij plaatsen, omdat de veiligheidsmodus van "
+"de applicatie is ingeschakeld."

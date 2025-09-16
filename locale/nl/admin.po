@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-16 11:49+0000\n"
+"PO-Revision-Date: 2025-09-16 14:34+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Naam van de instelling"
+msgstr "Instellingsnaam"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "Waarde van de instelling"
@@ -615,7 +615,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
 msgstr "Beschikbaar bij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Gecreëerd bij"
+msgstr "Ontstaan bij"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
 msgstr "Foutief bij"
@@ -642,21 +642,28 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Verplaatste testopdracht, die hoogstwaarschijnlijk foutief zal zijn, in "
+"wachtrij genaamd {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Verplaatste testopdracht die hoogstwaarschijnlijk zal slagen in wachtrij "
+"genaamd {$queueName}"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Ongeldige optie voor een testopdracht. Het heeft enkel de --enkelvoudige "
+"optie =' van 'foutief' of succesvol'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Ongeldige ID-opdracht"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "De opodracht werd vernietigd!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Geen opdrachten gevonden om te vernietigen."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
 msgstr ""
@@ -736,19 +743,20 @@ msgid "admin.jobs.list.attempts"
 msgstr "Pogingen"
 
 msgid "admin.jobs.list.createdAt"
-msgstr "Gecreëerd met betrekking tot"
+msgstr "Ontstaan bij"
 
 msgid "admin.jobs.list.failedAt"
 msgstr "Foutmelding bij"
 
+#, fuzzy
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Draagkracht data / schadelijke mailwareode"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "UItzondering"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Acties"
 
 msgid "admin.jobs.failedAt"
 msgstr ""

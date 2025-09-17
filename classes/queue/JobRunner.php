@@ -65,6 +65,11 @@ class JobRunner
     protected bool $hasEstimatedTimeToProcessNextJobConstrain = false;
 
     /**
+     * Should estimate next job possible processing time to allow next job to be processed/run
+     */
+    protected int $jobProcessedOnRunner = 0;
+
+    /**
      * Create a new instance
      *
      */
@@ -197,11 +202,11 @@ class JobRunner
     {
         $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
 
-        $jobProcessedCount = 0;
+        $this->jobProcessedOnRunner = 0;
         $jobProcessingStartTime = time();
 
         while ($jobBuilder->count()) {
-            if ($this->exceededJobLimit($jobProcessedCount)) {
+            if ($this->exceededJobLimit($this->jobProcessedOnRunner)) {
                 return true;
             }
 
@@ -213,7 +218,7 @@ class JobRunner
                 return true;
             }
 
-            if ($this->mayExceedMemoryLimitAtNextJob($jobProcessedCount, $jobProcessingStartTime)) {
+            if ($this->mayExceedMemoryLimitAtNextJob($this->jobProcessedOnRunner, $jobProcessingStartTime)) {
                 return true;
             }
 
@@ -222,10 +227,18 @@ class JobRunner
                 return true;
             }
 
-            $jobProcessedCount = $jobProcessedCount + 1;
+            $this->jobProcessedOnRunner = $this->jobProcessedOnRunner + 1;
         }
 
         return true;
+    }
+
+    /**
+     * Get the number of job successfully processed on job runner
+     */
+    public function getJobProcessedCount(): int
+    {
+        return $this->jobProcessedOnRunner;
     }
 
     /**

@@ -103,9 +103,14 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'id' => 'invitationWizard',
             'name' => __('invitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = new SendInvitationStep(
+            null,
+            $context,
+            $user,
+            'userRoleAssignment'
+        );
         $templateMgr->setState([
-            'steps' => $steps->getSteps(null, $context, $user,'userRoleAssignment'),
+            'steps' => $steps->getSteps(),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -184,9 +189,14 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'id' => 'invitationWizard',
             'name' => __('invitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = new SendInvitationStep(
+            $this->invitation,
+            $context,
+            $user,
+            'userRoleAssignment'
+        );
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation, $context, $user,'userRoleAssignment'),
+            'steps' => $steps->getSteps(),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(

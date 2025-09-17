@@ -41,6 +41,9 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             'disabled' => false,
             'submissionId'=>$request->getUserVars()['submissionId'],
 		    'reviewRoundId'=>$request->getUserVars()['reviewRoundId'],
+            'responseDueDate'=> '',
+		    'reviewDueDate'=> '',
+		    'reviewTypes'=> '',
             'userGroupsToAdd' => [
                 [
                     'userGroupId' => 16,
@@ -88,9 +91,11 @@ class ReviewerAccessInviteUIController extends InvitationUIActionRedirectControl
             'id' => 'invitationWizard',
             'name' => __('reviewerInvitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = new SendInvitationStep(
+            null, $context, $user,'reviewerAccess'
+        );
         $templateMgr->setState([
-            'steps' => $steps->getSteps(null, $context, $user,'reviewerAccess'),
+            'steps' => $steps->getSteps(),
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(

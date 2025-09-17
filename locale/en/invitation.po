@@ -409,11 +409,11 @@ msgstr "Review Due Date"
 msgid "reviewerInvitation.modal.message"
 msgstr "{$email} has been invited to review the submission "{$articleTitle}"<br><br> You can be updated about the user's decision on the reviewer panel in the review workflow or through email and OJS notifications."
 
-msgid "reviewerInvitation.reviewTypes.anonymusAuthorOrReviewer"
-msgstr "Anonymus Reviewer / Anonymus Author"
+msgid "reviewerInvitation.reviewTypes.anonymousAuthorOrReviewer"
+msgstr "Anonymous Reviewer / Anonymous Author"
 
 msgid "reviewerInvitation.reviewTypes.disclosedAuthor"
-msgstr "Anonymus Reviewer / Disclosed Author"
+msgstr "Anonymous Reviewer / Disclosed Author"
 
 msgid "reviewerInvitation.reviewTypes.open"
 msgstr "Open"

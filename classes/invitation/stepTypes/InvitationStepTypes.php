@@ -26,7 +26,7 @@ abstract class InvitationStepTypes
      * Get the invitation steps
      * use of the built-in UI for making the invitation
      */
-    abstract public function getSteps(?Invitation $invitation, Context $context, ?User $user, string $invitationType): array;
+    abstract public function getSteps(): array;
 
     /** fake invitation for email template
      */

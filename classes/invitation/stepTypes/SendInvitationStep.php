@@ -16,6 +16,7 @@ namespace PKP\invitation\stepTypes;
 
 use APP\core\Application;
 use Exception;
+use PKP\components\forms\invitation\ReviewerReviewDetailsForm;
 use PKP\components\forms\invitation\UserDetailsForm;
 use PKP\context\Context;
 use PKP\invitation\core\Invitation;
@@ -32,24 +33,35 @@ use stdClass;
 
 class SendInvitationStep extends InvitationStepTypes
 {
+    private ?Invitation $invitation;
+    private Context $context;
+    private ?User $user;
+    private string $invitationType;
+    public function __construct(?Invitation $invitation, Context $context, ?User $user,string $invitationType)
+    {
+        $this->invitation = $invitation;
+        $this->context = $context;
+        $this->user = $user;
+        $this->invitationType = $invitationType;
+    }
     /**
      * get send invitation steps
      *
      * @throws Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context, ?User $user,string $invitationType): array
+    public function getSteps(): array
     {
         $steps = [];
-        if ((!$invitation && !$user)) {
+        if ((!$this->invitation  && !$this->user)) {
             $steps[] = $this->invitationSearchUser();
         }
-        if(self::INVITATION_USER_ROLE_ASSIGNMENT === $invitationType || (self::INVITATION_REVIEWER_ACCESS_INVITE === $invitationType && !$user)) {
-            $steps[] = $this->invitationDetailsForm($context);
+        if(self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType || (self::INVITATION_REVIEWER_ACCESS_INVITE === $this->invitationType && !$this->user)) {
+            $steps[] = $this->invitationDetailsForm();
         }
-        if(self::INVITATION_REVIEWER_ACCESS_INVITE === $invitationType) {
+        if(self::INVITATION_REVIEWER_ACCESS_INVITE === $this->invitationType) {
             $steps[] = $this->invitationReviewDetails();
         }
-        $steps[] = $this->invitationInvitedEmail($context,$invitationType);
+        $steps[] = $this->invitationInvitedEmail();
         return $steps;
     }
 
@@ -89,9 +101,9 @@ class SendInvitationStep extends InvitationStepTypes
      *
      * @throws Exception
      */
-    private function invitationDetailsForm(Context $context): stdClass
+    private function invitationDetailsForm(): stdClass
     {
-        $localeNames = $context->getSupportedFormLocaleNames();
+        $localeNames = $this->context->getSupportedFormLocaleNames();
         $locales = [];
         foreach ($localeNames as $key => $name) {
             $locales[] = [
@@ -115,7 +127,7 @@ class SendInvitationStep extends InvitationStepTypes
             ),
             [
                 'validateFields' => [],
-                'userGroups' => $this->getAllUserGroups($context),
+                'userGroups' => $this->getAllUserGroups(),
             ]
         );
         $step = new Step(
@@ -135,7 +147,7 @@ class SendInvitationStep extends InvitationStepTypes
      *
      * @throws Exception
      */
-    private function invitationInvitedEmail(Context $context, string $invitationType): stdClass
+    private function invitationInvitedEmail(): stdClass
     {
         $sections = new Sections(
             'userInvitedEmail',
@@ -144,10 +156,10 @@ class SendInvitationStep extends InvitationStepTypes
             'UserInvitationEmailComposerStep',
             __('userInvitation.sendMail.stepName'),
         );
-        $fakeInvitation = $this->getFakeInvitation($invitationType);
-        $mailable = self::INVITATION_REVIEWER_ACCESS_INVITE === $invitationType
-            ? new ReviewerAccessInvitationNotify($context, $fakeInvitation)
-            : new UserRoleAssignmentInvitationNotify($context, $fakeInvitation);
+        $fakeInvitation = $this->getFakeInvitation($this->invitationType);
+        $mailable = self::INVITATION_REVIEWER_ACCESS_INVITE === $this->invitationType
+            ? new ReviewerAccessInvitationNotify($this->context, $fakeInvitation)
+            : new UserRoleAssignmentInvitationNotify($this->context, $fakeInvitation);
 
         $sections->addSection(
             new Email(
@@ -159,7 +171,7 @@ class SendInvitationStep extends InvitationStepTypes
                     ->sender(Application::get()->getRequest()->getUser())
                     ->cc('')
                     ->bcc(''),
-                $context->getSupportedFormLocales(),
+                $this->context->getSupportedFormLocales(),
             ),
             [
                 'validateFields' => []
@@ -186,17 +198,26 @@ class SendInvitationStep extends InvitationStepTypes
             'reviewDetailsForm',
             __('reviewerInvitation.reviewDetails.stepName'),
             'form',
-            'ReviewerReviewDetailsStep',
+            'ReviewerReviewDetailsFormStep',
             __('reviewerInvitation.reviewDetails.stepDescription'),
         );
+        $localeNames = $this->context->getSupportedFormLocaleNames();
+        $locales = [];
+        foreach ($localeNames as $key => $name) {
+            $locales[] = [
+                'key' => $key,
+                'label' => $name,
+            ];
+        }
         $sections->addSection(
-            null,
+            new Form(
+                'userDetails',
+                __('reviewerInvitation.reviewDetails.stepName'),
+                __('reviewerInvitation.reviewDetails.stepDescription'),
+                new ReviewerReviewDetailsForm('reviewers', $locales),
+            ),
             [
-                'validateFields' => [
-                    'responseDueDate',
-                    'reviewDueDate',
-                    'reviewTypes'
-                ]
+                'validateFields' => [],
             ]
         );
         $step = new Step(
@@ -204,7 +225,7 @@ class SendInvitationStep extends InvitationStepTypes
             __('reviewerInvitation.reviewDetails.stepName'),
             __('reviewerInvitation.reviewDetails.stepLabel'),
             __('reviewerInvitation.reviewDetails.nextButtonLabel'),
-            'emptySection',
+            'form',
             __('reviewerInvitation.reviewDetails.stepDescription'),
             false
         );
@@ -215,8 +236,8 @@ class SendInvitationStep extends InvitationStepTypes
     /**
      * Get all user groups
      */
-    private function getAllUserGroups(Context $context): array
+    private function getAllUserGroups(): array
     {
-        return UserGroup::withContextIds([$context->getId()])->get()->values()->toArray();
+        return UserGroup::withContextIds([$this->context->getId()])->get()->values()->toArray();
     }
 }

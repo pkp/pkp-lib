@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-17 04:30+0000\n"
+"PO-Revision-Date: 2025-09-17 06:47+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/es/>\n"
@@ -21,17 +21,17 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
 msgstr "Debe definirse al menos un grupo de usuarios para agregar"
 
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr "No se pueden remover roles de un usuario que no existe."
+msgstr "No se pueden remover roles de un usuario/a que no existe."
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
-"No se puede enviar la invitación porque no se definieron cambios en el grupo "
-"de usuarios"
+"No se puede enviar la invitación porque no hubo cambios en el grupo de "
+"usuarios"
 
 msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
 msgstr ""
-"Cuando una invitación tiene un ID de usuario ({$userId}) asignado, ese "
-"usuario debe existir."
+"Cuando una invitación tiene un ID de usuario/a ({$userId}) asignado, ese "
+"usuario/a debe existir."
 
 msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
 msgstr "Se debe proporcionar un nombre de usuario"
@@ -75,10 +75,12 @@ msgstr ""
 "El ID {reviewAssignmentId} no corresponde a una asignación de revisión válida"
 
 msgid "invitation.api.error.invitationCantBeCanceled"
-msgstr "Esta invitación no se puede cancelar"
+msgstr "Esta invitación no puede ser cancelada"
 
 msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
-msgstr "No se permite ingresar el correo electrónico y el ID de usuario juntos."
+msgstr ""
+"No se permite ingresar el correo electrónico y el ID de usuario al mismo "
+"tiempo."
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
 msgstr "No se permite acceder a este atributo en usuarios existentes"
@@ -88,7 +90,8 @@ msgstr "No se permite acceder a este atributo en usuarios que no existen"
 
 msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
 msgstr ""
-"Este atributo debe tener un valor con fecha igual o posterior a la actual"
+"Este atributo debe tener un valor con fecha igual o posterior a la fecha "
+"actual"
 
 msgid "invitation.validation.error.propertyProhibited"
 msgstr "No se permite el uso del campo :attribute"
@@ -103,30 +106,30 @@ msgid "invitation.header"
 msgstr "Invitaciones"
 
 msgid "invitation.inviteToRole.btn"
-msgstr "Invitar a un rol"
+msgstr "Asignar un rol mediante invitación"
 
 msgid "invitation.wizard.pageTitle"
-msgstr "Invitar al usuario a asumir un rol"
+msgstr "Invitar al usuario/a a asumir un rol"
 
 msgid "userInvitation.enterDetailsLabel"
 msgstr "Ingresar datos"
 
 msgid "userInvitation.searchUser.stepName"
-msgstr "Buscar usuario"
+msgstr "Buscar usuario/a"
 
 msgid "userInvitation.reviewAndInviteLabel"
-msgstr "Verificar y enviar invitación para asignar los roles"
+msgstr "Revisar y enviar invitación para asignar los roles"
 
 msgid "userInvitation.searchUser.stepLabel"
-msgstr "{$step} - Buscar usuario"
+msgstr "{$step} - Buscar usuario/a"
 
 msgid "userInvitation.searchUser.nextButtonLabel"
-msgstr "Buscar usuario"
+msgstr "Buscar usuario/a"
 
 msgid "userInvitation.searchUser.stepDescription"
 msgstr ""
-"Si el usuario no existe, puedes invitarlo a asumir roles. Si el usuario ya "
-"existe en el sistema, puedes ver su información e invitarlo a asumir roles "
+"Si el usuario/a no existe, puede invitarlo a asumir roles. Si el usuario/a "
+"ya existe en el sistema, puede ver su información e invitarlo a asumir roles "
 "adicionales."
 
 msgid "userInvitation.searchField.description"
@@ -163,23 +166,23 @@ msgid "userInvitation.roleTable.endDate"
 msgstr "Fecha límite"
 
 msgid "userInvitation.sendMail.stepName"
-msgstr "Verificar y enviar invitación para asignar los roles"
+msgstr "Revisar y enviar invitación para asignar los roles"
 
 msgid "userInvitation.sendMail.nextButtonLabel"
-msgstr "Invitar al usuario a asumir el rol"
+msgstr "Invitar al usuario/a a asumir el rol"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "Los grupos de usuarios proporcionados contienen entradas duplicadas"
+msgstr "Los grupos de usuarios proporcionados contienen entradas duplicadas."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
-"Ya existe un usuario con el nombre de usuario {$username}, prueba con uno "
-"diferente"
+"Ya existe un usuario/a con el nombre de usuario {$username}, intente con uno "
+"diferente."
 
 msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
 msgstr ""
 "Cuando una invitación tiene asignado el correo electrónico ({$email}), este "
-"no debe estar en uso por otro usuario."
+"no debe estar en uso por otro usuario/a."
 
 msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
 msgstr "Se debe proporcionar un nombre"
@@ -193,29 +196,29 @@ msgstr ""
 "editorial"
 
 msgid "userInvitation.sendMail.stepLabel"
-msgstr "{$step} - Modificar el correo electrónico compartido con el usuario"
+msgstr "{$step} - Modificar el correo electrónico compartido con el usuario/a"
 
 msgid "userInvitation.modal.title"
 msgstr "Invitación enviada"
 
 msgid "userInvitation.modal.button"
-msgstr "Ver todos los usuarios"
+msgstr "Ver todos los usuarios/as"
 
 msgid "invitation.role.removeRole.button"
 msgstr "Eliminar rol"
 
 msgid "invitation.email.description"
-msgstr "por ejemplo: aeinstein@example.com"
+msgstr "p. ej.: aeinstein@example.com"
 
 msgid "invitation.orcid.description"
 msgstr ""
-"Al aceptar la invitación, el usuario será redirigido a ORCID para verificar "
-"su cuenta, si así lo desea."
+"Al aceptar la invitación, el usuario/a será redirigido a ORCID para "
+"verificar su cuenta, si así lo desea."
 
 msgid "invitation.familyName.description"
 msgstr ""
-"Si conoce el apellido del usuario, puede ingresarlo. Sin embargo, esta "
-"información puede ser modificada por el propio usuario."
+"Si conoce el apellido del usuario/a, puede ingresarlo. Sin embargo, esta "
+"información puede ser modificada por el propio usuario/a."
 
 msgid "acceptInvitation.verifyOrcid.stepName"
 msgstr "Verificar ORCID iD"
@@ -236,7 +239,7 @@ msgid "acceptInvitation.userDetails.nextButtonLabel"
 msgstr "Guardar y continuar"
 
 msgid "acceptInvitation.userDetails.form.name"
-msgstr "Formulario de aceptación de invitación y datos del usuario"
+msgstr "Formulario de aceptación de invitación y datos del usuario/a"
 
 msgid "acceptInvitation.userDetails.form.description"
 msgstr "Por favor, proporcione los siguientes datos para gestionar su cuenta"
@@ -310,8 +313,8 @@ msgstr "Por favor, confirme que ha leído y acepta la declaración de privacidad
 
 msgid "invitation.givenName.description"
 msgstr ""
-"Si conoce el nombre del usuario, puede ingresarlo. Sin embargo, esta "
-"información puede ser modificada por el propio usuario."
+"Si conoce el nombre del usuario/a, puede ingresarlo. Sin embargo, esta "
+"información puede ser modificada por el propio usuario/a."
 
 msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
 msgstr "Guardar y continuar"
@@ -360,10 +363,10 @@ msgid "invitation.masthead.show"
 msgstr "Aparecer en la cabecera editorial"
 
 msgid "invitation.wizard.viewPageTitleDescription"
-msgstr "Está viendo los detalles del usuario {$name}"
+msgstr "Está viendo los detalles del usuario/a {$name}"
 
 msgid "invitation.management.options"
-msgstr "Opciones de gestión de la invitación"
+msgstr "Opciones para gestionar la invitación"
 
 msgid "userInvitation.edit.message"
 msgstr ""
@@ -380,7 +383,7 @@ msgid "acceptInvitation.cancelInvite.button"
 msgstr "Cancelar proceso de invitación"
 
 msgid "acceptInvitation.authorization.shouldBeAnonymous"
-msgstr "No se aceptó la invitación. Ha iniciado sesión con otro usuario."
+msgstr "No se aceptó la invitación. Ha iniciado sesión con otro usuario/a."
 
 msgid "userInvitation.searchField"
 msgstr ""
@@ -408,6 +411,6 @@ msgstr ""
 "¿Está seguro/a de que desea cancelar? Si cancela ahora, se detendrá el "
 "proceso de aceptación del rol y deberá reiniciarlo desde el correo "
 "electrónico de invitación para aceptar el rol nuevamente. Si ya es un "
-"usuario registrado, será redirigido al panel de control. De lo contrario, "
+"usuario/a registrado, será redirigido al panel de control. De lo contrario, "
 "deberá acceder nuevamente al correo electrónico de invitación para comenzar "
 "el proceso."

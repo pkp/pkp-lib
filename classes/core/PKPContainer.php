@@ -23,6 +23,7 @@ use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
@@ -360,7 +361,7 @@ class PKPContainer extends Container
             'Arr' => \Illuminate\Support\Arr::class,
         ];
 
-        \Illuminate\Foundation\AliasLoader::getInstance($aliases)->register();
+        AliasLoader::getInstance($aliases)->register();
     }
 
     /**
@@ -509,9 +510,11 @@ class PKPContainer extends Container
                 'pkp' => $this->basePath('lib/pkp/templates'),
             ],
             'components' =>  [
+                // Component namespace here registered based on hierarchy and priority,
+                // do not alter the ordering
                 'namespace' => [
-                    'app' => 'APP\\view\\components\\',
-                    'pkp' => 'PKP\\view\\components\\',
+                    'app' => Application::get()->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH,
+                    'pkp' => $this->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH,
                 ],
             ]
         ];

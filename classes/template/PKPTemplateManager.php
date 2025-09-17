@@ -31,6 +31,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\View\View;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 use Less_Parser;
@@ -163,15 +164,26 @@ class PKPTemplateManager extends Smarty
      *
      * @param null|mixed $value
      */
-    public function assign($tpl_var, $value = null, $nocache = false)
+    // public function assign($tpl_var, $value = null, $nocache = false)
+    // {
+    //     parent::assign($tpl_var, $value, $nocache);
+
+    //     if (is_array($tpl_var)) {
+    //         foreach ($tpl_var as $key => $value) {
+    //             \Illuminate\Support\Facades\View::share($key, $value);
+    //         }
+    //     } else {
+    //         \Illuminate\Support\Facades\View::share($tpl_var, $value);
+    //     }
+    // }
+
+    /**
+     * Share the template variables globally to Blade
+     */
+    public function shareTemplateVariables(array $variables): void
     {
-        parent::assign($tpl_var, $value, $nocache);
-        if (is_array($tpl_var)) {
-            foreach ($tpl_var as $key => $value) {
-                \Illuminate\Support\Facades\View::share($key, $value);
-            }
-        } else {
-            \Illuminate\Support\Facades\View::share($tpl_var, $value);
+        foreach ($variables as $key => $value) {
+            \Illuminate\Support\Facades\View::share($key, $value);
         }
     }
 
@@ -1359,16 +1371,6 @@ class PKPTemplateManager extends Smarty
      */
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
-        // If a blade view instance given, just return the rendered content
-        if ($template instanceof \Illuminate\View\View) {
-            return $template->render();
-        }
-
-        // if the given template found as blade view, return the rendered content
-        if (view()->exists($template)) {
-            return view($template)->render();
-        }
-
         // If no compile ID was assigned, get one.
         if (!$compile_id) {
             $compile_id = $this->getCompileId($template);
@@ -1378,6 +1380,18 @@ class PKPTemplateManager extends Smarty
         $result = null;
         if (Hook::call('TemplateManager::fetch', [$this, $template, $cache_id, $compile_id, &$result])) {
             return $result;
+        }
+
+        // If a blade view instance given or the template is a blade view
+        // just return the rendered content
+        if ($template instanceof View 
+            || (!str_contains($template, ".tpl") && view()->exists($template))
+        ) {
+            $this->shareTemplateVariables($this->getTemplateVars());
+
+            return $template instanceof View
+                ? $template->render()
+                : view($template)->render();
         }
 
         return parent::fetch($template, $cache_id, $compile_id, $parent);
@@ -1628,6 +1642,18 @@ class PKPTemplateManager extends Smarty
             $compile_id = $this->getCompileId($template);
         }
 
+        // If a blade view instance given or the template is a blade view
+        // just return the rendered content
+        if ($template instanceof View 
+            || (!str_contains($template, ".tpl") && view()->exists($template))
+        ) {
+            $this->shareTemplateVariables($this->getTemplateVars());
+
+            return $template instanceof \Illuminate\View\View
+                ? $template->render()
+                : view($template)->render();
+        }
+        
         // Actually display the template.
         parent::display($template, $cache_id, $compile_id, $parent);
     }

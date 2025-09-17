@@ -64,6 +64,8 @@ use PKP\observers\events\PluginSettingChanged;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\template\PKPTemplateResource;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 
 // Define the well-known file name for filter configuration data.
 define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
@@ -79,9 +81,6 @@ abstract class Plugin
 
     /** @var PKPRequest the current request object */
     public $request;
-
-    /** @var string the view namespace of plugin's templates for blade views and components */
-    public $templateViewNamespace;
 
     /**
      * Constructor
@@ -359,6 +358,10 @@ abstract class Plugin
             $bladeTemplatePath = str_replace(['//', '.blade.php'], ['.', ''], $template);
 
             if (view()->exists("{$this->getName()}::{$bladeTemplatePath}")) {
+                // share the template variables to the blade view
+                $templateManager = TemplateManager::getManager(Application::get()->getRequest());
+                $templateManager->shareTemplateVariables($templateManager->getTemplateVars());
+                
                 return "{$this->getName()}::{$bladeTemplatePath}";
             }
         }
@@ -400,6 +403,32 @@ abstract class Plugin
     }
 
     /**
+     * Get the view namespace of this plugin's templates for blade views and components
+     * 
+     * Default it set to the plugin name but
+     * plugin can override this method to return a different view namespace
+     */
+    public function getTemplateViewNamespace(): string
+    {
+        return $this->getName();
+    }
+
+    /**
+     * Get the blade view component class namespace of this plugin's
+     * 
+     * Default it set to the `PLUGIN_NAMESPACE\classes\components`
+     * plugin can override this method to return a different view namespace
+     */
+    public function getComponentClassNamespace(): string
+    {
+        $className = get_class($this);
+
+        $namespace = substr($className, 0, strrpos($className, '\\'));
+
+        return $namespace . '\\classes\\components';
+    }
+
+    /**
      * Register this plugin's templates as a template resource
      *
      * @param bool $inCore True iff this is a core resource.
@@ -415,10 +444,15 @@ abstract class Plugin
             $fileViewFinder = app()->get('view.finder'); /** @var \Illuminate\View\FileViewFinder $fileViewFinder */
             $fileViewFinder->addLocation(app()->basePath($templatePath));
 
-            $this->_registerTemplateViewNamespace($this->getName(), $inCore);
+            // Auto register the plugin's view namespace and component class namespace
+            $this->_registerTemplateViewNamespace($this->getTemplateViewNamespace(), $inCore);
+            $this->_registerViewComponentNamespace($this->getComponentClassNamespace());
         }
     }
 
+    /**
+     * Register the blade view namespaces for this plugin
+     */
     protected function _registerTemplateViewNamespace(string $viewNamespace, bool $inCore = false): void
     {
         $templatePath = $this->getTemplatePath($inCore);
@@ -427,24 +461,23 @@ abstract class Plugin
             throw new \Exception('unable to resolve the template path');
         }
 
-        $this->templateViewNamespace = $viewNamespace;
-
         // Set or replace(if already set) the plugin's view namespace same as plugin name
         view()->replaceNamespace($viewNamespace, app()->basePath($templatePath));
             
-        // Make sure to set the plugin's name always available for plugins view 
-        // as it's been used a plugin's view namespace
-        \Illuminate\Support\Facades\View::composer(
+        // Make sure to set the view namespace always available for plugins view
+        View::composer(
             "{$viewNamespace}::*",
             fn (\Illuminate\View\View $view) => $view->with('viewNamespace', $viewNamespace)
         );
     }
 
-    protected function _registerViewComponentNamespace(string $componentNamespacePath, ?string $viewNamespace = null): void
+    /**
+     * Register the blade component class namespaces for this plugin
+     * Alternatively, we can use the `Blade::componentNamespace` method to register the component class namespaces
+     */
+    protected function _registerViewComponentNamespace(string $componentNamespacePath): void
     {
-        $viewNamespace ??= $this->templateViewNamespace;
-
-        \Illuminate\Support\Facades\Blade::componentNamespace($componentNamespacePath, $viewNamespace);
+        Blade::componentNamespace($componentNamespacePath, $this->getTemplateViewNamespace());
     }
 
     /**

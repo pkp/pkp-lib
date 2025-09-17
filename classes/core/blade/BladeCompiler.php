@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/blade/BladeCompiler.php
+ *
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class BladeCompiler
+ *
+ * @brief This overrides the default BladeCompiler to use the overridden ComponentTagCompiler
+ */
+
 namespace PKP\core\blade;
 
 use PKP\core\blade\ComponentTagCompiler;

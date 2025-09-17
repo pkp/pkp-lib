@@ -1,10 +1,23 @@
 <?php
 
+/**
+ * @file classes/core/blade/ComponentTagCompiler.php
+ *
+ * Copyright (c) 2025 Simon Fraser University
+ * Copyright (c) 2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ComponentTagCompiler
+ *
+ * @brief   Override the Laravel's internal mechanism to guess the name of the given component based on
+ *          the priority order coming from view config
+ */
+
 namespace PKP\core\blade;
 
 use APP\core\Application;
+use PKP\core\PKPBladeViewServiceProvider;
 use Illuminate\View\Compilers\ComponentTagCompiler as IlluminateComponentTagCompiler;
-use PKP\core\PKPContainer;
 
 class ComponentTagCompiler extends IlluminateComponentTagCompiler
 {
@@ -17,14 +30,15 @@ class ComponentTagCompiler extends IlluminateComponentTagCompiler
     {
         $class = $this->formatClassName($component);
 
-        $appNamespace = Application::get()->getNamespace();
+        $componentNamespaces = config('view.components.namespace'); /** @var array $componentNamespaces */
         
-        if (class_exists($appNamespace.'view\\components\\'.$class)) {
-            return $appNamespace.'view\\components\\'.$class;
+        foreach ($componentNamespaces as $namespace => $viewNamespace) {
+            if (class_exists($viewNamespace . $class)) {
+                return $namespace . $class;
+            }
         }
 
-        $pkpNamespace = PKPContainer::getInstance()->getNamespace();
-        
-        return $pkpNamespace.'view\\components\\'.$class;
+        // fallback to default app namespace
+        return Application::get()->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH . $class;
     }
 }

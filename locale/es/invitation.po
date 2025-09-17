@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-13 10:32+0000\n"
+"PO-Revision-Date: 2025-09-17 03:57+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/es/>\n"
@@ -191,3 +191,184 @@ msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadManda
 msgstr ""
 "Para los grupos de usuarios agregados, se debe proporcionar una cabecera "
 "editorial"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modificar el correo electrónico compartido con el usuario"
+
+msgid "userInvitation.modal.title"
+msgstr "Invitación enviada"
+
+msgid "userInvitation.modal.button"
+msgstr "Ver todos los usuarios"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Eliminar rol"
+
+msgid "invitation.email.description"
+msgstr "por ejemplo: aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Al aceptar la invitación, el usuario será redirigido a ORCID para verificar "
+"su cuenta, si así lo desea."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Si conoce el apellido del usuario, puede ingresarlo. Sin embargo, esta "
+"información puede ser modificada por el propio usuario."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verificar ORCID iD"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Ingresar datos"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Ingresar datos"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formulario de aceptación de invitación y datos del usuario"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Por favor, proporcione los siguientes datos para gestionar su cuenta"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Revisar y crear cuenta"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Revisar y crear cuenta"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Omitir verificación de ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Puede ser una combinación de letras mayúsculas, minúsculas o números"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Sí, acepto que mis datos sean recopilados y almacenados de acuerdo con la "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Declaración de privacidad"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"También conocido como nombre de pila o nombre, es la parte del nombre "
+"personal que identifica a una persona."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "País de afiliación"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Detalles de la cuenta"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Detalles del usuario/a"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Cancelar invitación"
+
+msgid "invitation.masthead.hidden"
+msgstr "No aparecer en la cabecera editorial"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modificar rol"
+
+msgid "userInvitation.cancel.message"
+msgstr "¿Está seguro/a de que desea cancelar esta invitación?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Regresar"
+
+msgid "userInvitation.status.invited"
+msgstr "Invitado/a el {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Editar invitación"
+
+msgid "validation.after_or_equal"
+msgstr "La fecha de inicio debe ser igual o posterior a la fecha actual"
+
+msgid "invitation.removeRoles"
+msgstr "Rol eliminado del usuario/a"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Por favor, confirme que ha leído y acepta la declaración de privacidad"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Si conoce el nombre del usuario, puede ingresarlo. Sin embargo, esta "
+"información puede ser modificada por el propio usuario."
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Guardar y continuar"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Ingrese los datos como correo electrónico, afiliación, etc. De acuerdo con "
+"el cumplimiento del GDPR, esta información solo puede ser modificada por "
+"usted. También puede elegir si desea que esta información sea visible en su "
+"perfil para el editor/a."
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Debe tener al menos 6 caracteres y puede ser una combinación de letras "
+"mayúsculas, minúsculas, números y símbolos"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"El apellido, es la parte del nombre personal, generalmente hereditaria, que "
+"indica la pertenencia a una familia."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Esta es el institución al que está afiliado/a"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Este es el país en el que se encuentra la institución con la que está "
+"afiliado/a"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Ver todos los envíos"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Cancelar la invitación enviada a {$givenName} {$familyName} desactivará el "
+"enlace de aceptación enviado por correo electrónico. A continuación, se "
+"muestran los detalles de la invitación: "
+
+msgid "invitation.tableHeader.name"
+msgstr "Nombre"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Proporcione al menos un criterio de búsqueda."
+
+msgid "invitation.masthead.show"
+msgstr "Aparecer en la cabecera editorial"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Está viendo los detalles del usuario {$name}"
+
+msgid "invitation.management.options"
+msgstr "Opciones de gestión de la invitación"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Si edita la invitación existente o añade un nuevo rol, la invitación actual "
+"será cancelada y se enviará una nueva. ¿Está seguro/a de que desea continuar?"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Cancelar invitación"

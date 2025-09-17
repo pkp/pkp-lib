@@ -161,17 +161,16 @@ class PKPJobTest extends PKPTestCase
             ->setMaxJobsToProcess(2)
             ->withMaxJobsConstrain()
             ->setMaxTimeToProcessJobs(10)
-            ->withMaxExecutionTimeConstrain()
-            ->setMaxMemoryToConsumed(1024 * 1024 * 30) // 30MB
-            ->withMaxMemoryConstrain();
+            ->withMaxExecutionTimeConstrain();
 
-        // Process the jobs
         $result = $runner->processJobs();
         $this->assertTrue($result);
         $this->assertEquals(1, PKPJobModel::query()->onQueue(PKPJobModel::TESTING_QUEUE)->count());
+        $this->assertEquals(2, $runner->getJobProcessedCount());
 
         $result = $runner->processJobs();
         $this->assertTrue($result);
         $this->assertEquals(0, PKPJobModel::query()->onQueue(PKPJobModel::TESTING_QUEUE)->count());
+        $this->assertEquals(1, $runner->getJobProcessedCount());
     }
 }

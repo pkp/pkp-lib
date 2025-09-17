@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-17 13:46+0000\n"
+"PO-Revision-Date: 2025-09-17 13:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2915,40 +2915,41 @@ msgid "emailTemplate.variable.submitterName"
 msgstr "Bidalketa-fitxategi bat igo duen erabiltzaile baten izen osoa"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Abisuaren izenburua"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Abisuaren deskribapen laburra"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URLa abisura"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Hilabete honetan jasotako bidalketa kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Ukatutako bidalketa-kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Onartutako bidalketa-kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Beste guztizkoetan sartu ez diren bidalketen kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Jasotako bidalketen kopuru osoa"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Txostenaren hilabetea"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Txostenaren urtea"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr ""
+"Zenbakiaren identifikazioa, bolumena, zenbakia, urtea eta izenburua barne"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URLa argitaratutako bidalketara"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
@@ -3666,3 +3667,6 @@ msgstr "Gutxieneko berrikuspen-baieztatu kopurua"
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr ""
 "Bidalketa batentzat eskatuko den gutxieneko berrikuspen-baieztatu kopurua"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Posta elektroniko kontu bat balioztatzeko esteka"

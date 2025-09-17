@@ -116,7 +116,7 @@ class UserCommentComponent
     public function getConfig()
     {
         return [
-            'publications' => $this->publishedPublication->sortByDesc('id')->values(),
+            'publications' => $this->publishedPublication->values(),
             'latestPublicationId' => $this->submission->getCurrentPublication()->getId(),
             'itemsPerPage' => Repo::userComment()->getPerPage(),
             'loginUrl' => $this->getLoginUrl(),

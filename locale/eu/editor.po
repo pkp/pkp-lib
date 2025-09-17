@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-12 09:21+0000\n"
+"PO-Revision-Date: 2025-09-17 14:46+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -50,19 +50,23 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Erabakia aldatu"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Ez duzu baimenik bidalketa horri buruzko erabaki hori erregistratzeko."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Editorea ez da ezagutu eta baliteke bidalketa honi buruzko erabakia "
+"erregistratzeko baimenik ez izatea."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Ezin diezu mezu elektronikorik bidali hurrengo hartzaileei: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
 msgstr "Berrikuspen-erronda hau ezin izan da aurkitu."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Berrikuspen-erronda bat eman zen, baina erabaki hori ez da berrikuspen-"
+"fasean hartu."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr "Berrikuspen-erronda hau ez da bidalketa honen parte."
@@ -72,9 +76,13 @@ msgstr "Bidalketa ez dago lan-fluxuaren etapa egokian erabakia hartzeko."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Bidalketa hau esleitu behar zaizu erabaki editorial bat erregistratu ahal "
+"izateko."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Erabaki hori hartu ahal izateko, berrikuspen-errondaren identifikatzaile bat "
+"aurkeztu behar da."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
@@ -209,15 +217,22 @@ msgstr "Berrikuspen-erronda berria behar da"
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr ""
+"Berrikuspenak ez dira parekideen berrikuspen-erronda berri baten menpe "
+"egongo."
 
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr ""
+"Berrikuspenak parekideen berrikuspen-erronda berri baten menpe egongo dira."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Berrikuspenak ez dira parekideen berrikuspen-erronda berri baten menpe egon "
+"behar."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Berrikuspenak parekideen berrikuspen-erronda berri baten menpe egon behar "
+"dira."
 
 msgid "editor.review.dateAccepted"
 msgstr "Berrikuspenaren onarpen-data"

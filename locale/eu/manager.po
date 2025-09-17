@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-17 12:55+0000\n"
+"PO-Revision-Date: 2025-09-17 13:46+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2755,78 +2755,82 @@ msgstr ""
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Osatutako berrikuspenetako iruzkin guztiak. Ebaluatzaileen izenak ezkutatuta "
+"daude berrikuspen anonimoak baitira"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Bidalketaren egileen izenak eta afiliazioak."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "Erabiltzaileak galdutako pasahitza berreskuratzeko orri baten URLa"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "Erabiltzaile bati esleitutako bidalketa guztiak ikusteko URLa"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "Erabiltzaile batek bere profila ikusi eta editatzeko URLa"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Hartutako erabakiaren izena"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Hartutako erabakiaren deskribapena"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Erabaki hau hartu zen argitalpen lan-fluxuaren fasea"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Erabaki hau hartu zen berrikuspen-erronda, baldin eta erabakia berrikuspen-"
+"fase bati lotuta badago"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Eztabaidaren gaia"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Eztabaida edo erantzun berriaren edukia"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Zereginak bete gabe dituzten bidalketen zerrenda"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Editore honi esleitutako bidalketa-kopurua"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Hartzailearen edo hartzaile guztien izen osoa"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Hartzailearen edo hartzaile guztien erabiltzaile-izena"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Berrikuspena amaitu behar den data"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Ebaluatzaileak esleipena onartu edo baztertu behar duen data"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Berrikuspenaren esleipenaren URLa"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Gomendatutako erabakia, hala nola, Onartu Bidalketa"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Berrikuspen hau esleitu zen data"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Berrikuspen mota, hala nola anonimoa, anonimo bikoitza edo irekia"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Ebaluatzailearen gomendioa, hala nola, Onartu Bidalketa edo Ukatu"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Berrikuspen-erronda, hala nola, 1. erronda edo 2. erronda"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Ebaluatzaileak igotako fitxategiak"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Ebaluatzailearen izena"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -2841,63 +2845,65 @@ msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Bidaltzailearen izen osoa"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Bidaltzailearen posta elektronikoa"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Bidaltzailearen posta elektronikoko sinadura"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Webguneko kontaktu nagusiaren izen osoa"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Webguneko kontaktu nagusiaren posta elektronikoa"
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr ""
+"Webgunearen posta elektronikoko sinadura mezu elektroniko automatizatuetarako"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Bidalketa honi esleitutako editoreak, erabakia har dezaketenak"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Bidalketaren izenburua"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Bidalketaren ID zenbaki bakarra"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Bidalketaren laburpena"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Egileen izenak kate labur batean, adibidez \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Egileen izen osoak"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Egilearen URLa bidalketara"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "Bidalketaren URLa erredakzio-kudeaketan"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Argitaratutako bidalketaren URLa"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "Bidalketaren URLa bidalketaren laguntzailean"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
 "Bidalketaren lan-fluxuari esleitutako egileen izenak. Oro har, bidalketaren "
-"egilearena da."
+"egilea da."
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Pasahitza berrezartzeko erabiltzaile bati bidaltzen zaion kodetutako URLa"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Ausazko erabiltzaile pasahitz berria"
 
 msgid "mailable.reviewerReinstate.name"
 msgstr "Berrezarri ebaluatzailea"
@@ -2906,7 +2912,7 @@ msgid "mailable.reviewerResendRequest.name"
 msgstr ""
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Bidalketa-fitxategi bat igo duen erabiltzaile baten izen osoa"
 
 msgid "emailTemplate.variable.announcementTitle"
 msgstr ""

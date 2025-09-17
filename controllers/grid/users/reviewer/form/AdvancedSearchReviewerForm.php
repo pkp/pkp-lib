@@ -267,7 +267,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     'invitation',
                     'create',
                     ['reviewerAccess'],
-                    ['submissionId'=>20,'reviewRoundId' => $reviewRound->getId()]
+                    ['submissionId'=>$this->getSubmission()->getId(),'reviewRoundId' => $reviewRound->getId()]
                 )),
                 __('editor.review.createReviewer'),
                 'add_user'

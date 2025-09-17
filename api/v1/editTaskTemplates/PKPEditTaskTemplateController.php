@@ -26,6 +26,7 @@ use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\editorialTask\Template;
+use APP\facades\Repo;
 use PKP\API\v1\editTaskTemplates\formRequests\AddEditTaskTemplate;
 use PKP\API\v1\editTaskTemplates\resources\EditTaskTemplateResource;
 
@@ -69,12 +70,17 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $validated = $illuminateRequest->validated();
 
         $template = DB::transaction(function () use ($validated, $context) {
+            $emailTemplateId = null;
+            if (!empty($validated['emailTemplateKey'])) {
+                $et = Repo::emailTemplate()->getByKey($context->getId(), $validated['emailTemplateKey']);
+                $emailTemplateId = $et?->getId();
+            }
             $tpl = Template::create([
                 'stage_id' => $validated['stageId'],
                 'title' => $validated['title'],
                 'context_id' => $context->getId(),
                 'include' => $validated['include'] ?? false,
-                'email_template_id' => $validated['emailTemplateId'] ?? null,
+                'email_template_id' => $emailTemplateId,
             ]);
 
             $tpl->userGroups()->sync($validated['userGroupIds']);

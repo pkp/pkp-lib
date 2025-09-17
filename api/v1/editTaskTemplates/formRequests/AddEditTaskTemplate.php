@@ -7,7 +7,7 @@
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class AddEditTaskTemplates
+ * @class AddEditTaskTemplate
  *
  * @brief Handle API requests validation for adding editorial template operations.
  *
@@ -16,6 +16,7 @@
 namespace PKP\API\v1\editTaskTemplates\formRequests;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -29,12 +30,20 @@ class AddEditTaskTemplate extends FormRequest
     public function rules(): array
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
-
+        $stageIds  = array_keys(Application::getApplicationStages());
+        $emailKeys = Repo::emailTemplate()
+            ->getCollector($contextId)
+            ->getMany()
+            ->map(fn ($t) => $t->getData('key'))
+            ->filter()
+            ->values()
+            ->all();
+ 
         return [
-            'stageId' => ['required', 'integer', 'min:1'],
+            'stageId' => ['required', 'integer', Rule::in($stageIds)],
             'title' => ['required', 'string', 'max:255'],
-            'include' => ['sometimes', 'boolean'],
-            'emailTemplateId' => ['sometimes', 'nullable', 'integer', Rule::exists('email_templates', 'email_id')],
+            'include' => ['boolean'],
+            'emailTemplateKey' => ['sometimes', 'nullable', 'string', 'max:255', Rule::in($emailKeys)],
             'userGroupIds' => ['required', 'array', 'min:1'],
             'userGroupIds.*' => [
                 'integer',
@@ -61,7 +70,7 @@ class AddEditTaskTemplate extends FormRequest
             'stageId' => (int) $data['stageId'],
             'title' => $data['title'],
             'include' => $data['include'] ?? false,
-            'emailTemplateId' => $data['emailTemplateId'] ?? null,
+            'emailTemplateKey' => $data['emailTemplateKey'] ?? null,
             'userGroupIds' => $data['userGroupIds'],
         ];
     }

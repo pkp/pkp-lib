@@ -18,6 +18,7 @@ namespace PKP\editorialTask;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use PKP\core\traits\ModelWithSettings;
@@ -120,4 +121,13 @@ class Template extends Model
             'user_group_id'
         );
     }
+
+    /**
+     * Query scope order by the model's primary key in descending order
+     */
+    public function scopeOrderByPkDesc(Builder $query): Builder
+    {
+        return $query->orderByDesc($query->getModel()->getKeyName());
+    }
+
 }

@@ -411,7 +411,7 @@ class PKPSubmissionController extends PKPBaseController
 
         Route::get('{submissionId}/public', $this->getPublic(...))
             ->name('submission.public/get')
-            ->whereNumber(['submissionId']);
+            ->where('submissionId', '[0-9]+|[a-zA-Z0-9\-_]+');
 
         Route::get('{submissionId}/publications/{publicationId}/public', $this->getPublicationPublic(...))
             ->name('submission.publication.public/get')
@@ -617,31 +617,14 @@ class PKPSubmissionController extends PKPBaseController
 
     public function getPublic(Request $illuminateRequest): JsonResponse
     {
-        $submissionId = (int) $illuminateRequest->route('submissionId');
-        $submission = Repo::submission()->get($submissionId);
+        $request = $this->getRequest();
+        $urlPath = $illuminateRequest->route('submissionId');
 
-        if (!$submission) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
+        $submission = ctype_digit((string) $urlPath)
+            ? Repo::submission()->get((int) $urlPath, $request->getContext()->getId())
+            : Repo::submission()->getByUrlPath($urlPath, $request->getContext()->getId());
 
-        // TODO: Check if should be visible
-
-        // Get required items for submission mapping
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
-
-        $mappedSubmission = Repo::submission()->getSchemaMap()->map(
-            $submission,
-            $userGroups,
-            $genres,
-            [],
-            isPublic: true,
-        );
+        $mappedSubmission = Repo::submission()->getSchemaMap()->mapPublic($submission);
 
         return response()->json($mappedSubmission, Response::HTTP_OK);
     }

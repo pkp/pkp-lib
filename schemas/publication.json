@@ -430,13 +430,15 @@
 			"apiSummary": true,
 			"validation": [
 				"nullable"
-			]
+			],
+			"isPublic": true
 		},
 		"versionString": {
 			"type": "string",
 			"description": "The calculated display string of the version of this publication",
 			"apiSummary": true,
-			"readOnly": true
+			"readOnly": true,
+			"isPublic": true
 		},
 		"status": {
 			"type": "integer",

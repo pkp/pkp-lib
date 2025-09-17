@@ -118,6 +118,18 @@ class Schema extends \PKP\core\maps\Schema
     }
 
     /**
+     * Map a submission for the public API
+     *
+     */
+    public function mapPublic(Submission $item): array
+    {
+        $this->userGroups = collect();
+        $this->genres = [];
+
+        return $this->mapByProperties($this->getProps(true), $item);
+    }
+
+    /**
      * Map a submission
      *
      * Includes all properties in the submission schema.
@@ -502,6 +514,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'publications':
                     $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
                         ->summarizeMany($submission->getData('publications'), $anonymize)->values();
+                    break;
+                case 'currentPublication':
+                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)->summarize($submission->getCurrentPublication());
                     break;
                 case 'recommendationsIn':
                     $output[$prop] = $currentReviewRound ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-17 03:57+0000\n"
+"PO-Revision-Date: 2025-09-17 04:30+0000\n"
 "Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/es/>\n"
@@ -372,3 +372,42 @@ msgstr ""
 
 msgid "invitation.cancelInvite.actionName"
 msgstr "Cancelar invitación"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "¿Cancelar el proceso de invitación para asignar el rol?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Cancelar proceso de invitación"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "No se aceptó la invitación. Ha iniciado sesión con otro usuario."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Realice la búsqueda ingresando un correo electrónico, nombre de usuario/a u "
+"ORCID iD. ¡Un solo dato es suficiente para iniciar!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "El usuario/a está actualmente deshabilitado."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"El usuario/a fue deshabilitado. No puede asignarle un rol mientras esté "
+"deshabilitado. Primero habilite al usuario/a para poder invitarlo a un rol."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentimiento de privacidad"
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Por favor cierre la sesión e inicie con la cuenta correcta para aceptar esta "
+"invitación."
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"¿Está seguro/a de que desea cancelar? Si cancela ahora, se detendrá el "
+"proceso de aceptación del rol y deberá reiniciarlo desde el correo "
+"electrónico de invitación para aceptar el rol nuevamente. Si ya es un "
+"usuario registrado, será redirigido al panel de control. De lo contrario, "
+"deberá acceder nuevamente al correo electrónico de invitación para comenzar "
+"el proceso."

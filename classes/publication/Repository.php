@@ -579,18 +579,23 @@ abstract class Repository
             if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
                 $isMajorVersion = $newPublication->getData('versionStage') != $publication->getData('versionStage') ||
                     $newPublication->getData('versionMajor') != $publication->getData('versionMajor');
+                // if a major version is published, mark all submission's DOIs stale, so that their relationships can be updated
                 if ($isMajorVersion) {
                     $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
                     Repo::doi()->markStale($staleDoiIds);
-                } else {
-                    Repo::doi()->markStale([$newPublication->getData('doiId')]);
+                    // if a minor version is published mark this publication's DOIs stale only if it is the current publication,
+                    // so that the metadata, e.g. URL, can be updated
+                } elseif ($submission->getData('currentPublicationId') === $newPublication->getId()) {
+                    $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                    Repo::doi()->markStale($staleDoiIds);
                 }
             } else {
-                // Mark publication DOI stale only if this is submission's current (most mature) publication, because
+                // Mark publication's DOIs stale only if this is submission's current (most mature) publication, because
                 // only then the DOI metadata needs to be re-deposited.
                 // For example, it could be that AO is published after a VoR is published.
                 if ($submission->getData('currentPublicationId') === $newPublication->getId()) {
-                    Repo::doi()->markStale([$newPublication->getData('doiId')]);
+                    $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                    Repo::doi()->markStale($staleDoiIds);
                 }
             }
         }
@@ -649,6 +654,8 @@ abstract class Repository
         $newPublication = Repo::publication()->get($newPublication->getId());
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
+        $wasCurrentPublication = $publication->getId() == $submission->getData('currentPublicationId');
+
         // Update a submission's status based on the status of its publications
         if ($newPublication->getData('status') !== $publication->getData('status')) {
             Repo::submission()->updateStatus($submission);
@@ -668,15 +675,15 @@ abstract class Repository
             : app()->get('context')->get($submission->getData('contextId'));
 
         // Mark DOIs stale (if applicable).
-        if ($submission->getData('status') !== Submission::STATUS_PUBLISHED) {
-            $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
-            Repo::doi()->markStale($staleDoiIds);
-        } else {
-            if ($context->getData(Context::SETTING_DOI_VERSIONING) ||
-                $submission->getData('currentPublicationId') === $newPublication->getId()) {
-
-                Repo::doi()->markStale([$newPublication->getData('doiId')]);
+        if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+            // if it was a major version or a current minor version
+            if ($newPublication->getData('versionMinor') == 0 || $wasCurrentPublication) {
+                $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                Repo::doi()->markStale($staleDoiIds);
             }
+        } elseif ($wasCurrentPublication) {
+            $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+            Repo::doi()->markStale($staleDoiIds);
         }
 
         $eventLog = Repo::eventLog()->newDataObject([

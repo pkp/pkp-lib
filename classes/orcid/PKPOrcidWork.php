@@ -63,7 +63,7 @@ abstract class PKPOrcidWork
             $request,
             Application::ROUTE_PAGE,
             $this->context->getPath(),
-            'article',
+            $this->getAppSpecificUrlHandlerName(),
             'view',
             [$submission->getId()],
             urlLocaleForPage: '',
@@ -227,7 +227,7 @@ abstract class PKPOrcidWork
     }
 
     /**
-     * Parse publication date and use  as the publication date of the ORCID work.
+     * Parse publication date and use as the publication date of the ORCID work.
      *
      * @return array Associative array with year, month and day
      */
@@ -326,7 +326,19 @@ abstract class PKPOrcidWork
     }
 
     /**
-     * Get app-specific 'type' of work for item
+     * Gets the correct app-specific URL handler name for generating publication URLs
+     */
+    protected function getAppSpecificUrlHandlerName(): string
+    {
+        $appName = Application::get()->getName();
+        return match ($appName) {
+            'ops' => 'preprint',
+            default => 'article',
+        };
+    }
+
+    /**
+     * Get app-specific 'type' of work for an item
      */
     abstract protected function getOrcidPublicationType(): string;
 }

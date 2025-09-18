@@ -1,12 +1,13 @@
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2023, 2024.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-07-10 14:21+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-09-18 15:23+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/nl/"
 ">\n"
 "Language: nl\n"
@@ -664,9 +665,8 @@ msgstr "Download het recensieformulier"
 msgid "editor.review.allSections"
 msgstr "Het het redactieformulier geeft alle recensie onderwerpen weer"
 
-#, fuzzy
 msgid "editor.review.reviewViewed"
-msgstr "De beoordeelde recensie"
+msgstr "De recensie is beoordeeld"
 
 msgid "editor.submission.search"
 msgstr "Zoek inzendingen, ID's, auteurs, trefwoorden, etc."
@@ -677,9 +677,8 @@ msgstr "Dagen"
 msgid "editor.review.logResponse.form.option.accepted"
 msgstr "De recensent heeft de uitnodiging tot beoordeling aanvaard"
 
-#, fuzzy
 msgid "editor.review.authorOnly"
-msgstr "De weergegeven 'Enkel voor auteurs'-gedeelten"
+msgstr "Weergegeven 'Enkel voor auteurs'-gedeelten"
 
 msgid "editor.review.importantDates.notice"
 msgstr ""
@@ -692,8 +691,7 @@ msgstr ""
 "van de recensie gelijk aan of later dan de vervaldatum van de vervaldatum "
 "van de beantwoording behoort te zijn."
 
-#, fuzzy
 msgid "editor.review.logResponse.form.subDetail"
 msgstr ""
-"Als de recensent bijvoorbeeld via e-mail contact met u opneemt, kunt u de "
-"beantwoording voor deze vastleggen"
+"Als de recensent contact met u opneemt, bijvoorbeeld via e-mail, kunt u de "
+"beantwoording voor de recensent vastleggen"

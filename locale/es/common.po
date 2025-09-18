@@ -2,13 +2,14 @@
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
 # Jonas Raoni Soares da Silva <weblate@raoni.org>, 2024.
+# Pedro López Casique <lopez.casique@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2025-06-11 15:34+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2025-09-17 04:30+0000\n"
+"Last-Translator: Pedro López Casique <lopez.casique@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
 "Language: es\n"
@@ -2397,3 +2398,6 @@ msgstr "Revisión aceptada el"
 
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
+
+msgid "common.changeLanguage"
+msgstr "Cambiar idioma"

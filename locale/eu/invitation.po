@@ -1,0 +1,415 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-12 07:27+0000\n"
+"Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/eu/>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Gutxienez gehitu beharreko erabiltzaile-talde bat definitu behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Erabiltzaile-taldea gonbidatutako erabiltzaileari esleitzen zaio"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Gutxienez ezabatu beharreko erabiltzaile-talde bat definitu behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Emandako erabiltzaile-taldeek bikoiztutako sarrerak dituzte."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Dagoeneko badago erabiltzaile bat {$username} erabiltzaile-izena duena. "
+"Saiatu beste batekin."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Erabiltzaile-izen bat eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Pasahitz bat eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Filiazio bat eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Herrialde bat eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Izena eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Abizen bat eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Gehitutako erabiltzaile-taldeentzat, erabiltzaile-taldearen IDa eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Gehitutako erabiltzaile-taldeentzat, hasiera-data bat eman behar da"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Gehitutako erabiltzaile-taldeentzat, goiburu bat eman behar da"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Gonbidapen-mota honek ez du posta bidezko helbiderik definituta"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Gonbidapen-eragiketa honek huts egin du"
+
+msgid "invitation.header"
+msgstr "Gonbidapenak"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Rol batera gonbidatu"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Sartu xehetasunak"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Rolak berrikusi eta gonbidatu"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Bilatu erabiltzailea"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Bilatu erabiltzailea"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Sartu xehetasunak"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Gorde eta jarraitu"
+
+msgid "invitation.role.dateStart"
+msgstr "Hasiera-data"
+
+msgid "invitation.role.dateEnd"
+msgstr "Amaiera-data"
+
+msgid "invitation.role.addRole.button"
+msgstr "Gehitu beste rol bat"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Hasiera-data"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Amaiera-data"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Gonbidatu erabiltzailea rolera"
+
+msgid "userInvitation.modal.title"
+msgstr "Gonbidapena bidalia"
+
+msgid "userInvitation.modal.button"
+msgstr "Ikusi erabiltzaile guztiak"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Ezabatu rola"
+
+msgid "invitation.email.description"
+msgstr "adibidez, aeinstein@adibidea.com"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Erabiltzailearen izena baldin badakizu, informazioa sar dezakezu. Hala ere, "
+"erabiltzaileak informazio hori alda dezake."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Egiaztatu ORCID IDa"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Egiaztatu ORCID IDa"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Gorde eta jarraitu"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Sartu xehetasunak"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Gorde eta jarraitu"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Berrikusi eta sortu kontua"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Saltatu ORCID egiaztapena"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Kontuaren xehetasunak"
+
+msgid "invitation.tableHeader.name"
+msgstr "Izena"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Eman gutxienez bilaketa-irizpide bat."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "{$name} erabiltzailearen xehetasunak ikusten ari zara"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Ezeztatu gonbidapena"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Ezeztatu gonbidapena"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Emandako erabiltzaile-taldearen IDa {$userGroupId} ez da existitzen"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Gonbidapen hau ezin da bertan behera utzi"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "'{$primaryLocale}' eskualdeko balioa beharrezkoa da"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Gonbidatu erabiltzailea rol bat hartzera"
+
+msgid "invitation.validation.required"
+msgstr "{$attribute} eremua derrigorrezkoa da."
+
+msgid "invitation.step"
+msgstr "URRATSA"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Bilatu erabiltzailea"
+
+msgid "userInvitation.searchField.description"
+msgstr "adibidez, aeinstein@adibidea.com edo aeinstein edo 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Sartu xehetasunak eta gonbidatu roletara"
+
+msgid "invitation.role.selectRole"
+msgstr "Hautatu rol berri bat"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rola"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Rolak berrikusi eta gonbidatu"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Erabiltzailearekin partekatutako posta elektronikoa aldatu"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Gonbidapena onartzean, erabiltzailea ORCIDera bideratuko da bere kontua "
+"egiaztatzeko, hala nahi izanez gero."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Erabiltzailearen abizena baldin badakizu, informazioa sar dezakezu. Hala "
+"ere, erabiltzaileak informazio hori alda dezake."
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Gorde eta jarraitu"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Sartu xehetasunak"
+
+#, fuzzy
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Onartu gonbidapenaren erabiltzailearen xehetasunen inprimakia"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Berrikusi eta sortu kontua"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Egiaztatu ORCID IDa"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Pribatutasun-adierazpena"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Erakundearen herrialdea"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Erabiltzailearen xehetasunak"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Ikusi bidalketa guztiak"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Aldatu rola"
+
+#, fuzzy
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Ezabatu erabiltzaile-rolak ezin dira definitu existitzen ez diren "
+"erabiltzaileentzat."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Gonbidapena ezin da bidali, ez baituzu erabiltzaile-taldeen aldaketarik "
+"definitu"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Gonbidapen bat erabiltzaile-id bati ({$userId}) esleituta dagoenean, "
+"dagokion erabiltzaileak existitu behar du."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Gonbidapen batek helbide elektroniko bat ({$email}) esleituta duenean, "
+"helbide elektroniko hori ez du beste erabiltzaile batek erabili behar."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"{reviewAssignmentId} IDa ez dator bat baliozko berrikuspen-esleipen batekin"
+
+#, fuzzy
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr ""
+"Atributua ez dago baimenduta dauden erabiltzaileentzat sarbidea izateko."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr ""
+"Atributua ez dago baimenduta ez dauden erabiltzaileentzat sarbidea izateko"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Atributu honek gaurko balio berdina edo geroagokoa izan behar du"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr ":attribute eremua debekatuta dago"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Mesedez, eman ondorengo datuak zure kontua kudeatzen laguntzeko"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Gutxienez 6 karaktere izan behar ditu eta letra larrien, letra xeheen, "
+"zenbakien eta sinboloen konbinazioa izan daiteke"
+
+#, fuzzy
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Forename edo lehen izen bezala ere ezaguna, pertsona bat identifikatzen duen "
+"izen pertsonalaren zatia da."
+
+#, fuzzy
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Hau zu atxikita zauden erakundea da"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"{$givenName} {$familyName}-ri bidalitako gonbidapena bertan behera utziz "
+"gero, posta elektronikoz bidalitako onarpen-esteka desaktibatu egingo da. "
+"Hona hemen gonbidapenaren xehetasunak: "
+
+#, fuzzy
+msgid "invitation.masthead.show"
+msgstr "Goiburuan agertu"
+
+#, fuzzy
+msgid "invitation.masthead.hidden"
+msgstr "Goiburuan ez agertu"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Itzuli"
+
+msgid "userInvitation.status.invited"
+msgstr "Gonbidatua {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Editatu gonbidapena"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Elementuan espero ez ziren propietateak aurkitu dira {$attribute} indizean: "
+"{$properties}."
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Ezin dituzu posta elektronikoa eta erabiltzaile IDa batera eman."
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Erabiltzailea existitzen ez bada, rolak hartzera gonbida dezakezu. "
+"Erabiltzailea sisteman existitzen bada, haren informazioa ikusi eta rol "
+"gehiago hartzera gonbida dezakezu."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Sartu zure datuak, hala nola posta elektronikoaren IDa, afiliazioa, etab. "
+"GDPRren arabera, informazio hau zuk bakarrik alda dezakezu. Informazio hori "
+"zure profilean editorearentzat ikusgai egotea nahi duzun ere aukera dezakezu."
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Letra larrien, letra xeheen edo zenbakien konbinazioa izan daiteke"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "Bai, onartzen dut nire datuak {$url}-aren arabera biltzea eta gordetzea"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Abizena, familia izena edo deitura norberaren izen pertsonalaren zati "
+"hereditario nagusia da, norberaren familia adierazten duena."
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Zu afiliatuta zauden erakundea kokatuta dagoen herrialdea da hau"
+
+msgid "invitation.management.options"
+msgstr "Gonbidapenak kudeatzeko aukerak"
+
+msgid "userInvitation.cancel.message"
+msgstr "Ziur zaude gonbidapen hau bertan behera utzi nahi duzula?"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Lehendik dagoen gonbidapen bat editatzen baduzu edo rol berri bat gehitzen "
+"baduzu, uneko gonbidapena bertan behera utziko da eta berri bat bidaliko da. "
+"Ziur zaude jarraitu nahi duzula?"
+
+msgid "validation.after_or_equal"
+msgstr "Hasiera-datak gaurkoa edo geroagokoa izan behar du"
+
+msgid "invitation.removeRoles"
+msgstr "Erabiltzailea roletik kendu da"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Mesedez, baieztatu irakurri duzula eta onartu pribatutasun-adierazpena"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Bertan behera utzi rolak gonbidatzeko prozesua?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Bertan behera utzi gonbidapen-prozesua"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Gonbidapena ez da onartu. Beste erabiltzaile batekin hasi duzu saioa."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Mesedez, itxi saioa eta hasi saioa kontu egokiarekin gonbidapen hau "
+"onartzeko."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Erabiltzailea desgaituta dago une honetan."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Erabiltzailea desgaituta dago. Ezin zaie rolik esleitu desgaituta dauden "
+"bitartean. Mesedez, lehenik gaitu erabiltzailea rol batera gonbidatzeko."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Pribatutasun-baimena"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Ziur zaude bertan behera utzi nahi duzula? Orain bertan behera uzteak rolak "
+"onartzeko prozesua geldituko du, eta gonbidapenaren mezu elektronikotik "
+"berrabiarazi beharko duzu rola berriro onartzeko. Erabiltzailea bazara, "
+"kontrol-panelera itzuliko zara. Hala ez bada, gonbidapenaren mezu "
+"elektronikora sartu beharko duzu prozesua berriro hasteko."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Bilatu erabiltzaile bat helbide elektronikoaren, erabiltzaile-izenaren edo "
+"ORCID iDaren arabera. Sartu bakarra hasteko!"

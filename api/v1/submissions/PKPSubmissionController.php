@@ -2703,6 +2703,26 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEdit'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $citationsMetadataLookup = (bool)$illuminateRequest->input('citationsMetadataLookup');
 
         $processCitation = false;
@@ -2744,6 +2764,26 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEdit'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
         $rawCitations = (string)$illuminateRequest->input('rawCitations');
 
         $result = Repo::citation()->importAdditionalCitations($publication->getId(), $rawCitations);
@@ -2762,6 +2802,26 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
+        }
+
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
+
+        // Publications can not be edited when they are published
+        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        // Prevent users from editing publications if they do not have permission. Except for admins.
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEdit'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $existingCitations = [];

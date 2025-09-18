@@ -587,6 +587,9 @@ msgstr "Author Information"
 msgid "submission.citations.structured.header.journal"
 msgstr "Journal Information"
 
+msgid "submission.citations.structured.label.authorOrcid"
+msgstr "ORCID profile for {$givenName} {$familyName}"
+
 msgid "submission.citations.structured.label.citation"
 msgstr "Citation"
 

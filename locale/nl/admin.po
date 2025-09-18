@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-16 14:34+0000\n"
+"PO-Revision-Date: 2025-09-18 10:57+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -179,9 +179,8 @@ msgstr "Verwijder alle logbestanden van geplande taken"
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr "Vernietig alle logboeken van de geplande en uitgevoerde taakprocessen."
 
-#, fuzzy
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Vernietig taaklogboeken"
+msgstr "Verwijder taaklogboeken"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publiceer de hiervoor geplande inzendingen"
@@ -660,16 +659,16 @@ msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Ongeldige ID-opdracht"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "De opodracht werd vernietigd!"
+msgstr "De opdracht werd verwijderd!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr "Geen opdrachten gevonden om te vernietigen."
+msgstr "Geen opdrachten gevonden om te verwijderen."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Het was niet mogelijk alle opdrachten te vernietigen."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Wiste alle opdrachten!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""

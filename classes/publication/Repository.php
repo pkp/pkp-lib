@@ -583,11 +583,21 @@ abstract class Repository
                 if ($isMajorVersion) {
                     $staleDoiIds = Repo::doi()->getDoisForSubmission($newPublication->getData('submissionId'));
                     Repo::doi()->markStale($staleDoiIds);
-                    // if a minor version is published mark this publication's DOIs stale only if it is the current publication,
+                } elseif ($newPublication->getData('versionMinor') != 0) {
+                    // if it is the last published minor version of that version stage and major,
+                    // mark the publication's DOIs stale
                     // so that the metadata, e.g. URL, can be updated
-                } elseif ($submission->getData('currentPublicationId') === $newPublication->getId()) {
-                    $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
-                    Repo::doi()->markStale($staleDoiIds);
+                    $lastMinorPublication = Repo::publication()->getCollector()
+                        ->filterBySubmissionIds([$newPublication->getData('submissionId')])
+                        ->filterByVersionStage($newPublication->getData('versionStage'))
+                        ->filterByVersionMajor($newPublication->getData('versionMajor'))
+                        ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                        ->getMany()
+                        ->last(); // minor versions are sorted ASC, so get only the last
+                    if ($newPublication->getId() == $lastMinorPublication->getId()) {
+                        $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                        Repo::doi()->markStale($staleDoiIds);
+                    }
                 }
             } else {
                 // Mark publication's DOIs stale only if this is submission's current (most mature) publication, because
@@ -676,8 +686,23 @@ abstract class Repository
 
         // Mark DOIs stale (if applicable).
         if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
+            // if it was the last published minor version of that version stage and major,
+            // mark the publication's DOIs stale
+            if ($newPublication->getData('versionMinor') != 0) {
+                $lastMinorPublication = Repo::publication()->getCollector()
+                    ->filterBySubmissionIds([$newPublication->getData('submissionId')])
+                    ->filterByVersionStage($newPublication->getData('versionStage'))
+                    ->filterByVersionMajor($newPublication->getData('versionMajor'))
+                    ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                    ->getMany()
+                    ->last(); // minor versions are sorted ASC, so get only the last
+                if ($lastMinorPublication && (int) $newPublication->getData('versionMinor') > (int) $lastMinorPublication->getData('versionMinor')) {
+                    $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
+                    Repo::doi()->markStale($staleDoiIds);
+                }
+            }
             // if it was a major version or a current minor version
-            if ($newPublication->getData('versionMinor') == 0 || $wasCurrentPublication) {
+            if ($newPublication->getData('versionMinor') == 0) {
                 $staleDoiIds = Repo::doi()->getDoisForPublication($newPublication);
                 Repo::doi()->markStale($staleDoiIds);
             }

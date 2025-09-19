@@ -99,7 +99,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $authors;
                     break;
                 case 'date':
-                    $output[$prop] = $item->getData($prop);
+                    $output[$prop] = date('Y-m-d', strtotime($item->getData($prop)));
                     // This is only used to display in the citations list
                     $dateToDisplay = $item->getData($prop);
                     if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateToDisplay)) {

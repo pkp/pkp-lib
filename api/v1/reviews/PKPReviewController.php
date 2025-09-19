@@ -181,7 +181,7 @@ class PKPReviewController extends PKPBaseController
         }
 
         $publicationAbstract = $publication->getData('abstract');
-        $publicationKeywords = $publication->getData('keywords');
+        $publicationKeywords = array_map(fn($items) => array_column($items, 'name'), (array) $publication->getData('keywords'));
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {

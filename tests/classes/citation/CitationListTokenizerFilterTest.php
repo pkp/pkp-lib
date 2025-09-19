@@ -3,22 +3,22 @@
 /**
  * @file tests/classes/citation/CitationListTokenizerFilterTest.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CitationListTokenizerFilterTest
  *
  * @ingroup tests_classes_citation
  *
- * @see CitationListTokenizerFilter
+ * @see \PKP\citation\filter\CitationListTokenizerFilter
  *
  * @brief Test class for CitationListTokenizerFilter.
  */
 
 namespace PKP\tests\classes\citation;
 
-use PKP\citation\CitationListTokenizerFilter;
+use PKP\citation\filter\CitationListTokenizerFilter;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 

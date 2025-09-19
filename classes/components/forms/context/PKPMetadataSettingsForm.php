@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file classes/components/form/context/PKPMetadataSettingsForm.php
  *
@@ -189,6 +190,17 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => Context::METADATA_REQUIRE, 'label' => __('manager.setup.metadata.citations.require')],
                 ],
                 'value' => $context->getData('citations') ? $context->getData('citations') : Context::METADATA_DISABLE,
+            ]))
+            ->addField(new FieldOptions('citationsMetadataLookup', [
+                'label' => __('submission.citations.structured.citationsMetadataLookup'),
+                'options' => [
+                    [
+                        'value' => 'true',
+                        'label' => __('manager.setup.metadata.citationsMetadataLookup.enable')
+                    ]
+                ],
+                'value' => (bool)$context->getData('citationsMetadataLookup'),
+                'showWhen' => 'citations'
             ]))
             ->addField(new FieldMetadataSetting('dataAvailability', [
                 'label' => __('submission.dataAvailability'),

@@ -3,8 +3,8 @@
 /**
  * @file pages/dashboard/DashboardHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DashboardHandler
@@ -22,6 +22,8 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\enums\VersionStage;
 use APP\template\TemplateManager;
+use PKP\components\forms\citation\CitationRawEditForm;
+use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
 use PKP\components\forms\publication\VersionForm;
@@ -169,6 +171,8 @@ abstract class PKPDashboardHandler extends Handler
         }
 
         $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
+        $citationStructuredEditForm = new CitationStructuredEditForm('emit', null);
+        $citationRawEditForm = new CitationRawEditForm('emit', null);
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -187,6 +191,8 @@ abstract class PKPDashboardHandler extends Handler
                     'contributorForm' => $contributorForm->getConfig(),
                     'logResponseForm' => $logResponseForm->getConfig(),
                     'versionStageOptions' => $versionStageOptions,
+                    'citationStructuredEditForm' => $citationStructuredEditForm->getConfig(),
+                    'citationRawEditForm' => $citationRawEditForm->getConfig()
                 ],
             ]
         ]);

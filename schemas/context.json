@@ -92,6 +92,13 @@
 				"in:0,enable,request,require"
 			]
 		},
+        "citationsMetadataLookup": {
+            "type": "boolean",
+            "description": "Enable metadata lookup by default for new submissions.",
+            "validation": [
+                "nullable"
+            ]
+        },
 		"competingInterests": {
 			"type": "string",
 			"multilingual": true,

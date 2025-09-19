@@ -26,15 +26,20 @@ class FieldAuthors extends Field
 
     /**
      * Primary language
-     * Filled in components/ListPanel/ContributorsListPanel.vue
+     * Filled in components/ListPanel/contributors/ContributorsListPanel.vue
      */
     public string $primaryLocale = '';
 
     /**
      * Supported locales for forms
-     * Filled in components/ListPanel/ContributorsListPanel.vue
+     * Filled in components/ListPanel/contributors/ContributorsListPanel.vue
      */
     public array $supportedFormLocales = [];
+
+    /**
+     * This value overrides the common.add button text if given.
+     */
+    private string $addButtonLabel = '';
 
     /**
      * @copydoc Field::getConfig()

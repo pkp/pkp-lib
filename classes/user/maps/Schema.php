@@ -14,7 +14,6 @@
 
 namespace PKP\user\maps;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
@@ -36,18 +35,14 @@ class Schema extends \PKP\core\maps\Schema
 
     public string $schema = PKPSchemaService::SCHEMA_USER;
 
-    // page scoped cache to check if current user manage all contexts of target user
-    private array $managesAllMap = [];
-    private ?int $currentUserId = null;
-
     /**
-     * Map a publication
+     * Map a user
      *
      * Includes all properties in the user schema.
      */
-    public function map(User $item): array
+    public function map(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties($this->getProps(), $item);
+        return $this->mapByProperties($this->getProps(), $item, $auxiliaryData);
     }
 
     /**
@@ -55,9 +50,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the user schema.
      */
-    public function summarize(User $item): array
+    public function summarize(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item);
+        return $this->mapByProperties($this->getSummaryProps(), $item, $auxiliaryData);
     }
 
     /**
@@ -67,7 +62,16 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function summarizeReviewer(User $item, array $auxiliaryData = []): array
     {
-        return $this->mapByProperties(array_merge($this->getSummaryProps(), ['reviewsActive', 'reviewsCompleted', 'reviewsDeclined', 'reviewsCancelled', 'averageReviewCompletionDays', 'dateLastReviewAssignment', 'reviewerRating']), $item, $auxiliaryData);
+        return $this->mapByProperties($this->getReviewerSummaryProps(), $item, $auxiliaryData);
+    }
+
+    /**
+     * Map a collection of users with optional context
+     * @see self::map
+     */
+    public function mapManyWithOptions(Enumerable $collection, array $options = []): Enumerable
+    {
+        return $this->mapUsersWithPermissions($collection, $this->getProps(), $options);
     }
 
     /**
@@ -77,7 +81,18 @@ class Schema extends \PKP\core\maps\Schema
      */
     public function mapMany(Enumerable $collection): Enumerable
     {
-        return $this->mapCollectionWithPermissionCheck($collection, fn ($item) => $this->map($item));
+        return $this->mapUsersWithPermissions($collection, $this->getProps(), []);
+    }
+
+    /**
+     * Get the list of properties used for reviewer summaries
+     */
+    private function getReviewerSummaryProps(): array
+    {
+        return array_merge($this->getSummaryProps(), [
+            'reviewsActive','reviewsCompleted','reviewsDeclined','reviewsCancelled',
+            'averageReviewCompletionDays','dateLastReviewAssignment','reviewerRating',
+        ]);
     }
 
     /**
@@ -85,9 +100,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      */
-    public function summarizeMany(Enumerable $collection): Enumerable
+    public function summarizeMany(Enumerable $collection, array $options = []): Enumerable
     {
-        return $this->mapCollectionWithPermissionCheck($collection, fn ($item) => $this->summarize($item));
+        return $this->mapUsersWithPermissions($collection, $this->getSummaryProps(), $options);
     }
 
     /**
@@ -95,85 +110,57 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarizeReviewer
      */
-    public function summarizeManyReviewers(Enumerable $collection): Enumerable
+    public function summarizeManyReviewers(Enumerable $collection, array $options = []): Enumerable
     {
-        return $this->mapCollectionWithPermissionCheck($collection, fn ($item) => $this->summarizeReviewer($item));
-    }
-
-    // single entry point used by all "list of users" methods above
-    private function mapCollectionWithPermissionCheck(Enumerable $collection, callable $perItem): Enumerable
-    {
-        $this->collection = $collection;
-        $this->loadUserContextPermissions($collection); // one batched query per page
-        return $collection->map($perItem);
-    }
-
-    // compute the page wide coverage map
-    private function loadUserContextPermissions(Enumerable $collection): void
-    {
-        $request = Application::get()->getRequest();
-        $currentUser = $request?->getUser();
-        $this->currentUserId = $currentUser?->getId();
-
-        $ids = $collection->map(fn ($u) => (int) $u->getId())->unique()->values()->all();
-
-        if (empty($ids)) {
-            $this->managesAllMap = [];
-            return;
-        }
-
-        // if not logged in then no permissions
-        if (!$this->currentUserId) {
-            $this->managesAllMap = array_fill_keys($ids, false);
-            return;
-        }
-
-        // site admin bypass
-        if (Validation::isSiteAdmin()) {
-            $this->managesAllMap = array_fill_keys($ids, true);
-            return;
-        }
-
-        // compute results for this page
-        $this->buildUserContextManagementMap($this->currentUserId, $ids);
-    }
-
-    // ensure cache has entries for ad hoc lookups
-    private function loadUserContextMap(array $targetIds): void
-    {
-        $targetIds = array_values(array_unique(array_map('intval', $targetIds)));
-        if (!$this->currentUserId || empty($targetIds)) {
-            return;
-        }
-
-        // if admin then all targets are true
-        if (Validation::isSiteAdmin()) {
-            foreach ($targetIds as $tid) {
-                $this->managesAllMap[$tid] = true;
-            }
-            return;
-        }
-
-        $known = array_keys($this->managesAllMap);
-        $missing = array_values(array_diff($targetIds, $known));
-        if (!empty($missing)) {
-            $this->buildUserContextManagementMap($this->currentUserId, $missing);
-        }
+        return $this->mapUsersWithPermissions($collection, $this->getReviewerSummaryProps(), $options);
     }
 
     /**
-     * extend $this->managesAllMap for the given manager and target ids
+     * Shared implementation for mapping/summarizing collections
      */
-    private function buildUserContextManagementMap(int $managerId, array $targetIds): void
+    private function mapUsersWithPermissions(Enumerable $collection, array $props, array $options): Enumerable
     {
-        if (empty($targetIds)) {
-            return;
+        // handles lazy collection
+        $users = collect($collection->all());
+
+        $this->collection = $users;
+
+        $userIds = $users
+            ->map(fn (User $u) => (int) $u->getId())
+            ->unique()
+            ->values()
+            ->all();
+
+        $currentUserId = $options['currentUserId'] ?? null;
+        $isSiteAdmin   = (bool)($options['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        $options['isSiteAdmin'] = $isSiteAdmin;
+
+        if (empty($userIds)) {
+            $options['permissionMap'] = [];
+        } elseif ($isSiteAdmin) {
+            $options['permissionMap'] = array_fill_keys($userIds, true);
+        } elseif ($currentUserId !== null) {
+            $options['permissionMap'] = $this->buildUserContextManagementMap((int)$currentUserId, $userIds);
+        } else {
+            $options['permissionMap'] = array_fill_keys($userIds, false);
+        }
+
+        return $users->map(fn (User $u) => $this->mapByProperties($props, $u, $options));
+    }
+
+
+    /**
+     * build a permission map for a manager over a set of users
+     */
+    private function buildUserContextManagementMap(int $managerUserId, array $managedUserIds): array
+    {
+        if (empty($managedUserIds)) {
+            return [];
         }
 
         $rows = DB::table('users as u')
             ->select('u.user_id')
             ->selectRaw(
-                // does target have any context the manager doesn't manage?
                 'CASE WHEN EXISTS (
                     SELECT 1
                     FROM user_user_groups uug_t
@@ -189,14 +176,17 @@ class Schema extends \PKP\core\maps\Schema
                       )
                 )
                 THEN 0 ELSE 1 END AS manages_all',
-                [ (int) Role::ROLE_ID_MANAGER, (int) $managerId ]
+                [ (int) Role::ROLE_ID_MANAGER, (int) $managerUserId ]
             )
-            ->whereIn('u.user_id', array_map('intval', $targetIds))
+            ->whereIn('u.user_id', array_map(intval(...), $managedUserIds))
             ->get();
 
-        foreach ($rows as $r) {
-            $this->managesAllMap[(int) $r->user_id] = ((int) $r->manages_all) === 1;
+        $permissionMap = array_fill_keys(array_map(intval(...), $managedUserIds), false);
+
+        foreach ($rows as $row) {
+            $permissionMap[(int) $row->user_id] = (bool) ((int) $row->manages_all);
         }
+        return $permissionMap;
     }
 
     /**
@@ -224,10 +214,10 @@ class Schema extends \PKP\core\maps\Schema
                     }
                     break;
                 case 'canLoginAs':
-                    $output[$prop] = $this->getPropertyCanLoginAs($user);
+                    $output[$prop] = $this->getPropertyCanLoginAs($user, $auxiliaryData);
                     break;
                 case 'canMergeUsers':
-                    $output[$prop] = $this->getPropertyCanMergeUsers($user);
+                    $output[$prop] = $this->getPropertyCanMergeUsers($user, $auxiliaryData);
                     break;
                 case 'reviewsActive':
                     $output[$prop] = $user->getData('incompleteCount');
@@ -381,52 +371,43 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Decide if the current user can "log in as" the target user
      */
-    protected function getPropertyCanLoginAs(User $targetUser): bool
+    protected function getPropertyCanLoginAs(User $userToLoginAs, array $auxiliaryData = []): bool
     {
-        $request = Application::get()->getRequest();
-        $currentUser = $request->getUser();
-        if (!$currentUser) {
-            return false; // Not logged in
-        }
-
-        // Prevent logging in as self
-        if ($currentUser->getId() === $targetUser->getId()) {
+        $currentUserId = $auxiliaryData['currentUserId'] ?? null;
+        if ($currentUserId === null || $currentUserId === (int)$userToLoginAs->getId()) {
             return false;
         }
 
-        // site admin bypass
-        if (Validation::isSiteAdmin()) {
+        $isSiteAdmin = (bool)($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        if ($isSiteAdmin) {
             return true;
         }
 
-        // ensure if cache is populated for this target
-        if ($this->currentUserId !== (int) $currentUser->getId()) {
-            $this->currentUserId = (int) $currentUser->getId();
-        }
-        $this->loadUserContextMap([(int) $targetUser->getId()]);
+        $permissionMap = $auxiliaryData['permissionMap']
+            ?? $this->buildUserContextManagementMap($currentUserId, [(int)$userToLoginAs->getId()]);
 
-        return $this->managesAllMap[(int) $targetUser->getId()] ?? false;
+        return (bool)($permissionMap[(int)$userToLoginAs->getId()] ?? false);
     }
 
     /**
      * Determine if the current user can merge the target user
      */
-    protected function getPropertyCanMergeUsers(User $targetUser): bool
+    protected function getPropertyCanMergeUsers(User $userToMerge, array $auxiliaryData = []): bool
     {
-        $request = Application::get()->getRequest();
-        $currentUser = $request->getUser();
-
-        // ensure a user is logged in
-        if (!$currentUser) {
+        $currentUserId = $auxiliaryData['currentUserId'] ?? null;
+        if ($currentUserId === null || $currentUserId === (int)$userToMerge->getId()) {
             return false;
         }
 
-        // prevent merging oneself
-        if ($currentUser->getId() === $targetUser->getId()) {
-            return false;
+        $isSiteAdmin = (bool)($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        if ($isSiteAdmin) {
+            return true;
         }
 
-        // keep behaviour strict to site admins only
-        return Validation::isSiteAdmin();
+        // allow merge if the manager manages all of that context.
+        $permissionMap = $auxiliaryData['permissionMap']
+            ?? $this->buildUserContextManagementMap($currentUserId, [(int)$userToMerge->getId()]);
+
+        return (bool)($permissionMap[(int)$userToMerge->getId()] ?? false);
     }
 }

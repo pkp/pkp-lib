@@ -41,8 +41,6 @@ class PKPSchemaService
     public const SCHEMA_HIGHLIGHT = 'highlight';
     public const SCHEMA_INSTITUTION = 'institution';
     public const SCHEMA_ISSUE = 'issue';
-    public const SCHEMA_NAVIGATION_MENU = 'navigationMenu';
-    public const SCHEMA_NAVIGATION_MENU_ITEM = 'navigationMenuItem';
     public const SCHEMA_PUBLICATION = 'publication';
     public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';
     public const SCHEMA_REVIEW_ROUND = 'reviewRound';

@@ -21,8 +21,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\navigations\resources\NavigationResource;
 use PKP\core\PKPBaseController;
-use APP\facades\Repo;
+use PKP\navigationMenu\models\NavigationMenu;
 
 class PKPNavigationController extends PKPBaseController
 {
@@ -55,9 +56,9 @@ class PKPNavigationController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('{navigationId}/public', $this->getPublic(...))
+        Route::get('{areaName}/public', $this->getPublic(...))
             ->name('navigation.get')
-            ->whereNumber('navigationId');
+            ->where('areaName', '[0-9]+|[a-zA-Z0-9\-_]+');
     }
 
     /**
@@ -65,11 +66,8 @@ class PKPNavigationController extends PKPBaseController
      */
     public function getPublic(Request $illuminateRequest): JsonResponse
     {
-        $navigationId = (int) $illuminateRequest->route('navigationId');
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $contextId = $context->getId();
-        $navigationMenu = Repo::navigationMenu()->get($navigationId, $contextId);
+        $navigationMenu = NavigationMenu::where('area_name', $illuminateRequest->route('areaName'))
+            ->where('context_id', $this->getRequest()->getContext()->getId())->first();
 
         if (!$navigationMenu) {
             return response()->json([
@@ -77,12 +75,10 @@ class PKPNavigationController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $mappedNavigation = Repo::navigationMenu()->getSchemaMap()->map(
-            $navigationMenu,
-            isPublic: true,
+        return response()->json(
+            (new NavigationResource($navigationMenu))->toArray($illuminateRequest),
+            Response::HTTP_OK
         );
-
-        return response()->json($mappedNavigation, Response::HTTP_OK);
     }
 
 }

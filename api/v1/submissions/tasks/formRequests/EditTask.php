@@ -13,7 +13,7 @@
  *
  */
 
-namespace PKP\API\v1\submissions\formRequests;
+namespace PKP\API\v1\submissions\tasks\formRequests;
 
 use APP\core\Application;
 use APP\facades\Repo;

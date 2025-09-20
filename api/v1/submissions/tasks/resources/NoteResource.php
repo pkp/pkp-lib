@@ -13,7 +13,7 @@
  *
  */
 
-namespace PKP\API\v1\submissions\resources;
+namespace PKP\API\v1\submissions\tasks\resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;

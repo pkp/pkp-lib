@@ -226,7 +226,7 @@ class EditorialTaskController extends PKPBaseController
                         $direction = $illuminateRequest->query('orderDirection') === EditorialTask::ORDER_DIR_DESC
                             ? EditorialTask::ORDER_DIR_DESC
                             : EditorialTask::ORDER_DIR_ASC;
-                        $collector->orderBy($val, $direction);
+                        $collector->orderByDate($val, $direction);
                     }
                     break;
             }

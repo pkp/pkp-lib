@@ -191,7 +191,7 @@ class EditorialTask extends Model
      *
      * @throws Exception
      */
-    public function scopeOrderBy(Builder $query, string $orderBy, string $direction = self::ORDER_DIR_ASC): Builder
+    public function scopeOrderByDate(Builder $query, string $orderBy, string $direction = self::ORDER_DIR_ASC): Builder
     {
         return match ($orderBy) {
             self::ORDERBY_DATE_CREATED => $query->orderBy('created_at', $direction),

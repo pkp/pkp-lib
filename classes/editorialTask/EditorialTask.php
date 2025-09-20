@@ -15,6 +15,7 @@
 namespace PKP\editorialTask;
 
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -177,13 +178,9 @@ class EditorialTask extends Model
     /**
      * Scope a query to only include queries with a specific closed status.
      */
-    public function scopeWithOpen(Builder $query, bool $isOpen): Builder
+    public function scopeWithOpen(Builder $query): Builder
     {
-        if (!$isOpen) {
-            return $query;
-        }
-
-        return $query->whereNotNull('date_closed');
+        return $query->whereNull('date_closed');
     }
 
     /**
@@ -191,6 +188,8 @@ class EditorialTask extends Model
      *
      * @param string $orderBy One of the ORDERBY_* constants.
      * @param string $direction One of the ORDER_DIR_* constants.
+     *
+     * @throws Exception
      */
     public function scopeOrderBy(Builder $query, string $orderBy, string $direction = self::ORDER_DIR_ASC): Builder
     {
@@ -198,7 +197,7 @@ class EditorialTask extends Model
             self::ORDERBY_DATE_CREATED => $query->orderBy('created_at', $direction),
             self::ORDERBY_DATE_STARTED => $query->orderBy('date_started', $direction),
             self::ORDERBY_DATE_DUE => $query->orderBy('date_due', $direction),
-            default => $query,
+            default => throw new Exception('Invalid order by option, please use one of the EditorialTask::ORDERBY_* constants.'),
         };
     }
 
@@ -251,7 +250,7 @@ class EditorialTask extends Model
                     ->all();
                 return Repo::user()->getCollector()->filterByUserIds($userIds)->getMany();
             },
-        );
+        )->shouldCache();
     }
 
     /**

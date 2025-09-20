@@ -258,7 +258,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('created_by')->nullable()->default(null);
             $table->foreign('created_by')->references('user_id')->on('users');
             $table->bigInteger('started_by')->nullable()->default(null);
-            $table->foreign('started_by')->references('user_id')->on('users')->cascadeOnDelete();
+            $table->foreign('started_by')->references('user_id')->on('users');
             $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
             $table->dateTime('date_started')->nullable();
             $table->dateTime('date_closed')->nullable();

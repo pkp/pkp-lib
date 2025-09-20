@@ -215,7 +215,7 @@ class EditorialTaskController extends PKPBaseController
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'isOpen':
-                    $collector = $collector->withOpen((bool) $val);
+                    $collector = $collector->withOpen();
                     break;
                 case 'orderBy':
                     if (in_array($val, [

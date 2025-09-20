@@ -17,7 +17,6 @@ namespace PKP\API\v1\submissions\tasks\resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;
-use PKP\user\User;
 
 class NoteResource extends JsonResource
 {
@@ -25,10 +24,6 @@ class NoteResource extends JsonResource
 
     public function toArray($request)
     {
-        [$users] = $this->getData('users');
-
-        $user = $users->get($this->user_id); /** @var User $userId */
-
         return [
             'id' => $this->id,
             'userId' => $this->userId,

@@ -2091,6 +2091,24 @@ msgstr "You must assign at least one participant to this submission before initi
 msgid "submission.query.allowedEditTime"
 msgstr "You can update this discussion for {$allowedEditTimeNoticeLimit} minutes."
 
+msgid "submission.task.validation.error.participant.responsible"
+msgstr "There should be one user responsible for the task."
+
+msgid "submission.task.validation.error.reviewer.anonymous"
+msgstr "Cannot disclose the identity of reviewers in the task/discussion."
+
+msgid "submission.task.validation.error.review.anonymous"
+msgstr "Cannot allow participation of authors together with reviewers in a task/discussion during anonymous reviews."
+
+msgid "submission.task.validation.error.participant.required"
+msgstr "At least one participant is required for a task."
+
+msgid "submission.task.validation.error.participants.required"
+msgstr "At least two participants are required for a discussion."
+
+msgid "submission.task.validation.error.assignment.required"
+msgstr "Participant must be assigned to the submission in the current stage or be a reviewer."
+
 msgid "submission.list.changeSubmissionLanguage.currentLanguage"
 msgstr "Current Submission Language:"
 

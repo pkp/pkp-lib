@@ -1,13 +1,14 @@
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-09 13:00+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-09-21 15:21+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
 "Language: nl\n"
@@ -818,14 +819,12 @@ msgstr ""
 "wilt verkrijgen. Indien geactiveerd, zult u de IP-configuraties voor iedere "
 "instelling moeten configureren, die u wilt volgen."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Activeer instellingsstatistieken"
+msgstr "Activeer instellingsgegevens"
 
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Openbare API (Application Programming Interface)"
 
-#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 "Wel of geen beperkte toegang tot de API- apparaten of URL's voor COUNTER "
@@ -1197,13 +1196,12 @@ msgstr "Datum & Tijd"
 msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "Datum- en tijdformulieren"
 
-#, fuzzy
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"Kies het verkozen format voor datums en tijden. Een aangepast formulier kan "
-"worden aangemaakt met behulp van de speciale \n"
+"Kies het voorkeursformulier voor datums en tijden. Een aangepast formulier "
+"kan worden aangemaakt met behulp van de speciale\n"
 "<a href=\"https://www.php.net/manual/en/datetime.format.php#refsect1-datetime"
-".format-parameters\">format characters</a>."
+".format-parameters\">formulier tekens</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Datum"
@@ -1697,7 +1695,6 @@ msgstr "Taal {$locale} vernieuwd."
 msgid "notification.localeSettingsSaved"
 msgstr "Taalinstellingen zijn bewaard."
 
-#, fuzzy
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
 "De taalinstelling kan niet worden bewaard. Ten minste één taal per optie "
@@ -3716,8 +3713,9 @@ msgstr ""
 "Verplicht auteurs een verklaring omtrent strijdige belangen in te dienen met "
 "hun inzending."
 
+#, fuzzy
 msgid "manager.setup.masthead"
-msgstr "Impressum"
+msgstr "Colofon"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Valideer XML alvorens te exporteren en registreren."
@@ -3837,9 +3835,8 @@ msgstr "Graag de bovenliggende informatie bijvoegen"
 msgid "manager.statistics.counterR5Report.settings.wrongItemId"
 msgstr "De inzendings-ID bestaat niet."
 
-#, fuzzy
 msgid "manager.statistics.counterR5Report.settings.attributesToShow"
-msgstr "Draagt bij aan de verschijning"
+msgstr "Draagt bij aan de presentatie"
 
 msgid "manager.statistics.counterR5Report.settings.yop"
 msgstr "Publicatiejaar"
@@ -3866,7 +3863,6 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reminders.min.label"
 msgstr "Geen"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.disbale.label"
 msgstr "Geen herinneringsinstelling"
 
@@ -3882,10 +3878,10 @@ msgstr "Suggestie van de recensent ten aanzien van de inzending"
 #, fuzzy
 msgid "manager.setup.reviewOptions.reminders.description"
 msgstr ""
-"Verstuur een herinneringsmail voor of na beantwoording van het "
-"recensieverzoek tot recensering (indien de recensent nog niet heeft "
-"geantwoord op het recensieverzoek) dan wel tot de recensering van de "
-"inzending (indien de reviewer nog geen recensie heeft gegeven"
+"Verstuur een herinneringsemail voor of na beantwoording van het verzoek om "
+"recensie (indien de recensent nog niet heeft geantwoord op het verzoek), of "
+"om beoordeling van de inzending (indien de recensent nog geen beoordeling "
+"heeft gegeven)"
 
 msgid "manager.setup.reviewOptions.reminders.response.before"
 msgstr "Beantwoording van het recensieverzoek - voor de uiterste datum"
@@ -3920,18 +3916,17 @@ msgstr ""
 "Stel de auteurs in de gelegenheid mogelijke recensenten voor te stellen voor "
 "het inzendingsproces"
 
-#, fuzzy
 msgid "notification.defaultLocaleSettingsCannotBeSaved"
 msgstr ""
-"De taalinstelling kan niet worden bewaard. Alle opties behoren te worden "
-"ingeschakeld."
+"De taalinstelling kan niet worden bewaard. Het is nodig alle opties worden "
+"aangezet."
 
 msgid "notification.submissionLocales"
 msgstr "Geupdatete taal- en/of landinstellingen."
 
 #, fuzzy
 msgid "settings.roles.masthead"
-msgstr "Overweeg een rol in de lijst met titels"
+msgstr "Overweeg een rol op te nemen in het colofon"
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Geïinstalleerde versie: {$version}"
@@ -3949,8 +3944,8 @@ msgstr "Laat wijzigingen in Instellingen toe"
 #, fuzzy
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
-"Stel de volgorde van de redactionele rollen m.b.t. de titels vast voor een "
-"openbare weergave."
+"Stel de volgorde van de redactionele rollen vast m.b.t. de titels vast voor "
+"een open publicatie."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""
@@ -3983,15 +3978,15 @@ msgstr "Het menutitel item is vereist."
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Uitnodiging tot wijziging van het e-mailadres"
 
-#, fuzzy
 msgid "manager.setup.editorialMasthead.order.description"
 msgstr ""
-"Beschrijf de volgorde van de belangrijkste rollen met betrekking tot "
-"publicering"
+"Beschrijf de volgorde van de belangrijkste redactionele rollen voor open "
+"publicatie."
 
+#, fuzzy
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr ""
-"De recensenten zullen worden weergegeven in een gestandaardiseerd format, "
+"De recensenten zullen worden weergegeven in een gestandaardiseerd formulier, "
 "ter behoud van de eenheid en ter verzekering van een gemakkelijke "
 "vindbaarheid in dit gedeelte."
 

@@ -89,6 +89,29 @@ abstract class Repository
         return $this->dao->get($id, $submissionId);
     }
 
+    /**
+     * Get a publication by version for a submission
+     *
+     * @param Submission $submission The submission to search within
+     * @param int $versionMajor The major version number
+     * @param int $versionMinor The minor version number
+     *
+     * @return Publication|null The publication if found, null otherwise
+     */
+    public function getByVersion(Submission $submission, int $versionMajor, int $versionMinor): ?Publication
+    {
+        return $this->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->getMany()
+            ->filter(function (Publication $publication) use ($versionMajor, $versionMinor) {
+                $version = $publication->getVersion();
+                return $version &&
+                       $version->majorNumbering === $versionMajor &&
+                       $version->minorNumbering === $versionMinor;
+            })
+            ->first();
+    }
+
     /** @copydoc DAO::getCollector() */
     public function getCollector(): Collector
     {

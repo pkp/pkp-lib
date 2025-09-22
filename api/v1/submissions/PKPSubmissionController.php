@@ -161,6 +161,7 @@ class PKPSubmissionController extends PKPBaseController
     public array $publicAccessRoutes = [
         'getPublic',
         'getPublicationPublic',
+        'getPublicationByVersionPublic'
     ];
 
     /**
@@ -412,6 +413,10 @@ class PKPSubmissionController extends PKPBaseController
         Route::get('{submissionId}/publications/{publicationId}/public', $this->getPublicationPublic(...))
             ->name('submission.publication.public/get')
             ->whereNumber(['submissionId', 'publicationId']);
+
+        Route::get('{submissionId}/version/{versionMajor}/{versionMinor}/public', $this->getPublicationByVersionPublic(...))
+            ->name('submission.publication.version.public/get')
+            ->whereNumber(['submissionId', 'versionMajor', 'versionMinor']);
     }
 
     /**
@@ -656,6 +661,35 @@ class PKPSubmissionController extends PKPBaseController
             ),
             Response::HTTP_OK
         );
+    }
+
+    public function getPublicationByVersionPublic(Request $illuminateRequest): JsonResponse
+    {
+        $submissionId = (int) $illuminateRequest->route('submissionId');
+        $versionMajor = (int) $illuminateRequest->route('versionMajor');
+        $versionMinor = (int) $illuminateRequest->route('versionMinor');
+        $submission = Repo::submission()->get($submissionId);
+        $publication = Repo::publication()->getByVersion($submission, $versionMajor, $versionMinor);
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
+
+        return response()->json(
+            Repo::publication()->getSchemaMap($submission, collect(), [])->map(
+                $publication,
+                isPublic: true,
+            ),
+            Response::HTTP_OK
+        );
+
+//        Route::get('{submissionId}/publications/{versionMajor}/{versionMinor}/public', $this->getPublicationByVersionPublic(...))
+
+
     }
 
     /**

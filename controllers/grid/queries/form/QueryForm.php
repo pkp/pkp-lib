@@ -539,7 +539,6 @@ class QueryForm extends Form
         $task = $this->getQuery();
 
         $headNote = Repo::note()->getHeadNote($task->id);
-        $headNote->title = $this->getData('subject');
         $headNote->contents = $this->getData('comment');
         $headNote->save();
 
@@ -547,7 +546,8 @@ class QueryForm extends Form
         $oldParticipantIds = $task->participants()->get()->pluck('userId')->all();
         $newParticipantIds = $this->getData('users');
         $task->fill([
-            'participants' => array_map(fn (int $participantId) => ['userId' => $participantId], $newParticipantIds)
+            'participants' => array_map(fn (int $participantId) => ['userId' => $participantId], $newParticipantIds),
+            'title' => $this->getData('subject'),
         ]);
         $task->save();
 

@@ -96,13 +96,12 @@ class Repository
             'createdBy' => $fromUser->getId(),
             'type' => EditorialTaskType::DISCUSSION->value,
             EditorialTask::ATTRIBUTE_PARTICIPANTS => array_map(fn (int $participantId) => ['userId' => $participantId], array_unique($participantUserIds)),
+            'title' => $title,
         ]);
-
 
         Note::create([
             'assocType' => Application::ASSOC_TYPE_QUERY,
             'assocId' => $task->id,
-            'title' => $title,
             'contents' => $content,
             'userId' => $fromUser->getId(),
         ]);

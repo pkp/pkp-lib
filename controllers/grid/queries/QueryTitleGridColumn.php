@@ -16,7 +16,6 @@
 
 namespace PKP\controllers\grid\queries;
 
-use APP\facades\Repo;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -78,7 +77,6 @@ class QueryTitleGridColumn extends GridColumn
     {
         // Retrieve the submission file.
         $query = $row->getData();
-        $headNote = Repo::note()->getHeadNote($query->id);
 
         // Create the cell action to download a file.
         $router = $request->getRouter();
@@ -94,9 +92,9 @@ class QueryTitleGridColumn extends GridColumn
                     'readQuery',
                     new AjaxModal(
                         $router->url($request, null, null, 'readQuery', null, $actionArgs),
-                        $headNote ? $headNote->title : '—',
+                        $query->title ?? '—',
                     ),
-                    ($headNote?->title != '') ? htmlspecialchars($headNote->title) : '&mdash;',
+                    ($query?->title != '') ? htmlspecialchars($query->title) : '&mdash;',
                     null
                 )
             ]

@@ -13,7 +13,7 @@
  *
  */
 
-namespace PKP\API\v1\submissions\formRequests;
+namespace PKP\API\v1\submissions\tasks\formRequests;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -48,6 +48,7 @@ class AddTask extends EditTask
             'createdBy' => Application::get()->getRequest()?->getUser()?->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $this->route('submissionId'),
+            'description' => $this->input('description', ''),
         ]);
     }
 

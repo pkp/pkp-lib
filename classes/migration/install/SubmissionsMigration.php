@@ -14,11 +14,11 @@
 
 namespace PKP\migration\install;
 
+use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use APP\core\Application;
 use PKP\core\Core;
 use PKP\submission\PKPSubmission;
 
@@ -257,6 +257,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->dateTime('date_due')->nullable();
             $table->bigInteger('created_by')->nullable()->default(null);
             $table->foreign('created_by')->references('user_id')->on('users');
+            $table->bigInteger('started_by')->nullable()->default(null);
+            $table->foreign('started_by')->references('user_id')->on('users');
             $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
             $table->dateTime('date_started')->nullable();
             $table->dateTime('date_closed')->nullable();

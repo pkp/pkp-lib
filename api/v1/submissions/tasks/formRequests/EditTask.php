@@ -13,7 +13,7 @@
  *
  */
 
-namespace PKP\API\v1\submissions\formRequests;
+namespace PKP\API\v1\submissions\tasks\formRequests;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -73,13 +73,20 @@ class EditTask extends FormRequest
                 Rule::date()->format('Y-m-d'),
                 'after:today',
             ],
+            EditorialTask::ATTRIBUTE_HEADNOTE => ['sometimes', 'string'],
             EditorialTask::ATTRIBUTE_PARTICIPANTS => [
                 'required',
                 'array',
+                // Check responsible participant for the task completion
                 function (string $attribute, array $value, Closure $fail) {
+                    // No need to check responsible for discussions
+                    if ($this->input('type') == EditorialTaskType::DISCUSSION->value) {
+                        return true;
+                    }
+
                     $responsibles = array_filter(Arr::pluck($this->input('participants'), 'isResponsible'));
-                    if (count($responsibles) > 1) {
-                        return $fail('There should be the only one user responsible for the task');
+                    if (count($responsibles) != 1) {
+                        return $fail(__('submission.task.validation.error.participant.responsible'));
                     }
 
                     return true;
@@ -126,7 +133,7 @@ class EditTask extends FormRequest
 
                     // Don't disclose anonymous reviewer to other reviewers
                     if (count($blindedReviewerIds) > 1 && !empty($nonBlindedReviewerIds)) {
-                        return $fail('Cannot disclose the identity of reviewers in the task/discussion.');
+                        return $fail(__('submission.task.validation.error.reviewer.anonymous'));
                     }
 
                     foreach ($this->stageAssignments as $stageAssignment) {
@@ -139,18 +146,18 @@ class EditTask extends FormRequest
                         }
 
                         // Shouldn't allow participation of authors if there are blinded reviewers
-                        $fail('Cannot allow participation of authors together with reviewers in a task/discussion during anonymous reviews.');
+                        $fail(__('submission.task.validation.error.review.anonymous'));
                     }
 
                     return true;
                 },
                 function (string $attribute, array $value, Closure $fail) {
                     if ($this->input('type') == EditorialTaskType::TASK->value && count($value) < 1) {
-                        $fail('At least one participant is required for a task.');
+                        $fail(__('submission.task.validation.error.participant.required'));
                     }
 
                     if ($this->input('type') == EditorialTaskType::DISCUSSION->value && count($value) < 2) {
-                        $fail('At least two participants are required for a discussion.');
+                        $fail(__('submission.task.validation.error.participants.required'));
                     }
                 }
             ],
@@ -192,7 +199,7 @@ class EditTask extends FormRequest
                     }
 
                     if (!($isAssigned || $isReviewer)) {
-                        return $fail('Participant must be assigned to the submission in the current stage or be a reviewer.');
+                        return $fail(__('submission.task.validation.error.assignment.required'));
                     }
 
                     return true;

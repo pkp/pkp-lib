@@ -51,7 +51,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __('submission.query.new', [
                     'creatorName' => $user->getFullName(),
                     'noteContents' => Str::limit(PKPString::html2text($headNote->contents), 200),
-                    'noteTitle' => Str::limit($headNote->title, 200),
+                    'noteTitle' => Str::limit($query->title, 200),
                 ]);
             case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 $latestNote = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->id)
@@ -61,7 +61,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __('submission.query.activity', [
                     'responderName' => $user->getFullName(),
                     'noteContents' => Str::limit(PKPString::html2text($latestNote->contents), 200),
-                    'noteTitle' => Str::limit($headNote->title, 200),
+                    'noteTitle' => Str::limit($query->title, 200),
                 ]);
         }
         throw new \Exception('Unexpected notification type!');

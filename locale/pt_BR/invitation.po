@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-22 21:52+0000\n"
+"PO-Revision-Date: 2025-09-22 22:02+0000\n"
 "Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
@@ -37,7 +37,7 @@ msgid "invitation.header"
 msgstr "Convites"
 
 msgid "invitation.inviteToRole.btn"
-msgstr "Convidar para uma função"
+msgstr "Convidar para um papel"
 
 msgid "invitation.wizard.pageTitle"
 msgstr "Convidar usuário para assumir uma função"
@@ -50,3 +50,63 @@ msgstr "Revisar e convidar para funções"
 
 msgid "invitation.tableHeader.name"
 msgstr "Nome"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Quando um convite tem um e-mail ({$email}) atribuído, esse e-mail não deve "
+"estar em uso por outro usuário."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Um nome de usuário deve ser fornecido"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "O ID de grupo de usuário fornecido {$userGroupId} não existe"
+
+msgid "invitation.validation.required"
+msgstr "O campo {$attribute} é obrigatório."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Propriedades inesperadas encontradas no item no índice {$attribute}: "
+"{$properties}."
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Pesquisar Usuário"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Este atributo deve ter um valor igual ou posterior a hoje"
+
+msgid "userInvitation.searchField.description"
+msgstr "ex. nome@example.com ou nome ou 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Inserir detalhes"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Pesquisar Usuário"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Pesquisar usuário"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Se o usuário não existir, você pode convidá-lo para assumir papéis. Se o "
+"usuário já existir no sistema, você pode visualizar as informações dele e "
+"convidá-lo a assumir papéis adicionais."
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Inserir detalhes e convidar para papéis"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr ""
+"O atributo não tem permissão para ser acessado por usuários não existentes"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Este tipo de convite não tem um destinatário de e-mail definido"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Pode ser uma combinação de letras maiúsculas, letras minúsculas ou números"

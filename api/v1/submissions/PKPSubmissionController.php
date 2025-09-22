@@ -677,8 +677,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
-
         return response()->json(
             Repo::publication()->getSchemaMap($submission, collect(), [])->map(
                 $publication,
@@ -686,9 +684,6 @@ class PKPSubmissionController extends PKPBaseController
             ),
             Response::HTTP_OK
         );
-
-//        Route::get('{submissionId}/publications/{versionMajor}/{versionMinor}/public', $this->getPublicationByVersionPublic(...))
-
 
     }
 

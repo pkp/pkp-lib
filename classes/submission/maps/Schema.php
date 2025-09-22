@@ -125,6 +125,8 @@ class Schema extends \PKP\core\maps\Schema
     {
         $this->userGroups = collect();
         $this->genres = [];
+        $props = $this->getProps(true);
+        unset($props['publications']);
 
         return $this->mapByProperties($this->getProps(true), $item);
     }

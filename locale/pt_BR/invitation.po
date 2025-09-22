@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-22 21:47+0000\n"
+"PO-Revision-Date: 2025-09-22 21:52+0000\n"
 "Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
@@ -29,3 +29,24 @@ msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemove
 msgstr ""
 "Remover funções de usuário não pode ser definido para usuários que não "
 "existem."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Convites."
+
+msgid "invitation.header"
+msgstr "Convites"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Convidar para uma função"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Convidar usuário para assumir uma função"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Insira os detalhes"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Revisar e convidar para funções"
+
+msgid "invitation.tableHeader.name"
+msgstr "Nome"

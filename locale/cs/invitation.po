@@ -1,0 +1,406 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-10 21:04+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/cs/>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Poskytnuté skupiny uživatelů obsahují duplicitní záznamy."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Pokud má pozvánka přiřazeno uživatelské ID ({$userId}), musí odpovídající "
+"uživatel existovat."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Pokud je pozvánka přiřazena k e-mailové adrese ({$email}), tato e-mailová "
+"adresa nesmí být používána jiným uživatelem."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Je třeba zadat uživatelské jméno"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Je třeba zadat heslo"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Je třeba zadat stát"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Je třeba zadat křestní jméno"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Je třeba zadat příjmení"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "U přidaných skupin uživatelů je třeba zadat datum zahájení"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr ""
+"Pro přidané skupiny uživatelů je třeba zadat titulní stránku (úvodní text)"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Tato operace s pozvánkou se nezdařila"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Zadané ID uživatelské skupiny {$userGroupId} neexistuje"
+
+msgid "invitation.validation.required"
+msgstr "Pole {$attribute} je povinné."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "ID {reviewAssignmentId} neodpovídá platnému úkolu k recenzi"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Tuto pozvánku nejde zrušit"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Atribut není povolen pro přístup stávajících uživatelů"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Atribut není povolen pro přístup neexistujících uživatelů"
+
+msgid "invitation.header"
+msgstr "Pozvánky"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Pozvat k roli"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Pozvat uživatele do role"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Hledat uživatele"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} – Zadejte podrobnosti a pozvěte do role"
+
+msgid "invitation.role.dateStart"
+msgstr "Počáteční datum"
+
+msgid "userInvitation.modal.button"
+msgstr "Zobrazit všechny uživatele"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Odebrat roli"
+
+msgid "invitation.email.description"
+msgstr "např. aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Po přijetí pozvánky bude uživatel přesměrován na ORCID, kde si může ověřit "
+"svůj účet, pokud si to přeje."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Pokud znáte křestní jméno uživatele, můžete ho zadat. Tyto informace však "
+"může uživatel změnit."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Pokud znáte příjmení uživatele, můžete ho zadat. Tyto informace však může "
+"uživatel změnit."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Ověřit ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Ověřit ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Uložit a pokračovat"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Vložit podrobnosti"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Vložit podrobnosti"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Uložit a pokračovat"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Přijmout pozvánku – formulář s údaji o uživateli"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Uveďte prosím následující údaje, které nám pomohou spravovat váš účet"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Zkontrolovat a vytvořit účet"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Kontrola a vytvoření účtu"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Přeskočit ověření ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Ověřit ORCID iD"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr ""
+"Je nutné definovat alespoň jednu skupinu uživatelů, kterou chcete přidat"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Uživatelská skupina je přiřazena pozvanému uživateli"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr ""
+"Je nutné definovat alespoň jednu skupinu uživatelů, kterou chcete odstranit"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Odstranění uživatelských rolí nelze definovat pro neexistující uživatele."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Pozvánka nemůže být odeslána, protože jste nedefinovali žádné změny "
+"uživatelské skupiny"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Už existuje uživatel s uživatelským jménem {$username}. Zkuste jiné "
+"uživatelské jméno."
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Je třeba uvést afiliaci"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Pro přidané skupiny uživatelů je třeba zadat id skupiny uživatelů"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Tento typ pozvánky není definována možnost zaslání poštou"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"V položce na indexu {$attribute}: {$properties} byly nalezeny neočekávané "
+"vlastnosti."
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Nelze zadat současně e-mailovou adresu i uživatelské jméno."
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Tento atribut musí mít hodnotu rovnou nebo pozdější než dnešní datum"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Pole :attribute je zakázáno"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Je vyžadována hodnota pro lokalizaci '{$primaryLocale}'"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Vložte podrobnosti"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Vyhledat uživatele"
+
+msgid "userInvitation.searchField.description"
+msgstr "např. aeinstein@example.com nebo aeinstein nebo 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Uložit a pokračovat"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Kontrola a pozvánka do role"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Upravit e-mail sdílený s uživatelem"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Uložit a pokračovat"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Může se jednat o kombinaci velkých písmen, malých písmen nebo čísel"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Recenze a pozvánka do role"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Vložit podrobnosti"
+
+msgid "invitation.role.selectRole"
+msgstr "Zvolte novou roli"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Pozvat uživatele do role"
+
+msgid "userInvitation.modal.title"
+msgstr "Pozvánka odeslána"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Hledat uživatele"
+
+msgid "invitation.role.dateEnd"
+msgstr "Datum ukončení"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Musí mít alespoň 6 znaků a může to být kombinace velkých písmen, malých "
+"písmen, čísel a symbolů"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Pokud uživatel neexistuje, můžete ho pozvat, aby převzal role. Pokud "
+"uživatel již v systému existuje, můžete zobrazit jeho informace a pozvat ho, "
+"aby převzal další role."
+
+msgid "invitation.role.addRole.button"
+msgstr "Přidat další roli"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Role"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Zadejte své údaje, jako je e-mailová adresa, afiliace atd. V souladu s "
+"nařízením GDPR můžete tyto informace upravovat pouze vy. Můžete také zvolit, "
+"zda chcete, aby tyto informace byly v vašem profilu viditelné pro redaktora."
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Počáteční datum"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Datum ukončení"
+
+msgid "invitation.step"
+msgstr "KROK"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Prohlášení o ochraně osobních údajů"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Příjmení, rodinné jméno nebo poslední jméno je většinou dědičná část "
+"osobního jména, která označuje rodinu dané osoby."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Toto je institut, ke kterému patříte"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Jedná se o zemi, ve které se nachází institut, ke kterému patříte"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Stát afiliace"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Podrobnosti účtu"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Podrobnosti o uživateli"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Zobrazit všechna podání"
+
+msgid "invitation.tableHeader.name"
+msgstr "Jméno"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Zadejte alespoň jedno vyhledávací kritérium."
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Zrušit pozvání"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Zrušit pozvánku"
+
+msgid "invitation.masthead.show"
+msgstr "Zobrazit v tiráži"
+
+msgid "invitation.masthead.hidden"
+msgstr "Nebude zobrazeno v tiráži"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Změnit roli"
+
+msgid "invitation.management.options"
+msgstr "Možnosti správy pozvánek"
+
+msgid "userInvitation.cancel.message"
+msgstr "Opravdu chcete tuto pozvánku zrušit?"
+
+msgid "userInvitation.status.invited"
+msgstr "Pozváno {$date}"
+
+msgid "invitation.removeRoles"
+msgstr "Uživatel odstraněn z role"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Zrušit proces pozvání"
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Odhlaste se a přihlaste se pomocí správného účtu, abyste přijali tuto "
+"pozvánku."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Uživatel je momentálně deaktivován."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Uživatel byl deaktivován. Dokud je deaktivován, nelze mu přiřadit roli. "
+"Nejprve uživatele aktivujte, abyste mu mohli přiřadit roli."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Souhlas s ochranou osobních údajů"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Ano, souhlasím se shromažďováním a ukládáním mých údajů v souladu s {$url}"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Také známé jako křestní jméno nebo první jméno, je to část osobního jména, "
+"která identifikuje osobu."
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Zpět"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Prohlížíte si podrobnosti o uživateli {$name}"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Zrušením pozvánky zaslané {$givenName} {$familyName} se deaktivuje odkaz pro "
+"přijetí zaslaný e-mailem. Zde jsou podrobnosti pozvánky: "
+
+msgid "userInvitation.edit.title"
+msgstr "Upravit pozvánku"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Pokud upravíte stávající pozvánku nebo přidáte novou roli, aktuální pozvánka "
+"bude zrušena a bude odeslána nová. Opravdu chcete pokračovat?"
+
+msgid "validation.after_or_equal"
+msgstr "Datum zahájení by mělo být větší nebo rovno dnešnímu dni"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Potvrďte, že jste si přečetli a souhlasíte s prohlášením o ochraně osobních "
+"údajů"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Opravdu chcete zrušit? Zrušením se zastaví proces přijetí role a budete "
+"muset začít znovu od pozvánky v e-mailu, abyste roli přijali znovu. Pokud "
+"již jste uživatelem, budete přesměrováni zpět na hlavní panel. Pokud ne, "
+"budete muset otevřít pozvánku v e-mailu a začít proces znovu."
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Zrušit proces pozvání do role?"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Pozvánka nebyla přijata. Jste přihlášeni jako jiný uživatel."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Vyhledejte uživatele podle e-mailové adresy, uživatelského jména nebo ORCID "
+"iD. Pro začátek stačí zadat pouze jedno z nich!"

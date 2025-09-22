@@ -2064,8 +2064,17 @@ msgstr "Add a new reply to the discussion"
 msgid "submission.query.activity"
 msgstr "{$responderName} replied to {$noteTitle}: {$noteContents}"
 
+msgid "submission.query.activityName"
+msgstr "Activity"
+
 msgid "submission.query.new"
 msgstr "{$creatorName} started a discussion: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.started"
+msgstr "Started"
+
+msgid "submission.query.task"
+msgstr "Task"
 
 msgid "submission.query.activity.contents"
 msgstr "There is new activity in the discussion titled \"{$queryTitle}\" regarding the submission \"{$submissionTitle}\"."
@@ -2081,6 +2090,24 @@ msgstr "You must assign at least one participant to this submission before initi
 
 msgid "submission.query.allowedEditTime"
 msgstr "You can update this discussion for {$allowedEditTimeNoticeLimit} minutes."
+
+msgid "submission.task.validation.error.participant.responsible"
+msgstr "There should be one user responsible for the task."
+
+msgid "submission.task.validation.error.reviewer.anonymous"
+msgstr "Cannot disclose the identity of reviewers in the task/discussion."
+
+msgid "submission.task.validation.error.review.anonymous"
+msgstr "Cannot allow participation of authors together with reviewers in a task/discussion during anonymous reviews."
+
+msgid "submission.task.validation.error.participant.required"
+msgstr "At least one participant is required for a task."
+
+msgid "submission.task.validation.error.participants.required"
+msgstr "At least two participants are required for a discussion."
+
+msgid "submission.task.validation.error.assignment.required"
+msgstr "Participant must be assigned to the submission in the current stage or be a reviewer."
 
 msgid "submission.list.changeSubmissionLanguage.currentLanguage"
 msgstr "Current Submission Language:"
@@ -2894,3 +2921,120 @@ msgstr "Add Another Role"
 
 msgid "submission.submit.creditRoles.button.remove"
 msgstr "Remove Role"
+
+msgid "discussion.addNewMessage"
+msgstr "Add New Message"
+
+msgid "discussion.addTaskDetails"
+msgstr "Add Task Details"
+
+msgid "discussion.closeThisDiscussion"
+msgstr "Close this Discussion"
+
+msgid "discussion.confirmCloseDiscussion"
+msgstr "Are you sure you want to close this discussion? Closing the discussion won't stop you from sending or receiving messages in this thread - this ensures no message is lost."
+
+msgid "discussion.confirmReopenDiscussion"
+msgstr "Are you sure you want to reopen this discussion?"
+
+msgid "discussion.description"
+msgstr "Use this space to start discussions, assign tasks to others, or create your personal task list to help you move this submission to the next stage."
+
+msgid "discussion.form.createDontStartTask"
+msgstr "Create Task (Do Not Start)"
+
+msgid "discussion.form.description"
+msgstr "Open for What? Open to What? Beyond Content"
+
+msgid "discussion.form.detailsDescription"
+msgstr "Use this space to share essential information."
+
+msgid "discussion.form.detailsNameDescription"
+msgstr "Please enter the name for this task and discussion."
+
+msgid "discussion.form.detailsParticipantsDescription"
+msgstr "You have the option to assign participants or allocate it solely to yourself."
+
+msgid "discussion.form.discussionDescription"
+msgstr "You can start a discussion thread here by adding a message. This space is also available for providing a brief overview of the task, including any key details, goals, or specific instructions to help guide the assignees."
+
+msgid "discussion.form.startTaskUponSaving"
+msgstr "Begin Task Upon Saving"
+
+msgid "discussion.form.taskInfoAssigneesDescription"
+msgstr "If there is a specific participant designated to complete this task, please assign it to them here."
+
+msgid "discussion.form.taskInfoAssigneesLabel"
+msgstr "Responsible to complete this task"
+
+msgid "discussion.form.taskInfoConvertToTask"
+msgstr "You can convert this into a task by clicking <strong>Edit</strong>."
+
+msgid "discussion.form.taskInfoDescription"
+msgstr "Enter the tasks details here to help manage this task effectively, if selected."
+
+msgid "discussion.form.taskInfoDueDateDescription"
+msgstr "If there is a deadline for this task, you can indicate it here. The due date will be communicated and established for each participant assigned to this task."
+
+msgid "discussion.form.taskInfoLabel"
+msgstr "Enter task information"
+
+msgid "discussion.form.taskInfoReopenAndConvertToTask"
+msgstr "You can convert this into a task by re-opening the discussion and clicking <strong>Edit</strong>."
+
+msgid "discussion.form.taskInformation"
+msgstr "Task Information"
+
+msgid "discussion.form.templatesLabel"
+msgstr "Templates to get you started!"
+
+msgid "discussion.messageFrom"
+msgstr "Message from {$from}"
+
+msgid "discussion.name"
+msgstr "Discussion"
+
+msgid "discussion.reopenThisDiscussion"
+msgstr "Reopen this Discussion"
+
+msgid "discussion.template.discussionDescription"
+msgstr "This discussion template pre-fills the name, participants, and starting message. You can adjust the details before starting."
+
+msgid "discussion.template.taskDescription"
+msgstr "This task template auto-fills the task name, due date, description, and roles. After selecting the template, you can modify any details before saving the task."
+
+msgid "discussion.title"
+msgstr "Desk Review Tasks & Discussions"
+
+msgid "task.closeThisTask"
+msgstr "Close this Task"
+
+msgid "task.completeThisTask"
+msgstr "Complete this task"
+
+msgid "task.confirmCloseTask"
+msgstr "Are you sure you want to close this task? Closing the task won't end the discussion - you can still send messages on it."
+
+msgid "task.confirmReopenTask"
+msgstr "Are you sure you want to reopen this task?"
+
+msgid "task.confirmStartTask"
+msgstr "Are you sure you want to start this task?"
+
+msgid "task.owner"
+msgstr "Task Owner"
+
+msgid "task.reopenThisTask"
+msgstr "Reopen this task"
+
+msgid "task.startThisTask"
+msgstr "Start this task"
+
+msgid "task.startedBy"
+msgstr "Task started by"
+
+msgid "taskTemplate.apply"
+msgstr "Apply Template"
+
+msgid "taskTemplate.applyConfirmation"
+msgstr "Applying this template will replace data in related fields on the form. These changes won't be saved unless you choose to save. Continue?"

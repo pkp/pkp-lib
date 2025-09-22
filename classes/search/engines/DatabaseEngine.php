@@ -12,16 +12,16 @@
 
 namespace PKP\search\engines;
 
-use PKP\config\Config;
 use APP\core\Application;
-use PKP\submission\PKPSubmission;
-use Illuminate\Support\Facades\DB;
-use PKP\publication\PKPPublication;
-use PKP\controlledVocab\ControlledVocab;
-use Laravel\Scout\Builder as SearchBuilder;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Laravel\Scout\Engines\Engine as ScoutEngine;
 use Illuminate\Database\Query\Builder as DatabaseBuilder;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
+use Laravel\Scout\Builder as SearchBuilder;
+use Laravel\Scout\Engines\Engine as ScoutEngine;
+use PKP\config\Config;
+use PKP\controlledVocab\ControlledVocab;
+use PKP\publication\PKPPublication;
+use PKP\submission\PKPSubmission;
 
 class DatabaseEngine extends ScoutEngine
 {

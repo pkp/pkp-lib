@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-09 07:20+0000\n"
+"PO-Revision-Date: 2025-09-17 13:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -812,6 +812,9 @@ msgstr "Estatistika instituzionalak"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Gaitu erakundeen estatistikak erakundeen araberako erabilera-estatistikak "
+"bildu nahi badituzu. Gaituta egonez gero, arakatu nahi duzun erakunde "
+"bakoitzaren IP barrutiak konfiguratu beharko dituzu."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Gaitu estatistika instituzionalak"
@@ -1059,6 +1062,8 @@ msgstr "Jakinarazi egile guztiei"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Nork jaso beharko luke jakinarazpen-mezu elektroniko bat argitalpen-erabaki "
+"bat erregistratzen denean?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
@@ -1086,6 +1091,9 @@ msgstr "Jakinarazi edonori"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Bidalketaren baieztapen-mezuaren kopia hemen sartutako helbide elektroniko "
+"guztietara bidaliko da. Bereizi helbide elektronikoak koma batekin. Adibidez:"
+" bat@adibidea.com,bi@adibidea.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr "Helbide elektroniko horietako bat edo gehiago ez dira baliozkoak."
@@ -1841,7 +1849,7 @@ msgid "manager.workflow"
 msgstr "Lan-fluxua"
 
 msgid "manager.workflow.title"
-msgstr "Bidalketa-fitxategiak"
+msgstr "Lan-fluxuaren ezarpenak"
 
 msgid "manager.distribution"
 msgstr "Banaketa"
@@ -2476,19 +2484,19 @@ msgid "stats.allUsers"
 msgstr "Erabiltzaile guztiak"
 
 msgid "stats.city"
-msgstr ""
+msgstr "Hiria"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Bistaratzeak"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Deskargak"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Bistaratze guztiak dataren arabera"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Deskarga guztiak dataren arabera"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/urtean)"
@@ -2529,7 +2537,7 @@ msgid "stats.dateRange.invalidDateRange"
 msgstr "Hasiera-datak amaiera-data baino lehenagokoa izan behar du."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Amaiera-data ezin da izan {$data} baino geroagokoa."
+msgstr "Amaiera-data ezin da izan {$date} baino geroagokoa."
 
 msgid "stats.dateRange.invalidStartDateMin"
 msgstr "Hasiera-data ezin da izan {$date} baino lehenagokoa."
@@ -2571,16 +2579,16 @@ msgid "stats.description.submissionsSkipped"
 msgstr ""
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "{$stat}-ren deskribapena"
 
 msgid "stats.editorialActivity"
 msgstr "Argitalpen-jarduera"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Fitxategi nagusia"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Fitxategi osagarria"
 
 msgid "stats.fileViews"
 msgstr "Fitxategiaren bistaratzeak"
@@ -2595,16 +2603,16 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "<a href='https://db-ip.com'>DB-IP</a>-k emandako geolokalizazioa"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Geolokalizazioari buruz"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} - {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Guztiak {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
 msgstr "Deskargatu fitxategiak"
@@ -2618,8 +2626,9 @@ msgstr "Deskargatu datu geografikoak"
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Hiri, eskualde edo herrialde bakoitzeko ikustaldi eta deskarga kopurua."
 
+#, fuzzy
 msgid "stats.region"
-msgstr ""
+msgstr "Eskualdea"
 
 msgid "stats.searchSubmissionDescription"
 msgstr "Bilatu izenburuaren, egilearen eta IDaren arabera"
@@ -2628,37 +2637,37 @@ msgid "stats.submissionsActive"
 msgstr "Bidalketa aktiboak"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Denbora-lerroa"
 
 msgid "stats.timeline.downloadReport.description"
 msgstr ""
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Deskargatu denbora-lerroa"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Denbora-lerroaren tartea"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Denbora-lerro mota"
 
 msgid "stats.total"
 msgstr "Guztira"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Bakarra"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Guztira data-tartearen barruan"
 
 msgid "stats.trends"
 msgstr "Joerak"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "ezezaguna"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Erabiltzailearen estatistikak"
 
 msgid "stats.name.submissionsReceived"
 msgstr "Jasotako bidalketak"
@@ -2746,78 +2755,82 @@ msgstr ""
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Osatutako berrikuspenetako iruzkin guztiak. Ebaluatzaileen izenak ezkutatuta "
+"daude berrikuspen anonimoak baitira"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Bidalketaren egileen izenak eta afiliazioak."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "Erabiltzaileak galdutako pasahitza berreskuratzeko orri baten URLa"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "Erabiltzaile bati esleitutako bidalketa guztiak ikusteko URLa"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "Erabiltzaile batek bere profila ikusi eta editatzeko URLa"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Hartutako erabakiaren izena"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Hartutako erabakiaren deskribapena"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Erabaki hau hartu zen argitalpen lan-fluxuaren fasea"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Erabaki hau hartu zen berrikuspen-erronda, baldin eta erabakia berrikuspen-"
+"fase bati lotuta badago"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Eztabaidaren gaia"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Eztabaida edo erantzun berriaren edukia"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Zereginak bete gabe dituzten bidalketen zerrenda"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Editore honi esleitutako bidalketa-kopurua"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Hartzailearen edo hartzaile guztien izen osoa"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Hartzailearen edo hartzaile guztien erabiltzaile-izena"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Berrikuspena amaitu behar den data"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Ebaluatzaileak esleipena onartu edo baztertu behar duen data"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Berrikuspenaren esleipenaren URLa"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Gomendatutako erabakia, hala nola, Onartu Bidalketa"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Berrikuspen hau esleitu zen data"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Berrikuspen mota, hala nola anonimoa, anonimo bikoitza edo irekia"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Ebaluatzailearen gomendioa, hala nola, Onartu Bidalketa edo Ukatu"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Berrikuspen-erronda, hala nola, 1. erronda edo 2. erronda"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Ebaluatzaileak igotako fitxategiak"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Ebaluatzailearen izena"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -2832,114 +2845,117 @@ msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Bidaltzailearen izen osoa"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Bidaltzailearen posta elektronikoa"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Bidaltzailearen posta elektronikoko sinadura"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Webguneko kontaktu nagusiaren izen osoa"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Webguneko kontaktu nagusiaren posta elektronikoa"
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr ""
+"Webgunearen posta elektronikoko sinadura mezu elektroniko automatizatuetarako"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Bidalketa honi esleitutako editoreak, erabakia har dezaketenak"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Bidalketaren izenburua"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Bidalketaren ID zenbaki bakarra"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Bidalketaren laburpena"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Egileen izenak kate labur batean, adibidez \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Egileen izen osoak"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Egilearen URLa bidalketara"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "Bidalketaren URLa erredakzio-kudeaketan"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Argitaratutako bidalketaren URLa"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "Bidalketaren URLa bidalketaren laguntzailean"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
 "Bidalketaren lan-fluxuari esleitutako egileen izenak. Oro har, bidalketaren "
-"egilearena da."
+"egilea da."
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Pasahitza berrezartzeko erabiltzaile bati bidaltzen zaion kodetutako URLa"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Ausazko erabiltzaile pasahitz berria"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Berrezarri ebaluatzailea"
 
 msgid "mailable.reviewerResendRequest.name"
 msgstr ""
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Bidalketa-fitxategi bat igo duen erabiltzaile baten izen osoa"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Abisuaren izenburua"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Abisuaren deskribapen laburra"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URLa abisura"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Hilabete honetan jasotako bidalketa kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Ukatutako bidalketa-kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Onartutako bidalketa-kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Beste guztizkoetan sartu ez diren bidalketen kopurua"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Jasotako bidalketen kopuru osoa"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Txostenaren hilabetea"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Txostenaren urtea"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr ""
+"Zenbakiaren identifikazioa, bolumena, zenbakia, urtea eta izenburua barne"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URLa argitaratutako bidalketara"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Argitalpen-jardueraren orrirako esteka"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
@@ -2960,7 +2976,7 @@ msgid "mailable.validateEmailSite.description"
 msgstr ""
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Jakinarazi beste egileei"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
@@ -2969,7 +2985,7 @@ msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Jakinarazi erabakia ebaluatzaileei"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -2978,25 +2994,27 @@ msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Bidalketa hau berrikuspenik gabe onartzea erabaki dugu."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Bidalketa hau baztertzea erabaki dugu."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Egileak berrikuspenak bidaltzera gonbidatu ditugu."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Egileak bertsio berrikusi bat aurkeztera gonbidatu ditugu, beste ebaluazio "
+"bat egiteko."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr ""
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa onartua"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
@@ -3065,19 +3083,19 @@ msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Ekoizpenera bidalia"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa onartua (berrikuspenik gabe)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Gomendioa egina"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3184,7 +3202,7 @@ msgstr ""
 "ematen du."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Erabiltzailea sortuta"
 
 #, fuzzy
 msgid "mailable.userRegister.description"
@@ -3207,21 +3225,21 @@ msgid "mailable.submissionSavedForLater.description"
 msgstr ""
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Bidalketaren baieztapena"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Gaituta badago, mezu hau automatikoki bidaltzen zaio egileari, aldizkarira "
-"eskuizkribua bidaltzeko prozesua osatzen duenean. Bidalketaren jarraipena "
-"egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana "
-"bidaltzeagatik."
+"Mezu elektroniko hau automatikoki bidaltzen zaio egileari bidalketa bat "
+"osatzen duenean. Argitalpen-prozesuan zehar bidalketaren jarraipena egiteko "
+"informazioa ematen du, eta egileari eskerrak ematen dizkio bidalketagatik."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Bidalketaren baieztapena (beste egileak)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaie bidalketa batean "
+"izendatutako egileei, egile bidaltzaile ez izan arren."
 
 msgid "mailable.discussionSubmission.name"
 msgstr ""
@@ -3292,10 +3310,12 @@ msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Kudeatu mezu elektronikoak"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Gehitu eta editatu</a> sistemak bidalitako mezu "
+"elektroniko guztien txantiloiak.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
@@ -3304,7 +3324,7 @@ msgid "manager.mailables.templates"
 msgstr ""
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Editatu txantiloia"
 
 msgid "manager.mailables.removeTemplate"
 msgstr ""
@@ -3319,52 +3339,61 @@ msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Bilatu izenaren edo deskribapenaren arabera"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Idatzi izen labur bat txantiloi hau aurkitzen laguntzeko."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Bidalketa berria"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Konfiguratu posta elektroniko bidezko jakinarazpenak, bidalketa berri bat "
+"egiten denean bidaltzeko."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Nork jaso behar du mezu elektroniko bat bidalketa berri bat osatzen denean."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Ez bidali mezu elektronikorik."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Bidali mezu elektroniko bat egile-bidaltzaileari bakarrik."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Bidali mezu elektroniko bat egile guztiei."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Argitalpen-erabakiak"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfiguratu egileei bidaltzeko posta elektroniko bidezko jakinarazpenak, "
+"argitalpen-erabaki bat erregistratzen denean."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Editoreentzat"
 
 msgid "manager.forEditors.description"
 msgstr ""
+"Konfiguratu posta elektroniko bidezko jakinarazpenak editoreei bidaltzeko."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Argitalpen-estatistikak"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Editoreei hilero mezu elektroniko bat bidali edo ez, aldizkariaren "
+"argitalpen-estatistikekin, hala nola, onarpen- eta uko-tasak. Editoreek mezu "
+"elektroniko honetatik harpidetza eten dezakete euren erabiltzaile-profiletik."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Bidali hilero mezu elektroniko bat editoreei."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Ez bidali mezu elektronikoa editoreei."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
@@ -3387,10 +3416,10 @@ msgid "mailable.layoutRequest.name"
 msgstr ""
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Sistema"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Bertsioa sortuta"
 
 msgid "mailable.reviewComplete.name"
 msgstr ""
@@ -3399,16 +3428,16 @@ msgid "mailable.reviewEdit.name"
 msgstr ""
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Bidalketaren aitorpena beste egileei"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Editorea esleituta (automatikoa)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Esleitu editorea"
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
@@ -3448,7 +3477,7 @@ msgstr ""
 "hau da: {$earliestDate}."
 
 msgid "manager.statistics.counterR5Report.settings.endDate"
-msgstr "Amaiera data"
+msgstr "Amaiera-data"
 
 msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
 msgstr "Dataren formatua ez da baliozkoa."
@@ -3519,7 +3548,7 @@ msgid "manager.language.submission.from.error"
 msgstr "Gutxienez eskualdeko ezarpen bat hautatu behar da."
 
 msgid "manager.statistics.counterR5Report.settings.startDate"
-msgstr "Hasiera data"
+msgstr "Hasiera-data"
 
 msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
 msgstr "YOP formatua ez da baliozkoa."
@@ -3638,3 +3667,6 @@ msgstr "Gutxieneko berrikuspen-baieztatu kopurua"
 msgid "manager.setup.reviewOptions.numReviewsPerSubmission.description"
 msgstr ""
 "Bidalketa batentzat eskatuko den gutxieneko berrikuspen-baieztatu kopurua"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Posta elektroniko kontu bat balioztatzeko esteka"

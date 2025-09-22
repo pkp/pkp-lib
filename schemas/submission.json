@@ -208,6 +208,10 @@
 						"type": "string",
 						"readOnly": true
 					},
+					"reviewerUserName": {
+						"type": "string",
+						"readOnly": true
+					},
 					"reviewRoundId": {
 						"type": "integer"
 					},

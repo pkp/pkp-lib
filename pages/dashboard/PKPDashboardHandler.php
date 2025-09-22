@@ -30,6 +30,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\decision\Decision;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
@@ -286,7 +287,14 @@ abstract class PKPDashboardHandler extends Handler
 
 
             // Email log event types
-            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR
+            'EMAIL_LOG_EVENT_TYPE_EDITOR_NOTIFY_AUTHOR' => SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR,
+
+            // Editorial Tasks
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+            'EDITORIAL_TASK_STATUS_PENDING' => 1,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => 2,
+            'EDITORIAL_TASK_STATUS_CLOSED' => 3,
         ]);
 
         $this->setupIndex($request);

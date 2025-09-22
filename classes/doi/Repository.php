@@ -16,6 +16,7 @@ namespace PKP\doi;
 
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\publication\Publication;
 use Exception;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
@@ -365,6 +366,13 @@ abstract class Repository
      * @return array<int> DOI IDs
      */
     abstract public function getDoisForSubmission(int $submissionId): array;
+
+    /**
+     * Gets all DOI IDs related to a publication
+     *
+     * @return array<int> DOI IDs
+     */
+    abstract public function getDoisForPublication(Publication $publication): array;
 
     /**
      * Compose final DOI and save to database

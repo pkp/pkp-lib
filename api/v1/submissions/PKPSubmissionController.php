@@ -36,6 +36,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
+use PKP\API\v1\submissions\tasks\formRequests\AddTask;
+use PKP\API\v1\submissions\tasks\resources\TaskResource;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -61,6 +63,7 @@ use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\helpers\PublicationVersionInfoResource;
+use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -121,6 +124,11 @@ class PKPSubmissionController extends PKPBaseController
         'getChangeLanguageMetadata',
         'changeVersion',
         'getNextAvailableVersion',
+        'addTask',
+        'editTask',
+        'deleteTask',
+        'getTask',
+        'getTasks',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -2064,7 +2072,6 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
-<<<<<<< HEAD
      * Creates a task or discussion associated with the submission
      */
     public function addTask(AddTask $illuminateRequest): JsonResponse
@@ -2186,6 +2193,7 @@ class PKPSubmissionController extends PKPBaseController
     /**
 =======
 >>>>>>> main
+    /**
      * Is the current user an editor
      */
     protected function isEditor(): bool

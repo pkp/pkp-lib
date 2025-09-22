@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-09-21 15:21+0000\n"
+"PO-Revision-Date: 2025-09-22 18:41+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -2361,11 +2361,10 @@ msgstr ""
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Het bestand kon niet worden geïmporteerd"
 
-#, fuzzy
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
 "Het inzendingsbestand {$id} werd overgeslagen omdat het aan een "
-"gegevensrecord is gehecht dat niet wordt geïmporteerd, zoals een "
+"gegevensvastlegging is gehecht dat niet wordt geïmporteerd, zoals een "
 "recensietoewijzing of -discussie."
 
 msgid "plugins.importexport.user.importExportErrors"
@@ -2618,7 +2617,7 @@ msgstr "Stad"
 
 #, fuzzy
 msgid "stats.views"
-msgstr "Weergaven"
+msgstr "Bekeken"
 
 msgid "stats.downloads"
 msgstr "Downloads"
@@ -2641,7 +2640,6 @@ msgstr "Datumreeks"
 msgid "stats.dateRange.allDates"
 msgstr "Alle datums"
 
-#, fuzzy
 msgid "stats.dateRange.apply"
 msgstr "Pas toe"
 
@@ -3944,8 +3942,8 @@ msgstr "Laat wijzigingen in Instellingen toe"
 #, fuzzy
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
-"Stel de volgorde van de redactionele rollen vast m.b.t. de titels vast voor "
-"een open publicatie."
+"Stel de volgorde van de redactionele rollen vast m.b.t. de titels voor een "
+"open publicatie."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""
@@ -3958,12 +3956,10 @@ msgstr ""
 "Het inzendingsbestand {$id} werd overgeslagen omdat het geen geldige "
 "herziening heeft."
 
-#, fuzzy
 msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "De herziening {$revision} van het inzendingsbestand {$id} werd overgeslagen "
-"omdat het bestand niet werd gevonden in de mappenreeks en locatie.\"{$path}\""
-"."
+"omdat het bestand niet werd gevonden in de bestandsroute/locatie\"{$path}\"."
 
 #, fuzzy
 msgid "manager.navigationMenus.editorialMasthead.description"

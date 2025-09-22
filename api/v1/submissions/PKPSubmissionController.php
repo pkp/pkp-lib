@@ -63,7 +63,6 @@ use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\helpers\PublicationVersionInfoResource;
-use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -648,14 +647,8 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
-
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
-
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map(
+            Repo::publication()->getSchemaMap($submission, collect(), [])->map(
                 $publication,
                 isPublic: true,
             ),

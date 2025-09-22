@@ -68,9 +68,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the publication schema.
      */
-    public function summarize(Publication $item, bool $anonymize = false): array
+    public function summarize(Publication $item, bool $anonymize = false, bool $isPublic = false): array
     {
-        return $this->mapByProperties($this->getSummaryProps(), $item, $anonymize);
+        return $this->mapByProperties($this->getSummaryProps($isPublic), $item, $anonymize);
     }
 
     /**

@@ -36,9 +36,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
-use PKP\API\v1\submissions\formRequests\AddTask;
-use PKP\API\v1\submissions\formRequests\EditTask;
-use PKP\API\v1\submissions\resources\TaskResource;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -69,9 +66,6 @@ use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
-use PKP\security\authorization\QueryAccessPolicy;
-use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
-use PKP\security\authorization\QueryWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -79,7 +73,6 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
@@ -128,11 +121,6 @@ class PKPSubmissionController extends PKPBaseController
         'getChangeLanguageMetadata',
         'changeVersion',
         'getNextAvailableVersion',
-        'addTask',
-        'editTask',
-        'deleteTask',
-        'getTask',
-        'getTasks',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -1456,7 +1444,15 @@ class PKPSubmissionController extends PKPBaseController
 
         // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
         // should be used instead.
-        if (array_key_exists('status', $params)) {
+        if (array_key_exists('status', $params) && is_null($params['status'])) {
+            unset($params['status']);
+        }
+
+        // Only allow to update the status if it's a pre-publish status
+        // For the publishing statuses, the `/publish` and /unpublish endpoints should be used instead.
+        if (array_key_exists('status', $params)
+            && !in_array($params['status'], Publication::getPrePublishStatuses())) {
+
             return response()->json([
                 'error' => __('api.publication.403.cantEditStatus'),
             ], Response::HTTP_FORBIDDEN);
@@ -1471,6 +1467,20 @@ class PKPSubmissionController extends PKPBaseController
 
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        // update of version information at publication edit
+        if ($illuminateRequest->has('versionStage') && $illuminateRequest->has('versionIsMinor')) {
+
+            $versionStage = $this->validateVersionStage($illuminateRequest);
+            $versionIsMinor = $this->validateVersionIsMinor($illuminateRequest);
+
+            // will only allow to update the version details at publication edit
+            // if there is no version information added yet for this publication
+            // or if the given version stage information is different from what already assigned
+            if (!$publication->getData('versionStage') || $publication->getData('versionStage') !== $versionStage->value) {
+                $publication = Repo::publication()->updateVersion($publication, $versionStage, $versionIsMinor);
+            }
         }
 
         Repo::publication()->edit($publication, $params);
@@ -2054,6 +2064,7 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
+<<<<<<< HEAD
      * Creates a task or discussion associated with the submission
      */
     public function addTask(AddTask $illuminateRequest): JsonResponse
@@ -2173,6 +2184,8 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
+=======
+>>>>>>> main
      * Is the current user an editor
      */
     protected function isEditor(): bool

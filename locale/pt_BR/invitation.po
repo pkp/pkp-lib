@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-22 22:29+0000\n"
+"PO-Revision-Date: 2025-09-22 22:33+0000\n"
 "Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
@@ -130,3 +130,25 @@ msgstr "Revisar e convidar para papéis"
 
 msgid "userInvitation.sendMail.nextButtonLabel"
 msgstr "Convidar usuário para o papel"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Data de término"
+
+msgid "userInvitation.modal.button"
+msgstr "Ver todos usuários"
+
+msgid "invitation.email.description"
+msgstr "ex: nome@example.com"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verificar ORCID iD"
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Pesquise por um usuário usando o endereço de e-mail, nome de usuário ou "
+"ORCID iD. Insira apenas um para começar!"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Ao aceitar o convite, o usuário será redirecionado para o ORCID para "
+"verificar a sua conta, se assim o desejar."

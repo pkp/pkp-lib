@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-17 13:57+0000\n"
+"PO-Revision-Date: 2025-09-23 13:20+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1100,6 +1100,9 @@ msgstr "Helbide elektroniko horietako bat edo gehiago ez dira baliozkoak."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
+"Egileei mezu elektroniko bat bidaltzen zaie automatikoki, haien bidalketa "
+"jakinarazteko. Mezu elektroniko honen kopiak bidal ditzakezu honako "
+"helbidera:"
 
 msgid "manager.setup.notifyUsers"
 msgstr "Jakinarazi"
@@ -1331,7 +1334,7 @@ msgstr ""
 "puntu guztiak markatu beharko dituzte egileek bidalketa egin ahal izateko."
 
 msgid "manager.sections.form.deactivateSection"
-msgstr ""
+msgstr "Desaktibatu atal hau eta ez utzi bidalketa berririk bertara egiten."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Ziur zaude atal hau desaktibatu nahi duzula?"
@@ -1344,6 +1347,8 @@ msgstr "Editorial esleipenak"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Hautatu atal honetan egindako bidalketa berri guztiei automatikoki esleitu "
+"behar zaizkien argitalpen-erabiltzaileak."
 
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Esleitu {$name} {$role} gisa"
@@ -3670,3 +3675,16 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Posta elektroniko kontu bat balioztatzeko esteka"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Ebaluatzailearen iradokizuna bidalketa unean"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Egileak hainbat ebaluatzaile potentzial iradoki ditzake bidalketa amaitu "
+"aurretik, eta horrek berrikuspen-prozesua erraztu eta erredakzio-"
+"taldearentzat ekarpen baliotsua eman dezake."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Baimendu egileek bidalketa-prozesuan ebaluatzaile potentzialak iradokitzea"

@@ -21,12 +21,11 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use Illuminate\Http\Request;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use APP\facades\Repo;
 use PKP\editorialTask\Template;
-use PKP\API\v1\editTaskTemplates\formRequests\ListTaskTemplates;
 use PKP\API\v1\editTaskTemplates\resources\EditTaskTemplateResource;
 
 class PKPEditTaskTemplateController extends PKPBaseController
@@ -56,40 +55,38 @@ class PKPEditTaskTemplateController extends PKPBaseController
                 Role::ROLE_ID_SITE_ADMIN,
             ]),
         ])->group(function () {
-            Route::get('', $this->index(...));
+            Route::get('', $this->getMany(...));
         });
     }
 
     /**
      * GET /api/v1/editTaskTemplates
      */
-    public function index(ListTaskTemplates $illuminateRequest): JsonResponse
+    public function getMany(Request $request): JsonResponse
     {
         $context = $this->getRequest()->getContext();
-        $validated = $illuminateRequest->validated();
 
         $q = Template::query()
-            ->where('context_id', $context->getId())
+            ->byContextId((int) $context->getId())
             ->with('userGroups');
 
-        if (isset($validated['stageId'])) {
-            $q->where('stage_id', (int) $validated['stageId']);
+        if ($request->filled('stageId')) {
+            $q->where('stage_id', (int) $request->query('stageId'));
         }
 
-        if (array_key_exists('include', $validated) && $validated['include'] !== null) {
-            $q->where('include', (bool) $validated['include']);
+        if ($request->has('include')) {
+            $include = filter_var($request->query('include'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+            if ($include !== null) {
+                $q->where('include', $include);
+            }
         }
 
-        if (!empty($validated['emailTemplateKey'])) {
-            $et = Repo::emailTemplate()->getByKey($context->getId(), $validated['emailTemplateKey']);
-            $q->where('email_template_id', $et?->getId() ?? 0);
+        if ($request->filled('emailTemplateKey')) {
+            $q->where('email_template_key', trim((string) $request->query('emailTemplateKey')));
         }
-
-        $items = $q->orderByPkDesc()->get()
-            ->map(fn ($tpl) => (new EditTaskTemplateResource($tpl))->toArray($illuminateRequest))
-            ->values()
-            ->all();
-
-        return response()->json(['items' => $items], Response::HTTP_OK);
-    }
+        $collection = $q->orderByPkDesc()->get();
+        return EditTaskTemplateResource::collection($collection)
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
+     }
 }

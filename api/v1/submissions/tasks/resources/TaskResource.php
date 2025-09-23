@@ -71,7 +71,7 @@ class TaskResource extends JsonResource
      */
     protected function determineStatus()
     {
-        if ($this->type == EditorialTaskType::TASK) {
+        if ($this->type == EditorialTaskType::TASK->value) {
             return $this->dateClosed ? EditorialTaskStatus::CLOSED->value : ($this->dateStarted ? EditorialTaskStatus::IN_PROGRESS->value : EditorialTaskStatus::PENDING->value);
         }
 

@@ -352,17 +352,14 @@ abstract class Plugin
     public function getTemplateResource($template = null, $inCore = false)
     {
         if ($template) {
-            // This is to accommodate the case if template files path beign set as similar
-            // to the smarty templates e.g. `some-path/some-template.blade.php`
-            // as blade view needed to in just `some-path.some-template`
-            $bladeTemplatePath = str_replace(['//', '.blade.php'], ['.', ''], $template);
+            $bladeTemplatePath = $this->resolveBladeViewPath($template);
 
-            if (view()->exists("{$this->getName()}::{$bladeTemplatePath}")) {
+            if (view()->exists($bladeTemplatePath)) {
                 // share the template variables to the blade view
                 $templateManager = TemplateManager::getManager(Application::get()->getRequest());
                 $templateManager->shareTemplateVariables($templateManager->getTemplateVars());
                 
-                return "{$this->getName()}::{$bladeTemplatePath}";
+                return $bladeTemplatePath;
             }
         }
 
@@ -426,6 +423,24 @@ abstract class Plugin
         $namespace = substr($className, 0, strrpos($className, '\\'));
 
         return $namespace . '\\classes\\components';
+    }
+
+    /**
+     * Resolve the possible blade view path for the given template path and return the
+     * resolved view path with view namespace as `PLUGIN_VIEW_NAMESPACE::TEMPLATE_PATH`
+     */
+    public function resolveBladeViewPath(string $templatePath): string
+    {
+        // This is to accommodate the case if template files path beign set as similar
+        // to the smarty templates e.g. `some-path/some-template.blade.php`
+        // as blade view needed to in just `some-path.some-template`
+        $bladeTemplatePath = str_replace(
+            ['/', '.blade.php', '.blade', '.tpl'],
+            ['.', '', '', ''],
+            $templatePath
+        );
+        
+        return "{$this->getTemplateViewNamespace()}::{$bladeTemplatePath}";
     }
 
     /**
@@ -532,8 +547,15 @@ abstract class Plugin
     {
         $fullPath = sprintf('%s/%s', $this->getPluginPath(), $path);
 
+        // If smarty template exists, return the full path
         if (file_exists($fullPath)) {
             return $fullPath;
+        }
+
+        // Fallback to blade view if exists
+        $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
+        if (view()->exists($bladePath)) {
+            return $bladePath;
         }
 
         // Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.

@@ -118,9 +118,27 @@ abstract class ThemePlugin extends LazyLoadPlugin
         Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
+        Hook::add('TemplateManager::display', $this->loadBladeView(...));
         Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
+    }
+
+    /**
+     * Register the blade view path by replacing the smarty template path in the TemplateManager
+     * only if the blade view exists
+     */
+    public function loadBladeView(string $hookName, array $params): bool
+    {
+        $templateManager =& $params[0]; /** @var TemplateManager $templateManager */
+		$templatePath =& $params[1]; /** @var string $templatePath */
+
+        $bladeViewPath = $this->resolveBladeViewPath($templatePath);
+        if (view()->exists($bladeViewPath)) {
+            $templatePath = $bladeViewPath;
+        }
+        
+        return Hook::CONTINUE;
     }
 
     /**

@@ -1649,9 +1649,10 @@ class PKPTemplateManager extends Smarty
         ) {
             $this->shareTemplateVariables($this->getTemplateVars());
 
-            return $template instanceof \Illuminate\View\View
+            echo $template instanceof \Illuminate\View\View
                 ? $template->render()
                 : view($template)->render();
+            return;
         }
         
         // Actually display the template.
@@ -1960,7 +1961,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Call hooks from a template. (DEPRECATED: For new hooks, {run_hook} is preferred.
      */
-    public function smartyCallHook($params, $smarty)
+    public function smartyCallHook($params, $smarty = null)
     {
         $output = null;
         Hook::call($params['name'], [&$params, $smarty, &$output]);
@@ -2319,7 +2320,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadStylesheet($params, $smarty)
+    public function smartyLoadStylesheet($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2409,7 +2410,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadScript($params, $smarty)
+    public function smartyLoadScript($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2452,7 +2453,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadHeader($params, $smarty)
+    public function smartyLoadHeader($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2482,7 +2483,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadNavigationMenuArea($params, $smarty)
+    public function smartyLoadNavigationMenuArea($params, $smarty = null)
     {
         $areaName = $params['name'];
         $declaredMenuTemplatePath = $params['path'] ?? null;

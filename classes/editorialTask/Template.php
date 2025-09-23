@@ -123,6 +123,14 @@ class Template extends Model
     }
 
     /**
+     * Scope: filter by context_id
+     */
+    public function scopeByContextId($query, int $contextId)
+    {
+        return $query->where('context_id', $contextId);
+    }
+
+    /**
      * Query scope order by the model's primary key in descending order
      */
     public function scopeOrderByPkDesc(Builder $query): Builder

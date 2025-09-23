@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-22 18:41+0000\n"
+"PO-Revision-Date: 2025-09-23 10:22+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -354,24 +354,32 @@ msgstr "Erregistratu erabiltzailea ebaluatzaileen erabiltzaile-talde honetan"
 
 msgid "editor.review.unconsiderReviewText"
 msgstr ""
+"Berrikuspen hori kontuan hartu gabe gisa markatu nahi duzu? Berrikuspenaren "
+"historia gordeko da."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Kontuan ez hartu berrikuspen hau"
 
 msgid "editor.review.readConfirmation"
 msgstr ""
+"Behin berrikuspen hori irakurri ondoren, sakatu \"Berretsi\", berrikuspen-"
+"prozesuak aurrera jarrai dezakeela adierazteko. Ebaluatzaileak bere "
+"berrikuspena beste nonbait bidali badu, fitxategia igo dezakezu behean eta "
+"ondoren \"Berretsi\" sakatu jarraitzeko."
 
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
+"Ezin da eztabaida bat sortu hautatutako parte-hartzaileekin, berrikuspen "
+"prozesuaren anonimotasunean eragina izango lukeelako."
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr ""
+msgstr "Hautatutako parte-hartzaile bat ez dago fase honetara esleituta."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Argitaratzeko programatua"
 
 msgid "editor.submission.selectCopyedingFiles"
-msgstr ""
+msgstr "Zuzenketa-fitxategiak"
 
 msgid "editor.submission.selectReviewer"
 msgstr "Hautatu ebaluatzailea"
@@ -386,7 +394,7 @@ msgid "editor.review.enrollReviewer"
 msgstr "Inskribatu erabiltzailea ebaluatzaile gisa"
 
 msgid "editor.submission.noAuditRequested"
-msgstr ""
+msgstr "Ez da auditoretzarik eskatu fitxategi honetarako"
 
 msgid "editor.submission.personalMessageToUser"
 msgstr "Erabiltzaileari bidaltzeko mezu elektronikoa"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-09-22 18:41+0000\n"
+"PO-Revision-Date: 2025-09-23 13:20+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
@@ -506,7 +506,7 @@ msgid "manager.emails.resetToDefault"
 msgstr "Standaard terugzetten"
 
 msgid "manager.emails.sentFrom"
-msgstr "Verzonden vanaf"
+msgstr "Verzonden door"
 
 msgid "manager.emails.sentTo"
 msgstr "Verzonden naar"
@@ -2654,7 +2654,7 @@ msgstr "Een van de ingevoerde datums bestaat niet."
 
 #, fuzzy
 msgid "stats.dateRange.from"
-msgstr "Van / Uit"
+msgstr "Van"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
@@ -2701,10 +2701,9 @@ msgstr "Naar / Aan / Tot"
 msgid "stats.dateRange.untilDate"
 msgstr "Tot {$date}"
 
-#, fuzzy
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Het percentage voor de geselecteerde datumperiode (accetpatieratio) wordt "
+"Het percentage voor de geselecteerde datumperiode (acceptatieratio) wordt "
 "berekend op basis van inzendingen die tijdens deze periode werden ingediend "
 "en een eindbeslissing ontvingen. <br><br> Een voorbeeld: stel dat er in deze "
 "datumperiode tien inzendingen waren: vier werden geaccepteerd, vier werden "
@@ -2773,9 +2772,8 @@ msgstr "Download bestanden"
 msgid "stats.publications.downloadReport.downloadFiles.description"
 msgstr "Het aantal downloads voor ieder bestand."
 
-#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr "Download locatie"
+msgstr "Download locatie(s)"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Het aantal weergaven en downloads voor iedere stad, regio en land."
@@ -2864,9 +2862,8 @@ msgstr "Acceptatiepercentage"
 msgid "stats.name.declineRate"
 msgstr "Afwijzingspercentage"
 
-#, fuzzy
 msgid "stats.name.declinedDeskRate"
-msgstr "Directe afwijzingspercentage"
+msgstr "Direct afwijzingspercentage"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Afwijzingspercentage na recensie"
@@ -2889,10 +2886,9 @@ msgstr "Download het geëxporteerde bestand via de onderstaande knop."
 msgid "plugins.importexport.native.common.any"
 msgstr "Algemene onderwerpen"
 
-#, fuzzy
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
-"Verkeerde filterinstelling [{$filterName}]: {$filterCount} incidenten. Er "
+"Verkeerde filterconfiguratie [{$filterName}]: {$filterCount} incidenten. Er "
 "mag slechts één incident tegelijk zijn."
 
 msgid "plugins.importexport.common.cliError"
@@ -3781,8 +3777,7 @@ msgid "manager.language.submissionMetadata"
 msgstr "Metagegevens"
 
 msgid "manager.language.submission.from.error"
-msgstr ""
-"Ten minste een locale (set taal- en landinstellingen) moet worden gekozen."
+msgstr "Ten minste een set taal- en plaatsinstelling moet worden gekozen."
 
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Er zijn nog geen COUNTER R5 gebruiksstatistieken beschikbaar."
@@ -3967,9 +3962,8 @@ msgstr ""
 "Link naar een pagina die alle diensten weergeeft van alle actuele colofons."
 
 # fuzzy
-#, fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
-msgstr "Het menutitel item is vereist."
+msgstr "De titel van het menu-onderwerp is vereist."
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Uitnodiging tot wijziging van het e-mailadres"

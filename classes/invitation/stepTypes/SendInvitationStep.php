@@ -72,10 +72,12 @@ class SendInvitationStep extends InvitationStepTypes
     {
         $sections = new Sections(
             'searchUserForm',
-            __('userInvitation.searchUser.stepName'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.searchUser.stepName') : __('reviewerInvitation.searchUser.stepName'),
             'form',
             'UserInvitationSearchFormStep',
-            __('userInvitation.searchUser.stepDescription'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.searchUser.stepDescription') : __('reviewerInvitation.searchUser.stepDescription'),
         );
         $sections->addSection(
             null,
@@ -85,11 +87,14 @@ class SendInvitationStep extends InvitationStepTypes
         );
         $step = new Step(
             'searchUser',
-            __('userInvitation.searchUser.stepName'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.searchUser.stepName') : __('reviewerInvitation.searchUser.stepName'),
             __('userInvitation.searchUser.stepLabel'),
-            __('userInvitation.searchUser.nextButtonLabel'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.searchUser.nextButtonLabel') : __('reviewerInvitation.searchUser.nextButtonLabel'),
             'emptySection',
-            __('userInvitation.searchUser.stepDescription'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.searchUser.stepDescription') : __('reviewerInvitation.searchUser.stepDescription'),
             true
         );
         $step->addSectionToStep($sections->getState());
@@ -113,15 +118,18 @@ class SendInvitationStep extends InvitationStepTypes
         }
         $sections = new Sections(
             'userDetails',
-            __('userInvitation.enterDetails.stepName'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.enterDetails.stepName') : __('reviewerInvitation.enterDetails.stepName'),
             'form',
             'UserInvitationDetailsFormStep',
-            __('userInvitation.enterDetails.stepDescription'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.enterDetails.stepDescription') : __('reviewerInvitation.enterDetails.stepDescription'),
         );
         $sections->addSection(
             new Form(
                 'userDetails',
-                __('userInvitation.enterDetails.stepName'),
+                self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                    __('userInvitation.enterDetails.stepName') : __('reviewerInvitation.enterDetails.stepName'),
                 __('userInvitation.enterDetails.stepDescription'),
                 new UserDetailsForm('users', $locales),
             ),
@@ -132,11 +140,14 @@ class SendInvitationStep extends InvitationStepTypes
         );
         $step = new Step(
             'userDetails',
-            __('userInvitation.enterDetails.stepName'),
-            __('userInvitation.enterDetails.stepLabel'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.enterDetails.stepName') : __('reviewerInvitation.enterDetails.stepName'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.enterDetails.stepLabel'): __('reviewerInvitation.enterDetails.stepLabel'),
             __('userInvitation.enterDetails.nextButtonLabel'),
             'form',
-            __('userInvitation.enterDetails.stepDescription'),
+            self::INVITATION_USER_ROLE_ASSIGNMENT === $this->invitationType ?
+                __('userInvitation.enterDetails.stepDescription') : __('reviewerInvitation.enterDetails.stepDescription'),
         );
         $step->addSectionToStep($sections->getState());
         return $step->getState();

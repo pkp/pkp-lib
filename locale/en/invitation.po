@@ -420,3 +420,24 @@ msgstr "Open"
 
 msgid "reviewerInvitation.modal.button"
 msgstr "View submission"
+
+msgid "reviewerInvitation.searchUser.stepName"
+msgstr "Create a new reviewer"
+
+msgid "reviewerInvitation.searchUser.stepDescription"
+msgstr "When creating a reviewer in OJS, you can search for an existing user and enroll them as a reviewer if they already have an account, or invite them to create one and join as a new reviewer if no account is found"
+
+msgid "reviewerInvitation.searchUser.nextButtonLabel"
+msgstr "Continue"
+
+msgid "reviewerInvitation.enterDetails.stepName"
+msgstr "User Details"
+
+msgid "reviewerInvitation.enterDetails.stepDescription"
+msgstr "Invite user to take the role of a reviewer in the system"
+
+msgid "reviewerInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Enter details to add user as a reviewer"
+
+msgid "reviewerInvitation.enterDetails.stepDescription"
+msgstr "Invite user to take the role of a reviewer in the system"

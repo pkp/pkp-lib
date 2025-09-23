@@ -28,12 +28,21 @@ class EditTaskTemplateResource extends JsonResource
             'stageId' => (int) $this->stage_id,
             'title' => $this->title,
             'include' => (bool) $this->include,
-            'emailTemplateId' => $this->email_template_id ? (int) $this->email_template_id : null,
-            'userGroupIds' => $this->whenLoaded('userGroups', fn () => $this->userGroups->pluck('user_group_id')->values()->all()),
-            'userGroups' => $this->whenLoaded('userGroups', fn () => $this->userGroups->map(fn ($ug) => [
-                'id' => (int) $ug->user_group_id,
-                'name' => method_exists($ug, 'getLocalizedName') ? $ug->getLocalizedName() : ($ug->name ?? null),
-            ])),
+            'emailTemplateKey' => $this->email_template_key ?? null,
+            'userGroupIds' => $this->whenLoaded(
+                'userGroups',
+                fn () => $this->userGroups->pluck('user_group_id')->values()->all()
+            ),
+            'userGroups' => $this->whenLoaded(
+                'userGroups',
+                fn () => $this->userGroups
+                    ->map(fn ($ug) => [
+                        'id' => (int) $ug->user_group_id,
+                        'name' => method_exists($ug, 'getLocalizedName') ? $ug->getLocalizedName() : null,
+                    ])
+                    ->values()
+                    ->all()
+            ),
         ];
     }
 }

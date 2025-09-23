@@ -28,11 +28,9 @@ class NavigationMenuItemResource extends JsonResource
     public function toArray(Request $request): array
     {
         $context = Application::get()->getRequest()->getContext();
-        $supportedLocales = $context ? $context->getSupportedLocales() : [];
-
         $titleData = [];
         if ($this->titleLocaleKey) {
-            foreach ($supportedLocales as $locale) {
+            foreach ($context->getSupportedLocales() as $locale) {
                 $titleData[$locale] = Locale::get($this->titleLocaleKey, [], $locale);
             }
         }

@@ -64,6 +64,18 @@ import BaseDropdownMenuTriggerIcon from '@/frontend/components/PkpDropdownMenu/b
 // Base Icon Components
 import BaseIcon from '@/frontend/components/PkpIcon/BaseIcon.vue';
 
+// PkpTab Components
+import PkpTabRoot from '@/frontend/components/PkpTab/PkpTabRoot.vue';
+import PkpTabList from '@/frontend/components/PkpTab/PkpTabList.vue';
+import PkpTabTrigger from '@/frontend/components/PkpTab/PkpTabTrigger.vue';
+import PkpTabContent from '@/frontend/components/PkpTab/PkpTabContent.vue';
+
+// Base Tab Components
+import BaseTabRoot from '@/frontend/components/PkpTab/base/BaseTabRoot.vue';
+import BaseTabList from '@/frontend/components/PkpTab/base/BaseTabList.vue';
+import BaseTabTrigger from '@/frontend/components/PkpTab/base/BaseTabTrigger.vue';
+import BaseTabContent from '@/frontend/components/PkpTab/base/BaseTabContent.vue';
+
 // Base Comments Components
 import BaseComments from '@/frontend/components/PkpComments/base/BaseComments.vue';
 import BaseCommentsLogInto from '@/frontend/components/PkpComments/base/BaseCommentsLogInto.vue';
@@ -149,6 +161,18 @@ VueRegistry.registerComponent(
 
 // Register Base Icon Components
 VueRegistry.registerComponent('BaseIcon', BaseIcon);
+
+// Register PkpTab Components
+VueRegistry.registerComponent('PkpTabRoot', PkpTabRoot);
+VueRegistry.registerComponent('PkpTabList', PkpTabList);
+VueRegistry.registerComponent('PkpTabTrigger', PkpTabTrigger);
+VueRegistry.registerComponent('PkpTabContent', PkpTabContent);
+
+// Register Base Tab Components
+VueRegistry.registerComponent('BaseTabRoot', BaseTabRoot);
+VueRegistry.registerComponent('BaseTabList', BaseTabList);
+VueRegistry.registerComponent('BaseTabTrigger', BaseTabTrigger);
+VueRegistry.registerComponent('BaseTabContent', BaseTabContent);
 
 // Register Base Comments Components
 VueRegistry.registerComponent('BaseComments', BaseComments);

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-23 10:22+0000\n"
+"PO-Revision-Date: 2025-09-23 12:28+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -195,7 +195,6 @@ msgstr "Ebaluatzaile anonimoa/Egilea agerian utzita"
 msgid "editor.submissionReview.doubleAnonymous"
 msgstr "Ebaluatzaile anonimoa/Egile anonimoa"
 
-#, fuzzy
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Berrikusi beharreko fitxategiak"
 
@@ -404,20 +403,28 @@ msgstr "Zuzenketa gogorarazlea"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr ""
+"Zuzendu den fitxategia onartu egin behar da ekoizpen-fasera bidali aurretik. "
+"Fitxategi hau onartu nahi duzu?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr ""
+"Zuzendu den fitxategi hau gaitzesten bada, ezingo da ekoizpen-fasera bidali. "
+"Fitxategi hau gaitzetsi nahi duzu?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Esleitu auditorea"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
+"Bidalketa-faseren batera igotako edozein fitxategi gehitu daiteke zuzenketa-"
+"fitxategien zerrendan, beheko Gehitu kontrol-laukia markatuz eta Bilatu "
+"botoia sakatuz: eskuragarri dauden fitxategi guztiak zerrendatuko dira eta "
+"sartzeko aukeratu ahal izango dira. Fase batera igo ez diren beste fitxategi "
+"batzuk zerrendara gehitu daitezke Igo fitxategia estekan klik eginez."
 
 msgid "editor.review"
 msgstr "Berrikuspena"
 
-#, fuzzy
 msgid "editor.review.reviewDetails"
 msgstr "Berrikusi xehetasunak"
 
@@ -456,6 +463,8 @@ msgstr "Ez sortu berrikuspen-eztabaidarik."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""
+"Bidalketa honetarako berrikuspen-erronda berri bat sortzera zoaz. Jarraian, "
+"beste berrikuspen-errondetan erabili ez diren fitxategiak zerrendatzen dira."
 
 msgid "editor.submission.createNewRound"
 msgstr "Sortu berrikuspen-erronda berri bat"
@@ -468,12 +477,15 @@ msgstr "Hautatu ebaluazio-inprimakia"
 
 msgid "editor.article.confirmChangeReviewForm"
 msgstr ""
+"Abisua: Berrikuspen-inprimakia aldatzeak eragina izango du ebaluatzaileek "
+"inprimaki hau erabiliz emandako erantzunetan. Ziur zaude jarraitu nahi "
+"duzula?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Ez da fitxategirik hautatu"
 
 msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr ""
+msgstr "Ez duzu fitxategirik hautatu ebaluatzaileak berrikus dezan."
 
 msgid "submission.queries.subjectRequired"
 msgstr "Eztabaidaren gaia zehaztea beharrezkoa da."
@@ -489,6 +501,7 @@ msgstr "Editatu eztabaida"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr ""
+"Eztabaida honetan sartzeko fitxategiak erantsi daitezke beheko zerrendatik."
 
 msgid "editor.submission.selectedReviewer"
 msgstr "Ebaluatzailea hautatuta"
@@ -501,18 +514,26 @@ msgstr "Ezeztatu probaren onespena"
 
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""
+"Onartu froga hau zuzenketa amaitu dela eta fitxategia argitaratzeko prest "
+"dagoela adierazteko."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr ""
+"Ezeztatu froga honen onespena, zuzenketa ez dagoela osatuta eta fitxategia "
+"argitaratzeko prest ez dagoela adierazteko."
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr ""
+"Ziur zaude bidalketa hori atzera botatzeko erabakia bertan behera utzi nahi "
+"duzula?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr ""
+"'{$publicIdentifier}' identifikatzaile publikoak ez du zenbaki bat izan "
+"behar."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr ""
+msgstr "{$pattern} eredua ez da onartzen identifikatzaile publikoarentzat."
 
 msgid "reviewer.list.filterRating"
 msgstr "Baloratua gutxienez"
@@ -524,7 +545,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Une honetan esleitutako berrikuspen aktiboak"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Ebaluatzaile honek azken errondan berrikuspena burutu zuen."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Osatutako berrikuspenak"
@@ -564,6 +585,9 @@ msgstr ""
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
+"Ebaluatzaile hori blokeatuta dago, egilearen identitatea ikusteko aukera "
+"ematen duen rol bat esleitu zaiolako. Ezin da bermatu pareen berrikuspen "
+"anonimoa. Ebaluatzaile hori desblokeatu nahi duzu hala ere?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Desblokeatu"
@@ -637,3 +661,32 @@ msgid "editor.review.errorAddingReviewer.dateValidationFailed"
 msgstr ""
 "Errore bat gertatu da ebaluatzailea gehitzean, berrikuspenaren amaiera-datak "
 "erantzunen amaiera-dataren berdina edo handiagoa izan behar baitu."
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Ebaluatzaileak ukatu egin du berrikusteko gonbidapena"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ebaluatzailea zurekin harremanetan jartzen bada posta elektronikoz edo beste "
+"edozein bitartekoren bidez, erantzuna graba dezakezu bere izenean"
+
+msgid "editor.review.logResponse.for"
+msgstr "Erregistroaren erantzuna honentzat"
+
+msgid "editor.review.logResponse"
+msgstr "Erregistroaren erantzuna"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Erantzun bat hautatu behar da"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Ebaluatzaileak onartu du berrikusteko gonbidapena"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Grabatu erantzuna ebaluatzailearen izenean"
+
+msgid "editor.review.authorOnly"
+msgstr "Egileentzat diren atalak soilik bistaratu"
+
+msgid "editor.review.allSections"
+msgstr "Editorearen inprimakiak berrikuspeneko atal guztiak erakusten ditu"

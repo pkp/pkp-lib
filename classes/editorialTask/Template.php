@@ -19,8 +19,9 @@ namespace PKP\editorialTask;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use PKP\core\traits\ModelWithSettings;
-use PKP\emailTemplate\EmailTemplate;
+use PKP\userGroup\UserGroup;
 
 class Template extends Model
 {
@@ -37,15 +38,15 @@ class Template extends Model
         'title',
         'context_id',
         'include',
-        'email_template_id',
+        'email_template_key',
     ];
 
     protected $casts = [
         'stage_id' => 'int',
         'context_id' => 'int',
         'include' => 'bool',
-        'email_template_id' => 'int',
         'title' => 'string',
+        'email_template_key' => 'string',
     ];
 
     /**
@@ -90,12 +91,21 @@ class Template extends Model
     }
 
     /**
-     * Discussion template is associated with an email template
-     * After the task is created, the email template body text is used to start a discussion
+     * Resolve the effective email template by key:
+     * prefer context override; otherwise fallback to default (NULL context_id).
      */
-    public function emailTemplate()
+    public function emailTemplate(): BelongsTo
     {
-        return $this->hasOne(EmailTemplate::class, 'email_id', 'email_template_id');
+        return $this->belongsTo(
+            \PKP\emailTemplate\EmailTemplate::class,
+            'email_template_key',  // FK on this model
+            'email_key'            // owner key on email_templates
+        )
+        ->where(function ($q) {
+            $q->where('context_id', $this->context_id)
+            ->orWhereNull('context_id');
+        })
+        ->orderByRaw('CASE WHEN context_id = ? THEN 1 ELSE 0 END DESC', [$this->context_id]);
     }
 
     /**
@@ -104,7 +114,7 @@ class Template extends Model
     public function userGroups(): BelongsToMany
     {
         return $this->belongsToMany(
-            \PKP\userGroup\UserGroup::class,
+            UserGroup::class,
             'edit_task_template_user_groups',
             'edit_task_template_id',
             'user_group_id'

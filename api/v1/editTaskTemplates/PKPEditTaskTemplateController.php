@@ -7,7 +7,7 @@
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPEditTemplateController
+ * @class PKPEditTaskTemplateController
  *
  * @ingroup api_v1_edit_templates
  *
@@ -26,7 +26,6 @@ use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\editorialTask\Template;
-use APP\facades\Repo;
 use PKP\API\v1\editTaskTemplates\formRequests\AddEditTaskTemplate;
 use PKP\API\v1\editTaskTemplates\resources\EditTaskTemplateResource;
 
@@ -70,17 +69,12 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $validated = $illuminateRequest->validated();
 
         $template = DB::transaction(function () use ($validated, $context) {
-            $emailTemplateId = null;
-            if (!empty($validated['emailTemplateKey'])) {
-                $et = Repo::emailTemplate()->getByKey($context->getId(), $validated['emailTemplateKey']);
-                $emailTemplateId = $et?->getId();
-            }
             $tpl = Template::create([
                 'stage_id' => $validated['stageId'],
                 'title' => $validated['title'],
                 'context_id' => $context->getId(),
                 'include' => $validated['include'] ?? false,
-                'email_template_id' => $emailTemplateId,
+                'email_template_key' => $validated['emailTemplateKey'] ?? null,
             ]);
 
             $tpl->userGroups()->sync($validated['userGroupIds']);

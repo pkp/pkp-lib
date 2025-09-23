@@ -38,7 +38,6 @@ class AddEditTaskTemplate extends FormRequest
             ->filter()
             ->values()
             ->all();
- 
         return [
             'stageId' => ['required', 'integer', Rule::in($stageIds)],
             'title' => ['required', 'string', 'max:255'],
@@ -56,22 +55,19 @@ class AddEditTaskTemplate extends FormRequest
 
     protected function prepareForValidation(): void
     {
+        $stageId = $this->input('stageId', null);
         $this->merge([
             'include' => filter_var($this->input('include', false), FILTER_VALIDATE_BOOLEAN),
             'userGroupIds' => array_values(array_map('intval', (array) $this->input('userGroupIds', []))),
+            'stageId' => is_null($stageId) ? $stageId : (int) $stageId,
         ]);
     }
 
-    public function validated($key = null, $default = null)
+    protected function passedValidation(): void
     {
-        $data = parent::validated();
-
-        return [
-            'stageId' => (int) $data['stageId'],
-            'title' => $data['title'],
-            'include' => $data['include'] ?? false,
-            'emailTemplateKey' => $data['emailTemplateKey'] ?? null,
-            'userGroupIds' => $data['userGroupIds'],
-        ];
+        $key = $this->input('emailTemplateKey');
+        if (is_string($key)) {
+            $this->merge(['emailTemplateKey' => trim($key)]);
+        }
     }
 }

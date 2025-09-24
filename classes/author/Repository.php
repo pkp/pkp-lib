@@ -132,7 +132,7 @@ class Repository
         // Check for input from disallowed locales
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
-        $validator->after(function ($validator) use ($props, $submission) {
+        $validator->after(function ($validator) use ($props, $submission, $context, $primaryLocale) {
             // publicationId must match an existing publication that is not yet published
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
@@ -157,6 +157,14 @@ class Repository
                         __('api.submission.400.invalidId', ['id' => $userGroupId])
                     );
                 }
+            }
+
+            // Author CI statement required?
+            if ($context->getSetting('requireAuthorCompetingInterests') && empty($props['competingInterests'][$primaryLocale])) {
+                $validator->errors()->add(
+                    "competingInterests.{$primaryLocale}",
+                    __('author.competingInterests.required')
+                );
             }
         });
 

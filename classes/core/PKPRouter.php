@@ -347,6 +347,8 @@ abstract class PKPRouter
         // Return the result of the operation to the client.
         if (is_string($result)) {
             echo $result;
+        } elseif ($result instanceof \Illuminate\View\View) {
+            echo $result->render();
         } elseif ($result instanceof \PKP\core\JSONMessage) {
             header('Content-Type: application/json');
             echo $result->getString();

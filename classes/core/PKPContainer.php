@@ -23,6 +23,7 @@ use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
@@ -30,6 +31,7 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PKP\config\Config;
+use PKP\core\PKPBladeViewServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -55,6 +57,7 @@ class PKPContainer extends Container
         $this->settingProxyForStreamContext();
         $this->registerBaseBindings();
         $this->registerCoreContainerAliases();
+        $this->registerClassAliases();
     }
 
     /**
@@ -190,6 +193,7 @@ class PKPContainer extends Container
         $this->register(new ValidationServiceProvider($this));
         $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
         $this->register(new \Laravel\Scout\ScoutServiceProvider($this));
+        $this->register(new PKPBladeViewServiceProvider($this));
     }
 
     /**
@@ -336,11 +340,28 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\StringEncrypter::class,
             ],
+            'view' => [
+                \Illuminate\Support\Facades\View::class,
+            ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
             }
         }
+    }
+
+    /**
+     * Register class aliases to simplify the usage of the class 
+     * To register more aliases, as AliasLoader::getInstance()->alias('key', SomeClass::class)
+     */
+    protected function registerClassAliases(): void
+    {
+        $aliases = [
+            'Str' => \Illuminate\Support\Str::class,
+            'Arr' => \Illuminate\Support\Arr::class,
+        ];
+
+        AliasLoader::getInstance($aliases)->register();
     }
 
     /**
@@ -474,6 +495,28 @@ class PKPContainer extends Container
 
         $items['scout'] = [
             'driver' => Config::getVar('search', 'driver', 'database'),
+        ];
+
+        // Blade view settings
+        $items['view'] = [
+            'compiled' => Str::of(
+                Config::getVar('cache', 'compiled', Core::getBaseDir() . '/cache/opcache')
+            )->beforeLast('/')->append('/t_compile')->value(),
+            'cache' => false, // FIXME: Must be true in production, should it be a control config ?
+            'compiled_extension' => 'php',
+            'relative_hash' => false,
+            'paths' => [
+                'app' => $this->basePath('templates'),
+                'pkp' => $this->basePath('lib/pkp/templates'),
+            ],
+            'components' =>  [
+                // Component namespace here registered based on hierarchy and priority,
+                // do not alter the ordering
+                'namespace' => [
+                    'app' => Application::get()->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH,
+                    'pkp' => $this->getNamespace() . PKPBladeViewServiceProvider::VIEW_NAMESPACE_PATH,
+                ],
+            ]
         ];
 
         // Create instance and bind to use globally
@@ -627,5 +670,13 @@ class PKPContainer extends Container
     public function unsetRunningUnitTests(): void
     {
         $this->isRunningUnitTest = false;
+    }
+
+    /**
+     * Get the application namespace.
+     */
+    public function getNamespace(): string
+    {
+        return 'PKP\\';
     }
 }

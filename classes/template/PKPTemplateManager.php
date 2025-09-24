@@ -31,6 +31,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\View\View;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 use Less_Parser;
@@ -155,6 +156,35 @@ class PKPTemplateManager extends Smarty
         $this->default_resource_type = 'app';
 
         $this->error_reporting = E_ALL & ~E_NOTICE & ~E_WARNING;
+    }
+
+    /**
+     * Blade proof of concept: Override Smarty assign function to also expose variables globally to Blade
+     * (Not that this is good practice -- just to show we can!)
+     *
+     * @param null|mixed $value
+     */
+    // public function assign($tpl_var, $value = null, $nocache = false)
+    // {
+    //     parent::assign($tpl_var, $value, $nocache);
+
+    //     if (is_array($tpl_var)) {
+    //         foreach ($tpl_var as $key => $value) {
+    //             \Illuminate\Support\Facades\View::share($key, $value);
+    //         }
+    //     } else {
+    //         \Illuminate\Support\Facades\View::share($tpl_var, $value);
+    //     }
+    // }
+
+    /**
+     * Share the template variables globally to Blade
+     */
+    public function shareTemplateVariables(array $variables): void
+    {
+        foreach ($variables as $key => $value) {
+            \Illuminate\Support\Facades\View::share($key, $value);
+        }
     }
 
     /**
@@ -1352,6 +1382,18 @@ class PKPTemplateManager extends Smarty
             return $result;
         }
 
+        // If a blade view instance given or the template is a blade view
+        // just return the rendered content
+        if ($template instanceof View 
+            || (!str_contains($template, ".tpl") && view()->exists($template))
+        ) {
+            $this->shareTemplateVariables($this->getTemplateVars());
+
+            return $template instanceof View
+                ? $template->render()
+                : view($template)->render();
+        }
+
         return parent::fetch($template, $cache_id, $compile_id, $parent);
     }
 
@@ -1600,6 +1642,19 @@ class PKPTemplateManager extends Smarty
             $compile_id = $this->getCompileId($template);
         }
 
+        // If a blade view instance given or the template is a blade view
+        // just return the rendered content
+        if ($template instanceof View 
+            || (!str_contains($template, ".tpl") && view()->exists($template))
+        ) {
+            $this->shareTemplateVariables($this->getTemplateVars());
+
+            echo $template instanceof \Illuminate\View\View
+                ? $template->render()
+                : view($template)->render();
+            return;
+        }
+        
         // Actually display the template.
         parent::display($template, $cache_id, $compile_id, $parent);
     }
@@ -1906,7 +1961,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Call hooks from a template. (DEPRECATED: For new hooks, {run_hook} is preferred.
      */
-    public function smartyCallHook($params, $smarty)
+    public function smartyCallHook($params, $smarty = null)
     {
         $output = null;
         Hook::call($params['name'], [&$params, $smarty, &$output]);
@@ -1943,7 +1998,7 @@ class PKPTemplateManager extends Smarty
      * - escape (default to true unless otherwise specified)
      * - params: parameters to include in the URL if available as an array
      */
-    public function smartyUrl($parameters, $smarty): string
+    public function smartyUrl($parameters, $smarty = null): string
     {
         if (!isset($parameters['context'])) {
             // Extract the variables named in $paramList, and remove them
@@ -2265,7 +2320,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadStylesheet($params, $smarty)
+    public function smartyLoadStylesheet($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2355,7 +2410,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadScript($params, $smarty)
+    public function smartyLoadScript($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2398,7 +2453,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadHeader($params, $smarty)
+    public function smartyLoadHeader($params, $smarty = null)
     {
         if (empty($params['context'])) {
             $params['context'] = 'frontend';
@@ -2428,7 +2483,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return string of HTML/Javascript
      */
-    public function smartyLoadNavigationMenuArea($params, $smarty)
+    public function smartyLoadNavigationMenuArea($params, $smarty = null)
     {
         $areaName = $params['name'];
         $declaredMenuTemplatePath = $params['path'] ?? null;

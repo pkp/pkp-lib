@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PKP\config\Config;
+use PKP\core\PKPBladeViewServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -58,6 +59,17 @@ class PKPContainer extends Container
     }
 
     /**
+     * Get the application namespace.
+     * Required by Laravel's ComponentTagCompiler for component discovery.
+     *
+     * @return string
+     */
+    public function getNamespace(): string
+    {
+        return 'PKP\\';
+    }
+
+    /**
      * Get the proper database driver
      */
     public static function getDatabaseDriverName(?string $driver = null): string
@@ -83,6 +95,7 @@ class PKPContainer extends Container
         static::setInstance($this);
         $this->instance('app', $this);
         $this->instance(Container::class, $this);
+        $this->instance(\Illuminate\Contracts\Foundation\Application::class, $this);
         $this->instance('path', $this->basePath);
         $this->instance('path.config', "{$this->basePath}/config"); // Necessary for Scout to let CLI happen
         $this->singleton(ExceptionHandler::class, function () {
@@ -189,6 +202,7 @@ class PKPContainer extends Container
         $this->register(new ConsoleCommandServiceProvider($this));
         $this->register(new ValidationServiceProvider($this));
         $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
+        $this->register(new PKPBladeViewServiceProvider($this));
         $this->register(new \Laravel\Scout\ScoutServiceProvider($this));
     }
 
@@ -335,6 +349,9 @@ class PKPContainer extends Container
                 \Illuminate\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\Encrypter::class,
                 \Illuminate\Contracts\Encryption\StringEncrypter::class,
+            ],
+            'view' => [
+                \Illuminate\Support\Facades\View::class,
             ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {

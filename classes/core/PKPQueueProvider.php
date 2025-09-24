@@ -33,6 +33,7 @@ use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
 use PKP\queue\WorkerConfiguration;
+use PKP\queue\PKPQueueDatabaseConnector;
 use Throwable;
 
 class PKPQueueProvider extends IlluminateQueueServiceProvider
@@ -121,7 +122,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         if (Config::getVar('queues', 'job_runner', true)) {
             $currentWorkingDir = getcwd();
             register_shutdown_function(function () use ($currentWorkingDir) {
-                
                 // restore the current working directory
                 // see: https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
                 chdir($currentWorkingDir);
@@ -150,6 +150,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 }
 
                 (new JobRunner($this))
+                    ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
                     ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()
                     ->withMaxMemoryConstrain()
@@ -160,7 +161,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
         Queue::failing(function (JobFailed $event) {
             $contextId = $event->job->payload()['context_id'] ?? 'unknown';
-            error_log("Job failed for context_id {$contextId}: {$event->exception->__toString()}");
+            trigger_error("Job failed for context_id {$contextId}: {$event->exception->__toString()}");
 
             app('queue.failer')->log(
                 $event->connectionName,

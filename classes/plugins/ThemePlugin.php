@@ -94,6 +94,10 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public bool $isVueRuntimeRequired = false;
 
+    /**
+     * Track whether rendering via blade view
+     */
+    public bool $isRenderingViaBladeView = false;
 
     /**
      * @copydoc Plugin::register
@@ -135,6 +139,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
         $bladeViewPath = $this->resolveBladeViewPath($templatePath);
         if (view()->exists($bladeViewPath)) {
+            $this->isRenderingViaBladeView = true;
             $templatePath = $bladeViewPath;
         }
         

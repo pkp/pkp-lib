@@ -552,10 +552,12 @@ abstract class Plugin
             return $fullPath;
         }
 
-        // Fallback to blade view if exists
-        $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
-        if (view()->exists($bladePath)) {
-            return $bladePath;
+        // Fallback to blade view if exists for theme plugins and if the parent template is a blade view
+        if ($this instanceof \PKP\plugins\ThemePlugin && $this->isRenderingViaBladeView) {
+            $bladePath = $this->resolveBladeViewPath(str_replace('templates/', '', $path));
+            if (view()->exists($bladePath)) {
+                return $bladePath;
+            }
         }
 
         // Backward compatibility for OJS prior to 3.1.2; changed path to templates for plugins.

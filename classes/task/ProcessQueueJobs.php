@@ -67,8 +67,14 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
+        // Will never run the job runner in CLI mode
+        if (PKPContainer::getInstance()->runningInConsole) {
+            return true;
+        }
+
         // Executes a limited number of jobs when processing a request
         (new JobRunner($jobQueue))
+            ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
             ->withMaxExecutionTimeConstrain()
             ->withMaxJobsConstrain()
             ->withMaxMemoryConstrain()

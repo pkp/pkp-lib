@@ -682,7 +682,8 @@ class QueriesGridHandler extends GridHandler
                     ->recipients([$user])
                     ->subject($note->title)
                     ->body($note->contents)
-                    ->allowUnsubscribe($notification);
+                    ->allowUnsubscribe($notification)
+                    ->allowCapturableReply($note->messageId);
 
                 $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(
                     $item->getId(),

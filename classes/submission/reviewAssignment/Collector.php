@@ -34,6 +34,7 @@ class Collector implements CollectorInterface, ViewsCount
 
     public DAO $dao;
     public ?array $contextIds = null;
+    public ?string $messageId = null;
     public ?array $submissionIds = null;
     public bool $isIncomplete = false;
     public bool $isActive = false;
@@ -95,6 +96,15 @@ class Collector implements CollectorInterface, ViewsCount
     public function filterByContextIds(?array $contextIds): static
     {
         $this->contextIds = $contextIds;
+        return $this;
+    }
+
+    /**
+     * Filter review assignments by message ID
+     */
+    public function filterByMessageId(?string $messageId): static
+    {
+        $this->messageId = $messageId;
         return $this;
     }
 
@@ -306,6 +316,11 @@ class Collector implements CollectorInterface, ViewsCount
         );
 
         $q->when(
+            $this->messageId !== null,
+            fn (Builder $q) => $q->where('ra.message_id', $this->messageId)
+        );
+
+        $q->when(
             $this->submissionIds !== null,
             fn (Builder $q) =>
             $q->whereIn('ra.submission_id', $this->submissionIds)
@@ -488,7 +503,7 @@ class Collector implements CollectorInterface, ViewsCount
                                 )
                                 ->whereColumn('ramax.reviewer_id', 'rssmax.reviewer_id') // Take only selected reviewers
                                 ->whereColumn('ramax.stage_id', 'rssmax.latest_stage'),  // Take only the current stage
-                        'raamax',
+                            'raamax',
                             fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'raamax.submission_id')
                         )
                         ->whereColumn('ra.reviewer_id', 'raamax.reviewer_id') // Finally fitler by reviewers

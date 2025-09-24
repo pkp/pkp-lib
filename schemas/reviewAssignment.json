@@ -31,6 +31,16 @@
 			"type": "string",
 			"description": "Reviewer's competing interests",
 			"apiSummary": true,
+			"readOnly": true,
+			"writeOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"messageId": {
+			"type": "string",
+			"description": "Globally unique identifier for the review invitation",
+			"apiSummary": false,
 			"validation": [
 				"nullable"
 			]

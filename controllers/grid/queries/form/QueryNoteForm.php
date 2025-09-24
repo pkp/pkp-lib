@@ -62,6 +62,7 @@ class QueryNoteForm extends Form
             $note->assocType = Application::ASSOC_TYPE_QUERY;
             $note->assocId = $query->id;
             $note->userId = $user->getId();
+            $note->messageId = Note::generateMessageId();
             $note->save();
             $this->_noteId = $note->id;
             $this->_isNew = true;

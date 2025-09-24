@@ -161,7 +161,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
         Queue::failing(function (JobFailed $event) {
             $contextId = $event->job->payload()['context_id'] ?? 'unknown';
-            trigger_error("Job failed for context_id {$contextId}: {$event->exception->__toString()}");
+            error_log("Job failed for context_id {$contextId}: {$event->exception->__toString()}");
 
             app('queue.failer')->log(
                 $event->connectionName,

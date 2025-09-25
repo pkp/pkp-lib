@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-25 11:46+0000\n"
+"PO-Revision-Date: 2025-09-25 15:16+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -212,9 +212,8 @@ msgstr ""
 "Het hernoemen van de DB-IP-adress lite databankbestand {$sourceFilename} to "
 "{$targetFilename} is niet gelukt."
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Het gebruik van statistiek bestandsladertaak"
+msgstr "De gebruiksgegevens van de bestandsladertaak"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
@@ -225,10 +224,9 @@ msgstr ""
 msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Het bestand {$file} kan niet worden geopend en werd afgewezen."
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
-"Het bestand {$file}  betreft een oud logbestandformat, dat niet kan worden "
+"Het bestand {$file} betreft een oud logbestandformat, dat niet kan worden "
 "verwerkt en dus wordt terugverwezen naar de hoofdmap"
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
@@ -789,7 +787,7 @@ msgstr "Gegevensverzameling"
 
 msgid "admin.settings.statistics.collection.description"
 msgstr ""
-"Pas de instellingen aan m.b.t. welk type gegevensgebruik moet worden "
+"Pas de instellingen aan m.b.t. welk type gebruiksgegevens moet worden "
 "verzameld."
 
 msgid "admin.settings.statistics.storage"
@@ -797,89 +795,119 @@ msgstr "Dataopslag"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
-"Pas de instellingen aan welke gegevensgebruik moeten worden opgeslagen in de "
-"server."
+"Pas de instellingen aan welke gebruiksgegevens moeten worden opgeslagen in "
+"de server."
 
 msgid "admin.settings.statistics.sushi"
 msgstr "Sushiprotocol"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
-"Configureer de  <a href=\"https://www.projectcounter.org/counter-sushi/\""
+"Configureer de <a href=\"https://www.projectcounter.org/counter-sushi/\""
 ">COUNTER 5 SUSHI</a> protocol, een door de industrie erkend formulier voor "
-"het distribueren van gegevensgebruik."
+"het distribueren van gebruiksgegevens."
 
 msgid "admin.settings.statistics.keepDaily"
 msgstr "Gegevens per maand of per dag"
 
+#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Wel of geen dagelijkse of maandelijkse gegevensgebruik bijhouden. Het "
+"bijhouden van dagelijkse statistieken kan de omvang van uw database "
+"aanzienlijk vergroten."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Houdt dagelijks en maandelijks gegevens bij"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Enkel het bijhouden van gegevens per maand"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Gecomprimeerde logs"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Gegevens komen voort uit toegangslogbestanden, die verplaatst zijn naar "
+"<code>{$path}</code> na de verwerking. Moeten de logbestanden dan worden "
+"gecomprimeerd tot <code>.gz</code>-bestanden? Comprimeren maakt wellicht "
+"schijfruimte vrij op de server."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Laat de logbestanden op dezelfde locatie staan"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Comprimeer de logbestanden"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Beperkte toegang tot de COUNTER SUSHI-gegevens API voor managers en "
+"beheerders"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Op grond van het COUNTER SUSHI-protocol, moet elk gegevensverslag het "
+"\"platform\" identificeren dat de gegevens levert. Standaard wordt het "
+"tijdschrift aangewezen als platform voor alle statistieken. Als alle "
+"tijdschriften op deze site echter worden uitgegeven door, beheerd door of in "
+"eigendom zijn van dezelfde aanbieder, kunt u de site als platform aanwijzen."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Platform-ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Hoe u dit platform kunt identificeren in COUNTER SUSHI-rapporten. De "
+"platform-ID mag maximaal 17 tekens lang zijn en mag letters (a–z, A–Z), "
+"cijfers (0–9), underscores (_), punten (.) en slashes (/) bevatten. De "
+"platform-ID wordt in meerdere kolommen gebruikt en moet zo kort mogelijk "
+"zijn, maar toch herkenbaar blijven. De platform-ID is meestal gebaseerd op "
+"de naam van een uitgever of platform, een domeinnaam of een bekende, unieke "
+"afkorting."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Er moet een platform-ID worden opgegeven, wanneer de site als het SUSHI-"
+"platform wordt geïdentificeerd."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "werkinstructie-opties"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "gebruik : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Beschikbare opties voor werkinstructies"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "De naam van de wachtrijverbinding tot de werk[standaard : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "De wachtrijnaam m.b.t. werk [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "De naam van de medewerker[default : '{$default}']"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Het aantal seconden dat moet worden gewacht, voordat een opdracht nogmaals "
+"wordt geprobeerd waarbij een niet-onderschepte uitzondering is opgetreden "
+"[standaard: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "De geheugenlimiet in megabytes : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Het aantal seconden dat een onderliggend proces kan draaien"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Het aantal seconden in slaapstand wanneer geen opdracht beschikbaar is "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""

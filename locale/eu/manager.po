@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-23 13:20+0000\n"
+"PO-Revision-Date: 2025-09-25 11:46+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1355,6 +1355,8 @@ msgstr "Esleitu {$name} {$role} gisa"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Hautatu kategoria honetan egindako bidalketa berri guztiei automatikoki "
+"esleitu behar zaizkien argitalpen-erabiltzaileak."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Guneko sarbide aukerak"
@@ -1444,6 +1446,9 @@ msgstr ""
 
 msgid "manager.plugins.copyError"
 msgstr ""
+"Plugina ez da ongi kopiatu. Baimen arazo bat izan daiteke. Mesedez, ziurtatu "
+"web zerbitzaria pluginen direktorioan (azpidirektorioak barne) idazteko gai "
+"dela, baina ez ahaztu geroago berriro ziurtatzea."
 
 msgid "manager.plugins.delete"
 msgstr "Ezabatu plugina"
@@ -1467,12 +1472,20 @@ msgstr ""
 
 msgid "manager.plugins.deleteError"
 msgstr ""
+"\"{$pluginName}\" plugina ezin izan da ezabatu fitxategi-sistematik. Baimen "
+"arazo bat izan daiteke. Mesedez, ziurtatu web zerbitzaria pluginen "
+"direktorioan (azpidirektorioak barne) idazteko gai dela, baina ez ahaztu "
+"geroago berriro ziurtatzea."
 
 msgid "manager.plugins.deleteSuccess"
 msgstr "\"{$pluginName}\" plugina ongi ezabatu da"
 
 msgid "manager.plugins.description"
 msgstr ""
+"Orri honek aukera ematen dio kudeatzaileari une honetan instalatuta dauden "
+"pluginak berrikusteko eta konfiguratzeko. Pluginak kategoriatan banatzen "
+"dira, funtzioaren arabera. Kategoriak behean zerrendatzen dira, eta "
+"kategoria bakoitzaren barruan, bere egungo pluginen multzoa."
 
 msgid "manager.plugins.doesNotExist"
 msgstr "\"{$pluginName}\" plugina ez da existitzen"
@@ -1485,6 +1498,8 @@ msgstr "Kargatu plugin berri bat"
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
+"Formulario honen bidez, plugin berri bat kargatu eta instalatu dezakezu. "
+"Mesedez, ziurtatu plugina .tar.gz fitxategi gisa konprimituta dagoela."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Mesedez, ziurtatu fitxategi bat hautatu dela kargatzeko."
@@ -1580,9 +1595,12 @@ msgstr ""
 
 msgid "manager.plugins.wrongCategory"
 msgstr ""
+"Kargatutako plugina ez dator bat eguneratutako pluginaren kategoriarekin."
 
 msgid "manager.plugins.wrongName"
 msgstr ""
+"Igotako pluginaren version.xml fitxategiak eguneratutako pluginaren "
+"izenarekin bat ez datorren plugin-izena dauka."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Plugina ez dago. Mesedez, instalatu ezazu"
@@ -1600,6 +1618,8 @@ msgstr "Eguneratu plugina"
 
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
+"Formulario honek plugin bat eguneratzeko aukera ematen du. Mesedez, ziurtatu "
+"plugina .tar.gz fitxategi gisa konprimituta dagoela."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Eguneratzeak huts egin du. {$errorString}"
@@ -1636,13 +1656,15 @@ msgid "notification.localeUninstalled"
 msgstr "{$locale} eskualdeko ezarpena desinstalatu da."
 
 msgid "notification.localeReloaded"
-msgstr ""
+msgstr "{$locale} eskualdeko ezarpenak birkargatu dira {$contextName}(e)rako."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Eskualdeko ezarpenak gorde dira."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Ezin izan da hizkuntza-ezarpena gorde. Gutxienez hizkuntza bat gaitu behar "
+"da aukera bakoitzerako"
 
 msgid "notification.editedUser"
 msgstr "Erabiltzailea editatu da."
@@ -1666,6 +1688,9 @@ msgstr "Etiketa pertsonalizatuak"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
+"Gehitu HTML etiketa pertsonalizatuak, meta-etiketa izenez ere ezagunak, orri "
+"bakoitzaren goiburuan txertatzea gustatuko litzaizukeenak. Jarri "
+"harremanetan aholkulari teknikoarekin etiketak hemen gehitu aurretik."
 
 msgid "manager.paymentMethod"
 msgstr "Ordainketak"
@@ -1743,6 +1768,8 @@ msgstr "Baimendu bidalketaren metadatuak editatzea."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
+"Liburutegiko fitxategi bat beharrezkoa da. Mesedez, ziurtatu fitxategi bat "
+"aukeratu eta igo duzula."
 
 msgid "settings.libraryFiles.nameRequired"
 msgstr "Liburutegi-fitxategi honetarako izen bat behar da."
@@ -1767,6 +1794,9 @@ msgstr "Beste bat"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
+"<p>Liburutegi-fitxategi hau deskargatzeko moduan dago, baldin eta \"Sarbide "
+"Publikoa\" gaituta badago, helbide honetan: "
+"<blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Hautatu erantsi beharreko liburutegi-fitxategiak"
@@ -1781,7 +1811,7 @@ msgid "grid.action.deleteGenre"
 msgstr "Ezabatu osagai hau"
 
 msgid "grid.action.restoreGenres"
-msgstr ""
+msgstr "Berrezarri osagaiak lehenetsitako ezarpenetara"
 
 msgid "manager.setup.genres.label"
 msgstr "Fitxategi mota"
@@ -1867,18 +1897,22 @@ msgstr "Ebaluazio-inprimakiak"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
+"Ziur zaude berrikuspen-inprimaki hau aktibatu nahi duzula? Behin berrikuspen "
+"bati esleituta, ezingo duzu desaktibatu."
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
+"Ziur zaude berrikuspen-inprimaki hau desaktibatu nahi duzula? Ez da "
+"erabilgarri egongo berrikuspen-esleipen berrietarako."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr ""
+msgstr "Ziur zaude berrikuspen-inprimaki honen kopia bat sortu nahi duzula?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Bukatuta"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr ""
+msgstr "Ziur zaude berrikuspen-inprimaki hau ezabatu nahi duzula?"
 
 msgid "manager.reviewForms.create"
 msgstr "Sortu Ebaluazio-inprimakia"
@@ -1912,13 +1946,13 @@ msgid "manager.reviewForms.noneCreated"
 msgstr "Ez da ebaluazio-inprimakirik sortu"
 
 msgid "manager.reviewForms.noneUsed"
-msgstr ""
+msgstr "Ez da erabili berrikuspen-inprimakirik."
 
 msgid "manager.reviewForms.preview"
 msgstr "Inprimakiaren aurrebista"
 
 msgid "manager.reviewForms.reviewFormData"
-msgstr ""
+msgstr "Berrikuspen-inprimakiaren datuak"
 
 msgid "manager.reviewForms.title"
 msgstr "Titulua"
@@ -2000,10 +2034,10 @@ msgid "manager.reviewFormElements.viewable"
 msgstr "Ikusgai (egileentzat)"
 
 msgid "grid.action.createReviewForm"
-msgstr ""
+msgstr "Sortu berrikuspen-inprimaki berri bat"
 
 msgid "manager.setup.competingInterests.required"
-msgstr ""
+msgstr "Eskatu interes-gatazka adierazpen bat pareen berrikuspenean zehar."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "Lizentzia deskribatzen duen web orri baten URLa, erabilgarri badago."
@@ -2219,7 +2253,7 @@ msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Elementu ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr ""
+msgstr "Genero ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
 msgstr "Kodeketa ezezaguna {$param}"
@@ -2229,45 +2263,66 @@ msgstr "Edukia ez dago {$param} gisa kodetuta"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
+"Inportazio-fitxategiak '{$authorName}' egilea du, '{$userGroupName}' "
+"erabiltzaile-taldearekin. Helburuko instalazioan ez dago izen hori duen "
+"erabiltzaile-talderik definituta."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "Erabiltzaile-taldea falta da {$param} egilearen izenarentzat"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
+"{$authorName} egileak ez du izenik bidalketaren hizkuntzan, {$localeName}. "
+"Bidalketa ezin da inportatu informazio hori gabe."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Kargatzaile ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr ""
+msgstr "Ezin izan da aldi baterako {$dest} fitxategia sortu {$source}(e)tik"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
+"Emandako fitxategi-tamaina \"{$expected}\" eta fitxategi-tamaina erreala \""
+"{$actual}\" ez datoz bat"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
+"\"{$revisionId}\" berrikuspenak \"{$fileId}\" bidalketa-fitxategirako "
+"bikoiztutako erregistroa sortuko luke"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Ezin izan da inportatu bidalketa-fitxategia"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"{$id} bidalketa-fitxategia alboratu egin da, inportatuko ez den erregistro "
+"bati atxikita dagoelako, hala nola berrikuspenaren esleipen bati edo "
+"eztabaida bati."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Inportazio/esportazio erroreak:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
+"Inportatutako \"{$username}\" erabiltzaileak ez du pasahitzik. Egiaztatu "
+"zure inportazioko XML formatua. Erabiltzailea ez da inportatu."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
+"Inportatutako \"{$username}\" erabiltzailearen pasahitza ezin izan da "
+"inportatu dagoen bezala. Pasahitz berri bat bidali da erabiltzailearen "
+"helbide elektronikora. Erabiltzailea inportatu da."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
+"Inportatutako \"{$username}\" erabiltzaileak baliozkoa ez den pasahitz "
+"arrunta du. Erabiltzailea ez da inportatu."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
+"\"{$username}\" erabiltzaile-izena eta \"{$email}\" helbide elektronikoa ez "
+"datoz bat dagoeneko badagoen erabiltzaile berarekin."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
 msgstr "Probak"
@@ -2465,10 +2520,12 @@ msgid "grid.category.urlWillBe"
 msgstr "Kategoriaren URLa hau izango da: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr ""
+msgstr "Kategoriaren helbideak letrak eta zenbakiak bakarrik izan behar ditu."
 
 msgid "grid.category.pathExists"
 msgstr ""
+"Kategoriaren helbidea dagoeneko existitzen da. Mesedez, sartu beste helbide "
+"bat."
 
 msgid "grid.category.description"
 msgstr "Deskribapena"
@@ -2480,10 +2537,10 @@ msgid "grid.category.removeText"
 msgstr "Ziur zaude kategoria hau ezabatu nahi duzula?"
 
 msgid "grid.category.nameRequired"
-msgstr ""
+msgstr "Mesedez, sartu kategoria-izen bat."
 
 msgid "grid.category.categoryDetails"
-msgstr ""
+msgstr "Kategoriaren xehetasunak"
 
 msgid "stats.allUsers"
 msgstr "Erabiltzaile guztiak"
@@ -2582,6 +2639,8 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Honen barruan sartzen dira beste guztizkoetan zenbatzen ez diren bidalketak, "
+"hala nola oraindik martxan daudenak eta inportatu direla diruditenak."
 
 msgid "stats.descriptionForStat"
 msgstr "{$stat}-ren deskribapena"
@@ -2645,7 +2704,7 @@ msgid "stats.timeline"
 msgstr "Denbora-lerroa"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "{$interval} bakoitzeko {$type} kopurua."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr "Deskargatu denbora-lerroa"
@@ -2723,40 +2782,43 @@ msgid "stats.name.declinedReviewRate"
 msgstr "Berrikuspen ondorengo errefusatze-tasa"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Prozesuak huts egin du. Begiratu beheko erroreak/abisuak."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Esportatu bidalketen emaitzak"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Deskargatu esportatutako fitxategia"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Esportazioa ongi burutu da."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Deskargatu esportatutako fitxategia beheko botoiaren bidez."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Elementu generikoak"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Iragazkiaren konfigurazio okerra [{$filterName}]: {$filterCount} agerraldi. "
+"Bakarra izan beharko litzateke."
 
 msgid "plugins.importexport.common.cliError"
-msgstr ""
+msgstr "ERROREA:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr ""
+"Zehaztutako aldizkariaren helbidea, \"{$contextPath}\", ez da existitzen."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Prozesuak huts egin du egileak aztertzean"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Prozesuak huts egin du argitalpenak aztertzean"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
@@ -2842,6 +2904,11 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Aldizkari honek pare anonimoen berrikuspen bikoitza egiten du. "
+"Ebaluatzaileek ez dute zuri edo zure egilekideei buruzko inolako "
+"identifikazio-informaziorik ikusiko. Era berean, ez duzu jakingo nork "
+"berrikusi duen zure bidalketa, eta ez duzu ebaluatzaileen berri zuzenean "
+"jasoko."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
@@ -3688,3 +3755,38 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
 msgstr ""
 "Baimendu egileek bidalketa-prozesuan ebaluatzaile potentzialak iradokitzea"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"{$id} bidalketa-fitxategia saltatu egin da, ez duelako baliozko fitxategi-"
+"faserik."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"{$id} bidalketa-fitxategiaren {$revision} berrikuspena saltatu da, "
+"fitxategia ez baita aurkitu \"{$path}\" helbidean."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"{$id} argitalpenaren azaleko irudia ez da esportatu, bere fitxategia ez "
+"baita aurkitu \"{$path}\" helbidean."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Hizkuntzaren ezarpena ezin izan da gorde. Aukera guztiak aktibatu behar dira."
+
+msgid "notification.submissionLocales"
+msgstr "Bidalketaren eskualdeko ezarpenak eguneratu dira."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"{$authorName} egileak ez du afiliazio-izenik bidalketaren hizkuntzan, "
+"{$localeName}. Bidalketa ezin da inportatu informazio hori gabe."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"{$id} bidalketa-fitxategia saltatu egin da, ez duelako baliozko "
+"berrikuspenik."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Definitu erredakzio-buru nagusien rolen ordena publikoki bistaratzeko."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-25 11:46+0000\n"
+"PO-Revision-Date: 2025-09-25 15:16+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -2912,9 +2912,16 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Aldizkari honek \"ebaluatzaile anonimo\" parekideen berrikuspena egiten du. "
+"Zure izena eta zure egilekideenak ebaluatzaileentzat ikusgai egongo dira; "
+"hala ere, ebaluatzaileen identitateak anonimoak izango dira."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Aldizkari honek parekideen berrikuspen irekia egiten du. Ebaluatzaileek zure "
+"izena eta afiliazioa ikusiko dituzte, baita zure egilekideen izenak eta "
+"afiliazioak ere. Era berean, zuk ere ebaluatzaileen izenak eta afiliazioak "
+"ikusiko dituzu."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Bidaltzailearen izen osoa"
@@ -2981,7 +2988,7 @@ msgid "mailable.reviewerReinstate.name"
 msgstr "Berrezarri ebaluatzailea"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Birbidali berrikuspen-eskaera ebaluatzaileari"
 
 msgid "emailTemplate.variable.submitterName"
 msgstr "Bidalketa-fitxategi bat igo duen erabiltzaile baten izen osoa"
@@ -3024,46 +3031,64 @@ msgid "emailTemplate.variable.issue.issuePublishedUrl"
 msgstr "URLa argitaratutako bidalketara"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Txostenaren urtea"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Argitalpen-jardueraren orrirako esteka"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da esleitu gabe zegoen ebaluatzaile bat "
+"editore batek berrezartzen duenean."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Mezu elektroniko hau editore batek berrikuspen-eskaera bati uko egin dion "
+"ebaluatzaile bati bidaltzen dio, editoreak eskaera berriro bidali nahi "
+"duenean."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Ebaluatzailearen esleipena kendu"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Mezu elektroniko hau editore batek ebaluatzaile bati esleipena kentzen "
+"dionean bidaltzen da."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Baliozkotu posta elektronikoa (gunea)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaio erabiltzaile berri bati "
+"gunean izena ematen duenean, ezarpenek helbide elektronikoa baliozkotzea "
+"eskatzen dutenean."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
 msgstr "Jakinarazi beste egileei"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da parte-hartzaile gisa esleituta ez dauden "
+"bidalketa baten egileei erabaki bat hartu dela jakinarazteko. Normalean, "
+"bidalketaren egilea izan ezik, gainerako guztiak dira."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Bidalketa egin duen egileari bidalitako mezu elektronikoaren kopia bat"
 
 msgid "mailable.decision.notifyReviewer.name"
 msgstr "Jakinarazi erabakia ebaluatzaileei"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Mezu elektroniko hau editore batek ebaluatzaile bati bidaltzen dio, "
+"berrikusi zuen bidalketa bati buruzko erabakia hartu dela jakinarazteko."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Erabaki honen deskribapen laburra, erabaki honi buruz ebaluatzaileei "
+"bidaliko zaien posta elektroniko bidezko jakinarazpen batean partekatzeko "
+"pentsatua"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Bidalketa hau berrikuspenik gabe onartzea erabaki dugu."
@@ -3083,88 +3108,117 @@ msgstr ""
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Bidalketara gonbidatutako ebaluatzaileari esleipena kendu zaio."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Bidalketa onartua"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio bidalketa "
+"argitaratzeko onartu dela."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa edizio-fasera itzuli da"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"edizio-fasera itzuli dela."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa edizio-fasetik itzuli da"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"edizio-fasetik itzuli dela."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Berrikuspen-erronda bertan behera utzi da"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez jakinarazten zaio egileari bere bidalketaren "
+"berrikuspen-erronda bertan behera utzi dela."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa ez da onartu"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"atzera bota dela pareen berrikuspenaren ondoren."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa ez da onartu (berrikuspenaren aurretik)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Berrikuspen-erronda berria hasi da"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio bere bidalketaren "
+"berrikuspen-erronda berri bat hasi dela."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Berrikuspenak eskatuta"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, parekideen berrikuspenean berrikuspenak "
+"eskatzeko erabakia jakinarazten zaio egileari."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Birbidali berrikustera"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio \"berrikusi eta "
+"berriro bidali\" dela bere bidalketari buruzko erabakia."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Berrezarri baztertutako bidalketa"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio parekideen "
+"berrikuspenaren ondoren haien bidalketa baztertzeko aurreko erabakia bertan "
+"behera utziko dela."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Berrezarri berrikuspenik gabe ukatutako bidalketa"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio parekideen "
+"berrikuspenaren ondoren haien bidalketa berrikuspenik gabe baztertzeko "
+"aurreko erabakia bertan behera utziko dela."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
 msgstr "Ebaluatzera bidalia"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"edizio-fasera bidali dela."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
 msgstr "Ekoizpenera bidalia"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"ekoizpen-fasera bidali dela."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr "Bidalketa onartua (berrikuspenik gabe)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"zuzenean edizio-fasera bidali dela eta parekideen berrikuspenik ez zaiola "
+"egingo."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
 msgstr "Gomendioa egina"
@@ -3173,7 +3227,7 @@ msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Berrikuspenaren baieztapena"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3181,7 +3235,7 @@ msgstr ""
 "eskaera onartzen duela eta lana garaiz bukatuko duela esateko."
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Berrikuspenaren ukapena"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -3189,13 +3243,15 @@ msgstr ""
 "eskaerari erantzunez, ezin duela egin esateko."
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Mezu elektroniko hau editore batek bidaltzen du, ebaluatzaile bati bere "
+"berrikuspena egin behar duela gogorarazteko."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea (automatikoa)"
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
@@ -3207,13 +3263,16 @@ msgstr ""
 "konfigurazio-fitxategia)."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Berrikuspenaren aitorpena"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Mezu elektroniko hau editore batek ebaluatzaile bati bidaltzen dio, bere "
+"berrikuspena jaso dela baieztatzeko eta ebaluatzaileari egindako "
+"ekarpenengatik eskerrak emateko."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Berrikuspenaren erantzuna epea gaindituta (automatizatua)"
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
@@ -3226,7 +3285,7 @@ msgstr ""
 "hautatzen denean."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Berrikuspenaren eskaera"
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
@@ -3239,7 +3298,7 @@ msgstr ""
 "hautatzen denean."
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Berrikuspenaren ondorengo eskaera"
 
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
@@ -3253,19 +3312,21 @@ msgstr ""
 "ikus BERRIKUSPENA_ESKAKIZUNA_ERANTSIA_ONDORENGOA.)"
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Bidalketaren uneko argitalpena falta da"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Bidalketaren umea {$child} ezin izan da prozesatu"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Editorial gogorarazlea"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Zeregin egiteke dituzten editoreei bidaltzen zaien mezu elektroniko "
+"automatizatua"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Berretsi pasahitza berrezartzea"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3283,7 +3344,7 @@ msgstr ""
 "ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Ebaluatzailearen erregistroa"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3291,10 +3352,12 @@ msgstr ""
 "ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Bidalketa gerorako gorde da"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Egileei bidalitako mezu elektroniko automatizatu bat, bidalketa gordetzen "
+"dutenean geroago osatzeko"
 
 msgid "mailable.submissionAck.name"
 msgstr "Bidalketaren baieztapena"
@@ -3314,31 +3377,39 @@ msgstr ""
 "izendatutako egileei, egile bidaltzaile ez izan arren."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Eztabaida (bidalketa)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da bidalketa-fasean eztabaida bat sortzen "
+"denean edo erantzuten zaionean."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Eztabaida (berrikuspena)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da berrikuspen-fasean eztabaida bat sortzen "
+"denean edo erantzuten zaionean."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Eztabaida (edizioa)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da edizio-fasean eztabaida bat sortzen denean "
+"edo erantzuten zaionean."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Eztabaida (ekoizpena)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da ekoizpen-fasean eztabaida bat sortzen "
+"denean edo erantzuten zaionean."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Berrikusitako bertsioaren jakinarazpena"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3346,40 +3417,48 @@ msgstr ""
 "baten bertsio berrikusia gora kargatzen duenean."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Jakinarazpen berria"
 
 msgid "mailable.announcementNotify.description"
-msgstr ""
+msgstr "Mezu elektroniko hau bidaltzen da iragarki berri bat sortzen denean."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Estatistika-txostenaren jakinarazpena"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Editatu berrikuspenaren jakinarazpena"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Mezu elektroniko honek automatikoki jakinarazten dio ebaluatzaileari bere "
+"berrikuspenaren esleipenaren xehetasunak aldatu direnean."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Jakinarazi editoreei ebaluatzailearen iruzkinak"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaie esleitutako editoreei, "
+"ebaluatzaileak berrikuspen-gomendioa egiten duenean"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Autentifikazio iturria"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa berrikuspenera itzuli da"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"berrikuspen-fasera itzuli dela."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa bidalketa-fasera itzuli da"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"bidalketa-fasera itzuli dela."
 
 msgid "manager.manageEmails"
 msgstr "Kudeatu mezu elektronikoak"
@@ -3391,24 +3470,30 @@ msgstr ""
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Gehitu eta editatu erabiltzailearen eskura jarri nahi dituzun txantiloiak "
+"mezu elektroniko hau bidaltzean. Lehenetsia automatikoki kargatuko da, eta "
+"erabiltzaileak azkar kargatu ahal izango ditu hemen gehitzen dituzun beste "
+"txantiloiak."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Txantiloiak"
 
 msgid "manager.mailables.editTemplate"
 msgstr "Editatu txantiloia"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Ezabatu txantiloia"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Ziur zaude <strong>{$template}</strong> txantiloia ezabatu nahi duzula?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Berrezarri txantiloia"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Ziur zaude <strong>{$template}</strong> txantiloiaren gaia eta gorputza "
+"lehenetsitako balioetara berrezarri nahi dituzula?"
 
 msgid "manager.mailables.search"
 msgstr "Bilatu izenaren edo deskribapenaren arabera"
@@ -3479,13 +3564,13 @@ msgid "manager.submitWithCategories.no"
 msgstr "Ez, ez erakutsi egileei eremu hori."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Eskatu zuzenketa"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Editorea esleituta"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Ekoizpenerako prest"
 
 msgid "mailable.system"
 msgstr "Sistema"
@@ -3494,10 +3579,10 @@ msgid "mailable.versionCreated.name"
 msgstr "Bertsioa sortuta"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Berrikuspena osatua"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Berrikuspena editatuta"
 
 msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Bidalketaren aitorpena beste egileei"
@@ -3507,12 +3592,14 @@ msgstr "Editorea esleituta (automatikoa)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Mezu elektroniko hau editore bati bidaltzen zaio automatikoki bidalketa bati "
+"esleitzen zaionean."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Esleitu editorea"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Bidalketak editorea behar du"
 
 msgid "mailable.citationAuthorQuery.name"
 msgstr ""
@@ -3535,7 +3622,7 @@ msgid "manager.setup.masthead"
 msgstr "Portada"
 
 msgid "plugins.importexport.common.validation"
-msgstr ""
+msgstr "Baliozkotu XMLa esportatu eta erregistratu aurretik."
 
 msgid "manager.statistics.counterR5"
 msgstr "R5 kontagailua"
@@ -3790,3 +3877,6 @@ msgstr ""
 
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr "Definitu erredakzio-buru nagusien rolen ordena publikoki bistaratzeko."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Helbide elektronikoa aldatzeko gonbidapena"

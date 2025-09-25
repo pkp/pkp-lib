@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-18 10:57+0000\n"
+"PO-Revision-Date: 2025-09-25 11:46+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -672,42 +672,46 @@ msgstr "Wiste alle opdrachten!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} foutmeldingen succesvol verwijderd van de foutmeldingenlijst."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} opdrachten succesvol in de wachtrij teruggeplaatst."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Er zijn {$total} foutmeldingen"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Er zijn {$total} opdrachten in de wachtrij"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Optie {$option} bestaat niet."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Bedoelt u een van de volgende?"
 
 msgid "admin.jobs.totalCount"
 msgstr ""
+"Er staat een totaal van <strong>{$total}</strong> opdracht(en) in de wachtrij"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Er is een totaal van <strong>{$total}</strong> foutmelding(en)."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Verwezen wordt naar de opdrachten in de wachtrij"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Opdrachten"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Foutmeldingen"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Foutmeldingendetails"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Verwezen wordt naar de opdrachten in de wachtrij in het systeem en vermeld "
+"de foutpogingen."
 
 msgid "navigation.tools.jobs.view"
 msgstr "Zie Opdrachten"
@@ -758,43 +762,55 @@ msgid "admin.jobs.list.actions"
 msgstr "Acties"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Aangemaakt onder $failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Aangemaakt onder {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Probeert u nogmaals"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Zet alle foutmeldingen nog eens in de wachtrij"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Foutmelding van het gebruik van gegevensstatistieken uit het bestand {$file} "
+"en het bestand kon niet worden verplaatst worden uit {$archivedFilePath} to "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Er zijn foutmeldingen bij het laden van de statistische gegevens uit het "
+"bestand {$file}. Het bestand is verplaatst naar de stage directory."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Gegevensverzameling"
 
 msgid "admin.settings.statistics.collection.description"
 msgstr ""
+"Pas de instellingen aan m.b.t. welk type gegevensgebruik moet worden "
+"verzameld."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Dataopslag"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Pas de instellingen aan welke gegevensgebruik moeten worden opgeslagen in de "
+"server."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushiprotocol"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configureer de  <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protocol, een door de industrie erkend formulier voor "
+"het distribueren van gegevensgebruik."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Gegevens per maand of per dag"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
@@ -919,3 +935,11 @@ msgid "admin.cli.tool.jobs.sandbox.message"
 msgstr ""
 "Kan geen opdrachten in de wachtrij plaatsen, omdat de veiligheidsmodus van "
 "de applicatie is ingeschakeld."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Het bestand {$file} kon niet worden verplaatst uit {$dispatchFilePath} to "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Het bestand {$file} bestaat niet."

@@ -43,6 +43,8 @@ use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\StreamOutput;
 use Throwable;
 
+error_reporting(E_ALL & ~E_DEPRECATED);
+
 define('APP_ROOT', dirname(__FILE__, 4));
 require_once APP_ROOT . '/tools/bootstrap.php';
 
@@ -436,7 +438,7 @@ class commandJobs extends CommandLineTool
             $queue = PKPJobModel::TESTING_QUEUE;
         }
 
-        $jobQueue = app('pkpJobQueue');
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         if ($queue && is_string($queue)) {
             $jobQueue = $jobQueue->forQueue($queue);

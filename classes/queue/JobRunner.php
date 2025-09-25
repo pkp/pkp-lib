@@ -19,11 +19,19 @@ declare(strict_types=1);
 namespace PKP\queue;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\core\PKPQueueProvider;
 
 class JobRunner
 {
+    /**
+     * Static flag to prevent multiple runs within the same request.
+     */
+    protected static bool $jobProcessing = false;
+
     /**
      * The core queue job running service provider
      */
@@ -65,10 +73,31 @@ class JobRunner
     protected bool $hasEstimatedTimeToProcessNextJobConstrain = false;
 
     /**
+     * Should estimate next job possible processing time to allow next job to be processed/run
+     */
+    protected int $jobProcessedOnRunner = 0;
+
+    /**
+     * Should the job runner run in context aware mode
+     * 
+     * This will allow the job runner to take into account the current context when processing jobs as 
+     *  - If current request has context, only process jobs for which there context id in the payload
+     *    that match it or the context id is null
+     *  - If the current request has not context, only process jobs that has not context id or
+     *    the context id is null
+     */
+    protected bool $runInContextAwareMode = true;
+
+    /**
+     * The current context ID
+     */
+    protected ?int $currentContextId = null;
+
+    /**
      * Create a new instance
      *
      */
-    public function __construct(PKPQueueProvider $jobQueue = null)
+    public function __construct(?PKPQueueProvider $jobQueue = null)
     {
         $this->jobQueue = $jobQueue ?? app('pkpJobQueue');
     }
@@ -190,39 +219,143 @@ class JobRunner
     }
 
     /**
+     * Check if the job runner is running in context-aware mode
+     */
+    public function isRunningInContextAwareMode(): bool
+    {
+        return $this->runInContextAwareMode;
+    }
+
+    /**
+     * Disable context-aware constraints
+     */
+    public function withDisableContextAwareConstraints(): self
+    {
+        $this->runInContextAwareMode = false;
+
+        return $this;
+    }
+
+    public function setCurrentContextId(?int $contextId): self
+    {
+        $this->currentContextId = $contextId;
+
+        return $this;
+    }
+
+    public function getCurrentContextId(): ?int
+    {
+        return $this->currentContextId;
+    }
+
+    /**
      * Process/Run/Execute jobs off CLI
      *
      */
-    public function processJobs(EloquentBuilder $jobBuilder = null): bool
+    public function processJobs(?EloquentBuilder $jobBuilder = null): bool
     {
-        $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
-
-        $jobProcessedCount = 0;
-        $jobProcessingStartTime = time();
-
-        while ($jobBuilder->count()) {
-            if ($this->exceededJobLimit($jobProcessedCount)) {
-                return true;
-            }
-
-            if ($this->exceededTimeLimit($jobProcessingStartTime)) {
-                return true;
-            }
-
-            if ($this->exceededMemoryLimit()) {
-                return true;
-            }
-
-            if ($this->mayExceedMemoryLimitAtNextJob($jobProcessedCount, $jobProcessingStartTime)) {
-                return true;
-            }
-
-            $this->jobQueue->runJobInQueue();
-
-            $jobProcessedCount = $jobProcessedCount + 1;
+        // if job is already processing via job runner, will not start to process more
+        if (static::isJobProcessing()) {
+            return false;
         }
 
-        return true;
+        static::$jobProcessing = true; // set the job runner to processing state
+
+        try {
+
+            $jobBuilder ??= $this->jobQueue->getJobModelBuilder();
+
+            if ($this->isRunningInContextAwareMode()) {
+                $queueHandler = app()->get(\Illuminate\Contracts\Queue\Queue::class);
+                if ($queueHandler instanceof \PKP\queue\DatabaseQueue) {
+                    $queueHandler
+                        ->enableJobInContextAwareMode()
+                        ->setContextId($this->getCurrentContextId());
+
+                    $jobBuilder = static::applyJobContextAwareFilter(
+                        $jobBuilder,
+                        $this->getCurrentContextId()
+                    );
+                }
+            }
+
+            $this->jobProcessedOnRunner = 0;
+            $jobProcessingStartTime = time();
+
+            while ($jobBuilder->count()) {
+                if ($this->exceededJobLimit($this->jobProcessedOnRunner)) {
+                    return true;
+                }
+
+                if ($this->exceededTimeLimit($jobProcessingStartTime)) {
+                    return true;
+                }
+
+                if ($this->exceededMemoryLimit()) {
+                    return true;
+                }
+
+                if ($this->mayExceedMemoryLimitAtNextJob($this->jobProcessedOnRunner, $jobProcessingStartTime)) {
+                    return true;
+                }
+
+                // if there is no more jobs to run, exit the loop
+                if ($this->jobQueue->runJobInQueue() === false) {
+                    return true;
+                }
+
+                $this->jobProcessedOnRunner = $this->jobProcessedOnRunner + 1;
+            }
+
+            return true;
+
+        } finally {
+            static::$jobProcessing = false; // reset the job processing state
+        }
+    }
+
+    /**
+     * Get the number of job successfully processed on job runner
+     */
+    public function getJobProcessedCount(): int
+    {
+        return $this->jobProcessedOnRunner;
+    }
+
+    /**
+     * Get the current status of job runner to see if this is processing jobs
+     */
+    public static function isJobProcessing(): bool
+    {
+        return static::$jobProcessing;
+    }
+
+    /**
+     * Apply context-aware filtering to the job query.
+     */
+    public static function applyJobContextAwareFilter(
+        EloquentBuilder|QueryBuilder $jobQuery,
+        ?int $contextId = null
+    ): EloquentBuilder|QueryBuilder
+    {
+        if (DB::connection() instanceof PostgresConnection) {
+            return $jobQuery->where(
+                fn ($query) => $query
+                    ->whereRaw(
+                        "REGEXP_REPLACE(payload, '.*\"context_id\":\\s*([0-9]+).*', '\\1') = ?",
+                        [(string) $contextId]
+                    )
+                    ->orWhereRaw(
+                        "payload !~ '\"context_id\":\\s*[0-9]+'"
+                    )
+            );
+        }
+
+        return $jobQuery->where(
+            fn ($query) => $query
+                ->where('payload->context_id', $contextId)
+                ->orWhereNull('payload->context_id')
+        );
     }
 
     /**

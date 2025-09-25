@@ -48,7 +48,7 @@ class TaskResource extends JsonResource
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
-            'notes' => NoteResource::collection(resource: $this->notes, data: $this->data),
+            'notes' => NoteResource::collection(resource: $this->notes->sortBy('dateCreated'), data: $this->data),
         ];
     }
 

@@ -3,7 +3,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-08 13:01+0000\n"
+"PO-Revision-Date: 2025-09-25 11:46+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
 "eu/>\n"
@@ -99,7 +99,7 @@ msgstr ""
 "jatorrizko ebaluazio fitxategien bertsio errebisatuak barne."
 
 msgid "reviewer.complete"
-msgstr "Ebaluazioa Bidali Da"
+msgstr "Ebaluazioa bidali da"
 
 msgid "reviewer.confirmSubmit"
 msgstr "Ziur zaude ebaluazioa bidali nahi duzula?"

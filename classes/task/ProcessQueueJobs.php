@@ -68,7 +68,7 @@ class ProcessQueueJobs extends ScheduledTask
         }
 
         // Will never run the job runner in CLI mode
-        if (PKPContainer::getInstance()->runningInConsole) {
+        if (PKPContainer::getInstance()->runningInConsole()) {
             return true;
         }
 

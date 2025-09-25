@@ -32,6 +32,7 @@ class NoteResource extends JsonResource
             'dateModified' => $this->dateModified?->format('Y-m-d H:i:s'),
             'createdByName' => $this->user->getFullName(),
             'createdByUsername' => $this->user->getUsername(),
+            'createdByEmail' => $this->user->getEmail(),
         ];
     }
 

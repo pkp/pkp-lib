@@ -16,6 +16,7 @@ namespace PKP\queue;
 
 use Illuminate\Queue\DatabaseQueue as IlluminateDatabaseQueue;
 use Illuminate\Queue\Jobs\DatabaseJobRecord;
+use PKP\queue\JobRunner;
 
 class DatabaseQueue extends IlluminateDatabaseQueue
 {
@@ -79,7 +80,7 @@ class DatabaseQueue extends IlluminateDatabaseQueue
     /**
      * Get the next available job for the queue which is context aware e.g. match the following conditions
      *  - payload->context_id match the prop contextId
-     *  - or payload->context_id is not null
+     *  - or payload->context_id is NULL
      *  - or payload->context_id is not present
      *
      * @param  string|null  $queue
@@ -87,20 +88,15 @@ class DatabaseQueue extends IlluminateDatabaseQueue
      */
     protected function getNextAvailableContextAwareJob($queue)
     {
-        $job = $this->database->table($this->table)
+        $jobPickQuery = $this->database->table($this->table)
                     ->lock($this->getLockForPopping())
                     ->where('queue', $this->getQueue($queue))
                     ->where(function ($query) {
                         $this->isAvailable($query);
                         $this->isReservedButExpired($query);
-                    })
-                    ->where(
-                        fn ($query) => $query
-                            ->where('payload->context_id', $this->contextId)
-                            ->orWhereNull('payload->context_id')
-                    )
-                    ->orderBy('id', 'asc')
-                    ->first();
+                    });
+
+        $job =  JobRunner::applyJobContextAwareFilter($jobPickQuery, $this->contextId)->orderBy('id', 'asc')->first();
 
         return $job ? new DatabaseJobRecord((object) $job) : null;
     }

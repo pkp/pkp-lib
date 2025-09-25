@@ -19,6 +19,9 @@ declare(strict_types=1);
 namespace PKP\queue;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\core\PKPQueueProvider;
 
@@ -268,6 +271,11 @@ class JobRunner
                     $queueHandler
                         ->enableJobInContextAwareMode()
                         ->setContextId($this->getCurrentContextId());
+
+                    $jobBuilder = static::applyJobContextAwareFilter(
+                        $jobBuilder,
+                        $this->getCurrentContextId()
+                    );
                 }
             }
 
@@ -320,6 +328,34 @@ class JobRunner
     public static function isJobProcessing(): bool
     {
         return static::$jobProcessing;
+    }
+
+    /**
+     * Apply context-aware filtering to the job query.
+     */
+    public static function applyJobContextAwareFilter(
+        EloquentBuilder|QueryBuilder $jobQuery,
+        ?int $contextId = null
+    ): EloquentBuilder|QueryBuilder
+    {
+        if (DB::connection() instanceof PostgresConnection) {
+            return $jobQuery->where(
+                fn ($query) => $query
+                    ->whereRaw(
+                        "REGEXP_REPLACE(payload, '.*\"context_id\":\\s*([0-9]+).*', '\\1') = ?",
+                        [(string) $contextId]
+                    )
+                    ->orWhereRaw(
+                        "payload !~ '\"context_id\":\\s*[0-9]+'"
+                    )
+            );
+        }
+
+        return $jobQuery->where(
+            fn ($query) => $query
+                ->where('payload->context_id', $contextId)
+                ->orWhereNull('payload->context_id')
+        );
     }
 
     /**

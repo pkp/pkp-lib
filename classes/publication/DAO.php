@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/DAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -178,9 +178,12 @@ class DAO extends EntityDAO
         $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
         $citations = $citationDao->getByPublicationId($publication->getId());
         $publication->setData('citations', $citations);
-        $publication->setData('citationsRaw', new class($publication->getId()) implements \Stringable {
-            public function __construct(public int $publicationId) {}
-            function __toString() {
+        $publication->setData('citationsRaw', new class ($publication->getId()) implements \Stringable {
+            public function __construct(public int $publicationId)
+            {
+            }
+            public function __toString()
+            {
                 $citationDao = DAORegistry::getDAO('CitationDAO'); /** @var CitationDAO $citationDao */
                 return $citationDao->getRawCitationsByPublicationId($this->publicationId)->implode(PHP_EOL);
             }
@@ -504,5 +507,21 @@ class DAO extends EntityDAO
         if (!empty($publication->getData('doiId'))) {
             $publication->setData('doiObject', Repo::doi()->get($publication->getData('doiId')));
         }
+    }
+
+    /**
+     * Get setting values for the given setting name of all submission's minor versions in the given stage and a given version major
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return DB::table('publication_settings AS ps')
+            ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
+            ->join('submissions AS s', 'p.submission_id', '=', 's.submission_id')
+            ->where('p.submission_id', '=', $submissionId)
+            ->where('p.version_stage', '=', $versionStage)
+            ->where('p.version_major', '=', $versionMajor)
+            ->where('ps.setting_name', '=', $settingName)
+            ->select('ps.setting_value')
+            ->pluck('setting_value');
     }
 }

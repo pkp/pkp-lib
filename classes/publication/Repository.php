@@ -3,8 +3,8 @@
 /**
  * @file classes/publication/Repository.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Repository
@@ -22,6 +22,7 @@ use APP\publication\DAO;
 use APP\publication\enums\VersionStage;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\core\Core;
@@ -965,4 +966,12 @@ abstract class Repository
      * @return DoiException[]
      */
     abstract public function createDois(Publication $publication): array;
+
+    /**
+     * @copydoc DAO::getVoRMinorVersionsSettingValues()
+     */
+    public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
+    {
+        return $this->dao->getMinorVersionsSettingValues($submissionId, $versionStage, $versionMajor, $settingName);
+    }
 }

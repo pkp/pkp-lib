@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-03 07:45+0000\n"
+"PO-Revision-Date: 2025-09-26 07:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -58,6 +58,8 @@ msgstr "Konfigurazio-fitxategiaren edukia"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
+"Ziur zaude {$contextName} eta haren eduki guztia betiko ezabatu nahi "
+"dituzula?"
 
 msgid "admin.currentVersion"
 msgstr "Uneko bertsioa"
@@ -84,9 +86,14 @@ msgstr ""
 
 msgid "admin.languages.cantDisable"
 msgstr ""
+"Eskualdeko ezarpen hau guneko hizkuntza nagusia da. Ezin duzu desgaitu beste "
+"hizkuntza nagusi bat aukeratu arte."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
+"Ziur zaude gunearen eskualde ezarpen nagusia aldatu nahi duzula? "
+"Erabiltzaileen izenak, guneko eskualde nagusian beharrezkoak direnak, falta "
+"direnean hizkuntza nagusitik kopiatuko dira."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -101,10 +108,10 @@ msgid "admin.languages.installLanguages"
 msgstr "Kudeatu localeak"
 
 msgid "admin.languages.availableLocales"
-msgstr ""
+msgstr "Erabilgarri dauden hizkuntzak"
 
 msgid "admin.languages.installLocale"
-msgstr ""
+msgstr "Instalatu hizkuntza"
 
 msgid "admin.languages.installLocales"
 msgstr "Instalatu"
@@ -128,28 +135,32 @@ msgid "admin.phpInfo"
 msgstr "PHP informazio xehea"
 
 msgid "admin.scheduledTask"
-msgstr ""
+msgstr "Programatutako zeregina"
 
 msgid "admin.scheduledTask.startTime"
-msgstr ""
+msgstr "Zereginaren prozesua hasi da."
 
 msgid "admin.scheduledTask.stopTime"
-msgstr ""
+msgstr "Zereginaren prozesua gelditu da."
 
 msgid "admin.scheduledTask.noLog"
-msgstr ""
+msgstr "Zereginak ez du erregistrorik sortu."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Gordailatu DOIak konfiguratutako erregistro-agentzian"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
+"Zure {$softwareName} instalazioa automatikoki exekutatu da eta amaitu du "
+"zeregin hau, eta erregistro-fitxategia hemen deskarga dezakezu: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Bidali mezu elektroniko bat editore bakoitzari bere zeregin nabarmenak "
+"gogoraraziz"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Editoreak identifikatzea testuinguruan gogorarazteko {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""

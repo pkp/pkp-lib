@@ -105,6 +105,11 @@ abstract class PKPApplication implements PKPApplicationInfoProvider
             class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
         }
 
+        // If Sentry is configured (https://sentry.io), initialize it.
+        if ($dsn = Config::getVar('general', 'sentry_dsn')) {
+            \Sentry\init(['dsn' => $dsn]);
+        }
+
         // Ensure that nobody registers for hooks that are no longer supported
         Hook::addUnsupportedHooks('SubmissionSearch::retrieveResults', 'ArticleSearchIndex::rebuildIndex', 'ArticleSearch::getSimilarityTerms'); // pkp/pkp-lib#8920 Move searching to Laravel Scout
         Hook::addUnsupportedHooks('API::_submissions::params', 'Template::Workflow::Publication', 'Template::Workflow', 'Workflow::Recommendations'); // pkp/pkp-lib#10766 Removed with new submission lists for 3.5.0

@@ -4,7 +4,7 @@
 		"Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
 		"This file is @generated automatically"
 	],
-	"content-hash": "2e56016e38ffaf61337f8084137d3e79",
+	"content-hash": "295e2b65b538031cae663b5ee9d11c7c",
 	"packages": [
 		{
 			"name": "altcha-org/altcha",
@@ -2054,6 +2054,66 @@
 				"source": "https://github.com/vinkla/hashids/tree/5.0.2"
 			},
 			"time": "2023-02-23T15:00:54+00:00"
+		},
+		{
+			"name": "jean85/pretty-package-versions",
+			"version": "2.1.1",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/Jean85/pretty-package-versions.git",
+				"reference": "4d7aa5dab42e2a76d99559706022885de0e18e1a"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/4d7aa5dab42e2a76d99559706022885de0e18e1a",
+				"reference": "4d7aa5dab42e2a76d99559706022885de0e18e1a",
+				"shasum": ""
+			},
+			"require": {
+				"composer-runtime-api": "^2.1.0",
+				"php": "^7.4|^8.0"
+			},
+			"require-dev": {
+				"friendsofphp/php-cs-fixer": "^3.2",
+				"jean85/composer-provided-replaced-stub-package": "^1.0",
+				"phpstan/phpstan": "^2.0",
+				"phpunit/phpunit": "^7.5|^8.5|^9.6",
+				"rector/rector": "^2.0",
+				"vimeo/psalm": "^4.3 || ^5.0"
+			},
+			"type": "library",
+			"extra": {
+				"branch-alias": {
+					"dev-master": "1.x-dev"
+				}
+			},
+			"autoload": {
+				"psr-4": {
+					"Jean85\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Alessandro Lai",
+					"email": "alessandro.lai85@gmail.com"
+				}
+			],
+			"description": "A library to get pretty versions strings of installed dependencies",
+			"keywords": [
+				"composer",
+				"package",
+				"release",
+				"versions"
+			],
+			"support": {
+				"issues": "https://github.com/Jean85/pretty-package-versions/issues",
+				"source": "https://github.com/Jean85/pretty-package-versions/tree/2.1.1"
+			},
+			"time": "2025-03-19T14:43:43+00:00"
 		},
 		{
 			"name": "kevinlebrun/colors.php",
@@ -5363,6 +5423,95 @@
 			"time": "2024-05-24T10:39:05+00:00"
 		},
 		{
+			"name": "sentry/sentry",
+			"version": "4.16.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/getsentry/sentry-php.git",
+				"reference": "c5b086e4235762da175034bc463b0d31cbb38d2e"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/getsentry/sentry-php/zipball/c5b086e4235762da175034bc463b0d31cbb38d2e",
+				"reference": "c5b086e4235762da175034bc463b0d31cbb38d2e",
+				"shasum": ""
+			},
+			"require": {
+				"ext-curl": "*",
+				"ext-json": "*",
+				"ext-mbstring": "*",
+				"guzzlehttp/psr7": "^1.8.4|^2.1.1",
+				"jean85/pretty-package-versions": "^1.5|^2.0.4",
+				"php": "^7.2|^8.0",
+				"psr/log": "^1.0|^2.0|^3.0",
+				"symfony/options-resolver": "^4.4.30|^5.0.11|^6.0|^7.0"
+			},
+			"conflict": {
+				"raven/raven": "*"
+			},
+			"require-dev": {
+				"friendsofphp/php-cs-fixer": "^3.4",
+				"guzzlehttp/promises": "^2.0.3",
+				"guzzlehttp/psr7": "^1.8.4|^2.1.1",
+				"monolog/monolog": "^1.6|^2.0|^3.0",
+				"phpbench/phpbench": "^1.0",
+				"phpstan/phpstan": "^1.3",
+				"phpunit/phpunit": "^8.5|^9.6",
+				"symfony/phpunit-bridge": "^5.2|^6.0|^7.0",
+				"vimeo/psalm": "^4.17"
+			},
+			"suggest": {
+				"monolog/monolog": "Allow sending log messages to Sentry by using the included Monolog handler."
+			},
+			"type": "library",
+			"autoload": {
+				"files": [
+					"src/functions.php"
+				],
+				"psr-4": {
+					"Sentry\\": "src/"
+				}
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Sentry",
+					"email": "accounts@sentry.io"
+				}
+			],
+			"description": "PHP SDK for Sentry (http://sentry.io)",
+			"homepage": "http://sentry.io",
+			"keywords": [
+				"crash-reporting",
+				"crash-reports",
+				"error-handler",
+				"error-monitoring",
+				"log",
+				"logging",
+				"profiling",
+				"sentry",
+				"tracing"
+			],
+			"support": {
+				"issues": "https://github.com/getsentry/sentry-php/issues",
+				"source": "https://github.com/getsentry/sentry-php/tree/4.16.0"
+			},
+			"funding": [
+				{
+					"url": "https://sentry.io/",
+					"type": "custom"
+				},
+				{
+					"url": "https://sentry.io/pricing/",
+					"type": "custom"
+				}
+			],
+			"time": "2025-09-22T13:38:03+00:00"
+		},
+		{
 			"name": "setasign/fpdi",
 			"version": "v2.6.3",
 			"source": {
@@ -6554,6 +6703,73 @@
 				}
 			],
 			"time": "2025-02-19T08:51:26+00:00"
+		},
+		{
+			"name": "symfony/options-resolver",
+			"version": "v7.3.0",
+			"source": {
+				"type": "git",
+				"url": "https://github.com/symfony/options-resolver.git",
+				"reference": "afb9a8038025e5dbc657378bfab9198d75f10fca"
+			},
+			"dist": {
+				"type": "zip",
+				"url": "https://api.github.com/repos/symfony/options-resolver/zipball/afb9a8038025e5dbc657378bfab9198d75f10fca",
+				"reference": "afb9a8038025e5dbc657378bfab9198d75f10fca",
+				"shasum": ""
+			},
+			"require": {
+				"php": ">=8.2",
+				"symfony/deprecation-contracts": "^2.5|^3"
+			},
+			"type": "library",
+			"autoload": {
+				"psr-4": {
+					"Symfony\\Component\\OptionsResolver\\": ""
+				},
+				"exclude-from-classmap": [
+					"/Tests/"
+				]
+			},
+			"notification-url": "https://packagist.org/downloads/",
+			"license": [
+				"MIT"
+			],
+			"authors": [
+				{
+					"name": "Fabien Potencier",
+					"email": "fabien@symfony.com"
+				},
+				{
+					"name": "Symfony Community",
+					"homepage": "https://symfony.com/contributors"
+				}
+			],
+			"description": "Provides an improved replacement for the array_replace PHP function",
+			"homepage": "https://symfony.com",
+			"keywords": [
+				"config",
+				"configuration",
+				"options"
+			],
+			"support": {
+				"source": "https://github.com/symfony/options-resolver/tree/v7.3.0"
+			},
+			"funding": [
+				{
+					"url": "https://symfony.com/sponsor",
+					"type": "custom"
+				},
+				{
+					"url": "https://github.com/fabpot",
+					"type": "github"
+				},
+				{
+					"url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+					"type": "tidelift"
+				}
+			],
+			"time": "2025-04-04T13:12:05+00:00"
 		},
 		{
 			"name": "symfony/polyfill-ctype",
@@ -11520,73 +11736,6 @@
 				}
 			],
 			"time": "2024-10-25T15:15:23+00:00"
-		},
-		{
-			"name": "symfony/options-resolver",
-			"version": "v7.3.0",
-			"source": {
-				"type": "git",
-				"url": "https://github.com/symfony/options-resolver.git",
-				"reference": "afb9a8038025e5dbc657378bfab9198d75f10fca"
-			},
-			"dist": {
-				"type": "zip",
-				"url": "https://api.github.com/repos/symfony/options-resolver/zipball/afb9a8038025e5dbc657378bfab9198d75f10fca",
-				"reference": "afb9a8038025e5dbc657378bfab9198d75f10fca",
-				"shasum": ""
-			},
-			"require": {
-				"php": ">=8.2",
-				"symfony/deprecation-contracts": "^2.5|^3"
-			},
-			"type": "library",
-			"autoload": {
-				"psr-4": {
-					"Symfony\\Component\\OptionsResolver\\": ""
-				},
-				"exclude-from-classmap": [
-					"/Tests/"
-				]
-			},
-			"notification-url": "https://packagist.org/downloads/",
-			"license": [
-				"MIT"
-			],
-			"authors": [
-				{
-					"name": "Fabien Potencier",
-					"email": "fabien@symfony.com"
-				},
-				{
-					"name": "Symfony Community",
-					"homepage": "https://symfony.com/contributors"
-				}
-			],
-			"description": "Provides an improved replacement for the array_replace PHP function",
-			"homepage": "https://symfony.com",
-			"keywords": [
-				"config",
-				"configuration",
-				"options"
-			],
-			"support": {
-				"source": "https://github.com/symfony/options-resolver/tree/v7.3.0"
-			},
-			"funding": [
-				{
-					"url": "https://symfony.com/sponsor",
-					"type": "custom"
-				},
-				{
-					"url": "https://github.com/fabpot",
-					"type": "github"
-				},
-				{
-					"url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-					"type": "tidelift"
-				}
-			],
-			"time": "2025-04-04T13:12:05+00:00"
 		},
 		{
 			"name": "symfony/polyfill-php81",

@@ -30,6 +30,7 @@
 		"opensearch-project/opensearch-php": "^2.4",
 		"phpmailer/phpmailer": "6.*",
 		"ralouphie/getallheaders": "*",
+		"sentry/sentry": "^4.16",
 		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",
 		"sokil/php-isocodes-db-i18n": "^4.0",

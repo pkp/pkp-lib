@@ -165,13 +165,21 @@ class PKPSchemaService
      *
      * @return array List of property names
      */
-    public function getSummaryProps($schemaName)
+    public function getSummaryProps($schemaName, $shouldBePublic = false)
     {
         $schema = $this->get($schemaName);
         $props = [];
         foreach ($schema->properties as $propName => $propSchema) {
             if (!empty($propSchema->apiSummary) && empty($propSchema->writeOnly)) {
-                $props[] = $propName;
+                if ($shouldBePublic) {
+                    $canDisplay = !empty($propSchema->isPublic);
+                } else {
+                    $canDisplay = true;
+                }
+
+                if ($canDisplay) {
+                    $props[] = $propName;
+                }
             }
         }
 
@@ -188,14 +196,23 @@ class PKPSchemaService
      *
      * @return array List of property names
      */
-    public function getFullProps($schemaName)
+    public function getFullProps($schemaName, $shouldBePublic = false)
     {
         $schema = $this->get($schemaName);
 
         $propNames = [];
         foreach ($schema->properties as $propName => $propSchema) {
             if (empty($propSchema->writeOnly)) {
-                $propNames[] = $propName;
+                if ($shouldBePublic) {
+                    $canDisplay = !empty($propSchema->isPublic);
+                } else {
+                    $canDisplay = true;
+                }
+
+                if ($canDisplay) {
+                    $propNames[] = $propName;
+                }
+
             }
         }
 

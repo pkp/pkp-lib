@@ -9,7 +9,8 @@
 			"type": "string",
 			"description": "A URL to this object in the REST API.",
 			"readOnly": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"isPublic": true
 		},
 		"availableEditorialDecisions": {
 			"description": "The editorial decisions that are available for this stage.",
@@ -45,13 +46,15 @@
 			"type": "integer",
 			"description": "The id of the context this submission was created in.",
 			"apiSummary": true,
-			"writeDisabledInApi": true
+			"writeDisabledInApi": true,
+			"isPublic": true
 		},
 		"currentPublicationId": {
 			"type": "integer",
 			"description": "Which publication is the latest published version.",
 			"apiSummary": true,
-			"writeDisabledInApi": true
+			"writeDisabledInApi": true,
+			"isPublic": true
 		},
 		"dateLastActivity": {
 			"type": "string",
@@ -69,7 +72,8 @@
 			"writeDisabledInApi": true,
 			"validation": [
 				"date:Y-m-d H:i:s"
-			]
+			],
+			"isPublic": true
 		},
 		"editorAssigned": {
 			"type": "boolean",
@@ -81,7 +85,8 @@
 			"type": "integer",
 			"description": "The id of this submission.",
 			"readOnly": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"isPublic": true
 		},
 		"lastModified": {
 			"type": "string",
@@ -90,7 +95,8 @@
 			"writeDisabledInApi": true,
 			"validation": [
 				"date:Y-m-d H:i:s"
-			]
+			],
+			"isPublic": true
 		},
 		"locale": {
 			"type": "string",
@@ -98,7 +104,8 @@
 			"apiSummary": true,
 			"validation": [
 				"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
-			]
+			],
+			"isPublic": true
 		},
 		"metadataLocales": {
 			"type": "array",
@@ -106,13 +113,23 @@
 			"readOnly": true,
 			"items": {
 				"type": "string"
-			}
+			},
+			"isPublic": true
 		},
 		"publications": {
 			"type": "array",
 			"description": "A list of publications that have been created for this submission.",
 			"apiSummary": true,
 			"readOnly": true,
+			"items": {
+				"$ref": "#/definitions/Publication"
+			}
+		},
+		"currentPublication": {
+			"type": "array",
+			"description": "The current publication of a submission",
+			"readOnly": true,
+			"isPublic": true,
 			"items": {
 				"$ref": "#/definitions/Publication"
 			}
@@ -349,13 +366,15 @@
 			"writeDisabledInApi": true,
 			"validation": [
 				"in:1,2,3,4,5"
-			]
+			],
+			"isPublic": true
 		},
 		"statusLabel": {
 			"type": "string",
 			"description": "A human-readable version of the submission's status. It will be Published, Declined, Queued (still in the workflow) or Scheduled.",
 			"readOnly": true,
-			"apiSummary": true
+			"apiSummary": true,
+			"isPublic": true
 		},
 		"submissionProgress": {
 			"type": "string",
@@ -400,7 +419,8 @@
 			"type": "string",
 			"description": "A URL to view the published version of this submission. If it is not published, the URL will point to the location where it will be published in the future.",
 			"apiSummary": true,
-			"readOnly": true
+			"readOnly": true,
+			"isPublic": true
 		}
 	}
 }

@@ -62,17 +62,17 @@ abstract class Schema extends Base
     /**
      * Get the property names of this entity according to its schema
      */
-    protected function getProps(): array
+    protected function getProps(bool $isPublic = false): array
     {
-        return $this->props ?? $this->schemaService->getFullProps($this->schema);
+        return $this->props ?? $this->schemaService->getFullProps($this->schema, $isPublic);
     }
 
     /**
      * Get the property names for a summary of this entity according to its schema
      */
-    protected function getSummaryProps(): array
+    protected function getSummaryProps(bool $isPublic = false): array
     {
-        return $this->summaryProps ?? $this->schemaService->getSummaryProps($this->schema);
+        return $this->summaryProps ?? $this->schemaService->getSummaryProps($this->schema, $isPublic);
     }
 
     /**

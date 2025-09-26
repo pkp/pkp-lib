@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-26 07:57+0000\n"
+"PO-Revision-Date: 2025-09-26 09:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -164,9 +164,13 @@ msgstr "Editoreak identifikatzea testuinguruan gogorarazteko {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"{$count} lan bidali dira {$userIds} erabiltzaileei {$contextId} "
+"testuinguruan mezu elektroniko bidezko gogorarazleak bidaltzeko"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
+"Ziur zaude programatutako zereginen exekuzio-erregistro guztiak ezabatu nahi "
+"dituzula?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr ""
@@ -178,82 +182,100 @@ msgid "admin.scheduledTask.clearLogs.delete"
 msgstr "Ezabatu zereginen erregistroak"
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr ""
+msgstr "Argitaratu argitaratzeko programatutako bidalketak"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Argitalpen-txostenaren jakinarazpena"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr ""
+msgstr "Harpidetza iraungitze abisua"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Ezabatu iraungitako erabiltzaile baliozkotu gabeak"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Ezabatu huts egindako lan zaharragoak huts egindako lanen zerrendatik."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Prozesatu zain dauden ilarako lanak"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Eguneratu DB-IP city lite datu-basea"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"DB-IP city lite datu-basearen {$sourceFilename} fitxategia {$targetFilename} "
+"izenarekin berrizendatzeak huts egin du."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Erabilera-estatistiken fitxategia kargatzeko zeregina"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"{$directory} direktorioa ez dago hutsik. Horrek aldez aurretik huts egindako "
+"prozesu bat adieraz lezake, edo aldi berean exekutatzen ari den prozesu bat. "
+"Fitxategi hau automatikoki berriro prozesatuko da."
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr ""
+msgstr "Ezin izan da {$file} fitxategia ireki eta baztertu egin da."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"{$file} fitxategia prozesatu ezin den erregistro-fitxategi formatu zaharrean "
+"dago eta, beraz, prestaketa direktoriora ('stage directory') eramango da "
+"berriro."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"{$file} erregistro-fitxategia saltatu da, hilabete horretako estatistikak "
+"dagoeneko kalkulatu direlako. Aurreko hilabete bateko estatistikak "
+"birkalkulatzeko, hilabete horretako erregistro-fitxategi guztiak leheneratu "
+"behar dituzu, eta CLI tresna erabili estatistikak birprozesatzeko."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"{$file} erregistro-fitxategiko {$lineNumber} lerroa formatu okerrean dago "
+"eta, beraz, saltatu egingo da."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Erregistro-sarrera baliogabea {$file} erregistro-fitxategiko {$lineNumber} "
+"lerroan: {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Ordua ez da baliozko data."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Testuinguruaren IDa ez da zenbaki osoa."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Bidalketaren IDa ez da zenbaki osoa."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Irudikapenaren IDa (Representation ID) ez da zenbaki osoa."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc mota (Assoc type) ez da onartzen."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Fitxategi-mota ez da onartzen."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "Herrialdea ez da bi karaktere alfabetiko dituen katea."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "Eskualdea ez da gehienez hiru karaktere alfanumeriko dituen kate luzea."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Erakundeen IDak ez dira array bat."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Errore bat gertatu da {$file} erregistro-fitxategia prozesatzean, "
+"{$lineNumber} lerroan: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -283,7 +305,7 @@ msgid "admin.settings.about"
 msgstr "Guneari buruz"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Mezu elektroniko masiboak"
 
 msgid "admin.settings.contactEmail"
 msgstr "Kontaktu nagusiaren helb. el."
@@ -298,13 +320,13 @@ msgid "admin.settings.minPasswordLength"
 msgstr "Pasahitzaren gutxieneko luzera"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Mugatu mezu elektroniko masiboak"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Desgaitu rolak"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Administratzaile batek bakarrik alda dezake ezarpen hori."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Gunearen hizkuntza"
@@ -318,7 +340,7 @@ msgid "admin.settings.siteStyleSheet"
 msgstr "Gunearen estilo-orria"
 
 msgid "admin.settings.siteLogo"
-msgstr ""
+msgstr "Gunearen logoa"
 
 msgid "admin.settings.siteTitle"
 msgstr "Gunearen titulua"
@@ -395,9 +417,11 @@ msgstr "Bertsioa"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr ""
+"{$path} oinarrizko helbideak fitxategi publikoen direktorioaren barruan egon "
+"behar du."
 
 msgid "admin.fileLoader.pathNotAccessible"
-msgstr ""
+msgstr "{$path} karpeta ez da direktorio bat edo ezin da irakurri."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
@@ -799,3 +823,18 @@ msgstr ""
 
 #~ msgid "admin.settings.passwordCharacters"
 #~ msgstr "karaktere"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Desgaitu ebaluatzailearen estatistika multzokatuak"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Ebaluatzailearen estatistikak"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Testuinguru anitzeko instalazio batean, ebaluatzaileen estatistikak, hala "
+"nola bidalitako berrikuspenen kopurua, testuinguru bakoitzerako banan-banan "
+"edo taldean multzokatuta bistara daitezke."
+
+msgid "admin.scheduledTask.UpdateRorRegistryDataset"
+msgstr "Eguneratu ROR erregistroko datu-multzoen katxea"

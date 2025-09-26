@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-26 09:57+0000\n"
+"PO-Revision-Date: 2025-09-26 11:08+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -425,81 +425,125 @@ msgstr "{$path} karpeta ez da direktorio bat edo ezin da irakurri."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
+"Ezin izan da {$filename} fitxategia {$currentFilePath}(e)tik "
+"{$destinationPath}(e)ra mugitu"
 
 msgid "admin.fileLoader.fileProcessed"
-msgstr ""
+msgstr "{$filename} fitxategia prozesatu eta artxibatu da."
 
 msgid "admin.fileLoader.emailSubject"
-msgstr ""
+msgstr "Fitxategi-kargatzailea"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} gz-file "
+"iturburua gzopen-ekin ireki."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} helburu-"
+"fitxategia fopen-ekin ireki."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$file} gz-file "
+"iturburua gzread-ekin irakurri."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} helburu-"
+"fitxategia fwrite-rekin idatzi."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} irekitako "
+"helburu-fitxategia fclose-rekin itxi."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} irekitako gz-"
+"file iturburua gzclose-rekin itxi."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} "
+"deskonprimitutako gz-file iturburua unlink-ekin ezabatu."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Ezin izan da fitxategia deskonprimitu. Ezin izan da {$filePath} gz-file "
+"helburu-fitxategia gzopen-ekin ireki."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} iturburu-"
+"fitxategia fopen-ekin ireki."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} iturburu-"
+"fitxategia fread-ekin irakurri."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} gz-file helburu-"
+"fitxategia gzwrite-rekin idatzi."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} irekitako "
+"iturburu-fitxategia fclose-rekin itxi."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} irekitako gz-"
+"file helburu-fitxategia gzclose-rekin itxi."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Ezin izan da fitxategia konprimitu. Ezin izan da {$filePath} konprimitutako "
+"iturburu-fitxategia unlink-ekin ezabatu."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr ""
+msgstr "Ez dago deskargatzeko itzulpenik eskuragarri."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Erabilera:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "komandoa [parametroak]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "`{$namespace}` izen-eremurako eskuragarri dauden komandoak:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Ezin dira ilara-lanak exekutatu, aplikazioaren mantentze-lanen modua gaituta "
+"dagoelako."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Zerrendatu ilaran dauden lan guztiak. Emaitzak orrikatu nahi badituzu, "
+"erabili --page= eta --perPage= parametroak. Erabili --failed parametroa huts "
+"egindako lanak zerrendatzeko."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Garbitu ilaran dagoen lan espezifiko bat bere Id-an oinarrituta. Guztiak "
+"garbitu nahi badituzu, pasatu --all parametroa. Ilara espezifiko bateko dena "
+"garbitu nahi baduzu, pasa --queue= parametroa"
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Gehitu probarako lan bat proba-ilaran. Erabili --only= aukerako parametroa "
+"eta zehaztu 'failed' edo 'success' huts egin duten edo arrakasta izan duten "
+"lanak bidaltzeko."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Exekutatu daemon langile prozesu infinitu bat, lanak prozesatzen jarraituko "
+"duena. Erabili --help parametroa komando honekin erlazionatutako aukerak "
+"ikusteko."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
@@ -838,3 +882,11 @@ msgstr ""
 
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Eguneratu ROR erregistroko datu-multzoen katxea"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "{$filename} fitxategia bidalketa-karpetara mugitu da."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Ezin dira ilara-lanak exekutatu, aplikazioaren sandbox modua gaituta "
+"dagoelako."

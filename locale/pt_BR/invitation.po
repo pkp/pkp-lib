@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-23 04:27+0000\n"
+"PO-Revision-Date: 2025-09-26 00:43+0000\n"
 "Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
@@ -155,3 +155,114 @@ msgstr ""
 
 msgid "invitation.searchForm.emptyError"
 msgstr "Forneça pelo menos um critério de pesquisa."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "É necessário informar uma senha"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "É necessário informar uma afiliação"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "É necessário informar um país"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "É necessário informar o primeiro nome"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "É necessário informar um sobrenome"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Para grupos de usuários adicionados, é necessário informar um id de grupo de "
+"usuários"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Para grupos de usuários adicionados, é necessário informar uma data de início"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Para grupos de usuários adicionados, é necessário informar um cabeçalho"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Essa operação de convite falhou"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"O id {reviewAssignmentId} não corresponde a uma atribuição de revisão válida"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Esse convite não pode ser cancelado"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Você não pode fornecer e-mail e ID de usuário juntos."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "O atributo não tem permissão para ser acessado por usuários existentes"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "O campo :attribute é proibido"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "É necessário um valor para o local '{$primaryLocale}'"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "invitation.role.dateStart"
+msgstr "Data inicial"
+
+msgid "invitation.role.dateEnd"
+msgstr "Data final"
+
+msgid "invitation.role.addRole.button"
+msgstr "Adicionar outro papel"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Papel"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Data inicial"
+
+msgid "userInvitation.modal.title"
+msgstr "Convite enviado"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Remover papel"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Se você souber o sobrenome do usuário, poderá inserir as informações. No "
+"entanto, essas informações podem ser alteradas pelo usuário."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Insira os detalhes"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Insira os detalhes"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formulário de detalhes do usuário para aceitar convite"
+
+msgid "invitation.role.selectRole"
+msgstr "Selecione um novo papel"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Insira seus dados, como e-mail, afiliação, etc. De acordo com a conformidade "
+"com o GDPR, essas informações só podem ser alteradas por você. Você também "
+"pode escolher se deseja que essas informações fiquem visíveis para o editor "
+"em seu perfil."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Se você souber o nome do usuário, poderá inserir as informações. No entanto, "
+"essas informações podem ser alteradas pelo usuário."

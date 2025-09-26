@@ -23,29 +23,39 @@ use PKP\user\User;
 
 class AcceptInvitationStep extends InvitationStepTypes
 {
+
+    private ?Invitation $invitation;
+    private Context $context;
+    private ?User $user;
+    private string $invitationType;
+    public function __construct(?Invitation $invitation, Context $context, ?User $user,string $invitationType)
+    {
+        $this->invitation = $invitation;
+        $this->context = $context;
+        $this->user = $user;
+        $this->invitationType = $invitationType;
+    }
     /**
      * get accept invitation steps
-     *
      * @throws \Exception
      */
-    public function getSteps(?Invitation $invitation, Context $context, ?User $user): array
+    public function getSteps(): array
     {
         $steps = [];
-
-        switch ($user) {
+        switch ($this->user) {
             case !null:
-                if(!$user->hasVerifiedOrcid() && OrcidManager::isEnabled($context)) {
+                if(!$this->user->hasVerifiedOrcid() && OrcidManager::isEnabled($this->context)) {
                     $steps[] = $this->verifyOrcidStep();
                 }
                 break;
             default:
-                if (OrcidManager::isEnabled($context)) {
+                if (OrcidManager::isEnabled($this->context)) {
                     $steps[] = $this->verifyOrcidStep();
                 }
                 $steps[] = $this->userAccountDetailsStep();
-                $steps[] = $this->userDetailsStep($context);
+                $steps[] = $this->userDetailsStep();
         }
-        $steps[] = $this->acceptInvitationReviewStep($context);
+        $steps[] = $this->acceptInvitationReviewStep();
         return $steps;
     }
 
@@ -120,7 +130,7 @@ class AcceptInvitationStep extends InvitationStepTypes
      *
      * @throws \Exception
      */
-    private function userDetailsStep(Context $context): \stdClass
+    private function userDetailsStep(): \stdClass
     {
         $sections = new Sections(
             'userCreateForm',
@@ -134,7 +144,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocals($this->context)),
             ),
             [
                 'validateFields' => [
@@ -162,7 +172,7 @@ class AcceptInvitationStep extends InvitationStepTypes
      *
      * @throws \Exception
      */
-    private function acceptInvitationReviewStep(Context $context): \stdClass
+    private function acceptInvitationReviewStep(): \stdClass
     {
         $sections = new Sections(
             'userCreateRoles',
@@ -176,7 +186,7 @@ class AcceptInvitationStep extends InvitationStepTypes
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocals($context)),
+                new AcceptUserDetailsForm('accept', $this->getFormLocals($this->context)),
             ),
             [
                 'validateFields' => [
@@ -201,9 +211,9 @@ class AcceptInvitationStep extends InvitationStepTypes
      * @param Context $context
      * @return array
      */
-    private function getFormLocals(Context $context): array
+    private function getFormLocals(): array
     {
-        $localeNames = $context->getSupportedFormLocaleNames();
+        $localeNames = $this->context->getSupportedFormLocaleNames();
         $locales = [];
         foreach ($localeNames as $key => $name) {
             $locales[] = [

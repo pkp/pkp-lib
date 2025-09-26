@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-26 00:43+0000\n"
+"PO-Revision-Date: 2025-09-26 00:58+0000\n"
 "Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/invitation/pt_BR/>\n"
@@ -266,3 +266,146 @@ msgid "invitation.givenName.description"
 msgstr ""
 "Se você souber o nome do usuário, poderá inserir as informações. No entanto, "
 "essas informações podem ser alteradas pelo usuário."
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Forneça os seguintes detalhes para nos ajudar a gerenciar sua conta"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Revisar e criar conta"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Revisar e criar conta"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Pular verificação ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Sim, concordo que meus dados sejam coletados e armazenados de acordo com "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Declaração de Privacidade"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Um sobrenome, nome de família ou último nome é a parte mais hereditária do "
+"nome pessoal de uma pessoa que indica sua família."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Este é o instituto ao qual você está afiliado"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Este é um país no qual o instituto ao qual você está afiliado está situado"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "País de afiliação"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Detalhes da conta"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Detalhes do usuário"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Ver todas submissões"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Você está visualizando os detalhes do usuário {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Cancelar convite"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modificar Papel"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Cancelar convite"
+
+msgid "invitation.masthead.show"
+msgstr "Aparecer no cabeçalho"
+
+msgid "invitation.masthead.hidden"
+msgstr "Não aparece no cabeçalho"
+
+msgid "userInvitation.cancel.message"
+msgstr "Tem certeza de que deseja cancelar este convite?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Voltar"
+
+msgid "userInvitation.status.invited"
+msgstr "Convidado {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Editar convite"
+
+msgid "validation.after_or_equal"
+msgstr "A data de início deve ser maior ou igual a hoje"
+
+msgid "invitation.removeRoles"
+msgstr "Usuário removido da função"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Por favor, confirme que você leu e concorda com a declaração de privacidade"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Cancelar processo de convite de papel?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Processo de cancelamento de convite"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Convite não aceito. Você está conectado como um usuário diferente."
+
+msgid "acceptInvitation.authorization.message"
+msgstr "Por favor, saia e entre com a conta correta para aceitar este convite."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "O usuário está desabilitado no momento."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentimento de privacidade"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Deve ter pelo menos 6 caracteres e pode ser uma combinação de letras "
+"maiúsculas, letras minúsculas, números e símbolos"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Se você editar o convite existente ou adicionar uma nova função, o convite "
+"atual será cancelado e um novo será enviado. Tem certeza de que deseja "
+"prosseguir?"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"O usuário foi desabilitado. Você não pode atribuir uma função a ele enquanto "
+"ele estiver desabilitado. Habilite o usuário primeiro para convidá-lo para "
+"uma função."
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Cancelar o convite enviado para {$givenName} {$familyName} desativará o link "
+"de aceitação enviado por e-mail. Aqui estão os detalhes do convite: "
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Também conhecido como nome próprio ou primeiro nome, é a parte do nome "
+"pessoal que identifica uma pessoa."
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Tem certeza de que deseja cancelar? Cancelar agora interromperá o processo "
+"de aceitação do papel, e você precisará reiniciar a partir do e-mail de "
+"convite para aceitar a função novamente. Se você já for um usuário, será "
+"redirecionado ao painel. Caso contrário, precisará acessar o e-mail de "
+"convite para reiniciar o processo."
+
+msgid "invitation.management.options"
+msgstr "Opções de gerenciamento de convites"

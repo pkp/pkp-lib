@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-25 15:16+0000\n"
+"PO-Revision-Date: 2025-09-26 07:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -1336,10 +1336,10 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "Bidalketa ukatua."
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "Berrikusleak esleitzeko zain."
+msgstr "Ebaluatzaileak esleitzeko zain."
 
 msgid "editor.submission.roundStatus.pendingReviews"
-msgstr "Berrikusleen erantzunen zain."
+msgstr "Ebaluatzaileen erantzunen zain."
 
 msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Ebaluazio berriak aurkeztu dira."
@@ -1430,15 +1430,15 @@ msgid "editor.submission.decision.notifyAuthors"
 msgstr "Jakinarazi egileei"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr "Jakinarazi berrikusleak"
+msgstr "Jakinarazi ebaluatzaileak"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Bidali mezu elektroniko bat ebaluatzaileei beren berrikuspenagatik eskerrak "
 "emateko eta erabakia hartu dela jakinarazteko. Ebaluatzaile bakoitzari mezu "
 "elektroniko bana bidaliko zaio haien anonimotasuna babesteko. "
-"{$recipientName} esaldia erabil daiteke mezuan berrikusle bakoitzaren izena "
-"segurtasunez sartzeko."
+"{$recipientName} esaldia erabil daiteke mezuan ebaluatzaile bakoitzaren "
+"izena segurtasunez sartzeko."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
@@ -2005,7 +2005,7 @@ msgid "notification.type.revertDecline"
 msgstr "Bidalketa hau baztertzeko erabakia atzera bota da."
 
 msgid "grid.reviewAttachments.title"
-msgstr "Berrikuslearen fitxategi erantsiak"
+msgstr "Ebaluatzailearen fitxategi erantsiak"
 
 msgid "grid.reviewAttachments.send.title"
 msgstr "Hautatu berrikuspen-fitxategiak egilearekin edo egileekin partekatzeko"
@@ -2685,7 +2685,7 @@ msgstr ""
 "dira."
 
 msgid "submission.forReviewerSuggestion"
-msgstr "Berrikuslearen iradokizunerako"
+msgstr "Ebaluatzailearen iradokizunerako"
 
 msgid "submission.wizard.submissionCancelled"
 msgstr "Bidalketa ezeztatua"
@@ -2702,7 +2702,7 @@ msgstr ""
 "argitaratutako edukian."
 
 msgid "submission.reviewerSuggestions"
-msgstr "Berrikuslearen iradokizunak"
+msgstr "Ebaluatzailearen iradokizunak"
 
 msgid "editor.submission.roundStatus.recommendationMadeByYou"
 msgstr "Gomendioa zuk egin duzu."
@@ -2711,7 +2711,7 @@ msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Berrikuspenera itzuli da."
 
 msgid "editor.submission.reviewerSuggestions"
-msgstr "Egileak iradokitako berrikusleak"
+msgstr "Egileak iradokitako ebaluatzaileak"
 
 msgid "author.affiliationRorAndNameEmpty"
 msgstr "Eman ROR afiliazio bat edo, gutxienez, afiliazio izen bat."
@@ -2736,7 +2736,7 @@ msgstr "Gomendio editorial bat jaso da"
 
 msgid "dashboard.reviewAssignment.statusCancelled.description"
 msgstr ""
-"Berrikusleak berrikuspen-eskaera bertan behera utzi du <b>{$date}</b> "
+"Ebaluatzaileak berrikuspen-eskaera bertan behera utzi du <b>{$date}</b> "
 "egunean."
 
 msgid "dashboard.reviewAssignment.statusComplete.description"
@@ -2752,7 +2752,7 @@ msgid "dashboard.reviewAssignment.action.resendReviewRequest"
 msgstr "Birbidali berrikuspen-eskaera"
 
 msgid "dashboard.reviewAssignment.statusRequestResend.title"
-msgstr "Berrikuslearen erantzunaren zain"
+msgstr "Ebaluatzailearen erantzunaren zain"
 
 msgid "dashboard.reviewAssignment.statusReceived.withoutRecommendation.description"
 msgstr "Berrikuspena {$date} egunean osatu zen"
@@ -2783,8 +2783,8 @@ msgstr "Berrikuspena {$days} egunez atzeratuta dago"
 
 msgid "dashboard.reviewAssignment.statusAccepted.description"
 msgstr ""
-"Berrikusle honek berrikuspen-eskaera onartu du. Bere berrikuspena <b>{$days} "
-"eguneko epean aurkeztu behar da, {$date} egunean.</b>"
+"Ebaluatzaile honek berrikuspen-eskaera onartu du. Bere berrikuspena "
+"<b>{$days} eguneko epean aurkeztu behar da, {$date} egunean.</b>"
 
 msgid "dashboard.reviewAssignment.deadlineForRespondingAcceptOrDecline"
 msgstr ""
@@ -2822,7 +2822,7 @@ msgid "dashboard.revisionRequestedFromAuthor"
 msgstr "Egileari eskatutako berrikuspenak"
 
 msgid "dashboard.assignReviewers"
-msgstr "Esleitu berrikusleak"
+msgstr "Esleitu ebaluatzaileak"
 
 msgid "dashboard.startNewSubmission"
 msgstr "Hasi bidalketa berri bat"
@@ -2834,7 +2834,7 @@ msgid "dashboard.reviewUpdateCounts"
 msgstr "Berrikuspenaren egoera {$reviewsCompletedCount}/{$reviewsTotalCount}"
 
 msgid "dashboard.reviewersAssigned"
-msgstr "Esleitutako berrikusleak"
+msgstr "Esleitutako ebaluatzaileak"
 
 msgid "submission.dashboard.view.awaitingReviews"
 msgstr "Berrikuspenen zain"
@@ -2887,19 +2887,19 @@ msgid "dashboard.reviewAssignment.statusReceived.title"
 msgstr "Berrikuspena osatua {$date} egunean"
 
 msgid "dashboard.reviewAssignment.statusDeclined.description"
-msgstr "Berrikusleak berrikuspen eskaera baztertu zuen <b>{$date}</b> egunean"
+msgstr "Ebaluatzaileak berrikuspen-eskaera baztertu zuen <b>{$date}</b> egunean"
 
 msgid "dashboard.reviewAssignment.statusDeclined.title"
 msgstr "Berrikuspen eskaera baztertu da {$date} egunean"
 
 msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
-msgstr "Berrikuslearen erantzunaren zain"
+msgstr "Ebaluatzailearen erantzunaren zain"
 
 msgid "dashboard.reviewAssignment.completeReviewByDate"
 msgstr "Mesedez, osatu berrikuspen hau {$date} baino lehen."
 
 msgid "reviewerSuggestion.suggestionReason"
-msgstr "Berrikuslea iradokitzeko arrazoiak"
+msgstr "Ebaluatzailea iradokitzeko arrazoiak"
 
 msgid "publication.jats.lastModified"
 msgstr "Azken aldaketa {$modificationDate} egunean, {$username} egileak egina"
@@ -2974,7 +2974,7 @@ msgid "fileManager.copyeditedFiles"
 msgstr "Zuzendutako fitxategiak"
 
 msgid "fileManager.filesForReviewDescription"
-msgstr "Fitxategi hauek berrikusleei bidaliko zaizkie berrikus ditzaten"
+msgstr "Fitxategi hauek ebaluatzaileei bidaliko zaizkie berrikus ditzaten"
 
 msgid "fileManager.filesForReview"
 msgstr "Berrikuspenerako fitxategiak"
@@ -3007,7 +3007,7 @@ msgid "dashboard.declinedDuringStage"
 msgstr "{$stageName} fasean baztertua."
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid.confirm"
-msgstr "Bidali berrikuspen hau berrikuslearen ORCIDera?"
+msgstr "Bidali berrikuspen hau ebaluatzailearen ORCIDera?"
 
 msgid "dashboard.reviewAssignment.action.sendReviewToOrcid"
 msgstr "Bidali berrikuspena ORCIDera"
@@ -3025,10 +3025,10 @@ msgid "dashboard.reviewAssignment.action.unassignReviewer"
 msgstr "Kendu esleipena"
 
 msgid "dashboard.reviewAssignment.action.cancelReviewer"
-msgstr "Ezeztatu berrikuslea"
+msgstr "Ezeztatu ebaluatzailea"
 
 msgid "dashboard.reviewAssignment.statusCancelled.title"
-msgstr "Berrikusleak berrikuspen eskaera bertan behera utzi du"
+msgstr "Ebaluatzaileak berrikuspen-eskaera bertan behera utzi du"
 
 msgid "dashboard.submissions.incomplete.bulkDelete.button"
 msgstr "Ezabatu bidalketa osatugabeak"

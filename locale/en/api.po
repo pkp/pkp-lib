@@ -400,3 +400,6 @@ msgstr "An invalid value was provided for `isApproved`: `{$isApproved}`."
 
 msgid "api.userComments.400.invalidIsReported"
 msgstr "An invalid value was provided for `isReported`: `{$isReported}`."
+
+msgid "api.submission.400.emptyContributorRoles"
+msgstr "At least one contributor role must exist."

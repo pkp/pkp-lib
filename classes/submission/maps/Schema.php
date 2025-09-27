@@ -502,7 +502,7 @@ class Schema extends \PKP\core\maps\Schema
                         ->toArray();
                     break;
                 case 'publications':
-                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->userGroups, $this->genres)
+                    $output[$prop] = Repo::publication()->getSchemaMap($submission, $this->genres)
                         ->summarizeMany($submission->getData('publications'), $anonymize)->values();
                     break;
                 case 'recommendationsIn':

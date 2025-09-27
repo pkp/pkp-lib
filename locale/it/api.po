@@ -122,11 +122,6 @@ msgstr ""
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Non è possibile registrare una decisione o raccomandare una decisione per "
-"questa richiesta perché è già stata pubblicata."
-
 msgid "api.emails.400.missingBody"
 msgstr "È necessario includere un'e-mail per l'invio."
 

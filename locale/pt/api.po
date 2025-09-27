@@ -104,11 +104,6 @@ msgstr ""
 msgid "api.dois.404.noPubObjectIncluded"
 msgstr "Nenhum objeto de publicação válido foi incluído na solicitação."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Não pode registar ou recomendar uma decisão para esta submissão porque esta "
-"já foi publicada."
-
 msgid "api.emails.400.missingBody"
 msgstr "Deve incluir um e-mail para ser enviado."
 

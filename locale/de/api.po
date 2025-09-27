@@ -122,11 +122,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Das aktuell konfigurierte Plugin muss ein Registrierungsagentur-Plugin sein."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Für diese Einreichung kann keine Entscheidung mehr gespeichert oder "
-"empfohlen werden, da sie bereits veröffentlicht ist."
-
 msgid "api.emails.400.missingBody"
 msgstr "Sie müssen eine zu sendende E-Mail anfügen."
 

@@ -121,11 +121,6 @@ msgstr ""
 "Le plugin actuellement configuré doit être un plugin d'une agence "
 "d'enregistrement."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Vous ne pouvez pas enregistrer une décision ou recommander une décision pour "
-"cette soumission car elle a déjà été publiée."
-
 msgid "api.emails.400.missingBody"
 msgstr "Vous devez inclure une adresse de courriel pour effectuer l'envoi."
 

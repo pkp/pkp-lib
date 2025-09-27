@@ -111,11 +111,6 @@ msgstr "Pyyntöön on liitetty yksi tai useampi virheellinen kohde."
 msgid "api.dois.400.invalidPluginType"
 msgstr "Määritettävän lisäosan on oltava rekisteröintitoimiston lisäosa."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Et voi tallentaa päätöstä etkä suositella päätöstä tästä käsikirjoituksesta, "
-"koska se on jo julkaistu."
-
 msgid "api.emails.400.missingBody"
 msgstr "Sinun täytyy lisätä lähetettävä sähköposti."
 

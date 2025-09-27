@@ -134,11 +134,6 @@ msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
 "Bij het verzoek waren een of meer ongeldige publicatie-onderwerpen gevoegd."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"U kunt geen beslissing vastleggen of hiervoor aanbeveling doen voor deze "
-"inzending, omdat het reeds is gepubliceerd."
-
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
 "U bent niet bevoegd een e-mail te versturen aan gebruikers in een of meer "

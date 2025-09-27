@@ -1921,12 +1921,6 @@ class PKPSubmissionController extends PKPBaseController
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var DecisionType $decisionType */
 
-        if ($submission->getData('status') === Submission::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.decisions.403.alreadyPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DECISION, $illuminateRequest->input());
         $params['submissionId'] = $submission->getId();
         $params['dateDecided'] = Core::getCurrentDate();

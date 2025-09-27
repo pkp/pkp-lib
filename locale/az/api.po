@@ -118,11 +118,6 @@ msgstr ""
 "Hazırda konfiqurasiya edilmiş plagin qeydiyyat agentliyinin plagini "
 "olmalıdır."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Bu nəşr üçün qərarı qeyd edə və ya qərar tövsiyə edə bilməzsiniz, çünki o, "
-"artıq dərc olunub."
-
 msgid "api.emails.400.missingBody"
 msgstr "Siz göndəriləcək e-poçtu daxil etməlisiniz."
 

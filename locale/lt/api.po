@@ -144,11 +144,6 @@ msgstr ""
 "Šiuo metu sukonfigūruotas įskiepis turi būti registracijos agentūros "
 "įskiepis."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Negalite užregistruoti sprendimo arba rekomenduoti sprendimo šiam "
-"pateikimui, nes jis jau paskelbtas."
-
 msgid "api.emails.400.missingBody"
 msgstr "Turite įtraukti el. pašto adresą, kuris bus išsiųstas."
 

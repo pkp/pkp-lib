@@ -109,11 +109,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "Halihazırda yapılandırılan eklenti, bir kayıt ajansı eklentisi olmalıdır."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Daha önce yayımlanmış olduğundan, makale için bir karar kaydedemez veya "
-"öneremezsiniz."
-
 msgid "api.emails.400.missingBody"
 msgstr "Gönderilecek bir e-posta eklemelisiniz."
 

@@ -114,11 +114,6 @@ msgstr ""
 "Trenutačno konfigurirani dodatak mora biti dodatak za registracijsku "
 "agenciju."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Ne možete zabilježiti niti preporučiti odluku za ovaj rad jer je već "
-"objavljen."
-
 msgid "api.emails.400.missingBody"
 msgstr "Morate uključiti e-poštu koja će biti poslana."
 

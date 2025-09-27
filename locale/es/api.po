@@ -114,11 +114,6 @@ msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "El módulo configurado actualmente debe ser un módulo de agencia de registro."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"No puede registrar ni recomendar una decisión para este envío porque ya ha "
-"sido publicado."
-
 msgid "api.emails.400.missingBody"
 msgstr "Debe incluir un correo electrónico para enviarlo."
 

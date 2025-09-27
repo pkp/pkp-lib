@@ -107,11 +107,6 @@ msgstr ""
 msgid "api.dois.400.invalidPluginType"
 msgstr "Plugin hiện tại phải là plugin của cơ quan đăng ký."
 
-msgid "api.decisions.403.alreadyPublished"
-msgstr ""
-"Bạn không thể ghi lại quyết định hoặc đề xuất quyết định cho bài nộp này vì "
-"nó đã được xuất bản."
-
 msgid "api.emails.400.missingBody"
 msgstr "Bạn phải bao gồm email sẽ gửi."
 

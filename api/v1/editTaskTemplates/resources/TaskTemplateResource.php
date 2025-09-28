@@ -29,10 +29,6 @@ class TaskTemplateResource extends JsonResource
             'title' => $this->title,
             'include' => (bool) $this->include,
             'emailTemplateKey' => $this->email_template_key ?? null,
-            'userGroupIds' => $this->whenLoaded(
-                'userGroups',
-                fn () => $this->userGroups->pluck('user_group_id')->values()->all()
-            ),
             'userGroups' => $this->whenLoaded(
                 'userGroups',
                 fn () => $this->userGroups

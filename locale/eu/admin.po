@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-28 20:11+0000\n"
+"PO-Revision-Date: 2025-09-28 20:24+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -633,36 +633,44 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Probako lana bidali da eta huts egingo duela aurreikusten da {$queueName} "
+"izeneko ilaran"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"{$queueName} izeneko ilaran arrakasta izateko konpromisoa duen probako lana "
+"bidali da"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Probako lan-aukera baliogabea. '--only=' aukerak 'failed' edo 'success' "
+"bakarrik onar dezake."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Lanaren ID baliogabea"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Lana ezabatu da!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Ez da ezabatzeko lanik aurkitu."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Ezinezkoa izan da lan guztiak ezabatzea."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Lan guztiak ezabatuta!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} huts egindako lan behar bezala ezabatu dira huts egindakoen "
+"zerrendatik."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} lan berriro ilarara bidali dira."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Huts egindako {$total} lan ditugu"
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr ""

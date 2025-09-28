@@ -38,7 +38,7 @@ class TaskTemplateResource extends JsonResource
                 fn () => $this->userGroups
                     ->map(fn ($ug) => [
                         'id' => (int) $ug->user_group_id,
-                        'name' => method_exists($ug, 'getLocalizedName') ? $ug->getLocalizedName() : null,
+                        'name' => $ug->getLocalizedData('name'),
                     ])
                     ->values()
                     ->all()

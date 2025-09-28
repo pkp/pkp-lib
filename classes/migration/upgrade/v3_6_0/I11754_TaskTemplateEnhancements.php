@@ -5,17 +5,19 @@
  * Copyright (c) 2014-2025 Simon Fraser University
  * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
-  
+
+ *
  * @class I11702_TaskTemplateEnhancements.php
+ *
  * @brief Add minimal enhancements for task templates.
  */
 
 namespace PKP\migration\upgrade\v3_6_0;
 
+use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
-use APP\core\Application;
 
 class I11754_TaskTemplateEnhancements extends Migration
 {
@@ -31,17 +33,13 @@ class I11754_TaskTemplateEnhancements extends Migration
         //title and context scoping to template
         $contextDao = Application::getContextDAO();
         Schema::table('edit_task_templates', function (Blueprint $table) use ($contextDao) {
-            if (!Schema::hasColumn('edit_task_templates', 'title')) {
-                $table->string('title', 255)->after('stage_id');
-            }
-            if (!Schema::hasColumn('edit_task_templates', 'context_id')) {
-                $table->bigInteger('context_id')->comment('Journal ID for scoping templates');
-                $table->index(['context_id'], 'edit_task_templates_context_id_idx');
-                $table->foreign('context_id', 'edit_task_templates_context_fk')
-                    ->references($contextDao->primaryKeyColumn)
-                    ->on($contextDao->tableName)
-                    ->onDelete('cascade');
-            }
+            $table->string('title', 255)->after('stage_id');
+            $table->bigInteger('context_id')->comment('Journal ID for scoping templates');
+            $table->index(['context_id'], 'edit_task_templates_context_id_idx');
+            $table->foreign('context_id', 'edit_task_templates_context_fk')
+                ->references($contextDao->primaryKeyColumn)
+                ->on($contextDao->tableName)
+                ->onDelete('cascade');
         });
 
         // pivot templates <-> user groups

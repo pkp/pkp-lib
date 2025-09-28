@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/editTaskTemplates/formRequests/AddEditTaskTemplate.php
+ * @file api/v1/editTaskTemplates/formRequests/AddTaskTemplate.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class AddEditTaskTemplate
+ * @class AddTaskTemplate
  *
  * @brief Handle API requests validation for adding editorial template operations.
  *
@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class AddEditTaskTemplate extends FormRequest
+class AddTaskTemplate extends FormRequest
 {
     public function authorize(): bool
     {
@@ -30,7 +30,7 @@ class AddEditTaskTemplate extends FormRequest
     public function rules(): array
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
-        $stageIds  = array_keys(Application::getApplicationStages());
+        $stageIds = array_keys(Application::getApplicationStages());
         $emailKeys = Repo::emailTemplate()
             ->getCollector($contextId)
             ->getMany()

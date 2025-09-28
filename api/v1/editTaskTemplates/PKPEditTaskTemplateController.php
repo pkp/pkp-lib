@@ -20,14 +20,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
+use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\Template;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\editorialTask\Template;
-use PKP\API\v1\editTaskTemplates\formRequests\AddEditTaskTemplate;
-use PKP\API\v1\editTaskTemplates\resources\EditTaskTemplateResource;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
@@ -63,7 +63,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
     /**
      * POST /api/v1/editTaskTemplates
      */
-    public function add(AddEditTaskTemplate $illuminateRequest): JsonResponse
+    public function add(AddTaskTemplate $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
         $validated = $illuminateRequest->validated();
@@ -84,7 +84,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
 
         // return via Resource
         return response()->json(
-            (new EditTaskTemplateResource($template->refresh()->load('userGroups')))
+            (new TaskTemplateResource($template->refresh()->load('userGroups')))
                 ->toArray($illuminateRequest),
             Response::HTTP_OK
         );

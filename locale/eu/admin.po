@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-26 13:06+0000\n"
+"PO-Revision-Date: 2025-09-28 20:08+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -554,57 +554,62 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Bidali eskuragarri dauden lanak ilarara. Lan bat ilara jakin batera "
+"bidaltzeko, pasa --queue=QUEUE_NAME parametroa. Erabili --test probako lan "
+"bat exekutatzeko eta --once lan bakar baten ondoren gelditzeko."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "{$jobCount} lan exekutatu dira, {$queueName} izeneko ilaran."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Ez dago exekutatzeko lanik eskuragarri {$queueName} izeneko ilaran."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Bistaratu ilaran dauden lan guztiak. Pasa --failed parametroa huts egindako "
+"lan guztiak ikusteko."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Erakutsi Jobs komandoaren erabilera"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Bistaratu lanen (Jobs) erabilera-parametroak"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Aukera ezin da hutsik egon! Egiaztatu erabilera-metodoa."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Ilaran dauden huts egindako lanak"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Ilaran dauden lanak"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Ilara"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Konexioa"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Lanaren bistaratzeko izena"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Saiakerak"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Norentzat erreserbatua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Eskuragarri hemen"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Noiz sortua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Noiz huts egin"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
 msgstr ""

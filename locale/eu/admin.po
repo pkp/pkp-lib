@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-28 20:24+0000\n"
+"PO-Revision-Date: 2025-09-28 20:42+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -673,13 +673,13 @@ msgid "admin.cli.tool.jobs.total.failed.jobs"
 msgstr "Huts egindako {$total} lan ditugu"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Ilaran {$total} lan ditugu"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "{$option} aukera ez da existitzen."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Honako hauetakoren bat esan nahi zenuen?"
 
 msgid "admin.jobs.totalCount"
 msgstr "Guztira <strong>{$total}</strong> lan daude ilaran"
@@ -711,13 +711,13 @@ msgid "navigation.tools.jobs.failed.view"
 msgstr "Ikusi huts egindako lanak"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Ikusi huts egindako lana: {$id} xehetasunak"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atributua"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Atributuaren balioa"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -763,63 +763,69 @@ msgstr "Berriro ilaran jarri huts egindako lan guztiak"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"{$file} fitxategitik erabilera-estatistikak kargatzen dituen lanak huts egin "
+"du, eta fitxategia ezin izan da {$archivedFilePath}(e)tik {$stagingPath}(e)"
+"ra mugitu."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Datu-bilketa"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Konfiguratu zer-nolako erabilera-estatistikak bildu behar diren."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Datuen biltegiratzea"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Konfiguratu zer erabilera-estatistika gorde behar diren zerbitzarian."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi protokoloa"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Konfiguratu <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protokoloa, erabilera-estatistikak banatzeko industrian "
+"aitortutako formatua."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Hileko edo eguneko estatistikak"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Jarrai itzazu eguneko eta hileko estatistikak"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Jarraitu soilik hilekok estatistikak"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Konprimitu erregistroak (logs)"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Utzi erregistro-fitxategiak bere lekuan"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Konprimitu erregistro-fitxategiak (logs)"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Plataformaren IDa"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
@@ -828,13 +834,13 @@ msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "lanen komandoen aukerak"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "erabilera: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Lanaren komandoarentzat erabilgarri dauden aukerak"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
 msgstr ""
@@ -915,3 +921,11 @@ msgstr "Berrabiarazi 'daemos' langileen ilara uneko zereginaren ondoren."
 
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr "Langileek adeitasunez utziko dute lana uneko zeregina amaitu ondoren."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Ezin izan da eraman {$file} fitxategia {$dispatchFilePath}(e)tik "
+"{$archFilePath}(e)ra."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "{$file} fitxategia ez da existitzen."

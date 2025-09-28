@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-28 20:08+0000\n"
+"PO-Revision-Date: 2025-09-28 20:11+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -612,22 +612,24 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
 msgstr "Noiz huts egin"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Salbuespen mezua"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Orrikatzea"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Unekoa"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Aurrekoa"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Hurrengoa"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Komando hau erabiltzeko, gutxienez, lanaren IDa, '--all' edo '--queue=' pasa "
+"beharko zenuke"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""

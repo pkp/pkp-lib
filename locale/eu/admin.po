@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-29 10:14+0000\n"
+"PO-Revision-Date: 2025-09-29 10:23+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -967,3 +967,12 @@ msgstr ""
 
 msgid "admin.job.processLogFile.fileNotFound"
 msgstr "{$file} fitxategia ez da existitzen."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Bidali lan bat iraungitako gonbidapenak automatikoki ezabatzeko"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Erabili gune hau aldizkari guztien plataforma gisa."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Bistaratu AppKey-ren erabilera-parametroak"

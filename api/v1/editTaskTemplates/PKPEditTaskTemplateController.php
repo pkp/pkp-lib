@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 /**
@@ -21,8 +19,11 @@ namespace PKP\API\v1\editTaskTemplates;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
+use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
 use Illuminate\Http\Request;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -57,8 +58,39 @@ class PKPEditTaskTemplateController extends PKPBaseController
                 Role::ROLE_ID_SITE_ADMIN,
             ]),
         ])->group(function () {
+            Route::post('', $this->add(...));
             Route::get('', $this->getMany(...));
         });
+    }
+
+    /**
+     * POST /api/v1/editTaskTemplates
+     */
+    public function add(AddTaskTemplate $illuminateRequest): JsonResponse
+    {
+        $context = $this->getRequest()->getContext();
+        $validated = $illuminateRequest->validated();
+
+        $template = DB::transaction(function () use ($validated, $context) {
+            $tpl = Template::create([
+                'stage_id' => $validated['stageId'],
+                'title' => $validated['title'],
+                'context_id' => $context->getId(),
+                'include' => $validated['include'] ?? false,
+                'email_template_key' => $validated['emailTemplateKey'] ?? null,
+            ]);
+
+            $tpl->userGroups()->sync($validated['userGroupIds']);
+
+            return $tpl;
+        });
+
+        // return via Resource
+        return response()->json(
+            (new TaskTemplateResource($template->refresh()->load('userGroups')))
+                ->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -68,28 +100,43 @@ class PKPEditTaskTemplateController extends PKPBaseController
     {
         $context = $this->getRequest()->getContext();
 
-        $q = Template::query()
-            ->byContextId((int) $context->getId())
+        // Start with our standard collector/scopes
+        $collector = Template::byContextId((int) $context->getId())
             ->with('userGroups');
 
-        if ($request->filled('stageId')) {
-            $q->where('stage_id', (int) $request->query('stageId'));
-        }
+        // Apply supported filters from query params via model scopes
+        foreach ($request->query() as $param => $val) {
+            switch ($param) {
+                case 'stageId':
+                    if ($val !== null && $val !== '') {
+                        $collector = $collector->withStageId((int) $val);
+                    }
+                    break;
 
-        if ($request->has('include')) {
-            $include = filter_var($request->query('include'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-            if ($include !== null) {
-                $q->where('include', $include);
+                case 'include':
+                    // Accept "true"/"false", 1/0, etc.
+                    $bool = filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+                    if ($bool !== null) {
+                        $collector = $collector->withInclude($bool);
+                    }
+                    break;
+
+                case 'emailTemplateKey':
+                    $key = trim((string) $val);
+                    if ($key !== '') {
+                        $collector = $collector->withEmailTemplateKey($key);
+                    }
+                    break;
+
+                // ignore unknown params
             }
         }
 
-        if ($request->filled('emailTemplateKey')) {
-            $q->where('email_template_key', trim((string) $request->query('emailTemplateKey')));
-        }
-        $collection = $q->orderByPkDesc()->get();
+        $collection = $collector->orderByPkDesc()->get();
+
         return EditTaskTemplateResource::collection($collection)
             ->response()
             ->setStatusCode(Response::HTTP_OK);
-     }
+    }
+
 }
->>>>>>> 3036c1a2c0... pkp/pkp-lib#11833 Rename to getMany, drop validation, use scope, return collection

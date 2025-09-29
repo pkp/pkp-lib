@@ -199,6 +199,15 @@ msgstr "If you know the given name of the user, you can enter the information. H
 msgid "invitation.familyName.description"
 msgstr "If you know the family name of the user, you can enter the information. However, this information can be changed by the user."
 
+msgid "invitation.decline.confirm"
+msgstr "Confirm Decline Invitation"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Decline Invitation"
+
+msgid "invitation.decline.confirm.description"
+msgstr "Are you sure you want to decline this invitation? Confirm the decline by clicking the button below."
+
 msgid "acceptInvitation.verifyOrcid.stepName"
 msgstr "Verify ORCID iD"
 

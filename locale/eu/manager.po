@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-26 07:57+0000\n"
+"PO-Revision-Date: 2025-09-29 11:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -1326,18 +1326,14 @@ msgstr ""
 msgid "manager.setup.workflow.guidance"
 msgstr "Egilearen gida"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Bidalketa prestatzeko zerrenda"
+msgstr "Bidalketaren kontrol-zerrenda"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Aldizkarira lan bat bidaltzera doazenean, bidali aurretik Bidalketa "
-"prestatzeko zerrendako puntu guztiak bete dituztela egiaztatzeko eskatzen "
-"zaie egileei. Zerrenda hori Egileentzako gidalerroetan ere azaltzen da, "
-"Aldizkariari buruz orrian. Behean edita daiteke zerrenda, baina bertako "
-"puntu guztiak markatu beharko dituzte egileek bidalketa egin ahal izateko."
+"Honako hau erakusten zaie egileei bidalketa hasten dutenean. Egileei "
+"eskatzen zaie baieztatzeko beren bidalketak hemen zehaztutako baldintza "
+"guztiak betetzen dituela bidalketa hasi aurretik."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr "Desaktibatu atal hau eta ez utzi bidalketa berririk bertara egiten."
@@ -2707,7 +2703,6 @@ msgstr "Deskargatu datu geografikoak"
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Hiri, eskualde edo herrialde bakoitzeko ikustaldi eta deskarga kopurua."
 
-#, fuzzy
 msgid "stats.region"
 msgstr "Eskualdea"
 
@@ -3276,14 +3271,10 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Berrikuspenaren gogorarazlea (automatikoa)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Mezu hau automatikoki bidaltzen da ebaluatzaile baten epea amaitu eta "
-"erantzun ez duenean (ikus Konfigurazioko 2. urratseko Ebaluazio-aukerak) eta "
-"klik bakarreko ebaluatzaile-sarbidea desgaituta dagoenean. Programatutako "
-"atazak (scheduled_tasks) gaituta eta konfiguratuta egon behar dute (ikus "
-"konfigurazio-fitxategia)."
+"Mezu elektroniko hau automatikoki bidaltzen da ebaluatzaile batek bere "
+"berrikuspena dagokion epean amaitu ez duenean."
 
 msgid "mailable.reviewAcknowledgement.name"
 msgstr "Berrikuspenaren aitorpena"
@@ -3297,15 +3288,10 @@ msgstr ""
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Berrikuspenaren erantzuna epea gaindituta (automatizatua)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat "
-"ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa "
-"ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta "
-"artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da "
-"aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra "
-"hautatzen denean."
+"Mezu elektroniko hau automatikoki bidaltzen da ebaluatzaile batek "
+"berrikuspen eskaera bati erantzuteko epea amaitzen denean."
 
 msgid "mailable.reviewRequest.name"
 msgstr "Berrikuspenaren eskaera"
@@ -3352,11 +3338,12 @@ msgstr ""
 msgid "mailable.userRegister.name"
 msgstr "Erabiltzailea sortuta"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Erabiltzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako "
-"ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
+"Mezu elektroniko hau erabiltzaile sortu berri bati bidaltzen zaio, "
+"erredakzio-kudeatzaileak erabiltzaile-ezarpenen bidez erabiltzailea sortu "
+"duenean. Mezu elektronikoak sistemara ongietorria eman beharko lioke eta "
+"beren erabiltzaile-izena eta pasahitza eman beharko lieke."
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Ebaluatzailearen erregistroa"
@@ -3656,7 +3643,6 @@ msgstr "Amaiera-data"
 msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
 msgstr "Dataren formatua ez da baliozkoa."
 
-#, fuzzy
 msgid "manager.statistics.counterR5Report.settings.metricType"
 msgstr "Mota metrikoa"
 

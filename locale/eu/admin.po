@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2025-09-29 10:23+0000\n"
+"PO-Revision-Date: 2025-09-29 10:40+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/eu/"
 ">\n"
@@ -976,3 +976,39 @@ msgstr "Erabili gune hau aldizkari guztien plataforma gisa."
 
 msgid "admin.cli.tool.appKey.options.usage.description"
 msgstr "Bistaratu AppKey-ren erabilera-parametroak"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Baliozkotu uneko aplikazioaren gakoa, konfigurazio-fitxategian baten bat "
+"aurkitzen bada"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Gehitu app_key konfigurazio aldagaia config.inc.php fitxategian."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Sortu aplikazio-gako berri bat eta ordeztu konfigurazio-fitxategian. Pasa --"
+"show parametroa soilik ikusteko eta --force lehendik dagoen baliozko "
+"aplikazio-gako bat gainidazteko."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Honako hauetakoren bat esan nahi zenuen?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Sortutako aplikazio-gakoa: {$appKey}"
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Ez da `app_key` izeneko gako-aldagairik definitu konfigurazio-fitxategiko "
+"`general` atalean. Mesedez, eguneratu konfigurazio-fitxategiaren atal "
+"orokorra eta gehitu `app_key = ` lerroa edo exekutatu `php lib/pkp/tools/"
+"appKey.php configure` komandoa hura ezartzeko."
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Ez da aplikazioaren gakorik ezarri konfigurazio-fitxategian."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"`app_key` aldagaia existitzen da dagoeneko konfigurazio-fitxategiko `general`"
+" atalean. Exekutatu `php lib/pkp/tools/appKey.php generate` komandoa "
+"aplikazioaren gako berri bat ezartzeko."

@@ -61,7 +61,12 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         $request->redirectUrl($url);
     }
 
-    public function declineHandle(Request $request): void
+    /**
+     * Redirect to login page after confirming the invitation decline
+     *
+     * @throws \Exception
+     */
+    public function confirmDecline(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();

@@ -148,6 +148,9 @@ msgstr "Action"
 msgid "common.moreActions"
 msgstr "More Actions"
 
+msgid "common.months"
+msgstr "months"
+
 msgid "common.activate"
 msgstr "Activate"
 
@@ -263,6 +266,9 @@ msgstr "Cancelled"
 
 msgid "common.warning"
 msgstr "Warning"
+
+msgid "common.weeks"
+msgstr "weeks"
 
 msgid "common.error"
 msgstr "Error"
@@ -738,6 +744,12 @@ msgstr "or"
 
 msgid "common.other"
 msgstr "Other"
+
+msgid "common.oneWeek"
+msgstr "1 week"
+
+msgid "common.oneMonth"
+msgstr "1 month"
 
 msgid "common.overdue"
 msgstr "Overdue"

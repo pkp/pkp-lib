@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-29 14:59+0000\n"
+"PO-Revision-Date: 2025-09-30 18:43+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -933,10 +933,10 @@ msgstr ""
 "uitvoeren"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Het aantal wachtseconden tussen opdrachten [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Voer het achtergrondprogramma uit voor de testwachtrij"
 
 #, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
@@ -982,20 +982,20 @@ msgstr "Het bestand {$file} bestaat niet."
 
 msgid "admin.cli.tool.appKey.error.InvalidAppKey"
 msgstr ""
-"Ongeldige app-versleutelset, niet-ondersteunde code of onjuiste lengte. "
+"Ongeldige ingestgelde appsleutel, niet-ondersteunde code of onjuiste lengte. "
 "Ondersteunde versleutelcodes zijn: {$ciphers}."
 
 msgid "admin.cli.tool.appKey.options.usage.description"
-msgstr "Geef de AppKey gebruik-parameters weer"
+msgstr "Geef de parameters van het appsleutelgebruik weer"
 
 msgid "admin.cli.tool.appKey.options.validate.description"
 msgstr ""
-"Valideer de huidige appsleutel indien iets in het configuratiebestand wordt "
+"Valideer de huidige appsleutel indien deze in het configuratiebestand wordt "
 "gevonden"
 
 msgid "admin.cli.tool.appKey.options.configure.description"
 msgstr ""
-"Voeg de configuratievariabele van de app_sleutel toe in het config.inc."
+"Voeg de configuratie-variabele van de app_sleutel toe in het config.inc."
 "phpbestand."
 
 msgid "admin.cli.tool.appKey.mean.those"
@@ -1012,3 +1012,90 @@ msgstr ""
 "Maak een nieuwe appsleutel en plaats deze in het configuratiebestand. Druk "
 "op de button--show voor alleen bekijken en de button --force om een "
 "bestaande geldige appsleutel over te schrijven."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Verplaats een opdracht om automatisch verlopen uitnodigingen te verwijderen"
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Er is geen app sleutel ingesteld in het configuratiebestand."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Er is geen variabele 'app_key' beschreven in het 'general'-gedeelte van het "
+"configuratiebestand. U wordt verzocht het algemene gedeelte van de "
+"configuratiebestanden te actualiseren en een regel 'app_key=' of de "
+"instructie `php lib/pkp/tools/appKey.php configure` toe te voegen om de app "
+"key in te stellen."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"De 'app key'-variabele bestaat reeds onder het 'general' gedeelte in het "
+"configuratiebestand. Voer instructie `php lib/pkp/tools/appKey.php generate`"
+"uit om een nieuwe appsleutel in te stellen."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Een geldige appsleutel is al in het configuratiebestand ingesteld. Om over "
+"te schrijven, druk de button--force met de instructie."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "De appsleutel is succesvol in het configuratiebestand gezet."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Geldig ingestelde appsleutel in het configuratiebestand"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Voer de planning uit."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Registreer alle geplande taken."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Start de roosterplanner."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Voer een specifieke geplande taak uit de lijst uit of gebruik de --naam om "
+"een specifieke taak uit te voeren. Stel de button --no-scroll in om de "
+"gehele lijst te zien zonder te hoeven scrollen."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Geef de parameters van het planningsgebruik weer."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"NIet in staat om de geplande taken uit te voeren, omdat de "
+"onderhoudsapplicatiemodus is ingeschakeld."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Bedoelde u een van de volgende?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Elke minuut bezig met geplande taken."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Geen van de geplande taken zijn geregistreerd."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Welke instructie wilt u uitvoeren?"
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"De appsleutel is succesvol in het configuratiebestand gezet. Voer de "
+"instructie `php lib/pkp/tools/appKey.php generate` uit om een nieuwe "
+"appsleutel in te stellen."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Niet in staat om de geplande taken uit te voeren omdat de applicatie "
+"zandbakmodus is ingeschakeld."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Niet in staat om de 'app key'-variabele in het configuratiebestand te "
+"zetten. U wordt verzocht om het algemene gedeelte va het configuratiebestand "
+"te actualiseren en de regel ' app_key' toe te voegen=\" ."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Geen passende geplande taken gevonden."

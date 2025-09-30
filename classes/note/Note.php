@@ -38,7 +38,7 @@ class Note extends Model
     protected $fillable = [
         'assocType', 'assocId', 'userId',
         'dateCreated', 'dateModified',
-        'title', 'contents'
+        'title', 'contents', 'isHeadnote'
     ];
 
     protected function casts(): array

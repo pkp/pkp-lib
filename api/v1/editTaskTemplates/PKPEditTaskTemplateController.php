@@ -29,7 +29,6 @@ use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\editorialTask\Template;
-use PKP\API\v1\editTaskTemplates\resources\EditTaskTemplateResource;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
@@ -61,6 +60,20 @@ class PKPEditTaskTemplateController extends PKPBaseController
             Route::post('', $this->add(...));
             Route::get('', $this->getMany(...));
         });
+    }
+
+    protected function _processAllowedParams(array $query, array $allowed): array
+    {
+        $allowedMap = array_flip($allowed);
+        $filtered = array_intersect_key($query, $allowedMap);
+
+        foreach ($filtered as $k => $v) {
+            if ($v === '' || $v === null) {
+                unset($filtered[$k]);
+            }
+        }
+
+        return $filtered;
     }
 
     /**
@@ -100,43 +113,54 @@ class PKPEditTaskTemplateController extends PKPBaseController
     {
         $context = $this->getRequest()->getContext();
 
-        // Start with our standard collector/scopes
-        $collector = Template::byContextId((int) $context->getId())
+        $collector = Template::query()
+            ->byContextId((int) $context->getId())
             ->with('userGroups');
 
-        // Apply supported filters from query params via model scopes
-        foreach ($request->query() as $param => $val) {
+        $queryParams = $this->_processAllowedParams($request->query(), [
+            'stageId',
+            'include',
+            'emailTemplateKey',
+            'count',
+            'offset',
+        ]);
+
+        foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'stageId':
-                    if ($val !== null && $val !== '') {
-                        $collector = $collector->withStageId((int) $val);
-                    }
+                    $collector->filterByStageId((int) $val);
                     break;
 
                 case 'include':
-                    // Accept "true"/"false", 1/0, etc.
                     $bool = filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
                     if ($bool !== null) {
-                        $collector = $collector->withInclude($bool);
+                        $collector->filterByInclude($bool);
                     }
                     break;
 
                 case 'emailTemplateKey':
                     $key = trim((string) $val);
                     if ($key !== '') {
-                        $collector = $collector->withEmailTemplateKey($key);
+                        $collector->filterByEmailTemplateKey($key);
                     }
                     break;
 
-                // ignore unknown params
+                case 'count':
+                    $collector->limit((int) $val);
+                    break;
+
+                case 'offset':
+                    $collector->offset((int) $val);
+                    break;
             }
         }
 
         $collection = $collector->orderByPkDesc()->get();
 
-        return EditTaskTemplateResource::collection($collection)
+        return TaskTemplateResource::collection($collection)
             ->response()
             ->setStatusCode(Response::HTTP_OK);
     }
 
 }
+

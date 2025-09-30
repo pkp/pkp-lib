@@ -138,4 +138,28 @@ class Template extends Model
         return $query->orderByDesc($query->getModel()->getKeyName());
     }
 
+        /**
+         * Scope: filter by stage_id
+         */
+    public function scopeFilterByStageId(Builder $query, int $stageId): Builder
+    {
+        return $query->where('stage_id', $stageId);
+    }
+
+    /**
+     * Scope: filter by include flag
+     */
+    public function scopeFilterByInclude(Builder $query, bool $include): Builder
+    {
+        return $query->where('include', $include);
+    }
+
+    /**
+     * Scope: filter by email_template_key
+     */
+    public function scopeFilterByEmailTemplateKey(Builder $query, string $key): Builder
+    {
+        return $query->where('email_template_key', $key);
+    }
+
 }

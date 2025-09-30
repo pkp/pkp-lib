@@ -42,7 +42,8 @@ class Inbound
     {
         $response = ExternalServicesHelper::apiRequest(
             $this->url . '/works/doi:' . urlencode($citation->getData('doi')),
-            ['headers' => ['mailto' => $this->contactEmail]]);
+            ['headers' => ['mailto' => $this->contactEmail]]
+        );
 
         if (is_int($response)) {
             $this->statusCode = $response;
@@ -57,9 +58,9 @@ class Inbound
             switch ($key) {
                 case 'authors':
                     $newValue = [];
-                    $externalAuthors = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
-                    foreach ($externalAuthors as $index => $authorShip) {
-                        $newValue[] = $this->getAuthor($authorShip);
+                    $authorships = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);
+                    foreach ($authorships as $index => $authorship) {
+                        $newValue[] = $this->getAuthor($authorship);
                     }
                     break;
                 default:
@@ -79,21 +80,21 @@ class Inbound
     /**
      * Convert to Author with mappings
      */
-    private function getAuthor(array $externalAuthor): array
+    private function getAuthor(array $authorship): array
     {
         $author = [];
 
         foreach (Mapping::getAuthor() as $key => $mappedKey) {
             if (is_array($mappedKey)) {
-                $author[$key] = ExternalServicesHelper::getValueFromArrayPath($externalAuthor, $mappedKey);
+                $author[$key] = ExternalServicesHelper::getValueFromArrayPath($authorship, $mappedKey);
             } else {
-                $author[$key] = $externalAuthor[$key];
+                $author[$key] = $authorship[$key];
             }
         }
 
-        $displayName = $externalAuthor['author']['display_name'];
+        $displayName = $authorship['author']['display_name'];
         if (empty($displayName)) {
-            $displayName = $externalAuthor['raw_author_name'];
+            $displayName = $authorship['raw_author_name'];
         }
 
         $authorDisplayNameParts = explode(' ', trim($displayName));

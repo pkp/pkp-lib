@@ -26,16 +26,14 @@ class CitationRawEditForm extends FormComponent
     public $method = 'PUT';
     public bool $isRequired;
 
-    public function __construct(string $action, ?int $citationId, bool $isRequired = false)
+    public function __construct(string $action)
     {
         $this->action = $action;
-        $this->isRequired = $isRequired;
 
         $this->addField(new FieldTextarea('rawCitation', [
             'label' => __('submission.citations.structured.label.rawCitation'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
     }
 }

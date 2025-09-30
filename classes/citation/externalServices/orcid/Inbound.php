@@ -42,7 +42,8 @@ class Inbound
     {
         $response = ExternalServicesHelper::apiRequest(
             $this->url . '/' . urlencode(Orcid::removePrefix($author['orcid'])),
-            ['headers' => ['mailto' => $this->contactEmail]]);
+            ['headers' => ['mailto' => $this->contactEmail]]
+        );
 
         if (is_int($response)) {
             $this->statusCode = $response;

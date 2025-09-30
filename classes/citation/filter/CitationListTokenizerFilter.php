@@ -24,7 +24,6 @@ class CitationListTokenizerFilter extends Filter
     public function __construct()
     {
         $this->setDisplayName('Split a reference list into separate citations');
-
         parent::__construct('primitive::string', 'primitive::string[]');
     }
 
@@ -46,9 +45,12 @@ class CitationListTokenizerFilter extends Filter
             $citations = explode("\n", $input);
         }
 
-        // 4) Remove whitespace from the beginning and the end of each citation.
-        $citation = new Citation();
-        $citations = array_map($citation->cleanCitationString(...), $citations);
+        // 4) Strip slashes, remove trailing/leading whitespace, and remove multiple whitespaces from the citation string
+        $citations = array_map(function ($citation) {
+            $citation = trim(stripslashes($citation));
+            $newCitation = preg_replace('/[\s]+/u', ' ', $citation);
+            return $newCitation;
+        }, $citations);
 
         return $citations;
     }

@@ -493,9 +493,6 @@ class Schema extends \PKP\core\maps\Schema
                     // Identify if current user can change metadata. Consider roles in the active stage.
                     $output[$prop] = $this->canChangeMetadata($this->stageAssignments);
                     break;
-                case 'contextCitationsMetadataLookup':
-                    $output[$prop] = $this->request->getContext()->getData('citationsMetadataLookup');
-                    break;
                 case 'editorAssigned':
                     $output[$prop] = $this->stageAssignments && $this->getPropertyStageAssignments($this->stageAssignments);
                     break;

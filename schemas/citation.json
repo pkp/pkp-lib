@@ -3,6 +3,7 @@
     "description": "Citation is a reference in a publication to another publication.",
     "required": [
         "publicationId",
+        "rawCitation",
         "seq"
     ],
     "properties": {

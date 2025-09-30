@@ -137,6 +137,7 @@ class DAO extends EntityDAO
         return DB::table('citations')
             ->select(['raw_citation'])
             ->where('publication_id', '=', $publicationId)
+            ->orderBy('seq', 'asc')
             ->pluck('raw_citation');
     }
 
@@ -170,7 +171,6 @@ class DAO extends EntityDAO
             ->where('publication_id', '=', $publicationId)
             ->groupBy('publication_id')
             ->max('seq');
-
         return $lastSeq ? $lastSeq : 0;
     }
 }

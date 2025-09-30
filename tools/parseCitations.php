@@ -16,6 +16,7 @@
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 

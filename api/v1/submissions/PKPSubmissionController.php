@@ -2332,7 +2332,7 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
-     * Update citationsMetadataLookup of a publication, reprocess citations if getting enabled.
+     * Update citationsMetadataLookup of a publication, reprocess citations if enabled.
      */
     protected function editCitationsMetadataLookup(Request $illuminateRequest): JsonResponse
     {
@@ -2344,11 +2344,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
@@ -2357,6 +2352,9 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
             return response()->json([
@@ -2406,11 +2404,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
@@ -2419,6 +2412,9 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
             return response()->json([
@@ -2446,11 +2442,6 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
             return response()->json([
@@ -2459,6 +2450,9 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
+        $request = $this->getRequest();
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $currentUser = $request->getUser();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
             return response()->json([

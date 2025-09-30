@@ -34,6 +34,7 @@ abstract class BasePid
      * Add prefix
      *
      * @param string|null $string e.g. 10.123/tib123
+     *
      * @return string e.g. https://doi.org10.123/tib123
      */
     public static function addPrefix(?string $string): string
@@ -59,6 +60,7 @@ abstract class BasePid
      * Remove prefix
      *
      * @param string|null $string e.g. https://doi.org10.123/tib123
+     *
      * @return string e.g. 10.123/tib123
      */
     public static function removePrefix(?string $string): string
@@ -84,6 +86,7 @@ abstract class BasePid
      * Normalize PID by removing any incorrect prefixes.
      *
      * @param string|null $string e.g. doi:10.123/tib123
+     *
      * @return string e.g. https://doi.org/10.123/tib123
      */
     public static function normalize(?string $string): string
@@ -112,27 +115,27 @@ abstract class BasePid
         usort($prefixInCorrect, function ($a, $b) {
             return strlen($b) - strlen($a);
         });
-        $string = str_ireplace($prefixInCorrect, $prefixAlt, $string);
 
         // common mistakes, e.g. doi.org:10.123/tib123
         $fixes = [
-            "$prefixAlt: ",
-            "$prefixAlt:",
-            "$prefixAlt ",
-            "www.$prefixAlt"
+            $prefixInCorrect,
+            "{$prefixAlt}: ",
+            "{$prefixAlt}:",
+            "{$prefixAlt} ",
+            "www.{$prefixAlt}"
         ];
         $string = str_ireplace($fixes, $prefixAlt, $string);
 
         // add https://
-        $string = str_replace($prefixAlt, "https://$prefixAlt/", $string);
+        $string = str_replace($prefixAlt, "https://{$prefixAlt}/", $string);
 
         // clean doubles
         $doubles = [
-            "https://$prefixAlt//",
-            "https://https://$prefixAlt/",
-            "https://https://$prefixAlt//"
+            "https://{$prefixAlt}//",
+            "https://https://{$prefixAlt}/",
+            "https://https://{$prefixAlt}//"
         ];
-        $string = str_ireplace($doubles, "https://$prefixAlt/", $string);
+        $string = str_ireplace($doubles, "https://{$prefixAlt}/", $string);
 
         return trim($string, $class::defaultTrimCharacters);
     }
@@ -140,7 +143,6 @@ abstract class BasePid
     /**
      * Extract from string with regex
      *
-     * @param string|null $string
      * @return string e.g. 10.123/tib123
      */
     public static function extractFromString(?string $string): string

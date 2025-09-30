@@ -26,7 +26,6 @@ use PKP\components\forms\citation\CitationRawEditForm;
 use PKP\components\forms\citation\CitationStructuredEditForm;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\components\forms\publication\ContributorForm;
-use PKP\components\forms\publication\VersionForm;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -161,7 +160,7 @@ abstract class PKPDashboardHandler extends Handler
 
         $versionStageOptions = [];
         $allVersionStages = VersionStage::cases();
-        usort($allVersionStages, fn($a, $b) => $a->order() <=> $b->order());
+        usort($allVersionStages, fn ($a, $b) => $a->order() <=> $b->order());
 
         foreach ($allVersionStages as $versionStage) {
             $versionStageOptions[] = [
@@ -171,8 +170,8 @@ abstract class PKPDashboardHandler extends Handler
         }
 
         $logResponseForm = new LogReviewerResponseForm($context->getSupportedFormLocales(), $context);
-        $citationStructuredEditForm = new CitationStructuredEditForm('emit', null);
-        $citationRawEditForm = new CitationRawEditForm('emit', null);
+        $citationStructuredEditForm = new CitationStructuredEditForm('emit');
+        $citationRawEditForm = new CitationRawEditForm('emit');
         $templateMgr->setState([
             'pageInitConfig' => [
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
@@ -182,6 +181,7 @@ abstract class PKPDashboardHandler extends Handler
                 'filtersForm' => $filtersForm->getConfig(),
                 'views' => $this->getViews(),
                 'contextMinReviewsPerSubmission' => $context->getData('numReviewsPerSubmission') ?: 0,
+                'contextCitationsMetadataLookup' => $context->getData('citationsMetadataLookup') ?: 0,
                 'publicationSettings' => [
                     'supportsCitations' => !!$context->getData('citations'),
                     'identifiersEnabled' => $identifiersEnabled,

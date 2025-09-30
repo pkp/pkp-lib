@@ -307,7 +307,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             }
             $citationsRaw .= $nodeText . "\n";
         }
-        $publication->setData('citationsRaw', $citationsRaw);
+
         Repo::citation()->importCitations($publicationId, $citationsRaw);
     }
 

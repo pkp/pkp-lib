@@ -23,8 +23,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Bus;
 use PKP\citation\filter\CitationListTokenizerFilter;
-use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\CrossrefJob;
+use PKP\jobs\citation\ExtractPidsJob;
 use PKP\jobs\citation\IsProcessedJob;
 use PKP\jobs\citation\OpenAlexJob;
 use PKP\jobs\citation\OrcidJob;
@@ -181,6 +181,7 @@ class Repository
         return $this->getCollector()
             ->filterByPublicationId($publicationId)
             ->getMany()
+            ->values()
             ->all();
     }
 
@@ -209,16 +210,12 @@ class Repository
     public function importCitations(int $publicationId, ?string $rawCitationList): void
     {
         $existingCitations = $this->getByPublicationId($publicationId);
-
         Hook::call('Citation::importCitations::before', [$publicationId, $existingCitations, $rawCitationList]);
 
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $rawCitationList ? $citationTokenizer->execute($rawCitationList) : [];
 
-        $existingRawCitations = [];
-        foreach ($existingCitations as $id => $citation) {
-            $existingRawCitations[] = $citation->getRawCitation();
-        }
+        $existingRawCitations = array_map(fn (Citation $citation) => $citation->getRawCitation(), $existingCitations);
 
         if ($existingRawCitations !== $citationStrings) {
             $importedCitations = [];

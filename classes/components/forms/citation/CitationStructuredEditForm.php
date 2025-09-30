@@ -33,17 +33,16 @@ class CitationStructuredEditForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      */
-    public function __construct(string $action, ?int $citationId, bool $isRequired = false)
+    public function __construct(string $action)
     {
         $this->action = $action;
-        $this->isRequired = $isRequired;
 
         // Raw Citation
         $this->addField(new FieldTextarea('rawCitation', [
             'label' => __('submission.citations.structured.label.rawCitation'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
+            'isRequired' => true
         ]));
 
         // Article Information
@@ -52,7 +51,6 @@ class CitationStructuredEditForm extends FormComponent
                 'label' => __('submission.citations.structured.label.' . $key),
                 'description' => '',
                 'value' => null,
-                'isRequired' => $isRequired
             ]));
         }
 
@@ -60,7 +58,6 @@ class CitationStructuredEditForm extends FormComponent
             'label' => __('submission.citations.structured.label.title'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
 
         // Author Information
@@ -68,7 +65,6 @@ class CitationStructuredEditForm extends FormComponent
             'label' => __('submission.citations.structured.header.authors'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
 
         // Journal Information
@@ -76,67 +72,56 @@ class CitationStructuredEditForm extends FormComponent
             'label' => __('submission.citations.structured.label.sourceName'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('sourceIssn', [
             'label' => __('submission.citations.structured.label.sourceIssn'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('sourceHost', [
             'label' => __('submission.citations.structured.label.sourceHost'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('sourceType', [
             'label' => __('submission.citations.structured.label.sourceType'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('date', [
             'label' => __('submission.citations.structured.label.date'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('type', [
             'label' => __('submission.citations.structured.label.type'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('volume', [
             'label' => __('submission.citations.structured.label.volume'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('issue', [
             'label' => __('submission.citations.structured.label.issue'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('pages', [
             'label' => __('submission.citations.structured.label.pages'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('firstPage', [
             'label' => __('submission.citations.structured.label.firstPage'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
         $this->addField(new FieldText('lastPage', [
             'label' => __('submission.citations.structured.label.lastPage'),
             'description' => '',
             'value' => null,
-            'isRequired' => $isRequired
         ]));
     }
 }

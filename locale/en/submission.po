@@ -600,10 +600,10 @@ msgid "submission.citations.structured.label.doi"
 msgstr "DOI"
 
 msgid "submission.citations.structured.label.title"
-msgstr "Article Name"
+msgstr "Title"
 
 msgid "submission.citations.structured.label.date"
-msgstr "Date"
+msgstr "Publication Date"
 
 msgid "submission.citations.structured.label.type"
 msgstr "Type"
@@ -624,16 +624,16 @@ msgid "submission.citations.structured.label.lastPage"
 msgstr "Last Page"
 
 msgid "submission.citations.structured.label.sourceName"
-msgstr "Journal / Venue"
+msgstr "Source Name"
 
 msgid "submission.citations.structured.label.sourceIssn"
-msgstr "Issn"
+msgstr "Source Issn"
 
 msgid "submission.citations.structured.label.sourceHost"
 msgstr "Publisher or Host"
 
 msgid "submission.citations.structured.label.sourceType"
-msgstr "Source type"
+msgstr "Source Type"
 
 msgid "submission.citations.structured.label.url"
 msgstr "URL"

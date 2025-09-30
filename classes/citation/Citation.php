@@ -39,10 +39,10 @@ class Citation extends DataObject
 
     /**
      * Set the rawCitation.
+     * Before set, the raw citation string needs to be processed by CitationListTokenizerFilter.
      */
     public function setRawCitation(string $rawCitation): void
     {
-        $rawCitation = $this->cleanCitationString($rawCitation);
         $this->setData('rawCitation', $rawCitation);
     }
 
@@ -63,7 +63,7 @@ class Citation extends DataObject
     }
 
     /**
-     * Get the is processed.
+     * Get isProcessed
      */
     public function getIsProcessed(): bool
     {
@@ -71,7 +71,7 @@ class Citation extends DataObject
     }
 
     /**
-     * Set is processed.
+     * Set isProcessed
      */
     public function setIsProcessed(bool $isProcessed): void
     {
@@ -90,22 +90,12 @@ class Citation extends DataObject
                 function ($matches) {
                     $trailingDot = in_array($char = substr($matches[0], -1), ['.', ',']);
                     $url = rtrim($matches[0], '.,');
-                    return "<a href='$url' target='_blank'>{$url}</a>" . ($trailingDot ? $char : '');
+                    return "<a href='{$url}' target='_blank'>{$url}</a>" . ($trailingDot ? $char : '');
                 },
                 $rawCitationWithLinks
             );
         }
         return $rawCitationWithLinks;
-    }
-
-    /**
-     * Take a citation string and clean/normalize it
-     */
-    public function cleanCitationString(string $citationString): string
-    {
-        $citationString = trim(stripslashes($citationString));
-        $newCitationString = preg_replace('/[\s]+/u', ' ', $citationString);
-        return empty($newCitationString) ? $citationString : $newCitationString;
     }
 
     /**
@@ -131,13 +121,6 @@ class Citation extends DataObject
         return true;
     }
 
-    /**
-     * @deprecated This method will be removed in future versions. Use getRawCitationWithLinks() instead.
-     */
-    public function getCitationWithLinks(): string
-    {
-        return $this->getRawCitationWithLinks();
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -18,7 +18,6 @@ namespace PKP\citation\maps;
 
 use Illuminate\Support\Enumerable;
 use PKP\citation\Citation;
-use PKP\core\PKPString;
 use PKP\services\PKPSchemaService;
 
 class Schema extends \PKP\core\maps\Schema
@@ -99,19 +98,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $authors;
                     break;
                 case 'date':
-                    $output[$prop] = date('Y-m-d', strtotime($item->getData($prop)));
-                    // This is only used to display in the citations list
-                    $dateToDisplay = $item->getData($prop);
-                    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateToDisplay)) {
-                        $dateToDisplay = date(
-                            PKPString::convertStrftimeFormat($this->context->getLocalizedDateFormatLong()),
-                            strtotime($dateToDisplay));
-                    } else if (preg_match('/^\d{4}$/', $dateToDisplay)) {
-                        $dateToDisplay = date(
-                            PKPString::convertStrftimeFormat($this->context->getLocalizedDateFormatShort()),
-                            strtotime($dateToDisplay));
-                    }
-                    $output['dateToDisplay'] = $dateToDisplay;
+                    $output[$prop] = $item->getData($prop) ? date('Y-m-d', strtotime($item->getData($prop))) : '';
                     break;
                 case 'rawCitationWithLinks':
                     $output[$prop] = $item->getRawCitationWithLinks();

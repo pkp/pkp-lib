@@ -27,7 +27,8 @@ class ExternalServicesHelper
      *
      * @param array $array The array to retrieve the value from.
      * @param array $path An array containing the path to the value, e.g., ['person', 'name', 'value'].
-     * @return string The value retrieved from the specified path. If the path does not exist, an empty string is returned.
+     *
+     * @return mixed The value (string or array) retrieved from the specified path. If the path does not exist, null is returned.
      */
     public static function getValueFromArrayPath(array $array, array $path): mixed
     {
@@ -48,6 +49,7 @@ class ExternalServicesHelper
      * Makes HTTP request to the API and returns the response as an array.
      *
      * @param string $url The API endpoint URL.
+     *
      * @return array|int|null The response as an associative array, request status code or null.
      */
     public static function apiRequest(string $url, array $options = []): array|int|null

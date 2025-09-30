@@ -18,6 +18,7 @@ namespace PKP\editorialTask;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use PKP\core\traits\ModelWithSettings;
@@ -120,4 +121,45 @@ class Template extends Model
             'user_group_id'
         );
     }
+
+    /**
+     * Scope: filter by context_id
+     */
+    public function scopeByContextId($query, int $contextId)
+    {
+        return $query->where('context_id', $contextId);
+    }
+
+    /**
+     * Query scope order by the model's primary key in descending order
+     */
+    public function scopeOrderByPkDesc(Builder $query): Builder
+    {
+        return $query->orderByDesc($query->getModel()->getKeyName());
+    }
+
+        /**
+         * Scope: filter by stage_id
+         */
+    public function scopeFilterByStageId(Builder $query, int $stageId): Builder
+    {
+        return $query->where('stage_id', $stageId);
+    }
+
+    /**
+     * Scope: filter by include flag
+     */
+    public function scopeFilterByInclude(Builder $query, bool $include): Builder
+    {
+        return $query->where('include', $include);
+    }
+
+    /**
+     * Scope: filter by email_template_key
+     */
+    public function scopeFilterByEmailTemplateKey(Builder $query, string $key): Builder
+    {
+        return $query->where('email_template_key', $key);
+    }
+
 }

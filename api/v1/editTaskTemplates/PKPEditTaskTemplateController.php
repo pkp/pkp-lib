@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file api/v1/editTaskTemplates/PKPEditTemplateController.php
+ * @file api/v1/editTaskTemplates/PKPEditTaskTemplateController.php
  *
  * Copyright (c) 2025 Simon Fraser University
  * Copyright (c) 2025 John Willinsky
@@ -18,16 +18,17 @@ namespace PKP\API\v1\editTaskTemplates;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
-use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
+use Illuminate\Support\Facades\DB;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\editorialTask\Template;
+use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
+use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
+use Illuminate\Http\Request;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\editorialTask\Template;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
@@ -57,7 +58,22 @@ class PKPEditTaskTemplateController extends PKPBaseController
             ]),
         ])->group(function () {
             Route::post('', $this->add(...));
+            Route::get('', $this->getMany(...));
         });
+    }
+
+    protected function _processAllowedParams(array $query, array $allowed): array
+    {
+        $allowedMap = array_flip($allowed);
+        $filtered = array_intersect_key($query, $allowedMap);
+
+        foreach ($filtered as $k => $v) {
+            if ($v === '' || $v === null) {
+                unset($filtered[$k]);
+            }
+        }
+
+        return $filtered;
     }
 
     /**
@@ -90,4 +106,61 @@ class PKPEditTaskTemplateController extends PKPBaseController
         );
     }
 
+    /**
+     * GET /api/v1/editTaskTemplates
+     */
+    public function getMany(Request $request): JsonResponse
+    {
+        $context = $this->getRequest()->getContext();
+
+        $collector = Template::query()
+            ->byContextId((int) $context->getId())
+            ->with('userGroups');
+
+        $queryParams = $this->_processAllowedParams($request->query(), [
+            'stageId',
+            'include',
+            'emailTemplateKey',
+            'count',
+            'offset',
+        ]);
+
+        foreach ($queryParams as $param => $val) {
+            switch ($param) {
+                case 'stageId':
+                    $collector->filterByStageId((int) $val);
+                    break;
+
+                case 'include':
+                    $bool = filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+                    if ($bool !== null) {
+                        $collector->filterByInclude($bool);
+                    }
+                    break;
+
+                case 'emailTemplateKey':
+                    $key = trim((string) $val);
+                    if ($key !== '') {
+                        $collector->filterByEmailTemplateKey($key);
+                    }
+                    break;
+
+                case 'count':
+                    $collector->limit((int) $val);
+                    break;
+
+                case 'offset':
+                    $collector->offset((int) $val);
+                    break;
+            }
+        }
+
+        $collection = $collector->orderByPkDesc()->get();
+
+        return TaskTemplateResource::collection($collection)
+            ->response()
+            ->setStatusCode(Response::HTTP_OK);
+    }
+
 }
+

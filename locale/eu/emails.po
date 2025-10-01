@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2025-10-01 08:30+0000\n"
+"PO-Revision-Date: 2025-10-01 15:02+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "eu/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "emails.submissionAck.subject"
-msgstr "Bidalketaren hartu-agiria"
+msgstr "Eskerrik asko {$contextName}-ra bidaltzeagatik"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -38,9 +38,8 @@ msgstr ""
 "egiteko informazioa bidaltzen dio, eta eskerrak ematen dizkio lana "
 "bidaltzeagatik."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Artikuluaren ebaluazioaren hartu-agiria"
+msgstr "Eskerrik asko zure berrikuspenagatik"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -75,9 +74,9 @@ msgstr "Zure bidalketa argitaratzeko hurrengo urratsak"
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Editorearen erabakia"
+msgstr ""
+"Zure bidalketa berrikusi da eta berrikuspenak aurkeztera animatzen zaitugu"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -89,9 +88,8 @@ msgstr ""
 "<br />\n"
 "Gure erabakia:"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Editorearen erabakia"
+msgstr "Zure bidalketa berrikusi da - mesedez, berrikusi eta berriro bidali"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
@@ -103,9 +101,8 @@ msgstr ""
 "<br />\n"
 "Gure erabakia:"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
-msgstr "Editorearen erabakia"
+msgstr "Zure bidalketa ukatu egin da"
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
@@ -123,9 +120,8 @@ msgstr "Editorearen gomendioa"
 msgid "emails.editorRecommendation.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
-msgstr "Zuzenketa egiteko eskaera"
+msgstr "{$submissionId} bidalketa {$contextAcronym}-erako zuzentzeko prest dago"
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"
@@ -172,7 +168,6 @@ msgstr "Zure bidalketa ukatu egin da"
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorialReminder.subject"
 msgstr "{$contextName}(e)rako edizio-lan nabarmenak"
 
@@ -256,9 +251,10 @@ msgstr "Zure berrikuspen-esleipena aldatu egin da {$contextName}-rentzat"
 msgid "emails.reviewEdit.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.reviewConfirm.subject"
-msgstr "Ebaluazioa egiteko prest"
+msgstr ""
+"Berrikuspena onartuta: {$reviewer Name}(e)k berrikuspen-esleipena onartu du "
+"lan honetarako: #{$submissionId} {$authorsShort} — \"{$submissionTitle}\""
 
 #, fuzzy
 msgid "emails.reviewConfirm.body"
@@ -273,7 +269,7 @@ msgstr ""
 "{$senderName}"
 
 msgid "emails.submissionSavedForLater.subject"
-msgstr "Jarraitu zure bidalketa {$contextName}-era"
+msgstr "Jarraitu {$contextName}-era egindako zure bidalketarekin"
 
 msgid "emails.submissionSavedForLater.body"
 msgstr ""

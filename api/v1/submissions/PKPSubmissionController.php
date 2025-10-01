@@ -36,6 +36,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
+use PKP\API\v1\submissions\tasks\formRequests\AddTask;
+use PKP\API\v1\submissions\tasks\resources\TaskResource;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
@@ -50,6 +52,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\editorialTask\EditorialTask;
 use PKP\jobs\orcid\SendAuthorMail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
@@ -60,7 +63,6 @@ use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\publication\helpers\PublicationVersionInfoResource;
-use PKP\publication\PKPPublication;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
@@ -121,6 +123,11 @@ class PKPSubmissionController extends PKPBaseController
         'getChangeLanguageMetadata',
         'changeVersion',
         'getNextAvailableVersion',
+        'addTask',
+        'editTask',
+        'deleteTask',
+        'getTask',
+        'getTasks',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -150,6 +157,12 @@ class PKPSubmissionController extends PKPBaseController
         Role::ROLE_ID_ASSISTANT
     ];
 
+    public array $publicAccessRoutes = [
+        'getPublic',
+        'getPublicationPublic',
+        'getPublicationByVersionPublic'
+    ];
+
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
@@ -164,7 +177,6 @@ class PKPSubmissionController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            'has.user',
             'has.context',
         ];
     }
@@ -361,6 +373,49 @@ class PKPSubmissionController extends PKPBaseController
             ->middleware([
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
+
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function () {
+
+            Route::post('{submissionId}/tasks', $this->addTask(...))
+                ->name('submission.task.add')
+                ->whereNumber('submissionId');
+
+            Route::put('{submissionId}/tasks/{taskId}', $this->editTask(...))
+                ->name('submission.task.edit')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::delete('{submissionId}/tasks/{taskId}', $this->deleteTask(...))
+                ->name('submission.task.delete ')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::get('{submissionId}/tasks/{taskId}', $this->getTask(...))
+                ->name('submission.task.get')
+                ->whereNumber(['submissionId', 'taskId']);
+
+            Route::get('{submissionId}/stage/{stageId}/tasks', $this->getTasks(...))
+                ->name('submission.task.getMany')
+                ->whereNumber(['submissionId', 'stageId']);
+        });
+
+        Route::get('{submissionId}/public', $this->getPublic(...))
+            ->name('submission.public/get')
+            ->where('submissionId', '[0-9]+|[a-zA-Z0-9\-_]+');
+
+        Route::get('{submissionId}/publications/{publicationId}/public', $this->getPublicationPublic(...))
+            ->name('submission.publication.public/get')
+            ->whereNumber(['submissionId', 'publicationId']);
+
+        Route::get('{submissionId}/version/{versionMajor}/{versionMinor}/public', $this->getPublicationByVersionPublic(...))
+            ->name('submission.publication.version.public/get')
+            ->whereNumber(['submissionId', 'versionMajor', 'versionMinor']);
     }
 
     /**
@@ -371,9 +426,10 @@ class PKPSubmissionController extends PKPBaseController
         $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
         $actionName = static::getRouteActionName($illuminateRequest);
 
-        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
-
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        if (!in_array($actionName, $this->publicAccessRoutes)) {
+            $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+            $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        }
 
         if (in_array($actionName, $this->requiresSubmissionAccess)) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
@@ -405,6 +461,24 @@ class PKPSubmissionController extends PKPBaseController
         )) {
             $this->addPolicy(new SubmissionCompletePolicy($request, $args));
             $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        }
+
+        // For operations to retrieve task(s), we just ensure that the user has access to it
+        if (in_array($actionName, ['getTask'])) {
+            $stageId = $request->getUserVar('stageId');
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+        }
+
+        // To modify a task, need to check read and write access policies
+        if (in_array($actionName, ['editTask', 'deleteTask'])) {
+            $stageId = $request->getUserVar('stageId');
+            $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, !empty($stageId) ? (int) $stageId : null, 'taskId'));
+            $this->addPolicy(new QueryWritePolicy($request));
+        }
+
+        // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller must ensure to get a list of tasks where user is a participant
+        if (in_array($actionName, ['addTask', 'getTasks'])) {
+            $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int) $request->getUserVar('stageId')));
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -447,7 +521,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toAssociativeArray();
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -541,6 +615,71 @@ class PKPSubmissionController extends PKPBaseController
         return $collector;
     }
 
+    public function getPublic(Request $illuminateRequest): JsonResponse
+    {
+        $request = $this->getRequest();
+        $urlPath = $illuminateRequest->route('submissionId');
+
+        $submission = ctype_digit((string) $urlPath)
+            ? Repo::submission()->get((int) $urlPath, $request->getContext()->getId())
+            : Repo::submission()->getByUrlPath($urlPath, $request->getContext()->getId());
+
+        $mappedSubmission = Repo::submission()->getSchemaMap()->mapPublic($submission);
+
+        return response()->json($mappedSubmission, Response::HTTP_OK);
+    }
+
+    public function getPublicationPublic(Request $illuminateRequest): JsonResponse
+    {
+        $submissionId = (int) $illuminateRequest->route('submissionId');
+        $submission = Repo::submission()->get($submissionId);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        return response()->json(
+            Repo::publication()->getSchemaMap($submission, collect(), [])->map(
+                $publication,
+                isPublic: true,
+            ),
+            Response::HTTP_OK
+        );
+    }
+
+    public function getPublicationByVersionPublic(Request $illuminateRequest): JsonResponse
+    {
+        $submissionId = (int) $illuminateRequest->route('submissionId');
+        $versionMajor = (int) $illuminateRequest->route('versionMajor');
+        $versionMinor = (int) $illuminateRequest->route('versionMinor');
+        $submission = Repo::submission()->get($submissionId);
+        $publication = Repo::publication()->getByVersion($submission, $versionMajor, $versionMinor);
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(
+            Repo::publication()->getSchemaMap($submission, collect(), [])->map(
+                $publication,
+                isPublic: true,
+            ),
+            Response::HTTP_OK
+        );
+
+    }
+
     /**
      * Get a single submission
      */
@@ -558,7 +697,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(Repo::submission()->getSchemaMap()->map(
             $submission,
@@ -693,7 +832,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         if (!$userGroups instanceof LazyCollection) {
             $userGroups = $userGroups->lazy();
@@ -736,7 +875,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
@@ -789,7 +928,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles), Response::HTTP_OK);
@@ -870,7 +1009,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $notificationManager = new NotificationManager();
@@ -903,7 +1042,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         $submissionProps = Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres, $userRoles);
@@ -938,7 +1077,7 @@ class PKPSubmissionController extends PKPBaseController
         $newLocale = $paramsSubmission['locale'] ?? null;
 
         // Submission language can not be changed when there are more than one publication or a publication's status is published
-        if (!$newLocale || count($submission->getData('publications')) > 1 || $publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if (!$newLocale || count($submission->getData('publications')) > 1 || $publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json(['error' => __('api.submission.403.cantChangeSubmissionLanguage')], Response::HTTP_FORBIDDEN);
         }
 
@@ -1129,7 +1268,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
@@ -1162,7 +1301,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1201,7 +1340,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1259,13 +1398,13 @@ class PKPSubmissionController extends PKPBaseController
 
             // Check if user is subscribed to this type of notification emails
             if (!$notification || in_array(
-                Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
-                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                    $user->getId(),
-                    (int) $context->getId()
-                )
-            )) {
+                    Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
+                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                        $user->getId(),
+                        (int) $context->getId()
+                    )
+                )) {
                 continue;
             }
 
@@ -1285,7 +1424,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1316,7 +1455,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1333,6 +1472,8 @@ class PKPSubmissionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
 
+        // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
+        // should be used instead.
         if (array_key_exists('status', $params) && is_null($params['status'])) {
             unset($params['status']);
         }
@@ -1379,7 +1520,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1412,7 +1553,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.alreadyPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1440,7 +1581,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1468,7 +1609,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if (!in_array($publication->getData('status'), [PKPPublication::STATUS_PUBLISHED, PKPPublication::STATUS_SCHEDULED])) {
+        if (!in_array($publication->getData('status'), [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED])) {
             return response()->json([
                 'error' => __('api.publication.403.alreadyUnpublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1483,7 +1624,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
@@ -1515,7 +1656,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantDeletePublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1525,7 +1666,7 @@ class PKPSubmissionController extends PKPBaseController
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
+        $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         $output = Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication);
 
@@ -1569,7 +1710,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::author()->getSchemaMap($submission)->map($author),
+            Repo::author()->getSchemaMap()->map($author),
             Response::HTTP_OK
         );
     }
@@ -1600,7 +1741,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::author()->getSchemaMap($submission)->summarizeMany($authors)->values(),
+            'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -1630,7 +1771,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1700,7 +1841,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::author()->getSchemaMap($submission)->map($author),
+            Repo::author()->getSchemaMap()->map($author),
             Response::HTTP_OK
         );
     }
@@ -1724,7 +1865,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1748,7 +1889,7 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $output = Repo::author()->getSchemaMap($submission)->map($author);
+        $output = Repo::author()->getSchemaMap()->map($author);
 
         Repo::author()->delete($author);
 
@@ -1786,7 +1927,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1848,7 +1989,7 @@ class PKPSubmissionController extends PKPBaseController
         $author = Repo::author()->get($author->getId());
 
         return response()->json(
-            Repo::author()->getSchemaMap($submission)->map($author),
+            Repo::author()->getSchemaMap()->map($author),
             Response::HTTP_OK
         );
     }
@@ -1879,7 +2020,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
+        if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return response()->json([
                 'error' => __('api.publication.403.cantEditPublished'),
             ], Response::HTTP_FORBIDDEN);
@@ -1901,7 +2042,7 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
-        $authorsArray = Repo::author()->getSchemaMap($submission)->summarizeMany($authors)->toArray();
+        $authorsArray = Repo::author()->getSchemaMap()->summarizeMany($authors)->toArray();
         $indexedArray = array_values($authorsArray);
 
         return response()->json(
@@ -1947,15 +2088,137 @@ class PKPSubmissionController extends PKPBaseController
     }
 
     /**
+     * Creates a task or discussion associated with the submission
+     */
+    public function addTask(AddTask $illuminateRequest): JsonResponse
+    {
+        $validated = $illuminateRequest->validated();
+
+        $editorialTask = new EditorialTask($validated);
+        $editorialTask->save();
+
+        return response()->json(
+            (new TaskResource($editorialTask->refresh()))
+                ->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get a single task or discussion associated with the submission
+     */
+    public function getTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(
+            (new TaskResource($editTask))->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get a list of all available tasks and discussions related to the submission
+     */
+    public function getTasks(Request $illuminateRequest): JsonResponse
+    {
+        $currentUser = $this->getRequest()->getUser();
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+
+        // Managers have access to all tasks and discussions irrespectable of the participation
+        if ($currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $submission->getData('contextId'))) {
+            $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
+                ->withAssocIds([$submission->getId()])
+                ->withStageId($illuminateRequest->route('stageId'));
+        } else {
+            // Other users have access to tasks, where they are included as participants
+            $collector = EditorialTask::withAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
+                ->withAssocIds([$submission->getId()])
+                ->withParticipantIds([$currentUser->getId()])
+                ->withStageId($illuminateRequest->route('stageId'));
+        }
+
+        foreach ($illuminateRequest->query() as $param => $val) {
+            switch ($param) {
+                case 'isOpen':
+                    $collector = $collector->withClosed((bool) $val);
+                    break;
+            }
+        }
+
+        $tasks = $collector->get();
+
+        return response()->json([
+            'items' => TaskResource::collection($tasks),
+            'itemMax' => $tasks->count(),
+        ], Response::HTTP_OK);
+    }
+
+    /**
+     * Edit a task or discussion associated with the submission
+     */
+    public function editTask(EditTask $illuminateRequest): JsonResponse
+    {
+        $editTask = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_QUERY);
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $validated = $illuminateRequest->validated();
+
+        if (!$editTask->update($validated)) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        return response()->json(
+            (new TaskResource($editTask->refresh()))
+                ->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Remove task or discussion associated with the submission
+     */
+    public function deleteTask(Request $illuminateRequest): JsonResponse
+    {
+        $editTask = EditorialTask::find($illuminateRequest->route('taskId'));
+
+        if (!$editTask) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $editTask->delete();
+
+        return response()->json([], Response::HTTP_OK);
+    }
+
+    /**
+=======
+>>>>>>> main
+    /**
      * Is the current user an editor
      */
     protected function isEditor(): bool
     {
         return !empty(
-            array_intersect(
-                Section::getEditorRestrictedRoles(),
-                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
-            )
+        array_intersect(
+            Section::getEditorRestrictedRoles(),
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
+        )
         );
     }
 
@@ -2109,7 +2372,7 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Get Publication TitleAbstract Form component
-    */
+     */
     protected function getPublicationTitleAbstractForm(Request $illuminateRequest): JsonResponse
     {
         $data = $this->getSubmissionAndPublicationData($illuminateRequest);
@@ -2158,7 +2421,7 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Utility method used to get the metadata locale information for a submission publications and context
-    */
+     */
     protected function getPublicationFormLocales(Context $context, Submission $submission): array
     {
         return collect($context->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
@@ -2308,7 +2571,7 @@ class PKPSubmissionController extends PKPBaseController
             });
     }
 
-    protected function validateVersionStage(Request $illuminateRequest): VersionStage
+    private function validateVersionStage(Request $illuminateRequest): VersionStage
     {
         $validator = Validator::make($illuminateRequest->all(), [
             'versionStage' => [
@@ -2324,7 +2587,7 @@ class PKPSubmissionController extends PKPBaseController
         return VersionStage::from($validator->validated()['versionStage']);
     }
 
-    protected function validateVersionIsMinor(Request $illuminateRequest): ?bool
+    private function validateVersionIsMinor(Request $illuminateRequest): ?bool
     {
         return filter_var(
             $illuminateRequest->input('versionIsMinor') ?? true,

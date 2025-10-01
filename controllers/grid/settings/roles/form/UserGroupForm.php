@@ -135,6 +135,7 @@ class UserGroupForm extends Form
                 'permitSettings' => $userGroup->permitSettings,
                 'recommendOnly' => $userGroup->recommendOnly,
                 'masthead' => $userGroup->masthead,
+                'hideShowTitle' => $userGroup->roleId === Role::ROLE_ID_AUTHOR,
             ];
 
             foreach ($data as $field => $value) {

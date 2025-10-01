@@ -575,6 +575,9 @@ msgstr "Search references here"
 msgid "submission.citations.structured.emptyCitations"
 msgstr "The citations list is empty, please add citations above."
 
+msgid "submission.citations.structured.reprocessDialog.title"
+msgstr "Are you sure you want to reprocess this citation?"
+
 msgid "submission.citations.structured.editModal.title"
 msgstr "Edit citation"
 
@@ -613,6 +616,9 @@ msgstr "Volume"
 
 msgid "submission.citations.structured.label.issue"
 msgstr "Issue"
+
+msgid "submission.citations.structured.label.issueNumber"
+msgstr "Issue Number"
 
 msgid "submission.citations.structured.label.pages"
 msgstr "Pages"

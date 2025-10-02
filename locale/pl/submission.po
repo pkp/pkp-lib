@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2025-09-25 15:16+0000\n"
+"PO-Revision-Date: 2025-10-02 12:17+0000\n"
 "Last-Translator: Adam <koleszka2006@hotmail.com>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
@@ -2929,3 +2929,13 @@ msgstr "Runda recenzji {$number}"
 
 msgid "author.authorNotFound"
 msgstr "Nie udało się znaleźć autora tej afiliacji."
+
+msgid "submission.wizard.submissionCancelled"
+msgstr "Zgłoszenie anulowane"
+
+msgid "submission.wizard.submissionCancel"
+msgstr "Anuluj zgłoszenie"
+
+msgid "submission.wizard.submissionCancelled.description"
+msgstr ""
+"Zgłoszenie zostało anulowane, a wszystkie powiązane dane zostały usunięte."

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-30 18:43+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -89,12 +89,11 @@ msgstr ""
 "Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld "
 "voor u een andere hoofdtaal selecteert."
 
-#, fuzzy
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Bent u zeker dat u de hoofdtaal van de website wilt wijzigen? Waar deze "
-"ontbreken, zullen de vereiste gebruikersnamen worden gekopieerd van de "
-"bestaande website."
+"Bent u zeker dat u de eerste taalinstelling van de website wilt wijzigen? De "
+"gebruikersnamen die hiervoor zijn vereist worden - voor zover deze ontbreken "
+"- gekopieerd van de bestaande website."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -161,7 +160,8 @@ msgstr ""
 
 #, fuzzy
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr "to do"
+msgstr ""
+"Identificeren van redacteuren om hen te attenderen in context {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
@@ -206,10 +206,9 @@ msgstr "Verwerk nog niet gestarte opdrachten in de wachtrij"
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Actualiseer DB-IP adres lite databank"
 
-#, fuzzy
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
-"Het hernoemen van de DB-IP-adress lite databankbestand {$sourceFilename} to "
+"Het hernoemen van het DB-IP-adress lite databankbestand {$sourceFilename} to "
 "{$targetFilename} is niet gelukt."
 
 msgid "admin.scheduledTask.usageStatsLoader"
@@ -227,7 +226,7 @@ msgstr "Het bestand {$file} kan niet worden geopend en werd afgewezen."
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
 "Het bestand {$file} betreft een oud logbestandformat, dat niet kan worden "
-"verwerkt en dus wordt terugverwezen naar de hoofdmap"
+"verwerkt en dus wordt terugverwezen naar de hoofdmap."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
@@ -555,6 +554,7 @@ msgstr ""
 "ook de parameter/markering --verplaats en --opschonen om terug te plaatsen "
 "naar de wachtrij of om alle/bepaalde foutieve taken op te schonen."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Verplaats de beschikbare opdrachten naar de wachtrij. Om een opdracht naar "
@@ -650,8 +650,8 @@ msgstr ""
 #, fuzzy
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
-"Ongeldige optie voor een testopdracht. Het heeft enkel de --enkelvoudige "
-"optie =' van 'foutief' of succesvol'."
+"Ongeldige optie voor een testopdracht. Het heeft slechts de --enige optie =' "
+"van 'foutief' of succesvol'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Ongeldige ID-opdracht"
@@ -720,13 +720,11 @@ msgstr "Zie foutieve opdrachten"
 msgid "navigation.tools.job.failed.details.view"
 msgstr "Zie foutieve opdracht:{$id} Details"
 
-#, fuzzy
 msgid "admin.job.failed.list.attribute"
-msgstr "Kenmerk"
+msgstr "Attribuut"
 
-#, fuzzy
 msgid "admin.job.failed.list.attribute.value"
-msgstr "Waardekenmerk"
+msgstr "Waardeattribuut"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -749,9 +747,8 @@ msgstr "Ontstaan bij"
 msgid "admin.jobs.list.failedAt"
 msgstr "Foutmelding bij"
 
-#, fuzzy
 msgid "admin.jobs.list.payload"
-msgstr "Draagkracht data / schadelijke mailwareode"
+msgstr "Payload"
 
 msgid "admin.jobs.list.exception"
 msgstr "UItzondering"
@@ -938,7 +935,6 @@ msgstr "Het aantal wachtseconden tussen opdrachten [default : '{$default}']"
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Voer het achtergrondprogramma uit voor de testwachtrij"
 
-#, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Actualiseer de Ror-registratie dataset cache"
 
@@ -954,9 +950,8 @@ msgstr ""
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Schakel de samengevoegde gegevens van de recensenten uit"
 
-#, fuzzy
 msgid "admin.fileLoader.fileDispatched"
-msgstr "Het bestand {$filename} werd verplaatst naar de te verzenden (?) map."
+msgstr "Het bestand {$filename} werd verwijderd om de map te verplaatsen."
 
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""

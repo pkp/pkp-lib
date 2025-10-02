@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "lt/>\n"
@@ -118,8 +118,8 @@ msgstr "Netinkamas procesą atpažįstantis raktas arba jo trūksta."
 
 msgid "user.authorization.contextRequired"
 msgstr ""
-"Negalite paleisti šios operacijos be konteksto (spauda, žurnalas, "
-"konferencija ir kt.)"
+"Šios operacijos negalima kviesti be konteksto (leidykla, žurnalas, "
+"konferencija ir kt.)."
 
 msgid "user.authorization.privateOperation"
 msgstr "Bandote pasiekti privačią arba neegzistuojančią operaciją."
@@ -183,13 +183,13 @@ msgid "user.dateLastLogin"
 msgstr "Paskutinį kartą prisijungta"
 
 msgid "user.dateRegistered"
-msgstr "Kada užregistruota."
+msgstr "Kada užregistruota"
 
 msgid "user.editMyProfile"
 msgstr "Taisyti profilį"
 
 msgid "user.email"
-msgstr "Elektroninis paštas"
+msgstr "El. paštas"
 
 msgid "user.givenName"
 msgstr "Vardas"
@@ -233,7 +233,7 @@ msgstr ""
 "elektroninio laiško negavote, patikrinkite savo brukalų aplanką."
 
 msgid "user.login.activate"
-msgstr "Aktyvuoti paskyrą."
+msgstr "Aktyvuoti paskyrą"
 
 msgid "user.login.activated"
 msgstr ""
@@ -328,7 +328,9 @@ msgid "user.preferredPublicName"
 msgstr "Pasirinktas viešai matomas vardas"
 
 msgid "user.preferredPublicName.description"
-msgstr "Kaip į Jus kreiptis? Čia galite nurodyti slapyvardį, prievardį ar pan."
+msgstr ""
+"Prašome nurodyti pilną autoriaus vardą, kaip jis turėtų būti identifikuotas "
+"publikuotame darbe. Pavyzdys: Dr. Alan P. Mwandenga"
 
 msgid "user.preferredAvatarInitials"
 msgstr "Pageidaujami avataro inicialai"
@@ -371,7 +373,7 @@ msgid "user.profile.form.oldPasswordInvalid"
 msgstr "Neteisingai įrašėte dabartinį slaptažodį."
 
 msgid "user.profile.form.openAccessNotifications"
-msgstr "Elektroniniu paštu siunčiami pranešimai apie numerio atvirą prieigą."
+msgstr "Numerio atviros prieigos el. pranešimai"
 
 msgid "user.profile.form.passwordRequired"
 msgstr "Reikia nurodyti slaptažodį."
@@ -383,7 +385,7 @@ msgid "user.profile.form.profileImage"
 msgstr "Profilio paveikslėlis"
 
 msgid "user.profile.form.publishedNotifications"
-msgstr "Elektroniniu laišku siunčiami pranešimai apie naują išleistą numerį."
+msgstr "Naujo numerio paskelbimo el. pranešimai"
 
 msgid "user.profile.form.urlInvalid"
 msgstr ""
@@ -412,7 +414,7 @@ msgid "user.profile.publicProfile"
 msgstr "Vartotojo profilis"
 
 msgid "user.profile.repeatNewPassword"
-msgstr "Pakartokite naują slaptažodį."
+msgstr "Pakartokite naują slaptažodį"
 
 msgid "user.login.registerNewAccount"
 msgstr "Registruotis"
@@ -468,8 +470,8 @@ msgstr ""
 
 msgid "user.register.registrationCompleted"
 msgstr ""
-"Jūs sėkmingai užsiregistravote. <a href=\"{$profileUrl}\">Paspauskite čia</"
-"a>,kad  baigtumėte pildyti savo vartotojo profilį."
+"Jūs sėkmingai užsiregistravote. <a href=\"{$profileUrl}\">Spustelėkite čia</"
+"a>, kad užpildytumėte savo vartotojo profilį."
 
 msgid "user.role.assistant"
 msgstr "Pagalbininkas"
@@ -537,7 +539,7 @@ msgstr "Patvirtinimas"
 msgid "user.sendPassword.description"
 msgstr ""
 "Siųsti man patvirtinimą elektroniniu paštu, kur bus pateikti mano vartotojo "
-"vardas ir slaptažodis."
+"vardas ir slaptažodis"
 
 msgid "user.signature"
 msgstr "Parašas"
@@ -582,7 +584,7 @@ msgstr "API raktas"
 
 msgid "user.apiKeyEnabled"
 msgstr ""
-"Norėdami pasiekti šią paskyrą, įgalinti išorines programas su šiuo API raktu."
+"Norėdami pasiekti šią paskyrą, įgalinti išorines programas su šiuo API raktu"
 
 msgid "user.apiKey.generate"
 msgstr "Generuoti naują API kodą"
@@ -680,7 +682,7 @@ msgstr "Nustatymai išsaugoti"
 msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
 msgstr ""
 "Siųsti el. laišką, kad autoriai gautų ORCID leidimą, kai straipsnis "
-"priimamas, t. y. siunčiamas redagavimui."
+"priimamas, t. y. siunčiamas redagavimui"
 
 msgid "orcid.manager.settings.logSectionTitle"
 msgstr "ORCID užklausų žurnalas"

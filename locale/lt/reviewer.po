@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/lt/>\n"
@@ -35,7 +35,7 @@ msgid "submission.comments.sendToReviewers"
 msgstr "Siųsti recenzentams"
 
 msgid "user.authorization.submissionReviewer"
-msgstr "Šis vartotojas nepriskirtas kaip recenzentas šiam dokumentui"
+msgstr "Dabartinis vartotojas nėra priskirtas šio dokumento recenzentu."
 
 msgid "reviewer.submission.reviewRound.reviewNotCompleted"
 msgstr "Apžvalga nebuvo baigta."

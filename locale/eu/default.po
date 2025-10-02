@@ -3,7 +3,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-17 06:56+0000\n"
+"PO-Revision-Date: 2025-09-26 07:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "eu/>\n"
@@ -168,11 +168,11 @@ msgstr ""
 
 msgid "default.submission.step.reviewerSuggestions"
 msgstr ""
-"<p>Bidaltzean, hainbat berrikusle potentzial iradokitzeko aukera duzu. "
+"<p>Bidaltzean, hainbat ebaluatzaile potentzial iradokitzeko aukera duzu. "
 "Horrek berrikuspen prozesua erraztu eta ekarpen baliotsua eman diezaioke "
 "erredakzio-taldeari. Aukeratu zure arloan adituak diren eta zure lanarekin "
-"interes-gatazkarik ez duten berrikusleak. Ezaugarri honek berrikuspen-"
-"prozesua hobetzea eta egileentzat zein erredakzio taldearentzat esperientzia "
+"interes-gatazkarik ez duten ebaluatzaileak. Ezaugarri honek berrikuspen-"
+"prozesua hobetzea eta egileentzat zein erredakzio-taldearentzat esperientzia "
 "eraginkorragoa sustatzea du helburu.</p>"
 
 msgid "default.submission.step.beforeYouBegin"

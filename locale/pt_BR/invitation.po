@@ -1,0 +1,411 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-09-26 00:58+0000\n"
+"Last-Translator: rafael de andrade pereira <rafaelpontoandrade@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/invitation/pt_BR/>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "O grupo de usuários é atribuído ao usuário convidado"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"O convite não pode ser enviado porque você não definiu nenhuma alteração de "
+"grupo de usuários"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Pelo menos um grupo de usuários a ser adicionado deve ser definido"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Pelo menos um grupo de usuários a ser removido deve ser definido"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Remover funções de usuário não pode ser definido para usuários que não "
+"existem."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Convites."
+
+msgid "invitation.header"
+msgstr "Convites"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Convidar para um papel"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Convidar usuário para assumir um papel"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Insira os detalhes"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Revisar e convidar para funções"
+
+msgid "invitation.tableHeader.name"
+msgstr "Nome"
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Quando um convite tem um e-mail ({$email}) atribuído, esse e-mail não deve "
+"estar em uso por outro usuário."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Um nome de usuário deve ser fornecido"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "O ID de grupo de usuário fornecido {$userGroupId} não existe"
+
+msgid "invitation.validation.required"
+msgstr "O campo {$attribute} é obrigatório."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Propriedades inesperadas encontradas no item no índice {$attribute}: "
+"{$properties}."
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Pesquisar Usuário"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Este atributo deve ter um valor igual ou posterior a hoje"
+
+msgid "userInvitation.searchField.description"
+msgstr "ex. nome@example.com ou nome ou 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Inserir detalhes"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Pesquisar Usuário"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Pesquisar usuário"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Se o usuário não existir, você pode convidá-lo para assumir papéis. Se o "
+"usuário já existir no sistema, você pode visualizar as informações dele e "
+"convidá-lo a assumir papéis adicionais."
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Inserir detalhes e convidar para papéis"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr ""
+"O atributo não tem permissão para ser acessado por usuários não existentes"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Este tipo de convite não tem um destinatário de e-mail definido"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Pode ser uma combinação de letras maiúsculas, letras minúsculas ou números"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "Já existe um usuário com o nome de usuário {$username}. Tente outro."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Quando um convite tem um ID de usuário ({$userId}) atribuído, o usuário "
+"correspondente deve existir."
+
+msgid "invitation.step"
+msgstr "Etapa"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Modificar e-mail compartilhado com o usuário"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Revisar e convidar para papéis"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Convidar usuário para o papel"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Data de término"
+
+msgid "userInvitation.modal.button"
+msgstr "Ver todos usuários"
+
+msgid "invitation.email.description"
+msgstr "ex: nome@example.com"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verificar ORCID iD"
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Pesquise por um usuário usando o endereço de e-mail, nome de usuário ou "
+"ORCID iD. Insira apenas um para começar!"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Ao aceitar o convite, o usuário será redirecionado para o ORCID para "
+"verificar a sua conta, se assim o desejar."
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Forneça pelo menos um critério de pesquisa."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "É necessário informar uma senha"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "É necessário informar uma afiliação"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "É necessário informar um país"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "É necessário informar o primeiro nome"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "É necessário informar um sobrenome"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr ""
+"Para grupos de usuários adicionados, é necessário informar um id de grupo de "
+"usuários"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Para grupos de usuários adicionados, é necessário informar uma data de início"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Para grupos de usuários adicionados, é necessário informar um cabeçalho"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Essa operação de convite falhou"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"O id {reviewAssignmentId} não corresponde a uma atribuição de revisão válida"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Esse convite não pode ser cancelado"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Você não pode fornecer e-mail e ID de usuário juntos."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "O atributo não tem permissão para ser acessado por usuários existentes"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "O campo :attribute é proibido"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "É necessário um valor para o local '{$primaryLocale}'"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "invitation.role.dateStart"
+msgstr "Data inicial"
+
+msgid "invitation.role.dateEnd"
+msgstr "Data final"
+
+msgid "invitation.role.addRole.button"
+msgstr "Adicionar outro papel"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Papel"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Data inicial"
+
+msgid "userInvitation.modal.title"
+msgstr "Convite enviado"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Remover papel"
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Se você souber o sobrenome do usuário, poderá inserir as informações. No "
+"entanto, essas informações podem ser alteradas pelo usuário."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Insira os detalhes"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Insira os detalhes"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Salvar e continuar"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Formulário de detalhes do usuário para aceitar convite"
+
+msgid "invitation.role.selectRole"
+msgstr "Selecione um novo papel"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Insira seus dados, como e-mail, afiliação, etc. De acordo com a conformidade "
+"com o GDPR, essas informações só podem ser alteradas por você. Você também "
+"pode escolher se deseja que essas informações fiquem visíveis para o editor "
+"em seu perfil."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Se você souber o nome do usuário, poderá inserir as informações. No entanto, "
+"essas informações podem ser alteradas pelo usuário."
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Forneça os seguintes detalhes para nos ajudar a gerenciar sua conta"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Revisar e criar conta"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Revisar e criar conta"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Pular verificação ORCID"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verificar ORCID iD"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Sim, concordo que meus dados sejam coletados e armazenados de acordo com "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Declaração de Privacidade"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Um sobrenome, nome de família ou último nome é a parte mais hereditária do "
+"nome pessoal de uma pessoa que indica sua família."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Este é o instituto ao qual você está afiliado"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Este é um país no qual o instituto ao qual você está afiliado está situado"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "País de afiliação"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Detalhes da conta"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Detalhes do usuário"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Ver todas submissões"
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Você está visualizando os detalhes do usuário {$name}"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Cancelar convite"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Modificar Papel"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Cancelar convite"
+
+msgid "invitation.masthead.show"
+msgstr "Aparecer no cabeçalho"
+
+msgid "invitation.masthead.hidden"
+msgstr "Não aparece no cabeçalho"
+
+msgid "userInvitation.cancel.message"
+msgstr "Tem certeza de que deseja cancelar este convite?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Voltar"
+
+msgid "userInvitation.status.invited"
+msgstr "Convidado {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Editar convite"
+
+msgid "validation.after_or_equal"
+msgstr "A data de início deve ser maior ou igual a hoje"
+
+msgid "invitation.removeRoles"
+msgstr "Usuário removido da função"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"Por favor, confirme que você leu e concorda com a declaração de privacidade"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Cancelar processo de convite de papel?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Processo de cancelamento de convite"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Convite não aceito. Você está conectado como um usuário diferente."
+
+msgid "acceptInvitation.authorization.message"
+msgstr "Por favor, saia e entre com a conta correta para aceitar este convite."
+
+msgid "userInvitation.user.disableTitle"
+msgstr "O usuário está desabilitado no momento."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Consentimento de privacidade"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Deve ter pelo menos 6 caracteres e pode ser uma combinação de letras "
+"maiúsculas, letras minúsculas, números e símbolos"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Se você editar o convite existente ou adicionar uma nova função, o convite "
+"atual será cancelado e um novo será enviado. Tem certeza de que deseja "
+"prosseguir?"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"O usuário foi desabilitado. Você não pode atribuir uma função a ele enquanto "
+"ele estiver desabilitado. Habilite o usuário primeiro para convidá-lo para "
+"uma função."
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Cancelar o convite enviado para {$givenName} {$familyName} desativará o link "
+"de aceitação enviado por e-mail. Aqui estão os detalhes do convite: "
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Também conhecido como nome próprio ou primeiro nome, é a parte do nome "
+"pessoal que identifica uma pessoa."
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Tem certeza de que deseja cancelar? Cancelar agora interromperá o processo "
+"de aceitação do papel, e você precisará reiniciar a partir do e-mail de "
+"convite para aceitar a função novamente. Se você já for um usuário, será "
+"redirecionado ao painel. Caso contrário, precisará acessar o e-mail de "
+"convite para reiniciar o processo."
+
+msgid "invitation.management.options"
+msgstr "Opções de gerenciamento de convites"

@@ -2,7 +2,7 @@
 # ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-09 12:31+0000\n"
+"PO-Revision-Date: 2025-09-23 15:47+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
 "Language: nl\n"
@@ -92,10 +92,12 @@ msgstr "Een DOI kan niet aan dit item worden toegewezen."
 msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "Het publicatietype werd niet herkend."
 
+#, fuzzy
 msgid "api.dois.404.contextNotFound"
 msgstr ""
-"Dit eindpunt is niet beschikbaar vanaf de website-omvattende naamruimte, dit "
-"moet worden verzocht met betrekking tot een bestaande omgeving."
+"Deze eindpuntapparatuur/URL/adres is niet beschikbaar vanaf de website-"
+"omvattende naamruimte, dit moet worden verzocht met betrekking tot een "
+"bestaande omgeving."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "De DOI waar u om verzocht werd niet gevonden."
@@ -152,6 +154,7 @@ msgstr ""
 msgid "api.orcid.404.authorNotFound"
 msgstr "De verzochte auteur werd niet gevonden"
 
+#, fuzzy
 msgid "api.orcid.404.contextRequired"
 msgstr ""
 "Deze apparatuur is niet beschikbaar vanaf de website-omvattende naamruimte "
@@ -170,15 +173,15 @@ msgstr "U kunt deze publicatie niet bewerken omdat deze al is verspreid."
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "U kunt de status direct via de API niet wijzigen. In de plaats hiervan, "
-"gebruikt u de publicatie en depublicatie-apparatuur."
+"volgt u het publicatie en depublicatie-proces."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "U moet eerst de publicatie depubliceren, voordat u het verwijdert."
 
-#, fuzzy
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
-"De lopende geconfigureerde aanvulling moet een registratiekantoorplugin zijn."
+"De lopende geconfigureerde softwarecomponent moet een registratiekantoor "
+"zijn."
 
 msgid "api.emails.400.missingBody"
 msgstr "U moet een te versturen e-mail insluiten."
@@ -192,7 +195,7 @@ msgstr ""
 
 #, fuzzy
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr "Dit is geen standaard-email voor een bekende e-mail."
+msgstr "Dit is niet de goede standaard-email voor een algemene e-mail."
 
 msgid "api.emailTemplates.400.invalidContext"
 msgstr "Dit is geen geldige omgeving."
@@ -358,6 +361,7 @@ msgstr ""
 "logingegevens. Probeert u de pagina opnieuw te laden en nogmaals in te "
 "loggen."
 
+#, fuzzy
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
 "Dit apparaat is niet beschikbaar vanaf de omgeving. Dit moet via de "
@@ -449,9 +453,8 @@ msgstr ""
 "vriendelijk verzocht de 'ids' van de inzending die u wilt verwijderen aan te "
 "leveren."
 
-#, fuzzy
 msgid "api.submission.400.invalidId"
-msgstr "Ongeldig ID: {$id}\" provided."
+msgstr "Ongeldig ID: {$id}\" beschikbaar gesteld."
 
 msgid "api.publications.403.noEnabledIdentifiers"
 msgstr ""

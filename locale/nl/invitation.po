@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 12:44+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Ten minste één toe te voegen gebruikersgroep moet worden omschreven"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "De gebruikersgroep is toegekend aan de uitgenodigde gebruiker"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Ten minste één te verwijderen gebruikersgroep moet worden omschreven"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Verwijdering van de gebruikersrollen kan niet worden omschreven voor niet-"
+"bestaande gebruikers."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "De vereiste gebruikersgroepen bevatten dubbele ingangen."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"De uitnodiging kan niet worden verplaatst omdat u nog geen wijzingen bij de "
+"gebruikersgroep hebt omschreven"
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"Er is reeds een bestaande gebruiker met de gebruikersnaam {$username}. "
+"Probeert u een andere naam."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Wanneer aan een uitnodiging een gebruikers-ID is gekoppeld, moet ook de "
+"hiermee overeenstemmende gebruiker bestaan."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Wanneer aan een uitnodiging een e-mail ({$email}) is gekoppeld, mag deze e-"
+"mail niet in gebruik zijn bij een andere gebruiker."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Een gebruikersnaam is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Een wachtwoord is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Vermelding van een affiliatie is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Vermelding van een land is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Vermelding van een achternaam is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr ""
+"Voor toegevoegde gebruikersgroepen, is vermelding van een begindatum vereist"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Deze uitnodigingswerkzaamheid is niet gelukt"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "De vereiste gebruikersgroep-ID {$userGroupId bestaat niet"
+
+msgid "invitation.validation.required"
+msgstr "Het {$attribute}-veld is vereist."
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Deze uitnodiging kan niet worden geannuleerd"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "U kunt niet zowel e-mail als gebruikers-ID tegelijk verstrekken."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Voor toegevoegde gebruikersgroepen, is een colofon vereist"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Dit type uitnodiging heeft geen omschreven e-mailmogelijkheid"
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"De ID {reviewAssignmentId} correspondeert niet met een geldig "
+"recensietoekenning"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Vermelding van een verstrekte naam is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Er zijn in het item onverwachte kenmerken gevonden bij de index {$attribute}:"
+" {$properties}."
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Voor toegevoegde groepen, is vermelding van een gebruikersgroep vereist"

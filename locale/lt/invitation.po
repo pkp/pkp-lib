@@ -1,0 +1,395 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
+"Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/lt/>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Turi būti nurodyta bent viena pridėtina naudotojų grupė"
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Jei pakvietimui priskirtas naudotojo ID ({$userId}), atitinkamas naudotojas "
+"turi egzistuoti."
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Įveskite duomenis"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Peržiūrėti ir kviesti į vaidmenis"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Ieškoti naudotojo"
+
+msgid "invitation.role.dateStart"
+msgstr "Pradžios data"
+
+msgid "invitation.role.dateEnd"
+msgstr "Pabaigos data"
+
+msgid "invitation.role.addRole.button"
+msgstr "Pridėti kitą vaidmenį"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Vaidmuo"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Pradžios data"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Peržiūrėti ir kviesti į vaidmenis"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Pakviesti naudotoją į vaidmenį"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} – Pakeiskite naudotojui rodomą el. laišką"
+
+msgid "userInvitation.modal.title"
+msgstr "Pakvietimas išsiųstas"
+
+msgid "userInvitation.modal.button"
+msgstr "Peržiūrėti visus naudotojus"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Atšaukti pakvietimą"
+
+msgid "invitation.masthead.show"
+msgstr "Rodyti leidinio antraštėje"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Jei redaguosite esamą pakvietimą arba pridėsite naują vaidmenį, dabartinis "
+"pakvietimas bus atšauktas ir bus išsiųstas naujas. Ar tikrai norite tęsti?"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Atšaukti kvietimo į vaidmenį procesą?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Atšaukti pakvietimo procesą"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Naudotojas šiuo metu išjungtas."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Privatumo sutikimas"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Naudotojų grupė priskirta pakviestam naudotojui"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Turi būti nurodyta bent viena pašalintina naudotojų grupė"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr ""
+"Negalima nurodyti pašalinamų naudotojo vaidmenų neegzistuojantiems "
+"naudotojams."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Pakvietimo išsiųsti nepavyksta, nes nenurodyti jokie naudotojų grupių "
+"pakeitimai"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Pateiktose naudotojų grupėse yra pasikartojančių įrašų."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "Naudotojas su vardu {$username} jau egzistuoja. Pabandykite kitą."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Jei pakvietimui priskirtas el. paštas ({$email}), jis negali būti naudojamas "
+"kito naudotojo."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Turi būti nurodytas naudotojo vardas"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Turi būti nurodytas slaptažodis"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Turi būti nurodyta afiliacija (organizacija)"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Turi būti nurodyta šalis"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "Turi būti nurodytas vardas"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Turi būti nurodyta pavardė"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Pridedamoms naudotojų grupėms turi būti nurodytas grupės ID"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Pridedamoms naudotojų grupėms turi būti nurodyta pradžios data"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Pridedamoms naudotojų grupėms turi būti nurodyta, ar rodyti antraštėje"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Šiam pakvietimo tipui nenustatytas el. laiško šablonas"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Pakvietimo operacijos nepavyko"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Pateiktas naudotojų grupės ID {$userGroupId} neegzistuoja"
+
+msgid "invitation.validation.required"
+msgstr "Laukas {$attribute} yra privalomas."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"Elemente, kurio indeksas {$attribute}, rasta netikėtų savybių: {$properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "ID {reviewAssignmentId} neatitinka galiojančio recenzijos priskyrimo"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Šio pakvietimo atšaukti negalima"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "Negalite kartu pateikti ir el. pašto, ir userId."
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Esamiems naudotojams šis atributas neleidžiamas"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Neegzistuojantiems naudotojams šis atributas neleidžiamas"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Atributo reikšmė turi būti šiandienos ar vėlesnė"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Laukas :attribute yra neleidžiamas"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Reikšmė kalbai „{$primaryLocale}“ yra privaloma"
+
+msgid "invitation.step"
+msgstr "ŽINGSNIS"
+
+msgid "invitation.header"
+msgstr "Pakvietimai"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Pakviesti į vaidmenį"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Pakviesti naudotoją atlikti vaidmenį"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} – Ieškokite naudotojo"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Ieškoti naudotojo"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Jei naudotojas neegzistuoja, galite jį pakviesti atlikti vaidmenį: sukursime "
+"paskyrą pagal jo duomenis ir, jei reikia, pakviesime atlikti papildomus "
+"vaidmenis."
+
+msgid "userInvitation.searchField.description"
+msgstr "pvz., aeinstein@example.com arba aeinstein arba 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Įveskite duomenis"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} – Įveskite duomenis ir pakvieskite į vaidmenis"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Išsaugoti ir tęsti"
+
+msgid "invitation.role.selectRole"
+msgstr "Pasirinkti naują vaidmenį"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Pabaigos data"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Pašalinti vaidmenį"
+
+msgid "invitation.email.description"
+msgstr "pvz., aeinstein@example.com"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Priėmęs kvietimą, naudotojas (jei pageidauja) bus nukreiptas į ORCID "
+"paskyros patvirtinimui."
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Jei žinote naudotojo vardą, galite jį įvesti, kad palengvintumėte paiešką. "
+"Šią informaciją naudotojas vėliau galės pakeisti."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Jei žinote naudotojo pavardę, galite ją įvesti, kad palengvintumėte paiešką. "
+"Šią informaciją naudotojas vėliau galės pakeisti."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Patvirtinti ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} – Patvirtinkite ORCID iD"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Išsaugoti ir tęsti"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Išsaugoti ir tęsti"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Įveskite duomenis"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} – Įveskite duomenis"
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Įveskite savo duomenis (el. paštą, afiliaciją ir kt.). Pagal privatumo "
+"nuostatas saugosime jūsų asmens duomenis. Pažymėkite langelį tik jei norite, "
+"kad ši informacija būtų matoma jūsų profilyje redaktoriui."
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Išsaugoti ir tęsti"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Patvirtinti pakvietimo naudotojo duomenų formą"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr "Pateikite šiuos duomenis, kad galėtume tvarkyti jūsų paskyrą"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Peržiūrėti ir sukurti paskyrą"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} – Peržiūrėkite ir sukurkite paskyrą"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Praleisti ORCID patvirtinimą"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Patvirtinti ORCID iD"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Gali būti didžiosios ir mažosios raidės arba skaičiai"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Turi būti bent 6 simbolių ilgio; galima naudoti didžiąsias ir mažąsias "
+"raides, skaičius ir simbolius"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr "Taip, sutinku, kad mano duomenys būtų renkami ir saugomi pagal {$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Privatumo nuostatos"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Kitaip dar vadinamas vardu; tai asmens vardo dalis, identifikuojanti asmenį."
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr "Pavardė – tai paveldima asmens vardo dalis, rodanti priklausymą šeimai."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Tai institucija, su kuria esate susijęs"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Tai šalis, kurioje yra jūsų institucija"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Institucijos šalis"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Paskyros duomenys"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Naudotojo duomenys"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Peržiūrėti visas pateiktis"
+
+msgid "invitation.tableHeader.name"
+msgstr "Vardas"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Pateikite bent vieną paieškos kriterijų."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "Peržiūrite naudotojo {$name} duomenis"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Atšaukti kvietimą"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Atšaukus pakvietimą, išsiųstą {$givenName} {$familyName}, bus panaikinta el. "
+"paštu siųsta priėmimo nuoroda. Štai pakvietimo informacija: "
+
+msgid "invitation.masthead.hidden"
+msgstr "Nerodyti leidinio antraštėje"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Keisti vaidmenį"
+
+msgid "invitation.management.options"
+msgstr "Pakvietimų valdymo parinktys"
+
+msgid "userInvitation.cancel.message"
+msgstr "Ar tikrai norite atšaukti šį pakvietimą?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Grįžti"
+
+msgid "userInvitation.status.invited"
+msgstr "Pakviestas {$date}"
+
+msgid "userInvitation.edit.title"
+msgstr "Redaguoti pakvietimą"
+
+msgid "validation.after_or_equal"
+msgstr "Pradžios data turi būti šiandien arba vėlesnė"
+
+msgid "invitation.removeRoles"
+msgstr "Naudotojas pašalintas iš vaidmens"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Patvirtinkite, kad perskaitėte ir sutinkate su privatumo pranešimu"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Ar tikrai norite atšaukti? Atšaukus dabar procesas bus sustabdytas... norint "
+"tęsti, reikės dar kartą atsidaryti pakvietimo el. laišką."
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Pakvietimas nepriimtas. Esate prisijungęs kaip kitas naudotojas."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Atsijunkite ir prisijunkite su tinkama paskyra, kad priimtumėte šį "
+"pakvietimą."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Ieškokite naudotojo pagal el. paštą, naudotojo vardą arba ORCID iD. Pradžiai "
+"įveskite tik vieną reikšmę!"
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Naudotojas išjungtas. Negalite priskirti jam vaidmens, kol naudotojas "
+"išjungtas. Pirmiausia įjunkite naudotoją, tada galėsite kviesti į vaidmenį."

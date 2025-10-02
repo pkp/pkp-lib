@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "lt/>\n"
@@ -89,7 +89,7 @@ msgid "grid.action.unassignReviewer"
 msgstr "Atšaukti šį recenzentą"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Šį suredaguotą failą pateikti kitam etapui."
+msgstr "Patvirtinkite šį korektūros failą, kad jis būtų išsiųstas į kitą etapą"
 
 msgid "grid.action.reload"
 msgstr "Atnaujinti"
@@ -185,7 +185,7 @@ msgid "grid.action.readReview"
 msgstr "Skaityti šią recenziją"
 
 msgid "grid.action.email"
-msgstr "Siųsti elektroninį laišką"
+msgstr "Siųsti el. laišką"
 
 msgid "grid.action.addReviewer"
 msgstr "Pridėti recenzentą"
@@ -661,7 +661,7 @@ msgid "grid.plugin.disable"
 msgstr "Ar tikrai norite pasyvinti šį įskiepį?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Korektūros atliktos. Galite nebekreipti dėmesio į šią užduotį."
+msgstr "Korektūros pataisymai atlikti. Galite nebesvarstyti šios užduoties"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Funkcija „{$userGroupName}“ yra numatytoji ir negali būti pašalinta."

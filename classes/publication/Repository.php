@@ -593,6 +593,7 @@ abstract class Repository
                         ->filterByVersionStage($newPublication->getData('versionStage'))
                         ->filterByVersionMajor($newPublication->getData('versionMajor'))
                         ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                        ->orderByVersion()
                         ->getMany()
                         ->last(); // minor versions are sorted ASC, so get only the last
                     if ($newPublication->getId() == $lastMinorPublication->getId()) {
@@ -695,6 +696,7 @@ abstract class Repository
                     ->filterByVersionStage($newPublication->getData('versionStage'))
                     ->filterByVersionMajor($newPublication->getData('versionMajor'))
                     ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+                    ->orderByVersion()
                     ->getMany()
                     ->last(); // minor versions are sorted ASC, so get only the last
                 if ($lastMinorPublication && (int) $newPublication->getData('versionMinor') > (int) $lastMinorPublication->getData('versionMinor')) {

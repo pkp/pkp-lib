@@ -483,7 +483,6 @@ class DAO extends EntityDAO
     {
         return DB::table('publication_settings AS ps')
             ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
-            ->join('submissions AS s', 'p.submission_id', '=', 's.submission_id')
             ->where('p.submission_id', '=', $submissionId)
             ->where('p.version_stage', '=', $versionStage)
             ->where('p.version_major', '=', $versionMajor)

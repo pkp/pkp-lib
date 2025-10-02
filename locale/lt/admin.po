@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-04 08:45+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/lt/>\n"
@@ -291,7 +291,10 @@ msgid "admin.settings.sharedReviewerStatistics"
 msgstr "Recenzentų statistika"
 
 msgid "admin.settings.sharedReviewerStatistics.description"
-msgstr "Daugiakontekstinėje instaliacijoje recenzentų statistika, pvz.,"
+msgstr ""
+"Daugiakontekstinėje instaliacijoje recenzentų statistika, pvz., pateiktų "
+"recenzijų skaičius, gali būti rodoma atskirai kiekvienam kontekstui arba "
+"bendrai apjungta."
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Išjungti apibendrintą recenzentų statistiką"
@@ -348,7 +351,7 @@ msgid "admin.systemInformation.view"
 msgstr "Peržiūrėti sistemos informaciją"
 
 msgid "admin.versionBuild"
-msgstr "Build"
+msgstr "Versija"
 
 msgid "admin.version.checkForUpdates"
 msgstr "Tikrinti, ar yra atnaujinimų"
@@ -381,7 +384,7 @@ msgid "admin.version.updateAvailable"
 msgstr "Yra nauja versija"
 
 msgid "admin.version.upToDate"
-msgstr "Your system is up-to-date"
+msgstr "Jūsų sistema yra atnaujinta"
 
 msgid "admin.version"
 msgstr "Versija"
@@ -812,7 +815,7 @@ msgstr ""
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Eilutė {$lineNumber} žurnalo faile {$file} yra neteisingo formato ir ar tai "
-"bus praleista?"
+"bus praleista."
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
@@ -1001,8 +1004,8 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
-"Norėdami naudoti šią komandą, turėtumėte perduoti bent jau užduoties ID, "
-"„--all“ arba „--queue=“."
+"Norėdami naudoti šią komandą, turite nurodyti bent vieną užduoties ID, "
+"`--all` arba `--queue=`"
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""

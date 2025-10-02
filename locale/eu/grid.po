@@ -1,7 +1,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-26 07:57+0000\n"
+"PO-Revision-Date: 2025-10-03 06:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/eu/>"
 "\n"
@@ -743,7 +743,6 @@ msgstr "Bidali gogorarazpena erabiltzaile honi"
 msgid "grid.action.mergeUser"
 msgstr "Bateratu erabiltzailea"
 
-#, fuzzy
 msgid "grid.action.unconsiderReview"
 msgstr "Berrikuspen hau amaitu da, baina kontuan hartu gabe utzi dezakezu"
 

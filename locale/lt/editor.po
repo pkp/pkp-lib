@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/lt/>\n"
@@ -22,8 +22,8 @@ msgstr "Vidutiniškai reikia pateikti recenziją per (dienos)"
 
 msgid "editor.review.logResponse.form.subDetail"
 msgstr ""
-"Jei recenzentas susisiekia su jumis el. paštu ar kitomis priemonėmis, galite "
-"įrašyti jo atsakymą."
+"Jei recenzentas susisieks su jumis el. paštu arba bet kokiu kitu būdu, "
+"galite užfiksuoti jų atsakymą už juos"
 
 msgid "editor.review.download"
 msgstr "Atsisiųsti atsiliepimo formą"
@@ -243,10 +243,10 @@ msgid "editor.review.newReviewRound"
 msgstr "Reikia pakartotinio recenzavimo"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Pakeitimai pakartotiniam recenzavimui nebus pateikti"
+msgstr "Pataisymai nebus peržiūrimi naujo recenzavimo raundo metu."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Pakeitimai pakartotiniam recenzavimui bus pateikti"
+msgstr "Pataisymai bus peržiūrimi naujo recenzavimo raundo metu."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr "Pataisymams neturėtų būti taikomas naujas kolegialus vertinimas."
@@ -263,7 +263,7 @@ msgid "editor.review.reviewsAdded"
 msgstr "Recenzijos pridėtos prie pranešimo."
 
 msgid "editor.review.noReviews"
-msgstr "Nėra importuotinų recenzijų."
+msgstr "Nėra recenzijų, kurias būtų galima importuoti"
 
 msgid "editor.review.reminder"
 msgstr "Priminimas dėl recenzijos"
@@ -478,10 +478,10 @@ msgid "editor.submissionReview.recordRecommendation.skipEmail"
 msgstr "Nesiųsti elektroninio laiško redaktoriams."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Sukurti recenzijos diskusiją apie šią rekomendaciją"
+msgstr "Sukurkite recenzavimo diskusiją apie šį rekomendavimą."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Nekurti recenzijos diskusijos"
+msgstr "Nesukurkite recenzavimo diskusijos."
 
 msgid "editor.submission.newRoundDescription"
 msgstr ""

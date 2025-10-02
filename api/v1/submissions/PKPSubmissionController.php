@@ -120,6 +120,7 @@ class PKPSubmissionController extends PKPBaseController
         'getChangeLanguageMetadata',
         'changeVersion',
         'getNextAvailableVersion',
+        'importAdditionalCitations',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */

@@ -1,7 +1,7 @@
 # Darius Zviedris <darius.zviedris@lki.lt>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-03 13:45+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "lt/>\n"
@@ -18,7 +18,7 @@ msgid "api.reviews.assignments.invalidReviewer"
 msgstr "Nepavyko rasti užduoties recenzento"
 
 msgid "api.review.assignments.invalidInvitationResponse"
-msgstr "Galioja tik „priimti“ ir „atmesti“ reikšmės."
+msgstr "Leidžiamos tik reikšmės 'accept' ir 'decline'"
 
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "Pateikto skyriaus nėra."
@@ -350,7 +350,7 @@ msgstr ""
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
 "Prašymas atmestas. Taip galėjo nutikti, jei Jūsų prisijungimui skirtas "
-"laikas pasibaigė.  Pabadykite pakartoti atnaujinus puslapį."
+"laikas pasibaigė. Pabadykite pakartoti atnaujinus puslapį."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr "Negalite ištrinti straipsnio, kuris nepaskirtas šiam žurnalui."

@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file classes/components/form/citation/CitationStructuredEditForm.php
+ *
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class CitationStructuredEditForm
+ *
+ * @ingroup classes_controllers_form
+ *
+ * @brief A preset form for setting a publication's single citation
+ */
+
+namespace PKP\components\forms\citation;
+
+use PKP\components\forms\FieldAuthors;
+use PKP\components\forms\FieldText;
+use PKP\components\forms\FieldTextarea;
+use PKP\components\forms\FormComponent;
+
+class CitationStructuredEditForm extends FormComponent
+{
+    public const FORM_CITATION_STRUCTURED = 'citation_structured';
+    public $id = self::FORM_CITATION_STRUCTURED;
+    public $method = 'PUT';
+    public bool $isRequired;
+
+    /**
+     * Constructor
+     *
+     * @param string $action URL to submit the form to
+     */
+    public function __construct(string $action)
+    {
+        $this->action = $action;
+
+        // Raw Citation
+        $this->addField(new FieldTextarea('rawCitation', [
+            'label' => __('submission.citations.structured.label.rawCitation'),
+            'description' => '',
+            'value' => null,
+            'isRequired' => true
+        ]));
+
+        // Article Information
+        foreach (['doi', 'url', 'urn', 'arxiv', 'handle'] as $key) {
+            $this->addField(new FieldText($key, [
+                'label' => __('submission.citations.structured.label.' . $key),
+                'description' => '',
+                'value' => null,
+            ]));
+        }
+
+        $this->addField(new FieldText('title', [
+            'label' => __('submission.citations.structured.label.title'),
+            'description' => '',
+            'value' => null,
+        ]));
+
+        // Author Information
+        $this->addField(new FieldAuthors('authors', [
+            'label' => __('submission.citations.structured.header.authors'),
+            'description' => '',
+            'value' => null,
+        ]));
+
+        // Journal Information
+        $this->addField(new FieldText('sourceName', [
+            'label' => __('submission.citations.structured.label.sourceName'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('sourceIssn', [
+            'label' => __('submission.citations.structured.label.sourceIssn'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('sourceHost', [
+            'label' => __('submission.citations.structured.label.sourceHost'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('sourceType', [
+            'label' => __('submission.citations.structured.label.sourceType'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('date', [
+            'label' => __('submission.citations.structured.label.date'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('type', [
+            'label' => __('submission.citations.structured.label.type'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('volume', [
+            'label' => __('submission.citations.structured.label.volume'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('issue', [
+            'label' => __('submission.citations.structured.label.issue'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('pages', [
+            'label' => __('submission.citations.structured.label.pages'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('firstPage', [
+            'label' => __('submission.citations.structured.label.firstPage'),
+            'description' => '',
+            'value' => null,
+        ]));
+        $this->addField(new FieldText('lastPage', [
+            'label' => __('submission.citations.structured.label.lastPage'),
+            'description' => '',
+            'value' => null,
+        ]));
+    }
+}

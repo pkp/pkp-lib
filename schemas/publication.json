@@ -66,13 +66,21 @@
 			"description": "Optional metadata that contains an array of references for works cited in this submission. References have been split and parsed from the raw text.",
 			"readOnly": true,
 			"items": {
-				"type": "string"
+				"type": "object",
+				"$ref": "#/definitions/Citation"
 			}
 		},
 		"citationsRaw": {
 			"type": "string",
 			"description": "Optional metadata that contains references for works cited in this submission as raw text.",
 			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"citationsMetadataLookup": {
+			"type": "boolean",
+			"description": "Whether or not to use the metadata lookup for citations.",
 			"validation": [
 				"nullable"
 			]

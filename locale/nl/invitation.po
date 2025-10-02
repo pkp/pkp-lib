@@ -1,2 +1,21 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "Ten minste één toe te voegen gebruikersgroep moet worden omschreven"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "De gebruikersgroep is toegekend aan de uitgenodigde gebruiker"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Ten minste één te verwijderen gebruikersgroep moet worden omschreven"

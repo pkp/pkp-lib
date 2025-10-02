@@ -21,6 +21,8 @@ abstract class InvitationUIActionRedirectController extends Controller
 {
     /** @var TInvitation */
     protected Invitation $invitation;
+    public const INVITATION_USER_ROLE_ASSIGNMENT = 'userRoleAssignment';
+    public const INVITATION_REVIEWER_ACCESS_INVITE = 'reviewerAccess';
 
     public function __construct(Invitation $invitation)
     {

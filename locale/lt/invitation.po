@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-01 08:30+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: Darius Zviedris <darius.zviedris@lki.lt>\n"
 "Language-Team: Lithuanian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/lt/>\n"
@@ -163,10 +163,10 @@ msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
 msgstr "Negalite kartu pateikti ir el. pašto, ir userId."
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
-msgstr "Esamiems naudotojams šis atributas neleidžiamas."
+msgstr "Esamiems naudotojams šis atributas neleidžiamas"
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
-msgstr "Neegzistuojantiems naudotojams šis atributas neleidžiamas."
+msgstr "Neegzistuojantiems naudotojams šis atributas neleidžiamas"
 
 msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
 msgstr "Atributo reikšmė turi būti šiandienos ar vėlesnė"

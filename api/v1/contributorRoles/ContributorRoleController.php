@@ -22,10 +22,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
-use PKP\components\forms\context\ContributorRoleForm;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
 use PKP\author\creditContributorRole\CreditContributorRole;
 use PKP\security\Role;
 use PKP\security\authorization\CanAccessSettingsPolicy;
@@ -77,7 +77,7 @@ class ContributorRoleController extends PKPBaseController
             ]),
         ])->group(function () {
             Route::get('', $this->getMany(...));
-            Route::get('contributorRoleFormComponent', $this->getContributorRoleFormComponent(...));
+            Route::get('contributorRoleFormData', $this->getContributorRoleFormData(...));
             Route::post('', $this->add(...));
             Route::put('{roleId}', $this->edit(...))
                 ->whereNumber('roleId');
@@ -188,19 +188,26 @@ class ContributorRoleController extends PKPBaseController
     }
 
     /**
-     * Get the add/edit form
+     * Get form data
      */
-    public function getContributorRoleFormComponent()
+    public function getContributorRoleFormData(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
-        $contributorRolesApiUrl = Application::get()->getRequest()->getDispatcher()->url(
-            Application::get()->getRequest(),
-            Application::ROUTE_API,
-            $context->getPath(),
-            'contributorRoles'
-        );
-        $contributorRoleForm = new ContributorRoleForm($contributorRolesApiUrl, $context);
-        return response()->json($contributorRoleForm->getConfig(), Response::HTTP_OK);
+        // Available options only
+        $roleOptions = collect(ContributorRoleIdentifier::getRoles())
+            ->diff(Repo::contributorRole()
+                ->getSchemaMap()
+                ->summarizeMany(ContributorRole::query()->withContextId($context->getId())->get())
+                ->pluck('identifier')
+            )
+            ->values();
+        // Data to send
+        $contributorRoleFormData = [
+            'identifier' => [
+                'options' => $roleOptions->toArray(),
+            ],
+        ];
+        return response()->json($contributorRoleFormData, Response::HTTP_OK);
     }
 
     /**

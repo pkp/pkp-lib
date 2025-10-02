@@ -65,16 +65,6 @@ class Repository
                 Rule::requiredIf(fn (): bool => !$role?->id),
                 Rule::in([$context->getId()]),
             ],
-            'name' => [
-                'required',
-                'array',
-                function (string $attribute, array $value, \Closure $fail) use ($locales) {
-                    if (count(array_filter($value)) !== count($locales) || array_diff(array_keys($value), $locales)) {
-                        return $fail(__('manager.contributorRoles.error.nameRequired'));
-                    }
-                    return true;
-                }
-            ],
         ]);
         $validator = ValidatorFactory::make($props, $rules);
 

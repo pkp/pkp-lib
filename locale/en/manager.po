@@ -3866,6 +3866,9 @@ msgstr "Role Identifier"
 msgid "manager.contributorRoles.name"
 msgstr "Role Name"
 
+msgid "manager.contributorRoles.name.description"
+msgstr "Fill name in all of the languages."
+
 msgid "manager.contributorRoles.saved"
 msgstr "Contributor role saved"
 

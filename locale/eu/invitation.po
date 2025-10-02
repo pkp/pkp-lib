@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-12 07:27+0000\n"
+"PO-Revision-Date: 2025-10-03 06:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/eu/>\n"
@@ -215,9 +215,8 @@ msgstr "Gorde eta jarraitu"
 msgid "acceptInvitation.userDetails.stepName"
 msgstr "Sartu xehetasunak"
 
-#, fuzzy
 msgid "acceptInvitation.userDetails.form.name"
-msgstr "Onartu gonbidapenaren erabiltzailearen xehetasunen inprimakia"
+msgstr "Gonbidapenak eta erabiltzailearen xehetasunak onartzeko inprimakia"
 
 msgid "acceptInvitation.detailsReview.stepName"
 msgstr "Berrikusi eta sortu kontua"
@@ -240,11 +239,8 @@ msgstr "Ikusi bidalketa guztiak"
 msgid "invitation.role.modifyRole.button"
 msgstr "Aldatu rola"
 
-#, fuzzy
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
-msgstr ""
-"Ezabatu erabiltzaile-rolak ezin dira definitu existitzen ez diren "
-"erabiltzaileentzat."
+msgstr "Existitzen ez den erabiltzaileari ezin zaio rolik ezabatu."
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr ""
@@ -265,10 +261,9 @@ msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting
 msgstr ""
 "{reviewAssignmentId} IDa ez dator bat baliozko berrikuspen-esleipen batekin"
 
-#, fuzzy
 msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
 msgstr ""
-"Atributua ez dago baimenduta dauden erabiltzaileentzat sarbidea izateko."
+"Atributu hori atzitzea ez dago baimenduta existitzen diren erabiltzaileetan"
 
 msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
 msgstr ""
@@ -288,13 +283,11 @@ msgstr ""
 "Gutxienez 6 karaktere izan behar ditu eta letra larrien, letra xeheen, "
 "zenbakien eta sinboloen konbinazioa izan daiteke"
 
-#, fuzzy
 msgid "acceptInvitation.userDetailsForm.givenName.description"
 msgstr ""
-"Forename edo lehen izen bezala ere ezaguna, pertsona bat identifikatzen duen "
+"Izena edo lehen izena bezala ere ezaguna, pertsona bat identifikatzen duen "
 "izen pertsonalaren zatia da."
 
-#, fuzzy
 msgid "acceptInvitation.userDetailsForm.affiliation.description"
 msgstr "Hau zu atxikita zauden erakundea da"
 
@@ -304,11 +297,9 @@ msgstr ""
 "gero, posta elektronikoz bidalitako onarpen-esteka desaktibatu egingo da. "
 "Hona hemen gonbidapenaren xehetasunak: "
 
-#, fuzzy
 msgid "invitation.masthead.show"
 msgstr "Goiburuan agertu"
 
-#, fuzzy
 msgid "invitation.masthead.hidden"
 msgstr "Goiburuan ez agertu"
 

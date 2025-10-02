@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-18 10:57+0000\n"
+"PO-Revision-Date: 2025-10-02 10:48+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -89,12 +89,11 @@ msgstr ""
 "Deze taal is de hoofdtaal voor de website. Ze kan niet worden uitgeschakeld "
 "voor u een andere hoofdtaal selecteert."
 
-#, fuzzy
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Bent u zeker dat u de hoofdtaal van de website wilt wijzigen? Waar deze "
-"ontbreken, zullen de vereiste gebruikersnamen worden gekopieerd van de "
-"bestaande website."
+"Bent u zeker dat u de eerste taalinstelling van de website wilt wijzigen? De "
+"gebruikersnamen die hiervoor zijn vereist worden - voor zover deze ontbreken "
+"- gekopieerd van de bestaande website."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -161,7 +160,8 @@ msgstr ""
 
 #, fuzzy
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr "to do"
+msgstr ""
+"Identificeren van redacteuren om hen te attenderen in context {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
@@ -206,15 +206,13 @@ msgstr "Verwerk nog niet gestarte opdrachten in de wachtrij"
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Actualiseer DB-IP adres lite databank"
 
-#, fuzzy
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
-"Het hernoemen van de DB-IP-adress lite databankbestand {$sourceFilename} to "
+"Het hernoemen van het DB-IP-adress lite databankbestand {$sourceFilename} to "
 "{$targetFilename} is niet gelukt."
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Het gebruik van statistiek bestandsladertaak"
+msgstr "De gebruiksgegevens van de bestandsladertaak"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
@@ -225,11 +223,10 @@ msgstr ""
 msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Het bestand {$file} kan niet worden geopend en werd afgewezen."
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
-"Het bestand {$file}  betreft een oud logbestandformat, dat niet kan worden "
-"verwerkt en dus wordt terugverwezen naar de hoofdmap"
+"Het bestand {$file} betreft een oud logbestandformat, dat niet kan worden "
+"verwerkt en dus wordt terugverwezen naar de hoofdmap."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
@@ -528,8 +525,8 @@ msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "Maak een lijst van opdrachten in de wachtrij. Indien u resultaten wilt "
 "voorzien van paginanummers, gebruikt u de parameters --pagina= en -- "
-"perPagina. Druk op de schakelaar --mislukt om de foutieve taken in een lijst "
-"te zetten."
+"perPagina. Druk op de button --mislukt om de foutieve taken in een lijst te "
+"zetten."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -557,6 +554,7 @@ msgstr ""
 "ook de parameter/markering --verplaats en --opschonen om terug te plaatsen "
 "naar de wachtrij of om alle/bepaalde foutieve taken op te schonen."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Verplaats de beschikbare opdrachten naar de wachtrij. Om een opdracht naar "
@@ -652,8 +650,8 @@ msgstr ""
 #, fuzzy
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
-"Ongeldige optie voor een testopdracht. Het heeft enkel de --enkelvoudige "
-"optie =' van 'foutief' of succesvol'."
+"Ongeldige optie voor een testopdracht. Het heeft slechts de --enige optie =' "
+"van 'foutief' of succesvol'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Ongeldige ID-opdracht"
@@ -672,42 +670,46 @@ msgstr "Wiste alle opdrachten!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} foutmeldingen succesvol verwijderd van de foutmeldingenlijst."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} opdrachten succesvol in de wachtrij teruggeplaatst."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Er zijn {$total} foutmeldingen"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Er zijn {$total} opdrachten in de wachtrij"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Optie {$option} bestaat niet."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Bedoelt u een van de volgende?"
 
 msgid "admin.jobs.totalCount"
 msgstr ""
+"Er staat een totaal van <strong>{$total}</strong> opdracht(en) in de wachtrij"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Er is een totaal van <strong>{$total}</strong> foutmelding(en)."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Verwezen wordt naar de opdrachten in de wachtrij"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Opdrachten"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Foutmeldingen"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Foutmeldingendetails"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Verwezen wordt naar de opdrachten in de wachtrij in het systeem en vermeld "
+"de foutpogingen."
 
 msgid "navigation.tools.jobs.view"
 msgstr "Zie Opdrachten"
@@ -718,13 +720,11 @@ msgstr "Zie foutieve opdrachten"
 msgid "navigation.tools.job.failed.details.view"
 msgstr "Zie foutieve opdracht:{$id} Details"
 
-#, fuzzy
 msgid "admin.job.failed.list.attribute"
-msgstr "Kenmerk"
+msgstr "Attribuut"
 
-#, fuzzy
 msgid "admin.job.failed.list.attribute.value"
-msgstr "Waardekenmerk"
+msgstr "Waardeattribuut"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -747,9 +747,8 @@ msgstr "Ontstaan bij"
 msgid "admin.jobs.list.failedAt"
 msgstr "Foutmelding bij"
 
-#, fuzzy
 msgid "admin.jobs.list.payload"
-msgstr "Draagkracht data / schadelijke mailwareode"
+msgstr "Payload"
 
 msgid "admin.jobs.list.exception"
 msgstr "UItzondering"
@@ -758,135 +757,184 @@ msgid "admin.jobs.list.actions"
 msgstr "Acties"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Aangemaakt onder $failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Aangemaakt onder {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Probeert u nogmaals"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Zet alle foutmeldingen nog eens in de wachtrij"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Foutmelding van het gebruik van gegevensstatistieken uit het bestand {$file} "
+"en het bestand kon niet worden verplaatst worden uit {$archivedFilePath} to "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Er zijn foutmeldingen bij het laden van de statistische gegevens uit het "
+"bestand {$file}. Het bestand is verplaatst naar de stage directory."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Gegevensverzameling"
 
 msgid "admin.settings.statistics.collection.description"
 msgstr ""
+"Pas de instellingen aan m.b.t. welk type gebruiksgegevens moet worden "
+"verzameld."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Dataopslag"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Pas de instellingen aan welke gebruiksgegevens moeten worden opgeslagen in "
+"de server."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushiprotocol"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configureer de <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protocol, een door de industrie erkend formulier voor "
+"het distribueren van gebruiksgegevens."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Gegevens per maand of per dag"
 
+#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Wel of geen dagelijkse of maandelijkse gegevensgebruik bijhouden. Het "
+"bijhouden van dagelijkse statistieken kan de omvang van uw database "
+"aanzienlijk vergroten."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Houdt dagelijks en maandelijks gegevens bij"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Enkel het bijhouden van gegevens per maand"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Gecomprimeerde logs"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Gegevens komen voort uit toegangslogbestanden, die verplaatst zijn naar "
+"<code>{$path}</code> na de verwerking. Moeten de logbestanden dan worden "
+"gecomprimeerd tot <code>.gz</code>-bestanden? Comprimeren maakt wellicht "
+"schijfruimte vrij op de server."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Laat de logbestanden op dezelfde locatie staan"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Comprimeer de logbestanden"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Beperkte toegang tot de COUNTER SUSHI-gegevens API voor managers en "
+"beheerders"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Platform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Op grond van het COUNTER SUSHI-protocol, moet elk gegevensverslag het "
+"\"platform\" identificeren dat de gegevens levert. Standaard wordt het "
+"tijdschrift aangewezen als platform voor alle statistieken. Als alle "
+"tijdschriften op deze site echter worden uitgegeven door, beheerd door of in "
+"eigendom zijn van dezelfde aanbieder, kunt u de site als platform aanwijzen."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Platform-ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Hoe u dit platform kunt identificeren in COUNTER SUSHI-rapporten. De "
+"platform-ID mag maximaal 17 tekens lang zijn en mag letters (a–z, A–Z), "
+"cijfers (0–9), underscores (_), punten (.) en slashes (/) bevatten. De "
+"platform-ID wordt in meerdere kolommen gebruikt en moet zo kort mogelijk "
+"zijn, maar toch herkenbaar blijven. De platform-ID is meestal gebaseerd op "
+"de naam van een uitgever of platform, een domeinnaam of een bekende, unieke "
+"afkorting."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Er moet een platform-ID worden opgegeven, wanneer de site als het SUSHI-"
+"platform wordt geïdentificeerd."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "werkinstructie-opties"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "gebruik : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Beschikbare opties voor werkinstructies"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "De naam van de wachtrijverbinding tot de werk[standaard : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "De wachtrijnaam m.b.t. werk [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "De naam van de medewerker[default : '{$default}']"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Het aantal seconden dat moet worden gewacht, voordat een opdracht nogmaals "
+"wordt geprobeerd waarbij een niet-onderschepte uitzondering is opgetreden "
+"[standaard: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "De geheugenlimiet in megabytes : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Het aantal seconden dat een onderliggend proces kan draaien"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Het aantal seconden in slaapstand wanneer geen opdracht beschikbaar is "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Het aantal mislukte pogingen om een opdracht voor het loggen uit te voeren["
+"default : '{$default}']"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Laat de medewerker zeker ook in de onderhoudsmodus[default : {$default}] "
+"uitvoeren"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Stop wanneer de wachtrij leeg is [default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Het aantal te verwerken opdrachten voor het stoppen[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Het maximum aantal seconden dat de medewerker [default : '{$default}'] moet "
+"uitvoeren"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Het aantal wachtseconden tussen opdrachten [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Voer het achtergrondprogramma uit voor de testwachtrij"
 
-#, fuzzy
 msgid "admin.scheduledTask.UpdateRorRegistryDataset"
 msgstr "Actualiseer de Ror-registratie dataset cache"
 
@@ -902,9 +950,8 @@ msgstr ""
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Schakel de samengevoegde gegevens van de recensenten uit"
 
-#, fuzzy
 msgid "admin.fileLoader.fileDispatched"
-msgstr "Het bestand {$filename} werd verplaatst naar de te verzenden (?) map."
+msgstr "Het bestand {$filename} werd verwijderd om de map te verplaatsen."
 
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
@@ -919,3 +966,131 @@ msgid "admin.cli.tool.jobs.sandbox.message"
 msgstr ""
 "Kan geen opdrachten in de wachtrij plaatsen, omdat de veiligheidsmodus van "
 "de applicatie is ingeschakeld."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Het bestand {$file} kon niet worden verplaatst uit {$dispatchFilePath} to "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Het bestand {$file} bestaat niet."
+
+msgid "admin.cli.tool.appKey.error.InvalidAppKey"
+msgstr ""
+"Ongeldige ingestgelde appsleutel, niet-ondersteunde code of onjuiste lengte. "
+"Ondersteunde versleutelcodes zijn: {$ciphers}."
+
+msgid "admin.cli.tool.appKey.options.usage.description"
+msgstr "Geef de parameters van het appsleutelgebruik weer"
+
+msgid "admin.cli.tool.appKey.options.validate.description"
+msgstr ""
+"Valideer de huidige appsleutel indien deze in het configuratiebestand wordt "
+"gevonden"
+
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr ""
+"Voeg de configuratie-variabele van de app_sleutel toe in het config.inc."
+"phpbestand."
+
+msgid "admin.cli.tool.appKey.mean.those"
+msgstr "Bedoelde u een van de volgende?"
+
+msgid "admin.cli.tool.appKey.show"
+msgstr "Gegenereerde appsleutel: {$appKey}"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Gebruik de website als platform voor alle tijdschriften."
+
+msgid "admin.cli.tool.appKey.options.generate.description"
+msgstr ""
+"Maak een nieuwe appsleutel en plaats deze in het configuratiebestand. Druk "
+"op de button--show voor alleen bekijken en de button --force om een "
+"bestaande geldige appsleutel over te schrijven."
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr ""
+"Verplaats een opdracht om automatisch verlopen uitnodigingen te verwijderen"
+
+msgid "admin.cli.tool.appKey.error.missingAppKey"
+msgstr "Er is geen app sleutel ingesteld in het configuratiebestand."
+
+msgid "admin.cli.tool.appKey.error.missingKeyVariable"
+msgstr ""
+"Er is geen variabele 'app_key' beschreven in het 'general'-gedeelte van het "
+"configuratiebestand. U wordt verzocht het algemene gedeelte van de "
+"configuratiebestanden te actualiseren en een regel 'app_key=' of de "
+"instructie `php lib/pkp/tools/appKey.php configure` toe te voegen om de app "
+"key in te stellen."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr ""
+"De 'app key'-variabele bestaat reeds onder het 'general' gedeelte in het "
+"configuratiebestand. Voer instructie `php lib/pkp/tools/appKey.php generate`"
+"uit om een nieuwe appsleutel in te stellen."
+
+msgid "admin.cli.tool.appKey.warning.replaceValidKey"
+msgstr ""
+"Een geldige appsleutel is al in het configuratiebestand ingesteld. Om over "
+"te schrijven, druk de button--force met de instructie."
+
+msgid "admin.cli.tool.appKey.success.writtenToConfig"
+msgstr "De appsleutel is succesvol in het configuratiebestand gezet."
+
+msgid "admin.cli.tool.appKey.success.valid"
+msgstr "Geldig ingestelde appsleutel in het configuratiebestand"
+
+msgid "admin.cli.tool.scheduler.options.run.description"
+msgstr "Voer de planning uit."
+
+msgid "admin.cli.tool.scheduler.options.list.description"
+msgstr "Registreer alle geplande taken."
+
+msgid "admin.cli.tool.scheduler.options.work.description"
+msgstr "Start de roosterplanner."
+
+msgid "admin.cli.tool.scheduler.options.test.description"
+msgstr ""
+"Voer een specifieke geplande taak uit de lijst uit of gebruik de --naam om "
+"een specifieke taak uit te voeren. Stel de button --no-scroll in om de "
+"gehele lijst te zien zonder te hoeven scrollen."
+
+msgid "admin.cli.tool.scheduler.options.usage.description"
+msgstr "Geef de parameters van het planningsgebruik weer."
+
+msgid "admin.cli.tool.scheduler.maintenance.message"
+msgstr ""
+"NIet in staat om de geplande taken uit te voeren, omdat de "
+"onderhoudsapplicatiemodus is ingeschakeld."
+
+msgid "admin.cli.tool.scheduler.mean.those"
+msgstr "Bedoelde u een van de volgende?"
+
+msgid "admin.cli.tool.scheduler.options.work.running.info"
+msgstr "Elke minuut bezig met geplande taken."
+
+msgid "admin.cli.tool.scheduler.tasks.empty"
+msgstr "Geen van de geplande taken zijn geregistreerd."
+
+msgid "admin.cli.tool.scheduler.run.prompt"
+msgstr "Welke instructie wilt u uitvoeren?"
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr ""
+"De appsleutel is succesvol in het configuratiebestand gezet. Voer de "
+"instructie `php lib/pkp/tools/appKey.php generate` uit om een nieuwe "
+"appsleutel in te stellen."
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Niet in staat om de geplande taken uit te voeren omdat de applicatie "
+"zandbakmodus is ingeschakeld."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr ""
+"Niet in staat om de 'app key'-variabele in het configuratiebestand te "
+"zetten. U wordt verzocht om het algemene gedeelte va het configuratiebestand "
+"te actualiseren en de regel ' app_key' toe te voegen=\" ."
+
+msgid "admin.cli.tool.scheduler.tasks.notFound"
+msgstr "Geen passende geplande taken gevonden."

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-17 13:57+0000\n"
+"PO-Revision-Date: 2025-09-29 11:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -71,7 +71,7 @@ msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Iraungitze-hilaz gain, urtea eta eguna hautatu behar dira."
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr "Hautatu baliozko iraungitze-data bat"
+msgstr "Hautatu baliozko iraungitze-data bat."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr "Iraungitze-urteaz gain, hila eta eguna hautatu behar dira."
@@ -107,7 +107,7 @@ msgid "manager.announcements.form.typeId"
 msgstr "Mota"
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr "Hautatu baliozko anuntzio mota bat"
+msgstr "Hautatu baliozko anuntzio mota bat."
 
 msgid "manager.announcements.noneCreated"
 msgstr "Ez da anuntziorik sortu."
@@ -597,7 +597,7 @@ msgstr ""
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
 "Hautatu orri bakoitzean hizkuntza aukeratzeko menuan erabilgarri egongo "
-"diren locale hizkuntza-paketeak. Hizkuntza bat  baino gehiago hautatzen bada "
+"diren locale hizkuntza-paketeak. Hizkuntza bat baino gehiago hautatzen bada "
 "bakarrik agertuko da hizkuntzen menua."
 
 msgid "manager.payment.timestamp"
@@ -634,7 +634,7 @@ msgid "manager.people.emailUsers.emailSelectedUsers"
 msgstr "Bidali mezua hautatutako erabiltzaileei"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Bidali mezua honela inskribatutako erabiltzaileei:"
+msgstr "Bidali mezua honela inskribatutako erabiltzaileei"
 
 msgid "manager.people.emailUsers"
 msgstr "Bidali mezu elektronikoa erabiltzaileei"
@@ -669,7 +669,7 @@ msgid "manager.people.enrollUserAsDescription"
 msgstr "Edozein unetan eslei (edo ken) dakioke rol bat erabiltzaile bati."
 
 msgid "manager.people.enrollUserAs"
-msgstr "Inskribatu erabiltzailea honela:"
+msgstr "Inskribatu erabiltzailea honela"
 
 msgid "manager.people.invalidUser"
 msgstr "Eskatutako erabiltzailea ez dago."
@@ -1100,6 +1100,9 @@ msgstr "Helbide elektroniko horietako bat edo gehiago ez dira baliozkoak."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
+"Egileei mezu elektroniko bat bidaltzen zaie automatikoki, haien bidalketa "
+"jakinarazteko. Mezu elektroniko honen kopiak bidal ditzakezu honako "
+"helbidera:"
 
 msgid "manager.setup.notifyUsers"
 msgstr "Jakinarazi"
@@ -1153,6 +1156,12 @@ msgstr ""
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
+"Irakurle eta egileentzako parekideen berrikuspen-politika eta -prozesuak "
+"azaldu. Deskribapen horrek, askotan, honako hauek jasotzen ditu: bidalketa "
+"bat berrikusteko erabili ohi diren ebaluatzaileen kopurua, ebaluatzaileei "
+"bidalketak epaitzeko eskatzen zaizkien irizpideak, berrikuspenak egiteko "
+"behar den aurreikusitako denbora eta ebaluatzaileak hautatzeko erabiltzen "
+"diren printzipioak."
 
 msgid "manager.setup.principalContact"
 msgstr "Kontaktu nagusia"
@@ -1261,7 +1270,7 @@ msgstr "Laguntza teknikorako kontaktua"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
-"Editoreei, egileei eta berrikusleei materiala bidaltzeko, editatzeko, "
+"Editoreei, egileei eta ebaluatzaileei materiala bidaltzeko, editatzeko, "
 "berrikusteko edo argitaratzeko dituzten arazoekin lagun diezaiekeen "
 "harremanetarako pertsona."
 
@@ -1317,21 +1326,17 @@ msgstr ""
 msgid "manager.setup.workflow.guidance"
 msgstr "Egilearen gida"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Bidalketa prestatzeko zerrenda"
+msgstr "Bidalketaren kontrol-zerrenda"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Aldizkarira lan bat bidaltzera doazenean, bidali aurretik Bidalketa "
-"prestatzeko zerrendako puntu guztiak bete dituztela egiaztatzeko eskatzen "
-"zaie egileei. Zerrenda hori Egileentzako gidalerroetan ere azaltzen da, "
-"Aldizkariari buruz orrian. Behean edita daiteke zerrenda, baina bertako "
-"puntu guztiak markatu beharko dituzte egileek bidalketa egin ahal izateko."
+"Honako hau erakusten zaie egileei bidalketa hasten dutenean. Egileei "
+"eskatzen zaie baieztatzeko beren bidalketak hemen zehaztutako baldintza "
+"guztiak betetzen dituela bidalketa hasi aurretik."
 
 msgid "manager.sections.form.deactivateSection"
-msgstr ""
+msgstr "Desaktibatu atal hau eta ez utzi bidalketa berririk bertara egiten."
 
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Ziur zaude atal hau desaktibatu nahi duzula?"
@@ -1344,12 +1349,16 @@ msgstr "Editorial esleipenak"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Hautatu atal honetan egindako bidalketa berri guztiei automatikoki esleitu "
+"behar zaizkien argitalpen-erabiltzaileak."
 
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Esleitu {$name} {$role} gisa"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Hautatu kategoria honetan egindako bidalketa berri guztiei automatikoki "
+"esleitu behar zaizkien argitalpen-erabiltzaileak."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Guneko sarbide aukerak"
@@ -1439,6 +1448,9 @@ msgstr ""
 
 msgid "manager.plugins.copyError"
 msgstr ""
+"Plugina ez da ongi kopiatu. Baimen arazo bat izan daiteke. Mesedez, ziurtatu "
+"web zerbitzaria pluginen direktorioan (azpidirektorioak barne) idazteko gai "
+"dela, baina ez ahaztu geroago berriro ziurtatzea."
 
 msgid "manager.plugins.delete"
 msgstr "Ezabatu plugina"
@@ -1462,12 +1474,20 @@ msgstr ""
 
 msgid "manager.plugins.deleteError"
 msgstr ""
+"\"{$pluginName}\" plugina ezin izan da ezabatu fitxategi-sistematik. Baimen "
+"arazo bat izan daiteke. Mesedez, ziurtatu web zerbitzaria pluginen "
+"direktorioan (azpidirektorioak barne) idazteko gai dela, baina ez ahaztu "
+"geroago berriro ziurtatzea."
 
 msgid "manager.plugins.deleteSuccess"
 msgstr "\"{$pluginName}\" plugina ongi ezabatu da"
 
 msgid "manager.plugins.description"
 msgstr ""
+"Orri honek aukera ematen dio kudeatzaileari une honetan instalatuta dauden "
+"pluginak berrikusteko eta konfiguratzeko. Pluginak kategoriatan banatzen "
+"dira, funtzioaren arabera. Kategoriak behean zerrendatzen dira, eta "
+"kategoria bakoitzaren barruan, bere egungo pluginen multzoa."
 
 msgid "manager.plugins.doesNotExist"
 msgstr "\"{$pluginName}\" plugina ez da existitzen"
@@ -1480,6 +1500,8 @@ msgstr "Kargatu plugin berri bat"
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
+"Formulario honen bidez, plugin berri bat kargatu eta instalatu dezakezu. "
+"Mesedez, ziurtatu plugina .tar.gz fitxategi gisa konprimituta dagoela."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Mesedez, ziurtatu fitxategi bat hautatu dela kargatzeko."
@@ -1575,9 +1597,12 @@ msgstr ""
 
 msgid "manager.plugins.wrongCategory"
 msgstr ""
+"Kargatutako plugina ez dator bat eguneratutako pluginaren kategoriarekin."
 
 msgid "manager.plugins.wrongName"
 msgstr ""
+"Igotako pluginaren version.xml fitxategiak eguneratutako pluginaren "
+"izenarekin bat ez datorren plugin-izena dauka."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Plugina ez dago. Mesedez, instalatu ezazu"
@@ -1595,6 +1620,8 @@ msgstr "Eguneratu plugina"
 
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
+"Formulario honek plugin bat eguneratzeko aukera ematen du. Mesedez, ziurtatu "
+"plugina .tar.gz fitxategi gisa konprimituta dagoela."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Eguneratzeak huts egin du. {$errorString}"
@@ -1631,13 +1658,15 @@ msgid "notification.localeUninstalled"
 msgstr "{$locale} eskualdeko ezarpena desinstalatu da."
 
 msgid "notification.localeReloaded"
-msgstr ""
+msgstr "{$locale} eskualdeko ezarpenak birkargatu dira {$contextName}(e)rako."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Eskualdeko ezarpenak gorde dira."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Ezin izan da hizkuntza-ezarpena gorde. Gutxienez hizkuntza bat gaitu behar "
+"da aukera bakoitzerako"
 
 msgid "notification.editedUser"
 msgstr "Erabiltzailea editatu da."
@@ -1661,6 +1690,9 @@ msgstr "Etiketa pertsonalizatuak"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
+"Gehitu HTML etiketa pertsonalizatuak, meta-etiketa izenez ere ezagunak, orri "
+"bakoitzaren goiburuan txertatzea gustatuko litzaizukeenak. Jarri "
+"harremanetan aholkulari teknikoarekin etiketak hemen gehitu aurretik."
 
 msgid "manager.paymentMethod"
 msgstr "Ordainketak"
@@ -1738,6 +1770,8 @@ msgstr "Baimendu bidalketaren metadatuak editatzea."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
+"Liburutegiko fitxategi bat beharrezkoa da. Mesedez, ziurtatu fitxategi bat "
+"aukeratu eta igo duzula."
 
 msgid "settings.libraryFiles.nameRequired"
 msgstr "Liburutegi-fitxategi honetarako izen bat behar da."
@@ -1762,6 +1796,9 @@ msgstr "Beste bat"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
+"<p>Liburutegi-fitxategi hau deskargatzeko moduan dago, baldin eta \"Sarbide "
+"Publikoa\" gaituta badago, helbide honetan: "
+"<blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Hautatu erantsi beharreko liburutegi-fitxategiak"
@@ -1776,7 +1813,7 @@ msgid "grid.action.deleteGenre"
 msgstr "Ezabatu osagai hau"
 
 msgid "grid.action.restoreGenres"
-msgstr ""
+msgstr "Berrezarri osagaiak lehenetsitako ezarpenetara"
 
 msgid "manager.setup.genres.label"
 msgstr "Fitxategi mota"
@@ -1862,18 +1899,22 @@ msgstr "Ebaluazio-inprimakiak"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
+"Ziur zaude berrikuspen-inprimaki hau aktibatu nahi duzula? Behin berrikuspen "
+"bati esleituta, ezingo duzu desaktibatu."
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
+"Ziur zaude berrikuspen-inprimaki hau desaktibatu nahi duzula? Ez da "
+"erabilgarri egongo berrikuspen-esleipen berrietarako."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr ""
+msgstr "Ziur zaude berrikuspen-inprimaki honen kopia bat sortu nahi duzula?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Bukatuta"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr ""
+msgstr "Ziur zaude berrikuspen-inprimaki hau ezabatu nahi duzula?"
 
 msgid "manager.reviewForms.create"
 msgstr "Sortu Ebaluazio-inprimakia"
@@ -1904,16 +1945,16 @@ msgid "manager.reviewForms.noneChosen"
 msgstr "Bat ere ez / Inprimaki librea"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr "Ez da ebaluazio-inprimakirik sortu"
+msgstr "Ez da ebaluazio-inprimakirik sortu."
 
 msgid "manager.reviewForms.noneUsed"
-msgstr ""
+msgstr "Ez da erabili berrikuspen-inprimakirik."
 
 msgid "manager.reviewForms.preview"
 msgstr "Inprimakiaren aurrebista"
 
 msgid "manager.reviewForms.reviewFormData"
-msgstr ""
+msgstr "Berrikuspen-inprimakiaren datuak"
 
 msgid "manager.reviewForms.title"
 msgstr "Titulua"
@@ -1936,9 +1977,7 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Aukeratu elementu mota"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr ""
-"Ziur zaude ebaluazio-inprimaki argitaratu bateko elementu bat ezabatu nahi "
-"duzula?"
+msgstr "Berretsi argitaratutako inprimakiaren elementu baten ezabatzea..."
 
 msgid "manager.reviewFormElements.copyTo"
 msgstr "Kopiatu hona:"
@@ -1962,7 +2001,7 @@ msgid "manager.reviewFormElements.form.questionRequired"
 msgstr "Inprimaki-elementu honek galdera bat behar du."
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr "Ez da inprimaki-elementurik sortu"
+msgstr "Ez da inprimaki-elementurik sortu."
 
 msgid "manager.reviewFormElements.possibleResponse"
 msgstr "Hautapena"
@@ -1995,10 +2034,10 @@ msgid "manager.reviewFormElements.viewable"
 msgstr "Ikusgai (egileentzat)"
 
 msgid "grid.action.createReviewForm"
-msgstr ""
+msgstr "Sortu berrikuspen-inprimaki berri bat"
 
 msgid "manager.setup.competingInterests.required"
-msgstr ""
+msgstr "Eskatu interes-gatazka adierazpen bat pareen berrikuspenean zehar."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "Lizentzia deskribatzen duen web orri baten URLa, erabilgarri badago."
@@ -2214,7 +2253,7 @@ msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Elementu ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr ""
+msgstr "Genero ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
 msgstr "Kodeketa ezezaguna {$param}"
@@ -2224,45 +2263,66 @@ msgstr "Edukia ez dago {$param} gisa kodetuta"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
+"Inportazio-fitxategiak '{$authorName}' egilea du, '{$userGroupName}' "
+"erabiltzaile-taldearekin. Helburuko instalazioan ez dago izen hori duen "
+"erabiltzaile-talderik definituta."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "Erabiltzaile-taldea falta da {$param} egilearen izenarentzat"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
+"{$authorName} egileak ez du izenik bidalketaren hizkuntzan, {$localeName}. "
+"Bidalketa ezin da inportatu informazio hori gabe."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Kargatzaile ezezaguna {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr ""
+msgstr "Ezin izan da aldi baterako {$dest} fitxategia sortu {$source}(e)tik"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
+"Emandako fitxategi-tamaina \"{$expected}\" eta fitxategi-tamaina erreala \""
+"{$actual}\" ez datoz bat"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
+"\"{$revisionId}\" berrikuspenak \"{$fileId}\" bidalketa-fitxategirako "
+"bikoiztutako erregistroa sortuko luke"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Ezin izan da inportatu bidalketa-fitxategia"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"{$id} bidalketa-fitxategia alboratu egin da, inportatuko ez den erregistro "
+"bati atxikita dagoelako, hala nola berrikuspenaren esleipen bati edo "
+"eztabaida bati."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Inportazio/esportazio erroreak:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
+"Inportatutako \"{$username}\" erabiltzaileak ez du pasahitzik. Egiaztatu "
+"zure inportazioko XML formatua. Erabiltzailea ez da inportatu."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
+"Inportatutako \"{$username}\" erabiltzailearen pasahitza ezin izan da "
+"inportatu dagoen bezala. Pasahitz berri bat bidali da erabiltzailearen "
+"helbide elektronikora. Erabiltzailea inportatu da."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
+"Inportatutako \"{$username}\" erabiltzaileak baliozkoa ez den pasahitz "
+"arrunta du. Erabiltzailea ez da inportatu."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
+"\"{$username}\" erabiltzaile-izena eta \"{$email}\" helbide elektronikoa ez "
+"datoz bat dagoeneko badagoen erabiltzaile berarekin."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
 msgstr "Probak"
@@ -2460,10 +2520,12 @@ msgid "grid.category.urlWillBe"
 msgstr "Kategoriaren URLa hau izango da: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr ""
+msgstr "Kategoriaren helbideak letrak eta zenbakiak bakarrik izan behar ditu."
 
 msgid "grid.category.pathExists"
 msgstr ""
+"Kategoriaren helbidea dagoeneko existitzen da. Mesedez, sartu beste helbide "
+"bat."
 
 msgid "grid.category.description"
 msgstr "Deskribapena"
@@ -2475,10 +2537,10 @@ msgid "grid.category.removeText"
 msgstr "Ziur zaude kategoria hau ezabatu nahi duzula?"
 
 msgid "grid.category.nameRequired"
-msgstr ""
+msgstr "Mesedez, sartu kategoria-izen bat."
 
 msgid "grid.category.categoryDetails"
-msgstr ""
+msgstr "Kategoriaren xehetasunak"
 
 msgid "stats.allUsers"
 msgstr "Erabiltzaile guztiak"
@@ -2571,12 +2633,27 @@ msgstr "{$date} arte"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Hautatutako data-tarteari dagokion ehunekoa data-tarte horretan aurkeztu "
+"ziren eta azken erabakia jaso duten bidalketetarako kalkulatzen "
+"da.<br><br>Adibidez, demagun data-tarte horretan hamar bidalketa egin "
+"zirela. Lau onartu egin ziren, lau baztertu eta bi oraindik behin betiko "
+"erabakiaren zain daude.<br><br>Onarpen-tasa % 50ekoa izango da (8 "
+"bidalketatik 4), ez baitira kontuan hartzen behin betiko erabakia hartu ez "
+"den bi bidalketak."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Bidalketa gehienek lehenengo argitalpen-erabakia jasotzeko behar duten egun-"
+"kopurua, hala nola mahaiko bazterketa edo berrikuspenera "
+"bidaltzea.<br><br>Kopuru horiek adierazten dute bidalketen % 80k emandako "
+"egun-kopuru horren barruan jasotzen duela erabakia.<br><br>Estatistika hau "
+"saiatzen da deskribatzen zure aldizkarira aurkezten diren egile gehienek "
+"noizko espero dezaketen erabakia."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Honen barruan sartzen dira beste guztizkoetan zenbatzen ez diren bidalketak, "
+"hala nola oraindik martxan daudenak eta inportatu direla diruditenak."
 
 msgid "stats.descriptionForStat"
 msgstr "{$stat}-ren deskribapena"
@@ -2626,7 +2703,6 @@ msgstr "Deskargatu datu geografikoak"
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Hiri, eskualde edo herrialde bakoitzeko ikustaldi eta deskarga kopurua."
 
-#, fuzzy
 msgid "stats.region"
 msgstr "Eskualdea"
 
@@ -2640,7 +2716,7 @@ msgid "stats.timeline"
 msgstr "Denbora-lerroa"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "{$interval} bakoitzeko {$type} kopurua."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr "Deskargatu denbora-lerroa"
@@ -2718,40 +2794,43 @@ msgid "stats.name.declinedReviewRate"
 msgstr "Berrikuspen ondorengo errefusatze-tasa"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Prozesuak huts egin du. Begiratu beheko erroreak/abisuak."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Esportatu bidalketen emaitzak"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Deskargatu esportatutako fitxategia"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Esportazioa ongi burutu da."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Deskargatu esportatutako fitxategia beheko botoiaren bidez."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Elementu generikoak"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Iragazkiaren konfigurazio okerra [{$filterName}]: {$filterCount} agerraldi. "
+"Bakarra izan beharko litzateke."
 
 msgid "plugins.importexport.common.cliError"
-msgstr ""
+msgstr "ERROREA:"
 
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr ""
+"Zehaztutako aldizkariaren helbidea, \"{$contextPath}\", ez da existitzen."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Prozesuak huts egin du egileak aztertzean"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Prozesuak huts egin du argitalpenak aztertzean"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
@@ -2837,12 +2916,24 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Aldizkari honek pare anonimoen berrikuspen bikoitza egiten du. "
+"Ebaluatzaileek ez dute zuri edo zure egilekideei buruzko inolako "
+"identifikazio-informaziorik ikusiko. Era berean, ez duzu jakingo nork "
+"berrikusi duen zure bidalketa, eta ez duzu ebaluatzaileen berri zuzenean "
+"jasoko."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Aldizkari honek \"ebaluatzaile anonimo\" parekideen berrikuspena egiten du. "
+"Zure izena eta zure egilekideenak ebaluatzaileentzat ikusgai egongo dira; "
+"hala ere, ebaluatzaileen identitateak anonimoak izango dira."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Aldizkari honek parekideen berrikuspen irekia egiten du. Ebaluatzaileek zure "
+"izena eta afiliazioa ikusiko dituzte, baita zure egilekideen izenak eta "
+"afiliazioak ere. Era berean, zuk ere ebaluatzaileen izenak eta afiliazioak "
+"ikusiko dituzu."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Bidaltzailearen izen osoa"
@@ -2909,7 +3000,7 @@ msgid "mailable.reviewerReinstate.name"
 msgstr "Berrezarri ebaluatzailea"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Birbidali berrikuspen-eskaera ebaluatzaileari"
 
 msgid "emailTemplate.variable.submitterName"
 msgstr "Bidalketa-fitxategi bat igo duen erabiltzaile baten izen osoa"
@@ -2952,46 +3043,64 @@ msgid "emailTemplate.variable.issue.issuePublishedUrl"
 msgstr "URLa argitaratutako bidalketara"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Txostenaren urtea"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Argitalpen-jardueraren orrirako esteka"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da esleitu gabe zegoen ebaluatzaile bat "
+"editore batek berrezartzen duenean."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Mezu elektroniko hau editore batek berrikuspen-eskaera bati uko egin dion "
+"ebaluatzaile bati bidaltzen dio, editoreak eskaera berriro bidali nahi "
+"duenean."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Ebaluatzailearen esleipena kendu"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Mezu elektroniko hau editore batek ebaluatzaile bati esleipena kentzen "
+"dionean bidaltzen da."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Baliozkotu posta elektronikoa (gunea)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaio erabiltzaile berri bati "
+"gunean izena ematen duenean, ezarpenek helbide elektronikoa baliozkotzea "
+"eskatzen dutenean."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
 msgstr "Jakinarazi beste egileei"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da parte-hartzaile gisa esleituta ez dauden "
+"bidalketa baten egileei erabaki bat hartu dela jakinarazteko. Normalean, "
+"bidalketaren egilea izan ezik, gainerako guztiak dira."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Bidalketa egin duen egileari bidalitako mezu elektronikoaren kopia bat"
 
 msgid "mailable.decision.notifyReviewer.name"
 msgstr "Jakinarazi erabakia ebaluatzaileei"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Mezu elektroniko hau editore batek ebaluatzaile bati bidaltzen dio, "
+"berrikusi zuen bidalketa bati buruzko erabakia hartu dela jakinarazteko."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Erabaki honen deskribapen laburra, erabaki honi buruz ebaluatzaileei "
+"bidaliko zaien posta elektroniko bidezko jakinarazpen batean partekatzeko "
+"pentsatua"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Bidalketa hau berrikuspenik gabe onartzea erabaki dugu."
@@ -3011,189 +3120,214 @@ msgstr ""
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Bidalketara gonbidatutako ebaluatzaileari esleipena kendu zaio."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Bidalketa onartua"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio bidalketa "
+"argitaratzeko onartu dela."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa edizio-fasera itzuli da"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"edizio-fasera itzuli dela."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa edizio-fasetik itzuli da"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"edizio-fasetik itzuli dela."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Berrikuspen-erronda bertan behera utzi da"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez jakinarazten zaio egileari bere bidalketaren "
+"berrikuspen-erronda bertan behera utzi dela."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa ez da onartu"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"atzera bota dela pareen berrikuspenaren ondoren."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa ez da onartu (berrikuspenaren aurretik)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Berrikuspen-erronda berria hasi da"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio bere bidalketaren "
+"berrikuspen-erronda berri bat hasi dela."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Berrikuspenak eskatuta"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, parekideen berrikuspenean berrikuspenak "
+"eskatzeko erabakia jakinarazten zaio egileari."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Birbidali berrikustera"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio \"berrikusi eta "
+"berriro bidali\" dela bere bidalketari buruzko erabakia."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Berrezarri baztertutako bidalketa"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio parekideen "
+"berrikuspenaren ondoren haien bidalketa baztertzeko aurreko erabakia bertan "
+"behera utziko dela."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Berrezarri berrikuspenik gabe ukatutako bidalketa"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio parekideen "
+"berrikuspenaren ondoren haien bidalketa berrikuspenik gabe baztertzeko "
+"aurreko erabakia bertan behera utziko dela."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
 msgstr "Ebaluatzera bidalia"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"edizio-fasera bidali dela."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
 msgstr "Ekoizpenera bidalia"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"ekoizpen-fasera bidali dela."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr "Bidalketa onartua (berrikuspenik gabe)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"zuzenean edizio-fasera bidali dela eta parekideen berrikuspenik ez zaiola "
+"egingo."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
 msgstr "Gomendioa egina"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Mezu honen bidez, goi-mailako editore bati edo ataleko editore bati "
+"jakinarazten zaio esleitutako bidalketa bati buruzko argitalpen-gomendio bat "
+"egin dela. Mezu hau editore batek argitalpen-erabaki bat gomendatzeko "
+"baimena soilik duenean eta erabaki hori erregistratzeko baimendutako editore "
+"bat behar duenean erabiltzen da. Parte-hartzaileak bidalketa bati esleitzean "
+"hauta daiteke aukera hau."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Berrikuspenaren baieztapena"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko "
-"eskaera onartzen duela eta lana garaiz bukatuko duela esateko."
+"Mezu elektroniko hau automatikoki bidaltzen da ebaluatzaile batek "
+"berrikuspen-eskaera bat onartzen duenean"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Berrikuspenaren ukapena"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
-"Mezu hau Ebaluatzaileak Ataleko editoreari bidaltzen dio, ebaluazioa egiteko "
-"eskaerari erantzunez, ezin duela egin esateko."
+"Mezu elektroniko hau ebaluatzaile batek bidaltzen du berrikuspen-eskaera bat "
+"baztertzean"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Mezu elektroniko hau editore batek bidaltzen du, ebaluatzaile bati bere "
+"berrikuspena egin behar duela gogorarazteko."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Berrikuspenaren gogorarazlea (automatikoa)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Mezu hau automatikoki bidaltzen da ebaluatzaile baten epea amaitu eta "
-"erantzun ez duenean (ikus Konfigurazioko 2. urratseko Ebaluazio-aukerak) eta "
-"klik bakarreko ebaluatzaile-sarbidea desgaituta dagoenean. Programatutako "
-"atazak (scheduled_tasks) gaituta eta konfiguratuta egon behar dute (ikus "
-"konfigurazio-fitxategia)."
+"Mezu elektroniko hau automatikoki bidaltzen da ebaluatzaile batek bere "
+"berrikuspena dagokion epean amaitu ez duenean."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Berrikuspenaren aitorpena"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Mezu elektroniko hau editore batek ebaluatzaile bati bidaltzen dio, bere "
+"berrikuspena jaso dela baieztatzeko eta ebaluatzaileari egindako "
+"ekarpenengatik eskerrak emateko."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Berrikuspenaren erantzuna epea gaindituta (automatizatua)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat "
-"ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa "
-"ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta "
-"artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da "
-"aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra "
-"hautatzen denean."
+"Mezu elektroniko hau automatikoki bidaltzen da ebaluatzaile batek "
+"berrikuspen eskaera bati erantzuteko epea amaitzen denean."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Berrikuspenaren eskaera"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat "
-"ebaluatzea onartuko duen ala ez galdetzeko. Artikuluari buruzko informazioa "
-"ematen du, hala nola titulua eta laburpena, ebaluazioa egiteko epea eta "
-"artikulua bera hartzeko zer egin behar den. Mezu hau erabiltzen da "
-"aldizkariaren Konfigurazioko 2. urratsean Ebaluazio-prozesu estandarra "
-"hautatzen denean."
+"Ataleko editoreak ebaluatzaile bati bidalitako mezu elektroniko honetan, "
+"ebaluatzaileari bidalketa bat berrikusteko zeregina onartzeko edo ukatzeko "
+"eskatzen zaio. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Berrikuspenaren ondorengo eskaera"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Atalen Editoreak Berrikusleari bidalitako mezu honetan berrikusleari "
-"eskatzen dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo "
-"baztertu dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, "
-"titulua eta aurkezpena, berrikuspena egiteko muga, eta nola sartu "
-"bidalitakora.  Mezu hau erabiltzen da Aldizkariaren Konfigurazioan, 2. "
-"urratsean Berrikuspen Estandarraren Prozesua hautatzen denean. (Bestela, "
-"ikus BERRIKUSPENA_ESKAKIZUNA_ERANTSIA_ONDORENGOA.)"
+"Editoreak ebaluatzaileari bidalitako mezu honetan ebaluatzaileari eskatzen "
+"dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo baztertu "
+"dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, titulua "
+"eta aurkezpena, berrikuspena egiteko epe-muga, eta nola sartu bidalketara."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Bidalketaren uneko argitalpena falta da"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Bidalketaren umea {$child} ezin izan da prozesatu"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Editorial gogorarazlea"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Zeregin egiteke dituzten editoreei bidaltzen zaien mezu elektroniko "
+"automatizatua"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Berretsi pasahitza berrezartzea"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3204,14 +3338,15 @@ msgstr ""
 msgid "mailable.userRegister.name"
 msgstr "Erabiltzailea sortuta"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Erabiltzaile erregistratu berriei bidaltzen zaie mezu hau, sistemarako "
-"ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
+"Mezu elektroniko hau erabiltzaile sortu berri bati bidaltzen zaio, "
+"erredakzio-kudeatzaileak erabiltzaile-ezarpenen bidez erabiltzailea sortu "
+"duenean. Mezu elektronikoak sistemara ongietorria eman beharko lioke eta "
+"beren erabiltzaile-izena eta pasahitza eman beharko lieke."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Ebaluatzailearen erregistroa"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3219,10 +3354,12 @@ msgstr ""
 "ongietorria emateko eta erabiltzaile-izena eta pasahitza jakinarazteko."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Bidalketa gerorako gorde da"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Egileei bidalitako mezu elektroniko automatizatu bat, bidalketa gordetzen "
+"dutenean geroago osatzeko"
 
 msgid "mailable.submissionAck.name"
 msgstr "Bidalketaren baieztapena"
@@ -3242,31 +3379,39 @@ msgstr ""
 "izendatutako egileei, egile bidaltzaile ez izan arren."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Eztabaida (bidalketa)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da bidalketa-fasean eztabaida bat sortzen "
+"denean edo erantzuten zaionean."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Eztabaida (berrikuspena)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da berrikuspen-fasean eztabaida bat sortzen "
+"denean edo erantzuten zaionean."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Eztabaida (edizioa)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da edizio-fasean eztabaida bat sortzen denean "
+"edo erantzuten zaionean."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Eztabaida (ekoizpena)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Mezu elektroniko hau bidaltzen da ekoizpen-fasean eztabaida bat sortzen "
+"denean edo erantzuten zaionean."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Berrikusitako bertsioaren jakinarazpena"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3274,40 +3419,48 @@ msgstr ""
 "baten bertsio berrikusia gora kargatzen duenean."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Jakinarazpen berria"
 
 msgid "mailable.announcementNotify.description"
-msgstr ""
+msgstr "Mezu elektroniko hau bidaltzen da iragarki berri bat sortzen denean."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Estatistika-txostenaren jakinarazpena"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Editatu berrikuspenaren jakinarazpena"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Mezu elektroniko honek automatikoki jakinarazten dio ebaluatzaileari bere "
+"berrikuspenaren esleipenaren xehetasunak aldatu direnean."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Jakinarazi editoreei ebaluatzailearen iruzkinak"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Mezu elektroniko hau automatikoki bidaltzen zaie esleitutako editoreei, "
+"ebaluatzaileak berrikuspen-gomendioa egiten duenean"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Autentifikazio iturria"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa berrikuspenera itzuli da"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"berrikuspen-fasera itzuli dela."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Bidalketa bidalketa-fasera itzuli da"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Mezu elektroniko honen bidez, egileari jakinarazten zaio haien bidalketa "
+"bidalketa-fasera itzuli dela."
 
 msgid "manager.manageEmails"
 msgstr "Kudeatu mezu elektronikoak"
@@ -3319,24 +3472,30 @@ msgstr ""
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Gehitu eta editatu erabiltzailearen eskura jarri nahi dituzun txantiloiak "
+"mezu elektroniko hau bidaltzean. Lehenetsia automatikoki kargatuko da, eta "
+"erabiltzaileak azkar kargatu ahal izango ditu hemen gehitzen dituzun beste "
+"txantiloiak."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Txantiloiak"
 
 msgid "manager.mailables.editTemplate"
 msgstr "Editatu txantiloia"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Ezabatu txantiloia"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Ziur zaude <strong>{$template}</strong> txantiloia ezabatu nahi duzula?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Berrezarri txantiloia"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Ziur zaude <strong>{$template}</strong> txantiloiaren gaia eta gorputza "
+"lehenetsitako balioetara berrezarri nahi dituzula?"
 
 msgid "manager.mailables.search"
 msgstr "Bilatu izenaren edo deskribapenaren arabera"
@@ -3407,13 +3566,13 @@ msgid "manager.submitWithCategories.no"
 msgstr "Ez, ez erakutsi egileei eremu hori."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Eskatu zuzenketa"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Editorea esleituta"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Ekoizpenerako prest"
 
 msgid "mailable.system"
 msgstr "Sistema"
@@ -3422,10 +3581,10 @@ msgid "mailable.versionCreated.name"
 msgstr "Bertsioa sortuta"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Berrikuspena osatua"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Berrikuspena editatuta"
 
 msgid "mailable.submissionAckOtherAuthors.name"
 msgstr "Bidalketaren aitorpena beste egileei"
@@ -3435,12 +3594,14 @@ msgstr "Editorea esleituta (automatikoa)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Mezu elektroniko hau editore bati bidaltzen zaio automatikoki bidalketa bati "
+"esleitzen zaionean."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Esleitu editorea"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Bidalketak editorea behar du"
 
 msgid "mailable.citationAuthorQuery.name"
 msgstr ""
@@ -3463,7 +3624,7 @@ msgid "manager.setup.masthead"
 msgstr "Portada"
 
 msgid "plugins.importexport.common.validation"
-msgstr ""
+msgstr "Baliozkotu XMLa esportatu eta erregistratu aurretik."
 
 msgid "manager.statistics.counterR5"
 msgstr "R5 kontagailua"
@@ -3482,7 +3643,6 @@ msgstr "Amaiera-data"
 msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
 msgstr "Dataren formatua ez da baliozkoa."
 
-#, fuzzy
 msgid "manager.statistics.counterR5Report.settings.metricType"
 msgstr "Mota metrikoa"
 
@@ -3598,8 +3758,8 @@ msgstr "Kontuan hartu rola goiburuko zerrendan"
 
 msgid "manager.setup.workflow.reviewerSuggestionsHelp.description"
 msgstr ""
-"Honako hau erakusten zaie egileei berrikusleen iradokizunen urratsean. Eman "
-"azalpen labur bat egileak bere buruari, egilekideei eta beste edozein "
+"Honako hau erakusten zaie egileei ebaluatzaileen iradokizunen urratsean. "
+"Eman azalpen labur bat egileak bere buruari, egilekideei eta beste edozein "
 "kolaboratzaileri buruz eman behar duen informazioaren inguruan."
 
 msgid "manager.setup.editorialMasthead.editorialHistory.description"
@@ -3670,3 +3830,54 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Posta elektroniko kontu bat balioztatzeko esteka"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled"
+msgstr "Ebaluatzailearen iradokizuna bidalketa unean"
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.description"
+msgstr ""
+"Egileak hainbat ebaluatzaile potentzial iradoki ditzake bidalketa amaitu "
+"aurretik, eta horrek berrikuspen-prozesua erraztu eta erredakzio-"
+"taldearentzat ekarpen baliotsua eman dezake."
+
+msgid "manager.setup.reviewOptions.reviewerSuggestionEnabled.label"
+msgstr ""
+"Baimendu egileek bidalketa-prozesuan ebaluatzaile potentzialak iradokitzea"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"{$id} bidalketa-fitxategia saltatu egin da, ez duelako baliozko fitxategi-"
+"faserik."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"{$id} bidalketa-fitxategiaren {$revision} berrikuspena saltatu da, "
+"fitxategia ez baita aurkitu \"{$path}\" helbidean."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"{$id} argitalpenaren azaleko irudia ez da esportatu, bere fitxategia ez "
+"baita aurkitu \"{$path}\" helbidean."
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr ""
+"Hizkuntzaren ezarpena ezin izan da gorde. Aukera guztiak aktibatu behar dira."
+
+msgid "notification.submissionLocales"
+msgstr "Bidalketaren eskualdeko ezarpenak eguneratu dira."
+
+msgid "plugins.importexport.common.error.missingAffiliationName"
+msgstr ""
+"{$authorName} egileak ez du afiliazio-izenik bidalketaren hizkuntzan, "
+"{$localeName}. Bidalketa ezin da inportatu informazio hori gabe."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"{$id} bidalketa-fitxategia saltatu egin da, ez duelako baliozko "
+"berrikuspenik."
+
+msgid "manager.setup.appearance.editorialMasthead.description"
+msgstr "Definitu erredakzio-buru nagusien rolen ordena publikoki bistaratzeko."
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Helbide elektronikoa aldatzeko gonbidapena"

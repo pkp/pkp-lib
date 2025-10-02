@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-03 17:32+0000\n"
+"PO-Revision-Date: 2025-09-24 13:46+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
@@ -374,7 +374,6 @@ msgstr "Uitschakelen"
 msgid "common.disabled"
 msgstr "Uitgeschakeld"
 
-#, fuzzy
 msgid "common.discipline"
 msgstr "Vakgebied"
 
@@ -866,7 +865,7 @@ msgid "common.subjects"
 msgstr "Onderwerpen"
 
 msgid "common.submenu"
-msgstr "Submenu"
+msgstr "submenu"
 
 msgid "common.subtitle"
 msgstr "Ondertitel"
@@ -972,7 +971,6 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Gebruiker"
 
-#, fuzzy
 msgid "common.user.nonexistent"
 msgstr "[Niet-bestaande gebruiker]"
 
@@ -1531,9 +1529,8 @@ msgstr "Instellingen"
 msgid "navigation.setup"
 msgstr "Instellen"
 
-#, fuzzy
 msgid "navigation.sitemap"
-msgstr "Overzichtsmap"
+msgstr "Menu"
 
 msgid "navigation.skip.description"
 msgstr "Ga naar inhoudsopgave"
@@ -1788,6 +1785,7 @@ msgstr "Mijn wachtlijst"
 msgid "review.anonymousPeerReview.title"
 msgstr "Hoe kan ik ervoor zorgen dat alle bestanden anoniem zijn"
 
+#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Om de integriteit van het anonieme peer-review proces te garanderen voor "
@@ -2289,11 +2287,9 @@ msgstr "Auteur bijgewerkt."
 msgid "showLess"
 msgstr "Toon minder"
 
-#, fuzzy
 msgid "common.highlight"
 msgstr "Markering"
 
-#, fuzzy
 msgid "common.highlights"
 msgstr "Markeringen"
 

@@ -1,7 +1,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-08 13:01+0000\n"
+"PO-Revision-Date: 2025-09-26 07:57+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/eu/>"
 "\n"
@@ -214,10 +214,10 @@ msgid "grid.action.expandAll"
 msgstr "Zabaldu guztia"
 
 msgid "grid.action.enrolExisting"
-msgstr "Erregistratu erabiltzailea berrikusle gisa"
+msgstr "Erregistratu erabiltzailea ebaluatzaile gisa"
 
 msgid "grid.action.selectCreate"
-msgstr "Sortu berrikusle berri bat"
+msgstr "Sortu ebaluatzaile berri bat"
 
 msgid "grid.action.search"
 msgstr "Bilatu"
@@ -241,7 +241,7 @@ msgid "grid.action.viewCompetingInterestGuidelines"
 msgstr "Ikusi interes kontrajarrien gidalerroak"
 
 msgid "grid.action.thankReviewer"
-msgstr "Bidali esker mezua berrikusle honi"
+msgstr "Bidali esker mezua ebaluatzaile honi"
 
 msgid "grid.action.uploadFile"
 msgstr "Kargatu fitxategia"

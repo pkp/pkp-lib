@@ -1,13 +1,14 @@
 # Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 # Dorien van Rheenen <d.van.rheenen@rug.nl>, 2024.
 # Kay Pepping <openjournalsnl@gmail.com>, 2025.
+# ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-08-09 13:00+0000\n"
-"Last-Translator: Kay Pepping <openjournalsnl@gmail.com>\n"
+"PO-Revision-Date: 2025-09-23 14:10+0000\n"
+"Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "nl/>\n"
 "Language: nl\n"
@@ -505,7 +506,7 @@ msgid "manager.emails.resetToDefault"
 msgstr "Standaard terugzetten"
 
 msgid "manager.emails.sentFrom"
-msgstr "Verzonden vanaf"
+msgstr "Verzonden door"
 
 msgid "manager.emails.sentTo"
 msgstr "Verzonden naar"
@@ -818,14 +819,12 @@ msgstr ""
 "wilt verkrijgen. Indien geactiveerd, zult u de IP-configuraties voor iedere "
 "instelling moeten configureren, die u wilt volgen."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Activeer instellingsstatistieken"
+msgstr "Activeer instellingsgegevens"
 
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Openbare API (Application Programming Interface)"
 
-#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
 "Wel of geen beperkte toegang tot de API- apparaten of URL's voor COUNTER "
@@ -1197,13 +1196,12 @@ msgstr "Datum & Tijd"
 msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "Datum- en tijdformulieren"
 
-#, fuzzy
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"Kies het verkozen format voor datums en tijden. Een aangepast formulier kan "
-"worden aangemaakt met behulp van de speciale \n"
+"Kies het voorkeursformulier voor datums en tijden. Een aangepast formulier "
+"kan worden aangemaakt met behulp van de speciale\n"
 "<a href=\"https://www.php.net/manual/en/datetime.format.php#refsect1-datetime"
-".format-parameters\">format characters</a>."
+".format-parameters\">formulier tekens</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Datum"
@@ -1697,7 +1695,6 @@ msgstr "Taal {$locale} vernieuwd."
 msgid "notification.localeSettingsSaved"
 msgstr "Taalinstellingen zijn bewaard."
 
-#, fuzzy
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
 "De taalinstelling kan niet worden bewaard. Ten minste één taal per optie "
@@ -2364,11 +2361,10 @@ msgstr ""
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Het bestand kon niet worden geïmporteerd"
 
-#, fuzzy
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
 "Het inzendingsbestand {$id} werd overgeslagen omdat het aan een "
-"gegevensrecord is gehecht dat niet wordt geïmporteerd, zoals een "
+"gegevensvastlegging is gehecht dat niet wordt geïmporteerd, zoals een "
 "recensietoewijzing of -discussie."
 
 msgid "plugins.importexport.user.importExportErrors"
@@ -2621,7 +2617,7 @@ msgstr "Stad"
 
 #, fuzzy
 msgid "stats.views"
-msgstr "Weergaven"
+msgstr "Bekeken"
 
 msgid "stats.downloads"
 msgstr "Downloads"
@@ -2644,7 +2640,6 @@ msgstr "Datumreeks"
 msgid "stats.dateRange.allDates"
 msgstr "Alle datums"
 
-#, fuzzy
 msgid "stats.dateRange.apply"
 msgstr "Pas toe"
 
@@ -2659,7 +2654,7 @@ msgstr "Een van de ingevoerde datums bestaat niet."
 
 #, fuzzy
 msgid "stats.dateRange.from"
-msgstr "Van / Uit"
+msgstr "Van"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
@@ -2706,10 +2701,9 @@ msgstr "Naar / Aan / Tot"
 msgid "stats.dateRange.untilDate"
 msgstr "Tot {$date}"
 
-#, fuzzy
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Het percentage voor de geselecteerde datumperiode (accetpatieratio) wordt "
+"Het percentage voor de geselecteerde datumperiode (acceptatieratio) wordt "
 "berekend op basis van inzendingen die tijdens deze periode werden ingediend "
 "en een eindbeslissing ontvingen. <br><br> Een voorbeeld: stel dat er in deze "
 "datumperiode tien inzendingen waren: vier werden geaccepteerd, vier werden "
@@ -2778,9 +2772,8 @@ msgstr "Download bestanden"
 msgid "stats.publications.downloadReport.downloadFiles.description"
 msgstr "Het aantal downloads voor ieder bestand."
 
-#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr "Download locatie"
+msgstr "Download locatie(s)"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Het aantal weergaven en downloads voor iedere stad, regio en land."
@@ -2869,9 +2862,8 @@ msgstr "Acceptatiepercentage"
 msgid "stats.name.declineRate"
 msgstr "Afwijzingspercentage"
 
-#, fuzzy
 msgid "stats.name.declinedDeskRate"
-msgstr "Directe afwijzingspercentage"
+msgstr "Direct afwijzingspercentage"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Afwijzingspercentage na recensie"
@@ -2894,10 +2886,9 @@ msgstr "Download het geëxporteerde bestand via de onderstaande knop."
 msgid "plugins.importexport.native.common.any"
 msgstr "Algemene onderwerpen"
 
-#, fuzzy
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
-"Verkeerde filterinstelling [{$filterName}]: {$filterCount} incidenten. Er "
+"Verkeerde filterconfiguratie [{$filterName}]: {$filterCount} incidenten. Er "
 "mag slechts één incident tegelijk zijn."
 
 msgid "plugins.importexport.common.cliError"
@@ -3592,11 +3583,10 @@ msgstr ""
 msgid "manager.mailables.resetTemplate"
 msgstr "Stel template opnieuw in"
 
-#, fuzzy
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
-"Bent u er zeker van dat u onderwerp en inhoud opnieuw wilt resetten naar de "
-"standaardinstellingen voor de template  <strong>{$template}</strong>?"
+"Bent u er zeker van dat u onderwerp en inhoud opnieuw wilt starten naar de "
+"standaardinstellingen voor de template <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
 msgstr "Zoek op naam of beschrijving"
@@ -3716,8 +3706,9 @@ msgstr ""
 "Verplicht auteurs een verklaring omtrent strijdige belangen in te dienen met "
 "hun inzending."
 
+#, fuzzy
 msgid "manager.setup.masthead"
-msgstr "Impressum"
+msgstr "Colofon"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Valideer XML alvorens te exporteren en registreren."
@@ -3785,8 +3776,7 @@ msgid "manager.language.submissionMetadata"
 msgstr "Metagegevens"
 
 msgid "manager.language.submission.from.error"
-msgstr ""
-"Ten minste een locale (set taal- en landinstellingen) moet worden gekozen."
+msgstr "Ten minste een set taal- en plaatsinstelling moet worden gekozen."
 
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Er zijn nog geen COUNTER R5 gebruiksstatistieken beschikbaar."
@@ -3837,9 +3827,8 @@ msgstr "Graag de bovenliggende informatie bijvoegen"
 msgid "manager.statistics.counterR5Report.settings.wrongItemId"
 msgstr "De inzendings-ID bestaat niet."
 
-#, fuzzy
 msgid "manager.statistics.counterR5Report.settings.attributesToShow"
-msgstr "Draagt bij aan de verschijning"
+msgstr "Draagt bij aan de presentatie"
 
 msgid "manager.statistics.counterR5Report.settings.yop"
 msgstr "Publicatiejaar"
@@ -3866,7 +3855,6 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reminders.min.label"
 msgstr "Geen"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.reminders.disbale.label"
 msgstr "Geen herinneringsinstelling"
 
@@ -3882,10 +3870,10 @@ msgstr "Suggestie van de recensent ten aanzien van de inzending"
 #, fuzzy
 msgid "manager.setup.reviewOptions.reminders.description"
 msgstr ""
-"Verstuur een herinneringsmail voor of na beantwoording van het "
-"recensieverzoek tot recensering (indien de recensent nog niet heeft "
-"geantwoord op het recensieverzoek) dan wel tot de recensering van de "
-"inzending (indien de reviewer nog geen recensie heeft gegeven"
+"Verstuur een herinneringsemail voor of na beantwoording van het verzoek om "
+"recensie (indien de recensent nog niet heeft geantwoord op het verzoek), of "
+"om beoordeling van de inzending (indien de recensent nog geen beoordeling "
+"heeft gegeven)"
 
 msgid "manager.setup.reviewOptions.reminders.response.before"
 msgstr "Beantwoording van het recensieverzoek - voor de uiterste datum"
@@ -3920,18 +3908,17 @@ msgstr ""
 "Stel de auteurs in de gelegenheid mogelijke recensenten voor te stellen voor "
 "het inzendingsproces"
 
-#, fuzzy
 msgid "notification.defaultLocaleSettingsCannotBeSaved"
 msgstr ""
-"De taalinstelling kan niet worden bewaard. Alle opties behoren te worden "
-"ingeschakeld."
+"De taalinstelling kan niet worden bewaard. Het is nodig alle opties worden "
+"aangezet."
 
 msgid "notification.submissionLocales"
 msgstr "Geupdatete taal- en/of landinstellingen."
 
 #, fuzzy
 msgid "settings.roles.masthead"
-msgstr "Overweeg een rol in de lijst met titels"
+msgstr "Overweeg een rol op te nemen in het colofon"
 
 msgid "manager.plugins.pluginGallery.installed"
 msgstr "Geïinstalleerde versie: {$version}"
@@ -3949,8 +3936,8 @@ msgstr "Laat wijzigingen in Instellingen toe"
 #, fuzzy
 msgid "manager.setup.appearance.editorialMasthead.description"
 msgstr ""
-"Stel de volgorde van de redactionele rollen m.b.t. de titels vast voor een "
-"openbare weergave."
+"Stel de volgorde van de redactionele rollen vast m.b.t. de titels voor een "
+"open publicatie."
 
 msgid "plugins.importexport.common.error.missingAffiliationName"
 msgstr ""
@@ -3963,12 +3950,10 @@ msgstr ""
 "Het inzendingsbestand {$id} werd overgeslagen omdat het geen geldige "
 "herziening heeft."
 
-#, fuzzy
 msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "De herziening {$revision} van het inzendingsbestand {$id} werd overgeslagen "
-"omdat het bestand niet werd gevonden in de mappenreeks en locatie.\"{$path}\""
-"."
+"omdat het bestand niet werd gevonden in de bestandsroute/locatie\"{$path}\"."
 
 #, fuzzy
 msgid "manager.navigationMenus.editorialMasthead.description"
@@ -3976,22 +3961,21 @@ msgstr ""
 "Link naar een pagina die alle diensten weergeeft van alle actuele colofons."
 
 # fuzzy
-#, fuzzy
 msgid "manager.navigationMenus.items.form.title.required"
-msgstr "Het menutitel item is vereist."
+msgstr "De titel van het menu-onderwerp is vereist."
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Uitnodiging tot wijziging van het e-mailadres"
 
-#, fuzzy
 msgid "manager.setup.editorialMasthead.order.description"
 msgstr ""
-"Beschrijf de volgorde van de belangrijkste rollen met betrekking tot "
-"publicering"
+"Beschrijf de volgorde van de belangrijkste redactionele rollen voor open "
+"publicatie."
 
+#, fuzzy
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr ""
-"De recensenten zullen worden weergegeven in een gestandaardiseerd format, "
+"De recensenten zullen worden weergegeven in een gestandaardiseerd formulier, "
 "ter behoud van de eenheid en ter verzekering van een gemakkelijke "
 "vindbaarheid in dit gedeelte."
 

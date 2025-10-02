@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-02 12:21+0000\n"
+"PO-Revision-Date: 2025-10-02 12:24+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/nl/>\n"
@@ -37,3 +37,22 @@ msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr ""
 "Er is reeds een bestaande gebruiker met de gebruikersnaam {$username}. "
 "Probeert u een andere naam."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Wanneer aan een uitnodiging een gebruikers-ID is gekoppeld, moet ook de "
+"hiermee overeenstemmende gebruiker bestaan."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Wanneer aan een uitnodiging een e-mail ({$email}) is gekoppeld, mag deze e-"
+"mail niet in gebruik zijn bij een andere gebruiker."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Een gebruikersnaam is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Een wachtwoord is vereist"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Een affiliatie is vereist"

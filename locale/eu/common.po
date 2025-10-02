@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-09-26 07:57+0000\n"
+"PO-Revision-Date: 2025-10-03 06:52+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -36,7 +36,7 @@ msgid "about.contact"
 msgstr "Kontaktua"
 
 msgid "about.contact.email"
-msgstr "Helb. el."
+msgstr "Helbide elektronikoa"
 
 msgid "about.contact.phone"
 msgstr "Telefonoa"
@@ -196,7 +196,7 @@ msgid "common.back"
 msgstr "Atzera"
 
 msgid "common.between"
-msgstr "epe honetan:"
+msgstr "artean"
 
 msgid "common.cancel"
 msgstr "Utzi"
@@ -793,7 +793,7 @@ msgid "common.saveAndContinue"
 msgstr "Gorde eta jarraitu"
 
 msgid "common.saveAndEmail"
-msgstr "Gorde eta bidali mezu el."
+msgstr "Gorde eta bidali mezu elektronikoa"
 
 msgid "common.save"
 msgstr "Gorde"
@@ -996,7 +996,7 @@ msgid "common.yes"
 msgstr "Bai"
 
 msgid "common.loading"
-msgstr "Kargatzen..."
+msgstr "Kargatzen"
 
 msgid "common.plugins"
 msgstr "Pluginak"
@@ -1011,7 +1011,7 @@ msgid "debug.databaseQueries"
 msgstr "Datu-base kontsulten kopurua"
 
 msgid "debug.executionTime"
-msgstr "Page generated in"
+msgstr "Orria sortua hemen"
 
 msgid "debug.memoryUsage"
 msgstr "Memoria-erabilera"
@@ -1023,7 +1023,7 @@ msgid "debug.notes.localeLoad"
 msgstr "{$localeFile} locale-fitxategia XMLtik kargatu da"
 
 msgid "debug.notes.missingLocaleKey"
-msgstr "{$key} locale-gakoa falta da"
+msgstr "{$key} locale-gakoa falta da."
 
 msgid "debug.notes"
 msgstr "Oharrak:"
@@ -1115,7 +1115,7 @@ msgstr ""
 "edo jarri harremanetan zure sistemaren administratzailearekin."
 
 msgid "email.email"
-msgstr "Mezu el."
+msgstr "Mezu elektronikoa"
 
 msgid "email.from"
 msgstr "Nork"
@@ -1151,10 +1151,10 @@ msgid "email.subject"
 msgstr "Gaia"
 
 msgid "email.subjectRequired"
-msgstr "Mesedez, idatzi mezuaren gaia"
+msgstr "Mesedez, idatzi mezuaren gaia."
 
 msgid "email.bodyRequired"
-msgstr "Mesedez, idatzi mezuaren testua"
+msgstr "Mesedez, idatzi mezuaren testua."
 
 msgid "email.to"
 msgstr "Nori"
@@ -1601,7 +1601,7 @@ msgid "notification.removedAnnouncementType"
 msgstr "Jakirazpen-mota ezabatu da."
 
 msgid "notification.removedAnnouncement"
-msgstr "Politika editorialak"
+msgstr "Oharra kendu da."
 
 msgid "notification.confirmError"
 msgstr "Errorea harpidetza baieztatzean."

@@ -164,6 +164,17 @@ class RegistrationHandler extends UserHandler
                 $invitationHandler->acceptHandle($request);
             }
         } elseif (isset($username)) {
+            $invitationId = $request->getUserVar('invitationId');
+            $invitationKey = $request->getUserVar('invitationKey');
+
+            /** @var \PKP\invitation\invitations\registrationAccess\RegistrationAccessInvite|null $invitation */
+            $invitation = Repo::invitation()->getByIdAndKey($invitationId, $invitationKey);
+
+            if (!$invitation) {
+                $request->redirect(null, 'login');
+            }
+            $invitation->finalize();
+
             $user = Repo::user()->getByUsername($username, true);
             if (!$user) {
                 $request->redirect(null, 'login');

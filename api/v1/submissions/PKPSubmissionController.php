@@ -121,6 +121,8 @@ class PKPSubmissionController extends PKPBaseController
         'changeVersion',
         'getNextAvailableVersion',
         'importAdditionalCitations',
+        'editCitationsMetadataLookup',
+        'deleteCitationsByPublicationId',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */

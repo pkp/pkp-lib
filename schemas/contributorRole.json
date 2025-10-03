@@ -1,0 +1,38 @@
+{
+	"title": "ContributorRole",
+	"description": "Contributor role for contributors",
+	"required": [
+		"id",
+		"identifier",
+		"name"
+	],
+	"properties": {
+		"id": {
+			"type": "integer",
+			"description": "The unique id of the role in the database.",
+			"readOnly": true,
+			"apiSummary": true,
+			"origin": "primary"
+		},
+		"identifier": {
+			"type": "string",
+			"description": "The identifier of the role.",
+			"apiSummary": true,
+			"origin": "primary"
+		},
+		"name": {
+			"type": "string",
+			"description": "The translations of the role.",
+			"apiSummary": true,
+			"multilingual": true,
+			"origin": "setting"
+		},
+		"contextId": {
+			"type": "integer",
+			"description": "The journal, press or preprint server ID.",
+			"apiSummary": true,
+			"writeDisabledInApi": true,
+			"origin": "primary"
+		}
+	}
+}

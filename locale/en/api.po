@@ -400,3 +400,12 @@ msgstr "An invalid value was provided for `isReported`: `{$isReported}`."
 
 msgid "api.citations.404.citationNotFound"
 msgstr "The citation you requested was not found."
+
+msgid "api.contributorRole.404.roleNotFound"
+msgstr "The role requested was not found."
+
+msgid "api.contributorRole.400.contextsNotMatched"
+msgstr "The contributor role you requested is not part of this journal."
+
+msgid "api.contributorRole.400.errorSavingRole"
+msgstr "There was an error saving this role."

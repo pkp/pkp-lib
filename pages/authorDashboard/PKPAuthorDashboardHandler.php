@@ -168,7 +168,6 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
-        $contextUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $contextGenres = $genreDao->getEnabledByContextId($submission->getData('contextId'))->toArray();
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
@@ -263,7 +262,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         })->values();
 
         // Get full details of the working publication and the current publication
-        $mapper = Repo::publication()->getSchemaMap($submission, $contextUserGroups, $contextGenres);
+        $mapper = Repo::publication()->getSchemaMap($submission, $contextGenres);
         $workingPublicationProps = $mapper->map($submission->getLatestPublication());
         $currentPublicationProps = $submission->getLatestPublication()->getId() === $submission->getCurrentPublication()->getId()
             ? $workingPublicationProps

@@ -3755,6 +3755,9 @@ msgstr "Validate XML before the export and registration."
 msgid "manager.selectCategories"
 msgstr "Select Categories"
 
+msgid "manager.template.tasksAndDiscussions"
+msgstr "Tasks and Discussions"
+
 msgid "manager.userComment.deleteReport"
 msgstr "Delete Report"
 

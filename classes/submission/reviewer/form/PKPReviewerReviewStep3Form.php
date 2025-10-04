@@ -235,8 +235,9 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             }
 
             $user = Repo::user()->get($userId);
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $mailable
-                ->from($context->getData('contactEmail'), $context->getData('contactName'))
+                ->from($reviewer->getEmail(), $reviewer->getFullName())
                 ->recipients([$user])
                 ->subject($template->getLocalizedData('subject'))
                 ->body($template->getLocalizedData('body'))

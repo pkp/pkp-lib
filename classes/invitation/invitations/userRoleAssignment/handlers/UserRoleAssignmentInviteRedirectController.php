@@ -46,11 +46,13 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
 
         $templateMgr->assign('invitation', $this->getInvitation());
         $context = $request->getContext();
-        $steps = new AcceptInvitationStep();
         $invitationModel = $this->getInvitation()->invitationModel->toArray();
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
+        $steps = new AcceptInvitationStep(
+            $this->getInvitation(), $context, $user,'userRoleAssignment'
+        );
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->getInvitation(), $context, $user),
+            'steps' => $steps->getSteps(),
             'primaryLocale' => $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,

@@ -58,7 +58,7 @@ class SendAuthorMail extends BaseJob implements ShouldBeUnique
         $this->author->setData('orcidEmailToken', $emailToken);
         $oauthUrl = OrcidManager::buildOAuthUrl(
             'verify',
-            ['token' => $emailToken, 'state' => $publicationId],
+            ['token' => $emailToken, 'state' => $publicationId, 'author_id' => $this->author->getId()],
             $this->context
         );
 

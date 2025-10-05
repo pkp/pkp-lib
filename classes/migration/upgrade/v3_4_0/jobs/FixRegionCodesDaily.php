@@ -22,6 +22,20 @@ use PKP\jobs\BaseJob;
 
 class FixRegionCodesDaily extends BaseJob
 {
+    /** The range of metrics_submission_geo_daily_ids to consider for this update */
+    protected int $startId;
+    protected int $endId;
+
+    /**
+     * Create a new job instance.
+     */
+    public function __construct(int $startId, int $endId)
+    {
+        parent::__construct();
+        $this->startId = $startId;
+        $this->endId = $endId;
+    }
+
     /**
      * Execute the job.
      */
@@ -31,18 +45,23 @@ class FixRegionCodesDaily extends BaseJob
         // Laravel join+update does not work well with PostgreSQL, so use the direct SQLs
         // daily
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement('
+            DB::statement("
                 UPDATE metrics_submission_geo_daily AS gd
                 SET region = rm.iso
                 FROM region_mapping_tmp AS rm
-                WHERE gd.country = rm.country AND gd.region = "pkp-" || rm.fips
-            ');
+                WHERE gd.country = rm.country
+                    AND gd.region = 'pkp-' || rm.fips AND
+                    gd.metrics_submission_geo_daily_id >= {$this->startId}
+                    gd.metrics_submission_geo_daily_id <= {$this->endId}
+            ");
         } else {
-            DB::statement('
+            DB::statement("
                 UPDATE metrics_submission_geo_daily gd
-                INNER JOIN region_mapping_tmp rm ON (rm.country = gd.country AND CONCAT("pkp-", rm.fips) = gd.region)
+                INNER JOIN region_mapping_tmp rm ON (rm.country = gd.country AND CONCAT('pkp-', rm.fips) = gd.region)
                 SET gd.region = rm.iso
-            ');
+                WHERE gd.metrics_submission_geo_daily_id >= {$this->startId} AND
+                    gd.metrics_submission_geo_daily_id <= {$this->endId}
+            ");
         }
     }
 }

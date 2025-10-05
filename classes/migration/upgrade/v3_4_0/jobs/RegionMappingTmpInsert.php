@@ -45,11 +45,17 @@ class RegionMappingTmpInsert extends BaseJob
         // read the FIPS to ISO mappings for the given country and insert them into the temporary table
         $mappings = include Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/regionMapping.php';
         foreach ($mappings[$this->country] as $fips => $iso) {
-            DB::table('region_mapping_tmp')->insert([
-                'country' => $this->country,
-                'fips' => $fips,
-                'iso' => $iso
-            ]);
+            $insert = false;
+            if ($fips !== $iso) {
+                $insert = true;
+            }
+            if ($insert) {
+                DB::table('region_mapping_tmp')->insert([
+                    'country' => $this->country,
+                    'fips' => $fips,
+                    'iso' => $iso
+                ]);
+            }
         }
     }
 }

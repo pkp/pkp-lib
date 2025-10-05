@@ -23,16 +23,18 @@ use PKP\jobs\BaseJob;
 
 class PreFixRegionCodesMonthly extends BaseJob
 {
-    /** The last metrics_submission_geo_monthly_id */
-    protected int $lastId;
+    /** The range of metrics_submission_geo_monthly_ids to consider for this update */
+    protected int $startId;
+    protected int $endId;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(int $lastId)
+    public function __construct(int $startId, int $endId)
     {
         parent::__construct();
-        $this->lastId = $lastId;
+        $this->startId = $startId;
+        $this->endId = $endId;
     }
 
     /**
@@ -46,14 +48,18 @@ class PreFixRegionCodesMonthly extends BaseJob
                 UPDATE metrics_submission_geo_monthly AS gm
                 SET region = 'pkp-' || gm.region
                 FROM region_mapping_tmp AS rm
-                WHERE gm.country = rm.country AND gm.region = rm.fips AND gm.metrics_submission_geo_monthly_id <= {$this->lastId}
+                WHERE gm.country = rm.country AND
+					gm.region = rm.fips AND
+					gm.metrics_submission_geo_monthly_id >= {$this->startId} AND
+					gm.metrics_submission_geo_monthly_id <= {$this->endId}
             ");
         } else {
             DB::statement("
                 UPDATE metrics_submission_geo_monthly gm
                 INNER JOIN region_mapping_tmp rm ON (rm.country = gm.country AND rm.fips = gm.region)
                 SET gm.region = CONCAT('pkp-', gm.region)
-				WHERE gm.metrics_submission_geo_monthly_id <= {$this->lastId}
+				WHERE gm.metrics_submission_geo_monthly_id >= {$this->startId} AND
+					gm.metrics_submission_geo_monthly_id <= {$this->endId}
             ");
         }
     }

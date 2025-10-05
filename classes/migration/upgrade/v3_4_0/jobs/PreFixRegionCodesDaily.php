@@ -22,16 +22,18 @@ use PKP\jobs\BaseJob;
 
 class PreFixRegionCodesDaily extends BaseJob
 {
-    /** The last metrics_submission_geo_daily_id */
-    protected int $lastId;
+    /** The range of metrics_submission_geo_daily_ids to consider for this update */
+    protected int $startId;
+    protected int $endId;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(int $lastId)
+    public function __construct(int $startId, int $endId)
     {
         parent::__construct();
-        $this->lastId = $lastId;
+        $this->startId = $startId;
+        $this->endId = $endId;
     }
 
     /**
@@ -45,14 +47,18 @@ class PreFixRegionCodesDaily extends BaseJob
                 UPDATE metrics_submission_geo_daily AS gd
                 SET region = 'pkp-' || gd.region
                 FROM region_mapping_tmp AS rm
-                WHERE gd.country = rm.country AND gd.region = rm.fips AND gd.metrics_submission_geo_daily_id <= {$this->lastId}
+                WHERE gd.country = rm.country AND
+                    gd.region = rm.fips AND
+                    gd.metrics_submission_geo_daily_id >= {$this->startId}
+                    gd.metrics_submission_geo_daily_id <= {$this->endId}
             ");
         } else {
             DB::statement("
                 UPDATE metrics_submission_geo_daily gd
                 INNER JOIN region_mapping_tmp rm ON (rm.country = gd.country AND rm.fips = gd.region)
                 SET gd.region = CONCAT('pkp-', gd.region)
-                WHERE gd.metrics_submission_geo_daily_id <= {$this->lastId}
+                WHERE gd.metrics_submission_geo_daily_id >= {$this->startId} AND
+                    gd.metrics_submission_geo_daily_id <= {$this->endId}
             ");
         }
     }

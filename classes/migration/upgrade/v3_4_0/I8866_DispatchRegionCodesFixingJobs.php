@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Bus\Batch;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +21,14 @@ use Illuminate\Support\Facades\Schema;
 use PKP\core\Core;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
-use PKP\migration\upgrade\v3_4_0\jobs\FixRegionCodes;
+use PKP\migration\upgrade\v3_4_0\jobs\CleanTmpChangesForRegionCodesFixes;
+use PKP\migration\upgrade\v3_4_0\jobs\FixRegionCodesDaily;
+use PKP\migration\upgrade\v3_4_0\jobs\FixRegionCodesMonthly;
+use PKP\migration\upgrade\v3_4_0\jobs\PreFixRegionCodesDaily;
+use PKP\migration\upgrade\v3_4_0\jobs\PreFixRegionCodesMonthly;
+use PKP\migration\upgrade\v3_4_0\jobs\RegionMappingTmpClear;
+use PKP\migration\upgrade\v3_4_0\jobs\RegionMappingTmpInsert;
+use Throwable;
 
 class I8866_DispatchRegionCodesFixingJobs extends Migration
 {
@@ -31,8 +37,9 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
      */
     public function up(): void
     {
-        if (DB::table('metrics_submission_geo_monthly')->whereNotNull('region')->exists() ||
-            DB::table('metrics_submission_geo_daily')->whereNotNull('region')->exists()) {
+        if (DB::table('metrics_submission_geo_monthly')->where('region', '<>', '')->exists() ||
+            DB::table('metrics_submission_geo_daily')->where('region', '<>', '')->exists()) {
+
             // create a temporary table for the FIPS-ISO mapping
             if (!Schema::hasTable('region_mapping_tmp')) {
                 Schema::create('region_mapping_tmp', function (Blueprint $table) {
@@ -41,6 +48,14 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
                     $table->string('iso', 3)->nullable();
                 });
             }
+
+            // temporary change the length of the region columns, becuase we will add prefix 'pkp-'
+            Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
+                $table->string('region', 7)->change();
+            });
+            Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
+                $table->string('region', 7)->change();
+            });
 
             // temporary create index on the column country and region, in order to be able to update the region codes in a reasonable time
             Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
@@ -58,35 +73,28 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
                 }
             });
 
+            $lastGeoDailyId = DB::table('metrics_submission_geo_daily')
+                ->max('metrics_submission_geo_daily_id');
+            $lastGeoMonthlyId = DB::table('metrics_submission_geo_monthly')
+                ->max('metrics_submission_geo_monthly_id');
+
             // read the FIPS to ISO mappings and displatch a job per country
             $mappings = include Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/regionMapping.php';
             $jobs = [];
             foreach (array_keys($mappings) as $country) {
-                $jobs[] = new FixRegionCodes($country);
+                $jobsPerCountry = [
+                    new RegionMappingTmpInsert($country),
+                    new PreFixRegionCodesDaily($lastGeoDailyId),
+                    new PreFixRegionCodesMonthly($lastGeoMonthlyId),
+                    new FixRegionCodesDaily(),
+                    new FixRegionCodesMonthly(),
+                    new RegionMappingTmpClear(),
+                ];
+                $jobs = array_merge($jobs, $jobsPerCountry);
             }
-
-            Bus::batch($jobs)
-                ->then(function (Batch $batch) {
-                    // drop the temporary index
-                    Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
-                        $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                        $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
-                        if (array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
-                            $table->dropIndex(['tmp']);
-                        }
-                    });
-                    Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
-                        $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                        $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
-                        if (array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
-                            $table->dropIndex(['tmp']);
-                        }
-                    });
-
-                    // drop the temporary table
-                    if (Schema::hasTable('region_mapping_tmp')) {
-                        Schema::drop('region_mapping_tmp');
-                    }
+            $jobs[] = new CleanTmpChangesForRegionCodesFixes();
+            Bus::chain($jobs)
+                ->catch(function (Throwable $e) {
                 })
                 ->dispatch();
         }

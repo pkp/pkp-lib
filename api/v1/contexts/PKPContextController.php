@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file api/v1/contexts/PKPContextController.php
  *
@@ -23,6 +24,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\contexts\resources\UserGroupResource;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -38,6 +40,7 @@ use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPContextService;
 use PKP\services\PKPSchemaService;
+use PKP\userGroup\UserGroup;
 
 class PKPContextController extends PKPBaseController
 {
@@ -82,7 +85,7 @@ class PKPContextController extends PKPBaseController
                 ->whereNumber('contextId');
 
             Route::get('{contextId}/theme', $this->getTheme(...))
-                ->name('context.getContext')
+                ->name('context.getTheme')
                 ->whereNumber('contextId');
 
             Route::put('{contextId}', $this->edit(...))
@@ -95,6 +98,10 @@ class PKPContextController extends PKPBaseController
 
             Route::put('{contextId}/registrationAgency', $this->editDoiRegistrationAgencyPlugin(...))
                 ->name('context.edit.doiRegistration')
+                ->whereNumber('contextId');
+
+            Route::get('{contextId}/userGroups', $this->getUserGroups(...))
+                ->name('context.getUserGroups')
                 ->whereNumber('contextId');
         });
 
@@ -701,6 +708,30 @@ class PKPContextController extends PKPBaseController
         $contextService->delete($context);
 
         return response()->json($contextProps, Response::HTTP_OK);
+    }
+
+    public function getUserGroups(Request $illuminateRequest): JsonResponse
+    {
+        $contextId = (int) $illuminateRequest->route('contextId');
+
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
+        $context = $contextService->get($contextId);
+
+        if (!$context) {
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
+
+        return response()->json(
+            [
+                'itemsMax' => $userGroups->count(),
+                'items' => UserGroupResource::collection(resource: $userGroups)
+            ],
+            Response::HTTP_OK
+        );
     }
 
     /**

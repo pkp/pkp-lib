@@ -92,6 +92,7 @@ class CitationStructuredEditForm extends FormComponent
             'label' => __('submission.citations.structured.label.date'),
             'description' => '',
             'value' => null,
+            'inputType' => 'date'
         ]));
         $this->addField(new FieldText('type', [
             'label' => __('submission.citations.structured.label.type'),

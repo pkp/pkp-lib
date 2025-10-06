@@ -21,8 +21,11 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
+use Illuminate\Support\Arr;
 use PKP\announcement\Announcement;
 use PKP\announcement\AnnouncementTypeDAO;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorRole;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
@@ -584,6 +587,13 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         Repo::emailTemplate()->dao->installAlternateEmailTemplates($context->getId());
         Repo::emailTemplate()->dao->setTemplateDefaultUnrestirctedSetting($context->getId());
+
+        $contributorRoleTranslations = Arr::map(
+            ['default.groups.name.author', 'default.groups.name.translator'],
+            fn (string $str): array => Arr::mapWithKeys($context->getData('supportedLocales'), fn (string $l) => [$l => __($str, locale: $l)])
+        );
+        ContributorRole::add(['name' => $contributorRoleTranslations[0], 'identifier' => ContributorRoleIdentifier::AUTHOR->getName(), 'contextId' => $context->getId()]);
+        ContributorRole::add(['name' => $contributorRoleTranslations[1], 'identifier' => ContributorRoleIdentifier::TRANSLATOR->getName(), 'contextId' => $context->getId()]);
 
         // Load all plugins so they can hook in and add their installation settings
         PluginRegistry::loadAllPlugins();

@@ -26,6 +26,7 @@ use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
+use PKP\controllers\grid\users\stageParticipant\form\RemoveParticipantForm;
 use PKP\controllers\grid\users\stageParticipant\form\PKPStageParticipantNotifyForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -63,7 +64,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         // Managers and Editors additionally get administrative access
         $this->addRoleAssignment(
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
-            array_merge($peOps, ['addParticipant', 'deleteParticipant', 'saveParticipant', 'fetchUserList'])
+            array_merge($peOps, ['addParticipant', 'saveParticipant', 'fetchUserList', 'removeParticipant', 'removeStageAssignment'])
         );
         $this->setTitle('editor.submission.stageParticipants');
     }
@@ -400,59 +401,57 @@ class StageParticipantGridHandler extends CategoryGridHandler
         }
     }
 
-    /**
-     * Delete the participant from the user groups
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
-     */
-    public function deleteParticipant($args, $request)
-    {
-        $submission = $this->getSubmission();
-        $stageId = $this->getStageId();
-        $assignmentId = (int) $request->getUserVar('assignmentId');
+	/**
+	 * Show a confirmation form to remove a stage participant, with optional email notification.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage
+	 */
+	function removeParticipant($args, $request) {
+		$submission = $this->getSubmission();
+		$assignmentId = (int) $request->getUserVar('assignmentId');
 
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignment = $stageAssignmentDao->getById($assignmentId);
-        if (!$request->checkCSRF() || !$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
-            return new JSONMessage(false);
-        }
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignment = $stageAssignmentDao->getById($assignmentId);
+		if (!$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
+			return new JSONMessage(false);
+		}
 
-        // Delete the assignment
-        $stageAssignmentDao->deleteObject($stageAssignment);
+		$form = new RemoveParticipantForm($submission, $stageAssignment, $this->getStageId());
+		$form->initData();
+		return new JSONMessage(true, $form->fetch($request));
+	}
 
-        // FIXME: perhaps we can just insert the notification on page load
-        // instead of having it there all the time?
-        $notificationMgr = new NotificationManager();
-        $notificationMgr->updateNotification(
-            $request,
-            $notificationMgr->getDecisionStageNotifications(),
-            null,
-            Application::ASSOC_TYPE_SUBMISSION,
-            $submission->getId()
-        );
+	/**
+	 * Handle removal form submission: optionally email the user and then remove the assignment.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return JSONMessage
+	 */
+	function removeStageAssignment($args, $request) {
+		$submission = $this->getSubmission();
+		$stageId = $this->getStageId();
+		$assignmentId = (int) $request->getUserVar('assignmentId');
 
-        if ($stageId == WORKFLOW_STAGE_ID_EDITING ||
-            $stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-            // Update submission notifications
-            $notificationMgr->updateNotification(
-                $request,
-                [
-                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
-                ],
-                null,
-                Application::ASSOC_TYPE_SUBMISSION,
-                $submission->getId()
-            );
-        }
+		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+		$stageAssignment = $stageAssignmentDao->getById($assignmentId);
+		if (!$request->checkCSRF() || !$stageAssignment || $stageAssignment->getSubmissionId() != $submission->getId()) {
+			return new JSONMessage(false);
+		}
 
-        // Log removal.
-        $assignedUser = Repo::user()->get($stageAssignment->getUserId(), true);
+		$form = new RemoveParticipantForm($submission, $stageAssignment, $stageId);
+		$form->readInputData();
+		if (!$form->validate()) {
+			return new JSONMessage(true, $form->fetch($request));
+		}
+
+		$form->execute();
+
+		$stageAssignmentDao->deleteObject($stageAssignment);
+
+		$notificationMgr = new NotificationManager();
+
+		$assignedUser = Repo::user()->get($stageAssignment->getUserId(), true);
         $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
 
         $eventLog = Repo::eventLog()->newDataObject([
@@ -469,10 +468,12 @@ class StageParticipantGridHandler extends CategoryGridHandler
         ]);
         Repo::eventLog()->add($eventLog);
 
-        // Redraw the category
-        return \PKP\db\DAO::getDataChangedEvent($stageAssignment->getUserGroupId());
-    }
+		$currentUser = $request->getUser();
+		$notificationMgr->createTrivialNotification($currentUser->getId(), NOTIFICATION_TYPE_SUCCESS);
 
+		return \PKP\db\DAO::getDataChangedEvent($stageAssignment->getUserGroupId());
+	}
+    
     /**
      * Get the list of users for the specified user group
      *

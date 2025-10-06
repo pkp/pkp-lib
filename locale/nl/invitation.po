@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-03 06:52+0000\n"
+"PO-Revision-Date: 2025-10-06 12:18+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/nl/>\n"
@@ -148,3 +148,112 @@ msgstr "Nodig gebruiker uit een rol aan te nemen"
 
 msgid "userInvitation.searchUser.stepLabel"
 msgstr "{$step} - Zoek gebruiker"
+
+msgid "userInvitation.searchField.description"
+msgstr "bijvoorbeeld: aeinstein@example.com or aeinstein or 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Voer de specifieke gegevens in"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr ""
+"{$step} - Voer de specifieke gegevens in en nodig uit om rollen op zich te "
+"nemen"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Bewaar gegevens en ga door"
+
+msgid "invitation.role.selectRole"
+msgstr "Kies een nieuwe rol"
+
+msgid "invitation.role.dateStart"
+msgstr "Begindatum"
+
+msgid "invitation.role.dateEnd"
+msgstr "Einddatum"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rol"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Begindatum"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Einddatum"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Beoordeel & nodig uit om rollen op zich te nemen"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Nodig gebruiker uit voor de rol"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Wijzig het e-mailadres die met de gebruiker is gedeeld"
+
+msgid "userInvitation.modal.title"
+msgstr "De verzonden uitnodiging"
+
+msgid "userInvitation.modal.button"
+msgstr "Zie alle gebruikers"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Verwijder rollen"
+
+msgid "invitation.email.description"
+msgstr "bijvoorbeeld: aeinstein@example.com"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Indien u de gegeven naam van de gebruiker weet, kunt u de gegevens invoeren. "
+"Niettemin, deze informatie kan door de gebruiker worden gewijzigd."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verifieer ORCID ID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verifieer ORCID ID"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Bewaar en ga door"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Bewaar en ga door"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Voer de specifieke gegevens in"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Bewaar en ga door"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Aanvaard het uitnodigingsformulier met de specifieke gebruikersgegevens"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Indien de gebruiker nog niet in het systeem voorkomt, kunt u deze uitnodigen "
+"om een rol op zich te nemen. Als de gebruiker wel in het systeem voorkomt, "
+"kunt u diens gegevens zien en deze uitnodigen om aanvullende rollen op zich "
+"te nemen."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Voer uw gegevens in zoals het e-mailadres, affiliatie etc. In verband met de "
+"naleving van de AVG, kan deze informatie alleen door u worden gewijzigd. U "
+"kunt er ook voor kiezen deze informatie op uw profiel zichtbaar te houden "
+"voor de redacteur."
+
+msgid "invitation.role.addRole.button"
+msgstr "Voeg een andere rol toe"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Bij aanvaarding van de uitnodiging, zal de gebruiker teruggestuurd worden "
+"naar de ORCID om het account te verifiëren, indien de gebruiker dat wil."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Indien u de achternaam van de gebruiker weet, kunt u de gegevens invoeren. "
+"Niettemin, deze gegevens kunnen door de gebruiker worden gewijzigd."
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Voer gegevens in"

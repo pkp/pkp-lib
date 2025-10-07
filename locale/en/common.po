@@ -87,9 +87,6 @@ msgstr "All Downloads"
 msgid "common.closed"
 msgstr "Closed"
 
-msgid "common.confirmUnsavedChanges"
-msgstr "You have unsaved changes. Are you sure you want to cancel?"
-
 msgid "common.createdBy"
 msgstr "Created by"
 

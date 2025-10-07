@@ -3138,7 +3138,7 @@ msgid "discussion.form.detailsDescription"
 msgstr "Use this space to share essential information."
 
 msgid "discussion.form.detailsNameDescription"
-msgstr "Please enter the name for this task and discussion."
+msgstr "Please enter the name for the task and discussion."
 
 msgid "discussion.form.detailsParticipantsDescription"
 msgstr "You have the option to assign participants or allocate it solely to yourself."
@@ -3225,4 +3225,4 @@ msgid "taskTemplate.apply"
 msgstr "Apply Template"
 
 msgid "taskTemplate.applyConfirmation"
-msgstr "Applying this template will replace data in related fields on the form. These changes won't be saved unless you choose to save. Continue?"
+msgstr "Applying this template will replace information in related fields on the form. These changes won't be saved unless you choose to save. Continue?"

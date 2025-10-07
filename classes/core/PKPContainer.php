@@ -102,8 +102,7 @@ class PKPContainer extends Container
                     if ($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
                         if ($exception instanceof \Illuminate\Validation\ValidationException) {
                             return response()
-                                ->json($exception->errors(), $exception->status)
-                                ->send();
+                                ->json($exception->errors(), $exception->status);
                         }
 
                         return response()->json(
@@ -113,7 +112,7 @@ class PKPContainer extends Container
                             in_array($exception->getCode(), array_keys(Response::$statusTexts))
                                 ? $exception->getCode()
                                 : Response::HTTP_INTERNAL_SERVER_ERROR
-                        )->send();
+                        );
                     }
 
                     return null;

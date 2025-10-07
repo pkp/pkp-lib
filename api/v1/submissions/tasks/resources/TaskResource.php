@@ -31,6 +31,7 @@ class TaskResource extends JsonResource
         [$users] = $this->getData('users');
 
         $createdBy = $users->get($this->createdBy); /** @var User $createdBy */
+        $startedBy = $users->get($this->startedBy); /** @var User $startedBy */
 
         return [
             'id' => $this->id,
@@ -45,6 +46,7 @@ class TaskResource extends JsonResource
             'dateDue' => $this->dateDue?->format('Y-m-d'),
             'dateStarted' => $this->dateStarted?->format('Y-m-d'),
             'startedBy' => $this->startedBy,
+            'startedByName' => $startedBy?->getFullName(),
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),

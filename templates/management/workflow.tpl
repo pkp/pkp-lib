@@ -95,6 +95,9 @@
 			/>
 			{call_hook name="Template::Settings::workflow::emails"}
 		</tab>
+		<tab id="taskTemplates" label="{translate key="manager.template.tasksAndDiscussions"}">
+			<task-template-manager />
+		</tab>
 		{call_hook name="Template::Settings::workflow"}
 	</tabs>
 {/block}

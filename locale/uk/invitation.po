@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-15 02:18+0000\n"
+"PO-Revision-Date: 2025-10-07 13:39+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/uk/>\n"
@@ -185,3 +185,31 @@ msgstr ""
 
 msgid "acceptInvitation.privacyStatement.btn"
 msgstr "Заява про конфіденційність"
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Запрошення не може бути надіслано, оскільки Ви не визначили жодних змін у "
+"групі користувачів"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Введені групи користувачів містять дублікати записів."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "Користувач з іменем {$username} уже існує. Спробуйте інше ім'я."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Якщо запрошенню призначено ідентифікатор користувача ({$userId}), "
+"відповідний користувач має існувати."
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Запросити на роль"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Запросіть користувача отримати роль"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Введіть деталі"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Огляд і запрошення на ролі"

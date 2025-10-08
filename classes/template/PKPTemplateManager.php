@@ -159,25 +159,6 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Blade proof of concept: Override Smarty assign function to also expose variables globally to Blade
-     * (Not that this is good practice -- just to show we can!)
-     *
-     * @param null|mixed $value
-     */
-    // public function assign($tpl_var, $value = null, $nocache = false)
-    // {
-    //     parent::assign($tpl_var, $value, $nocache);
-
-    //     if (is_array($tpl_var)) {
-    //         foreach ($tpl_var as $key => $value) {
-    //             \Illuminate\Support\Facades\View::share($key, $value);
-    //         }
-    //     } else {
-    //         \Illuminate\Support\Facades\View::share($tpl_var, $value);
-    //     }
-    // }
-
-    /**
      * Share the template variables globally to Blade
      */
     public function shareTemplateVariables(array $variables): void

@@ -132,12 +132,20 @@ class Repository
         ValidatorFactory::allowedLocales($validator, $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR), $allowedLocales);
 
         // The publicationId must match an existing publication that is not yet published
-        $validator->after(function ($validator) use ($props) {
+        $validator->after(function ($validator) use ($props, $submission, $context, $primaryLocale) {
             if (isset($props['publicationId']) && !$validator->errors()->get('publicationId')) {
                 $publication = Repo::publication()->get($props['publicationId']);
                 if (!$publication) {
                     $validator->errors()->add('publicationId', __('author.publicationNotFound'));
                 }
+            }
+
+            // Author CI statement required?
+            if ($context->getSetting('requireAuthorCompetingInterests') && empty($props['competingInterests'][$primaryLocale])) {
+                $validator->errors()->add(
+                    "competingInterests.{$primaryLocale}",
+                    __('author.competingInterests.required')
+                );
             }
         });
 

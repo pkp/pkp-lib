@@ -19,12 +19,14 @@ namespace PKP\citation\pid;
 class Orcid extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const prefix = 'https://orcid.org';
-
-    /** @copydoc AbstractPid::prefixInCorrect */
-    public const prefixInCorrect = [
-        'orcid:',
-        'orcid_id:',
-        'orcidId:'
+    public const regexes = [
+        '/orcid:\s*\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // orcid:0000-0002-1694-233X
+        '/https?:\/\/(www\.)?orcid\.org\/\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // https://orcid.org/0000-0002-1694-233X
     ];
+
+    /** @copydoc AbstractPid::defaultPrefix */
+    public const defaultPrefix = 'https://orcid.org/';
+
+    /** @copydoc AbstractPid::urlPrefix */
+    public const urlPrefix = 'https://orcid.org/';
 }

@@ -64,7 +64,7 @@ class EditorialTask extends Model
         'assocType', 'assocId', 'stageId', 'seq',
         'createdAt', 'updatedAt', 'closed', 'dateDue',
         'createdBy', 'type', 'status', 'dateStarted',
-        'dateClosed', 'title',
+        'dateClosed', 'title', 'startedBy'
     ];
 
     protected $casts = [
@@ -77,6 +77,7 @@ class EditorialTask extends Model
         'closed' => 'boolean',
         'dateDue' => 'datetime:Y-m-d',
         'createdBy' => 'int',
+        'startedBy' => 'int',
         'type' => 'int',
         'dateStarted' => 'datetime',
         'dateClosed' => 'datetime',

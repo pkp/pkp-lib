@@ -47,10 +47,21 @@ class InvitationHandler extends Handler
      */
     public function decline(array $args, Request $request): void
     {
+        $this->setupTemplate($request);
+        $invitation = $this->getInvitationByKey($request);
+        $invitationHandler = $invitation->getInvitationActionRedirectController();
+        $invitationHandler->declineHandle($request);
+    }
+
+    /**
+     * Confirm decline invitation handler
+     */
+    public function confirmDecline(array $args, Request $request): void
+    {
         $invitation = $this->getInvitationByKey($request);
         $invitationHandler = $invitation->getInvitationActionRedirectController();
         $invitationHandler->preRedirectActions(InvitationAction::DECLINE);
-        $invitationHandler->declineHandle($request);
+        $invitationHandler->confirmDecline($request);
     }
 
     private function getInvitationByKey(Request $request): Invitation

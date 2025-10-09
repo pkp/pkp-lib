@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-09-24 13:46+0000\n"
+"PO-Revision-Date: 2025-10-09 17:54+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
@@ -1530,7 +1530,7 @@ msgid "navigation.setup"
 msgstr "Instellen"
 
 msgid "navigation.sitemap"
-msgstr "Menu"
+msgstr "Sitemap"
 
 msgid "navigation.skip.description"
 msgstr "Ga naar inhoudsopgave"
@@ -1889,7 +1889,7 @@ msgid "timeZone"
 msgstr "Tijdzone"
 
 msgid "user.email"
-msgstr "e-mailadres"
+msgstr "mailadres"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1959,7 +1959,7 @@ msgid "notification.type.editorialReminder"
 msgstr "Wekelijkse e-mail van openstaande taken"
 
 msgid "semicolon"
-msgstr "{$label}:"
+msgstr "{$label}: "
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigatiemenu bijgewerkt"
@@ -2302,7 +2302,6 @@ msgstr "Applicatie draait in sandboxmodus."
 msgid "common.moreActions"
 msgstr "Meer handelingen"
 
-#, fuzzy
 msgid "common.editorialMasthead"
 msgstr "Redactioneel colofon"
 

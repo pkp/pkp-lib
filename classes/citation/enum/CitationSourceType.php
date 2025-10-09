@@ -16,13 +16,13 @@
 
 namespace PKP\citation\enum;
 
-enum CitationSourceType: string implements CitationBackedEnum
+enum CitationSourceType: string
 {
-    case book_series = 'book series';
-    case conference = 'conference';
-    case ebook_platform = 'ebook platform';
-    case journal = 'journal';
-    case metadata = 'metadata';
-    case other = 'other';
-    case repository = 'repository';
+    case BookSeries = 'book series';
+    case Conference = 'conference';
+    case EbookPlatform = 'ebook platform';
+    case Journal = 'journal';
+    case Metadata = 'metadata';
+    case Other = 'other';
+    case Repository = 'repository';
 }

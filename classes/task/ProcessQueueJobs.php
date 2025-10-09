@@ -19,7 +19,6 @@ namespace PKP\task;
 use APP\core\Application;
 use PKP\core\PKPContainer;
 use PKP\config\Config;
-use PKP\queue\JobRunner;
 use PKP\scheduledTask\ScheduledTask;
 
 class ProcessQueueJobs extends ScheduledTask
@@ -73,7 +72,8 @@ class ProcessQueueJobs extends ScheduledTask
         }
 
         // Executes a limited number of jobs when processing a request
-        (new JobRunner($jobQueue))
+        $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
+        $jobRunner
             ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
             ->withMaxExecutionTimeConstrain()
             ->withMaxJobsConstrain()

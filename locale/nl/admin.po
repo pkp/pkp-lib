@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2025-10-02 10:48+0000\n"
+"PO-Revision-Date: 2025-10-09 17:54+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/nl/>"
 "\n"
@@ -46,7 +46,8 @@ msgstr ""
 "mogelijk met de hand moet aanpassen als uw site niet meer correct werkt."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "Weet u zeker dat u de cache met  gecompileerde templates wilt legen?"
+msgstr ""
+"Weet u zeker dat u de gecompileerde templates uit de opslagplaats wilt legen?"
 
 msgid "admin.confirmExpireSessions"
 msgstr ""
@@ -158,7 +159,6 @@ msgstr ""
 "Verstuur een email naar elke redacteur met een herinnering aan de "
 "openstaande opdrachten"
 
-#, fuzzy
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""
 "Identificeren van redacteuren om hen te attenderen in context {$contextId}"
@@ -244,17 +244,14 @@ msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Ongeldige inlog in regel {$lineNumber} in het logbestand {$file}: {error}"
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr "De aangegeven tijd is geen geldige datum"
+msgstr "De aangegeven tijd is geen geldige datum."
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr "De ID-omgeving is geen afgerond geheel."
+msgstr "De ID-omgeving is geen heel getal."
 
-#, fuzzy
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr "De inzendings-ID is geen afgerond geheel."
+msgstr "De inzendings-ID is geen heel getal."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "De representatie-ID is geen afgerond geheel."
@@ -286,7 +283,7 @@ msgid "admin.server.apacheVersion"
 msgstr "Apache versie"
 
 msgid "admin.server.dbDriver"
-msgstr "Database driver"
+msgstr "Databankdriver"
 
 msgid "admin.server.dbVersion"
 msgstr "Database server versie"
@@ -378,7 +375,7 @@ msgid "admin.systemInformation.view"
 msgstr "Verwezen wordt naar de systeem informatie"
 
 msgid "admin.versionBuild"
-msgstr "Build"
+msgstr "build"
 
 msgid "admin.version.checkForUpdates"
 msgstr "Zoek naar updates"
@@ -554,7 +551,6 @@ msgstr ""
 "ook de parameter/markering --verplaats en --opschonen om terug te plaatsen "
 "naar de wachtrij of om alle/bepaalde foutieve taken op te schonen."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Verplaats de beschikbare opdrachten naar de wachtrij. Om een opdracht naar "
@@ -748,7 +744,7 @@ msgid "admin.jobs.list.failedAt"
 msgstr "Foutmelding bij"
 
 msgid "admin.jobs.list.payload"
-msgstr "Payload"
+msgstr "Draagkracht"
 
 msgid "admin.jobs.list.exception"
 msgstr "UItzondering"
@@ -807,12 +803,11 @@ msgstr ""
 msgid "admin.settings.statistics.keepDaily"
 msgstr "Gegevens per maand of per dag"
 
-#, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
-"Wel of geen dagelijkse of maandelijkse gegevensgebruik bijhouden. Het "
-"bijhouden van dagelijkse statistieken kan de omvang van uw database "
-"aanzienlijk vergroten."
+"Wel of niet dagelijkse of maandelijkse gebruikgegevens bijhouden. Dagelijks "
+"gebruikgegevens bijhouden kan de omvang van uw databank aanzienlijk "
+"vergroten."
 
 msgid "admin.settings.statistics.keepDaily.keep"
 msgstr "Houdt dagelijks en maandelijks gegevens bij"
@@ -888,7 +883,6 @@ msgstr "De wachtrijnaam m.b.t. werk [default : '{$default}']"
 msgid "admin.cli.tool.jobs.work.option.name.description"
 msgstr "De naam van de medewerker[default : '{$default}']"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
 "Het aantal seconden dat moet worden gewacht, voordat een opdracht nogmaals "
@@ -911,11 +905,10 @@ msgstr ""
 "Het aantal mislukte pogingen om een opdracht voor het loggen uit te voeren["
 "default : '{$default}']"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
-"Laat de medewerker zeker ook in de onderhoudsmodus[default : {$default}] "
-"uitvoeren"
+"Laat de medewerker de opdracht ook in de onderhoudsmodus[default : "
+"{$default}] uitvoeren"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
 msgstr "Stop wanneer de wachtrij leeg is [default : {$default}]"
@@ -950,6 +943,7 @@ msgstr ""
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Schakel de samengevoegde gegevens van de recensenten uit"
 
+#, fuzzy
 msgid "admin.fileLoader.fileDispatched"
 msgstr "Het bestand {$filename} werd verwijderd om de map te verplaatsen."
 

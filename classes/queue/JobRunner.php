@@ -19,18 +19,25 @@ declare(strict_types=1);
 namespace PKP\queue;
 
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Support\Str;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\core\PKPQueueProvider;
 
 class JobRunner
 {
+    /*
+     * Singleton instance
+     */
+    private static $instance = null;
+
     /**
      * Static flag to prevent multiple runs within the same request.
      */
-    protected static bool $jobProcessing = false;
+    protected bool $jobProcessing = false;
 
     /**
      * The core queue job running service provider
@@ -93,13 +100,20 @@ class JobRunner
      */
     protected ?int $currentContextId = null;
 
-    /**
-     * Create a new instance
-     *
+    // Private constructor to prevent direct instantiation
+    private function __construct() {}
+
+    /*
+     * Get the singleton instance
      */
-    public function __construct(?PKPQueueProvider $jobQueue = null)
+    public static function getInstance(?PKPQueueProvider $jobQueue = null): self
     {
-        $this->jobQueue = $jobQueue ?? app('pkpJobQueue');
+        if (self::$instance === null) {
+            self::$instance = new self();
+            self::$instance->jobQueue = $jobQueue ?? app('pkpJobQueue');
+        }
+
+        return self::$instance;
     }
 
     /**
@@ -255,11 +269,9 @@ class JobRunner
     public function processJobs(?EloquentBuilder $jobBuilder = null): bool
     {
         // if job is already processing via job runner, will not start to process more
-        if (static::isJobProcessing()) {
+        if ($this->isJobProcessing()) {
             return false;
         }
-
-        static::$jobProcessing = true; // set the job runner to processing state
 
         try {
 
@@ -279,6 +291,34 @@ class JobRunner
                 }
             }
 
+
+            // return back if there is no job to process
+            if (!$jobBuilder->count()) {
+                return false;
+            }
+
+            // Check for stale lock and clear it up if available
+            $lockData = Cache::get($this->getCacheKey());
+            if ($lockData && (time() - $lockData['timestamp']) >= $this->getCacheTimeout()) {
+                Cache::forget($this->getCacheKey());
+            }
+
+            // Try to acquire lock by setting cache key
+            $newToken = Str::uuid()->toString();
+            $newLockData = ['timestamp' => time(), 'token' => $newToken];
+            if (!Cache::add($this->getCacheKey(), $newLockData, $this->getCacheTimeout())) {
+                // Re-check cache to avoid race condition
+                if (Cache::get($this->getCacheKey()) && Cache::get($this->getCacheKey())['token'] !== $newToken) {
+                    // JobRunner cache lock acquired by another process
+                    // will consider as processing job so will not proceed
+                    return false; 
+                }
+            }
+
+            // flush the output buffer
+            $this->flushOutputBuffer();
+
+            $this->jobProcessing = true; // set the job runner to processing state
             $this->jobProcessedOnRunner = 0;
             $jobProcessingStartTime = time();
 
@@ -310,7 +350,8 @@ class JobRunner
             return true;
 
         } finally {
-            static::$jobProcessing = false; // reset the job processing state
+            Cache::forget($this->getCacheKey());
+            $this->jobProcessing = false; // reset the job processing state
         }
     }
 
@@ -325,9 +366,64 @@ class JobRunner
     /**
      * Get the current status of job runner to see if this is processing jobs
      */
-    public static function isJobProcessing(): bool
+    public function isJobProcessing(): bool
     {
-        return static::$jobProcessing;
+        // Job is being processed within the current reqeust life cycle
+        if ($this->jobProcessing) {
+            return true;
+        }
+
+        // if not processing within current request life cycle,
+        // we will check if it's being processed in other request life cycle
+        $lockData = Cache::get($this->getCacheKey());
+
+        // no cache lock found, job is not being processed
+        if (!$lockData) {
+            return false;
+        }
+
+        if ((time() - $lockData['timestamp']) < $this->getCacheTimeout()) {
+            // JobRunner is locked by another process (cache key exists), will consider as processing
+            return true;
+        }
+
+        // Stale lock detected, will consider that the job is not being processed
+        return false;
+    }
+
+    public function getCacheKey(): string
+    {
+        return 'jobRunnerLastRun';
+    }
+
+    public function getCacheTimeout(): int
+    {
+        return 2 * $this->deduceSafeMaxExecutionTime();
+    }
+
+    public function flushOutputBuffer(): void
+    {
+        // Force flush and close connection for non-blocking behavior
+        // and set headers to close connection and specify content length (if buffer exists)
+        if (headers_sent() === false) {
+            
+            header('Connection: close');
+            header('Content-Encoding: none');
+            if (ob_get_length() > 0) {
+                header('Content-Length: ' . ob_get_length());
+            }
+        }
+
+        // Flush output buffer and send response and allow script to continue if client disconnects.
+        // Flush and end output buffer (if started) and also the system buffer.
+        ignore_user_abort(true);
+        ob_end_flush();
+        flush();
+
+        // For PHP-FPM (Nginx/Apache with FPM): Explicitly finish FastCGI request
+        if (function_exists('fastcgi_finish_request')) {
+            fastcgi_finish_request();
+        }
     }
 
     /**

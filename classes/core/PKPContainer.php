@@ -111,6 +111,11 @@ class PKPContainer extends Container
             }
         );
 
+        $this->singleton(
+            'jobRunner',
+            fn ($app) => \PKP\queue\JobRunner::getInstance($app['pkpJobQueue'])
+        );
+
         Facade::setFacadeApplication($this);
     }
 

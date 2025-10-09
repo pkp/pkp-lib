@@ -149,7 +149,9 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
-                (new JobRunner($this))
+                $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
+
+                $jobRunner
                     ->setCurrentContextId(Application::get()->getRequest()->getContext()?->getId())
                     ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()

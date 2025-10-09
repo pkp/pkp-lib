@@ -2,7 +2,7 @@
 # ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-23 15:47+0000\n"
+"PO-Revision-Date: 2025-10-09 17:54+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
 "Language: nl\n"
@@ -198,9 +198,8 @@ msgid "api.emails.400.missingUserGroups"
 msgstr ""
 "U moet de gebruikersrollen aangeven die deze e-mail behoren te ontvangen."
 
-#, fuzzy
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr "Dit is niet de goede standaard-email voor een algemene e-mail."
+msgstr "Dit is niet de goede standaardmail voor een bekende e-mail."
 
 msgid "api.emailTemplates.400.invalidContext"
 msgstr "Dit is geen geldige omgeving."
@@ -426,10 +425,10 @@ msgstr ""
 "Alle opnieuw verwerkte foutieve verwerkingen met geldige essentiële "
 "informatie, zijn succesvol in de wachtrij geplaatst."
 
-#, fuzzy
 msgid "api.409.resourceActionConflict"
 msgstr ""
-"Niet in staat de voorgenomen handeling te voltooien met inzetbare middelen."
+"Niet in staat de voorgenomen handeling te voltooien met de inzetbare "
+"middelen."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr ""

@@ -18,11 +18,11 @@ namespace PKP\citation\enum;
 
 enum CitationSourceType: string
 {
-    case BookSeries = 'book series';
-    case Conference = 'conference';
-    case EbookPlatform = 'ebook platform';
-    case Journal = 'journal';
-    case Metadata = 'metadata';
-    case Other = 'other';
-    case Repository = 'repository';
+    case BOOK_SERIES = 'book series';
+    case CONFERENCE = 'conference';
+    case EBOOK_PLATFORM = 'ebook platform';
+    case JOURNAL = 'journal';
+    case METADATA = 'metadata';
+    case OTHER = 'other';
+    case REPOSITORY = 'repository';
 }

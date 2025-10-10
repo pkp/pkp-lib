@@ -27,8 +27,8 @@ abstract class BasePid
     /** @var string Url prefix, e.g. https://doi.org/ */
     public const urlPrefix = '';
 
-    /** @var array|string[] Incorrect prefixes; omit http:// https:// */
-    public const prefixInCorrect = [];
+    /** @var array|string[] Alternate prefixes */
+    public const alternatePrefixes = [];
 
     /** @var string Default characters which are trimmed */
     public const defaultTrimCharacters = ' ./';
@@ -53,25 +53,6 @@ abstract class BasePid
     }
 
     /**
-     * Remove prefix
-     *
-     * @param string|null $string e.g. https://doi.org/10.123/tib123
-     *
-     * @return string e.g. 10.123/tib123
-     */
-    public static function removePrefix(?string $string): string
-    {
-        if (empty($string)) {
-            return '';
-        }
-
-        /* @var BasePid $class */
-        $class = get_called_class();
-
-        return str_ireplace($class::defaultPrefix, '', $string);
-    }
-
-    /**
      * Add urlPrefix
      *
      * @param string|null $string e.g. 10.123/tib123
@@ -91,13 +72,13 @@ abstract class BasePid
     }
 
     /**
-     * Remove urlPrefix
+     * Remove prefixes
      *
-     * @param string|null $string e.g. https://doi.org/10.123/tib123
+     * @param string|null $string e.g. doi:10.123/tib123 https://doi.org/10.123/tib123
      *
      * @return string e.g. 10.123/tib123
      */
-    public static function removeUrlPrefix(?string $string): string
+    public static function removePrefix(?string $string): string
     {
         if (empty($string)) {
             return '';
@@ -106,7 +87,13 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        return str_ireplace($class::urlPrefix, '', $string);
+        $fixes = array_merge([$class::defaultPrefix, $class::urlPrefix], $class::alternatePrefixes);
+        $fixes = array_map(function ($value) {
+            return trim($value) . ' ';
+        }, $fixes);
+        usort($fixes, fn($a, $b) => strlen($b) - strlen($a));
+
+        return str_ireplace($fixes, '', $string);
     }
 
     /**
@@ -139,15 +126,6 @@ abstract class BasePid
             return '';
         }
 
-        $fixes = array_merge([$class::defaultPrefix, $class::urlPrefix], $class::prefixInCorrect);
-        $fixes = array_map(function ($value) {
-            return trim($value) . ' ';
-        }, $fixes);
-        usort($fixes, fn($a, $b) => strlen($b) - strlen($a));
-
-        return trim(
-            str_ireplace($fixes, '', $matches[0]),
-            $class::defaultTrimCharacters
-        );
+        return trim($class::removePrefix($matches[0]), $class::defaultTrimCharacters);
     }
 }

@@ -30,8 +30,8 @@ class Orcid extends BasePid
     /** @copydoc AbstractPid::urlPrefix */
     public const urlPrefix = 'https://orcid.org/';
 
-    /** @copydoc AbstractPid::prefixInCorrect */
-    public const prefixInCorrect = [
+    /** @copydoc AbstractPid::alternatePrefixes */
+    public const alternatePrefixes = [
         'orcid:',
         'orcidId',
         'orcid_id:'

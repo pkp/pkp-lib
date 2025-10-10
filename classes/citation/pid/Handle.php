@@ -31,8 +31,8 @@ class Handle extends BasePid
     /** @copydoc AbstractPid::urlPrefix */
     public const urlPrefix = 'https://hdl.handle.net/';
 
-    /** @copydoc AbstractPid::prefixInCorrect */
-    public const prefixInCorrect = [
+    /** @copydoc AbstractPid::alternatePrefixes */
+    public const alternatePrefixes = [
         'hdl:',
     ];
 }

@@ -1,2 +1,402 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2025-10-11 01:22+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"invitation/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.notExisting"
+msgstr "En az bir kullanıcı grubu eklenmelidir"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupAssignedToUser"
+msgstr "Kullanıcı grubu davet edilen kullanıcıya atanır"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
+msgstr "Kaldırılacak en az bir kullanıcı grubu tanımlanmalıdır"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "Verilen kullanıcı gruplarında tekrarlanan kayıtlar bulunmaktadır."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr ""
+"{$username} kullanıcı adı ile zaten bir kullanıcı var. Başka bir kullanıcı "
+"adı deneyin."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr ""
+"Bir davete bir kullanıcı kimliği ({$userId}) atanmışsa, bu kullanıcı mevcut "
+"olmalıdır."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr ""
+"Davetiyede bir e-posta adresi ({$email}) atanmışsa, bu e-posta adresi başka "
+"bir kullanıcı tarafından kullanılmamalıdır."
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "Şifre girilmeli"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "Kurum girilmeli"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "İsim girilmeli"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "Soyisim girilmeli"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "Eklenen kullanıcı grubu için bir başlangıç tarihi belirtilmelidir"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "Eklenen kullanıcı grubu için bir ana başlık sağlanmalıdır"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "Bu davet türü için tanımlanmış bir posta adresi yok"
+
+msgid "invitation.api.error.operationFailed"
+msgstr "Bu davet işlemi başarısız oldu"
+
+msgid "invitation.validation.required"
+msgstr "{$attribute} alanı zorunludur."
+
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr ""
+"{attribute} indeksindeki ögede beklenmedik özellikler bulundu: {properties}."
+
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr ""
+"id {reviewAssignmentId} geçerli bir değerlendirme atamasına karşılık gelmiyor"
+
+msgid "invitation.api.error.invitationCantBeCanceled"
+msgstr "Bu davet iptal edilemez"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Bu öznitelik mevcut kullanıcılar tarafından erişilemez"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr "Özellik, mevcut olmayan kullanıcılar tarafından erişilemez"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr "Bu öznitelik, bugün veya daha sonraki bir tarihe sahip olmalıdır"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr ":attribute alanı yasaktır"
+
+msgid "invitation.step"
+msgstr "ADIM"
+
+msgid "invitation.header"
+msgstr "Davetler"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Kullanıcıyı rol almaya davet et"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Detayları gir"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Rolleri inceleyin ve davet edin"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Kullanıcı Ara"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Kullanıcı Ara"
+
+msgid "userInvitation.searchField.description"
+msgstr "ör. aeinstein@example.com veya aeinstein veya 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Detayları gir"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Ayrıntıları girin ve rol için davet gönderin"
+
+msgid "invitation.role.selectRole"
+msgstr "Yeni rol seç"
+
+msgid "invitation.role.dateStart"
+msgstr "Başlangıç Tarihi"
+
+msgid "invitation.role.dateEnd"
+msgstr "Bitiş Tarihi"
+
+msgid "invitation.role.addRole.button"
+msgstr "Yeni Rol Ekle"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Roller"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Bitiş Tarihi"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Kullanıcıyı role davet et"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Kullanıcıyla paylaşılan e-postayı düzenleyin"
+
+msgid "userInvitation.modal.title"
+msgstr "Davet Gönder"
+
+msgid "userInvitation.modal.button"
+msgstr "Tüm Kullanıcıları Gör"
+
+msgid "invitation.email.description"
+msgstr "ör. aeinstein@example.com"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Kullanıcının ismi biliniyorsa girebilirsiniz. Ancak, bu bilgiler kullanıcı "
+"tarafından profil kısmından değiştirilebilir."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "ORCID iD'yi Doğrula"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - ORCID iD'yi Doğrula"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Kaydet ve devam et"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Kaydet ve devam et"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Detayları gir"
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Detayları gir"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Kaydet devam et"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Davet kabul kullanıcı bilgileri formu"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"Hesabınızı yönetmemize yardımcı olmak için lütfen aşağıdaki bilgileri girin"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - İncele & kullanıcı hesabını oluştur"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "ORCID doğrulamasını atla"
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "ORCID iD'yi doğrula"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Gizlilik Bildirimi"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr "İlk isim bir kişiyi tanımlayan kişisel ismin bir parçasıdır."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Bu, bağlı olduğunuz kurumdur"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr "Bu, bağlı olduğunuz kurumun bulunduğu ülkedir"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Kurumun bağlı olduğu ülke"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Kullanıcı Hesabı Detayları"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Kullanıcı Detayları"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Tüm Makaleleri Görüntüle"
+
+msgid "invitation.tableHeader.name"
+msgstr "İsim"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "En az bir arama kriteri girin."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "{$name}'nin kullanıcı detaylarını görüntülüyorsunuz"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Daveti İptal Et"
+
+msgid "invitation.masthead.show"
+msgstr "Künyede görün"
+
+msgid "invitation.masthead.hidden"
+msgstr "Künyede görünmesin"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Rolü Düzenle"
+
+msgid "invitation.management.options"
+msgstr "Davet yönetimi seçenekleri"
+
+msgid "userInvitation.cancel.message"
+msgstr "Bu daveti gerçekten iptal etmek istiyor musunuz?"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Geri Dön"
+
+msgid "userInvitation.status.invited"
+msgstr "{$date} tarihinde davet edildi"
+
+msgid "userInvitation.edit.title"
+msgstr "Daveti Düzenle"
+
+msgid "validation.after_or_equal"
+msgstr "Başlangıç tarihi bugünden büyük veya bugüne eşit olmalıdır"
+
+msgid "invitation.removeRoles"
+msgstr "Kullanıcı Bu Rolden Kaldırıldı"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr "Gizlilik bildirimini okuduğunuzu ve kabul ettiğinizi onaylayın"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Rol Davetini İptal Etmek İster Misiniz?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Davet İşlemini İptal Et"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr "Davet kabul edilmedi. Farklı bir kullanıcı olarak oturum açtınız."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"Bu daveti kabul etmek için lütfen çıkış yapın ve doğru hesapla giriş yapın."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"E-posta adresi, kullanıcı adı veya ORCID iD ile kullanıcı arayın. Başlamak "
+"için yalnızca birini girin!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "Kullanıcı şu anda devre dışıdır."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"Kullanıcı devre dışı bırakılmıştır. Devre dışı bırakıldıkları sürece onlara "
+"rol atayamazsınız. Kullanıcıyı bir role davet etmek için önce onu "
+"etkinleştirin."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Gizlilik Onayı"
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Kullanıcı rolleri, mevcut olmayan kullanıcılar için tanımlanamaz."
+
+msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
+msgstr ""
+"Herhangi bir kullanıcı grubu değişikliği tanımlamadığınız için davet "
+"gönderilemiyor"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Mevcut daveti düzenlerseniz veya yeni bir rol eklerseniz, mevcut davet iptal "
+"edilir ve yeni bir davet gönderilir. Devam etmek istediğinizden emin misiniz?"
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "Bir kullanıcı adı girilmelidir"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"İptal etmek istediğinizden emin misiniz? Şimdi iptal ederseniz, rol kabul "
+"süreci durdurulur ve rolü tekrar kabul etmek için davet e-postasından "
+"yeniden başlamanız gerekir. Zaten kullanıcıysanız, kontrol paneline geri "
+"yönlendirilirsiniz. Değilseniz, süreci yeniden başlatmak için davet e-"
+"postasına erişmeniz gerekir."
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "Ülke seçilmeli"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "Eklenen kullanıcı grupları için bir kullanıcı grubu id'si sağlanmalıdır"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "Sağlanan kullanıcı grubu id'si {$userGroupId} mevcut değil"
+
+msgid "invitation.api.error.initialization.noUserIdAndEmailTogether"
+msgstr "E-posta ve kullanıcı Id'yi birlikte veremezsiniz."
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "'{$primaryLocale}' dil ayarı için bir değer gereklidir"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Kullanıcıyı Role Davet Et"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Kullanıcı Ara"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Kullanıcı mevcut değilse, onu rol almaya davet edebilirsiniz. Kullanıcı "
+"sistemde zaten mevcutsa, bilgilerini görüntüleyebilir ve ek roller almaya "
+"davet edebilirsiniz."
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Kaydet ve Devam Et"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Başlangıç Tarihi"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "İncele ve role davet et"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Rolü Sil"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Daveti kabul eden kullanıcı, isterse hesabını doğrulamak için ORCID'ye "
+"yönlendirilecektir."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Kullanıcının ismini biliyorsanız girebilirsiniz. Ancak, bu bilgi kullanıcı "
+"profili düzenleme ekranından değiştirilebilir."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"E-posta , bağlı olduğunuz kurum vb. bilgilerinizi girin. KDVKK uyumluluğu "
+"gereği, bu bilgiler yalnızca sizin tarafınızdan değiştirilebilir. Bu "
+"bilgilerin editör tarafından profilinizde görünür olmasını isteyip "
+"istemediğinizi de seçebilirsiniz."
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "İncele ve kullanıcı hesabını oluştur"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr "Büyük harfler, küçük harfler veya rakamların bir kombinasyonu olabilir"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"En az 6 karakter uzunluğunda olmalı ve büyük harfler, küçük harfler, "
+"rakamlar ve sembollerden oluşan bir kombinasyon olabilir"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Evet, verilerimin {$url} göre toplanmasını ve saklanmasını kabul ediyorum"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Soyisim, aile adı veya soyadı, kişinin kişisel adının çoğunlukla kalıtsal "
+"olan ve kişinin ailesini ifade eden kısmıdır."
+
+msgid "invitation.cancelInvite.title"
+msgstr "Daveti İptal Et"
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"{$givenName} {$familyName} için gönderilen daveti iptal etmek, e-posta "
+"yoluyla gönderilen davet bağlantısını devre dışı bırakacaktır. Davet "
+"ayrıntıları aşağıdadır: "

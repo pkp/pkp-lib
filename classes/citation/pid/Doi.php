@@ -31,4 +31,12 @@ class Doi extends BasePid
 
     /** @copydoc AbstractPid::urlPrefix */
     public const urlPrefix = 'https://doi.org/';
+
+    /** @copydoc AbstractPid::prefixInCorrect */
+    public const prefixInCorrect = [
+        'doi:',
+        'doi.org:',
+        'dx.doi.org',
+        'dx.doi.org:'
+    ];
 }

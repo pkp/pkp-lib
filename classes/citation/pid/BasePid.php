@@ -30,6 +30,9 @@ abstract class BasePid
     /** @var string Default characters which are trimmed */
     public const defaultTrimCharacters = ' ./';
 
+    /** @var array|string[] Incorrect prefixes; omit http:// https:// */
+    public const prefixInCorrect = [];
+
     /**
      * Add prefix
      *
@@ -136,8 +139,14 @@ abstract class BasePid
             return '';
         }
 
+        $fixes = array_merge([$class::defaultPrefix, $class::urlPrefix], $class::prefixInCorrect);
+        $fixes = array_map(function ($value) {
+            return trim($value) . ' ';
+        }, $fixes);
+        usort($fixes, fn($a, $b) => strlen($b) - strlen($a));
+
         return trim(
-            str_ireplace([$class::defaultPrefix, $class::urlPrefix], '', $matches[0]),
+            str_ireplace($fixes, '', $matches[0]),
             $class::defaultTrimCharacters
         );
     }

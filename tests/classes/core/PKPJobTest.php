@@ -156,8 +156,9 @@ class PKPJobTest extends PKPTestCase
 
         // Configure JobRunner with constraints and `pkpJobQueue` with test queue
         $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
-        $runner = new JobRunner($jobQueue->forQueue(PKPJobModel::TESTING_QUEUE));
+        $runner = app('jobRunner'); /** @var \PKP\queue\JobRunner $runner */
         $runner
+            ->setJobQueue($jobQueue->forQueue(PKPJobModel::TESTING_QUEUE))
             ->setMaxJobsToProcess(2)
             ->withMaxJobsConstrain()
             ->setMaxTimeToProcessJobs(10)

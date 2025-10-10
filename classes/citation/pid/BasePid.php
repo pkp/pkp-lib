@@ -114,18 +114,18 @@ abstract class BasePid
             return '';
         }
 
-        $matches = [];
+        $match = '';
         foreach ($class::regexes as $regex) {
             if (preg_match($regex, $string, $localMatches)) {
-                $matches = $localMatches;
+                $match = $localMatches[0];
                 break;
             }
         }
 
-        if (empty($matches[0])) {
+        if (empty($match)) {
             return '';
         }
 
-        return trim($class::removePrefix($matches[0]), $class::defaultTrimCharacters);
+        return trim($class::removePrefix($match), $class::defaultTrimCharacters);
     }
 }

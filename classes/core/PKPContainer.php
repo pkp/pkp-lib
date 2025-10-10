@@ -29,6 +29,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
+use PKP\core\PKPQueueProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
@@ -108,6 +109,11 @@ class PKPContainer extends Container
                     config('queue.failed.table')
                 );
             }
+        );
+
+        $this->singleton(
+            'jobRunner',
+            fn ($app) => \PKP\queue\JobRunner::getInstance($app['pkpJobQueue'])
         );
 
         Facade::setFacadeApplication($this);
@@ -404,6 +410,30 @@ class PKPContainer extends Container
     public function isDownForMaintenance()
     {
         return PKPApplication::isUnderMaintenance();
+    }
+
+    /**
+     * Determine if the application is running in the console.
+     */
+    public function runningInConsole(?string $scriptPath = null): bool
+    {
+        if (strtolower(php_sapi_name() ?: '') === 'cli') {
+            return true;
+        }
+
+        if (!$scriptPath) {
+            return false;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+
+        return false;
     }
 }
 

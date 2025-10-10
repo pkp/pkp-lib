@@ -27,11 +27,11 @@ abstract class BasePid
     /** @var string Url prefix, e.g. https://doi.org/ */
     public const urlPrefix = '';
 
-    /** @var string Default characters which are trimmed */
-    public const defaultTrimCharacters = ' ./';
-
     /** @var array|string[] Incorrect prefixes; omit http:// https:// */
     public const prefixInCorrect = [];
+
+    /** @var string Default characters which are trimmed */
+    public const defaultTrimCharacters = ' ./';
 
     /**
      * Add prefix

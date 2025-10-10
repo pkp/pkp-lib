@@ -730,7 +730,8 @@ abstract class Repository
             [
                 &$newPublication,
                 $publication,
-                $submission
+                $submission,
+                $wasCurrentPublication
             ]
         );
 

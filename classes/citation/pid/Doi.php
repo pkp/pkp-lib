@@ -23,18 +23,20 @@ class Doi extends BasePid
 {
     /** @copydoc AbstractPid::regex */
     public const regexes = [
-        '(10[.][0-9]{4,}[^\s"/<>]*/[^\s"<>]+)'
+        '/doi:\s*10[.][0-9]{4,}[^\s"\/<>]*\/[^\s"<>]+/i',
+        '/https?:\/\/doi\.org\/10[.][0-9]{4,}[^\s"\/<>]*\/[^\s"<>]+/i'
     ];
 
     /** @copydoc AbstractPid::defaultPrefix */
-    public const defaultPrefix = 'https://doi.org/';
+    public const defaultPrefix = 'doi:';
 
     /** @copydoc AbstractPid::urlPrefix */
     public const urlPrefix = 'https://doi.org/';
 
     /** @copydoc AbstractPid::alternatePrefixes */
     public const alternatePrefixes = [
-        'doi:',
+        'doi',
+        'doi.org',
         'doi.org:',
         'dx.doi.org',
         'dx.doi.org:'

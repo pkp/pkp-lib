@@ -22,35 +22,32 @@ class ExtractPidsHelper
 {
     public function execute(Citation $citation): Citation
     {
-        $raw = str_ireplace('http://', 'https://',  $citation->getRawCitation());
+        $raw = str_ireplace('http://', 'https://', $citation->getRawCitation());
 
         // doi
         $doi = Doi::extractFromString($raw);
         if (!empty($doi)) {
             $citation->setData('doi', $doi);
+            $raw = str_replace(Doi::addUrlPrefix($doi), '', $raw);
         }
-        $raw = str_replace(Doi::addPrefix($doi), '', $raw);
-        $raw = str_replace(Doi::addUrlPrefix($doi), '', $raw);
 
         // arxiv
         $arxiv = Arxiv::extractFromString($raw);
-        if(!empty($arxiv)) {
+        if (!empty($arxiv)) {
             $citation->setData('arxiv', $arxiv);
+            $raw = str_replace(Arxiv::addUrlPrefix($arxiv), '', $raw);
         }
-        $raw = str_replace(Arxiv::addPrefix($arxiv), '', $raw);
-        $raw = str_replace(Arxiv::addUrlPrefix($arxiv), '', $raw);
 
         // handle
         $handle = Handle::extractFromString($raw);
-        if(!empty($handle)) {
+        if (!empty($handle)) {
             $citation->setData('handle', $handle);
+            $raw = str_replace(Handle::addUrlPrefix($handle), '', $raw);
         }
-        $raw = str_replace(Handle::addPrefix($handle), '', $raw);
-        $raw = str_replace(Handle::addUrlPrefix($handle), '', $raw);
 
         // url
         $url = Url::extractFromString($raw);
-        if(!empty($url)) {
+        if (!empty($url)) {
             $citation->setData('url', $url);
         }
         $raw = str_replace($url, '', $raw);

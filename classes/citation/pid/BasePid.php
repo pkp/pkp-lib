@@ -119,8 +119,8 @@ abstract class BasePid
 
         $match = '';
         foreach ($class::regexes as $regex) {
-            if (preg_match($regex, $string, $localMatches)) {
-                $match = $localMatches[0];
+            if (preg_match($regex, $string, $matches)) {
+                $match = $matches[0];
                 break;
             }
         }

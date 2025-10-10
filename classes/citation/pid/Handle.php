@@ -22,7 +22,7 @@ class Handle extends BasePid
     public const regexes = [
         '/hdl:\s*\d+\/[a-zA-Z0-9\-_]+/i', // hdl:12345/abcde
         '/handle:\s*\d+\/[a-zA-Z0-9\-_]+/i', // handle:12345/abcde
-        '/https?:\/\/(www\.)?hdl\.handle\.net\/\d+\/[a-zA-Z0-9\-_]+/i', // https://hdl.handle.net/12345/abcde
+        '/https?:\/\/hdl\.handle\.net\/\d+\/[a-zA-Z0-9\-_]+/i', // https://hdl.handle.net/12345/abcde
     ];
 
     /** @copydoc AbstractPid::defaultPrefix */
@@ -33,6 +33,8 @@ class Handle extends BasePid
 
     /** @copydoc AbstractPid::alternatePrefixes */
     public const alternatePrefixes = [
-        'hdl:',
+        'handle',
+        'hdl',
+        'hdl:'
     ];
 }

@@ -21,19 +21,21 @@ class Orcid extends BasePid
     /** @copydoc AbstractPid::regex */
     public const regexes = [
         '/orcid:\s*\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // orcid:0000-0002-1694-233X
-        '/https?:\/\/(www\.)?orcid\.org\/\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // https://orcid.org/0000-0002-1694-233X
+        '/https?:\/\/orcid\.org\/\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // https://orcid.org/0000-0002-1694-233X
     ];
 
     /** @copydoc AbstractPid::defaultPrefix */
-    public const defaultPrefix = 'https://orcid.org/';
+    public const defaultPrefix = 'orcid:';
 
     /** @copydoc AbstractPid::urlPrefix */
     public const urlPrefix = 'https://orcid.org/';
 
     /** @copydoc AbstractPid::alternatePrefixes */
     public const alternatePrefixes = [
-        'orcid:',
+        'orcid',
         'orcidId',
+        'orcidId:',
+        'orcid_id',
         'orcid_id:'
     ];
 }

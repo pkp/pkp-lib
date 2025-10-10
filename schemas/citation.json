@@ -45,6 +45,9 @@
                     },
                     "openAlex": {
                         "type": "string"
+                    },
+                    "wikidata": {
+                        "type": "string"
                     }
                 }
             }

@@ -116,6 +116,16 @@ class JobRunner
         return self::$instance;
     }
 
+    /*
+     * Set/Update the job queue
+     */
+    public function setJobQueue(PKPQueueProvider $jobQueue): static
+    {
+        $this->jobQueue = $jobQueue;
+
+        return $this;
+    }
+
     /**
      * Set the max job number running constrain
      *
@@ -364,7 +374,9 @@ class JobRunner
     }
 
     /**
-     * Get the current status of job runner to see if this is processing jobs
+     * Get the current status of job runner to see if this is processing jobs.
+     * It will check for both in the current request life cycle and also
+     * in the other request life cycle.
      */
     public function isJobProcessing(): bool
     {
@@ -391,33 +403,53 @@ class JobRunner
         return false;
     }
 
+    /**
+     * Get the cache key for the job runner
+     */
     public function getCacheKey(): string
     {
         return 'jobRunnerLastRun';
     }
 
+    /**
+     * Get the cache timeout(expiry time) for the job runner cache
+     */
     public function getCacheTimeout(): int
     {
+        // To ensure long running jobs have enough time to complete, we double the max execution time
         return 2 * $this->deduceSafeMaxExecutionTime();
     }
 
+    /**
+     * Flush the output buffer to ensure all output is sent to the client before job runner
+     * start processing jobs to avoid any potential output buffering issues which may
+     * cause client page load time and performance degradation.
+     * 
+     * This should be called before the job runner starts to process jobs and only when there is
+     * jobs in the queue to process. 
+     */
     public function flushOutputBuffer(): void
     {
         // Force flush and close connection for non-blocking behavior
-        // and set headers to close connection and specify content length (if buffer exists)
-        if (headers_sent() === false) {
-            
-            header('Connection: close');
-            header('Content-Encoding: none');
-            if (ob_get_length() > 0) {
-                header('Content-Length: ' . ob_get_length());
+        // and set headers to close connection
+        if (headers_sent()) {
+            return;
+        }
+        
+        header('Connection: close');
+        header('Content-Encoding: none');
+
+        // specify content length (if buffer exists) and for active buffer to flush as only then flush output buffer
+        if (ob_get_level() > 0) {
+            $bufferLength = ob_get_length();
+            if ($bufferLength !== false && $bufferLength > 0) {
+                header('Content-Length: ' . $bufferLength);
             }
+            ob_end_flush();
         }
 
-        // Flush output buffer and send response and allow script to continue if client disconnects.
-        // Flush and end output buffer (if started) and also the system buffer.
+        // Allow script to continue if client disconnects and flush system buffer.
         ignore_user_abort(true);
-        ob_end_flush();
         flush();
 
         // For PHP-FPM (Nginx/Apache with FPM): Explicitly finish FastCGI request

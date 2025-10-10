@@ -87,13 +87,16 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        $fixes = array_merge([$class::defaultPrefix, $class::urlPrefix], $class::alternatePrefixes);
-        $fixes = array_map(function ($value) {
-            return trim($value) . ' ';
-        }, $fixes);
-        usort($fixes, fn($a, $b) => strlen($b) - strlen($a));
+        $prefixes = array_merge([$class::defaultPrefix, $class::urlPrefix], $class::alternatePrefixes);
+        $prefixes = array_merge(
+            $prefixes,
+            array_map(fn($value) => trim($value) . ' ', $prefixes)
+        );
+        $prefixes = array_filter($prefixes, fn($value) => !empty(trim($value)));
+        $prefixes = array_unique($prefixes);
+        usort($prefixes, fn($a, $b) => strlen($b) - strlen($a));
 
-        return str_ireplace($fixes, '', $string);
+        return str_ireplace($prefixes, '', $string);
     }
 
     /**

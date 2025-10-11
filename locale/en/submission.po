@@ -2297,6 +2297,33 @@ msgstr "At least two participants are required for a discussion."
 msgid "submission.task.validation.error.assignment.required"
 msgstr "Participant must be assigned to the submission in the current stage or be a reviewer."
 
+msgid "submission.task.dueInterval.1week"
+msgstr "1 week"
+
+msgid "submission.task.dueInterval.2weeks"
+msgstr "2 weeks"
+
+msgid "submission.task.dueInterval.3weeks"
+msgstr "3 weeks"
+
+msgid "submission.task.dueInterval.4weeks"
+msgstr "4 weeks"
+
+msgid "submission.task.dueInterval.1month"
+msgstr "1 month"
+
+msgid "submission.task.dueInterval.1month.15days"
+msgstr "1 month and 15 days"
+
+msgid "submission.task.dueInterval.2months"
+msgstr "2 months"
+
+msgid "submission.task.dueInterval.2months.15days"
+msgstr "2 months and 15 days"
+
+msgid "submission.task.dueInterval.3months"
+msgstr "3 months"
+
 msgid "submission.list.changeSubmissionLanguage.currentLanguage"
 msgstr "Current Submission Language:"
 

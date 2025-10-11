@@ -34,6 +34,7 @@ use PKP\core\PKPRequest;
 use PKP\editorialTask\EditorialTask;
 use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\editorialTask\Participant;
+use PKP\editorialTask\Template;
 use PKP\note\Note;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\QueryAccessPolicy;
@@ -94,7 +95,7 @@ class EditorialTaskController extends PKPBaseController
             ->name('submission.task.get')
             ->whereNumber(['submissionId', 'taskId']);
 
-        Route::get('{submissionId}/stage/{stageId}/tasks', $this->getTasks(...))
+        Route::get('{submissionId}/stages/{stageId}/tasks', $this->getTasks(...))
             ->name('submission.task.getMany')
             ->whereNumber(['submissionId', 'stageId']);
 
@@ -109,6 +110,10 @@ class EditorialTaskController extends PKPBaseController
         Route::put('{submissionId}/tasks/{taskId}/start', $this->startTask(...))
             ->name('submission.task.start')
             ->whereNumber(['submissionId', 'taskId']);
+
+        Route::get('{submissionId}/stages/{stageId}/tasks/fromTemplate/{templateId}', $this->fromTemplate(...))
+            ->name('submission.task.fromTemplate')
+            ->whereNumber(['submissionId', 'stageId', 'templateId']);
 
         Route::post('{submissionId}/tasks/{taskId}/notes', $this->addNote(...))
             ->name('submission.note.add')
@@ -145,7 +150,7 @@ class EditorialTaskController extends PKPBaseController
         }
 
         // To create a task or get a list of tasks, check if the user has access to the workflow stage; note that controller must ensure to get a list of tasks where user is a participant
-        if (in_array($actionName, ['addTask', 'getTasks'])) {
+        if (in_array($actionName, ['addTask', 'getTasks', 'fromTemplate'])) {
             $this->addPolicy(new QueryWorkflowStageAccessPolicy($request, $args, $roleAssignments, (int) $request->getUserVar('stageId')));
         }
 
@@ -406,7 +411,57 @@ class EditorialTaskController extends PKPBaseController
     }
 
     /**
-     * Get task related data to supply the editorial task and editorial tasl participants resource
+     * Create tasks from a task template
+     */
+    public function fromTemplate(Request $illuminateRequest): JsonResponse
+    {
+        $template = Template::find($illuminateRequest->route('templateId')); /** @var Template $template */
+        $request = $this->getRequest();
+        $context = $request->getContext();
+
+        if (!$template || $template->contextId != $context->getId()) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $stageId = (int) $illuminateRequest->route('stageId');
+        if ($template->stageId != $stageId) {
+            return response()->json([
+                'error' => __('api.409.resourceActionConflict'),
+            ], Response::HTTP_CONFLICT);
+        }
+
+        $submission = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $task = $template->promote($submission);
+
+        $task->fill([
+            'createdBy' => $request->getUser()->getId(),
+        ]);
+
+        $participantIds = $task->participants->pluck('userId')->toArray();
+
+        $users = Repo::user()->getCollector()->filterByUserIds($participantIds)->getMany();
+        $userGroups = UserGroup::with('userUserGroups')
+            ->withContextIds($submission->getData('contextId'))
+            ->withUserIds($participantIds)
+            ->get();
+
+        $data = $this->getTaskData($submission, $task);
+
+        $data = array_merge($data, [
+            'users' => $data['users']->merge($users),
+            'userGroups' => $data['userGroups']->merge($userGroups),
+        ]);
+
+        return response()->json(
+            new TaskResource(resource: $task, data: $data),
+            Response::HTTP_OK
+        );
+    }
+
+    /**
+     * Get task related data to supply the editorial task and editorial task participants resource
      */
     protected function getTaskData(Submission $submission, EditorialTask $editTask): array
     {

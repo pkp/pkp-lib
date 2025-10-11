@@ -16,9 +16,10 @@
 namespace PKP\API\v1\editTaskTemplates\formRequests;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use PKP\editorialTask\enums\EditorialTaskDueInterval;
+use PKP\editorialTask\enums\EditorialTaskType;
 
 class AddTaskTemplate extends FormRequest
 {
@@ -31,18 +32,13 @@ class AddTaskTemplate extends FormRequest
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
         $stageIds = array_keys(Application::getApplicationStages());
-        $emailKeys = Repo::emailTemplate()
-            ->getCollector($contextId)
-            ->getMany()
-            ->map(fn ($t) => $t->getData('key'))
-            ->filter()
-            ->values()
-            ->all();
         return [
+            'type' => ['required', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
             'stageId' => ['required', 'integer', Rule::in($stageIds)],
             'title' => ['required', 'string', 'max:255'],
             'include' => ['boolean'],
-            'emailTemplateKey' => ['sometimes', 'nullable', 'string', 'max:255', Rule::in($emailKeys)],
+            'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
+            'description' => ['sometimes', 'nullable', 'string'],
             'userGroupIds' => ['required', 'array', 'min:1'],
             'userGroupIds.*' => [
                 'integer',
@@ -61,13 +57,5 @@ class AddTaskTemplate extends FormRequest
             'userGroupIds' => array_values(array_map('intval', (array) $this->input('userGroupIds', []))),
             'stageId' => is_null($stageId) ? $stageId : (int) $stageId,
         ]);
-    }
-
-    protected function passedValidation(): void
-    {
-        $key = $this->input('emailTemplateKey');
-        if (is_string($key)) {
-            $this->merge(['emailTemplateKey' => trim($key)]);
-        }
     }
 }

@@ -16,12 +16,16 @@
 
 namespace PKP\editorialTask;
 
+use APP\submission\Submission;
+use DateInterval;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use PKP\core\PKPApplication;
 use PKP\core\traits\ModelWithSettings;
+use PKP\editorialTask\EditorialTask as Task;
+use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
 
 class Template extends Model
@@ -35,11 +39,13 @@ class Template extends Model
 
     // columns on edit_task_templates
     protected $fillable = [
-        'stage_id',
+        'stageId',
         'title',
-        'context_id',
+        'contextId',
         'include',
-        'email_template_key',
+        'type',
+        'dueInterval',
+        'description',
     ];
 
     protected $casts = [
@@ -47,7 +53,6 @@ class Template extends Model
         'context_id' => 'int',
         'include' => 'bool',
         'title' => 'string',
-        'email_template_key' => 'string',
     ];
 
     /**
@@ -73,10 +78,7 @@ class Template extends Model
     {
         return array_merge(
             $this->multilingualProps,
-            [
-                'name',
-                'description',
-            ]
+            []
         );
     }
 
@@ -89,24 +91,6 @@ class Template extends Model
             get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
             set: fn ($value) => [$this->primaryKey => $value],
         );
-    }
-
-    /**
-     * Resolve the effective email template by key:
-     * prefer context override; otherwise fallback to default (NULL context_id).
-     */
-    public function emailTemplate(): BelongsTo
-    {
-        return $this->belongsTo(
-            \PKP\emailTemplate\EmailTemplate::class,
-            'email_template_key',  // FK on this model
-            'email_key'            // owner key on email_templates
-        )
-        ->where(function ($q) {
-            $q->where('context_id', $this->context_id)
-            ->orWhereNull('context_id');
-        })
-        ->orderByRaw('CASE WHEN context_id = ? THEN 1 ELSE 0 END DESC', [$this->context_id]);
     }
 
     /**
@@ -138,9 +122,9 @@ class Template extends Model
         return $query->orderByDesc($query->getModel()->getKeyName());
     }
 
-        /**
-         * Scope: filter by stage_id
-         */
+    /**
+     * Scope: filter by stage_id
+     */
     public function scopeFilterByStageId(Builder $query, int $stageId): Builder
     {
         return $query->where('stage_id', $stageId);
@@ -160,6 +144,32 @@ class Template extends Model
     public function scopeFilterByEmailTemplateKey(Builder $query, string $key): Builder
     {
         return $query->where('email_template_key', $key);
+    }
+
+    /**
+     * Creates a new task from a template
+     */
+    public function promote(Submission $submission): Task
+    {
+        $userGroupIds = $this->userGroups()->pluck('user_groups.user_group_id')->toArray();
+        $stageAssignments = StageAssignment::where('submission_id', $submission->getId())->whereHas('userGroupStages', fn (Builder $query) => $query->where('stage_id', $this->stage_id))
+            ->whereHas('userGroup', fn (Builder $query) => $query->whereIn('user_group_id', $userGroupIds))
+            ->get();
+
+        $participantIds = $stageAssignments->pluck('user_id')->unique()->map(function (int $userId) {
+            return ['userId' => $userId, 'isResponsible' => false];
+        });
+
+        return new Task([
+            'type' => $this->type,
+            'title' => $this->title,
+            EditorialTask::ATTRIBUTE_HEADNOTE => $this->description,
+            EditorialTask::ATTRIBUTE_PARTICIPANTS => $participantIds,
+            'stageId' => $this->stageId,
+            'dateDue' => $this->dueInterval ? now()->add(new DateInterval($this->dueInterval)) : null,
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+        ]);
     }
 
 }

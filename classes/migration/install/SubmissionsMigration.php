@@ -20,6 +20,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\core\Core;
+use PKP\editorialTask\enums\EditorialTaskDueInterval;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\submission\PKPSubmission;
 
 class SubmissionsMigration extends \PKP\migration\Migration
@@ -315,11 +317,13 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->index(['context_id'], 'edit_task_templates_context_id_idx');
 
             $table->boolean('include')->default(false);
-            // store key, comes from either email_templates or email_templates_default_data
-            $table->string('email_template_key', 255)->nullable();
-            $table->index(['context_id', 'email_template_key'], 'edit_task_templates_context_email_key_idx');
 
-            
+            $table->enum('due_interval', array_column(EditorialTaskDueInterval::cases(), 'value'))
+                ->nullable()
+                ->comment('Interval after which the task is due, from the time it is created.');
+            $table->enum('type', array_column(EditorialTaskType::cases(), 'value'))->default(EditorialTaskType::DISCUSSION);
+            $table->text('description')->nullable();
+
             $table->timestamps();
         });
 

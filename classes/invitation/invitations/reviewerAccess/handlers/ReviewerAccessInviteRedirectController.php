@@ -16,11 +16,15 @@ namespace PKP\invitation\invitations\reviewerAccess\handlers;
 use APP\core\Request;
 use APP\facades\Repo;
 use Exception;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\steps\ReviewerAccessInvitationSteps;
+use PKP\user\User;
 
 class ReviewerAccessInviteRedirectController extends InvitationActionRedirectController
 {
@@ -36,7 +40,6 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         }
 
         $context = $request->getContext();
-
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
@@ -88,5 +91,10 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
     public function preRedirectActions(InvitationAction $action): void
     {
         return;
+    }
+
+    public function getAcceptSteps(Invitation $invitation, Context $context, ?User $user): array
+    {
+        return (new ReviewerAccessInvitationSteps())->getAcceptSteps($invitation, $context, $user);
     }
 }

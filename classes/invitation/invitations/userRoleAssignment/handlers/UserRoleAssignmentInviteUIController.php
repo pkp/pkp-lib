@@ -18,11 +18,14 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\facades\Locale;
+use PKP\invitation\core\enums\InvitationTypes;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationUIActionRedirectController;
+use PKP\invitation\invitations\userRoleAssignment\steps\UserRoleAssignmentInvitationSteps;
 use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
-use PKP\invitation\stepTypes\SendInvitationStep;
+use PKP\user\User;
 
 class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectController
 {
@@ -103,9 +106,9 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'id' => 'invitationWizard',
             'name' => __('invitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = $this->invitation->buildSendSteps($context, $user);
         $templateMgr->setState([
-            'steps' => $steps->getSteps(null, $context, $user),
+            'steps' => $steps,
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -115,7 +118,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
                     'emailTemplates'
                 ),
             'primaryLocale' => $context->getData('primaryLocale'),
-            'invitationType' => 'userRoleAssignment',
+            'invitationType' => InvitationTypes::INVITATION_USER_ROLE_ASSIGNMENT->value,
             'invitationPayload' => $invitationPayload,
             'invitationMode' => $invitationMode,
             'invitationUserData' => $userId ?
@@ -184,9 +187,9 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
             'id' => 'invitationWizard',
             'name' => __('invitation.wizard.pageTitle'),
         ];
-        $steps = new SendInvitationStep();
+        $steps = $this->invitation->buildSendSteps($context, $user);
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->invitation, $context, $user),
+            'steps' => $steps,
             'emailTemplatesApiUrl' => $request
                 ->getDispatcher()
                 ->url(
@@ -196,7 +199,7 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
                     'emailTemplates'
                 ),
             'primaryLocale' => $context->getData('primaryLocale'),
-            'invitationType' => 'userRoleAssignment',
+            'invitationType' => InvitationTypes::INVITATION_USER_ROLE_ASSIGNMENT->value,
             'invitationPayload' => $invitationPayload,
             'invitationMode' => $invitationMode,
             'invitationUserData' => $invitationModel['userId'] ?
@@ -226,4 +229,10 @@ class UserRoleAssignmentInviteUIController extends InvitationUIActionRedirectCon
         ]);
         $templateMgr->display('/invitation/userInvitation.tpl');
     }
+
+    public function getSendSteps(Invitation $invitation, Context $context, ?User $user): array
+    {
+        return (new UserRoleAssignmentInvitationSteps())->getSendSteps($invitation, $context, $user);
+    }
+
 }

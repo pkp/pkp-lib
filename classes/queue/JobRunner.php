@@ -326,7 +326,7 @@ class JobRunner
             }
 
             // flush the output buffer
-            $this->flushOutputBuffer();
+            app()->flushOutputBuffer();
 
             $this->jobProcessing = true; // set the job runner to processing state
             $this->jobProcessedOnRunner = 0;
@@ -418,48 +418,6 @@ class JobRunner
     {
         // To ensure long running jobs have enough time to complete, we double the max execution time
         return 2 * $this->deduceSafeMaxExecutionTime();
-    }
-
-    /**
-     * Flush the output buffer to ensure all output is sent to the client before job runner
-     * start processing jobs to avoid any potential output buffering issues which may
-     * cause client page load time and performance degradation.
-     * 
-     * This should be called before the job runner starts to process jobs and only when there is
-     * jobs in the queue to process. 
-     */
-    public function flushOutputBuffer(): void
-    {
-        // Disable flushing output buffer for unit tests as PHPUnit is quite sensitive to output buffer 
-        // manipulation during tests. The root cause is The PHPUnit configuration has
-        // `beStrictAboutOutputDuringTests="true"` which makes PHPUnit very sensitive to any output
-        // buffer manipulation during tests and mark it as risky.
-        if (app()->runningUnitTests()) {
-            return;
-        }
-
-        // Force flush and close connection for non-blocking behavior
-        // and set headers to close connection and specify content length (if buffer exists)
-        if (headers_sent() === false) {
-            header('Connection: close');
-            header('Content-Encoding: none');
-            if (ob_get_length() > 0) {
-                header('Content-Length: ' . ob_get_length());
-            }
-        }
-
-        // Flush output buffer and send response and allow script to continue if client disconnects.
-        // Flush and end output buffer (if started) and also the system buffer.
-        ignore_user_abort(true);
-        if (ob_get_level() > 0) {
-            ob_end_flush();
-        }
-        flush();
-
-        // For PHP-FPM (Nginx/Apache with FPM): Explicitly finish FastCGI request
-        if (function_exists('fastcgi_finish_request')) {
-            fastcgi_finish_request();
-        }
     }
 
     /**

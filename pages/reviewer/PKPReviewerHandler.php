@@ -23,6 +23,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Facades\Mail;
+use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -129,12 +130,18 @@ class PKPReviewerHandler extends Handler
             throw new \Exception('Invalid step!');
         }
 
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'featureFlags' => [
+                'enableNewDiscussions' => Config::getVar('features', 'enable_new_discussions')
+            ]
+        ]);
+
         if ($step < 4) {
             $reviewerForm = $this->getReviewForm($step, $request, $reviewSubmission, $reviewAssignment);
             $reviewerForm->initData();
             return new JSONMessage(true, $reviewerForm->fetch($request));
         } else {
-            $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign([
                 'submission' => $reviewSubmission,
                 'step' => 4,

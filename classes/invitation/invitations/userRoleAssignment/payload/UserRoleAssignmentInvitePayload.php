@@ -42,13 +42,12 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
         public ?string $userCountry = null,
         public ?string $username = null,
         public ?string $password = null,
-        public ?string $emailSubject = null,
-        public ?string $emailBody = null,
         public ?array  $userGroupsToAdd = null,
         public ?bool   $passwordHashed = null,
         public ?string $sendEmailAddress = null,
         public ?array $inviteStagePayload = null,
         public ?bool $shouldUseInviteData = null,
+        public ?array $emailComposer = null,
     )
     {
         parent::__construct(get_object_vars($this));

@@ -107,11 +107,27 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $reciever = $this->getMailableReceiver($locale);
 
+        $emailComposerValues = $this->getPayload()->emailComposer;
+
+        $emailSubject = $emailTemplate->getLocalizedData('subject', $locale);
+        $templateBody = $emailTemplate->getLocalizedData('body', $locale);
+
+        if (isset($emailComposerValues)) {
+            $emailSubject = $emailComposerValues['subject'] ?? $emailSubject;
+            $emailBody = $emailComposerValues['body'] ?? $templateBody;
+
+            // Add the <style>, if existing in the template but not in the custom email body
+            if (strpos($templateBody, '<style') !== false && strpos($emailBody, '<style') === false) {
+                preg_match_all('/<style\b[^>]*>.*?<\/style>/is', $templateBody, $matches);
+                $emailBody .= "\n" . implode("\n", $matches[0]);
+            }
+        }
+
         $mailable
             ->sender($inviter)
             ->recipients([$reciever])
-            ->subject($emailTemplate->getLocalizedData('subject', $locale))
-            ->body($emailTemplate->getLocalizedData('body', $locale));
+            ->subject($emailSubject)
+            ->body($emailBody);
 
         $this->setMailable($mailable);
 

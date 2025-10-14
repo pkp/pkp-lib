@@ -59,7 +59,7 @@ abstract class BaseJob implements ShouldQueue
     /**
      * Indicate if the job should be marked as failed on timeout.
      */
-    public bool $failOnTimeout = true;
+    public bool $failOnTimeout = false;
 
     /**
      * Initialize the job

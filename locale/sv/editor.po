@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2025-10-07 13:39+0000\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "sv/>\n"
@@ -615,9 +615,8 @@ msgstr "Det fanns ett problem med steg nummer {$stepName}."
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Samma institution som författaren"
 
-#, fuzzy
 msgid "editor.submission.findAndSelectReviewerFromSuggestions"
-msgstr "Välj en granskare ur förslag på granskare"
+msgstr "Välj en granskare från listan med föreslagna granskare"
 
 msgid "editor.submission.search"
 msgstr "Sök efter bidrag, ID, författare, nyckelord, etc."
@@ -625,7 +624,6 @@ msgstr "Sök efter bidrag, ID, författare, nyckelord, etc."
 msgid "editor.submission.days"
 msgstr "Dagar"
 
-#, fuzzy
 msgid "editor.submission.daysInStage"
 msgstr "Dagar i steg"
 
@@ -634,16 +632,17 @@ msgstr "Sammanfattning"
 
 msgid "editor.review.importantDates.notice"
 msgstr ""
+"Deadline för granskning måste vara senare än eller lika med deadline för "
+"svar."
 
 #, fuzzy
 msgid "editor.review.reviewViewed"
 msgstr "Granskning visad"
 
-#, fuzzy
 msgid "editor.review.logResponse.form.subDetail"
 msgstr ""
-"Om granskaren kontaktar dig genom mail eller på något annat sätt kan du "
-"registrera deras svar"
+"Om granskaren kontaktar dig via e-post eller på något annat sätt kan du "
+"registrera deras svar åt dem"
 
 msgid "editor.review.logResponse.form.responseRequired"
 msgstr "Ett svar måste väljas"
@@ -665,3 +664,14 @@ msgstr "Registrera svar för"
 
 msgid "editor.review.download"
 msgstr "Ladda ned granskningsformuläret"
+
+msgid "editor.review.errorAddingReviewer.dateValidationFailed"
+msgstr ""
+"Granskaren kunde inte läggas till eftersom granskningsdeadline måste vara "
+"samma som eller senare än svarsdeadline."
+
+msgid "editor.review.authorOnly"
+msgstr "Sektioner avsedda enbart för författare visas"
+
+msgid "editor.review.allSections"
+msgstr "Alla granskningssektioner visas i redaktörsformuläret"

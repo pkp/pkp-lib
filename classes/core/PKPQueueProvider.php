@@ -248,19 +248,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     && $jobInstance instanceof \Illuminate\Contracts\Queue\ShouldQueue
                 ) {
                     try {
-                        foreach ($jobClass::contextDeductionArgMap() as $arg => $method) {
-
-                            if (!method_exists($jobClass, $method)) {
-                                error_log("Warning: No {$method} method defined for property {$arg} in job class {$jobClass}");
-                                continue;
-                            }
-
-                            $contextId = $jobClass::$method($jobInstance);
-
-                            if ($contextId) {
-                                break;
-                            }
-                        }
+                        $contextId = $jobClass::deduceContextIdFromJobArgs($jobInstance);
                     } catch (Throwable $e) {
                         error_log(
                             sprintf(

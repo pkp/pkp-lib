@@ -19,8 +19,11 @@ declare(strict_types=1);
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
@@ -31,7 +34,6 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
-use PKP\queue\JobRunner;
 use PKP\queue\WorkerConfiguration;
 use PKP\queue\PKPQueueDatabaseConnector;
 use Throwable;
@@ -54,9 +56,37 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     }
 
     /**
-     * Get a job model builder instance to query the jobs table
+     * Apply context-aware filtering to the job query.
      */
-    public function getJobModelBuilder(): Builder
+    public function applyJobContextAwareFilter(
+        EloquentBuilder|QueryBuilder $jobQuery,
+        ?int $contextId = null
+    ): EloquentBuilder|QueryBuilder
+    {
+        if (DB::connection() instanceof PostgresConnection) {
+            return $jobQuery->where(
+                fn ($query) => $query
+                    ->whereRaw(
+                        "REGEXP_REPLACE(payload, '.*\"context_id\":\\s*([0-9]+).*', '\\1') = ?",
+                        [(string) $contextId]
+                    )
+                    ->orWhereRaw(
+                        "payload !~ '\"context_id\":\\s*[0-9]+'"
+                    )
+            );
+        }
+
+        return $jobQuery->where(
+            fn ($query) => $query
+                ->where('payload->context_id', $contextId)
+                ->orWhereNull('payload->context_id')
+        );
+    }
+
+    /**
+     * Get a job model eloquent builder instance to query the jobs table
+     */
+    public function getJobModelBuilder(): EloquentBuilder
     {
         return PKPJobModel::isAvailable()
             ->nonEmptyQueue()
@@ -148,6 +178,8 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 if (app()->runningUnitTests()) {
                     return;
                 }
+                
+                // error_log('Shutdown function started at: ' . microtime(true));
 
                 $jobRunner = app('jobRunner'); /** @var \PKP\queue\JobRunner $jobRunner */
 
@@ -158,6 +190,8 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     ->withMaxMemoryConstrain()
                     ->withEstimatedTimeToProcessNextJobConstrain()
                     ->processJobs();
+
+                // error_log('Shutdown function ended at: ' . microtime(true));
             });
         }
 

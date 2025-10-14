@@ -114,7 +114,7 @@ class PKPUserController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
         $map = Repo::user()->getSchemaMap();
-        $currentUser = $request->user();
+        $currentUser = Application::get()->getRequest()->getUser();
         $options = [
             'currentUserId' => $currentUser?->getId(),
             'isSiteAdmin' => Validation::isSiteAdmin(),
@@ -187,7 +187,7 @@ class PKPUserController extends PKPBaseController
         $users = $collector->getMany();
 
         $map = Repo::user()->getSchemaMap();
-        $currentUser = $request->user();
+        $currentUser = Application::get()->getRequest()->getUser();
         $options = [
             'currentUserId' => $currentUser?->getId(),
             'isSiteAdmin' => Validation::isSiteAdmin(),
@@ -246,7 +246,7 @@ class PKPUserController extends PKPBaseController
             ->offset($params['offset'] ?? null);
         $usersCollection = $collector->getMany();
         $map = Repo::user()->getSchemaMap();
-        $currentUser = $request->user();
+        $currentUser = Application::get()->getRequest()->getUser();
         $options = [
             'currentUserId' => $currentUser ? (int)$currentUser->getId() : null,
             'isSiteAdmin' => Validation::isSiteAdmin(),
@@ -348,8 +348,7 @@ class PKPUserController extends PKPBaseController
         // Return updated user model
         $user = Repo::user()->get($userId, true);
         $map = Repo::user()->getSchemaMap();
-        $currentUser = $request->user();
-
+        $currentUser = Application::get()->getRequest()->getUser();
         $options = [
             'currentUserId' => $currentUser?->getId(),
             'isSiteAdmin' => Validation::isSiteAdmin(),

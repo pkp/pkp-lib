@@ -16,7 +16,6 @@ namespace PKP\queue;
 
 use Illuminate\Queue\DatabaseQueue as IlluminateDatabaseQueue;
 use Illuminate\Queue\Jobs\DatabaseJobRecord;
-use PKP\queue\JobRunner;
 
 class DatabaseQueue extends IlluminateDatabaseQueue
 {
@@ -96,7 +95,10 @@ class DatabaseQueue extends IlluminateDatabaseQueue
                         $this->isReservedButExpired($query);
                     });
 
-        $job =  JobRunner::applyJobContextAwareFilter($jobPickQuery, $this->contextId)->orderBy('id', 'asc')->first();
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
+        $job =  $jobQueue
+            ->applyJobContextAwareFilter($jobPickQuery, $this->contextId)
+            ->orderBy('id', 'asc')->first();
 
         return $job ? new DatabaseJobRecord((object) $job) : null;
     }

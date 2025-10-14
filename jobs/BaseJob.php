@@ -90,84 +90,70 @@ abstract class BaseJob implements ShouldQueue
 
     /**
      * Defines the properties to check for context deduction, in order of priority.
-     * Each property must have a corresponding method name mapped.
      */
     public static function contextDeductionArgMap(): array
     {
         return [
-            'contextId' => 'deduceFromArgContextId',
-            'context' => 'deduceFromArgContext',
-            'submissionId' => 'deduceFromArgSubmissionId',
-            'submission' => 'deduceFromArgSubmission',
+            'contextId',
+            'context',
+            'submissionId',
+            'submission',
         ];
     }
 
-    public static function deduceFromArgContextId(ShouldQueue $job): ?int
+    /**
+     * Deduce and return the context ID from the job arguments.
+     */
+    public static function deduceContextIdFromJobArgs(ShouldQueue $job): ?int
     {
         $reflection = new ReflectionClass($job);
+        $contextId = null;
 
-        if (!$reflection->hasProperty('contextId')) {
-            return null;
+        foreach (static::contextDeductionArgMap() as $argName) {
+            if (!$reflection->hasProperty($argName)) {
+                continue;
+            }
+
+            switch ($argName) {
+                case 'contextId':
+                    $property = $reflection->getProperty('contextId');
+                    $contextIdValue = $property->getValue($job);
+                    if (is_int($contextIdValue)) {
+                        $contextId = $contextIdValue;
+                    }
+                    break;
+                case 'context':
+                    $property = $reflection->getProperty('context');
+                    $contextValue = $property->getValue($job);
+
+                    if ($contextValue instanceof Context) {
+                        $contextId = $contextValue->getId();
+                    }
+                    break;
+                case 'submissionId':
+                    $property = $reflection->getProperty('submissionId');
+                    $submissionIdValue = $property->getValue($job);
+                    if (is_int($submissionIdValue)) {
+                        $contextId = $submissionIdValue;
+                    }
+                    break;
+                case 'submission':
+                    $property = $reflection->getProperty('submission');
+                    $submissionValue = $property->getValue($job);
+                    if ($submissionValue instanceof PKPSubmission) {
+                        $contextId = $submissionValue->getData('contextId');
+                    }
+                    break;
+                default:
+                    $contextId = null;
+            }
+
+            if ($contextId !== null) {
+                return $contextId;
+            }
         }
 
-        $property = $reflection->getProperty('contextId');
-        $contextIdValue = $property->getValue($job);
-
-        return is_int($contextIdValue) ? $contextIdValue : null;
-    }
-
-    public static function deduceFromArgContext(ShouldQueue $job): ?int
-    {
-        $reflection = new ReflectionClass($job);
-
-        if (!$reflection->hasProperty('context')) {
-            return null;
-        }
-
-        $property = $reflection->getProperty('context');
-        $contextValue = $property->getValue($job);
-
-        if ($contextValue instanceof Context) {
-            return $contextValue->getId();
-        }
-
-        return null;
-    }
-
-    public static function deduceFromArgSubmissionId(ShouldQueue $job): ?int
-    {
-        $reflection = new ReflectionClass($job);
-
-        if (!$reflection->hasProperty('submissionId')) {
-            return null;
-        }
-
-        $property = $reflection->getProperty('submissionId');
-        $submissionIdValue = $property->getValue($job);
-
-        if (!is_int($submissionIdValue)) {
-            return null;
-        }
-
-        return Repo::submission()->get($submissionIdValue)?->getData('contextId');
-    }
-
-    public static function deduceFromArgSubmission(ShouldQueue $job): ?int
-    {
-        $reflection = new ReflectionClass($job);
-
-        if (!$reflection->hasProperty('submission')) {
-            return null;
-        }
-
-        $property = $reflection->getProperty('submission');
-        $submissionValue = $property->getValue($job);
-
-        if ($submissionValue instanceof PKPSubmission) {
-            return $submissionValue->getData('contextId');
-        }
-
-        return null;
+        return $contextId;
     }
 
     /**

@@ -2,7 +2,7 @@
 # ojs <joglobalise@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-09 17:54+0000\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/api/nl/>\n"
 "Language: nl\n"
@@ -162,7 +162,7 @@ msgstr "De verzochte auteur werd niet gevonden"
 #, fuzzy
 msgid "api.orcid.404.contextRequired"
 msgstr ""
-"Deze apparatuur is niet beschikbaar vanaf de website-omvattende naamruimte "
+"Dit eindapparaat is niet beschikbaar vanaf de website-omvattende naamruimte "
 "en moet worden verzocht voor een bekende omgeving."
 
 msgid "api.publication.403.alreadyPublished"
@@ -174,11 +174,10 @@ msgstr "De publicatie die u wilt depubliceren is niet gepubliceerd."
 msgid "api.publication.403.cantEditPublished"
 msgstr "U kunt deze publicatie niet bewerken omdat deze al is verspreid."
 
-#, fuzzy
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"U kunt de status direct via de API niet wijzigen. In de plaats hiervan, "
-"volgt u het publicatie en depublicatie-proces."
+"U kunt de status niet direct via de API wijzigen. In de plaats hiervan, "
+"volgt u het (de)publicatieproces."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "U moet eerst de publicatie depubliceren, voordat u het verwijdert."
@@ -368,7 +367,7 @@ msgstr ""
 #, fuzzy
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Dit apparaat is niet beschikbaar vanaf de omgeving. Dit moet via de "
+"Dit eindapparaat is niet beschikbaar vanaf de omgeving. Dit moet via de "
 "websitebrede naamruimte worden bereikt."
 
 msgid "api.jobs.406.failedJobPayloadMissing"

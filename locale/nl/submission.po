@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2025-09-23 15:47+0000\n"
+"PO-Revision-Date: 2025-10-14 17:41+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -965,7 +965,7 @@ msgid "submission.recommendation"
 msgstr "Aanbeveling: {$recommendation}"
 
 msgid "submission.rejected"
-msgstr "Afgewezen"
+msgstr "Verworpen"
 
 msgid "submission.request"
 msgstr "Aanvraag"
@@ -2363,7 +2363,6 @@ msgstr ""
 "U werd toegevoegd aan een discussie met de titel \"{$queryTitle}\" over de "
 "inzending \"{$submissionTitle}\"."
 
-#, fuzzy
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 
@@ -2886,9 +2885,8 @@ msgstr "Aan mij toegekend"
 msgid "submission.dashboard.view.reviewsOverdue"
 msgstr "Niet op tijd behandelde recensies"
 
-#, fuzzy
 msgid "submission.dashboard.view.reviewExternal"
-msgstr "Volledige recensie door vakgenoten"
+msgstr "Worden alle gerecenseerd"
 
 msgid "submission.dashboard.view.reviewsSubmitted"
 msgstr "Ingediende recensies"
@@ -2896,9 +2894,8 @@ msgstr "Ingediende recensies"
 msgid "submission.dashboard.view.awaitingReviews"
 msgstr "In afwachting van recensies"
 
-#, fuzzy
 msgid "submission.dashboard.view.copyediting"
-msgstr "Volledig in de taalkundige redactiefase"
+msgstr "Worden alle geredigeerd"
 
 msgid "submission.dashboard.view.reviewerAssignmentsAll"
 msgstr "Alle opdrachten"
@@ -3038,7 +3035,6 @@ msgstr ""
 "de informatie van de ingezonden file '{$fileName} kan niet worden "
 "teruggevonden."
 
-#, fuzzy
 msgid "reviewerSuggestion.suggestionReason"
 msgstr "Redenen voor het voorstellen van een recensent"
 
@@ -3154,10 +3150,9 @@ msgstr ""
 "De recensie was voltooid op {$date} met de volgende "
 "aanbeveling:<b>{$recommendation}</b>"
 
-#, fuzzy
 msgid "dashboard.minimumReviewsConfirmedDecisionNeeded"
 msgstr ""
-"Het minimumaantal recensies is goedgekeurd. Hierdoor is een beslissing nodig."
+"Het minimumaantal recensies is behaald. Hierdoor is een beslissing nodig."
 
 msgid "dashboard.recommendOnly.recommendationsReady"
 msgstr "Een becommentarieerde aanbeveling is ontvangen"

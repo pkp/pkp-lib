@@ -24,6 +24,7 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
+use PKP\API\v1\publicationOpenPeerReviews\resources\PublicationOpenPeerReviewResource;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -976,5 +977,21 @@ abstract class Repository
     public function getMinorVersionsSettingValues(int $submissionId, string $versionStage, int $versionMajor, string $settingName): Collection
     {
         return $this->dao->getMinorVersionsSettingValues($submissionId, $versionStage, $versionMajor, $settingName);
+    }
+
+    /**
+     * Get public peer review data for publications.
+     *
+     * @param Enumerable $publications - The publications to get peer review data for.
+     */
+    public function getPeerReviews(Enumerable $publications): Enumerable
+    {
+        return collect($publications)
+            ->lazy()
+            ->map(function ($publication) {
+                // Call resolve to get the array representation of the data prepared by the resource.
+                // Thus allowing code outside of an API context (e.g, page handlers) to use this getPeerReviews method to get peer review data in a consistent shape.
+                return (new PublicationOpenPeerReviewResource($publication))->resolve();
+            })->values();
     }
 }

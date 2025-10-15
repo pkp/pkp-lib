@@ -104,7 +104,7 @@ class UserCommentComponent
                 'login',
                 null,
                 null,
-                ['source' => $this->request->getRequestPath()]
+                ['source' => $this->request->getRequestPath() . '#public-comments']
             );
     }
 

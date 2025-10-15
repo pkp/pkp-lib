@@ -42,8 +42,12 @@ class VersionDois
         $context = $event->context;
 
         $doisEnabled = $context->getData(Context::SETTING_ENABLE_DOIS);
-
         if (!$doisEnabled) {
+            return;
+        }
+
+        $doiCreationTime = $context->getData(Context::SETTING_DOI_CREATION_TIME);
+        if ($doiCreationTime === Repo::doi()::CREATION_TIME_NEVER) {
             return;
         }
 

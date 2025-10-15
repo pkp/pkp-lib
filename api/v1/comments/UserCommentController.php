@@ -216,7 +216,7 @@ class UserCommentController extends PKPBaseController
                     foreach ($publicationIdsRaw as $id) {
                         if (!filter_var($id, FILTER_VALIDATE_INT)) {
                             return response()->json([
-                                'error' => __('api.userComments.400.invalidPublicationId', ['publicationId' => $id])
+                                'error' => __('api.publication.400.invalidPublicationId', ['publicationId' => $id])
                             ], Response::HTTP_BAD_REQUEST);
                         }
 

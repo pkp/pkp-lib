@@ -9,7 +9,7 @@
  *
  * @class I10962_UpdateEmailTemplateVariables
  *
- * @brief Remap {$journalAcronym} to {$contextAcronym} in the COPYEDIT_REQUEST email template.
+ * @brief Remap legacy {journal|press|server}* tokens to {context*} in email template subjects and bodies.
  */
 
 namespace PKP\migration\upgrade\v3_4_0;
@@ -20,38 +20,53 @@ use PKP\migration\Migration;
 
 class I10962_UpdateEmailTemplateVariables extends Migration
 {
+    /** @return array<string,string> */
+    protected function getMappings(): array
+    {
+        return [
+            // OJS
+            'journalAcronym'   => 'contextAcronym',
+            'journalName'      => 'contextName',
+            'journalUrl'       => 'contextUrl',
+            'journalSignature' => 'contextSignature',
+
+            // OMP
+            'pressAcronym'     => 'contextAcronym',
+            'pressName'        => 'contextName',
+            'pressUrl'         => 'contextUrl',
+            'pressSignature'   => 'contextSignature',
+
+            // OPS
+            'serverAcronym'    => 'contextAcronym',
+            'serverName'       => 'contextName',
+            'serverUrl'        => 'contextUrl',
+            'serverSignature'  => 'contextSignature',
+        ];
+    }
+
     public function up(): void
     {
-        DB::transaction(function () {
-            $map = [
-                'journalAcronym' => 'contextAcronym',
-                'journalName' => 'contextName',
-                'journalUrl' => 'contextUrl',
-                'journalSignature' => 'contextSignature',
-            ];
+        foreach ($this->getMappings() as $old => $new) {
+            $oldToken = '{$' . $old . '}';
+            $newToken = '{$' . $new . '}';
+            $like = '%' . $oldToken . '%';
 
-            foreach ($map as $old => $new) {
-                $oldToken = '{$' . $old . '}';
-                $newToken = '{$' . $new . '}';
-                $like = '%' . $oldToken . '%';
+            DB::update(
+                'UPDATE email_templates_default_data
+                   SET subject = replace(subject, ?, ?),
+                       body    = replace(body,    ?, ?)
+                 WHERE subject LIKE ? OR body LIKE ?',
+                [$oldToken, $newToken, $oldToken, $newToken, $like, $like]
+            );
 
-                DB::update(
-                    'UPDATE email_templates_default_data
-                       SET subject = replace(subject, ?, ?),
-                           body    = replace(body,    ?, ?)
-                     WHERE subject LIKE ? OR body LIKE ?',
-                    [$oldToken, $newToken, $oldToken, $newToken, $like, $like]
-                );
-
-                DB::update(
-                    'UPDATE email_templates_settings
-                        SET setting_value = replace(setting_value, ?, ?)
-                      WHERE setting_name IN (?, ?)
-                        AND setting_value LIKE ?',
-                    [$oldToken, $newToken, 'subject', 'body', $like]
-                );
-            }
-        });
+            DB::update(
+                'UPDATE email_templates_settings
+                    SET setting_value = replace(setting_value, ?, ?)
+                  WHERE setting_name IN (?, ?)
+                    AND setting_value LIKE ?',
+                [$oldToken, $newToken, 'subject', 'body', $like]
+            );
+        }
     }
 
     public function down(): void

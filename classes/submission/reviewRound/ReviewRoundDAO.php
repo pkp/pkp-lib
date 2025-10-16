@@ -205,6 +205,21 @@ class ReviewRoundDAO extends \PKP\db\DAO
     }
 
     /**
+     * Get an iterator of review round objects associated with a set of publication IDs
+     */
+    public function getByPublicationIds($publicationIds, $stageId = null, $round = null): DAOResultFactory
+    {
+        $q = DB::table('review_rounds', 'rr')
+            ->whereIn('rr.publication_id', $publicationIds)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->when($round, fn (Builder $q) => $q->where('rr.round', '=', $round))
+            ->orderBy('rr.stage_id')
+            ->orderBy('rr.round');
+
+        return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
+    }
+
+    /**
      * Get the current review round for a given stage (or for the latest stage)
      *
      * @param int $submissionId

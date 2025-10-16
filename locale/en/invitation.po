@@ -379,3 +379,68 @@ msgstr "The user was disabled. You cannot assign them a role while they are disa
 msgid "acceptInvitation.privacyConsent"
 msgstr "Privacy Consent"
 
+msgid "reviewerInvitation.wizard.pageTitle"
+msgstr "Create a new reviewer"
+
+msgid "reviewerInvitation.wizard.pageTitleDescription"
+msgstr "When creating a reviewer in OJS, you can search for an existing user and enroll them as a reviewer if they already have an account, or invite them to create one and join as a new reviewer if no account is found"
+
+msgid "reviewerInvitation.reviewDetails.stepName"
+msgstr "Review Details"
+
+msgid "reviewerInvitation.reviewDetails.stepLabel"
+msgstr "{$step} - Enter Review Details"
+
+msgid "reviewerInvitation.reviewDetails.nextButtonLabel"
+msgstr "Save and Continue"
+
+msgid "reviewerInvitation.reviewDetails.stepDescription"
+msgstr "you can add review related details."
+
+msgid "reviewerInvitation.reviewTypes"
+msgstr "Review Types"
+
+msgid "reviewerInvitation.responseDueDate"
+msgstr "Review Response Date"
+
+msgid "reviewerInvitation.reviewDueDate"
+msgstr "Review Due Date"
+
+msgid "reviewerInvitation.modal.message"
+msgstr "{$email} has been invited to review the submission \"{$articleTitle}\"<br><br> You can be updated about the user's decision on the reviewer panel in the review workflow or through email and OJS notifications."
+
+msgid "reviewerInvitation.reviewTypes.anonymousAuthorOrReviewer"
+msgstr "Anonymous Reviewer / Anonymous Author"
+
+msgid "reviewerInvitation.reviewTypes.disclosedAuthor"
+msgstr "Anonymous Reviewer / Disclosed Author"
+
+msgid "reviewerInvitation.reviewTypes.open"
+msgstr "Open"
+
+msgid "reviewerInvitation.modal.button"
+msgstr "View submission"
+
+msgid "reviewerInvitation.searchUser.stepName"
+msgstr "Create a new reviewer"
+
+msgid "reviewerInvitation.searchUser.stepLabel"
+msgstr "Search user you want to add as reviewer"
+
+msgid "reviewerInvitation.searchUser.stepDescription"
+msgstr "When creating a reviewer in OJS, you can search for an existing user and enroll them as a reviewer if they already have an account, or invite them to create one and join as a new reviewer if no account is found"
+
+msgid "reviewerInvitation.searchUser.nextButtonLabel"
+msgstr "Continue"
+
+msgid "reviewerInvitation.enterDetails.stepName"
+msgstr "User Details"
+
+msgid "reviewerInvitation.enterDetails.stepDescription"
+msgstr "Invite user to take the role of a reviewer in the system"
+
+msgid "reviewerInvitation.enterDetails.stepLabel"
+msgstr "{$step} - Enter details to add user as a reviewer"
+
+msgid "reviewerInvitation.enterDetails.stepDescription"
+msgstr "Invite user to take the role of a reviewer in the system"

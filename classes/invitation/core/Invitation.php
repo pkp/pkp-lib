@@ -507,4 +507,16 @@ abstract class Invitation
 
         return false;
     }
+
+    public function buildSendSteps(Context $context, ?User $user): array
+    {
+        $invitationController = $this->getInvitationUIActionRedirectController();
+        return $invitationController ? $invitationController->getSendSteps($this, $context, $user) : [];
+    }
+
+    public function buildAcceptSteps(Context $context, ?User $user): array
+    {
+        $invitationController = $this->getInvitationActionRedirectController();
+        return $invitationController ? $invitationController->getAcceptSteps($this, $context, $user) : [];
+    }
 }

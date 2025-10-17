@@ -15,9 +15,9 @@
 namespace PKP\mail\mailables;
 
 use PKP\context\Context;
-use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\mail\Mailable;
+use PKP\mail\traits\AddsStyleToSymfonyMessage;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
@@ -29,6 +29,7 @@ class UserRoleEndNotify extends Mailable
     use Configurable;
     use Recipient;
     use Sender;
+    use AddsStyleToSymfonyMessage;
 
     protected static ?string $name = 'mailable.userRoleEndNotify.name';
     protected static ?string $description = 'mailable.userRoleEndNotify.description';
@@ -55,6 +56,9 @@ class UserRoleEndNotify extends Mailable
     {
         parent::__construct(array_slice(func_get_args(), 0, -1));
         $this->userGroup = $userGroup;
+
+        // Register style injection
+        $this->registerMailCss();
     }
 
     /**
@@ -75,9 +79,6 @@ class UserRoleEndNotify extends Mailable
             $locale = $this->getLocale() ?? Locale::getLocale();
         }
 
-        $targetPath = Core::getBaseDir() . '/lib/pkp/styles/mailables/style.css';
-        $emailTemplateStyle = file_get_contents($targetPath);
-
         $role = $this->userGroup->getLocalizedData('name');
 
         // Set view data for the template
@@ -85,7 +86,6 @@ class UserRoleEndNotify extends Mailable
             $this->viewData,
             [
                 static::$roleRemoved => $role,
-                static::EMAIL_TEMPLATE_STYLE_PROPERTY => $emailTemplateStyle,
             ]
         );
     }

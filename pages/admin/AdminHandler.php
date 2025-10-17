@@ -663,10 +663,10 @@ class AdminHandler extends Handler
         }
 
         $rows = collect(array_merge(HttpFailedJobResource::toResourceArray($failedJob), [
-            'payload' => $failedJob->first()->getRawOriginal('payload'),
+            'payload' => $failedJob->getRawOriginal('payload'),
         ]))
             ->map(fn ($value, $attribute) => is_array($value) ? null : [
-                'attribute' => '<b>' . __('admin.jobs.list.' . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()) . '</b>',
+                'attribute' => __('admin.jobs.list.' . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()),
                 'value' => isValidJson($value) ? json_encode(json_decode($value, true), JSON_PRETTY_PRINT) : $value
             ])
             ->filter()

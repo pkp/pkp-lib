@@ -11,12 +11,13 @@ declare(strict_types=1);
  *
  * @class TestJobSuccess
  *
- * @brief Example successful TestJob with a valid FQN (@see https://www.php.net/manual/pt_BR/language.namespaces.rules.php)
+ * @brief Example successful TestJob
  */
 
 namespace PKP\jobs\testJobs;
 
 use Illuminate\Bus\Batchable;
+use PKP\config\Config;
 use PKP\job\models\Job;
 use PKP\jobs\BaseJob;
 
@@ -36,7 +37,7 @@ class TestJobSuccess extends BaseJob
      */
     public function __construct()
     {
-        $this->connection = config('queue.default');
+        $this->connection = Config::getVar('queues', 'default_connection', 'database');
         $this->queue = Job::TESTING_QUEUE;
     }
 
@@ -45,6 +46,8 @@ class TestJobSuccess extends BaseJob
      */
     public function handle(): void
     {
-        error_log('Test success job');
+        error_log('TestJobSuccess start processing');
+        sleep(5);
+        error_log('TestJobSuccess end processing');
     }
 }

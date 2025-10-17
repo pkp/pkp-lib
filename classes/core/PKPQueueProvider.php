@@ -124,9 +124,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     /**
      * Run the queue worker to process queue the jobs
      */
-    public function runJobInQueue(): bool
+    public function runJobInQueue(?EloquentBuilder $jobBuilder = null): bool
     {
-        $job = $this->getJobModelBuilder()->limit(1)->first();
+        $job = $jobBuilder
+            ? $jobBuilder->limit(1)->first()
+            : $this->getJobModelBuilder()->limit(1)->first();
 
         if ($job === null) {
             return false; // this will signal that there are no jobs to run

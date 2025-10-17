@@ -114,13 +114,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         if (isset($emailComposerValues)) {
             $emailSubject = $emailComposerValues['subject'] ?? $emailSubject;
-            $emailBody = $emailComposerValues['body'] ?? $templateBody;
-
-            // Add the <style>, if existing in the template but not in the custom email body
-            if (strpos($templateBody, '<style') !== false && strpos($emailBody, '<style') === false) {
-                preg_match_all('/<style\b[^>]*>.*?<\/style>/is', $templateBody, $matches);
-                $emailBody .= "\n" . implode("\n", $matches[0]);
-            }
+            $emailBody = $emailComposerValues['bodyTokenized'] ?? $templateBody;
         }
 
         $mailable

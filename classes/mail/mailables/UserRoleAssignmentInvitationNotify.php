@@ -16,12 +16,12 @@ namespace PKP\mail\mailables;
 
 use Illuminate\Support\Collection;
 use PKP\context\Context;
-use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\invitations\userRoleAssignment\helpers\UserGroupHelper;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\mail\Mailable;
+use PKP\mail\traits\AddsStyleToSymfonyMessage;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
@@ -34,6 +34,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
     use Recipient;
     use Configurable;
     use Sender;
+    use AddsStyleToSymfonyMessage;
 
     protected static ?string $name = 'mailable.userRoleAssignmentInvitationNotify.name';
     protected static ?string $description = 'mailable.userRoleAssignmentInvitationNotify.description';
@@ -66,6 +67,9 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         parent::__construct(array_slice(func_get_args(), 0, -1));
 
         $this->invitation = $invitation;
+
+        // Register style injection
+        $this->registerMailCss();
     }
 
     /**
@@ -178,8 +182,10 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         // Roles Added
         $userGroupsAddedTitle = __('emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles');
-        $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
 
+        if ($this->invitation->getPayload()->userGroupsToAdd) {
+            $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
+        }
 
         $existingUserGroupsTitle = __('emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles');
         $existingUserGroups = '';
@@ -207,9 +213,6 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             $existingUserGroups .= $this->getAllUserUserGroupSection($userUserGroups->toArray(), null, $context, $locale, $existingUserGroupsTitle);
         }
 
-        $targetPath = Core::getBaseDir() . '/lib/pkp/styles/mailables/style.css';
-        $emailTemplateStyle = file_get_contents($targetPath);
-
         $recipientName = !empty($sendIdentity->getFullName()) ? $sendIdentity->getFullName() : $sendIdentity->getEmail();
 
         // Set view data for the template
@@ -217,12 +220,11 @@ class UserRoleAssignmentInvitationNotify extends Mailable
             $this->viewData,
             [
                 static::$recipientName => $recipientName,
-                static::$inviterName => $inviter->getFullName(),
+                static::$inviterName => $inviter?->getFullName(),
                 static::$acceptUrl => $this->invitation->getActionURL(InvitationAction::ACCEPT),
                 static::$declineUrl => $this->invitation->getActionURL(InvitationAction::DECLINE),
                 static::$rolesAdded => $userGroupsAdded,
                 static::$existingRoles => $existingUserGroups,
-                static::EMAIL_TEMPLATE_STYLE_PROPERTY => $emailTemplateStyle,
             ]
         );
     }

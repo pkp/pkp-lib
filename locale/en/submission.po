@@ -3194,6 +3194,18 @@ msgstr "This task template auto-fills the task name, due date, description, and 
 msgid "discussion.title"
 msgstr "Desk Review Tasks & Discussions"
 
+msgid "stage.submission"
+msgstr "Submission Stage"
+
+msgid "stage.review"
+msgstr "Review Stage"
+
+msgid "stage.copyediting"
+msgstr "Copyediting Stage"
+
+msgid "stage.production"
+msgstr "Production Stage"
+
 msgid "task.closeThisTask"
 msgstr "Close this Task"
 
@@ -3226,3 +3238,42 @@ msgstr "Apply Template"
 
 msgid "taskTemplate.applyConfirmation"
 msgstr "Applying this template will replace information in related fields on the form. These changes won't be saved unless you choose to save. Continue?"
+
+msgid "taskTemplates.title"
+msgstr "Tasks and Discussions Templates"
+
+msgid "taskTemplates.description"
+msgstr "Use this space to create templates for tasks and discussions. These templates automatically fill in the task name, due date, description, and roles, giving you a head start."
+
+msgid "taskTemplates.templateName"
+msgstr "Task and discussion template name"
+
+msgid "taskTemplates.templateAutoAdd"
+msgstr "Automatically add this task and discussion when a submission reaches a specific stage"
+
+msgid "taskTemplates.templateAutoAddInStage"
+msgstr "Automatically add this task and/or discussion when a submission reaches the stage"
+
+msgid "taskTemplates.add"
+msgstr "Add template"
+
+msgid "taskTemplates.addInStage"
+msgstr "Add Task and Discussion Template in {$stage}"
+
+msgid "taskTemplates.edit"
+msgstr "Edit Task and Discussion Template"
+
+msgid "taskTemplates.dueDateFromCreationDate"
+msgstr "{$dueDate} from the creation date"
+
+msgid "taskTemplates.confirmAutoAdd"
+msgstr "Confirm Automatic Addition"
+
+msgid "taskTemplates.confirmAutoAddEnable"
+msgstr "Are you sure you want this task/discussion template to be automatically added when a submission reaches the {$stage}?"
+
+msgid "taskTemplates.confirmAutoAddDisable"
+msgstr "Are you sure you want to stop automatically adding this task/discussion template when a submission reaches the {$stage}?"
+
+msgid "taskTemplates.confirmEmailTemplate"
+msgstr "Applying this email template will replace the discussion text in the form. The changes will not be saved unless you choose to save. Do you want to continue?"

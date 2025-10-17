@@ -347,7 +347,7 @@ class JobRunner
                 }
 
                 // if there is no more jobs to run, exit the loop
-                if ($this->jobQueue->runJobInQueue() === false) {
+                if ($this->jobQueue->runJobInQueue($jobBuilder) === false) {
                     return true;
                 }
 

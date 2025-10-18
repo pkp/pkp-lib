@@ -19,6 +19,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use PKP\editorialTask\enums\EditorialTaskDueInterval;
+use PKP\editorialTask\enums\EditorialTaskType;
 
 class AddTaskTemplate extends FormRequest
 {
@@ -39,10 +41,13 @@ class AddTaskTemplate extends FormRequest
             ->values()
             ->all();
         return [
+            'type' => ['required', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
             'stageId' => ['required', 'integer', Rule::in($stageIds)],
             'title' => ['required', 'string', 'max:255'],
             'include' => ['boolean'],
             'emailTemplateKey' => ['sometimes', 'nullable', 'string', 'max:255', Rule::in($emailKeys)],
+            'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
+            'description' => ['sometimes', 'nullable', 'string'],
             'userGroupIds' => ['required', 'array', 'min:1'],
             'userGroupIds.*' => [
                 'integer',

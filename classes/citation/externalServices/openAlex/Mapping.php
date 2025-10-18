@@ -34,7 +34,7 @@ final class Mapping
         return [
             'title' => 'title',
             'date' => 'publication_date',
-            'type' => 'type_crossref',
+            'type' => 'type_crossref', // use 'type' if empty
             'volume' => ['biblio', 'volume'],
             'issue' => ['biblio', 'issue'],
             'firstPage' => ['biblio', 'first_page'],

@@ -2358,7 +2358,7 @@ msgstr ""
 "Require the author to provide references before accepting their submission."
 
 msgid "manager.setup.metadata.citationsMetadataLookup.enable"
-msgstr "Enable references metadata lookup for new submissions"
+msgstr "Enable references structuring and metadata lookup"
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""

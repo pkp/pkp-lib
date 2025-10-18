@@ -78,13 +78,6 @@
 				"nullable"
 			]
 		},
-		"citationsMetadataLookup": {
-			"type": "boolean",
-			"description": "Whether or not to use the metadata lookup for citations.",
-			"validation": [
-				"nullable"
-			]
-		},
 		"copyrightHolder": {
 			"type": "string",
 			"description": "The copyright statement for this publication.",

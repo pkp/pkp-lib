@@ -19,5 +19,7 @@ namespace PKP\citation\pid;
 class Url extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
+    public const regexes = [
+        '#(http|https|ftp)://[\d\w\.-]+\.[\w\.]{2,6}[^\s\]\[\<\>]*/?#'
+    ];
 }

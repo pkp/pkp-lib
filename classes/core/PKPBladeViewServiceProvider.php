@@ -12,9 +12,7 @@ use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
 use PKP\core\PKPContainer;
 use PKP\core\blade\BladeCompiler;
 use PKP\core\blade\DynamicComponent;
-use Illuminate\Support\Str;
 use Illuminate\Foundation\AliasLoader;
-use PKP\core\PKPString;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -116,13 +114,15 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
-        // Register the sanitizeHtml macro
-        Str::macro('sanitizeHtml', function (string $input, string $configKey = 'allowed_html') {
-            $sanitized = PKPString::stripUnsafeHtml($input, $configKey);
-            $sanitized = str_replace('{{', '<span v-pre>{{</span>', $sanitized);
-            $sanitized = str_replace('}}', '<span v-pre>}}</span>', $sanitized);
-            return $sanitized;
+        Blade::directive('dateFormat', function ($expression) {
+            return "<?php echo ViewHelper::dateFormat({$expression}); ?>";
         });
+
+
+        // Create a global alias so ViewHelper can be used without full namespace in templates
+        if (!class_exists('ViewHelper', false)) {
+            class_alias(\PKP\template\ViewHelper::class, 'ViewHelper');
+        }
     }
 
     /**

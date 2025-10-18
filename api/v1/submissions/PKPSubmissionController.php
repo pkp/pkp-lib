@@ -121,7 +121,6 @@ class PKPSubmissionController extends PKPBaseController
         'changeVersion',
         'getNextAvailableVersion',
         'importAdditionalCitations',
-        'editCitationsMetadataLookup',
         'deleteCitationsByPublicationId',
     ];
 
@@ -371,10 +370,6 @@ class PKPSubmissionController extends PKPBaseController
                 Role::ROLE_ID_AUTHOR,
             ]),
         ])->group(function () {
-            Route::put('{submissionId}/publications/{publicationId}/citations/metadataLookup', $this->editCitationsMetadataLookup(...))
-                ->name('submission.citations.import')
-                ->whereNumber(['submissionId', 'publicationId']);
-
             Route::post('{submissionId}/publications/{publicationId}/citations/importAdditionalCitations', $this->importAdditionalCitations(...))
                 ->name('submission.citations.import')
                 ->whereNumber(['submissionId', 'publicationId']);
@@ -2331,66 +2326,6 @@ class PKPSubmissionController extends PKPBaseController
             $illuminateRequest->input('versionIsMinor') ?? true,
             FILTER_VALIDATE_BOOLEAN,
             FILTER_NULL_ON_FAILURE
-        );
-    }
-
-    /**
-     * Update citationsMetadataLookup of a publication, reprocess citations if enabled.
-     */
-    protected function editCitationsMetadataLookup(Request $illuminateRequest): JsonResponse
-    {
-        $publication = Repo::publication()->get((int)$illuminateRequest->route('publicationId'));
-
-        if (!$publication) {
-            return response()->json([
-                'error' => __('api.404.resourceNotFound'),
-            ], Response::HTTP_NOT_FOUND);
-        }
-
-        // Publications can not be edited when they are published
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return response()->json([
-                'error' => __('api.publication.403.cantEditPublished'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        // Prevent users from editing publications if they do not have permission. Except for admins.
-        $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $currentUser = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
-            return response()->json([
-                'error' => __('api.submissions.403.userCantEdit'),
-            ], Response::HTTP_FORBIDDEN);
-        }
-
-        $citationsMetadataLookup = (bool)$illuminateRequest->input('citationsMetadataLookup');
-
-        $processCitation = false;
-        if ($citationsMetadataLookup && !$publication->getData('citationsMetadataLookup')) {
-            $processCitation = true;
-        }
-
-        /** @var Citation $citation */
-        foreach ($publication->getData('citations') as &$citation) {
-            $citation->setIsProcessed(!$processCitation);
-            if ($processCitation) {
-                Repo::citation()->reprocessCitation($citation);
-            }
-        }
-        unset($citation);
-
-        $publication->setData('citationsMetadataLookup', $citationsMetadataLookup);
-        Repo::publication()->edit($publication, []);
-
-        $publication = Repo::publication()->get($publication->getId());
-
-        return response()->json(
-            [
-                'citationsMetadataLookup' => $publication->getData('citationsMetadataLookup')
-            ],
-            Response::HTTP_OK
         );
     }
 

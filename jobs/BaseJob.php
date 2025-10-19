@@ -137,7 +137,7 @@ abstract class BaseJob implements ShouldQueue
                     $property = $reflection->getProperty('submissionId');
                     $submissionIdValue = $property->getValue($job);
                     if (is_int($submissionIdValue)) {
-                        $contextId = $submissionIdValue;
+                        $contextId = Repo::submission()->get($submissionIdValue)?->getData('contextId');
                     }
                     break;
                 case 'submission':

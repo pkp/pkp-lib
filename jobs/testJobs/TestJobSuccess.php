@@ -46,8 +46,5 @@ class TestJobSuccess extends BaseJob
      */
     public function handle(): void
     {
-        error_log('TestJobSuccess start processing');
-        sleep(5);
-        error_log('TestJobSuccess end processing');
     }
 }

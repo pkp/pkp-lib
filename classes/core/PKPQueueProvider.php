@@ -290,8 +290,24 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             // Set the context for current CLI session if available right before job start processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
             if (app()->runningInConsole() && !Application::get()->isUnderMaintenance()) {
-                // FIXME: should validate the context and fail the job is invalid ?
-                Application::get()->setCliContext($event->job->payload()['context_id'] ?? null);
+                $contextId = $event->job->payload()['context_id'] ?? null;
+
+                // Validate the context exists if a context_id is provided
+                if ($contextId !== null) {
+                    $contextDao = Application::getContextDAO();
+                    $context = $contextDao->getById($contextId);
+                    if (!$context) {
+                        $jobName = $event->job->payload()['displayName'] ?? 'Unknown';
+                        error_log("Job '{$jobName}' failed: Invalid context_id {$contextId} - context does not exist");
+
+                        // Fail the job immediately with a meaningful exception
+                        throw new \RuntimeException(
+                            "Job execution failed: Invalid context_id {$contextId}. The context does not exist in the database."
+                        );
+                    }
+                }
+
+                Application::get()->setCliContext($contextId);
             }
         });
 

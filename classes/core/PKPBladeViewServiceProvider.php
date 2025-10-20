@@ -59,20 +59,6 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             }
         );
         
-        // Register the @url directive compatible with Smarty url function,
-        // use as following in a blade view
-        // "@url([
-        //     'page' => 'citationstylelanguage',
-        //     'op' => 'get',
-        //     'path' => $citationStyle['id'],
-        //     'params' => $citationArgsJson
-        // ])"
-        Blade::directive('url', function ($parameters) {
-            return "<?php
-                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyUrl($parameters);
-            ?>";
-        });
-
         // use as @loadScript(['context' => 'frontend'])
         Blade::directive('loadScript', function ($parameters) {
             return "<?php
@@ -114,16 +100,9 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
-        Blade::directive('dateFormat', function ($expression) {
-            return "<?php echo ViewHelper::dateFormat({$expression}); ?>";
-        });
-
 
         // Create a global alias so ViewHelper can be used without full namespace in templates
-        if (!class_exists('ViewHelper', false)) {
-            class_alias(\PKP\template\ViewHelper::class, 'ViewHelper');
-        }
-    }
+        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);    }
 
     /**
      * Register the service provider.

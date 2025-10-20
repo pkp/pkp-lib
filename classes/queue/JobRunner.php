@@ -315,10 +315,22 @@ class JobRunner
             $newLockData = ['timestamp' => time(), 'token' => $newToken];
             if (!Cache::add($this->getCacheKey(), $newLockData, $this->getCacheTimeout())) {
                 // Re-check cache to avoid race condition
-                if (Cache::get($this->getCacheKey()) && Cache::get($this->getCacheKey())['token'] !== $newToken) {
+                // Store result to avoid double-call and properly handle NULL case
+                $cachedLock = Cache::get($this->getCacheKey());
+                if ($cachedLock && $cachedLock['token'] !== $newToken) {
                     // JobRunner cache lock acquired by another process
                     // will consider as processing job so will not proceed
-                    return false; 
+                    return false;
+                }
+
+                // If Cache::get() returned NULL, the lock may have been cleared between
+                // add() and get(). Add a small delay and re-check to be safe.
+                if (!$cachedLock) {
+                    usleep(10000); // 10ms delay
+                    $cachedLock = Cache::get($this->getCacheKey());
+                    if ($cachedLock && $cachedLock['token'] !== $newToken) {
+                        return false;
+                    }
                 }
             }
 

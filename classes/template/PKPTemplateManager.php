@@ -1506,6 +1506,7 @@ class PKPTemplateManager extends Smarty
 
         $pageContext = [
             'app' => Application::get()->getName(),
+            'id' => $context?->getId() ?? null,
             'currentLocale' => Locale::getLocale(),
             'primaryLocale' => Locale::getPrimaryLocale(),
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),

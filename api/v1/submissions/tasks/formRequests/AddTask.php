@@ -54,7 +54,7 @@ class AddTask extends EditTask
 
     protected function setSubmission(): Submission
     {
-        return Repo::submission()->get((int) $this->all(['assocId']));
+        return Repo::submission()->get((int) $this->input('assocId'));
     }
 
     protected function getStageId(): int

@@ -30,8 +30,10 @@ use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\models\InvitationModel;
 use PKP\pages\invitation\InvitationHandler;
+use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 abstract class Invitation
 {
@@ -506,5 +508,29 @@ abstract class Invitation
         }
 
         return false;
+    }
+
+    public function buildSendSteps(Context $context, ?User $user): array
+    {
+        $invitationController = $this->getInvitationUIActionRedirectController();
+        return $invitationController ? $invitationController->getSendSteps($this, $context, $user) : [];
+    }
+
+    public function buildAcceptSteps(Context $context, ?User $user): array
+    {
+        $invitationController = $this->getInvitationActionRedirectController();
+        return $invitationController ? $invitationController->getAcceptSteps($this, $context, $user) : [];
+    }
+    
+    public function isInvitationUserReviewer($userId,$contextId): bool
+    {
+        if(!$userId){
+            return false;
+        }
+        $currentUserGroups = Repo::userGroup()->userUserGroups($userId,$contextId);
+        return $currentUserGroups->contains(
+            fn (UserGroup $userGroup) =>
+                $userGroup->roleId == Role::ROLE_ID_REVIEWER
+        );
     }
 }

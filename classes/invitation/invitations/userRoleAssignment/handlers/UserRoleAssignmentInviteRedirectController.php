@@ -16,12 +16,15 @@ namespace PKP\invitation\invitations\userRoleAssignment\handlers;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\invitations\userRoleAssignment\steps\UserRoleAssignmentInvitationSteps;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
-use PKP\invitation\stepTypes\AcceptInvitationStep;
+use PKP\user\User;
 
 /**
  * @extends InvitationActionRedirectController<UserRoleAssignmentInvite>
@@ -46,11 +49,11 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
 
         $templateMgr->assign('invitation', $this->getInvitation());
         $context = $request->getContext();
-        $steps = new AcceptInvitationStep();
         $invitationModel = $this->getInvitation()->invitationModel->toArray();
         $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
+        $steps = $this->invitation->buildAcceptSteps($context, $user);
         $templateMgr->setState([
-            'steps' => $steps->getSteps($this->getInvitation(), $context, $user),
+            'steps' => $steps,
             'primaryLocale' => $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'invitationId' => (int)$request->getUserVar('id') ?: null,
@@ -96,5 +99,10 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
     public function preRedirectActions(InvitationAction $action): void
     {
         return;
+    }
+
+    public function getAcceptSteps(Invitation $invitation, Context $context, ?User $user): array
+    {
+        return (new UserRoleAssignmentInvitationSteps())->getAcceptSteps($invitation, $context, $user);
     }
 }

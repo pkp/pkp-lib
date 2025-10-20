@@ -64,11 +64,11 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
     }
 
     /**
-     * Redirect to login page after decline invitation
+     * Redirect to login page after confirming the invitation decline
      *
      * @throws \Exception
      */
-    public function declineHandle(Request $request): void
+    public function confirmDecline(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             throw new \Symfony\Component\HttpKernel\Exception\GoneHttpException();
@@ -85,8 +85,7 @@ class UserRoleAssignmentInviteRedirectController extends InvitationActionRedirec
             'login',
             null,
             null,
-            [
-            ]
+            []
         );
 
         $this->getInvitation()->decline();

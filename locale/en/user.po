@@ -196,6 +196,9 @@ msgstr ""
 "instructions in that email to activate your new account. If you do not see "
 "an email, please check to see if it was put in your spam folder."
 
+msgid "user.login.activate.description"
+msgstr "Confirm and activate your account"
+
 msgid "user.login.activate"
 msgstr "Activate Account"
 

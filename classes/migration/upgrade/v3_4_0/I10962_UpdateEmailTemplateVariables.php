@@ -17,31 +17,40 @@ namespace PKP\migration\upgrade\v3_4_0;
 use Illuminate\Support\Facades\DB;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
+use APP\core\Application;
 
 class I10962_UpdateEmailTemplateVariables extends Migration
 {
+    /** @return 'ojs2'|'omp'|'ops'|null */
+    protected function getAppName(): ?string
+    {
+        return Application::get()?->getName();
+    }
+
     /** @return array<string,string> */
     protected function getMappings(): array
     {
-        return [
-            // OJS
-            'journalAcronym'   => 'contextAcronym',
-            'journalName'      => 'contextName',
-            'journalUrl'       => 'contextUrl',
-            'journalSignature' => 'contextSignature',
-
-            // OMP
-            'pressAcronym'     => 'contextAcronym',
-            'pressName'        => 'contextName',
-            'pressUrl'         => 'contextUrl',
-            'pressSignature'   => 'contextSignature',
-
-            // OPS
-            'serverAcronym'    => 'contextAcronym',
-            'serverName'       => 'contextName',
-            'serverUrl'        => 'contextUrl',
-            'serverSignature'  => 'contextSignature',
-        ];
+        return match ($this->getAppName()) {
+            'ojs2' => [ // OJS
+                'journalAcronym' => 'contextAcronym',
+                'journalName' => 'contextName',
+                'journalUrl' => 'contextUrl',
+                'journalSignature'=> 'contextSignature',
+            ],
+            'omp' => [ // OMP
+                'pressAcronym' => 'contextAcronym',
+                'pressName' => 'contextName',
+                'pressUrl' => 'contextUrl',
+                'pressSignature' => 'contextSignature',
+            ],
+            'ops' => [ // OPS
+                'serverAcronym' => 'contextAcronym',
+                'serverName' => 'contextName',
+                'serverUrl'  => 'contextUrl',
+                'serverSignature' => 'contextSignature',
+            ],
+            default => [],
+        };
     }
 
     public function up(): void

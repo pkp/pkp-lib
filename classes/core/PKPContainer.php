@@ -465,9 +465,9 @@ class PKPContainer extends Container
         }
 
         // Flush output buffer and send response and allow script to continue if client disconnects.
-        // Flush and end output buffer (if started) and also the system buffer.
+        // Flush and end ALL output buffer levels (if started) and also the system buffer.
         ignore_user_abort(true);
-        if (ob_get_level() > 0) {
+        while (ob_get_level() > 0) {
             ob_end_flush();
         }
         flush();

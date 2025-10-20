@@ -1247,19 +1247,23 @@ class PKPTemplateManager extends Smarty
                                     ]
                                 ]
                             ];
+                        }
 
-                            $menu['content'] = [
-                                'name' => __('navigation.content'),
-                                'icon' => 'Content',
-                                'submenu' => [
-                                    'userComments' => [
-                                        'name' => __('manager.userComment.comments'),
-                                        'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
-                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
-                                    ],
-                                ]
+                        $contentSubmenu = [];
+                        
+                        if ($hasSettingsAccess) {
+                            $contentSubmenu['userComments'] = [
+                                'name' => __('manager.userComment.comments'),
+                                'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
+                                'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
                             ];
                         }
+
+                        $menu['content'] = [
+                            'name' => __('navigation.content'),
+                            'icon' => 'Content',
+                            'submenu' => $contentSubmenu
+                        ];
                     }
 
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {

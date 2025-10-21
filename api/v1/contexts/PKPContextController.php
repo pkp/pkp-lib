@@ -710,6 +710,9 @@ class PKPContextController extends PKPBaseController
         return response()->json($contextProps, Response::HTTP_OK);
     }
 
+    /**
+     * Get a list of available user groups
+     */
     public function getUserGroups(Request $illuminateRequest): JsonResponse
     {
         $contextId = (int) $illuminateRequest->route('contextId');
@@ -723,7 +726,20 @@ class PKPContextController extends PKPBaseController
             ], Response::HTTP_NOT_FOUND);
         }
 
-        $userGroups = UserGroup::withContextIds([$context->getId()])->get();
+        $collector = UserGroup::withContextIds([$context->getId()]);
+
+        foreach ($illuminateRequest->query() as $param => $val) {
+            switch ($param) {
+                case 'stageIds':
+                    $collector->withStageIds(array_map(intval(...), paramToArray($val)));
+                    break;
+                case 'roleIds':
+                    $collector->withRoleIds(array_map(intval(...), paramToArray($val)));
+                    break;
+            }
+        }
+
+        $userGroups = $collector->get();
 
         return response()->json(
             [

@@ -149,6 +149,12 @@ class Repository
             }
         });
 
+        if (isset($props['orcid'])) {
+            $validator->after(function ($validator) use ($props) {
+                $validator->errors()->add('orcid', __('api.orcid.403.cannotUpdateAuthorOrcid'));
+            });
+        }
+
         $errors = [];
         if ($validator->fails()) {
             $errors = $schemaService->formatValidationErrors($validator->errors());

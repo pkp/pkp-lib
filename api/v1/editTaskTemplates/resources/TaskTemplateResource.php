@@ -25,7 +25,7 @@ class TaskTemplateResource extends JsonResource
 
         return [
             'id' => (int) $this->id,
-            'type' => $this->type,
+            'type' => (int) $this->type,
             'stageId' => (int) $this->stageId,
             'title' => $this->title,
             'include' => (bool) $this->include,

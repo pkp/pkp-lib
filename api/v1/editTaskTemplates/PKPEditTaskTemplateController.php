@@ -86,6 +86,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
 
         $template = DB::transaction(function () use ($validated, $context) {
             $tpl = Template::create([
+                'type' => $validated['type'],
                 'stageId' => $validated['stageId'],
                 'title' => $validated['title'],
                 'contextId' => $context->getId(),

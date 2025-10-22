@@ -23,7 +23,7 @@ class UserGroupResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'roleId' => $this->contents,
+            'roleId' => $this->roleId,
             'isDefault' => (bool) $this->is_default,
             'showTitle' => (bool) $this->show_title,
             'name' => $this->getLocalizedData('name'),

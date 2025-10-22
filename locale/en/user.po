@@ -889,3 +889,12 @@ msgstr "Bio Statement"
 
 msgid "user.removeRole.roleRemainMessage"
 msgstr "You cannot remove the role. At least one role must be assigned to the user."
+
+msgid "user.organizationName"
+msgstr "Organization Name"
+
+msgid "user.rorId"
+msgstr "ROR ID"
+
+msgid "user.rorId.description"
+msgstr "Enter organization's ROR ID."

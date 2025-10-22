@@ -248,7 +248,7 @@ abstract class PKPSubmissionHandler extends Handler
             'i18nUnableToSave' => __('submission.wizard.unableToSave'),
             'i18nUnsavedChanges' => __('common.unsavedChanges'),
             'i18nUnsavedChangesMessage' => __('common.unsavedChangesMessage'),
-            'publication' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            'publication' => Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             'publicationApiUrl' => $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId()),
             'reconfigurePublicationProps' => $this->getReconfigurePublicationProps(),
             'reconfigureSubmissionProps' => $this->getReconfigureSubmissionProps(),

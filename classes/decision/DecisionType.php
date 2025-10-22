@@ -511,6 +511,7 @@ abstract class DecisionType
 
         $reviewRound = $reviewRoundDao->build(
             $submission->getId(),
+            $submission->getCurrentPublication()->getId(),
             $stageId,
             $round,
             ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS

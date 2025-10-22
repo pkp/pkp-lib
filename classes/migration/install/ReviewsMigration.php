@@ -33,6 +33,9 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->foreign('submission_id')->references('submission_id')->on('submissions');
             $table->index(['submission_id'], 'review_rounds_submission_id');
 
+            // Foreign key constraint and index depend on publication table, added in app-specific migration
+            $table->bigInteger('publication_id');
+
             $table->bigInteger('stage_id')->nullable();
             $table->smallInteger('round');
             $table->bigInteger('review_revision')->nullable();

@@ -48,6 +48,7 @@ use PKP\core\PKPSessionGuard;
 use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
@@ -956,6 +957,12 @@ class PKPTemplateManager extends Smarty
                 'STATUS_DECLINED' => Publication::STATUS_DECLINED,
                 'STATUS_SCHEDULED' => Publication::STATUS_SCHEDULED,
             ],
+            // Editorial Tasks
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+            'EDITORIAL_TASK_STATUS_PENDING' => 1,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => 2,
+            'EDITORIAL_TASK_STATUS_CLOSED' => 3,
         ]);
 
         $hash = Locale::getUITranslator()->getCacheHash();

@@ -38,7 +38,9 @@ class SendUpdateScopeMail extends BaseJob implements ShouldBeUnique
         /** @var int $itemId Will be a publication ID or a review assignment ID depending on deposit type */
         private int $itemId,
         private OrcidDepositType $depositType,
-    ) {
+    )
+    {
+        parent::__construct();
     }
 
     /**

@@ -31,7 +31,14 @@ class AddTaskTemplate extends FormRequest
     public function rules(): array
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
-        $stageIds = array_keys(Application::getApplicationStages());
+
+        // build a list of allowed stage IDs from values
+        $stages = Application::getApplicationStages();
+        $stageIds = array_values(array_unique(array_filter(
+            array_map('intval', array_merge(array_keys((array)$stages), array_values((array)$stages))),
+            fn ($id) => $id > 0
+        )));
+
         return [
             'type' => ['required', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
             'stageId' => ['required', 'integer', Rule::in($stageIds)],
@@ -39,6 +46,7 @@ class AddTaskTemplate extends FormRequest
             'include' => ['boolean'],
             'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'description' => ['sometimes', 'nullable', 'string'],
+            'type' => ['required','integer','in:1,2'],
             'userGroupIds' => ['required', 'array', 'min:1'],
             'userGroupIds.*' => [
                 'integer',
@@ -52,10 +60,12 @@ class AddTaskTemplate extends FormRequest
     protected function prepareForValidation(): void
     {
         $stageId = $this->input('stageId', null);
+        $type = $this->input('type', null);
         $this->merge([
             'include' => filter_var($this->input('include', false), FILTER_VALIDATE_BOOLEAN),
             'userGroupIds' => array_values(array_map('intval', (array) $this->input('userGroupIds', []))),
             'stageId' => is_null($stageId) ? $stageId : (int) $stageId,
+            'type' => is_null($type) ? null : (int) $type,
         ]);
     }
 }

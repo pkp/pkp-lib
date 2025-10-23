@@ -27,6 +27,7 @@ use PKP\core\traits\ModelWithSettings;
 use PKP\editorialTask\EditorialTask as Task;
 use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\UserGroup;
+use Illuminate\Support\Facades\DB;
 
 class Template extends Model
 {
@@ -36,6 +37,9 @@ class Template extends Model
     protected $primaryKey = 'edit_task_template_id';
 
     public $timestamps = true;
+
+    public const TYPE_DISCUSSION = 1;
+    public const TYPE_TASK = 2;
 
     // columns on edit_task_templates
     protected $fillable = [
@@ -53,6 +57,7 @@ class Template extends Model
         'context_id' => 'int',
         'include' => 'bool',
         'title' => 'string',
+        'type' => 'int',
     ];
 
     /**
@@ -170,6 +175,71 @@ class Template extends Model
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
             'assocId' => $submission->getId(),
         ]);
+    }
+
+    /**
+     * Scope: filter by  type
+     */
+    public function scopeFilterByType(Builder $q, int $type): Builder
+    {
+        return $q->where('type', $type);
+    }
+
+    /**
+     * Scope: filter by title LIKE
+     */
+    public function scopeFilterByTitleLike(Builder $query, string $title): Builder
+    {
+        $title = trim($title);
+        if ($title === '') {
+            return $query;
+        }
+        $needle = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($title)) . '%';
+        return $query->whereRaw('LOWER(title) LIKE ?', [$needle]);
+    }
+
+    /**
+     * free-text/ words search across:
+     * title column
+     * name, description
+     * email_template_key column
+     *
+     */
+    public function scopeFilterBySearch(Builder $query, string $phrase): Builder
+    {
+        $phrase = trim($phrase);
+        if ($phrase === '') {
+            return $query;
+        }
+
+        $tokens = preg_split('/\s+/', $phrase) ?: [];
+        $tokens = array_values(array_filter($tokens, fn ($t) => $t !== ''));
+        if (!$tokens) {
+            return $query;
+        }
+
+        $settingsTable = $this->getSettingsTable(); // 'edit_task_template_settings'
+        $pk = $this->getKeyName(); // 'edit_task_template_id'
+        $selfTable = $this->getTable(); // 'edit_task_templates'
+
+        return $query->where(function (Builder $outer) use ($tokens, $settingsTable, $pk, $selfTable) {
+            foreach ($tokens as $tok) {
+                // escape % and _
+                $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok)) . '%';
+
+                $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
+                    $q->whereRaw('LOWER(title) LIKE ?', [$like])
+                    ->orWhereRaw('LOWER(email_template_key) LIKE ?', [$like])
+                    ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
+                        $sub->select(DB::raw(1))
+                            ->from($settingsTable . ' as ets')
+                            ->whereColumn("ets.$pk", "$selfTable.$pk")
+                            ->whereIn('ets.setting_name', ['name', 'description'])
+                            ->whereRaw('LOWER(ets.setting_value) LIKE ?', [$like]);
+                    });
+                });
+            }
+        });
     }
 
 }

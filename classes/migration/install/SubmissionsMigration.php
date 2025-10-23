@@ -315,9 +315,11 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->index(['context_id'], 'edit_task_templates_context_id_idx');
 
             $table->boolean('include')->default(false);
+            $table->unsignedSmallInteger('type')->default(1); // 1 - discussion, 2 - task
             // store key, comes from either email_templates or email_templates_default_data
             $table->string('email_template_key', 255)->nullable();
             $table->index(['context_id', 'email_template_key'], 'edit_task_templates_context_email_key_idx');
+            $table->index(['context_id', 'type', 'stage_id'], 'ett_context_type_stage_idx');
 
             
             $table->timestamps();

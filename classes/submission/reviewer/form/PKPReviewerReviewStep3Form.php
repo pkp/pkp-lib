@@ -170,6 +170,9 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
         ]);
 
+        // Need to refetch the updated review assignment after an edit
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignment->getId());
+
         // Retrieve stage assignments for managers and sub-editors
         $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withStageIds([$submission->getData('stageId')])

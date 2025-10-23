@@ -30,8 +30,8 @@ class TaskResource extends JsonResource
     {
         [$users] = $this->getData('users');
 
-        $createdBy = $users->get($this->createdBy); /** @var User $createdBy */
-        $startedBy = $users->get($this->startedBy); /** @var User $startedBy */
+        $createdBy = $users->first(fn (User $user) => $user->getId() === $this->createdBy); /** @var User $createdBy */
+        $startedBy = $users->first(fn (User $user) => $user->getId() === $this->startedBy); /** @var User $startedBy */
 
         return [
             'id' => $this->id,
@@ -50,7 +50,9 @@ class TaskResource extends JsonResource
             'dateClosed' => $this->dateClosed?->format('Y-m-d'),
             'title' => $this->title,
             'participants' => EditorialTaskParticipantResource::collection(resource: $this->participants, data: $this->data),
-            'notes' => NoteResource::collection(resource: $this->notes->sortBy('dateCreated'), data: $this->data),
+            'notes' => NoteResource::collection(resource: $this->notes->sortBy('dateCreated'), data: array_merge($this->data, [
+                'parentResource' => $this,
+            ])),
         ];
     }
 

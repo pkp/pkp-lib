@@ -20,6 +20,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use PKP\core\traits\ResourceWithData;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
+use PKP\user\User;
 
 class EditorialTaskParticipantResource extends JsonResource
 {
@@ -29,7 +30,7 @@ class EditorialTaskParticipantResource extends JsonResource
     {
         [$stageAssignments, $users, $userGroups, $reviewAssignments] = $this->getData('stageAssignments', 'users', 'userGroups', 'reviewAssignments');
 
-        $user = $users->get($this->userId);
+        $user = $users->first(fn (User $user) => $user->getId() === $this->userId);
         $userAssignments = $stageAssignments->where('userId', $this->userId);
 
         // Identify participant roles

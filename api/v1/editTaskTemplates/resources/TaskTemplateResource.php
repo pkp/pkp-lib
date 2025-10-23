@@ -25,15 +25,17 @@ class TaskTemplateResource extends JsonResource
 
         return [
             'id' => (int) $this->id,
-            'stageId' => (int) $this->stage_id,
+            'type' => (int) $this->type,
+            'stageId' => (int) $this->stageId,
             'title' => $this->title,
             'include' => (bool) $this->include,
-            'emailTemplateKey' => $this->email_template_key ?? null,
+            'dueInterval' => $this->dueInterval,
+            'description' => $this->description,
             'userGroups' => $this->whenLoaded(
                 'userGroups',
                 fn () => $this->userGroups
                     ->map(fn ($ug) => [
-                        'id' => (int) $ug->user_group_id,
+                        'id' => (int) $ug->userGroupId,
                         'name' => $ug->getLocalizedData('name'),
                     ])
                     ->values()

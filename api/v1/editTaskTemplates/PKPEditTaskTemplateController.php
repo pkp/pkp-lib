@@ -17,18 +17,18 @@
 namespace PKP\API\v1\editTaskTemplates;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-use PKP\core\PKPBaseController;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
 use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
-use Illuminate\Http\Request;
+use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
+use PKP\editorialTask\Template;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
-use PKP\editorialTask\Template;
 
 class PKPEditTaskTemplateController extends PKPBaseController
 {
@@ -86,11 +86,13 @@ class PKPEditTaskTemplateController extends PKPBaseController
 
         $template = DB::transaction(function () use ($validated, $context) {
             $tpl = Template::create([
-                'stage_id' => $validated['stageId'],
+                'type' => $validated['type'],
+                'stageId' => $validated['stageId'],
                 'title' => $validated['title'],
-                'context_id' => $context->getId(),
+                'contextId' => $context->getId(),
                 'include' => $validated['include'] ?? false,
-                'email_template_key' => $validated['emailTemplateKey'] ?? null,
+                'description' => $validated['description'] ?? null,
+                'dueInterval' => $validated['dueInterval'] ?? null,
             ]);
 
             $tpl->userGroups()->sync($validated['userGroupIds']);
@@ -120,7 +122,6 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $queryParams = $this->_processAllowedParams($request->query(), [
             'stageId',
             'include',
-            'emailTemplateKey',
             'count',
             'offset',
         ]);
@@ -135,13 +136,6 @@ class PKPEditTaskTemplateController extends PKPBaseController
                     $bool = filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
                     if ($bool !== null) {
                         $collector->filterByInclude($bool);
-                    }
-                    break;
-
-                case 'emailTemplateKey':
-                    $key = trim((string) $val);
-                    if ($key !== '') {
-                        $collector->filterByEmailTemplateKey($key);
                     }
                     break;
 
@@ -163,4 +157,3 @@ class PKPEditTaskTemplateController extends PKPBaseController
     }
 
 }
-

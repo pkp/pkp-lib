@@ -229,6 +229,40 @@ class EditorialTask extends Model
     }
 
     /**
+     * Override Laravel magic getter to provide access to participants and headnote as model attributes when they are set.
+     */
+    public function __get($key)
+    {
+        if (!in_array($key, [self::ATTRIBUTE_PARTICIPANTS, self::ATTRIBUTE_HEADNOTE, 'notes'])) {
+            return parent::__get($key);
+        }
+
+        // If new participants are set before model is saved, return them
+        if ($key == self::ATTRIBUTE_PARTICIPANTS && isset($this->taskParticipants)) {
+            return collect($this->taskParticipants);
+
+            // Allow accessing the headnote as an attribute
+        } elseif ($key == self::ATTRIBUTE_HEADNOTE && isset($this->headnote)) {
+            return $this->headnote;
+
+            // If headnote is set before the model is saved, return it together with other notes. This scenario could happen during task editing
+        } elseif ($key == 'notes' && isset($this->headnote)) {
+            if ($notes = $this->getAttribute($key)->isNotEmpty()) {
+                return $notes->map(function ($note) {
+                    if ($note->isHeadnote) {
+                        return $this->headnote;
+                    }
+                    return $note;
+                });
+            } else {
+                return collect([$this->headnote]);
+            }
+        } else {
+            return $this->getAttribute($key);
+        }
+    }
+
+    /**
      * Accessor and Mutator for primary key => id
      */
     protected function id(): Attribute

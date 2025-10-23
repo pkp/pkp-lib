@@ -100,6 +100,26 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
+        // use as @htmlSelectDateA11y(['legend' => $dateFromLegend, 'prefix' => 'dateFrom', 'time' => $dateFrom, 'start_year' => $yearStart, 'end_year' => $yearEnd])
+        Blade::directive('htmlSelectDateA11y', function ($parameters) {
+            return "<?php
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyHtmlSelectDateA11y($parameters, null);
+            ?>";
+        });
+
+        // use as @pageInfo(['iterator' => $results])
+        Blade::directive('pageInfo', function ($parameters) {
+            return "<?php
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyPageInfo($parameters, \PKP\\template\\PKPTemplateManager::getManager());
+            ?>";
+        });
+
+        // use as @pageLinks(['anchor' => 'results', 'iterator' => $results, 'name' => 'search', ...])
+        Blade::directive('pageLinks', function ($parameters) {
+            return "<?php
+                echo \PKP\\template\\PKPTemplateManager::getManager()->smartyPageLinks($parameters, \PKP\\template\\PKPTemplateManager::getManager());
+            ?>";
+        });
 
         // Create a global alias so ViewHelper can be used without full namespace in templates
         AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);    }

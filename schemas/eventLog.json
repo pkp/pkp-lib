@@ -42,11 +42,10 @@
 			]
 		},
 		"decision": {
-			"type": "integer",
-			"description": "The decision type identifier. One of the Decision::* constants.",
+			"type": "string",
+			"description": "The localized decision based on Decision::* constants.",
 			"validation": [
-				"nullable",
-				"min:1"
+				"nullable"
 			]
 		},
 		"editorId": {

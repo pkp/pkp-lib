@@ -1,26 +1,12 @@
 <?php
 
-/**
- * @file api/v1/editTaskTemplates/formRequests/AddTaskTemplate.php
- *
- * Copyright (c) 2025 Simon Fraser University
- * Copyright (c) 2025 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @class AddTaskTemplate
- *
- * @brief Handle API requests validation for adding editorial template operations.
- *
- */
-
 namespace PKP\API\v1\editTaskTemplates\formRequests;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class AddTaskTemplate extends FormRequest
+class UpdateTaskTemplate extends FormRequest
 {
     public function authorize(): bool
     {
@@ -31,27 +17,31 @@ class AddTaskTemplate extends FormRequest
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
 
-        // build a list of allowed stage IDs from values
+        // Build allowed stage IDs (values)
         $stages = Application::getApplicationStages();
         $stageIds = array_values(array_unique(array_filter(
             array_map('intval', array_merge(array_keys((array)$stages), array_values((array)$stages))),
             fn ($id) => $id > 0
         )));
 
-        $emailKeys = Repo::emailTemplate()
+        // Context-scoped email keys
+        $emailKeys = \APP\facades\Repo::emailTemplate()
             ->getCollector($contextId)
             ->getMany()
             ->map(fn ($t) => $t->getData('key'))
             ->filter()
             ->values()
             ->all();
+
         return [
-            'stageId' => ['required', 'integer', Rule::in($stageIds)],
-            'title' => ['required', 'string', 'max:255'],
-            'include' => ['boolean'],
+            // all fields are optional but if present must validate
+            'stageId' => ['sometimes', 'integer', Rule::in($stageIds)],
+            'title' => ['sometimes', 'string', 'max:255'],
+            'include' => ['sometimes', 'boolean'],
             'emailTemplateKey' => ['sometimes', 'nullable', 'string', 'max:255', Rule::in($emailKeys)],
-            'type' => ['required','integer','in:1,2'],
-            'userGroupIds' => ['required', 'array', 'min:1'],
+            'type' => ['sometimes','integer','in:1,2'],
+
+            'userGroupIds' => ['sometimes', 'array', 'min:1'],
             'userGroupIds.*' => [
                 'integer',
                 'distinct',
@@ -65,19 +55,31 @@ class AddTaskTemplate extends FormRequest
     {
         $stageId = $this->input('stageId', null);
         $type = $this->input('type', null);
+
         $this->merge([
-            'include' => filter_var($this->input('include', false), FILTER_VALIDATE_BOOLEAN),
-            'userGroupIds' => array_values(array_map('intval', (array) $this->input('userGroupIds', []))),
-            'stageId' => is_null($stageId) ? $stageId : (int) $stageId,
-            'type' => is_null($type) ? null : (int) $type,
+            'include' => $this->has('include')
+                ? filter_var($this->input('include'), FILTER_VALIDATE_BOOLEAN)
+                : $this->input('include', null),
+
+            'userGroupIds' => $this->has('userGroupIds')
+                ? array_values(array_map('intval', (array) $this->input('userGroupIds', [])))
+                : $this->input('userGroupIds', null),
+
+            'stageId' => $this->has('stageId')
+                ? (is_null($stageId) ? null : (int) $stageId)
+                : $this->input('stageId', null),
+
+            'type' => $this->has('type')
+                ? (is_null($type) ? null : (int) $type)
+                : $this->input('type', null),
         ]);
     }
 
     protected function passedValidation(): void
     {
-        $key = $this->input('emailTemplateKey');
-        if (is_string($key)) {
-            $this->merge(['emailTemplateKey' => trim($key)]);
+        if ($this->has('emailTemplateKey')) {
+            $key = $this->input('emailTemplateKey');
+            $this->merge(['emailTemplateKey' => is_string($key) ? trim($key) : $key]);
         }
     }
 }

@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 use PKP\core\traits\ModelWithSettings;
 use PKP\userGroup\UserGroup;
 
@@ -33,6 +34,9 @@ class Template extends Model
 
     public $timestamps = true;
 
+    public const TYPE_DISCUSSION = 1;
+    public const TYPE_TASK = 2;
+
     // columns on edit_task_templates
     protected $fillable = [
         'stage_id',
@@ -40,6 +44,7 @@ class Template extends Model
         'context_id',
         'include',
         'email_template_key',
+        'type',
     ];
 
     protected $casts = [
@@ -48,6 +53,7 @@ class Template extends Model
         'include' => 'bool',
         'title' => 'string',
         'email_template_key' => 'string',
+        'type' => 'int',
     ];
 
     /**
@@ -100,11 +106,11 @@ class Template extends Model
         return $this->belongsTo(
             \PKP\emailTemplate\EmailTemplate::class,
             'email_template_key',  // FK on this model
-            'email_key'            // owner key on email_templates
+            'email_key' // owner key on email_templates
         )
         ->where(function ($q) {
             $q->where('context_id', $this->context_id)
-            ->orWhereNull('context_id');
+              ->orWhereNull('context_id');
         })
         ->orderByRaw('CASE WHEN context_id = ? THEN 1 ELSE 0 END DESC', [$this->context_id]);
     }
@@ -138,9 +144,9 @@ class Template extends Model
         return $query->orderByDesc($query->getModel()->getKeyName());
     }
 
-        /**
-         * Scope: filter by stage_id
-         */
+    /**
+     * Scope: filter by stage_id
+     */
     public function scopeFilterByStageId(Builder $query, int $stageId): Builder
     {
         return $query->where('stage_id', $stageId);
@@ -160,6 +166,71 @@ class Template extends Model
     public function scopeFilterByEmailTemplateKey(Builder $query, string $key): Builder
     {
         return $query->where('email_template_key', $key);
+    }
+
+    /**
+     * Scope: filter by  type
+     */
+    public function scopeFilterByType(Builder $q, int $type): Builder
+    {
+        return $q->where('type', $type);
+    }
+
+    /**
+     * Scope: filter by title LIKE
+     */
+    public function scopeFilterByTitleLike(Builder $query, string $title): Builder
+    {
+        $title = trim($title);
+        if ($title === '') {
+            return $query;
+        }
+        $needle = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($title)) . '%';
+        return $query->whereRaw('LOWER(title) LIKE ?', [$needle]);
+    }
+
+    /**
+     * free-text/ words search across:
+     * title column
+     * name, description
+     * email_template_key column
+     *
+     */
+    public function scopeFilterBySearch(Builder $query, string $phrase): Builder
+    {
+        $phrase = trim($phrase);
+        if ($phrase === '') {
+            return $query;
+        }
+
+        $tokens = preg_split('/\s+/', $phrase) ?: [];
+        $tokens = array_values(array_filter($tokens, fn ($t) => $t !== ''));
+        if (!$tokens) {
+            return $query;
+        }
+
+        $settingsTable = $this->getSettingsTable(); // 'edit_task_template_settings'
+        $pk = $this->getKeyName(); // 'edit_task_template_id'
+        $selfTable = $this->getTable(); // 'edit_task_templates'
+
+        return $query->where(function (Builder $outer) use ($tokens, $settingsTable, $pk, $selfTable) {
+            foreach ($tokens as $tok) {
+                // escape % and _
+                $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok)) . '%';
+
+                $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
+                    $q->whereRaw('LOWER(title) LIKE ?', [$like])
+                    ->orWhereRaw('LOWER(email_template_key) LIKE ?', [$like])
+                    ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
+                        $sub->select(DB::raw(1))
+                            ->from($settingsTable . ' as ets')
+                            ->whereColumn("ets.$pk", "$selfTable.$pk")
+                            ->whereIn('ets.setting_name', ['name', 'description'])
+                            ->whereRaw('LOWER(ets.setting_value) LIKE ?', [$like]);
+                    });
+                });
+            }
+        });
     }
 
 }

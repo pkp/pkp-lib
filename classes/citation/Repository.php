@@ -221,7 +221,6 @@ class Repository
             $importedCitations = [];
             $this->deleteByPublicationId($publicationId);
             if (is_array($citationStrings) && !empty($citationStrings)) {
-                $publication = Repo::publication()->get($publicationId);
                 foreach ($citationStrings as $seq => $rawCitationString) {
                     if (!empty($rawCitationString)) {
                         $citation = new Citation();
@@ -231,8 +230,7 @@ class Repository
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($publication->getData('citationsMetadataLookup') ||
-                            (is_null($publication->getData('citationsMetadataLookup')) && $this->request->getContext()->getData('citationsMetadataLookup'))) {
+                        if ($this->request->getContext()->getData('citationsMetadataLookup')) {
                             $this->reprocessCitation($citation);
                         }
                         $importedCitations[] = $citation;
@@ -256,7 +254,6 @@ class Repository
 
         $rejectedCitations = [];
         if (is_array($citationStrings) && !empty($citationStrings)) {
-            $publication = Repo::publication()->get($publicationId);
             foreach ($citationStrings as $rawCitationString) {
                 if (!empty($rawCitationString)) {
                     if (!$this->existsRawCitation($publicationId, $rawCitationString)) {
@@ -268,8 +265,7 @@ class Repository
                         $citation->setIsProcessed(false);
                         $newCitationId = $this->dao->insert($citation);
                         $citation->setId($newCitationId);
-                        if ($publication->getData('citationsMetadataLookup') ||
-                            (is_null($publication->getData('citationsMetadataLookup')) && $this->request->getContext()->getData('citationsMetadataLookup'))) {
+                        if ($this->request->getContext()->getData('citationsMetadataLookup')) {
                             $this->reprocessCitation($citation);
                         }
                     } else {

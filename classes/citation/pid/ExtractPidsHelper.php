@@ -22,28 +22,34 @@ class ExtractPidsHelper
 {
     public function execute(Citation $citation): Citation
     {
-        $raw = $citation->getRawCitation();
+        $raw = str_ireplace('http://', 'https://', $citation->getRawCitation());
 
-        // extract doi
+        // doi
         $doi = Doi::extractFromString($raw);
         if (!empty($doi)) {
             $citation->setData('doi', $doi);
+            $raw = Doi::removePrefixesWithPid($doi, $raw);
         }
 
-        // remove doi from raw
-        $raw = str_replace(Doi::addPrefix($doi), '', Doi::normalize($raw));
-
-        // parse url (after parsing doi)
-        $url = Url::extractFromString($raw);
-        $handle = Handle::extractFromString($raw);
+        // arxiv
         $arxiv = Arxiv::extractFromString($raw);
+        if (!empty($arxiv)) {
+            $citation->setData('arxiv', $arxiv);
+            $raw = Arxiv::removePrefixesWithPid($arxiv, $raw);
+        }
 
+        // handle
+        $handle = Handle::extractFromString($raw);
         if (!empty($handle)) {
             $citation->setData('handle', $handle);
-        } else if (!empty($arxiv)) {
-            $citation->setData('arxiv', $arxiv);
-        } else if (!empty($url)) {
+            $raw = Handle::removePrefixesWithPid($handle, $raw);
+        }
+
+        // url
+        $url = Url::extractFromString($raw);
+        if (!empty($url)) {
             $citation->setData('url', $url);
+            $raw = str_replace($url, '', $raw);
         }
 
         // urn

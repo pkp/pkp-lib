@@ -22,6 +22,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\citation\pid\Arxiv;
+use PKP\citation\pid\Doi;
+use PKP\citation\pid\Handle;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
@@ -172,6 +175,19 @@ class PKPCitationController extends PKPBaseController
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CITATION, $illuminateRequest->input());
+
+        $arxiv = Arxiv::extractFromString($params['arxiv']);
+        if(!empty($arxiv)){
+            $params['arxiv'] = $arxiv;
+        }
+        $doi = Doi::extractFromString($params['doi']);
+        if(!empty($doi)){
+            $params['doi'] = $doi;
+        }
+        $handle = Handle::extractFromString($params['handle']);
+        if(!empty($handle)){
+            $params['handle'] = $handle;
+        }
 
         $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_CITATION, $params);
         if (!empty($readOnlyErrors)) {

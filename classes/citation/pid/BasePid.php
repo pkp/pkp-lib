@@ -18,24 +18,27 @@ namespace PKP\citation\pid;
 
 abstract class BasePid
 {
-    /** @var string Regex to extract PID */
-    public const regex = '';
+    /** @var string Regexes to extract PIDs */
+    public const regexes = [];
 
-    /** @var string Correct prefix, e.g. https://doi.org */
+    /** @var string Default prefix, e.g. doi: arxiv: handle: */
     public const prefix = '';
 
-    /** @var array|string[] Incorrect prefixes; omit http:// https:// */
-    public const prefixInCorrect = [];
+    /** @var string Url prefix, e.g. https://doi.org/ https://arxiv.org/abs/ https://hdl.handle.net/ */
+    public const urlPrefix = '';
+
+    /** @var array|string[] Alternate prefixes */
+    public const alternatePrefixes = [];
 
     /** @var string Default characters which are trimmed */
     public const defaultTrimCharacters = ' ./';
 
     /**
-     * Add prefix
+     * Add prefix.
      *
      * @param string|null $string e.g. 10.123/tib123
      *
-     * @return string e.g. https://doi.org10.123/tib123
+     * @return string e.g. https://doi.org/10.123/tib123
      */
     public static function addPrefix(?string $string): string
     {
@@ -46,20 +49,32 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        // no prefix defined, return original string
-        if (empty($class::prefix)) {
-            return $string;
-        }
-
-        $string = trim($string, $class::defaultTrimCharacters);
-
-        return $class::prefix . '/' . $string;
+        return $class::prefix . $string;
     }
 
     /**
-     * Remove prefix
+     * Add urlPrefix.
      *
-     * @param string|null $string e.g. https://doi.org10.123/tib123
+     * @param string|null $string e.g. 10.123/tib123
+     *
+     * @return string e.g. https://doi.org/10.123/tib123
+     */
+    public static function addUrlPrefix(?string $string): string
+    {
+        if (empty($string)) {
+            return '';
+        }
+
+        /* @var BasePid $class */
+        $class = get_called_class();
+
+        return $class::urlPrefix . $string;
+    }
+
+    /**
+     * Remove prefixes.
+     *
+     * @param string|null $string e.g. doi:10.123/tib123 https://doi.org/10.123/tib123
      *
      * @return string e.g. 10.123/tib123
      */
@@ -72,101 +87,80 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        // no prefix defined, return original string
-        if (empty($class::prefix)) {
-            return $string;
-        }
-
-        $string = str_ireplace($class::prefix, '', $string);
-
-        return trim($string, $class::defaultTrimCharacters);
+        return trim(
+            str_ireplace($class::getPrefixes(), '', $string),
+            $class::defaultTrimCharacters
+        );
     }
 
     /**
-     * Normalize PID by removing any incorrect prefixes.
-     *
-     * @param string|null $string e.g. doi:10.123/tib123
-     *
-     * @return string e.g. https://doi.org/10.123/tib123
+     * Remove all instances of prefix . pid from string.
      */
-    public static function normalize(?string $string): string
+    public static function removePrefixesWithPid(?string $pid, ?string $string): string
     {
-        if (empty($string)) {
-            return '';
+        if (empty($pid) || empty($string)) {
+            return $string ?: '';
         }
 
         /* @var BasePid $class */
         $class = get_called_class();
 
-        // no prefix defined, return original string
-        if (empty($class::prefix)) {
-            return $string;
-        }
-
-        $prefixInCorrect = $class::prefixInCorrect;
-
-        // prefix without https://
-        $prefixAlt = str_ireplace('https://', '', $class::prefix);
-
-        // make secure
-        $string = str_ireplace('http://', 'https://', $string);
-
-        // process longer first, e.g. dx.doi.org before doi.org
-        usort($prefixInCorrect, function ($a, $b) {
-            return strlen($b) - strlen($a);
-        });
-
-        // common mistakes, e.g. doi.org:10.123/tib123
-        $fixes = [
-            $prefixInCorrect,
-            "{$prefixAlt}: ",
-            "{$prefixAlt}:",
-            "{$prefixAlt} ",
-            "www.{$prefixAlt}"
-        ];
-        $string = str_ireplace($fixes, $prefixAlt, $string);
-
-        // add https://
-        $string = str_replace($prefixAlt, "https://{$prefixAlt}/", $string);
-
-        // clean doubles
-        $doubles = [
-            "https://{$prefixAlt}//",
-            "https://https://{$prefixAlt}/",
-            "https://https://{$prefixAlt}//"
-        ];
-        $string = str_ireplace($doubles, "https://{$prefixAlt}/", $string);
-
-        return trim($string, $class::defaultTrimCharacters);
+        return trim(
+            str_replace(
+                array_map(fn($prefix) => $prefix . $pid, $class::getPrefixes()),
+                '',
+                $string
+            )
+        );
     }
 
     /**
-     * Extract from string with regex
+     * Extract from string with regex.
      *
      * @return string e.g. 10.123/tib123
      */
     public static function extractFromString(?string $string): string
     {
-        if (empty($string)) {
-            return '';
-        }
-
         /* @var BasePid $class */
         $class = get_called_class();
 
-        // no regex defined, return empty
-        if (empty($class::regex)) {
+        if (empty($class::regexes)) {
+            return $string ?: '';
+        }
+
+        $match = '';
+        foreach ($class::regexes as $regex) {
+            if (preg_match($regex, $string, $matches)) {
+                $match = $matches[0];
+                break;
+            }
+        }
+
+        if (empty($match)) {
             return '';
         }
 
-        $matches = [];
+        return trim($class::removePrefix($match), $class::defaultTrimCharacters);
+    }
 
-        preg_match($class::regex, $string, $matches);
+    /**
+     * Get a list of possible prefixes.
+     */
+    public static function getPrefixes(): array
+    {
+        /* @var BasePid $class */
+        $class = get_called_class();
 
-        if (empty($matches[0])) {
-            return '';
-        }
+        $prefixes = array_merge(
+            [$class::prefix, $class::prefix . ' '],
+            [$class::urlPrefix],
+            $class::alternatePrefixes,
+            array_map(fn($value) => trim($value) . ' ', $class::alternatePrefixes)
+        );
+        $prefixes = array_filter($prefixes, fn($value) => !empty(trim($value)));
+        $prefixes = array_unique($prefixes);
+        usort($prefixes, fn($a, $b) => strlen($b) - strlen($a));
 
-        return trim($matches[0], $class::defaultTrimCharacters);
+        return $prefixes;
     }
 }

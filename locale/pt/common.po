@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2025-10-24 13:27+0000\n"
+"PO-Revision-Date: 2025-10-24 14:15+0000\n"
 "Last-Translator: Sérgio Reis <disergioreis@gmail.com>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/pt/>\n"
@@ -2409,3 +2409,12 @@ msgstr "Nr"
 #, fuzzy
 msgid "common.fromUntil"
 msgstr "{$from} &ndash; {$until}"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Revisores do ano anterior"
+
+msgid "common.editorialHistory.peerReviewers"
+msgstr "Revisores em anos anteriores"
+
+msgid "validator.multilingual"
+msgstr "O requisito de multilinguismo não é cumprido para este campo."

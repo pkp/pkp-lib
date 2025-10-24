@@ -530,6 +530,13 @@ abstract class Repository
             ->get();
 
         $submission = $this->get($submissionId);
+
+        // if user has no stage assigments, check if user can edit anyway ie. is manager
+        $context = Application::get()->getRequest()->getContext();
+        if ($this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+            return true;
+        }
+
         // any published or scheduled then probe
         $hasLockedPublication = $submission?->getData('publications')
             ->contains(

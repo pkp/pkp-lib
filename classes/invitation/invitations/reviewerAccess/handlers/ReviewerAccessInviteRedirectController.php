@@ -15,28 +15,58 @@ namespace PKP\invitation\invitations\reviewerAccess\handlers;
 
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\template\TemplateManager;
 use Exception;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\enums\InvitationTypes;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitationContextFactory;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\steps\ReviewerAccessInvitationSteps;
+use PKP\user\User;
 
 class ReviewerAccessInviteRedirectController extends InvitationActionRedirectController
 {
-    public function getInvitation(): ReviewerAccessInvite
+    public function getInvitation(): \PKP\invitation\core\Invitation
     {
         return $this->invitation;
     }
 
     public function acceptHandle(Request $request): void
     {
+        $templateMgr = TemplateManager::getManager($request);
+
+        $templateMgr->assign('invitation', $this->getInvitation());
+        $context = $request->getContext();
+        $invitationModel = $this->getInvitation()->invitationModel->toArray();
+        $user = $invitationModel['userId'] ? Repo::user()->get($invitationModel['userId']) : null;
+        $steps = $this->invitation->buildAcceptSteps($context, $user);
+
+        $templateMgr->setState([
+            'steps' => $steps,
+            'primaryLocale' => $context->getData('primaryLocale'),
+            'pageTitle' => __('invitation.wizard.pageTitle'),
+            'invitationId' => (int)$request->getUserVar('id') ?: null,
+            'invitationKey' => $request->getUserVar('key') ?: null,
+            'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
+        ]);
+        $templateMgr->assign([
+            'pageComponent' => 'Page',
+        ]);
+        $templateMgr->display('invitation/acceptInvitation.tpl');
+    }
+
+    public function declineHandle(Request $request): void
+    {
         if ($this->invitation->getStatus() !== InvitationStatus::PENDING) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 
         $context = $request->getContext();
-
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
@@ -81,6 +111,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
             'user',
             'login',
             null,
+            null,
             [
             ]
         );
@@ -93,5 +124,10 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
     public function preRedirectActions(InvitationAction $action): void
     {
         return;
+    }
+
+    public function getAcceptSteps(Invitation $invitation, Context $context, ?User $user): array
+    {
+        return (new ReviewerAccessInvitationSteps())->getAcceptSteps($invitation, $context, $user);
     }
 }

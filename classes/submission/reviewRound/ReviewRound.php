@@ -86,6 +86,22 @@ class ReviewRound extends \PKP\core\DataObject
     }
 
     /**
+     * Get publication ID
+     */
+    public function getPublicationId(): int
+    {
+        return (int) $this->getData('publicationId');
+    }
+
+    /**
+     * Set publication ID
+     */
+    public function setPublicationId(int $publicationId): void
+    {
+        $this->setData('publicationId', $publicationId);
+    }
+
+    /**
      * Get review stage id (internal or external review).
      *
      * @return int

@@ -63,6 +63,9 @@ class Inbound
                         $newValue[] = $this->getAuthor($authorship);
                     }
                     break;
+                case 'type':
+                    $newValue = !empty($response[$mappedKey]) ? $response[$mappedKey] : $response['type'];
+                    break;
                 default:
                     if (is_array($mappedKey)) {
                         $newValue = ExternalServicesHelper::getValueFromArrayPath($response, $mappedKey);

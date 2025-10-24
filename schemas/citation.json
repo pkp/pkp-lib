@@ -15,12 +15,12 @@
         },
         "arxiv": {
             "type": "string",
-            "description": "Arxiv id.",
+            "description": "Arxiv id, e.g. 1902.02534.",
             "multilingual": false,
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "url"
+                "regex:/^\\d{4}\\.\\d{4,5}(v\\d+)?/i"
             ]
         },
         "authors": {
@@ -45,6 +45,9 @@
                     },
                     "openAlex": {
                         "type": "string"
+                    },
+                    "wikidata": {
+                        "type": "string"
                     }
                 }
             }
@@ -61,12 +64,12 @@
         },
         "doi": {
             "type": "string",
-            "description": "The DOI itself, such as `10.1234/5a6b-7c8d`.",
+            "description": "The DOI itself, e.g. 10.1234/5a6b-7c8d.",
             "multilingual": false,
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "regex:/^\\d+(.\\d+)+\\//"
+                "regex:/^10[.][0-9]{4,}[^\\s\"\\/<>]*\\/[^\\s\"<>]+/i"
             ]
         },
         "firstPage": {
@@ -80,12 +83,12 @@
         },
         "handle": {
             "type": "string",
-            "description": "Handle id.",
+            "description": "Handle id, e.g. 11366/1249.",
             "multilingual": false,
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "url"
+                "regex:/^\\d+\\/[a-zA-Z0-9\\-_]+/i"
             ]
         },
         "id": {
@@ -197,7 +200,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "in:journal,repository,conference,ebookplatform,bookseries,metadata,other"
+                "in:book series,conference,ebook platform,journal,metadata,other,repository"
             ]
         },
         "title": {
@@ -216,7 +219,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "in:book,book-chapter,book-part,book-section,book-series,book-set,book-track,component,database,dataset,dissertation,edited-book,grant,journal,journal-article,journal-issue,journal-volume,monograph,other,peer-review,posted-content,proceedings,proceedings-article,proceedings-series,reference-book,reference-entry,report,report-component,report-series,standard"
+                "in:book,book-chapter,book-part,book-section,book-series,book-set,book-track,component,database,dataset,dissertation,edited-book,editorial,erratum,grant,journal,journal-article,journal-issue,journal-volume,letter,libguides,monograph,other,paratext,peer-review,posted-content,preprint,proceedings,proceedings-article,proceedings-series,reference-book,reference-entry,report,report-component,report-series,retraction,review,standard,supplementary-materials"
             ]
         },
         "url": {

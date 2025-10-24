@@ -19,33 +19,20 @@ namespace PKP\citation\pid;
 class Arxiv extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
-
-    /** @copydoc AbstractPid::prefix */
-    public const prefix = 'https://arxiv.org/abs';
-
-    /** @copydoc AbstractPid::prefixInCorrect */
-    public const prefixInCorrect = [
-        'arxiv:'
+    public const regexes = [
+        '/arxiv:\s*\d{4}\.\d{4,5}(v\d+)?/i', // arxiv:2025.12345v2
+        '/https?:\/\/arxiv.org\/(?:abs|pdf)\/(?:\d+.\d+|[a-z-]+.\d+)/i' // https://arxiv.org/abs/2025.12345
     ];
 
-    /** @copydoc AbstractPid::extractFromString() */
-    public static function extractFromString(?string $string): string
-    {
-        $string = parent::extractFromString($string);
+    /** @copydoc AbstractPid::prefix */
+    public const prefix = 'arxiv:';
 
-        $class = get_called_class();
+    /** @copydoc AbstractPid::urlPrefix */
+    public const urlPrefix = 'https://arxiv.org/abs/';
 
-        // check if prefix found in extracted string
-        $prefixes = $class::prefixInCorrect;
-        $prefixes[] = $class::prefix;
-
-        foreach ($prefixes as $prefix) {
-            if (str_contains($string, $prefix)) {
-                return $string;
-            }
-        }
-
-        return '';
-    }
+    /** @copydoc AbstractPid::alternatePrefixes */
+    public const alternatePrefixes = [
+        'arxiv',
+        'https://arxiv.org/pdf/'
+    ];
 }

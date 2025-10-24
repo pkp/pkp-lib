@@ -19,33 +19,21 @@ namespace PKP\citation\pid;
 class Handle extends BasePid
 {
     /** @copydoc AbstractPid::regex */
-    public const regex = '%\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))%s';
-
-    /** @copydoc AbstractPid::prefix */
-    public const prefix = 'https://hdl.handle.net';
-
-    /** @copydoc AbstractPid::prefixInCorrect */
-    public const prefixInCorrect = [
-        'handle:'
+    public const regexes = [
+        '/(?:handle|hdl):\s*\d+\/[a-zA-Z0-9\-_]+/i', // handle:12345/abcde hdl:12345/abcde
+        '/https?:\/\/hdl\.handle\.net\/\d+\/[a-zA-Z0-9\-_]+/i', // https://hdl.handle.net/12345/abcde
     ];
 
-    /** @copydoc AbstractPid::extractFromString() */
-    public static function extractFromString(?string $string): string
-    {
-        $string = parent::extractFromString($string);
+    /** @copydoc AbstractPid::prefix */
+    public const prefix = 'handle:';
 
-        $class = get_called_class();
+    /** @copydoc AbstractPid::urlPrefix */
+    public const urlPrefix = 'https://hdl.handle.net/';
 
-        // check if prefix found in extracted string
-        $prefixes = $class::prefixInCorrect;
-        $prefixes[] = $class::prefix;
-
-        foreach ($prefixes as $prefix) {
-            if (str_contains($string, $prefix)) {
-                return $string;
-            }
-        }
-
-        return '';
-    }
+    /** @copydoc AbstractPid::alternatePrefixes */
+    public const alternatePrefixes = [
+        'handle',
+        'hdl',
+        'hdl:'
+    ];
 }

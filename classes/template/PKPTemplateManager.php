@@ -1247,18 +1247,6 @@ class PKPTemplateManager extends Smarty
                                     ]
                                 ]
                             ];
-
-                            $menu['content'] = [
-                                'name' => __('navigation.content'),
-                                'icon' => 'Content',
-                                'submenu' => [
-                                    'userComments' => [
-                                        'name' => __('manager.userComment.comments'),
-                                        'url' => $router->url($request, null, 'management', 'settings', ['userComments']),
-                                        'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('userComments', (array) $router->getRequestedArgs($request)),
-                                    ],
-                                ]
-                            ];
                         }
                     }
 

@@ -30,6 +30,7 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,9 @@ use Illuminate\Support\LazyCollection;
 use Illuminate\Validation\Rule;
 use PKP\affiliation\Affiliation;
 use PKP\citation\Citation;
+use PKP\author\contributorRole\ContributorRole;
+use PKP\author\contributorRole\ContributorRoleIdentifier;
+use PKP\author\contributorRole\ContributorType;
 use PKP\components\forms\FormComponent;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationIdentifiersForm;
@@ -705,7 +709,8 @@ class PKPSubmissionController extends PKPBaseController
         if ($submitAsUserGroup->roleId === Role::ROLE_ID_AUTHOR) {
             $author = Repo::author()->newAuthorFromUser($request->getUser(), $submission, $context);
             $author->setData('publicationId', $publication->getId());
-            $author->setUserGroupId($submitAsUserGroup->id);
+            $author->setData('contributorType', ContributorType::PERSON->getName());
+            $author->setContributorRolesByIdentifiers([ContributorRoleIdentifier::AUTHOR->getName()], $context->getId());
             $authorId = Repo::author()->add($author);
             Repo::publication()->edit($publication, ['primaryContactId' => $authorId]);
         }
@@ -1138,8 +1143,6 @@ class PKPSubmissionController extends PKPBaseController
 
         $publications = $collector->getMany();
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
         $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterBySubmissionIds([$submission->getId()])
             ->filterByReviewerIds([$request->getUser()->getId()], true)
@@ -1154,7 +1157,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
+            'items' => Repo::publication()->getSchemaMap($submission, $genres)->summarizeMany($publications, $anonymize)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -1179,14 +1182,12 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->get();
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1217,15 +1218,12 @@ class PKPSubmissionController extends PKPBaseController
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1302,14 +1300,12 @@ class PKPSubmissionController extends PKPBaseController
             Mail::send($mailable);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1396,14 +1392,12 @@ class PKPSubmissionController extends PKPBaseController
         Repo::publication()->edit($publication, $params);
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1456,15 +1450,12 @@ class PKPSubmissionController extends PKPBaseController
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1499,15 +1490,12 @@ class PKPSubmissionController extends PKPBaseController
 
         $publication = Repo::publication()->get($publication->getId());
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
+            Repo::publication()->getSchemaMap($submission, $genres)->map($publication),
             Response::HTTP_OK
         );
     }
@@ -1542,13 +1530,11 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $userGroups = UserGroup::withContextIds($submission->getData('contextId'))->cursor();
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toAssociativeArray();
 
-        $output = Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication);
+        $output = Repo::publication()->getSchemaMap($submission, $genres)->map($publication);
 
         Repo::publication()->delete($publication);
 
@@ -1657,10 +1643,13 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
+        $submissionContext = $request->getContext();
+        // Remove extra data that is irrelevant to the selected contributor type
+        $this->removeIrrelevantContributorTypeData($params, $submissionContext);
 
         // Allows author ORCID request email to be triggered from frontend before author ID exists
         $shouldSendOrcidEmail = false;
-        switch ($params['orcid']) {
+        switch ($params['orcid'] ?? null) {
             case null:
                 unset($params['orcid']);
                 break;
@@ -1672,9 +1661,12 @@ class PKPSubmissionController extends PKPBaseController
 
         $params['publicationId'] = $publication->getId();
 
-        $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));
+        }
+
+        if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
+            $params['contributorRoles'] = $this->contributorRolesToParams($params['contributorRoles'], $submissionContext->getId());
         }
 
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
@@ -1684,6 +1676,7 @@ class PKPSubmissionController extends PKPBaseController
         }
         $affiliationParams = $params['affiliations'] ?? [];
         unset($params['affiliations']);
+
         $author = Repo::author()->newDataObject($params);
         $newId = Repo::author()->add($author);
 
@@ -1814,9 +1807,11 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
+        $submissionContext = $request->getContext();
+        // Remove extra data that is irrelevant to the selected contributor type
+        $this->removeIrrelevantContributorTypeData($params, $submissionContext);
         $params['id'] = $author->getId();
 
-        $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
             $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
@@ -1833,6 +1828,10 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json([
                 'error' => __('api.submissions.403.userCantEdit'),
             ], Response::HTTP_FORBIDDEN);
+        }
+
+        if (isset($params['contributorRoles']) && is_array($params['contributorRoles'])) {
+            $params['contributorRoles'] = $this->contributorRolesToParams($params['contributorRoles'], $submissionContext->getId());
         }
 
         $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);
@@ -2060,10 +2059,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionLocale = $submission->getData('locale');
         $locales = $this->getPublicationFormLocales($context, $submission);
-        $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withContextIds([$submission->getData('contextId')])
-            ->get();
-        $publicationLicenseForm = new PKPPublicationLicenseForm($publicationApiUrl, $locales, $publication, $context, $authorUserGroups);
+        $publicationLicenseForm = new PKPPublicationLicenseForm($publicationApiUrl, $locales, $publication, $context);
 
         return response()->json($this->getLocalizedForm($publicationLicenseForm, $submissionLocale, $locales), Response::HTTP_OK);
     }
@@ -2289,6 +2285,7 @@ class PKPSubmissionController extends PKPBaseController
             'givenName',
             'familyName',
             'preferredPublicName',
+            'organizationName',
         ];
         $affiliationProps = [
             'name',
@@ -2303,7 +2300,10 @@ class PKPSubmissionController extends PKPBaseController
                         Repo::affiliation()->edit($affiliation, $editProps($affiliation, $affiliationProps));
                     }
                 }
-                if (!($contributor->getData('givenName')[$newLocale] ?? null)) {
+                if (!(
+                        $contributor->getData('contributorType') === ContributorType::PERSON->getName() && ($contributor->getData('givenName')[$newLocale] ?? null) ||
+                        $contributor->getData('contributorType') === ContributorType::ORGANIZATION->getName() && ($contributor->getData('organizationName')[$newLocale] ?? null)
+                    )) {
                     Repo::author()->edit($contributor, $editProps($contributor, $contributorProps));
                 }
             });
@@ -2475,5 +2475,38 @@ class PKPSubmissionController extends PKPBaseController
             'itemsMax' => count($existingCitations),
             'items' => $existingCitations
         ], Response::HTTP_OK);
+    }
+
+    /** Remove irrelevant data based on the selected contributor type.
+     * Set them as null to be removed from db.
+     */
+    protected function removeIrrelevantContributorTypeData(array &$params, Context $context): void
+    {
+        $contributorType = $params['contributorType'];
+        $nulledMProp = Arr::mapWithKeys($context->getSupportedFormLocales(), fn (string $l) => [$l => null]);
+        $typeFields = Author::CONTRIBUTOR_TYPE_FORM_FIELDS;
+        $selectedTypeField = Arr::pull($typeFields, $contributorType);
+        $dataToRemove = collect($typeFields)
+            ->flatten()
+            ->diff($selectedTypeField)
+            ->unique();
+        $mprops = $dataToRemove
+            ->intersect(app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_AUTHOR));
+
+        $dataToRemove
+            ->each(function (string $key) use (&$params, $mprops, $nulledMProp) {
+                $params[$key] = $mprops->contains($key)
+                    ? (isset($params[$key]) ? array_map(fn ($_) => null, $params[$key]) : $nulledMProp)
+                    : null;
+            });
+    }
+
+    protected function contributorRolesToParams(array $roles, int $contextId): array
+    {
+        // If values are identifiers, get objects, else should be objects
+        if (array_intersect($roles, ContributorRoleIdentifier::getRoles())) {
+            return Repo::contributorRole()->getByContextIdAndIdentifiers($roles, $contextId);
+        }
+        return $roles;
     }
 }

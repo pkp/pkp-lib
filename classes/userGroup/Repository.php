@@ -469,7 +469,7 @@ class Repository
                 'permitSelfRegistration' => $permitSelfRegistration,
                 'permitMetadataEdit' => $permitMetadataEdit,
                 'isDefault' => true,
-                'showTitle' => true,
+                'showTitle' => $roleId !== Role::ROLE_ID_AUTHOR,
                 'masthead' => $masthead,
                 'permitSettings' => $permitSettings,
             ]);

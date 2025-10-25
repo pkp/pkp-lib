@@ -276,9 +276,6 @@ class AuthorGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
-        if ($publication->getData('status') === PKPPublication::STATUS_PUBLISHED) {
-            return false;
-        }
 
         if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
             return true;

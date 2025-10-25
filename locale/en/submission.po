@@ -486,8 +486,8 @@ msgstr ""
 
 msgid "submission.citations.structured.citationsMetadataLookup.description"
 msgstr ""
-"This section helps you structure your references. "
-"Clicking \"Enable Metadata Lookup\" will allow the system to process your references and retrieve DOIs and other metadata from external sources. "
+"Structuring and Metadata Lookup is enabled for this Journal. "
+"The system will process your references and retrieve DOIs and other metadata from external sources. "
 "This may take some time, but you can continue working on your submission and return to this page later to view the updated structured citations. "
 
 msgid "submission.citations.structured.descriptionTable"
@@ -549,13 +549,22 @@ msgid "submission.citations.structured.deleteDialog.confirm"
 msgstr "This will remove this citation."
 
 msgid "submission.citations.structured.deleteAllLink"
-msgstr "Delete All Structured References"
+msgstr "Delete all references"
 
 msgid "submission.citations.structured.deleteAllDialog.title"
-msgstr "Delete all Structured Citations"
+msgstr "Delete all references"
 
 msgid "submission.citations.structured.deleteAllDialog.confirm"
 msgstr "This will remove all references currently listed. You'll need to re-enter and process your citations again if you continue."
+
+msgid "submission.citations.structured.reprocessAllCitations"
+msgstr "Reprocess all references"
+
+msgid "submission.citations.structured.reprocessAllCitations.title"
+msgstr "Reprocess all references"
+
+msgid "submission.citations.structured.reprocessAllCitations.confirm"
+msgstr "This will reprocess all references currently listed. You'll need to re-enter your manual changes again if you continue."
 
 msgid "submission.citations.structured.collapseAll"
 msgstr "Collapse All"
@@ -600,7 +609,7 @@ msgid "submission.citations.structured.label.rawCitation"
 msgstr "Edit Raw Citation"
 
 msgid "submission.citations.structured.label.doi"
-msgstr "DOI"
+msgstr "DOI, e.g. 10.1000/182, doi:10.1000/182, https://doi.org/10.1000/182"
 
 msgid "submission.citations.structured.label.title"
 msgstr "Title"
@@ -648,10 +657,10 @@ msgid "submission.citations.structured.label.urn"
 msgstr "URN"
 
 msgid "submission.citations.structured.label.arxiv"
-msgstr "Arxiv"
+msgstr "Arxiv, e.g. 1234.123456v2, arxiv:1234.123456v2, https://arxiv.org/abs/1234.123456v2"
 
 msgid "submission.citations.structured.label.handle"
-msgstr "Handle"
+msgstr "Handle, e.g. 20.1000/100, handle:20.1000/100, https://hdl.handle.net/20.1000/100"
 
 msgid "submission.citations.structured.label.openAlex"
 msgstr "OpenAlex"

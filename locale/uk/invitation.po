@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-07 13:39+0000\n"
+"PO-Revision-Date: 2025-10-27 07:51+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/uk/>\n"
@@ -213,3 +213,83 @@ msgstr "Введіть деталі"
 
 msgid "userInvitation.reviewAndInviteLabel"
 msgstr "Огляд і запрошення на ролі"
+
+msgid "userInvitation.searchField.description"
+msgstr "наприклад, aeinstein@example.com або aeinstein чи 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Зберегти та продовжити"
+
+msgid "invitation.role.dateEnd"
+msgstr "Дата закінчення"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Роль"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Дата початку"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Запросити користувача на роль"
+
+msgid "userInvitation.modal.title"
+msgstr "Запрошення надіслано"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Видалити роль"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Шукати користувача"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} – Шукати користувача"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Шукати користувача"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Якщо користувача не існує, ви можете запросити його взяти на себе ролі. Якщо "
+"користувач уже існує в системі, ви можете переглянути його інформацію та "
+"запросити його взяти на себе додаткові ролі."
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Ввести деталі"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr "{$step} – Введіть деталі й запросіть на ролі"
+
+msgid "invitation.role.selectRole"
+msgstr "Вибрати нову роль"
+
+msgid "invitation.role.dateStart"
+msgstr "Дата початку"
+
+msgid "invitation.role.addRole.button"
+msgstr "Додати іншу роль"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Дата закінчення"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Переглянути й запросити на ролі"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} – Змінити електронну адресу, надану користувачеві"
+
+msgid "userInvitation.modal.button"
+msgstr "Переглянути всіх користувачів"
+
+msgid "invitation.decline.confirm"
+msgstr "Підтвердити відхилення запрошення"
+
+msgid "invitation.decline.confirm.title"
+msgstr "Відхилити запрошення"
+
+msgid "invitation.decline.confirm.description"
+msgstr ""
+"Ви впевнені, що хочете відхилити це запрошення? Підтвердіть відхилення, "
+"натиснувши кнопку нижче."
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Детальна форма користувача щодо прийняття запрошення"

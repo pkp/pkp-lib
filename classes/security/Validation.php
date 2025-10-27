@@ -49,6 +49,11 @@ class Validation
     {
         $reason = null;
 
+        $request = Application::get()->getRequest();
+        if (!$request->checkCSRF()) {
+            return false; // Failed CSRF check
+        }
+
         return Auth::attempt(['username' => $username, 'password' => $password], $remember)
             ? static::registerUserSession(Auth::user(), $reason)
             : false;

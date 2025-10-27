@@ -2588,6 +2588,9 @@ msgstr "All Versions"
 msgid "publication.version.confirm"
 msgstr "Are you sure you want to create a new version?"
 
+msgid "publication.versionStringWithRound"
+msgstr "{$versionString} (Round {$round})"
+
 msgid "publication.abstract.wordCountLong"
 msgstr "The abstract is too long. It should be {$limit} words or less. It is currently {$count} words long."
 

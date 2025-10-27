@@ -28,6 +28,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\facades\Locale;
 use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -88,6 +89,15 @@ class PKPReviewerHandler extends Handler
                 ];
             }
         }
+
+        $templateMgr->setConstants([
+            // Editorial Tasks
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+            'EDITORIAL_TASK_STATUS_PENDING' => 1,
+            'EDITORIAL_TASK_STATUS_IN_PROGRESS' => 2,
+            'EDITORIAL_TASK_STATUS_CLOSED' => 3,
+        ]);
 
         $templateMgr->assign([
             'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewSubmission->getCurrentPublication()->getLocalizedTitle(),

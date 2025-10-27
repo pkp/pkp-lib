@@ -23,8 +23,8 @@ class Doi extends BasePid
 {
     /** @copydoc AbstractPid::regex */
     public const regexes = [
-        '/doi:\s*10[.][0-9]{4,}[^\s"\/<>]*\/[^\s"<>]+/i',
-        '/https?:\/\/doi\.org\/10[.][0-9]{4,}[^\s"\/<>]*\/[^\s"<>]+/i'
+        '/doi:\s*10[.][0-9]{4,}\/[^\s"<>]+/i',
+        '/https?:\/\/doi\.org\/10[.][0-9]{4,}\/[^\s"<>]+/i'
     ];
 
     /** @copydoc AbstractPid::prefix */

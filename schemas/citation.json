@@ -20,7 +20,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "regex:/^\\d{4}\\.\\d{4,5}(v\\d+)?/i"
+                "regex:/^(?:\\d+.\\d+|[a-z-]+.\\d+)/i"
             ]
         },
         "authors": {
@@ -69,7 +69,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "regex:/^10[.][0-9]{4,}[^\\s\"\\/<>]*\\/[^\\s\"<>]+/i"
+                "regex:/^10[.][0-9]{4,}\\/[^\\s\"<>]+/i"
             ]
         },
         "firstPage": {
@@ -88,7 +88,7 @@
             "apiSummary": true,
             "validation": [
                 "nullable",
-                "regex:/^\\d+\\/[a-zA-Z0-9\\-_]+/i"
+                "regex:/^[0-9a-z]+(?:.[0-9a-z]+)*\\/.+/i"
             ]
         },
         "id": {

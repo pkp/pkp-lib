@@ -2448,23 +2448,19 @@ class PKPSubmissionController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        // Set all citations as not processed
         $citations = $publication->getData('citations');
+        $citationsMapped = [];
         foreach ($citations as &$citation) {
             $citation->setIsProcessed(false);
             Repo::citation()->edit($citation, []);
-        }
-        unset($citation);
-
-        foreach ($citations as &$citation) {
             Repo::citation()->reprocessCitation($citation);
-            $citation = Repo::citation()->getSchemaMap()->map($citation);
+            $citationsMapped[] = Repo::citation()->getSchemaMap()->map($citation);
         }
         unset($citation);
 
         return response()->json([
-            'itemsMax' => count($citations),
-            'items' => $citations
+            'itemsMax' => count($citationsMapped),
+            'items' => $citationsMapped
         ], Response::HTTP_OK);
     }
 }

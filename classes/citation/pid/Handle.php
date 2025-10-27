@@ -20,8 +20,8 @@ class Handle extends BasePid
 {
     /** @copydoc AbstractPid::regex */
     public const regexes = [
-        '/(?:handle|hdl):\s*\d+\/[a-zA-Z0-9\-_]+/i', // handle:12345/abcde hdl:12345/abcde
-        '/https?:\/\/hdl\.handle\.net\/\d+\/[a-zA-Z0-9\-_]+/i', // https://hdl.handle.net/12345/abcde
+        '/(?:handle|hdl):\s*[0-9a-z]+(?:.[0-9a-z]+)*\/.+/i', // handle:12345/abcde hdl:12345/abcde
+        '/https?:\/\/hdl\.handle\.net\/[0-9a-z]+(?:.[0-9a-z]+)*\/.+/i', // https://hdl.handle.net/12345/abcde
     ];
 
     /** @copydoc AbstractPid::prefix */

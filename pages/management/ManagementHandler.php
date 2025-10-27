@@ -57,6 +57,7 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\invitation\core\Invitation;
 use PKP\mail\Mailable;
 use PKP\security\authorization\CanAccessSettingsPolicy;
@@ -329,6 +330,11 @@ class ManagementHandler extends Handler
         $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
         $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
         $submissionGuidanceSettingsForm = new SubmissionGuidanceSettings($contextApiUrl, $locales, $context);
+
+        $templateMgr->setConstants([
+            'EDITORIAL_TASK_TYPE_DISCUSSION' => EditorialTaskType::DISCUSSION->value,
+            'EDITORIAL_TASK_TYPE_TASK' => EditorialTaskType::TASK->value,
+        ]);
 
         $templateMgr->setState([
             'components' => [

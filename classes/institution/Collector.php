@@ -131,20 +131,21 @@ class Collector implements CollectorInterface
 
         if (!empty($this->searchPhrase)) {
             $words = explode(' ', $this->searchPhrase);
+            $pdo = DB::connection()->getPdo();
             if (count($words)) {
                 foreach ($words as $word) {
                     $word = addcslashes($word, '%_');
-                    $qb->where(function ($qb) use ($word) {
-                        $qb->whereIn('i.institution_id', function ($qb) use ($word) {
+                    $qb->where(function ($qb) use ($word, $pdo) {
+                        $qb->whereIn('i.institution_id', function ($qb) use ($word, $pdo) {
                             $qb->select('iss.institution_id')
                                 ->from($this->dao->settingsTable . ' as iss')
                                 ->where('iss.setting_name', '=', 'name')
-                                ->where(DB::raw('lower(iss.setting_value)'), 'LIKE', DB::raw("lower('%{$word}%')"));
+                                ->where(DB::raw('lower(iss.setting_value)'), 'LIKE', DB::raw("lower(" . $pdo->quote("%{$word}%") . ")"));
                         })
-                            ->orWhereIn('i.institution_id', function ($qb) use ($word) {
+                            ->orWhereIn('i.institution_id', function ($qb) use ($word, $pdo) {
                                 $qb->select('ips.institution_id')
                                     ->from('institution_ip as ips')
-                                    ->where(DB::raw('lower(ips.ip_string)'), 'LIKE', DB::raw("lower('%{$word}%')"));
+                                    ->where(DB::raw('lower(ips.ip_string)'), 'LIKE', DB::raw("lower(" . $pdo->quote("%{$word}%") . ")"));
                             });
                     });
                 }

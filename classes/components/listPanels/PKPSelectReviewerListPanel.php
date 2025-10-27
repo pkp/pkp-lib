@@ -191,8 +191,7 @@ class PKPSelectReviewerListPanel extends ListPanel
             'currentUserId' => $currentUser ? (int)$currentUser->getId() : null,
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
-
-        return $map->summarizeManyReviewers($reviewers, $options)->all();
+        return $map->summarizeManyReviewers($reviewers, $options)->values()->all();
     }
 
     /**

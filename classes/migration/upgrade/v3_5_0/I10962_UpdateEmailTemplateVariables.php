@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_4_0/I10962_UpdateEmailTemplateVariables.php
+ * @file classes/migration/upgrade/v3_5_0/I10962_UpdateEmailTemplateVariables.php
  *
  * Copyright (c) 2014-2025 Simon Fraser University
  * Copyright (c) 2000-2025 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Remap legacy {journal|press|server}* tokens to {context*} in email template subjects and bodies.
  */
 
-namespace PKP\migration\upgrade\v3_4_0;
+namespace PKP\migration\upgrade\v3_5_0;
 
 use Illuminate\Support\Facades\DB;
 use PKP\install\DowngradeNotSupportedException;

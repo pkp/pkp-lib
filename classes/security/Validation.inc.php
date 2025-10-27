@@ -32,6 +32,11 @@ class Validation {
 			return false;
 		}
 
+		$request = Application::get()->getRequest();
+		if (!$request->checkCSRF()) {
+			return false; // Failed CSRF check
+		}
+
 		if ($user->getAuthId()) {
 			$authDao = DAORegistry::getDAO('AuthSourceDAO'); /** @var AuthSourceDAO $authDao */
 			$auth = $authDao->getPlugin($user->getAuthId());

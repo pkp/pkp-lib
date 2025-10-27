@@ -56,13 +56,18 @@ class Validation
         if (ValidatorFactory::make(['email' => $username], ['email' => 'email'])->passes()) {
             $user = Repo::user()->getByEmail($username, true);
             $authKey = static::AUTH_KEY_EMAIL;
-        } else{
+        } else {
             $user = Repo::user()->getByUsername($username, true);
         }
         
         if (!isset($user)) {
             // User does not exist
             return false;
+        }
+
+        $request = Application::get()->getRequest();
+        if (!$request->checkCSRF()) {
+            return false; // Failed CSRF check
         }
 
         // Validate against user database

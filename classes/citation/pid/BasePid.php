@@ -34,7 +34,7 @@ abstract class BasePid
     public const defaultTrimCharacters = ' ./';
 
     /**
-     * Add prefix
+     * Add prefix.
      *
      * @param string|null $string e.g. 10.123/tib123
      *
@@ -53,7 +53,7 @@ abstract class BasePid
     }
 
     /**
-     * Add urlPrefix
+     * Add urlPrefix.
      *
      * @param string|null $string e.g. 10.123/tib123
      *
@@ -72,7 +72,7 @@ abstract class BasePid
     }
 
     /**
-     * Remove prefixes
+     * Remove prefixes.
      *
      * @param string|null $string e.g. doi:10.123/tib123 https://doi.org/10.123/tib123
      *
@@ -87,21 +87,35 @@ abstract class BasePid
         /* @var BasePid $class */
         $class = get_called_class();
 
-        $prefixes = array_merge(
-            [$class::prefix, $class::prefix . ' '],
-            [$class::urlPrefix],
-            $class::alternatePrefixes,
-            array_map(fn($value) => trim($value) . ' ', $class::alternatePrefixes)
+        return trim(
+            str_ireplace($class::getPrefixes(), '', $string),
+            $class::defaultTrimCharacters
         );
-        $prefixes = array_filter($prefixes, fn($value) => !empty(trim($value)));
-        $prefixes = array_unique($prefixes);
-        usort($prefixes, fn($a, $b) => strlen($b) - strlen($a));
-
-        return trim(str_ireplace($prefixes, '', $string), $class::defaultTrimCharacters);
     }
 
     /**
-     * Extract from string with regex
+     * Remove all instances of prefix . pid from string.
+     */
+    public static function removePrefixesWithPid(?string $pid, ?string $string): string
+    {
+        if (empty($pid) || empty($string)) {
+            return $string ?: '';
+        }
+
+        /* @var BasePid $class */
+        $class = get_called_class();
+
+        return trim(
+            str_replace(
+                array_map(fn($prefix) => $prefix . $pid, $class::getPrefixes()),
+                '',
+                $string
+            )
+        );
+    }
+
+    /**
+     * Extract from string with regex.
      *
      * @return string e.g. 10.123/tib123
      */
@@ -127,5 +141,26 @@ abstract class BasePid
         }
 
         return trim($class::removePrefix($match), $class::defaultTrimCharacters);
+    }
+
+    /**
+     * Get a list of possible prefixes.
+     */
+    public static function getPrefixes(): array
+    {
+        /* @var BasePid $class */
+        $class = get_called_class();
+
+        $prefixes = array_merge(
+            [$class::prefix, $class::prefix . ' '],
+            [$class::urlPrefix],
+            $class::alternatePrefixes,
+            array_map(fn($value) => trim($value) . ' ', $class::alternatePrefixes)
+        );
+        $prefixes = array_filter($prefixes, fn($value) => !empty(trim($value)));
+        $prefixes = array_unique($prefixes);
+        usort($prefixes, fn($a, $b) => strlen($b) - strlen($a));
+
+        return $prefixes;
     }
 }

@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Arr;
 use PKP\API\v1\editTaskTemplates\formRequests\AddTaskTemplate;
 use PKP\API\v1\editTaskTemplates\resources\TaskTemplateResource;
 use PKP\core\PKPBaseController;
@@ -29,6 +30,7 @@ use PKP\editorialTask\Template;
 use PKP\security\authorization\CanAccessSettingsPolicy;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\editorialTask\enums\EditorialTaskType;
 use PKP\API\v1\editTaskTemplates\formRequests\UpdateTaskTemplate;
 
 class PKPEditTaskTemplateController extends PKPBaseController
@@ -144,7 +146,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
                 case 'type':
                     if (is_numeric($val)) {
                         $type = (int) $val;
-                        if ($type === Template::TYPE_DISCUSSION || $type === Template::TYPE_TASK) {
+                        if (in_array($type, [EditorialTaskType::DISCUSSION->value, EditorialTaskType::TASK->value], true)) {
                             $collector->filterByType($type);
                         }
                     }
@@ -186,24 +188,36 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $id = (int) $request->route('templateId');
 
         $template = Template::query()
-            ->where('context_id', $contextId)
-            ->findOrFail($id);
+            ->byContextId($contextId)
+            ->find($id);
+    
+        if (!$template) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
 
         $data = $request->validated();
 
         DB::transaction(function () use ($template, $data) {
-            $updates = [];
-            if (array_key_exists('stageId', $data)) $updates['stage_id'] = (int) $data['stageId'];
-            if (array_key_exists('title', $data)) $updates['title'] = $data['title'];
-            if (array_key_exists('include', $data)) $updates['include'] = (bool) $data['include'];
-            if (array_key_exists('emailTemplateKey', $data)) $updates['email_template_key'] = $data['emailTemplateKey'];
-            if (array_key_exists('type', $data)) $updates['type'] = (int) $data['type'];
+            $userGroupIds = Arr::pull($data, 'userGroupIds');
+            $updates = collect($data)
+                ->only(['stageId', 'title', 'include', 'type', 'description', 'dueInterval'])
+                ->mapWithKeys(function ($v, $k) {
+                    return match ($k) {
+                        'stageId' => ['stageId' => (int) $v],
+                        'include' => ['include' => (bool) $v],
+                        'type' => ['type' => (int) $v],
+                        'dueInterval' => ['dueInterval' => $v],
+                        default => [$k => $v], // 'title', 'description'
+                    };
+                })
+                ->all();
 
-            if ($updates) {
-                $template->update($updates);
-            }
-            if (array_key_exists('userGroupIds', $data)) {
-                $template->userGroups()->sync($data['userGroupIds']);
+            $template->update($updates);
+
+            if ($userGroupIds !== null) {
+                $template->userGroups()->sync($userGroupIds);
             }
         });
 
@@ -222,7 +236,7 @@ class PKPEditTaskTemplateController extends PKPBaseController
         $id = (int) $illuminateRequest->route('templateId');
 
         $template = Template::query()
-            ->where('context_id', $contextId)
+            ->byContextId($contextId)
             ->find($id);
 
         if (!$template) {

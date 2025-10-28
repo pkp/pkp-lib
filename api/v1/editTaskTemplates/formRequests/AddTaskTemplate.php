@@ -34,10 +34,8 @@ class AddTaskTemplate extends FormRequest
 
         // build a list of allowed stage IDs from values
         $stages = Application::getApplicationStages();
-        $stageIds = array_values(array_unique(array_filter(
-            array_map('intval', array_merge(array_keys((array)$stages), array_values((array)$stages))),
-            fn ($id) => $id > 0
-        )));
+        $stageIds = array_values(array_unique(array_map('intval', array_values((array) $stages))));
+
 
         return [
             'type' => ['required', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
@@ -46,7 +44,6 @@ class AddTaskTemplate extends FormRequest
             'include' => ['boolean'],
             'dueInterval' => ['sometimes', 'nullable', 'string', Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))],
             'description' => ['sometimes', 'nullable', 'string'],
-            'type' => ['required','integer','in:1,2'],
             'userGroupIds' => ['required', 'array', 'min:1'],
             'userGroupIds.*' => [
                 'integer',

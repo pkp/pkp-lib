@@ -2,17 +2,19 @@
 
 namespace PKP\core;
 
+use Exception;
+use PKP\core\PKPContainer;
+use PKP\core\blade\BladeCompiler;
 use Illuminate\View\FileViewFinder;
+use Illuminate\Support\Facades\View;
+use PKP\core\blade\DynamicComponent;
+use PKP\template\PKPTemplateManager;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\View\ViewServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Factory as ViewFactory;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
 use Illuminate\View\Compilers\BladeCompiler as IlluminateBladeCompiler;
-use PKP\core\PKPContainer;
-use PKP\core\blade\BladeCompiler;
-use PKP\core\blade\DynamicComponent;
-use Illuminate\Foundation\AliasLoader;
 
 class PKPBladeViewServiceProvider extends ViewServiceProvider
 {
@@ -30,6 +32,9 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
         View::addExtension('blade', 'blade');
 
         AliasLoader::getInstance()->alias('Js', \Illuminate\Support\Js::class);
+
+        // Create a global alias so ViewHelper can be used without full namespace in templates
+        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);
 
         // This allows templates to be referenced explicitly, 
         // e.g., @include('VIEW_NAMESPACE::some-template') or @include('VIEW_NAMESPACE::some-template'),
@@ -121,8 +126,29 @@ class PKPBladeViewServiceProvider extends ViewServiceProvider
             ?>";
         });
 
-        // Create a global alias so ViewHelper can be used without full namespace in templates
-        AliasLoader::getInstance()->alias('ViewHelper', \PKP\template\ViewHelper::class);    }
+        // use as @loadSmarty(['file' => 'SMARTY_TEMPLATE_PATH', 'param1' => $param1, 'param2' => $param2, ...])
+        Blade::directive('loadSmarty', function ($parameters) {
+            return "<?php
+                \$parameters = $parameters ? (array) ($parameters) : [];
+                \$file = \$parameters['file'] ?? null;
+
+                if (\$file === null) {
+                    throw new \Exception('file parameter is missing in @loadSmarty');
+                }
+
+                \$templateManager = \PKP\\template\\PKPTemplateManager::getManager();
+                
+                if (!\$templateManager->templateExists(\$file)) {
+                    throw new \Exception(\"smarty template {\$file} does not exist\");
+                }
+
+                unset(\$parameters['file']);
+                \$templateManager->assign(\$parameters);
+
+                echo \$templateManager->fetch(\$file);
+            ?>";
+        });
+    }
 
     /**
      * Register the service provider.

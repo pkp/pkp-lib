@@ -412,6 +412,9 @@ class PKPTemplateManager extends Smarty
         // load NavigationMenu Areas from context
         $this->registerPlugin('function', 'load_menu', $this->smartyLoadNavigationMenuArea(...));
 
+        // load a blade view in smarty templates
+        $this->registerPlugin('function', 'load_blade_view', $this->smartyLoadBladeView(...));
+
         // Load form builder vocabulary
         $fbv = $this->getFBV();
         $this->registerPlugin('block', 'fbvFormSection', $fbv->smartyFBVFormSection(...));
@@ -2532,6 +2535,48 @@ class PKPTemplateManager extends Smarty
         ]);
 
         return $this->fetch($menuTemplatePath);
+    }
+
+    /**
+     * Smarty usage: {load_blade_view file=$file params1=$params1 params2=$params2 ...}
+     *
+     * Custom Smarty function for printing a blade view.
+     *
+     * @param array $params associative array
+     * @param Smarty|null $smarty
+     *
+     * @return string The compiled content of the blade view
+     * 
+     * @throws Exception If the file parameter is missing or the blade view does not exist  
+     */
+    public function smartyLoadBladeView($params, $smarty = null): string
+    {
+        if (!isset($params['file'])) {
+            throw new Exception('file parameter is missing in {load_blade_view}');
+        }
+
+        $file = $params['file'];
+        $file = str_replace(['/', '.blade.php', '.blade'], ['.', '', ''], $file);
+
+        // If the file does not contain a namespace, try to find it in the registered view namespaces
+        // by attaching the namespace to the file name
+        if (!Str::contains($file, '::')) {
+            $pathNamespaces = collect(config('view.paths'))->keys()->toArray();
+            foreach ($pathNamespaces as $pathNamespace) {
+                if (view()->exists($pathNamespace . '::' . $file)) {
+                    $file = $pathNamespace . '::' . $file;
+                    break;
+                }
+            }
+        }
+
+        if (!view()->exists($file)) {
+            throw new Exception("blade view {$params['file']} does not exist");
+        }
+
+        unset($params['file']);
+
+        return view($file, $params)->render();
     }
 
     /**

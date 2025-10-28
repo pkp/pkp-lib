@@ -692,7 +692,7 @@ class Schema extends \PKP\core\maps\Schema
                 'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
                 'reviewerUserName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerUserName'),
-                'invitedReviewerEmail' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : Repo::invitation()->getEmailByReviewerAssignmentId($reviewAssignment->getId()),
+                'invitedReviewerEmail' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : (Repo::invitation()->getInvitationReviewerAssignmentId($reviewAssignment->getId()))?->getEmail(),
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod'),
                 'canLoginAs' => $canLoginAs,
                 'canGossip' => $canGossip,

@@ -63,7 +63,7 @@ class Repository
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
 
-    public function getEmailByReviewerAssignmentId(int $reviewerAssignmentId)
+    public function getInvitationReviewerAssignmentId(int $reviewerAssignmentId) : ?Invitation
     {
         $invitationModel = InvitationModel::notHandled()
             ->notExpired()
@@ -73,6 +73,6 @@ class Repository
             return null;
         }
 
-        return $invitationModel->email;
+        return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
 }

@@ -208,23 +208,28 @@ class ReviewerAccessInvitePayload extends InvitePayload
                 new ProhibitedIncludingNull($validationContext === ValidationContext::VALIDATION_CONTEXT_REFINE||$validationContext === ValidationContext::VALIDATION_CONTEXT_POPULATE),
             ],
             'submissionId' => [
-                Rule::when($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE, ['required']),
+                'sometimes',
+                'required',
                 'integer'
             ],
             'reviewMethod' => [
-                Rule::when($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE, ['required']),
-                'integer'
+                'sometimes',
+                'required',
+                'integer',
             ],
             'responseDueDate' => [
-                Rule::when($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE, ['required']),
+                'sometimes',
+                'required',
                 'date'
             ],
             'reviewDueDate' => [
-                Rule::when($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE, ['required']),
+                'sometimes',
+                'required',
                 'date'
             ],
             'reviewRoundId' => [
-                Rule::when($validationContext === ValidationContext::VALIDATION_CONTEXT_INVITE, ['required']),
+                'sometimes',
+                'required',
                 'integer'
             ],
         ];

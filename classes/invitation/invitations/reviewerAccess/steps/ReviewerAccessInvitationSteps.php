@@ -6,8 +6,10 @@ use APP\core\Application;
 use PKP\components\forms\invitation\AcceptUserDetailsForm;
 use PKP\components\forms\invitation\UserDetailsForm;
 use PKP\context\Context;
+use PKP\core\PKPApplication;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationSteps;
+use PKP\invitation\invitations\reviewerAccess\forms\AcceptReviewerDetailsForm;
 use PKP\invitation\invitations\reviewerAccess\forms\ReviewerReviewDetailsForm;
 use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\invitation\sections\Email;
@@ -49,7 +51,7 @@ class ReviewerAccessInvitationSteps implements InvitationSteps
                     $steps[] = $this->verifyOrcidStep();
                 }
                 $steps[] = $this->userAccountDetailsStep();
-                $steps[] = $this->userDetailsStep($context);
+                $steps[] = $this->userDetailsStep($context,$invitation);
         }
         $steps[] = $this->acceptInvitationReviewStep($context);
         return $steps;
@@ -291,8 +293,11 @@ class ReviewerAccessInvitationSteps implements InvitationSteps
      *
      * @throws \Exception
      */
-    private function userDetailsStep(Context $context): \stdClass
+    private function userDetailsStep(Context $context,Invitation $invitation): \stdClass
     {
+        $request =  PKPApplication::get()->getRequest();
+        $submissionId = $invitation->getPayload()->submissionId;
+        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $context->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submissionId]);
         $sections = new Sections(
             'userCreateForm',
             __('acceptInvitation.accountDetails.stepName'),
@@ -305,7 +310,7 @@ class ReviewerAccessInvitationSteps implements InvitationSteps
                 'userDetails',
                 __('acceptInvitation.userDetails.form.name'),
                 __('acceptInvitation.userDetails.form.description'),
-                new AcceptUserDetailsForm('accept', $this->getFormLocales($context)),
+                new AcceptReviewerDetailsForm('accept', $this->getFormLocales($context),$vocabSuggestionUrlBase,$submissionId),
             ),
             [
                 'validateFields' => [

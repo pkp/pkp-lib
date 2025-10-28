@@ -14,6 +14,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\invitation\core\CreateInvitationController;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\enums\ValidationContext;
 use PKP\invitation\invitations\reviewerAccess\resources\ReviewerAccessInviteManagerDataResource;
 use PKP\invitation\invitations\reviewerAccess\resources\ReviewerAccessInviteResource;
@@ -141,12 +142,30 @@ class ReviewerAccessInviteCreateController extends CreateInvitationController
 
     public function cancel(): JsonResponse
     {
-        // TODO: Implement cancel() method.
+        $result = $this->invitation->updateStatus(InvitationStatus::CANCELLED);
+
+        if (!$result) {
+            return response()->json([
+                'error' => __('invitation.api.error.operationFailed')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        return response()->json([], Response::HTTP_OK);
     }
 
     public function getMailable(): JsonResponse
     {
-        // TODO: Implement getMailable() method.
+        $mailable = $this->invitation->getMailable();
+
+        if (!isset($mailable)) {
+            return response()->json([
+                'error' => __('invitation.api.error.invitationTypeNotHasMailable')
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json([
+            'mailable' => $mailable,
+        ], Response::HTTP_OK);
     }
 
     public function getMany(Request $illuminateRequest, Builder $query): Collection

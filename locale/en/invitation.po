@@ -388,6 +388,12 @@ msgstr "The user was disabled. You cannot assign them a role while they are disa
 msgid "acceptInvitation.privacyConsent"
 msgstr "Privacy Consent"
 
+msgid "reviewerInvitation.wizard.pageTitle"
+msgstr "Add Reviewer"
+
+msgid "reviewerInvitation.wizard.pageTitle.existingReviewer"
+msgstr "Enroll Existing Reviewer"
+
 msgid "reviewerInvitation.wizard.pageTitle.newUser"
 msgstr "Create a new reviewer"
 

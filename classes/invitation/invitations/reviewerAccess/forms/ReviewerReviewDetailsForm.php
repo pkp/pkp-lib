@@ -7,6 +7,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\controlledVocab\ControlledVocab;
+use PKP\core\Core;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewerReviewDetailsForm extends FormComponent
@@ -53,11 +54,13 @@ class ReviewerReviewDetailsForm extends FormComponent
         $this->addField(new FieldText('responseDueDate', [
             'label' => __('reviewerInvitation.responseDueDate'),
             'inputType' => 'date',
+            'value'=> Core::getCurrentDate(),
             'isRequired' => true,
         ]))->addField(new FieldText('reviewDueDate', [
             'label' => __('reviewerInvitation.reviewDueDate'),
+            'inputType' => 'date',
+            'value'=> Core::getCurrentDate(),
             'isRequired' => true,
-            'inputType' => 'date'
         ]));
 
     }

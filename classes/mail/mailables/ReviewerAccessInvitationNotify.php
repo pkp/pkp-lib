@@ -111,7 +111,7 @@ class ReviewerAccessInvitationNotify extends Mailable
                 static::$submissionTitle => $publication->getData('title', $locale),
                 static::$submissionAbstract => $publication->getData('abstract', $locale),
                 static::$reviewDueDate => $this->invitation->getPayload()->reviewDueDate,
-                static::$contextName => $context->getName(),
+                static::$contextName => $context->getLocalizedName(),
                 static::$acceptUrl => $this->invitation->getActionURL(InvitationAction::ACCEPT),
                 static::$declineUrl => $this->invitation->getActionURL(InvitationAction::DECLINE),
                 static::EMAIL_TEMPLATE_STYLE_PROPERTY => $emailTemplateStyle,

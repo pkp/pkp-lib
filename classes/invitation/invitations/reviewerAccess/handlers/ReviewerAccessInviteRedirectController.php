@@ -18,6 +18,7 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\context\Context;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
@@ -69,8 +70,10 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
         $context = $request->getContext();
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getPayload()->reviewAssignmentId);
 
-        if (!$reviewAssignment) {
-            throw new Exception();
+        if ($reviewAssignment) {
+            $reviewAssignment->setDeclined(true);
+            $reviewAssignment->setLastModified(Core::getCurrentDate());
+            Repo::reviewAssignment()->add($reviewAssignment);
         }
 
         $url = PKPApplication::get()->getDispatcher()->url(
@@ -86,7 +89,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
             ]
         );
 
-        $this->getInvitation()->finalize();
+        $this->getInvitation()->decline();
 
         $request->redirectUrl($url);
     }

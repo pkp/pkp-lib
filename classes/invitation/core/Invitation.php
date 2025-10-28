@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\core\Core;
 use PKP\identity\Identity;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
@@ -32,6 +33,7 @@ use PKP\invitation\models\InvitationModel;
 use PKP\pages\invitation\InvitationHandler;
 use PKP\security\Role;
 use PKP\security\Validation;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\user\User;
 use PKP\userGroup\UserGroup;
 
@@ -325,13 +327,21 @@ abstract class Invitation
 
         $this->invitationModel->save();
 
-        InvitationModel::byStatus(InvitationStatus::PENDING)
+        $invitations = InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType($this->getType())
             ->byNotId($this->getId())
             ->when(isset($this->invitationModel->userId), fn (Builder $q) => $q->byUserId($this->invitationModel->userId))
             ->when(!isset($this->invitationModel->userId) && $this->invitationModel->email, fn (Builder $q) => $q->byEmail($this->invitationModel->email))
-            ->when(isset($this->invitationModel->contextId), fn (Builder $q) => $q->byContextId($this->invitationModel->contextId))
-            ->delete();
+            ->when(isset($this->invitationModel->contextId), fn (Builder $q) => $q->byContextId($this->invitationModel->contextId));
+
+        // remove the review assignments
+        foreach ($invitations->get() as $invitation) {
+            if($invitation->payload['reviewAssignmentId']) {
+                $reviewAssignment = Repo::reviewAssignment()->get($invitation->payload['reviewAssignmentId']);
+                Repo::reviewAssignment()->delete($reviewAssignment);
+            }
+        }
+        $invitations->delete();
 
         return true;
     }
@@ -521,7 +531,7 @@ abstract class Invitation
         $invitationController = $this->getInvitationActionRedirectController();
         return $invitationController ? $invitationController->getAcceptSteps($this, $context, $user) : [];
     }
-    
+
     public function isInvitationUserReviewer($userId,$contextId): bool
     {
         if(!$userId){

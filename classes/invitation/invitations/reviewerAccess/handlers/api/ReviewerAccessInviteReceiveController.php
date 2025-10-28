@@ -144,8 +144,8 @@ class ReviewerAccessInviteReceiveController extends ReceiveInvitationController
             $this->invitation->getPayload()->submissionId,
         );
         Repo::reviewAssignment()->edit($reviewAssignment, [
-            'reviewerId' => $user->getId(), // Set the review due date
-            'dateConfirmed' => Core::getCurrentDate(), // Set the response due date
+            'reviewerId' => $user->getId(), // Set the reviewer id
+            'dateConfirmed' => Core::getCurrentDate(), // Set the date confirmed
         ]);
 
         $this->invitation->invitationModel->markAs(InvitationStatus::ACCEPTED);

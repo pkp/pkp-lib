@@ -262,6 +262,7 @@ class ManagementHandler extends Handler
 
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
+            'FORM_CONTENT_COMMENT' => $contentCommentSettingsForm::FORM_CONTENT_COMMENT,
         ]);
 
         $components = [

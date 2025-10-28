@@ -247,7 +247,8 @@ class EditorialTask extends Model
 
             // If headnote is set before the model is saved, return it together with other notes. This scenario could happen during task editing
         } elseif ($key == 'notes' && isset($this->headnote)) {
-            if ($notes = $this->getAttribute($key)->isNotEmpty()) {
+            $notes = $this->getAttribute($key);
+            if ($notes && $notes->isNotEmpty()) {
                 return $notes->map(function ($note) {
                     if ($note->isHeadnote) {
                         return $this->headnote;

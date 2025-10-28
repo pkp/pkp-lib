@@ -28,29 +28,29 @@ class ExtractPidsHelper
         $doi = Doi::extractFromString($raw);
         if (!empty($doi)) {
             $citation->setData('doi', $doi);
-            $raw = str_replace(Doi::addUrlPrefix($doi), '', $raw);
+            $raw = Doi::removePrefixesWithPid($doi, $raw);
         }
 
         // arxiv
         $arxiv = Arxiv::extractFromString($raw);
         if (!empty($arxiv)) {
             $citation->setData('arxiv', $arxiv);
-            $raw = str_replace(Arxiv::addUrlPrefix($arxiv), '', $raw);
+            $raw = Arxiv::removePrefixesWithPid($arxiv, $raw);
         }
 
         // handle
         $handle = Handle::extractFromString($raw);
         if (!empty($handle)) {
             $citation->setData('handle', $handle);
-            $raw = str_replace(Handle::addUrlPrefix($handle), '', $raw);
+            $raw = Handle::removePrefixesWithPid($handle, $raw);
         }
 
         // url
         $url = Url::extractFromString($raw);
         if (!empty($url)) {
             $citation->setData('url', $url);
+            $raw = str_replace($url, '', $raw);
         }
-        $raw = str_replace($url, '', $raw);
 
         // urn
         $urn = Urn::extractFromString($raw);

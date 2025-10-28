@@ -5,6 +5,8 @@ namespace PKP\API\v1\editTaskTemplates\formRequests;
 use APP\core\Application;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use PKP\editorialTask\enums\EditorialTaskDueInterval;
+use PKP\editorialTask\enums\EditorialTaskType;
 
 class UpdateTaskTemplate extends FormRequest
 {
@@ -19,27 +21,18 @@ class UpdateTaskTemplate extends FormRequest
 
         // Build allowed stage IDs (values)
         $stages = Application::getApplicationStages();
-        $stageIds = array_values(array_unique(array_filter(
-            array_map('intval', array_merge(array_keys((array)$stages), array_values((array)$stages))),
-            fn ($id) => $id > 0
-        )));
-
-        // Context-scoped email keys
-        $emailKeys = \APP\facades\Repo::emailTemplate()
-            ->getCollector($contextId)
-            ->getMany()
-            ->map(fn ($t) => $t->getData('key'))
-            ->filter()
-            ->values()
-            ->all();
+        $stageIds = array_values(array_unique(array_map('intval', array_values((array) $stages))));
 
         return [
             // all fields are optional but if present must validate
             'stageId' => ['sometimes', 'integer', Rule::in($stageIds)],
             'title' => ['sometimes', 'string', 'max:255'],
             'include' => ['sometimes', 'boolean'],
-            'emailTemplateKey' => ['sometimes', 'nullable', 'string', 'max:255', Rule::in($emailKeys)],
-            'type' => ['sometimes','integer','in:1,2'],
+            'description' => ['sometimes', 'nullable', 'string'],
+            'dueInterval' => ['sometimes', 'nullable', 'string',
+                Rule::in(array_column(EditorialTaskDueInterval::cases(), 'value'))
+            ],
+            'type' => ['sometimes', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
 
             'userGroupIds' => ['sometimes', 'array', 'min:1'],
             'userGroupIds.*' => [
@@ -75,11 +68,4 @@ class UpdateTaskTemplate extends FormRequest
         ]);
     }
 
-    protected function passedValidation(): void
-    {
-        if ($this->has('emailTemplateKey')) {
-            $key = $this->input('emailTemplateKey');
-            $this->merge(['emailTemplateKey' => is_string($key) ? trim($key) : $key]);
-        }
-    }
 }

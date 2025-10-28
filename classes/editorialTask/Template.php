@@ -38,8 +38,6 @@ class Template extends Model
 
     public $timestamps = true;
 
-    public const TYPE_DISCUSSION = 1;
-    public const TYPE_TASK = 2;
 
     // columns on edit_task_templates
     protected $fillable = [
@@ -144,14 +142,6 @@ class Template extends Model
     }
 
     /**
-     * Scope: filter by email_template_key
-     */
-    public function scopeFilterByEmailTemplateKey(Builder $query, string $key): Builder
-    {
-        return $query->where('email_template_key', $key);
-    }
-
-    /**
      * Creates a new task from a template
      */
     public function promote(Submission $submission): Task
@@ -202,8 +192,6 @@ class Template extends Model
      * free-text/ words search across:
      * title column
      * name, description
-     * email_template_key column
-     *
      */
     public function scopeFilterBySearch(Builder $query, string $phrase): Builder
     {
@@ -218,18 +206,18 @@ class Template extends Model
             return $query;
         }
 
-        $settingsTable = $this->getSettingsTable(); // 'edit_task_template_settings'
-        $pk = $this->getKeyName(); // 'edit_task_template_id'
-        $selfTable = $this->getTable(); // 'edit_task_templates'
+        $settingsTable = $this->getSettingsTable();
+        $pk = $this->getKeyName();
+        $selfTable = $this->getTable();
 
         return $query->where(function (Builder $outer) use ($tokens, $settingsTable, $pk, $selfTable) {
             foreach ($tokens as $tok) {
                 // escape % and _
-                $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok)) . '%';
+                $like = '%' . str_replace(['%', '_'], ['\\%', '\\_'], mb_strtolower($tok, 'UTF-8')) . '%';
 
                 $outer->where(function (Builder $q) use ($like, $settingsTable, $pk, $selfTable) {
                     $q->whereRaw('LOWER(title) LIKE ?', [$like])
-                    ->orWhereRaw('LOWER(email_template_key) LIKE ?', [$like])
+                    ->orWhereRaw('LOWER(description) LIKE ?', [$like])
                     ->orWhereExists(function ($sub) use ($like, $settingsTable, $pk, $selfTable) {
                         $sub->select(DB::raw(1))
                             ->from($settingsTable . ' as ets')

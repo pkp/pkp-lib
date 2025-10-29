@@ -1,7 +1,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-03 06:52+0000\n"
+"PO-Revision-Date: 2025-10-29 16:00+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/eu/>"
 "\n"
@@ -121,7 +121,7 @@ msgid "grid.action.moveItem"
 msgstr "Mugitu elementua"
 
 msgid "grid.action.readReview"
-msgstr "Irakurri berrikusketa"
+msgstr "Irakurri berrikuspena"
 
 msgid "grid.action.email"
 msgstr "Bidali mezu elektronikoa"
@@ -139,7 +139,7 @@ msgid "grid.action.reload"
 msgstr "Berriz kargatu"
 
 msgid "grid.action.addReviewer"
-msgstr "Gehitu ikuskatzailea"
+msgstr "Gehitu ebaluatzaile bat"
 
 msgid "grid.action.addFile"
 msgstr "Gehitu fitxategia"
@@ -157,7 +157,7 @@ msgid "grid.action.removeUserGroup"
 msgstr "Ezabatu erabiltzaile-taldea"
 
 msgid "grid.action.disable"
-msgstr "Desaktibatu"
+msgstr "Desgaitu"
 
 msgid "grid.action.details"
 msgstr "Ikusi elementua"
@@ -265,7 +265,7 @@ msgid "grid.action.newVersion"
 msgstr "Sortu bertsio berri bat"
 
 msgid "grid.reviewForm.title"
-msgstr "Berrikusketa inprimakiak"
+msgstr "Berrikuspen-inprimakiak"
 
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Erantzun-aukerak"
@@ -361,10 +361,10 @@ msgstr ""
 "da desegin."
 
 msgid "grid.action.addReviewerSuggestion"
-msgstr "Gehitu ikuskatzailearen gomendioa"
+msgstr "Gehitu ebaluatzailearen gomendioa"
 
 msgid "grid.action.deleteReviewerSuggestion"
-msgstr "Ezabatu ikuskatzailearen gomendioa"
+msgstr "Ezabatu ebaluatzailearen gomendioa"
 
 msgid "grid.libraryFiles.editorial.title"
 msgstr "Argitalpenen liburutegia"

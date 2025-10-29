@@ -232,6 +232,10 @@ class CategoryForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('categoryId', $this->getCategoryId());
 
+        $applicationName = Application::get()->getName();
+        $catalogPage = ($applicationName === 'ops') ? "preprints" : "catalog";
+        $templateMgr->assign('catalogPage', $catalogPage);
+
         // Provide a list of root categories to the template
         $rootCategoriesCollection = Repo::category()->getCollector()
             ->filterByParentIds([null])

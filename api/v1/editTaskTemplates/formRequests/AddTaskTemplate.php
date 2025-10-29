@@ -31,7 +31,12 @@ class AddTaskTemplate extends FormRequest
     public function rules(): array
     {
         $contextId = Application::get()->getRequest()->getContext()->getId();
-        $stageIds = array_keys(Application::getApplicationStages());
+
+        // build a list of allowed stage IDs from values
+        $stages = Application::getApplicationStages();
+        $stageIds = array_values(array_unique(array_map('intval', array_values((array) $stages))));
+
+
         return [
             'type' => ['required', Rule::in(array_column(EditorialTaskType::cases(), 'value'))],
             'stageId' => ['required', 'integer', Rule::in($stageIds)],
@@ -52,10 +57,12 @@ class AddTaskTemplate extends FormRequest
     protected function prepareForValidation(): void
     {
         $stageId = $this->input('stageId', null);
+        $type = $this->input('type', null);
         $this->merge([
             'include' => filter_var($this->input('include', false), FILTER_VALIDATE_BOOLEAN),
             'userGroupIds' => array_values(array_map('intval', (array) $this->input('userGroupIds', []))),
             'stageId' => is_null($stageId) ? $stageId : (int) $stageId,
+            'type' => is_null($type) ? null : (int) $type,
         ]);
     }
 }

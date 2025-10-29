@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2025-10-29 12:29+0000\n"
+"PO-Revision-Date: 2025-10-29 16:00+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
@@ -365,13 +365,13 @@ msgstr ""
 "beste osagai batekin lotu behar dituzu."
 
 msgid "manager.institutions.edit"
-msgstr "Editatu instituzioa"
+msgstr "Editatu erakundea"
 
 msgid "manager.institutions.form.ror"
 msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr "Instituzio honen ROR IDa."
+msgstr "Erakunde honen ROR IDa (Research Organization Registry)."
 
 msgid "manager.institutions.form.ipRanges"
 msgstr "IP barrutiak"
@@ -384,10 +384,10 @@ msgstr ""
 "100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr "Ezabatu instituzioa"
+msgstr "Ezabatu erakundea"
 
 msgid "manager.institutions.confirmDelete"
-msgstr "Ziur zaude jarraitu nahi duzula eta instituzioa ezabatu nahi duzula?"
+msgstr "Ziur zaude jarraitu nahi duzula eta erakundea ezabatu nahi duzula?"
 
 msgid "manager.institutions.invalidIPRange"
 msgstr "IP barruti baliogabea"
@@ -408,7 +408,7 @@ msgid "manager.publication.emails"
 msgstr "Mezu elektronikoak"
 
 msgid "manager.publication.reviewerGuidance"
-msgstr "Ikuskatzaileentzako gida"
+msgstr "Ebaluatzaileentzako gida"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Berrikuspenaren abisuaren xehetasunak eguneratu dira."
@@ -443,7 +443,7 @@ msgstr "Desgaitu"
 
 msgid "manager.emails.disable.message"
 msgstr ""
-"Posta elektronikoaren txantiloi hau desaktibatzeko zorian zaude. Sistemaren "
+"Posta elektronikoaren txantiloi hau desgaitzeko zorian zaude. Sistemaren "
 "prozesu batzuk baleude txantiloi hau erabiltzen, ez lukete aurrerantzean "
 "erabiliko. Eragiketa baieztatu nahi duzu?"
 
@@ -1646,7 +1646,7 @@ msgid "notification.localeEnabled"
 msgstr "Lokalizazioa aktibatuta."
 
 msgid "notification.localeDisabled"
-msgstr "Lokalizazioa desaktibatuta."
+msgstr "Lokalizazioa desgaituta."
 
 msgid "notification.primaryLocaleDefined"
 msgstr "{$locale} locale nagusi gisa definituta."
@@ -1763,7 +1763,7 @@ msgid "settings.roles.roleIdRequired"
 msgstr "Rol-baimenen maila bat definitu behar duzu."
 
 msgid "settings.roles.stageIdRequired"
-msgstr "Esleitzeko etapa bat definitu behar duzu."
+msgstr "Esleitzeko fase bat definitu behar duzu."
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "Baimendu bidalketaren metadatuak editatzea."
@@ -2127,7 +2127,7 @@ msgstr ""
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
-"Gaiak aurkezpenaren gaia deskribatzen duten gako-hitzak, gako-esaldiak edo "
+"Gaiak bidalketaren gaia deskribatzen duten gako-hitzak, gako-esaldiak edo "
 "sailkapen-kodeak izango dira."
 
 msgid "manager.setup.metadata.subjects.enable"
@@ -3309,8 +3309,8 @@ msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Editoreak ebaluatzaileari bidalitako mezu honetan ebaluatzaileari eskatzen "
 "dio bidalitakoaren bigarren edo hurrengo berrikuspen bat onartu edo baztertu "
-"dezala. Bidalitakoari buruzko informazioa ematen du, besteak beste, titulua "
-"eta aurkezpena, berrikuspena egiteko epe-muga, eta nola sartu bidalketara."
+"dezala. Bidalketari buruzko informazioa ematen du, besteak beste, titulua "
+"eta laburpena, berrikuspena egiteko epe-muga, eta nola sartu bidalketara."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "Bidalketaren uneko argitalpena falta da"

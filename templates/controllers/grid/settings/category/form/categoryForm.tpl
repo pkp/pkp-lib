@@ -49,7 +49,7 @@
 
 		{fbvFormSection title="grid.category.path" required=true for="path"}
 			{capture assign="sampleUrl"}
-				{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path="path"}
+				{url router=PKP\core\PKPApplication::ROUTE_PAGE page=$catalogPage op="category" path="path"}
 			{/capture}
 			{capture assign="instruct"}
 				{translate key="grid.category.urlWillBe" sampleUrl=$sampleUrl}
@@ -76,7 +76,7 @@
 					<div class="pkp_form_file_view pkp_form_image_view">
 						{capture assign="altTitle"}{translate key="submission.currentCoverImage"}{/capture}
 						<div class="img">
-							<img class="pkp_helpers_container_center" height="{$image.thumbnailHeight}" width="{$image.thumbnailWidth}" src="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="thumbnail" type="category" id=$categoryId}" alt="{$altTitle|escape}" />
+							<img class="pkp_helpers_container_center" height="{$image.thumbnailHeight}" width="{$image.thumbnailWidth}" src="{url router=PKP\core\PKPApplication::ROUTE_PAGE page=$catalogPage op="thumbnail" type="category" id=$categoryId}" alt="{$altTitle|escape}" />
 						</div>
 
 						<div class="data">

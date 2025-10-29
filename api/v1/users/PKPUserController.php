@@ -120,7 +120,8 @@ class PKPUserController extends PKPBaseController
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
 
-        return response()->json($map->map($user, $options), Response::HTTP_OK);
+        $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
+        return response()->json($mapped, Response::HTTP_OK);
     }
 
     /**
@@ -192,11 +193,7 @@ class PKPUserController extends PKPBaseController
             'currentUserId' => $currentUser?->getId(),
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
-        $items = [];
-        foreach ($users as $user) {
-            $items[] = $map->summarize($user, $options);
-        }
-
+        $items = $map->summarizeMany($users, $options)->values()->all();
         return response()->json([
             'itemsMax' => $collector->getCount(),
             'items' => $items,
@@ -353,7 +350,8 @@ class PKPUserController extends PKPBaseController
             'currentUserId' => $currentUser?->getId(),
             'isSiteAdmin' => Validation::isSiteAdmin(),
         ];
-        return response()->json($map->map($user, $options), Response::HTTP_OK);
+        $mapped = $map->mapManyWithOptions(collect([$user]), $options)->first();
+        return response()->json($mapped, Response::HTTP_OK);
     }
 
     /**

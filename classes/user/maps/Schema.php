@@ -28,6 +28,8 @@ use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;
 use Illuminate\Support\Facades\DB;
+use PKP\facades\Locale;
+
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -144,6 +146,21 @@ class Schema extends \PKP\core\maps\Schema
         } else {
             $options['permissionMap'] = array_fill_keys($userIds, false);
         }
+        $contextId = $this->context ? (int) $this->context->getId() : 0;
+        $options['canSeeGossip'] = $this->canSeeGossipForContext($currentUserId, $contextId);
+
+        // batch preload
+        $interestsByUser = [];
+
+        if (!empty($userIds)) {
+            if ($contextId) {
+                $groupsByUser = $this->preloadGroups($userIds, $contextId);
+            }
+            $interestsByUser = $this->preloadInterests($userIds);
+        }
+
+        $options['groupsByUser'] = $groupsByUser;
+        $options['interestsByUser'] = $interestsByUser;
 
         return $users->map(fn (User $u) => $this->mapByProperties($props, $u, $options));
     }
@@ -154,37 +171,34 @@ class Schema extends \PKP\core\maps\Schema
      */
     private function buildUserContextManagementMap(int $managerUserId, array $managedUserIds): array
     {
+        // normalize once
+        $managedUserIds = array_values(array_unique(array_map('intval', $managedUserIds)));
         if (empty($managedUserIds)) {
             return [];
         }
 
-        $rows = DB::table('users as u')
-            ->select('u.user_id')
-            ->selectRaw(
-                'CASE WHEN EXISTS (
-                    SELECT 1
-                    FROM user_user_groups uug_t
-                    JOIN user_groups ug_t ON ug_t.user_group_id = uug_t.user_group_id
-                    WHERE uug_t.user_id = u.user_id
-                      AND NOT EXISTS (
-                        SELECT 1
-                        FROM user_groups ug_m
-                        JOIN user_user_groups uug_m ON ug_m.user_group_id = uug_m.user_group_id
-                        WHERE ug_m.role_id = ?
-                          AND uug_m.user_id = ?
-                          AND ug_m.context_id = ug_t.context_id
-                      )
-                )
-                THEN 0 ELSE 1 END AS manages_all',
-                [ (int) Role::ROLE_ID_MANAGER, (int) $managerUserId ]
-            )
-            ->whereIn('u.user_id', array_map(intval(...), $managedUserIds))
-            ->get();
+        // Users for whom there exists at least one context they're active in that the manager doesn't manage
+        $unmanagedUserIds = DB::table('users as u')
+            ->whereIn('u.user_id', $managedUserIds)
+            ->whereExists(function ($q) use ($managerUserId) {
+                $q->from('user_user_groups as uug_t')
+                ->join('user_groups as ug_t', 'ug_t.user_group_id', '=', 'uug_t.user_group_id')
+                ->whereColumn('uug_t.user_id', 'u.user_id')
+                ->whereNotExists(function ($qq) use ($managerUserId) {
+                    $qq->from('user_groups as ug_m')
+                        ->join('user_user_groups as uug_m', 'ug_m.user_group_id', '=', 'uug_m.user_group_id')
+                        ->where('ug_m.role_id', Role::ROLE_ID_MANAGER)
+                        ->where('uug_m.user_id', $managerUserId)
+                        // explicit context match
+                        ->whereColumn('ug_m.context_id', 'ug_t.context_id');
+                });
+            })
+            ->pluck('u.user_id')
+            ->all();
 
-        $permissionMap = array_fill_keys(array_map(intval(...), $managedUserIds), false);
-
-        foreach ($rows as $row) {
-            $permissionMap[(int) $row->user_id] = (bool) ((int) $row->manages_all);
+        $permissionMap = array_fill_keys($managedUserIds, true);
+        foreach ($unmanagedUserIds as $badId) {
+            $permissionMap[(int) $badId] = false;
         }
         return $permissionMap;
     }
@@ -209,7 +223,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $user->getFullName();
                     break;
                 case 'gossip':
-                    if (Repo::user()->canCurrentUserGossip($user->getId())) {
+                    if (!empty($auxiliaryData['canSeeGossip'])) {
                         $output[$prop] = $user->getGossip();
                     }
                     break;
@@ -247,50 +261,13 @@ class Schema extends \PKP\core\maps\Schema
                     );
                     break;
                 case 'groups':
-                    $output[$prop] = null;
-                    if ($this->context) {
-                        // Fetch user groups where the user is assigned in the current context
-                        $userGroups = UserGroup::query()
-                            ->withContextIds($this->context->getId())
-                            ->whereHas('userUserGroups', function ($query) use ($user) {
-                                $query->withUserId($user->getId());
-                            })
-                            ->get();
-
-                        $output[$prop] = [];
-                        foreach ($userGroups as $userGroup) {
-                            $userUserGroup = UserUserGroup::withUserId($user->getId())
-                                ->withUserGroupIds([$userGroup->id])->get()->toArray();
-                            foreach ($userUserGroup as $userUserGroupItem) {
-                                $output[$prop][] = [
-                                    'id' => (int) $userGroup->id,
-                                    'name' => $userGroup->getLocalizedData('name'),
-                                    'abbrev' => $userGroup->getLocalizedData('abbrev'),
-                                    'roleId' => (int) $userGroup->roleId,
-                                    'showTitle' => (bool) $userGroup->showTitle,
-                                    'permitSelfRegistration' => (bool) $userGroup->permitSelfRegistration,
-                                    'permitMetadataEdit' => (bool) $userGroup->permitMetadataEdit,
-                                    'recommendOnly' => (bool) $userGroup->recommendOnly,
-                                    'dateStart' => $userUserGroupItem['dateStart'],
-                                    'dateEnd' => $userUserGroupItem['dateEnd'],
-                                    'masthead' => $userUserGroupItem['masthead']
-                                ];
-                            }
-                        }
-                    }
+                    $groupsByUser = $auxiliaryData['groupsByUser'] ?? [];
+                    $output[$prop] = $groupsByUser[(int)$user->getId()] ?? [];
                     break;
-                case 'interests':
-                    $output[$prop] = [];
-                    if ($this->context) {
-                        $interests = collect(Repo::userInterest()->getInterestsForUser($user))
-                            ->map(fn ($value, $index) => ['id' => $index, 'interest' => $value])
-                            ->values()
-                            ->toArray();
 
-                        foreach ($interests as $interest) {
-                            $output[$prop][] = $interest;
-                        }
-                    }
+                case 'interests':
+                    $interestsByUser = $auxiliaryData['interestsByUser'] ?? [];
+                    $output[$prop] = $interestsByUser[(int)$user->getId()] ?? [];
                     break;
                 case 'stageAssignments':
                     $submission = $auxiliaryData['submission'] ?? null;
@@ -369,24 +346,131 @@ class Schema extends \PKP\core\maps\Schema
     }
 
     /**
+     * Check if a user can view gossip notes for a context.
+     * Site admins or users in Manager/Sub-editor groups for the given context
+     * (or site-wide groups) are allowed.
+     */
+    private function canSeeGossipForContext(?int $currentUserId, int $contextId): bool
+    {
+        if ($currentUserId === null) {
+            return false;
+        }
+        if (Validation::isSiteAdmin()) {
+            return true;
+        }
+        // Managers/sub-editors in this context can see gossip
+        return DB::table('user_groups as ug')
+            ->join('user_user_groups as uug', 'ug.user_group_id', '=', 'uug.user_group_id')
+            ->where('uug.user_id', $currentUserId)
+            ->whereIn('ug.role_id', [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->where(function ($q) use ($contextId) {
+                // context-specific or site-wide groups
+                $q->where('ug.context_id', $contextId)
+                ->orWhereNull('ug.context_id');
+            })
+            ->exists();
+    }
+
+   /**
+     * Preload user groups for a set of users, scoped to a context.
+     * Returns: [userId => [ ...group payload... ], ...]
+     */
+    private function preloadGroups(array $userIds, int $contextId): array
+    {
+        $locale = Locale::getLocale();
+
+        $rows = UserUserGroup::query()
+            ->withContextId($contextId)
+            ->whereIn('user_user_groups.user_id', $userIds)
+            ->join('user_groups as ug', 'ug.user_group_id', '=', 'user_user_groups.user_group_id')
+            // bind the setting name and a single locale to guarantee 0/1 row
+            ->leftJoin('user_group_settings as ugs_name', function ($j) use ($locale) {
+                $j->on('ugs_name.user_group_id', '=', 'ug.user_group_id')
+                ->where('ugs_name.setting_name', '=', 'name')
+                ->where('ugs_name.locale', '=', $locale);
+            })
+            ->leftJoin('user_group_settings as ugs_abbrev', function ($j) use ($locale) {
+                $j->on('ugs_abbrev.user_group_id', '=', 'ug.user_group_id')
+                ->where('ugs_abbrev.setting_name', '=', 'abbrev')
+                ->where('ugs_abbrev.locale', '=', $locale);
+            })
+            ->get([
+                'user_user_groups.user_id',
+                'ug.user_group_id as id',
+                'ug.role_id as roleId',
+                'ug.show_title as showTitle',
+                'ug.permit_self_registration as permitSelfRegistration',
+                'ug.permit_metadata_edit as permitMetadataEdit',
+                'user_user_groups.date_start as dateStart',
+                'user_user_groups.date_end as dateEnd',
+                'user_user_groups.masthead as userMasthead',
+                'ugs_name.setting_value as name',
+                'ugs_abbrev.setting_value as abbrev',
+            ]);
+
+        $map = [];
+        foreach ($rows as $r) {
+            $map[(int)$r->user_id][] = [
+                'id' => (int)$r->id,
+                'name' => $r->name,
+                'abbrev' => $r->abbrev,
+                'roleId' => (int)$r->roleId,
+                'showTitle' => (bool)((int)$r->showTitle),
+                'permitSelfRegistration' => (bool)((int)$r->permitSelfRegistration),
+                'permitMetadataEdit' => (bool)((int)$r->permitMetadataEdit),
+                'dateStart' => $r->dateStart,
+                'dateEnd' => $r->dateEnd,
+                'masthead' => (bool)((int)$r->userMasthead),
+            ];
+        }
+
+        return $map;
+    }
+
+    /**
+     * Preload interests for a set of users (ids only).
+     */
+    private function preloadInterests(array $userIds): array
+    {
+        $rows = DB::table('user_interests as ui')
+            ->whereIn('ui.user_id', $userIds)
+            ->get([
+                'ui.user_id',
+                'ui.controlled_vocab_entry_id as id',
+            ]);
+
+        $map = [];
+        foreach ($rows as $r) {
+            $map[(int) $r->user_id][] = [
+                'id' => (int) $r->id,
+            ];
+        }
+
+        return $map;
+    }
+    
+    /**
      * Decide if the current user can "log in as" the target user
      */
     protected function getPropertyCanLoginAs(User $userToLoginAs, array $auxiliaryData = []): bool
     {
         $currentUserId = $auxiliaryData['currentUserId'] ?? null;
-        if ($currentUserId === null || $currentUserId === (int)$userToLoginAs->getId()) {
+        if ($currentUserId === null || $currentUserId === (int) $userToLoginAs->getId()) {
             return false;
         }
 
-        $isSiteAdmin = (bool)($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        $isSiteAdmin = (bool) ($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
         if ($isSiteAdmin) {
             return true;
         }
 
-        $permissionMap = $auxiliaryData['permissionMap']
-            ?? $this->buildUserContextManagementMap($currentUserId, [(int)$userToLoginAs->getId()]);
+        // use only the batched map
+        $permissionMap = $auxiliaryData['permissionMap'] ?? null;
+        if ($permissionMap === null) {
+            return false;
+        }
 
-        return (bool)($permissionMap[(int)$userToLoginAs->getId()] ?? false);
+        return (bool) ($permissionMap[(int) $userToLoginAs->getId()] ?? false);
     }
 
     /**
@@ -395,19 +479,20 @@ class Schema extends \PKP\core\maps\Schema
     protected function getPropertyCanMergeUsers(User $userToMerge, array $auxiliaryData = []): bool
     {
         $currentUserId = $auxiliaryData['currentUserId'] ?? null;
-        if ($currentUserId === null || $currentUserId === (int)$userToMerge->getId()) {
+        if ($currentUserId === null || $currentUserId === (int) $userToMerge->getId()) {
             return false;
         }
 
-        $isSiteAdmin = (bool)($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
+        $isSiteAdmin = (bool) ($auxiliaryData['isSiteAdmin'] ?? Validation::isSiteAdmin());
         if ($isSiteAdmin) {
             return true;
         }
 
-        // allow merge if the manager manages all of that context.
-        $permissionMap = $auxiliaryData['permissionMap']
-            ?? $this->buildUserContextManagementMap($currentUserId, [(int)$userToMerge->getId()]);
-
-        return (bool)($permissionMap[(int)$userToMerge->getId()] ?? false);
+        // use only the batched map
+        $permissionMap = $auxiliaryData['permissionMap'] ?? null;
+        if ($permissionMap === null) {
+            return false;
+        }
+        return (bool) ($permissionMap[(int) $userToMerge->getId()] ?? false);
     }
 }

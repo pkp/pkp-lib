@@ -126,12 +126,31 @@ class DAO extends EntityDAO
     public function getMany(Collector $query): LazyCollection
     {
         return LazyCollection::make(function () use ($query) {
-            $rows = $query
-                ->getQueryBuilder()
-                ->get();
+            $rows = $query->getQueryBuilder()->get();
+            if ($rows->isEmpty()) {
+                return;
+            }
+
+            // bulk preload settings for all users
+            $ids = $rows->pluck('user_id')->map(intval(...))->values()->all();
+            $settings = DB::table($this->settingsTable)
+                ->whereIn('user_id', $ids)
+                ->get(['user_id','locale','setting_name','setting_value']);
+
+            $settingsByUser = [];
+            foreach ($settings as $s) {
+                $settingsByUser[(int)$s->user_id][] = $s;
+            }
 
             foreach ($rows as $row) {
-                yield $row->user_id => $this->fromRow($row, $query->includeReviewerData);
+                /** @var User $user */
+                $user = $this->makeUserWithoutSettings($row, $query->includeReviewerData);
+
+                foreach ($settingsByUser[(int)$row->user_id] ?? [] as $s) {
+                    $user->setData($s->setting_name, $s->setting_value, $s->locale ?: null);
+                }
+
+                yield $row->user_id => $user;
             }
         });
     }
@@ -257,7 +276,7 @@ class DAO extends EntityDAO
             $user->setData('completeCount', (int) $row->complete_count);
             $user->setData('declinedCount', (int) $row->declined_count);
             $user->setData('cancelledCount', (int) $row->cancelled_count);
-            $user->setData('averageTime', (int) $row->average_time);
+                $user->setData('averageTime', (int) $row->average_time);
 
             // 0 values should return null. They represent a reviewer with no ratings
             if ($reviewerRating = $row->reviewer_rating) {
@@ -289,6 +308,37 @@ class DAO extends EntityDAO
     public function delete(User $user)
     {
         parent::_delete($user);
+    }
+
+    /**
+     * Build a lightweight user from a db row without loading settings.
+     */
+    protected function makeUserWithoutSettings(object $row, bool $includeReviewerData = false): User
+    {
+        $user = new User();
+
+        $user->setId((int) $row->{$this->primaryKeyColumn});
+
+        // map direct columns
+        foreach ($this->primaryTableColumns as $dataKey => $column) {
+            $user->setData($dataKey, $row->{$column} ?? null);
+        }
+
+        if ($includeReviewerData) {
+            $user->setData('lastAssigned', $row->last_assigned ?? null);
+            $user->setData('incompleteCount', isset($row->incomplete_count) ? (int)$row->incomplete_count : null);
+            $user->setData('completeCount', isset($row->complete_count) ? (int)$row->complete_count : null);
+            $user->setData('declinedCount', isset($row->declined_count) ? (int)$row->declined_count : null);
+            $user->setData('cancelledCount', isset($row->cancelled_count) ? (int)$row->cancelled_count : null);
+            if (isset($row->average_time)) {
+                $user->setData('averageTime', (int)$row->average_time);
+            }
+            if (!empty($row->reviewer_rating)) {
+                $user->setData('reviewerRating', max(1, round($row->reviewer_rating)));
+            }
+        }
+
+        return $user;
     }
 
     /**

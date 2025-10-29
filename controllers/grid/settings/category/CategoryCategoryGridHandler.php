@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/settings/category/CategoryCategoryGridHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryCategoryGridHandler
@@ -26,6 +26,7 @@ use PKP\controllers\grid\settings\category\form\CategoryForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
+use PKP\file\ContextFileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -54,6 +55,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
                 'updateCategory',
                 'deleteCategory',
                 'uploadImage',
+                'deleteImage',
                 'saveSequence',
             ]
         );
@@ -289,7 +291,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
     }
 
     /**
-     * Handle file uploads for cover/image art for things like Series and Categories.
+     * Handle file uploads for cover images for Series and Categories.
      *
      * @param PKPRequest $request
      * @param array $args
@@ -310,6 +312,50 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
             return $json;
         } else {
             return new JSONMessage(false, __('common.uploadFailed'));
+        }
+    }
+
+    /**
+     * Handle file deletion for cover images for Series and Categories.
+     *
+     * @param array $args
+     *    `name` string Filename of the cover image to be deleted.
+     *    `thumbnailName` string Filename of the cover image thumbnail to be deleted.
+     *    `categoryId` int ID of the category this cover image is attached to.
+     *
+     * @throws \Exception
+     */
+    public function deleteImage(array $args, PKPRequest $request): JSONMessage
+    {
+        if (empty($args['name']) || empty($args['thumbnailName']) || empty($args['categoryId'])) {
+            throw new \Exception('File name, thumbnail name, or category ID not provided');
+        }
+
+        // Check that the category exists and is in the current context.
+        $category = Repo::category()->get((int) $args['categoryId']);
+        $context = $request->getContext();
+        if ($category->getContextId() != $context->getId()) {
+            return new JSONMessage(false, __('manager.categories.form.removeCoverImageOnDifferentContextNowAllowed'));
+        }
+
+        // Remove the image from the category.
+        $category->setImage(null);
+        Repo::category()->edit($category, []);
+
+        // Remove the image files.
+        $contextFileManager = new ContextFileManager($category->getContextId());
+        $basePath = $contextFileManager->getBasePath() . '/categories/';
+        $name = $args['name'];
+        $thumbnailName = $args['thumbnailName'];
+        if (
+            $contextFileManager->deleteByPath($basePath . $thumbnailName) &&
+            $contextFileManager->deleteByPath($basePath . $name)
+        ) {
+            $json = new JSONMessage(true);
+            $json->setEvent('fileDeleted');
+            return $json;
+        } else {
+            return new JSONMessage(false, __('manager.categories.form.removeCoverImageFileNotFound'));
         }
     }
 

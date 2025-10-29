@@ -2559,7 +2559,7 @@ class PKPTemplateManager extends Smarty
         $file = str_replace(['/', '.blade.php', '.blade'], ['.', '', ''], $file);
 
         // If the file does not contain a namespace, try to find it in the registered view namespaces
-        // by attaching the namespace to the file name
+        // by attaching the namespace to the view path as `app::view.path`
         if (!Str::contains($file, '::')) {
             $pathNamespaces = collect(config('view.paths'))->keys()->toArray();
             foreach ($pathNamespaces as $pathNamespace) {
@@ -2575,7 +2575,11 @@ class PKPTemplateManager extends Smarty
         }
 
         unset($params['file']);
-
+        
+        // Merge the template variables into the params,
+        // with the provided params taking precedence over the template variables
+        $params = array_merge($this->getTemplateVars(), $params);
+        
         return view($file, $params)->render();
     }
 

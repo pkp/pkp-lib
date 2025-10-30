@@ -249,6 +249,8 @@ describe('Test category in submission dashboard', function() {
 
 		// Step 2: Assign the category to the submission
 		cy.visit('/index.php/publicknowledge/en/dashboard/editorial?currentViewId=active');
+
+		cy.logout();
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
@@ -267,6 +269,7 @@ describe('Test category in submission dashboard', function() {
 
 		cy.get('button').contains('Save').click();
 		cy.contains('[data-cy="active-modal"] button', 'Close').click();
+		cy.logout();
 
 		// Step 3: Verify that category was assigned to the submission
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
@@ -288,6 +291,8 @@ describe('Test category in submission dashboard', function() {
 		// Login and navigate to the submission
 		cy.login('dbarnes');
 		cy.visit('/index.php/publicknowledge/en/dashboard/editorial?currentViewId=active');
+		cy.logout();
+
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
@@ -300,6 +305,7 @@ describe('Test category in submission dashboard', function() {
 
 		cy.get('button').contains('Save').click();
 		cy.contains('[data-cy="active-modal"] button', 'Close').click();
+		cy.logout();
 
 		// Verify that the category was unassigned from the submission
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
@@ -322,6 +328,8 @@ describe('Test category in submission dashboard', function() {
 
 		// Assign the category and sub-category to the submission
 		cy.visit('/index.php/publicknowledge/en/dashboard/editorial?currentViewId=active');
+		cy.logout();
+
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);
 
@@ -343,6 +351,7 @@ describe('Test category in submission dashboard', function() {
 
 		cy.get('button').contains('Save').click();
 		cy.contains('[data-cy="active-modal"] button', 'Close').click();
+		cy.logout();
 
 		// Verify that categories are assigned to the submission
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
@@ -377,6 +386,7 @@ describe('Test category in submission dashboard', function() {
 
 		// Navigate back to the submission and verify that the category and its sub-categories were unassigned
 		cy.visit('/index.php/publicknowledge/en/dashboard/editorial?currentViewId=active');
+		cy.logout();
 
 		cy.findSubmissionAsEditor('dbarnes', null, authorName);
 		cy.openWorkflowMenu(workflowMenu);

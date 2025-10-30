@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-02 16:10+0000\n"
+"PO-Revision-Date: 2025-10-23 06:51+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"
@@ -933,3 +933,6 @@ msgstr ""
 
 msgid "orcid.field.authorEmailModal.message.noAuthor"
 msgstr "Е-поштата ќе биде испратена откако ќе биде креиран авторот."
+
+msgid "user.login.activate.description"
+msgstr "Потврдете ја и активирајте ја вашата сметка"

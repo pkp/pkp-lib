@@ -4,13 +4,14 @@
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024, 2025.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 # Klaus Rummler <klaus@oapublishing.ch>, 2025.
+# Isabelle Giguère <isabelle.giguere.4@umontreal.ca>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2025-08-29 21:32+0000\n"
-"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
+"PO-Revision-Date: 2025-10-30 15:30+0000\n"
+"Last-Translator: Isabelle Giguère <isabelle.giguere.4@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -39,13 +40,12 @@ msgstr ""
 "De nouvelles évaluations ont été soumises et sont examinées par le,la "
 "rédacteur-trice."
 
-#, fuzzy
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"Un ou plusieurs évaluateurs-trices ont outrepassé leur date limite. L'équipe "
-"éditoriale a été informée et prendra des mesures pour s'assurer que les "
-"évaluations soient complétées. Vous n'avez aucune action à effectuer pour le "
-"moment. Vous serez informé-e lorsqu'une décision aura été prise."
+"Un ou plusieurs évaluateurs(trices) ont outrepassé leur date limite. "
+"L'équipe éditoriale a été informée et prendra des mesures pour s'assurer que "
+"les évaluations soient complétées. Vous n'avez aucune action à effectuer "
+"pour le moment. Vous serez informé-e lorsqu'une décision aura été prise."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Soumis en tant que"
@@ -631,7 +631,6 @@ msgstr ""
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
 
-#, fuzzy
 msgid "submission.event.copyrightAgreed"
 msgstr ""
 "{$filename} ({$username}) a accepté les termes du droit d'auteur pour la "
@@ -2817,9 +2816,8 @@ msgstr "Liste des auteurs-es de la soumission"
 msgid "author.affiliationRorAndNameEmpty"
 msgstr "Veuillez fournir une affiliation ROR ou au moins un nom d'affiliation."
 
-#, fuzzy
 msgid "ror.nameRequired"
-msgstr "Un nom ROR est requis."
+msgstr "L'identifiant ROR est requis."
 
 msgid "author.affiliationNamePrimaryLocaleMissing"
 msgstr ""
@@ -3307,3 +3305,9 @@ msgstr ""
 
 msgid "submission.authors.label"
 msgstr "Auteur-trices"
+
+msgid "author.authorNotFound"
+msgstr "L'auteur(trice) de cette affiliation n'a pu être trouvé(e)."
+
+msgid "submission.forReviewerSuggestion"
+msgstr "Suggestion d'évaluateurs(trices)"

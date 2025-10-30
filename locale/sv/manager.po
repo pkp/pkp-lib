@@ -1,4 +1,4 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023, 2025.
 # Viveka Svensson <viveka.svensson@lnu.se>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2025-10-14 08:51+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv/>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -218,7 +218,7 @@ msgid "manager.dois.actions.description"
 msgstr "Gör ändringar för {$count} objekt."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Massåtgärder"
 
 msgid "manager.dois.depositStatus"
 msgstr "Deponera status"
@@ -313,19 +313,19 @@ msgid "manager.dois.update.failedCreation"
 msgstr "DOI-uppdatering misslyckades"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Vissa DOI:er kunde inte uppdateras."
+msgstr "Vissa DOI:er kunde inte uppdateras"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Objekt har exporterats"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "Objekt har markerats som registrerade"
+msgstr "Objekten har markerats som registrerade"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
 msgstr "Objekten har markerats som oregistrerade"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Objekten har markerats som i behov av synkning"
 
 msgid "manager.dois.notification.assignDoisSuccess"
 msgstr "Objekt har tilldelats DOI:er"
@@ -895,7 +895,7 @@ msgstr ""
 "samma DOI-prefix:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Använd standardmönster."
+msgstr "Standard - Genererar automatiskt ett unikt suffix med åtta tecken"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -924,7 +924,7 @@ msgid "doi.manager.settings.doiVersioning"
 msgstr ""
 
 msgid "doi.authorization.enabledRequired"
-msgstr "Du kan inte utföra detta kommando utan att aktivera DOI:er"
+msgstr "Du kan inte utföra detta kommando utan att aktivera DOI:er."
 
 msgid "doi.manager.versions.countStatement"
 msgstr ""
@@ -1152,8 +1152,8 @@ msgstr "Datum- och tidformat"
 msgid "manager.setup.dateTime.description"
 msgstr ""
 "Välj format för tid och datum. Ett anpassat format kan anges genom att "
-"använda  <a href='http://php.net/manual/en/datetime.format.php#refsect1-"
-"datetime.format-parameters'>specialtecken för format</a>."
+"använda <a href='http://php.net/manual/en/datetime.format."
+"php#refsect1-datetime.format-parameters'>specialtecken för format</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Datum"
@@ -2784,31 +2784,25 @@ msgstr ""
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL till en sida där användaren kan återställa sitt lösenord"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "URL för att se en användares samtliga tilldelade bidrag."
+msgstr "URL för att visa alla tilldelade bidrag för en användare"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "URL-länk för att visa och redigera användarprofil."
+msgstr "URL för att visa och redigera användarprofil"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
-msgstr "Benämningen av det fattade beslutet."
+msgstr "Benämningen av det fattade beslutet"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
-msgstr "En beskrivning av det fattade beslutet."
+msgstr "En beskrivning av det fattade beslutet"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
-msgstr "Arbetsflödessteget i vilket beslutet fattats."
+msgstr "Arbetsflödessteget i vilket beslutet fattats"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Vilken granskningsomgång beslutet fattats i, om beslutet hänger ihop med "
-"granskningssteget."
+"granskningssteget"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr ""
@@ -3041,11 +3035,10 @@ msgstr ""
 "Detta e-postmeddelande skickas från en redaktör till en granskare för att "
 "meddela att beslut fattats om ett bidrag som de granskat."
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "En kort beskrivning av beslutet som kommer med i e-postmeddelandet till "
-"granskaren."
+"granskaren"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Vi har valt att acceptera bidraget utan ändringar."
@@ -3324,6 +3317,7 @@ msgstr ""
 msgid "mailable.discussionSubmission.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.discussionSubmission.description"
 msgstr ""
 "Det är e-postmeddelandet skickas i inskickningssteget för att meddela en "
@@ -3334,24 +3328,24 @@ msgstr ""
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Det här e-postmeddelandet skickas under granskningssteget för att meddela en "
-"användare om bidraget"
+"Detta e-postmeddelande skickas när en diskussion skapas eller besvaras i "
+"granskningssteget."
 
 msgid "mailable.discussionCopyediting.name"
 msgstr ""
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Det är e-postmeddelandet skickas i manusredigeringssteget för att meddela en "
-"användare om ett bidrag"
+"Detta e-postmeddelande skickas när en diskussion skapas eller besvaras i "
+"manusredigeringssteget."
 
 msgid "mailable.discussionProduction.name"
 msgstr ""
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Det är e-postmeddelandet skickas i produktionssteget för att meddela en "
-"användare om ett bidrag"
+"Detta e-postmeddelande skickas när en diskussion skapas eller besvaras i "
+"produktionssteget."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Meddelande om reviderad version"
@@ -3376,8 +3370,8 @@ msgstr ""
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Det här e-postmeddelandet meddelar automatiskt granskare om ändringar i "
-"granskningsdetaljerna"
+"Detta e-postmeddelande informerar automatiskt granskaren när detaljerna i "
+"dennes granskningsuppdrag har ändrats."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
@@ -3573,3 +3567,8 @@ msgstr "Redaktionsruta"
 
 msgid "plugins.importexport.common.validation"
 msgstr "Validera XML före export och registrering."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Du måste <a href=\"#announcements/announcement-settings\">aktivera "
+"meddelanden</a>."

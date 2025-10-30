@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-02 12:44+0000\n"
+"PO-Revision-Date: 2025-10-09 17:54+0000\n"
 "Last-Translator: ojs <joglobalise@gmail.com>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "invitation/nl/>\n"
@@ -103,3 +103,322 @@ msgstr ""
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
 msgstr "Voor toegevoegde groepen, is vermelding van een gebruikersgroep vereist"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForExistingUser"
+msgstr "Het gegevenskenmerk wordt niet toegelaten voor bestaande gebruikers"
+
+msgid "invitation.userRoleAssignment.error.update.prohibitedForNonExistingUser"
+msgstr ""
+"Het gegevenskenmerk wordt niet toegelaten voor niet-bestaande gebruikers"
+
+msgid "invitation.userRoleAssignment.userGroup.startDate.mustBeAfterToday"
+msgstr ""
+"Dit gegevenskenmerk moet een waarde hebben die gelijk is aan vandaag of later"
+
+msgid "invitation.validation.error.propertyProhibited"
+msgstr "Het :specifieke veld is niet toegelaten"
+
+msgid "invitation.step"
+msgstr "step"
+
+msgid "invitation.header"
+msgstr "Uitnodigingen"
+
+msgid "invitation.inviteToRole.btn"
+msgstr "Uitnodiging voor een rol"
+
+msgid "userInvitation.enterDetailsLabel"
+msgstr "Voer details in"
+
+msgid "userInvitation.reviewAndInviteLabel"
+msgstr "Beoordelen & uitnodigen voor rollen"
+
+msgid "userInvitation.searchUser.stepName"
+msgstr "Zoek gebruiker"
+
+msgid "userInvitation.searchUser.nextButtonLabel"
+msgstr "Zoek gebruiker"
+
+msgid "invitation.userRoleAssignment.validation.error.multilingual.primaryLocaleRequired"
+msgstr "Een waarde voor de taalinstelling '{$primaryLocale}' is vereist"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Nodig gebruiker uit een rol aan te nemen"
+
+msgid "userInvitation.searchUser.stepLabel"
+msgstr "{$step} - Zoek gebruiker"
+
+msgid "userInvitation.searchField.description"
+msgstr "bijvoorbeeld: aeinstein@example.com or aeinstein or 0000-0002-1825-0097"
+
+msgid "userInvitation.enterDetails.stepName"
+msgstr "Voer de specifieke gegevens in"
+
+msgid "userInvitation.enterDetails.stepLabel"
+msgstr ""
+"{$step} - Voer de specifieke gegevens in en nodig uit om rollen op zich te "
+"nemen"
+
+msgid "userInvitation.enterDetails.nextButtonLabel"
+msgstr "Bewaar gegevens en ga door"
+
+msgid "invitation.role.selectRole"
+msgstr "Kies een nieuwe rol"
+
+msgid "invitation.role.dateStart"
+msgstr "Begindatum"
+
+msgid "invitation.role.dateEnd"
+msgstr "Einddatum"
+
+msgid "userInvitation.roleTable.role"
+msgstr "Rol"
+
+msgid "userInvitation.roleTable.startDate"
+msgstr "Begindatum"
+
+msgid "userInvitation.roleTable.endDate"
+msgstr "Einddatum"
+
+msgid "userInvitation.sendMail.stepName"
+msgstr "Beoordeel & nodig uit om rollen op zich te nemen"
+
+msgid "userInvitation.sendMail.nextButtonLabel"
+msgstr "Nodig gebruiker uit voor de rol"
+
+msgid "userInvitation.sendMail.stepLabel"
+msgstr "{$step} - Wijzig het e-mailadres die met de gebruiker is gedeeld"
+
+msgid "userInvitation.modal.title"
+msgstr "De verzonden uitnodiging"
+
+msgid "userInvitation.modal.button"
+msgstr "Zie alle gebruikers"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Verwijder rollen"
+
+msgid "invitation.email.description"
+msgstr "bijvoorbeeld: aeinstein@example.com"
+
+msgid "invitation.givenName.description"
+msgstr ""
+"Indien u de gegeven naam van de gebruiker weet, kunt u de gegevens invoeren. "
+"Niettemin, deze informatie kan door de gebruiker worden gewijzigd."
+
+msgid "acceptInvitation.verifyOrcid.stepName"
+msgstr "Verifieer ORCID ID"
+
+msgid "acceptInvitation.verifyOrcid.stepLabel"
+msgstr "{$step} - Verifieer ORCID ID"
+
+msgid "acceptInvitation.verifyOrcid.nextButtonLabel"
+msgstr "Bewaar en ga door"
+
+msgid "acceptInvitation.accountDetails.nextButtonLabel"
+msgstr "Bewaar en ga door"
+
+msgid "acceptInvitation.userDetails.stepName"
+msgstr "Voer de specifieke gegevens in"
+
+msgid "acceptInvitation.userDetails.nextButtonLabel"
+msgstr "Bewaar en ga door"
+
+msgid "acceptInvitation.userDetails.form.name"
+msgstr "Aanvaard het uitnodigingsformulier met de specifieke gebruikersgegevens"
+
+msgid "userInvitation.searchUser.stepDescription"
+msgstr ""
+"Indien de gebruiker nog niet in het systeem voorkomt, kunt u deze uitnodigen "
+"om een rol op zich te nemen. Als de gebruiker wel in het systeem voorkomt, "
+"kunt u diens gegevens zien en deze uitnodigen om aanvullende rollen op zich "
+"te nemen."
+
+msgid "acceptInvitation.userDetails.stepDescription"
+msgstr ""
+"Voer uw gegevens in zoals het e-mailadres, affiliatie etc. In verband met de "
+"naleving van de AVG, kan deze informatie alleen door u worden gewijzigd. U "
+"kunt er ook voor kiezen deze informatie op uw profiel zichtbaar te houden "
+"voor de redacteur."
+
+msgid "invitation.role.addRole.button"
+msgstr "Voeg een andere rol toe"
+
+msgid "invitation.orcid.description"
+msgstr ""
+"Bij aanvaarding van de uitnodiging, zal de gebruiker teruggestuurd worden "
+"naar de ORCID om het account te verifiëren, indien de gebruiker dat wil."
+
+msgid "invitation.familyName.description"
+msgstr ""
+"Indien u de achternaam van de gebruiker weet, kunt u de gegevens invoeren. "
+"Niettemin, deze gegevens kunnen door de gebruiker worden gewijzigd."
+
+msgid "acceptInvitation.userDetails.stepLabel"
+msgstr "{$step} - Voer gegevens in"
+
+msgid "acceptInvitation.userDetails.form.description"
+msgstr ""
+"U wordt vriendelijk verzocht de volgende specifieke gegevens te verstrekken "
+"om ons te helpen uw account in orde te maken"
+
+msgid "acceptInvitation.detailsReview.stepLabel"
+msgstr "{$step} - Beoordeel & maak een account aan"
+
+msgid "acceptInvitation.skipVerifyOrcid"
+msgstr "Sla de ORCID-verificatie over"
+
+msgid "acceptInvitation.usernameField.description"
+msgstr ""
+"Het zou een combinatie van hoofdletters, kleine letters of cijfers kunnen "
+"zijn"
+
+msgid "acceptInvitation.privacyStatement.label"
+msgstr ""
+"Ja, ik ga akkoord met de verzameling en opslag van mijn gegevens volgens de "
+"{$url}"
+
+msgid "acceptInvitation.privacyStatement.btn"
+msgstr "Privacyverklaring"
+
+msgid "acceptInvitation.userDetailsForm.givenName.description"
+msgstr ""
+"Ook bekend als een voornaam of roepnaam, het betreft dat gedeelte van een "
+"persoonlijke naam dat een persoon identificeert."
+
+msgid "acceptInvitation.userDetailsForm.affiliation.description"
+msgstr "Dit is het instituut waarmee u mee bent geaffilieerd"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.description"
+msgstr ""
+"Dit is het land waarin het instituut is gelegen, waarmee u bent verbonden"
+
+msgid "acceptInvitation.userDetailsForm.countryOfAffiliation.label"
+msgstr "Land of affiliatie"
+
+msgid "acceptInvitation.review.accountDetails"
+msgstr "Specifieke accountgegevens"
+
+msgid "acceptInvitation.review.userDetails"
+msgstr "Specifieke gebruikersgegevens"
+
+msgid "acceptInvitation.modal.button"
+msgstr "Zie alle inzendingen"
+
+msgid "invitation.tableHeader.name"
+msgstr "Naam"
+
+msgid "invitation.searchForm.emptyError"
+msgstr "Verstrek ten minste een zoekcriterium."
+
+msgid "invitation.wizard.viewPageTitleDescription"
+msgstr "U bekijkt nu {$name}s specifieke gegevens"
+
+msgid "invitation.cancelInvite.actionName"
+msgstr "Annuleer uitnodiging"
+
+msgid "invitation.cancelInvite.title"
+msgstr "Annuleer de uitnodiging"
+
+msgid "invitation.masthead.hidden"
+msgstr "Wordt niet in het colofon vermeld"
+
+msgid "invitation.masthead.show"
+msgstr "Vermeld in het colofon"
+
+msgid "invitation.role.modifyRole.button"
+msgstr "Bewerkingsrol"
+
+msgid "invitation.management.options"
+msgstr "Verschillende beheersopties m.b.t. uitnodiging"
+
+msgid "userInvitation.cancel.goBack"
+msgstr "Ga terug"
+
+msgid "userInvitation.status.invited"
+msgstr "Uitgenodigd voor {$date}"
+
+msgid "validation.after_or_equal"
+msgstr "De begindatum zal gelijk aan of later dan vandaag zijn"
+
+msgid "invitation.removeRoles"
+msgstr "De rol van de gebruiker teruggenomen"
+
+msgid "acceptInvitation.privacyStatement.validation"
+msgstr ""
+"U wordt vriendelijk verzocht te bevestigen dat u de privacyverklaring hebt "
+"gelezen en deze akkoord hebt verklaard"
+
+msgid "acceptInvitation.detailsReview.stepName"
+msgstr "Beoordeel & maak een account aan"
+
+msgid "acceptInvitation.passwordField.description"
+msgstr ""
+"Het behoort ten minste 6 tekens te bevatten en kan een combinatie van "
+"hoofdletters, kleine letters, cijfers en symbolen zijn"
+
+msgid "acceptInvitation.userDetailsForm.familyName.description"
+msgstr ""
+"Een achternaam of familienaam is meestal een erfelijk deel van iemands "
+"persoonlijke naam dat iemands familie aangeeft."
+
+msgid "invitation.cancelInvite.message"
+msgstr ""
+"Het annuleren van de uitnodiging die is verzonden naar {$givenName} "
+"{$familyName}, deactiveert de aanvaardingslink, die via e-mail is verzonden. "
+"Hierbij gaan de specifieke uitnodigingsgegevens: "
+
+msgid "acceptInvitation.verifyOrcid"
+msgstr "Verifieer de ORCID-ID"
+
+msgid "userInvitation.cancel.message"
+msgstr "Bent u er zeker van dat u deze uitnodiging wilt annuleren?"
+
+msgid "userInvitation.edit.title"
+msgstr "Bewerk uitnodiging"
+
+msgid "userInvitation.edit.message"
+msgstr ""
+"Indien u de bestaande uitnodiging bewerkt of een nieuw rol toevoegd, de "
+"lopende uitnodiging wordt geannuleerd en wordt een nieuwe verstuurd. Bent u "
+"er zeker van dat u door wilt gaan?"
+
+msgid "acceptInvitation.cancelInvite.title"
+msgstr "Annuleer de procedure van de roluitnodiging?"
+
+msgid "acceptInvitation.cancelInvite.button"
+msgstr "Annuleer de uitnodigingsprocedure"
+
+msgid "acceptInvitation.authorization.shouldBeAnonymous"
+msgstr ""
+"Uitnodiging niet aanvaard. U bent ingelogd onder een andere gebruikersnaam."
+
+msgid "acceptInvitation.authorization.message"
+msgstr ""
+"U wordt vriendelijk verzocht uit te loggen en opnieuw in te loggen met het "
+"juiste account om deze uitnodiging te aanvaarden."
+
+msgid "userInvitation.searchField"
+msgstr ""
+"Zoek een gebruiker via het e-mailadres, gebruikersnaam of ORCID-ID. Voer "
+"slechts een van deze wijzen in om te kunnen starten!"
+
+msgid "userInvitation.user.disableTitle"
+msgstr "De gebruiker is momenteel niet beschikbaar."
+
+msgid "userInvitation.user.disableMessage"
+msgstr ""
+"De gebruiker was niet langer beschikbaar. U kunt deze gebruiker dan geen rol "
+"toekennen. U wordt vriendelijk verzocht eerst de gebruiker weer beschikbaar "
+"te maken om deze voor een rol uit te nodigen."
+
+msgid "acceptInvitation.privacyConsent"
+msgstr "Privacy-instemming"
+
+msgid "acceptInvitation.cancel.message"
+msgstr ""
+"Bent u er zeker van dat u wilt annuleren? Nu annuleren zal de procedure van "
+"rolaanvaarding stopzetten. Om de rol opnieuw te aanvaarden, is het nodig dat "
+"u opnieuw begint vanaf de uitnodigingsmail. Als u al gebruiker bent, wordt u "
+"teruggebracht naar het dashboard. Bent u geen gebruiker, is het nodig "
+"toegang te zoeken via de uitnodigingsmail om de proceduren te herstarten."

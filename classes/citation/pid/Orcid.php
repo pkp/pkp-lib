@@ -20,8 +20,8 @@ class Orcid extends BasePid
 {
     /** @copydoc AbstractPid::regex */
     public const regexes = [
-        '/orcid:\s*\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // orcid:0000-0002-1694-233X
-        '/https?:\/\/orcid\.org\/\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i', // https://orcid.org/0000-0002-1694-233X
+        // orcid:0000-0002-1694-233X https://orcid.org/0000-0002-1694-233X
+        '/(?:orcid:\s*|https?:\/\/orcid\.org\/)\d{4}-\d{4}-\d{4}-\d{1,4}[0-9X]/i'
     ];
 
     /** @copydoc AbstractPid::prefix */

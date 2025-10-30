@@ -20,8 +20,8 @@ class Arxiv extends BasePid
 {
     /** @copydoc AbstractPid::regex */
     public const regexes = [
-        '/arxiv:\s*(?:\d+.\d+|[a-z-]+.\d+)/i', // arxiv:2025.12345v2
-        '/https?:\/\/arxiv.org\/(?:abs|pdf)\/(?:\d+.\d+|[a-z-]+.\d+)/i' // https://arxiv.org/abs/2025.12345
+        // arxiv:2025.12345v2 https://arxiv.org/abs/2025.12345
+        '/(?:arxiv:\s*|https?:\/\/arxiv.org\/(?:abs|pdf)\/)(?:\d+.\d+|[a-z-]+.\d+)/i'
     ];
 
     /** @copydoc AbstractPid::prefix */
